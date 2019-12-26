@@ -130,7 +130,7 @@ $(document).ready(function(){
     var aspectos=$("#anclaAspectos").offset().top;
     var altoMenu=$(".menu-nav").innerHeight();
     var scroll=aspectos-altoMenu;
-    $('html, body').animate({scrollTop: scroll},'slow');
+    $('html, body').animate({scrollTop: scroll},3000);
   });
 
   $('#accordion').on('shown.bs.collapse', function() {
