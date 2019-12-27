@@ -127,7 +127,7 @@ $(document).ready(function(){
   });*/
 
   $("#enlaceAspectos").on("click", function(){
-    var aspectos=$("#anclaAspectos").offset().top;
+    var aspectos=$("#aspectos-generales").offset().top;
     var altoMenu=$(".menu-nav").innerHeight();
     var scroll=aspectos-altoMenu;
     $('html, body').animate({scrollTop: scroll},3000);
@@ -153,7 +153,7 @@ $(document).ready(function(){
     console.log("altoMenu: "+altoMenu+", enlaces: "+enlaces+", scroll02: "+scroll02);
     $('html, body').animate({scrollTop: scroll02},'slow');
 
-    var aspectos=$("#anclaAspectos").offset().top;
+    var aspectos=$("#aspectos-generales").offset().top;
     var altoMenu=$(".menu-sub").height();
     var scroll01=aspectos-altoMenu;
     $('html, body').animate({scrollTop: scroll01},'slow');

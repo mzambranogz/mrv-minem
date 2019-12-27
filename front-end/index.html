@@ -9,27 +9,25 @@
     <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="images/favicon/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="images/favicon/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="images/favicon/manifest.json">
+    <!--link(rel='manifest' href='images/favicon/manifest.json')-->
     <link rel="mask-icon" href="images/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <link rel="shortcut icon" href="images/favicon/favicon.ico">
     <meta name="msapplication-config" content="images/favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <!--link(rel="stylesheet", href="./css/font-awesome.min.css")-->
+    <link rel="stylesheet" href="./css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/animate.min.css">
     <link rel="stylesheet" href="./css/style.css">
-    <!--script(src="https://kit.fontawesome.com/0656d0c9fa.js")-->
-    <script src="./js/font-awesome.js"></script>
   </head>
   <body>
-    <div class="container-fluid menu-nav bg-sutil fixed-top">
+    <div class="container-fluid menu-nav bg-sutil fixed-top" id="cabecera">
       <div class="container menu-main linea">
         <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar p-0">
           <ul class="navbar-nav mr-md-auto">
             <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1" href="#" target="_blan"><img src="./images/logo-minem.jpg" height="40"></a></li>
             <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1" href="#" target="_blan"><img src="./images/logo_gef.svg" height="45"></a></li>
             <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1 pr-0" href="#" target="_blan"><img src="./images/logo_pnud.svg" height="51"></a></li>
-          </ul><a class="navbar-brand animated fadeIn mx-0" href="#"><img src="./images/logo_mrv_new_negro.svg" height="36"></a>
+          </ul><a class="navbar-brand ml-md-auto animated fadeIn mx-0" href="#"><img src="./images/logo_mrv_new_negro.svg" height="36"></a>
         </header>
       </div>
       <div class="container menu-sub">
@@ -37,7 +35,7 @@
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item"><a class="nav-link nav-active text-dark font-weight-bold px-2" href="#"><i class="fas fa-house-damage px-1"></i></a></li>
+              <li class="nav-item"><a class="nav-link nav-active text-dark font-weight-bold px-2" href="#"><i class="fas fa-house-damage px-1"></i><span class="d-none d-xs-block d-sm-block d-lg-none mostrar-inicio">Inicio</span></a></li>
               <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="#"><i class="fas fa-solar-panel px-1"></i>Acciones de Mitigación</a></li>
               <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="#"><i class="fas fa-file-invoice px-1"></i>Reportes</a></li>
               <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="#"><i class="fas fa-chart-pie px-1"></i>Acciones y Resultados</a></li>
@@ -50,7 +48,7 @@
         </nav>
       </div>
     </div>
-    <div class="container-fluid banner d-flex flex-row justify-content-center align-items-center">
+    <div class="container-fluid banner d-flex flex-row justify-content-center align-items-center" id="carousel">
       <div class="banners">
         <div class="banner-01 banner-mostrado"></div>
         <div class="banner-02"></div>
@@ -71,7 +69,7 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid text-center cintillo-01 medidas">
+    <div class="container-fluid text-center cintillo-01 medidas" id="impacto-climatico">
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-sm-12 text-left pb-5">
@@ -81,18 +79,18 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid text-center cintillo-01" id="anclaAspectos">
-      <h2 class="text-white my-0 pt-5 pb-2 wow zoomIn">——————— ASPECTOS GENERALES ———————</h2>
+    <div class="container-fluid text-center cintillo-01" id="aspectos-generales">
+      <h2 class="titulo-lineas text-white my-0 pt-5 pb-2 wow zoomIn"><span class="bg-white"></span>ASPECTOS GENERALES<span class="bg-white"></span></h2>
       <p class="text-white p-0 m-0 wow zoomIn">Conoce más información sobre los aspectos involucrados en la implementación <br>
         de iniciativas de mitigación a través de nuestra Plataforma MRV.
       </p>
     </div>
     <div class="container-fluid bg-nama-azul" id="accordion">
       <div class="row">
-        <div class="col-sm-12 col-md-8 offset-md-2 py-5">
+        <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2 py-5">
           <div class="container-fluid py-0">
             <div class="container">
-              <h3 class="lead mb-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-01" aria-expanded="false" aria-controls="aspecto-01"><i class="fas fa-check-square"></i>¿Que es el&nbsp;<strong>cambio climático</strong>?</h3>
+              <h3 class="lead mb-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-01" aria-expanded="false" aria-controls="aspecto-01"><i class="fas fa-check-square"></i><span>¿Que es el&nbsp;<strong>cambio climático</strong>?</span></h3>
               <div class="collapse" id="aspecto-01">
                 <div class="card card-body">
                   <div class="row">
@@ -107,7 +105,7 @@
           </div>
           <div class="container-fluid py-0">
             <div class="container">
-              <h3 class="lead my-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-02" aria-expanded="false" aria-controls="aspecto-02"><i class="fas fa-check-square"></i>¿Que es la&nbsp;<strong>mitigación&nbsp;</strong>del cambio climático?</h3>
+              <h3 class="lead my-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-02" aria-expanded="false" aria-controls="aspecto-02"><i class="fas fa-check-square"></i><span>¿Que es la&nbsp;<strong>mitigación&nbsp;</strong>del cambio climático?</span></h3>
               <div class="collapse" id="aspecto-02">
                 <div class="card card-body">
                   <div class="row">
@@ -121,7 +119,7 @@
           </div>
           <div class="container-fluid py-0">
             <div class="container">
-              <h3 class="lead my-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-03" aria-expanded="false" aria-controls="aspecto-03"><i class="fas fa-check-square"></i>¿De dónde provienen las&nbsp;<strong>emisiones de GEI&nbsp;</strong>en el país?</h3>
+              <h3 class="lead my-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-03" aria-expanded="false" aria-controls="aspecto-03"><i class="fas fa-check-square"></i><span>¿De dónde provienen las&nbsp;<strong>emisiones de GEI&nbsp;</strong>en el país?</span></h3>
               <div class="collapse" id="aspecto-03">
                 <div class="card card-body">
                   <div class="row">
@@ -136,7 +134,7 @@
           </div>
           <div class="container-fluid py-0">
             <div class="container">
-              <h3 class="lead my-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-04" aria-expanded="false" aria-controls="aspecto-04"><i class="fas fa-check-square"></i>¿Cuáles son los&nbsp;<strong>compromisos del Perú&nbsp;</strong>en la&nbsp;<strong>gestión&nbsp;</strong>del cambio climático?</h3>
+              <h3 class="lead my-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-04" aria-expanded="false" aria-controls="aspecto-04"><i class="fas fa-check-square"></i><span>¿Cuáles son los&nbsp;<strong>compromisos del Perú&nbsp;</strong>en la&nbsp;<strong>gestión&nbsp;</strong>del cambio climático?</span></h3>
               <div class="collapse" id="aspecto-04">
                 <div class="card card-body">
                   <div class="row">
@@ -151,7 +149,7 @@
           </div>
           <div class="container-fluid py-0">
             <div class="container">
-              <h3 class="lead my-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-05" aria-expanded="false" aria-controls="aspecto-05"><i class="fas fa-check-square"></i>¿Cuáles son los esfuerzos del&nbsp;<strong>sector energía&nbsp;</strong>para&nbsp;<strong>mitigar&nbsp;</strong>el cambio climático?</h3>
+              <h3 class="lead my-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-05" aria-expanded="false" aria-controls="aspecto-05"><i class="fas fa-check-square"></i><span>¿Cuáles son los esfuerzos del&nbsp;<strong>sector energía&nbsp;</strong>para&nbsp;<strong>mitigar&nbsp;</strong>el cambio climático?</span></h3>
               <div class="collapse" id="aspecto-05">
                 <div class="card card-body">
                   <div class="row">
@@ -187,7 +185,7 @@
           </div>
           <div class="container-fluid py-0">
             <div class="container">
-              <h3 class="lead my-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-06" aria-expanded="false" aria-controls="aspecto-06"><i class="fas fa-check-square"></i>¿Qué&nbsp;<strong>proyecto para mitigar&nbsp;</strong>el cambio climático ejecuta el&nbsp;<strong>sector energía</strong>?</h3>
+              <h3 class="lead my-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-06" aria-expanded="false" aria-controls="aspecto-06"><i class="fas fa-check-square"></i><span>¿Qué&nbsp;<strong>proyecto para mitigar&nbsp;</strong>el cambio climático ejecuta el&nbsp;<strong>sector energía</strong>?</span></h3>
               <div class="collapse" id="aspecto-06">
                 <div class="card card-body">
                   <div class="row">
@@ -202,7 +200,7 @@
           </div>
           <div class="container-fluid py-0">
             <div class="container">
-              <h3 class="lead my-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-07" aria-expanded="false" aria-controls="aspecto-07"><i class="fas fa-check-square"></i>¿Qué significa&nbsp;<strong>Medición, Reporte&nbsp;</strong>y&nbsp;<strong>Verificación&nbsp;</strong>(<strong>MRV</strong>) ?</h3>
+              <h3 class="lead my-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-07" aria-expanded="false" aria-controls="aspecto-07"><i class="fas fa-check-square"></i><span>¿Qué significa&nbsp;<strong>Medición, Reporte&nbsp;</strong>y&nbsp;<strong>Verificación&nbsp;</strong>(<strong>MRV</strong>) ?</span></h3>
               <div class="collapse" id="aspecto-07">
                 <div class="card card-body">
                   <div class="row">
@@ -216,7 +214,7 @@
           </div>
           <div class="container-fluid py-0">
             <div class="container">
-              <h3 class="lead my-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-08" aria-expanded="false" aria-controls="aspecto-08"><i class="fas fa-check-square"></i>¿Por qué es&nbsp;<strong>importante&nbsp;</strong>un&nbsp;<strong>sistema MRV</strong>?</h3>
+              <h3 class="lead my-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-08" aria-expanded="false" aria-controls="aspecto-08"><i class="fas fa-check-square"></i><span>¿Por qué es&nbsp;<strong>importante&nbsp;</strong>un&nbsp;<strong>sistema MRV</strong>?</span></h3>
               <div class="collapse" id="aspecto-08">
                 <div class="card card-body">
                   <div class="row">
@@ -230,7 +228,7 @@
           </div>
           <div class="container-fluid py-0">
             <div class="container">
-              <h3 class="lead my-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-09" aria-expanded="false" aria-controls="aspecto-09"><i class="fas fa-check-square"></i>¿Cómo puedo ser parte de la&nbsp;<strong>solución</strong>?</h3>
+              <h3 class="lead my-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-09" aria-expanded="false" aria-controls="aspecto-09"><i class="fas fa-check-square"></i><span>¿Cómo puedo ser parte de la&nbsp;<strong>solución</strong>?</span></h3>
               <div class="collapse" id="aspecto-09">
                 <div class="card card-body">
                   <div class="row">
@@ -245,77 +243,77 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid text-center">
-      <h2 class="my-0 pt-5 pb-2 wow zoomIn">——————— ACCIONES DE MITIGACIÓN ———————</h2>
-      <p class="p-0 pb-5 m-0 wow zoomIn">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem impedit, ut facere maxime <br>
-        exercitationem dolore. Ipsa tenetur, corporis temporibus, nihil veritatis magni a.
+    <div class="container-fluid text-center" id="acciones-mitigacion">
+      <h2 class="titulo-lineas text-dark my-0 pt-5 pb-2 wow zoomIn"><span class="bg-dark"></span>MEDIDAS DE MITIGACIÓN<span class="bg-dark"></span></h2>
+      <p class="p-0 pb-5 m-0 wow zoomIn">Las Medidas de Mitigación están agrupados por tipo de NAMA (Actualmente 4 NAMA's),<br>
+        su propósito es identificar la Iniciativa de Acción de Mitigación se llevará a cabo de MRV.
       </p>
     </div>
-    <div class="container-fluid" id="acciones-mitigacion">
-      <div class="container pb-5">
+    <div class="container-fluid" id="medidas-mitigacion">
+      <div class="container">
         <div class="row">
-          <div class="col-sm-2">
-            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".4s"><img class="img-thumbnail border-0" src="./images/ico_nama_amarillo_01.svg"><small class="d-block text-center font-weight-bold">Transformación del mercado de iluminación del sector residencial</small></div>
+          <div class="col-sm-12 col-md-4 col-lg-2 pb-5">
+            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".4s"><img class="img-thumbnail border-0" src="./images/ico_nama_amarillo_01.svg"><small class="d-block text-center font-weight-normal">Transformación del mercado de iluminación del sector residencial</small></div>
           </div>
-          <div class="col-sm-2">
-            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".5s"><img class="img-thumbnail border-0" src="./images/ico_nama_amarillo_02.svg"><small class="d-block text-center font-weight-bold">Reemplazo de lámparas de alumbrado público por lámparas LED</small></div>
+          <div class="col-sm-12 col-md-4 col-lg-2 pb-5">
+            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".5s"><img class="img-thumbnail border-0" src="./images/ico_nama_amarillo_02.svg"><small class="d-block text-center font-weight-normal">Reemplazo de lámparas de alumbrado público por lámparas LED</small></div>
           </div>
-          <div class="col-sm-2">
-            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".6s"><img class="img-thumbnail border-0" src="./images/ico_nama_amarillo_03.svg"><small class="d-block text-center font-weight-bold">Etiquetado de eficiencia energética</small></div>
+          <div class="col-sm-12 col-md-4 col-lg-2 pb-5">
+            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".6s"><img class="img-thumbnail border-0" src="./images/ico_nama_amarillo_03.svg"><small class="d-block text-center font-weight-normal">Etiquetado de eficiencia energética</small></div>
           </div>
-          <div class="col-sm-2">
-            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".7s"><img class="img-thumbnail border-0" src="./images/ico_nama_amarillo_04.svg"><small class="d-block text-center font-weight-bold">Auditorías energéticas sector público</small></div>
+          <div class="col-sm-12 col-md-4 col-lg-2 pb-5">
+            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".7s"><img class="img-thumbnail border-0" src="./images/ico_nama_amarillo_04.svg"><small class="d-block text-center font-weight-normal">Auditorías energéticas sector público</small></div>
           </div>
-          <div class="col-sm-2">
-            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".8s"><img class="img-thumbnail border-0" src="./images/ico_nama_amarillo_05.svg"><small class="d-block text-center font-weight-bold">Reemplazo de lámparas por lámparas LED en el sector público</small></div>
+          <div class="col-sm-12 col-md-4 col-lg-2 pb-5">
+            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".8s"><img class="img-thumbnail border-0" src="./images/ico_nama_amarillo_05.svg"><small class="d-block text-center font-weight-normal">Reemplazo de lámparas por lámparas LED en el sector público</small></div>
           </div>
-          <div class="col-sm-2">
-            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".9s"><img class="img-thumbnail border-0" src="./images/ico_nama_amarillo_06.svg"><small class="d-block text-center font-weight-bold">Eficiencia energética en el sector industrial</small></div>
+          <div class="col-sm-12 col-md-4 col-lg-2 pb-5">
+            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".9s"><img class="img-thumbnail border-0" src="./images/ico_nama_amarillo_06.svg"><small class="d-block text-center font-weight-normal">Eficiencia energética en el sector industrial</small></div>
           </div>
         </div>
       </div>
-      <div class="container pb-5">
+      <div class="container">
         <div class="row">
-          <div class="col-sm-2">
-            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".4s"><img class="img-thumbnail border-0" src="./images/ico_nama_amarillo_07.svg"><small class="d-block text-center font-weight-bold">Reemplazo lámparas en el sector comercial</small></div>
+          <div class="col-sm-12 col-md-4 col-lg-2 pb-5">
+            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".4s"><img class="img-thumbnail border-0" src="./images/ico_nama_amarillo_07.svg"><small class="d-block text-center font-weight-normal">Reemplazo lámparas en el sector comercial</small></div>
           </div>
-          <div class="col-sm-2">
-            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".5s"><img class="img-thumbnail border-0" src="./images/ico_nama_azul_01.svg"><small class="d-block text-center font-weight-bold">Promoción de vehículos eléctricos a nivel nacional</small></div>
+          <div class="col-sm-12 col-md-4 col-lg-2 pb-5">
+            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".5s"><img class="img-thumbnail border-0" src="./images/ico_nama_azul_01.svg"><small class="d-block text-center font-weight-normal">Promoción de vehículos eléctricos a nivel nacional</small></div>
           </div>
-          <div class="col-sm-2">
-            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".6s"><img class="img-thumbnail border-0" src="./images/ico_nama_rojo_01.svg"><small class="d-block text-center font-weight-bold">Suministro de electricidad con energía renovable en áreas no conectadas</small></div>
+          <div class="col-sm-12 col-md-4 col-lg-2 pb-5">
+            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".6s"><img class="img-thumbnail border-0" src="./images/ico_nama_rojo_01.svg"><small class="d-block text-center font-weight-normal">Suministro de electricidad con energía renovable en áreas no conectadas</small></div>
           </div>
-          <div class="col-sm-2">
-            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".7s"><img class="img-thumbnail border-0" src="./images/ico_nama_rojo_02.svg"><small class="d-block text-center font-weight-bold">Cocción limpia</small></div>
+          <div class="col-sm-12 col-md-4 col-lg-2 pb-5">
+            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".7s"><img class="img-thumbnail border-0" src="./images/ico_nama_rojo_02.svg"><small class="d-block text-center font-weight-normal">Cocción limpia</small></div>
           </div>
-          <div class="col-sm-2">
-            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".8s"><img class="img-thumbnail border-0" src="./images/ico_nama_verde_01.svg"><small class="d-block text-center font-weight-bold">Combinación de energías renovables</small></div>
+          <div class="col-sm-12 col-md-4 col-lg-2 pb-5">
+            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".8s"><img class="img-thumbnail border-0" src="./images/ico_nama_verde_01.svg"><small class="d-block text-center font-weight-normal">Combinación de energías renovables</small></div>
           </div>
-          <div class="col-sm-2">
-            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".9s"><img class="img-thumbnail border-0" src="./images/ico_nama_verde_02.svg"><small class="d-block text-center font-weight-bold">Generación distribuida</small></div>
+          <div class="col-sm-12 col-md-4 col-lg-2 pb-5">
+            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".9s"><img class="img-thumbnail border-0" src="./images/ico_nama_verde_02.svg"><small class="d-block text-center font-weight-normal">Generación distribuida</small></div>
           </div>
         </div>
       </div>
     </div>
     <div class="container-fluid" id="reportes-resultados">
       <div class="row">
-        <div class="col-sm-4 p-0" style="overflow: hidden;">
+        <div class="col-sm-12 col-md-6 col-lg-4 p-0" style="overflow: hidden;">
           <div class="bg-reportes"><a class="enlace-reportes d-flex flex-row justify-content-center align-items-center" href="#"><i class="fas fa-file-invoice px-1 mr-2"></i>Reportes</a></div>
         </div>
-        <div class="col-sm-4 p-0" style="overflow: hidden;">
+        <div class="col-sm-12 col-md-6 col-lg-4 p-0" style="overflow: hidden;">
           <div class="bg-acciones-resultados"><a class="enlace-acciones-resultados d-flex flex-row justify-content-center align-items-center" href="#"><i class="fas fa-chart-pie px-1 mr-2"></i>Acciones y Resultados</a></div>
         </div>
-        <div class="col-sm-4 p-0" style="overflow: hidden;">
+        <div class="col-sm-12 col-md-12 col-lg-4 p-0" style="overflow: hidden;">
           <div class="bg-registro"><a class="enlace-registro d-flex flex-row justify-content-center align-items-center" href="#"><i class="fas fa-user-circle px-1 mr-2"></i>Regístrate</a></div>
         </div>
       </div>
     </div>
-    <div class="container-fluid foot d-flex flex-row justify-content-center align-items-center">
+    <div class="container-fluid foot d-flex flex-row justify-content-center align-items-center" id="pie">
       <footer class="container">
         <div class="row">
-          <div class="col-sm-6">
+          <div class="col-sm-12 col-md-6">
             <div class="row">
-              <div class="col-sm-6 text-white">
+              <div class="col-sm-12 col-md-6 text-white">
                 <div class="lead font-weight-bold">Enlaces</div>
                 <ul class="list-unstyled">
                   <li class="py-1"><a class="text-white" href="#" target="_blank"><i class="fas fa-landmark mr-2"></i>MINEM</a></li>
@@ -323,7 +321,7 @@
                   <li class="py-1"><a class="text-white" href="#" target="_blank"><i class="fas fa-sitemap mr-2"></i>Mapa del Sitio</a></li>
                 </ul>
               </div>
-              <div class="col-sm-6 text-white">
+              <div class="col-sm-12 col-md-6 text-white">
                 <div class="lead font-weight-bold">Más información</div>
                 <ul class="list-unstyled">
                   <li class="py-1"><a class="text-white" href="http://google.com" target="_blank"><i class="fas fa-file-pdf mr-2"></i>Manual de Usuario</a></li>
@@ -342,13 +340,14 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-6">
+          <div class="col-sm-12 col-md-6">
             <div class="navbar flex-md-row justify-content-start"><a class="nav-link p-1" href="#" target="_blank"><img src="./images/logo-minem-blanco.png" height="70"></a><a class="nav-link p-1" href="#" target="_blank"><img src="./images/logo-gef-blanco.png" height="90"></a><a class="nav-link p-1 pr-0" href="#" target="_blank"><img src="./images/logo-pnud-blanco.png" height="160"></a></div>
             <div class="navbar flex-md-row justify-content-start"><a class="nav-link p-1" href="#" target="_blank"><img src="./images/logo-nama-blanco.png" height="50"></a></div>
           </div>
         </div>
       </footer>
     </div>
+    <!--script(src="./js/application.js")-->
     <script src="./js/jquery-3.2.1.min.js"></script>
     <script src="./js/popper.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
