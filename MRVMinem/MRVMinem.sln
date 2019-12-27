@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MRVMinem", "MRVMinem\MRVMinem.csproj", "{EE7150AB-E48D-4924-A58F-DCC2D49A2868}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "entidad.minem.gob.pe", "entidad.minem.gob.pe\entidad.minem.gob.pe.csproj", "{9944C03F-FD45-4C0A-B6A7-48C1540A3230}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "datos.minem.gob.pe", "datos.minem.gob.pe\datos.minem.gob.pe.csproj", "{3C25A6A2-1BA6-4ABF-B3F1-08152A40C977}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "logica.minem.gob.pe", "logica.minem.gob.pe\logica.minem.gob.pe.csproj", "{549DC82F-1B0B-46A3-A845-05AB4F41CD4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "utilitario.minem.gob.pe", "utilitario.minem.gob.pe\utilitario.minem.gob.pe.csproj", "{BC063656-BF97-48A0-8057-E4AC84C4E10F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Entidades", "1. Entidades", "{7636C8A9-94ED-4117-9F0E-625DBA768521}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Acceso Datos", "2. Acceso Datos", "{6CBF5391-3A5A-40E1-AE27-1B895183D4E2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Logica Datos", "3. Logica Datos", "{36083AF6-3B3E-4B74-94A6-65CCA65148A5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Web", "4. Web", "{E5F83A70-8648-46E2-8CAF-27DDFFD615D6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Utilitario", "5. Utilitario", "{6C2B2093-315C-4A99-ADDA-39487B392035}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE7150AB-E48D-4924-A58F-DCC2D49A2868}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE7150AB-E48D-4924-A58F-DCC2D49A2868}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE7150AB-E48D-4924-A58F-DCC2D49A2868}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE7150AB-E48D-4924-A58F-DCC2D49A2868}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9944C03F-FD45-4C0A-B6A7-48C1540A3230}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9944C03F-FD45-4C0A-B6A7-48C1540A3230}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9944C03F-FD45-4C0A-B6A7-48C1540A3230}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9944C03F-FD45-4C0A-B6A7-48C1540A3230}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C25A6A2-1BA6-4ABF-B3F1-08152A40C977}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C25A6A2-1BA6-4ABF-B3F1-08152A40C977}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C25A6A2-1BA6-4ABF-B3F1-08152A40C977}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C25A6A2-1BA6-4ABF-B3F1-08152A40C977}.Release|Any CPU.Build.0 = Release|Any CPU
+		{549DC82F-1B0B-46A3-A845-05AB4F41CD4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{549DC82F-1B0B-46A3-A845-05AB4F41CD4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{549DC82F-1B0B-46A3-A845-05AB4F41CD4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{549DC82F-1B0B-46A3-A845-05AB4F41CD4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC063656-BF97-48A0-8057-E4AC84C4E10F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC063656-BF97-48A0-8057-E4AC84C4E10F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC063656-BF97-48A0-8057-E4AC84C4E10F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC063656-BF97-48A0-8057-E4AC84C4E10F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EE7150AB-E48D-4924-A58F-DCC2D49A2868} = {E5F83A70-8648-46E2-8CAF-27DDFFD615D6}
+		{9944C03F-FD45-4C0A-B6A7-48C1540A3230} = {7636C8A9-94ED-4117-9F0E-625DBA768521}
+		{3C25A6A2-1BA6-4ABF-B3F1-08152A40C977} = {6CBF5391-3A5A-40E1-AE27-1B895183D4E2}
+		{549DC82F-1B0B-46A3-A845-05AB4F41CD4E} = {36083AF6-3B3E-4B74-94A6-65CCA65148A5}
+		{BC063656-BF97-48A0-8057-E4AC84C4E10F} = {6C2B2093-315C-4A99-ADDA-39487B392035}
+	EndGlobalSection
+EndGlobal
