@@ -50,12 +50,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseDA.cs" />
+    <Compile Include="DataBaseHelpers\OracleHelper.cs" />
     <Compile Include="IniciativaDA.cs" />
+    <Compile Include="InstitucionDA.cs" />
     <Compile Include="OracleDynamicParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
+    <Compile Include="SectorInstitucionDA.cs" />
+    <Compile Include="UsuarioDA.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\entidad.minem.gob.pe\entidad.minem.gob.pe.csproj">
@@ -66,6 +67,9 @@
       <Project>{BC063656-BF97-48A0-8057-E4AC84C4E10F}</Project>
       <Name>utilitario.minem.gob.pe</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,0 +1,88 @@
+﻿@{
+    ViewBag.Title = "Usuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Registrar Usuario</h2>
+<script type="text/javascript" src="~/Scripts/js/Usuario.js"></script>
+
+<div class="row p-4 pt-5 mt-3">
+
+    <div class="col-6">
+
+        <div class="row">
+            <div class="col-12">
+                <label>Email</label>
+                <input class="form-control" type="text" id="UsuEmail" />
+            </div>
+
+            <div class="col-12">
+                <label>Nombre</label>
+                <input class="form-control" type="text" id="UsuNombre" />
+            </div>
+
+            <div class="col-12">
+                <label>Apellido</label>
+                <input class="form-control" type="text" id="UsuApellido" />
+            </div>
+
+            <div class="col-12">
+                <label>Entidad</label>
+                <input class="form-control" type="text" id="UsuInstitucion" />
+            </div>
+
+            <div class="col-12">
+                <label>Ruc</label>
+                <input class="form-control" type="text" id="UsuRuc" />
+            </div>
+
+            <div class="col-12">
+                <label>Direccion</label>
+                <input class="form-control" type="text" id="UsuDireccion" />
+            </div>
+
+            <div class="col-12">
+                <label>Sector</label>
+                <select class="form-control" name="UsuSector" id="UsuSector"></select>
+            </div>
+
+            <div class="col-12">
+                <label>Contraseña</label>
+                <input class="form-control" type="password" id="UsuPassword" />
+            </div>
+
+            <div class="col-12">
+                <label>Confirmar Contraseña</label>
+                <input class="form-control" type="password" id="ConUsuPassword" />
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div class="col-6">
+
+        <div class="row">
+
+            <div class="col-12">
+                <label>Telefono</label>
+                <input class="form-control" type="text" id="UsuTelefono" />
+            </div>
+
+            <div class="col-12">
+                <label>Celular</label>
+                <input class="form-control" type="text" id="UsuCelular" />
+            </div>
+        </div>
+
+
+
+    </div>
+
+</div>
+
+<div class="row p-4">
+    <button class="btn btn-primary" id="UsuGrabar">Grabar</button>
+</div>
+

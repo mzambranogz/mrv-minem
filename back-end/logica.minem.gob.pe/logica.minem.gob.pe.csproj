@@ -41,7 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IniciativaLN.cs" />
+    <Compile Include="InstitucionLN.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SectorInstitucionLN.cs" />
+    <Compile Include="UsuarioLN.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\datos.minem.gob.pe\datos.minem.gob.pe.csproj">
