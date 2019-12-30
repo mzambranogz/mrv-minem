@@ -22,6 +22,11 @@ namespace MRVMinem.Areas.Publico.Controllers
             return View();
         }
 
+        public ActionResult Login()
+        {
+            return View();
+        }
+
         public JsonResult ListaIniciativas(IniciativaBE entidad)
         {
             List<IniciativaBE> lista = IniciativaLN.ListaIniciativa(entidad);
@@ -57,6 +62,15 @@ namespace MRVMinem.Areas.Publico.Controllers
             var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
+        }
+
+        public JsonResult IniciarSesion(UsuarioBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = UsuarioLN.ObtenerPassword(entidad);
+            itemRespuesta.success = entidad.OK;
+            return Respuesta(itemRespuesta);
         }
 
     }

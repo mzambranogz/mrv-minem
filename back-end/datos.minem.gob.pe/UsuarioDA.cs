@@ -8,6 +8,8 @@ using Oracle.DataAccess.Client;
 using System.Data;
 using Dapper;
 using utilitario.minem.gob.pe;
+using MRVMinem.Datos.DataBaseHelpers;
+using Oracle.DataAccess.Types;
 
 namespace datos.minem.gob.pe
 {
@@ -32,6 +34,7 @@ namespace datos.minem.gob.pe
                     p.Add("pUsuCelular", entidad.USUCELULAR);
                     p.Add("pMaeSetIns", entidad.ID_SECTOR_INST);                    
                     p.Add("pGenmIns", entidad.ID_INSTITUCION);
+                    p.Add("pTerminos", entidad.TERMINOS);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
                 entidad.OK = true;
@@ -45,5 +48,38 @@ namespace datos.minem.gob.pe
 
             return entidad;
         }
+
+        public string ObtenerPassword(UsuarioBE entidad)
+        {
+            string pass = "";
+            List<UsuarioBE> Lista = null;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_PASSWORD";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pUsuarioLogin", entidad.USUARIO);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<UsuarioBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    if (Lista.Count > 0)
+                    {
+                        foreach (var item in Lista)
+                        {
+                            pass = item.USUPASS;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return pass;
+        }
+
+
     }
 }

@@ -1,9 +1,153 @@
 ﻿@{
     ViewBag.Title = "Usuario";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
 }
 
-<h2>Registrar Usuario</h2>
+<script type="text/javascript" src="~/Scripts/js/Usuario.js"></script>
+
+<div class="container-fluid banner d-flex flex-row justify-content-center align-items-center" id="carousel">
+    <div class="banners">
+        <div class="banner-01 banner-mostrado"></div>
+        <div class="banner-02"></div>
+        <div class="banner-03"></div>
+    </div>
+    <div class="flecha d-none" id="enlaceAspectos"><i class="fas fa-angle-double-right fa-2x text-white btn-slider-bottom"></i></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2 d-flex flex-row justify-content-center align-items-center wrap-slider-left"><i class="fas fa-chevron-left fa-3x text-white btn-slider-left d-none"></i></div>
+            <div class="col-md-8 col-sm-12 text-center">
+                <div class="row">
+                    <div class="col-12 d-flex flex-row justify-content-center align-items-end">
+                        <div class="slider-pagging d-none"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 d-flex flex-row justify-content-center align-items-center wrap-slider-right"><i class="fas fa-chevron-right fa-3x text-white btn-slider-right d-none"></i></div>
+        </div>
+        <div class="row dentro-banner rounded">
+            <div class="col-md-6 col-lg-12 p-4 d-none d-md-block">
+                <div class="display-4 text-white animated slideInDown">Impacto de las&nbsp;<strong>Medidas de Mitigación&nbsp;</strong>del&nbsp;<strong>Cambio Climático&nbsp;</strong>en el&nbsp;<strong>Sector Energía</strong></div>
+                <p class="lead text-white mt-4 animated bounceInUp">
+                    Sistema de&nbsp;<span class="font-weight-bold">gestión&nbsp;</span>y&nbsp;<span class="font-weight-bold">reporte&nbsp;</span>de información de&nbsp;<span class="font-weight-bold">medidas de mitigación&nbsp;</span>de las Contribuciones&nbsp;
+                    Nacionalmente Determinadas&nbsp;<span class="font-weight-bold">(NDC).</span>
+                </p>
+            </div>
+            <div class="col-md-6 col-lg-12 p-4 bg-light rounded-bottom">
+                <div class="h4">Regístrate <br><small class="text-muted">Obtén una cuenta MRV con tus datos</small></div>
+                <div class="pt-4">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="txt-user">Email</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-envelope"></i></span></div>
+                                    <input class="form-control" type="text" id="UsuEmail" placeholder="Dirección de email" aria-describedby="inputGroup1" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txt-nombre">Nombre</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup3"><i class="fas fa-user-tie"></i></span></div>
+                                    <input class="form-control" type="text" id="UsuNombre" placeholder="Ingrese su nombre" aria-describedby="inputGroup3" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txt-apellido">Apellido</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-user-tie"></i></span></div>
+                                    <input class="form-control" type="text" id="UsuApellido" placeholder="Ingrese su apellido" aria-describedby="inputGroup4" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txt-telefono">Teléfono</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-phone-alt"></i></span></div>
+                                    <input class="form-control" type="text" id="UsuTelefono" placeholder="Ingrese su teléfono" aria-describedby="inputGroup4" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txt-celular">Celular</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-mobile-alt"></i></span></div>
+                                    <input class="form-control" type="text" id="UsuCelular" placeholder="Ingrese su celular" aria-describedby="inputGroup5" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="txt-entidad">Entidad</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
+                                    <input class="form-control" type="text" id="UsuInstitucion" placeholder="Ingrese su entidad" aria-describedby="inputGroup6" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txt-ruc">RUC</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup7"><i class="fas fa-landmark"></i></span></div>
+                                    <input class="form-control" type="text" id="UsuRuc" placeholder="Ingrese su RUC" aria-describedby="inputGroup7" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txt-direccion">Dirección</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup8"><i class="fas fa-landmark"></i></span></div>
+                                    <input class="form-control" type="text" id="UsuDireccion" placeholder="Ingrese su dirección" aria-describedby="inputGroup8" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txt-direccion">Sector</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
+                                    <select class="form-control" id="UsuSector" aria-describedby="inputGroup9" required>
+                                        <option>-Seleccione un sector-</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txt-pswd">Contraseña</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup2"><i class="fas fa-key"></i></span></div>
+                                    <input class="form-control" type="password" id="UsuPassword" placeholder="Ingresar contraseña" aria-describedby="inputGroup2" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txt-re-pswd">Confirmar contraseña</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="fas fa-key"></i></span></div>
+                                    <input class="form-control" type="password" id="ConUsuPassword" placeholder="Confirmar su contraseña" aria-describedby="inputGroup10" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="custom-control custom-checkbox">
+                                    <input class="custom-control-input" type="checkbox" id="UsuTerminos">
+                                    <label class="custom-control-label" for="UsuTerminos">Aceptar términos y condiciones de uso</label>
+                                </div>
+                            </div>
+                            <button class="btn-lg btn-primary w-100" @*type="submit"*@ id="UsuGrabar"><i class="fas fa-paper-plane px-1"></i>Registrarse</button>
+                            <p class="py-4 text-center">¿Ya tiene un cuenta?&nbsp;<a href="fn_Login();">Ingrese ahora <br></a><a href="./recuperar.html">¿Olvidó su contraseña?</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" id="reportes-resultados">
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-4 p-0 o-h">
+            <div class="bg-reportes"><a class="enlace-reportes d-flex flex-row justify-content-center align-items-center" href="./reportes.html"><i class="fas fa-file-invoice px-1 mr-2"></i>Reportes</a></div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-4 p-0 o-h">
+            <div class="bg-acciones-resultados"><a class="enlace-acciones-resultados d-flex flex-row justify-content-center align-items-center" href="./acciones-y-resultados.html"><i class="fas fa-chart-pie px-1 mr-2"></i>Acciones y Resultados</a></div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-4 p-0 o-h">
+            <div class="bg-registro"><a class="enlace-registro d-flex flex-row justify-content-center align-items-center" href="./registro.html"><i class="fas fa-user-circle px-1 mr-2"></i>Regístrate</a></div>
+        </div>
+    </div>
+</div>
+
+<!--<h2>Registrar Usuario</h2>
 <script type="text/javascript" src="~/Scripts/js/Usuario.js"></script>
 
 <div class="row p-4 pt-5 mt-3">
@@ -84,5 +228,5 @@
 
 <div class="row p-4">
     <button class="btn btn-primary" id="UsuGrabar">Grabar</button>
-</div>
+</div>-->
 

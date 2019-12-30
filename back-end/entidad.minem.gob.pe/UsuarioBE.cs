@@ -21,6 +21,8 @@ namespace entidad.minem.gob.pe
         public string INSTITUCION { get; set; }
         public string RUC { get; set; }
         public string DIRECCION { get; set; }
+        public string USUARIO { get; set; }
+        public char TERMINOS { get; set; }
 
     }
 }

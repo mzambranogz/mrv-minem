@@ -55,6 +55,10 @@
       <Project>{9944C03F-FD45-4C0A-B6A7-48C1540A3230}</Project>
       <Name>entidad.minem.gob.pe</Name>
     </ProjectReference>
+    <ProjectReference Include="..\utilitario.minem.gob.pe\utilitario.minem.gob.pe.csproj">
+      <Project>{bc063656-bf97-48a0-8057-e4ac84c4e10f}</Project>
+      <Name>utilitario.minem.gob.pe</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

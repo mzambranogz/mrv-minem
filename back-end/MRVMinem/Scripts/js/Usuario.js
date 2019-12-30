@@ -23,14 +23,40 @@ function CargarListaSectorInstitucion() {
 
 $("#UsuGrabar").click(function (e) {
 
+    var mensajes = "";
     var clave = $("#UsuPassword").val();
     var validar = $("#ConUsuPassword").val();
-    console.log("entre");
+    var terminos = $("input:checkbox[id=UsuTerminos]:checked").val();
     if (clave == validar) {
+
+        if (!(/[a-zñ]/.test(clave) && /[A-ZÑ]/.test(clave) && /[0-9]/.test(clave))) {
+            mensajes = mensajes + "<small>La contraseña debe contener minuscula(s), mayúscula(s) y número(s) </small><br>";
+        }
+        if (clave.length < 6) {
+            mensajes = mensajes + "<small>La contraseña debe contener 6 o más caracteres </small><br>";
+        }
+
+    } else {
+        mensajes = mensajes + "<small>Las contraseñas no coinciden </small><br>";
+    }
+
+    if (!(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test($("#UsuEmail").val()))) {
+        mensajes = mensajes + "<small>Ingrese un correo electrónico válido </small><br>";
+    }
+
+    if (!(terminos)){
+        mensajes = mensajes + "<small>Debe aceptar los términos y condiciones </small><br>";
+    }
+
+    if (mensajes == "") {
         fn_GrabarUsuario();
     } else {
-        alert("Las contraseñas no coinciden");
+        Swal.fire({
+            icon: 'error',
+            html: mensajes
+        })
     }
+
 });
 
 function fn_GrabarUsuario() {
@@ -45,13 +71,26 @@ function fn_GrabarUsuario() {
         ID_SECTOR_INST: $("#UsuSector").val(),
         INSTITUCION: $("#UsuInstitucion").val(),
         RUC: $("#UsuRuc").val(),
-        DIRECCION: $("#UsuDireccion").val()
+        DIRECCION: $("#UsuDireccion").val(),
+        TERMINOS: '1'
     };
-    
+    var mensaje = "";
     var respuesta = MRV.Ajax(url, item, false);
     if (respuesta.success) {
-        MRV.Alert('Registro', 'Registro de Usuario correcto');
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Registro de Usuario correcto',
+            showConfirmButton: false,
+            timer: 1700
+        })
+
+        fn_Home();
     } else {
-        MRV.Alert('Registro', 'Ocurrio error durante el registro del Usuario');
+        Swal.fire({
+            icon: 'error',
+            html: 'Ocurrio error durante el registro del Usuario'
+        })
     }
+
 }

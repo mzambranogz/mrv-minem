@@ -42,7 +42,7 @@
                         <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="#"><i class="fas fa-file-invoice px-1"></i>Reportes</a></li>
                         <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="#"><i class="fas fa-chart-pie px-1"></i>Acciones y Resultados</a></li>
                     <!-- </ul><a class="btn btn-primary font-weight-bold btn-md px-2" href="#" role="button" ><i class="fas fa-sign-in-alt px-1"></i>Ingresar</a> -->
-                    </ul><a class="btn btn-primary font-weight-bold btn-md px-2" role="button" href="javascript:void(0)" onclick="fn_registrarUsuario();" ><i class="fas fa-sign-in-alt px-1"></i>Ingresar</a>
+                    </ul><a class="btn btn-primary font-weight-bold btn-md px-2" role="button" href="javascript:void(0)" onclick="fn_Login();" ><i class="fas fa-sign-in-alt px-1"></i>Ingresar</a>
                     <!--a.btn.btn-white.btn-md(href="#", role="button")
                     i.ico-logout.mr-1
                     | Registrarse
@@ -100,6 +100,7 @@
     <script src="./assets/js/bootstrap.min.js"></script>
     <script src="./assets/js/wow.min.js"></script>
     <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/sweetalert2.all.min.js"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/MRV.js")"></script>
 
 
@@ -148,6 +149,21 @@
             });
         }
 
+        function fn_Login() {
+            var urlListar = baseUrl + 'Publico/Portal/Login';
+            $.ajax({
+                url: urlListar,
+                dataType: 'html',
+                type: 'get',
+                contentType: 'text/xml; charset=utf-8',
+                success: function (response) {
+                    var detalle = response;
+                    $('#divProceso').html('');
+                    $('#divProceso').append(detalle);
+                }
+            });
+        }
+
         function fn_registrarUsuario() {
             var urlListar = baseUrl + 'Publico/Portal/Usuario';
             $.ajax({
@@ -155,6 +171,22 @@
                 dataType: 'html',
                 type: 'get',
                 contentType: 'text/xml; charset=utf-8',
+                success: function (response) {
+                    var detalle = response;
+                    $('#divProceso').html('');
+                    $('#divProceso').append(detalle);
+                }
+            });
+        }
+
+        function fn_Home() {
+            var urlListar = baseUrl + 'Home/Index';
+            $.ajax({
+                url: urlListar,
+                dataType: 'html',
+                type: 'get',
+                contentType: 'text/xml; charset=utf-8',
+                //async: false,
                 success: function (response) {
                     var detalle = response;
                     $('#divProceso').html('');
