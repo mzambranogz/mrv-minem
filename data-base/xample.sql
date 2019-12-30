@@ -1,0 +1,1 @@
+truncate name_table;
