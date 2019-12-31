@@ -22,7 +22,14 @@ namespace logica.minem.gob.pe
         public static UsuarioBE ObtenerPassword(UsuarioBE entidad)
         {
             var passBD = usuarioDA.ObtenerPassword(entidad);
-            entidad.OK = Seguridad.CompararHashSal(entidad.USUPASS, passBD);
+            if (passBD == "")
+            {
+                entidad.OK = false;
+            }else
+            {
+                entidad.OK = Seguridad.CompararHashSal(entidad.USUPASS, passBD);
+            }
+            
             return entidad;
         }
     }
