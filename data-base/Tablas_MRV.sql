@@ -77,7 +77,7 @@ CREATE TABLE T_MAE_SECTOR_INST
 ALTER TABLE T_MAE_SECTOR_INST ADD CONSTRAINT T_MAE_SECTOR_INST_PK PRIMARY KEY (ID_SECTOR_INST);
 
 -----------------------------------------------------------------------------------------------------
--- (4) T_MAE_SECTOR_INST
+-- (4) T_MAE_ESTADO_USUARIO
 -----------------------------------------------------------------------------------------------------
 
 
@@ -156,7 +156,7 @@ ALTER TABLE T_MAE_OPCION_ROL ADD CONSTRAINT T_MAE_OPCION_ROL_PK PRIMARY KEY (ID_
 
 ​
 -----------------------------------------------------------------------------------------------------
--- (9) T_MAE_USUARIO_ROL
+-- (9) T_MAE_TIPO_OPCION
 -----------------------------------------------------------------------------------------------------
 ​
 
@@ -177,14 +177,14 @@ CREATE TABLE T_MAE_TERMINOS
    (
 	ID_TERMINOS 		NUMBER NOT NULL, 
     	ID_ROL 			INTEGER, 
-	CONDICIONES_TERMINOS	VARCHAR2(5000) NOT NULL 
+	CONDICIONES_TERMINOS	VARCHAR2(2000) NOT NULL 
    );
 
 ALTER TABLE T_MAE_TERMINOS ADD CONSTRAINT T_MAE_TERMINOS_PK PRIMARY KEY (ID_TERMINOS);
 
 
 -----------------------------------------------------------------------------------------------------
--- (11) T_MAE_USUARIO_ROL
+-- (11) T_GENM_INICIATIVA 
 -----------------------------------------------------------------------------------------------------
 
 CREATE TABLE T_GENM_INICIATIVA 
@@ -244,7 +244,6 @@ CREATE TABLE T_MAE_MEDMIT
 ALTER TABLE T_MAE_MEDMIT ADD CONSTRAINT T_MAE_MEDMIT_PK PRIMARY KEY (ID_MEDMIT);
 
 
-
 -----------------------------------------------------------------------------------------------------
 -- (13) T_MAE_NAMA
 -----------------------------------------------------------------------------------------------------
@@ -281,16 +280,3 @@ CREATE TABLE T_MAE_MONEDA
 
 ALTER TABLE T_MAE_MONEDA ADD CONSTRAINT T_MAE_MONEDA_PK PRIMARY KEY (ID_MONEDA);
 
-
------------------------------------------------------------------------------------------------------
--- (16) T_MAE_METODOLOGIA
------------------------------------------------------------------------------------------------------
-
- CREATE TABLE T_MAE_METODOLOGIA 
-   (	ID_METODOLOGIA NUMBER(*,0), 
-	ID_MEDMIT NUMBER(*,0),
-	DESCRIPCION VARCHAR2(1000 BYTE) 
-
-   );
-
-ALTER TABLE T_MAE_METODOLOGIA ADD CONSTRAINT T_MAE_METODOLOGIA_PK PRIMARY KEY (ID_METODOLOGIA);
