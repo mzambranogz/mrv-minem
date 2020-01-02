@@ -14,7 +14,7 @@ namespace datos.minem.gob.pe
 {
     public class InstitucionDA : BaseDA
     {
-        private string sPackage = "MRVMINEM.PKG_MRV_ADMIN_SISTEMA.";
+        private string sPackage = "USERMRV.PKG_MRV_ADMIN_SISTEMA.";
 
         public List<InstitucionBE> ListaInstitucion(InstitucionBE entidad)
         {
@@ -47,10 +47,10 @@ namespace datos.minem.gob.pe
                 {
                     string sp = sPackage + "USP_INS_INSTITUCION";
                     var parametros = new OracleParameter[5];
-                    parametros[0] = new OracleParameter("pInsTipo", entidad.INSTIPO);
-                    parametros[1] = new OracleParameter("pInsRuc", entidad.INSRUC);
-                    parametros[2] = new OracleParameter("pInsNombre", entidad.INSNOMBRE);
-                    parametros[3] = new OracleParameter("pInsDireccion", entidad.INSDIRECCION);
+                    parametros[0] = new OracleParameter("pID_SECTOR_INSTITUCION", entidad.INSTIPO);
+                    parametros[1] = new OracleParameter("pRUC_INSTITUCION", entidad.INSRUC);
+                    parametros[2] = new OracleParameter("pNOMBRE_INSTITUCION", entidad.INSNOMBRE);
+                    parametros[3] = new OracleParameter("pDIRECCION_INSTITUCION", entidad.INSDIRECCION);
                     parametros[4] = new OracleParameter("pIdInstitucion", OracleDbType.Int32, ParameterDirection.Output);
                     OracleHelper.ExecuteNonQuery(CadenaConexion, CommandType.StoredProcedure, sp, parametros);
                     cod = int.Parse(parametros[4].Value.ToString());

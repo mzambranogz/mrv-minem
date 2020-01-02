@@ -27,6 +27,11 @@ namespace MRVMinem.Areas.Publico.Controllers
             return View();
         }
 
+        public ActionResult AccionMitigacion()
+        {
+            return View();
+        }
+
         public JsonResult ListaIniciativas(IniciativaBE entidad)
         {
             List<IniciativaBE> lista = IniciativaLN.ListaIniciativa(entidad);
@@ -70,6 +75,7 @@ namespace MRVMinem.Areas.Publico.Controllers
 
             entidad = UsuarioLN.ObtenerPassword(entidad);
             itemRespuesta.success = entidad.OK;
+            itemRespuesta.extra = entidad.ID_USUARIO.ToString();
             return Respuesta(itemRespuesta);
         }
 

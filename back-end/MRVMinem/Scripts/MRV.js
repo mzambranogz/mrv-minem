@@ -9,7 +9,39 @@ MRV = {
         }, 300, function () {
             $(elemento).slideUp(200);
         });
+    },//============================================= ADD 31-12-19
+    CargarSelect: function (vUrl, vId, vValor, vDescripcion) {
+        var Item = {};
+        $.ajax({
+            url: vUrl,
+            type: 'POST',
+            datatype: 'json',
+            data: Item,
+            success: function (data) {
+                if (data != null && data != "") {
+                    if (data.length > 0) {
+                        for (var i = 0; i < data.length; i++) {
+                            $(vId).append('<option value="' + data[i][vValor] + '">' + data[i][vDescripcion] + '</option>');
+                        }
+                    }
+                }
+            }
+        });
     },
+    ObtenerVista: function (urlVista) { // ADD 01-01-20
+        $.ajax({
+            url: urlVista,
+            dataType: 'html',
+            type: 'get',
+            contentType: 'text/xml; charset=utf-8',
+            success: function (response) {
+                var detalle = response;
+                $('#divProceso').html('');
+                $('#divProceso').append(detalle);
+            }
+        });
+    },
+    //=============================================================
     Mayuscula: function (e, elemento) {
         elemento.value = elemento.value.toUpperCase();
     },

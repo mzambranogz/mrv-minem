@@ -42,6 +42,8 @@
   <ItemGroup>
     <Compile Include="IniciativaLN.cs" />
     <Compile Include="InstitucionLN.cs" />
+    <Compile Include="MedidaMitigacionLN.cs" />
+    <Compile Include="MonedaLN.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SectorInstitucionLN.cs" />
     <Compile Include="UsuarioLN.cs" />

@@ -15,7 +15,7 @@ namespace datos.minem.gob.pe
 {
     public class UsuarioDA : BaseDA
     {
-        private string sPackage = "MRVMINEM.PKG_MRV_ADMIN_SISTEMA.";
+        private string sPackage = "USERMRV.PKG_MRV_ADMIN_SISTEMA.";
 
         public UsuarioBE RegistraUsuario(UsuarioBE entidad)
         {
@@ -26,15 +26,14 @@ namespace datos.minem.gob.pe
                 {
                     string sp = sPackage + "USP_INS_USUARIO";
                     var p = new OracleDynamicParameters();
-                    p.Add("pUsuEmail", entidad.USUEMAIL);
-                    p.Add("pUsuNom", entidad.USUNOM);
-                    p.Add("pUsuApe", entidad.USUAPE);
-                    p.Add("pUsuPass", entidad.USUPASS);
-                    p.Add("pUsuTelefono", entidad.USUTELEFONO);
-                    p.Add("pUsuCelular", entidad.USUCELULAR);
-                    p.Add("pMaeSetIns", entidad.ID_SECTOR_INST);                    
-                    p.Add("pGenmIns", entidad.ID_INSTITUCION);
-                    p.Add("pTerminos", entidad.TERMINOS);
+                    p.Add("pNOMBRES_USUARIO", entidad.NOMBRES_USUARIO); 
+                    p.Add("pAPELLIDOS_USUARIO", entidad.APELLIDOS_USUARIO);
+                    p.Add("pID_INSTITUCION", entidad.ID_INSTITUCION);
+                    p.Add("pPASSWORD_USUARIO", entidad.PASSWORD_USUARIO);
+                    p.Add("pEMAIL_USUARIO", entidad.EMAIL_USUARIO);
+                    p.Add("pTELEFONO_USUARIO", entidad.TELEFONO_USUARIO);
+                    p.Add("pCELULAR_USUARIO", entidad.CELULAR_USUARIO);
+                    p.Add("pFLG_TERMINOS", entidad.TERMINOS);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
                 entidad.OK = true;
@@ -49,10 +48,10 @@ namespace datos.minem.gob.pe
             return entidad;
         }
 
-        public string ObtenerPassword(UsuarioBE entidad)
+        public UsuarioBE ObtenerPassword(UsuarioBE entidad)
         {
-            string pass = "";
             List<UsuarioBE> Lista = null;
+            UsuarioBE usu = new UsuarioBE();
             try
             {
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
@@ -67,7 +66,8 @@ namespace datos.minem.gob.pe
                     {
                         foreach (var item in Lista)
                         {
-                            pass = item.USUPASS;
+                            usu.PASSWORD_USUARIO = item.PASSWORD_USUARIO;
+                            usu.ID_USUARIO = item.ID_USUARIO;
                         }
                     }
                 }
@@ -77,7 +77,30 @@ namespace datos.minem.gob.pe
                 Log.Error(ex);
             }
 
-            return pass;
+            return usu;
+        }
+
+        public List<UsuarioBE> ObtenerInformacionUsuario(UsuarioBE entidad)
+        {
+            List<UsuarioBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = "USERMRV.PKG_MRV_INICIATIVA_MITIGACION." + "USP_SEL_INFORMACION_USUARIO";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<UsuarioBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }            
+
+            return Lista;
         }
 
 

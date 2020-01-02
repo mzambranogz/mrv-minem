@@ -15,22 +15,29 @@ namespace logica.minem.gob.pe
 
         public static UsuarioBE RegistraUsuario(UsuarioBE entidad)
         {
-            entidad.USUPASS = Seguridad.hashSal(entidad.USUPASS);
+            entidad.PASSWORD_USUARIO = Seguridad.hashSal(entidad.PASSWORD_USUARIO);
             return usuarioDA.RegistraUsuario(entidad);
         }
 
         public static UsuarioBE ObtenerPassword(UsuarioBE entidad)
         {
-            var passBD = usuarioDA.ObtenerPassword(entidad);
-            if (passBD == "")
+            var ent = usuarioDA.ObtenerPassword(entidad);
+            if (ent.PASSWORD_USUARIO == "")
             {
                 entidad.OK = false;
             }else
             {
-                entidad.OK = Seguridad.CompararHashSal(entidad.USUPASS, passBD);
+                entidad.OK = Seguridad.CompararHashSal(entidad.PASSWORD_USUARIO, ent.PASSWORD_USUARIO);
+                entidad.ID_USUARIO = ent.ID_USUARIO;
             }
             
             return entidad;
         }
+
+        public static List<UsuarioBE> ObtenerInformacionUsuario(UsuarioBE entidad)
+        {
+            return usuarioDA.ObtenerInformacionUsuario(entidad);
+        }
+
     }
 }

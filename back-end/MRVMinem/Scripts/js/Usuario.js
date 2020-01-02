@@ -62,12 +62,12 @@ $("#UsuGrabar").click(function (e) {
 function fn_GrabarUsuario() {
     var url = baseUrl + "Publico/Portal/RegistrarUsuario";
     var item = {
-        USUEMAIL: $("#UsuEmail").val(),
-        USUNOM: $("#UsuNombre").val(),
-        USUAPE: $("#UsuApellido").val(),
-        USUPASS: $("#UsuPassword").val(),
-        USUTELEFONO: $("#UsuTelefono").val(),
-        USUCELULAR: $("#UsuCelular").val(),
+        EMAIL_USUARIO: $("#UsuEmail").val(),
+        NOMBRES_USUARIO: $("#UsuNombre").val(),
+        APELLIDOS_USUARIO: $("#UsuApellido").val(),
+        PASSWORD_USUARIO: $("#UsuPassword").val(),
+        TELEFONO_USUARIO: $("#UsuTelefono").val(),
+        CELULAR_USUARIO: $("#UsuCelular").val(),
         ID_SECTOR_INST: $("#UsuSector").val(),
         INSTITUCION: $("#UsuInstitucion").val(),
         RUC: $("#UsuRuc").val(),

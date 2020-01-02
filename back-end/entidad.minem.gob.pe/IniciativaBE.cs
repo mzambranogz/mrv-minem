@@ -4,18 +4,19 @@ namespace entidad.minem.gob.pe
 {
     public class IniciativaBE : BaseBE
     {
-        public int P_GENM_INICIATIVA { get; set; }
-        public int F_GENM_MEDIDAMITIGACION { get; set; }
-        public int P_MAE_USUARIO { get; set; }
-        public string INICIATIVANOMBRE { get; set; }
-        public string INICIATIVADESCRIPCION { get; set; }
-        public DateTime INICIATIVAFECHACREACION { get; set; }
-        public int F_MAE_ESTADO { get; set; }
-        public char INICIATIVAPRIVACIDAD { get; set; }
-        public double INICIATIVAINVERSION { get; set; }
-        public int F_MAE_MONEDA { get; set; }
-        public DateTime INICIATIVAFECHAIMPLEMENTACION { get; set; }
-        public int F_GEND_METODOLOGIA { get; set; }
-        public int F_MAE_ETAPA { get; set; }
+        public int ID_INICIATIVA { get; set; }
+        public int ID_MEDMIT { get; set; }
+        public int ID_USUARIO { get; set; }
+        public string NOMBRE_INICIATIVA { get; set; }
+        public string DESC_INICIATIVA { get; set; }
+        public int ID_ESTADO { get; set; }
+        public DateTime FECHA_IMPLE_INICIATIVA { get; set; }
+        public DateTime FECHA_CREA_INICIATIVA { get; set; }        
+        public char PRIVACIDAD_INICIATIVA { get; set; }
+        public double INVERSION_INICIATIVA { get; set; }
+        public int ID_MONEDA { get; set; }        
+        public int ID_METODOLOGIA { get; set; }
+        public int ID_ETAPA { get; set; }
+        public string FECHA { get; set; }
     }
 }

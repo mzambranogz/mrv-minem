@@ -215,11 +215,15 @@
     <Content Include="assets\fonts\fa-solid-900.ttf" />
     <Content Include="assets\fonts\fa-solid-900.woff" />
     <Content Include="assets\fonts\fa-solid-900.woff2" />
+    <Content Include="Areas\Publico\Views\Portal\AccionMitigacion.cshtml" />
+    <Content Include="Areas\Administrado\Views\Gestion\RegistroIniciativaMitigacion.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\dataTables.bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.11.3.min.js" />
     <Content Include="Scripts\jquery.dataTables.min.js" />
+    <Content Include="Scripts\js\AccionMitigacion.js" />
     <Content Include="Scripts\js\Login.js" />
+    <Content Include="Scripts\js\NuevaIniciativaMitigacion.js" />
     <Content Include="Scripts\js\Publico.js" />
     <Content Include="Scripts\js\Usuario.js" />
     <Content Include="Scripts\MRV.js" />
@@ -255,7 +259,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administrado\Models\" />
-    <Folder Include="Areas\Administrado\Views\Gestion\" />
     <Folder Include="Areas\Administrado\Views\Shared\" />
     <Folder Include="Areas\Publico\Models\" />
     <Folder Include="Areas\Publico\Views\Shared\" />
