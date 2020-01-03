@@ -6,15 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Plataforma MRV del Sector Energía | Inicio</title>
     <meta name="description" content="Plataforma MRV del Sector Energía">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="images/favicon/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="images/favicon/favicon-16x16.png" sizes="16x16">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/assets/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="~/assets/images/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="~/assets/images/favicon/favicon-16x16.png" sizes="16x16">
     <!--<link rel="manifest" href="images/favicon/manifest.json">-->
-    <link rel="mask-icon" href="images/favicon/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="images/favicon/favicon.ico">
-    <meta name="msapplication-config" content="images/favicon/browserconfig.xml">
+    <link rel="mask-icon" href="~/assets/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="~/assets/images/favicon/favicon.ico">
+    <meta name="msapplication-config" content="~/assets/images/favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <!--<link rel="stylesheet" href="./assets/css/bootstrap.min.css">-->
     <!--<link rel="stylesheet" href="./assets/css/animate.min.css" />-->
     <link rel="stylesheet" href="./assets/css/style.css">
     <!--<script src="~/assets/js/font-awesome.js"></script>-->
@@ -39,8 +41,8 @@
                         <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="javascript:void(0)" onclick="fn_accionesMitigacion();"><i class="fas fa-solar-panel px-1"></i>Acciones de Mitigación</a></li>
                         <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="javascript:void(0)" onclick="fn_registroIniciativaMitigacion();"><i class="fas fa-file-invoice px-1"></i>Reportes</a></li>
                         <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="#"><i class="fas fa-chart-pie px-1"></i>Acciones y Resultados</a></li>
-                    <!-- </ul><a class="btn btn-primary font-weight-bold btn-md px-2" href="#" role="button" ><i class="fas fa-sign-in-alt px-1"></i>Ingresar</a> -->
-                    </ul><a class="btn btn-primary font-weight-bold btn-md px-2" role="button" href="javascript:void(0)" onclick="fn_Login();" ><i class="fas fa-sign-in-alt px-1"></i>Ingresar</a><a class="btn btn-success font-weight-bold btn-md px-2" href="javascript:void(0)" onclick="fn_registrarUsuario();" role="button"><i class="fas fa-paper-plane px-1"></i>Registrarse</a>
+                        <!-- </ul><a class="btn btn-primary font-weight-bold btn-md px-2" href="#" role="button" ><i class="fas fa-sign-in-alt px-1"></i>Ingresar</a> -->
+                    </ul><a class="btn btn-primary font-weight-bold btn-md px-2" role="button" href="javascript:void(0)" onclick="fn_Login();"><i class="fas fa-sign-in-alt px-1"></i>Ingresar</a><a class="btn btn-success font-weight-bold btn-md px-2" href="javascript:void(0)" onclick="fn_registrarUsuario();" role="button"><i class="fas fa-paper-plane px-1"></i>Registrarse</a>
                     <!--a.btn.btn-white.btn-md(href="#", role="button")
                     i.ico-logout.mr-1
                     | Registrarse
@@ -96,9 +98,9 @@
     </div>
     <div id="Control" data-usuario="0"></div>
     @*<script src="./assets/js/jquery-3.2.1.min.js"></script>
-    <script src="./assets/js/popper.min.js"></script>
-    <script src="./assets/js/bootstrap.min.js"></script>
-    <script src="./assets/js/wow.min.js"></script>*@
+        <script src="./assets/js/popper.min.js"></script>
+        <script src="./assets/js/bootstrap.min.js"></script>
+        <script src="./assets/js/wow.min.js"></script>*@
     <script src="./assets/js/script.js"></script>
     <script src="./assets/js/sweetalert2.all.min.js"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/MRV.js")"></script>
