@@ -32,13 +32,13 @@
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item"><a class="nav-link nav-active text-dark font-weight-bold px-2" href="./index.html"><i class="fas fa-house-damage"></i><span class="d-none d-xs-block d-sm-block d-lg-none pl-1 mostrar-inicio">Inicio</span></a></li>
-              <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="./acciones-de-mitigacion.html"><i class="fas fa-solar-panel pr-1"></i>Acciones de Mitigación</a></li>
+              <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="./index.html"><i class="fas fa-house-damage"></i><span class="d-none d-xs-block d-sm-block d-lg-none pl-1 mostrar-inicio">Inicio</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-active text-dark font-weight-bold px-2" href="./acciones-de-mitigacion-interno.html"><i class="fas fa-solar-panel pr-1"></i>Acciones de Mitigación</a></li>
               <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="./reportes.html"><i class="fas fa-file-invoice pr-1"></i>Reportes</a></li>
               <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="./acciones-y-resultados.html"><i class="fas fa-chart-pie pr-1"></i>Acciones y Resultados</a></li>
-            </ul><a class="btn text-dark px-2 mr-2" href="#" rol="button"><i class="far fa-bell">&nbsp;</i><span class="badge badge-light bg-danger text-white">18</span><span class="d-none d-xs-block d-sm-block d-lg-none pl-1 font-weight-bold mostrar-inicio">Notificaciones</span></a>
+            </ul><a class="btn text-dark px-2 mr-2 notificaciones" href="#" rol="button"><i class="far fa-bell">&nbsp;</i><span class="badge badge-light">18</span><span class="d-none d-xs-block d-sm-block d-lg-none pl-1 font-weight-bold mostrar-inicio">Notificaciones</span></a>
             <div class="btn-group w-sm-100"><a class="btn btn-danger dropdown-toggle text-white font-weight-bold" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user pr-1"></i>Mi cuenta</a>
-              <div class="dropdown-menu dropdown-menu-right w-sm-100"><a class="dropdown-item" href="./cambiar-clave.html"><i class="fas fa-key pr-1"></i>Cambiar contraseña</a>
+              <div class="dropdown-menu dropdown-menu-right w-sm-100"><span class="dropdown-item">Ricardo Sánchez <br><span class="badge badge-actor-02">Usuario Administrado</span><br><span class="badge badge-actor-03">Especialista</span><br><span class="badge badge-actor-04">Evaluador MINAM</span><br><span class="badge badge-actor-05">Verificador Externo</span><br><span class="badge badge-actor-06">Administrador MINEM</span></span><a class="dropdown-item" href="./mantenimiento-de-tablas.html"><i class="fas fa-cogs pr-1"></i>Mantenimiento de tablas</a><a class="dropdown-item" href="./cambiar.html"><i class="fas fa-key pr-1"></i>Cambiar contraseña</a>
                 <div class="dropdown-divider"></div><a class="dropdown-item" href="./login.html"><i class="fas fa-sign-out-alt pr-1"></i>Salir del sistema</a>
               </div>
             </div>
@@ -61,7 +61,17 @@
       <div class="row m-0">
         <div class="col-12 cuerpo-interior">
           <div class="container py-4">
-            <div class="h4">Listado de Acciones de Mitigación&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Utilice la búsqueda para ubicar su acción de mitigación <br>las acciones de mitigación pendientes o aprobadas no pueden ser editadas</small></div>
+            <div class="row">
+              <div class="col-md-12 col-lg-6 pt-4">
+                <div class="h4">Listado de Acciones de Mitigación&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Utilice la búsqueda para ubicar su acción de mitigación, <br>las acciones de mitigación pendientes o aprobadas no pueden ser editadas.</small></div>
+              </div>
+              <div class="col-md-12 col-lg-6 pt-4">
+                <div class="row">
+                  <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
+                  <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#medidas-mitigacion-listado"><a class="agregar-iniciativa" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-plus px-1"></i>Agregar iniciativa</a></span></div>
+                </div>
+              </div>
+            </div>
             <div class="row">
               <div class="col-md-12 col-lg-6 pt-4">
                 <form>
@@ -230,10 +240,10 @@
                                           </div>
                                           <div class="col-sm-6">
                                             <div class="form-group">
-                                              <label for="cbo-energetico-base">Energético de proyecto&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                              <label for="cbo-energetico-proyecto">Energético de proyecto&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
                                               <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="fas fa-bolt"></i></span></div>
-                                                <select class="form-control" id="cbo-energetico-base" aria-describedby="inputGroup10">
+                                                <select class="form-control" id="cbo-energetico-proyecto" aria-describedby="inputGroup10">
                                                   <option>-Seleccione-</option>
                                                   <option>Diesel</option>
                                                   <option>Electricidad</option>
@@ -268,14 +278,7 @@
                   </div>
                 </form>
               </div>
-              <div class="col-md-12 col-lg-6 pt-4">
-                <div class="row">
-                  <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
-                  <div class="col-sm-12 col-md-6 col-lg-6">
-                    <button class="btn-lg btn-primary w-100" type="submit"><i class="fas fa-plus px-1"></i>Agregar iniciativa</button>
-                  </div>
-                </div>
-              </div>
+              <div class="col-md-12 col-lg-6 pt-4">&nbsp;</div>
             </div>
           </div>
           <div class="container-fluid py-4 px-0">
@@ -550,6 +553,48 @@
                       </tfoot>
                     </tbody>
                   </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="medidas-mitigacion-listado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Seleccione una Medida de Mitigación <br><small class="text-muted">Para iniciar con el registro de su identificación</small></h5>
+                  <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
+                      <div class="row">
+                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Transformación del mercado de iluminación del sector residencial - NAMA DE EFICIENCIA ENERGETICA"><img class="border-0" src="./images/ico_nama_amarillo_01.svg"></a></div>
+                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Reemplazo de lámparas de alumbrado público por lámparas LED - NAMA DE EFICIENCIA ENERGETICA"><img class="border-0" src="./images/ico_nama_amarillo_02.svg"></a></div>
+                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Etiquetado de eficiencia energética - NAMA DE EFICIENCIA ENERGETICA"><img class="border-0" src="./images/ico_nama_amarillo_03.svg"></a></div>
+                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Auditorías energéticas sector público - NAMA DE EFICIENCIA ENERGETICA"><img class="border-0" src="./images/ico_nama_amarillo_04.svg"></a></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
+                      <div class="row">
+                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Reemplazo de lámparas por lámparas LED en el sector público - NAMA DE EFICIENCIA ENERGETICA"><img class="border-0" src="./images/ico_nama_amarillo_05.svg"></a></div>
+                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Eficiencia energética en el sector industrial - NAMA DE EFICIENCIA ENERGETICA"><img class="border-0" src="./images/ico_nama_amarillo_06.svg"></a></div>
+                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Reemplazo lámparas en el sector comercial - NAMA DE EFICIENCIA ENERGETICA"><img class="border-0" src="./images/ico_nama_amarillo_07.svg"></a></div>
+                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Promoción de vehículos eléctricos a nivel nacional - NAMA DE TRANSPORTE TERRESTRE ELÉCTRICO"><img class="border-0" src="./images/ico_nama_azul_01.svg"></a></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
+                      <div class="row">
+                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Suministro de electricidad con energía renovable en áreas no conectadas - NAMA DE ACCESO UNIVERSAL A LA ENERGIA SOSTENIBLE"><img class="border-0" src="./images/ico_nama_rojo_01.svg"></a></div>
+                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Cocción limpia - NAMA DE ACCESO UNIVERSAL A LA ENERGIA SOSTENIBLE"><img class="border-0" src="./images/ico_nama_rojo_02.svg"></a></div>
+                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Combinación de energías renovables - NAMA DE RER CONECTADO"><img class="border-0" src="./images/ico_nama_verde_01.svg"></a></div>
+                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Generación distribuida - NAMA DE RER CONECTADO"><img class="border-0" src="./images/ico_nama_verde_02.svg"></a></div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
