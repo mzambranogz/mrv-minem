@@ -46,6 +46,22 @@ namespace MRVMinem.Areas.Administrado.Controllers
             return jsonResult;
         }
 
+        public JsonResult ListarGEI(GasEfectoInvernaderoBE entidad)
+        {
+            List<GasEfectoInvernaderoBE> lista = GasEfectoInvernaderoLN.ListarGEI(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListarENERG(EnergeticoBE entidad)
+        {
+            List<EnergeticoBE> lista = EnergeticoLN.ListarENERG(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
         public JsonResult ObtenerMedidaMitigacion(MedidaMitigacionBE entidad)
         {
             List<MedidaMitigacionBE> lista = MedidaMitigacionLN.ObtenerMedidaMitigacion(entidad);

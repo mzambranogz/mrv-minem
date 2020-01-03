@@ -2,7 +2,8 @@
     MRV.CargarSelect(baseUrl + "Administrado/Gestion/ListarMedidaMitigacion", "#regMitigacion", "ID_MEDMIT", "NOMBRE_MEDMIT");
     MRV.CargarSelect(baseUrl + "Administrado/Gestion/ListarMoneda", "#regMoneda", "ID_MONEDA", "DESCRIPCION");
     fn_ObtenerInformacionUsuario();
-
+    fn_ListarGEI();
+    fn_ListarENERG();
     //alert($("#Control").data("usuario"));
 });
 
@@ -42,7 +43,7 @@ function fn_ObtenerMedidaMitigacion() {
 function fn_ObtenerInformacionUsuario() {
 
     var select = $("#Control").data("usuario");
-    alert(select);
+    //alert(select);
     if (select > 0) {
         var Item = {
             ID_USUARIO: select
@@ -74,6 +75,58 @@ function fn_ObtenerInformacionUsuario() {
         });
     }
 
+}
+
+function fn_ListarGEI() {
+    var Item = {};
+    $.ajax({
+        url: baseUrl + "Administrado/Gestion/ListarGEI",
+        type: 'POST',
+        datatype: 'json',
+        data: Item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    for (var i = 0; i < data.length; i++) {
+                        var check = '<div class="form-group">';
+                            check = check + '<div class="custom-control custom-checkbox">';
+                            check = check + '    <div class="custom-control custom-checkbox">';
+                            check = check +         '<input class="custom-control-input" type="checkbox" id="G'+data[i]["ID_GEI"]+'">';
+                            check = check +         '<label class="custom-control-label" for="G' + data[i]["ID_GEI"] + '">' + data[i]["DESCRIPCION"] + '</label>';
+                            check = check +     '</div>';
+                            check = check + '</div>';
+                            $("#listaGEI").append(check);
+                    }
+                }
+            }
+        }
+    });
+}
+
+function fn_ListarENERG() {
+    var Item = {};
+    $.ajax({
+        url: baseUrl + "Administrado/Gestion/ListarENERG",
+        type: 'POST',
+        datatype: 'json',
+        data: Item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    for (var i = 0; i < data.length; i++) {
+                        var check = '<div class="form-group">';
+                        check = check + '<div class="custom-control custom-checkbox">';
+                        check = check + '    <div class="custom-control custom-checkbox">';
+                        check = check + '<input class="custom-control-input" type="checkbox" id="E' + data[i]["ID_ENERG"] + '">';
+                        check = check + '<label class="custom-control-label" for="E' + data[i]["ID_ENERG"] + '">' + data[i]["DESCRIPCION"] + '</label>';
+                        check = check + '</div>';
+                        check = check + '</div>';
+                        $("#listaENERG").append(check);
+                    }
+                }
+            }
+        }
+    });
 }
 
 function fn_RegistrarIniciativaMitigacion() {

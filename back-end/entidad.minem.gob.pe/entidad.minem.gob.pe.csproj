@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseBE.cs" />
+    <Compile Include="EnergeticoBE.cs" />
+    <Compile Include="GasEfectoInvernaderoBE.cs" />
     <Compile Include="IniciativaBE.cs" />
     <Compile Include="InstitucionBE.cs" />
     <Compile Include="MedidaMitigacionBE.cs" />

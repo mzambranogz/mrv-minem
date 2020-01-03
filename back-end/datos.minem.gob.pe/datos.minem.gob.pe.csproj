@@ -51,6 +51,8 @@
   <ItemGroup>
     <Compile Include="BaseDA.cs" />
     <Compile Include="DataBaseHelpers\OracleHelper.cs" />
+    <Compile Include="EnergeticoDA.cs" />
+    <Compile Include="GasEfectoInvernaderoDA.cs" />
     <Compile Include="IniciativaDA.cs" />
     <Compile Include="InstitucionDA.cs" />
     <Compile Include="MedidaMitigacionDA.cs" />

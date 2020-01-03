@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EnergeticoLN.cs" />
+    <Compile Include="GasEfectoInvernaderoLN.cs" />
     <Compile Include="IniciativaLN.cs" />
     <Compile Include="InstitucionLN.cs" />
     <Compile Include="MedidaMitigacionLN.cs" />
