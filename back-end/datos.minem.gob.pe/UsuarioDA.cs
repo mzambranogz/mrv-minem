@@ -26,7 +26,7 @@ namespace datos.minem.gob.pe
                 {
                     string sp = sPackage + "USP_INS_USUARIO";
                     var p = new OracleDynamicParameters();
-                    p.Add("pNOMBRES_USUARIO", entidad.NOMBRES_USUARIO); 
+                    p.Add("pNOMBRES_USUARIO", entidad.NOMBRES_USUARIO);
                     p.Add("pAPELLIDOS_USUARIO", entidad.APELLIDOS_USUARIO);
                     p.Add("pID_INSTITUCION", entidad.ID_INSTITUCION);
                     p.Add("pPASSWORD_USUARIO", entidad.PASSWORD_USUARIO);
@@ -98,7 +98,7 @@ namespace datos.minem.gob.pe
             catch (Exception ex)
             {
                 Log.Error(ex);
-            }            
+            }
 
             return Lista;
         }

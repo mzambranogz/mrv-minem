@@ -4,6 +4,7 @@
     fn_ObtenerInformacionUsuario();
     fn_ListarGEI();
     fn_ListarENERG();
+    fn_ListarUbicacion();
     //alert($("#Control").data("usuario"));
 });
 
@@ -24,7 +25,7 @@ function fn_ObtenerMedidaMitigacion() {
                 if (data != null && data != "") {
                     if (data.length > 0) {
                         for (var i = 0; i < data.length; i++) {
-                            $("#regCategoria").val(data[i]["IPSC_MEDMIT"]);                            
+                            $("#regCategoria").val(data[i]["IPSC_MEDMIT"]);
                             $("#regObjetivo").val(data[i]["OBJETIVO_MEDMIT"]);
                             $("#regDescripcion").val(data[i]["DESCRIPCION_MEDMIT"]);
                             $("#regCategoria").prop("disabled", true);
@@ -89,14 +90,15 @@ function fn_ListarGEI() {
                 if (data.length > 0) {
                     for (var i = 0; i < data.length; i++) {
                         var check = '<div class="form-group">';
-                            check = check + '<div class="custom-control custom-checkbox">';
-                            check = check + '    <div class="custom-control custom-checkbox">';
-                            check = check +         '<input class="custom-control-input" type="checkbox" id="G'+data[i]["ID_GEI"]+'">';
-                            check = check +         '<label class="custom-control-label" for="G' + data[i]["ID_GEI"] + '">' + data[i]["DESCRIPCION"] + '</label>';
-                            check = check +     '</div>';
-                            check = check + '</div>';
-                            $("#listaGEI").append(check);
+                        check = check + '<div class="custom-control custom-checkbox">';
+                        check = check + '    <div class="custom-control custom-checkbox">';
+                        check = check + '<input class="custom-control-input" type="checkbox" id="G' + (i + 1) + '" data-value="' + data[i]["ID_GEI"] + '" >';
+                        check = check + '<label class="custom-control-label" for="G' + (i + 1) + '">' + data[i]["DESCRIPCION"] + '</label>';
+                        check = check + '</div>';
+                        check = check + '</div>';
+                        $("#listaGEI").append(check);
                     }
+                    $("#listaGEI").data("cantidad", data.length);
                 }
             }
         }
@@ -117,12 +119,40 @@ function fn_ListarENERG() {
                         var check = '<div class="form-group">';
                         check = check + '<div class="custom-control custom-checkbox">';
                         check = check + '    <div class="custom-control custom-checkbox">';
-                        check = check + '<input class="custom-control-input" type="checkbox" id="E' + data[i]["ID_ENERG"] + '">';
-                        check = check + '<label class="custom-control-label" for="E' + data[i]["ID_ENERG"] + '">' + data[i]["DESCRIPCION"] + '</label>';
+                        check = check + '<input class="custom-control-input" type="checkbox" id="E' + (i + 1) + '" data-value="' + data[i]["ID_ENERG"] + '" >';
+                        check = check + '<label class="custom-control-label" for="E' + (i + 1) + '">' + data[i]["DESCRIPCION"] + '</label>';
                         check = check + '</div>';
                         check = check + '</div>';
                         $("#listaENERG").append(check);
                     }
+                    $("#listaENERG").data("cantidad", data.length);
+                }
+            }
+        }
+    });
+}
+
+function fn_ListarUbicacion() {
+    var Item = {};
+    $.ajax({
+        url: baseUrl + "Administrado/Gestion/ListarUbicacion",
+        type: 'POST',
+        datatype: 'json',
+        data: Item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    for (var i = 0; i < data.length; i++) {
+                        var check = '<div class="form-group">';
+                        check = check + '<div class="custom-control custom-checkbox">';
+                        check = check + '    <div class="custom-control custom-checkbox">';
+                        check = check + '<input class="custom-control-input" type="checkbox" id="U' + (i + 1) + '" data-value="' + data[i]["ID_UBICACION"] + '" >';
+                        check = check + '<label class="custom-control-label" for="U' + (i + 1) + '">' + data[i]["DESCRIPCION"] + '</label>';
+                        check = check + '</div>';
+                        check = check + '</div>';
+                        $("#listaUBICACION").append(check);
+                    }
+                    $("#listaUBICACION").data("cantidad", data.length);
                 }
             }
         }
@@ -136,7 +166,37 @@ function fn_RegistrarIniciativaMitigacion() {
     if (terminos) {
         privacidad = '1'; //0 - PRIVADO : 1 - PUBLICO
     }
-    alert(privacidad);
+
+    var energetico = "";
+    for (var i = 0; i < $("#listaENERG").data("cantidad") ; i++) {
+        if ($('#E' + (i + 1)).prop('checked')) {
+            //alert($('#E'+(i+1)).data("value"));
+            energetico = energetico + $('#E' + (i + 1)).data("value") + "," + "1/";
+        }
+        //else {
+        //  energetico = energetico + $('#E' + (i + 1)).data("value") + "," + "0/";
+        //}
+    }
+    energetico = energetico.substring(0, energetico.length - 1);
+
+    var gei = "";
+    for (var i = 0; i < $("#listaGEI").data("cantidad") ; i++) {
+        if ($('#G' + (i + 1)).prop('checked')) {
+            gei = gei + $('#G' + (i + 1)).data("value") + "," + "1/";
+        }
+    }
+    gei = gei.substring(0, gei.length - 1);
+    //alert(gei);
+
+    var ubicacion = "";
+    for (var i = 0; i < $("#listaUBICACION").data("cantidad") ; i++) {
+        if ($('#U' + (i + 1)).prop('checked')) {
+            ubicacion = ubicacion + $('#U' + (i + 1)).data("value") + "," + "1/";
+        }
+    }
+    ubicacion = ubicacion.substring(0, ubicacion.length - 1);
+    //alert(ubicacion);
+
     var item = {
         ID_MEDMIT: $("#regMitigacion").val(),
         ID_USUARIO: $("#Control").data("usuario"),
@@ -145,7 +205,10 @@ function fn_RegistrarIniciativaMitigacion() {
         PRIVACIDAD_INICIATIVA: privacidad,
         INVERSION_INICIATIVA: $("#regMontoInversion").val(),
         ID_MONEDA: $("#regMoneda").val(),
-        FECHA_IMPLE_INICIATIVA: $("#regFechaImplementacion").val()
+        FECHA_IMPLE_INICIATIVA: $("#regFechaImplementacion").val(),
+        ENERGETICO: energetico,
+        GEI: gei,
+        UBICACION: ubicacion
     };
     var mensaje = "";
     var respuesta = MRV.Ajax(url, item, false);

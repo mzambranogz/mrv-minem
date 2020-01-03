@@ -62,6 +62,14 @@ namespace MRVMinem.Areas.Administrado.Controllers
             return jsonResult;
         }
 
+        public JsonResult ListarUbicacion(UbicacionBE entidad)
+        {
+            List<UbicacionBE> lista = UbicacionLN.ListarUbicacion(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
         public JsonResult ObtenerMedidaMitigacion(MedidaMitigacionBE entidad)
         {
             List<MedidaMitigacionBE> lista = MedidaMitigacionLN.ObtenerMedidaMitigacion(entidad);
