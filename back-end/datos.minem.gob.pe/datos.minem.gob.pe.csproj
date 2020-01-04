@@ -60,6 +60,9 @@
     <Compile Include="OracleDynamicParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SectorInstitucionDA.cs" />
+    <Compile Include="TipoCombustibleDA.cs" />
+    <Compile Include="TipoFuenteDA.cs" />
+    <Compile Include="TipoVehiculoDA.cs" />
     <Compile Include="UbicacionDA.cs" />
     <Compile Include="UsuarioDA.cs" />
   </ItemGroup>

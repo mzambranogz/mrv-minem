@@ -22,6 +22,11 @@ namespace MRVMinem.Areas.Administrado.Controllers
             return View();
         }
 
+        public ActionResult DetalleIndicador()
+        {
+            return View();
+        }
+
         public JsonResult ListaIniciativas(IniciativaBE entidad)
         {
             List<IniciativaBE> lista = IniciativaLN.ListaIniciativa(entidad);
@@ -65,6 +70,30 @@ namespace MRVMinem.Areas.Administrado.Controllers
         public JsonResult ListarUbicacion(UbicacionBE entidad)
         {
             List<UbicacionBE> lista = UbicacionLN.ListarUbicacion(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListarTipoVehiculo(TipoVehiculoBE entidad)
+        {
+            List<TipoVehiculoBE> lista = TipoVehiculoLN.ListarTipoVehiculo(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListarTipoCombustible(TipoCombustibleBE entidad)
+        {
+            List<TipoCombustibleBE> lista = TipoCombustibleLN.ListarTipoCombustible(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListarTipoFuente(TipoFuenteBE entidad)
+        {
+            List<TipoFuenteBE> lista = TipoFuenteLN.ListarTipoFuente(entidad);
             var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
