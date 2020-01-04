@@ -17,6 +17,29 @@ namespace datos.minem.gob.pe
     {
         private string sPackage = "USERMRV.PKG_MRV_ADMIN_SISTEMA.";
 
+        public int VerificarEmail(UsuarioBE entidad)
+        {
+            int cod = 0;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_VERIFICAR_EMAIL";
+                    var parametros = new OracleParameter[2];
+                    parametros[0] = new OracleParameter("pEMAIL_USUARIO", entidad.EMAIL_USUARIO);
+                    parametros[1] = new OracleParameter("pVerificar", OracleDbType.Int32, ParameterDirection.Output);
+                    OracleHelper.ExecuteNonQuery(CadenaConexion, CommandType.StoredProcedure, sp, parametros);
+                    cod = int.Parse(parametros[1].Value.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return cod;
+        }
+
         public UsuarioBE RegistraUsuario(UsuarioBE entidad)
         {
 
@@ -32,6 +55,7 @@ namespace datos.minem.gob.pe
                     p.Add("pPASSWORD_USUARIO", entidad.PASSWORD_USUARIO);
                     p.Add("pEMAIL_USUARIO", entidad.EMAIL_USUARIO);
                     p.Add("pTELEFONO_USUARIO", entidad.TELEFONO_USUARIO);
+                    p.Add("pANEXO_USUARIO", entidad.ANEXO_USUARIO);
                     p.Add("pCELULAR_USUARIO", entidad.CELULAR_USUARIO);
                     p.Add("pFLG_TERMINOS", entidad.TERMINOS);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);

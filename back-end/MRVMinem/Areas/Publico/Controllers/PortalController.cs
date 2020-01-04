@@ -40,7 +40,22 @@ namespace MRVMinem.Areas.Publico.Controllers
             return jsonResult;
         }
 
-        [HttpPost]
+        public JsonResult VerificarEmail(UsuarioBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = UsuarioLN.VerificarEmail(entidad);
+            if (!entidad.OK)
+            {
+                itemRespuesta.success = false;
+            }
+            else
+            {
+                itemRespuesta.success = true;
+            }
+            return Respuesta(itemRespuesta);
+        }
+
         public JsonResult RegistrarUsuario(UsuarioBE entidad)
         {
             ResponseEntity itemRespuesta = new ResponseEntity();

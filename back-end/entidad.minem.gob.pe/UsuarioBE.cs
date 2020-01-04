@@ -14,6 +14,7 @@ namespace entidad.minem.gob.pe
         public String APELLIDOS_USUARIO{ get; set; }
         public string PASSWORD_USUARIO { get; set; }
         public string TELEFONO_USUARIO { get; set; }
+        public string ANEXO_USUARIO { get; set; }
         public string CELULAR_USUARIO { get; set; }
         public int ID_SECTOR_INST { get; set; }
         public int ID_INSTITUCION { get; set; }

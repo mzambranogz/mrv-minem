@@ -44,12 +44,16 @@ $("#UsuGrabar").click(function (e) {
         mensajes = mensajes + "<small>Ingrese un correo electrónico válido </small><br>";
     }
 
+    if ($("#UsuSector").val() == 0) {
+        mensajes = mensajes + "<small>Debe seleccionar un Sector </small><br>";
+    }
+
     if (!(terminos)){
         mensajes = mensajes + "<small>Debe aceptar los términos y condiciones </small><br>";
     }
 
     if (mensajes == "") {
-        fn_GrabarUsuario();
+        fn_verificarEmail();
     } else {
         Swal.fire({
             icon: 'error',
@@ -68,6 +72,7 @@ function fn_GrabarUsuario() {
         PASSWORD_USUARIO: $("#UsuPassword").val(),
         TELEFONO_USUARIO: $("#UsuTelefono").val(),
         CELULAR_USUARIO: $("#UsuCelular").val(),
+        ANEXO_USUARIO: $("#UsuAnexo").val(),
         ID_SECTOR_INST: $("#UsuSector").val(),
         INSTITUCION: $("#UsuInstitucion").val(),
         RUC: $("#UsuRuc").val(),
@@ -93,4 +98,20 @@ function fn_GrabarUsuario() {
         })
     }
 
+}
+
+function fn_verificarEmail() {
+    item = {
+        EMAIL_USUARIO: $("#UsuEmail").val()
+    };
+    var url = baseUrl + "Publico/Portal/VerificarEmail";
+    var respuesta = MRV.Ajax(url, item, false);
+    if (respuesta.success) {
+        fn_GrabarUsuario();
+    } else {
+        Swal.fire({
+            icon: 'error',
+            html: '<small>El correo electrónico ingresado esta siendo usado.</small><br/><small>Pulse <a href="#">Aquí<a> si desea recuperar su contraseña</small>'
+        })
+    }
 }

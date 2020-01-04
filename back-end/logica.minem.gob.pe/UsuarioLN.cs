@@ -13,6 +13,18 @@ namespace logica.minem.gob.pe
     {
         private static UsuarioDA usuarioDA = new UsuarioDA();
 
+        public static UsuarioBE VerificarEmail(UsuarioBE entidad)
+        {
+            if (usuarioDA.VerificarEmail(entidad) == 0)
+            {
+                entidad.OK = true;
+            }
+            else
+            {
+                entidad.OK = false;
+            }
+            return entidad;
+        }
         public static UsuarioBE RegistraUsuario(UsuarioBE entidad)
         {
             entidad.PASSWORD_USUARIO = Seguridad.hashSal(entidad.PASSWORD_USUARIO);

@@ -12,7 +12,7 @@
         <div class="banner-03"></div>
     </div>
     <div class="flecha d-none" id="enlaceAspectos"><i class="fas fa-angle-double-right fa-2x text-white btn-slider-bottom"></i></div>
-    <div class="container">
+    <div class="container mb-5">
         <div class="row">
             <div class="col-md-2 d-flex flex-row justify-content-center align-items-center wrap-slider-left"><i class="fas fa-chevron-left fa-3x text-white btn-slider-left d-none"></i></div>
             <div class="col-md-8 col-sm-12 text-center">
@@ -61,8 +61,15 @@
                             <div class="form-group">
                                 <label for="txt-telefono">Teléfono</label>
                                 <div class="input-group">
-                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-phone-alt"></i></span></div>
-                                    <input class="form-control" type="text" id="UsuTelefono" placeholder="Ingrese su teléfono" aria-describedby="inputGroup4" required>
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup11"><i class="fas fa-phone-alt"></i></span></div>
+                                    <input class="form-control" type="text" id="UsuTelefono" placeholder="Ingrese su teléfono" aria-describedby="inputGroup11" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txt-telefono">Anexo</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup12"><i class="fas fa-phone-square-alt"></i></span></div>
+                                    <input class="form-control" type="text" id="UsuAnexo" placeholder="Ingrese su anexo" aria-describedby="inputGroup12" required>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -75,10 +82,10 @@
                         </div>
                         <div class="col-md-12 col-lg-6">
                             <div class="form-group">
-                                <label for="txt-entidad">Entidad</label>
+                                <label for="txt-institucion">Institución</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
-                                    <input class="form-control" type="text" id="UsuInstitucion" placeholder="Ingrese su entidad" aria-describedby="inputGroup6" required>
+                                    <input class="form-control" type="text" id="UsuInstitucion" placeholder="Ingrese su institución" aria-describedby="inputGroup6" required>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -100,7 +107,10 @@
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
                                     <select class="form-control" id="UsuSector" aria-describedby="inputGroup9" required>
-                                        <option>-Seleccione un sector-</option>
+                                        <option value="0">-Seleccione un sector-</option>
+                                        <!--<option>Sector 01</option>
+                                        <option>Sector 02</option>
+                                        <option>Sector 03</option>-->
                                     </select>
                                 </div>
                             </div>
@@ -124,6 +134,9 @@
                                     <label class="custom-control-label" for="UsuTerminos">Aceptar términos y condiciones de uso</label>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <div class="g-recaptcha" data-sitekey="6Ldqw8sUAAAAAM2nmHyMhCNd3HtkOJyWc8nsh7DR"></div>
+                            </div>
                             <button class="btn-lg btn-primary w-100" @*type="submit"*@ id="UsuGrabar"><i class="fas fa-paper-plane px-1"></i>Registrarse</button>
                             <p class="py-4 text-center">¿Ya tiene un cuenta?&nbsp;<a href="fn_Login();">Ingrese ahora <br></a><a href="./recuperar.html">¿Olvidó su contraseña?</a></p>
                         </div>
@@ -146,87 +159,3 @@
         </div>
     </div>
 </div>
-
-<!--<h2>Registrar Usuario</h2>
-<script type="text/javascript" src="~/Scripts/js/Usuario.js"></script>
-
-<div class="row p-4 pt-5 mt-3">
-
-    <div class="col-6">
-
-        <div class="row">
-            <div class="col-12">
-                <label>Email</label>
-                <input class="form-control" type="text" id="UsuEmail" />
-            </div>
-
-            <div class="col-12">
-                <label>Nombre</label>
-                <input class="form-control" type="text" id="UsuNombre" />
-            </div>
-
-            <div class="col-12">
-                <label>Apellido</label>
-                <input class="form-control" type="text" id="UsuApellido" />
-            </div>
-
-            <div class="col-12">
-                <label>Entidad</label>
-                <input class="form-control" type="text" id="UsuInstitucion" />
-            </div>
-
-            <div class="col-12">
-                <label>Ruc</label>
-                <input class="form-control" type="text" id="UsuRuc" />
-            </div>
-
-            <div class="col-12">
-                <label>Direccion</label>
-                <input class="form-control" type="text" id="UsuDireccion" />
-            </div>
-
-            <div class="col-12">
-                <label>Sector</label>
-                <select class="form-control" name="UsuSector" id="UsuSector"></select>
-            </div>
-
-            <div class="col-12">
-                <label>Contraseña</label>
-                <input class="form-control" type="password" id="UsuPassword" />
-            </div>
-
-            <div class="col-12">
-                <label>Confirmar Contraseña</label>
-                <input class="form-control" type="password" id="ConUsuPassword" />
-            </div>
-
-        </div>
-
-
-    </div>
-
-    <div class="col-6">
-
-        <div class="row">
-
-            <div class="col-12">
-                <label>Telefono</label>
-                <input class="form-control" type="text" id="UsuTelefono" />
-            </div>
-
-            <div class="col-12">
-                <label>Celular</label>
-                <input class="form-control" type="text" id="UsuCelular" />
-            </div>
-        </div>
-
-
-
-    </div>
-
-</div>
-
-<div class="row p-4">
-    <button class="btn btn-primary" id="UsuGrabar">Grabar</button>
-</div>-->
-
