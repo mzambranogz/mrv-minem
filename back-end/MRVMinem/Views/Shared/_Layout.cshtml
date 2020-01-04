@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Plataforma MRV del Sector Energía | Inicio</title>
-    <meta name="description" content="Plataforma MRV del Sector Energía">
+    <title>MRV Plataforma del Sector Energía | Inicio</title>
+    <meta name="description" content="MRV Plataforma del Sector Energía">
     <link rel="apple-touch-icon" sizes="180x180" href="~/assets/images/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="~/assets/images/favicon/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="~/assets/images/favicon/favicon-16x16.png" sizes="16x16">
@@ -15,11 +15,7 @@
     <meta name="msapplication-config" content="~/assets/images/favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-    <!--<link rel="stylesheet" href="./assets/css/bootstrap.min.css">-->
-    <!--<link rel="stylesheet" href="./assets/css/animate.min.css" />-->
     <link rel="stylesheet" href="./assets/css/style.css">
-    <!--<script src="~/assets/js/font-awesome.js"></script>-->
 </head>
 <body>
     <div class="container-fluid menu-nav bg-sutil fixed-top" id="cabecera">
@@ -29,7 +25,7 @@
                     <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1" href="#" target="_blan"><img src="./assets/images/logo-minem.jpg" height="40"></a></li>
                     <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1" href="#" target="_blan"><img src="./assets/images/logo_gef.svg" height="45"></a></li>
                     <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1 pr-0" href="#" target="_blan"><img src="./assets/images/logo_pnud.svg" height="51"></a></li>
-                </ul><a class="navbar-brand animated fadeIn mx-0" href="#"><img src="./assets/images/logo_mrv_new_negro.svg" height="36"></a>
+                </ul><a class="navbar-brand ml-md-auto animated fadeIn mx-0" href="#"><img src="./assets/images/logo_mrv_new_negro.svg" height="36"></a>
             </header>
         </div>
         <div class="container menu-sub">
@@ -37,12 +33,12 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item"><a class="nav-link nav-active text-dark font-weight-bold px-2" href="#"><i class="fas fa-house-damage px-1"></i></a></li>
-                        <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="javascript:void(0)" onclick="fn_accionesMitigacion();"><i class="fas fa-solar-panel px-1"></i>Acciones de Mitigación</a></li>
-                        <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="javascript:void(0)" onclick="fn_registroIniciativaMitigacion();"><i class="fas fa-file-invoice px-1"></i>Reportes</a></li>
-                        <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="javascript:void(0)" onclick="fn_detalleIndicador();"><i class="fas fa-chart-pie px-1"></i>Acciones y Resultados</a></li>
+                        <li class="nav-item"><a class="nav-link nav-active text-dark font-weight-bold px-2" href="./index.html"><i class="fas fa-house-damage"></i><span class="d-none d-xs-block d-sm-block d-lg-none pl-1 mostrar-inicio">Inicio</span></a></li>
+                        <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="javascript:void(0)" onclick="fn_accionesMitigacion();"><i class="fas fa-solar-panel pr-1"></i>Acciones de Mitigación</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="javascript:void(0)" onclick="fn_registroIniciativaMitigacion();"><i class="fas fa-file-invoice pr-1"></i>Reportes</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="javascript:void(0)" onclick="fn_detalleIndicador();"><i class="fas fa-chart-pie pr-1"></i>Acciones y Resultados</a></li>
                         <!-- </ul><a class="btn btn-primary font-weight-bold btn-md px-2" href="#" role="button" ><i class="fas fa-sign-in-alt px-1"></i>Ingresar</a> -->
-                    </ul><a class="btn btn-primary font-weight-bold btn-md px-2" role="button" href="javascript:void(0)" onclick="fn_Login();"><i class="fas fa-sign-in-alt px-1"></i>Ingresar</a><a class="btn btn-success font-weight-bold btn-md px-2" href="javascript:void(0)" onclick="fn_registrarUsuario();" role="button"><i class="fas fa-paper-plane px-1"></i>Registrarse</a>
+                    </ul><a class="btn btn-primary font-weight-bold btn-md px-2 mr-2" role="button" href="javascript:void(0)" onclick="fn_Login();"><i class="fas fa-sign-in-alt pr-1"></i>Ingresar</a><a class="btn btn-success font-weight-bold btn-md px-2" href="javascript:void(0)" onclick="fn_registrarUsuario();" role="button"><i class="fas fa-paper-plane pr-1"></i>Registrarse</a>
                     <!--a.btn.btn-white.btn-md(href="#", role="button")
                     i.ico-logout.mr-1
                     | Registrarse
@@ -57,12 +53,12 @@
             @RenderBody()
         </div>
     </div>
-    <div class="container-fluid foot d-flex flex-row justify-content-center align-items-center">
+    <div class="container-fluid foot d-flex flex-row justify-content-center align-items-center" id="pie">
         <footer class="container">
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-12 col-md-6">
                     <div class="row">
-                        <div class="col-sm-6 text-white">
+                        <div class="col-sm-12 col-md-6 text-white">
                             <div class="lead font-weight-bold">Enlaces</div>
                             <ul class="list-unstyled">
                                 <li class="py-1"><a class="text-white" href="#" target="_blank"><i class="fas fa-landmark mr-2"></i>MINEM</a></li>
@@ -70,7 +66,7 @@
                                 <li class="py-1"><a class="text-white" href="#" target="_blank"><i class="fas fa-sitemap mr-2"></i>Mapa del Sitio</a></li>
                             </ul>
                         </div>
-                        <div class="col-sm-6 text-white">
+                        <div class="col-sm-12 col-md-6 text-white">
                             <div class="lead font-weight-bold">Más información</div>
                             <ul class="list-unstyled">
                                 <li class="py-1"><a class="text-white" href="http://google.com" target="_blank"><i class="fas fa-file-pdf mr-2"></i>Manual de Usuario</a></li>
@@ -83,13 +79,13 @@
                             <ul class="list-unstyled mr-0">
                                 <li class="py-1"><i class="fas fa-phone-alt mr-2"></i>Teléfono: (+511) 411-1100</li>
                                 <li class="py-1"><i class="far fa-envelope mr-2"></i>webmaster@minem.gob.pe</li>
-                                <li class="py-1"><i class="fas fa-map-marker-alt mr-2"></i>Dirección General de Eficiencia Energética</li>
+                                <li class="py-1"><i class="fas fa-university mr-2"></i>Dirección General de Eficiencia Energética</li>
                                 <li class="py-1"><i class="fas fa-map-marker-alt mr-2"></i>Av. Las Artes Sur 260. San Borja. Lima. Perú</li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-12 col-md-6">
                     <div class="navbar flex-md-row justify-content-start"><a class="nav-link p-1" href="#" target="_blank"><img src="./assets/images/logo-minem-blanco.png" height="70"></a><a class="nav-link p-1" href="#" target="_blank"><img src="./assets/images/logo-gef-blanco.png" height="90"></a><a class="nav-link p-1 pr-0" href="#" target="_blank"><img src="./assets/images/logo-pnud-blanco.png" height="160"></a></div>
                     <div class="navbar flex-md-row justify-content-start"><a class="nav-link p-1" href="#" target="_blank"><img src="./assets/images/logo-nama-blanco.png" height="50"></a></div>
                 </div>

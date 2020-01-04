@@ -2,11 +2,17 @@
     ViewBag.Title = "Página de Inicio";
 }
 
-<div class="container-fluid banner d-flex flex-row justify-content-center align-items-center">
+<div class="container-fluid banner d-flex flex-row justify-content-center align-items-center" id="carousel">
     <div class="banners">
         <div class="banner-01 banner-mostrado"></div>
         <div class="banner-02"></div>
         <div class="banner-03"></div>
+        <div class="banner-04"></div>
+        <div class="banner-05"></div>
+        <div class="banner-06"></div>
+        <div class="banner-07"></div>
+        <div class="banner-08"></div>
+        <div class="banner-09"></div>
     </div>
     <div class="flecha animated bounce infinite" id="enlaceAspectos"><i class="fas fa-angle-double-right fa-2x text-white btn-slider-bottom"></i></div>
     <div class="container">
@@ -23,7 +29,7 @@
         </div>
     </div>
 </div>
-<div class="container-fluid text-center cintillo-01 medidas">
+<div class="container-fluid text-center cintillo-01 medidas" id="impacto-climatico">
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 text-left pb-5">
@@ -33,8 +39,8 @@
         </div>
     </div>
 </div>
-<div class="container-fluid text-center cintillo-01" id="anclaAspectos">
-    <h2 class="text-white my-0 pt-5 pb-2 wow zoomIn">——————— ASPECTOS GENERALES ———————</h2>
+<div class="container-fluid text-center cintillo-01" id="aspectos-generales">
+    <h2 class="titulo-lineas text-white my-0 pt-5 pb-2 wow zoomIn"><span class="bg-white"></span>ASPECTOS GENERALES<span class="bg-white"></span></h2>
     <p class="text-white p-0 m-0 wow zoomIn">
         Conoce más información sobre los aspectos involucrados en la implementación <br>
         de iniciativas de mitigación a través de nuestra Plataforma MRV.
@@ -42,8 +48,8 @@
 </div>
 <div class="container-fluid bg-nama-azul" id="accordion">
     <div class="row">
-        <div class="col-sm-12 col-md-8 offset-md-2 py-5">
-            <div class="container-fluid py-0">
+        <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2 py-5">
+            <!--<div class="container-fluid py-0">
                 <div class="container">
                     <h3 class="lead mb-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-01" aria-expanded="false" aria-controls="aspecto-01"><i class="fas fa-check-square"></i>¿Que es el&nbsp;<strong>cambio climático</strong>?</h3>
                     <div class="collapse" id="aspecto-01">
@@ -57,10 +63,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
             <div class="container-fluid py-0">
                 <div class="container">
-                    <h3 class="lead my-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-02" aria-expanded="false" aria-controls="aspecto-02"><i class="fas fa-check-square"></i>¿Que es la&nbsp;<strong>mitigación&nbsp;</strong>del cambio climático?</h3>
+                    <h3 class="lead my-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-02" aria-expanded="false" aria-controls="aspecto-02"><i class="fas fa-check-square"></i><span>¿Que es la&nbsp;<strong>mitigación&nbsp;</strong>del cambio climático?</span></h3>
                     <div class="collapse" id="aspecto-02">
                         <div class="card card-body">
                             <div class="row">
@@ -74,7 +80,7 @@
             </div>
             <div class="container-fluid py-0">
                 <div class="container">
-                    <h3 class="lead my-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-03" aria-expanded="false" aria-controls="aspecto-03"><i class="fas fa-check-square"></i>¿De dónde provienen las&nbsp;<strong>emisiones de GEI&nbsp;</strong>en el país?</h3>
+                    <h3 class="lead my-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-03" aria-expanded="false" aria-controls="aspecto-03"><i class="fas fa-check-square"></i><span>¿De dónde provienen las&nbsp;<strong>emisiones de GEI&nbsp;</strong>en el país?</span></h3>
                     <div class="collapse" id="aspecto-03">
                         <div class="card card-body">
                             <div class="row">
@@ -89,7 +95,7 @@
             </div>
             <div class="container-fluid py-0">
                 <div class="container">
-                    <h3 class="lead my-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-04" aria-expanded="false" aria-controls="aspecto-04"><i class="fas fa-check-square"></i>¿Cuáles son los&nbsp;<strong>compromisos del Perú&nbsp;</strong>en la&nbsp;<strong>gestión&nbsp;</strong>del cambio climático?</h3>
+                    <h3 class="lead my-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-04" aria-expanded="false" aria-controls="aspecto-04"><i class="fas fa-check-square"></i><span>¿Cuáles son los&nbsp;<strong>compromisos del Perú&nbsp;</strong>en la&nbsp;<strong>gestión&nbsp;</strong>del cambio climático?</span></h3>
                     <div class="collapse" id="aspecto-04">
                         <div class="card card-body">
                             <div class="row">
@@ -104,7 +110,7 @@
             </div>
             <div class="container-fluid py-0">
                 <div class="container">
-                    <h3 class="lead my-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-05" aria-expanded="false" aria-controls="aspecto-05"><i class="fas fa-check-square"></i>¿Cuáles son los esfuerzos del&nbsp;<strong>sector energía&nbsp;</strong>para&nbsp;<strong>mitigar&nbsp;</strong>el cambio climático?</h3>
+                    <h3 class="lead my-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-05" aria-expanded="false" aria-controls="aspecto-05"><i class="fas fa-check-square"></i><span>¿Cuáles son los esfuerzos del&nbsp;<strong>sector energía&nbsp;</strong>para&nbsp;<strong>mitigar&nbsp;</strong>el cambio climático?</span></h3>
                     <div class="collapse" id="aspecto-05">
                         <div class="card card-body">
                             <div class="row">
@@ -141,7 +147,7 @@
             </div>
             <div class="container-fluid py-0">
                 <div class="container">
-                    <h3 class="lead my-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-06" aria-expanded="false" aria-controls="aspecto-06"><i class="fas fa-check-square"></i>¿Qué&nbsp;<strong>proyecto para mitigar&nbsp;</strong>el cambio climático ejecuta el&nbsp;<strong>sector energía</strong>?</h3>
+                    <h3 class="lead my-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-06" aria-expanded="false" aria-controls="aspecto-06"><i class="fas fa-check-square"></i><span>¿Qué&nbsp;<strong>proyecto para mitigar&nbsp;</strong>el cambio climático ejecuta el&nbsp;<strong>sector energía</strong>?</span></h3>
                     <div class="collapse" id="aspecto-06">
                         <div class="card card-body">
                             <div class="row">
@@ -156,7 +162,7 @@
             </div>
             <div class="container-fluid py-0">
                 <div class="container">
-                    <h3 class="lead my-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-07" aria-expanded="false" aria-controls="aspecto-07"><i class="fas fa-check-square"></i>¿Qué significa&nbsp;<strong>Medición, Reporte&nbsp;</strong>y&nbsp;<strong>Verificación&nbsp;</strong>(<strong>MRV</strong>) ?</h3>
+                    <h3 class="lead my-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-07" aria-expanded="false" aria-controls="aspecto-07"><i class="fas fa-check-square"></i><span>¿Qué significa&nbsp;<strong>Medición, Reporte&nbsp;</strong>y&nbsp;<strong>Verificación&nbsp;</strong>(<strong>MRV</strong>) ?</span></h3>
                     <div class="collapse" id="aspecto-07">
                         <div class="card card-body">
                             <div class="row">
@@ -170,7 +176,7 @@
             </div>
             <div class="container-fluid py-0">
                 <div class="container">
-                    <h3 class="lead my-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-08" aria-expanded="false" aria-controls="aspecto-08"><i class="fas fa-check-square"></i>¿Por qué es&nbsp;<strong>importante&nbsp;</strong>un&nbsp;<strong>sistema MRV</strong>?</h3>
+                    <h3 class="lead my-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-08" aria-expanded="false" aria-controls="aspecto-08"><i class="fas fa-check-square"></i><span>¿Por qué es&nbsp;<strong>importante&nbsp;</strong>un&nbsp;<strong>sistema MRV</strong>?</span></h3>
                     <div class="collapse" id="aspecto-08">
                         <div class="card card-body">
                             <div class="row">
@@ -184,7 +190,7 @@
             </div>
             <div class="container-fluid py-0">
                 <div class="container">
-                    <h3 class="lead my-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-09" aria-expanded="false" aria-controls="aspecto-09"><i class="fas fa-check-square"></i>¿Cómo puedo ser parte de la&nbsp;<strong>solución</strong>?</h3>
+                    <h3 class="lead my-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-09" aria-expanded="false" aria-controls="aspecto-09"><i class="fas fa-check-square"></i><span>¿Cómo puedo ser parte de la&nbsp;<strong>solución</strong>?</span></h3>
                     <div class="collapse" id="aspecto-09">
                         <div class="card card-body">
                             <div class="row">
@@ -199,55 +205,177 @@
         </div>
     </div>
 </div>
-<div class="container-fluid text-center">
+<!--<div class="container-fluid text-center">
     <h2 class="my-0 pt-5 pb-2 wow zoomIn">——————— ACCIONES DE MITIGACIÓN ———————</h2>
     <p class="p-0 pb-5 m-0 wow zoomIn">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem impedit, ut facere maxime <br>
         exercitationem dolore. Ipsa tenetur, corporis temporibus, nihil veritatis magni a.
     </p>
+</div>-->
+<div class="container-fluid text-center" id="acciones-mitigacion">
+    <h2 class="titulo-lineas text-dark my-0 pt-5 pb-2 wow zoomIn"><span class="bg-dark"></span>MEDIDAS DE MITIGACIÓN<span class="bg-dark"></span></h2>
+    <p class="p-0 pb-5 m-0 wow zoomIn">Son todas aquellas medidas a las que se les estará cuantificando su impacto en el marco de las NDC.</p>
 </div>
-<div class="container-fluid" id="acciones-mitigacion">
-    <div class="container pb-5">
-        <div class="row">
-            <div class="col-sm-2">
-                <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".4s"><img class="img-thumbnail border-0" src="./assets/images/ico_nama_amarillo_01.svg"><small class="d-block text-center font-weight-bold">Transformación del mercado de iluminación del sector residencial</small></div>
-            </div>
-            <div class="col-sm-2">
-                <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".5s"><img class="img-thumbnail border-0" src="./assets/images/ico_nama_amarillo_02.svg"><small class="d-block text-center font-weight-bold">Reemplazo de lámparas de alumbrado público por lámparas LED</small></div>
-            </div>
-            <div class="col-sm-2">
-                <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".6s"><img class="img-thumbnail border-0" src="./assets/images/ico_nama_amarillo_03.svg"><small class="d-block text-center font-weight-bold">Etiquetado de eficiencia energética</small></div>
-            </div>
-            <div class="col-sm-2">
-                <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".7s"><img class="img-thumbnail border-0" src="./assets/images/ico_nama_amarillo_04.svg"><small class="d-block text-center font-weight-bold">Auditorías energéticas sector público</small></div>
-            </div>
-            <div class="col-sm-2">
-                <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".8s"><img class="img-thumbnail border-0" src="./assets/images/ico_nama_amarillo_05.svg"><small class="d-block text-center font-weight-bold">Reemplazo de lámparas por lámparas LED en el sector público</small></div>
-            </div>
-            <div class="col-sm-2">
-                <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".9s"><img class="img-thumbnail border-0" src="./assets/images/ico_nama_amarillo_06.svg"><small class="d-block text-center font-weight-bold">Eficiencia energética en el sector industrial</small></div>
+<div class="container-fluid" id="medidas-mitigacion">
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".4s">
+                                <img class="img-thumbnail border-0" src="./assets/images/ico_nama_amarillo_01.svg">
+                                <div class="nombre-medida bg-nama-amarilla">
+                                    <span class="h6">
+                                        Transformación del mercado de iluminación del sector residencial
+                                        <!--small.text-muted NAMA DE EFICIENCIA ENERGETICA-->
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".5s">
+                                <img class="img-thumbnail border-0" src="./assets/images/ico_nama_amarillo_02.svg">
+                                <div class="nombre-medida bg-nama-amarilla">
+                                    <span class="h6">
+                                        Reemplazo de lámparas de alumbrado público por lámparas LED
+                                        <!--small.text-muted NAMA DE EFICIENCIA ENERGETICA-->
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".6s">
+                                <img class="img-thumbnail border-0" src="./assets/images/ico_nama_amarillo_03.svg">
+                                <div class="nombre-medida bg-nama-amarilla">
+                                    <span class="h6">
+                                        Etiquetado de eficiencia energética
+                                        <!--small.text-muted NAMA DE EFICIENCIA ENERGETICA-->
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".7s">
+                                <img class="img-thumbnail border-0" src="./assets/images/ico_nama_amarillo_04.svg">
+                                <div class="nombre-medida bg-nama-amarilla">
+                                    <span class="h6">
+                                        Auditorías energéticas sector público
+                                        <!--small.text-muted NAMA DE EFICIENCIA ENERGETICA-->
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="container pb-5">
-        <div class="row">
-            <div class="col-sm-2">
-                <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".4s"><img class="img-thumbnail border-0" src="./assets/images/ico_nama_amarillo_07.svg"><small class="d-block text-center font-weight-bold">Reemplazo lámparas en el sector comercial</small></div>
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".4s">
+                                <img class="img-thumbnail border-0" src="./assets/images/ico_nama_amarillo_05.svg">
+                                <div class="nombre-medida bg-nama-amarilla">
+                                    <span class="h6">
+                                        Reemplazo de lámparas por lámparas LED en el sector público
+                                        <!--small.text-muted NAMA DE EFICIENCIA ENERGETICA-->
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".5s">
+                                <img class="img-thumbnail border-0" src="./assets/images/ico_nama_amarillo_06.svg">
+                                <div class="nombre-medida bg-nama-amarilla">
+                                    <span class="h6">
+                                        Eficiencia energética en el sector industrial
+                                        <!--small.text-muted NAMA DE EFICIENCIA ENERGETICA-->
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".6s">
+                                <img class="img-thumbnail border-0" src="./assets/images/ico_nama_amarillo_07.svg">
+                                <div class="nombre-medida bg-nama-amarilla">
+                                    <span class="h6">
+                                        Reemplazo lámparas en el sector comercial
+                                        <!--small.text-muted NAMA DE EFICIENCIA ENERGETICA-->
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".7s">
+                                <img class="img-thumbnail border-0" src="./assets/images/ico_nama_azul_01.svg">
+                                <div class="nombre-medida bg-nama-azul">
+                                    <span>
+                                        Promoción de vehículos eléctricos a nivel nacional
+                                        <!--small.text-muted NAMA DE TRANSPORTE TERRESTRE ELÉCTRICO-->
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-sm-2">
-                <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".5s"><img class="img-thumbnail border-0" src="./assets/images/ico_nama_azul_01.svg"><small class="d-block text-center font-weight-bold">Promoción de vehículos eléctricos a nivel nacional</small></div>
-            </div>
-            <div class="col-sm-2">
-                <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".6s"><img class="img-thumbnail border-0" src="./assets/images/ico_nama_rojo_01.svg"><small class="d-block text-center font-weight-bold">Suministro de electricidad con energía renovable en áreas no conectadas</small></div>
-            </div>
-            <div class="col-sm-2">
-                <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".7s"><img class="img-thumbnail border-0" src="./assets/images/ico_nama_rojo_02.svg"><small class="d-block text-center font-weight-bold">Cocción limpia</small></div>
-            </div>
-            <div class="col-sm-2">
-                <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".8s"><img class="img-thumbnail border-0" src="./assets/images/ico_nama_verde_01.svg"><small class="d-block text-center font-weight-bold">Combinación de energías renovables</small></div>
-            </div>
-            <div class="col-sm-2">
-                <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".9s"><img class="img-thumbnail border-0" src="./assets/images/ico_nama_verde_02.svg"><small class="d-block text-center font-weight-bold">Generación distribuida</small></div>
+        </div>
+    </div>
+    <div class="row mb-5">
+        <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".4s">
+                                <img class="img-thumbnail border-0" src="./assets/images/ico_nama_rojo_01.svg">
+                                <div class="nombre-medida bg-nama-roja">
+                                    <span>
+                                        Suministro de electricidad con energía renovable en áreas no conectadas
+                                        <!--small.text-muted NAMA DE ACCESO UNIVERSAL A LA ENERGIA SOSTENIBLE-->
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".5s">
+                                <img class="img-thumbnail border-0" src="./assets/images/ico_nama_rojo_02.svg">
+                                <div class="nombre-medida bg-nama-roja">
+                                    <span>
+                                        Cocción limpia
+                                        <!--small.text-muted NAMA DE ACCESO UNIVERSAL A LA ENERGIA SOSTENIBLE-->
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".6s">
+                                <img class="img-thumbnail border-0" src="./assets/images/ico_nama_verde_01.svg">
+                                <div class="nombre-medida bg-nama-verde">
+                                    <span>
+                                        Combinación de energías renovables
+                                        <!--small.text-muted NAMA DE RER CONECTADO-->
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".7s">
+                                <img class="img-thumbnail border-0" src="./assets/images/ico_nama_verde_02.svg">
+                                <div class="nombre-medida bg-nama-verde">
+                                    <span>
+                                        Generación distribuida
+                                        <!--small.text-muted NAMA DE RER CONECTADO-->
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
