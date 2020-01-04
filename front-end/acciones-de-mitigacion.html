@@ -48,7 +48,7 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Acciones de Mitigación</li>
+            <li class="breadcrumb-item active" aria-current="page">Iniciativas de Mitigación</li>
           </ol>
         </nav>
       </div>
@@ -57,12 +57,19 @@
       <div class="row m-0">
         <div class="col-12 cuerpo-interior">
           <div class="container py-4">
-            <div class="h4">Listado de Acciones de Mitigación&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Utilice la búsqueda para ubicar su acción de mitigación, <br>los resultados obtenidos pueden descargarse en un documento excel.</small></div>
+            <div class="row">
+              <div class="col-md-12 col-lg-6 pt-4">
+                <div class="h4">Listado de Iniciativas de Mitigación&nbsp;
+                  <!--i.fas.fa-question-circle.ayuda-tooltip(data-toggle="tooltip", data-placement="right", title="Texto de ayuda que describe el funcionamiento general del módulo [...]")--><br><small class="text-muted">Utilice la búsqueda para ubicar las iniciativa de mitigación de su interés, los resultados obtenidos pueden descargarse en un documento excel.</small>
+                </div>
+              </div>
+              <div class="col-md-12 col-lg-6 pt-4"></div>
+            </div>
             <div class="row">
               <div class="col-md-12 col-lg-6 pt-4">
                 <form>
                   <div class="form-group">
-                    <label for="txt-buscar">Buscar&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                    <label for="txt-buscar">Buscar&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese si conoce el nombre de la iniciativa o la(s) palabra(s) asociada(s) a las iniciativas de interés. En caso de no encontrar resultados acceda a la búsqueda avanzada."></i></label>
                     <div class="input-group">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-search"></i></span></div>
                       <input class="form-control" type="text" id="txt-buscar" placeholder="Ingrese la descripción de su búsqueda" aria-describedby="inputGroup1" required>
@@ -85,7 +92,7 @@
                                         <div class="row">
                                           <div class="col-sm-12">
                                             <div class="form-group">
-                                              <label for="cbo-medida-mitigacion">Medida de Mitigación&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                              <label for="cbo-medida-mitigacion">Medida de Mitigación&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione, de la lista desplegable, la medida de mitigación de interés"></i></label>
                                               <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup2"><i class="fas fa-tachometer-alt"></i></span></div>
                                                 <select class="form-control" id="cbo-medida-mitigacion" aria-describedby="inputGroup2">
@@ -98,48 +105,48 @@
                                             </div>
                                           </div>
                                         </div>
+                                        <!--.row
+                                        .col-sm-12
+                                          .form-group
+                                            label(for="txt-nombre-iniciativa") Nombre de la Iniciativa&nbsp;
+                                              i.fas.fa-question-circle.ayuda-tooltip(data-toggle="tooltip", data-placement="right", title="Texto de ayuda que describe el funcionamiento general del módulo [...]")
+                                            .input-group
+                                              .input-group-prepend
+                                                span.input-group-text#inputGroup3
+                                                  i.far.fa-comment-alt
+                                              input.form-control(type="text", id="txt-nombre-iniciativa", placeholder="Ingrese nombre de la iniciativa", aria-describedby="inputGroup3")
+                                        -->
                                         <div class="row">
                                           <div class="col-sm-12">
                                             <div class="form-group">
-                                              <label for="txt-nombre-iniciativa">Nombre de la Iniciativa&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
-                                              <div class="input-group">
-                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup3"><i class="far fa-comment-alt"></i></span></div>
-                                                <input class="form-control" type="text" id="txt-nombre-iniciativa" placeholder="Ingrese nombre de la iniciativa" aria-describedby="inputGroup3">
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                        <div class="row">
-                                          <div class="col-sm-6">
-                                            <div class="form-group">
-                                              <label for="txt-fecha-inicio">Fecha de Inicio&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                              <label for="txt-fecha-inicio">Año de Inicio del proyecto&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique el año de inicio del proyecto"></i></label>
                                               <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-calendar-alt"></i></span></div>
-                                                <input class="form-control" type="date" id="txt-fecha-inicio" placeholder="Ingrese nombre de la iniciativa" aria-describedby="inputGroup4" min="2000-01-01" max="2030-12-01">
+                                                <input class="form-control" type="number" id="txt-fecha-inicio" placeholder="Ingrese nombre de la iniciativa" aria-describedby="inputGroup4" min="2000" max="2030">
                                               </div>
                                             </div>
                                           </div>
-                                          <div class="col-sm-6">
-                                            <div class="form-group">
-                                              <label for="cbo-duracion-proyecto">Duración del proyecto&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
-                                              <div class="input-group">
-                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-calendar-alt"></i></span></div>
-                                                <select class="form-control" id="cbo-duracion-proyecto" aria-describedby="inputGroup5">
-                                                  <option>-Duración en años-</option>
-                                                  <option>1 año</option>
-                                                  <option>2 años</option>
-                                                  <option>3 años</option>
-                                                  <option>4 años</option>
-                                                  <option>5 años</option>
-                                                  <option>6 años</option>
-                                                  <option>7 años</option>
-                                                  <option>8 años</option>
-                                                  <option>9 años</option>
-                                                  <option>10 años</option>
-                                                </select>
-                                              </div>
-                                            </div>
-                                          </div>
+                                          <!--.col-sm-6
+                                          .form-group
+                                            label(for="cbo-duracion-proyecto") Duración del proyecto&nbsp;
+                                              i.fas.fa-question-circle.ayuda-tooltip(data-toggle="tooltip", data-placement="right", title="Texto de ayuda que describe el funcionamiento general del módulo [...]")
+                                            .input-group
+                                              .input-group-prepend
+                                                span.input-group-text#inputGroup5
+                                                  i.fas.fa-calendar-alt
+                                              select.form-control(id="cbo-duracion-proyecto", aria-describedby="inputGroup5")
+                                                option -Duración en años-
+                                                option 1 año
+                                                option 2 años
+                                                option 3 años
+                                                option 4 años
+                                                option 5 años
+                                                option 6 años
+                                                option 7 años
+                                                option 8 años
+                                                option 9 años
+                                                option 10 años
+                                          -->
                                         </div>
                                       </div>
                                     </div>
@@ -154,7 +161,7 @@
                                         <div class="row">
                                           <div class="col-sm-12">
                                             <div class="form-group">
-                                              <label for="cbo-sector">Sector&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                              <label for="cbo-sector">Sector&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione, de la lista desplegable, el sector de la iniciativa de mitigación de interés"></i></label>
                                               <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
                                                 <select class="form-control" id="cbo-sector" aria-describedby="inputGroup6">
@@ -173,30 +180,29 @@
                                             </div>
                                           </div>
                                         </div>
-                                        <div class="row">
-                                          <div class="col-sm-6">
-                                            <div class="form-group">
-                                              <label for="cbo-moneda">Moneda&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
-                                              <div class="input-group">
-                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup7"><i class="far fa-money-bill-alt"></i></span></div>
-                                                <select class="form-control" id="cbo-moneda" aria-describedby="inputGroup7">
-                                                  <option>-Seleccione-</option>
-                                                  <option>Soles</option>
-                                                  <option>Dólares</option>
-                                                </select>
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <div class="col-sm-6">
-                                            <div class="form-group">
-                                              <label for="txt-monto-inversion">Monto de inversión&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
-                                              <div class="input-group">
-                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup8"><i class="fas fa-wallet"></i></span></div>
-                                                <input class="form-control" type="text" id="txt-monto-inversion" placeholder="Ingrese monto" aria-describedby="inputGroup8">
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
+                                        <!--.row
+                                        .col-sm-6
+                                          .form-group
+                                            label(for="cbo-moneda") Moneda&nbsp;
+                                              i.fas.fa-question-circle.ayuda-tooltip(data-toggle="tooltip", data-placement="right", title="Texto de ayuda que describe el funcionamiento general del módulo [...]")
+                                            .input-group
+                                              .input-group-prepend
+                                                span.input-group-text#inputGroup7
+                                                  i.far.fa-money-bill-alt
+                                              select.form-control(id="cbo-moneda", aria-describedby="inputGroup7")
+                                                option -Seleccione-
+                                                option Soles
+                                                option Dólares
+                                        .col-sm-6
+                                          .form-group
+                                            label(for="txt-monto-inversion") Monto de inversión&nbsp;
+                                              i.fas.fa-question-circle.ayuda-tooltip(data-toggle="tooltip", data-placement="right", title="Texto de ayuda que describe el funcionamiento general del módulo [...]")
+                                            .input-group
+                                              .input-group-prepend
+                                                span.input-group-text#inputGroup8
+                                                  i.fas.fa-wallet
+                                              input.form-control(type="text", id="txt-monto-inversion", placeholder="Ingrese monto", aria-describedby="inputGroup8")
+                                        -->
                                       </div>
                                     </div>
                                   </div>
@@ -208,7 +214,7 @@
                                         <div class="row">
                                           <div class="col-sm-6">
                                             <div class="form-group">
-                                              <label for="cbo-energetico-base">Energético de linea base&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                              <label for="cbo-energetico-base">Energético de linea base&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione, de la lista desplegable, el tipo de energía que se consumía antes de la iniciativa"></i></label>
                                               <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
                                                 <select class="form-control" id="cbo-energetico-base" aria-describedby="inputGroup9">
@@ -226,7 +232,7 @@
                                           </div>
                                           <div class="col-sm-6">
                                             <div class="form-group">
-                                              <label for="cbo-energetico-proyecto">Energético de proyecto&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                              <label for="cbo-energetico-proyecto">Energético de proyecto&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione, de la lista desplegable, el tipo de energía que se consume en la iniciativa"></i></label>
                                               <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="fas fa-bolt"></i></span></div>
                                                 <select class="form-control" id="cbo-energetico-proyecto" aria-describedby="inputGroup10">

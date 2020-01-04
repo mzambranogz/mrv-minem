@@ -75,7 +75,7 @@
         <div class="row">
           <div class="col-md-12 col-sm-12 text-left pb-5">
             <h1 class="display-4 text-white animated bounceInUp">Impacto de las&nbsp;<strong>Medidas de Mitigación <br></strong>del&nbsp;<strong>Cambio Climático&nbsp;</strong>en el&nbsp;<strong>Sector Energía</strong></h1>
-            <p class="lead text-white mt-4 animated bounceInUp">Sistema de&nbsp;<span class="font-weight-bold">gestión&nbsp;</span>y&nbsp;<span class="font-weight-bold">reporte&nbsp;</span>de información de&nbsp;<span class="font-weight-bold">medidas de mitigación <br></span>de las Contribuciones Nacionalmente Determinadas&nbsp;<span class="font-weight-bold">(NDC).</span></p>
+            <p class="lead text-white mt-4 animated bounceInUp">Sistema de&nbsp;<span class="font-weight-bold">gestión&nbsp;</span>y&nbsp;<span class="font-weight-bold">reporte&nbsp;</span>de información de las&nbsp;<span class="font-weight-bold">medidas de mitigación <br></span>de las Contribuciones Nacionalmente Determinadas&nbsp;<span class="font-weight-bold">(NDC).</span></p>
           </div>
         </div>
       </div>
@@ -89,21 +89,26 @@
     <div class="container-fluid bg-nama-azul" id="accordion">
       <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2 py-5">
-          <div class="container-fluid py-0">
-            <div class="container">
-              <h3 class="lead mb-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-01" aria-expanded="false" aria-controls="aspecto-01"><i class="fas fa-check-square"></i><span>¿Que es el&nbsp;<strong>cambio climático</strong>?</span></h3>
-              <div class="collapse" id="aspecto-01">
-                <div class="card card-body">
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <p class="text-justify">Según la Convención Marco de las Naciones Unidas sobre el Cambio Climático (<strong>CMNUCC</strong>), es&nbsp;<em>“un cambio en el clima, atribuible directa o indirectamente a la actividad humana, que altera la composición de la atmósfera mundial y que se suma a la variabilidad climática natural observada durante períodos de tiempo comparables".</em></p>
-                      <p class="text-justify">Una de las principales manifestaciones es el incremento de temperatura promedio a nivel global, provocado principalmente por el aumento y acumulación de los gases de efecto invernadero (<strong>GEI</strong>) en la atmósfera, lo que causa el aumento e intensidad de fenómenos como sequías, inundaciones, tormentas, entre otros.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <!--.container-fluid.py-0
+          .container
+            h3.lead.mb-4.wow.slideInLeft(data-toggle="collapse", href="#aspecto-01", aria-expanded="false", aria-controls="aspecto-01")
+              i.fas.fa-check-square
+              span
+                | ¿Que es el&nbsp;
+                strong cambio climático
+                | ?
+            .collapse(id="aspecto-01")
+              .card.card-body
+                .row
+                  .col-sm-12
+                    p.text-justify Según la Convención Marco de las Naciones Unidas sobre el Cambio Climático (
+                      strong CMNUCC
+                      | ), es&nbsp;
+                      em “un cambio en el clima, atribuible directa o indirectamente a la actividad humana, que altera la composición de la atmósfera mundial y que se suma a la variabilidad climática natural observada durante períodos de tiempo comparables".
+                    p.text-justify Una de las principales manifestaciones es el incremento de temperatura promedio a nivel global, provocado principalmente por el aumento y acumulación de los gases de efecto invernadero (
+                      strong GEI
+                      | ) en la atmósfera, lo que causa el aumento e intensidad de fenómenos como sequías, inundaciones, tormentas, entre otros.
+          -->
           <div class="container-fluid py-0">
             <div class="container">
               <h3 class="lead my-4 wow slideInLeft" data-toggle="collapse" href="#aspecto-02" aria-expanded="false" aria-controls="aspecto-02"><i class="fas fa-check-square"></i><span>¿Que es la&nbsp;<strong>mitigación&nbsp;</strong>del cambio climático?</span></h3>
@@ -206,7 +211,7 @@
                 <div class="card card-body">
                   <div class="row">
                     <div class="col-sm-12">
-                      <p class="text-justify">El&nbsp;<strong>MRV&nbsp;</strong>es un componente necesario de las medidas de mitigación del cambio climático. La Medición (<strong>M</strong>) consiste en la estimación de las emisiones o emisiones reducidas a través del uso de niveles de actividad y factores de emisión. El Reporte (<strong>R</strong>) consiste en la compilación de la información en formatos que puedan ser presentados y accesibles a distintos usuarios. La Verificación (<strong>V</strong>) consiste en la revisión o análisis por una tercera parte para establecer la integridad, precisión y fiabilidad de lo medido y reportado.</p>
+                      <p class="text-justify">El&nbsp;<strong>MRV&nbsp;</strong>es un componente necesario de las medidas de mitigación del cambio climático. La Medición (<strong>M</strong>) consiste en la estimación de las emisiones o emisiones reducidas a través del uso de niveles de actividad y factores de emisión. El Reporte (<strong>R</strong>) consiste en la estimación de las emisiones de GEI reducidas compilación de la información en formatos que el uso de información específica de cada medida (niveles de actividad) y puedan ser presentados y accesibles a distintos usuarios. La Verificación (<strong>V</strong>) consiste en la revisión o análisis por una tercera parte para establecer la integridad, precisión y fiabilidad de lo medido y reportado.</p>
                     </div>
                   </div>
                 </div>
@@ -246,9 +251,7 @@
     </div>
     <div class="container-fluid text-center" id="acciones-mitigacion">
       <h2 class="titulo-lineas text-dark my-0 pt-5 pb-2 wow zoomIn"><span class="bg-dark"></span>MEDIDAS DE MITIGACIÓN<span class="bg-dark"></span></h2>
-      <p class="p-0 pb-5 m-0 wow zoomIn">Las Medidas de Mitigación se encuentran agrupadas por NAMA, su propósito es identificar <br>
-        la Iniciativa de Acción de Mitigación que se registrará a través de la plataforma MRV.
-      </p>
+      <p class="p-0 pb-5 m-0 wow zoomIn">Son todas aquellas medidas a las que se les estará cuantificando su impacto en el marco de las NDC.</p>
     </div>
     <div class="container-fluid" id="medidas-mitigacion">
       <div class="row">
@@ -258,22 +261,26 @@
               <div class="row">
                 <div class="col-sm-12 col-md-4 col-lg-3 pb-5">
                   <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".4s"><img class="img-thumbnail border-0" src="./images/ico_nama_amarillo_01.svg">
-                    <div class="nombre-medida bg-nama-amarilla"><span class="h6">Transformación del mercado de iluminación del sector residencial <br><small class="text-muted">NAMA DE EFICIENCIA ENERGETICA</small></span></div>
+                    <div class="nombre-medida bg-nama-amarilla"><span class="h6">Transformación del mercado de iluminación del sector residencial
+                        <!--small.text-muted NAMA DE EFICIENCIA ENERGETICA--></span></div>
                   </div>
                 </div>
                 <div class="col-sm-12 col-md-4 col-lg-3 pb-5">
                   <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".5s"><img class="img-thumbnail border-0" src="./images/ico_nama_amarillo_02.svg">
-                    <div class="nombre-medida bg-nama-amarilla"><span class="h6">Reemplazo de lámparas de alumbrado público por lámparas LED <br><small class="text-muted">NAMA DE EFICIENCIA ENERGETICA</small></span></div>
+                    <div class="nombre-medida bg-nama-amarilla"><span class="h6">Reemplazo de lámparas de alumbrado público por lámparas LED
+                        <!--small.text-muted NAMA DE EFICIENCIA ENERGETICA--></span></div>
                   </div>
                 </div>
                 <div class="col-sm-12 col-md-4 col-lg-3 pb-5">
                   <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".6s"><img class="img-thumbnail border-0" src="./images/ico_nama_amarillo_03.svg">
-                    <div class="nombre-medida bg-nama-amarilla"><span class="h6">Etiquetado de eficiencia energética <br><small class="text-muted">NAMA DE EFICIENCIA ENERGETICA</small></span></div>
+                    <div class="nombre-medida bg-nama-amarilla"><span class="h6">Etiquetado de eficiencia energética
+                        <!--small.text-muted NAMA DE EFICIENCIA ENERGETICA--></span></div>
                   </div>
                 </div>
                 <div class="col-sm-12 col-md-4 col-lg-3 pb-5">
                   <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".7s"><img class="img-thumbnail border-0" src="./images/ico_nama_amarillo_04.svg">
-                    <div class="nombre-medida bg-nama-amarilla"><span class="h6">Auditorías energéticas sector público <br><small class="text-muted">NAMA DE EFICIENCIA ENERGETICA</small></span></div>
+                    <div class="nombre-medida bg-nama-amarilla"><span class="h6">Auditorías energéticas sector público
+                        <!--small.text-muted NAMA DE EFICIENCIA ENERGETICA--></span></div>
                   </div>
                 </div>
               </div>
@@ -288,22 +295,26 @@
               <div class="row">
                 <div class="col-sm-12 col-md-4 col-lg-3 pb-5">
                   <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".4s"><img class="img-thumbnail border-0" src="./images/ico_nama_amarillo_05.svg">
-                    <div class="nombre-medida bg-nama-amarilla"><span class="h6">Reemplazo de lámparas por lámparas LED en el sector público <br><small class="text-muted">NAMA DE EFICIENCIA ENERGETICA</small></span></div>
+                    <div class="nombre-medida bg-nama-amarilla"><span class="h6">Reemplazo de lámparas por lámparas LED en el sector público
+                        <!--small.text-muted NAMA DE EFICIENCIA ENERGETICA--></span></div>
                   </div>
                 </div>
                 <div class="col-sm-12 col-md-4 col-lg-3 pb-5">
                   <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".5s"><img class="img-thumbnail border-0" src="./images/ico_nama_amarillo_06.svg">
-                    <div class="nombre-medida bg-nama-amarilla"><span class="h6">Eficiencia energética en el sector industrial <br><small class="text-muted">NAMA DE EFICIENCIA ENERGETICA</small></span></div>
+                    <div class="nombre-medida bg-nama-amarilla"><span class="h6">Eficiencia energética en el sector industrial
+                        <!--small.text-muted NAMA DE EFICIENCIA ENERGETICA--></span></div>
                   </div>
                 </div>
                 <div class="col-sm-12 col-md-4 col-lg-3 pb-5">
                   <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".6s"><img class="img-thumbnail border-0" src="./images/ico_nama_amarillo_07.svg">
-                    <div class="nombre-medida bg-nama-amarilla"><span class="h6">Reemplazo lámparas en el sector comercial <br><small class="text-muted">NAMA DE EFICIENCIA ENERGETICA</small></span></div>
+                    <div class="nombre-medida bg-nama-amarilla"><span class="h6">Reemplazo lámparas en el sector comercial
+                        <!--small.text-muted NAMA DE EFICIENCIA ENERGETICA--></span></div>
                   </div>
                 </div>
                 <div class="col-sm-12 col-md-4 col-lg-3 pb-5">
                   <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".7s"><img class="img-thumbnail border-0" src="./images/ico_nama_azul_01.svg">
-                    <div class="nombre-medida bg-nama-azul"><span>Promoción de vehículos eléctricos a nivel nacional <br><small class="text-muted">NAMA DE TRANSPORTE TERRESTRE ELÉCTRICO</small></span></div>
+                    <div class="nombre-medida bg-nama-azul"><span>Promoción de vehículos eléctricos a nivel nacional
+                        <!--small.text-muted NAMA DE TRANSPORTE TERRESTRE ELÉCTRICO--></span></div>
                   </div>
                 </div>
               </div>
@@ -318,22 +329,26 @@
               <div class="row">
                 <div class="col-sm-12 col-md-4 col-lg-3 pb-5">
                   <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".4s"><img class="img-thumbnail border-0" src="./images/ico_nama_rojo_01.svg">
-                    <div class="nombre-medida bg-nama-roja"><span>Suministro de electricidad con energía renovable en áreas no conectadas <br><small class="text-muted">NAMA DE ACCESO UNIVERSAL A LA ENERGIA SOSTENIBLE</small></span></div>
+                    <div class="nombre-medida bg-nama-roja"><span>Suministro de electricidad con energía renovable en áreas no conectadas
+                        <!--small.text-muted NAMA DE ACCESO UNIVERSAL A LA ENERGIA SOSTENIBLE--></span></div>
                   </div>
                 </div>
                 <div class="col-sm-12 col-md-4 col-lg-3 pb-5">
                   <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".5s"><img class="img-thumbnail border-0" src="./images/ico_nama_rojo_02.svg">
-                    <div class="nombre-medida bg-nama-roja"><span>Cocción limpia <br><small class="text-muted">NAMA DE ACCESO UNIVERSAL A LA ENERGIA SOSTENIBLE</small></span></div>
+                    <div class="nombre-medida bg-nama-roja"><span>Cocción limpia
+                        <!--small.text-muted NAMA DE ACCESO UNIVERSAL A LA ENERGIA SOSTENIBLE--></span></div>
                   </div>
                 </div>
                 <div class="col-sm-12 col-md-4 col-lg-3 pb-5">
                   <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".6s"><img class="img-thumbnail border-0" src="./images/ico_nama_verde_01.svg">
-                    <div class="nombre-medida bg-nama-verde"><span>Combinación de energías renovables <br><small class="text-muted">NAMA DE RER CONECTADO</small></span></div>
+                    <div class="nombre-medida bg-nama-verde"><span>Combinación de energías renovables
+                        <!--small.text-muted NAMA DE RER CONECTADO--></span></div>
                   </div>
                 </div>
                 <div class="col-sm-12 col-md-4 col-lg-3 pb-5">
                   <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".7s"><img class="img-thumbnail border-0" src="./images/ico_nama_verde_02.svg">
-                    <div class="nombre-medida bg-nama-verde"><span>Generación distribuida <br><small class="text-muted">NAMA DE RER CONECTADO</small></span></div>
+                    <div class="nombre-medida bg-nama-verde"><span>Generación distribuida
+                        <!--small.text-muted NAMA DE RER CONECTADO--></span></div>
                   </div>
                 </div>
               </div>
