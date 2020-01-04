@@ -22,6 +22,11 @@ namespace MRVMinem.Areas.Publico.Controllers
             return View();
         }
 
+        public ActionResult Recuperar()
+        {
+            return View();
+        }
+
         public ActionResult Login()
         {
             return View();

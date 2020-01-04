@@ -111,7 +111,7 @@ function fn_verificarEmail() {
     } else {
         Swal.fire({
             icon: 'error',
-            html: '<small>El correo electrónico ingresado esta siendo usado.</small><br/><small>Pulse <a href="#">Aquí<a> si desea recuperar su contraseña</small>'
+            html: '<small>El correo electrónico ingresado esta siendo usado.</small><br/><small>Pulse <a href="#" onclick="fn_registrarUsuario();">Aquí<a> si desea recuperar su contraseña</small>'
         })
     }
 }

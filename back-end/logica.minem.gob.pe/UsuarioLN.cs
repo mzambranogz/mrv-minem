@@ -27,6 +27,7 @@ namespace logica.minem.gob.pe
         }
         public static UsuarioBE RegistraUsuario(UsuarioBE entidad)
         {
+            if (string.IsNullOrEmpty(entidad.ANEXO_USUARIO)) entidad.ANEXO_USUARIO = "";
             entidad.PASSWORD_USUARIO = Seguridad.hashSal(entidad.PASSWORD_USUARIO);
             return usuarioDA.RegistraUsuario(entidad);
         }

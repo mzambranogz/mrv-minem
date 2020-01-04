@@ -33,7 +33,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item"><a class="nav-link nav-active text-dark font-weight-bold px-2" href="./index.html"><i class="fas fa-house-damage"></i><span class="d-none d-xs-block d-sm-block d-lg-none pl-1 mostrar-inicio">Inicio</span></a></li>
+                        <li class="nav-item"><a class="nav-link nav-active text-dark font-weight-bold px-2" href="#" onclick="fn_Home();"><i class="fas fa-house-damage"></i><span class="d-none d-xs-block d-sm-block d-lg-none pl-1 mostrar-inicio">Inicio</span></a></li>
                         <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="javascript:void(0)" onclick="fn_accionesMitigacion();"><i class="fas fa-solar-panel pr-1"></i>Acciones de Mitigación</a></li>
                         <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="javascript:void(0)" onclick="fn_registroIniciativaMitigacion();"><i class="fas fa-file-invoice pr-1"></i>Reportes</a></li>
                         <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="javascript:void(0)" onclick="fn_detalleIndicador();"><i class="fas fa-chart-pie pr-1"></i>Acciones y Resultados</a></li>
@@ -200,6 +200,10 @@
 
         function fn_detalleIndicador() {
             MRV.ObtenerVista(baseUrl + 'Administrado/Gestion/DetalleIndicador');
+        }
+
+        function fn_recuperarClave() {
+            MRV.ObtenerVista(baseUrl + 'Publico/Portal/Recuperar');
         }
 
     </script>
