@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MRV Plataforma del Sector Energía | Mantenimiento de Usuarios</title>
+    <meta name="description" content="MRV Plataforma del Sector Energía">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="images/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="images/favicon/favicon-16x16.png" sizes="16x16">
+    <!--link(rel='manifest' href='images/favicon/manifest.json')-->
+    <link rel="mask-icon" href="images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="images/favicon/favicon.ico">
+    <meta name="msapplication-config" content="images/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body>
+    <div class="container-fluid menu-nav bg-sutil fixed-top" id="cabecera">
+      <div class="container menu-main linea">
+        <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar p-0">
+          <ul class="navbar-nav mr-md-auto">
+            <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1" href="#" target="_blan"><img src="./images/logo-minem.jpg" height="40"></a></li>
+            <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1" href="#" target="_blan"><img src="./images/logo_gef.svg" height="45"></a></li>
+            <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1 pr-0" href="#" target="_blan"><img src="./images/logo_pnud.svg" height="51"></a></li>
+          </ul><a class="navbar-brand ml-md-auto animated fadeIn mx-0" href="#"><img src="./images/logo_mrv_new_negro.svg" height="36"></a>
+        </header>
+      </div>
+      <div class="container menu-sub">
+        <nav class="navbar navbar-dark navbar-expand-lg p-0 py-1">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="./index.html"><i class="fas fa-house-damage"></i><span class="d-none d-xs-block d-sm-block d-lg-none pl-1 mostrar-inicio">Inicio</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-active text-dark font-weight-bold px-2" href="./acciones-de-mitigacion-interno.html"><i class="fas fa-solar-panel pr-1"></i>Acciones de Mitigación</a></li>
+              <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="./reportes.html"><i class="fas fa-file-invoice pr-1"></i>Reportes</a></li>
+              <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="./acciones-y-resultados.html"><i class="fas fa-chart-pie pr-1"></i>Acciones y Resultados</a></li>
+            </ul><a class="btn text-dark px-2 mr-2 notificaciones" href="#" rol="button"><i class="far fa-bell">&nbsp;</i><span class="badge badge-light">18</span><span class="d-none d-xs-block d-sm-block d-lg-none pl-1 font-weight-bold mostrar-inicio">Notificaciones</span></a>
+            <div class="btn-group w-sm-100"><a class="btn btn-danger dropdown-toggle text-white font-weight-bold" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-tie pr-1"></i>Mi cuenta</a>
+              <div class="dropdown-menu dropdown-menu-right w-sm-100"><span class="dropdown-item">Ricardo Sánchez <br><span class="badge badge-actor-02">Usuario Administrado</span><br><span class="badge badge-actor-03">Especialista</span><br><span class="badge badge-actor-04">Evaluador MINAM</span><br><span class="badge badge-actor-05">Verificador Externo</span><br><span class="badge badge-actor-06">Administrador MINEM</span></span><a class="dropdown-item" href="./mantenimiento-de-tablas.html"><i class="fas fa-cogs pr-1"></i>Mantenimiento de tablas</a><a class="dropdown-item" href="./cambiar.html"><i class="fas fa-key pr-1"></i>Cambiar contraseña</a>
+                <div class="dropdown-divider"></div><a class="dropdown-item" href="./login.html"><i class="fas fa-sign-out-alt pr-1"></i>Salir del sistema</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div class="flecha-top"><i class="fas fa-angle-double-right fa-2x text-dark btn-slider-bottom"></i></div>
+    <div class="container-fluid bg-nama-azul" id="historia">
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="./mantenimiento-de-tablas.html">Mantenimiento de Tablas</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Mantenimiento de Usuarios</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+    <div class="container-fluid my-4" id="cuerpo">
+      <div class="row m-0">
+        <div class="col-12 cuerpo-interior">
+          <div class="container py-4">
+            <div class="row">
+              <div class="col-md-12 col-lg-6 pt-4">
+                <div class="h4">Mantenimiento de Usuarios&nbsp;
+                  <!--i.fas.fa-question-circle.ayuda-tooltip(data-toggle="tooltip", data-placement="right", title="Texto de ayuda que describe el funcionamiento general del módulo [...]")--><br><small class="text-muted">Utilice la búsqueda para encontrar al usuario indicado para el mantenimiento</small>
+                </div>
+              </div>
+              <div class="col-md-12 col-lg-6 pt-4">
+                <div class="row">
+                  <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
+                  <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#modal-usuario"><a class="agregar-iniciativa" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-plus px-1"></i>Agregar usuario</a></span></div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 col-lg-6 pt-4">
+                <form>
+                  <div class="form-group">
+                    <label for="txt-buscar">Buscar&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese si conoce el nombre de la iniciativa o la(s) palabra(s) asociada(s) a las iniciativas de interés. En caso de no encontrar resultados acceda a la búsqueda avanzada."></i></label>
+                    <div class="input-group">
+                      <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-search"></i></span></div>
+                      <input class="form-control" type="text" id="txt-buscar" placeholder="Ingrese la descripción de su búsqueda" aria-describedby="inputGroup1" required>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                      <button class="btn btn-success w-100 mb-2" type="submit"><i class="fas fa-search px-1"></i>Buscar</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="col-md-12 col-lg-6 pt-4">
+                <!--&nbsp;-->
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid py-4 px-0">
+            <div class="h5">Bandeja de Ususarios&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></div>
+            <div class="dropdown-divider"></div>
+            <div class="row">
+              <div class="col-12 px-0">
+                <div class="table-responsive tabla-principal">
+                  <table class="table table-hover">
+                    <thead>
+                      <tr class="bg-primary text-white">
+                        <th class="text-center" scope="col"><span>#&nbsp;<i class="fas fa-sort"></i></span></th>
+                        <th scope="col"><span>Nombre y Apellido&nbsp;<i class="fas fa-sort"></i></span></th>
+                        <th scope="col"><span>Email&nbsp;<i class="fas fa-sort"></i></span></th>
+                        <th scope="col"><span>Institución&nbsp;<i class="fas fa-sort"></i></span></th>
+                        <th scope="col"><span>Dirección&nbsp;<i class="fas fa-sort"></i></span></th>
+                        <th scope="col"><span>Perfil&nbsp;<i class="fas fa-sort"></i></span></th>
+                        <th scope="col"><span>Estado&nbsp;<i class="fas fa-sort"></i></span></th>
+                        <th class="text-center" scope="col">Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th class="text-center" data-encabezado="Número" scope="row">1</th>
+                        <td data-encabezado="Nombre y Apellido">Ricardo Avalos</td>
+                        <td data-encabezado="Email">ravalos@empresa.com.pe</td>
+                        <td data-encabezado="Istitución">EMPRESA DE TRANSPORTE ETUPSA</td>
+                        <td data-encabezado="Dirección">Av. Los Angeles N° 4680</td>
+                        <td data-encabezado="Perfil"><span class="badge badge-actor-02">Usuario Administrado</span>
+                        </td>
+                        <td data-encabezado="Estado"><span class="badge badge-actor-por-aprobar"><i class="fas fa-question-circle mr-1"></i>Por aprobar</span>
+                        </td>
+                        <td class="text-center text-xs-right" data-encabezado="Acciones">
+                          <div class="btn-group">
+                            <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-usuario"><i class="fas fa-edit"></i>&nbsp;
+                                Editar</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion"><i class="fas fa-trash"></i>&nbsp;
+                                Eliminar</a></div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th class="text-center" data-encabezado="Número" scope="row">2</th>
+                        <td data-encabezado="Nombre y Apellido">Ricardo Avalos</td>
+                        <td data-encabezado="Email">ravalos@empresa.com.pe</td>
+                        <td data-encabezado="Istitución">EMPRESA DE TRANSPORTE ETUPSA</td>
+                        <td data-encabezado="Dirección">Av. Los Angeles N° 4680</td>
+                        <td data-encabezado="Perfil"><span class="badge badge-actor-02">Usuario Administrado</span>
+                        </td>
+                        <td data-encabezado="Estado"><span class="badge badge-actor-por-aprobar"><i class="fas fa-question-circle mr-1"></i>Por aprobar</span>
+                        </td>
+                        <td class="text-center text-xs-right" data-encabezado="Acciones">
+                          <div class="btn-group">
+                            <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-usuario"><i class="fas fa-edit"></i>&nbsp;
+                                Editar</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion"><i class="fas fa-trash"></i>&nbsp;
+                                Eliminar</a></div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th class="text-center" data-encabezado="Número" scope="row">3</th>
+                        <td data-encabezado="Nombre y Apellido">Ricardo Avalos</td>
+                        <td data-encabezado="Email">ravalos@empresa.com.pe</td>
+                        <td data-encabezado="Istitución">EMPRESA DE TRANSPORTE ETUPSA</td>
+                        <td data-encabezado="Dirección">Av. Los Angeles N° 4680</td>
+                        <td data-encabezado="Perfil"><span class="badge badge-actor-02">Usuario Administrado</span>
+                        </td>
+                        <td data-encabezado="Estado"><span class="badge badge-actor-por-aprobar"><i class="fas fa-question-circle mr-1"></i>Por aprobar</span>
+                        </td>
+                        <td class="text-center text-xs-right" data-encabezado="Acciones">
+                          <div class="btn-group">
+                            <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-usuario"><i class="fas fa-edit"></i>&nbsp;
+                                Editar</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion"><i class="fas fa-trash"></i>&nbsp;
+                                Eliminar</a></div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th class="text-center" data-encabezado="Número" scope="row">4</th>
+                        <td data-encabezado="Nombre y Apellido">Ricardo Avalos</td>
+                        <td data-encabezado="Email">ravalos@empresa.com.pe</td>
+                        <td data-encabezado="Istitución">EMPRESA DE TRANSPORTE ETUPSA</td>
+                        <td data-encabezado="Dirección">Av. Los Angeles N° 4680</td>
+                        <td data-encabezado="Perfil"><span class="badge badge-actor-02">Usuario Administrado</span>
+                        </td>
+                        <td data-encabezado="Estado"><span class="badge badge-actor-por-aprobar"><i class="fas fa-question-circle mr-1"></i>Por aprobar</span>
+                        </td>
+                        <td class="text-center text-xs-right" data-encabezado="Acciones">
+                          <div class="btn-group">
+                            <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-usuario"><i class="fas fa-edit"></i>&nbsp;
+                                Editar</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion"><i class="fas fa-trash"></i>&nbsp;
+                                Eliminar</a></div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th class="text-center" data-encabezado="Número" scope="row">5</th>
+                        <td data-encabezado="Nombre y Apellido">Ricardo Avalos</td>
+                        <td data-encabezado="Email">ravalos@empresa.com.pe</td>
+                        <td data-encabezado="Istitución">EMPRESA DE TRANSPORTE ETUPSA</td>
+                        <td data-encabezado="Dirección">Av. Los Angeles N° 4680</td>
+                        <td data-encabezado="Perfil"><span class="badge badge-actor-02">Usuario Administrado</span>
+                        </td>
+                        <td data-encabezado="Estado"><span class="badge badge-actor-desaprobado"><i class="fas fa-times-circle mr-1"></i>Desaprobado</span>
+                        </td>
+                        <td class="text-center text-xs-right" data-encabezado="Acciones">
+                          <div class="btn-group">
+                            <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-usuario"><i class="fas fa-edit"></i>&nbsp;
+                                Editar</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion"><i class="fas fa-trash"></i>&nbsp;
+                                Eliminar</a></div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th class="text-center" data-encabezado="Número" scope="row">6</th>
+                        <td data-encabezado="Nombre y Apellido">Ricardo Avalos</td>
+                        <td data-encabezado="Email">ravalos@empresa.com.pe</td>
+                        <td data-encabezado="Istitución">EMPRESA DE TRANSPORTE ETUPSA</td>
+                        <td data-encabezado="Dirección">Av. Los Angeles N° 4680</td>
+                        <td data-encabezado="Perfil"><span class="badge badge-actor-02">Usuario Administrado</span>
+                        </td>
+                        <td data-encabezado="Estado"><span class="badge badge-actor-aprobado"><i class="fas fa-check-circle mr-1"></i>Aprobado</span>
+                        </td>
+                        <td class="text-center text-xs-right" data-encabezado="Acciones">
+                          <div class="btn-group">
+                            <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-usuario"><i class="fas fa-edit"></i>&nbsp;
+                                Editar</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion"><i class="fas fa-trash"></i>&nbsp;
+                                Eliminar</a></div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th class="text-center" data-encabezado="Número" scope="row">7</th>
+                        <td data-encabezado="Nombre y Apellido">Ricardo Avalos</td>
+                        <td data-encabezado="Email">ravalos@empresa.com.pe</td>
+                        <td data-encabezado="Istitución">EMPRESA DE TRANSPORTE ETUPSA</td>
+                        <td data-encabezado="Dirección">Av. Los Angeles N° 4680</td>
+                        <td data-encabezado="Perfil"><span class="badge badge-actor-03">Especialista</span>
+                        </td>
+                        <td data-encabezado="Estado"><span class="badge badge-actor-aprobado"><i class="fas fa-check-circle mr-1"></i>Aprobado</span>
+                        </td>
+                        <td class="text-center text-xs-right" data-encabezado="Acciones">
+                          <div class="btn-group">
+                            <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-usuario"><i class="fas fa-edit"></i>&nbsp;
+                                Editar</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion"><i class="fas fa-trash"></i>&nbsp;
+                                Eliminar</a></div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th class="text-center" data-encabezado="Número" scope="row">8</th>
+                        <td data-encabezado="Nombre y Apellido">Ricardo Avalos</td>
+                        <td data-encabezado="Email">ravalos@empresa.com.pe</td>
+                        <td data-encabezado="Istitución">EMPRESA DE TRANSPORTE ETUPSA</td>
+                        <td data-encabezado="Dirección">Av. Los Angeles N° 4680</td>
+                        <td data-encabezado="Perfil"><span class="badge badge-actor-04">Evaluador MINAM</span>
+                        </td>
+                        <td data-encabezado="Estado"><span class="badge badge-actor-aprobado"><i class="fas fa-check-circle mr-1"></i>Aprobado</span>
+                        </td>
+                        <td class="text-center text-xs-right" data-encabezado="Acciones">
+                          <div class="btn-group">
+                            <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-usuario"><i class="fas fa-edit"></i>&nbsp;
+                                Editar</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion"><i class="fas fa-trash"></i>&nbsp;
+                                Eliminar</a></div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th class="text-center" data-encabezado="Número" scope="row">9</th>
+                        <td data-encabezado="Nombre y Apellido">Ricardo Avalos</td>
+                        <td data-encabezado="Email">ravalos@empresa.com.pe</td>
+                        <td data-encabezado="Istitución">EMPRESA DE TRANSPORTE ETUPSA</td>
+                        <td data-encabezado="Dirección">Av. Los Angeles N° 4680</td>
+                        <td data-encabezado="Perfil"><span class="badge badge-actor-05">Verificador Externo</span>
+                        </td>
+                        <td data-encabezado="Estado"><span class="badge badge-actor-aprobado"><i class="fas fa-check-circle mr-1"></i>Aprobado</span>
+                        </td>
+                        <td class="text-center text-xs-right" data-encabezado="Acciones">
+                          <div class="btn-group">
+                            <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-usuario"><i class="fas fa-edit"></i>&nbsp;
+                                Editar</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion"><i class="fas fa-trash"></i>&nbsp;
+                                Eliminar</a></div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th class="text-center" data-encabezado="Número" scope="row">10</th>
+                        <td data-encabezado="Nombre y Apellido">Ricardo Avalos</td>
+                        <td data-encabezado="Email">ravalos@empresa.com.pe</td>
+                        <td data-encabezado="Istitución">EMPRESA DE TRANSPORTE ETUPSA</td>
+                        <td data-encabezado="Dirección">Av. Los Angeles N° 4680</td>
+                        <td data-encabezado="Perfil"><span class="badge badge-actor-06">Administrador MINEM</span>
+                        </td>
+                        <td data-encabezado="Estado"><span class="badge badge-actor-aprobado"><i class="fas fa-check-circle mr-1"></i>Aprobado</span>
+                        </td>
+                        <td class="text-center text-xs-right" data-encabezado="Acciones">
+                          <div class="btn-group">
+                            <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-usuario"><i class="fas fa-edit"></i>&nbsp;
+                                Editar</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion"><i class="fas fa-trash"></i>&nbsp;
+                                Eliminar</a></div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tfoot>
+                        <tr>
+                          <td class="text-left" colspan="3"><strong>Resultado:&nbsp;</strong>1-10 de 750 registros</td>
+                          <td class="text-right text-xs-left" colspan="4"><strong>Registros por página&nbsp;</strong>
+                            <select id="catidad-rgistros">
+                              <option value="10" selected>10</option>
+                              <option value="25">25</option>
+                              <option value="50">50</option>
+                              <option value="100">100</option>
+                            </select>&nbsp;
+                            1 de 75 páginas&nbsp;
+                            <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                              <button class="btn btn-primary" type="button"><i class="fas fa-angle-double-left"></i></button>
+                              <button class="btn btn-primary" type="button"><i class="fas fa-angle-left"></i></button>
+                              <input class="ir-pagina" type="number" value="1" min="1">
+                              <button class="btn btn-primary" type="button"><i class="fas fa-angle-right"></i></button>
+                              <button class="btn btn-primary" type="button"><i class="fas fa-angle-double-right"></i></button>
+                            </div>
+                          </td>
+                        </tr>
+                      </tfoot>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="modal-usuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Registro de Nuevo Usuario <br><small class="text-muted">Complete los siguientes campos para registrar un nuevo usuario</small><small class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</small></h5>
+                  <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body medidas-modal">
+                  <form>
+                    <div class="row">
+                      <div class="col-md-12 col-lg-6">
+                        <div class="form-group">
+                          <label for="txt-user">Email</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                          <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-envelope"></i></span></div>
+                            <input class="form-control" type="text" id="txt-user" placeholder="Dirección de email" aria-describedby="inputGroup1" required>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="txt-nombre">Nombre</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                          <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup3"><i class="fas fa-user-tie"></i></span></div>
+                            <input class="form-control" type="text" id="txt-nombre" placeholder="Ingrese su nombre" aria-describedby="inputGroup3" required>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="txt-apellido">Apellido</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                          <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-user-tie"></i></span></div>
+                            <input class="form-control" type="text" id="txt-apellido" placeholder="Ingrese su apellido" aria-describedby="inputGroup4" required>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="txt-telefono">Teléfono</label>
+                          <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup11"><i class="fas fa-phone-alt"></i></span></div>
+                            <input class="form-control" type="text" id="txt-telefono" placeholder="Ingrese su teléfono" aria-describedby="inputGroup11" required>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="txt-telefono">Anexo</label>
+                          <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup12"><i class="fas fa-phone-square-alt"></i></span></div>
+                            <input class="form-control" type="text" id="txt-telefono" placeholder="Ingrese su anexo" aria-describedby="inputGroup12" required>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="txt-celular">Celular</label>
+                          <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-mobile-alt"></i></span></div>
+                            <input class="form-control" type="text" id="txt-celular" placeholder="Ingrese su celular" aria-describedby="inputGroup5" required>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-12 col-lg-6">
+                        <div class="form-group">
+                          <label for="txt-institucion">Institución</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                          <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
+                            <input class="form-control" type="text" id="txt-institucion" placeholder="Ingrese su institución" aria-describedby="inputGroup6" required>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="txt-ruc">RUC</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                          <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup7"><i class="fas fa-landmark"></i></span></div>
+                            <input class="form-control" type="text" id="txt-ruc" placeholder="Ingrese su RUC" aria-describedby="inputGroup7" required>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="txt-direccion">Dirección</label>
+                          <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup8"><i class="fas fa-landmark"></i></span></div>
+                            <input class="form-control" type="text" id="txt-direccion" placeholder="Ingrese su dirección" aria-describedby="inputGroup8" required>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="txt-direccion">Sector</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                          <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
+                            <select class="form-control" id="txt-direccion" aria-describedby="inputGroup9" required>
+                              <option>-Seleccione un sector-</option>
+                              <option>Sector 01</option>
+                              <option>Sector 02</option>
+                              <option>Sector 03</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="txt-pswd">Contraseña</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                          <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup2"><i class="fas fa-key"></i></span></div>
+                            <input class="form-control" type="password" id="txt-pswd" placeholder="Ingresar contraseña" aria-describedby="inputGroup2" required>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="txt-direccion">Perfil</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                          <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="fas fa-user-tie"></i></span></div>
+                            <select class="form-control" id="txt-direccion" aria-describedby="inputGroup10" required>
+                              <option>-Seleccione un sector-</option>
+                              <option class="badge-actor-02 font-weight-bold">Usuario Administrado</option>
+                              <option class="badge-actor-03 font-weight-bold">Especialista</option>
+                              <option class="badge-actor-04 font-weight-bold">Evaluador MINAM</option>
+                              <option class="badge-actor-05 font-weight-bold">Verificado Externo</option>
+                              <option class="badge-actor-06 font-weight-bold">Administrador MINEM</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="mlt-gei">Estado<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span></label>
+                          <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-shield-alt"></i></span></div>
+                            <div class="form-control" style="height:90px; overflow-y: auto;">
+                              <div class="col-auto my-1">
+                                <div class="custom-control custom-checkbox mr-sm-2">
+                                  <input class="custom-control-input" type="radio" name="rad-estado" id="rad-01">
+                                  <label class="custom-control-label badge badge-actor-aprobado" for="rad-01"><i class="fas fa-check-circle mr-1"></i>Aprobado</label>
+                                </div>
+                              </div>
+                              <div class="col-auto my-1">
+                                <div class="custom-control custom-checkbox mr-sm-2">
+                                  <input class="custom-control-input" type="radio" name="rad-estado" id="rad-02">
+                                  <label class="custom-control-label badge badge-actor-desaprobado" for="rad-02"><i class="fas fa-times-circle mr-1"></i>Desaprobado</label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="alert alert-danger" role="alert">
+                          <h4><i class="fas fa-exclamation-triangle"></i>&nbsp;Error de registro</h4>
+                          <p>Ocurrió un error al tratar de registrar su información, vuélvalo a intentar nuevamente.</p>
+                          <hr>
+                          <p class="mb-0">Verifique los datos ingresados e intente otra vez.</p>
+                        </div>
+                        <div class="alert alert-success" role="alert">
+                          <h4><i class="fas fa-check"></i>&nbsp;Bien hecho</h4>
+                          <p>Los datos ingresados fueron guardados exitosamente, verifique su bandeja para comprobarlo.</p>
+                          <hr>
+                          <p class="mb-0">Utilice el buscador para encontrar su nuevo registro.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                  <button class="btn btn-primary" type="button">Guardar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="modal-confirmacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Confirmar acción</h5>
+                  <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body medidas-modal">
+                  <p>¿ Desea eliminar este registro ?</p>
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
+                  <button class="btn btn-primary" type="button">Si</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid foot d-flex flex-row justify-content-center align-items-center" id="pie">
+      <footer class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <div class="row">
+              <div class="col-sm-12 col-md-6 text-white">
+                <div class="lead font-weight-bold">Enlaces</div>
+                <ul class="list-unstyled">
+                  <li class="py-1"><a class="text-white" href="#" target="_blank"><i class="fas fa-landmark mr-2"></i>MINEM</a></li>
+                  <li class="py-1"><a class="text-white" href="#" target="_blank"><i class="fas fa-landmark mr-2"></i>NAMA's</a></li>
+                  <li class="py-1"><a class="text-white" href="#" target="_blank"><i class="fas fa-sitemap mr-2"></i>Mapa del Sitio</a></li>
+                </ul>
+              </div>
+              <div class="col-sm-12 col-md-6 text-white">
+                <div class="lead font-weight-bold">Más información</div>
+                <ul class="list-unstyled">
+                  <li class="py-1"><a class="text-white" href="http://google.com" target="_blank"><i class="fas fa-file-pdf mr-2"></i>Manual de Usuario</a></li>
+                  <li class="py-1"><a class="text-white" href="#" target="_blank"><i class="fas fa-question-circle mr-2"></i>Preguntas frecuentes</a></li>
+                  <li class="py-1"><a class="text-white" href="#" target="_blank"><i class="fab fa-readme mr-2"></i>Términos y Condiciones</a></li>
+                </ul>
+              </div>
+              <div class="col-sm-12 text-white">
+                <div class="lead font-weight-bold">Contáctenos</div>
+                <ul class="list-unstyled mr-0">
+                  <li class="py-1"><i class="fas fa-phone-alt mr-2"></i>Teléfono: (+511) 411-1100</li>
+                  <li class="py-1"><i class="far fa-envelope mr-2"></i>webmaster@minem.gob.pe</li>
+                  <li class="py-1"><i class="fas fa-university mr-2"></i>Dirección General de Eficiencia Energética</li>
+                  <li class="py-1"><i class="fas fa-map-marker-alt mr-2"></i>Av. Las Artes Sur 260. San Borja. Lima. Perú</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6">
+            <div class="navbar flex-md-row justify-content-start"><a class="nav-link p-1" href="#" target="_blank"><img src="./images/logo-minem-blanco.png" height="70"></a><a class="nav-link p-1" href="#" target="_blank"><img src="./images/logo-gef-blanco.png" height="90"></a><a class="nav-link p-1 pr-0" href="#" target="_blank"><img src="./images/logo-pnud-blanco.png" height="160"></a></div>
+            <div class="navbar flex-md-row justify-content-start"><a class="nav-link p-1" href="#" target="_blank"><img src="./images/logo-nama-blanco.png" height="50"></a></div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
