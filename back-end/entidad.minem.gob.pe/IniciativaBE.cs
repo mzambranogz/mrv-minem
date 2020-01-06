@@ -2,7 +2,7 @@
 
 namespace entidad.minem.gob.pe
 {
-    public class IniciativaBE : BaseBE
+    public partial class IniciativaBE : BaseBE
     {
         public int ID_INICIATIVA { get; set; }
         public int ID_MEDMIT { get; set; }

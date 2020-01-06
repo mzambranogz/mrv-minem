@@ -19,12 +19,12 @@ function CargarListarIniciativaMitigacion() {
                     $("#cuerpoMitigacion").html("");
                     for (var i = 0; i < data.length; i++){
                             var tr = '<tr>';
-                            tr = tr + '<th class="text-center" scope="row">' + (1 + i) + '</th>';
-                            tr = tr + '<td>' + data[i]["INICIATIVA_NOMBRE"] + '</td>';
-                            tr = tr + '<td><progress id="" max="4" value=' + data[i]["PROGRESO"] + '></progress></td>';
+                            tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + (1 + i) + '</th>';
+                            tr = tr + '<td data-encabezado="Nombre de Iniciativa">' + data[i]["NOMBRE_INICIATIVA"] + '</td>';
+                            tr = tr + '<td data-encabezado="Progreso"><div class="progress-bar progress-bar-striped" role="progressbar" style="width: 50%;" aria-valuenow="' + data[i]["PROGRESO"] + '" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">' + data[i]["PROGRESO"] + '</div> </td>';
                             tr = tr + '<td>' + data[i]["FECHA"].toString()+ '</td>';
-                            tr = tr + '<td>' + data[i]["MEDIDA_MITIGACION"] + '</td>';
-                            tr = tr + '<td>' + data[i]["ENTIDAD"] + '</td>';
+                            tr = tr + '<td>' + data[i]["NOMBRE_MEDMIT"] + '</td>';
+                            tr = tr + '<td>' + data[i]["NOMBRE_INSTITUCION"] + '</td>';
                             tr = tr + "<td class='text-center'><div class='btn-group'>";
                             tr = tr + "     <div class='acciones dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'><i class='fas fa-ellipsis-h'></i></div>";
                             tr = tr + "     <div class='dropdown-menu dropdown-menu-right'>";
