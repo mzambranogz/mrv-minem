@@ -96,6 +96,10 @@ namespace MRVMinem.Areas.Publico.Controllers
             entidad = UsuarioLN.ObtenerPassword(entidad);
             itemRespuesta.success = entidad.OK;
             itemRespuesta.extra = entidad.ID_USUARIO.ToString();
+            if (entidad.OK)
+            {
+                Session["usuarioBE"] = entidad;
+            }
             return Respuesta(itemRespuesta);
         }
 

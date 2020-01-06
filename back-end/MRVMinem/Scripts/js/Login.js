@@ -26,6 +26,10 @@
             icon: 'success',
             title: 'Inicio Sesión Correctamente'
         })
+
+        var urlSesion = baseUrl + "Administrado/Gestion/Sesion"
+        location.url = urlSesion;
+
     } else {
         Swal.fire({
             icon: 'error',
