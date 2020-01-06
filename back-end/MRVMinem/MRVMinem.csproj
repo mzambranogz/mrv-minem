@@ -241,6 +241,7 @@
     <Content Include="assets\fonts\fa-solid-900.woff" />
     <Content Include="assets\fonts\fa-solid-900.woff2" />
     <Content Include="Areas\Publico\Views\Portal\Recuperar.cshtml" />
+    <Content Include="Areas\Administrado\Views\Gestion\Sesion.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\dataTables.bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.11.3.min.js" />
@@ -281,6 +282,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\js\Spanish.json" />
+    <Content Include="Views\Shared\_SesionLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

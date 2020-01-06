@@ -27,6 +27,11 @@ namespace MRVMinem.Areas.Administrado.Controllers
             return View();
         }
 
+        public ActionResult Sesion()
+        {
+            return View();
+        }
+
         public JsonResult ListaIniciativas(IniciativaBE entidad)
         {
             List<IniciativaBE> lista = IniciativaLN.ListaIniciativa(entidad);
