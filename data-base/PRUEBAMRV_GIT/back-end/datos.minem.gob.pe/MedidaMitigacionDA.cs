@@ -1,0 +1,177 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using entidad.minem.gob.pe;
+using utilitario.minem.gob.pe;
+using Dapper;
+using Oracle.DataAccess.Client;
+using System.Data;
+
+namespace datos.minem.gob.pe
+{
+    /*public class MedidaMitigacionDA : BaseDA
+    {
+        public string sPackage = "USERMRV.PKG_MRV_INICIATIVA_MITIGACION.";
+        public List<MedidaMitigacionBE> ListarMedidaMitigacion(MedidaMitigacionBE entidad)
+        {
+            List<MedidaMitigacionBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_LISTA_MEDIDA_MITIGACION";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<MedidaMitigacionBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+
+        public List<MedidaMitigacionBE> ObtenerMedidaMitigacion(MedidaMitigacionBE entidad)
+        {
+            List<MedidaMitigacionBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_MEDIDA_MITIGACION";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_MEDMIT", entidad.ID_MAE_MEDMIT);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<MedidaMitigacionBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            /*foreach (var item in Lista)
+            {
+                entidad.OBJETIVO_MEDMIT = item.OBJETIVO_MEDMIT;
+                entidad.DESCRIPCION_MEDMIT = item.DESCRIPCION_MEDMIT;
+                entidad.IPSC_MEDMIT = item.IPSC_MEDMIT;
+            }
+
+            return Lista;
+        }
+
+    }*/
+
+    public class MedidaMitigacionDA : BaseDA
+    {
+        private string sPackage = "usermrv.PKG_MRV_MANTENIMIENTO.";
+
+        public List<MedidaMitigacionBE> ListarMedidaMitigacion(MedidaMitigacionBE entidad)
+        {
+            List<MedidaMitigacionBE> Lista = null;
+
+            try        //LISTA REGISTROS//
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_LISTA_MEDMITIGACION";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<MedidaMitigacionBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+        public List<MedidaMitigacionBE> ObtenerMedidaMitigacion(MedidaMitigacionBE entidad)    //Obtiene los datos //
+        {
+            List<MedidaMitigacionBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_MEDMITIGACION";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<MedidaMitigacionBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+        public MedidaMitigacionBE editarMedidaMitigacion(MedidaMitigacionBE entidad)    //Editar//
+        {
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_UPD_MEDMITIGACION";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pNUMERO_MEDMIT", entidad.NUMERO_MEDMIT);
+                    p.Add("pNOMBRE_MEDMIT", entidad.NOMBRE_MEDMIT);
+                    p.Add("pDESCRIPCION_MEDMIT", entidad.DESCRIPCION_MEDMIT);
+                    p.Add("pID_NAMA", entidad.ID_NAMA);
+                    p.Add("pOBJETIVO_MEDMIT", entidad.OBJETIVO_MEDMIT);
+                    p.Add("pIPSC_MEDMIT", entidad.IPSC_MEDMIT);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return entidad;
+        }
+
+
+
+        public MedidaMitigacionBE eliminarMedidaMitigacion(MedidaMitigacionBE entidad)    //Eliminar//
+        {
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_DEL_MEDMITIGACION";  /*cambiar */
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return entidad;
+        }
+
+    }
+
+}

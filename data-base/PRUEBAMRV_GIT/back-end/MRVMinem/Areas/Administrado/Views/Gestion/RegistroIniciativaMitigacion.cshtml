@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "RegistroIniciativaMitigacion";
+    Layout = null;
+}
+
+
+<script type="text/javascript" src="~/Scripts/js/NuevaIniciativaMitigacion.js"></script>
+
+<div class="p-5 mt-5">
+
+    <div class="container mt-5">
+
+        <label>MEDIDA MITIGACION</label>
+        <select class="form-control" id="regMitigacion" onchange="fn_ObtenerMedidaMitigacion();">
+            <option value="0">-Seleccione Medida Mitigación-</option>
+        </select>
+
+        <label>CATEGORIA IPSS</label>
+        <input class="form-control" type="text" id="regCategoria"/>
+
+        <label>OBJETIVO</label>
+        <input class="form-control" type="text" id="regObjetivo"/>
+
+        <label>DESCRIPCION</label>
+        <input class="form-control" type="text" id="regDescripcion"/>
+
+
+
+
+    </div>
+
+</div>

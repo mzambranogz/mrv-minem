@@ -1,0 +1,290 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Plataforma MRV del Sector Energía | Inicio</title>
+    <meta name="description" content="Plataforma MRV del Sector Energía">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="images/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="images/favicon/favicon-16x16.png" sizes="16x16">
+    <!--<link rel="manifest" href="images/favicon/manifest.json">-->
+    <link rel="mask-icon" href="images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="images/favicon/favicon.ico">
+    <meta name="msapplication-config" content="images/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="./assets/css/animate.min.css" />-->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!--<script src="~/assets/js/font-awesome.js"></script>-->
+</head>
+<body>
+    <div class="container-fluid menu-nav bg-sutil fixed-top" id="cabecera">
+        <div class="container menu-main linea">
+            <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar p-0">
+                <ul class="navbar-nav mr-md-auto">
+                    <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1" href="#" target="_blan"><img src="./assets/images/logo-minem.jpg" height="40"></a></li>
+                    <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1" href="#" target="_blan"><img src="./assets/images/logo_gef.svg" height="45"></a></li>
+                    <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1 pr-0" href="#" target="_blan"><img src="./assets/images/logo_pnud.svg" height="51"></a></li>
+                </ul><a class="navbar-brand animated fadeIn mx-0" href="#"><img src="./assets/images/logo_mrv_new_negro.svg" height="36"></a>
+            </header>
+        </div>
+        <div class="container menu-sub">
+            <nav class="navbar navbar-dark navbar-expand-lg p-0 py-1">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item"><a class="nav-link nav-active text-dark font-weight-bold px-2" href="#"><i class="fas fa-house-damage px-1"></i></a></li>
+                        <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="javascript:void(0)" onclick="fn_accionesMitigacion();"><i class="fas fa-solar-panel px-1"></i>Acciones de Mitigación</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="javascript:void(0)" onclick="fn_registroIniciativaMitigacion();"><i class="fas fa-file-invoice px-1"></i>Reportes</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="#"><i class="fas fa-chart-pie px-1"></i>Acciones y Resultados</a></li>
+                    <!-- </ul><a class="btn btn-primary font-weight-bold btn-md px-2" href="#" role="button" ><i class="fas fa-sign-in-alt px-1"></i>Ingresar</a> -->
+                    </ul><a class="btn btn-primary font-weight-bold btn-md px-2" role="button" href="javascript:void(0)" onclick="fn_Login();" ><i class="fas fa-sign-in-alt px-1"></i>Ingresar</a><a class="btn btn-success font-weight-bold btn-md px-2" href="javascript:void(0)" onclick="fn_registrarUsuario();" role="button"><i class="fas fa-paper-plane px-1"></i>Registrarse</a>
+                    <!--</ul><a class="btn btn-primary font-weight-bold btn-md px-2" role="button" href="javascript:void(0)" onclick="fn_MantenimientoNama();"><i class="fas fa-sign-in-alt px-1"></i>Probando nama</a>-->
+                    </ul><a class="btn btn-primary font-weight-bold btn-md px-2" role="button" href="javascript:void(0)" onclick="fn_MantenimientoUbicacion();"><i class="fas fa-sign-in-alt px-1"></i>Probando Ubicacion</a>
+                    <!--</ul><a class="btn btn-primary font-weight-bold btn-md px-2" role="button" href="javascript:void(0)" onclick="fn_MantenimientoSectorInstitucion();"><i class="fas fa-sign-in-alt px-1"></i>Probando Sector Institucion</a>-->
+                    <!--</ul><a class="btn btn-primary font-weight-bold btn-md px-2" role="button" href="javascript:void(0)" onclick="fn_MantenimientoRol();"><i class="fas fa-sign-in-alt px-1"></i>Probando Rol</a>-->
+                    <!--</ul><a class="btn btn-primary font-weight-bold btn-md px-2" role="button" href="javascript:void(0)" onclick="fn_MantenimientoMedidaMitigacion();"><i class="fas fa-sign-in-alt px-1"></i>Probando Medida Miti</a>-->
+                    <!--a.btn.btn-white.btn-md(href="#", role="button")
+                    i.ico-logout.mr-1
+                    | Registrarse
+                    -->
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="flecha-top"><i class="fas fa-angle-double-right fa-2x text-dark btn-slider-bottom"></i></div>
+    <div class="main-container container-fluid">
+        <div class="row" id="divProceso">
+            @RenderBody()
+        </div>
+    </div>
+    <div class="container-fluid foot d-flex flex-row justify-content-center align-items-center">
+        <footer class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-6 text-white">
+                            <div class="lead font-weight-bold">Enlaces</div>
+                            <ul class="list-unstyled">
+                                <li class="py-1"><a class="text-white" href="#" target="_blank"><i class="fas fa-landmark mr-2"></i>MINEM</a></li>
+                                <li class="py-1"><a class="text-white" href="#" target="_blank"><i class="fas fa-landmark mr-2"></i>NAMA's</a></li>
+                                <li class="py-1"><a class="text-white" href="#" target="_blank"><i class="fas fa-sitemap mr-2"></i>Mapa del Sitio</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6 text-white">
+                            <div class="lead font-weight-bold">Más información</div>
+                            <ul class="list-unstyled">
+                                <li class="py-1"><a class="text-white" href="http://google.com" target="_blank"><i class="fas fa-file-pdf mr-2"></i>Manual de Usuario</a></li>
+                                <li class="py-1"><a class="text-white" href="#" target="_blank"><i class="fas fa-question-circle mr-2"></i>Preguntas frecuentes</a></li>
+                                <li class="py-1"><a class="text-white" href="#" target="_blank"><i class="fab fa-readme mr-2"></i>Términos y Condiciones</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-12 text-white">
+                            <div class="lead font-weight-bold">Contáctenos</div>
+                            <ul class="list-unstyled mr-0">
+                                <li class="py-1"><i class="fas fa-phone-alt mr-2"></i>Teléfono: (+511) 411-1100</li>
+                                <li class="py-1"><i class="far fa-envelope mr-2"></i>webmaster@minem.gob.pe</li>
+                                <li class="py-1"><i class="fas fa-map-marker-alt mr-2"></i>Dirección General de Eficiencia Energética</li>
+                                <li class="py-1"><i class="fas fa-map-marker-alt mr-2"></i>Av. Las Artes Sur 260. San Borja. Lima. Perú</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="navbar flex-md-row justify-content-start"><a class="nav-link p-1" href="#" target="_blank"><img src="./assets/images/logo-minem-blanco.png" height="70"></a><a class="nav-link p-1" href="#" target="_blank"><img src="./assets/images/logo-gef-blanco.png" height="90"></a><a class="nav-link p-1 pr-0" href="#" target="_blank"><img src="./assets/images/logo-pnud-blanco.png" height="160"></a></div>
+                    <div class="navbar flex-md-row justify-content-start"><a class="nav-link p-1" href="#" target="_blank"><img src="./assets/images/logo-nama-blanco.png" height="50"></a></div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <div id="User" data-value="12"></div>
+    @*<script src="./assets/js/jquery-3.2.1.min.js"></script>
+    <script src="./assets/js/popper.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/js/wow.min.js"></script>*@
+    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/sweetalert2.all.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/MRV.js")"></script>
+
+
+
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a id="btnAcciones" href="javascript:void(0)" onclick="fn_accionesMitigacion();" class="navbar-brand"> Acciones de Mitigación </a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>*@
+
+
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)*@
+
+    <script type="text/javascript">
+        var baseUrl = '@Url.Content("~")';
+
+        function fn_accionesMitigacion() {
+            //var urlListar = baseUrl + 'Publico/Portal/Index';
+            var urlListar = baseUrl + 'Publico/Portal/AccionMitigacion';
+            $.ajax({
+                url: urlListar,
+                dataType: 'html',
+                type: 'get',
+                contentType: 'text/xml; charset=utf-8',
+                //async: false,
+                success: function (response) {
+                    var detalle = response;
+                    $('#divProceso').html('');
+                    $('#divProceso').append(detalle);
+                }
+            });
+        }
+
+        function fn_Login() {
+            var urlListar = baseUrl + 'Publico/Portal/Login';
+            $.ajax({
+                url: urlListar,
+                dataType: 'html',
+                type: 'get',
+                contentType: 'text/xml; charset=utf-8',
+                success: function (response) {
+                    var detalle = response;
+                    $('#divProceso').html('');
+                    $('#divProceso').append(detalle);
+                }
+            });
+        }
+
+        function fn_MantenimientoNama() {
+            var urlListar = baseUrl + 'Publico/Portal/Nama';
+            $.ajax({
+                url: urlListar,
+                dataType: 'html',
+                type: 'get',
+                contentType: 'text/xml; charset=utf-8',
+                success: function (response) {
+                    var detalle = response;
+                    $('#divProceso').html('');
+                    $('#divProceso').append(detalle);
+                }
+            });
+        }
+
+        function fn_MantenimientoUbicacion() {
+            var urlListar = baseUrl + 'Publico/Portal/Ubicacion';
+            $.ajax({
+                url: urlListar,
+                dataType: 'html',
+                type: 'get',
+                contentType: 'text/xml; charset=utf-8',
+                success: function (response) {
+                    var detalle = response;
+                    $('#divProceso').html('');
+                    $('#divProceso').append(detalle);
+                }
+            });
+        }
+
+
+
+        function fn_MantenimientoSectorInstitucion() {
+            var urlListar = baseUrl + 'Publico/Portal/SectorInstitucion';
+            $.ajax({
+                url: urlListar,
+                dataType: 'html',
+                type: 'get',
+                contentType: 'text/xml; charset=utf-8',
+                success: function (response) {
+                    var detalle = response;
+                    $('#divProceso').html('');
+                    $('#divProceso').append(detalle);
+                }
+            });
+        }
+
+
+        function fn_MantenimientoRol() {
+            var urlListar = baseUrl + 'Publico/Portal/Rol';
+            $.ajax({
+                url: urlListar,
+                dataType: 'html',
+                type: 'get',
+                contentType: 'text/xml; charset=utf-8',
+                success: function (response) {
+                    var detalle = response;
+                    $('#divProceso').html('');
+                    $('#divProceso').append(detalle);
+                }
+            });
+        }
+
+
+        function fn_MantenimientoMedidaMitigacion() {
+            var urlListar = baseUrl + 'Publico/Portal/MedidaMitigacion';
+            $.ajax({
+                url: urlListar,
+                dataType: 'html',
+                type: 'get',
+                contentType: 'text/xml; charset=utf-8',
+                success: function (response) {
+                    var detalle = response;
+                    $('#divProceso').html('');
+                    $('#divProceso').append(detalle);
+                }
+            });
+        }
+
+
+        function fn_registrarUsuario() {
+            var urlListar = baseUrl + 'Publico/Portal/Usuario';
+            $.ajax({
+                url: urlListar,
+                dataType: 'html',
+                type: 'get',
+                contentType: 'text/xml; charset=utf-8',
+                success: function (response) {
+                    var detalle = response;
+                    $('#divProceso').html('');
+                    $('#divProceso').append(detalle);
+                }
+            });
+        }
+
+        function fn_Home() {
+            var urlListar = baseUrl + 'Home/Index';
+            $.ajax({
+                url: urlListar,
+                dataType: 'html',
+                type: 'get',
+                contentType: 'text/xml; charset=utf-8',
+                //async: false,
+                success: function (response) {
+                    var detalle = response;
+                    $('#divProceso').html('');
+                    $('#divProceso').append(detalle);
+                }
+            });
+        }
+
+        function fn_registroIniciativaMitigacion() {
+            MRV.ObtenerVista(baseUrl + 'Administrado/Gestion/RegistroIniciativaMitigacion');
+        }
+
+    </script>
+</body>
+</html>
