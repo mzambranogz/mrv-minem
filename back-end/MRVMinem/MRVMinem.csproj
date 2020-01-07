@@ -245,6 +245,7 @@
     <Content Include="Areas\Administrado\Views\Gestion\Sesion.cshtml" />
     <Content Include="Areas\Administrado\Views\Gestion\AccionMitigacion.cshtml" />
     <Content Include="Areas\Administrado\Views\Gestion\NuevaIniciativaMitigacion.cshtml" />
+    <None Include="Properties\PublishProfiles\MRVMinem.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\dataTables.bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.11.3.min.js" />

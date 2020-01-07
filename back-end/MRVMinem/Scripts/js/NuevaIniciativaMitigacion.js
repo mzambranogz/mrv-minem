@@ -1,8 +1,9 @@
 ﻿$(document).ready(function () {
     //MRV.CargarSelect(baseUrl + "Administrado/Gestion/ListarMedidaMitigacion", "#regMitigacion", "ID_MEDMIT", "NOMBRE_MEDMIT");
     fn_ObtenerMedidaMitigacion($("#Control").data("mitigacion"))
-    MRV.CargarSelect(baseUrl + "Administrado/Gestion/ListarMoneda", "#regMoneda", "ID_MONEDA", "DESCRIPCION");
+    CargarDatosIniciativa();
     //fn_ObtenerInformacionUsuario();
+
     fn_ListarGEI();
     fn_ListarENERG();
     fn_ListarUbicacion();
@@ -87,16 +88,15 @@ function fn_ListarGEI() {
             if (data != null && data != "") {
                 if (data.length > 0) {
                     for (var i = 0; i < data.length; i++) {
-                        var check = '<div class="form-group">';
-                        check = check + '<div class="custom-control custom-checkbox">';
-                        check = check + '    <div class="custom-control custom-checkbox">';
-                        check = check + '<input class="custom-control-input" type="checkbox" id="G' + (i + 1) + '" data-value="' + data[i]["ID_GEI"] + '" >';
-                        check = check + '<label class="custom-control-label" for="G' + (i + 1) + '">' + data[i]["DESCRIPCION"] + '</label>';
+                        var check = '<div class="col-auto my-1">';
+                        check = check + '<div class="custom-control custom-checkbox mr-sm-2">';
+                        check = check + '    <input class="custom-control-input" type="checkbox" id="G' + (i + 1) + '" data-value="' + data[i]["ID_GEI"] + '" >';
+                        check = check + '    <label class="custom-control-label" for="G' + (i + 1) + '">' + data[i]["DESCRIPCION"] + '</label>';
                         check = check + '</div>';
                         check = check + '</div>';
-                        $("#listaGEI").append(check);
+                        $("#listaGei").append(check);
                     }
-                    $("#listaGEI").data("cantidad", data.length);
+                    $("#listaGei").data("cantidad", data.length);
                 }
             }
         }
@@ -114,16 +114,15 @@ function fn_ListarENERG() {
             if (data != null && data != "") {
                 if (data.length > 0) {
                     for (var i = 0; i < data.length; i++) {
-                        var check = '<div class="form-group">';
-                        check = check + '<div class="custom-control custom-checkbox">';
-                        check = check + '    <div class="custom-control custom-checkbox">';
-                        check = check + '<input class="custom-control-input" type="checkbox" id="E' + (i + 1) + '" data-value="' + data[i]["ID_ENERG"] + '" >';
-                        check = check + '<label class="custom-control-label" for="E' + (i + 1) + '">' + data[i]["DESCRIPCION"] + '</label>';
+                        var check = '<div class="col-auto my-1">';
+                        check = check + '<div class="custom-control custom-checkbox mr-sm-2">';
+                        check = check + '    <input class="custom-control-input" type="checkbox" id="E' + (i + 1) + '" data-value="' + data[i]["ID_ENERG"] + '" >';
+                        check = check + '    <label class="custom-control-label" for="E' + (i + 1) + '">' + data[i]["DESCRIPCION"] + '</label>';
                         check = check + '</div>';
                         check = check + '</div>';
-                        $("#listaENERG").append(check);
+                        $("#listaEnerg").append(check);
                     }
-                    $("#listaENERG").data("cantidad", data.length);
+                    $("#listaEnerg").data("cantidad", data.length);
                 }
             }
         }
@@ -141,20 +140,32 @@ function fn_ListarUbicacion() {
             if (data != null && data != "") {
                 if (data.length > 0) {
                     for (var i = 0; i < data.length; i++) {
-                        var check = '<div class="form-group">';
-                        check = check + '<div class="custom-control custom-checkbox">';
-                        check = check + '    <div class="custom-control custom-checkbox">';
-                        check = check + '<input class="custom-control-input" type="checkbox" id="U' + (i + 1) + '" data-value="' + data[i]["ID_UBICACION"] + '" >';
-                        check = check + '<label class="custom-control-label" for="U' + (i + 1) + '">' + data[i]["DESCRIPCION"] + '</label>';
+                        var check = '<div class="col-auto my-1">';
+                        check = check + '<div class="custom-control custom-checkbox mr-sm-2">';
+                        check = check + '   <input class="custom-control-input" type="checkbox" id="U' + (i + 1) + '" data-value="' + data[i]["ID_UBICACION"] + '" >';
+                        check = check + '   <label class="custom-control-label" for="U' + (i + 1) + '">';
+                        check = check + '           '+ data[i]["DESCRIPCION"];
+                        check = check + '   </label>';
                         check = check + '</div>';
                         check = check + '</div>';
-                        $("#listaUBICACION").append(check);
+                        $("#listaUbicacion").append(check);
                     }
-                    $("#listaUBICACION").data("cantidad", data.length);
+                    $("#listaUbicacion").data("cantidad", data.length);
                 }
             }
         }
     });
+}
+
+function CargarDatosIniciativa() {
+    $("#nombreResponsable").val($("#Control").data("nombres"));
+    $("#nombreInstitucion").val($("#Control").data("institucion"));
+    $("#correoElectronico").val($("#Control").data("correo"));
+    $("#direccionInstitucion").val($("#Control").data("direccion"));
+    $("#sectorInstitucion").val($("#Control").data("sector"));
+    MRV.CargarSelect(baseUrl + "Administrado/Gestion/ListarMoneda", "#regMoneda", "ID_MONEDA", "DESCRIPCION");
+    $("#errorRegistroIniciativa").hide();
+    $("#correctoRegistroIniciativa").hide();
 }
 
 function fn_RegistrarIniciativaMitigacion() {
@@ -166,7 +177,7 @@ function fn_RegistrarIniciativaMitigacion() {
     }
 
     var energetico = "";
-    for (var i = 0; i < $("#listaENERG").data("cantidad") ; i++) {
+    for (var i = 0; i < $("#listaEnerg").data("cantidad") ; i++) {
         if ($('#E' + (i + 1)).prop('checked')) {
             //alert($('#E'+(i+1)).data("value"));
             energetico = energetico + $('#E' + (i + 1)).data("value") + "," + "1/";
@@ -178,7 +189,7 @@ function fn_RegistrarIniciativaMitigacion() {
     energetico = energetico.substring(0, energetico.length - 1);
 
     var gei = "";
-    for (var i = 0; i < $("#listaGEI").data("cantidad") ; i++) {
+    for (var i = 0; i < $("#listaGei").data("cantidad") ; i++) {
         if ($('#G' + (i + 1)).prop('checked')) {
             gei = gei + $('#G' + (i + 1)).data("value") + "," + "1/";
         }
@@ -187,7 +198,7 @@ function fn_RegistrarIniciativaMitigacion() {
     //alert(gei);
 
     var ubicacion = "";
-    for (var i = 0; i < $("#listaUBICACION").data("cantidad") ; i++) {
+    for (var i = 0; i < $("#listaUbicacion").data("cantidad") ; i++) {
         if ($('#U' + (i + 1)).prop('checked')) {
             ubicacion = ubicacion + $('#U' + (i + 1)).data("value") + "," + "1/";
         }
@@ -196,7 +207,7 @@ function fn_RegistrarIniciativaMitigacion() {
     //alert(ubicacion);
 
     var item = {
-        ID_MEDMIT: $("#regMitigacion").val(),
+        ID_MEDMIT: $("#Control").data("mitigacion"),
         ID_USUARIO: $("#Control").data("usuario"),
         NOMBRE_INICIATIVA: $("#regNombreIniciativa").val(),
         DESC_INICIATIVA: $("#regDescripcionMedida").val(),
@@ -211,18 +222,45 @@ function fn_RegistrarIniciativaMitigacion() {
     var mensaje = "";
     var respuesta = MRV.Ajax(url, item, false);
     if (respuesta.success) {
-        Swal.fire({
+        /*Swal.fire({
             position: 'center',
             icon: 'success',
             title: 'Registro de Iniciativa Satisfacttorio',
             showConfirmButton: false,
             timer: 1700
-        })
+        })*/
 
+        $("#cabeceraSolicitud").hide();
+        $("#publicarDatos").hide();
+        $("#errorRegistroIniciativa").hide();
+        $("#pieModalIniciativa").hide();
+        $("#correctoRegistroIniciativa").show();          
+        $("#Control").data("modal",1);
     } else {
-        Swal.fire({
+        /*Swal.fire({
             icon: 'error',
             html: 'Ocurrio error durante el registro de la Iniciativa'
-        })
+        })*/
+
+        $("#cabeceraSolicitud").hide();
+        $("#publicarDatos").hide();
+        $("#pieModalIniciativa").hide();
+        $("#correctoRegistroIniciativa").hide();
+        $("#errorRegistroIniciativa").show();        
     }
+
+
+    $("#solicitar-revision").on("hidden.bs.modal", function () {
+        if ($("#Control").data("modal") == 1) {
+            fn_accionesMitigacion(); //Invocado desde SesionLayout
+        } else {
+            $("#cabeceraSolicitud").show();
+            $("#publicarDatos").show();
+            $("#pieModalIniciativa").show();
+            $("#correctoRegistroIniciativa").hide();
+            $("#errorRegistroIniciativa").hide();
+        }
+        
+    });
+
 }

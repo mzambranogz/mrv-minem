@@ -70,7 +70,7 @@
     <div class="" id="divProceso">
         @RenderBody()
     </div>
-    <div id="Control" data-usuario="" data-nombres="" data-rol="0" data-mitigacion="0" data-opcion1="0" data-opcion2="0" data-opcion3="0" data-opcion4="0" data-opcion5="0" data-opcion6="0" data-opcion7="0" data-opcion8="0" data-opcion9="0"></div>
+    <div id="Control" data-usuario="" data-nombres="" data-correo="" data-rol="0" data-institucion="" data-direccion="" data-sector=""  data-mitigacion="0" data-opcion1="0" data-opcion2="0" data-opcion3="0" data-opcion4="0" data-opcion5="0" data-opcion6="0" data-opcion7="0" data-opcion8="0" data-opcion9="0"></div>
     <div class="container-fluid foot d-flex flex-row justify-content-center align-items-center" id="pie">
         <footer class="container">
             <div class="row">
@@ -157,10 +157,18 @@
                                         $("#Control").data("opcion9", 1)
                                     }
                                     var nombres = data[i]["NOMBRES"];
+                                    var correo = data[i]["CORREO"];
                                     var rol = data[i]["ID_ROL"];
+                                    var institucion = data[i]["INSTITUCION"];
+                                    var direccion = data[i]["DIRECCION"];
+                                    var sector = data[i]["SECTOR"];
                             }
                             $("#Control").data("nombres", nombres);
+                            $("#Control").data("correo", correo);
                             $("#Control").data("rol", rol);
+                            $("#Control").data("institucion", institucion);
+                            $("#Control").data("direccion", direccion);
+                            $("#Control").data("sector", sector);
 
                             fn_establecerVista();
                         }
@@ -170,7 +178,7 @@
         }
 
         function fn_probar() {
-            alert($("#Control").data("opcion1") + ' ' + $("#Control").data("opcion2") + ' ' + $("#Control").data("opcion3") + ' ' + $("#Control").data("opcion4") + ' ' + $("#Control").data("opcion5") + ' ' + $("#Control").data("opcion6") + ' ' + $("#Control").data("opcion7") + ' ' + $("#Control").data("opcion8") + ' ' + $("#Control").data("opcion9"));
+            alert($("#Control").data("opcion1") + ' ' + $("#Control").data("opcion2") + ' ' + $("#Control").data("opcion3") + ' ' + $("#Control").data("opcion4") + ' ' + $("#Control").data("opcion5") + ' ' + $("#Control").data("opcion6") + ' ' + $("#Control").data("opcion7") + ' ' + $("#Control").data("opcion8") + ' ' + $("#Control").data("opcion9") + ' ' + $("#Control").data("correo") + ' ' + $("#Control").data("institucion") + ' ' + $("#Control").data("sector") + ' ' + $("#Control").data("direccion"));
         }
 
 
@@ -214,7 +222,7 @@
                 opcion = opcion + '<a class="dropdown-item" href="./cambiar.html"><i class="fas fa-key pr-1"></i>Cambiar contraseña</a>';
             }
 
-            opcion = opcion + '<div class="dropdown-divider"></div><a class="dropdown-item" href="./login.html"><i class="fas fa-sign-out-alt pr-1"></i>Salir del sistema</a>';
+            opcion = opcion + '<div class="dropdown-divider"></div><a class="dropdown-item" href="#" onclick="salirSesion();"><i class="fas fa-sign-out-alt pr-1"></i>Salir del sistema</a>';
 
             $("#usuario-rol").append(opcion);
 
@@ -239,6 +247,26 @@
 
             fn_accionesMitigacion();
 
+        }
+
+        function salirSesion() {
+            $("#Control").data("usuario", 0);
+            $("#Control").data("rol", 0);
+            $("#Control").data("nombres", 0);
+            $("#Control").data("correo", 0);
+            $("#Control").data("institucion", 0);
+            $("#Control").data("direccion", 0);
+            $("#Control").data("sector", 0);
+            $("#Control").data("opcion1", 0);
+            $("#Control").data("opcion2", 0);
+            $("#Control").data("opcion3", 0);
+            $("#Control").data("opcion4", 0);
+            $("#Control").data("opcion5", 0);
+            $("#Control").data("opcion6", 0);
+            $("#Control").data("opcion7", 0);
+            $("#Control").data("opcion8", 0);
+            $("#Control").data("opcion9", 0);
+            location.href = baseUrl + "Home/Index";
         }
 
 

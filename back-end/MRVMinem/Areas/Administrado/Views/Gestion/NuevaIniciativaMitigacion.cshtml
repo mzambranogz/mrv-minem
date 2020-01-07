@@ -84,14 +84,14 @@
                                         <label for="txa-nombre-iniciativa">Nombre de la iniciativa<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-tachometer-alt"></i></span></div>
-                                            <textarea class="form-control" id="txa-nombre-iniciativa" aria-describedby="inputGroup4" cols="30" rows="5" required></textarea>
+                                            <textarea class="form-control" id="regNombreIniciativa" aria-describedby="inputGroup4" cols="30" rows="5" required></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="txa-descripcion-medida">Descripción de la medida<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-tachometer-alt"></i></span></div>
-                                            <textarea class="form-control" id="txa-descripcion-medida" aria-describedby="inputGroup5" cols="30" rows="5" required></textarea>
+                                            <textarea class="form-control" id="regDescripcionMedida" aria-describedby="inputGroup5" cols="30" rows="5" required></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -100,7 +100,7 @@
                                         <label for="txa-nombre-responsable">Nombre del reponsable&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
-                                            <input class="form-control-plaintext" id="txt-nombre-responsable" aria-describedby="inputGroup6" value="Ricardo Sanchez" readonly>
+                                            <input class="form-control-plaintext" id="nombreResponsable" aria-describedby="inputGroup6" @*value="Ricardo Sanchez"*@ readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -109,7 +109,7 @@
                                         <label for="txa-nombre-institucion">Nombre de la institución&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup7"><i class="fas fa-landmark"></i></span></div>
-                                            <input class="form-control-plaintext" id="txt-nombre-institucion" aria-describedby="inputGroup7" value="COORPORACION ENERGIA ASOCIADOS SAC" readonly>
+                                            <input class="form-control-plaintext" id="nombreInstitucion" aria-describedby="inputGroup7" @*value="COORPORACION ENERGIA ASOCIADOS SAC"*@ readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -118,7 +118,7 @@
                                         <label for="txa-correo-electronico">Correo electrónico&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup8"><i class="fas fa-landmark"></i></span></div>
-                                            <input class="form-control-plaintext" id="txt-correo-electronico" aria-describedby="inputGroup8" value="rsanchez@coorpenerasosac.com" readonly>
+                                            <input class="form-control-plaintext" id="correoElectronico" aria-describedby="inputGroup8" @*value="rsanchez@coorpenerasosac.com"*@ readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -127,7 +127,7 @@
                                         <label for="txa-direccion">Dirección&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
-                                            <input class="form-control-plaintext" id="txt-direccion" aria-describedby="inputGroup9" value="Av. Los Heros Nro 1457 - SJL" readonly>
+                                            <input class="form-control-plaintext" id="direccionInstitucion" aria-describedby="inputGroup9" @*value="Av. Los Heros Nro 1457 - SJL"*@ readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -157,15 +157,15 @@
                                         <label for="txa-sector-insi¿titucion">Sector de la insitución&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
-                                            <input class="form-control-plaintext" id="txt-sector-institucion" aria-describedby="inputGroup9" value="MINERÍA" readonly>
+                                            <input class="form-control-plaintext" id="sectorInstitucion" aria-describedby="inputGroup9" value="MINERÍA" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="txa-sector-institucion">Ubicación<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
-                                            <div class="form-control" style="height:120px; overflow-y: auto;">
-                                                <div class="col-auto my-1">
+                                            <div class="form-control" style="height:120px; overflow-y: auto;" @*-add-*@ id="listaUbicacion">
+                                                @*<div class="col-auto my-1">
                                                     <div class="custom-control custom-checkbox mr-sm-2">
                                                         <input class="custom-control-input" type="checkbox" id="region-1">
                                                         <label class="custom-control-label" for="region-1">
@@ -356,7 +356,7 @@
                                                             Departamento&nbsp;24
                                                         </label>
                                                     </div>
-                                                </div>
+                                                </div>*@
                                             </div>
                                         </div>
                                     </div>
@@ -377,14 +377,14 @@
                                         <label for="txt-monto-inversion">Monto de inversión<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup11"><i class="fas fa-wallet"></i></span></div>
-                                            <input class="form-control" type="text" id="txt-monto-inversion" placeholder="Ingrese monto" aria-describedby="inputGroup11">
+                                            <input class="form-control" type="text" id="regMontoInversion" placeholder="Ingrese monto" aria-describedby="inputGroup11">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="txt-fecha-inicio">Año de Inicio del proyecto<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique el año de inicio del proyecto"></i></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup12"><i class="fas fa-calendar-alt"></i></span></div>
-                                            <input class="form-control" type="number" id="txt-fecha-inicio" placeholder="Ingrese nombre de la iniciativa" aria-describedby="inputGroup12" min="2000" max="2030">
+                                            <input class="form-control" type="date" id="regFechaImplementacion" placeholder="Ingrese nombre de la iniciativa" aria-describedby="inputGroup12" min="2000" max="2030">
                                         </div>
                                     </div>
                                 </div>
@@ -414,8 +414,8 @@
                                         <label for="mlt-energetico">Energético asociado<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
-                                            <div class="form-control" style="height:90px; overflow-y: auto;">
-                                                <div class="col-auto my-1">
+                                            <div class="form-control" style="height:90px; overflow-y: auto;" id="listaEnerg">
+                                                @*<div class="col-auto my-1">
                                                     <div class="custom-control custom-checkbox mr-sm-2">
                                                         <input class="custom-control-input" type="checkbox" id="chk-energetico-01">
                                                         <label class="custom-control-label" for="chk-energetico-01">Combustibles fósiles&nbsp;</label>
@@ -426,7 +426,7 @@
                                                         <input class="custom-control-input" type="checkbox" id="chk-energetico-02">
                                                         <label class="custom-control-label" for="chk-energetico-02">Electricidad&nbsp;</label>
                                                     </div>
-                                                </div>
+                                                </div>*@
                                             </div>
                                         </div>
                                     </div>
@@ -436,8 +436,8 @@
                                         <label for="mlt-gei">Gases de efecto invernadero<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
-                                            <div class="form-control" style="height:90px; overflow-y: auto;">
-                                                <div class="col-auto my-1">
+                                            <div class="form-control" style="height:90px; overflow-y: auto;" @*-add-*@ id="listaGei">
+                                                @**<div class="col-auto my-1">
                                                     <div class="custom-control custom-checkbox mr-sm-2">
                                                         <input class="custom-control-input" type="checkbox" id="chk-gei-01">
                                                         <label class="custom-control-label" for="chk-gei-01">CO<sub>2</sub></label>
@@ -451,7 +451,7 @@
                                                             CH<sub>2</sub>
                                                         </label>
                                                     </div>
-                                                </div>
+                                                </div>*@
                                             </div>
                                         </div>
                                     </div>
@@ -522,25 +522,25 @@
                         </div>
                         <div class="modal-body medidas-modal">
                             <div class="row">
-                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                <div class="col-sm-12 col-md-12 col-lg-12" id="cabeceraSolicitud">
                                     <h3 class="text-center">¿Confirma enviar su solicitud a revisión? <br></h3>
                                     <p class="text-center">Confirma estar de acuerdo en enviar todos sus datos para iniciar el proceso de revisión y obtener la aprobación por parte de nuestros especialistas</p>
                                 </div>
                                 <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <div class="alert alert-warning" role="alert">
+                                    <div class="alert alert-warning" role="alert" id="publicarDatos">
                                         <span class="d-inline-block font-weight-bold">Publicar datos:&nbsp;</span>
                                         <div class="custom-control custom-checkbox d-inline-block">
-                                            <input class="custom-control-input" type="checkbox" id="chk-publicar">
-                                            <label class="custom-control-label" for="chk-publicar">Hacer públicos los datos registrados en esta iniciativa.</label>
+                                            <input class="custom-control-input" type="checkbox" id="regPrivacidad">
+                                            <label class="custom-control-label" for="regPrivacidad">Hacer públicos los datos registrados en esta iniciativa.</label>
                                         </div>
                                     </div>
-                                    <div class="alert alert-danger" role="alert">
+                                    <div class="alert alert-danger" role="alert" id="errorRegistroIniciativa">
                                         <h4><i class="fas fa-exclamation-triangle"></i>&nbsp;Error de registro</h4>
                                         <p>Ocurrió un error al tratar de registrar su iniciativa, vuelvalo a intentar nuevamente.</p>
                                         <hr>
                                         <p class="mb-0">Verifique los datos ingresados e intente otra vez.</p>
                                     </div>
-                                    <div class="alert alert-success" role="alert">
+                                    <div class="alert alert-success" role="alert" id="correctoRegistroIniciativa">
                                         <h4><i class="fas fa-check"></i>&nbsp;Bien hecho</h4>
                                         <p>Los datos de su iniciativa fueron guardados exitosamente, espere la aprobación del especialista para continuar con el registro de detalle de indicadores.</p>
                                         <hr>
@@ -549,9 +549,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer" id="pieModalIniciativa">
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
-                            <button class="btn btn-primary" type="button">Si</button>
+                            <button class="btn btn-primary" type="button" onclick="fn_RegistrarIniciativaMitigacion();">Si</button>
                         </div>
                     </div>
                 </div>
