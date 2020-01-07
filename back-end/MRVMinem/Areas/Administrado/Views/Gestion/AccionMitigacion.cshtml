@@ -1,20 +1,10 @@
 ﻿@{
-    ViewBag.Title = "Acción Mitigación";
     Layout = null;
 }
 
+
 <script type="text/javascript" src="~/Scripts/js/AccionMitigacion.js"></script>
 
-<div class="container-fluid bg-nama-azul" id="historia">
-    <div class="container">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Acciones de Mitigación</li>
-            </ol>
-        </nav>
-    </div>
-</div>
 <div class="container-fluid my-4" id="cuerpo">
     <div class="row m-0">
         <div class="col-12 cuerpo-interior">
@@ -26,7 +16,7 @@
                     <div class="col-md-12 col-lg-6 pt-4">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
-                            <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#medidas-mitigacion-listado"><a class="agregar-iniciativa" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-plus px-1"></i>Agregar iniciativa</a></span></div>
+                            <div class="col-sm-12 col-md-6 col-lg-6" id="nuevaIniciativa">@*<span data-toggle="modal" data-target="#medidas-mitigacion-listado"><a class="agregar-iniciativa" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-plus px-1"></i>Agregar iniciativa</a></span>*@</div>
                         </div>
                     </div>
                 </div>
@@ -269,7 +259,6 @@
                                     </tr>
                                 </thead>
                                 <tbody id="cuerpoMitigacion">
-
                                     @*<tr>
                                             <th class="text-center" data-encabezado="Número" scope="row">1</th>
                                             <td data-encabezado="Nombre de Iniciativa">Nombre de la Iniciativa</td>
@@ -693,30 +682,30 @@
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
                                     <div class="row">
-                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Transformación del mercado de iluminación del sector residencial"><img src="./~/assets/images/ico_nama_amarillo_01.svg"></a></div>
-                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Reemplazo de lámparas de alumbrado público por lámparas LED"><img src="./~/assets/images/ico_nama_amarillo_02.svg"></a></div>
-                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Etiquetado de eficiencia energética"><img src="./~/assets/images/ico_nama_amarillo_03.svg"></a></div>
-                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Auditorías energéticas sector público"><img src="./~/assets/images/ico_nama_amarillo_04.svg"></a></div>
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_nuevaIniciativaMitigacion(5);" data-toggle="tooltip" data-placement="top" title="Transformación del mercado de iluminación del sector residencial"><img src="~/assets/images/ico_nama_amarillo_01.svg"></a></div>
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_nuevaIniciativaMitigacion(7);" data-toggle="tooltip" data-placement="top" title="Reemplazo de lámparas de alumbrado público por lámparas LED"><img src="~/assets/images/ico_nama_amarillo_02.svg"></a></div>
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_nuevaIniciativaMitigacion(1);" data-toggle="tooltip" data-placement="top" title="Etiquetado de eficiencia energética"><img src="~/assets/images/ico_nama_amarillo_03.svg"></a></div>
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_nuevaIniciativaMitigacion(4);" data-toggle="tooltip" data-placement="top" title="Auditorías energéticas sector público"><img src="~/assets/images/ico_nama_amarillo_04.svg"></a></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
                                     <div class="row">
-                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Reemplazo de lámparas por lámparas LED en el sector público"><img src="./~/assets/images/ico_nama_amarillo_05.svg"></a></div>
-                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Eficiencia energética en el sector industrial"><img src="./~/assets/images/ico_nama_amarillo_06.svg"></a></div>
-                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Reemplazo lámparas en el sector comercial"><img src="./~/assets/images/ico_nama_amarillo_07.svg"></a></div>
-                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Promoción de vehículos eléctricos a nivel nacional"><img src="./~/assets/images/ico_nama_azul_01.svg"></a></div>
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_nuevaIniciativaMitigacion(6);" data-toggle="tooltip" data-placement="top" title="Reemplazo de lámparas por lámparas LED en el sector público"><img src="~/assets/images/ico_nama_amarillo_05.svg"></a></div>
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_nuevaIniciativaMitigacion(2);" data-toggle="tooltip" data-placement="top" title="Eficiencia energética en el sector industrial"><img src="~/assets/images/ico_nama_amarillo_06.svg"></a></div>
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_nuevaIniciativaMitigacion(3);" data-toggle="tooltip" data-placement="top" title="Reemplazo lámparas en el sector comercial"><img src="~/assets/images/ico_nama_amarillo_07.svg"></a></div>
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_nuevaIniciativaMitigacion(12);" data-toggle="tooltip" data-placement="top" title="Promoción de vehículos eléctricos a nivel nacional"><img src="~/assets/images/ico_nama_azul_01.svg"></a></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
                                     <div class="row">
-                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Suministro de electricidad con energía renovable en áreas no conectadas"><img src="./~/assets/images/ico_nama_rojo_01.svg"></a></div>
-                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Cocción limpia"><img src="./~/assets/images/ico_nama_rojo_02.svg"></a></div>
-                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Combinación de energías renovables"><img src="./~/assets/images/ico_nama_verde_01.svg"></a></div>
-                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Generación distribuida"><img src="./~/assets/images/ico_nama_verde_02.svg"></a></div>
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_nuevaIniciativaMitigacion(9);" data-toggle="tooltip" data-placement="top" title="Suministro de electricidad con energía renovable en áreas no conectadas"><img src="~/assets/images/ico_nama_rojo_01.svg"></a></div>
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_nuevaIniciativaMitigacion(8);" data-toggle="tooltip" data-placement="top" title="Cocción limpia"><img src="~/assets/images/ico_nama_rojo_02.svg"></a></div>
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_nuevaIniciativaMitigacion(10);" data-toggle="tooltip" data-placement="top" title="Combinación de energías renovables"><img src="~/assets/images/ico_nama_verde_01.svg"></a></div>
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_nuevaIniciativaMitigacion(11);" data-toggle="tooltip" data-placement="top" title="Generación distribuida"><img src="~/assets/images/ico_nama_verde_02.svg"></a></div>
                                     </div>
                                 </div>
                             </div>

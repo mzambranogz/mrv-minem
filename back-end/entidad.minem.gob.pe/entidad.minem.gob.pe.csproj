@@ -49,6 +49,7 @@
     <Compile Include="MedidaMitigacionBE.cs" />
     <Compile Include="MonedaBE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RolOpcionesBE.cs" />
     <Compile Include="SectorInstitucionBE.cs" />
     <Compile Include="TipoCombustibleBE.cs" />
     <Compile Include="TipoFuenteBE.cs" />

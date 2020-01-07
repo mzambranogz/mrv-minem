@@ -15,17 +15,17 @@
     <meta name="msapplication-config" content="~/assets/images/favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="~/assets/css/style.css">
 </head>
 <body>
     <div class="container-fluid menu-nav bg-sutil fixed-top" id="cabecera">
         <div class="container menu-main linea">
             <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar p-0">
                 <ul class="navbar-nav mr-md-auto">
-                    <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1" href="#" target="_blan"><img src="./assets/images/logo-minem.jpg" height="40"></a></li>
-                    <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1" href="#" target="_blan"><img src="./assets/images/logo_gef.svg" height="45"></a></li>
-                    <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1 pr-0" href="#" target="_blan"><img src="./assets/images/logo_pnud.svg" height="51"></a></li>
-                </ul><a class="navbar-brand ml-md-auto animated fadeIn mx-0" href="#"><img src="./assets/images/logo_mrv_new_negro.svg" height="36"></a>
+                    <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1" href="#" target="_blan"><img src="~/assets/images/logo-minem.jpg" height="40"></a></li>
+                    <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1" href="#" target="_blan"><img src="~/assets/images/logo_gef.svg" height="45"></a></li>
+                    <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1 pr-0" href="#" target="_blan"><img src="~/assets/images/logo_pnud.svg" height="51"></a></li>
+                </ul><a class="navbar-brand ml-md-auto animated fadeIn mx-0" href="#"><img src="~/assets/images/logo_mrv_new_negro.svg" height="36"></a>
             </header>
         </div>
         <div class="container menu-sub">
@@ -47,7 +47,7 @@
             </nav>
         </div>
     </div>
-    @*<div class="flecha-top"><i class="fas fa-angle-double-right fa-2x text-dark btn-slider-bottom"></i></div>*@
+    <div class="flecha-top"><i class="fas fa-angle-double-right fa-2x text-dark btn-slider-bottom"></i></div>
     <div class="main-container container-fluid">
         <div class="row" id="divProceso">
             @RenderBody()
@@ -86,19 +86,15 @@
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-6">
-                    <div class="navbar flex-md-row justify-content-start"><a class="nav-link p-1" href="#" target="_blank"><img src="./assets/images/logo-minem-blanco.png" height="70"></a><a class="nav-link p-1" href="#" target="_blank"><img src="./assets/images/logo-gef-blanco.png" height="90"></a><a class="nav-link p-1 pr-0" href="#" target="_blank"><img src="./assets/images/logo-pnud-blanco.png" height="160"></a></div>
-                    <div class="navbar flex-md-row justify-content-start"><a class="nav-link p-1" href="#" target="_blank"><img src="./assets/images/logo-nama-blanco.png" height="50"></a></div>
+                    <div class="navbar flex-md-row justify-content-start"><a class="nav-link p-1" href="#" target="_blank"><img src="~/assets/images/logo-minem-blanco.png" height="70"></a><a class="nav-link p-1" href="#" target="_blank"><img src="~/assets/images/logo-gef-blanco.png" height="90"></a><a class="nav-link p-1 pr-0" href="#" target="_blank"><img src="~/assets/images/logo-pnud-blanco.png" height="160"></a></div>
+                    <div class="navbar flex-md-row justify-content-start"><a class="nav-link p-1" href="#" target="_blank"><img src="~/assets/images/logo-nama-blanco.png" height="50"></a></div>
                 </div>
             </div>
         </footer>
     </div>
     <div id="Control" data-usuario="0"></div>
-    @*<script src="./assets/js/jquery-3.2.1.min.js"></script>
-        <script src="./assets/js/popper.min.js"></script>
-        <script src="./assets/js/bootstrap.min.js"></script>
-        <script src="./assets/js/wow.min.js"></script>*@
     <script src="~/assets/js/script.js"></script>
-    <script src="./assets/js/sweetalert2.all.min.js"></script>
+    <script src="~/assets/js/sweetalert2.all.min.js"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/MRV.js")"></script>
 
 

@@ -14,18 +14,17 @@
     <link rel="shortcut icon" href="~/assets/images/favicon/favicon.ico">
     <meta name="msapplication-config" content="~/assets/images/favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="~/assets/css/style.css">
 </head>
 <body>
     <div class="container-fluid menu-nav bg-sutil fixed-top" id="cabecera">
         <div class="container menu-main linea">
             <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar p-0">
                 <ul class="navbar-nav mr-md-auto">
-                    <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1" href="#" target="_blan"><img src="./assets/images/logo-minem.jpg" height="40"></a></li>
-                    <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1" href="#" target="_blan"><img src="./assets/images/logo_gef.svg" height="45"></a></li>
-                    <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1 pr-0" href="#" target="_blan"><img src="./assets/images/logo_pnud.svg" height="51"></a></li>
-                </ul><a class="navbar-brand ml-md-auto animated fadeIn mx-0" href="#"><img src="./assets/images/logo_mrv_new_negro.svg" height="36"></a>
+                    <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1" href="#" target="_blan"><img src="~/assets/images/logo-minem.jpg" height="40"></a></li>
+                    <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1" href="#" target="_blan"><img src="~/assets/images/logo_gef.svg" height="45"></a></li>
+                    <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1 pr-0" href="#" target="_blan"><img src="~/assets/images/logo_pnud.svg" height="51"></a></li>
+                </ul><a class="navbar-brand ml-md-auto animated fadeIn mx-0" href="#"><img src="~/assets/images/logo_mrv_new_negro.svg" height="36"></a>
             </header>
         </div>
         <div class="container menu-sub">
@@ -33,26 +32,45 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item"><a class="nav-link nav-active text-dark font-weight-bold px-2" href="#" onclick="fn_Home();"><i class="fas fa-house-damage"></i><span class="d-none d-xs-block d-sm-block d-lg-none pl-1 mostrar-inicio">Inicio</span></a></li>
-                        <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="javascript:void(0)" onclick="fn_accionesMitigacion();"><i class="fas fa-solar-panel pr-1"></i>Acciones de Mitigación</a></li>
-                        <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="javascript:void(0)" onclick="fn_registroIniciativaMitigacion();"><i class="fas fa-file-invoice pr-1"></i>Reportes</a></li>
-                        <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="javascript:void(0)" onclick="fn_detalleIndicador();"><i class="fas fa-chart-pie pr-1"></i>Acciones y Resultados</a></li>
-                        <!-- </ul><a class="btn btn-primary font-weight-bold btn-md px-2" href="#" role="button" ><i class="fas fa-sign-in-alt px-1"></i>Ingresar</a> -->
-                    </ul><a class="btn btn-primary font-weight-bold btn-md px-2 mr-2" role="button" href="javascript:void(0)" onclick="fn_Login();"><i class="fas fa-sign-in-alt pr-1"></i>Ingresar</a><a class="btn btn-success font-weight-bold btn-md px-2" href="javascript:void(0)" onclick="fn_registrarUsuario();" role="button"><i class="fas fa-paper-plane pr-1"></i>Registrarse</a>
-                    <!--a.btn.btn-white.btn-md(href="#", role="button")
-                    i.ico-logout.mr-1
-                    | Registrarse
-                    -->
+                        <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="./index.html"><i class="fas fa-house-damage"></i><span class="d-none d-xs-block d-sm-block d-lg-none pl-1 mostrar-inicio">Inicio</span></a></li>
+                        <li class="nav-item"><a class="nav-link nav-active text-dark font-weight-bold px-2" href="./acciones-de-mitigacion-interno.html"><i class="fas fa-solar-panel pr-1"></i>Acciones de Mitigación</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="#" onclick="fn_probar();"><i class="fas fa-file-invoice pr-1"></i>Reportes</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="./acciones-y-resultados.html"><i class="fas fa-chart-pie pr-1"></i>Acciones y Resultados</a></li>
+                    </ul><a class="btn text-dark px-2 mr-2 notificaciones" href="#" rol="button"><i class="far fa-bell">&nbsp;</i><span class="badge badge-light">18</span><span class="d-none d-xs-block d-sm-block d-lg-none pl-1 font-weight-bold mostrar-inicio">Notificaciones</span></a>
+                    <div class="btn-group w-sm-100">
+                        <a class="btn btn-danger dropdown-toggle text-white font-weight-bold" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user pr-1"></i>Mi cuenta</a>
+                        <div class="dropdown-menu dropdown-menu-right w-sm-100" id="usuario-rol">
+                            <!--<span class="dropdown-item">Ricardo Sánchez <br>
+                                <span class="badge badge-actor-02">Usuario Administrado</span><br>
+                                <span class="badge badge-actor-03">Especialista</span><br>
+                                <span class="badge badge-actor-04">Evaluador MINAM</span><br>
+                                <span class="badge badge-actor-05">Verificador Externo</span><br>
+                                <span class="badge badge-actor-06">Administrador MINEM</span>
+                            </span>-->
+                            <!--<a class="dropdown-item" href="./mantenimiento-de-tablas.html"><i class="fas fa-cogs pr-1"></i>Mantenimiento de tablas</a>-->
+                            <!--<a class="dropdown-item" href="./cambiar.html"><i class="fas fa-key pr-1"></i>Cambiar contraseña</a>-->
+                            <!--<div class="dropdown-divider"></div><a class="dropdown-item" href="./login.html"><i class="fas fa-sign-out-alt pr-1"></i>Salir del sistema</a>-->
+                        </div>
+                    </div>
                 </div>
             </nav>
         </div>
     </div>
-    @*<div class="flecha-top"><i class="fas fa-angle-double-right fa-2x text-dark btn-slider-bottom"></i></div>*@
-    <div class="main-container container-fluid">
-        <div class="row" id="divProceso">
-            @RenderBody()
+    <div class="flecha-top"><i class="fas fa-angle-double-right fa-2x text-dark btn-slider-bottom"></i></div>
+    <div class="container-fluid bg-nama-azul" id="historia">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Acciones de Mitigación</li>
+                </ol>
+            </nav>
         </div>
     </div>
+    <div class="" id="divProceso">
+        @RenderBody()
+    </div>
+    <div id="Control" data-usuario="" data-nombres="" data-rol="0" data-mitigacion="0" data-opcion1="0" data-opcion2="0" data-opcion3="0" data-opcion4="0" data-opcion5="0" data-opcion6="0" data-opcion7="0" data-opcion8="0" data-opcion9="0"></div>
     <div class="container-fluid foot d-flex flex-row justify-content-center align-items-center" id="pie">
         <footer class="container">
             <div class="row">
@@ -86,70 +104,80 @@
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-6">
-                    <div class="navbar flex-md-row justify-content-start"><a class="nav-link p-1" href="#" target="_blank"><img src="./assets/images/logo-minem-blanco.png" height="70"></a><a class="nav-link p-1" href="#" target="_blank"><img src="./assets/images/logo-gef-blanco.png" height="90"></a><a class="nav-link p-1 pr-0" href="#" target="_blank"><img src="./assets/images/logo-pnud-blanco.png" height="160"></a></div>
-                    <div class="navbar flex-md-row justify-content-start"><a class="nav-link p-1" href="#" target="_blank"><img src="./assets/images/logo-nama-blanco.png" height="50"></a></div>
+                    <div class="navbar flex-md-row justify-content-start"><a class="nav-link p-1" href="#" target="_blank"><img src="~/assets/images/logo-minem-blanco.png" height="70"></a><a class="nav-link p-1" href="#" target="_blank"><img src="~/assets/images/logo-gef-blanco.png" height="90"></a><a class="nav-link p-1 pr-0" href="#" target="_blank"><img src="~/assets/images/logo-pnud-blanco.png" height="160"></a></div>
+                    <div class="navbar flex-md-row justify-content-start"><a class="nav-link p-1" href="#" target="_blank"><img src="~/assets/images/logo-nama-blanco.png" height="50"></a></div>
                 </div>
             </div>
         </footer>
     </div>
-    <div id="Control" data-usuario="0"></div>
-    @*<script src="./assets/js/jquery-3.2.1.min.js"></script>
-        <script src="./assets/js/popper.min.js"></script>
-        <script src="./assets/js/bootstrap.min.js"></script>
-        <script src="./assets/js/wow.min.js"></script>*@
     <script src="~/assets/js/script.js"></script>
-    <script src="./assets/js/sweetalert2.all.min.js"></script>
+    <script src="~/assets/js/sweetalert2.all.min.js"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/MRV.js")"></script>
-
-
-
-    @*<div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a id="btnAcciones" href="javascript:void(0)" onclick="fn_accionesMitigacion();" class="navbar-brand"> Acciones de Mitigación </a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
-                    </ul>
-                </div>
-            </div>
-        </div>*@
-
-
-    @*@Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)*@
 
     <script type="text/javascript">
         var baseUrl = '@Url.Content("~")';
 
+        $(document).ready(function () {
+            CargarOpciones();
+            $("#Control").data("usuario", $("#identificador").val());
+        });
+
+        function CargarOpciones() {
+            debugger;
+            var Item = {
+                ID_USUARIO: $("#identificador").val()
+            };
+
+            $.ajax({
+                url: baseUrl + 'Administrado/Gestion/ListarOpciones',
+                type: 'POST',
+                datatype: 'json',
+                data: Item,
+                success: function (data) {
+                    if (data != null && data != "") {
+                        if (data.length > 0) {
+                            for (var i = 0; i < data.length; i++) {
+                                    if (data[i]["ID_OPCION"] == 1) {
+                                        $("#Control").data("opcion1",1)
+                                    }else if (data[i]["ID_OPCION"] == 2) {
+                                        $("#Control").data("opcion2", 1)
+                                    } else if (data[i]["ID_OPCION"] == 3) {
+                                        $("#Control").data("opcion3", 1)
+                                    } else if (data[i]["ID_OPCION"] == 4) {
+                                        $("#Control").data("opcion4", 1)
+                                    } else if (data[i]["ID_OPCION"] == 5) {
+                                        $("#Control").data("opcion5", 1)
+                                    } else if (data[i]["ID_OPCION"] == 6) {
+                                        $("#Control").data("opcion6", 1)
+                                    } else if (data[i]["ID_OPCION"] == 7) {
+                                        $("#Control").data("opcion7", 1)
+                                    } else if (data[i]["ID_OPCION"] == 8) {
+                                        $("#Control").data("opcion8", 1)
+                                    } else if (data[i]["ID_OPCION"] == 9) {
+                                        $("#Control").data("opcion9", 1)
+                                    }
+                                    var nombres = data[i]["NOMBRES"];
+                                    var rol = data[i]["ID_ROL"];
+                            }
+                            $("#Control").data("nombres", nombres);
+                            $("#Control").data("rol", rol);
+
+                            fn_establecerVista();
+                        }
+                    }
+                }
+            });
+        }
+
+        function fn_probar() {
+            alert($("#Control").data("opcion1") + ' ' + $("#Control").data("opcion2") + ' ' + $("#Control").data("opcion3") + ' ' + $("#Control").data("opcion4") + ' ' + $("#Control").data("opcion5") + ' ' + $("#Control").data("opcion6") + ' ' + $("#Control").data("opcion7") + ' ' + $("#Control").data("opcion8") + ' ' + $("#Control").data("opcion9"));
+        }
+
+
+
         function fn_accionesMitigacion() {
-            //var urlListar = baseUrl + 'Publico/Portal/Index';
-            var urlListar = baseUrl + 'Publico/Portal/AccionMitigacion';
-            $.ajax({
-                url: urlListar,
-                dataType: 'html',
-                type: 'get',
-                contentType: 'text/xml; charset=utf-8',
-                //async: false,
-                success: function (response) {
-                    var detalle = response;
-                    $('#divProceso').html('');
-                    $('#divProceso').append(detalle);
-                }
-            });
-        }
 
-        function fn_Login() {
-            var urlListar = baseUrl + 'Publico/Portal/Login';
+            var urlListar = baseUrl + 'Administrado/Gestion/AccionMitigacion';
             $.ajax({
                 url: urlListar,
                 dataType: 'html',
@@ -163,48 +191,56 @@
             });
         }
 
-        function fn_registrarUsuario() {
-            var urlListar = baseUrl + 'Publico/Portal/Usuario';
-            $.ajax({
-                url: urlListar,
-                dataType: 'html',
-                type: 'get',
-                contentType: 'text/xml; charset=utf-8',
-                success: function (response) {
-                    var detalle = response;
-                    $('#divProceso').html('');
-                    $('#divProceso').append(detalle);
-                }
-            });
+        function fn_establecerVista() {
+
+            var opcion = '<span class="dropdown-item">' + $("#Control").data("nombres") + ' <br>';
+            if ($("#Control").data("rol") == 1) {
+                opcion = opcion + '<span class="badge badge-actor-02">Usuario Administrado</span></span>'
+            }else if ($("#Control").data("rol") == 2){
+                opcion = opcion + '<span class="badge badge-actor-03">Especialista</span></span>'
+            }else if ($("#Control").data("rol") == 3){
+                opcion = opcion + '<span class="badge badge-actor-06">Administrador MINEM</span></span>'
+            }else if ($("#Control").data("rol") == 4){
+                opcion = opcion + '<span class="badge badge-actor-04">Evaluador MINAM</span></span>'
+            }else if ($("#Control").data("rol") == 5){
+                opcion = opcion + '<span class="badge badge-actor-05">Verificador Externo</span></span>'
+            }
+
+            if ($("#Control").data("opcion6") == 1) { //Añade a las opciones el mantenimiento de tablas
+                opcion = opcion + '<a class="dropdown-item" href="./mantenimiento-de-tablas.html"><i class="fas fa-cogs pr-1"></i>Mantenimiento de tablas</a>';
+            }
+
+            if ($("#Control").data("opcion7") == 1) {
+                opcion = opcion + '<a class="dropdown-item" href="./cambiar.html"><i class="fas fa-key pr-1"></i>Cambiar contraseña</a>';
+            }
+
+            opcion = opcion + '<div class="dropdown-divider"></div><a class="dropdown-item" href="./login.html"><i class="fas fa-sign-out-alt pr-1"></i>Salir del sistema</a>';
+
+            $("#usuario-rol").append(opcion);
+
+
+            if ($("#Control").data("opcion2") == 1) {
+
+            }
+
+            if ($("#Control").data("opcion3") == 1) {
+
+            }
+
+            if ($("#Control").data("opcion4") == 1) {
+
+            }
+
+
+
+            if ($("#Control").data("opcion6") == 1) {
+
+            }
+
+            fn_accionesMitigacion();
+
         }
 
-        function fn_Home() {
-            var urlListar = baseUrl + 'Home/Index';
-            $.ajax({
-                url: urlListar,
-                dataType: 'html',
-                type: 'get',
-                contentType: 'text/xml; charset=utf-8',
-                //async: false,
-                success: function (response) {
-                    var detalle = response;
-                    $('#divProceso').html('');
-                    $('#divProceso').append(detalle);
-                }
-            });
-        }
-
-        function fn_registroIniciativaMitigacion() {
-            MRV.ObtenerVista(baseUrl + 'Administrado/Gestion/RegistroIniciativaMitigacion');
-        }
-
-        function fn_detalleIndicador() {
-            MRV.ObtenerVista(baseUrl + 'Administrado/Gestion/DetalleIndicador');
-        }
-
-        function fn_recuperarClave() {
-            MRV.ObtenerVista(baseUrl + 'Publico/Portal/Recuperar');
-        }
 
     </script>
 </body>

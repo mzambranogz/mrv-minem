@@ -37,9 +37,9 @@ namespace MRVMinem.Areas.Publico.Controllers
             return View();
         }
 
-        public JsonResult ListaIniciativas(IniciativaBE entidad)
+        public JsonResult ListaIniciativasPublico(IniciativaBE entidad)
         {
-            List<IniciativaBE> lista = IniciativaLN.ListaIniciativa(entidad);
+            List<IniciativaBE> lista = IniciativaLN.ListaIniciativaPublico(entidad);
             var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
@@ -96,10 +96,6 @@ namespace MRVMinem.Areas.Publico.Controllers
             entidad = UsuarioLN.ObtenerPassword(entidad);
             itemRespuesta.success = entidad.OK;
             itemRespuesta.extra = entidad.ID_USUARIO.ToString();
-            if (entidad.OK)
-            {
-                Session["usuarioBE"] = entidad;
-            }
             return Respuesta(itemRespuesta);
         }
 

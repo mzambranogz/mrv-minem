@@ -27,8 +27,7 @@
             title: 'Inicio Sesión Correctamente'
         })
 
-        var urlSesion = baseUrl + "Administrado/Gestion/Sesion"
-        location.url = urlSesion;
+        location.href = baseUrl + "Administrado/Gestion/Sesion?id=" + respuesta.extra;
 
     } else {
         Swal.fire({
@@ -38,6 +37,3 @@
     }
 }
 
-function fn_ObtenerIDUsuario() {
-
-}

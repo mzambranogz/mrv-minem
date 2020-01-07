@@ -120,6 +120,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Administrado\AdministradoAreaRegistration.cs" />
     <Compile Include="Areas\Administrado\Controllers\GestionController.cs" />
+    <Compile Include="Areas\Administrado\Models\MvSesion.cs" />
     <Compile Include="Areas\Publico\Controllers\PortalController.cs" />
     <Compile Include="Areas\Publico\PublicoAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -242,6 +243,8 @@
     <Content Include="assets\fonts\fa-solid-900.woff2" />
     <Content Include="Areas\Publico\Views\Portal\Recuperar.cshtml" />
     <Content Include="Areas\Administrado\Views\Gestion\Sesion.cshtml" />
+    <Content Include="Areas\Administrado\Views\Gestion\AccionMitigacion.cshtml" />
+    <Content Include="Areas\Administrado\Views\Gestion\NuevaIniciativaMitigacion.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\dataTables.bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.11.3.min.js" />
@@ -286,7 +289,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Administrado\Models\" />
     <Folder Include="Areas\Administrado\Views\Shared\" />
     <Folder Include="Areas\Publico\Models\" />
     <Folder Include="Areas\Publico\Views\Shared\" />

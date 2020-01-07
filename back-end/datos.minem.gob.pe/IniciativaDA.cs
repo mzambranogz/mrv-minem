@@ -15,7 +15,7 @@ namespace datos.minem.gob.pe
     {
         private string sPackage = "USERMRV.PKG_MRV_INICIATIVA_MITIGACION.";
 
-        public List<IniciativaBE> ListaIniciativa(IniciativaBE entidad)
+        public List<IniciativaBE> ListaIniciativaPublico(IniciativaBE entidad)
         {
             List<IniciativaBE> Lista = null;
 
@@ -23,11 +23,63 @@ namespace datos.minem.gob.pe
             {
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
                 {
-                    string sp = sPackage + "USP_SEL_INICIATIVAS";
+                    string sp = sPackage + "USP_SEL_INICIATIVAS_PUBLICO";
                     var p = new OracleDynamicParameters();
-                    /*p.Add("pGenmIniciativa", entidad.P_GENM_INICIATIVA);
-                    p.Add("pNombre", entidad.INICIATIVANOMBRE);
-                    p.Add("pEstado", entidad.F_MAE_ESTADO);*/
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in Lista)
+                    {
+                        item.FECHA = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+        public List<IniciativaBE> ListaIniciativaUsuario(IniciativaBE entidad)
+        {
+            List<IniciativaBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_INICIATIVAS_USUARIO";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in Lista)
+                    {
+                        item.FECHA = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+        public List<IniciativaBE> ListaIniciativaGeneral(IniciativaBE entidad)
+        {
+            List<IniciativaBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_INICIATIVAS_GENERAL";
+                    var p = new OracleDynamicParameters();
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
 

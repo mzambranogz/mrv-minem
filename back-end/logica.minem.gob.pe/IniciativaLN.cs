@@ -12,9 +12,19 @@ namespace logica.minem.gob.pe
     {
         private static IniciativaDA iniciativaDA = new IniciativaDA();
 
-        public static List<IniciativaBE> ListaIniciativa(IniciativaBE entidad)
+        public static List<IniciativaBE> ListaIniciativaPublico(IniciativaBE entidad)
         {
-            return iniciativaDA.ListaIniciativa(entidad);
+            return iniciativaDA.ListaIniciativaPublico(entidad);
+        }
+
+        public static List<IniciativaBE> ListaIniciativaGeneral(IniciativaBE entidad)
+        {
+            return iniciativaDA.ListaIniciativaGeneral(entidad);
+        }
+
+        public static List<IniciativaBE> ListaIniciativaUsuario(IniciativaBE entidad)
+        {
+            return iniciativaDA.ListaIniciativaUsuario(entidad);
         }
 
         public static IniciativaBE RegistrarIniciativaMitigacion(IniciativaBE entidad)

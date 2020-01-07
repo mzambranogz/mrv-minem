@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MRVMinem.Core;
+using MRVMinem.Areas.Administrado.Models;
 
 namespace MRVMinem.Areas.Administrado.Controllers
 {
@@ -27,14 +28,34 @@ namespace MRVMinem.Areas.Administrado.Controllers
             return View();
         }
 
-        public ActionResult Sesion()
+        public ActionResult Sesion(string id)
+        {
+            MvSesion modelo = new MvSesion();
+            modelo.identificador = id;
+            return View(modelo);
+        }
+
+        public ActionResult AccionMitigacion()
         {
             return View();
         }
 
-        public JsonResult ListaIniciativas(IniciativaBE entidad)
+        public ActionResult NuevaIniciativaMitigacion()
         {
-            List<IniciativaBE> lista = IniciativaLN.ListaIniciativa(entidad);
+            return View();
+        }
+
+        public JsonResult ListaIniciativasUsuario(IniciativaBE entidad)
+        {
+            List<IniciativaBE> lista = IniciativaLN.ListaIniciativaUsuario(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListaIniciativasGeneral(IniciativaBE entidad)
+        {
+            List<IniciativaBE> lista = IniciativaLN.ListaIniciativaGeneral(entidad);
             var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
@@ -99,6 +120,14 @@ namespace MRVMinem.Areas.Administrado.Controllers
         public JsonResult ListarTipoFuente(TipoFuenteBE entidad)
         {
             List<TipoFuenteBE> lista = TipoFuenteLN.ListarTipoFuente(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListarOpciones(RolOpcionesBE entidad)
+        {
+            List<RolOpcionesBE> lista = RolOpcionesLN.ListarOpciones(entidad);
             var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;

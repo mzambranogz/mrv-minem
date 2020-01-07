@@ -1,7 +1,8 @@
-﻿@{
+﻿@model MRVMinem.Areas.Administrado.Models.MvSesion
+
+@{
     Layout = Layout = "~/Views/Shared/_SesionLayout.cshtml";
 }
 
-<body>
-    HOLA
-</body>
+@Html.HiddenFor(m => m.identificador)
+
