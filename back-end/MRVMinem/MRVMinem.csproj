@@ -121,6 +121,7 @@
     <Compile Include="Areas\Administrado\AdministradoAreaRegistration.cs" />
     <Compile Include="Areas\Administrado\Controllers\GestionController.cs" />
     <Compile Include="Areas\Administrado\Models\MvSesion.cs" />
+    <Compile Include="Areas\Administrado\Repositorio\EnvioCorreo.cs" />
     <Compile Include="Areas\Publico\Controllers\PortalController.cs" />
     <Compile Include="Areas\Publico\PublicoAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
