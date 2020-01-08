@@ -246,6 +246,8 @@
     <Content Include="Areas\Administrado\Views\Gestion\Sesion.cshtml" />
     <Content Include="Areas\Administrado\Views\Gestion\AccionMitigacion.cshtml" />
     <Content Include="Areas\Administrado\Views\Gestion\NuevaIniciativaMitigacion.cshtml" />
+    <Content Include="Areas\Administrado\Views\Gestion\MantenimientoUsuario.cshtml" />
+    <Content Include="Areas\Administrado\Views\Gestion\TablaMantenimiento.cshtml" />
     <None Include="Properties\PublishProfiles\MRVMinem.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\dataTables.bootstrap.min.js" />
@@ -254,9 +256,11 @@
     <Content Include="Scripts\js\AccionMitigacion.js" />
     <Content Include="Scripts\js\DetalleIndicador.js" />
     <Content Include="Scripts\js\Login.js" />
+    <Content Include="Scripts\js\MantenimientoUsuario.js" />
     <Content Include="Scripts\js\NuevaIniciativaMitigacion.js" />
     <Content Include="Scripts\js\Publico.js" />
     <Content Include="Scripts\js\Recuperar.js" />
+    <Content Include="Scripts\js\TablaMantenimiento.js" />
     <Content Include="Scripts\js\Usuario.js" />
     <Content Include="Scripts\MRV.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

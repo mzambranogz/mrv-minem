@@ -70,7 +70,7 @@
     <div class="" id="divProceso">
         @RenderBody()
     </div>
-    <div id="Control" data-usuario="" data-nombres="" data-correo="" data-rol="0" data-institucion="" data-direccion="" data-sector=""  data-mitigacion="0" data-opcion1="0" data-opcion2="0" data-opcion3="0" data-opcion4="0" data-opcion5="0" data-opcion6="0" data-opcion7="0" data-opcion8="0" data-opcion9="0"></div>
+    <div id="Control" data-usuario="" data-nombres="" data-correo="" data-rol="0" data-institucion="" data-direccion="" data-sector="" data-modal="0" data-mitigacion="0" data-opcion1="0" data-opcion2="0" data-opcion3="0" data-opcion4="0" data-opcion5="0" data-opcion6="0" data-opcion7="0" data-opcion8="0" data-opcion9="0"></div>
     <div class="container-fluid foot d-flex flex-row justify-content-center align-items-center" id="pie">
         <footer class="container">
             <div class="row">
@@ -215,7 +215,7 @@
             }
 
             if ($("#Control").data("opcion6") == 1) { //Añade a las opciones el mantenimiento de tablas
-                opcion = opcion + '<a class="dropdown-item" href="./mantenimiento-de-tablas.html"><i class="fas fa-cogs pr-1"></i>Mantenimiento de tablas</a>';
+                opcion = opcion + '<a class="dropdown-item" href="#" onclick="fn_mantenimiento();"><i class="fas fa-cogs pr-1"></i>Mantenimiento de tablas</a>';
             }
 
             if ($("#Control").data("opcion7") == 1) {
@@ -247,6 +247,10 @@
 
             fn_accionesMitigacion();
 
+        }
+
+        function fn_mantenimiento() {
+            MRV.ObtenerVista(baseUrl + 'Administrado/Gestion/TablaMantenimiento');
         }
 
         function salirSesion() {

@@ -97,7 +97,6 @@ namespace datos.minem.gob.pe
             return Lista;
         }
 
-
         public IniciativaBE RegistrarIniciativaMitigacion(IniciativaBE entidad)
         {
             List<IniciativaBE> Lista = null;
@@ -244,7 +243,6 @@ namespace datos.minem.gob.pe
 
             return entidad;
         }
-
 
         public IniciativaBE ProcesoIniciativaUbicacion(string ubi, int id_iniciativa)
         {

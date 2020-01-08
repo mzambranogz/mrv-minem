@@ -48,11 +48,23 @@
         </div>
     </div>
     <div class="flecha-top"><i class="fas fa-angle-double-right fa-2x text-dark btn-slider-bottom"></i></div>
-    <div class="main-container container-fluid">
-        <div class="row" id="divProceso">
-            @RenderBody()
+
+    @*<div class="container-fluid bg-nama-azul" id="historia">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Acciones de Mitigación</li>
+                </ol>
+            </nav>
         </div>
+        </div>*@
+
+    <!--<div class="main-container container-fluid">-->
+    <div class="" id="divProceso">
+        @RenderBody()
     </div>
+    <!--</div>-->
     <div class="container-fluid foot d-flex flex-row justify-content-center align-items-center" id="pie">
         <footer class="container">
             <div class="row">
@@ -128,7 +140,6 @@
         var baseUrl = '@Url.Content("~")';
 
         function fn_accionesMitigacion() {
-            //var urlListar = baseUrl + 'Publico/Portal/Index';
             var urlListar = baseUrl + 'Publico/Portal/AccionMitigacion';
             $.ajax({
                 url: urlListar,

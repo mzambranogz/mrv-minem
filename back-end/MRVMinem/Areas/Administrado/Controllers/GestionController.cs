@@ -45,6 +45,16 @@ namespace MRVMinem.Areas.Administrado.Controllers
             return View();
         }
 
+        public ActionResult TablaMantenimiento()
+        {
+            return View();
+        }
+
+        public ActionResult MantenimientoUsuario()
+        {
+            return View();
+        }
+
         public JsonResult ListaIniciativasUsuario(IniciativaBE entidad)
         {
             List<IniciativaBE> lista = IniciativaLN.ListaIniciativaUsuario(entidad);
@@ -133,6 +143,30 @@ namespace MRVMinem.Areas.Administrado.Controllers
             return jsonResult;
         }
 
+        public JsonResult ListarRol(RolBE entidad)
+        {
+            List<RolBE> lista = RolLN.ListarRol(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListaMantenimientoUsuario(UsuarioBE entidad)
+        {
+            List<UsuarioBE> lista = UsuarioLN.ListaMantenimientoUsuario(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult SeleccionarMantenimientoUsuario(UsuarioBE entidad)
+        {
+            List<UsuarioBE> lista = UsuarioLN.SeleccionarMantenimientoUsuario(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
         public JsonResult ObtenerMedidaMitigacion(MedidaMitigacionBE entidad)
         {
             List<MedidaMitigacionBE> lista = MedidaMitigacionLN.ObtenerMedidaMitigacion(entidad);
@@ -158,5 +192,13 @@ namespace MRVMinem.Areas.Administrado.Controllers
             return Respuesta(itemRespuesta);
         }
 
+        public JsonResult EditarUsuario(UsuarioBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = UsuarioLN.EditarUsuario(entidad);
+            itemRespuesta.success = entidad.OK;
+            return Respuesta(itemRespuesta);
+        }
     }
 }

@@ -31,7 +31,10 @@ namespace logica.minem.gob.pe
             entidad.PASSWORD_USUARIO = Seguridad.hashSal(entidad.PASSWORD_USUARIO);
             return usuarioDA.RegistraUsuario(entidad);
         }
-
+        public static UsuarioBE EditarUsuario(UsuarioBE entidad)
+        {
+            return usuarioDA.EditarUsuario(entidad);
+        }
         public static UsuarioBE ObtenerPassword(UsuarioBE entidad)
         {
             var ent = usuarioDA.ObtenerPassword(entidad);
@@ -46,11 +49,17 @@ namespace logica.minem.gob.pe
             
             return entidad;
         }
-
         public static List<UsuarioBE> ObtenerInformacionUsuario(UsuarioBE entidad)
         {
             return usuarioDA.ObtenerInformacionUsuario(entidad);
         }
-
+        public static List<UsuarioBE> ListaMantenimientoUsuario(UsuarioBE entidad)
+        {
+            return usuarioDA.ListaMantenimientoUsuario(entidad);
+        }
+        public static List<UsuarioBE> SeleccionarMantenimientoUsuario(UsuarioBE entidad)
+        {
+            return usuarioDA.SeleccionarMantenimientoUsuario(entidad);
+        }
     }
 }

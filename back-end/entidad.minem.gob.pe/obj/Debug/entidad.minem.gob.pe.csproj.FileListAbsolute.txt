@@ -2,3 +2,7 @@ F:\git-source\back-end\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
 F:\git-source\back-end\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
 F:\git-source\back-end\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.dll
 F:\git-source\back-end\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\back-end\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\back-end\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\back-end\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\back-end\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.pdb
