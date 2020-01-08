@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - martes-enero-07-2020   
+-- Archivo creado  - miércoles-enero-08-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_ADMIN_SISTEMA
@@ -10,6 +10,11 @@
   
   PROCEDURE USP_SEL_VERIFICAR_EMAIL(
     pEMAIL_USUARIO  IN VARCHAR2,
+    pVerificar          OUT NUMBER
+  );
+  
+  PROCEDURE USP_SEL_VERIFICAR_ESTADO(
+    pID_USUARIO         IN NUMBER,
     pVerificar          OUT NUMBER
   );
   
@@ -367,6 +372,18 @@ END PKG_MRV_MANTENIMIENTO;
         pVerificar := vVerificar;
     END USP_SEL_VERIFICAR_EMAIL;
     
+    PROCEDURE USP_SEL_VERIFICAR_ESTADO(
+        pID_USUARIO         IN NUMBER,
+        pVerificar          OUT NUMBER
+    )IS
+        vVerificar  NUMBER;
+    BEGIN
+        SELECT COUNT(*) INTO vVerificar 
+        FROM T_GENM_USUARIO
+        WHERE ID_ESTADO_USUARIO = 0 AND ID_USUARIO = pID_USUARIO;
+        pVerificar := vVerificar;
+    END USP_SEL_VERIFICAR_ESTADO;
+    
     PROCEDURE USP_SEL_SECTOR_INST(
             pRefcursor OUT SYS_REFCURSOR
     ) AS
@@ -614,7 +631,8 @@ END PKG_MRV_DETALLE_INDICADORES;
             ET.DESCRIPCION,
             INI.FECHA_IMPLE_INICIATIVA,
             MD.NOMBRE_MEDMIT,
-            INST.NOMBRE_INSTITUCION
+            INST.NOMBRE_INSTITUCION,
+            INI.ID_ETAPA PROGRESO
     FROM T_GENM_INICIATIVA INI
     LEFT JOIN T_MAE_ETAPA ET ON INI.ID_ETAPA = ET.ID_ETAPA
     LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
@@ -873,7 +891,9 @@ END PKG_MRV_INICIATIVA_MITIGACION;
                             INS.NOMBRE_INSTITUCION INSTITUCION,
                             INS.DIRECCION_INSTITUCION DIRECCION,
                             R.DESCRIPCION_ROL ROL,
-                            EU.DESCRIPCION ESTADO
+                            EU.DESCRIPCION ESTADO,
+                            U.ID_ESTADO_USUARIO,
+                            R.ID_ROL
         FROM                T_GENM_USUARIO U
         INNER JOIN  T_GENM_INSTITUCION INS ON U.ID_INSTITUCION = INS.ID_INSTITUCION
         INNER JOIN  T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
@@ -897,6 +917,7 @@ END PKG_MRV_INICIATIVA_MITIGACION;
                             U.TELEFONO_USUARIO,
                             U.CELULAR_USUARIO,
                             U.ANEXO_USUARIO,
+                            U.ID_ESTADO_USUARIO,
                             INS.NOMBRE_INSTITUCION INSTITUCION,
                             INS.DIRECCION_INSTITUCION DIRECCION,
                             INS.RUC_INSTITUCION RUC,
@@ -947,7 +968,6 @@ END PKG_MRV_INICIATIVA_MITIGACION;
             WHERE   NVL(FLG_ESTADO,1) = 1;
   END USP_SEL_LISTA_NAMA;
   
-  
   PROCEDURE USP_SEL_NAMA(
         pID_NAMA IN NUMBER,
         pRefcursor  OUT SYS_REFCURSOR
@@ -987,7 +1007,6 @@ END PKG_MRV_INICIATIVA_MITIGACION;
             
     END USP_DEL_NAMA;
     
- 
     PROCEDURE USP_SEL_LISTA_UBICACION(
         pRefcursor  OUT SYS_REFCURSOR
    ) AS
@@ -999,7 +1018,6 @@ END PKG_MRV_INICIATIVA_MITIGACION;
             WHERE   NVL(FLG_ESTADO,1) = 1;
             
   END USP_SEL_LISTA_UBICACION;
-  
   
   PROCEDURE USP_SEL_UBICACION(
         pID_UBICACION IN NUMBER,
@@ -1042,7 +1060,6 @@ END PKG_MRV_INICIATIVA_MITIGACION;
     
 
 
-  
   PROCEDURE USP_SEL_LISTA_SECTORINSTITUC(
         pRefcursor  OUT SYS_REFCURSOR
    ) AS
@@ -1151,7 +1168,6 @@ END PKG_MRV_INICIATIVA_MITIGACION;
 
 
 
-
 PROCEDURE USP_SEL_LISTA_MEDMIT(
         pRefcursor  OUT SYS_REFCURSOR
    ) AS
@@ -1223,11 +1239,6 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
              
             
     END USP_DEL_MEDMIT;
-
-
-    
-    
-    
 
 END PKG_MRV_MANTENIMIENTO;
 
