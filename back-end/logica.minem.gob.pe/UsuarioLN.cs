@@ -46,7 +46,20 @@ namespace logica.minem.gob.pe
                 entidad.OK = Seguridad.CompararHashSal(entidad.PASSWORD_USUARIO, ent.PASSWORD_USUARIO);
                 entidad.ID_USUARIO = ent.ID_USUARIO;
             }
-            
+
+            if (entidad.OK)
+            {
+                entidad.OK = usuarioDA.VerificarEstadoUsuario(entidad);
+                if (!entidad.OK)
+                {
+                    entidad.extra = "El usuario aún no ha sido aprobado";
+                }
+            }
+            else
+            {
+                entidad.extra = "Usuario y/o Password incorrecto";
+            }
+
             return entidad;
         }
         public static List<UsuarioBE> ObtenerInformacionUsuario(UsuarioBE entidad)

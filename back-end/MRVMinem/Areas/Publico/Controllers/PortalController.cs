@@ -98,7 +98,14 @@ namespace MRVMinem.Areas.Publico.Controllers
 
             entidad = UsuarioLN.ObtenerPassword(entidad);
             itemRespuesta.success = entidad.OK;
-            itemRespuesta.extra = entidad.ID_USUARIO.ToString();
+            if (entidad.OK)
+            {
+                itemRespuesta.extra = entidad.ID_USUARIO.ToString();
+            }
+            else
+            {
+                itemRespuesta.extra = entidad.extra;
+            }
             return Respuesta(itemRespuesta);
         }
 

@@ -41,8 +41,7 @@ namespace MRVMinem.Areas.Administrado.Repositorio
 
             sb.Append(" <table style=\"font-size: 11px;color: #000000;font-family: arial;text-align: justify;width: 100%; border-bottom: 1px\" cellspacing=\"2\" border=\"0\">");
             sb.Append(" <tr><td style=\"height: 16px\"> <img src=\"cid:imagenMEM\" /> </td></tr>");
-            //sb.Append("     <td style=\"font-size: 9px;color: #727272;font-family: arial;text-align:right\"></td> ");
-            //sb.Append("     <td style=\"font-weight:bold;font-size: 23px;color: #000000;font-family: arial;text-align:center;border: #DADFE6 2px solid;background-color: #dff0d8\"></td> </tr>");
+
             sb.Append(" <tr><td></td></tr>");
             sb.Append(" </table>");
 
@@ -55,26 +54,6 @@ namespace MRVMinem.Areas.Administrado.Repositorio
             sb.Append(" <tr><td style=\"height: 14px;font-size: 12px;font-weight: bold\"></td></tr><tr><td>&nbsp;</td></tr>");
             sb.Append(" <tr><td>Gracias por registrate en nuestro sistema <b>MRV</b>, tu registro fue satisfactorio, en estos momentos nuestro especialista esta verificandotu registro para poder brindarte el acceso al sistema</td></tr><tr><td>&nbsp;</td></tr>");
             sb.Append(" </table>");
-
-            //sb.Append(" <table style=\"border: #DADFE6 1px solid;width: 100%; border-bottom: 1px\" cellspacing=\"0\" cellpadding=\"2\" width=\"55%\">");
-            //sb.Append(" <tr style=\"font-weight: bold;font-size: 11px;letter-spacing: 1px;font-family: arial;background-color: #dff0d8;text-align: center;\">");
-            //sb.Append(" <td colspan=\"2\" style=\"color: #000000\">DATOS DEL PROYECTO</td></tr>");
-            //sb.Append(" <tr style=\"font-size: 11px;color: #000000;font-family: arial;\">");
-            //sb.Append(" <td style=\"border: #DADFE6 1px solid;width: 130px\">Nombres</td>");
-            //sb.Append(" <td style=\"border: #DADFE6 1px solid;width: 75%\">" + entidad.NOMBRE + "</td></tr>");
-            //sb.Append(" <tr style=\"font-size: 11px;color: #000000;font-family: arial;\">");
-            //sb.Append(" <td style=\"border: #DADFE6 1px solid;width: 130px\">Resolución</td>");
-            //sb.Append(" <td style=\"border: #DADFE6 1px solid;width: 75%\">" + entidad.RESOLUCION + "</td></tr>");
-            //sb.Append(" <tr style=\"font-size: 11px;color: #000000;font-family: arial;\">");
-            //sb.Append(" <td style=\"border: #DADFE6 1px solid;width: 130px; height: 20px;\">Prioridad</td>");
-            //sb.Append(" <td style=\"border: #DADFE6 1px solid;width: 75%; height: 20px;\">" + entidad.TIPO_PRIORIDAD + "</td></tr>");
-            //sb.Append(" <tr style=\"font-size: 11px;color: #000000;font-family: arial;\">");
-            //sb.Append(" <td style=\"border: #DADFE6 1px solid;width: 130px; height: 20px;\">Rubro</td>");
-            //sb.Append(" <td style=\"border: #DADFE6 1px solid;width: 75%; height: 20px;\">" + entidad.DESC_TIPO_RUBRO + "</td></tr>");
-            //sb.Append(" <tr style=\"font-size: 11px;color: #000000;font-family: arial;\">");
-            //sb.Append(" <td style=\"border: #DADFE6 1px solid;width: 130px; height: 20px;\">Fecha de Registro del Proyecto</td>");
-            //sb.Append(" <td style=\"border: #DADFE6 1px solid;width: 75%; height: 20px;\">" + entidad.FEC_REGISTRO_PROYECTO.ToString("dd/MM/yyyy") + "</td></tr>");
-            //sb.Append(" </table>");
 
             sb.Append(" <table style=\"border: #DADFE6 1px solid;width: 100%; border-bottom: 1px\" cellspacing=\"0\" cellpadding=\"2\" width=\"55%\">");
             sb.Append(" <tr style=\"font-weight: bold;font-size: 11px;letter-spacing: 1px;font-family: arial;background-color: #dff0d8;text-align: center;\">");
