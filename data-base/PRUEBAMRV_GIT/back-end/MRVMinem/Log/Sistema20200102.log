@@ -1,0 +1,236 @@
+02/01/2020 12:04:07 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'USERMRV.PKG_MRV_INICIATIVA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+02/01/2020 12:04:07 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'USERMRV.PKG_MRV_INICIATIVA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+02/01/2020 12:04:07 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'USERMRV.PKG_MRV_INICIATIVA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+02/01/2020 12:04:07 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'USERMRV.PKG_MRV_INICIATIVA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+02/01/2020 12:04:07 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'USERMRV.PKG_MRV_INICIATIVA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+02/01/2020 12:04:07 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'USERMRV.PKG_MRV_INICIATIVA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+02/01/2020 12:04:07 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'USERMRV.PKG_MRV_INICIATIVA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+02/01/2020 12:04:07 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'USERMRV.PKG_MRV_INICIATIVA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+02/01/2020 12:04:07 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'USERMRV.PKG_MRV_INICIATIVA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+02/01/2020 12:04:07 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'USERMRV.PKG_MRV_INICIATIVA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+02/01/2020 12:04:07 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaIniciativa(entidad.minem.gob.pe.IniciativaBE), Línea: 32] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'USERMRV.PKG_MRV_INICIATIVA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+02/01/2020 10:28:54: [Método: Void .ctor(System.String), Línea: 0] - Se produjo una excepción en el inicializador de tipo de 'Oracle.DataAccess.Client.OracleConnection'.
+02/01/2020 10:28:54: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.MedidaMitigacionBE] ListarMedidaMitigacion(entidad.minem.gob.pe.MedidaMitigacionBE), Línea: 23] - Se produjo una excepción en el inicializador de tipo de 'Oracle.DataAccess.Client.OracleConnection'.
+02/01/2020 10:29:21: [Método: Void .ctor(System.String), Línea: 0] - Se produjo una excepción en el inicializador de tipo de 'Oracle.DataAccess.Client.OracleConnection'.
+02/01/2020 10:29:21: [Método: System.String ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 58] - Se produjo una excepción en el inicializador de tipo de 'Oracle.DataAccess.Client.OracleConnection'.
+02/01/2020 11:28:52: [Método: Void .ctor(System.String), Línea: 0] - Se produjo una excepción en el inicializador de tipo de 'Oracle.DataAccess.Client.OracleConnection'.
+02/01/2020 11:28:52: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.MonedaBE] ListarMedidaMitigacion(entidad.minem.gob.pe.MonedaBE), Línea: 23] - Se produjo una excepción en el inicializador de tipo de 'Oracle.DataAccess.Client.OracleConnection'.
+02/01/2020 12:00:05: [Método: Void .ctor(System.String), Línea: 0] - Se produjo una excepción en el inicializador de tipo de 'Oracle.DataAccess.Client.OracleConnection'.
+02/01/2020 12:00:05: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.NamaBE] ListarNama(entidad.minem.gob.pe.NamaBE), Línea: 25] - Se produjo una excepción en el inicializador de tipo de 'Oracle.DataAccess.Client.OracleConnection'.
+02/01/2020 12:01:05: [Método: Void .ctor(System.String), Línea: 0] - Se produjo una excepción en el inicializador de tipo de 'Oracle.DataAccess.Client.OracleConnection'.
+02/01/2020 12:01:05: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.NamaBE] ListarNama(entidad.minem.gob.pe.NamaBE), Línea: 25] - Se produjo una excepción en el inicializador de tipo de 'Oracle.DataAccess.Client.OracleConnection'.
+02/01/2020 15:29:05: [Método: Int32 get_Number(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:29:05: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:29:05: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:29:05: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:29:05: [Método: Void Open(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:29:05: [Método: Boolean MoveNext(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:29:05: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:29:05: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:29:05: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:29:05: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.NamaBE] ListarNama(entidad.minem.gob.pe.NamaBE), Línea: 30] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:44:28: [Método: Int32 get_Number(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:44:28: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:44:28: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:44:28: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:44:28: [Método: Void Open(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:44:28: [Método: Boolean MoveNext(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:44:28: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:44:28: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:44:28: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:44:28: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.NamaBE] ListarNama(entidad.minem.gob.pe.NamaBE), Línea: 30] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:44:36: [Método: Int32 get_Number(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:44:36: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:44:36: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:44:36: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:44:36: [Método: Void Open(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:44:36: [Método: Boolean MoveNext(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:44:36: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:44:36: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:44:36: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:44:36: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SectorInstitucionBE] ListaSectorInstitucion(entidad.minem.gob.pe.SectorInstitucionBE), Línea: 30] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:44:57: [Método: Int32 get_Number(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:44:57: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:44:57: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:44:57: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:44:57: [Método: Void Open(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:44:57: [Método: Boolean MoveNext(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:44:57: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:44:57: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:44:57: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:44:57: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.NamaBE] ListarNama(entidad.minem.gob.pe.NamaBE), Línea: 30] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:32: [Método: Int32 get_Number(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:32: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:32: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:32: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:32: [Método: Void Open(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:32: [Método: Boolean MoveNext(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:32: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:32: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:32: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:32: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.NamaBE] ListarNama(entidad.minem.gob.pe.NamaBE), Línea: 30] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:38: [Método: Int32 get_Number(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:38: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:38: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:38: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:38: [Método: Void Open(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:38: [Método: Boolean MoveNext(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:38: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:38: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:38: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:38: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.NamaBE] ListarNama(entidad.minem.gob.pe.NamaBE), Línea: 30] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:47: [Método: Int32 get_Number(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:47: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:47: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:47: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:47: [Método: Void Open(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:47: [Método: Boolean MoveNext(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:47: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:47: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:47: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:47: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.NamaBE] ListarNama(entidad.minem.gob.pe.NamaBE), Línea: 30] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:50: [Método: Int32 get_Number(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:50: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:50: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:50: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:50: [Método: Void Open(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:50: [Método: Boolean MoveNext(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:50: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:50: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:50: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:49:50: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.NamaBE] ListarNama(entidad.minem.gob.pe.NamaBE), Línea: 30] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:50:37: [Método: Int32 get_Number(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:50:37: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:50:37: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:50:37: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:50:37: [Método: Void Open(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:50:37: [Método: Boolean MoveNext(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:50:37: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:50:37: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:50:37: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:50:37: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.NamaBE] ListarNama(entidad.minem.gob.pe.NamaBE), Línea: 30] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:53:44: [Método: Int32 get_Number(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:53:44: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:53:44: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:53:44: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:53:44: [Método: Void Open(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:53:44: [Método: Boolean MoveNext(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:53:44: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:53:44: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:53:44: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:53:44: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.NamaBE] ListarNama(entidad.minem.gob.pe.NamaBE), Línea: 30] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:56:03: [Método: Int32 get_Number(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:56:03: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:56:03: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:56:03: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:56:03: [Método: Void Open(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:56:03: [Método: Boolean MoveNext(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:56:03: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:56:03: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:56:03: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:56:03: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.NamaBE] ListarNama(entidad.minem.gob.pe.NamaBE), Línea: 30] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:57:15: [Método: Int32 get_Number(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:57:15: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:57:15: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:57:15: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:57:15: [Método: Void Open(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:57:15: [Método: Boolean MoveNext(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:57:15: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:57:15: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:57:15: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 15:57:15: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.NamaBE] ListarNama(entidad.minem.gob.pe.NamaBE), Línea: 30] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:00:20: [Método: Int32 get_Number(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:00:20: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:00:20: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:00:20: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:00:20: [Método: Void Open(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:00:20: [Método: Boolean MoveNext(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:00:20: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:00:20: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:00:20: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:00:20: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.NamaBE] ListarNama(entidad.minem.gob.pe.NamaBE), Línea: 30] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:17:38: [Método: Int32 get_Number(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:17:38: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:17:38: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:17:38: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:17:38: [Método: Void Open(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:17:38: [Método: Boolean MoveNext(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:17:38: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:17:38: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:17:38: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:17:38: [Método: System.String ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 64] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:17:52: [Método: Int32 get_Number(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:17:52: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:17:52: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:17:52: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:17:52: [Método: Void Open(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:17:52: [Método: Boolean MoveNext(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:17:52: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:17:52: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:17:52: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:17:52: [Método: System.String ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 64] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:22:27: [Método: Int32 get_Number(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:22:27: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:22:27: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:22:27: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:22:27: [Método: Void Open(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:22:27: [Método: Boolean MoveNext(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:22:27: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:22:27: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:22:27: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 16:22:27: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.NamaBE] ListarNama(entidad.minem.gob.pe.NamaBE), Línea: 30] - Referencia a objeto no establecida como instancia de un objeto.
+02/01/2020 19:36:59: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 45:
+PLS-00114: identifier 'USP_SEL_LISTA_MEDIDA_MITIGACIO' too long
+02/01/2020 19:36:59: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 45:
+PLS-00114: identifier 'USP_SEL_LISTA_MEDIDA_MITIGACIO' too long
+02/01/2020 19:36:59: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 45:
+PLS-00114: identifier 'USP_SEL_LISTA_MEDIDA_MITIGACIO' too long
+02/01/2020 19:36:59: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 45:
+PLS-00114: identifier 'USP_SEL_LISTA_MEDIDA_MITIGACIO' too long
+02/01/2020 19:36:59: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 45:
+PLS-00114: identifier 'USP_SEL_LISTA_MEDIDA_MITIGACIO' too long
+02/01/2020 19:36:59: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 45:
+PLS-00114: identifier 'USP_SEL_LISTA_MEDIDA_MITIGACIO' too long
+02/01/2020 19:36:59: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 45:
+PLS-00114: identifier 'USP_SEL_LISTA_MEDIDA_MITIGACIO' too long
+02/01/2020 19:36:59: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 45:
+PLS-00114: identifier 'USP_SEL_LISTA_MEDIDA_MITIGACIO' too long
+02/01/2020 19:36:59: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 45:
+PLS-00114: identifier 'USP_SEL_LISTA_MEDIDA_MITIGACIO' too long
+02/01/2020 19:36:59: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 45:
+PLS-00114: identifier 'USP_SEL_LISTA_MEDIDA_MITIGACIO' too long
+02/01/2020 19:36:59: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.MedidaMitigacionBE] ListarMedidaMitigacion(entidad.minem.gob.pe.MedidaMitigacionBE), Línea: 28] - ORA-06550: line 1, column 45:
+PLS-00114: identifier 'USP_SEL_LISTA_MEDIDA_MITIGACIO' too long

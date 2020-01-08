@@ -77,6 +77,7 @@ namespace MRVMinem.Areas.Publico.Controllers
             else
             {
                 new EnvioCorreo().CreacionUsuario(entidad);
+
                 itemRespuesta.success = true;
             }
             return Respuesta(itemRespuesta);

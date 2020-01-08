@@ -24,6 +24,7 @@ namespace MRVMinem.Areas.Administrado.Repositorio
             bool envioCorreo = Correo.EnviarEmail(De, Para, asunto, cuerpo, true, null, Cco, null);
 
             return envioCorreo;
+
         }
 
         private string CuerpoCreacionUsuario(UsuarioBE entidad)
