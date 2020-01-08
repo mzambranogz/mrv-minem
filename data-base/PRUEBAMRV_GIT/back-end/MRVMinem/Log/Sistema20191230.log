@@ -1,0 +1,48 @@
+30/12/2019 03:41:20 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06502: PL/SQL: error : error de conversión de carácter a número numérico o de valor
+ORA-06512: en línea 1
+30/12/2019 03:41:20 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06502: PL/SQL: error : error de conversión de carácter a número numérico o de valor
+ORA-06512: en línea 1
+30/12/2019 03:41:20 p.m.: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-06502: PL/SQL: error : error de conversión de carácter a número numérico o de valor
+ORA-06512: en línea 1
+30/12/2019 03:41:20 p.m.: [Método: Int32 ExecuteNonQuery(Oracle.DataAccess.Client.OracleConnection, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 255] - ORA-06502: PL/SQL: error : error de conversión de carácter a número numérico o de valor
+ORA-06512: en línea 1
+30/12/2019 03:41:20 p.m.: [Método: Int32 ExecuteNonQuery(System.String, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 178] - ORA-06502: PL/SQL: error : error de conversión de carácter a número numérico o de valor
+ORA-06512: en línea 1
+30/12/2019 03:41:20 p.m.: [Método: System.String ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 62] - ORA-06502: PL/SQL: error : error de conversión de carácter a número numérico o de valor
+ORA-06512: en línea 1
+30/12/2019 03:41:31 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06502: PL/SQL: error : error de conversión de carácter a número numérico o de valor
+ORA-06512: en línea 1
+30/12/2019 03:41:31 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06502: PL/SQL: error : error de conversión de carácter a número numérico o de valor
+ORA-06512: en línea 1
+30/12/2019 03:41:31 p.m.: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-06502: PL/SQL: error : error de conversión de carácter a número numérico o de valor
+ORA-06512: en línea 1
+30/12/2019 03:41:31 p.m.: [Método: Int32 ExecuteNonQuery(Oracle.DataAccess.Client.OracleConnection, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 255] - ORA-06502: PL/SQL: error : error de conversión de carácter a número numérico o de valor
+ORA-06512: en línea 1
+30/12/2019 03:41:31 p.m.: [Método: Int32 ExecuteNonQuery(System.String, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 178] - ORA-06502: PL/SQL: error : error de conversión de carácter a número numérico o de valor
+ORA-06512: en línea 1
+30/12/2019 03:41:31 p.m.: [Método: System.String ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 62] - ORA-06502: PL/SQL: error : error de conversión de carácter a número numérico o de valor
+ORA-06512: en línea 1
+30/12/2019 03:42:10 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06502: PL/SQL: error : error de conversión de carácter a número numérico o de valor
+ORA-06512: en línea 1
+30/12/2019 03:42:10 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06502: PL/SQL: error : error de conversión de carácter a número numérico o de valor
+ORA-06512: en línea 1
+30/12/2019 03:42:10 p.m.: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-06502: PL/SQL: error : error de conversión de carácter a número numérico o de valor
+ORA-06512: en línea 1
+30/12/2019 03:42:10 p.m.: [Método: Int32 ExecuteNonQuery(Oracle.DataAccess.Client.OracleConnection, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 255] - ORA-06502: PL/SQL: error : error de conversión de carácter a número numérico o de valor
+ORA-06512: en línea 1
+30/12/2019 03:42:10 p.m.: [Método: Int32 ExecuteNonQuery(System.String, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 178] - ORA-06502: PL/SQL: error : error de conversión de carácter a número numérico o de valor
+ORA-06512: en línea 1
+30/12/2019 03:42:10 p.m.: [Método: System.String ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 62] - ORA-06502: PL/SQL: error : error de conversión de carácter a número numérico o de valor
+ORA-06512: en línea 1
+30/12/2019 03:42:53 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06502: PL/SQL: error : error de conversión de carácter a número numérico o de valor
+ORA-06512: en línea 1
+30/12/2019 03:42:53 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06502: PL/SQL: error : error de conversión de carácter a número numérico o de valor
+ORA-06512: en línea 1
+30/12/2019 03:42:53 p.m.: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-06502: PL/SQL: error : error de conversión de carácter a número numérico o de valor
+ORA-06512: en línea 1
+30/12/2019 03:42:53 p.m.: [Método: Int32 ExecuteNonQuery(Oracle.DataAccess.Client.OracleConnection, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 255] - ORA-06502: PL/SQL: error : error de conversión de carácter a número numérico o de valor
+ORA-06512: en línea 1
+30/12/2019 03:42:53 p.m.: [Método: Int32 ExecuteNonQuery(System.String, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 178] - ORA-06502: PL/SQL: error : error de conversión de carácter a número numérico o de valor
+ORA-06512: en línea 1
+30/12/2019 03:42:53 p.m.: [Método: System.String ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 62] - ORA-06502: PL/SQL: error : error de conversión de carácter a número numérico o de valor
+ORA-06512: en línea 1

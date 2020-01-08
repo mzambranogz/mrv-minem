@@ -1,0 +1,86 @@
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\back-end\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\back-end\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\back-end\datos.minem.gob.pe\bin\Debug\Dapper.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\back-end\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\back-end\datos.minem.gob.pe\bin\Debug\Oracle.DataAccess.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\back-end\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\back-end\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\back-end\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\back-end\datos.minem.gob.pe\bin\Debug\Dapper.xml
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.pdb
+C:\Users\JK\Desktop\ORIGINAL MRV\back-end\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.dll
+C:\Users\JK\Desktop\ORIGINAL MRV\back-end\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.pdb
+C:\Users\JK\Desktop\ORIGINAL MRV\back-end\datos.minem.gob.pe\bin\Debug\Dapper.dll
+C:\Users\JK\Desktop\ORIGINAL MRV\back-end\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+C:\Users\JK\Desktop\ORIGINAL MRV\back-end\datos.minem.gob.pe\bin\Debug\Oracle.DataAccess.dll
+C:\Users\JK\Desktop\ORIGINAL MRV\back-end\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.dll
+C:\Users\JK\Desktop\ORIGINAL MRV\back-end\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+C:\Users\JK\Desktop\ORIGINAL MRV\back-end\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.pdb
+C:\Users\JK\Desktop\ORIGINAL MRV\back-end\datos.minem.gob.pe\bin\Debug\Dapper.xml
+C:\Users\JK\Desktop\ORIGINAL MRV\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\JK\Desktop\ORIGINAL MRV\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.dll
+C:\Users\JK\Desktop\ORIGINAL MRV\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.pdb
+C:\Users\JK\Desktop\PRUEBA MRV\back-end\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.dll
+C:\Users\JK\Desktop\PRUEBA MRV\back-end\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.pdb
+C:\Users\JK\Desktop\PRUEBA MRV\back-end\datos.minem.gob.pe\bin\Debug\Dapper.dll
+C:\Users\JK\Desktop\PRUEBA MRV\back-end\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+C:\Users\JK\Desktop\PRUEBA MRV\back-end\datos.minem.gob.pe\bin\Debug\Oracle.DataAccess.dll
+C:\Users\JK\Desktop\PRUEBA MRV\back-end\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.dll
+C:\Users\JK\Desktop\PRUEBA MRV\back-end\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+C:\Users\JK\Desktop\PRUEBA MRV\back-end\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.pdb
+C:\Users\JK\Desktop\PRUEBA MRV\back-end\datos.minem.gob.pe\bin\Debug\Dapper.xml
+C:\Users\JK\Desktop\PRUEBA MRV\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\JK\Desktop\PRUEBA MRV\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.dll
+C:\Users\JK\Desktop\PRUEBA MRV\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.pdb
+C:\Users\JK\Desktop\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.dll
+C:\Users\JK\Desktop\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.pdb
+C:\Users\JK\Desktop\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\Dapper.dll
+C:\Users\JK\Desktop\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+C:\Users\JK\Desktop\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\Oracle.DataAccess.dll
+C:\Users\JK\Desktop\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.dll
+C:\Users\JK\Desktop\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+C:\Users\JK\Desktop\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.pdb
+C:\Users\JK\Desktop\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\Dapper.xml
+C:\Users\JK\Desktop\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\JK\Desktop\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.dll
+C:\Users\JK\Desktop\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.pdb
+E:\Archivos\JUAN\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.dll
+E:\Archivos\JUAN\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.pdb
+E:\Archivos\JUAN\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\Dapper.dll
+E:\Archivos\JUAN\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+E:\Archivos\JUAN\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.dll
+E:\Archivos\JUAN\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+E:\Archivos\JUAN\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.pdb
+E:\Archivos\JUAN\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\Dapper.xml
+E:\Archivos\JUAN\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.dll
+E:\Archivos\JUAN\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.pdb
+E:\Archivos\JUAN\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.csprojAssemblyReference.cache
+E:\Archivos\JUAN\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.csproj.CoreCompileInputs.cache
+E:\Archivos\JUAN\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\Oracle.DataAccess.dll
+E:\Archivos\JUAN\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.csproj.CopyComplete
+E:\Archivos\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.dll
+E:\Archivos\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.pdb
+E:\Archivos\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\Dapper.dll
+E:\Archivos\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+E:\Archivos\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\Oracle.DataAccess.dll
+E:\Archivos\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.dll
+E:\Archivos\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+E:\Archivos\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.pdb
+E:\Archivos\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\Dapper.xml
+E:\Archivos\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.csprojResolveAssemblyReference.cache
+E:\Archivos\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.dll
+E:\Archivos\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.pdb
+C:\Users\ALFREDO\Desktop\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.dll
+C:\Users\ALFREDO\Desktop\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.pdb
+C:\Users\ALFREDO\Desktop\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\Dapper.dll
+C:\Users\ALFREDO\Desktop\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+C:\Users\ALFREDO\Desktop\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\Oracle.DataAccess.dll
+C:\Users\ALFREDO\Desktop\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.dll
+C:\Users\ALFREDO\Desktop\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+C:\Users\ALFREDO\Desktop\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.pdb
+C:\Users\ALFREDO\Desktop\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\bin\Debug\Dapper.xml
+C:\Users\ALFREDO\Desktop\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\ALFREDO\Desktop\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.dll
+C:\Users\ALFREDO\Desktop\PRUEBAMRV_GIT\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.pdb
