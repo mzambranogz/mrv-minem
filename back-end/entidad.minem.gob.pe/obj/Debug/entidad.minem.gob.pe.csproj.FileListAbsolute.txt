@@ -1,0 +1,4 @@
+D:\GitHub\back-end\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+D:\GitHub\back-end\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+D:\GitHub\back-end\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.dll
+D:\GitHub\back-end\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.pdb

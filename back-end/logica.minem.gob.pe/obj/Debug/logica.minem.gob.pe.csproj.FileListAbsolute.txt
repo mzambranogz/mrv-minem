@@ -1,0 +1,14 @@
+D:\GitHub\back-end\logica.minem.gob.pe\bin\Debug\logica.minem.gob.pe.dll
+D:\GitHub\back-end\logica.minem.gob.pe\bin\Debug\logica.minem.gob.pe.pdb
+D:\GitHub\back-end\logica.minem.gob.pe\bin\Debug\datos.minem.gob.pe.dll
+D:\GitHub\back-end\logica.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+D:\GitHub\back-end\logica.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.dll
+D:\GitHub\back-end\logica.minem.gob.pe\bin\Debug\Dapper.dll
+D:\GitHub\back-end\logica.minem.gob.pe\bin\Debug\Oracle.DataAccess.dll
+D:\GitHub\back-end\logica.minem.gob.pe\bin\Debug\datos.minem.gob.pe.pdb
+D:\GitHub\back-end\logica.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+D:\GitHub\back-end\logica.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.pdb
+D:\GitHub\back-end\logica.minem.gob.pe\bin\Debug\Dapper.xml
+D:\GitHub\back-end\logica.minem.gob.pe\obj\Debug\logica.minem.gob.pe.csprojResolveAssemblyReference.cache
+D:\GitHub\back-end\logica.minem.gob.pe\obj\Debug\logica.minem.gob.pe.dll
+D:\GitHub\back-end\logica.minem.gob.pe\obj\Debug\logica.minem.gob.pe.pdb

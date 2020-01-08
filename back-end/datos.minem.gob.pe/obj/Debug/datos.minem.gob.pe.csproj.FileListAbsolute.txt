@@ -1,0 +1,12 @@
+D:\GitHub\back-end\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.dll
+D:\GitHub\back-end\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.pdb
+D:\GitHub\back-end\datos.minem.gob.pe\bin\Debug\Dapper.dll
+D:\GitHub\back-end\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+D:\GitHub\back-end\datos.minem.gob.pe\bin\Debug\Oracle.DataAccess.dll
+D:\GitHub\back-end\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.dll
+D:\GitHub\back-end\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+D:\GitHub\back-end\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.pdb
+D:\GitHub\back-end\datos.minem.gob.pe\bin\Debug\Dapper.xml
+D:\GitHub\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.csprojResolveAssemblyReference.cache
+D:\GitHub\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.dll
+D:\GitHub\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.pdb

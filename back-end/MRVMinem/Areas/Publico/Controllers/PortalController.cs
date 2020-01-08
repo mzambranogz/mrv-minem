@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MRVMinem.Core;
+using MRVMinem.Areas.Administrado.Repositorio;
 
 namespace MRVMinem.Areas.Publico.Controllers
 {
@@ -75,6 +76,7 @@ namespace MRVMinem.Areas.Publico.Controllers
             }
             else
             {
+                new EnvioCorreo().CreacionUsuario(entidad);
                 itemRespuesta.success = true;
             }
             return Respuesta(itemRespuesta);
