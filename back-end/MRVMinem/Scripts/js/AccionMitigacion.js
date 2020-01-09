@@ -66,16 +66,20 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                         tr = tr + '<td>' + data[i]["FECHA"].toString() + '</td>';
                         tr = tr + '<td>' + data[i]["NOMBRE_MEDMIT"] + '</td>';
                         tr = tr + '<td>' + data[i]["NOMBRE_INSTITUCION"] + '</td>';
-                        tr = tr + "<td class='text-center'><div class='btn-group'>";
-                        tr = tr + "     <div class='acciones dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'><i class='fas fa-ellipsis-h'></i></div>";
-                        tr = tr + "     <div class='dropdown-menu dropdown-menu-right'>";
-                        tr = tr + "         <a class='dropdown-item' href='#'>";
-                        tr = tr + "             <i class='fas fa-plus-circle'></i>&nbsp;Ver más";
-                        tr = tr + "         </a><a class='dropdown-item' href='#'>";
-                        tr = tr + "             <i class='fas fa-history'></i>&nbsp; Seguimiento";
-                        tr = tr + "         </a>";
-                        tr = tr + "     </div>";
-                        tr = tr + "     </div></td>";
+                        tr = tr + '<td class="text-center text-xs-right" data-encabezado="Acciones">';
+                        tr = tr + '     <div class="btn-group">';
+                        tr = tr + '         <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
+                        tr = tr + '         <div class="dropdown-menu dropdown-menu-right">';
+                        tr = tr + '             <a class="dropdown-item" href="./ver-mas-accion-de-mitigacion.html"><i class="fas fa-plus-circle"></i>&nbsp;Ver más</a>';
+                        tr = tr + '             <a class="dropdown-item" href="./seguimiento-de-accion-de-mitigacion.html"><i class="fas fa-history"></i>&nbsp;Seguimiento</a>';
+                        //tr = tr + '             <a class="dropdown-item" href="./edicion-de-iniciativa-de-mitigacion.html"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
+                        //tr = tr + '             <a class="dropdown-item text-primary" href="./revision-de-iniciativa-de-mitigacion.html"><i class="fas fa-check"></i>&nbsp;Revisar</a>';
+                        //tr = tr + '             <a class="dropdown-item text-info" href="./evaluacion-de-accion-de-mitigacion.html"><i class="fas fa-clipboard-check"></i>&nbsp;Evaluar</a>';
+                        //tr = tr + '             <a class="dropdown-item text-warning" href="./revision-de-accion-de-mitigacion.html"><i class="fas fa-tasks"></i>&nbsp;Evaluar</a>';
+                        //tr = tr + '             <a class="dropdown-item text-warning" href="./revision-de-accion-de-mitigacion.html"><i class="fas fa-tasks"></i>&nbsp;Verificar</a>';                                              
+                        tr = tr + '         </div>';
+                        tr = tr + '     </div>';
+                        tr = tr + '</td>';
                         tr = tr + '</tr>';
                         $("#cuerpoMitigacion").append(tr)
                     }
@@ -122,16 +126,26 @@ function CargarListarIniciativaMitigacionUsuario(vUrl) {
                         tr = tr + '<td>' + data[i]["FECHA"].toString() + '</td>';
                         tr = tr + '<td>' + data[i]["NOMBRE_MEDMIT"] + '</td>';
                         tr = tr + '<td>' + data[i]["NOMBRE_INSTITUCION"] + '</td>';
-                        tr = tr + "<td class='text-center'><div class='btn-group'>";
-                        tr = tr + "     <div class='acciones dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'><i class='fas fa-ellipsis-h'></i></div>";
-                        tr = tr + "     <div class='dropdown-menu dropdown-menu-right'>";
-                        tr = tr + "         <a class='dropdown-item' href='#'>";
-                        tr = tr + "             <i class='fas fa-plus-circle'></i>&nbsp;Ver más";
-                        tr = tr + "         </a><a class='dropdown-item' href='#'>";
-                        tr = tr + "             <i class='fas fa-history'></i>&nbsp; Seguimiento";
-                        tr = tr + "         </a>";
-                        tr = tr + "     </div>";
-                        tr = tr + "     </div></td>";
+                        tr = tr + '<td class="text-center text-xs-right" data-encabezado="Acciones">';
+                        tr = tr + '     <div class="btn-group">';
+                        tr = tr + '         <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
+                        tr = tr + '         <div class="dropdown-menu dropdown-menu-right">';
+                        tr = tr + '             <a class="dropdown-item" href="./ver-mas-accion-de-mitigacion.html"><i class="fas fa-plus-circle"></i>&nbsp;Ver más</a>';
+                        tr = tr + '             <a class="dropdown-item" href="./seguimiento-de-accion-de-mitigacion.html"><i class="fas fa-history"></i>&nbsp;Seguimiento</a>';
+                        tr = tr + '             <a class="dropdown-item" href="./edicion-de-iniciativa-de-mitigacion.html"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
+                        if ($('#Control').data('rol') == 2) {
+                            tr = tr + '             <a class="dropdown-item text-primary" href="./revision-de-iniciativa-de-mitigacion.html"><i class="fas fa-check"></i>&nbsp;Revisar</a>';
+                        }
+                        if ($('#Control').data('rol') == 4) {
+                            tr = tr + '             <a class="dropdown-item text-info" href="./evaluacion-de-accion-de-mitigacion.html"><i class="fas fa-clipboard-check"></i>&nbsp;Evaluar</a>';
+                            tr = tr + '             <a class="dropdown-item text-warning" href="./revision-de-accion-de-mitigacion.html"><i class="fas fa-tasks"></i>&nbsp;Evaluar</a>';
+                        }
+                        if ($('#Control').data('rol') == 5) {
+                            tr = tr + '             <a class="dropdown-item text-warning" href="./revision-de-accion-de-mitigacion.html"><i class="fas fa-tasks"></i>&nbsp;Verificar</a>';
+                        }
+                        tr = tr + '         </div>';
+                        tr = tr + '     </div>';
+                        tr = tr + '</td>';
                         tr = tr + '</tr>';
                         $("#cuerpoMitigacion").append(tr)
                     }
