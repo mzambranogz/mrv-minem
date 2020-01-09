@@ -22,9 +22,9 @@
       <div class="container menu-main linea">
         <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar p-0">
           <ul class="navbar-nav mr-md-auto">
-            <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1" href="#" target="_blan"><img src="./images/logo-minem.jpg" height="40"></a></li>
-            <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1" href="#" target="_blan"><img src="./images/logo_gef.svg" height="45"></a></li>
-            <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1 pr-0" href="#" target="_blan"><img src="./images/logo_pnud.svg" height="51"></a></li>
+            <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1" href="#" target="_blank"><img src="./images/logo-minem.jpg" height="40"></a></li>
+            <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1" href="#" target="_blank"><img src="./images/logo_gef.svg" height="45"></a></li>
+            <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1 pr-0" href="#" target="_blank"><img src="./images/logo_pnud.svg" height="51"></a></li>
           </ul><a class="navbar-brand ml-md-auto animated fadeIn mx-0" href="#"><img src="./images/logo_mrv_new_negro.svg" height="36"></a>
         </header>
       </div>
@@ -195,18 +195,52 @@
                   <div class="form-group">
                     <div class="g-recaptcha" data-sitekey="6Ldqw8sUAAAAAM2nmHyMhCNd3HtkOJyWc8nsh7DR"></div>
                   </div>
-                  <div class="alert alert-danger" role="alert">
-                    <h6><i class="fas fa-exclamation-triangle"></i>&nbsp;Error de registro</h6>
-                    <p>Ocurrió un error al tratar de registrarse con sus datos.</p>
-                    <hr>
-                    <p class="mb-0">Su cuenta está&nbsp;<strong>pendiente&nbsp;</strong>de aprobación</p>
+                  <div class="alert alert-danger d-flex align-items-stretch" role="alert">
+                    <div class="alert-wrap mr-3">
+                      <div class="sa">
+                        <div class="sa-error">
+                          <div class="sa-error-x">
+                            <div class="sa-error-left"></div>
+                            <div class="sa-error-right"></div>
+                          </div>
+                          <div class="sa-error-placeholder"></div>
+                          <div class="sa-error-fix"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="alert-wrap">
+                      <h6>Error de registro</h6>
+                      <hr><small class="mb-0">El correo ingresado ya existe, utilice un correo válido para su registro.</small>
+                    </div>
                   </div>
-                  <div class="alert alert-success" role="alert">
-                    <h6><i class="fas fa-check"></i>&nbsp;Bien hecho</h6>
-                    <p>Sus datos fueron enviados correctamente para ser validados.</p>
-                    <hr>
-                    <p class="mb-0">En breve le notificaremos el estado de su registro.</p>
+                  <div class="alert alert-success d-flex align-items-stretch" role="alert">
+                    <div class="alert-wrap mr-3">
+                      <div class="sa">
+                        <div class="sa-success">
+                          <div class="sa-success-tip"></div>
+                          <div class="sa-success-long"></div>
+                          <div class="sa-success-placeholder"></div>
+                          <div class="sa-success-fix"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="alert-wrap">
+                      <h6>Bien hecho</h6>
+                      <hr><small class="mb-0">Su registro fue exitoso, en breve le notificaremos el estado a través de un email.</small>
+                    </div>
                   </div>
+                  <!--.alert.alert-warning.d-flex.align-items-stretch(role="alert")
+                  .alert-wrap.mr-3
+                    .sa
+                      .sa-warning
+                        .sa-warning-body
+                        .sa-warning-dot
+                  .alert-wrap
+                    h6 Cuidado
+                    small Sus datos fueron detectados como duplicados.
+                    hr
+                    small.mb-0 En breve le notificaremos el estado de su registro.
+                  -->
                   <button class="btn-lg btn-primary w-100" type="submit"><i class="fas fa-paper-plane px-1"></i>Registrarse</button>
                   <p class="pt-4 mb-0 text-center">¿Ya tiene un cuenta?&nbsp;<a href="./login.html">Ingrese ahora <br></a><a href="./recuperar.html">¿Olvidó su contraseña?</a></p>
                 </div>
