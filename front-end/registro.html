@@ -45,21 +45,36 @@
     <div class="flecha-top"><i class="fas fa-angle-double-right fa-2x text-dark btn-slider-bottom"></i></div>
     <div class="container-fluid banner d-flex flex-row justify-content-center align-items-center" id="carousel">
       <div class="banners">
-        <div class="banner-1 banner-mostrado"></div>
-        <div class="banner-2"></div>
-        <div class="banner-3"></div>
-        <div class="banner-4"></div>
-        <div class="banner-5"></div>
-        <div class="banner-6"></div>
-        <div class="banner-7"></div>
-        <div class="banner-8"></div>
-        <div class="banner-9"></div>
-        <div class="banner-10"></div>
-        <div class="banner-11"></div>
-        <div class="banner-12"></div>
-        <div class="banner-13"></div>
-        <div class="banner-14"></div>
-        <div class="banner-15"></div>
+        <div class="banner-1 banner-mostrado">
+        </div>
+        <div class="banner-2">
+        </div>
+        <div class="banner-3">
+        </div>
+        <div class="banner-4">
+        </div>
+        <div class="banner-5">
+        </div>
+        <div class="banner-6">
+        </div>
+        <div class="banner-7">
+        </div>
+        <div class="banner-8">
+        </div>
+        <div class="banner-9">
+        </div>
+        <div class="banner-10">
+        </div>
+        <div class="banner-11">
+        </div>
+        <div class="banner-12">
+        </div>
+        <div class="banner-13">
+        </div>
+        <div class="banner-14">
+        </div>
+        <div class="banner-15">
+        </div>
       </div>
       <div class="flecha d-none" id="enlaceAspectos"><i class="fas fa-angle-double-right fa-2x text-white btn-slider-bottom"></i></div>
       <div class="container my-5">
@@ -82,7 +97,7 @@
             </p>
           </div>
           <div class="col-md-6 col-lg-12 p-4 bg-light rounded-bottom">
-            <div class="h4">Regístrate <br><small class="text-muted">Obtén una cuenta MRV con tus datos</small></div>
+            <div class="h4">Regístrate <br><small class="text-muted">Cada institución, pública o privada, puede implementar en la medida de sus posibilidades cualquiera de las medidas de mitigación anteriormente señaladas, y hacer que las mismas aporten a las Contribuciones Nacionalmente Determinadas. Para ello deberán asegurar mediante una&nbsp;<strong>declaración jurada&nbsp;</strong>que las emisiones de&nbsp;<strong>GEI&nbsp;</strong>reducidas no serán comercializadas. En esta primera etapa, se contemplan solo 12 medidas de mitigación, las mismas que han sido trabajadas por el Proyecto  Acciones Nacionales Apropiadas de Mitigación (<strong>NAMA</strong>) en los sectores de generación de energía y su uso final en el Perú.</small></div>
             <form class="pt-4">
               <div class="row">
                 <div class="col-md-12 col-lg-6">
@@ -167,7 +182,7 @@
                     <label for="txt-pswd">Contraseña</label>
                     <div class="input-group">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup2"><i class="fas fa-key"></i></span></div>
-                      <input class="form-control" type="text" id="txt-pswd" placeholder="Ingresar contraseña" aria-describedby="inputGroup2" required>
+                      <input class="form-control" type="text" id="txt-pswd" placeholder="Ingresar contraseña (1 Mayúscula, 1 minúscula y números)" aria-describedby="inputGroup2" required>
                     </div>
                   </div>
                   <div class="form-group">
@@ -178,9 +193,18 @@
                     </div>
                   </div>
                   <div class="form-group">
+                    <label for="txt-declaracion">Declaración jurada&nbsp;<small><a href="./documentos/modelo-declaracion-jurada.pdf" download>(&nbsp;<i class="fas fa-file-pdf"></i>&nbsp;Descargar modelo de declaración jurada&nbsp;)</a></small></label>
+                    <div class="input-group">
+                      <div class="input-group-prepend"><span class="input-group-text" id="inputGroup13"><i class="fas fa-file-pdf"></i></span></div>
+                      <input class="form-control cursor-pointer" type="text" id="txt-declaracion" placeholder="Suba su declaración jurada" aria-describedby="inputGroup13" required>
+                      <input class="d-none" type="file" id="fle-declaracion">
+                    </div>
+                  </div>
+                  <div class="form-group text-right"></div>
+                  <div class="form-group">
                     <div class="custom-control custom-checkbox">
                       <input class="custom-control-input" type="checkbox" id="chk-terminos-condiciones">
-                      <label class="custom-control-label" for="chk-terminos-condiciones">Aceptar términos y condiciones de uso</label>
+                      <label class="custom-control-label" for="chk-terminos-condiciones">Aceptar términos y condiciones de uso. &nbsp;</label><a href="#" data-toggle="modal" data-target="#terminos-condiciones">Ver aquí</a>
                     </div>
                   </div>
                   <div class="form-group">
@@ -217,6 +241,37 @@
         </div>
         <div class="col-sm-12 col-md-12 col-lg-4 p-0 o-h">
           <div class="bg-registro"><a class="enlace-registro d-flex flex-row justify-content-center align-items-center" href="./registro.html"><i class="fas fa-user-circle px-1 mr-2"></i>Regístrate</a></div>
+          <div class="modal fade" id="terminos-condiciones" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">¿Acepta los Términos y Condiciones de Uso?</h5>
+                  <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body medidas-modal">
+                  <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                      <h3 class="text-center">Términos y Condiciones de Uso</h3>
+                      <p class="text-justify"></p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo exercitationem illo tempore ratione blanditiis sequi debitis magni harum, quisquam, magnam alias officia nesciunt accusamus perspiciatis quod vitae excepturi rerum omnis! -> Parrafo0
+                      <p class="text-justify"></p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo exercitationem illo tempore ratione blanditiis sequi debitis magni harum, quisquam, magnam alias officia nesciunt accusamus perspiciatis quod vitae excepturi rerum omnis! -> Parrafo1
+                      <p class="text-justify"></p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo exercitationem illo tempore ratione blanditiis sequi debitis magni harum, quisquam, magnam alias officia nesciunt accusamus perspiciatis quod vitae excepturi rerum omnis! -> Parrafo2
+                      <p class="text-justify"></p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo exercitationem illo tempore ratione blanditiis sequi debitis magni harum, quisquam, magnam alias officia nesciunt accusamus perspiciatis quod vitae excepturi rerum omnis! -> Parrafo3
+                      <p class="text-justify"></p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo exercitationem illo tempore ratione blanditiis sequi debitis magni harum, quisquam, magnam alias officia nesciunt accusamus perspiciatis quod vitae excepturi rerum omnis! -> Parrafo4
+                      <p class="text-justify"></p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo exercitationem illo tempore ratione blanditiis sequi debitis magni harum, quisquam, magnam alias officia nesciunt accusamus perspiciatis quod vitae excepturi rerum omnis! -> Parrafo5
+                      <p class="text-justify"></p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo exercitationem illo tempore ratione blanditiis sequi debitis magni harum, quisquam, magnam alias officia nesciunt accusamus perspiciatis quod vitae excepturi rerum omnis! -> Parrafo6
+                      <p class="text-justify"></p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo exercitationem illo tempore ratione blanditiis sequi debitis magni harum, quisquam, magnam alias officia nesciunt accusamus perspiciatis quod vitae excepturi rerum omnis! -> Parrafo7
+                      <p class="text-justify"></p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo exercitationem illo tempore ratione blanditiis sequi debitis magni harum, quisquam, magnam alias officia nesciunt accusamus perspiciatis quod vitae excepturi rerum omnis! -> Parrafo8
+                      <p class="text-justify"></p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo exercitationem illo tempore ratione blanditiis sequi debitis magni harum, quisquam, magnam alias officia nesciunt accusamus perspiciatis quod vitae excepturi rerum omnis! -> Parrafo9
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
+                  <button class="btn btn-primary" type="button" id="aceptar-terminos-condiciones">Aceptar</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
