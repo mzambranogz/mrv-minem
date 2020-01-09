@@ -32,7 +32,7 @@
     } else {
         Swal.fire({
             icon: 'error',
-            html: '<small>Usuario y/o Password incorrecto</small>'
+            html: '<small>' + respuesta.extra + '</small>'
         })
     }
 }

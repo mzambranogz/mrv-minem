@@ -69,6 +69,14 @@ namespace utilitario.minem.gob.pe
                 imgBanner.ContentId = "imagenBanner";
                 htmlView.LinkedResources.Add(imgBanner);
 
+                LinkedResource imgGef = new LinkedResource(@WebConfigurationManager.AppSettings.Get("ImagenGef"), MediaTypeNames.Image.Jpeg);
+                imgGef.ContentId = "imagenGEF";
+                htmlView.LinkedResources.Add(imgGef);
+
+                LinkedResource imgPnud = new LinkedResource(@WebConfigurationManager.AppSettings.Get("ImagenPnud"), MediaTypeNames.Image.Jpeg);
+                imgPnud.ContentId = "imagenPNUD";
+                htmlView.LinkedResources.Add(imgPnud);
+
                 correo.AlternateViews.Add(htmlView);
                 correo.IsBodyHtml = asesHtml;
                 correo.Priority = MailPriority.Normal;
