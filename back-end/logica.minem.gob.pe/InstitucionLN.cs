@@ -13,7 +13,7 @@ namespace logica.minem.gob.pe
     {
         private static InstitucionDA institucionDA = new InstitucionDA();
 
-        public static int registrarInstitucion(InstitucionBE entidad)
+        public static InstitucionBE registrarInstitucion(InstitucionBE entidad)
         {
             return institucionDA.registrarInstitucion(entidad);
         }

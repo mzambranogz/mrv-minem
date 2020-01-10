@@ -7,6 +7,8 @@ using System.Web;
 using System.Web.Mvc;
 using MRVMinem.Core;
 using MRVMinem.Areas.Administrado.Repositorio;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace MRVMinem.Areas.Publico.Controllers
 {
@@ -65,20 +67,35 @@ namespace MRVMinem.Areas.Publico.Controllers
         public JsonResult RegistrarUsuario(UsuarioBE entidad)
         {
             ResponseEntity itemRespuesta = new ResponseEntity();
+            InstitucionBE institucion = new InstitucionBE(entidad.ID_SECTOR_INST, entidad.RUC, entidad.INSTITUCION, entidad.DIRECCION);
 
-            entidad.ID_INSTITUCION = InstitucionLN.registrarInstitucion(new InstitucionBE(entidad.ID_SECTOR_INST, entidad.RUC, entidad.INSTITUCION, entidad.DIRECCION));
-            entidad = UsuarioLN.RegistraUsuario(entidad);
-
-            if (!entidad.OK)
+            institucion = InstitucionLN.registrarInstitucion(institucion);
+            if (institucion.ID_INSTITUCION != 0)
             {
-                itemRespuesta.success = false;
-                itemRespuesta.extra = entidad.extra;
+                entidad.ID_INSTITUCION = institucion.ID_INSTITUCION;
+                entidad = UsuarioLN.RegistraUsuario(entidad);
+
+                if (!entidad.OK)
+                {
+                    itemRespuesta.success = false;
+                    itemRespuesta.extra = entidad.extra;
+                }
+                else
+                {
+                    EnvioCorreo hilo_correo = new EnvioCorreo(entidad);    //.CreacionUsuario(entidad);
+                    //Thread hilo = new Thread(new ThreadStart(hilo_correo.CreacionUsuario));
+                    //hilo.Start();
+                    //hilo.Join();
+
+                    Task tarea = Task.Factory.StartNew(() => hilo_correo.CreacionUsuario());
+
+                    itemRespuesta.success = true;
+                }
             }
             else
             {
-                new EnvioCorreo().CreacionUsuario(entidad);
-
-                itemRespuesta.success = true;
+                itemRespuesta.success = false;
+                itemRespuesta.extra = institucion.extra;
             }
             return Respuesta(itemRespuesta);
         }

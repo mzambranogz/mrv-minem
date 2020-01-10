@@ -11,20 +11,25 @@ namespace MRVMinem.Areas.Administrado.Repositorio
 {
     public class EnvioCorreo
     {
-
-        public bool CreacionUsuario(UsuarioBE entidad)
+        UsuarioBE xEntidad;
+        public EnvioCorreo(UsuarioBE entidad)
         {
-            string cuerpo = CuerpoCreacionUsuario(entidad);
+            xEntidad = entidad;
+        }
+
+        //public bool CreacionUsuario(UsuarioBE entidad)
+        public void CreacionUsuario()
+        {
+            string cuerpo = CuerpoCreacionUsuario(xEntidad);
             string De = "mrv@grupo-zuniga.com";
-            string asunto = entidad.NOMBRES_USUARIO + " " + entidad.APELLIDOS_USUARIO + ", " + "Gracias por registrarte en nuestra plataforma MRV del sector energía";
+            string asunto = xEntidad.NOMBRES_USUARIO + " " + xEntidad.APELLIDOS_USUARIO + ", " + "Gracias por registrarte en nuestra plataforma MRV del sector energía";
             List<string> Para = new List<string>();
-            Para.Add(entidad.EMAIL_USUARIO);
+            Para.Add(xEntidad.EMAIL_USUARIO);
             List<string> Cco = CorreoOculto(WebConfigurationManager.AppSettings.Get("CorreoOculto"));
 
             bool envioCorreo = Correo.EnviarEmail(De, Para, asunto, cuerpo, true, null, Cco, null);
 
-            return envioCorreo;
-
+            //return envioCorreo;
         }
 
         private string CuerpoCreacionUsuario(UsuarioBE entidad)

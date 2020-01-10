@@ -38,7 +38,7 @@ namespace datos.minem.gob.pe
             return Lista;
         }
 
-        public int registrarInstitucion(InstitucionBE entidad)
+        public InstitucionBE registrarInstitucion(InstitucionBE entidad)
         {
             int cod = 0;
             try
@@ -54,14 +54,16 @@ namespace datos.minem.gob.pe
                     parametros[4] = new OracleParameter("pIdInstitucion", OracleDbType.Int32, ParameterDirection.Output);
                     OracleHelper.ExecuteNonQuery(CadenaConexion, CommandType.StoredProcedure, sp, parametros);
                     cod = int.Parse(parametros[4].Value.ToString());
+                    entidad.ID_INSTITUCION = cod;
                 }
             }
             catch (Exception ex)
             {
+                entidad.extra = ex.Message;
                 Log.Error(ex);
             }
 
-            return cod;
+            return entidad;
         }
 
     }

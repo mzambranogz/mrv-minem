@@ -8,3 +8,9 @@ C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\back-end\uti
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\back-end\utilitario.minem.gob.pe\obj\Debug\utilitario.minem.gob.pe.dll
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\back-end\utilitario.minem.gob.pe\obj\Debug\utilitario.minem.gob.pe.pdb
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\back-end\utilitario.minem.gob.pe\obj\Debug\utilitario.minem.gob.pe.csprojResolveAssemblyReference.cache
+D:\DGEE\mrv-minem\back-end\utilitario.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.dll
+D:\DGEE\mrv-minem\back-end\utilitario.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.pdb
+D:\DGEE\mrv-minem\back-end\utilitario.minem.gob.pe\obj\Debug\utilitario.minem.gob.pe.csprojAssemblyReference.cache
+D:\DGEE\mrv-minem\back-end\utilitario.minem.gob.pe\obj\Debug\utilitario.minem.gob.pe.csproj.CoreCompileInputs.cache
+D:\DGEE\mrv-minem\back-end\utilitario.minem.gob.pe\obj\Debug\utilitario.minem.gob.pe.dll
+D:\DGEE\mrv-minem\back-end\utilitario.minem.gob.pe\obj\Debug\utilitario.minem.gob.pe.pdb

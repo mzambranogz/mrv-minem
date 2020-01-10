@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -186,6 +187,7 @@
     <Content Include="assets\images\logo-nama-blanco.png" />
     <Content Include="assets\images\logo-pnud-blanco.png" />
     <Content Include="assets\images\logo_gef.svg" />
+    <Content Include="assets\images\logo_mrv_new_negro.jpg" />
     <Content Include="assets\images\logo_mrv_new_negro.svg" />
     <Content Include="assets\images\logo_pnud.svg" />
     <Content Include="assets\images\old\ico_nama_amarillo_01.svg" />
