@@ -114,6 +114,7 @@ namespace datos.minem.gob.pe
                     p.Add("pID_MONEDA", entidad.ID_MONEDA);
                     p.Add("pFECHA_IMPLE_INICIATIVA", entidad.FECHA_IMPLE_INICIATIVA);
                     p.Add("pPRIVACIDAD_INICIATIVA", entidad.PRIVACIDAD_INICIATIVA);
+                    p.Add("pID_ESTADO", entidad.ID_ESTADO);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
                 }
@@ -283,6 +284,122 @@ namespace datos.minem.gob.pe
                     var p = new OracleDynamicParameters();
                     p.Add("pID_INICIATIVA", id_iniciativa);
                     p.Add("pID_UBICACION", ubi);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+                entidad.extra = ex.Message;
+            }
+
+            return entidad;
+        }
+
+        public List<UbicacionBE> ListarUbicacionIniciativa(IniciativaBE entidad)
+        {
+            List<UbicacionBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_CARGA_UBICACION";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<UbicacionBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+        public List<GasEfectoInvernaderoBE> ListarGeiIniciativa(IniciativaBE entidad)
+        {
+            List<GasEfectoInvernaderoBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_CARGA_GEI";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<GasEfectoInvernaderoBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+        public List<EnergeticoBE> ListarEnergeticoIniciativa(IniciativaBE entidad)
+        {
+            List<EnergeticoBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_CARGA_ENERGETICO";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<EnergeticoBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+        public List<IniciativaBE> ListarIniciativaAvance(IniciativaBE entidad)
+        {
+            List<IniciativaBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_CARGA_INICIATIVA";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+        public IniciativaBE AprobarIniciativaMitigacion(IniciativaBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_UPD_APROBAR_INICIATIVA";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_USUARIO", entidad.ID_USUARIO);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
                 entidad.OK = true;

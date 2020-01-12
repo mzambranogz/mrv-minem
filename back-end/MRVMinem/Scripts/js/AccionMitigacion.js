@@ -45,16 +45,17 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                     $("#cuerpoMitigacion").html("");
                     for (var i = 0; i < data.length; i++) {
 
+                        
                         var progreso = '0%;';
                         if (data[i]["PROGRESO"] == 1) {
-                            progreso = '25%';
+                                progreso = '25%';
                         } else if (data[i]["PROGRESO"] == 2) {
-                            progreso = '50%';
+                                progreso = '50%';
                         } else if (data[i]["PROGRESO"] == 3) {
-                            progreso = '75%';
+                                progreso = '75%';
                         } else if (data[i]["PROGRESO"] == 4) {
-                            progreso = '100%';
-                        }
+                                progreso = '100%';
+                        }                        
 
                         var tr = '<tr>';
                         tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + (1 + i) + '</th>';
@@ -106,16 +107,18 @@ function CargarListarIniciativaMitigacionUsuario(vUrl) {
                     for (var i = 0; i < data.length; i++) {
 
                         var progreso = '0%;';
-                        if (data[i]["PROGRESO"] == 1) {
-                            progreso = '25%';
-                        } else if (data[i]["PROGRESO"] == 2) {
-                            progreso = '50%';
-                        } else if (data[i]["PROGRESO"] == 3) {
-                            progreso = '75%';
-                        } else if (data[i]["PROGRESO"] == 4) {
-                            progreso = '100%';
+                        if (data[i]["ID_ESTADO"] == 1) {
+                            if (data[i]["PROGRESO"] == 1) {
+                                progreso = '25%';
+                            } else if (data[i]["PROGRESO"] == 2) {
+                                progreso = '50%';
+                            } else if (data[i]["PROGRESO"] == 3) {
+                                progreso = '75%';
+                            } else if (data[i]["PROGRESO"] == 4) {
+                                progreso = '100%';
+                            }
                         }
-
+                        
                         var tr = '<tr>';
                         tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + (1 + i) + '</th>';
                         tr = tr + '<td data-encabezado="Nombre de Iniciativa">' + data[i]["NOMBRE_INICIATIVA"] + '</td>';
@@ -132,9 +135,9 @@ function CargarListarIniciativaMitigacionUsuario(vUrl) {
                         tr = tr + '         <div class="dropdown-menu dropdown-menu-right">';
                         tr = tr + '             <a class="dropdown-item" href="./ver-mas-accion-de-mitigacion.html"><i class="fas fa-plus-circle"></i>&nbsp;Ver más</a>';
                         tr = tr + '             <a class="dropdown-item" href="./seguimiento-de-accion-de-mitigacion.html"><i class="fas fa-history"></i>&nbsp;Seguimiento</a>';
-                        tr = tr + '             <a class="dropdown-item" href="./edicion-de-iniciativa-de-mitigacion.html"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
+                        tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_mostrarEditarIniciativa(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
                         if ($('#Control').data('rol') == 2) {
-                            tr = tr + '             <a class="dropdown-item text-primary" href="./revision-de-iniciativa-de-mitigacion.html"><i class="fas fa-check"></i>&nbsp;Revisar</a>';
+                            tr = tr + '             <a class="dropdown-item text-primary" href="#" onclick="fn_revisarIniciativa(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-check"></i>&nbsp;Revisar</a>';
                         }
                         if ($('#Control').data('rol') == 4) {
                             tr = tr + '             <a class="dropdown-item text-info" href="./evaluacion-de-accion-de-mitigacion.html"><i class="fas fa-clipboard-check"></i>&nbsp;Evaluar</a>';

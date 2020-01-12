@@ -2,3 +2,4 @@ C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\back-end\uti
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\back-end\utilitario.minem.gob.pe\bin\Release\utilitario.minem.gob.pe.pdb
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\back-end\utilitario.minem.gob.pe\obj\Release\utilitario.minem.gob.pe.dll
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\back-end\utilitario.minem.gob.pe\obj\Release\utilitario.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\back-end\utilitario.minem.gob.pe\obj\Release\utilitario.minem.gob.pe.csprojResolveAssemblyReference.cache

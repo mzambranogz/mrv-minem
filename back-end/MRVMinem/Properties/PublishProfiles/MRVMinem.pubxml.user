@@ -254,6 +254,9 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <File Include="assets/images/logo_gef.svg">
       <publishTime>01/08/2020 10:01:12</publishTime>
     </File>
+    <File Include="assets/images/logo_mrv_new_negro.jpg">
+      <publishTime>01/10/2020 18:52:43</publishTime>
+    </File>
     <File Include="assets/images/logo_mrv_new_negro.svg">
       <publishTime>01/08/2020 10:01:12</publishTime>
     </File>
@@ -327,10 +330,10 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/08/2020 10:01:13</publishTime>
     </File>
     <File Include="bin/datos.minem.gob.pe.dll">
-      <publishTime>01/09/2020 14:04:45</publishTime>
+      <publishTime>01/10/2020 19:00:40</publishTime>
     </File>
     <File Include="bin/entidad.minem.gob.pe.dll">
-      <publishTime>01/08/2020 11:03:43</publishTime>
+      <publishTime>01/10/2020 19:00:38</publishTime>
     </File>
     <File Include="bin/es/System.Web.Helpers.resources.dll">
       <publishTime>01/08/2020 10:01:13</publishTime>
@@ -354,7 +357,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/08/2020 10:01:13</publishTime>
     </File>
     <File Include="bin/logica.minem.gob.pe.dll">
-      <publishTime>01/09/2020 14:04:45</publishTime>
+      <publishTime>01/10/2020 19:00:41</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>01/08/2020 10:01:13</publishTime>
@@ -363,7 +366,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/08/2020 10:01:14</publishTime>
     </File>
     <File Include="bin/MRVMinem.dll">
-      <publishTime>01/09/2020 14:04:52</publishTime>
+      <publishTime>01/10/2020 19:00:46</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>01/08/2020 10:01:14</publishTime>
@@ -387,10 +390,10 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/08/2020 10:01:14</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
-      <publishTime>01/08/2020 10:01:14</publishTime>
+      <publishTime>01/10/2020 18:52:45</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
-      <publishTime>01/08/2020 10:01:14</publishTime>
+      <publishTime>01/10/2020 18:52:45</publishTime>
     </File>
     <File Include="bin/roslyn/System.Collections.Immutable.dll">
       <publishTime>01/08/2020 10:01:14</publishTime>
@@ -405,7 +408,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/08/2020 10:01:14</publishTime>
     </File>
     <File Include="bin/roslyn/VBCSCompiler.exe.config">
-      <publishTime>01/08/2020 10:01:14</publishTime>
+      <publishTime>01/10/2020 18:52:45</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>01/08/2020 10:01:13</publishTime>
@@ -429,7 +432,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/08/2020 10:01:13</publishTime>
     </File>
     <File Include="bin/utilitario.minem.gob.pe.dll">
-      <publishTime>01/09/2020 14:04:44</publishTime>
+      <publishTime>01/10/2020 19:00:39</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/08/2020 10:01:14</publishTime>
@@ -456,7 +459,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/08/2020 10:01:13</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.svg">
-      <publishTime>01/08/2020 10:01:13</publishTime>
+      <publishTime>01/10/2020 18:52:44</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.ttf">
       <publishTime>01/08/2020 10:01:13</publishTime>
@@ -471,7 +474,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/08/2020 10:01:12</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>01/08/2020 10:01:13</publishTime>
+      <publishTime>01/10/2020 18:52:44</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>01/08/2020 10:01:12</publishTime>
@@ -579,7 +582,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/08/2020 10:01:12</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/09/2020 14:04:59</publishTime>
+      <publishTime>01/10/2020 19:00:53</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -70,7 +70,7 @@
     <div class="" id="divProceso">
         @RenderBody()
     </div>
-    <div id="Control" data-usuario="" data-nombres="" data-correo="" data-rol="0" data-institucion="" data-direccion="" data-sector="" data-modal="0" data-mitigacion="0" data-opcion1="0" data-opcion2="0" data-opcion3="0" data-opcion4="0" data-opcion5="0" data-opcion6="0" data-opcion7="0" data-opcion8="0" data-opcion9="0"></div>
+    <div id="Control" data-usuario="" data-nombres="" data-correo="" data-rol="0" data-institucion="" data-direccion="" data-sector="" data-modal="0" data-iniciativa="0" data-mitigacion="0" data-opcion1="0" data-opcion2="0" data-opcion3="0" data-opcion4="0" data-opcion5="0" data-opcion6="0" data-opcion7="0" data-opcion8="0" data-opcion9="0"></div>
     <div class="container-fluid foot d-flex flex-row justify-content-center align-items-center" id="pie">
         <footer class="container">
             <div class="row">
@@ -178,7 +178,7 @@
         }
 
         function fn_probar() {
-            alert($("#Control").data("opcion1") + ' ' + $("#Control").data("opcion2") + ' ' + $("#Control").data("opcion3") + ' ' + $("#Control").data("opcion4") + ' ' + $("#Control").data("opcion5") + ' ' + $("#Control").data("opcion6") + ' ' + $("#Control").data("opcion7") + ' ' + $("#Control").data("opcion8") + ' ' + $("#Control").data("opcion9") + ' ' + $("#Control").data("correo") + ' ' + $("#Control").data("institucion") + ' ' + $("#Control").data("sector") + ' ' + $("#Control").data("direccion"));
+            alert($("#Control").data("opcion1") + ' ' + $("#Control").data("opcion2") + ' ' + $("#Control").data("opcion3") + ' ' + $("#Control").data("opcion4") + ' ' + $("#Control").data("opcion5") + ' ' + $("#Control").data("opcion6") + ' ' + $("#Control").data("opcion7") + ' ' + $("#Control").data("opcion8") + ' ' + $("#Control").data("opcion9") + ' ' + $("#Control").data("correo") + ' ' + $("#Control").data("institucion") + ' ' + $("#Control").data("sector") + ' ' + $("#Control").data("direccion") + ' ' + $("#Control").data("iniciativa"));
         }
 
 
@@ -251,6 +251,16 @@
 
         function fn_mantenimiento() {
             MRV.ObtenerVista(baseUrl + 'Administrado/Gestion/TablaMantenimiento');
+        }
+
+        function fn_mostrarEditarIniciativa(id) {
+            $("#Control").data("iniciativa", id);
+            MRV.ObtenerVista(baseUrl + 'Administrado/Gestion/NuevaIniciativaMitigacion');
+        }
+
+        function fn_revisarIniciativa(id) {
+            $("#Control").data("iniciativa", id);
+            MRV.ObtenerVista(baseUrl + 'Administrado/Gestion/NuevaIniciativaMitigacion');
         }
 
         function salirSesion() {

@@ -173,5 +173,29 @@ namespace logica.minem.gob.pe
             return iniciativaDA.ActualizarIniciativaUbicacion(ubi, id_iniciativa);
         }
 
+        public static List<UbicacionBE> ListarUbicacionIniciativa(IniciativaBE entidad)
+        {
+            return iniciativaDA.ListarUbicacionIniciativa(entidad);
+        }
+
+        public static List<GasEfectoInvernaderoBE> ListarGeiIniciativa(IniciativaBE entidad)
+        {
+            return iniciativaDA.ListarGeiIniciativa(entidad);
+        }
+
+        public static List<EnergeticoBE> ListarEnergeticoIniciativa(IniciativaBE entidad)
+        {
+            return iniciativaDA.ListarEnergeticoIniciativa(entidad);
+        }
+
+        public static List<IniciativaBE> ListarIniciativaAvance(IniciativaBE entidad)
+        {
+            return iniciativaDA.ListarIniciativaAvance(entidad);
+        }
+
+        public static IniciativaBE AprobarIniciativaMitigacion(IniciativaBE entidad)
+        {
+            return iniciativaDA.AprobarIniciativaMitigacion(entidad);
+        }
     }
 }

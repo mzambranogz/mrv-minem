@@ -200,5 +200,46 @@ namespace MRVMinem.Areas.Administrado.Controllers
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }
+
+        public JsonResult CargarSeleccionUbicacion(IniciativaBE entidad)
+        {
+            List<UbicacionBE> lista = IniciativaLN.ListarUbicacionIniciativa(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult CargarSeleccionGei(IniciativaBE entidad)
+        {
+            List<GasEfectoInvernaderoBE> lista = IniciativaLN.ListarGeiIniciativa(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult CargarSeleccionEnergetico(IniciativaBE entidad)
+        {
+            List<EnergeticoBE> lista = IniciativaLN.ListarEnergeticoIniciativa(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult CargarSeleccionIniciativa(IniciativaBE entidad)
+        {
+            List<IniciativaBE> lista = IniciativaLN.ListarIniciativaAvance(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult AprobarIniciativaMitigacion(IniciativaBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = IniciativaLN.AprobarIniciativaMitigacion(entidad);
+            itemRespuesta.success = entidad.OK;
+            return Respuesta(itemRespuesta);
+        }
     }
 }
