@@ -169,9 +169,6 @@ D:\DGEE\mrv-minem\back-end\MRVMinem\bin\es\System.Web.Razor.resources.dll
 D:\DGEE\mrv-minem\back-end\MRVMinem\bin\es\System.Web.WebPages.resources.dll
 D:\DGEE\mrv-minem\back-end\MRVMinem\bin\es\System.Web.WebPages.Deployment.resources.dll
 D:\DGEE\mrv-minem\back-end\MRVMinem\bin\es\System.Web.WebPages.Razor.resources.dll
-D:\DGEE\mrv-minem\back-end\MRVMinem\obj\Debug\MRVMinem.csprojAssemblyReference.cache
-D:\DGEE\mrv-minem\back-end\MRVMinem\obj\Debug\MRVMinem.csproj.CoreCompileInputs.cache
-D:\DGEE\mrv-minem\back-end\MRVMinem\obj\Debug\MRVMinem.csproj.CopyComplete
 D:\DGEE\mrv-minem\back-end\MRVMinem\obj\Debug\MRVMinem.dll
 D:\DGEE\mrv-minem\back-end\MRVMinem\obj\Debug\MRVMinem.pdb
 E:\Eduardo\Minem\mrv-minem\back-end\MRVMinem\bin\roslyn\csc.exe
@@ -232,3 +229,4 @@ E:\Eduardo\Minem\mrv-minem\back-end\MRVMinem\bin\es\System.Web.WebPages.Razor.re
 E:\Eduardo\Minem\mrv-minem\back-end\MRVMinem\obj\Debug\MRVMinem.csprojResolveAssemblyReference.cache
 E:\Eduardo\Minem\mrv-minem\back-end\MRVMinem\obj\Debug\MRVMinem.dll
 E:\Eduardo\Minem\mrv-minem\back-end\MRVMinem\obj\Debug\MRVMinem.pdb
+D:\DGEE\mrv-minem\back-end\MRVMinem\obj\Debug\MRVMinem.csprojResolveAssemblyReference.cache

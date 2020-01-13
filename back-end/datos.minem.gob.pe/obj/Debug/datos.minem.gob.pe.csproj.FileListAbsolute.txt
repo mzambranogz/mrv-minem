@@ -31,9 +31,6 @@ D:\DGEE\mrv-minem\back-end\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.
 D:\DGEE\mrv-minem\back-end\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
 D:\DGEE\mrv-minem\back-end\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.pdb
 D:\DGEE\mrv-minem\back-end\datos.minem.gob.pe\bin\Debug\Dapper.xml
-D:\DGEE\mrv-minem\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.csprojAssemblyReference.cache
-D:\DGEE\mrv-minem\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.csproj.CoreCompileInputs.cache
-D:\DGEE\mrv-minem\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.csproj.CopyComplete
 D:\DGEE\mrv-minem\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.dll
 D:\DGEE\mrv-minem\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.pdb
 E:\Eduardo\Minem\mrv-minem\back-end\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.dll
@@ -48,3 +45,4 @@ E:\Eduardo\Minem\mrv-minem\back-end\datos.minem.gob.pe\bin\Debug\Dapper.xml
 E:\Eduardo\Minem\mrv-minem\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.csprojResolveAssemblyReference.cache
 E:\Eduardo\Minem\mrv-minem\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.dll
 E:\Eduardo\Minem\mrv-minem\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.pdb
+D:\DGEE\mrv-minem\back-end\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.csprojResolveAssemblyReference.cache
