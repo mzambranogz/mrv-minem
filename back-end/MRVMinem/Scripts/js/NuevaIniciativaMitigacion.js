@@ -239,7 +239,10 @@ function fn_RegistrarIniciativaMitigacion() {
         $("#errorRegistroIniciativa").hide();
         $("#pieModalIniciativa").hide();
         $("#correctoRegistroIniciativa").show();          
-        $("#Control").data("modal",1);
+        $("#Control").data("modal", 1);
+        if (respuesta.extra == "1") {
+            if (ws != null) ws.send(respuesta.extra);
+        }
     } else {
         /*Swal.fire({
             icon: 'error',

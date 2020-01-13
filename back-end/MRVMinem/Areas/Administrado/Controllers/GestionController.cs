@@ -189,6 +189,7 @@ namespace MRVMinem.Areas.Administrado.Controllers
 
             entidad = IniciativaLN.RegistrarIniciativaMitigacion(entidad);
             itemRespuesta.success = entidad.OK;
+            itemRespuesta.extra = entidad.ID_ESTADO.ToString();
             return Respuesta(itemRespuesta);
         }
 
@@ -239,6 +240,16 @@ namespace MRVMinem.Areas.Administrado.Controllers
 
             entidad = IniciativaLN.AprobarIniciativaMitigacion(entidad);
             itemRespuesta.success = entidad.OK;
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult ConsultaNotificaciones(NotificacionBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = NotificacionLN.ConsultaNotificaciones(entidad.ID_USUARIO, entidad.ID_ROL);
+            itemRespuesta.success = entidad.OK;
+            entidad.extra = entidad.NOTIFICACIONES.ToString();
             return Respuesta(itemRespuesta);
         }
     }

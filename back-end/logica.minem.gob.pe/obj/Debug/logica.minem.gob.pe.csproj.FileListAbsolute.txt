@@ -42,3 +42,17 @@ D:\DGEE\mrv-minem\back-end\logica.minem.gob.pe\obj\Debug\logica.minem.gob.pe.csp
 D:\DGEE\mrv-minem\back-end\logica.minem.gob.pe\obj\Debug\logica.minem.gob.pe.csproj.CopyComplete
 D:\DGEE\mrv-minem\back-end\logica.minem.gob.pe\obj\Debug\logica.minem.gob.pe.dll
 D:\DGEE\mrv-minem\back-end\logica.minem.gob.pe\obj\Debug\logica.minem.gob.pe.pdb
+E:\Eduardo\Minem\mrv-minem\back-end\logica.minem.gob.pe\bin\Debug\logica.minem.gob.pe.dll
+E:\Eduardo\Minem\mrv-minem\back-end\logica.minem.gob.pe\bin\Debug\logica.minem.gob.pe.pdb
+E:\Eduardo\Minem\mrv-minem\back-end\logica.minem.gob.pe\bin\Debug\datos.minem.gob.pe.dll
+E:\Eduardo\Minem\mrv-minem\back-end\logica.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+E:\Eduardo\Minem\mrv-minem\back-end\logica.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.dll
+E:\Eduardo\Minem\mrv-minem\back-end\logica.minem.gob.pe\bin\Debug\Dapper.dll
+E:\Eduardo\Minem\mrv-minem\back-end\logica.minem.gob.pe\bin\Debug\Oracle.DataAccess.dll
+E:\Eduardo\Minem\mrv-minem\back-end\logica.minem.gob.pe\bin\Debug\datos.minem.gob.pe.pdb
+E:\Eduardo\Minem\mrv-minem\back-end\logica.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+E:\Eduardo\Minem\mrv-minem\back-end\logica.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.pdb
+E:\Eduardo\Minem\mrv-minem\back-end\logica.minem.gob.pe\bin\Debug\Dapper.xml
+E:\Eduardo\Minem\mrv-minem\back-end\logica.minem.gob.pe\obj\Debug\logica.minem.gob.pe.csprojResolveAssemblyReference.cache
+E:\Eduardo\Minem\mrv-minem\back-end\logica.minem.gob.pe\obj\Debug\logica.minem.gob.pe.dll
+E:\Eduardo\Minem\mrv-minem\back-end\logica.minem.gob.pe\obj\Debug\logica.minem.gob.pe.pdb

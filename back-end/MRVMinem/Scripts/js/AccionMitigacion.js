@@ -1,4 +1,7 @@
-﻿
+﻿window.onload = function () {
+    enLinea();
+}
+
 $(document).ready(function () {
 
     CargarOpcionesCuerpo();
@@ -14,8 +17,39 @@ $(document).ready(function () {
     MRV.CargarSelect(baseUrl + "Publico/Portal/ListaSectorInstitucion", "#mSector", "ID_SECTOR_INST", "DESCRIPCION");
     MRV.CargarSelect(baseUrl + "Administrado/Gestion/ListarMedidaMitigacion", "#medMitigacion", "ID_MAE_MEDMIT", "NOMBRE_MEDMIT");
     MRV.CargarSelect(baseUrl + "Administrado/Gestion/ListarMoneda", "#mMoneda", "ID_MONEDA", "DESCRIPCION");
-
+    fn_actualizaCampana();
 });
+
+function enLinea() {
+    ws = new WebSocket("ws://172.20.7.188:9002");
+    ws.onopen = function () {
+        console.log("Conectado");
+    }
+    ws.onclose = function (event) {
+        console.log("Desconectado por: " + event.reason);
+    }
+    ws.onmessage = function (event) {
+        var data = event.data;
+        if (data != "") {
+            //spnEstado.innerHTML = data;
+            //get("Producto/obtenerListas", mostrarProductos);
+            console.log("Campana Actualizada");
+            fn_actualizaCampana();
+        }
+    }
+}
+
+function fn_actualizaCampana() {
+    var item = {
+        ID_ROL: $("#Control").data("rol"),
+        ID_USUARIO: $("#Control").data("usuario")
+    }
+    url = baseUrl + "Administrado/Gestion/ConsultaNotificaciones";
+    var respuesta = MRV.Ajax(url, item, false);
+    if (respuesta.success) {
+        $("#numNotificacion").html(respuesta.extra);
+    }
+}
 
 function CargarOpcionesCuerpo() {
     if ($("#Control").data("opcion9") == 1) {
@@ -45,17 +79,17 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                     $("#cuerpoMitigacion").html("");
                     for (var i = 0; i < data.length; i++) {
 
-                        
+
                         var progreso = '0%;';
                         if (data[i]["PROGRESO"] == 1) {
-                                progreso = '25%';
+                            progreso = '25%';
                         } else if (data[i]["PROGRESO"] == 2) {
-                                progreso = '50%';
+                            progreso = '50%';
                         } else if (data[i]["PROGRESO"] == 3) {
-                                progreso = '75%';
+                            progreso = '75%';
                         } else if (data[i]["PROGRESO"] == 4) {
-                                progreso = '100%';
-                        }                        
+                            progreso = '100%';
+                        }
 
                         var tr = '<tr>';
                         tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + (1 + i) + '</th>';
@@ -118,7 +152,7 @@ function CargarListarIniciativaMitigacionUsuario(vUrl) {
                                 progreso = '100%';
                             }
                         }
-                        
+
                         var tr = '<tr>';
                         tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + (1 + i) + '</th>';
                         tr = tr + '<td data-encabezado="Nombre de Iniciativa">' + data[i]["NOMBRE_INICIATIVA"] + '</td>';

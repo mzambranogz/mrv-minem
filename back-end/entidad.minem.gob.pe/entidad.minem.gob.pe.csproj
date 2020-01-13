@@ -48,6 +48,8 @@
     <Compile Include="InstitucionBE.cs" />
     <Compile Include="MedidaMitigacionBE.cs" />
     <Compile Include="MonedaBE.cs" />
+    <Compile Include="NotificacionAuxBE.cs" />
+    <Compile Include="NotificacionBE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RolBE.cs" />
     <Compile Include="RolOpcionesBE.cs" />
