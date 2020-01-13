@@ -18,10 +18,13 @@ $(document).ready(function () {
     MRV.CargarSelect(baseUrl + "Administrado/Gestion/ListarMedidaMitigacion", "#medMitigacion", "ID_MAE_MEDMIT", "NOMBRE_MEDMIT");
     MRV.CargarSelect(baseUrl + "Administrado/Gestion/ListarMoneda", "#mMoneda", "ID_MONEDA", "DESCRIPCION");
     fn_actualizaCampana();
+    enLinea();
 });
 
 function enLinea() {
-    ws = new WebSocket("ws://172.20.7.188:9002");
+    debugger;
+
+    ws = new WebSocket("ws://172.20.3.49:9002");
     ws.onopen = function () {
         console.log("Conectado");
     }

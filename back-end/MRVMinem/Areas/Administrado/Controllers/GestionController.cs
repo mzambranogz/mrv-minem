@@ -249,7 +249,7 @@ namespace MRVMinem.Areas.Administrado.Controllers
 
             entidad = NotificacionLN.ConsultaNotificaciones(entidad.ID_USUARIO, entidad.ID_ROL);
             itemRespuesta.success = entidad.OK;
-            entidad.extra = entidad.NOTIFICACIONES.ToString();
+            itemRespuesta.extra = entidad.NOTIFICACIONES.ToString();
             return Respuesta(itemRespuesta);
         }
     }

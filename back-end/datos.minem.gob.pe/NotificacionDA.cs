@@ -22,10 +22,11 @@ namespace datos.minem.gob.pe
             {
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
                 {
-                    string sp = sPackage + "USP_UPD_INICIATIVA_UBICACION";
+                    string sp = sPackage + "USP_SEL_NUM_NOFIFICACION";
                     var p = new OracleDynamicParameters();
-                    p.Add("pIdRol", Idusuario);
-                    p.Add("pIdUsuario", IdRol);
+                    p.Add("pIdRol", IdRol);
+                    p.Add("pIdUsuario", 0);
+                    //p.Add("pIdUsuario", Idusuario);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     entidad = db.Query<NotificacionBE>(sp, p, commandType: CommandType.StoredProcedure).FirstOrDefault();
                 }
