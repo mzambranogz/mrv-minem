@@ -24,7 +24,8 @@ $(document).ready(function () {
 function enLinea() {
     debugger;
 
-    ws = new WebSocket("ws://172.20.3.49:9002");
+    //ws = new WebSocket("ws://172.20.3.49:9002");
+    ws = new WebSocket("ws://10.0.0.102:9002");
     ws.onopen = function () {
         console.log("Conectado");
     }
@@ -119,7 +120,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                         tr = tr + '     </div>';
                         tr = tr + '</td>';
                         tr = tr + '</tr>';
-                        $("#cuerpoMitigacion").append(tr)
+                        $("#cuerpoMitigacion").append(tr);
                     }
                 }
             }
@@ -144,7 +145,7 @@ function CargarListarIniciativaMitigacionUsuario(vUrl) {
                     for (var i = 0; i < data.length; i++) {
 
                         var progreso = '0%;';
-                        if (data[i]["ID_ESTADO"] == 1) {
+                        if (data[i]["ID_ESTADO"] != 0) {
                             if (data[i]["PROGRESO"] == 1) {
                                 progreso = '25%';
                             } else if (data[i]["PROGRESO"] == 2) {
@@ -167,12 +168,23 @@ function CargarListarIniciativaMitigacionUsuario(vUrl) {
                         tr = tr + '<td>' + data[i]["NOMBRE_MEDMIT"] + '</td>';
                         tr = tr + '<td>' + data[i]["NOMBRE_INSTITUCION"] + '</td>';
                         tr = tr + '<td class="text-center text-xs-right" data-encabezado="Acciones">';
+
                         tr = tr + '     <div class="btn-group">';
-                        tr = tr + '         <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
+                        if (data[i]["PROGRESO"] == 2) {
+                            tr = tr + '         <div class="acciones fase-02 dropdown-toggle text-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
+                        } else {
+                            tr = tr + '         <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
+                        }
                         tr = tr + '         <div class="dropdown-menu dropdown-menu-right">';
                         tr = tr + '             <a class="dropdown-item" href="./ver-mas-accion-de-mitigacion.html"><i class="fas fa-plus-circle"></i>&nbsp;Ver más</a>';
                         tr = tr + '             <a class="dropdown-item" href="./seguimiento-de-accion-de-mitigacion.html"><i class="fas fa-history"></i>&nbsp;Seguimiento</a>';
-                        tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_mostrarEditarIniciativa(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
+                        if (/*data[i]["ID_ESTADO"] == 1 ||*/ data[i]["ID_ESTADO"] == 0) {
+                            tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_mostrarEditarIniciativa(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
+                        } else if (data[i]["ID_ESTADO"] == 2) {
+                            tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_mostrarCorregirIniciativa(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
+                        } else if (data[i]["PROGRESO"] == 2) {
+                            tr = tr + '<a class="dropdown-item text-success" href="#" onclick="fn_mostrarDetalleIndicador(' + data[i]["ID_INICIATIVA"] + ');" data-toggle="modal" data-target="#tipo-ingreso-detalle"><i class="fas fa-clipboard-list"></i>&nbsp;Detalles</a>';
+                        }
                         if ($('#Control').data('rol') == 2) {
                             tr = tr + '             <a class="dropdown-item text-primary" href="#" onclick="fn_revisarIniciativa(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-check"></i>&nbsp;Revisar</a>';
                         }
@@ -187,7 +199,7 @@ function CargarListarIniciativaMitigacionUsuario(vUrl) {
                         tr = tr + '     </div>';
                         tr = tr + '</td>';
                         tr = tr + '</tr>';
-                        $("#cuerpoMitigacion").append(tr)
+                        $("#cuerpoMitigacion").append(tr);
                     }
                 }
             }

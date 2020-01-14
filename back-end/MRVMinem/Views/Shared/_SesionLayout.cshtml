@@ -119,6 +119,7 @@
         var ws;
 
         $(document).ready(function () {
+            $('html, body').animate({ scrollTop: scroll }, 1000);
             CargarOpciones();
             $("#Control").data("usuario", $("#identificador").val());
         });
@@ -259,9 +260,19 @@
             MRV.ObtenerVista(baseUrl + 'Administrado/Gestion/NuevaIniciativaMitigacion');
         }
 
+        function fn_mostrarCorregirIniciativa(id) {
+            $("#Control").data("iniciativa", id);
+            MRV.ObtenerVista(baseUrl + 'Administrado/Gestion/CorregirIniciativaMitigacion');
+        }
+
         function fn_revisarIniciativa(id) {
             $("#Control").data("iniciativa", id);
             MRV.ObtenerVista(baseUrl + 'Administrado/Gestion/NuevaIniciativaMitigacion');
+        }
+
+        function fn_mostrarDetalleIndicador(id) {
+            $("#Control").data("iniciativa", id);
+            MRV.ObtenerVista(baseUrl + 'Administrado/Gestion/DetalleIndicador');
         }
 
         function salirSesion() {

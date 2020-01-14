@@ -11,3 +11,10 @@ D:\DGEE\mrv-minem\WebSocketServer\MRV_SocketServer\MRV_SocketServer\obj\Debug\MR
 D:\DGEE\mrv-minem\WebSocketServer\MRV_SocketServer\MRV_SocketServer\bin\Debug\MRV_SocketServer.exe
 D:\DGEE\mrv-minem\WebSocketServer\MRV_SocketServer\MRV_SocketServer\bin\Debug\MRV_SocketServer.pdb
 D:\DGEE\mrv-minem\WebSocketServer\MRV_SocketServer\MRV_SocketServer\bin\Debug\Fleck.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\WebSocketServer\MRV_SocketServer\MRV_SocketServer\bin\Debug\MRV_SocketServer.exe.config
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\WebSocketServer\MRV_SocketServer\MRV_SocketServer\obj\Debug\MRV_SocketServer.exe
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\WebSocketServer\MRV_SocketServer\MRV_SocketServer\obj\Debug\MRV_SocketServer.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\WebSocketServer\MRV_SocketServer\MRV_SocketServer\bin\Debug\MRV_SocketServer.exe
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\WebSocketServer\MRV_SocketServer\MRV_SocketServer\bin\Debug\MRV_SocketServer.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\WebSocketServer\MRV_SocketServer\MRV_SocketServer\bin\Debug\Fleck.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\WebSocketServer\MRV_SocketServer\MRV_SocketServer\obj\Debug\MRV_SocketServer.csprojResolveAssemblyReference.cache

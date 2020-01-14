@@ -72,7 +72,7 @@ function CargarTablaMantenimiento() {
                         tr = tr + '         </div>';
                         tr = tr + "     </div></td>";
                         tr = tr + '</tr>';
-                        $("#cuerpoMantenimientoUsuario").append(tr)
+                        $("#cuerpoMantenimientoUsuario").append(tr);
                     }
                 }
             }

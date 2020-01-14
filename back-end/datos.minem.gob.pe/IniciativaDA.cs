@@ -139,6 +139,38 @@ namespace datos.minem.gob.pe
             return entidad;
         }
 
+        public IniciativaBE ActualizarIniciativaMitigacion(IniciativaBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_UPD_INICIATIVA_MITIGACION";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    p.Add("pNOMBRE_INICIATIVA", entidad.NOMBRE_INICIATIVA);
+                    p.Add("pDESC_INICIATIVA", entidad.DESC_INICIATIVA);
+                    p.Add("pINVERSION_INICIATIVA", entidad.INVERSION_INICIATIVA);
+                    p.Add("pID_MONEDA", entidad.ID_MONEDA);
+                    p.Add("pFECHA_IMPLE_INICIATIVA", entidad.FECHA_IMPLE_INICIATIVA);
+                    p.Add("pPRIVACIDAD_INICIATIVA", entidad.PRIVACIDAD_INICIATIVA);
+                    p.Add("pID_ESTADO", entidad.ID_ESTADO);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+                entidad.extra = ex.Message;
+            }
+
+            return entidad;
+        }
+
         public IniciativaBE ProcesoIniciativaEnergetico(string energetico, int id_iniciativa)
         {
             IniciativaBE entidad = new IniciativaBE();
@@ -397,6 +429,30 @@ namespace datos.minem.gob.pe
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
                 {
                     string sp = sPackage + "USP_UPD_APROBAR_INICIATIVA";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+                entidad.extra = ex.Message;
+            }
+
+            return entidad;
+        }
+
+        public IniciativaBE ObservacionIniciativaMitigacion(IniciativaBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_UPD_OBSERVACION_INICIATIVA";
                     var p = new OracleDynamicParameters();
                     p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
                     p.Add("pID_USUARIO", entidad.ID_USUARIO);

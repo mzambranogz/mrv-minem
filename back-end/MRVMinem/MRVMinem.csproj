@@ -250,6 +250,7 @@
     <Content Include="Areas\Administrado\Views\Gestion\NuevaIniciativaMitigacion.cshtml" />
     <Content Include="Areas\Administrado\Views\Gestion\MantenimientoUsuario.cshtml" />
     <Content Include="Areas\Administrado\Views\Gestion\TablaMantenimiento.cshtml" />
+    <Content Include="Areas\Administrado\Views\Gestion\CorregirIniciativaMitigacion.cshtml" />
     <None Include="Properties\PublishProfiles\MRVMinem.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\dataTables.bootstrap.min.js" />

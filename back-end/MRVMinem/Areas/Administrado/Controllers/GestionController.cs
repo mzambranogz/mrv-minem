@@ -45,6 +45,16 @@ namespace MRVMinem.Areas.Administrado.Controllers
             return View();
         }
 
+        public ActionResult CorregirIniciativaMitigacion()
+        {
+            return View();
+        }
+
+        public ActionResult RevisarIniciativaMitigacion()
+        {
+            return View();
+        }
+
         public ActionResult TablaMantenimiento()
         {
             return View();
@@ -252,5 +262,58 @@ namespace MRVMinem.Areas.Administrado.Controllers
             itemRespuesta.extra = entidad.NOTIFICACIONES.ToString();
             return Respuesta(itemRespuesta);
         }
+
+        public JsonResult ObservacionIniciativaMitigacion(IniciativaBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = IniciativaLN.ObservacionIniciativaMitigacion(entidad);
+            itemRespuesta.success = entidad.OK;
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult ListarTablaIndicador(IndicadorBE entidad)
+        {
+            List<IndicadorBE> lista = IndicadorLN.ListarTablaIndicador(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult CalcularIndicador(IndicadorBE entidad)
+        {
+            List<IndicadorBE> lista = IndicadorLN.CalcularIndicador(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult EliminarIndicador(IndicadorBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = IndicadorLN.EliminarIndicador(entidad);
+            itemRespuesta.success = entidad.OK;
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult ListarDetalleIndicador(IndicadorBE entidad)
+        {
+            List<IndicadorBE> lista = IndicadorLN.ListarDetalleIndicador(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult EvaluarIndicador(IndicadorBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = IndicadorLN.EvaluarIndicador(entidad);
+            itemRespuesta.success = entidad.OK;
+            return Respuesta(itemRespuesta);
+        }
+
+
     }
 }

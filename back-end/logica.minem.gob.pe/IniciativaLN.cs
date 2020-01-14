@@ -94,7 +94,7 @@ namespace logica.minem.gob.pe
                 if (ent.OK)
                 {
                     id_gei = id_gei.Substring(0, id_gei.Length - 1);
-                    ActualizarIniciativaEnergetico(id_gei, entidad.ID_INICIATIVA);
+                    ActualizarIniciativaGei(id_gei, entidad.ID_INICIATIVA);
                 }
                 else
                 {
@@ -103,6 +103,119 @@ namespace logica.minem.gob.pe
 
             }
 
+
+            if (entidad.OK)
+            {
+                string id_ubi = "";
+                if (string.IsNullOrEmpty(entidad.UBICACION))
+                {
+                    id_ubi = "0,";
+                    ent.OK = true;
+                }
+                else
+                {
+                    var ubicacion = entidad.UBICACION.Split('/');
+                    for (int i = 0; i < ubicacion.Count(); i++)
+                    {
+                        ent = ProcesoIniciativaUbicacion(ubicacion[i], entidad.ID_INICIATIVA);
+                        id_ubi = id_ubi + ent.UBICACION + ',';
+                        if (!ent.OK)
+                        {
+                            i = ubicacion.Count();
+                            ent.OK = false;
+                        }
+                    }
+                }
+
+                if (ent.OK)
+                {
+                    id_ubi = id_ubi.Substring(0, id_ubi.Length - 1);
+                    ActualizarIniciativaUbicacion(id_ubi, entidad.ID_INICIATIVA);
+                }
+                else
+                {
+                    verificar = false;
+                }
+
+            }
+
+            entidad.OK = verificar;
+            return entidad;
+        }
+
+        public static IniciativaBE ActualizarIniciativaMitigacion(IniciativaBE entidad)
+        {
+            IniciativaBE ent = new IniciativaBE();
+            bool verificar = true;
+            entidad = iniciativaDA.ActualizarIniciativaMitigacion(entidad);
+            if (entidad.OK)
+            {
+                string id_energ = "";
+                if (string.IsNullOrEmpty(entidad.ENERGETICO))
+                {
+                    id_energ = "0,";
+                    ent.OK = true;
+                }
+                else
+                {
+                    var energetico = entidad.ENERGETICO.Split('/');
+                    for (int i = 0; i < energetico.Count(); i++)
+                    {
+                        ent = ProcesoIniciativaEnergetico(energetico[i], entidad.ID_INICIATIVA);
+                        id_energ = id_energ + ent.ENERGETICO + ',';
+                        if (!ent.OK)
+                        {
+                            i = energetico.Count();
+                            ent.OK = false;
+                        }
+                    }
+                }
+
+                if (ent.OK)
+                {
+                    id_energ = id_energ.Substring(0, id_energ.Length - 1);
+                    ActualizarIniciativaEnergetico(id_energ, entidad.ID_INICIATIVA);
+                }
+                else
+                {
+                    verificar = false;
+                }
+            }
+
+            if (entidad.OK)
+            {
+                string id_gei = "";
+                if (string.IsNullOrEmpty(entidad.GEI))
+                {
+                    id_gei = "0,";
+                    ent.OK = true;
+                }
+                else
+                {
+                    var gei = entidad.GEI.Split('/');
+                    for (int i = 0; i < gei.Count(); i++)
+                    {
+                        ent = ProcesoIniciativaGei(gei[i], entidad.ID_INICIATIVA);
+                        id_gei = id_gei + ent.GEI + ',';
+                        if (!ent.OK)
+                        {
+                            i = gei.Count();
+                            ent.OK = false;
+                        }
+                    }
+                }
+
+                if (ent.OK)
+                {
+                    id_gei = id_gei.Substring(0, id_gei.Length - 1);
+                    ActualizarIniciativaGei(id_gei, entidad.ID_INICIATIVA);
+                }
+                else
+                {
+                    verificar = false;
+                }
+
+            }
 
             if (entidad.OK)
             {
@@ -196,6 +309,11 @@ namespace logica.minem.gob.pe
         public static IniciativaBE AprobarIniciativaMitigacion(IniciativaBE entidad)
         {
             return iniciativaDA.AprobarIniciativaMitigacion(entidad);
+        }
+
+        public static IniciativaBE ObservacionIniciativaMitigacion(IniciativaBE entidad)
+        {
+            return iniciativaDA.ObservacionIniciativaMitigacion(entidad);
         }
     }
 }
