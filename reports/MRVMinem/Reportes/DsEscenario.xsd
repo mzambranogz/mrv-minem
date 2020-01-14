@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DsEscenario" targetNamespace="http://tempuri.org/DsEscenario.xsd" xmlns:mstns="http://tempuri.org/DsEscenario.xsd" xmlns="http://tempuri.org/DsEscenario.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DsEscenario" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DsEscenario" msprop:Generator_UserDSName="DsEscenario">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DtEscenario" msprop:Generator_TableClassName="DtEscenarioDataTable" msprop:Generator_TableVarName="tableDtEscenario" msprop:Generator_TablePropName="DtEscenario" msprop:Generator_RowDeletingName="DtEscenarioRowDeleting" msprop:Generator_RowChangingName="DtEscenarioRowChanging" msprop:Generator_RowEvHandlerName="DtEscenarioRowChangeEventHandler" msprop:Generator_RowDeletedName="DtEscenarioRowDeleted" msprop:Generator_UserTableName="DtEscenario" msprop:Generator_RowChangedName="DtEscenarioRowChanged" msprop:Generator_RowEvArgName="DtEscenarioRowChangeEvent" msprop:Generator_RowClassName="DtEscenarioRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID_ESCENARIO" msprop:Generator_ColumnVarNameInTable="columnID_ESCENARIO" msprop:Generator_ColumnPropNameInRow="ID_ESCENARIO" msprop:Generator_ColumnPropNameInTable="ID_ESCENARIOColumn" msprop:Generator_UserColumnName="ID_ESCENARIO" type="xs:int" minOccurs="0" />
+              <xs:element name="ID_MEDMIT" msprop:Generator_ColumnVarNameInTable="columnID_MEDMIT" msprop:Generator_ColumnPropNameInRow="ID_MEDMIT" msprop:Generator_ColumnPropNameInTable="ID_MEDMITColumn" msprop:Generator_UserColumnName="ID_MEDMIT" type="xs:int" minOccurs="0" />
+              <xs:element name="ANNO" msprop:Generator_ColumnVarNameInTable="columnANNO" msprop:Generator_ColumnPropNameInRow="ANNO" msprop:Generator_ColumnPropNameInTable="ANNOColumn" msprop:Generator_UserColumnName="ANNO" type="xs:short" minOccurs="0" />
+              <xs:element name="BAU_EMISION" msprop:Generator_ColumnVarNameInTable="columnBAU_EMISION" msprop:Generator_ColumnPropNameInRow="BAU_EMISION" msprop:Generator_ColumnPropNameInTable="BAU_EMISIONColumn" msprop:Generator_UserColumnName="BAU_EMISION" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MIT_EMISION" msprop:Generator_ColumnVarNameInTable="columnMIT_EMISION" msprop:Generator_ColumnPropNameInRow="MIT_EMISION" msprop:Generator_ColumnPropNameInTable="MIT_EMISIONColumn" msprop:Generator_UserColumnName="MIT_EMISION" type="xs:decimal" minOccurs="0" />
+              <xs:element name="REDUCCION" msprop:Generator_ColumnVarNameInTable="columnREDUCCION" msprop:Generator_ColumnPropNameInRow="REDUCCION" msprop:Generator_ColumnPropNameInTable="REDUCCIONColumn" msprop:Generator_UserColumnName="REDUCCION" type="xs:decimal" minOccurs="0" />
+              <xs:element name="VALOR_SOFTWARE" msprop:Generator_ColumnVarNameInTable="columnVALOR_SOFTWARE" msprop:Generator_ColumnPropNameInRow="VALOR_SOFTWARE" msprop:Generator_ColumnPropNameInTable="VALOR_SOFTWAREColumn" msprop:Generator_UserColumnName="VALOR_SOFTWARE" type="xs:decimal" minOccurs="0" />
+              <xs:element name="EXPOST" msprop:Generator_ColumnVarNameInTable="columnEXPOST" msprop:Generator_ColumnPropNameInRow="EXPOST" msprop:Generator_ColumnPropNameInTable="EXPOSTColumn" msprop:Generator_UserColumnName="EXPOST" type="xs:decimal" minOccurs="0" />
+              <xs:element name="META_ANUAL" msprop:Generator_ColumnVarNameInTable="columnMETA_ANUAL" msprop:Generator_ColumnPropNameInRow="META_ANUAL" msprop:Generator_ColumnPropNameInTable="META_ANUALColumn" msprop:Generator_UserColumnName="META_ANUAL" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NOMBRE_MEDMIT" msprop:Generator_ColumnVarNameInTable="columnNOMBRE_MEDMIT" msprop:Generator_ColumnPropNameInRow="NOMBRE_MEDMIT" msprop:Generator_ColumnPropNameInTable="NOMBRE_MEDMITColumn" msprop:Generator_UserColumnName="NOMBRE_MEDMIT" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

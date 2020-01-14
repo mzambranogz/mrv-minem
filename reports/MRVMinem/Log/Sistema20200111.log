@@ -1,0 +1,870 @@
+11/01/2020 10:24:01 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_MANTENIMIENTO" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_MANTENIMIENTO"
+ORA-06512: at line 1
+11/01/2020 10:24:01 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_MANTENIMIENTO" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_MANTENIMIENTO"
+ORA-06512: at line 1
+11/01/2020 10:24:01 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_MANTENIMIENTO" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_MANTENIMIENTO"
+ORA-06512: at line 1
+11/01/2020 10:24:01 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_MANTENIMIENTO" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_MANTENIMIENTO"
+ORA-06512: at line 1
+11/01/2020 10:24:01 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_MANTENIMIENTO" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_MANTENIMIENTO"
+ORA-06512: at line 1
+11/01/2020 10:24:01 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_MANTENIMIENTO" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_MANTENIMIENTO"
+ORA-06512: at line 1
+11/01/2020 10:24:01 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_MANTENIMIENTO" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_MANTENIMIENTO"
+ORA-06512: at line 1
+11/01/2020 10:24:01 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_MANTENIMIENTO" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_MANTENIMIENTO"
+ORA-06512: at line 1
+11/01/2020 10:24:01 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_MANTENIMIENTO" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_MANTENIMIENTO"
+ORA-06512: at line 1
+11/01/2020 10:24:01 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_MANTENIMIENTO" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_MANTENIMIENTO"
+ORA-06512: at line 1
+11/01/2020 10:24:01 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.UbicacionBE] ListarUbicacion(entidad.minem.gob.pe.UbicacionBE), Línea: 28] - ORA-04063: package body "USERMRV.PKG_MRV_MANTENIMIENTO" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_MANTENIMIENTO"
+ORA-06512: at line 1
+11/01/2020 11:17:26 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-03114: not connected to ORACLE
+11/01/2020 11:17:26 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-03114: not connected to ORACLE
+11/01/2020 11:17:26 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-03114: not connected to ORACLE
+11/01/2020 11:17:26 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-03114: not connected to ORACLE
+11/01/2020 11:17:26 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-03114: not connected to ORACLE
+11/01/2020 11:17:26 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-03114: not connected to ORACLE
+11/01/2020 11:17:26 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-03114: not connected to ORACLE
+11/01/2020 11:17:26 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-03114: not connected to ORACLE
+11/01/2020 11:17:26 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-03114: not connected to ORACLE
+11/01/2020 11:17:26 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-03114: not connected to ORACLE
+11/01/2020 11:17:26 a.m.: [Método: entidad.minem.gob.pe.UsuarioBE ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 118] - ORA-03114: not connected to ORACLE
+11/01/2020 11:41:02 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 15:
+PLS-00905: object USERMRV.PKG_MRV_MANTENIMIENTO is invalid
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+11/01/2020 11:41:02 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 15:
+PLS-00905: object USERMRV.PKG_MRV_MANTENIMIENTO is invalid
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+11/01/2020 11:41:02 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 15:
+PLS-00905: object USERMRV.PKG_MRV_MANTENIMIENTO is invalid
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+11/01/2020 11:41:02 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 15:
+PLS-00905: object USERMRV.PKG_MRV_MANTENIMIENTO is invalid
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+11/01/2020 11:41:02 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 15:
+PLS-00905: object USERMRV.PKG_MRV_MANTENIMIENTO is invalid
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+11/01/2020 11:41:02 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 15:
+PLS-00905: object USERMRV.PKG_MRV_MANTENIMIENTO is invalid
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+11/01/2020 11:41:02 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 15:
+PLS-00905: object USERMRV.PKG_MRV_MANTENIMIENTO is invalid
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+11/01/2020 11:41:02 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 15:
+PLS-00905: object USERMRV.PKG_MRV_MANTENIMIENTO is invalid
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+11/01/2020 11:41:02 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 15:
+PLS-00905: object USERMRV.PKG_MRV_MANTENIMIENTO is invalid
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+11/01/2020 11:41:02 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 15:
+PLS-00905: object USERMRV.PKG_MRV_MANTENIMIENTO is invalid
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+11/01/2020 11:41:02 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.UbicacionBE] ListarUbicacion(entidad.minem.gob.pe.UbicacionBE), Línea: 28] - ORA-06550: line 1, column 15:
+PLS-00905: object USERMRV.PKG_MRV_MANTENIMIENTO is invalid
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+11/01/2020 11:41:14 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 15:
+PLS-00905: object USERMRV.PKG_MRV_MANTENIMIENTO is invalid
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+11/01/2020 11:41:14 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 15:
+PLS-00905: object USERMRV.PKG_MRV_MANTENIMIENTO is invalid
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+11/01/2020 11:41:14 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 15:
+PLS-00905: object USERMRV.PKG_MRV_MANTENIMIENTO is invalid
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+11/01/2020 11:41:14 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 15:
+PLS-00905: object USERMRV.PKG_MRV_MANTENIMIENTO is invalid
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+11/01/2020 11:41:14 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 15:
+PLS-00905: object USERMRV.PKG_MRV_MANTENIMIENTO is invalid
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+11/01/2020 11:41:14 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 15:
+PLS-00905: object USERMRV.PKG_MRV_MANTENIMIENTO is invalid
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+11/01/2020 11:41:14 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 15:
+PLS-00905: object USERMRV.PKG_MRV_MANTENIMIENTO is invalid
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+11/01/2020 11:41:14 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 15:
+PLS-00905: object USERMRV.PKG_MRV_MANTENIMIENTO is invalid
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+11/01/2020 11:41:14 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 15:
+PLS-00905: object USERMRV.PKG_MRV_MANTENIMIENTO is invalid
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+11/01/2020 11:41:14 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 15:
+PLS-00905: object USERMRV.PKG_MRV_MANTENIMIENTO is invalid
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+11/01/2020 11:41:14 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.UbicacionBE] ListarUbicacion(entidad.minem.gob.pe.UbicacionBE), Línea: 28] - ORA-06550: line 1, column 15:
+PLS-00905: object USERMRV.PKG_MRV_MANTENIMIENTO is invalid
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+11/01/2020 12:13:24 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 16288
+Session ID: 365 Serial number: 8056
+11/01/2020 12:13:24 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 16288
+Session ID: 365 Serial number: 8056
+11/01/2020 12:13:24 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 16288
+Session ID: 365 Serial number: 8056
+11/01/2020 12:13:24 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 16288
+Session ID: 365 Serial number: 8056
+11/01/2020 12:13:24 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 16288
+Session ID: 365 Serial number: 8056
+11/01/2020 12:13:24 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 16288
+Session ID: 365 Serial number: 8056
+11/01/2020 12:13:24 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 16288
+Session ID: 365 Serial number: 8056
+11/01/2020 12:13:24 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 16288
+Session ID: 365 Serial number: 8056
+11/01/2020 12:13:24 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 16288
+Session ID: 365 Serial number: 8056
+11/01/2020 12:13:24 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 16288
+Session ID: 365 Serial number: 8056
+11/01/2020 12:13:24 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.RolOpcionesBE] ListarRolOpciones(entidad.minem.gob.pe.RolOpcionesBE), Línea: 29] - ORA-03135: connection lost contact
+Process ID: 16288
+Session ID: 365 Serial number: 8056
+11/01/2020 12:13:40 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Timeout de solicitud de conexión
+11/01/2020 12:13:40 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Timeout de solicitud de conexión
+11/01/2020 12:13:40 p.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - Timeout de solicitud de conexión
+11/01/2020 12:13:40 p.m.: [Método: Void Open(), Línea: 0] - Timeout de solicitud de conexión
+11/01/2020 12:13:40 p.m.: [Método: Boolean MoveNext(), Línea: 0] - Timeout de solicitud de conexión
+11/01/2020 12:13:40 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Timeout de solicitud de conexión
+11/01/2020 12:13:40 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Timeout de solicitud de conexión
+11/01/2020 12:13:40 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Timeout de solicitud de conexión
+11/01/2020 12:13:40 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.RolOpcionesBE] ListarRolOpciones(entidad.minem.gob.pe.RolOpcionesBE), Línea: 29] - Timeout de solicitud de conexión
+11/01/2020 12:13:48 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:13:48 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:13:48 p.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:13:48 p.m.: [Método: Void Open(), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:13:48 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:13:48 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:13:48 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:13:48 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:13:48 p.m.: [Método: entidad.minem.gob.pe.UsuarioBE ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 118] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:15:32 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:15:32 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:15:32 p.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:15:32 p.m.: [Método: Void Open(), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:15:32 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:15:32 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:15:32 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:15:32 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:15:32 p.m.: [Método: entidad.minem.gob.pe.UsuarioBE ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 118] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:18:08 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:18:08 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:18:08 p.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:18:08 p.m.: [Método: Void Open(), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:18:08 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:18:08 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:18:08 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:18:08 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:18:08 p.m.: [Método: entidad.minem.gob.pe.UsuarioBE ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 118] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:19:12 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:19:12 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:19:12 p.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:19:12 p.m.: [Método: Void Open(), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:19:12 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:19:12 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:19:12 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:19:12 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 12:19:12 p.m.: [Método: entidad.minem.gob.pe.UsuarioBE ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 118] - ORA-12170: TNS:Connect timeout occurred
+11/01/2020 01:57:15 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:57:15 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:57:15 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:57:15 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:57:15 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:57:15 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:57:15 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:57:15 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:57:15 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:57:15 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:57:15 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.MedidaMitigacionBE] ListarMedidaMitigacion(entidad.minem.gob.pe.MedidaMitigacionBE), Línea: 28] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:57:16 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:57:16 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:57:16 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:57:16 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:57:16 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:57:16 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:57:16 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:57:16 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:57:16 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:57:16 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:57:16 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.MonedaBE] ListarMoneda(entidad.minem.gob.pe.MonedaBE), Línea: 28] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:57:16 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:57:16 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:57:16 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:57:16 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:57:16 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:57:16 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:57:16 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:57:16 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:57:16 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:57:16 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:57:16 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaIniciativaUsuario(entidad.minem.gob.pe.IniciativaBE), Línea: 57] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:59:32 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:59:32 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:59:32 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:59:32 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:59:32 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:59:32 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:59:32 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:59:32 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:59:32 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:59:32 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:59:32 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaIniciativaUsuario(entidad.minem.gob.pe.IniciativaBE), Línea: 57] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:59:32 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:59:32 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:59:32 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:59:32 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:59:32 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:59:32 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:59:32 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:59:32 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:59:32 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:59:32 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:59:32 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.MonedaBE] ListarMoneda(entidad.minem.gob.pe.MonedaBE), Línea: 28] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:59:32 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:59:32 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:59:32 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:59:32 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:59:32 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:59:32 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:59:32 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:59:32 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:59:32 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:59:32 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 01:59:32 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.MedidaMitigacionBE] ListarMedidaMitigacion(entidad.minem.gob.pe.MedidaMitigacionBE), Línea: 28] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:33 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:33 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:33 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:33 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:33 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:33 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:33 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:33 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:33 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:33 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:33 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.MonedaBE] ListarMoneda(entidad.minem.gob.pe.MonedaBE), Línea: 28] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:33 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:33 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:33 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:33 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:33 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:33 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:33 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:33 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:33 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:33 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:33 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.MedidaMitigacionBE] ListarMedidaMitigacion(entidad.minem.gob.pe.MedidaMitigacionBE), Línea: 28] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:33 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:33 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:33 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:33 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:33 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:33 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:33 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:33 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:33 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:33 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:33 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaIniciativaUsuario(entidad.minem.gob.pe.IniciativaBE), Línea: 57] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:38 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:38 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:38 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:38 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:38 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:38 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:38 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:38 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:38 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:38 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:38 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaIniciativaUsuario(entidad.minem.gob.pe.IniciativaBE), Línea: 57] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:39 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:39 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:39 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:39 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:39 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:39 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:39 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:39 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:39 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:39 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:39 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.MedidaMitigacionBE] ListarMedidaMitigacion(entidad.minem.gob.pe.MedidaMitigacionBE), Línea: 28] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:39 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:39 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:39 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:39 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:39 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:39 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:39 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:39 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:39 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:39 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:11:39 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.MonedaBE] ListarMoneda(entidad.minem.gob.pe.MonedaBE), Línea: 28] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:14:35 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:14:35 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:14:35 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:14:35 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:14:35 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:14:35 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:14:35 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:14:35 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:14:35 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:14:35 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:14:35 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.MedidaMitigacionBE] ListarMedidaMitigacion(entidad.minem.gob.pe.MedidaMitigacionBE), Línea: 28] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:14:35 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:14:35 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:14:35 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:14:35 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:14:35 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:14:35 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:14:35 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:14:35 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:14:35 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:14:35 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:14:35 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.MonedaBE] ListarMoneda(entidad.minem.gob.pe.MonedaBE), Línea: 28] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:24 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:24 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:24 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:24 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:24 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:24 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:24 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:24 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:24 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:24 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:24 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.MedidaMitigacionBE] ListarMedidaMitigacion(entidad.minem.gob.pe.MedidaMitigacionBE), Línea: 28] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:24 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:24 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:24 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:24 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:24 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:24 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:24 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:24 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:24 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:24 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:24 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaIniciativaUsuario(entidad.minem.gob.pe.IniciativaBE), Línea: 57] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:30 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:30 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:30 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:30 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:30 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:30 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:30 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:30 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:30 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:30 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:30 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.MonedaBE] ListarMoneda(entidad.minem.gob.pe.MonedaBE), Línea: 28] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:38 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:38 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:38 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:38 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:38 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:38 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:38 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:38 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:38 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:38 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:38 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaIniciativaUsuario(entidad.minem.gob.pe.IniciativaBE), Línea: 57] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:38 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:38 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:38 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:38 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:38 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:38 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:38 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:38 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:38 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:38 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:38 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.MonedaBE] ListarMoneda(entidad.minem.gob.pe.MonedaBE), Línea: 28] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:38 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:38 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:38 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:38 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:38 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:38 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:38 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:38 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:38 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:38 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1
+11/01/2020 02:15:38 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.MedidaMitigacionBE] ListarMedidaMitigacion(entidad.minem.gob.pe.MedidaMitigacionBE), Línea: 28] - ORA-04063: package body "USERMRV.PKG_MRV_INICIATIVA_MITIGACION" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "USERMRV.PKG_MRV_INICIATIVA_MITIGACION"
+ORA-06512: at line 1

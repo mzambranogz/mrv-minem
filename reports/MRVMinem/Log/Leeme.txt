@@ -1,0 +1,1 @@
+﻿Carpeta que almacena los incidentes del sistema en un archivo de Log
