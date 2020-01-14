@@ -65,6 +65,11 @@ namespace MRVMinem.Areas.Administrado.Controllers
             return View();
         }
 
+        public ActionResult Notificacion()
+        {
+            return View();
+        }
+
         public JsonResult ListaIniciativasUsuario(IniciativaBE entidad)
         {
             List<IniciativaBE> lista = IniciativaLN.ListaIniciativaUsuario(entidad);
@@ -314,6 +319,13 @@ namespace MRVMinem.Areas.Administrado.Controllers
             return Respuesta(itemRespuesta);
         }
 
+        public JsonResult ListarNotificacion(NotificacionBE entidad)
+        {
+            List<NotificacionBE> lista = NotificacionLN.ListarNotificacion(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
 
     }
 }

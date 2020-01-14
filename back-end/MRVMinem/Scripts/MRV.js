@@ -38,6 +38,14 @@ MRV = {
                 var detalle = response;
                 $('#divProceso').html('');
                 $('#divProceso').append(detalle);
+                $.getScript("/assets/js/script.js")
+                          .done(function (script, textStatus) {
+                              console.log(textStatus);
+                          })
+                          .fail(function (jqxhr, settings, exception) {
+                              $("div.log").text("Triggered ajaxError handler.");
+                          });
+                var detalle = response;
             }
         });
     },

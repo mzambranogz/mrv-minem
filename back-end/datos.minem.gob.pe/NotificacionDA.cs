@@ -41,5 +41,35 @@ namespace datos.minem.gob.pe
 
             return entidad;
         }
+
+        public List<NotificacionBE> ListarNotificacion(NotificacionBE entidad)
+        {
+            List<NotificacionBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_USUARIO_NOTIFICACION";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_ROL", entidad.ID_ROL);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<NotificacionBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+
+                foreach (var item in Lista)
+                {
+                    item.FECHA = item.FECHA_REGISTRO.ToString("dd/MM/yyyy");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
     }
 }

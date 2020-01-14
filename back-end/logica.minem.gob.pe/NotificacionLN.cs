@@ -16,5 +16,10 @@ namespace logica.minem.gob.pe
         {
             return notificacionDA.ConsultaNotificaciones(Idusuario, IdRol);
         }
+
+        public static List<NotificacionBE> ListarNotificacion(NotificacionBE entidad)
+        {
+            return notificacionDA.ListarNotificacion(entidad);
+        }
     }
 }

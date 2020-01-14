@@ -22,7 +22,7 @@ $(document).ready(function () {
 });
 
 function enLinea() {
-    debugger;
+    //debugger;
 
     //ws = new WebSocket("ws://172.20.3.49:9002");
     ws = new WebSocket("ws://10.0.0.102:9002");
