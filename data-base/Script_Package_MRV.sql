@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - sábado-enero-11-2020   
+-- Archivo creado  - lunes-enero-13-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_ADMIN_SISTEMA
@@ -218,7 +218,8 @@ END PKG_MRV_DETALLE_INDICADORES;
         pINVERSION_INICIATIVA  IN NUMBER,
         pID_MONEDA  IN NUMBER,
         pFECHA_IMPLE_INICIATIVA IN DATE,
-        pPRIVACIDAD_INICIATIVA IN VARCHAR2
+        pPRIVACIDAD_INICIATIVA IN VARCHAR2,
+        pID_ESTADO  IN NUMBER
     );
     
     PROCEDURE USP_SEL_GEI(
@@ -284,6 +285,11 @@ END PKG_MRV_DETALLE_INDICADORES;
     
     PROCEDURE USP_UPD_APROBAR_INICIATIVA(
         pID_INICIATIVA IN   NUMBER,
+        pID_USUARIO IN NUMBER
+    );
+    
+    PROCEDURE USP_UPD_OBSERVACION_INICIATIVA(
+        pID_INICIATIVA IN NUMBER,
         pID_USUARIO IN NUMBER
     );
 
@@ -393,7 +399,6 @@ END PKG_MRV_INICIATIVA_MITIGACION;
    
    
     PROCEDURE USP_INS_SECTORINSTITUCION(
-        pID_SECTOR_INST IN NUMBER,
         pDescripcion in varchar2,
         pRefcursor OUT SYS_REFCURSOR
     );
@@ -471,6 +476,54 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
 
 
 END PKG_MRV_MANTENIMIENTO;
+
+/
+--------------------------------------------------------
+--  DDL for Package PKG_MRV_NOTIFICACION
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE PACKAGE "USERMRV"."PKG_MRV_NOTIFICACION" is
+
+  -- Author  : Grupo Zuñiga - EC
+  -- Created : 12/01/2020 13:09:51
+  -- Purpose : Mantenimiento de notificaciones
+
+    PROCEDURE USP_INS_NOTIFICACION(
+        pIdIniciativa   INTEGER,
+        pIdEtapa        INTEGER,
+        pIdEstado       INTEGER,
+        pIdRol          INTEGER,
+        pIdUsuario      INTEGER);
+
+    PROCEDURE USP_UPD_VISTO_NOTIFICACION(
+        pIdNotificacion     INTEGER,
+        pIdIniciativa       INTEGER,
+        pIdUsuarioVisto     INTEGER            
+    );
+
+    PROCEDURE USP_SEL_NUM_NOFIFICACION(
+        pIdRol      INTEGER,
+        pIdUsuario  INTEGER,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+
+end PKG_MRV_NOTIFICACION;
+
+/
+--------------------------------------------------------
+--  DDL for Package PKG_MRV_REPORTES
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE PACKAGE "USERMRV"."PKG_MRV_REPORTES" AS 
+
+  PROCEDURE SP_SEL_ESCENARIOS_RPT(
+        pIdMedMit   integer,
+        pCursor out SYS_REFCURSOR
+  );
+  
+
+
+END PKG_MRV_REPORTES;
 
 /
 --------------------------------------------------------
@@ -686,7 +739,8 @@ END PKG_MRV_ADMIN_SISTEMA;
         SELECT  ID_INDICADOR, ANNO_BASE, ID_TIPO_VEHICULO_BASE, ID_TIPO_COMBUSTIBLE_BASE, KRV_BASE, CANT_BASE, TOTAL_GEI_BASE, 
                 ANNO_INIMIT, ID_TIPO_VEHICULO_INIMIT, ID_TIPO_FUENTE_INIMIT, KRV_INIMIT, CANT_INIMIT, TOTAL_GEI_INIMIT, TOTAL_GEI_REDUCIDO
         FROM    T_GEND_INDICADOR
-        WHERE   ID_INICIATIVA = pID_INICIATIVA;
+        WHERE   ID_INICIATIVA = pID_INICIATIVA AND FLG_ESTADO = 1
+        ORDER BY ID_INDICADOR ASC;
     END USP_SEL_LISTA_DET_INDICADOR;
 
     PROCEDURE USP_PRC_CALCULAR_INDICADOR(
@@ -741,7 +795,8 @@ END PKG_MRV_ADMIN_SISTEMA;
         OPEN pRefcursor FOR
         SELECT  TOTAL_GEI_INIMIT, 
                 TOTAL_GEI_REDUCIDO, 
-                TOTAL_GEI_BASE
+                TOTAL_GEI_BASE,
+                ID_INDICADOR
         FROM T_GEND_INDICADOR
         WHERE ID_INDICADOR = vIdIndicador;
   END USP_PRC_CALCULAR_INDICADOR;
@@ -916,7 +971,7 @@ END PKG_MRV_DETALLE_INDICADORES;
     LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
     LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
     LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
-    WHERE INI.PRIVACIDAD_INICIATIVA = 1
+    WHERE INI.PRIVACIDAD_INICIATIVA = '1' 
     ORDER BY INI.ID_INICIATIVA DESC;
   END USP_SEL_INICIATIVAS_PUBLICO;
   
@@ -964,7 +1019,7 @@ END PKG_MRV_DETALLE_INDICADORES;
         LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
         LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
         LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
-        WHERE INI.ID_ESTADO = 1 AND INI.ID_ETAPA = 1
+        WHERE INI.ID_ESTADO IN (1,5) AND INI.ID_ETAPA = 1
         ORDER BY INI.ID_INICIATIVA DESC;
     
     END USP_SEL_INICIATIVAS_GENERAL;
@@ -1056,6 +1111,13 @@ END PKG_MRV_DETALLE_INDICADORES;
         ELSE
             INSERT INTO T_GEND_DETALLE_INICIATIVA (ID_INICIATIVA, ID_REMITENTE, ID_DESTINO, DESC_INICIATIVA, ID_ETAPA, ID_ESTADO, FECHA_DERIVACION)
             VALUES (vIdIniciativa, pID_USUARIO, 81, 'REGISTRO INICIATIVA', 1, pID_ESTADO, SYSDATE);
+            IF pID_ESTADO = 1 THEN
+                PKG_MRV_NOTIFICACION.USP_INS_NOTIFICACION(pIdIniciativa => vIdIniciativa,
+                                                          pIdEtapa      => 1,
+                                                          pIdEstado     => 1,
+                                                          pIdRol        => 2,
+                                                          pIdUsuario    => NULL);
+            END IF;
         END IF;
         
         OPEN pRefcursor FOR
@@ -1180,18 +1242,35 @@ END PKG_MRV_DETALLE_INDICADORES;
         pINVERSION_INICIATIVA  IN NUMBER,
         pID_MONEDA  IN NUMBER,
         pFECHA_IMPLE_INICIATIVA IN DATE,
-        pPRIVACIDAD_INICIATIVA IN VARCHAR2
+        pPRIVACIDAD_INICIATIVA IN VARCHAR2,
+        pID_ESTADO  IN NUMBER
     )AS
     BEGIN
-       UPDATE T_GENM_INICIATIVA 
-       SET ID_MEDMIT = pID_MEDMIT,
-           NOMBRE_INICIATIVA      = pNOMBRE_INICIATIVA,
-           DESC_INICIATIVA        = pDESC_INICIATIVA,
-           INVERSION_INICIATIVA   = pINVERSION_INICIATIVA,
-           ID_MONEDA              = pID_MONEDA,
-           FECHA_IMPLE_INICIATIVA = pFECHA_IMPLE_INICIATIVA,
-           PRIVACIDAD_INICIATIVA  = pPRIVACIDAD_INICIATIVA
-       WHERE ID_INICIATIVA        = pID_INICIATIVA ;
+        IF pID_ESTADO = 0 THEN
+               UPDATE T_GENM_INICIATIVA 
+               SET 
+                   ID_MEDMIT              = pID_MEDMIT,
+                   NOMBRE_INICIATIVA      = pNOMBRE_INICIATIVA,
+                   DESC_INICIATIVA        = pDESC_INICIATIVA,
+                   INVERSION_INICIATIVA   = pINVERSION_INICIATIVA,
+                   ID_MONEDA              = pID_MONEDA,
+                   FECHA_IMPLE_INICIATIVA = pFECHA_IMPLE_INICIATIVA,
+                   PRIVACIDAD_INICIATIVA  = pPRIVACIDAD_INICIATIVA
+               WHERE ID_INICIATIVA        = pID_INICIATIVA ;
+        ELSE
+               UPDATE T_GENM_INICIATIVA 
+               SET 
+                   ID_MEDMIT              = pID_MEDMIT,
+                   NOMBRE_INICIATIVA      = pNOMBRE_INICIATIVA,
+                   DESC_INICIATIVA        = pDESC_INICIATIVA,
+                   INVERSION_INICIATIVA   = pINVERSION_INICIATIVA,
+                   ID_MONEDA              = pID_MONEDA,
+                   FECHA_IMPLE_INICIATIVA = pFECHA_IMPLE_INICIATIVA,
+                   PRIVACIDAD_INICIATIVA  = pPRIVACIDAD_INICIATIVA,
+                   ID_ESTADO              = pID_ESTADO
+               WHERE ID_INICIATIVA        = pID_INICIATIVA ;
+        END IF;
+       
     END USP_UPD_INICIATIVA_MITIGACION;
     
     
@@ -1265,7 +1344,26 @@ END PKG_MRV_DETALLE_INDICADORES;
         
         INSERT INTO T_GEND_DETALLE_INICIATIVA (ID_INICIATIVA, ID_REMITENTE, ID_ETAPA, ID_ESTADO, FECHA_DERIVACION)
         VALUES (pID_INICIATIVA, pID_USUARIO,2,3, SYSDATE);
+        PKG_MRV_NOTIFICACION.USP_INS_NOTIFICACION(pIdIniciativa => pID_INICIATIVA,
+                                                  pIdEtapa      => 2,
+                                                  pIdEstado     => 3,
+                                                  pIdRol        => 2,
+                                                  pIdUsuario    => pID_USUARIO);     
     END USP_UPD_APROBAR_INICIATIVA;
+    
+    PROCEDURE USP_UPD_OBSERVACION_INICIATIVA(
+        pID_INICIATIVA IN NUMBER,
+        pID_USUARIO IN NUMBER
+    )AS
+    BEGIN
+        UPDATE  T_GENM_INICIATIVA 
+        SET     ID_ESTADO = 2,
+                ID_ETAPA = 1
+        WHERE   ID_INICIATIVA = pID_INICIATIVA;
+        
+        INSERT INTO T_GEND_DETALLE_INICIATIVA (ID_INICIATIVA, ID_REMITENTE, ID_ETAPA, ID_ESTADO, FECHA_DERIVACION)
+        VALUES (pID_INICIATIVA, pID_USUARIO,1,2, SYSDATE);
+    END USP_UPD_OBSERVACION_INICIATIVA;
 
 END PKG_MRV_INICIATIVA_MITIGACION;
 
@@ -1546,13 +1644,12 @@ PROCEDURE USP_INS_UBICACION(
     
    
     PROCEDURE USP_INS_SECTORINSTITUCION(
-        pID_SECTOR_INST IN NUMBER,
         pDescripcion in varchar2,
         pRefcursor OUT SYS_REFCURSOR
     )AS
     BEGIN
         INSERT INTO T_MAE_SECTOR_INST(ID_SECTOR_INST, DESCRIPCION, FLAG_ESTADO )
-        VALUES (pID_SECTOR_INST, pDescripcion, 1);
+        VALUES ((SELECT MAX(ID_SECTOR_INST + 1) ID_SECTOR_INST FROM T_MAE_SECTOR_INST), pDescripcion, 1);
         
         OPEN pRefcursor FOR
         SELECT MAX(ID_SECTOR_INST) ID_SECTOR_INST FROM T_MAE_SECTOR_INST;
@@ -1782,5 +1879,104 @@ PROCEDURE USP_SEL_LISTA_ESCENARIO(
     
 
 END PKG_MRV_MANTENIMIENTO;
+
+/
+--------------------------------------------------------
+--  DDL for Package Body PKG_MRV_NOTIFICACION
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "USERMRV"."PKG_MRV_NOTIFICACION" is
+    PROCEDURE USP_INS_NOTIFICACION(
+        pIdIniciativa   INTEGER,
+        pIdEtapa        INTEGER,
+        pIdEstado       INTEGER,
+        pIdRol          INTEGER,
+        pIdUsuario      INTEGER
+    )
+    AS
+        vIdNotificacion INTEGER;
+    BEGIN
+        SELECT SQ_GENM_NOTIFICACION.NEXTVAL INTO vIdNotificacion FROM DUAL;
+
+        INSERT INTO T_GENM_NOTIFICACION(ID_NOTIFICACION,
+                                        ID_INICIATIVA,
+                                        ID_ETAPA,
+                                        ID_ESTADO,
+                                        FECHA_REGISTRO,
+                                        ID_ROL,
+                                        ID_USUARIO)
+        VALUES( vIdNotificacion,
+                pIdIniciativa,
+                pIdEtapa,
+                pIdEstado,
+                SYSDATE,
+                pIdRol,
+                pIdUsuario);
+    END USP_INS_NOTIFICACION;
+
+    PROCEDURE USP_UPD_VISTO_NOTIFICACION(
+        pIdNotificacion     INTEGER,
+        pIdIniciativa       INTEGER,
+        pIdUsuarioVisto     INTEGER            
+    )
+    AS
+    BEGIN
+        UPDATE  T_GENM_NOTIFICACION N
+        SET     N.FLG_VISTO = '1',
+                N.FECHA_VISTO = SYSDATE,
+                N.ID_USUARIO_VISTO = pIdUsuarioVisto
+        WHERE   N.ID_NOTIFICACION = pIdNotificacion
+                AND N.ID_INICIATIVA = pIdIniciativa;
+
+    END USP_UPD_VISTO_NOTIFICACION;    
+
+    PROCEDURE USP_SEL_NUM_NOFIFICACION(
+        pIdRol      INTEGER,
+        pIdUsuario  INTEGER,
+        pRefcursor  OUT SYS_REFCURSOR
+    )
+    AS
+    BEGIN
+        OPEN pRefcursor FOR
+        SELECT  COUNT(1) AS NOTIFICACIONES
+        FROM    T_GENM_NOTIFICACION N
+        WHERE   (N.ID_ROL = pIdRol OR pIdRol = 0)
+                AND (N.ID_USUARIO = pIdUsuario OR pIdUsuario = 0);
+
+    END USP_SEL_NUM_NOFIFICACION;
+
+end PKG_MRV_NOTIFICACION;
+
+/
+--------------------------------------------------------
+--  DDL for Package Body PKG_MRV_REPORTES
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "USERMRV"."PKG_MRV_REPORTES" AS
+
+  PROCEDURE SP_SEL_ESCENARIOS_RPT(
+        pIdMedMit   integer,
+        pCursor out SYS_REFCURSOR
+  ) AS
+  BEGIN
+        open pCursor for
+        SELECT  ID_ESCENARIO, 
+                E.ID_MEDMIT, 
+                ANNO, 
+                BAU_EMISION, 
+                MIT_EMISION, 
+                REDUCCION, 
+                VALOR_SOFTWARE, 
+                EXPOST, 
+                META_ANUAL, 
+                m.nombre_medmit  
+        FROM    T_GENM_ESCENARIO E
+        inner join   T_MAE_MEDMIT M
+        ON E.ID_MEDMIT = M.ID_MEDMIT
+        WHERE   (E.ID_MEDMIT = pIdMedMit or pIdMedMit = 0)
+                AND E.FLAG_ESTADO = '1';
+  END SP_SEL_ESCENARIOS_RPT;
+
+END PKG_MRV_REPORTES;
 
 /
