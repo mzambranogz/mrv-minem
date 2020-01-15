@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - lunes-enero-13-2020   
+-- Archivo creado  - martes-enero-14-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_ADMIN_SISTEMA
@@ -131,6 +131,12 @@ END PKG_MRV_ADMIN_SISTEMA;
         p_tipo_vehiculo     IN number, 
         p_tipo_fuente       IN number, 
         p_anno              IN number    
+    ) RETURN NUMBER;
+    
+    
+    FUNCTION FN_F_REN(      
+        p_tipo_vehiculo     IN number, 
+        p_tipo_fuente       IN number
     ) RETURN NUMBER;
 
     FUNCTION FN_F_PER(      
@@ -285,7 +291,9 @@ END PKG_MRV_DETALLE_INDICADORES;
     
     PROCEDURE USP_UPD_APROBAR_INICIATIVA(
         pID_INICIATIVA IN   NUMBER,
-        pID_USUARIO IN NUMBER
+        pID_USUARIO IN NUMBER,
+        pDESCRIPCION IN VARCHAR2,
+        pID_ESTADO_NOTIFICACION IN NUMBER
     );
     
     PROCEDURE USP_UPD_OBSERVACION_INICIATIVA(
@@ -489,11 +497,13 @@ END PKG_MRV_MANTENIMIENTO;
   -- Purpose : Mantenimiento de notificaciones
 
     PROCEDURE USP_INS_NOTIFICACION(
-        pIdIniciativa   INTEGER,
-        pIdEtapa        INTEGER,
-        pIdEstado       INTEGER,
-        pIdRol          INTEGER,
-        pIdUsuario      INTEGER);
+        pIdIniciativa               INTEGER,
+        pIdEtapa                    INTEGER,
+        pIdEstado                   INTEGER,
+        pIdRol                      INTEGER,
+        pIdUsuario                  INTEGER,
+        pDescripcion                VARCHAR2,
+        pIdEstadoNotificacion       NUMBER);
 
     PROCEDURE USP_UPD_VISTO_NOTIFICACION(
         pIdNotificacion     INTEGER,
@@ -504,6 +514,11 @@ END PKG_MRV_MANTENIMIENTO;
     PROCEDURE USP_SEL_NUM_NOFIFICACION(
         pIdRol      INTEGER,
         pIdUsuario  INTEGER,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+    
+    PROCEDURE USP_SEL_USUARIO_NOTIFICACION(
+        pID_ROL     INTEGER,
         pRefcursor  OUT SYS_REFCURSOR
     );
 
@@ -854,6 +869,9 @@ END PKG_MRV_ADMIN_SISTEMA;
         WHERE Id_Tipo_Vehiculo=p_tipo_vehiculo and Id_Tipo_Combustible=p_tipo_combustible and anno=p_anno;
         Return (resultado);
     END;
+    
+    
+    
 
     FUNCTION FN_F_MIT (
         p_tipo_vehiculo number, 
@@ -867,6 +885,18 @@ END PKG_MRV_ADMIN_SISTEMA;
         WHERE Id_Tipo_Vehiculo=p_tipo_vehiculo and Id_Tipo_Fuente=p_tipo_fuente and anno=p_anno;
         Return (resultado);
     END;    
+    
+    FUNCTION FN_F_REN (
+        p_tipo_vehiculo number, 
+        p_tipo_fuente number)
+    RETURN NUMBER
+    IS 
+        resultado NUMBER;
+    BEGIN
+        SELECT  FACTOR INTO resultado FROM T_MAE_F_REN
+        WHERE   Id_Tipo_Vehiculo=p_tipo_vehiculo and Id_Tipo_Fuente=p_tipo_fuente;
+        Return  (resultado);
+    END;   
     
     
    FUNCTION FN_F_PER (
@@ -1094,6 +1124,7 @@ END PKG_MRV_DETALLE_INDICADORES;
         pRefcursor          OUT SYS_REFCURSOR
     )IS
         vIdIniciativa   NUMBER;
+        vEntidad      VARCHAR2(100);
     BEGIN
         
         IF pID_ESTADO = 0 THEN
@@ -1112,11 +1143,18 @@ END PKG_MRV_DETALLE_INDICADORES;
             INSERT INTO T_GEND_DETALLE_INICIATIVA (ID_INICIATIVA, ID_REMITENTE, ID_DESTINO, DESC_INICIATIVA, ID_ETAPA, ID_ESTADO, FECHA_DERIVACION)
             VALUES (vIdIniciativa, pID_USUARIO, 81, 'REGISTRO INICIATIVA', 1, pID_ESTADO, SYSDATE);
             IF pID_ESTADO = 1 THEN
-                PKG_MRV_NOTIFICACION.USP_INS_NOTIFICACION(pIdIniciativa => vIdIniciativa,
-                                                          pIdEtapa      => 1,
-                                                          pIdEstado     => 1,
-                                                          pIdRol        => 2,
-                                                          pIdUsuario    => NULL);
+                
+                SELECT INS.NOMBRE_INSTITUCION INTO vEntidad 
+                FROM T_GENM_USUARIO USU
+                INNER JOIN T_GENM_INSTITUCION INS ON USU.ID_INSTITUCION = INS.ID_INSTITUCION
+                WHERE USU.ID_USUARIO = pID_USUARIO;
+                PKG_MRV_NOTIFICACION.USP_INS_NOTIFICACION(pIdIniciativa         => vIdIniciativa,
+                                                          pIdEtapa              => 1,
+                                                          pIdEstado             => 1,
+                                                          pIdRol                => 2,
+                                                          pIdUsuario            => NULL,
+                                                          pDescripcion          => 'La iniciativa de la entidad ' || TRIM(vEntidad) || ' ha sido registrado correctamente y requiere su revisión',
+                                                          pIdEstadoNotificacion =>  0);
             END IF;
         END IF;
         
@@ -1334,7 +1372,9 @@ END PKG_MRV_DETALLE_INDICADORES;
     
     PROCEDURE USP_UPD_APROBAR_INICIATIVA(
         pID_INICIATIVA IN   NUMBER,
-        pID_USUARIO IN NUMBER
+        pID_USUARIO IN NUMBER,
+        pDESCRIPCION IN VARCHAR2,
+        pID_ESTADO_NOTIFICACION IN NUMBER
     )AS
     BEGIN
         UPDATE  T_GENM_INICIATIVA 
@@ -1344,11 +1384,13 @@ END PKG_MRV_DETALLE_INDICADORES;
         
         INSERT INTO T_GEND_DETALLE_INICIATIVA (ID_INICIATIVA, ID_REMITENTE, ID_ETAPA, ID_ESTADO, FECHA_DERIVACION)
         VALUES (pID_INICIATIVA, pID_USUARIO,2,3, SYSDATE);
-        PKG_MRV_NOTIFICACION.USP_INS_NOTIFICACION(pIdIniciativa => pID_INICIATIVA,
-                                                  pIdEtapa      => 2,
-                                                  pIdEstado     => 3,
-                                                  pIdRol        => 2,
-                                                  pIdUsuario    => pID_USUARIO);     
+        PKG_MRV_NOTIFICACION.USP_INS_NOTIFICACION(pIdIniciativa         =>  pID_INICIATIVA,
+                                                  pIdEtapa              =>  2,
+                                                  pIdEstado             =>  3,
+                                                  pIdRol                =>  2,
+                                                  pIdUsuario            =>  pID_USUARIO,
+                                                  pDescripcion          =>  pDESCRIPCION,
+                                                  pIdEstadoNotificacion =>  pID_ESTADO_NOTIFICACION);     
     END USP_UPD_APROBAR_INICIATIVA;
     
     PROCEDURE USP_UPD_OBSERVACION_INICIATIVA(
@@ -1887,11 +1929,13 @@ END PKG_MRV_MANTENIMIENTO;
 
   CREATE OR REPLACE EDITIONABLE PACKAGE BODY "USERMRV"."PKG_MRV_NOTIFICACION" is
     PROCEDURE USP_INS_NOTIFICACION(
-        pIdIniciativa   INTEGER,
-        pIdEtapa        INTEGER,
-        pIdEstado       INTEGER,
-        pIdRol          INTEGER,
-        pIdUsuario      INTEGER
+        pIdIniciativa               INTEGER,
+        pIdEtapa                    INTEGER,
+        pIdEstado                   INTEGER,
+        pIdRol                      INTEGER,
+        pIdUsuario                  INTEGER,
+        pDescripcion                VARCHAR2,
+        pIdEstadoNotificacion       NUMBER
     )
     AS
         vIdNotificacion INTEGER;
@@ -1904,14 +1948,18 @@ END PKG_MRV_MANTENIMIENTO;
                                         ID_ESTADO,
                                         FECHA_REGISTRO,
                                         ID_ROL,
-                                        ID_USUARIO)
+                                        ID_USUARIO,
+                                        DESCRIPCION,
+                                        ID_ESTADO_NOTIFICACION)
         VALUES( vIdNotificacion,
                 pIdIniciativa,
                 pIdEtapa,
                 pIdEstado,
                 SYSDATE,
                 pIdRol,
-                pIdUsuario);
+                pIdUsuario,
+                pDescripcion,
+                pIdEstadoNotificacion);
     END USP_INS_NOTIFICACION;
 
     PROCEDURE USP_UPD_VISTO_NOTIFICACION(
@@ -1944,6 +1992,56 @@ END PKG_MRV_MANTENIMIENTO;
                 AND (N.ID_USUARIO = pIdUsuario OR pIdUsuario = 0);
 
     END USP_SEL_NUM_NOFIFICACION;
+    
+    PROCEDURE USP_SEL_USUARIO_NOTIFICACION(
+        pID_ROL     INTEGER,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+    BEGIN
+        OPEN pRefcursor FOR
+        SELECT      N.ID_NOTIFICACION,
+                    INI.NOMBRE_INICIATIVA,
+                    INI.ID_ETAPA PROGRESO,
+                    N.FECHA_REGISTRO,
+                    CASE NVL(N.ID_USUARIO, 0)
+                        WHEN 0 THEN (SELECT INST.NOMBRE_INSTITUCION 
+                                    FROM T_GENM_INICIATIVA INIC
+                                    INNER JOIN T_GENM_USUARIO USUA ON INIC.ID_USUARIO = USUA.ID_USUARIO
+                                    INNER JOIN T_GENM_INSTITUCION INST ON USUA.ID_INSTITUCION = INST.ID_INSTITUCION
+                                    WHERE INIC.ID_INICIATIVA = N.ID_INICIATIVA)
+                        ELSE (TRIM(U.NOMBRES_USUARIO) ||' '|| TRIM(U.APELLIDOS_USUARIO))
+                    END AS RESPONSABLE,
+                    CASE NVL(N.ID_USUARIO, 0)
+                        WHEN 0 THEN (SELECT RO.ID_ROL 
+                                     FROM T_GENM_INICIATIVA INICI
+                                     INNER JOIN T_GENM_USUARIO USUA ON INICI.ID_USUARIO = USUA.ID_USUARIO
+                                     INNER JOIN T_MAE_USUARIO_ROL URO ON USUA.ID_USUARIO = URO.ID_USUARIO
+                                     INNER JOIN T_MAE_ROL RO ON URO.ID_ROL = RO.ID_ROL
+                                     WHERE INICI.ID_INICIATIVA = N.ID_INICIATIVA)
+                            ELSE    (SELECT R.ID_ROL  FROM T_GENM_USUARIO US
+                                     INNER JOIN T_MAE_USUARIO_ROL UR ON US.ID_USUARIO = UR.ID_USUARIO
+                                     INNER JOIN T_MAE_ROL R ON UR.ID_ROL = R.ID_ROL
+                                     WHERE US.ID_USUARIO = N.ID_USUARIO)
+                    END AS ID_ROL,
+                    CASE NVL(N.ID_USUARIO, 0)
+                        WHEN 0 THEN (SELECT RO.DESCRIPCION_ROL 
+                                     FROM T_GENM_INICIATIVA INICI
+                                     INNER JOIN T_GENM_USUARIO USUA ON INICI.ID_USUARIO = USUA.ID_USUARIO
+                                     INNER JOIN T_MAE_USUARIO_ROL URO ON USUA.ID_USUARIO = URO.ID_USUARIO
+                                     INNER JOIN T_MAE_ROL RO ON URO.ID_ROL = RO.ID_ROL
+                                     WHERE INICI.ID_INICIATIVA = N.ID_INICIATIVA)
+                            ELSE    (SELECT R.DESCRIPCION_ROL  FROM T_GENM_USUARIO US
+                                     INNER JOIN T_MAE_USUARIO_ROL UR ON US.ID_USUARIO = UR.ID_USUARIO
+                                     INNER JOIN T_MAE_ROL R ON UR.ID_ROL = R.ID_ROL
+                                     WHERE US.ID_USUARIO = N.ID_USUARIO)
+                    END AS ROL,
+                    N.DESCRIPCION,
+                    N.ID_ESTADO_NOTIFICACION
+                FROM T_GENM_NOTIFICACION N 
+                LEFT JOIN T_GENM_INICIATIVA INI ON N.ID_INICIATIVA = INI.ID_INICIATIVA
+                LEFT JOIN T_GENM_USUARIO U ON N.ID_USUARIO = U.ID_USUARIO
+                WHERE N.ID_ROL = pID_ROL;
+    END USP_SEL_USUARIO_NOTIFICACION;
 
 end PKG_MRV_NOTIFICACION;
 
