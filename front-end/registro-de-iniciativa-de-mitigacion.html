@@ -35,7 +35,7 @@
               <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="./index.html"><i class="fas fa-house-damage"></i><span class="d-none d-xs-block d-sm-block d-lg-none pl-1 mostrar-inicio">Inicio</span></a></li>
               <li class="nav-item"><a class="nav-link nav-active text-dark font-weight-bold px-2" href="./acciones-de-mitigacion-interno.html"><i class="fas fa-solar-panel pr-1"></i>Iniciativas de Mitigación</a></li>
               <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="./reportes.html"><i class="fas fa-file-invoice pr-1"></i>Reportes</a></li>
-              <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="./acciones-y-resultados.html"><i class="fas fa-chart-pie pr-1"></i>Acciones y Resultados</a></li>
+              <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="./acciones-y-resultados.html"><i class="fas fa-chart-pie pr-1"></i>Resultados</a></li>
             </ul><a class="btn text-dark px-2 mr-2 notificaciones" href="./notificaciones.html" rol="button"><i class="far fa-bell">&nbsp;</i><span class="badge badge-light">18</span><span class="d-none d-xs-block d-sm-block d-lg-none pl-1 font-weight-bold mostrar-inicio">Notificaciones</span></a>
             <div class="btn-group w-sm-100"><a class="btn btn-danger dropdown-toggle text-white font-weight-bold" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-tie pr-1"></i>Mi cuenta</a>
               <div class="dropdown-menu dropdown-menu-right w-sm-100"><span class="dropdown-item">Ricardo Sánchez <br><span class="badge badge-actor-02">Usuario Administrado</span><br><span class="badge badge-actor-03">Especialista</span><br><span class="badge badge-actor-04">Evaluador MINAM</span><br><span class="badge badge-actor-05">Verificador Externo</span><br><span class="badge badge-actor-06">Administrador MINEM</span></span><a class="dropdown-item" href="./mantenimiento-de-tablas.html"><i class="fas fa-cogs pr-1"></i>Mantenimiento de tablas</a><a class="dropdown-item" href="./cambiar.html"><i class="fas fa-key pr-1"></i>Cambiar contraseña</a>
@@ -69,7 +69,7 @@
               <div class="col-md-12 col-lg-6 pt-4">
                 <div class="row">
                   <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
-                  <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#medidas-mitigacion-listado"><a class="cambiar-medida" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-sync px-1"></i>Cambiar de medida</a></span><span data-toggle="modal" data-target="#solicitar-revision"><a class="solicitar-revision" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-paper-plane px-1"></i>Solicitar revisión</a></span><a class="guardar-avances" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-save px-1"></i>Guardar avances</a></div>
+                  <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#medidas-mitigacion-listado"><a class="cambiar-medida" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-sync px-1"></i>Cambiar de medida</a></span><span data-toggle="modal" data-target="#solicitar-revision"><a class="solicitar-revision" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-paper-plane px-1"></i>Solicitar revisión</a></span><span data-toggle="modal" data-target="#guardar-avance"><a class="guardar-avances" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-save px-1"></i>Guardar avances</a></span></div>
                 </div>
               </div>
             </div>
@@ -614,6 +614,44 @@
                         <div class="alert-wrap">
                           <h6>Bien hecho</h6>
                           <hr><small class="mb-0">Los datos de su iniciativa fueron guardados exitosamente, espere la aprobación del especialista para continuar con el registro de detalle de indicadores. En breve le notificaremos el estado de su solicitud de revisión.</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
+                  <button class="btn btn-primary" type="button">Si</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="guardar-avance" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Mensaje de Usuario</h5>
+                  <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body medidas-modal">
+                  <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                      <h3 class="text-center">¿Desea guardar su avance? <br></h3>
+                      <p class="text-center">Los datos ingresados serán almacenados temporalmente y podrán ser regularizados al editar su iniciativa.</p>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                      <div class="alert alert-warning d-flex align-items-stretch" role="alert">
+                        <div class="alert-wrap mr-3">
+                          <div class="sa">
+                            <div class="sa-warning">
+                              <div class="sa-warning-body"></div>
+                              <div class="sa-warning-dot"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="alert-wrap">
+                          <h6>Sus avances fueron guardados</h6>
+                          <hr>Recuerde, podrá solicitar una revisión una vez complete todos los campos obligatorios.
                         </div>
                       </div>
                     </div>
