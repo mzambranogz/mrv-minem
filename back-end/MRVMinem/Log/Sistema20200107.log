@@ -1,0 +1,2 @@
+7/01/2020 20:51:37: [Método: Void Send(System.Net.Mail.MailMessage), Línea: 0] - Se excedió el tiempo de espera de la operación.
+7/01/2020 20:51:37: [Método: Boolean EnviarEmail(System.String, System.Collections.Generic.List`1[System.String], System.String, System.String, Boolean, System.Collections.Generic.List`1[System.String], System.Collections.Generic.List`1[System.String], System.Collections.Generic.List`1[System.Net.Mail.Attachment]), Línea: 95] - Se excedió el tiempo de espera de la operación.

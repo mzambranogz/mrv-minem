@@ -1,0 +1,204 @@
+10/01/2020 11:08:33: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean), Línea: 0] - ORA-04098: trigger 'USERMRV.TR_GENM_INSTITUCION' is invalid and failed re-validation
+ORA-06512: at "USERMRV.PKG_MRV_ADMIN_SISTEMA", line 66
+ORA-06512: at line 1
+10/01/2020 11:08:33: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-04098: trigger 'USERMRV.TR_GENM_INSTITUCION' is invalid and failed re-validation
+ORA-06512: at "USERMRV.PKG_MRV_ADMIN_SISTEMA", line 66
+ORA-06512: at line 1
+10/01/2020 11:08:33: [Método: Int32 ExecuteNonQuery(Oracle.DataAccess.Client.OracleConnection, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 255] - ORA-04098: trigger 'USERMRV.TR_GENM_INSTITUCION' is invalid and failed re-validation
+ORA-06512: at "USERMRV.PKG_MRV_ADMIN_SISTEMA", line 66
+ORA-06512: at line 1
+10/01/2020 11:08:33: [Método: Int32 ExecuteNonQuery(System.String, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 178] - ORA-04098: trigger 'USERMRV.TR_GENM_INSTITUCION' is invalid and failed re-validation
+ORA-06512: at "USERMRV.PKG_MRV_ADMIN_SISTEMA", line 66
+ORA-06512: at line 1
+10/01/2020 11:08:33: [Método: Int32 registrarInstitucion(entidad.minem.gob.pe.InstitucionBE), Línea: 55] - ORA-04098: trigger 'USERMRV.TR_GENM_INSTITUCION' is invalid and failed re-validation
+ORA-06512: at "USERMRV.PKG_MRV_ADMIN_SISTEMA", line 66
+ORA-06512: at line 1
+10/01/2020 11:13:06: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean), Línea: 0] - ORA-03113: end-of-file on communication channel
+Process ID: 10264
+Session ID: 157 Serial number: 135
+10/01/2020 11:13:06: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-03113: end-of-file on communication channel
+Process ID: 10264
+Session ID: 157 Serial number: 135
+10/01/2020 11:13:06: [Método: Int32 ExecuteNonQuery(Oracle.DataAccess.Client.OracleConnection, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 255] - ORA-03113: end-of-file on communication channel
+Process ID: 10264
+Session ID: 157 Serial number: 135
+10/01/2020 11:13:06: [Método: Int32 ExecuteNonQuery(System.String, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 178] - ORA-03113: end-of-file on communication channel
+Process ID: 10264
+Session ID: 157 Serial number: 135
+10/01/2020 11:13:06: [Método: Int32 registrarInstitucion(entidad.minem.gob.pe.InstitucionBE), Línea: 55] - ORA-03113: end-of-file on communication channel
+Process ID: 10264
+Session ID: 157 Serial number: 135
+10/01/2020 11:13:43: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean), Línea: 0] - ORA-03113: end-of-file on communication channel
+Process ID: 39320
+Session ID: 161 Serial number: 263
+10/01/2020 11:13:43: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-03113: end-of-file on communication channel
+Process ID: 39320
+Session ID: 161 Serial number: 263
+10/01/2020 11:13:43: [Método: Int32 ExecuteNonQuery(Oracle.DataAccess.Client.OracleConnection, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 255] - ORA-03113: end-of-file on communication channel
+Process ID: 39320
+Session ID: 161 Serial number: 263
+10/01/2020 11:13:43: [Método: Int32 ExecuteNonQuery(System.String, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 178] - ORA-03113: end-of-file on communication channel
+Process ID: 39320
+Session ID: 161 Serial number: 263
+10/01/2020 11:13:43: [Método: Int32 registrarInstitucion(entidad.minem.gob.pe.InstitucionBE), Línea: 55] - ORA-03113: end-of-file on communication channel
+Process ID: 39320
+Session ID: 161 Serial number: 263
+10/01/2020 11:32:46: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean), Línea: 0] - ORA-03113: end-of-file on communication channel
+Process ID: 30004
+Session ID: 153 Serial number: 331
+10/01/2020 11:32:46: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-03113: end-of-file on communication channel
+Process ID: 30004
+Session ID: 153 Serial number: 331
+10/01/2020 11:32:46: [Método: Int32 ExecuteNonQuery(Oracle.DataAccess.Client.OracleConnection, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 255] - ORA-03113: end-of-file on communication channel
+Process ID: 30004
+Session ID: 153 Serial number: 331
+10/01/2020 11:32:46: [Método: Int32 ExecuteNonQuery(System.String, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 178] - ORA-03113: end-of-file on communication channel
+Process ID: 30004
+Session ID: 153 Serial number: 331
+10/01/2020 11:32:46: [Método: entidad.minem.gob.pe.InstitucionBE registrarInstitucion(entidad.minem.gob.pe.InstitucionBE), Línea: 55] - ORA-03113: end-of-file on communication channel
+Process ID: 30004
+Session ID: 153 Serial number: 331
+10/01/2020 11:47:50: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean), Línea: 0] - ORA-03113: end-of-file on communication channel
+Process ID: 15544
+Session ID: 181 Serial number: 5
+10/01/2020 11:47:50: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-03113: end-of-file on communication channel
+Process ID: 15544
+Session ID: 181 Serial number: 5
+10/01/2020 11:47:50: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-03113: end-of-file on communication channel
+Process ID: 15544
+Session ID: 181 Serial number: 5
+10/01/2020 11:47:50: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-03113: end-of-file on communication channel
+Process ID: 15544
+Session ID: 181 Serial number: 5
+10/01/2020 11:47:50: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-03113: end-of-file on communication channel
+Process ID: 15544
+Session ID: 181 Serial number: 5
+10/01/2020 11:47:50: [Método: entidad.minem.gob.pe.UsuarioBE RegistraUsuario(entidad.minem.gob.pe.UsuarioBE), Línea: 60] - ORA-03113: end-of-file on communication channel
+Process ID: 15544
+Session ID: 181 Serial number: 5
+10/01/2020 12:12:47: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean), Línea: 0] - ORA-03113: end-of-file on communication channel
+Process ID: 37204
+Session ID: 153 Serial number: 379
+10/01/2020 12:12:47: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-03113: end-of-file on communication channel
+Process ID: 37204
+Session ID: 153 Serial number: 379
+10/01/2020 12:12:47: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-03113: end-of-file on communication channel
+Process ID: 37204
+Session ID: 153 Serial number: 379
+10/01/2020 12:12:47: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-03113: end-of-file on communication channel
+Process ID: 37204
+Session ID: 153 Serial number: 379
+10/01/2020 12:12:47: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-03113: end-of-file on communication channel
+Process ID: 37204
+Session ID: 153 Serial number: 379
+10/01/2020 12:12:47: [Método: entidad.minem.gob.pe.UsuarioBE RegistraUsuario(entidad.minem.gob.pe.UsuarioBE), Línea: 60] - ORA-03113: end-of-file on communication channel
+Process ID: 37204
+Session ID: 153 Serial number: 379
+10/01/2020 16:23:46: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean), Línea: 0] - ORA-06550: line 1, column 45:
+PLS-00302: component 'USP_SEL_INICIATIVAS_PUBLICO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/01/2020 16:23:46: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 45:
+PLS-00302: component 'USP_SEL_INICIATIVAS_PUBLICO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/01/2020 16:23:46: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 45:
+PLS-00302: component 'USP_SEL_INICIATIVAS_PUBLICO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/01/2020 16:23:46: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 45:
+PLS-00302: component 'USP_SEL_INICIATIVAS_PUBLICO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/01/2020 16:23:46: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 45:
+PLS-00302: component 'USP_SEL_INICIATIVAS_PUBLICO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/01/2020 16:23:46: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 45:
+PLS-00302: component 'USP_SEL_INICIATIVAS_PUBLICO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/01/2020 16:23:46: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 45:
+PLS-00302: component 'USP_SEL_INICIATIVAS_PUBLICO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/01/2020 16:23:46: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 45:
+PLS-00302: component 'USP_SEL_INICIATIVAS_PUBLICO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/01/2020 16:23:46: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaIniciativaPublico(entidad.minem.gob.pe.IniciativaBE), Línea: 29] - ORA-06550: line 1, column 45:
+PLS-00302: component 'USP_SEL_INICIATIVAS_PUBLICO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/01/2020 16:24:50: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean), Línea: 0] - ORA-06550: line 1, column 45:
+PLS-00302: component 'USP_SEL_INICIATIVAS_PUBLICO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/01/2020 16:24:50: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 45:
+PLS-00302: component 'USP_SEL_INICIATIVAS_PUBLICO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/01/2020 16:24:50: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 45:
+PLS-00302: component 'USP_SEL_INICIATIVAS_PUBLICO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/01/2020 16:24:50: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 45:
+PLS-00302: component 'USP_SEL_INICIATIVAS_PUBLICO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/01/2020 16:24:50: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 45:
+PLS-00302: component 'USP_SEL_INICIATIVAS_PUBLICO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/01/2020 16:24:50: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 45:
+PLS-00302: component 'USP_SEL_INICIATIVAS_PUBLICO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/01/2020 16:24:50: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 45:
+PLS-00302: component 'USP_SEL_INICIATIVAS_PUBLICO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/01/2020 16:24:50: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 45:
+PLS-00302: component 'USP_SEL_INICIATIVAS_PUBLICO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/01/2020 16:24:50: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaIniciativaPublico(entidad.minem.gob.pe.IniciativaBE), Línea: 29] - ORA-06550: line 1, column 45:
+PLS-00302: component 'USP_SEL_INICIATIVAS_PUBLICO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/01/2020 16:24:59: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean), Línea: 0] - ORA-06550: line 1, column 45:
+PLS-00302: component 'USP_SEL_INICIATIVAS_PUBLICO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/01/2020 16:24:59: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 45:
+PLS-00302: component 'USP_SEL_INICIATIVAS_PUBLICO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/01/2020 16:24:59: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 45:
+PLS-00302: component 'USP_SEL_INICIATIVAS_PUBLICO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/01/2020 16:24:59: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 45:
+PLS-00302: component 'USP_SEL_INICIATIVAS_PUBLICO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/01/2020 16:24:59: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 45:
+PLS-00302: component 'USP_SEL_INICIATIVAS_PUBLICO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/01/2020 16:24:59: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 45:
+PLS-00302: component 'USP_SEL_INICIATIVAS_PUBLICO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/01/2020 16:24:59: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 45:
+PLS-00302: component 'USP_SEL_INICIATIVAS_PUBLICO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/01/2020 16:24:59: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 45:
+PLS-00302: component 'USP_SEL_INICIATIVAS_PUBLICO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/01/2020 16:24:59: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaIniciativaPublico(entidad.minem.gob.pe.IniciativaBE), Línea: 29] - ORA-06550: line 1, column 45:
+PLS-00302: component 'USP_SEL_INICIATIVAS_PUBLICO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored

@@ -1,0 +1,531 @@
+﻿@{
+    ViewBag.Title = "Iniciativa Mitigacion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container-fluid map-root" id="historia">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Iniciativas de Mitigación</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="container-fluid my-4" id="cuerpo">
+    <div class="row m-0">
+        <div class="col-12 cuerpo-interior">
+            <div class="container py-4">
+                <div class="row">
+                    <div class="col-md-12 col-lg-6 pt-4">
+                        <div class="h4">
+                            Listado de Iniciativas de Mitigación&nbsp;
+                            <!--i.fas.fa-question-circle.ayuda-tooltip(data-toggle="tooltip", data-placement="right", title="Texto de ayuda que describe el funcionamiento general del módulo [...]")--><br><small class="text-muted">Utilice la búsqueda para ubicar las iniciativa de mitigación de su interés, los resultados obtenidos pueden descargarse en un documento excel.</small>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-6 pt-4"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-lg-6 pt-4">
+                        <form>
+                            <div class="form-group">
+                                <label for="txt-buscar">Buscar&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese si conoce el nombre de la iniciativa o la(s) palabra(s) asociada(s) a las iniciativas de interés. En caso de no encontrar resultados acceda a la búsqueda avanzada."></i></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-search"></i></span></div>
+                                    <input class="form-control" type="text" id="txt-buscar" placeholder="Ingrese la descripción de su búsqueda" aria-describedby="inputGroup1" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-12 text-right">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="titulo-avanzado" data-toggle="collapse" href="#busqueda-avanzada" aria-expanded="false" aria-controls="busqueda-avanzada"><span>Búsqueda avanzada&nbsp;<i class="fas fa-sort"></i></span></div>
+                                                <div class="collapse" id="busqueda-avanzada">
+                                                    <div class="card card-body">
+                                                        <div class="row">
+                                                            <div class="col-sm-12 text-left">
+                                                                <div class="titulo-avanzado" data-toggle="collapse" href="#datos-principales" aria-expanded="false" aria-controls="datos-principales">
+                                                                    <span>
+                                                                        <i class="far fa-list-alt"></i>&nbsp;
+                                                                        Datos Principales
+                                                                    </span>
+                                                                </div>
+                                                                <div class="collapse" id="datos-principales">
+                                                                    <div class="card card-body">
+                                                                        <div class="row">
+                                                                            <div class="col-sm-12">
+                                                                                <div class="form-group">
+                                                                                    <label for="cbo-medida-mitigacion">Medida de Mitigación&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione, de la lista desplegable, la medida de mitigación de interés"></i></label>
+                                                                                    <div class="input-group">
+                                                                                        <div class="input-group-prepend"><span class="input-group-text" id="inputGroup2"><i class="fas fa-tachometer-alt"></i></span></div>
+                                                                                        <select class="form-control" id="cbo-medida-mitigacion" aria-describedby="inputGroup2">
+                                                                                            <option>-Seleccione una Medida de Mitigación-</option>
+                                                                                            <option>Medida de Mitigación 01</option>
+                                                                                            <option>Medida de Mitigación 02</option>
+                                                                                            <option>Medida de Mitigación 03</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!--.row
+                                                                        .col-sm-12
+                                                                          .form-group
+                                                                            label(for="txt-nombre-iniciativa") Nombre de la Iniciativa&nbsp;
+                                                                              i.fas.fa-question-circle.ayuda-tooltip(data-toggle="tooltip", data-placement="right", title="Texto de ayuda que describe el funcionamiento general del módulo [...]")
+                                                                            .input-group
+                                                                              .input-group-prepend
+                                                                                span.input-group-text#inputGroup3
+                                                                                  i.far.fa-comment-alt
+                                                                              input.form-control(type="text", id="txt-nombre-iniciativa", placeholder="Ingrese nombre de la iniciativa", aria-describedby="inputGroup3")
+                                                                        -->
+                                                                        <div class="row">
+                                                                            <div class="col-sm-12">
+                                                                                <div class="form-group">
+                                                                                    <label for="txt-fecha-inicio">Año de Inicio del proyecto&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique el año de inicio del proyecto"></i></label>
+                                                                                    <div class="input-group">
+                                                                                        <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-calendar-alt"></i></span></div>
+                                                                                        <input class="form-control" type="number" id="txt-fecha-inicio" placeholder="Ingrese nombre de la iniciativa" aria-describedby="inputGroup4" min="2000" max="2030">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--.col-sm-6
+                                                                            .form-group
+                                                                              label(for="cbo-duracion-proyecto") Duración del proyecto&nbsp;
+                                                                                i.fas.fa-question-circle.ayuda-tooltip(data-toggle="tooltip", data-placement="right", title="Texto de ayuda que describe el funcionamiento general del módulo [...]")
+                                                                              .input-group
+                                                                                .input-group-prepend
+                                                                                  span.input-group-text#inputGroup5
+                                                                                    i.fas.fa-calendar-alt
+                                                                                select.form-control(id="cbo-duracion-proyecto", aria-describedby="inputGroup5")
+                                                                                  option -Duración en años-
+                                                                                  option 1 año
+                                                                                  option 2 años
+                                                                                  option 3 años
+                                                                                  option 4 años
+                                                                                  option 5 años
+                                                                                  option 6 años
+                                                                                  option 7 años
+                                                                                  option 8 años
+                                                                                  option 9 años
+                                                                                  option 10 años
+                                                                            -->
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-12 py-2 text-left">
+                                                                <div class="titulo-avanzado" data-toggle="collapse" href="#datos-generales" aria-expanded="false" aria-controls="datos-generales">
+                                                                    <span>
+                                                                        <i class="far fa-list-alt"></i>&nbsp;
+                                                                        Datos Generales
+                                                                    </span>
+                                                                </div>
+                                                                <div class="collapse" id="datos-generales">
+                                                                    <div class="card card-body">
+                                                                        <div class="row">
+                                                                            <div class="col-sm-12">
+                                                                                <div class="form-group">
+                                                                                    <label for="cbo-sector">Sector&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione, de la lista desplegable, el sector de la iniciativa de mitigación de interés"></i></label>
+                                                                                    <div class="input-group">
+                                                                                        <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
+                                                                                        <select class="form-control" id="cbo-sector" aria-describedby="inputGroup6">
+                                                                                            <option>-Seleccione-</option>
+                                                                                            <option>Privado - Micro empresa (10 < colaboradores)</option>
+                                                                                            <option>Privado - Pequeña empresa (> 10 - < 50 colaboradores)</option>
+                                                                                            <option>Privado - Mediana empresa (> 50 - < 250 colaboradores)</option>
+                                                                                            <option>Privado - Gran empresa (> 250 colaboradores)</option>
+                                                                                            <option>Público - (50 < colaboradores)</option>
+                                                                                            <option>Público - (> 50  < 250 colaboradores)</option>
+                                                                                            <option>Público - (> 250 colaboradores)</option>
+                                                                                            <option>Público - Hospitales (< 50 camas)</option>
+                                                                                            <option>Público - Hospitales (> 50 camas)</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!--.row
+                                                                        .col-sm-6
+                                                                          .form-group
+                                                                            label(for="cbo-moneda") Moneda&nbsp;
+                                                                              i.fas.fa-question-circle.ayuda-tooltip(data-toggle="tooltip", data-placement="right", title="Texto de ayuda que describe el funcionamiento general del módulo [...]")
+                                                                            .input-group
+                                                                              .input-group-prepend
+                                                                                span.input-group-text#inputGroup7
+                                                                                  i.far.fa-money-bill-alt
+                                                                              select.form-control(id="cbo-moneda", aria-describedby="inputGroup7")
+                                                                                option -Seleccione-
+                                                                                option Soles
+                                                                                option Dólares
+                                                                        .col-sm-6
+                                                                          .form-group
+                                                                            label(for="txt-monto-inversion") Monto de inversión&nbsp;
+                                                                              i.fas.fa-question-circle.ayuda-tooltip(data-toggle="tooltip", data-placement="right", title="Texto de ayuda que describe el funcionamiento general del módulo [...]")
+                                                                            .input-group
+                                                                              .input-group-prepend
+                                                                                span.input-group-text#inputGroup8
+                                                                                  i.fas.fa-wallet
+                                                                              input.form-control(type="text", id="txt-monto-inversion", placeholder="Ingrese monto", aria-describedby="inputGroup8")
+                                                                        -->
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-12 text-left">
+                                                                <div class="titulo-avanzado" data-toggle="collapse" href="#indicadores" aria-expanded="false" aria-controls="indicadores">
+                                                                    <span>
+                                                                        <i class="far fa-list-alt"></i>&nbsp;
+                                                                        Indicadores
+                                                                    </span>
+                                                                </div>
+                                                                <div class="collapse" id="indicadores">
+                                                                    <div class="card card-body">
+                                                                        <div class="row">
+                                                                            <div class="col-sm-6">
+                                                                                <div class="form-group">
+                                                                                    <label for="cbo-energetico-base">Energético de linea base&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione, de la lista desplegable, el tipo de energía que se consumía antes de la iniciativa"></i></label>
+                                                                                    <div class="input-group">
+                                                                                        <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
+                                                                                        <select class="form-control" id="cbo-energetico-base" aria-describedby="inputGroup9">
+                                                                                            <option>-Seleccione-</option>
+                                                                                            <option>Diesel</option>
+                                                                                            <option>Electricidad</option>
+                                                                                            <option>Gas Licuado de petróleo</option>
+                                                                                            <option>Gas Natural</option>
+                                                                                            <option>Gasolina</option>
+                                                                                            <option>Leña</option>
+                                                                                            <option>Petróleo residual</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-sm-6">
+                                                                                <div class="form-group">
+                                                                                    <label for="cbo-energetico-proyecto">Energético de proyecto&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione, de la lista desplegable, el tipo de energía que se consume en la iniciativa"></i></label>
+                                                                                    <div class="input-group">
+                                                                                        <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="fas fa-bolt"></i></span></div>
+                                                                                        <select class="form-control" id="cbo-energetico-proyecto" aria-describedby="inputGroup10">
+                                                                                            <option>-Seleccione-</option>
+                                                                                            <option>Diesel</option>
+                                                                                            <option>Electricidad</option>
+                                                                                            <option>Gas Licuado de petróleo</option>
+                                                                                            <option>Gas Natural</option>
+                                                                                            <option>Gasolina</option>
+                                                                                            <option>Leña</option>
+                                                                                            <option>Petróleo residual</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <button class="btn btn-success w-100 mb-2"><i class="fas fa-file-download px-1"></i>Descargar Excel</button>
+                                </div>
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <button class="btn btn-success w-100 mb-2" type="submit"><i class="fas fa-search px-1"></i>Buscar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-12 col-lg-6 pt-4">
+                        <!--&nbsp;-->
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid py-4">
+                <div class="h5">Bandeja de Acciones de Mitigación&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></div>
+                <div class="dropdown-divider"></div>
+                <div class="row">
+                    <div class="col-12 px-0">
+                        <div class="table-responsive tabla-principal">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr class="bg-primary text-white">
+                                        <th class="text-center" scope="col"><span>#&nbsp;<i class="fas fa-sort"></i></span></th>
+                                        <th scope="col"><span>Nombre de Iniciativa&nbsp;<i class="fas fa-sort"></i></span></th>
+                                        <th scope="col"><span>Progreso&nbsp;<i class="fas fa-sort"></i></span></th>
+                                        <th class="text-center" scope="col"><span>Fecha de Inicio&nbsp;<i class="fas fa-sort"></i></span></th>
+                                        <th scope="col"><span>Medida de Mitigación&nbsp;<i class="fas fa-sort"></i></span></th>
+                                        <th scope="col"><span>Entidad&nbsp;<i class="fas fa-sort"></i></span></th>
+                                        <th class="text-center" scope="col">Más</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cuerpoMitigacion">
+                                    @*<tr>
+                                        <th class="text-center" data-encabezado="Número" scope="row">1</th>
+                                        <td data-encabezado="Nombre de Iniciativa">Nombre de la Iniciativa</td>
+                                        <td data-encabezado="Progreso">
+                                            <div class="progress" style="height: 20px;">
+                                                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">100%</div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
+                                        <td data-encabezado="Medida de Mitigación">Etiquetado de eficiencia energética</td>
+                                        <td data-encabezado="Entidad">Entidad Responsable</td>
+                                        <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                            <div class="btn-group">
+                                                <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="./ver-mas-accion-de-mitigacion.html">
+                                                        <i class="fas fa-plus-circle"></i>&nbsp;
+                                                        Ver más
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" data-encabezado="Número" scope="row">2</th>
+                                        <td data-encabezado="Nombre de Iniciativa">Nombre de la Iniciativa</td>
+                                        <td data-encabezado="Progreso">
+                                            <div class="progress" style="height: 20px;">
+                                                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">100%</div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
+                                        <td data-encabezado="Medida de Mitigación">Etiquetado de eficiencia energética</td>
+                                        <td data-encabezado="Entidad">Entidad Responsable</td>
+                                        <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                            <div class="btn-group">
+                                                <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="./ver-mas-accion-de-mitigacion.html">
+                                                        <i class="fas fa-plus-circle"></i>&nbsp;
+                                                        Ver más
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" data-encabezado="Número" scope="row">3</th>
+                                        <td data-encabezado="Nombre de Iniciativa">Nombre de la Iniciativa</td>
+                                        <td data-encabezado="Progreso">
+                                            <div class="progress" style="height: 20px;">
+                                                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">100%</div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
+                                        <td data-encabezado="Medida de Mitigación">Etiquetado de eficiencia energética</td>
+                                        <td data-encabezado="Entidad">Entidad Responsable</td>
+                                        <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                            <div class="btn-group">
+                                                <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="./ver-mas-accion-de-mitigacion.html">
+                                                        <i class="fas fa-plus-circle"></i>&nbsp;
+                                                        Ver más
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" data-encabezado="Número" scope="row">4</th>
+                                        <td data-encabezado="Nombre de Iniciativa">Nombre de la Iniciativa</td>
+                                        <td data-encabezado="Progreso">
+                                            <div class="progress" style="height: 20px;">
+                                                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">100%</div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
+                                        <td data-encabezado="Medida de Mitigación">Etiquetado de eficiencia energética</td>
+                                        <td data-encabezado="Entidad">Entidad Responsable</td>
+                                        <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                            <div class="btn-group">
+                                                <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="./ver-mas-accion-de-mitigacion.html">
+                                                        <i class="fas fa-plus-circle"></i>&nbsp;
+                                                        Ver más
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" data-encabezado="Número" scope="row">5</th>
+                                        <td data-encabezado="Nombre de Iniciativa">Nombre de la Iniciativa</td>
+                                        <td data-encabezado="Progreso">
+                                            <div class="progress" style="height: 20px;">
+                                                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">100%</div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
+                                        <td data-encabezado="Medida de Mitigación">Etiquetado de eficiencia energética</td>
+                                        <td data-encabezado="Entidad">Entidad Responsable</td>
+                                        <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                            <div class="btn-group">
+                                                <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="./ver-mas-accion-de-mitigacion.html">
+                                                        <i class="fas fa-plus-circle"></i>&nbsp;
+                                                        Ver más
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" data-encabezado="Número" scope="row">6</th>
+                                        <td data-encabezado="Nombre de Iniciativa">Nombre de la Iniciativa</td>
+                                        <td data-encabezado="Progreso">
+                                            <div class="progress" style="height: 20px;">
+                                                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">100%</div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
+                                        <td data-encabezado="Medida de Mitigación">Etiquetado de eficiencia energética</td>
+                                        <td data-encabezado="Entidad">Entidad Responsable</td>
+                                        <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                            <div class="btn-group">
+                                                <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="./ver-mas-accion-de-mitigacion.html">
+                                                        <i class="fas fa-plus-circle"></i>&nbsp;
+                                                        Ver más
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" data-encabezado="Número" scope="row">7</th>
+                                        <td data-encabezado="Nombre de Iniciativa">Nombre de la Iniciativa</td>
+                                        <td data-encabezado="Progreso">
+                                            <div class="progress" style="height: 20px;">
+                                                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">100%</div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
+                                        <td data-encabezado="Medida de Mitigación">Etiquetado de eficiencia energética</td>
+                                        <td data-encabezado="Entidad">Entidad Responsable</td>
+                                        <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                            <div class="btn-group">
+                                                <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="./ver-mas-accion-de-mitigacion.html">
+                                                        <i class="fas fa-plus-circle"></i>&nbsp;
+                                                        Ver más
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" data-encabezado="Número" scope="row">8</th>
+                                        <td data-encabezado="Nombre de Iniciativa">Nombre de la Iniciativa</td>
+                                        <td data-encabezado="Progreso">
+                                            <div class="progress" style="height: 20px;">
+                                                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">100%</div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
+                                        <td data-encabezado="Medida de Mitigación">Etiquetado de eficiencia energética</td>
+                                        <td data-encabezado="Entidad">Entidad Responsable</td>
+                                        <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                            <div class="btn-group">
+                                                <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="./ver-mas-accion-de-mitigacion.html">
+                                                        <i class="fas fa-plus-circle"></i>&nbsp;
+                                                        Ver más
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" data-encabezado="Número" scope="row">9</th>
+                                        <td data-encabezado="Nombre de Iniciativa">Nombre de la Iniciativa</td>
+                                        <td data-encabezado="Progreso">
+                                            <div class="progress" style="height: 20px;">
+                                                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">100%</div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
+                                        <td data-encabezado="Medida de Mitigación">Etiquetado de eficiencia energética</td>
+                                        <td data-encabezado="Entidad">Entidad Responsable</td>
+                                        <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                            <div class="btn-group">
+                                                <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="./ver-mas-accion-de-mitigacion.html">
+                                                        <i class="fas fa-plus-circle"></i>&nbsp;
+                                                        Ver más
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" data-encabezado="Número" scope="row">10</th>
+                                        <td data-encabezado="Nombre de Iniciativa">Nombre de la Iniciativa</td>
+                                        <td data-encabezado="Progreso">
+                                            <div class="progress" style="height: 20px;">
+                                                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">100%</div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
+                                        <td data-encabezado="Medida de Mitigación">Etiquetado de eficiencia energética</td>
+                                        <td data-encabezado="Entidad">Entidad Responsable</td>
+                                        <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                            <div class="btn-group">
+                                                <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="./ver-mas-accion-de-mitigacion.html">
+                                                        <i class="fas fa-plus-circle"></i>&nbsp;
+                                                        Ver más
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td class="text-left" colspan="3"><strong>Resultado:&nbsp;</strong>1-10 de 750 registros</td>
+                                        <td class="text-right text-xs-left" colspan="4">
+                                            <strong>Registros por página&nbsp;</strong>
+                                            <select id="catidad-rgistros">
+                                                <option value="10" selected>10</option>
+                                                <option value="25">25</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
+                                            </select>&nbsp;
+                                            1 de 75 páginas&nbsp;
+                                            <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                                <button class="btn btn-primary" type="button"><i class="fas fa-angle-double-left"></i></button>
+                                                <button class="btn btn-primary" type="button"><i class="fas fa-angle-left"></i></button>
+                                                <input class="ir-pagina" type="number" value="1" min="1">
+                                                <button class="btn btn-primary" type="button"><i class="fas fa-angle-right"></i></button>
+                                                <button class="btn btn-primary" type="button"><i class="fas fa-angle-double-right"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>*@
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

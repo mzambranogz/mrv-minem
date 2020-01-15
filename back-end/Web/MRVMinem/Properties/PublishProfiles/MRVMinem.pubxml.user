@@ -1,0 +1,361 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Este archivo es utilizado por el proceso de paquete/publicación de nuestro proyecto Web. Puede personalizar el comportamiento de este proceso
+editando este archivo MSBuild. Para conocer más acerca de esto, visite http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\MRVMinem</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Dapper.dll">
+      <publishTime>01/15/2020 10:30:57</publishTime>
+    </File>
+    <File Include="bin/datos.minem.gob.pe.dll">
+      <publishTime>01/15/2020 18:38:56</publishTime>
+    </File>
+    <File Include="bin/entidad.minem.gob.pe.dll">
+      <publishTime>01/15/2020 18:38:56</publishTime>
+    </File>
+    <File Include="bin/es/System.Web.Helpers.resources.dll">
+      <publishTime>01/15/2020 10:30:57</publishTime>
+    </File>
+    <File Include="bin/es/System.Web.Mvc.resources.dll">
+      <publishTime>01/15/2020 10:30:57</publishTime>
+    </File>
+    <File Include="bin/es/System.Web.Razor.resources.dll">
+      <publishTime>01/15/2020 10:30:57</publishTime>
+    </File>
+    <File Include="bin/es/System.Web.Webpages.Deployment.resources.dll">
+      <publishTime>01/15/2020 10:30:57</publishTime>
+    </File>
+    <File Include="bin/es/System.Web.Webpages.Razor.resources.dll">
+      <publishTime>01/15/2020 10:30:58</publishTime>
+    </File>
+    <File Include="bin/es/System.Web.Webpages.resources.dll">
+      <publishTime>01/15/2020 10:30:58</publishTime>
+    </File>
+    <File Include="bin/logica.minem.gob.pe.dll">
+      <publishTime>01/15/2020 18:38:57</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>01/15/2020 10:31:00</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>01/15/2020 10:31:03</publishTime>
+    </File>
+    <File Include="bin/MRVMinem.dll">
+      <publishTime>01/15/2020 18:39:02</publishTime>
+    </File>
+    <File Include="bin/Oracle.DataAccess.dll">
+      <publishTime>07/31/2014 22:11:18</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>01/15/2020 10:31:03</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>01/15/2020 10:31:01</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>01/15/2020 10:31:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>01/15/2020 10:31:03</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>01/15/2020 10:31:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>01/15/2020 10:31:01</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>01/15/2020 10:31:03</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>01/15/2020 10:31:03</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>01/15/2020 10:31:03</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>01/15/2020 10:31:03</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>01/15/2020 10:31:03</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>01/15/2020 10:31:03</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>01/15/2020 10:30:57</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>01/15/2020 10:30:57</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>01/15/2020 10:30:57</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.Deployment.dll">
+      <publishTime>01/15/2020 10:30:57</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.dll">
+      <publishTime>01/15/2020 10:30:57</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.Razor.dll">
+      <publishTime>01/15/2020 10:30:57</publishTime>
+    </File>
+    <File Include="bin/utilitario.minem.gob.pe.dll">
+      <publishTime>01/15/2020 18:33:55</publishTime>
+    </File>
+    <File Include="css/style.css">
+      <publishTime>01/15/2020 10:30:49</publishTime>
+    </File>
+    <File Include="fonts/fa-brands-400.eot">
+      <publishTime>01/15/2020 10:30:49</publishTime>
+    </File>
+    <File Include="fonts/fa-brands-400.svg">
+      <publishTime>01/15/2020 10:30:49</publishTime>
+    </File>
+    <File Include="fonts/fa-brands-400.ttf">
+      <publishTime>01/15/2020 10:30:49</publishTime>
+    </File>
+    <File Include="fonts/fa-brands-400.woff">
+      <publishTime>01/15/2020 10:30:49</publishTime>
+    </File>
+    <File Include="fonts/fa-brands-400.woff2">
+      <publishTime>01/15/2020 10:30:49</publishTime>
+    </File>
+    <File Include="fonts/fa-regular-400.eot">
+      <publishTime>01/15/2020 10:30:49</publishTime>
+    </File>
+    <File Include="fonts/fa-regular-400.svg">
+      <publishTime>01/15/2020 10:30:49</publishTime>
+    </File>
+    <File Include="fonts/fa-regular-400.ttf">
+      <publishTime>01/15/2020 10:30:49</publishTime>
+    </File>
+    <File Include="fonts/fa-regular-400.woff">
+      <publishTime>01/15/2020 10:30:49</publishTime>
+    </File>
+    <File Include="fonts/fa-regular-400.woff2">
+      <publishTime>01/15/2020 10:30:49</publishTime>
+    </File>
+    <File Include="fonts/fa-solid-900.eot">
+      <publishTime>01/15/2020 10:30:49</publishTime>
+    </File>
+    <File Include="fonts/fa-solid-900.svg">
+      <publishTime>01/15/2020 10:30:49</publishTime>
+    </File>
+    <File Include="fonts/fa-solid-900.ttf">
+      <publishTime>01/15/2020 10:30:49</publishTime>
+    </File>
+    <File Include="fonts/fa-solid-900.woff">
+      <publishTime>01/15/2020 10:30:49</publishTime>
+    </File>
+    <File Include="fonts/fa-solid-900.woff2">
+      <publishTime>01/15/2020 10:30:49</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>01/15/2020 10:30:47</publishTime>
+    </File>
+    <File Include="images/001.jpg">
+      <publishTime>01/15/2020 10:30:49</publishTime>
+    </File>
+    <File Include="images/002.jpg">
+      <publishTime>01/15/2020 10:30:49</publishTime>
+    </File>
+    <File Include="images/003.jpg">
+      <publishTime>01/15/2020 10:30:49</publishTime>
+    </File>
+    <File Include="images/004.jpg">
+      <publishTime>01/15/2020 10:30:49</publishTime>
+    </File>
+    <File Include="images/005.jpg">
+      <publishTime>01/15/2020 10:30:49</publishTime>
+    </File>
+    <File Include="images/006.jpg">
+      <publishTime>01/15/2020 10:30:49</publishTime>
+    </File>
+    <File Include="images/01_registro_manual.svg">
+      <publishTime>01/15/2020 10:30:49</publishTime>
+    </File>
+    <File Include="images/02_registro_masivo.svg">
+      <publishTime>01/15/2020 10:30:49</publishTime>
+    </File>
+    <File Include="images/bg-acciones-resultados.jpg">
+      <publishTime>01/15/2020 10:30:49</publishTime>
+    </File>
+    <File Include="images/bg-registro.jpg">
+      <publishTime>01/15/2020 10:30:49</publishTime>
+    </File>
+    <File Include="images/bg-reportes.jpg">
+      <publishTime>01/15/2020 10:30:49</publishTime>
+    </File>
+    <File Include="images/favicon/android-chrome-192x192.png">
+      <publishTime>01/15/2020 10:30:49</publishTime>
+    </File>
+    <File Include="images/favicon/android-chrome-256x256.png">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/favicon/apple-touch-icon.png">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/favicon/browserconfig.xml">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/favicon/favicon-16x16.png">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/favicon/favicon-32x32.png">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/favicon/favicon.ico">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/favicon/manifest.json">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/favicon/mstile-150x150.png">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/favicon/safari-pinned-tab.svg">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/favicon/site.webmanifest">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/favicon/_manifest.json">
+      <publishTime>01/15/2020 10:30:49</publishTime>
+    </File>
+    <File Include="images/fondo_12_medidas.png">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/fondo_footer.png">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/ico_nama_amarillo_01.svg">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/ico_nama_amarillo_02.svg">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/ico_nama_amarillo_03.svg">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/ico_nama_amarillo_04.svg">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/ico_nama_amarillo_05.svg">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/ico_nama_amarillo_06.svg">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/ico_nama_amarillo_07.svg">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/ico_nama_azul_01.svg">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/ico_nama_rojo_01.svg">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/ico_nama_rojo_02.svg">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/ico_nama_verde_01.svg">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/ico_nama_verde_02.svg">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/logo-gef-blanco.png">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/logo-minem-blanco.png">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/logo-minem.jpg">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/logo-nama-blanco.png">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/logo-pnud-blanco.png">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/logo_gef.jpg">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/logo_gef.png">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/logo_gef.svg">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/logo_mrv_new_negro.jpg">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/logo_mrv_new_negro.png">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/logo_mrv_new_negro.svg">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/logo_pnud.jpg">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/logo_pnud.png">
+      <publishTime>01/15/2020 10:30:50</publishTime>
+    </File>
+    <File Include="images/logo_pnud.svg">
+      <publishTime>01/15/2020 10:30:51</publishTime>
+    </File>
+    <File Include="images/_fonfo_footer.png">
+      <publishTime>01/15/2020 10:30:49</publishTime>
+    </File>
+    <File Include="js/AccionMitigacion.js">
+      <publishTime>01/15/2020 18:04:01</publishTime>
+    </File>
+    <File Include="js/IniciativaMitigacion.js">
+      <publishTime>01/15/2020 17:49:19</publishTime>
+    </File>
+    <File Include="js/MRV.js">
+      <publishTime>01/15/2020 13:21:05</publishTime>
+    </File>
+    <File Include="js/RegistroUsuario.js">
+      <publishTime>01/15/2020 17:53:02</publishTime>
+    </File>
+    <File Include="js/script.js">
+      <publishTime>01/15/2020 10:30:51</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>01/15/2020 10:30:51</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>01/15/2020 10:30:48</publishTime>
+    </File>
+    <File Include="Views/Home/login.cshtml">
+      <publishTime>01/15/2020 11:49:47</publishTime>
+    </File>
+    <File Include="Views/Home/recuperar.cshtml">
+      <publishTime>01/15/2020 10:30:48</publishTime>
+    </File>
+    <File Include="Views/Home/registro.cshtml">
+      <publishTime>01/15/2020 17:46:35</publishTime>
+    </File>
+    <File Include="Views/Portal/AccionMitigacion.cshtml">
+      <publishTime>01/15/2020 17:59:33</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>01/15/2020 17:57:48</publishTime>
+    </File>
+    <File Include="Views/web.config">
+      <publishTime>01/15/2020 10:30:48</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>01/15/2020 18:39:05</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,89 @@
+﻿@{
+    ViewBag.Title = "Detalle Indicador";
+    Layout = null;
+}
+
+<script type="text/javascript" src="~/Scripts/js/DetalleIndicador.js"></script>
+
+<div class="p-5 mt-5">
+
+    <div class="mt-5">
+
+        <button class="btn btn-primary" onclick="fn_agregarFilaIndicador();">Agregar</button><br />
+        <button class="btn btn_primary" onclick="fn_evaluarIndicador();" data-toggle="modal" data-target="#evaluacionIniciativa">Enviar revisión</button>
+        @*<select id="enfoqueIndicador" class="form-control" onchange="seleccionarEnfoque();">
+                <option value="0">- seleccione un enfoque -</option>
+            </select><br/>*@
+        <table class="table table-bordered small" id="tablaIndicador" data-fila="0">
+            <thead id="cabeceraTablaIndicador">
+                <tr>
+                    <th style="background-color: orange;">Año B.</th>
+                    <th style="background-color: orange;">T. Vehiculo B.</th>
+                    <th style="background-color: orange;">T. Combustible B.</th>
+                    <th style="background-color: orange;">KRV B.</th>
+                    <th style="background-color: orange;">Cantidad B.</th>
+                    <th style="background-color: orange;">Total B.</th>
+                    <th style="background-color: green;">Año I.</th>
+                    <th style="background-color: green;">T. Vehiculo I.</th>
+                    <th style="background-color: green;">T. Fuente I.</th>
+                    <th style="background-color: green;">KRV I.</th>
+                    <th style="background-color: green;">Cantidad I.</th>
+                    <th style="background-color: green;">Total I.</th>
+                    <th>Total R.</th>
+                    <th>Adjunto</th>
+                    <th>Calcular</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody id="cuerpoTablaIndicador"></tbody>
+        </table>
+
+        <div class="row">
+            <div col-6>
+                <label>Total de los detalles de Indicadores</label>
+                <input type="text" id="totalTR" class="form-control" />
+            </div>
+            <div col-6></div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="modal fade" id="evaluacionIniciativa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmar solicitud de evaluación</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body medidas-modal">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <h3 class="text-center">Aprobar la revisión <br></h3>
+                        <p class="text-center">Se procederá a confirmar la evauación de la Iniciativa</p>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        @*<div class="alert alert-danger" role="alert" id="errorRegistroIniciativa">
+                                <h4><i class="fas fa-exclamation-triangle"></i>&nbsp;Error de registro</h4>
+                                <p>Ocurrió un error al tratar de registrar su iniciativa, vuelvalo a intentar nuevamente.</p>
+                                <hr>
+                                <p class="mb-0">Verifique los datos ingresados e intente otra vez.</p>
+                            </div>*@
+                        <div class="alert alert-success" role="alert" id="correctoEvaluarIniciativa">
+                            <h4><i class="fas fa-check"></i>&nbsp;Bien hecho</h4>
+                            <p>Se realizó con éxito la evaluacion de la Iniciativa</p>
+                            <hr>
+                            <p class="mb-0"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" id="pieEvaluarModal">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
+                <button class="btn btn-primary" type="button" onclick="fn_evaluarIndicador();">Si</button>
+            </div>
+        </div>
+    </div>
+</div>
