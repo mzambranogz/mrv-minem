@@ -4,7 +4,6 @@
     Layout = "~/Views/Shared/_SesionLayout.cshtml";
 }
 @Html.HiddenFor(m => m.identificador)
-@Html.HiddenFor(m => m.iniciativa)
 
 <div class="container-fluid map-root" id="historia">
     <div class="container">
@@ -28,10 +27,7 @@
                     <div class="col-md-12 col-lg-6 pt-4">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
-                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                <span data-toggle="modal" data-target="#medidas-mitigacion-listado"><a class="cambiar-medida" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-sync px-1"></i>Cambiar de medida</a></span>
-                                <span data-toggle="modal" data-target="#solicitar-revision"><a class="solicitar-revision" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-paper-plane px-1"></i>Solicitar revisión</a></span>
-                                <span data-toggle="modal" data-target="#guardar-avance"><a class="guardar-avances" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-save px-1"></i>Guardar avances</a></span></div>
+                            <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#medidas-mitigacion-listado"><a class="cambiar-medida" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-sync px-1"></i>Cambiar de medida</a></span><span data-toggle="modal" data-target="#solicitar-revision"><a class="solicitar-revision" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-paper-plane px-1"></i>Solicitar revisión</a></span><span data-toggle="modal" data-target="#guardar-avance"><a class="guardar-avances" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-save px-1"></i>Guardar avances</a></span></div>
                         </div>
                     </div>
                 </div>
@@ -182,8 +178,8 @@
                                         <label for="mls-ubicaciones">Ubicación<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
-                                            <div class="form-control" style="height:120px; overflow-y: auto;" id="listaUbicacion">
-                                                @*<div class="col-auto my-1">
+                                            <div class="form-control" style="height:120px; overflow-y: auto;">
+                                                <div class="col-auto my-1">
                                                     <div class="custom-control custom-checkbox mr-sm-2">
                                                         <input class="custom-control-input" type="checkbox" id="chk-region-1">
                                                         <label class="custom-control-label" for="chk-region-1">
@@ -374,7 +370,7 @@
                                                             Departamento&nbsp;24
                                                         </label>
                                                     </div>
-                                                </div>*@
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -385,11 +381,11 @@
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="far fa-money-bill-alt"></i></span></div>
                                             <select class="form-control" id="cbo-moneda" aria-describedby="inputGroup10">
-                                                <option value="0">-Seleccione-</option>
-                                                @*<option>Soles</option>
+                                                <option>-Seleccione-</option>
+                                                <option>Soles</option>
                                                 <option>Dólares</option>
                                                 <option>Euro</option>
-                                                <option>Yen</option>*@
+                                                <option>Yen</option>
                                             </select>
                                         </div>
                                     </div>
@@ -434,8 +430,8 @@
                                         <label for="mlt-energetico">Energético asociado<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
-                                            <div class="form-control" style="height:90px; overflow-y: auto;" id="listaEnerg">
-                                                @*<div class="col-auto my-1">
+                                            <div class="form-control" style="height:90px; overflow-y: auto;">
+                                                <div class="col-auto my-1">
                                                     <div class="custom-control custom-checkbox mr-sm-2">
                                                         <input class="custom-control-input" type="checkbox" id="chk-energetico-01">
                                                         <label class="custom-control-label" for="chk-energetico-01">Combustibles fósiles&nbsp;</label>
@@ -446,7 +442,7 @@
                                                         <input class="custom-control-input" type="checkbox" id="chk-energetico-02">
                                                         <label class="custom-control-label" for="chk-energetico-02">Electricidad&nbsp;</label>
                                                     </div>
-                                                </div>*@
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -456,8 +452,8 @@
                                         <label for="mlt-gei">Gases de efecto invernadero<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
-                                            <div class="form-control" style="height:90px; overflow-y: auto;" id="listaGei">
-                                                @*<div class="col-auto my-1">
+                                            <div class="form-control" style="height:90px; overflow-y: auto;">
+                                                <div class="col-auto my-1">
                                                     <div class="custom-control custom-checkbox mr-sm-2">
                                                         <input class="custom-control-input" type="checkbox" id="chk-gei-01">
                                                         <label class="custom-control-label" for="chk-gei-01">CO<sub>2</sub></label>
@@ -471,7 +467,7 @@
                                                             CH<sub>2</sub>
                                                         </label>
                                                     </div>
-                                                </div>*@
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -502,30 +498,30 @@
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
                                     <div class="row">
-                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(5);" data-toggle="tooltip" data-placement="top" title="Transformación del mercado de iluminación del sector residencial"><img src="~/images/ico_nama_amarillo_01.svg"></a></div>
-                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(7);" data-toggle="tooltip" data-placement="top" title="Reemplazo de lámparas de alumbrado público por lámparas LED"><img src="~/images/ico_nama_amarillo_02.svg"></a></div>
-                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(1);" data-toggle="tooltip" data-placement="top" title="Etiquetado de eficiencia energética"><img src="~/images/ico_nama_amarillo_03.svg"></a></div>
-                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(4);" data-toggle="tooltip" data-placement="top" title="Auditorías energéticas sector público"><img src="~/images/ico_nama_amarillo_04.svg"></a></div>
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="" data-toggle="tooltip" data-placement="top" title="Transformación del mercado de iluminación del sector residencial"><img src="~/images/ico_nama_amarillo_01.svg"></a></div>
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Reemplazo de lámparas de alumbrado público por lámparas LED"><img src="~/images/ico_nama_amarillo_02.svg"></a></div>
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Etiquetado de eficiencia energética"><img src="~/images/ico_nama_amarillo_03.svg"></a></div>
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Auditorías energéticas sector público"><img src="~/images/ico_nama_amarillo_04.svg"></a></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
                                     <div class="row">
-                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(6);" data-toggle="tooltip" data-placement="top" title="Reemplazo de lámparas por lámparas LED en el sector público"><img src="~/images/ico_nama_amarillo_05.svg"></a></div>
-                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(2);" data-toggle="tooltip" data-placement="top" title="Eficiencia energética en el sector industrial"><img src="~/images/ico_nama_amarillo_06.svg"></a></div>
-                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(3);" data-toggle="tooltip" data-placement="top" title="Reemplazo lámparas en el sector comercial"><img src="~/images/ico_nama_amarillo_07.svg"></a></div>
-                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(12);" data-toggle="tooltip" data-placement="top" title="Promoción de vehículos eléctricos a nivel nacional"><img src="~/images/ico_nama_azul_01.svg"></a></div>
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Reemplazo de lámparas por lámparas LED en el sector público"><img src="~/images/ico_nama_amarillo_05.svg"></a></div>
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Eficiencia energética en el sector industrial"><img src="~/images/ico_nama_amarillo_06.svg"></a></div>
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Reemplazo lámparas en el sector comercial"><img src="~/images/ico_nama_amarillo_07.svg"></a></div>
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Promoción de vehículos eléctricos a nivel nacional"><img src="~/images/ico_nama_azul_01.svg"></a></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
                                     <div class="row">
-                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(9);" data-toggle="tooltip" data-placement="top" title="Suministro de electricidad con energía renovable en áreas no conectadas"><img src="~/images/ico_nama_rojo_01.svg"></a></div>
-                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(8);" data-toggle="tooltip" data-placement="top" title="Cocción limpia"><img src="~/images/ico_nama_rojo_02.svg"></a></div>
-                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(10);" data-toggle="tooltip" data-placement="top" title="Combinación de energías renovables"><img src="~/images/ico_nama_verde_01.svg"></a></div>
-                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(11);" data-toggle="tooltip" data-placement="top" title="Generación distribuida"><img src="~/images/ico_nama_verde_02.svg"></a></div>
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Suministro de electricidad con energía renovable en áreas no conectadas"><img src="~/images/ico_nama_rojo_01.svg"></a></div>
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Cocción limpia"><img src="~/images/ico_nama_rojo_02.svg"></a></div>
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Combinación de energías renovables"><img src="~/images/ico_nama_verde_01.svg"></a></div>
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Generación distribuida"><img src="~/images/ico_nama_verde_02.svg"></a></div>
                                     </div>
                                 </div>
                             </div>
@@ -546,7 +542,7 @@
                                     <h3 class="text-center">¿Confirma enviar su solicitud a revisión? <br></h3>
                                     <p class="text-center">Está de acuerdo en enviar todos sus datos para iniciar el proceso de revisión y obtener la aprobación por parte de nuestros especialistas</p>
                                 </div>
-                                <div class="col-sm-12 col-md-12 col-lg-12" id="mensajeModalRegistrar">
+                                <div class="col-sm-12 col-md-12 col-lg-12">
                                     <div class="alert alert-warning d-flex align-items-stretch" role="alert">
                                         <div class="alert-wrap mr-3">
                                             <div class="sa">
@@ -569,7 +565,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    @*<div class="alert alert-danger d-flex align-items-stretch" role="alert">
+                                    <div class="alert alert-danger d-flex align-items-stretch" role="alert">
                                         <div class="alert-wrap mr-3">
                                             <div class="sa">
                                                 <div class="sa-error">
@@ -586,8 +582,8 @@
                                             <h6>Error de registro</h6>
                                             <hr><small class="mb-0">Verifique que los datos sean correctamente ingresados, complete todos los campos obligatorios e intente otra vez.</small>
                                         </div>
-                                    </div>*@
-                                    @*<div class="alert alert-success d-flex align-items-stretch" role="alert">
+                                    </div>
+                                    <div class="alert alert-success d-flex align-items-stretch" role="alert">
                                         <div class="alert-wrap mr-3">
                                             <div class="sa">
                                                 <div class="sa-success">
@@ -602,13 +598,13 @@
                                             <h6>Bien hecho</h6>
                                             <hr><small class="mb-0">Los datos de su iniciativa fueron guardados exitosamente, espere la aprobación del especialista para continuar con el registro de detalle de indicadores. En breve le notificaremos el estado de su solicitud de revisión.</small>
                                         </div>
-                                    </div>*@
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
-                            <button class="btn btn-primary" type="button" onclick="fn_GuardarIniciativaMitigacion();">Si</button>
+                            <button class="btn btn-primary" type="button">Si</button>
                         </div>
                     </div>
                 </div>
@@ -620,13 +616,13 @@
                             <h5 class="modal-title" id="exampleModalLabel">Mensaje de Usuario</h5>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         </div>
-                        <div class="modal-body medidas-modal" id="mensajeModalAvance">
+                        <div class="modal-body medidas-modal">
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-12">
                                     <h3 class="text-center">¿Desea guardar su avance? <br></h3>
                                     <p class="text-center">Los datos ingresados serán almacenados temporalmente y podrán ser regularizados al editar su iniciativa.</p>
                                 </div>
-                                @*<div class="col-sm-12 col-md-12 col-lg-12">
+                                <div class="col-sm-12 col-md-12 col-lg-12">
                                     <div class="alert alert-warning d-flex align-items-stretch" role="alert">
                                         <div class="alert-wrap mr-3">
                                             <div class="sa">
@@ -641,12 +637,12 @@
                                             <hr>Recuerde, podrá solicitar una revisión una vez complete todos los campos obligatorios.
                                         </div>
                                     </div>
-                                </div>*@
+                                </div>
                             </div>
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
-                            <button class="btn btn-primary" type="button" onclick="fn_guardarAvances();">Si</button>
+                            <button class="btn btn-primary" type="button">Si</button>
                         </div>
                     </div>
                 </div>

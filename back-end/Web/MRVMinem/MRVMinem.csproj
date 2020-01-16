@@ -198,6 +198,7 @@
     <Content Include="Views\Shared\_SesionLayout.cshtml" />
     <Content Include="Views\Gestion\Sesion.cshtml" />
     <Content Include="Views\Gestion\IniciativaMitigacion.cshtml" />
+    <Content Include="Views\Gestion\RevisarIniciativa.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

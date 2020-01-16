@@ -111,57 +111,72 @@ namespace MRVMinem.Controllers
                 //itemRespuesta.extra = entidad.ID_USUARIO.ToString();
                 Session["usuario"] = entidad.ID_USUARIO.ToString();
                 List<RolOpcionesBE> lista = RolOpcionesLN.ListarOpciones(entidad.ID_USUARIO);
-                foreach (var item in lista)
-                {
-                    if (item.ID_OPCION == 1)
-                    {
-                        Session["opcion1"] = 1;
-                    }else if (item.ID_OPCION == 2)
-                    {
-                        Session["opcion2"] = 1;
-                    }
-                    else if (item.ID_OPCION == 3)
-                    {
-                        Session["opcion3"] = 1;
-                    }
-                    else if (item.ID_OPCION == 4)
-                    {
-                        Session["opcion4"] = 1;
-                    }
-                    else if (item.ID_OPCION == 5)
-                    {
-                        Session["opcion5"] = 1;
-                    }
-                    else if (item.ID_OPCION == 6)
-                    {
-                        Session["opcion6"] = 1;
-                    }
-                    else if (item.ID_OPCION == 7)
-                    {
-                        Session["opcion7"] = 1;
-                    }
-                    else if (item.ID_OPCION == 8)
-                    {
-                        Session["opcion8"] = 1;
-                    }
-                    else if (item.ID_OPCION == 9)
-                    {
-                        Session["opcion9"] = 1;
-                    }
-
-                    Session["nombres"] = item.NOMBRES;
-                    Session["correo"] = item.CORREO;
-                    Session["rol"] = item.ID_ROL;
-                    Session["institucion"] = item.INSTITUCION;
-                    Session["direccion"] = item.DIRECCION;
-                    Session["sector"] = item.SECTOR;
-                }
+                limpiarSetearSesion(lista);
             }
             else
             {
                 itemRespuesta.extra = entidad.extra;
             }
             return Respuesta(itemRespuesta);
+        }
+
+        private void limpiarSetearSesion(List<RolOpcionesBE> lista)
+        {
+            Session["opcion1"] = 0;
+            Session["opcion2"] = 0;
+            Session["opcion3"] = 0;
+            Session["opcion4"] = 0;
+            Session["opcion5"] = 0;
+            Session["opcion6"] = 0;
+            Session["opcion7"] = 0;
+            Session["opcion8"] = 0;
+            Session["opcion9"] = 0;
+            foreach (var item in lista)
+            {
+                if (item.ID_OPCION == 1)
+                {
+                    Session["opcion1"] = 1;
+                }
+                else if (item.ID_OPCION == 2)
+                {
+                    Session["opcion2"] = 1;
+                }
+                else if (item.ID_OPCION == 3)
+                {
+                    Session["opcion3"] = 1;
+                }
+                else if (item.ID_OPCION == 4)
+                {
+                    Session["opcion4"] = 1;
+                }
+                else if (item.ID_OPCION == 5)
+                {
+                    Session["opcion5"] = 1;
+                }
+                else if (item.ID_OPCION == 6)
+                {
+                    Session["opcion6"] = 1;
+                }
+                else if (item.ID_OPCION == 7)
+                {
+                    Session["opcion7"] = 1;
+                }
+                else if (item.ID_OPCION == 8)
+                {
+                    Session["opcion8"] = 1;
+                }
+                else if (item.ID_OPCION == 9)
+                {
+                    Session["opcion9"] = 1;
+                }
+
+                Session["nombres"] = item.NOMBRES;
+                Session["correo"] = item.CORREO;
+                Session["rol"] = item.ID_ROL;
+                Session["institucion"] = item.INSTITUCION;
+                Session["direccion"] = item.DIRECCION;
+                Session["sector"] = item.SECTOR;
+            }
         }
 
     }

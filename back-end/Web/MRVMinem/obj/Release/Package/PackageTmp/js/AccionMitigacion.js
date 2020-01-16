@@ -1,23 +1,10 @@
-﻿$(document).ready(function () {
-
-    //CargarOpcionesCuerpo();
-    if ($("#Control").data("usuario") > 0) {
-        if ($("#Control").data("rol") != 1) {
-            CargarListarIniciativaMitigacionUsuario(baseUrl + "Gestion/ListaIniciativasGeneral");
-        } else {
-            CargarListarIniciativaMitigacionUsuario(baseUrl + "Gestion/ListaIniciativasUsuario");
-        }
-    } else {
-        CargarListarIniciativaMitigacionGeneral(baseUrl + "Portal/ListaIniciativasPublico");
+﻿function CargarOpcionesCuerpo() {
+    if ($("#Control").data("opcion9") == 1) {
+        $('#nuevaIniciativa').append('<span data-toggle="modal" data-target="#medidas-mitigacion-listado"><a class="agregar-iniciativa" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-plus px-1"></i>Agregar iniciativa</a></span>');
     }
-    /*MRV.CargarSelect(baseUrl + "Publico/Portal/ListaSectorInstitucion", "#mSector", "ID_SECTOR_INST", "DESCRIPCION");
-    MRV.CargarSelect(baseUrl + "Administrado/Gestion/ListarMedidaMitigacion", "#medMitigacion", "ID_MAE_MEDMIT", "NOMBRE_MEDMIT");
-    MRV.CargarSelect(baseUrl + "Administrado/Gestion/ListarMoneda", "#mMoneda", "ID_MONEDA", "DESCRIPCION");
-    fn_actualizaCampana();
-    enLinea();*/
-});
+}
 
-function CargarListarIniciativaMitigacionGeneral(vUrl) {
+function CargarListarIniciativaMitigacionPublico(vUrl) {
     var Item = {};
     $.ajax({
         url: vUrl,
@@ -59,11 +46,6 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                         tr = tr + '         <div class="dropdown-menu dropdown-menu-right">';
                         tr = tr + '             <a class="dropdown-item" href="./ver-mas-accion-de-mitigacion.html"><i class="fas fa-plus-circle"></i>&nbsp;Ver más</a>';
                         tr = tr + '             <a class="dropdown-item" href="./seguimiento-de-accion-de-mitigacion.html"><i class="fas fa-history"></i>&nbsp;Seguimiento</a>';
-                        //tr = tr + '             <a class="dropdown-item" href="./edicion-de-iniciativa-de-mitigacion.html"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
-                        //tr = tr + '             <a class="dropdown-item text-primary" href="./revision-de-iniciativa-de-mitigacion.html"><i class="fas fa-check"></i>&nbsp;Revisar</a>';
-                        //tr = tr + '             <a class="dropdown-item text-info" href="./evaluacion-de-accion-de-mitigacion.html"><i class="fas fa-clipboard-check"></i>&nbsp;Evaluar</a>';
-                        //tr = tr + '             <a class="dropdown-item text-warning" href="./revision-de-accion-de-mitigacion.html"><i class="fas fa-tasks"></i>&nbsp;Evaluar</a>';
-                        //tr = tr + '             <a class="dropdown-item text-warning" href="./revision-de-accion-de-mitigacion.html"><i class="fas fa-tasks"></i>&nbsp;Verificar</a>';                                              
                         tr = tr + '         </div>';
                         tr = tr + '     </div>';
                         tr = tr + '</td>';
@@ -76,7 +58,14 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
     });
 }
 
-function CargarListarIniciativaMitigacionUsuario(vUrl) {
+function fn_mostrarEditarIniciativa(id) {
+    location.href = baseUrl + "Gestion/IniciativaMitigacion?id=" + id;
+}
+
+
+
+
+function CargarListarIniciativaMitigacionGeneral(vUrl) {
     var Item = {
         ID_USUARIO: $("#Control").data("usuario")
     };
@@ -154,3 +143,27 @@ function CargarListarIniciativaMitigacionUsuario(vUrl) {
         }
     });
 }
+
+$(document).ready(function () {
+    CargarOpcionesCuerpo();
+    if ($("#Control").data("usuario") > 0) {
+        if ($("#Control").data("rol") == 2) {
+            CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaIniciativasEspecialista");
+        } else {
+            CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaIniciativasUsuario");
+        }
+    } else {
+        CargarListarIniciativaMitigacionPublico(baseUrl + "Portal/ListaIniciativasPublico");
+    }
+    /*MRV.CargarSelect(baseUrl + "Publico/Portal/ListaSectorInstitucion", "#mSector", "ID_SECTOR_INST", "DESCRIPCION");
+    MRV.CargarSelect(baseUrl + "Administrado/Gestion/ListarMedidaMitigacion", "#medMitigacion", "ID_MAE_MEDMIT", "NOMBRE_MEDMIT");
+    MRV.CargarSelect(baseUrl + "Administrado/Gestion/ListarMoneda", "#mMoneda", "ID_MONEDA", "DESCRIPCION");
+    fn_actualizaCampana();
+    enLinea();*/
+});
+
+
+
+
+
+

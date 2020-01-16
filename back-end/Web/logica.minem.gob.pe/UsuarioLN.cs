@@ -38,7 +38,7 @@ namespace logica.minem.gob.pe
         public static UsuarioBE ObtenerPassword(UsuarioBE entidad)
         {
             var ent = usuarioDA.ObtenerPassword(entidad);
-            if (ent.PASSWORD_USUARIO == "")
+            if (string.IsNullOrEmpty(ent.PASSWORD_USUARIO))
             {
                 entidad.OK = false;
             }else

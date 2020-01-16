@@ -1,8 +1,30 @@
-﻿function CargarOpcionesCuerpo() {
+﻿$(document).ready(function () {
+    CargarOpcionesCuerpo();
+    if ($("#Control").data("usuario") > 0) {
+        if ($("#Control").data("rol") == 2) {
+            CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaIniciativasEspecialista");
+        } else {
+            CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaIniciativasUsuario");
+        }
+    } else {
+        CargarListarIniciativaMitigacionPublico(baseUrl + "Portal/ListaIniciativasPublico");
+    }
+    /*MRV.CargarSelect(baseUrl + "Publico/Portal/ListaSectorInstitucion", "#mSector", "ID_SECTOR_INST", "DESCRIPCION");
+    MRV.CargarSelect(baseUrl + "Administrado/Gestion/ListarMedidaMitigacion", "#medMitigacion", "ID_MAE_MEDMIT", "NOMBRE_MEDMIT");
+    MRV.CargarSelect(baseUrl + "Administrado/Gestion/ListarMoneda", "#mMoneda", "ID_MONEDA", "DESCRIPCION");
+    fn_actualizaCampana();
+    enLinea();*/
+});
+
+function CargarOpcionesCuerpo() {
     if ($("#Control").data("opcion9") == 1) {
         $('#nuevaIniciativa').append('<span data-toggle="modal" data-target="#medidas-mitigacion-listado"><a class="agregar-iniciativa" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-plus px-1"></i>Agregar iniciativa</a></span>');
     }
 }
+
+ function fn_revisarIniciativa(ini){
+     location.href = baseUrl + "Gestion/RevisarIniciativa?id=" + 0+"&ini="+ini;
+ }
 
 function CargarListarIniciativaMitigacionPublico(vUrl) {
     var Item = {};
@@ -61,8 +83,6 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
 function fn_mostrarEditarIniciativa(id) {
     location.href = baseUrl + "Gestion/IniciativaMitigacion?id=" + id;
 }
-
-
 
 
 function CargarListarIniciativaMitigacionGeneral(vUrl) {
@@ -144,23 +164,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
     });
 }
 
-$(document).ready(function () {
-    CargarOpcionesCuerpo();
-    if ($("#Control").data("usuario") > 0) {
-        if ($("#Control").data("rol") == 2) {
-            CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaIniciativasEspecialista");
-        } else {
-            CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaIniciativasUsuario");
-        }
-    } else {
-        CargarListarIniciativaMitigacionPublico(baseUrl + "Portal/ListaIniciativasPublico");
-    }
-    /*MRV.CargarSelect(baseUrl + "Publico/Portal/ListaSectorInstitucion", "#mSector", "ID_SECTOR_INST", "DESCRIPCION");
-    MRV.CargarSelect(baseUrl + "Administrado/Gestion/ListarMedidaMitigacion", "#medMitigacion", "ID_MAE_MEDMIT", "NOMBRE_MEDMIT");
-    MRV.CargarSelect(baseUrl + "Administrado/Gestion/ListarMoneda", "#mMoneda", "ID_MONEDA", "DESCRIPCION");
-    fn_actualizaCampana();
-    enLinea();*/
-});
+
 
 
 
