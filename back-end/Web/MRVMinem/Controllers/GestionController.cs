@@ -16,7 +16,19 @@ namespace MRVMinem.Controllers
         {
             return View();
         }
+        public ActionResult AccionMitigacion()
+        {
+            return View();
+        }
+        public ActionResult Sesion()
+        {
+            return View();
+        }
 
-        
+        /*Session["VARIABLE"] = entidad;
+
+            entidad = (UsuarioBE)Session["VARIABLE"];*/
+
+
     }
 }
