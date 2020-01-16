@@ -42,7 +42,7 @@ namespace datos.minem.gob.pe
             return Lista;
         }
 
-        public List<IniciativaBE> ListaIniciativaUsuario(IniciativaBE entidad)
+        public List<IniciativaBE> ListaIniciativaEspecialista(IniciativaBE entidad)
         {
             List<IniciativaBE> Lista = null;
 
@@ -50,7 +50,7 @@ namespace datos.minem.gob.pe
             {
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
                 {
-                    string sp = sPackage + "USP_SEL_INICIATIVAS_USUARIO";
+                    string sp = sPackage + "USP_SEL_INICIATIVAS_ESPEC";
                     var p = new OracleDynamicParameters();
                     p.Add("pID_USUARIO", entidad.ID_USUARIO);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
@@ -80,6 +80,34 @@ namespace datos.minem.gob.pe
                 {
                     string sp = sPackage + "USP_SEL_INICIATIVAS_GENERAL";
                     var p = new OracleDynamicParameters();
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in Lista)
+                    {
+                        item.FECHA = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+        public List<IniciativaBE> ListaIniciativaUsuario(IniciativaBE entidad)
+        {
+            List<IniciativaBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_INICIATIVAS_USUARIO";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_USUARIO", entidad.ID_USUARIO);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
 

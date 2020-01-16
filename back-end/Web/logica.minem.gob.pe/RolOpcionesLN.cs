@@ -12,9 +12,9 @@ namespace logica.minem.gob.pe
     {
         public static RolOpcionesDA rolOpciones = new RolOpcionesDA();
 
-        public static List<RolOpcionesBE> ListarOpciones(RolOpcionesBE entidad)
+        public static List<RolOpcionesBE> ListarOpciones(int id)
         {
-            return rolOpciones.ListarRolOpciones(entidad);
+            return rolOpciones.ListarRolOpciones(id);
         }
     }
 }

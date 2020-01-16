@@ -36,15 +36,22 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="~/index.html"><i class="fas fa-house-damage"></i><span class="d-none d-xs-block d-sm-block d-lg-none pl-1 mostrar-inicio">Inicio</span></a></li>
-                        <li class="nav-item"><a class="nav-link nav-active text-dark font-weight-bold px-2" href="./acciones-de-mitigacion-interno.html"><i class="fas fa-solar-panel pr-1"></i>Iniciativas de Mitigación</a></li>
-                        <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="./reportes.html"><i class="fas fa-file-invoice pr-1"></i>Reportes</a></li>
-                        <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="./acciones-y-resultados.html"><i class="fas fa-chart-pie pr-1"></i>Resultados</a></li>
+                        <li class="nav-item"><a class="nav-link nav-active text-dark font-weight-bold px-2" href="@Url.Action("AccionMitigacion","Gestion")"><i class="fas fa-solar-panel pr-1"></i>Iniciativas de Mitigación</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="#"><i class="fas fa-file-invoice pr-1"></i>Reportes</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="#" onclick="probar();"><i class="fas fa-chart-pie pr-1"></i>Resultados</a></li>
                     </ul><a class="btn text-dark px-2 mr-2 notificaciones" href="./notificaciones.html" rol="button"><i class="far fa-bell">&nbsp;</i><span class="badge badge-light">18</span><span class="d-none d-xs-block d-sm-block d-lg-none pl-1 font-weight-bold mostrar-inicio">Notificaciones</span></a>
                     <div class="btn-group w-sm-100">
                         <a class="btn btn-danger dropdown-toggle text-white font-weight-bold" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-tie pr-1"></i>Mi cuenta</a>
-                        <div class="dropdown-menu dropdown-menu-right w-sm-100">
-                            <span class="dropdown-item">Ricardo Sánchez <br><span class="badge badge-actor-02">Usuario Administrado</span><br><span class="badge badge-actor-03">Especialista</span><br><span class="badge badge-actor-04">Evaluador MINAM</span><br><span class="badge badge-actor-05">Verificador Externo</span><br><span class="badge badge-actor-06">Administrador MINEM</span></span><a class="dropdown-item" href="./mantenimiento-de-tablas.html"><i class="fas fa-cogs pr-1"></i>Mantenimiento de tablas</a><a class="dropdown-item" href="./cambiar.html"><i class="fas fa-key pr-1"></i>Cambiar contraseña</a>
-                            <div class="dropdown-divider"></div><a class="dropdown-item" href="./login.html"><i class="fas fa-sign-out-alt pr-1"></i>Salir del sistema</a>
+                        <div class="dropdown-menu dropdown-menu-right w-sm-100" id="usuario-rol">
+                            @*<span class="dropdown-item">Ricardo Sánchez <br>
+                            <span class="badge badge-actor-02">Usuario Administrado</span><br>
+                            <span class="badge badge-actor-03">Especialista</span><br>
+                            <span class="badge badge-actor-04">Evaluador MINAM</span><br>
+                            <span class="badge badge-actor-05">Verificador Externo</span><br>
+                            <span class="badge badge-actor-06">Administrador MINEM</span></span>
+                            <a class="dropdown-item" href="./mantenimiento-de-tablas.html"><i class="fas fa-cogs pr-1"></i>Mantenimiento de tablas</a>
+                            <a class="dropdown-item" href="./cambiar.html"><i class="fas fa-key pr-1"></i>Cambiar contraseña</a>
+                            <div class="dropdown-divider"></div><a class="dropdown-item" href="./login.html"><i class="fas fa-sign-out-alt pr-1"></i>Salir del sistema</a>*@
                         </div>
                     </div>
                 </div>
@@ -94,9 +101,46 @@
             </div>
         </footer>
     </div>
+    <div id="Control" data-usuario="@Session["usuario"]" data-nombres="@Session["nombres"]" data-correo="@Session["correo"]" data-rol="@Session["rol"]" data-institucion="@Session["institucion"]" data-direccion="@Session["direccion"]" data-sector="@Session["sector"]" data-modal="0" data-iniciativa="0" data-mitigacion="0" data-opcion1="@Session["opcion1"]" data-opcion2="@Session["opcion2"]" data-opcion3="@Session["opcion3"]" data-opcion4="@Session["opcion4"]" data-opcion5="@Session["opcion5"]" data-opcion6="@Session["opcion6"]" data-opcion7="@Session["opcion7"]" data-opcion8="@Session["opcion8"]" data-opcion9="@Session["opcion9"]"></div>
     <script type="text/javascript">
+
+        $(document).ready(function () {
+            fn_establecerVista();
+        });
+
         var baseUrl = '@Url.Content("~")';
 
+        function fn_establecerVista() {
+
+            var opcion = '<span class="dropdown-item">' + $("#Control").data("nombres") + ' <br>';
+            if ($("#Control").data("rol") == 1) {
+                opcion = opcion + '<span class="badge badge-actor-02">Usuario Administrado</span></span>'
+            } else if ($("#Control").data("rol") == 2) {
+                opcion = opcion + '<span class="badge badge-actor-03">Especialista</span></span>'
+            } else if ($("#Control").data("rol") == 3) {
+                opcion = opcion + '<span class="badge badge-actor-06">Administrador MINEM</span></span>'
+            } else if ($("#Control").data("rol") == 4) {
+                opcion = opcion + '<span class="badge badge-actor-04">Evaluador MINAM</span></span>'
+            } else if ($("#Control").data("rol") == 5) {
+                opcion = opcion + '<span class="badge badge-actor-05">Verificador Externo</span></span>'
+            }
+
+            if ($("#Control").data("opcion6") == 1) { //Añade a las opciones el mantenimiento de tablas
+                opcion = opcion + '<a class="dropdown-item" href="#" onclick="fn_mantenimiento();"><i class="fas fa-cogs pr-1"></i>Mantenimiento de tablas</a>';
+            }
+
+            if ($("#Control").data("opcion7") == 1) {
+                opcion = opcion + '<a class="dropdown-item" href="./cambiar.html"><i class="fas fa-key pr-1"></i>Cambiar contraseña</a>';
+            }
+
+            opcion = opcion + '<div class="dropdown-divider"></div><a class="dropdown-item" href="#" onclick="salirSesion();"><i class="fas fa-sign-out-alt pr-1"></i>Salir del sistema</a>';
+
+            $("#usuario-rol").append(opcion);
+        }
+
+        function probar() {
+            alert($("#Control").data("opcion1") + ' ' + $("#Control").data("opcion2") + ' ' + $("#Control").data("opcion3") + ' ' + $("#Control").data("opcion4") + ' ' + $("#Control").data("opcion5") + ' ' + $("#Control").data("opcion6") + ' ' + $("#Control").data("opcion7") + ' ' + $("#Control").data("opcion8") + ' ' + $("#Control").data("opcion9") + ' ' + $("#Control").data("correo") + ' ' + $("#Control").data("institucion") + ' ' + $("#Control").data("sector") + ' ' + $("#Control").data("direccion") + ' ' + $("#Control").data("iniciativa"));
+        }
     </script>
 </body>
 </html>
