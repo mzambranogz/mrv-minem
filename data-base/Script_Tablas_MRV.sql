@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - martes-enero-14-2020   
+-- Archivo creado  - jueves-enero-16-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Sequence SQ_GEND_DETALLE_INICIATIVA
@@ -40,7 +40,7 @@
 --  DDL for Sequence SQ_GEND_INICIATIVA_ENERG
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "USERMRV"."SQ_GEND_INICIATIVA_ENERG"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 81 CACHE 20 NOORDER  NOCYCLE   ;
+   CREATE SEQUENCE  "USERMRV"."SQ_GEND_INICIATIVA_ENERG"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 101 CACHE 20 NOORDER  NOCYCLE   ;
 --------------------------------------------------------
 --  DDL for Sequence SQ_GEND_INICIATIVA_GEI
 --------------------------------------------------------
@@ -75,7 +75,7 @@
 --  DDL for Sequence SQ_GENM_INSTITUCION
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "USERMRV"."SQ_GENM_INSTITUCION"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 101 CACHE 20 NOORDER  NOCYCLE   ;
+   CREATE SEQUENCE  "USERMRV"."SQ_GENM_INSTITUCION"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 121 CACHE 20 NOORDER  NOCYCLE   ;
 --------------------------------------------------------
 --  DDL for Sequence SQ_GENM_NOTIFICACION
 --------------------------------------------------------
@@ -85,7 +85,12 @@
 --  DDL for Sequence SQ_GENM_USUARIO
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "USERMRV"."SQ_GENM_USUARIO"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 101 CACHE 20 NOORDER  NOCYCLE   ;
+   CREATE SEQUENCE  "USERMRV"."SQ_GENM_USUARIO"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 121 CACHE 20 NOORDER  NOCYCLE   ;
+--------------------------------------------------------
+--  DDL for Sequence SQ_MAE_FAQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "USERMRV"."SQ_MAE_FAQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE   ;
 --------------------------------------------------------
 --  DDL for Table T_GEND_DETALLE_INICIATIVA
 --------------------------------------------------------
@@ -452,7 +457,8 @@
 	"IP_REGISTRO" VARCHAR2(50 BYTE), 
 	"USUARIO_MODIFICA" NUMBER(*,0), 
 	"FECHA_MODIFICA" DATE, 
-	"IP_MODIFICA" NUMBER(*,0)
+	"IP_MODIFICA" NUMBER(*,0), 
+	"FLG_ESTADO" CHAR(1 BYTE)
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
  NOCOMPRESS LOGGING
@@ -615,6 +621,22 @@
   BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS" ;
 --------------------------------------------------------
+--  DDL for Table T_MAE_FAQ
+--------------------------------------------------------
+
+  CREATE TABLE "USERMRV"."T_MAE_FAQ" 
+   (	"ID_FAQ" NUMBER(*,0), 
+	"ID_MEDMIT" NUMBER(*,0), 
+	"PREGUNTA" VARCHAR2(1000 BYTE), 
+	"RESPUESTA" VARCHAR2(2000 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
 --  DDL for Table T_MAE_F_BAU
 --------------------------------------------------------
 
@@ -686,7 +708,10 @@
   CREATE TABLE "USERMRV"."T_MAE_GEI" 
    (	"ID_GEI" NUMBER(*,0), 
 	"DESCRIPCION" VARCHAR2(50 BYTE), 
-	"FLAG_ESTADO" CHAR(1 BYTE)
+	"FLAG_ESTADO" CHAR(1 BYTE), 
+	"AR2" NUMBER(18,4), 
+	"AR4" NUMBER(18,4), 
+	"AR5" NUMBER(18,4)
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
  NOCOMPRESS LOGGING
@@ -1054,6 +1079,16 @@
 --------------------------------------------------------
 
   CREATE UNIQUE INDEX "USERMRV"."ID_VARIANTE_V" ON "USERMRV"."T_GENM_VARIANTE" ("ID_VARIANTE") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index MAE_FAQ_PK
+--------------------------------------------------------
+
+  CREATE INDEX "USERMRV"."MAE_FAQ_PK" ON "USERMRV"."T_MAE_FAQ" ("ID_FAQ") 
   PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
@@ -1477,6 +1512,19 @@ NEW.id_usuario FROM DUAL;
 END;
 /
 ALTER TRIGGER "USERMRV"."TR_GENM_USUARIO" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger TR_MAE_FAQ
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "USERMRV"."TR_MAE_FAQ" 
+BEFORE INSERT ON T_MAE_FAQ
+FOR EACH ROW
+BEGIN
+SELECT SQ_MAE_FAQ.NEXTVAL INTO:
+NEW.ID_FAQ FROM DUAL;
+END;
+/
+ALTER TRIGGER "USERMRV"."TR_MAE_FAQ" ENABLE;
 --------------------------------------------------------
 --  Constraints for Table T_GEND_INICIATIVA_ENERG
 --------------------------------------------------------

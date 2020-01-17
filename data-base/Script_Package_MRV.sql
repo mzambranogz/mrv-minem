@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - martes-enero-14-2020   
+-- Archivo creado  - jueves-enero-16-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_ADMIN_SISTEMA
@@ -298,7 +298,14 @@ END PKG_MRV_DETALLE_INDICADORES;
     
     PROCEDURE USP_UPD_OBSERVACION_INICIATIVA(
         pID_INICIATIVA IN NUMBER,
-        pID_USUARIO IN NUMBER
+        pID_USUARIO IN NUMBER,
+        pDESCRIPCION IN VARCHAR2,
+        pID_ESTADO IN NUMBER
+    );
+    
+    PROCEDURE USP_SEL_INICIATIVAS_ESPEC(
+        pID_USUARIO IN NUMBER,
+        pRefcursor OUT SYS_REFCURSOR
     );
 
 END PKG_MRV_INICIATIVA_MITIGACION;
@@ -921,21 +928,19 @@ END PKG_MRV_ADMIN_SISTEMA;
     -- Debe salir : 206.14
     --------------------------------------------------------------------------
     FUNCTION FN_Base_Electricos (
-        p_krv NUMBER, 
-        p_n NUMBER, 
-        p_tv  NUMBER,
-        p_tc  NUMBER,
-        p_anno  NUMBER
+        p_krv       NUMBER, 
+        p_n         NUMBER, 
+        p_tv        NUMBER,
+        p_tc        NUMBER,
+        p_anno      NUMBER
         )
     RETURN NUMBER
     IS 
-        resultado NUMBER;
-        p_BAU NUMBER;
-    BEGIN
-    
+        resultado   NUMBER;
+        p_BAU       NUMBER;
+    BEGIN  
         p_BAU:=FN_F_BAU(p_tv,p_tc,p_anno);
-        resultado:= (p_krv*p_n*p_BAU)/1000000;
-        
+        resultado:= (p_krv*p_n*p_BAU)/1000000;    
         Return (resultado);
     END;
     
@@ -952,23 +957,24 @@ END PKG_MRV_ADMIN_SISTEMA;
     -------------------------------------------------------------------------- 
     
     FUNCTION FN_Iniciativa_Electricos (
-        p_krv   NUMBER, 
-        p_n     NUMBER, 
-        p_tv    NUMBER,
-        p_tf    NUMBER,
-        p_anno  NUMBER
+        p_krv       NUMBER, 
+        p_n         NUMBER, 
+        p_tv        NUMBER,
+        p_tf        NUMBER,
+        p_anno      NUMBER
         )
     RETURN NUMBER
     IS 
-        resultado NUMBER;
-        p_MIT NUMBER;
-        p_PER NUMBER;
+        resultado   NUMBER;
+        p_MIT       NUMBER;
+        p_PER       NUMBER;
+        p_REN       NUMBER;
     BEGIN
     
         p_MIT:=FN_F_MIT(p_tv,p_tf,p_anno);
         p_PER:=FN_F_PER(p_anno);
-           
-        resultado:= (p_krv*p_n*p_MIT/(1-p_PER))/1000000;
+        p_REN:=FN_F_REN(p_tv,p_tf);   
+        resultado:= (p_krv*p_n*p_MIT*p_REN/(1-p_PER))/1000;
         
         Return (resultado);
     END;
@@ -1049,7 +1055,7 @@ END PKG_MRV_DETALLE_INDICADORES;
         LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
         LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
         LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
-        WHERE INI.ID_ESTADO IN (1,5) AND INI.ID_ETAPA = 1
+        --WHERE INI.ID_ESTADO IN (1,5) AND INI.ID_ETAPA = 1
         ORDER BY INI.ID_INICIATIVA DESC;
     
     END USP_SEL_INICIATIVAS_GENERAL;
@@ -1318,9 +1324,11 @@ END PKG_MRV_DETALLE_INDICADORES;
     )AS
     BEGIN   
         OPEN pRefcursor FOR
-        SELECT ID_INICIATIVA,
-               ID_UBICACION 
-        FROM T_GEND_INICIATIVA_UBICACION 
+        SELECT IU.ID_INICIATIVA,
+               IU.ID_UBICACION ,
+               U.DESCRIPCION
+        FROM T_GEND_INICIATIVA_UBICACION IU
+        INNER JOIN T_MAE_UBICACION U ON IU.ID_UBICACION = U.ID_UBICACION
         WHERE ID_INICIATIVA = pID_INICIATIVA
         AND FLAG_ESTADO = 1;
     END USP_SEL_CARGA_UBICACION;
@@ -1357,16 +1365,24 @@ END PKG_MRV_DETALLE_INDICADORES;
     )AS
     BEGIN   
         OPEN pRefcursor FOR
-        SELECT ID_INICIATIVA, 
-               ID_MEDMIT,
-               ID_USUARIO,
-               NOMBRE_INICIATIVA,
-               DESC_INICIATIVA, 
-               PRIVACIDAD_INICIATIVA, 
-               INVERSION_INICIATIVA, 
-               ID_MONEDA, 
-               FECHA_IMPLE_INICIATIVA 
-        FROM T_GENM_INICIATIVA
+        SELECT INI.ID_INICIATIVA, 
+               INI.ID_MEDMIT,
+               INI.ID_USUARIO,
+               INI.NOMBRE_INICIATIVA,
+               INI.DESC_INICIATIVA, 
+               INI.PRIVACIDAD_INICIATIVA, 
+               INI.INVERSION_INICIATIVA, 
+               INI.ID_MONEDA, 
+               INI.FECHA_IMPLE_INICIATIVA,
+               TRIM(USU.NOMBRES_USUARIO) || ' ' || TRIM(USU.APELLIDOS_USUARIO) NOMBRES,
+               USU.EMAIL_USUARIO CORREO,
+               INS.NOMBRE_INSTITUCION INSTITUCION,
+               INS.DIRECCION_INSTITUCION DIRECCION,
+               SEC.DESCRIPCION SECTOR
+        FROM T_GENM_INICIATIVA INI
+        INNER JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
+        INNER JOIN T_GENM_INSTITUCION INS ON USU.ID_INSTITUCION = INS.ID_INSTITUCION
+        INNER JOIN T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
         WHERE ID_INICIATIVA = pID_INICIATIVA;
     END USP_SEL_CARGA_INICIATIVA;
     
@@ -1395,7 +1411,9 @@ END PKG_MRV_DETALLE_INDICADORES;
     
     PROCEDURE USP_UPD_OBSERVACION_INICIATIVA(
         pID_INICIATIVA IN NUMBER,
-        pID_USUARIO IN NUMBER
+        pID_USUARIO IN NUMBER,
+        pDESCRIPCION IN VARCHAR2,
+        pID_ESTADO IN NUMBER
     )AS
     BEGIN
         UPDATE  T_GENM_INICIATIVA 
@@ -1405,7 +1423,40 @@ END PKG_MRV_DETALLE_INDICADORES;
         
         INSERT INTO T_GEND_DETALLE_INICIATIVA (ID_INICIATIVA, ID_REMITENTE, ID_ETAPA, ID_ESTADO, FECHA_DERIVACION)
         VALUES (pID_INICIATIVA, pID_USUARIO,1,2, SYSDATE);
+        
+        PKG_MRV_NOTIFICACION.USP_INS_NOTIFICACION(pIdIniciativa         =>  pID_INICIATIVA,
+                                                  pIdEtapa              =>  1,
+                                                  pIdEstado             =>  2,
+                                                  pIdRol                =>  2,
+                                                  pIdUsuario            =>  pID_USUARIO,
+                                                  pDescripcion          =>  pDESCRIPCION,
+                                                  pIdEstadoNotificacion =>  pID_ESTADO);
     END USP_UPD_OBSERVACION_INICIATIVA;
+    
+    
+    PROCEDURE USP_SEL_INICIATIVAS_ESPEC(
+        pID_USUARIO IN NUMBER,
+        pRefcursor OUT SYS_REFCURSOR
+    )AS
+    BEGIN    
+        OPEN pRefcursor FOR
+        SELECT  INI.ID_INICIATIVA,
+                INI.NOMBRE_INICIATIVA,
+                ET.DESCRIPCION,
+                INI.FECHA_IMPLE_INICIATIVA,
+                MD.NOMBRE_MEDMIT,
+                INST.NOMBRE_INSTITUCION,
+                INI.ID_ESTADO,
+                INI.ID_ETAPA PROGRESO
+        FROM T_GENM_INICIATIVA INI
+        LEFT JOIN T_MAE_ETAPA ET ON INI.ID_ETAPA = ET.ID_ETAPA
+        LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
+        LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
+        LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
+        WHERE INI.ID_ESTADO IN (1,5) AND INI.ID_ETAPA = 1
+        ORDER BY INI.ID_INICIATIVA DESC;
+    
+    END USP_SEL_INICIATIVAS_ESPEC;
 
 END PKG_MRV_INICIATIVA_MITIGACION;
 
@@ -2000,6 +2051,7 @@ END PKG_MRV_MANTENIMIENTO;
     BEGIN
         OPEN pRefcursor FOR
         SELECT      N.ID_NOTIFICACION,
+                    N.ID_INICIATIVA,
                     INI.NOMBRE_INICIATIVA,
                     INI.ID_ETAPA PROGRESO,
                     N.FECHA_REGISTRO,
