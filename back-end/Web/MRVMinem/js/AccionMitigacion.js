@@ -12,8 +12,9 @@
     /*MRV.CargarSelect(baseUrl + "Publico/Portal/ListaSectorInstitucion", "#mSector", "ID_SECTOR_INST", "DESCRIPCION");
     MRV.CargarSelect(baseUrl + "Administrado/Gestion/ListarMedidaMitigacion", "#medMitigacion", "ID_MAE_MEDMIT", "NOMBRE_MEDMIT");
     MRV.CargarSelect(baseUrl + "Administrado/Gestion/ListarMoneda", "#mMoneda", "ID_MONEDA", "DESCRIPCION");
+    */
     fn_actualizaCampana();
-    enLinea();*/
+    enLinea();
 });
 
 function CargarOpcionesCuerpo() {
@@ -177,5 +178,41 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
 
 
 
+////// CAMBIOS EDUARDO CH
 
+function enLinea() {
+    ws = new WebSocket("ws://192.168.1.46:9002");
+    ws.onopen = function () {
+        console.log("Conectado");
+    }
+    ws.onclose = function (event) {
+        console.log("Desconectado por: " + event.reason);
+    }
+    ws.onmessage = function (event) {
+        var data = event.data;
+        if (data != "") {
+            console.log("Campana Actualizada");
+            fn_actualizaCampana();
+        }
+    }
+}
 
+function fn_actualizaCampana() {
+    var item = {
+        ID_ROL: $("#Control").data("rol"),
+        ID_USUARIO: $("#Control").data("usuario")
+    }
+    url = baseUrl + "Gestion/ConsultaNotificaciones";
+    var respuesta = MRV.Ajax(url, item, false);
+    if (respuesta.success) {
+        $("#numNotificacion").html(respuesta.extra);
+    }
+}
+
+function fn_nuevaIniciativaMitigacion(id) {
+
+    $("#Control").data("mitigacion", id);
+    MRV.ObtenerVista(baseUrl + 'Administrado/Gestion/NuevaIniciativaMitigacion');
+    $('.fade').remove();
+    $('body').removeClass('modal-open');
+}

@@ -18,3 +18,10 @@ C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\WebSocketSer
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\WebSocketServer\MRV_SocketServer\MRV_SocketServer\bin\Debug\MRV_SocketServer.pdb
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\WebSocketServer\MRV_SocketServer\MRV_SocketServer\bin\Debug\Fleck.dll
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-source\WebSocketServer\MRV_SocketServer\MRV_SocketServer\obj\Debug\MRV_SocketServer.csprojResolveAssemblyReference.cache
+E:\Eduardo\Minem\mrv-minem\back-end\WebSocketServer\MRV_SocketServer\MRV_SocketServer\bin\Debug\MRV_SocketServer.exe.config
+E:\Eduardo\Minem\mrv-minem\back-end\WebSocketServer\MRV_SocketServer\MRV_SocketServer\obj\Debug\MRV_SocketServer.exe
+E:\Eduardo\Minem\mrv-minem\back-end\WebSocketServer\MRV_SocketServer\MRV_SocketServer\obj\Debug\MRV_SocketServer.pdb
+E:\Eduardo\Minem\mrv-minem\back-end\WebSocketServer\MRV_SocketServer\MRV_SocketServer\bin\Debug\MRV_SocketServer.exe
+E:\Eduardo\Minem\mrv-minem\back-end\WebSocketServer\MRV_SocketServer\MRV_SocketServer\bin\Debug\MRV_SocketServer.pdb
+E:\Eduardo\Minem\mrv-minem\back-end\WebSocketServer\MRV_SocketServer\MRV_SocketServer\bin\Debug\Fleck.dll
+E:\Eduardo\Minem\mrv-minem\back-end\WebSocketServer\MRV_SocketServer\MRV_SocketServer\obj\Debug\MRV_SocketServer.csprojResolveAssemblyReference.cache

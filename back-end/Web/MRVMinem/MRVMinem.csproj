@@ -148,6 +148,8 @@
     <Content Include="js\IniciativaMitigacion.js" />
     <Content Include="js\Login.js" />
     <Content Include="js\MRV.js" />
+    <Content Include="js\Notificacion.js" />
+    <Content Include="js\NuevaIniciativaMitigacion.js" />
     <Content Include="js\RegistroUsuario.js" />
     <Content Include="js\script.js" />
     <Content Include="Web.config">
@@ -163,6 +165,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\MvIniciativa.cs" />
     <Compile Include="Models\MvSesion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorio\EnvioCorreo.cs" />
@@ -201,6 +204,9 @@
     <Content Include="Views\Gestion\IniciativaMitigacion.cshtml" />
     <Content Include="Views\Gestion\RevisarIniciativa.cshtml" />
     <Content Include="Views\Gestion\DetalleIndicador.cshtml" />
+    <Content Include="Views\Gestion\RegistroIniciativaMitigacion.cshtml" />
+    <Content Include="Views\Gestion\NuevaIniciativaMitigacion.cshtml" />
+    <Content Include="Views\Gestion\Notificacion.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

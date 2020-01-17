@@ -189,6 +189,42 @@ namespace MRVMinem.Controllers
 
             entidad = (UsuarioBE)Session["VARIABLE"];*/
 
+        ////// CAMBIOS EDUARDO CH
+
+        public JsonResult ConsultaNotificaciones(NotificacionBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = NotificacionLN.ConsultaNotificaciones(entidad.ID_USUARIO, entidad.ID_ROL);
+            itemRespuesta.success = entidad.OK;
+            itemRespuesta.extra = entidad.NOTIFICACIONES.ToString();
+            return Respuesta(itemRespuesta);
+        }
+
+        public ActionResult RegistroIniciativaMitigacion()
+        {
+            return View();
+        }
+
+        public ActionResult NuevaIniciativaMitigacion(int id)
+        {
+            MvIniciativa modelo = new MvIniciativa();
+            modelo.id = id;
+            return View(modelo);
+        }
+
+        public ActionResult Notificacion()
+        {
+            return View();
+        }
+
+        public JsonResult ListarNotificacion(NotificacionBE entidad)
+        {
+            List<NotificacionBE> lista = NotificacionLN.ListarNotificacion(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
 
     }
 }

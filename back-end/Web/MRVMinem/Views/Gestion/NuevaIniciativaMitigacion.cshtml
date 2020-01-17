@@ -1,0 +1,612 @@
+﻿@model MRVMinem.Models.MvIniciativa
+
+@{
+    ViewBag.Title = "NuevaIniciativaMitigacion";
+    Layout = "~/Views/Shared/_SesionLayout.cshtml";
+}
+
+@Html.HiddenFor(m => m.id)
+
+<script type="text/javascript" src="~/js/NuevaIniciativaMitigacion.js"></script>
+
+<div class="container-fluid my-4" id="cuerpo">
+    <div class="row m-0">
+        <div class="col-12 cuerpo-interior">
+            <div class="container py-4">
+                <div class="row">
+                    <div class="col-md-12 col-lg-6 pt-4">
+                        <div class="h4">Registro de Inicitiva de Mitigación&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Asigne información importante a su inicitiva de identificación, <br>complete todos los campos para una mejor especificación.</small></div>
+                    </div>
+                    <div class="col-md-12 col-lg-6 pt-4">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
+                            <div @*id="botonRegistrar"*@ class="col-sm-12 col-md-6 col-lg-6">
+                                <span data-toggle="modal" data-target="#medidas-mitigacion-listado"><a class="cambiar-medida" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-sync px-1"></i>Cambiar de medida</a></span>
+                                <span data-toggle="modal" data-target="#solicitar-revision"><a class="solicitar-revision" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-paper-plane px-1"></i>Solicitar revisión</a></span>
+                                <a class="guardar-avances" href="#" onclick="fn_guardarAvances();" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-save px-1"></i>Guardar avances</a>
+                            </div>
+                            <!--<div id="botonRevisar" class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#revision"><a class="cambiar-medida" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-sync px-1"></i>Aprobar revisión</a></span><span data-toggle="modal" data-target="#solicitar-revision"><a class="solicitar-revision" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-paper-plane px-1"></i>Observación</a></span></div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid py-4 px-0 tabs-registro">
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item"><a class="nav-link active" id="pills-01-tab" data-toggle="pill" href="#pills-01" role="tab" aria-controls="pills-01" aria-selected="true" order="1">INTRODUCIÓN</a></li>
+                    <li class="nav-item"><a class="nav-link" id="pills-02-tab" data-toggle="pill" href="#pills-02" role="tab" aria-controls="pills-02" aria-selected="false" order="2">DATOS PRINCIPALES</a></li>
+                    <li class="nav-item"><a class="nav-link" id="pills-03-tab" data-toggle="pill" href="#pills-03" role="tab" aria-controls="pills-03" aria-selected="false" order="3">DATOS GENERALES</a></li>
+                    <li class="nav-item"><a class="nav-link" id="pills-04-tab" data-toggle="pill" href="#pills-04" role="tab" aria-controls="pills-04" aria-selected="false" order="4">INDICADORES</a></li>
+                </ul>
+                <div class="progress" style="height: 20px;">
+                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                </div>
+                <div class="tab-content bg-white" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-01" role="tabpanel" aria-labelledby="pills-01-tab">
+                        <div class="container py-5">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="h5 pb-5">Promoción de vehiculos eléctricos a nivel nacional&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Información ligada a la medida de mitigación</small></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12-col-md-12 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="txt-categoria">Categoría IPCC&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-landmark"></i></span></div>
+                                            <input class="form-control-plaintext" type="text" id="regCategoria" @*value="Energía - Combustión móvil"*@ aria-describedby="inputGroup1" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txa-objetivo">Objetivo&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup2"><i class="fas fa-landmark"></i></span></div>
+                                            <textarea class="form-control-plaintext" id="regObjetivo" aria-describedby="inputGroup2" cols="30" rows="5" readonly></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12-col-md-12 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="txa-descripcion">Descripción&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup3"><i class="fas fa-landmark"></i></span></div>
+                                            <textarea class="form-control-plaintext" id="regDescripcion" aria-describedby="inputGroup3" cols="30" rows="8" readonly>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus porro quibusdam, repellat ipsa consequatur magni, vitae earum iure deleniti quod ad. Autem amet fugit, deleniti repellat veritatis aperiam minus nam !Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus porro quibusdam, repellat ipsa consequatur magni, vitae earum iure deleniti quod ad. Autem amet fugit, deleniti repellat veritatis aperiam minus nam!</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider my-5"></div>
+                            <div class="row justify-content-end">
+                                <div class="col-lg-3"><a class="btn btn-success px-5 w-100 nav-tab text-center" href="#" dest="2">Siguiente<i class="fas fa-arrow-right pl-1"></i></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-02" role="tabpanel" aria-labelledby="pills-02-tab">
+                        <div class="container py-5">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="h5 pb-5">Datos principales&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Información ligada a la iniciativa de mitigación</small></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12-col-md-12 col-lg-12">
+                                    <div class="form-group">
+                                        <label for="txa-nombre-iniciativa">Nombre de la iniciativa<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-tachometer-alt"></i></span></div>
+                                            <textarea class="form-control" id="regNombreIniciativa" aria-describedby="inputGroup4" cols="30" rows="5" required></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txa-descripcion-medida">Descripción de la medida<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-tachometer-alt"></i></span></div>
+                                            <textarea class="form-control" id="regDescripcionMedida" aria-describedby="inputGroup5" cols="30" rows="5" required></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12-col-md-12 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="txa-nombre-responsable">Nombre del reponsable&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
+                                            <input class="form-control-plaintext" id="nombreResponsable" aria-describedby="inputGroup6" @*value="Ricardo Sanchez"*@ readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12-col-md-12 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="txa-nombre-institucion">Nombre de la institución&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup7"><i class="fas fa-landmark"></i></span></div>
+                                            <input class="form-control-plaintext" id="nombreInstitucion" aria-describedby="inputGroup7" @*value="COORPORACION ENERGIA ASOCIADOS SAC"*@ readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12-col-md-12 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="txa-correo-electronico">Correo electrónico&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup8"><i class="fas fa-landmark"></i></span></div>
+                                            <input class="form-control-plaintext" id="correoElectronico" aria-describedby="inputGroup8" @*value="rsanchez@coorpenerasosac.com"*@ readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12-col-md-12 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="txa-direccion">Dirección&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
+                                            <input class="form-control-plaintext" id="direccionInstitucion" aria-describedby="inputGroup9" @*value="Av. Los Heros Nro 1457 - SJL"*@ readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider my-5"></div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-6"><span class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</span></div>
+                                <div class="col-sm-12 col-md-12 col-lg-6 text-right">
+                                    <div class="row justify-content-end">
+                                        <div class="col-lg-6"><a class="btn btn-dark px-5 w-100 nav-tab text-center mb-3" href="#" dest="1"><i class="fas fa-arrow-left pr-1"></i>Anterior</a></div>
+                                        <div class="col-lg-6"><a class="btn btn-success px-5 w-100 nav-tab text-center" href="#" dest="3">Siguiente<i class="fas fa-arrow-right pl-1"></i></a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-03" role="tabpanel" aria-labelledby="pills-03-tab">
+                        <div class="container py-5">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="h5 pb-5">Datos generales&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Información ligada a la iniciativa de mitigación</small></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12-col-md-12 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="txa-sector-insi¿titucion">Sector de la insitución&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
+                                            <input class="form-control-plaintext" id="sectorInstitucion" aria-describedby="inputGroup9" value="MINERÍA" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txa-sector-institucion">Ubicación<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
+                                            <div class="form-control" style="height:120px; overflow-y: auto;" @*-add-*@ id="listaUbicacion">
+                                                @*<div class="col-auto my-1">
+                                                        <div class="custom-control custom-checkbox mr-sm-2">
+                                                            <input class="custom-control-input" type="checkbox" id="region-1">
+                                                            <label class="custom-control-label" for="region-1">
+                                                                Departamento&nbsp;1
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto my-1">
+                                                        <div class="custom-control custom-checkbox mr-sm-2">
+                                                            <input class="custom-control-input" type="checkbox" id="region-2">
+                                                            <label class="custom-control-label" for="region-2">
+                                                                Departamento&nbsp;2
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto my-1">
+                                                        <div class="custom-control custom-checkbox mr-sm-2">
+                                                            <input class="custom-control-input" type="checkbox" id="region-3">
+                                                            <label class="custom-control-label" for="region-3">
+                                                                Departamento&nbsp;3
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto my-1">
+                                                        <div class="custom-control custom-checkbox mr-sm-2">
+                                                            <input class="custom-control-input" type="checkbox" id="region-4">
+                                                            <label class="custom-control-label" for="region-4">
+                                                                Departamento&nbsp;4
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto my-1">
+                                                        <div class="custom-control custom-checkbox mr-sm-2">
+                                                            <input class="custom-control-input" type="checkbox" id="region-5">
+                                                            <label class="custom-control-label" for="region-5">
+                                                                Departamento&nbsp;5
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto my-1">
+                                                        <div class="custom-control custom-checkbox mr-sm-2">
+                                                            <input class="custom-control-input" type="checkbox" id="region-6">
+                                                            <label class="custom-control-label" for="region-6">
+                                                                Departamento&nbsp;6
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto my-1">
+                                                        <div class="custom-control custom-checkbox mr-sm-2">
+                                                            <input class="custom-control-input" type="checkbox" id="region-7">
+                                                            <label class="custom-control-label" for="region-7">
+                                                                Departamento&nbsp;7
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto my-1">
+                                                        <div class="custom-control custom-checkbox mr-sm-2">
+                                                            <input class="custom-control-input" type="checkbox" id="region-8">
+                                                            <label class="custom-control-label" for="region-8">
+                                                                Departamento&nbsp;8
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto my-1">
+                                                        <div class="custom-control custom-checkbox mr-sm-2">
+                                                            <input class="custom-control-input" type="checkbox" id="region-9">
+                                                            <label class="custom-control-label" for="region-9">
+                                                                Departamento&nbsp;9
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto my-1">
+                                                        <div class="custom-control custom-checkbox mr-sm-2">
+                                                            <input class="custom-control-input" type="checkbox" id="region-10">
+                                                            <label class="custom-control-label" for="region-10">
+                                                                Departamento&nbsp;10
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto my-1">
+                                                        <div class="custom-control custom-checkbox mr-sm-2">
+                                                            <input class="custom-control-input" type="checkbox" id="region-11">
+                                                            <label class="custom-control-label" for="region-11">
+                                                                Departamento&nbsp;11
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto my-1">
+                                                        <div class="custom-control custom-checkbox mr-sm-2">
+                                                            <input class="custom-control-input" type="checkbox" id="region-12">
+                                                            <label class="custom-control-label" for="region-12">
+                                                                Departamento&nbsp;12
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto my-1">
+                                                        <div class="custom-control custom-checkbox mr-sm-2">
+                                                            <input class="custom-control-input" type="checkbox" id="region-13">
+                                                            <label class="custom-control-label" for="region-13">
+                                                                Departamento&nbsp;13
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto my-1">
+                                                        <div class="custom-control custom-checkbox mr-sm-2">
+                                                            <input class="custom-control-input" type="checkbox" id="region-14">
+                                                            <label class="custom-control-label" for="region-14">
+                                                                Departamento&nbsp;14
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto my-1">
+                                                        <div class="custom-control custom-checkbox mr-sm-2">
+                                                            <input class="custom-control-input" type="checkbox" id="region-15">
+                                                            <label class="custom-control-label" for="region-15">
+                                                                Departamento&nbsp;15
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto my-1">
+                                                        <div class="custom-control custom-checkbox mr-sm-2">
+                                                            <input class="custom-control-input" type="checkbox" id="region-16">
+                                                            <label class="custom-control-label" for="region-16">
+                                                                Departamento&nbsp;16
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto my-1">
+                                                        <div class="custom-control custom-checkbox mr-sm-2">
+                                                            <input class="custom-control-input" type="checkbox" id="region-17">
+                                                            <label class="custom-control-label" for="region-17">
+                                                                Departamento&nbsp;17
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto my-1">
+                                                        <div class="custom-control custom-checkbox mr-sm-2">
+                                                            <input class="custom-control-input" type="checkbox" id="region-18">
+                                                            <label class="custom-control-label" for="region-18">
+                                                                Departamento&nbsp;18
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto my-1">
+                                                        <div class="custom-control custom-checkbox mr-sm-2">
+                                                            <input class="custom-control-input" type="checkbox" id="region-19">
+                                                            <label class="custom-control-label" for="region-19">
+                                                                Departamento&nbsp;19
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto my-1">
+                                                        <div class="custom-control custom-checkbox mr-sm-2">
+                                                            <input class="custom-control-input" type="checkbox" id="region-20">
+                                                            <label class="custom-control-label" for="region-20">
+                                                                Departamento&nbsp;20
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto my-1">
+                                                        <div class="custom-control custom-checkbox mr-sm-2">
+                                                            <input class="custom-control-input" type="checkbox" id="region-21">
+                                                            <label class="custom-control-label" for="region-21">
+                                                                Departamento&nbsp;21
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto my-1">
+                                                        <div class="custom-control custom-checkbox mr-sm-2">
+                                                            <input class="custom-control-input" type="checkbox" id="region-22">
+                                                            <label class="custom-control-label" for="region-22">
+                                                                Departamento&nbsp;22
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto my-1">
+                                                        <div class="custom-control custom-checkbox mr-sm-2">
+                                                            <input class="custom-control-input" type="checkbox" id="region-23">
+                                                            <label class="custom-control-label" for="region-23">
+                                                                Departamento&nbsp;23
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto my-1">
+                                                        <div class="custom-control custom-checkbox mr-sm-2">
+                                                            <input class="custom-control-input" type="checkbox" id="region-24">
+                                                            <label class="custom-control-label" for="region-24">
+                                                                Departamento&nbsp;24
+                                                            </label>
+                                                        </div>
+                                                    </div>*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12-col-md-12 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="cbo-moneda">Moneda<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="far fa-money-bill-alt"></i></span></div>
+                                            <select class="form-control" id="regMoneda" aria-describedby="inputGroup10">
+                                                <option value="0">-Seleccione-</option>
+                                                @*<option>Soles</option>
+                                                    <option>Dólares</option>*@
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txt-monto-inversion">Monto de inversión<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup11"><i class="fas fa-wallet"></i></span></div>
+                                            <input class="form-control" type="text" id="regMontoInversion" placeholder="Ingrese monto" aria-describedby="inputGroup11">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txt-fecha-inicio">Año de Inicio del proyecto<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique el año de inicio del proyecto"></i></label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup12"><i class="fas fa-calendar-alt"></i></span></div>
+                                            <input class="form-control" type="date" id="regFechaImplementacion" placeholder="Ingrese nombre de la iniciativa" aria-describedby="inputGroup12" min="2000" max="2030">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider my-5"></div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-6"><span class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</span></div>
+                                <div class="col-sm-12 col-md-12 col-lg-6 text-right">
+                                    <div class="row justify-content-end">
+                                        <div class="col-lg-6"><a class="btn btn-dark px-5 w-100 nav-tab text-center mb-3" href="#" dest="2"><i class="fas fa-arrow-left pr-1"></i>Anterior</a></div>
+                                        <div class="col-lg-6"><a class="btn btn-success px-5 w-100 nav-tab text-center" href="#" dest="4">Siguiente<i class="fas fa-arrow-right pl-1"></i></a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-04" role="tabpanel" aria-labelledby="pills-04-tab">
+                        <div class="container py-5">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="h5 pb-5">Indicadores&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Información ligada a la iniciativa de mitigación</small></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12-col-md-12 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="mlt-energetico">Energético asociado<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
+                                            <div class="form-control" style="height:90px; overflow-y: auto;" id="listaEnerg">
+                                                @*<div class="col-auto my-1">
+                                                        <div class="custom-control custom-checkbox mr-sm-2">
+                                                            <input class="custom-control-input" type="checkbox" id="chk-energetico-01">
+                                                            <label class="custom-control-label" for="chk-energetico-01">Combustibles fósiles&nbsp;</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto my-1">
+                                                        <div class="custom-control custom-checkbox mr-sm-2">
+                                                            <input class="custom-control-input" type="checkbox" id="chk-energetico-02">
+                                                            <label class="custom-control-label" for="chk-energetico-02">Electricidad&nbsp;</label>
+                                                        </div>
+                                                    </div>*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12-col-md-12 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="mlt-gei">Gases de efecto invernadero<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
+                                            <div class="form-control" style="height:90px; overflow-y: auto;" @*-add-*@ id="listaGei">
+                                                @**<div class="col-auto my-1">
+                                                        <div class="custom-control custom-checkbox mr-sm-2">
+                                                            <input class="custom-control-input" type="checkbox" id="chk-gei-01">
+                                                            <label class="custom-control-label" for="chk-gei-01">CO<sub>2</sub></label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto my-1">
+                                                        <div class="custom-control custom-checkbox mr-sm-2">
+                                                            <input class="custom-control-input" type="checkbox" id="chk-gei-02">
+                                                            <label class="custom-control-label" for="chk-gei-02">
+                                                                CO<sub>2</sub>&nbsp;y&nbsp;
+                                                                CH<sub>2</sub>
+                                                            </label>
+                                                        </div>
+                                                    </div>*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider my-5"></div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-6"><span class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</span></div>
+                                <div class="col-sm-12 col-md-12 col-lg-6 text-right">
+                                    <div class="row justify-content-end">
+                                        <div class="col-lg-6"><a class="btn btn-dark px-5 w-100 nav-tab text-center mb-3" href="#" dest="3"><i class="fas fa-arrow-left px-1"></i>Anterior</a></div>
+                                        <div class="col-lg-6"><a class="btn btn-primary px-5 w-100 nav-tab text-center" href="#" data-toggle="modal" data-target="#solicitar-revision">Enviar<i class="fas fa-paper-plane px-1"></i></a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="medidas-mitigacion-listado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Seleccione una Medida de Mitigación <br><small class="text-muted">Para iniciar con el registro de su identificación</small></h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body medidas-modal">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(5);" data-toggle="tooltip" data-placement="top" title="Transformación del mercado de iluminación del sector residencial"><img src="~/assets/images/ico_nama_amarillo_01.svg"></a></div>
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(7);" data-toggle="tooltip" data-placement="top" title="Reemplazo de lámparas de alumbrado público por lámparas LED"><img src="~/assets/images/ico_nama_amarillo_02.svg"></a></div>
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(1);" data-toggle="tooltip" data-placement="top" title="Etiquetado de eficiencia energética"><img src="~/assets/images/ico_nama_amarillo_03.svg"></a></div>
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(4);" data-toggle="tooltip" data-placement="top" title="Auditorías energéticas sector público"><img src="~/assets/images/ico_nama_amarillo_04.svg"></a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(6);" data-toggle="tooltip" data-placement="top" title="Reemplazo de lámparas por lámparas LED en el sector público"><img src="~/assets/images/ico_nama_amarillo_05.svg"></a></div>
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(2);" data-toggle="tooltip" data-placement="top" title="Eficiencia energética en el sector industrial"><img src="~/assets/images/ico_nama_amarillo_06.svg"></a></div>
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(3);" data-toggle="tooltip" data-placement="top" title="Reemplazo lámparas en el sector comercial"><img src="~/assets/images/ico_nama_amarillo_07.svg"></a></div>
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(12);" data-toggle="tooltip" data-placement="top" title="Promoción de vehículos eléctricos a nivel nacional"><img src="~/assets/images/ico_nama_azul_01.svg"></a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(9);" data-toggle="tooltip" data-placement="top" title="Suministro de electricidad con energía renovable en áreas no conectadas"><img src="~/assets/images/ico_nama_rojo_01.svg"></a></div>
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(8);" data-toggle="tooltip" data-placement="top" title="Cocción limpia"><img src="~/assets/images/ico_nama_rojo_02.svg"></a></div>
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(10);" data-toggle="tooltip" data-placement="top" title="Combinación de energías renovables"><img src="~/assets/images/ico_nama_verde_01.svg"></a></div>
+                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(11);" data-toggle="tooltip" data-placement="top" title="Generación distribuida"><img src="~/assets/images/ico_nama_verde_02.svg"></a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="solicitar-revision" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Confirmar solicitud de revisión</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body medidas-modal">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-12" id="cabeceraSolicitud">
+                                    <h3 class="text-center">¿Confirma enviar su solicitud a revisión? <br></h3>
+                                    <p class="text-center">Confirma estar de acuerdo en enviar todos sus datos para iniciar el proceso de revisión y obtener la aprobación por parte de nuestros especialistas</p>
+                                </div>
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <div class="alert alert-warning" role="alert" id="publicarDatos">
+                                        <span class="d-inline-block font-weight-bold">Publicar datos:&nbsp;</span>
+                                        <div class="custom-control custom-checkbox d-inline-block">
+                                            <input class="custom-control-input" type="checkbox" id="regPrivacidad">
+                                            <label class="custom-control-label" for="regPrivacidad">Hacer públicos los datos registrados en esta iniciativa.</label>
+                                        </div>
+                                    </div>
+                                    <div class="alert alert-danger" role="alert" id="errorRegistroIniciativa">
+                                        <h4><i class="fas fa-exclamation-triangle"></i>&nbsp;Error de registro</h4>
+                                        <p>Ocurrió un error al tratar de registrar su iniciativa, vuelvalo a intentar nuevamente.</p>
+                                        <hr>
+                                        <p class="mb-0">Verifique los datos ingresados e intente otra vez.</p>
+                                    </div>
+                                    <div class="alert alert-success" role="alert" id="correctoRegistroIniciativa">
+                                        <h4><i class="fas fa-check"></i>&nbsp;Bien hecho</h4>
+                                        <p>Los datos de su iniciativa fueron guardados exitosamente, espere la aprobación del especialista para continuar con el registro de detalle de indicadores.</p>
+                                        <hr>
+                                        <p class="mb-0">En breve le notificaremos el estado de su solicitud de revisión.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer" id="pieModalIniciativa">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
+                            <button class="btn btn-primary" type="button" onclick="fn_GuardarIniciativaMitigacion();">Si</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="revision" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Confirmar solicitud de revisión</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body medidas-modal">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-12" id="cabeceraSolicitud">
+                                    <h3 class="text-center">Aprobar la revisión <br></h3>
+                                    <p class="text-center">Se procederá a confirmar la aprobación de la revisión de la Iniciativa</p>
+                                </div>
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    @*<div class="alert alert-danger" role="alert" id="errorRegistroIniciativa">
+                                            <h4><i class="fas fa-exclamation-triangle"></i>&nbsp;Error de registro</h4>
+                                            <p>Ocurrió un error al tratar de registrar su iniciativa, vuelvalo a intentar nuevamente.</p>
+                                            <hr>
+                                            <p class="mb-0">Verifique los datos ingresados e intente otra vez.</p>
+                                        </div>*@
+                                    <div class="alert alert-success" role="alert" id="correctoRevisarIniciativa">
+                                        <h4><i class="fas fa-check"></i>&nbsp;Bien hecho</h4>
+                                        <p>Se realizó con éxito la aprobación de la Iniciativa</p>
+                                        <hr>
+                                        <p class="mb-0"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer" id="pieRevisarModal">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
+                            <button class="btn btn-primary" type="button" onclick="fn_revisarIniciativaMitigacion();">Si</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
