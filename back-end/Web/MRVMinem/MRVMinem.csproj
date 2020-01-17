@@ -144,6 +144,7 @@
     <Content Include="images\logo_pnud.svg" />
     <Content Include="images\_fonfo_footer.png" />
     <Content Include="js\AccionMitigacion.js" />
+    <Content Include="js\DetalleIndicador.js" />
     <Content Include="js\IniciativaMitigacion.js" />
     <Content Include="js\Login.js" />
     <Content Include="js\MRV.js" />
@@ -199,6 +200,7 @@
     <Content Include="Views\Gestion\Sesion.cshtml" />
     <Content Include="Views\Gestion\IniciativaMitigacion.cshtml" />
     <Content Include="Views\Gestion\RevisarIniciativa.cshtml" />
+    <Content Include="Views\Gestion\DetalleIndicador.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

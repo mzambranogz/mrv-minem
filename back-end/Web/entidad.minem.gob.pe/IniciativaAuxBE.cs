@@ -16,5 +16,6 @@ namespace entidad.minem.gob.pe
         public string INSTITUCION { get; set; }
         public string DIRECCION { get; set; }
         public string SECTOR { get; set; }
+        public string DESCRIPCION { get; set; }
     }
 }

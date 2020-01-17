@@ -11,14 +11,22 @@
         data: Item,
         success: function (data) {
             if (data != null && data != "") {
-                if (data.length > 0) {
-                    for (var j = 0; j < data.length; j++) {
-                        for (var i = 0; i < $("#listaUbicacion").data("cantidad") ; i++) {
-                            if ($('#U' + (i + 1)).data("value") == data[j]["ID_UBICACION"]) {
-                                $('#U' + (i + 1)).prop('checked', true);
+                if (data.length > 0) {                    
+                    if ($("#Control").data("revision") == 0) {
+                        for (var j = 0; j < data.length; j++) {
+                            for (var i = 0; i < $("#listaUbicacion").data("cantidad") ; i++) {
+                                if ($('#U' + (i + 1)).data("value") == data[j]["ID_UBICACION"]) {
+                                    $('#U' + (i + 1)).prop('checked', true);
+                                }
                             }
                         }
-                    }
+                    } else {
+                        var msj = "\n";
+                        for (var j = 0; j < data.length; j++) {
+                            msj = msj + data[j]["DESCRIPCION"] + '\n';
+                        }
+                        $("#txa-ubicacion").append(msj);
+                    }                    
                 }
             }
         }
@@ -468,6 +476,7 @@ function fn_ListarGEI() {
 $(document).ready(function () {
     $("#Control").data("mitigacion", $("#identificador").val());
     $("#Control").data("iniciativa", $("#iniciativa").val());
+    $("#Control").data("revision", $("#revision").val());
     fn_ListarGEI();
 });
 
@@ -477,16 +486,78 @@ function fn_cambiarIniciativaMitigacion(id) {
     $('#medidas-mitigacion-listado').modal('hide')
 }
 
+function fn_revisarIniciativaMitigacion() {
+    var item = {
+        ID_INICIATIVA: $("#Control").data("iniciativa"),
+        ID_USUARIO: $("#Control").data("usuario")
+    }
+    url = baseUrl + "Gestion/AprobarIniciativaMitigacion";
+    var respuesta = MRV.Ajax(url, item, false);
+    if (respuesta.success) {
+        $("#modalAprobacion #modalCorrectoAprobacion").remove();
+        $("#modalAprobacion #modalErrorAprobacion").remove();
+        var msj = '                           <div class="alert alert-success d-flex align-items-stretch" role="alert" id="modalCorrectoAprobacion">';
+        msj = msj + '                               <div class="alert-wrap mr-3">';
+        msj = msj + '                                    <div class="sa">';
+        msj = msj + '                                        <div class="sa-success">';
+        msj = msj + '                                            <div class="sa-success-tip"></div>';
+        msj = msj + '                                            <div class="sa-success-long"></div>';
+        msj = msj + '                                            <div class="sa-success-placeholder"></div>';
+        msj = msj + '                                            <div class="sa-success-fix"></div>';
+        msj = msj + '                                        </div>';
+        msj = msj + '                                    </div>';
+        msj = msj + '                                </div>';
+        msj = msj + '                                <div class="alert-wrap">';
+        msj = msj + '                                    <h6>Bien hecho</h6';
+        msj = msj + '                                    <hr><small class="mb-0">Se aprobó correctamente esta revisión, se procederá a notificar al Usuario Administrado.</small>';
+        msj = msj + '                                </div>';
+        msj = msj + '                            </div>';
+        $("#modalAprobacion").append(msj);
+        $("#Control").data("modal", 1);
+    } else {
+        $("#modalAprobacion #modalErrorAprobacion").remove();
+        var msj = '                           <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="modalErrorAprobacion">';
+        msj = msj + '                               <div class="alert-wrap mr-3">';
+        msj = msj + '                                    <div class="sa">';
+        msj = msj + '                                        <div class="sa-error">';
+        msj = msj + '                                            <div class="sa-error-x">';
+        msj = msj + '                                                <div class="sa-error-left"></div>';
+        msj = msj + '                                                <div class="sa-error-right"></div>';
+        msj = msj + '                                            </div>';
+        msj = msj + '                                            <div class="sa-error-placeholder"></div>';
+        msj = msj + '                                            <div class="sa-error-fix"></div>';
+        msj = msj + '                                        </div>';
+        msj = msj + '                                    </div>';
+        msj = msj + '                                </div>';
+        msj = msj + '                                <div class="alert-wrap">';
+        msj = msj + '                                    <h6>Error de aprobación</h6>';
+        msj = msj + '                                    <hr><small class="mb-0">Ocurrió un error de comunicación con el servidor, intente otra vez.</small>';
+        msj = msj + '                                </div>';
+        msj = msj + '                            </div>';
+        $("#modalAprobacion").append(msj);
+    }
+
+    $("#aprobar-revision").on("hidden.bs.modal", function () {
+        if ($("#Control").data("modal") == 1) {
+            location.href = baseUrl + "Gestion/AccionMitigacion";
+        } else {
+            $("#modalAprobacion #modalErrorAprobacion").remove();
+        }
+    });
+}
+
 function fn_observacionIniciativaMitigacion() {
     url = baseUrl + "Gestion/ObservacionIniciativaMitigacion"
     var item = {
         ID_INICIATIVA: $("#Control").data("iniciativa"),
         ID_USUARIO: $("#Control").data("usuario"),
-
+        DESCRIPCION: $("#txa-observacion-iniciativa").val(),
+        ID_ESTADO: $("#cbo-tipo-observacion").val()
     };
     var mensaje = "";
     var respuesta = MRV.Ajax(url, item, false);
     if (respuesta.success) {
+        $("#modalRevision #modalErrorRevision").remove();
         $("#modalRevision #modalCorrectoRevision").remove();
         var msj  =  '                           <div class="alert alert-success d-flex align-items-stretch" role="alert" id="modalCorrectoRevision">';
         msj = msj + '                               <div class="alert-wrap mr-3">';
@@ -532,9 +603,8 @@ function fn_observacionIniciativaMitigacion() {
     $("#observar-revision").on("hidden.bs.modal", function () {
         if ($("#Control").data("modal") == 1) {
             location.href = baseUrl + "Gestion/AccionMitigacion";
-            //fn_accionesMitigacion(); //Invocado desde SesionLayout
+        } else {
+            $("#modalRevision #modalErrorRevision").remove();
         }
     });
-
-    $("#Control").data("iniciativa", 0);
 }

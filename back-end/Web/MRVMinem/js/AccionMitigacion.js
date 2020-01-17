@@ -26,6 +26,14 @@ function CargarOpcionesCuerpo() {
      location.href = baseUrl + "Gestion/RevisarIniciativa?id=" + 0+"&ini="+ini;
  }
 
+ function fn_cargarIdIniciativa(id) {
+     $("#Control").data("iniciativa",id);
+ }
+
+ function fn_mostrarDetalleIndicador() {
+     location.href = baseUrl + "Gestion/DetalleIndicador?id=" + $("#Control").data("iniciativa");
+ }
+
 function CargarListarIniciativaMitigacionPublico(vUrl) {
     var Item = {};
     $.ajax({
@@ -140,7 +148,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                         } else if (data[i]["ID_ESTADO"] == 2) {
                             tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_mostrarCorregirIniciativa(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
                         } else if (data[i]["PROGRESO"] == 2) {
-                            tr = tr + '<a class="dropdown-item text-success" href="#" onclick="fn_mostrarDetalleIndicador(' + data[i]["ID_INICIATIVA"] + ');" data-toggle="modal" data-target="#tipo-ingreso-detalle"><i class="fas fa-clipboard-list"></i>&nbsp;Detalles</a>';
+                            tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_cargarIdIniciativa(' + data[i]["ID_INICIATIVA"] + ');" data-toggle="modal" data-target="#tipo-ingreso-detalle"><i class="fas fa-clipboard-list"></i>&nbsp;Detalles</a>';
                         }
                         if ($('#Control').data('rol') == 2) {
                             tr = tr + '             <a class="dropdown-item text-primary" href="#" onclick="fn_revisarIniciativa(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-check"></i>&nbsp;Revisar</a>';

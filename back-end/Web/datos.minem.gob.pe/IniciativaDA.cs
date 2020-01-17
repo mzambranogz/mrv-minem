@@ -460,6 +460,8 @@ namespace datos.minem.gob.pe
                     var p = new OracleDynamicParameters();
                     p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
                     p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    p.Add("pDESCRIPCION", "Se aprobó su iniciativa");
+                    p.Add("pID_ESTADO_NOTIFICACION", 3);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
                 entidad.OK = true;
@@ -484,6 +486,8 @@ namespace datos.minem.gob.pe
                     var p = new OracleDynamicParameters();
                     p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
                     p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    p.Add("pDESCRIPCION", entidad.DESCRIPCION);
+                    p.Add("pID_ESTADO", entidad.ID_ESTADO);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
                 entidad.OK = true;

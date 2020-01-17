@@ -120,7 +120,7 @@ function fn_registrarUsuario() {
     var item = {
         EMAIL_USUARIO: $("#txt-user").val(),
         NOMBRES_USUARIO: $("#txt-nombre").val(),
-        APELLIDOS_USUARIO: $("#txt-pswd").val(),
+        APELLIDOS_USUARIO: $("#txt-apellido").val(),
         PASSWORD_USUARIO: $("#txt-pswd").val(),
         TELEFONO_USUARIO: $("#txt-telefono").val(),
         CELULAR_USUARIO: $("#txt-celular").val(),

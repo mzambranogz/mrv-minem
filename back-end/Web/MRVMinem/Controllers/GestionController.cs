@@ -39,6 +39,14 @@ namespace MRVMinem.Controllers
             MvSesion modelo = new MvSesion();
             modelo.identificador = id;
             modelo.iniciativa = ini;
+            modelo.revision = 1;
+            return View(modelo);
+        }
+
+        public ActionResult DetalleIndicador(int id)
+        {
+            MvSesion modelo = new MvSesion();
+            modelo.identificador = id;
             return View(modelo);
         }
 
@@ -156,6 +164,24 @@ namespace MRVMinem.Controllers
             var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
+        }
+
+        public JsonResult ObservacionIniciativaMitigacion(IniciativaBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = IniciativaLN.ObservacionIniciativaMitigacion(entidad);
+            itemRespuesta.success = entidad.OK;
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult AprobarIniciativaMitigacion(IniciativaBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = IniciativaLN.AprobarIniciativaMitigacion(entidad);
+            itemRespuesta.success = entidad.OK;
+            return Respuesta(itemRespuesta);
         }
 
 
