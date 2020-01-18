@@ -208,6 +208,10 @@
     <Content Include="Views\Gestion\RegistroIniciativaMitigacion.cshtml" />
     <Content Include="Views\Gestion\NuevaIniciativaMitigacion.cshtml" />
     <Content Include="Views\Gestion\Notificacion.cshtml" />
+    <Content Include="Views\Gestion\RevisarDetalleIndicador.cshtml" />
+    <Content Include="Views\Gestion\CorregirDetalleIndicador.cshtml" />
+    <Content Include="Views\Gestion\RevisarAdminDetalleIndicador.cshtml" />
+    <Content Include="Views\Gestion\EvaluarIniciativaDetalle.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

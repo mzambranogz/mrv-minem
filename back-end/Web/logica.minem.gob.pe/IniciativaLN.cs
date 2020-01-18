@@ -320,5 +320,10 @@ namespace logica.minem.gob.pe
         {
             return iniciativaDA.ObservacionIniciativaMitigacion(entidad);
         }
+
+        public static List<IniciativaBE> ListaIniciativaEvaluar(IniciativaBE entidad)
+        {
+            return iniciativaDA.ListaIniciativaEvaluar(entidad);
+        }
     }
 }

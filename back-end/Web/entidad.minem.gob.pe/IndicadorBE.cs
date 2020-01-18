@@ -51,5 +51,6 @@ namespace entidad.minem.gob.pe
         public int CANT_INIMIT { get; set; }
         public double FACTOR_RENDIMIENTO { get; set; }
         public int ID_USUARIO { get; set; }
+        public int ID_ESTADO { get; set; }
     }
 }

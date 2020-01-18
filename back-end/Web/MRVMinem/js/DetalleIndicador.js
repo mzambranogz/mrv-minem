@@ -404,7 +404,7 @@ function fn_procesoDetalleIndicador(url, estado) {
             msj = msj + '                            </div>';
             msj = msj + '                            <div class="alert-wrap">';
             msj = msj + '                                <h6>Bien hecho</h6>';
-            msj = msj + '                                <hr><small class="mb-0">Los datos de su detalle de indicadores fueron guardados exitosamente, espere la aprobación del especialista para continuar confirmar su registro. En breve le notificaremos el estado de su solicitud de revisión.</small>';
+            msj = msj + '                                <hr><small class="mb-0">Los datos de su detalle de indicadores fueron guardados exitosamente, espere la aprobación del especialista para continuar. En breve le notificaremos el estado de su solicitud de revisión.</small>';
             msj = msj + '                            </div>';
             msj = msj + '                        </div>';
             $('#mensajeModalRegistrar').append(msj);
@@ -469,7 +469,14 @@ function fn_procesoDetalleIndicador(url, estado) {
         } else {
             $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
             $("#mensajeModalAvance #mensajeDangerAvance").remove();
+            $("#mensajeModalAvance #mensajeWarningAvance").remove();
         }
+    });
+
+    $("#guardar-avance").on("hidden.bs.modal", function () {
+            $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
+            $("#mensajeModalAvance #mensajeDangerAvance").remove();
+            $("#mensajeModalAvance #mensajeWarningAvance").remove();
     });
 }
 
@@ -482,7 +489,263 @@ function fn_guardarAvances() {
     var url = baseUrl + "Gestion/AvanceDetalleIndicador";
     fn_procesoDetalleIndicador(url, 0);
 }
-//tipoCombustibleB, krvB, cantidadB, factorRendimientoB, totalB, totalI, totalR
+
+function fn_corregirDetalleIndicador() {
+    var url = baseUrl + "Gestion/CorregirDetIndicador";
+    fn_procesoDetalleIndicador(url, 5);
+}
+
+function fn_corregirAvances() {
+    var url = baseUrl + "Gestion/CorregirAvanceDetalleIndicador";
+    fn_procesoDetalleIndicador(url, 0);
+}
+
+function fn_observacionDetalleIndicador() {
+    url = baseUrl + "Gestion/ObservacionDetalleIndicador"
+    var item = {
+        ID_INICIATIVA: $("#Control").data("iniciativa"),
+        ID_USUARIO: $("#Control").data("usuario"),
+        DESCRIPCION: $("#txa-observacion-detalle").val(),
+        ID_ESTADO: $("#cbo-tipo-observacion").val()
+    };
+    var mensaje = "";
+    var respuesta = MRV.Ajax(url, item, false);
+    if (respuesta.success) {
+        $("#modalRevision #modalErrorRevision").remove();
+        $("#modalRevision #modalCorrectoRevision").remove();
+        var msj = '                           <div class="alert alert-success d-flex align-items-stretch" role="alert" id="modalCorrectoRevision">';
+        msj = msj + '                               <div class="alert-wrap mr-3">';
+        msj = msj + '                                    <div class="sa">';
+        msj = msj + '                                        <div class="sa-success">';
+        msj = msj + '                                            <div class="sa-success-tip"></div>';
+        msj = msj + '                                            <div class="sa-success-long"></div>';
+        msj = msj + '                                            <div class="sa-success-placeholder"></div>';
+        msj = msj + '                                            <div class="sa-success-fix"></div>';
+        msj = msj + '                                        </div>';
+        msj = msj + '                                    </div>';
+        msj = msj + '                                </div>';
+        msj = msj + '                                <div class="alert-wrap">';
+        msj = msj + '                                    <h6>Bien hecho</h6';
+        msj = msj + '                                    <hr><small class="mb-0">Sus observaciones se enviaron correctamente.</small>';
+        msj = msj + '                                </div>';
+        msj = msj + '                            </div>';
+        $("#modalRevision").append(msj);
+        $("#Control").data("modal", 1);
+    } else {
+        $("#modalRevision #modalErrorRevision").remove();
+        var msj = '                           <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="modalErrorRevision">';
+        msj = msj + '                               <div class="alert-wrap mr-3">';
+        msj = msj + '                                    <div class="sa">';
+        msj = msj + '                                        <div class="sa-error">';
+        msj = msj + '                                            <div class="sa-error-x">';
+        msj = msj + '                                                <div class="sa-error-left"></div>';
+        msj = msj + '                                                <div class="sa-error-right"></div>';
+        msj = msj + '                                            </div>';
+        msj = msj + '                                            <div class="sa-error-placeholder"></div>';
+        msj = msj + '                                            <div class="sa-error-fix"></div>';
+        msj = msj + '                                        </div>';
+        msj = msj + '                                    </div>';
+        msj = msj + '                                </div>';
+        msj = msj + '                                <div class="alert-wrap">';
+        msj = msj + '                                    <h6>Error de registro</h6>';
+        msj = msj + '                                    <hr><small class="mb-0">Sus observaciones no fueron enviadas, intentelo nuevamente.</small>';
+        msj = msj + '                                </div>';
+        msj = msj + '                            </div>';
+        $("#modalRevision").append(msj);
+    }
+
+    $("#observar-revision").on("hidden.bs.modal", function () {
+        if ($("#Control").data("modal") == 1) {
+            location.href = baseUrl + "Gestion/AccionMitigacion";
+        } else {
+            $("#modalRevision #modalErrorRevision").remove();
+        }
+    });
+}
+
+function fn_revisarDetalleIndicador() {
+    var item = {
+        ID_INICIATIVA: $("#Control").data("iniciativa"),
+        ID_USUARIO: $("#Control").data("usuario")
+    }
+    url = baseUrl + "Gestion/AprobarDetalleIndicador";
+    var respuesta = MRV.Ajax(url, item, false);
+    if (respuesta.success) {
+        $("#modalAprobacion #modalCorrectoAprobacion").remove();
+        $("#modalAprobacion #modalErrorAprobacion").remove();
+        $("#aprobar-revision #modalAprobarBoton").remove();
+        var msj = '                           <div class="alert alert-success d-flex align-items-stretch" role="alert" id="modalCorrectoAprobacion">';
+        msj = msj + '                               <div class="alert-wrap mr-3">';
+        msj = msj + '                                    <div class="sa">';
+        msj = msj + '                                        <div class="sa-success">';
+        msj = msj + '                                            <div class="sa-success-tip"></div>';
+        msj = msj + '                                            <div class="sa-success-long"></div>';
+        msj = msj + '                                            <div class="sa-success-placeholder"></div>';
+        msj = msj + '                                            <div class="sa-success-fix"></div>';
+        msj = msj + '                                        </div>';
+        msj = msj + '                                    </div>';
+        msj = msj + '                                </div>';
+        msj = msj + '                                <div class="alert-wrap">';
+        msj = msj + '                                    <h6>Bien hecho</h6';
+        msj = msj + '                                    <hr><small class="mb-0">Se aprobó correctamente esta revisión, se procederá a notificar al Usuario Administrado.</small>';
+        msj = msj + '                                </div>';
+        msj = msj + '                            </div>';
+        $("#modalAprobacion").append(msj);
+        $("#Control").data("modal", 1);
+    } else {
+        $("#modalAprobacion #modalErrorAprobacion").remove();
+        var msj = '                           <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="modalErrorAprobacion">';
+        msj = msj + '                               <div class="alert-wrap mr-3">';
+        msj = msj + '                                    <div class="sa">';
+        msj = msj + '                                        <div class="sa-error">';
+        msj = msj + '                                            <div class="sa-error-x">';
+        msj = msj + '                                                <div class="sa-error-left"></div>';
+        msj = msj + '                                                <div class="sa-error-right"></div>';
+        msj = msj + '                                            </div>';
+        msj = msj + '                                            <div class="sa-error-placeholder"></div>';
+        msj = msj + '                                            <div class="sa-error-fix"></div>';
+        msj = msj + '                                        </div>';
+        msj = msj + '                                    </div>';
+        msj = msj + '                                </div>';
+        msj = msj + '                                <div class="alert-wrap">';
+        msj = msj + '                                    <h6>Error de aprobación</h6>';
+        msj = msj + '                                    <hr><small class="mb-0">Ocurrió un error de comunicación con el servidor, intente otra vez.</small>';
+        msj = msj + '                                </div>';
+        msj = msj + '                            </div>';
+        $("#modalAprobacion").append(msj);
+    }
+
+    $("#aprobar-revision").on("hidden.bs.modal", function () {
+        if ($("#Control").data("modal") == 1) {
+            location.href = baseUrl + "Gestion/AccionMitigacion";
+        } else {
+            $("#modalAprobacion #modalErrorAprobacion").remove();
+        }
+    });
+}
+
+
+function fn_revisarAdminDetalleIndicador() {
+    var item = {
+        ID_INICIATIVA: $("#Control").data("iniciativa"),
+        ID_USUARIO: $("#Control").data("usuario")
+    }
+    url = baseUrl + "Gestion/AprobarAdminIniciativaDetalleIndicador";
+    var respuesta = MRV.Ajax(url, item, false);
+    if (respuesta.success) {
+        $("#modalAprobacion #modalCorrectoAprobacion").remove();
+        $("#modalAprobacion #modalErrorAprobacion").remove();
+        $("#aprobar-revision #modalAprobarBoton").remove();
+        var msj = '                           <div class="alert alert-success d-flex align-items-stretch" role="alert" id="modalCorrectoAprobacion">';
+        msj = msj + '                               <div class="alert-wrap mr-3">';
+        msj = msj + '                                    <div class="sa">';
+        msj = msj + '                                        <div class="sa-success">';
+        msj = msj + '                                            <div class="sa-success-tip"></div>';
+        msj = msj + '                                            <div class="sa-success-long"></div>';
+        msj = msj + '                                            <div class="sa-success-placeholder"></div>';
+        msj = msj + '                                            <div class="sa-success-fix"></div>';
+        msj = msj + '                                        </div>';
+        msj = msj + '                                    </div>';
+        msj = msj + '                                </div>';
+        msj = msj + '                                <div class="alert-wrap">';
+        msj = msj + '                                    <h6>Bien hecho</h6';
+        msj = msj + '                                    <hr><small class="mb-0">Se aprobó correctamente esta revisión, se procederá a notificar al especialista.</small>';
+        msj = msj + '                                </div>';
+        msj = msj + '                            </div>';
+        $("#modalAprobacion").append(msj);
+        $("#Control").data("modal", 1);
+    } else {
+        $("#modalAprobacion #modalErrorAprobacion").remove();
+        var msj = '                           <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="modalErrorAprobacion">';
+        msj = msj + '                               <div class="alert-wrap mr-3">';
+        msj = msj + '                                    <div class="sa">';
+        msj = msj + '                                        <div class="sa-error">';
+        msj = msj + '                                            <div class="sa-error-x">';
+        msj = msj + '                                                <div class="sa-error-left"></div>';
+        msj = msj + '                                                <div class="sa-error-right"></div>';
+        msj = msj + '                                            </div>';
+        msj = msj + '                                            <div class="sa-error-placeholder"></div>';
+        msj = msj + '                                            <div class="sa-error-fix"></div>';
+        msj = msj + '                                        </div>';
+        msj = msj + '                                    </div>';
+        msj = msj + '                                </div>';
+        msj = msj + '                                <div class="alert-wrap">';
+        msj = msj + '                                    <h6>Error de aprobación</h6>';
+        msj = msj + '                                    <hr><small class="mb-0">Ocurrió un error de comunicación con el servidor, intente otra vez.</small>';
+        msj = msj + '                                </div>';
+        msj = msj + '                            </div>';
+        $("#modalAprobacion").append(msj);
+    }
+
+    $("#aprobar-revision").on("hidden.bs.modal", function () {
+        if ($("#Control").data("modal") == 1) {
+            location.href = baseUrl + "Gestion/AccionMitigacion";
+        } else {
+            $("#modalAprobacion #modalErrorAprobacion").remove();
+        }
+    });
+}
+
+function fn_evaluarIniciativaDetalle() {
+    var item = {
+        ID_INICIATIVA: $("#Control").data("iniciativa"),
+        ID_USUARIO: $("#Control").data("usuario")
+    }
+    url = baseUrl + "Gestion/EvaluarIniciativaDetalleIndicador";
+    var respuesta = MRV.Ajax(url, item, false);
+    if (respuesta.success) {
+        $("#modalAprobacion #modalCorrectoAprobacion").remove();
+        $("#modalAprobacion #modalErrorAprobacion").remove();
+        $("#aprobar-revision #modalAprobarBoton").remove();
+        var msj = '                           <div class="alert alert-success d-flex align-items-stretch" role="alert" id="modalCorrectoAprobacion">';
+        msj = msj + '                               <div class="alert-wrap mr-3">';
+        msj = msj + '                                    <div class="sa">';
+        msj = msj + '                                        <div class="sa-success">';
+        msj = msj + '                                            <div class="sa-success-tip"></div>';
+        msj = msj + '                                            <div class="sa-success-long"></div>';
+        msj = msj + '                                            <div class="sa-success-placeholder"></div>';
+        msj = msj + '                                            <div class="sa-success-fix"></div>';
+        msj = msj + '                                        </div>';
+        msj = msj + '                                    </div>';
+        msj = msj + '                                </div>';
+        msj = msj + '                                <div class="alert-wrap">';
+        msj = msj + '                                    <h6>Bien hecho</h6';
+        msj = msj + '                                    <hr><small class="mb-0">Se aprobó correctamente esta evaluación, se procederá a notificar al Especialista.</small>';
+        msj = msj + '                                </div>';
+        msj = msj + '                            </div>';
+        $("#modalAprobacion").append(msj);
+        $("#Control").data("modal", 1);
+    } else {
+        $("#modalAprobacion #modalErrorAprobacion").remove();
+        var msj = '                           <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="modalErrorAprobacion">';
+        msj = msj + '                               <div class="alert-wrap mr-3">';
+        msj = msj + '                                    <div class="sa">';
+        msj = msj + '                                        <div class="sa-error">';
+        msj = msj + '                                            <div class="sa-error-x">';
+        msj = msj + '                                                <div class="sa-error-left"></div>';
+        msj = msj + '                                                <div class="sa-error-right"></div>';
+        msj = msj + '                                            </div>';
+        msj = msj + '                                            <div class="sa-error-placeholder"></div>';
+        msj = msj + '                                            <div class="sa-error-fix"></div>';
+        msj = msj + '                                        </div>';
+        msj = msj + '                                    </div>';
+        msj = msj + '                                </div>';
+        msj = msj + '                                <div class="alert-wrap">';
+        msj = msj + '                                    <h6>Error de aprobación</h6>';
+        msj = msj + '                                    <hr><small class="mb-0">Ocurrió un error de comunicación con el servidor, intente otra vez.</small>';
+        msj = msj + '                                </div>';
+        msj = msj + '                            </div>';
+        $("#modalAprobacion").append(msj);
+    }
+
+    $("#aprobar-evaluacion").on("hidden.bs.modal", function () {
+        if ($("#Control").data("modal") == 1) {
+            location.href = baseUrl + "Gestion/AccionMitigacion";
+        } else {
+            $("#modalAprobacion #modalErrorAprobacion").remove();
+        }
+    });
+}
 
 
 

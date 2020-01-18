@@ -50,6 +50,34 @@ namespace MRVMinem.Controllers
             return View(modelo);
         }
 
+        public ActionResult RevisarDetalleIndicador(int id)
+        {
+            MvSesion modelo = new MvSesion();
+            modelo.identificador = id;
+            return View(modelo);
+        }
+
+        public ActionResult CorregirDetalleIndicador(int id)
+        {
+            MvSesion modelo = new MvSesion();
+            modelo.identificador = id;
+            return View(modelo);
+        }
+
+        public ActionResult RevisarAdminDetalleIndicador(int id)
+        {
+            MvSesion modelo = new MvSesion();
+            modelo.identificador = id;
+            return View(modelo);
+        }
+
+        public ActionResult EvaluarIniciativaDetalle(int id)
+        {
+            MvSesion modelo = new MvSesion();
+            modelo.identificador = id;
+            return View(modelo);
+        }
+
         public JsonResult ListaIniciativasEspecialista(IniciativaBE entidad)
         {
             List<IniciativaBE> lista = IniciativaLN.ListaIniciativaEspecialista(entidad);
@@ -233,7 +261,77 @@ namespace MRVMinem.Controllers
             return Respuesta(itemRespuesta);
         }
 
+        public JsonResult AvanceDetalleIndicador(IndicadorBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
 
+            entidad = IndicadorLN.AvanceDetalleIndicador(entidad);
+            itemRespuesta.success = entidad.OK;
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult ObservacionDetalleIndicador(IndicadorBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = IndicadorLN.ObservacionDetalleIndicador(entidad);
+            itemRespuesta.success = entidad.OK;
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult AprobarDetalleIndicador(IndicadorBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = IndicadorLN.AprobarDetalleIndicador(entidad);
+            itemRespuesta.success = entidad.OK;
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult CorregirDetIndicador(IndicadorBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = IndicadorLN.CorregirDetalleIndicador(entidad);
+            itemRespuesta.success = entidad.OK;
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult CorregirAvanceDetalleIndicador(IndicadorBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = IndicadorLN.CorregirAvanceDetalleIndicador(entidad);
+            itemRespuesta.success = entidad.OK;
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult AprobarAdminIniciativaDetalleIndicador(IndicadorBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = IndicadorLN.AprobarAdminIniciativaDetalleIndicador(entidad);
+            itemRespuesta.success = entidad.OK;
+            return Respuesta(itemRespuesta);
+        }
+
+        
+        public JsonResult EvaluarIniciativaDetalleIndicador(IndicadorBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = IndicadorLN.EvaluarIniciativaDetalleIndicador(entidad);
+            itemRespuesta.success = entidad.OK;
+            return Respuesta(itemRespuesta);
+        }
+        
+        public JsonResult ListaIniciativasEvaluar(IniciativaBE entidad)
+        {
+            List<IniciativaBE> lista = IniciativaLN.ListaIniciativaEvaluar(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
         /*Session["VARIABLE"] = entidad;
 
             entidad = (UsuarioBE)Session["VARIABLE"];*/

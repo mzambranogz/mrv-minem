@@ -22,7 +22,6 @@ function CargarListaSectorInstitucion() {
 }
 
 function fn_verificarEmail() {
-    alert("entre");
     item = {
         EMAIL_USUARIO: $("#txt-user").val()
     };

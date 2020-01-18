@@ -460,8 +460,6 @@ namespace datos.minem.gob.pe
                     var p = new OracleDynamicParameters();
                     p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
                     p.Add("pID_USUARIO", entidad.ID_USUARIO);
-                    p.Add("pDESCRIPCION", "Se aprobó su iniciativa");
-                    p.Add("pID_ESTADO_NOTIFICACION", 3);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
                 entidad.OK = true;
@@ -487,7 +485,7 @@ namespace datos.minem.gob.pe
                     p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
                     p.Add("pID_USUARIO", entidad.ID_USUARIO);
                     p.Add("pDESCRIPCION", entidad.DESCRIPCION);
-                    p.Add("pID_ESTADO", entidad.ID_ESTADO);
+                    p.Add("pID_ESTADO_NOTIFICACION",entidad.ID_ESTADO);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
                 entidad.OK = true;
@@ -500,6 +498,33 @@ namespace datos.minem.gob.pe
             }
 
             return entidad;
+        }
+
+        public List<IniciativaBE> ListaIniciativaEvaluar(IniciativaBE entidad)
+        {
+            List<IniciativaBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_INICIATIVAS_EVALUAR";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in Lista)
+                    {
+                        item.FECHA = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
         }
 
     }
