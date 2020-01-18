@@ -747,5 +747,66 @@ function fn_evaluarIniciativaDetalle() {
     });
 }
 
+function fn_verificarIniciativaDetalle() {
+    var item = {
+        ID_INICIATIVA: $("#Control").data("iniciativa"),
+        ID_USUARIO: $("#Control").data("usuario")
+    }
+    url = baseUrl + "Gestion/VerificarIniciativaDetalleIndicador";
+    var respuesta = MRV.Ajax(url, item, false);
+    if (respuesta.success) {
+        $("#modalAprobacion #modalCorrectoAprobacion").remove();
+        $("#modalAprobacion #modalErrorAprobacion").remove();
+        $("#aprobar-revision #modalAprobarBoton").remove();
+        var msj = '                           <div class="alert alert-success d-flex align-items-stretch" role="alert" id="modalCorrectoAprobacion">';
+        msj = msj + '                               <div class="alert-wrap mr-3">';
+        msj = msj + '                                    <div class="sa">';
+        msj = msj + '                                        <div class="sa-success">';
+        msj = msj + '                                            <div class="sa-success-tip"></div>';
+        msj = msj + '                                            <div class="sa-success-long"></div>';
+        msj = msj + '                                            <div class="sa-success-placeholder"></div>';
+        msj = msj + '                                            <div class="sa-success-fix"></div>';
+        msj = msj + '                                        </div>';
+        msj = msj + '                                    </div>';
+        msj = msj + '                                </div>';
+        msj = msj + '                                <div class="alert-wrap">';
+        msj = msj + '                                    <h6>Bien hecho</h6';
+        msj = msj + '                                    <hr><small class="mb-0">Se aprobó correctamente esta verificación, se procederá a notificar al Especialista.</small>';
+        msj = msj + '                                </div>';
+        msj = msj + '                            </div>';
+        $("#modalAprobacion").append(msj);
+        $("#Control").data("modal", 1);
+    } else {
+        $("#modalAprobacion #modalErrorAprobacion").remove();
+        var msj = '                           <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="modalErrorAprobacion">';
+        msj = msj + '                               <div class="alert-wrap mr-3">';
+        msj = msj + '                                    <div class="sa">';
+        msj = msj + '                                        <div class="sa-error">';
+        msj = msj + '                                            <div class="sa-error-x">';
+        msj = msj + '                                                <div class="sa-error-left"></div>';
+        msj = msj + '                                                <div class="sa-error-right"></div>';
+        msj = msj + '                                            </div>';
+        msj = msj + '                                            <div class="sa-error-placeholder"></div>';
+        msj = msj + '                                            <div class="sa-error-fix"></div>';
+        msj = msj + '                                        </div>';
+        msj = msj + '                                    </div>';
+        msj = msj + '                                </div>';
+        msj = msj + '                                <div class="alert-wrap">';
+        msj = msj + '                                    <h6>Error de aprobación</h6>';
+        msj = msj + '                                    <hr><small class="mb-0">Ocurrió un error de comunicación con el servidor, intente otra vez.</small>';
+        msj = msj + '                                </div>';
+        msj = msj + '                            </div>';
+        $("#modalAprobacion").append(msj);
+    }
+
+    $("#aprobar-evaluacion").on("hidden.bs.modal", function () {
+        if ($("#Control").data("modal") == 1) {
+            location.href = baseUrl + "Gestion/AccionMitigacion";
+        } else {
+            $("#modalAprobacion #modalErrorAprobacion").remove();
+        }
+    });
+}
+
 
 

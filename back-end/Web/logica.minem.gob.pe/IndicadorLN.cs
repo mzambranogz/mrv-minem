@@ -76,5 +76,10 @@ namespace logica.minem.gob.pe
         {
             return indicador.EvaluarIniciativaDetalleIndicador(entidad);
         }
+
+        public static IndicadorBE VerificarIniciativaDetalleIndicador(IndicadorBE entidad)
+        {
+            return indicador.VerificarIniciativaDetalleIndicador(entidad);
+        }
     }
 }

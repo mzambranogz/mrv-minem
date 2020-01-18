@@ -3,8 +3,12 @@
     if ($("#Control").data("usuario") > 0) {
         if ($("#Control").data("rol") == 2) {
             CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaIniciativasEspecialista");
-        } else {
+        } else if ($("#Control").data("rol") == 3) {
+            CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaIniciativasGeneral");
+        } else if ($("#Control").data("rol") == 1) {
             CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaIniciativasUsuario");
+        } else if ($("#Control").data("rol") == 4) {
+            CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaIniciativasEvaluar");
         }
     } else {
         CargarListarIniciativaMitigacionPublico(baseUrl + "Portal/ListaIniciativasPublico");
@@ -12,8 +16,9 @@
     /*MRV.CargarSelect(baseUrl + "Publico/Portal/ListaSectorInstitucion", "#mSector", "ID_SECTOR_INST", "DESCRIPCION");
     MRV.CargarSelect(baseUrl + "Administrado/Gestion/ListarMedidaMitigacion", "#medMitigacion", "ID_MAE_MEDMIT", "NOMBRE_MEDMIT");
     MRV.CargarSelect(baseUrl + "Administrado/Gestion/ListarMoneda", "#mMoneda", "ID_MONEDA", "DESCRIPCION");
+    */
     fn_actualizaCampana();
-    enLinea();*/
+    enLinea();
 });
 
 function CargarOpcionesCuerpo() {
@@ -22,8 +27,36 @@ function CargarOpcionesCuerpo() {
     }
 }
 
- function fn_revisarIniciativa(ini){
+function fn_revisarIniciativa(ini){
      location.href = baseUrl + "Gestion/RevisarIniciativa?id=" + 0+"&ini="+ini;
+ }
+
+function fn_revisarDetalle(id){
+     location.href = baseUrl + "Gestion/RevisarDetalleIndicador?id=" + id;
+}
+
+function fn_revisarDetalleAdmin(id) {
+    location.href = baseUrl + "Gestion/RevisarAdminDetalleIndicador?id=" + id;
+}
+
+function fn_evaluarIniciativaDetalle(id) {
+    location.href = baseUrl + "Gestion/EvaluarIniciativaDetalle?id=" + id;
+}
+
+ function fn_cargarIdIniciativa(id) {
+     $("#Control").data("iniciativa",id);
+ }
+
+ function fn_mostrarEditarIndicador(id) {
+     location.href = baseUrl + "Gestion/DetalleIndicador?id=" + id;
+ }
+
+ function fn_mostrarCorregirIndicador(id) {
+     location.href = baseUrl + "Gestion/CorregirDetalleIndicador?id=" + id;
+ }
+
+ function fn_mostrarDetalleIndicador() {
+     location.href = baseUrl + "Gestion/DetalleIndicador?id=" + $("#Control").data("iniciativa");
  }
 
 function CargarListarIniciativaMitigacionPublico(vUrl) {
@@ -42,14 +75,16 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
 
 
                         var progreso = '0%;';
-                        if (data[i]["PROGRESO"] == 1) {
-                            progreso = '25%';
-                        } else if (data[i]["PROGRESO"] == 2) {
-                            progreso = '50%';
-                        } else if (data[i]["PROGRESO"] == 3) {
-                            progreso = '75%';
-                        } else if (data[i]["PROGRESO"] == 4) {
-                            progreso = '100%';
+                        if (data[i]["ID_ESTADO"] != 0 || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3)) {
+                            if (data[i]["PROGRESO"] == 1) {
+                                progreso = '25%';
+                            } else if (data[i]["PROGRESO"] == 2 || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3)) {
+                                progreso = '50%';
+                            } else if (data[i]["PROGRESO"] == 3 && data[i]["ID_ESTADO"] != 0) {
+                                progreso = '75%';
+                            } else if (data[i]["PROGRESO"] == 4 || data[i]["PROGRESO"] == 5 || data[i]["PROGRESO"] == 6) {
+                                progreso = '100%';
+                            }
                         }
 
                         var tr = '<tr>';
@@ -102,14 +137,14 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                     for (var i = 0; i < data.length; i++) {
 
                         var progreso = '0%;';
-                        if (data[i]["ID_ESTADO"] != 0) {
+                        if (data[i]["ID_ESTADO"] != 0 || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3)) {
                             if (data[i]["PROGRESO"] == 1) {
                                 progreso = '25%';
-                            } else if (data[i]["PROGRESO"] == 2) {
+                            } else if (data[i]["PROGRESO"] == 2 || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3)) {
                                 progreso = '50%';
-                            } else if (data[i]["PROGRESO"] == 3) {
+                            } else if (data[i]["PROGRESO"] == 3 && data[i]["ID_ESTADO"] != 0) {
                                 progreso = '75%';
-                            } else if (data[i]["PROGRESO"] == 4) {
+                            } else if (data[i]["PROGRESO"] == 4 || data[i]["PROGRESO"] == 5 || data[i]["PROGRESO"] == 6) {
                                 progreso = '100%';
                             }
                         }
@@ -127,7 +162,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                         tr = tr + '<td class="text-center text-xs-right" data-encabezado="Acciones">';
 
                         tr = tr + '     <div class="btn-group">';
-                        if (data[i]["PROGRESO"] == 2) {
+                        if (data[i]["PROGRESO"] == 2 || data[i]["PROGRESO"] == 3 || data[i]["PROGRESO"] == 4 || data[i]["PROGRESO"] == 5 || data[i]["PROGRESO"] == 6 || data[i]["PROGRESO"] == 7) {
                             tr = tr + '         <div class="acciones fase-02 dropdown-toggle text-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
                         } else {
                             tr = tr + '         <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
@@ -135,19 +170,29 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                         tr = tr + '         <div class="dropdown-menu dropdown-menu-right">';
                         tr = tr + '             <a class="dropdown-item" href="./ver-mas-accion-de-mitigacion.html"><i class="fas fa-plus-circle"></i>&nbsp;Ver más</a>';
                         tr = tr + '             <a class="dropdown-item" href="./seguimiento-de-accion-de-mitigacion.html"><i class="fas fa-history"></i>&nbsp;Seguimiento</a>';
-                        if (/*data[i]["ID_ESTADO"] == 1 ||*/ data[i]["ID_ESTADO"] == 0) {
-                            tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_mostrarEditarIniciativa(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
-                        } else if (data[i]["ID_ESTADO"] == 2) {
-                            tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_mostrarCorregirIniciativa(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
-                        } else if (data[i]["PROGRESO"] == 2) {
-                            tr = tr + '<a class="dropdown-item text-success" href="#" onclick="fn_mostrarDetalleIndicador(' + data[i]["ID_INICIATIVA"] + ');" data-toggle="modal" data-target="#tipo-ingreso-detalle"><i class="fas fa-clipboard-list"></i>&nbsp;Detalles</a>';
-                        }
-                        if ($('#Control').data('rol') == 2) {
+                        if ($('#Control').data('rol') == 2 || $('#Control').data('rol') == 1) {
+                            if (data[i]["PROGRESO"] == 1 && data[i]["ID_ESTADO"] == 0) {
+                                tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_mostrarEditarIniciativa(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
+                            } else if (data[i]["PROGRESO"] == 1 && data[i]["ID_ESTADO"] == 2) {
+                                tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_mostrarCorregirIniciativa(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
+                            } else if (data[i]["PROGRESO"] == 2) {
+                                tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_cargarIdIniciativa(' + data[i]["ID_INICIATIVA"] + ');" data-toggle="modal" data-target="#tipo-ingreso-detalle"><i class="fas fa-clipboard-list"></i>&nbsp;Detalles</a>';
+                            } else if (data[i]["PROGRESO"] == 3 && data[i]["ID_ESTADO"] == 0) {
+                                tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_mostrarEditarIndicador(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
+                            } else if (data[i]["PROGRESO"] == 3 && (data[i]["ID_ESTADO"] == 2 || data[i]["ID_ESTADO"] == 6)) {
+                                tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_mostrarCorregirIndicador(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
+                            }
+                        }                        
+                        if ($('#Control').data('rol') == 2 && data[i]["PROGRESO"] == 1) {
                             tr = tr + '             <a class="dropdown-item text-primary" href="#" onclick="fn_revisarIniciativa(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-check"></i>&nbsp;Revisar</a>';
+                        } else if ($('#Control').data('rol') == 2 && data[i]["PROGRESO"] == 3) {
+                            tr = tr + '<a class="dropdown-item text-primary" href="#" onclick="fn_revisarDetalle(' + data[i]["ID_INICIATIVA"] + ')"><i class="fas fa-check-double"></i>&nbsp;Revisar</a>';
                         }
-                        if ($('#Control').data('rol') == 4) {
-                            tr = tr + '             <a class="dropdown-item text-info" href="./evaluacion-de-accion-de-mitigacion.html"><i class="fas fa-clipboard-check"></i>&nbsp;Evaluar</a>';
-                            tr = tr + '             <a class="dropdown-item text-warning" href="./revision-de-accion-de-mitigacion.html"><i class="fas fa-tasks"></i>&nbsp;Evaluar</a>';
+                        if ($('#Control').data('rol') == 3 && data[i]["PROGRESO"] == 4) {
+                            tr = tr + '<a class="dropdown-item text-primary" href="#" onclick="fn_revisarDetalleAdmin(' + data[i]["ID_INICIATIVA"] + ')"><i class="fas fa-check-double"></i>&nbsp;Revisar</a>';
+                        }
+                        if ($('#Control').data('rol') == 4 && data[i]["PROGRESO"] == 5) {
+                            tr = tr + '             <a class="dropdown-item text-info" href="#" onclick="fn_evaluarIniciativaDetalle(' + data[i]["ID_INICIATIVA"] + ')"><i class="fas fa-clipboard-check"></i>&nbsp;Evaluar</a>';
                         }
                         if ($('#Control').data('rol') == 5) {
                             tr = tr + '             <a class="dropdown-item text-warning" href="./revision-de-accion-de-mitigacion.html"><i class="fas fa-tasks"></i>&nbsp;Verificar</a>';
@@ -169,5 +214,41 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
 
 
 
+////// CAMBIOS EDUARDO CH
 
+function enLinea() {
+    ws = new WebSocket("ws://192.168.1.46:9002");
+    ws.onopen = function () {
+        console.log("Conectado");
+    }
+    ws.onclose = function (event) {
+        console.log("Desconectado por: " + event.reason);
+    }
+    ws.onmessage = function (event) {
+        var data = event.data;
+        if (data != "") {
+            console.log("Campana Actualizada");
+            fn_actualizaCampana();
+        }
+    }
+}
 
+function fn_actualizaCampana() {
+    var item = {
+        ID_ROL: $("#Control").data("rol"),
+        ID_USUARIO: $("#Control").data("usuario")
+    }
+    url = baseUrl + "Gestion/ConsultaNotificaciones";
+    var respuesta = MRV.Ajax(url, item, false);
+    if (respuesta.success) {
+        $("#numNotificacion").html(respuesta.extra);
+    }
+}
+
+function fn_nuevaIniciativaMitigacion(id) {
+
+    $("#Control").data("mitigacion", id);
+    MRV.ObtenerVista(baseUrl + 'Administrado/Gestion/NuevaIniciativaMitigacion');
+    $('.fade').remove();
+    $('body').removeClass('modal-open');
+}

@@ -1,0 +1,9 @@
+18/01/2020 06:45:17 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+18/01/2020 06:45:17 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+18/01/2020 06:45:17 a.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+18/01/2020 06:45:17 a.m.: [Método: Void Open(), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+18/01/2020 06:45:17 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+18/01/2020 06:45:17 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+18/01/2020 06:45:17 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+18/01/2020 06:45:18 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+18/01/2020 06:45:18 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SectorInstitucionBE] ListaSectorInstitucion(entidad.minem.gob.pe.SectorInstitucionBE), Línea: 30] - ORA-12170: TNS:Connect timeout occurred

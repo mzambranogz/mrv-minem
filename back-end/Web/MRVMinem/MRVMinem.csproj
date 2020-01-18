@@ -212,6 +212,7 @@
     <Content Include="Views\Gestion\CorregirDetalleIndicador.cshtml" />
     <Content Include="Views\Gestion\RevisarAdminDetalleIndicador.cshtml" />
     <Content Include="Views\Gestion\EvaluarIniciativaDetalle.cshtml" />
+    <Content Include="Views\Gestion\VerificarIniciativaDetalle.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

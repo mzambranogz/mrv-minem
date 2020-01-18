@@ -331,5 +331,29 @@ namespace datos.minem.gob.pe
 
             return entidad;
         }
+
+        public IndicadorBE VerificarIniciativaDetalleIndicador(IndicadorBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_UPD_VERIFICAR_INI_DETALLE";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+                entidad.extra = ex.Message;
+            }
+
+            return entidad;
+        }
     }
 }

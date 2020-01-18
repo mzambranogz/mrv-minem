@@ -1,0 +1,186 @@
+﻿
+@{
+    ViewBag.Title = "Notificacion";
+    Layout = "~/Views/Shared/_SesionLayout.cshtml";
+}
+
+<div class="container-fluid map-root" id="historia">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="./acciones-de-mitigacion-interno.html">Iniciativas de Mitigación</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Notificaciones</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="container-fluid my-4" id="cuerpo">
+    <div class="row m-0">
+        <div class="col-12 cuerpo-interior">
+            <div class="container py-4">
+                <div class="row">
+                    <div class="col-md-12 col-lg-6 pt-4">
+                        <div class="h4">
+                            Notificaciones&nbsp;
+                            <!--i.fas.fa-question-circle.ayuda-tooltip(data-toggle="tooltip", data-placement="right", title="Texto de ayuda que describe el funcionamiento general del módulo [...]")--><br><small class="text-muted">Utilice la búsqueda para ubicar las notificaiones de acuerdo al criterio de su descripción.</small>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-6 pt-4"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-lg-6 pt-4">
+                        <form>
+                            <div class="form-group">
+                                <label for="txt-buscar">Buscar&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese si conoce el nombre de la iniciativa o la(s) palabra(s) asociada(s) a las iniciativas de interés. En caso de no encontrar resultados acceda a la búsqueda avanzada."></i></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-search"></i></span></div>
+                                    <input class="form-control" type="text" id="txt-buscar" placeholder="Ingrese la descripción de su búsqueda" aria-describedby="inputGroup1" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <button class="btn btn-success w-100 mb-2" type="submit"><i class="fas fa-search px-1"></i>Buscar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-12 col-lg-6 pt-4">
+                        <!--&nbsp;-->
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid py-4">
+                <div class="h5">Bandeja de Notificaciones&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></div>
+                <div class="dropdown-divider"></div>
+                <div class="row">
+                    <div class="col-12 px-0">
+                        <div class="table-responsive tabla-principal">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr class="bg-primary text-white">
+                                        <th class="text-center" scope="col"><span>#&nbsp;<i class="fas fa-sort"></i></span></th>
+                                        <th scope="col"><span>Nombre de Iniciativa&nbsp;<i class="fas fa-sort"></i></span></th>
+                                        <th scope="col"><span>Progreso&nbsp;<i class="fas fa-sort"></i></span></th>
+                                        <th scope="col"><span>Fecha Registro&nbsp;<i class="fas fa-sort"></i></span></th>
+                                        <th scope="col"><span>Usuario Responsable&nbsp;<i class="fas fa-sort"></i></span></th>
+                                        <th scope="col"><span>Perfil&nbsp;<i class="fas fa-sort"></i></span></th>
+                                        <th class="text-center" scope="col">Más</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cuerpoNotificacion"></tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td class="text-left" colspan="3"><strong>Resultado:&nbsp;</strong>1-10 de 750 registros</td>
+                                        <td class="text-right text-xs-left" colspan="4">
+                                            <strong>Registros por página&nbsp;</strong>
+                                            <select id="catidad-rgistros">
+                                                <option value="10" selected>10</option>
+                                                <option value="25">25</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
+                                            </select>&nbsp;
+                                            1 de 75 páginas&nbsp;
+                                            <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                                <button class="btn btn-primary" type="button"><i class="fas fa-angle-double-left"></i></button>
+                                                <button class="btn btn-primary" type="button"><i class="fas fa-angle-left"></i></button>
+                                                <input class="ir-pagina" type="number" value="1" min="1">
+                                                <button class="btn btn-primary" type="button"><i class="fas fa-angle-right"></i></button>
+                                                <button class="btn btn-primary" type="button"><i class="fas fa-angle-double-right"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modal-ver-mas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Notificación 145263699</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body medidas-modal">
+                            <div class="row mb-2">
+                                <div class="col-sm-12 col-md-6 col-lg-6"><strong>De: Juan Perez&nbsp;<span class="badge badge-actor-03">Especialista</span></strong></div>
+                                <div class="col-sm-12 col-md-6 col-lg-6 text-right"><strong>Fecha de Registro: 15/01/2020</strong></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    
+                                    <div class="alert alert-warning d-flex align-items-stretch" role="alert" id="modalObservacion">
+                                        <div class="alert-wrap mr-3">
+                                            <div class="sa">
+                                                <div class="sa-warning">
+                                                    <div class="sa-warning-body"></div>
+                                                    <div class="sa-warning-dot"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="alert-wrap">
+                                            <h6>Observaciones</h6>
+                                            <hr><small class="mb-0">Detectamos algunos datos a&nbsp;<strong>corregir&nbsp;</strong>en su iniciativa, los detalles en la siguiente descripción:</small>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="modalIncorrecto">
+                                        <div class="alert-wrap mr-3">
+                                            <div class="sa">
+                                                <div class="sa-error">
+                                                    <div class="sa-error-x">
+                                                        <div class="sa-error-left"></div>
+                                                        <div class="sa-error-right"></div>
+                                                    </div>
+                                                    <div class="sa-error-placeholder"></div>
+                                                    <div class="sa-error-fix"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="alert-wrap">
+                                            <h6>Error de registro</h6>
+                                            <hr><small class="mb-0">Su inicitiva presenta los siguientes&nbsp;<strong>errores&nbsp;</strong>que detallamos a continuación:</small>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="alert alert-success d-flex align-items-stretch" role="alert" id="modalCorrecto">
+                                        <div class="alert-wrap mr-3">
+                                            <div class="sa">
+                                                <div class="sa-success">
+                                                    <div class="sa-success-tip"></div>
+                                                    <div class="sa-success-long"></div>
+                                                    <div class="sa-success-placeholder"></div>
+                                                    <div class="sa-success-fix"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="alert-wrap">
+                                            <h6>Bien hecho</h6>
+                                            <hr><small class="mb-0">Su iniciativa fue&nbsp;<strong>revisada&nbsp;</strong>y&nbsp;<strong>aprobada&nbsp;</strong>, a continuación siga los detalles en la descripción:</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bd-callout">
+                                <h5>Mensaje:</h5>
+                                <p id="modalDescripcion">Using color to add meaning only provides a visual indication, which will not be conveyed to users of assistive technologies – such as screen readers. Ensure that information denoted by the color is either obvious from the content itself (e.g. the visible text), or is included through alternative means, such as additional text hidden with the.</p>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button><a class="btn btn-primary" href="./registro-de-iniciativa-de-mitigacion.html">Ir a la Inicicativa<i class="fas fa-hand-point-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="~/Scripts/js/Notificacion.js"></script>
+
+
