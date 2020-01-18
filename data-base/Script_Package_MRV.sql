@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - jueves-enero-16-2020   
+-- Archivo creado  - viernes-enero-17-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_ADMIN_SISTEMA
@@ -64,6 +64,63 @@ END PKG_MRV_ADMIN_SISTEMA;
 
 /
 --------------------------------------------------------
+--  DDL for Package PKG_MRV_CALCULO
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE PACKAGE "USERMRV"."PKG_MRV_CALCULO" AS 
+  
+    FUNCTION FN_F_BAU(   
+        p_tipo_vehiculo     IN number, 
+        p_tipo_combustible  IN number, 
+        p_anno              IN number    
+    ) RETURN NUMBER;
+
+    FUNCTION FN_F_MIT(      
+        p_tipo_vehiculo     IN number, 
+        p_tipo_fuente       IN number, 
+        p_anno              IN number    
+    ) RETURN NUMBER;
+
+
+    FUNCTION FN_F_REN(      
+        p_tipo_vehiculo     IN number, 
+        p_tipo_fuente       IN number
+    ) RETURN NUMBER;
+
+    FUNCTION FN_F_PER(      
+        p_anno              IN number    
+    ) RETURN NUMBER;    
+
+
+     FUNCTION FN_Base_Electricos (  
+        p_krv               IN NUMBER, 
+        p_n                 IN NUMBER,
+        p_tv                IN NUMBER,
+        p_tc                IN NUMBER,
+        p_anno              IN NUMBER
+       ) RETURN NUMBER;
+
+    FUNCTION FN_Iniciativa_Electricos (  
+        p_krv               IN NUMBER, 
+        p_n                 IN NUMBER,
+        p_tv                IN NUMBER,
+        p_tf                IN NUMBER,
+        p_anno              IN NUMBER
+       ) RETURN NUMBER;
+       
+    FUNCTION FN_Iniciativa_Electricos2 (  
+        p_krv               IN NUMBER, 
+        p_n                 IN NUMBER,
+        p_tv                IN NUMBER,
+        p_tf                IN NUMBER,
+        p_REN               IN NUMBER,
+        p_anno              IN NUMBER
+       ) RETURN NUMBER;       
+
+END PKG_MRV_CALCULO;
+
+/
+--------------------------------------------------------
 --  DDL for Package PKG_MRV_DETALLE_INDICADORES
 --------------------------------------------------------
 
@@ -92,16 +149,13 @@ END PKG_MRV_ADMIN_SISTEMA;
   PROCEDURE USP_PRC_CALCULAR_INDICADOR(
     pID_INDICADOR IN NUMBER,
     pID_INICIATIVA IN NUMBER,
-    pANNOB IN   NUMBER,
-    pID_TIPO_VEHICULOB IN NUMBER,
-    pID_TIPO_COMBUSTIBLEB  IN NUMBER,
-    pKRVB  IN NUMBER,
-    pCANTIDADB IN   NUMBER,
-    pANNOI IN NUMBER,
-    pID_TIPO_VEHICULOI IN NUMBER,
-    pID_TIPO_FUENTEI   IN NUMBER,
-    pKRVI  IN NUMBER,
-    pCANTIDADI IN NUMBER,
+    pANNO IN   NUMBER,
+    pID_TIPO_VEHICULO IN NUMBER,
+    pID_TIPO_COMBUSTIBLE  IN NUMBER,
+    pKRV  IN NUMBER,
+    pCANTIDAD IN   NUMBER,
+    pF_REN IN NUMBER,
+    pID_TIPO_FUENTE   IN NUMBER,
     pRefcursor OUT  SYS_REFCURSOR
   );
   
@@ -120,47 +174,7 @@ END PKG_MRV_ADMIN_SISTEMA;
    PROCEDURE USP_SEL_LISTA_TIPO_FUENTE(
         pRefcursor  OUT SYS_REFCURSOR
    ); 
-   
-    FUNCTION FN_F_BAU(   
-        p_tipo_vehiculo     IN number, 
-        p_tipo_combustible  IN number, 
-        p_anno              IN number    
-    ) RETURN NUMBER;
-    
-    FUNCTION FN_F_MIT(      
-        p_tipo_vehiculo     IN number, 
-        p_tipo_fuente       IN number, 
-        p_anno              IN number    
-    ) RETURN NUMBER;
-    
-    
-    FUNCTION FN_F_REN(      
-        p_tipo_vehiculo     IN number, 
-        p_tipo_fuente       IN number
-    ) RETURN NUMBER;
-
-    FUNCTION FN_F_PER(      
-        p_anno              IN number    
-    ) RETURN NUMBER;    
-       
-    
-     FUNCTION FN_Base_Electricos (  
-        p_krv               IN NUMBER, 
-        p_n                 IN NUMBER,
-        p_tv                IN NUMBER,
-        p_tc                IN NUMBER,
-        p_anno              IN NUMBER
-       ) RETURN NUMBER;
-       
-    FUNCTION FN_Iniciativa_Electricos (  
-        p_krv               IN NUMBER, 
-        p_n                 IN NUMBER,
-        p_tv                IN NUMBER,
-        p_tf                IN NUMBER,
-        p_anno              IN NUMBER
-       ) RETURN NUMBER;
-       
-       
+  
 
 END PKG_MRV_DETALLE_INDICADORES;
 
@@ -703,165 +717,10 @@ END PKG_MRV_ADMIN_SISTEMA;
 
 /
 --------------------------------------------------------
---  DDL for Package Body PKG_MRV_DETALLE_INDICADORES
+--  DDL for Package Body PKG_MRV_CALCULO
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "USERMRV"."PKG_MRV_DETALLE_INDICADORES" AS
-
-    PROCEDURE USP_SEL_LISTA_ENFOQUE(
-        pID_MEDMIT  IN NUMBER,
-        pRefcursor  OUT SYS_REFCURSOR
-    )AS
-    BEGIN 
-        OPEN pRefcursor FOR
-        SELECT  ID_ENFOQUE,
-                DESCRIPCION
-        FROM    T_GENM_ENFOQUE
-        WHERE   ID_MEDMIT = pID_MEDMIT;
-    END USP_SEL_LISTA_ENFOQUE;
-    
-    PROCEDURE USP_SEL_ENFOQUE_TABLA(
-        pID_ENFOQUE IN NUMBER,
-        pRefcursor  OUT SYS_REFCURSOR
-    )AS
-    BEGIN
-        OPEN pRefcursor FOR
-        SELECT   V.SIGLA, V.DESCRIPCION, V.ID_VARIABLE ID, EV.ORDEN,'V' TIPO
-        FROM        T_GENM_ENFOQUE E
-        INNER JOIN  T_GEND_ENFOQUE_VARIABLE EV ON E.ID_ENFOQUE = EV.ID_ENFOQUE
-        INNER JOIN  T_GENM_VARIABLE V  ON EV.ID_VARIABLE = V.ID_VARIABLE
-        WHERE E.ID_ENFOQUE = pID_ENFOQUE
-        UNION
-        SELECT   VR.SIGLA, VR.DESCRIPCION, VR.ID_VARIANTE ID, EVR.ORDEN,'VR' TIPO
-        FROM        T_GENM_ENFOQUE E
-        INNER JOIN  T_GEND_ENFOQUE_VARIANTE EVR ON E.ID_ENFOQUE = EVR.ID_ENFOQUE
-        INNER JOIN  T_GENM_VARIANTE VR ON EVR.ID_VARIANTE = VR.ID_VARIANTE
-        WHERE E.ID_ENFOQUE = pID_ENFOQUE
-        ORDER BY ORDEN ASC;
-    END USP_SEL_ENFOQUE_TABLA;
-    
-    PROCEDURE USP_SEL_VARIANTE_ATRB(
-        pID IN NUMBER,
-        pRefcursor  OUT SYS_REFCURSOR
-    )AS
-    BEGIN 
-        OPEN pRefcursor FOR
-        SELECT  ATRIBUTO,
-                ID_VARIANTE_ATRIBUTO
-        FROM    T_GEND_VARIANTE_ATRIBUTO
-        WHERE   ID_VARIANTE = pID;
-    END USP_SEL_VARIANTE_ATRB;
-
-    PROCEDURE USP_SEL_LISTA_DET_INDICADOR(
-        pID_INICIATIVA IN NUMBER,
-        pRefcursor OUT SYS_REFCURSOR
-    )AS
-    BEGIN
-        OPEN pRefcursor FOR
-        SELECT  ID_INDICADOR, ANNO_BASE, ID_TIPO_VEHICULO_BASE, ID_TIPO_COMBUSTIBLE_BASE, KRV_BASE, CANT_BASE, TOTAL_GEI_BASE, 
-                ANNO_INIMIT, ID_TIPO_VEHICULO_INIMIT, ID_TIPO_FUENTE_INIMIT, KRV_INIMIT, CANT_INIMIT, TOTAL_GEI_INIMIT, TOTAL_GEI_REDUCIDO
-        FROM    T_GEND_INDICADOR
-        WHERE   ID_INICIATIVA = pID_INICIATIVA AND FLG_ESTADO = 1
-        ORDER BY ID_INDICADOR ASC;
-    END USP_SEL_LISTA_DET_INDICADOR;
-
-    PROCEDURE USP_PRC_CALCULAR_INDICADOR(
-    pID_INDICADOR IN NUMBER,
-    pID_INICIATIVA IN NUMBER,
-    pANNOB IN   NUMBER,
-    pID_TIPO_VEHICULOB IN NUMBER,
-    pID_TIPO_COMBUSTIBLEB  IN NUMBER,
-    pKRVB  IN NUMBER,
-    pCANTIDADB IN   NUMBER,
-    pANNOI IN NUMBER,
-    pID_TIPO_VEHICULOI IN NUMBER,
-    pID_TIPO_FUENTEI   IN NUMBER,
-    pKRVI  IN NUMBER,
-    pCANTIDADI IN NUMBER,
-    pRefcursor OUT  SYS_REFCURSOR
-  )IS
-    vTotalB NUMBER;
-    vTotalI NUMBER;
-    vTotalR NUMBER;
-    vIdIndicador NUMBER;
-  BEGIN 
-  
-        SELECT PKG_MRV_DETALLE_INDICADORES.FN_Base_Electricos (pKRVB,pCANTIDADB,pID_TIPO_VEHICULOB,pID_TIPO_COMBUSTIBLEB,pANNOB) INTO vTotalB FROM DUAL;
-        SELECT PKG_MRV_DETALLE_INDICADORES.FN_Iniciativa_Electricos (pKRVI,pCANTIDADI,pID_TIPO_VEHICULOI,pID_TIPO_FUENTEI,pANNOI) INTO vTotalI FROM DUAL;
-        vTotalR := vTotalB - vTotalI;
-        
-        IF (pID_INDICADOR = 0) THEN
-            INSERT INTO T_GEND_INDICADOR (ID_INICIATIVA, ANNO_BASE, ID_TIPO_VEHICULO_BASE, ID_TIPO_COMBUSTIBLE_BASE, KRV_BASE, CANT_BASE, TOTAL_GEI_BASE, ANNO_INIMIT, ID_TIPO_VEHICULO_INIMIT, ID_TIPO_FUENTE_INIMIT, KRV_INIMIT, CANT_INIMIT, TOTAL_GEI_INIMIT, TOTAL_GEI_REDUCIDO, FLG_ESTADO)
-            VALUES (pID_INICIATIVA, pANNOB, pID_TIPO_VEHICULOB, pID_TIPO_COMBUSTIBLEB, pKRVB, pCANTIDADB, vTotalB,pANNOI, pID_TIPO_VEHICULOI, pID_TIPO_FUENTEI, pKRVI, pCANTIDADI, vTotalI, vTotalR,1);
-            SELECT NVL(MAX(ID_INDICADOR), 0) INTO vIdIndicador FROM T_GEND_INDICADOR; 
-        ELSE
-            UPDATE T_GEND_INDICADOR 
-            SET 	ID_INICIATIVA = pID_INICIATIVA, 
-                    ANNO_BASE = pANNOB, 
-                    ID_TIPO_VEHICULO_BASE = pID_INDICADOR, 
-                    ID_TIPO_COMBUSTIBLE_BASE = pID_TIPO_COMBUSTIBLEB, 
-                    KRV_BASE = pKRVB,
-                    CANT_BASE = pCANTIDADB, 
-                    TOTAL_GEI_BASE = vTotalB, 
-                    ANNO_INIMIT = pANNOI, 
-                    ID_TIPO_VEHICULO_INIMIT = pID_TIPO_VEHICULOI, 
-                    ID_TIPO_FUENTE_INIMIT = pID_TIPO_FUENTEI, 
-                    KRV_INIMIT = pKRVI, 
-                    CANT_INIMIT = pCANTIDADI, 
-                    TOTAL_GEI_INIMIT = vTotalI, 
-                    TOTAL_GEI_REDUCIDO = vTotalR
-            WHERE   ID_INDICADOR = pID_INDICADOR;
-            vIdIndicador := pID_INDICADOR;
-        END IF;
-              
-        OPEN pRefcursor FOR
-        SELECT  TOTAL_GEI_INIMIT, 
-                TOTAL_GEI_REDUCIDO, 
-                TOTAL_GEI_BASE,
-                ID_INDICADOR
-        FROM T_GEND_INDICADOR
-        WHERE ID_INDICADOR = vIdIndicador;
-  END USP_PRC_CALCULAR_INDICADOR;
-
-    PROCEDURE USP_UPD_ESTADO_INDICADOR(
-        pID_INDICADOR IN NUMBER
-    )AS
-    BEGIN
-        UPDATE  T_GEND_INDICADOR
-        SET     FLG_ESTADO = 0
-        WHERE   ID_INDICADOR = pID_INDICADOR;
-    END USP_UPD_ESTADO_INDICADOR;
-
-    PROCEDURE USP_SEL_LISTA_TIPO_VEHICULO(
-        pRefcursor  OUT SYS_REFCURSOR
-    )AS
-    BEGIN
-        OPEN pRefcursor FOR
-        SELECT  ID_TIPO_VEHICULO,
-                DESCRIPCION
-        FROM    T_MAE_TIPO_VEHICULO;
-    END USP_SEL_LISTA_TIPO_VEHICULO;
-    
-    PROCEDURE USP_SEL_LISTA_TIPO_COMBUSTIBLE(
-        pRefcursor  OUT SYS_REFCURSOR
-   )AS
-    BEGIN
-        OPEN pRefcursor FOR
-        SELECT  ID_TIPO_COMBUSTIBLE,
-                DESCRIPCION
-        FROM    T_MAE_TIPO_COMBUSTIBLE;
-    END USP_SEL_LISTA_TIPO_COMBUSTIBLE;
-   
-   PROCEDURE USP_SEL_LISTA_TIPO_FUENTE(
-        pRefcursor  OUT SYS_REFCURSOR
-   )AS
-    BEGIN
-        OPEN pRefcursor FOR
-        SELECT  ID_TIPO_FUENTE,
-                DESCRIPCION
-        FROM    T_MAE_TIPO_FUENTE;
-    END USP_SEL_LISTA_TIPO_FUENTE;
-
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "USERMRV"."PKG_MRV_CALCULO" AS 
 
 
     FUNCTION FN_F_BAU (
@@ -876,8 +735,6 @@ END PKG_MRV_ADMIN_SISTEMA;
         WHERE Id_Tipo_Vehiculo=p_tipo_vehiculo and Id_Tipo_Combustible=p_tipo_combustible and anno=p_anno;
         Return (resultado);
     END;
-    
-    
     
 
     FUNCTION FN_F_MIT (
@@ -945,12 +802,15 @@ END PKG_MRV_ADMIN_SISTEMA;
     END;
     
     --------------------------------------------------------------------------
+    -- FUNCION FN_Iniciativa_Electricos  que Calcula la Emision de GEI para 
+    -- una Iniciativa de Vehiculos Electricos, determinando el Factor 
+    -- de Rendimiento
+    --------------------------------------------------------------------------
     -- p_krv	: KRV Distancia Recorridad Anualmente por vehiculo promedio
     -- p_n	: Numero de Vehiculos
     -- p_tv	: Tipo Vehiculo
     -- p_tf	: Tipo Fuente Electrica
     -- p_anno	: Año
-    
     -- Ejemplo :
     -- PKG_MRV_DETALLE_INDICADORES.FN_Iniciativa_Electricos (57600,20,1,1,2018);
     -- Debe salir : 0.04
@@ -979,6 +839,206 @@ END PKG_MRV_ADMIN_SISTEMA;
         Return (resultado);
     END;
     
+    --------------------------------------------------------------------------
+    -- FUNCION FN_Iniciativa_Electricos2  que Calcula la Emision de GEI para 
+    -- una Iniciativa de Vehiculos Electricos, ingresado  el Factor 
+    -- de Rendimiento como variable
+    --------------------------------------------------------------------------
+    -- p_krv	: KRV Distancia Recorridad Anualmente por vehiculo promedio
+    -- p_n	: Numero de Vehiculos
+    -- p_tv	: Tipo Vehiculo
+    -- p_tf	: Tipo Fuente Electrica
+    -- p_REN :  Parametro de Rendimiento (como variable)
+    -- p_anno	: Año
+    -- Ejemplo :
+    -- PKG_MRV_DETALLE_INDICADORES.FN_Iniciativa_Electricos (57600,20,1,1,2018);
+    -- Debe salir : 0.04
+    -------------------------------------------------------------------------- 
+    
+    FUNCTION FN_Iniciativa_Electricos2 (
+        p_krv       NUMBER, 
+        p_n         NUMBER, 
+        p_tv        NUMBER,
+        p_tf        NUMBER,
+        p_REN       NUMBER,
+        p_anno      NUMBER
+        )
+    RETURN NUMBER
+    IS 
+        resultado   NUMBER;
+        p_MIT       NUMBER;
+        p_PER       NUMBER;
+    BEGIN
+    
+        p_MIT:=FN_F_MIT(p_tv,p_tf,p_anno);
+        p_PER:=FN_F_PER(p_anno);  
+        resultado:= (p_krv*p_n*p_MIT*p_REN/(1-p_PER))/1000;
+        
+        Return (resultado);
+    END;
+
+END PKG_MRV_CALCULO;
+
+/
+--------------------------------------------------------
+--  DDL for Package Body PKG_MRV_DETALLE_INDICADORES
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "USERMRV"."PKG_MRV_DETALLE_INDICADORES" AS
+
+    PROCEDURE USP_SEL_LISTA_ENFOQUE(
+        pID_MEDMIT  IN NUMBER,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+    BEGIN 
+        OPEN pRefcursor FOR
+        SELECT  ID_ENFOQUE,
+                DESCRIPCION
+        FROM    T_GENM_ENFOQUE
+        WHERE   ID_MEDMIT = pID_MEDMIT;
+    END USP_SEL_LISTA_ENFOQUE;
+    
+    PROCEDURE USP_SEL_ENFOQUE_TABLA(
+        pID_ENFOQUE IN NUMBER,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+    BEGIN
+        OPEN pRefcursor FOR
+        SELECT   V.SIGLA, V.DESCRIPCION, V.ID_VARIABLE ID, EV.ORDEN,'V' TIPO
+        FROM        T_GENM_ENFOQUE E
+        INNER JOIN  T_GEND_ENFOQUE_VARIABLE EV ON E.ID_ENFOQUE = EV.ID_ENFOQUE
+        INNER JOIN  T_GENM_VARIABLE V  ON EV.ID_VARIABLE = V.ID_VARIABLE
+        WHERE E.ID_ENFOQUE = pID_ENFOQUE
+        UNION
+        SELECT   VR.SIGLA, VR.DESCRIPCION, VR.ID_VARIANTE ID, EVR.ORDEN,'VR' TIPO
+        FROM        T_GENM_ENFOQUE E
+        INNER JOIN  T_GEND_ENFOQUE_VARIANTE EVR ON E.ID_ENFOQUE = EVR.ID_ENFOQUE
+        INNER JOIN  T_GENM_VARIANTE VR ON EVR.ID_VARIANTE = VR.ID_VARIANTE
+        WHERE E.ID_ENFOQUE = pID_ENFOQUE
+        ORDER BY ORDEN ASC;
+    END USP_SEL_ENFOQUE_TABLA;
+    
+    PROCEDURE USP_SEL_VARIANTE_ATRB(
+        pID IN NUMBER,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+    BEGIN 
+        OPEN pRefcursor FOR
+        SELECT  ATRIBUTO,
+                ID_VARIANTE_ATRIBUTO
+        FROM    T_GEND_VARIANTE_ATRIBUTO
+        WHERE   ID_VARIANTE = pID;
+    END USP_SEL_VARIANTE_ATRB;
+
+    PROCEDURE USP_SEL_LISTA_DET_INDICADOR(
+        pID_INICIATIVA IN NUMBER,
+        pRefcursor OUT SYS_REFCURSOR
+    )AS
+    BEGIN
+        OPEN pRefcursor FOR
+        SELECT  ID_INDICADOR, ANNO_BASE, ID_TIPO_VEHICULO_BASE, ID_TIPO_COMBUSTIBLE_BASE, KRV_BASE, CANT_BASE, TOTAL_GEI_BASE, 
+                ANNO_INIMIT, ID_TIPO_VEHICULO_INIMIT, ID_TIPO_FUENTE_INIMIT, KRV_INIMIT, CANT_INIMIT, TOTAL_GEI_INIMIT, TOTAL_GEI_REDUCIDO
+        FROM    T_GEND_INDICADOR
+        WHERE   ID_INICIATIVA = pID_INICIATIVA AND FLG_ESTADO = 1
+        ORDER BY ID_INDICADOR ASC;
+    END USP_SEL_LISTA_DET_INDICADOR;
+
+    PROCEDURE USP_PRC_CALCULAR_INDICADOR(
+    pID_INDICADOR IN NUMBER,
+    pID_INICIATIVA IN NUMBER,
+    pANNO IN   NUMBER,
+    pID_TIPO_VEHICULO IN NUMBER,
+    pID_TIPO_COMBUSTIBLE  IN NUMBER,
+    pKRV  IN NUMBER,
+    pCANTIDAD IN   NUMBER,
+    pF_REN              IN NUMBER,
+    pID_TIPO_FUENTE    IN NUMBER,
+    pRefcursor OUT  SYS_REFCURSOR
+  )IS
+    vRendimiento NUMBER;
+    vTotalB NUMBER;
+    vTotalI NUMBER;
+    vTotalR NUMBER;
+    vIdIndicador NUMBER;
+  BEGIN 
+  
+        SELECT PKG_MRV_CALCULO.FN_Base_Electricos (pKRV,pCANTIDAD,pID_TIPO_VEHICULO,pID_TIPO_COMBUSTIBLE,pANNO) INTO vTotalB FROM DUAL;
+        SELECT PKG_MRV_CALCULO.FN_Iniciativa_Electricos (pKRV,pCANTIDAD,pID_TIPO_VEHICULO,pID_TIPO_FUENTE,pANNO) INTO vTotalI FROM DUAL;
+        SELECT PKG_MRV_CALCULO.FN_F_REN (pID_TIPO_VEHICULO,pID_TIPO_FUENTE) INTO vRendimiento FROM DUAL;
+        vTotalR := vTotalB - vTotalI;
+        
+        IF (pID_INDICADOR = 0) THEN
+            INSERT INTO T_GEND_INDICADOR (ID_INICIATIVA, ANNO_BASE, ID_TIPO_VEHICULO_BASE, ID_TIPO_COMBUSTIBLE_BASE, KRV_BASE, CANT_BASE, TOTAL_GEI_BASE, ANNO_INIMIT, ID_TIPO_VEHICULO_INIMIT, ID_TIPO_FUENTE_INIMIT, KRV_INIMIT, CANT_INIMIT, F_RENDIMIENTO,TOTAL_GEI_INIMIT, TOTAL_GEI_REDUCIDO, FLG_ESTADO)
+            VALUES (pID_INICIATIVA, pANNO, pID_TIPO_VEHICULO, pID_TIPO_COMBUSTIBLE, pKRV, pCANTIDAD, vTotalB,pANNO, pID_TIPO_VEHICULO, pID_TIPO_FUENTE, pKRV, pCANTIDAD, vRendimiento,vTotalI, vTotalR,1);
+            SELECT NVL(MAX(ID_INDICADOR), 0) INTO vIdIndicador FROM T_GEND_INDICADOR; 
+        ELSE
+            UPDATE T_GEND_INDICADOR 
+            SET 	ID_INICIATIVA = pID_INICIATIVA, 
+                    ANNO_BASE = pANNO, 
+                    ID_TIPO_VEHICULO_BASE = pID_INDICADOR, 
+                    ID_TIPO_COMBUSTIBLE_BASE = pID_TIPO_COMBUSTIBLE, 
+                    KRV_BASE = pKRV,
+                    CANT_BASE = pCANTIDAD, 
+                    TOTAL_GEI_BASE = vTotalB, 
+                    ANNO_INIMIT = pANNO, 
+                    ID_TIPO_VEHICULO_INIMIT = pID_TIPO_VEHICULO, 
+                    ID_TIPO_FUENTE_INIMIT = pID_TIPO_FUENTE, 
+                    KRV_INIMIT = pKRV, 
+                    CANT_INIMIT = pCANTIDAD,
+                    F_RENDIMIENTO = vRendimiento,
+                    TOTAL_GEI_INIMIT = vTotalI, 
+                    TOTAL_GEI_REDUCIDO = vTotalR
+            WHERE   ID_INDICADOR = pID_INDICADOR;
+            vIdIndicador := pID_INDICADOR;
+        END IF;
+              
+        OPEN pRefcursor FOR
+        SELECT  TOTAL_GEI_INIMIT, 
+                TOTAL_GEI_REDUCIDO, 
+                TOTAL_GEI_BASE,
+                ID_INDICADOR
+        FROM T_GEND_INDICADOR
+        WHERE ID_INDICADOR = vIdIndicador;
+  END USP_PRC_CALCULAR_INDICADOR;
+
+    PROCEDURE USP_UPD_ESTADO_INDICADOR(
+        pID_INDICADOR IN NUMBER
+    )AS
+    BEGIN
+        UPDATE  T_GEND_INDICADOR
+        SET     FLG_ESTADO = 0
+        WHERE   ID_INDICADOR = pID_INDICADOR;
+    END USP_UPD_ESTADO_INDICADOR;
+
+    PROCEDURE USP_SEL_LISTA_TIPO_VEHICULO(
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+    BEGIN
+        OPEN pRefcursor FOR
+        SELECT  ID_TIPO_VEHICULO,
+                DESCRIPCION
+        FROM    T_MAE_TIPO_VEHICULO;
+    END USP_SEL_LISTA_TIPO_VEHICULO;
+    
+    PROCEDURE USP_SEL_LISTA_TIPO_COMBUSTIBLE(
+        pRefcursor  OUT SYS_REFCURSOR
+   )AS
+    BEGIN
+        OPEN pRefcursor FOR
+        SELECT  ID_TIPO_COMBUSTIBLE,
+                DESCRIPCION
+        FROM    T_MAE_TIPO_COMBUSTIBLE;
+    END USP_SEL_LISTA_TIPO_COMBUSTIBLE;
+   
+   PROCEDURE USP_SEL_LISTA_TIPO_FUENTE(
+        pRefcursor  OUT SYS_REFCURSOR
+   )AS
+    BEGIN
+        OPEN pRefcursor FOR
+        SELECT  ID_TIPO_FUENTE,
+                DESCRIPCION
+        FROM    T_MAE_TIPO_FUENTE;
+    END USP_SEL_LISTA_TIPO_FUENTE;
 
 END PKG_MRV_DETALLE_INDICADORES;
 
