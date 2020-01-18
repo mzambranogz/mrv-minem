@@ -51,14 +51,16 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
 
 
                         var progreso = '0%;';
-                        if (data[i]["PROGRESO"] == 1) {
-                            progreso = '25%';
-                        } else if (data[i]["PROGRESO"] == 2) {
-                            progreso = '50%';
-                        } else if (data[i]["PROGRESO"] == 3) {
-                            progreso = '75%';
-                        } else if (data[i]["PROGRESO"] == 4) {
-                            progreso = '100%';
+                        if (data[i]["ID_ESTADO"] != 0 || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3)) {
+                            if (data[i]["PROGRESO"] == 1) {
+                                progreso = '25%';
+                            } else if (data[i]["PROGRESO"] == 2 || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3)) {
+                                progreso = '50%';
+                            } else if (data[i]["PROGRESO"] == 3 && data[i]["ID_ESTADO"] != 0) {
+                                progreso = '75%';
+                            } else if (data[i]["PROGRESO"] == 4) {
+                                progreso = '100%';
+                            }
                         }
 
                         var tr = '<tr>';
@@ -111,12 +113,12 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                     for (var i = 0; i < data.length; i++) {
 
                         var progreso = '0%;';
-                        if (data[i]["ID_ESTADO"] != 0) {
+                        if (data[i]["ID_ESTADO"] != 0 || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3)) {
                             if (data[i]["PROGRESO"] == 1) {
                                 progreso = '25%';
-                            } else if (data[i]["PROGRESO"] == 2) {
+                            } else if (data[i]["PROGRESO"] == 2 || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3)) {
                                 progreso = '50%';
-                            } else if (data[i]["PROGRESO"] == 3) {
+                            } else if (data[i]["PROGRESO"] == 3 && data[i]["ID_ESTADO"] != 0) {
                                 progreso = '75%';
                             } else if (data[i]["PROGRESO"] == 4) {
                                 progreso = '100%';

@@ -36,5 +36,10 @@ namespace logica.minem.gob.pe
         {
             return indicador.EvaluarIndicador(entidad);
         }
+
+        public static IndicadorBE RegistrarDetalleIndicador(IndicadorBE entidad)
+        {
+            return indicador.RegistrarDetalleIndicador(entidad);
+        }
     }
 }

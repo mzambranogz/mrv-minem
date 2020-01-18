@@ -150,6 +150,7 @@
     <Content Include="js\MRV.js" />
     <Content Include="js\Notificacion.js" />
     <Content Include="js\NuevaIniciativaMitigacion.js" />
+    <Content Include="js\Recuperar.js" />
     <Content Include="js\RegistroUsuario.js" />
     <Content Include="js\script.js" />
     <Content Include="Web.config">

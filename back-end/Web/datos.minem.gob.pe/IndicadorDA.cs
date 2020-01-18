@@ -74,16 +74,13 @@ namespace datos.minem.gob.pe
                     var p = new OracleDynamicParameters();
                     p.Add("pID_INDICADOR", entidad.ID_INDICADOR);
                     p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
-                    p.Add("pANNOB", entidad.ANNOB);
-                    p.Add("pID_TIPO_VEHICULOB", entidad.ID_TIPO_VEHICULOB);
-                    p.Add("pID_TIPO_COMBUSTIBLEB", entidad.ID_TIPO_COMBUSTIBLEB);
-                    p.Add("pKRVB", entidad.KRVB);
-                    p.Add("pCANTIDADB", entidad.CANTIDADB);
-                    p.Add("pANNOI", entidad.ANNOI);
-                    p.Add("pID_TIPO_VEHICULOI", entidad.ID_TIPO_VEHICULOI);
-                    p.Add("pID_TIPO_FUENTEI", entidad.ID_TIPO_FUENTEI);
-                    p.Add("pKRVI", entidad.KRVI);
-                    p.Add("pCANTIDADI", entidad.CANTIDADI);
+                    p.Add("pANNO", entidad.ANNOB);
+                    p.Add("pID_TIPO_VEHICULO", entidad.ID_TIPO_VEHICULOB);
+                    p.Add("pID_TIPO_COMBUSTIBLE", entidad.ID_TIPO_COMBUSTIBLEB);
+                    p.Add("pKRV", entidad.KRVB);
+                    p.Add("pCANTIDAD", entidad.CANTIDADB);
+                    p.Add("pF_REN", entidad.FACTOR_RENDIMIENTO);
+                    p.Add("pID_TIPO_FUENTE", entidad.ID_TIPO_FUENTEI);                                        
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<IndicadorBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
                 }
@@ -140,5 +137,29 @@ namespace datos.minem.gob.pe
 
             return entidad;
         }
+
+        public IndicadorBE RegistrarDetalleIndicador(IndicadorBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_UPD_AVANCE_DETALLE";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+
+            return entidad;
+        }
+
     }
 }

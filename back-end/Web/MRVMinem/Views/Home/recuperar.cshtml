@@ -36,7 +36,8 @@
             </div>
             <div class="col-md-6 col-lg-4 p-4 bg-light rounded-right">
                 <div class="h4">¿Olvidó su contraseña? <br><small class="text-muted">Ingresa tu usuario / correo electrónico, que registró para su cuenta MRV</small></div>
-                <form class="pt-4">
+                <!--<form class="pt-4">-->
+                <div>
                     <div class="form-group">
                         <label for="txt-user">Email</label>
                         <div class="input-group">
@@ -81,8 +82,9 @@
                             <hr><small class="mb-0">Siga las instrucciones enviadas a su correo para obtener su contraseña</small>
                         </div>
                     </div>
-                    <button class="btn-lg btn-primary w-100" type="submit"><i class="fas fa-undo px-1"></i>Recuperar</button>
-                </form>
+                    <button class="btn-lg btn-primary w-100" @*type="submit"*@ onclick="fn_verificarEmailRecuperar();"><i class="fas fa-undo px-1"></i>Recuperar</button>
+                </div>
+                @*</form>*@
                 <p class="pt-4 mb-0 text-center">¿No tienes una cuenta?&nbsp;<a href="@Url.Action("registro", "Home")">Regístrese ahora <br></a></p>
             </div>
         </div>

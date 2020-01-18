@@ -49,6 +49,7 @@ namespace entidad.minem.gob.pe
         public int ID_TIPO_FUENTE_INIMIT { get; set; }
         public int KRV_INIMIT { get; set; }
         public int CANT_INIMIT { get; set; }
-
+        public double FACTOR_RENDIMIENTO { get; set; }
+        public int ID_USUARIO { get; set; }
     }
 }

@@ -275,6 +275,9 @@ function fn_procesoIniciativa(url, estado) {
     $("#solicitar-revision").on("hidden.bs.modal", function () {
         if ($("#Control").data("modal") == 1) {
             location.href = baseUrl + "Gestion/AccionMitigacion";
+        } else {
+            $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
+            $("#mensajeModalAvance #mensajeDangerAvance").remove();
         }
     });
 }

@@ -184,6 +184,55 @@ namespace MRVMinem.Controllers
             return Respuesta(itemRespuesta);
         }
 
+        public JsonResult ListarDetalleIndicador(IndicadorBE entidad)
+        {
+            List<IndicadorBE> lista = IndicadorLN.ListarDetalleIndicador(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListarTipoVehiculo(TipoVehiculoBE entidad)
+        {
+            List<TipoVehiculoBE> lista = TipoVehiculoLN.ListarTipoVehiculo(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListarTipoCombustible(TipoCombustibleBE entidad)
+        {
+            List<TipoCombustibleBE> lista = TipoCombustibleLN.ListarTipoCombustible(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListarTipoFuente(TipoFuenteBE entidad)
+        {
+            List<TipoFuenteBE> lista = TipoFuenteLN.ListarTipoFuente(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult CalcularIndicador(IndicadorBE entidad)
+        {
+            List<IndicadorBE> lista = IndicadorLN.CalcularIndicador(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult RegistrarDetalleIndicador(IndicadorBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = IndicadorLN.RegistrarDetalleIndicador(entidad);
+            itemRespuesta.success = entidad.OK;
+            return Respuesta(itemRespuesta);
+        }
+
 
         /*Session["VARIABLE"] = entidad;
 
