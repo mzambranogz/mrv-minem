@@ -7,7 +7,7 @@
             CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaIniciativasGeneral");
         } else if ($("#Control").data("rol") == 1) {
             CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaIniciativasUsuario");
-        } else if ($("#Control").data("rol") == 4) {
+        } else if ($("#Control").data("rol") == 4 || $("#Control").data("rol") == 5) {
             CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaIniciativasEvaluar");
         }
     } else {
@@ -41,6 +41,10 @@ function fn_revisarDetalleAdmin(id) {
 
 function fn_evaluarIniciativaDetalle(id) {
     location.href = baseUrl + "Gestion/EvaluarIniciativaDetalle?id=" + id;
+}
+
+function fn_verificarIniciativaDetalle(id) {
+    location.href = baseUrl + "Gestion/VerificarIniciativaDetalle?id=" + id;
 }
 
  function fn_cargarIdIniciativa(id) {
@@ -194,8 +198,8 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                         if ($('#Control').data('rol') == 4 && data[i]["PROGRESO"] == 5) {
                             tr = tr + '             <a class="dropdown-item text-info" href="#" onclick="fn_evaluarIniciativaDetalle(' + data[i]["ID_INICIATIVA"] + ')"><i class="fas fa-clipboard-check"></i>&nbsp;Evaluar</a>';
                         }
-                        if ($('#Control').data('rol') == 5) {
-                            tr = tr + '             <a class="dropdown-item text-warning" href="./revision-de-accion-de-mitigacion.html"><i class="fas fa-tasks"></i>&nbsp;Verificar</a>';
+                        if ($('#Control').data('rol') == 5 && data[i]["PROGRESO"] == 6) {
+                            tr = tr + '             <a class="dropdown-item text-warning" href="#" onclick="fn_verificarIniciativaDetalle(' + data[i]["ID_INICIATIVA"] + ')"><i class="fas fa-tasks"></i>&nbsp;Verificar</a>';
                         }
                         tr = tr + '         </div>';
                         tr = tr + '     </div>';

@@ -59,6 +59,10 @@ function fn_verificarIniciativaDetalle(id) {
      location.href = baseUrl + "Gestion/CorregirDetalleIndicador?id=" + id;
  }
 
+ function fn_mostrarSeguimiento(id) {
+     location.href = baseUrl + "Gestion/SeguimientoIniciativa?id=" + id;
+ }
+
  function fn_mostrarDetalleIndicador() {
      location.href = baseUrl + "Gestion/DetalleIndicador?id=" + $("#Control").data("iniciativa");
  }
@@ -173,7 +177,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                         }
                         tr = tr + '         <div class="dropdown-menu dropdown-menu-right">';
                         tr = tr + '             <a class="dropdown-item" href="./ver-mas-accion-de-mitigacion.html"><i class="fas fa-plus-circle"></i>&nbsp;Ver más</a>';
-                        tr = tr + '             <a class="dropdown-item" href="./seguimiento-de-accion-de-mitigacion.html"><i class="fas fa-history"></i>&nbsp;Seguimiento</a>';
+                        tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_mostrarSeguimiento(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-history"></i>&nbsp;Seguimiento</a>';
                         if ($('#Control').data('rol') == 2 || $('#Control').data('rol') == 1) {
                             if (data[i]["PROGRESO"] == 1 && data[i]["ID_ESTADO"] == 0) {
                                 tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_mostrarEditarIniciativa(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';

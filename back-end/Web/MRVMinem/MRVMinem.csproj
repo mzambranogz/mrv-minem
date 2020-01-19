@@ -153,6 +153,7 @@
     <Content Include="js\Recuperar.js" />
     <Content Include="js\RegistroUsuario.js" />
     <Content Include="js\script.js" />
+    <Content Include="js\Seguimiento.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -213,6 +214,7 @@
     <Content Include="Views\Gestion\RevisarAdminDetalleIndicador.cshtml" />
     <Content Include="Views\Gestion\EvaluarIniciativaDetalle.cshtml" />
     <Content Include="Views\Gestion\VerificarIniciativaDetalle.cshtml" />
+    <Content Include="Views\Gestion\SeguimientoIniciativa.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

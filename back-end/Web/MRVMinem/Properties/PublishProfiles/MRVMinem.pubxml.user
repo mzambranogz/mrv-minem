@@ -13,7 +13,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/15/2020 10:30:57</publishTime>
     </File>
     <File Include="bin/datos.minem.gob.pe.dll">
-      <publishTime>01/18/2020 06:07:55</publishTime>
+      <publishTime>01/18/2020 09:58:19</publishTime>
     </File>
     <File Include="bin/entidad.minem.gob.pe.dll">
       <publishTime>01/18/2020 06:07:54</publishTime>
@@ -37,7 +37,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/15/2020 10:30:58</publishTime>
     </File>
     <File Include="bin/logica.minem.gob.pe.dll">
-      <publishTime>01/18/2020 06:07:56</publishTime>
+      <publishTime>01/18/2020 09:58:19</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>01/01/0001 00:00:00</publishTime>
@@ -46,7 +46,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/15/2020 10:31:03</publishTime>
     </File>
     <File Include="bin/MRVMinem.dll">
-      <publishTime>01/18/2020 06:08:02</publishTime>
+      <publishTime>01/18/2020 09:58:24</publishTime>
     </File>
     <File Include="bin/Oracle.DataAccess.dll">
       <publishTime>07/31/2014 22:11:18</publishTime>
@@ -316,10 +316,10 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/15/2020 10:30:49</publishTime>
     </File>
     <File Include="js/AccionMitigacion.js">
-      <publishTime>01/18/2020 05:37:52</publishTime>
+      <publishTime>01/18/2020 06:59:20</publishTime>
     </File>
     <File Include="js/DetalleIndicador.js">
-      <publishTime>01/18/2020 05:59:22</publishTime>
+      <publishTime>01/18/2020 07:09:42</publishTime>
     </File>
     <File Include="js/IniciativaMitigacion.js">
       <publishTime>01/17/2020 18:18:46</publishTime>
@@ -384,6 +384,9 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <File Include="Views/Gestion/Sesion.cshtml">
       <publishTime>01/15/2020 20:48:19</publishTime>
     </File>
+    <File Include="Views/Gestion/VerificarIniciativaDetalle.cshtml">
+      <publishTime>01/18/2020 06:35:48</publishTime>
+    </File>
     <File Include="Views/Home/Index.cshtml">
       <publishTime>01/15/2020 10:30:48</publishTime>
     </File>
@@ -409,7 +412,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/15/2020 10:30:48</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/18/2020 06:15:59</publishTime>
+      <publishTime>01/18/2020 10:06:50</publishTime>
     </File>
   </ItemGroup>
 </Project>

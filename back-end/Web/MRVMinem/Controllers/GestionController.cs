@@ -85,6 +85,13 @@ namespace MRVMinem.Controllers
             return View(modelo);
         }
 
+        public ActionResult SeguimientoIniciativa(int id)
+        {
+            MvSesion modelo = new MvSesion();
+            modelo.identificador = id;
+            return View(modelo);
+        }
+
         public JsonResult ListaIniciativasEspecialista(IniciativaBE entidad)
         {
             List<IniciativaBE> lista = IniciativaLN.ListaIniciativaEspecialista(entidad);
@@ -348,6 +355,16 @@ namespace MRVMinem.Controllers
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }
+
+        public JsonResult MostrarSeguimiento(IniciativaBE entidad)
+        {
+            List<IniciativaBE> lista = IniciativaLN.MostrarSeguimiento(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+
         /*Session["VARIABLE"] = entidad;
 
             entidad = (UsuarioBE)Session["VARIABLE"];*/

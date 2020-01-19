@@ -17,5 +17,8 @@ namespace entidad.minem.gob.pe
         public string DIRECCION { get; set; }
         public string SECTOR { get; set; }
         public string DESCRIPCION { get; set; }
+        public DateTime FECHA_DERIVACION { get; set; }
+        public string USUARIO { get; set; }
+        public string EMAIL_USUARIO { get; set; }
     }
 }
