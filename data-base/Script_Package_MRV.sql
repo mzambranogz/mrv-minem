@@ -583,6 +583,10 @@ END PKG_MRV_MANTENIMIENTO;
     
     PROCEDURE USP_SEL_USUARIO_NOTIFICACION(
         pID_ROL     INTEGER,
+        pRegistros  INTEGER,
+        pPagina     INTEGER,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
     );
 
@@ -2340,22 +2344,77 @@ END PKG_MRV_MANTENIMIENTO;
     
     PROCEDURE USP_SEL_USUARIO_NOTIFICACION(
         pID_ROL     INTEGER,
+        pRegistros  INTEGER,
+        pPagina     INTEGER,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
     )AS
+        vPaginas    INTEGER;
+        vTotal      INTEGER;
+        vPagina2    INTEGER := pPagina;
+        vPageIndex  INTEGER := 0;
+        vQuery      VARCHAR2(10000) := '';
+        vSortColumn2 VARCHAR2(1000);
     BEGIN
-        OPEN pRefcursor FOR
+        SELECT  COUNT(1) INTO vTotal
+        FROM    T_GENM_NOTIFICACION N 
+                LEFT JOIN T_GENM_INICIATIVA INI ON N.ID_INICIATIVA = INI.ID_INICIATIVA
+                LEFT JOIN T_GENM_USUARIO U ON N.ID_USUARIO = U.ID_USUARIO
+                WHERE N.ID_ROL = pID_ROL;
+        
+        vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
+        IF vPagina2 = 0 THEN
+            vPagina2 := 1;
+        END IF;
+        IF vPagina2 > vPaginas THEN
+            vPagina2 := vPaginas;
+        END IF;
+        
+        vPageIndex := vPagina2 - 1;
+        IF pSortColumn = 'FECHA_REGISTRO' THEN
+            vSortColumn2 := 'N.FECHA_REGISTRO';
+        ELSIF pSortColumn = 'RESPONSABLE' THEN
+            vSortColumn2 := '(CASE NVL(N.ID_USUARIO, 0)
+                        WHEN 0 THEN (SELECT NVL(INST.NOMBRE_INSTITUCION,'''') 
+                                    FROM T_GENM_INICIATIVA INIC
+                                    INNER JOIN T_GENM_USUARIO USUA ON INIC.ID_USUARIO = USUA.ID_USUARIO
+                                    INNER JOIN T_GENM_INSTITUCION INST ON USUA.ID_INSTITUCION = INST.ID_INSTITUCION
+                                    WHERE INIC.ID_INICIATIVA = N.ID_INICIATIVA)
+                        ELSE NVL((TRIM(U.NOMBRES_USUARIO) ||'' ''|| TRIM(U.APELLIDOS_USUARIO)),'''')
+                    END)';
+        ELSIF pSortColumn = 'PROGRESO' THEN
+            vSortColumn2 := 'INI.ID_ETAPA';
+        ELSIF pSortColumn = 'ROL' THEN
+            vSortColumn2 := '(CASE NVL(N.ID_USUARIO, 0)
+                        WHEN 0 THEN (SELECT NVL(RO.DESCRIPCION_ROL,'''') 
+                                     FROM T_GENM_INICIATIVA INICI
+                                     INNER JOIN T_GENM_USUARIO USUA ON INICI.ID_USUARIO = USUA.ID_USUARIO
+                                     INNER JOIN T_MAE_USUARIO_ROL URO ON USUA.ID_USUARIO = URO.ID_USUARIO
+                                     INNER JOIN T_MAE_ROL RO ON URO.ID_ROL = RO.ID_ROL
+                                     WHERE INICI.ID_INICIATIVA = N.ID_INICIATIVA)
+                            ELSE    (SELECT NVL(R.DESCRIPCION_ROL,'''') FROM T_GENM_USUARIO US
+                                     INNER JOIN T_MAE_USUARIO_ROL UR ON US.ID_USUARIO = UR.ID_USUARIO
+                                     INNER JOIN T_MAE_ROL R ON UR.ID_ROL = R.ID_ROL
+                                     WHERE US.ID_USUARIO = N.ID_USUARIO)
+                    END)';
+        ELSE
+            vSortColumn2 := pSortColumn;
+        END IF;
+        
+        vQuery := 'SELECT *    FROM (
         SELECT      N.ID_NOTIFICACION,
                     N.ID_INICIATIVA,
                     INI.NOMBRE_INICIATIVA,
                     INI.ID_ETAPA PROGRESO,
                     N.FECHA_REGISTRO,
                     CASE NVL(N.ID_USUARIO, 0)
-                        WHEN 0 THEN (SELECT INST.NOMBRE_INSTITUCION 
+                        WHEN 0 THEN NVL((SELECT INST.NOMBRE_INSTITUCION 
                                     FROM T_GENM_INICIATIVA INIC
                                     INNER JOIN T_GENM_USUARIO USUA ON INIC.ID_USUARIO = USUA.ID_USUARIO
                                     INNER JOIN T_GENM_INSTITUCION INST ON USUA.ID_INSTITUCION = INST.ID_INSTITUCION
-                                    WHERE INIC.ID_INICIATIVA = N.ID_INICIATIVA)
-                        ELSE (TRIM(U.NOMBRES_USUARIO) ||' '|| TRIM(U.APELLIDOS_USUARIO))
+                                    WHERE INIC.ID_INICIATIVA = N.ID_INICIATIVA),''-'')
+                        ELSE NVL((TRIM(U.NOMBRES_USUARIO) ||'' ''|| TRIM(U.APELLIDOS_USUARIO)),''-'')
                     END AS RESPONSABLE,
                     CASE NVL(N.ID_USUARIO, 0)
                         WHEN 0 THEN (SELECT RO.ID_ROL 
@@ -2370,24 +2429,35 @@ END PKG_MRV_MANTENIMIENTO;
                                      WHERE US.ID_USUARIO = N.ID_USUARIO)
                     END AS ID_ROL,
                     CASE NVL(N.ID_USUARIO, 0)
-                        WHEN 0 THEN (SELECT RO.DESCRIPCION_ROL 
+                        WHEN 0 THEN NVL((SELECT RO.DESCRIPCION_ROL
                                      FROM T_GENM_INICIATIVA INICI
                                      INNER JOIN T_GENM_USUARIO USUA ON INICI.ID_USUARIO = USUA.ID_USUARIO
                                      INNER JOIN T_MAE_USUARIO_ROL URO ON USUA.ID_USUARIO = URO.ID_USUARIO
                                      INNER JOIN T_MAE_ROL RO ON URO.ID_ROL = RO.ID_ROL
-                                     WHERE INICI.ID_INICIATIVA = N.ID_INICIATIVA)
-                            ELSE    (SELECT R.DESCRIPCION_ROL  FROM T_GENM_USUARIO US
+                                     WHERE INICI.ID_INICIATIVA = N.ID_INICIATIVA),''-'')
+                            ELSE    NVL((SELECT R.DESCRIPCION_ROL FROM T_GENM_USUARIO US
                                      INNER JOIN T_MAE_USUARIO_ROL UR ON US.ID_USUARIO = UR.ID_USUARIO
                                      INNER JOIN T_MAE_ROL R ON UR.ID_ROL = R.ID_ROL
-                                     WHERE US.ID_USUARIO = N.ID_USUARIO)
+                                     WHERE US.ID_USUARIO = N.ID_USUARIO),''-'')
                     END AS ROL,
                     N.DESCRIPCION,
-                    N.ID_ESTADO_NOTIFICACION
+                    N.ID_ESTADO_NOTIFICACION,
+                    ROW_NUMBER() OVER (ORDER BY ' || vSortColumn2 || ' ' || pSortOrder ||') AS ROWNUMBER,'
+                    || vPaginas || ' AS total_paginas,'
+                    || vPagina2 || ' AS pagina,'
+                    || pRegistros || ' AS cantidad_registros,'
+                    || vTotal || ' AS total_registros
                 FROM T_GENM_NOTIFICACION N 
                 LEFT JOIN T_GENM_INICIATIVA INI ON N.ID_INICIATIVA = INI.ID_INICIATIVA
                 LEFT JOIN T_GENM_USUARIO U ON N.ID_USUARIO = U.ID_USUARIO
-                WHERE N.ID_ROL = pID_ROL;
+                WHERE N.ID_ROL = ' || TO_CHAR(pID_ROL) ||
+                ')
+                WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
+                
+        OPEN pRefcursor FOR vQuery;
+                
     END USP_SEL_USUARIO_NOTIFICACION;
+
 
 end PKG_MRV_NOTIFICACION;
 

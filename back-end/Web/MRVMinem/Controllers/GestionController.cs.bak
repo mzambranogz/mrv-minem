@@ -400,7 +400,6 @@ namespace MRVMinem.Controllers
 
         public JsonResult ListarNotificacion(NotificacionBE entidad)
         {
-            //entidad.ROL = Session["rol"].ToString();
             List<NotificacionBE> lista = NotificacionLN.ListarNotificacion(entidad);
             var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;

@@ -17,5 +17,13 @@ namespace entidad.minem.gob.pe
         public string extra { get; set; }
         public string accion { get; set; }
         public bool OK { get; set; }
+
+        public int cantidad_registros { get; set; }
+        public int total_paginas { get; set; }
+        public int pagina { get; set; }
+        public string order_by { get; set; }
+        public string order_orden { get; set; }
+        public int RowNumber { get; set; }
+        public int total_registros { get; set; }
     }
 }

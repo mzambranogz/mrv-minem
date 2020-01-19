@@ -31,3 +31,8 @@ E:\Eduardo\Minem\mrv-minem\back-end\Web\entidad.minem.gob.pe\bin\Debug\entidad.m
 E:\Eduardo\Minem\mrv-minem\back-end\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.csprojResolveAssemblyReference.cache
 E:\Eduardo\Minem\mrv-minem\back-end\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.dll
 E:\Eduardo\Minem\mrv-minem\back-end\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.pdb
+E:\Eduardo\mrv-minem\back-end\Web\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+E:\Eduardo\mrv-minem\back-end\Web\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+E:\Eduardo\mrv-minem\back-end\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.csprojResolveAssemblyReference.cache
+E:\Eduardo\mrv-minem\back-end\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.dll
+E:\Eduardo\mrv-minem\back-end\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.pdb

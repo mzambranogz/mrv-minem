@@ -128,6 +128,7 @@
     <Content Include="images\ico_nama_rojo_02.svg" />
     <Content Include="images\ico_nama_verde_01.svg" />
     <Content Include="images\ico_nama_verde_02.svg" />
+    <Content Include="images\logo-blockchain-blanco.png" />
     <Content Include="images\logo-gef-blanco.png" />
     <Content Include="images\logo-minem-blanco.png" />
     <Content Include="images\logo-minem.jpg" />

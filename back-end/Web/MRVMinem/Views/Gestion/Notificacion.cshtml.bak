@@ -60,34 +60,34 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr class="bg-primary text-white">
-                                        <th scope="col" class="text-center"><span>#&nbsp;</span></th>
-                                        <th scope="col"><span class="miColumna">Nombre de Iniciativa&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NOMBRE_INICIATIVA"></i></span></th>
-                                        <th scope="col"><span class="miColumna">Progreso&nbsp;<i class="fas fa-sort" style="color: lightgray" id="PROGRESO"></i></span></th>
-                                        <th scope="col"><span class="miColumna">Fecha Registro&nbsp;<i class="fas fa-sort-up" id="FECHA_REGISTRO"></i></span></th>
-                                        <th scope="col"><span class="miColumna">Usuario Responsable&nbsp;<i class="fas fa-sort" style="color: lightgray" id="RESPONSABLE"></i></span></th>
-                                        <th scope="col"><span class="miColumna">Perfil&nbsp;<i class="fas fa-sort" style="color: lightgray" id="ROL"></i></span></th>
-                                        <th scope="col" class="text-center">Más</th>
+                                        <th class="text-center" scope="col"><span>#&nbsp;<i class="fas fa-sort"></i></span></th>
+                                        <th scope="col"><span>Nombre de Iniciativa&nbsp;<i class="fas fa-sort"></i></span></th>
+                                        <th scope="col"><span>Progreso&nbsp;<i class="fas fa-sort"></i></span></th>
+                                        <th scope="col"><span>Fecha Registro&nbsp;<i class="fas fa-sort"></i></span></th>
+                                        <th scope="col"><span>Usuario Responsable&nbsp;<i class="fas fa-sort"></i></span></th>
+                                        <th scope="col"><span>Perfil&nbsp;<i class="fas fa-sort"></i></span></th>
+                                        <th class="text-center" scope="col">Más</th>
                                     </tr>
                                 </thead>
                                 <tbody id="cuerpoNotificacion"></tbody>
                                 <tfoot>
                                     <tr>
-                                        <td class="text-left" colspan="3"><strong>Resultado:&nbsp;</strong><span id="resultado">1-10</span> de <span id="total-registros">750</span> registros</td>
+                                        <td class="text-left" colspan="3"><strong>Resultado:&nbsp;</strong>1-10 de 750 registros</td>
                                         <td class="text-right text-xs-left" colspan="4">
                                             <strong>Registros por página&nbsp;</strong>
-                                            <select id="cantidad-registros" onchange="fn_CargarNotificacion()">
+                                            <select id="catidad-rgistros">
                                                 <option value="10" selected>10</option>
                                                 <option value="25">25</option>
                                                 <option value="50">50</option>
                                                 <option value="100">100</option>
                                             </select>&nbsp;
-                                            <span id="pagina-actual">1</span> de <span id="total-paginas">75</span> páginas&nbsp;
+                                            1 de 75 páginas&nbsp;
                                             <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                                <button class="btn btn-primary" id="primera-pagina" type="button" onclick="fn_avance_grilla(1)"><i class="fas fa-angle-double-left"></i></button>
-                                                <button class="btn btn-primary" id="anterior-pagina" type="button" onclick="fn_avance_grilla(2)"><i class="fas fa-angle-left"></i></button>
-                                                <input class="ir-pagina" id="pagina" type="number" value="1" min="1" onchange="fn_CargarNotificacion()">
-                                                <button class="btn btn-primary" id="siguiente-pagina" type="button" onclick="fn_avance_grilla(3)"><i class="fas fa-angle-right"></i></button>
-                                                <button class="btn btn-primary" id="ultima-pagina" type="button" onclick="fn_avance_grilla(4)"><i class="fas fa-angle-double-right"></i></button>
+                                                <button class="btn btn-primary" type="button"><i class="fas fa-angle-double-left"></i></button>
+                                                <button class="btn btn-primary" type="button"><i class="fas fa-angle-left"></i></button>
+                                                <input class="ir-pagina" type="number" value="1" min="1">
+                                                <button class="btn btn-primary" type="button"><i class="fas fa-angle-right"></i></button>
+                                                <button class="btn btn-primary" type="button"><i class="fas fa-angle-double-right"></i></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -111,7 +111,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-12">
-
+                                    
                                     <div class="alert alert-warning d-flex align-items-stretch" role="alert" id="modalObservacion">
                                         <div class="alert-wrap mr-3">
                                             <div class="sa">
@@ -180,9 +180,7 @@
         </div>
     </div>
 </div>
-@Html.Hidden("columna", "FECHA_REGISTRO");
-@Html.Hidden("orden", "ASC");
 
-<script type="text/javascript" src="~/js/Notificacion.js"></script>
+<script type="text/javascript" src="~/Scripts/js/Notificacion.js"></script>
 
 
