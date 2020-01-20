@@ -413,5 +413,14 @@ namespace MRVMinem.Controllers
             return View(modelo);
         }
 
+        public JsonResult RegistraVistoNotificacion(NotificacionBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = NotificacionLN.RegistraVistoNotificacion(entidad);
+            itemRespuesta.success = entidad.OK;
+            itemRespuesta.message = entidad.OK? "Se registro la visualización de la notificación": "Ocurrio error al registrar la visualización de la notificación";
+            return Respuesta(itemRespuesta);
+        }
     }
 }

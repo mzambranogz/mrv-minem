@@ -21,5 +21,6 @@ namespace entidad.minem.gob.pe
                 return FECHA_REGISTRO.ToString("dd/MM/yyyy");
             }
         }
+        public int ID_MEDMIT { get; set; }
     }
 }

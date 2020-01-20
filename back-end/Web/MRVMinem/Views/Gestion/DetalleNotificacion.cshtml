@@ -35,13 +35,13 @@
         </div>
         <div class="modal-body medidas-modal">
             <div class="row mb-2">
-                @if (Model.ID_ESTADO == 1)
+                @if (Model.ID_ROL == 1)
                 {
-                    <div class="col-sm-12 col-md-6 col-lg-6"><strong>De: @Model.RESPONSABLE&nbsp;<span class="badge badge-actor-0'@colorRol'">USUARIO ADMINISTRADO</span></strong></div>
+                    <div class="col-sm-12 col-md-6 col-lg-6"><strong>De: @Model.EVALUADOR&nbsp;<span class="badge badge-actor-0'@colorRol'">@Model.ROL</span></strong></div>
                 }
                 else
                 {
-                    <div class="col-sm-12 col-md-6 col-lg-6"><strong>De: @Model.EVALUADOR&nbsp;<span class="badge badge-actor-0'@colorRol'">@Model.ROL</span></strong></div>
+                    <div class="col-sm-12 col-md-6 col-lg-6"><strong>De: @Model.RESPONSABLE&nbsp;<span class="badge badge-actor-0'@colorRol'">USUARIO ADMINISTRADO</span></strong></div>
                 }
                 <div class="col-sm-12 col-md-6 col-lg-6 text-right"><strong>Fecha de Registro: @Model.FECHA</strong></div>
             </div>
@@ -119,3 +119,4 @@
     </div>
 </div>
 @Html.HiddenFor(m => m.ID_INICIATIVA)
+@Html.HiddenFor(m => m.ID_MEDMIT)

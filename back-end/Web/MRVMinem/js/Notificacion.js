@@ -176,96 +176,36 @@ function fn_registros_grilla() {
     fn_CargarNotificacion();
 }
 
-//function fn_orden_grilla(columna) {
-//    if (columna == 1) {
-//        if ($("#columna").val() == "NOMBRE_INICIATIVA") {
-//            if ($("#orden").val() == "ASC")
-//                $("#orden").val("DESC")
-//            else
-//                $("#orden").val("ASC")
-//        }
-//        else {
-//            $("#columna").val("NOMBRE_INICIATIVA");
-//            $("#orden").val("ASC")
-//        }
-//    }
-//    if (columna == 2) {
-//        if ($("#columna").val() == "PROGRESO") {
-//            if ($("#orden").val() == "ASC")
-//                $("#orden").val("DESC")
-//            else
-//                $("#orden").val("ASC")
-//        }
-//        else {
-//            $("#columna").val("PROGRESO");
-//            $("#orden").val("ASC")
-//        }
-//    }
-//    if (columna == 3) {
-//        if ($("#columna").val() == "FECHA_REGISTRO") {
-//            if ($("#orden").val() == "ASC")
-//                $("#orden").val("DESC")
-//            else
-//                $("#orden").val("ASC")
-//        }
-//        else {
-//            $("#columna").val("FECHA_REGISTRO");
-//            $("#orden").val("ASC")
-//        }
-//    }
-//    if (columna == 4) {
-//        if ($("#columna").val() == "RESPONSABLE") {
-//            if ($("#orden").val() == "ASC")
-//                $("#orden").val("DESC")
-//            else
-//                $("#orden").val("ASC")
-//        }
-//        else {
-//            $("#columna").val("RESPONSABLE");
-//            $("#orden").val("ASC")
-//        }
-//    }
-//    if (columna == 5) {
-//        if ($("#columna").val() == "ROL") {
-//            if ($("#orden").val() == "ASC")
-//                $("#orden").val("DESC")
-//            else
-//                $("#orden").val("ASC")
-//        }
-//        else {
-//            $("#columna").val("ROL");
-//            $("#orden").val("ASC")
-//        }
-//    }  onclick="fn_orden_grilla(3)"
-
-//    fn_CargarNotificacion();
-//}
-
 function fn_modalNotificacion(idNotificacion, idEstado) {
     debugger;
-    //if (estado == 0) {
-    //    $("modalCorrecto").hide();
-    //    $("modalIncorrecto").hide();
-    //    $("modalObservacion").hide();
-    //} else if (estado == 1) {
-    //    $("modalCorrecto").hide();
-    //    $("modalIncorrecto").hide();
-    //} else if (estado == 2) {
-    //    $("modalCorrecto").hide();
-    //    $("modalObservacion").hide();
-    //} else if (estado == 3) {
-    //    $("modalIncorrecto").hide();
-    //    $("modalObservacion").hide();
-    //}
-    //$("modalDescripcion").val(descripcion);
     var url = baseUrl + "Gestion/DetalleNotificacion?ID_NOTIFICACION=" + idNotificacion;
     $('#modal-ver-mas').load(url, function () {
         $('#modal-ver-mas').modal({ show: true });
     });
-
 }
 
 
 function fn_ir_iniciativa() {
+    var item = {
+        ID_NOTIFICACION: $("#ID_NOTIFICACION").val(),
+        ID_INICIATIVA: $("#ID_INICIATIVA").val(),
+        ID_USUARIO_VISTO: $("#Control").data("usuario")
+    };
+    var url = baseUrl + "Gestion/RegistraVistoNotificacion";
+    var respuesta = MRV.Ajax(url, item, false);
+    if (respuesta.success) {
+        if (ws != null) ws.send(respuesta.message);
+
+        var url2 = "@Url.Action('RevisarIniciativa', 'Gestion', new { id='param1', ini='param2' })";
+        if ($("#Control").data("rol") == 1) {
+            url2 = "@Url.Action('CorregirIniciativa', 'Gestion', new { ini='param-name' })";
+            url2 = url2.replace("param1", $("#ID_INICIATIVA").val());
+        }
+        else {
+            url2 = url2.replace("param1", $("#ID_MEDMIT").val()).replace("param2", $("#ID_INICIATIVA").val());
+        }
+
+        window.location.href = url2;
+    }
 
 }
