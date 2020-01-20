@@ -216,6 +216,7 @@
     <Content Include="Views\Gestion\EvaluarIniciativaDetalle.cshtml" />
     <Content Include="Views\Gestion\VerificarIniciativaDetalle.cshtml" />
     <Content Include="Views\Gestion\SeguimientoIniciativa.cshtml" />
+    <Content Include="Views\Gestion\DetalleNotificacion.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

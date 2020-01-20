@@ -61,11 +61,10 @@ namespace datos.minem.gob.pe
                     Lista = db.Query<NotificacionBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
                 }
 
-                foreach (var item in Lista)
-                {
-                    item.FECHA = item.FECHA_REGISTRO.ToString("dd/MM/yyyy");
-                }
-
+                //foreach (var item in Lista)
+                //{
+                //    item.FECHA = item.FECHA_REGISTRO.ToString("dd/MM/yyyy");
+                //}
             }
             catch (Exception ex)
             {
@@ -73,6 +72,29 @@ namespace datos.minem.gob.pe
             }
 
             return Lista;
+        }
+
+        public NotificacionBE GetNotificacion(NotificacionBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_GET_NOTIFICACION";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pIdNotificacion", entidad.ID_NOTIFICACION);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    entidad = db.Query<NotificacionBE>(sp, p, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+
+            return entidad;
         }
 
         public NotificacionBE RegistraVistoNotificacion(NotificacionBE entidad)

@@ -1,0 +1,121 @@
+﻿@model entidad.minem.gob.pe.NotificacionBE
+
+@{
+    Layout = null;
+}
+@{
+    var colorRol = 0;
+    if (Model.ID_ROL == 1)
+    {
+        colorRol = 2;
+    }
+    else if (Model.ID_ROL == 2)
+    {
+        colorRol = 3;
+    }
+    else if (Model.ID_ROL == 3)
+    {
+        colorRol = 6;
+    }
+    else if (Model.ID_ROL == 4)
+    {
+        colorRol = 4;
+    }
+    else if (Model.ID_ROL == 5)
+    {
+        colorRol = 5;
+    }
+}
+
+<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Notificación @Model.ID_NOTIFICACION</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body medidas-modal">
+            <div class="row mb-2">
+                @if (Model.ID_ESTADO == 1)
+                {
+                    <div class="col-sm-12 col-md-6 col-lg-6"><strong>De: @Model.RESPONSABLE&nbsp;<span class="badge badge-actor-0'@colorRol'">USUARIO ADMINISTRADO</span></strong></div>
+                }
+                else
+                {
+                    <div class="col-sm-12 col-md-6 col-lg-6"><strong>De: @Model.EVALUADOR&nbsp;<span class="badge badge-actor-0'@colorRol'">@Model.ROL</span></strong></div>
+                }
+                <div class="col-sm-12 col-md-6 col-lg-6 text-right"><strong>Fecha de Registro: @Model.FECHA</strong></div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    @if (Model.ID_ESTADO_NOTIFICACION == 1)
+                    {
+                        <div class="alert alert-warning d-flex align-items-stretch" role="alert" id="modalObservacion">
+                            <div class="alert-wrap mr-3">
+                                <div class="sa">
+                                    <div class="sa-warning">
+                                        <div class="sa-warning-body"></div>
+                                        <div class="sa-warning-dot"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="alert-wrap">
+                                <h6>Observaciones</h6>
+                                <hr><small class="mb-0">Detectamos algunos datos a&nbsp;<strong>corregir&nbsp;</strong>en su iniciativa, los detalles en la siguiente descripción:</small>
+                            </div>
+                        </div>
+                    }
+
+                    @if (Model.ID_ESTADO_NOTIFICACION == 2)
+                    {
+                        <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="modalIncorrecto">
+                            <div class="alert-wrap mr-3">
+                                <div class="sa">
+                                    <div class="sa-error">
+                                        <div class="sa-error-x">
+                                            <div class="sa-error-left"></div>
+                                            <div class="sa-error-right"></div>
+                                        </div>
+                                        <div class="sa-error-placeholder"></div>
+                                        <div class="sa-error-fix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="alert-wrap">
+                                <h6>Error de registro</h6>
+                                <hr><small class="mb-0">Su inicitiva presenta los siguientes&nbsp;<strong>errores&nbsp;</strong>que detallamos a continuación:</small>
+                            </div>
+                        </div>
+                    }
+
+                    @if (Model.ID_ESTADO_NOTIFICACION == 3)
+                    {
+                        <div class="alert alert-success d-flex align-items-stretch" role="alert" id="modalCorrecto">
+                            <div class="alert-wrap mr-3">
+                                <div class="sa">
+                                    <div class="sa-success">
+                                        <div class="sa-success-tip"></div>
+                                        <div class="sa-success-long"></div>
+                                        <div class="sa-success-placeholder"></div>
+                                        <div class="sa-success-fix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="alert-wrap">
+                                <h6>Bien hecho</h6>
+                                <hr><small class="mb-0">Su iniciativa fue&nbsp;<strong>revisada&nbsp;</strong>y&nbsp;<strong>aprobada&nbsp;</strong>, a continuación siga los detalles en la descripción:</small>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="bd-callout">
+                <h5>Mensaje:</h5>
+                <p id="modalDescripcion">@Model.DESCRIPCION</p>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button><a class="btn btn-primary" href="javascript:void(0)" onclick="fn_ir_iniciativa()">Ir a la Inicicativa<i class="fas fa-hand-point-right ml-1"></i></a>
+        </div>
+    </div>
+</div>
+@Html.HiddenFor(m => m.ID_INICIATIVA)

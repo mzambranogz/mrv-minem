@@ -329,7 +329,7 @@ namespace MRVMinem.Controllers
             return Respuesta(itemRespuesta);
         }
 
-        
+
         public JsonResult EvaluarIniciativaDetalleIndicador(IndicadorBE entidad)
         {
             ResponseEntity itemRespuesta = new ResponseEntity();
@@ -338,7 +338,7 @@ namespace MRVMinem.Controllers
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }
-        
+
         public JsonResult ListaIniciativasEvaluar(IniciativaBE entidad)
         {
             List<IniciativaBE> lista = IniciativaLN.ListaIniciativaEvaluar(entidad);
@@ -405,6 +405,12 @@ namespace MRVMinem.Controllers
             var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
+        }
+
+        public ActionResult DetalleNotificacion(NotificacionBE entidad)
+        {
+            NotificacionBE modelo = NotificacionLN.GetNotificacion(entidad);
+            return View(modelo);
         }
 
     }

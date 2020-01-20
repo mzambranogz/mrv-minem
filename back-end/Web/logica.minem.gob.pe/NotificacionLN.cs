@@ -22,6 +22,11 @@ namespace logica.minem.gob.pe
             return notificacionDA.ListarNotificacion(entidad);
         }
 
+        public static NotificacionBE GetNotificacion(NotificacionBE entidad)
+        {
+            return notificacionDA.GetNotificacion(entidad);
+        }
+
         public static NotificacionBE RegistraVistoNotificacion(NotificacionBE entidad)
         {
             return notificacionDA.RegistraVistoNotificacion(entidad);

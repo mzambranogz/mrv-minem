@@ -589,6 +589,11 @@ END PKG_MRV_MANTENIMIENTO;
         pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
     );
+    
+    PROCEDURE USP_GET_NOTIFICACION(
+        pIdNotificacion IN INTEGER,
+        pRefcursor      OUT SYS_REFCURSOR
+    );
 
 end PKG_MRV_NOTIFICACION;
 
@@ -2338,7 +2343,8 @@ END PKG_MRV_MANTENIMIENTO;
         SELECT  COUNT(1) AS NOTIFICACIONES
         FROM    T_GENM_NOTIFICACION N
         WHERE   (N.ID_ROL = pIdRol OR pIdRol = 0)
-                AND (N.ID_USUARIO = pIdUsuario OR pIdUsuario = 0);
+                AND (N.ID_USUARIO = pIdUsuario OR pIdUsuario = 0)
+                AND N.FLG_VISTO = '0';
 
     END USP_SEL_NUM_NOFIFICACION;
     
@@ -2450,13 +2456,50 @@ END PKG_MRV_MANTENIMIENTO;
                 FROM T_GENM_NOTIFICACION N 
                 LEFT JOIN T_GENM_INICIATIVA INI ON N.ID_INICIATIVA = INI.ID_INICIATIVA
                 LEFT JOIN T_GENM_USUARIO U ON N.ID_USUARIO = U.ID_USUARIO
-                WHERE N.ID_ROL = ' || TO_CHAR(pID_ROL) ||
-                ')
+                WHERE N.ID_ROL = ' || TO_CHAR(pID_ROL) || ' AND N.FLG_VISTO = ''0'' 
+                )
                 WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
                 
         OPEN pRefcursor FOR vQuery;
                 
     END USP_SEL_USUARIO_NOTIFICACION;
+    
+    PROCEDURE USP_GET_NOTIFICACION(
+        pIdNotificacion IN INTEGER,
+        pRefcursor      OUT SYS_REFCURSOR) 
+    IS
+    BEGIN
+        OPEN PREFCURSOR FOR
+        SELECT N.ID_NOTIFICACION,
+               N.ID_ESTADO,
+               N.ID_ESTADO_NOTIFICACION,
+               N.DESCRIPCION,
+               N.ID_ROL,
+               NVL(X.NOMBRE_INSTITUCION,
+                   TRIM(U.NOMBRES_USUARIO) || ' ' ||
+                   TRIM(U.APELLIDOS_USUARIO)) RESPONSABLE,
+               I.NOMBRE_INICIATIVA,
+               R.DESCRIPCION_ROL ROL,
+               TRIM(UX.NOMBRES_USUARIO) || ' ' ||
+               TRIM(UX.APELLIDOS_USUARIO) EVALUADOR,
+               N.ID_INICIATIVA,
+               N.FECHA_REGISTRO
+          FROM T_GENM_NOTIFICACION N
+         INNER JOIN T_GENM_INICIATIVA I
+            ON N.ID_INICIATIVA = I.ID_INICIATIVA
+         INNER JOIN T_GENM_USUARIO U
+            ON I.ID_USUARIO = U.ID_USUARIO
+          LEFT JOIN T_GENM_INSTITUCION X
+            ON U.ID_INSTITUCION = X.ID_INSTITUCION
+          LEFT JOIN T_MAE_USUARIO_ROL UR
+            ON N.ID_USUARIO = UR.ID_USUARIO
+          LEFT JOIN T_MAE_ROL R
+            ON UR.ID_ROL = R.ID_ROL
+          LEFT JOIN T_GENM_USUARIO UX
+            ON N.ID_USUARIO = UX.ID_USUARIO
+        WHERE   N.ID_NOTIFICACION = pIdNotificacion;
+        
+    END USP_GET_NOTIFICACION; 
 
 
 end PKG_MRV_NOTIFICACION;

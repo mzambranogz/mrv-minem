@@ -25,3 +25,10 @@ E:\Eduardo\Minem\mrv-minem\back-end\WebSocketServer\MRV_SocketServer\MRV_SocketS
 E:\Eduardo\Minem\mrv-minem\back-end\WebSocketServer\MRV_SocketServer\MRV_SocketServer\bin\Debug\MRV_SocketServer.pdb
 E:\Eduardo\Minem\mrv-minem\back-end\WebSocketServer\MRV_SocketServer\MRV_SocketServer\bin\Debug\Fleck.dll
 E:\Eduardo\Minem\mrv-minem\back-end\WebSocketServer\MRV_SocketServer\MRV_SocketServer\obj\Debug\MRV_SocketServer.csprojResolveAssemblyReference.cache
+E:\Eduardo\mrv-minem\back-end\WebSocketServer\MRV_SocketServer\MRV_SocketServer\bin\Debug\MRV_SocketServer.exe.config
+E:\Eduardo\mrv-minem\back-end\WebSocketServer\MRV_SocketServer\MRV_SocketServer\obj\Debug\MRV_SocketServer.exe
+E:\Eduardo\mrv-minem\back-end\WebSocketServer\MRV_SocketServer\MRV_SocketServer\obj\Debug\MRV_SocketServer.pdb
+E:\Eduardo\mrv-minem\back-end\WebSocketServer\MRV_SocketServer\MRV_SocketServer\bin\Debug\MRV_SocketServer.exe
+E:\Eduardo\mrv-minem\back-end\WebSocketServer\MRV_SocketServer\MRV_SocketServer\bin\Debug\MRV_SocketServer.pdb
+E:\Eduardo\mrv-minem\back-end\WebSocketServer\MRV_SocketServer\MRV_SocketServer\bin\Debug\Fleck.dll
+E:\Eduardo\mrv-minem\back-end\WebSocketServer\MRV_SocketServer\MRV_SocketServer\obj\Debug\MRV_SocketServer.csprojResolveAssemblyReference.cache

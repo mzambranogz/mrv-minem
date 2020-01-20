@@ -41,6 +41,9 @@
         fn_CargarNotificacion();
     });
 
+    fn_actualizaCampana();
+    enLinea();
+
 });
 
 function fn_CargarNotificacion() {
@@ -111,7 +114,7 @@ function fn_CargarNotificacion() {
                         tr = tr + '     <td class="text-center text-xs-right" data-encabezado="Acciones">';
                         tr = tr + '         <div class="btn-group">';
                         tr = tr + '             <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
-                        tr = tr + '             <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#" onclick="fn_modalNotificacion(' + data[i]["ID_ESTADO_NOTIFICACION"] + ',' + data[i]["DESCRIPCION"] + ')" data-toggle="modal" data-target="#modal-ver-mas"><i class="fas fa-plus-circle"></i>&nbsp;Ver más</a></div>';
+                        tr = tr + '             <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item mas-notifacion" href="javascript:void(0)" onclick="fn_modalNotificacion(' + data[i]["ID_NOTIFICACION"] + ',' + data[i]["ID_ESTADO_NOTIFICACION"] + ')"><i class="fas fa-plus-circle"></i>&nbsp;Ver más</a></div>';
                         tr = tr + '         </div>';
                         tr = tr + '     </td>';
                         tr = tr + '</tr>';
@@ -238,21 +241,31 @@ function fn_registros_grilla() {
 //    fn_CargarNotificacion();
 //}
 
-function fn_modalNotificacion(estado, descripcion) {
+function fn_modalNotificacion(idNotificacion, idEstado) {
     debugger;
-    if (estado == 0) {
-        $("modalCorrecto").hide();
-        $("modalIncorrecto").hide();
-        $("modalObservacion").hide();
-    } else if (estado == 1) {
-        $("modalCorrecto").hide();
-        $("modalIncorrecto").hide();
-    } else if (estado == 2) {
-        $("modalCorrecto").hide();
-        $("modalObservacion").hide();
-    } else if (estado == 3) {
-        $("modalIncorrecto").hide();
-        $("modalObservacion").hide();
-    }
-    $("modalDescripcion").val(descripcion);
+    //if (estado == 0) {
+    //    $("modalCorrecto").hide();
+    //    $("modalIncorrecto").hide();
+    //    $("modalObservacion").hide();
+    //} else if (estado == 1) {
+    //    $("modalCorrecto").hide();
+    //    $("modalIncorrecto").hide();
+    //} else if (estado == 2) {
+    //    $("modalCorrecto").hide();
+    //    $("modalObservacion").hide();
+    //} else if (estado == 3) {
+    //    $("modalIncorrecto").hide();
+    //    $("modalObservacion").hide();
+    //}
+    //$("modalDescripcion").val(descripcion);
+    var url = baseUrl + "Gestion/DetalleNotificacion?ID_NOTIFICACION=" + idNotificacion;
+    $('#modal-ver-mas').load(url, function () {
+        $('#modal-ver-mas').modal({ show: true });
+    });
+
+}
+
+
+function fn_ir_iniciativa() {
+
 }

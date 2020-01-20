@@ -224,34 +224,34 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
 
 ////// CAMBIOS EDUARDO CH
 
-function enLinea() {
-    ws = new WebSocket("ws://192.168.1.46:9002");
-    ws.onopen = function () {
-        console.log("Conectado");
-    }
-    ws.onclose = function (event) {
-        console.log("Desconectado por: " + event.reason);
-    }
-    ws.onmessage = function (event) {
-        var data = event.data;
-        if (data != "") {
-            console.log("Campana Actualizada");
-            fn_actualizaCampana();
-        }
-    }
-}
+//function enLinea() {
+//    ws = new WebSocket("ws://192.168.1.46:9002");
+//    ws.onopen = function () {
+//        console.log("Conectado");
+//    }
+//    ws.onclose = function (event) {
+//        console.log("Desconectado por: " + event.reason);
+//    }
+//    ws.onmessage = function (event) {
+//        var data = event.data;
+//        if (data != "") {
+//            console.log("Campana Actualizada");
+//            fn_actualizaCampana();
+//        }
+//    }
+//}
 
-function fn_actualizaCampana() {
-    var item = {
-        ID_ROL: $("#Control").data("rol"),
-        ID_USUARIO: $("#Control").data("usuario")
-    }
-    url = baseUrl + "Gestion/ConsultaNotificaciones";
-    var respuesta = MRV.Ajax(url, item, false);
-    if (respuesta.success) {
-        $("#numNotificacion").html(respuesta.extra);
-    }
-}
+//function fn_actualizaCampana() {
+//    var item = {
+//        ID_ROL: $("#Control").data("rol"),
+//        ID_USUARIO: $("#Control").data("usuario")
+//    }
+//    url = baseUrl + "Gestion/ConsultaNotificaciones";
+//    var respuesta = MRV.Ajax(url, item, false);
+//    if (respuesta.success) {
+//        $("#numNotificacion").html(respuesta.extra);
+//    }
+//}
 
 function fn_nuevaIniciativaMitigacion(id) {
 
