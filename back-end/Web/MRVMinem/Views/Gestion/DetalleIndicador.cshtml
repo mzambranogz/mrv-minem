@@ -155,13 +155,13 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="txa-ubicacion">Ubicación<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
-                                        <div class="input-group">
+                                        <div class="input-group" id="campoUbicacion">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
-                                            <textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
+                                            @*<textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
                                                 Lima&nbsp;
                                                 Arequipa&nbsp;
                                                 Tacna
-                                            </textarea>
+                                            </textarea>*@
                                         </div>
                                     </div>
                                 </div>
@@ -198,25 +198,25 @@
                                 <div class="col-sm-12-col-md-12 col-lg-6">
                                     <div class="form-group">
                                         <label for="mlt-energetico">Energético asociado<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
-                                        <div class="input-group">
+                                        <div class="input-group" id="campoEnerg">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
-                                            <textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
+                                            @*<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
                                                 Combustibles fósiles&nbsp;
                                                 Electricidad&nbsp;
-                                            </textarea>
+                                            </textarea>*@
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-12-col-md-12 col-lg-6">
                                     <div class="form-group">
                                         <label for="mlt-gei">Gases de efecto invernadero<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
-                                        <div class="input-group">
+                                        <div class="input-group" id="campoGei">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
-                                            <textarea class="form-control-plaintext" id="mlt-gei" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
+                                            @*<textarea class="form-control-plaintext" id="mlt-gei" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
                                                 CO2
                                                 y&nbsp;
                                                 CH 2
-                                            </textarea>
+                                            </textarea>*@
                                         </div>
                                     </div>
                                 </div>
@@ -242,7 +242,7 @@
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup20"><i class="fas fa-square-root-alt"></i></span></div>
                                             <select class="form-control" id="cbo-enfoque" aria-describedby="inputGroup20">
                                                 <option value="0">-Seleccione-</option>
-                                                <option value="1">Vehículo Elétrico</option>
+                                                <option value="1" selected>Vehículo Elétrico</option>
                                                 <option value="2">Vehículo Híbrido</option>
                                                 @*<option>Enfoque 03</option>
                                                 <option>Enfoque 04</option>*@
@@ -259,7 +259,7 @@
                             <div class="row">
                                 <div class="col-12 px-0">
                                     <div class="table-responsive tabla-principal tabla-detalle-indicadores">
-                                        <table class="table table-hover">
+                                        <table class="table table-hover" id="tablaIndicador" data-fila="0">
                                             <thead>
                                                 <tr class="bg-primary text-white">
                                                     <th class="text-center" scope="col"><span>#&nbsp;</span></th>
@@ -276,7 +276,7 @@
                                                     <th class="text-center" scope="col">Más</th>
                                                 </tr>
                                             </thead>
-                                            <tbody id="cuerpoTablaIndicador">
+                                            <tbody id="cuerpoTablaIndicador" data-row="0">
                                                 @*<tr id="detalles-tr-1">
                                                     <th class="text-center" data-encabezado="Número" scope="row">1</th>
                                                     <td data-encabezado="Columna 01">
@@ -469,8 +469,8 @@
                                             <tbody>
                                                 <tr>
                                                     <th class="text-center" data-encabezado="Número" scope="row">1</th>
-                                                    <td data-encabezado="Resumen">Nombre de la Medida Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia earum asperiores do</td>
-                                                    <td data-encabezado="Total"><strong>150,000.00</strong></td>
+                                                    <td data-encabezado="Resumen" id="resumen-detalle">@*Nombre de la Medida Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia earum asperiores do*@</td>
+                                                    <td data-encabezado="Total" id="total-detalle">@*<strong>150,000.00</strong>*@</td>
                                                 </tr>
                                             </tbody>
                                         </table>

@@ -29,7 +29,11 @@ function CargarOpcionesCuerpo() {
 
 function fn_revisarIniciativa(ini){
      location.href = baseUrl + "Gestion/RevisarIniciativa?id=" + 0+"&ini="+ini;
- }
+}
+
+function fn_mostrarCorregirIniciativa(ini){
+    location.href = baseUrl + "Gestion/CorregirIniciativa?ini=" + ini;
+}
 
 function fn_revisarDetalle(id){
      location.href = baseUrl + "Gestion/RevisarDetalleIndicador?id=" + id;
@@ -55,8 +59,16 @@ function fn_verificarIniciativaDetalle(id) {
      location.href = baseUrl + "Gestion/DetalleIndicador?id=" + id;
  }
 
+ function fn_mostrarEditarIniciativa(ini) {
+     location.href = baseUrl + "Gestion/IniciativaMitigacion?id=" + 0 + "&ini=" + ini;
+ }
+
  function fn_mostrarCorregirIndicador(id) {
      location.href = baseUrl + "Gestion/CorregirDetalleIndicador?id=" + id;
+ }
+
+ function fn_mostrarSeguimiento(id) {
+     location.href = baseUrl + "Gestion/SeguimientoIniciativa?id=" + id;
  }
 
  function fn_mostrarDetalleIndicador() {
@@ -77,9 +89,8 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
                     $("#cuerpoMitigacion").html("");
                     for (var i = 0; i < data.length; i++) {
 
-
                         var progreso = '0%;';
-                        if (data[i]["ID_ESTADO"] != 0 || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3)) {
+                        if (data[i]["ID_ESTADO"] != 0 || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3) || (data[i]["ID_ESTADO"] == 2 && data[i]["PROGRESO"] == 1)) {
                             if (data[i]["PROGRESO"] == 1) {
                                 progreso = '25%';
                             } else if (data[i]["PROGRESO"] == 2 || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3)) {
@@ -142,13 +153,13 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
 
                         var progreso = '0%;';
                         if (data[i]["ID_ESTADO"] != 0 || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3)) {
-                            if (data[i]["PROGRESO"] == 1) {
+                            if (data[i]["PROGRESO"] == 1 && (data[i]["ID_ESTADO"] == 1 || data[i]["ID_ESTADO"] == 5)) {
                                 progreso = '25%';
                             } else if (data[i]["PROGRESO"] == 2 || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3)) {
                                 progreso = '50%';
                             } else if (data[i]["PROGRESO"] == 3 && data[i]["ID_ESTADO"] != 0) {
                                 progreso = '75%';
-                            } else if (data[i]["PROGRESO"] == 4 || data[i]["PROGRESO"] == 5 || data[i]["PROGRESO"] == 6) {
+                            } else if (data[i]["PROGRESO"] == 4 || data[i]["PROGRESO"] == 5 || data[i]["PROGRESO"] == 6 || data[i]["PROGRESO"] == 7) {
                                 progreso = '100%';
                             }
                         }
@@ -166,6 +177,8 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                         tr = tr + '<td class="text-center text-xs-right" data-encabezado="Acciones">';
 
                         tr = tr + '     <div class="btn-group">';
+                        //if (data[i]["ID_ESTADO"] == 2 && data[i]["PROGRESO"] == 1) {
+                          //  tr = tr + '         <div class="acciones fase-01 dropdown-toggle text-warning" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
                         if (data[i]["PROGRESO"] == 2 || data[i]["PROGRESO"] == 3 || data[i]["PROGRESO"] == 4 || data[i]["PROGRESO"] == 5 || data[i]["PROGRESO"] == 6 || data[i]["PROGRESO"] == 7) {
                             tr = tr + '         <div class="acciones fase-02 dropdown-toggle text-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
                         } else {
@@ -173,7 +186,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                         }
                         tr = tr + '         <div class="dropdown-menu dropdown-menu-right">';
                         tr = tr + '             <a class="dropdown-item" href="./ver-mas-accion-de-mitigacion.html"><i class="fas fa-plus-circle"></i>&nbsp;Ver más</a>';
-                        tr = tr + '             <a class="dropdown-item" href="./seguimiento-de-accion-de-mitigacion.html"><i class="fas fa-history"></i>&nbsp;Seguimiento</a>';
+                        tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_mostrarSeguimiento(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-history"></i>&nbsp;Seguimiento</a>';
                         if ($('#Control').data('rol') == 2 || $('#Control').data('rol') == 1) {
                             if (data[i]["PROGRESO"] == 1 && data[i]["ID_ESTADO"] == 0) {
                                 tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_mostrarEditarIniciativa(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
@@ -220,34 +233,34 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
 
 ////// CAMBIOS EDUARDO CH
 
-function enLinea() {
-    ws = new WebSocket("ws://192.168.1.46:9002");
-    ws.onopen = function () {
-        console.log("Conectado");
-    }
-    ws.onclose = function (event) {
-        console.log("Desconectado por: " + event.reason);
-    }
-    ws.onmessage = function (event) {
-        var data = event.data;
-        if (data != "") {
-            console.log("Campana Actualizada");
-            fn_actualizaCampana();
-        }
-    }
-}
+//function enLinea() {
+//    ws = new WebSocket("ws://192.168.1.46:9002");
+//    ws.onopen = function () {
+//        console.log("Conectado");
+//    }
+//    ws.onclose = function (event) {
+//        console.log("Desconectado por: " + event.reason);
+//    }
+//    ws.onmessage = function (event) {
+//        var data = event.data;
+//        if (data != "") {
+//            console.log("Campana Actualizada");
+//            fn_actualizaCampana();
+//        }
+//    }
+//}
 
-function fn_actualizaCampana() {
-    var item = {
-        ID_ROL: $("#Control").data("rol"),
-        ID_USUARIO: $("#Control").data("usuario")
-    }
-    url = baseUrl + "Gestion/ConsultaNotificaciones";
-    var respuesta = MRV.Ajax(url, item, false);
-    if (respuesta.success) {
-        $("#numNotificacion").html(respuesta.extra);
-    }
-}
+//function fn_actualizaCampana() {
+//    var item = {
+//        ID_ROL: $("#Control").data("rol"),
+//        ID_USUARIO: $("#Control").data("usuario")
+//    }
+//    url = baseUrl + "Gestion/ConsultaNotificaciones";
+//    var respuesta = MRV.Ajax(url, item, false);
+//    if (respuesta.success) {
+//        $("#numNotificacion").html(respuesta.extra);
+//    }
+//}
 
 function fn_nuevaIniciativaMitigacion(id) {
 

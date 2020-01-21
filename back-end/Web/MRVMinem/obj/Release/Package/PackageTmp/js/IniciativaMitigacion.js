@@ -21,16 +21,17 @@
                             }
                         }
                     } else {
-                        var msj = "\n";
+                        var msj = '<textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">';
                         for (var j = 0; j < data.length; j++) {
-                            msj = msj + data[j]["DESCRIPCION"] + '\n';
+                            msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
                         }
-                        $("#txa-ubicacion").append(msj);
+                        msj = msj + ' </textarea>';
+                        $("#campoUbicacion").append(msj);
                     }                    
                 }
             }
         }
-    });
+    });F
 
 }
 
@@ -47,13 +48,22 @@ function fn_cargarGei() {
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
-                    for (var j = 0; j < data.length; j++) {
-                        for (var i = 0; i < $("#listaGei").data("cantidad") ; i++) {
-                            if ($('#G' + (i + 1)).data("value") == data[j]["ID_GEI"]) {
-                                $('#G' + (i + 1)).prop('checked', true);
+                    if ($("#Control").data("revision") == 0) {
+                        for (var j = 0; j < data.length; j++) {
+                            for (var i = 0; i < $("#listaGei").data("cantidad") ; i++) {
+                                if ($('#G' + (i + 1)).data("value") == data[j]["ID_GEI"]) {
+                                    $('#G' + (i + 1)).prop('checked', true);
+                                }
                             }
                         }
-                    }
+                    } else {
+                        var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">';
+                        for (var j = 0; j < data.length; j++) {
+                            msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
+                        }
+                        msj = msj + ' </textarea>';
+                        $("#campoGei").append(msj);
+                    }                    
                 }
             }
         }
@@ -73,13 +83,22 @@ function fn_cargarEnergetico() {
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
-                    for (var j = 0; j < data.length; j++) {
-                        for (var i = 0; i < $("#listaEnerg").data("cantidad") ; i++) {
-                            if ($('#E' + (i + 1)).data("value") == data[j]["ID_ENERG"]) {
-                                $('#E' + (i + 1)).prop('checked', true);
+                    if ($("#Control").data("revision") == 0) {
+                        for (var j = 0; j < data.length; j++) {
+                            for (var i = 0; i < $("#listaEnerg").data("cantidad") ; i++) {
+                                if ($('#E' + (i + 1)).data("value") == data[j]["ID_ENERG"]) {
+                                    $('#E' + (i + 1)).prop('checked', true);
+                                }
                             }
                         }
-                    }
+                    } else {
+                        var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">';
+                        for (var j = 0; j < data.length; j++) {
+                            msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
+                        }
+                        msj = msj + ' </textarea>';
+                        $("#campoEnerg").append(msj);
+                    }                    
                 }
             }
         }
@@ -113,11 +132,12 @@ function fn_cargarIniciativa() {
                             $("#txt-monto-inversion").val(data[i]["INVERSION_INICIATIVA"]);
                         }
                         $("#cbo-moneda").val(data[i]["ID_MONEDA"]);
-                        if (data[i]["FECHA"] != "0001-01-01") {
-                            $("#txt-fecha-inicio").val(data[i]["FECHA"]);
+                        if (data[i]["FECHA"].toString() != "0001-01-01") {
+                            $("#txt-fecha-inicio").val(data[i]["FECHA"].toString());
+                            //$("#txt-fecha-inicio").val("2019-12-12"); FORMATO EJEMPLO PARA CARGA
                         }
                         if (data[i]["PRIVACIDAD_INICIATIVA"] == 1) {
-                            $("regPrivacidad").prop("checked", true); //txa-nombre-iniciativa, txa-descripcion-medida, txt-monto-inversion, txt-fecha-inicio
+                            $("regPrivacidad").prop("checked", true); 
                         }
                     }
                 }
@@ -177,7 +197,6 @@ function fn_procesoIniciativa(url, estado) {
     var respuesta = MRV.Ajax(url, item, false);
     if (respuesta.success) {
         if (estado == 0) {
-            $("#mensajeModalAvance #mensajeWarningAvance").remove();
             $("#mensajeModalAvance #mensajeDangerAvance").remove();
             var msj =   '                   <div class="col-sm-12 col-md-12 col-lg-12" id="mensajeWarningAvance">';
             msj = msj + '                       <div class="alert alert-warning d-flex align-items-stretch" role="alert">';
@@ -195,10 +214,9 @@ function fn_procesoIniciativa(url, estado) {
             msj = msj + '                            </div>';
             msj = msj + '                        </div>';
             msj = msj + '                    </div>';
+            $("#guardar-avance #modalAvanceBoton").hide();            
             $('#mensajeModalAvance').append(msj);
-            //fn_accionesMitigacion();
         } else {
-            $('#mensajeModalRegistrar #mensajeGoodRegistro').remove();
             $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
             var msj = '                       <div class="alert alert-success d-flex align-items-stretch" role="alert" id="mensajeGoodRegistro">';
             msj = msj + '                            <div class="alert-wrap mr-3">';
@@ -216,6 +234,7 @@ function fn_procesoIniciativa(url, estado) {
             msj = msj + '                                <hr><small class="mb-0">Los datos de su iniciativa fueron guardados exitosamente, espere la aprobación del especialista para continuar con el registro de detalle de indicadores. En breve le notificaremos el estado de su solicitud de revisión.</small>';
             msj = msj + '                            </div>';
             msj = msj + '                        </div>';
+            $("#solicitar-revision #modalRegistrarBoton").hide();
             $('#mensajeModalRegistrar').append(msj);
             $("#Control").data("modal", 1);
             if (respuesta.extra == "1") {
@@ -276,9 +295,15 @@ function fn_procesoIniciativa(url, estado) {
         if ($("#Control").data("modal") == 1) {
             location.href = baseUrl + "Gestion/AccionMitigacion";
         } else {
+            $('#mensajeModalRegistrar #mensajeGoodRegistro').remove();
             $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
+        }        
+    });
+
+    $("#guardar-avance").on("hidden.bs.modal", function () {
+            $("#mensajeModalAvance #mensajeWarningAvance").remove();
             $("#mensajeModalAvance #mensajeDangerAvance").remove();
-        }
+            $("#guardar-avance #modalAvanceBoton").show();
     });
 }
 
@@ -481,6 +506,8 @@ $(document).ready(function () {
     $("#Control").data("iniciativa", $("#iniciativa").val());
     $("#Control").data("revision", $("#revision").val());
     fn_ListarGEI();
+    fn_actualizaCampana();
+    enLinea();
 });
 
 function fn_cambiarIniciativaMitigacion(id) {
@@ -497,8 +524,6 @@ function fn_revisarIniciativaMitigacion() {
     url = baseUrl + "Gestion/AprobarIniciativaMitigacion";
     var respuesta = MRV.Ajax(url, item, false);
     if (respuesta.success) {
-        $("#modalAprobacion #modalCorrectoAprobacion").remove();
-        $("#modalAprobacion #modalErrorAprobacion").remove();
         var msj = '                           <div class="alert alert-success d-flex align-items-stretch" role="alert" id="modalCorrectoAprobacion">';
         msj = msj + '                               <div class="alert-wrap mr-3">';
         msj = msj + '                                    <div class="sa">';
@@ -515,6 +540,7 @@ function fn_revisarIniciativaMitigacion() {
         msj = msj + '                                    <hr><small class="mb-0">Se aprobó correctamente esta revisión, se procederá a notificar al Usuario Administrado.</small>';
         msj = msj + '                                </div>';
         msj = msj + '                            </div>';
+        $("#aprobar-revision #modalAprobarBoton").hide();
         $("#modalAprobacion").append(msj);
         $("#Control").data("modal", 1);
     } else {
@@ -544,7 +570,9 @@ function fn_revisarIniciativaMitigacion() {
         if ($("#Control").data("modal") == 1) {
             location.href = baseUrl + "Gestion/AccionMitigacion";
         } else {
+            $("#modalAprobacion #modalCorrectoAprobacion").remove();
             $("#modalAprobacion #modalErrorAprobacion").remove();
+            $("#aprobar-revision #modalAprobarBoton").show();
         }
     });
 }
@@ -560,8 +588,6 @@ function fn_observacionIniciativaMitigacion() {
     var mensaje = "";
     var respuesta = MRV.Ajax(url, item, false);
     if (respuesta.success) {
-        $("#modalRevision #modalErrorRevision").remove();
-        $("#modalRevision #modalCorrectoRevision").remove();
         var msj  =  '                           <div class="alert alert-success d-flex align-items-stretch" role="alert" id="modalCorrectoRevision">';
         msj = msj + '                               <div class="alert-wrap mr-3">';
         msj = msj + '                                    <div class="sa">';
@@ -578,6 +604,7 @@ function fn_observacionIniciativaMitigacion() {
         msj = msj + '                                    <hr><small class="mb-0">Sus observaciones se enviaron correctamente.</small>';
         msj = msj + '                                </div>';
         msj = msj + '                            </div>';
+        $("#observar-revision #modalObservacionBoton").hide();
         $("#modalRevision").append(msj);
         $("#Control").data("modal", 1);
     } else {
@@ -608,6 +635,8 @@ function fn_observacionIniciativaMitigacion() {
             location.href = baseUrl + "Gestion/AccionMitigacion";
         } else {
             $("#modalRevision #modalErrorRevision").remove();
+            $("#modalRevision #modalCorrectoRevision").remove();
+            $("#observar-revision #modalObservacionBoton").show();
         }
     });
 }

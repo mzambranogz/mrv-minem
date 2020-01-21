@@ -1,58 +1,262 @@
 ﻿$(document).ready(function () {
-    //debugger;
     $("#Control").data("iniciativa", $("#identificador").val());
-    CargarDetalleIndicador();
+    $("#Control").data("revision", $("#revision").val());
+    
+    if ($("#revision").val() == 1) {
+        CargarDetalleIndicadorRevision();
+    } else {
+        CargarDetalleIndicador();
+    }    
+    CargarDatosIniciativa();
+    fn_cargarUbicacion();
+    fn_cargarEnergetico();
+    fn_cargarGei();
 
-    //$("#tipoVehiculoB").change(function () {
-    //  alert("hola");
-    //validarCampo();
-    //});
+    $(document).on("mouseover", "#cuerpoTablaIndicador tr", function () {
+
+        var fila = $(this).find('th:eq(0)').html();
+
+        console.log(fila);
+        $("#tablaIndicador").data("fila", fila);
+        //validarCampo();
+
+
+        /*$("#tipoVehiculoB" + fila).on('change', function () {
+            console.log("a");
+        });*/
+
+        //$("#tipoCombustibleB" + fila).on("change", function () {
+        //    console.log("b");
+        //    validarCampo();
+        //});
+
+    });
+
+    fn_actualizaCampana();
+    enLinea();    
 
 });
+
+function fn_calcularTotalCO2(row) {
+    var total = 0.0;
+    for (var i = 0; i < row; i++) {
+        total = total + parseFloat($("#txt-det-6-" + (i + 1)).val());
+        //alert(total);
+    }
+    $("#cuerpoTablaIndicador").data("total", total);
+    $("#total-detalle #total").remove();
+    $("#total-detalle").append('<strong id="total">' + total + '</strong>');
+}
+
+
+
+function fn_calcularIndicadores() {
+    var fila = $("#tablaIndicador").data("fila");
+    if (validarCampo(fila)) {        
+        var item = {
+            ID_INDICADOR: $("#detalles-tr-" + fila).data("value"),
+            ID_INICIATIVA: $("#Control").data("iniciativa"),
+            ANNOB: $("#cbo-det-1-" + fila).val(),
+            ID_TIPO_VEHICULOB: $("#cbo-det-2-" + fila).val(),
+            ID_TIPO_COMBUSTIBLEB: $("#cbo-det-3-" + fila).val(),
+            KRVB: $("#txt-det-1-" + fila).val(),
+            CANTIDADB: $("#txt-det-2-" + fila).val(),
+            FACTOR_RENDIMIENTO: $("#txt-det-3-" + fila).val(),
+            ID_TIPO_FUENTEI: $("#cbo-enfoque").val(),
+        }
+        //alert("e:" + $("#detalles-tr-" + fila).data("value"));
+        $.ajax({
+            url: baseUrl + 'Gestion/CalcularIndicador',
+            type: 'POST',
+            datatype: 'json',
+            data: item,
+            success: function (data) {
+                if (data != null && data != "") {
+                    if (data.length > 0) {
+                        for (var i = 0; i < data.length; i++) {
+                            $("#txt-det-4-" + fila).val(data[i]["TOTAL_GEI_BASE"]);
+                            $("#txt-det-5-" + fila).val(data[i]["TOTAL_GEI_INIMIT"]);
+                            $("#txt-det-6-" + fila).val(data[i]["TOTAL_GEI_REDUCIDO"]);
+                            $("#detalles-tr-" + fila).data("value", data[i]["ID_INDICADOR"]);
+                        }
+                    }
+                }
+                
+                row = $("#cuerpoTablaIndicador").data("row") + 1;
+                $("#cuerpoTablaIndicador").data("row", row);
+                fn_calcularTotalCO2(row);
+            }
+        });
+    }
+}
 
 $("#cbo-enfoque").change(function () {
     //alert("hola");
     //validarCampo();
 });
 
-$(document).on("change", "#tipoVehiculoB" + 1, function () {
-    validarCampo();
-});
 
-$(document).on("change", "#tipoCombustibleB" + 1, function () {
-    validarCampo();
-});
+//$(document).on("focusout", "#krvB" + 1, function () {
+//    validarCampo();
+//});
 
-$(document).on("focusout", "#krvB" + 1, function () {
-    validarCampo();
-});
-
-$(document).on("focusout", "#cantidadB" + 1, function () {
-    validarCampo();
-});
-
-$(document).on("focusout", "#factorRendimientoB" + 1, function () {
-    validarCampo();
-});
-
-function validarCampo() {
-    var validar = 1;
-    if ($("#tipoVehiculoB" + $("#tablaIndicador").data("fila")).val() == 0) {
-        validar = 0;
-    } else if ($("#tipoCombustibleB" + $("#tablaIndicador").data("fila")).val() == 0) {
-        validar = 0;
-    } else if ($("#krvB" + $("#tablaIndicador").data("fila")).val() == "") {
-        validar = 0;
-    } else if ($("#cantidadB" + $("#tablaIndicador").data("fila")).val() == "") {
-        validar = 0;
-    }
-    if (validar == 1) {
-        console.log("hola");
-        fn_calcularIndicador($("#tablaIndicador").data("fila"));
+function validarCampo(fila) {
+    if ($("#cbo-det-2-" + fila).val() == 0) {
         return false;
-    }
-    //alert($("#tipoVehiculoB" + $("#tablaIndicador").data("fila")).val() + " - " + $("#tipoCombustibleB" + $("#tablaIndicador").data("fila")).val() + " - " + $("#krvB" + $("#tablaIndicador").data("fila")).val() + " - " + $("#cantidadB" + $("#tablaIndicador").data("fila")).val() + " - " + $("#factorRendimientoB" + $("#tablaIndicador").data("fila")).val());
+    } else if ($("#cbo-det-3-" + fila).val() == 0) {
+        return false;
+    } else if ($("#txt-det-1-"+fila).val() == "") {
+        return false;
+    } else if ($("#txt-det-2-"+fila).val() == "") {
+        return false;
+    } else {
+        return true;
+    } 
 }
+
+function fn_ObtenerMedidaMitigacion(id) {
+    var Item = {
+        ID_MEDMIT: id
+    };
+    $.ajax({
+        url: baseUrl + "Gestion/ObtenerMedidaMitigacion",
+        type: 'POST',
+        datatype: 'json',
+        data: Item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    for (var i = 0; i < data.length; i++) {
+                        $("#txt-categoria").val(data[i]["IPSC_MEDMIT"]);
+                        $("#txa-objetivo").val(data[i]["OBJETIVO_MEDMIT"]);
+                        $("#txa-descripcion").val(data[i]["DESCRIPCION_MEDMIT"]);
+                        $("#resumen-detalle").append(data[i]["IPSC_MEDMIT"]);
+                    }
+                }
+            }
+        }
+    });
+}
+
+function CargarDatosIniciativa(){
+    var Item =
+    {
+        ID_INICIATIVA: $("#identificador").val()
+    };
+    $.ajax({
+        url: baseUrl + "Gestion/CargarSeleccionIniciativa",
+        type: 'POST',
+        datatype: 'json',
+        data: Item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    for (var i = 0; i < data.length; i++) {
+                        fn_ObtenerMedidaMitigacion(data[i]["ID_MEDMIT"]);
+                        $("#Control").data("mitigacion", data[i]["ID_MEDMIT"]);
+                        $("#txa-nombre-iniciativa").val(data[i]["NOMBRE_INICIATIVA"]);
+                        $("#txa-descripcion-medida").val(data[i]["DESC_INICIATIVA"]);
+                        $("#txt-nombre-responsable").val(data[i]["NOMBRES"]);
+                        $("#txt-correo-electronico").val(data[i]["CORREO"]);
+                        $("#txt-nombre-institucion").val(data[i]["INSTITUCION"]);
+                        $("#txt-direccion").val(data[i]["DIRECCION"]);
+                        $("#txt-sector-institucion").val(data[i]["SECTOR"]);
+                        if (data[i]["INVERSION_INICIATIVA"] != 0) {
+                            $("#txt-monto-inversion").val(data[i]["INVERSION_INICIATIVA"]);
+                        }
+                        $("#cbo-moneda").val(data[i]["ID_MONEDA"]);
+                        /*if (data[i]["FECHA"].toString() != "0001-01-01") {
+                            $("#txt-fecha-inicio").val(data[i]["FECHA"].toString());
+                            //$("#txt-fecha-inicio").val("2019-12-12"); FORMATO EJEMPLO PARA CARGA
+                        }*/
+                        if (data[i]["PRIVACIDAD_INICIATIVA"] == 1) {
+                            $("regPrivacidad").prop("checked", true);
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+function fn_cargarUbicacion() {
+    var Item =
+    {
+        ID_INICIATIVA: $("#Control").data("iniciativa")
+    };
+
+    $.ajax({
+        url: baseUrl + "Gestion/CargarSeleccionUbicacion",
+        type: 'POST',
+        datatype: 'json',
+        data: Item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                        var msj = '<textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">';
+                        for (var j = 0; j < data.length; j++) {
+                            msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
+                        }
+                        msj = msj + ' </textarea>';
+                        $("#campoUbicacion").append(msj);
+                }
+            }
+        }
+    });
+
+}
+
+function fn_cargarGei() {
+    var Item =
+    {
+        ID_INICIATIVA: $("#Control").data("iniciativa")
+    };
+    $.ajax({
+        url: baseUrl + "Gestion/CargarSeleccionGei",
+        type: 'POST',
+        datatype: 'json',
+        data: Item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                        var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">';
+                        for (var j = 0; j < data.length; j++) {
+                            msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
+                        }
+                        msj = msj + ' </textarea>';
+                        $("#campoGei").append(msj);
+                }
+            }
+        }
+    });
+}
+
+function fn_cargarEnergetico() {
+    var Item =
+    {
+        ID_INICIATIVA: $("#Control").data("iniciativa")
+    };
+    $.ajax({
+        url: baseUrl + "Gestion/CargarSeleccionEnergetico",
+        type: 'POST',
+        datatype: 'json',
+        data: Item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                        var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">';
+                        for (var j = 0; j < data.length; j++) {
+                            msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
+                        }
+                        msj = msj + ' </textarea>';
+                        $("#campoEnerg").append(msj);
+                }
+            }
+        }
+    });
+}
+
+////////////////////////////////////////////////////////////////////////////
 
 function CargarDetalleIndicador() {
     var item = {
@@ -69,9 +273,12 @@ function CargarDetalleIndicador() {
                     for (var i = 0; i < data.length; i++) {
                         CargarTablaIndicador(data, i);
                     }
-                }
+                    $("#cuerpoTablaIndicador").data("row", data.length);
+                } 
+            } else {
+                CargarSoloTablaIndicador();
+                $("#total-detalle").append('<strong id="total">0.00</strong>');
             }
-            CargarSoloTablaIndicador();
         }
     });
 }
@@ -87,10 +294,10 @@ function cargarAnio() {
     return tr;
 }
 
-function fn_CargarListaTipoVehiculo(datat, j, fila) {
+function fn_CargarListaTipoVehiculo(datat, j) {
     var Item = {};
     $.ajax({
-        url: baseUrl + "Administrado/Gestion/ListarTipoVehiculo",
+        url: baseUrl + "Gestion/ListarTipoVehiculo",
         type: 'POST',
         datatype: 'json',
         data: Item
@@ -98,19 +305,18 @@ function fn_CargarListaTipoVehiculo(datat, j, fila) {
         if (data != null && data != "") {
             if (data.length > 0) {
                 for (var i = 0; i < data.length; i++) {
-                    $("#tipoVehiculoB" + fila).append('<option value="' + data[i]["ID_TIPO_VEHICULO"] + '">' + data[i]["DESCRIPCION"] + '</option>');
-                    $("#tipoVehiculoI" + fila).append('<option value="' + data[i]["ID_TIPO_VEHICULO"] + '">' + data[i]["DESCRIPCION"] + '</option>');
+                    $("#cbo-det-2-" + (j + 1)).append('<option value="' + data[i]["ID_TIPO_VEHICULO"] + '">' + data[i]["DESCRIPCION"] + '</option>');
                 }
             }
         }
-        fn_CargarListaTipoCombustible(datat, j, fila);
+        fn_CargarListaTipoCombustible(datat, j);
     });
 }
 
-function fn_CargarListaTipoCombustible(datat, j, fila) {
+function fn_CargarListaTipoCombustible(datat, j) {
     var Item = {};
     $.ajax({
-        url: baseUrl + "Administrado/Gestion/ListarTipoCombustible",
+        url: baseUrl + "Gestion/ListarTipoCombustible",
         type: 'POST',
         datatype: 'json',
         data: Item
@@ -118,18 +324,36 @@ function fn_CargarListaTipoCombustible(datat, j, fila) {
         if (data != null && data != "") {
             if (data.length > 0) {
                 for (var i = 0; i < data.length; i++) {
-                    $("#tipoCombustibleB" + fila).append('<option value="' + data[i]["ID_TIPO_COMBUSTIBLE"] + '">' + data[i]["DESCRIPCION"] + '</option>');
+                    $("#cbo-det-3-" + (j + 1)).append('<option value="' + data[i]["ID_TIPO_COMBUSTIBLE"] + '">' + data[i]["DESCRIPCION"] + '</option>');
                 }
             }
         }
-        fn_CargarListaTipoFuente(datat, j, fila);
+        //fn_CargarListaTipoFuente(datat, j);
+        llenarTabla(datat, j);
     });
 }
 
-function fn_CargarListaTipoFuente(datat, j, fila) {
+function llenarTabla(data, j) {
+    $("#cbo-det-1-" + (j + 1)).val(data[j]["ANNO_BASE"]);
+    $("#cbo-det-2-" + (j + 1)).val(data[j]["ID_TIPO_VEHICULO_BASE"]);
+    $("#cbo-det-3-" + (j + 1)).val(data[j]["ID_TIPO_COMBUSTIBLE_BASE"]);
+    $("#txt-det-1-" + (j + 1)).val(data[j]["KRV_BASE"]);
+    $("#txt-det-2-" + (j + 1)).val(data[j]["CANT_BASE"]);
+    //$("#tipoFuenteI" + fila).val(data[i]["ID_TIPO_FUENTE_INIMIT"]);
+    $("#txt-det-4-" + (j + 1)).val(data[j]["TOTAL_GEI_BASE"]); 
+    $("#txt-det-5-" + (j + 1)).val(data[j]["TOTAL_GEI_INIMIT"]);
+    $("#txt-det-6-" + (j + 1)).val(data[j]["TOTAL_GEI_REDUCIDO"]);
+    $("#detalles-tr-" + (j + 1)).data("value", data[j]["ID_INDICADOR"]);
+    $("#cuerpoTablaIndicador").data("total", $("#cuerpoTablaIndicador").data("total") + data[j]["TOTAL_GEI_REDUCIDO"]);
+    $("#total-detalle #total").remove();
+    $("#total-detalle").append('<strong id="total">'+$("#cuerpoTablaIndicador").data("total")+'</strong>');
+    //alert($("#cuerpoTablaIndicador").data("total"));
+}
+
+/*function fn_CargarListaTipoFuente(datat, j) {
     var Item = {};
     $.ajax({
-        url: baseUrl + "Administrado/Gestion/ListarTipoFuente",
+        url: baseUrl + "Gestion/ListarTipoFuente",
         type: 'POST',
         datatype: 'json',
         data: Item
@@ -137,21 +361,60 @@ function fn_CargarListaTipoFuente(datat, j, fila) {
         if (data != null && data != "") {
             if (data.length > 0) {
                 for (var i = 0; i < data.length; i++) {
-                    $("#tipoFuenteI" + fila).append('<option value="' + data[i]["ID_TIPO_FUENTE"] + '">' + data[i]["DESCRIPCION"] + '</option>');
+                    $("#cbo-det-2-" + (j + 1)).append('<option value="' + data[i]["ID_TIPO_FUENTE"] + '">' + data[i]["DESCRIPCION"] + '</option>');
                 }
             }
         }
-        //llenarTabla(fila, datat, j);
+       llenarTabla(fila, datat, j);
+    });
+}*/
+
+function CargarDetalleIndicadorRevision() {
+    var Item = {
+        ID_INICIATIVA: $("#identificador").val()
+    };
+    $.ajax({
+        url: baseUrl + "Gestion/ListarDetalleIndicadorRevision",
+        type: 'POST',
+        datatype: 'json',
+        data: Item
+    }).done(function (data) {
+        if (data != null && data != "") {
+            $("#cuerpoTablaIndicador").html("");
+            if (data.length > 0) {
+                for (var i = 0; i < data.length; i++) {
+                    var tr = "";
+                    tr = tr + '<tr>';
+                    tr = tr + '                        <th class="text-center" data-encabezado="Número" scope="row">'+ (i + 1) +'</th>';
+                    tr = tr + '                        <td data-encabezado="Columna 01">'+ data[i]["ANNOB"] +'</td>';
+                    tr = tr + '                        <td data-encabezado="Columna 02">'+ data[i]["TIPO_VEHICULO"] + '</td>';
+                    tr = tr + '                        <td data-encabezado="Columna 03">'+ data[i]["TIPO_COMBUSTIBLE"] +'</td>';
+                    tr = tr + '                        <td data-encabezado="Columna 04">'+ data[i]["KRVB"] +'</td>';
+                    tr = tr + '                        <td data-encabezado="Columna 05">'+ data[i]["CANTIDADB"] +'</td>';
+                    tr = tr + '                        <td data-encabezado="Columna 06">'+ data[i]["RENDIMIENTO"] +'</td>';
+                    tr = tr + '                        <td data-encabezado="Columna 07">' + data[i]["TOTAL_GEI_INIMIT"] + '</td>';
+                    tr = tr + '                        <td data-encabezado="Columna 08">' + data[i]["TOTAL_GEI_INIMIT"] + '</td>';
+                    tr = tr + '                        <td data-encabezado="Columna 09">' + data[i]["TOTAL_GEI_REDUCIDO"] + '</td>';
+                    tr = tr + '</tr>';
+                    $("#cuerpoTablaIndicador").append(tr);
+                    $("#cuerpoTablaIndicador").data("total", $("#cuerpoTablaIndicador").data("total") + data[i]["TOTAL_GEI_REDUCIDO"]);
+                    $("#total-detalle #total").remove();
+                    $("#total-detalle").append('<strong id="total">' + $("#cuerpoTablaIndicador").data("total") + '</strong>');
+                }
+            }
+        } else {
+            $("#total-detalle").append('<strong id="total">0.00</strong>');
+        }
+        //fn_CargarListaTipoCombustible(datat, j);
     });
 }
 
 function CargarSoloTablaIndicador() {
-    var j = 0;
-    var fila = $("#tablaIndicador").data("fila") + 1;
-    var tr = '<tr id="detalles-tr-' + (j + 1) + '" data-value="0" >';
+    var tr = '<tr id="detalles-tr-1" data-value="0" >';
+    tr = tr + '         <th class="text-center" data-encabezado="Número" scope="row">' + 1 + '</th>';
     tr = tr + '         <td data-encabezado="Columna 01">';
     tr = tr + '             <div class="form-group m-0">';
-    tr = tr + '                     <select class="form-control form-control-sm" id="cbo-columna' + fila + '-' + (j + 1) + '">';
+    tr = tr + '                     <select class="form-control form-control-sm" id="cbo-det-1-1">';
     tr = tr + '                          <option value="2018">2018</option>';
     tr = tr + cargarAnio();
     tr = tr + '                     </select>';
@@ -159,42 +422,52 @@ function CargarSoloTablaIndicador() {
     tr = tr + '         </td>';
     tr = tr + '         <td data-encabezado="Columna 02">';
     tr = tr + '             <div class="form-group m-0">';
-    tr = tr + '                     <select class="form-control form-control-sm" id="cbo-columna' + fila + '-' + (j + 2) + '">';
+    tr = tr + '                     <select class="form-control form-control-sm" id="cbo-det-2-1">';
     tr = tr + '                          <option value="0">Seleccione</option>';
     tr = tr + '                     </select>';
     tr = tr + '            </div>';
     tr = tr + '         </td>';
     tr = tr + '         <td data-encabezado="Columna 03">';
     tr = tr + '             <div class="form-group m-0">';
-    tr = tr + '                     <select class="form-control form-control-sm" id="cbo-columna' + fila + '-' + (j + 3) + '">';
+    tr = tr + '                     <select class="form-control form-control-sm" id="cbo-det-3-1">';
     tr = tr + '                          <option value="0">Seleccione</option>';
     tr = tr + '                     </select>';
     tr = tr + '            </div>';
     tr = tr + '         </td>';
     tr = tr + '         <td data-encabezado="Columna 04">';
     tr = tr + '              <div class="form-group m-0">';
-    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="cbo-columna' + fila + '-' + (j + 4) + '">';
+    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-1-1">';
     tr = tr + '              </div>';
     tr = tr + '         </td>';
     tr = tr + '         <td data-encabezado="Columna 05">';
     tr = tr + '              <div class="form-group m-0">';
-    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="cbo-columna' + fila + '-' + (j + 5) + '">';
+    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-2-1">';
     tr = tr + '              </div>';
     tr = tr + '         </td>';
     tr = tr + '         <td data-encabezado="Columna 06">';
     tr = tr + '              <div class="form-group m-0">';
-    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="cbo-columna' + fila + '-' + (j + 6) + '">';
+    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-3-1">';
     tr = tr + '              </div>';
     tr = tr + '         </td>';
     tr = tr + '         <td data-encabezado="Columna 07">';
     tr = tr + '              <div class="form-group m-0">';
-    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="cbo-columna' + fila + '-' + (j + 7) + '">';
+    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-4-1">';
     tr = tr + '              </div>';
     tr = tr + '         </td>';
     tr = tr + '         <td data-encabezado="Columna 07">';
     tr = tr + '              <div class="form-group m-0">';
-    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="cbo-columna' + fila + '-' + (j + 8) + '">';
+    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-5-1">';
     tr = tr + '              </div>';
+    tr = tr + '         </td>';
+    tr = tr + '         <td data-encabezado="Subtotal">';
+    tr = tr + '               <div class="form-group m-0">';
+    tr = tr + '                       <input class="form-control form-control-sm text-right" type="text" id="txt-det-6-1">';
+    tr = tr + '               </div>';
+    tr = tr + '         </td>';
+    tr = tr + '         <td class="text-center" data-encabezado="Sustento">';
+    tr = tr + '                <div class="form-group m-0">';
+    tr = tr + '                       <button class="btn btn-secondary btn-sm m-0" onclick="fn_calcularIndicadores();"><i class="fas fa-upload mr-1"></i>+</button>';
+    tr = tr + '                </div>';
     tr = tr + '         </td>';
     tr = tr + '         <td class="text-center" data-encabezado="Sustento">';
     tr = tr + '                <div class="form-group m-0">';
@@ -216,20 +489,21 @@ function CargarSoloTablaIndicador() {
     tr = tr + '         </td>';
     tr = tr + '</tr>';
     $("#cuerpoTablaIndicador").append(tr);
-    MRV.CargarSelect(baseUrl + "Gestion/ListarTipoVehiculo", "#cbo-columna" + fila + "-" + (j + 2), "ID_TIPO_VEHICULO", "DESCRIPCION");
-    MRV.CargarSelect(baseUrl + "Gestion/ListarTipoCombustible", "#tipoCombustibleB" + fila, "ID_TIPO_COMBUSTIBLE", "DESCRIPCION");
-    MRV.CargarSelect(baseUrl + "Gestion/ListarTipoVehiculo", "#tipoVehiculoI" + fila, "ID_TIPO_VEHICULO", "DESCRIPCION");
+    MRV.CargarSelect(baseUrl + "Gestion/ListarTipoVehiculo", "#cbo-det-2-1", "ID_TIPO_VEHICULO", "DESCRIPCION");
+    MRV.CargarSelect(baseUrl + "Gestion/ListarTipoCombustible", "#cbo-det-3-1", "ID_TIPO_COMBUSTIBLE", "DESCRIPCION");
+    //MRV.CargarSelect(baseUrl + "Gestion/ListarTipoVehiculo", "#tipoVehiculoI" + fila, "ID_TIPO_VEHICULO", "DESCRIPCION");
     //MRV.CargarSelect(baseUrl + "Gestion/ListarTipoFuente", "#tipoFuenteI" + fila, "ID_TIPO_FUENTE", "DESCRIPCION");
-    $("#tablaIndicador").data("fila", fila);
+    //$("#tablaIndicador").data("fila", fila);
 
 }
 
 function CargarTablaIndicador(datat, j) {
     var fila = $("#tablaIndicador").data("fila") + 1;
-    var tr = '<tr id="detalles-tr-'+(j+1)+'" data-value="0" >';
+    var tr = '<tr id="detalles-tr-' + (j + 1) + '" data-value="0" >';
+    tr = tr + '         <th class="text-center" data-encabezado="Número" scope="row">' + (j + 1) + '</th>';
     tr = tr + '         <td data-encabezado="Columna 01">';
     tr = tr + '             <div class="form-group m-0">';
-    tr = tr + '                     <select class="form-control form-control-sm" id="cbo-columna'+fila+'-' + (j + 1) + '">';
+    tr = tr + '                     <select class="form-control form-control-sm" id="cbo-det-1-' + (j + 1) + '">';
     tr = tr + '                          <option value="2018">2018</option>';
     tr = tr + cargarAnio();
     tr = tr + '                     </select>';
@@ -237,42 +511,52 @@ function CargarTablaIndicador(datat, j) {
     tr = tr + '         </td>';
     tr = tr + '         <td data-encabezado="Columna 02">';
     tr = tr + '             <div class="form-group m-0">';
-    tr = tr + '                     <select class="form-control form-control-sm" id="cbo-columna' + fila + '-' + (j + 3) + '">';
+    tr = tr + '                     <select class="form-control form-control-sm" id="cbo-det-2-' + (j + 1) + '">';
     tr = tr + '                          <option value="0">Seleccione</option>';
     tr = tr + '                     </select>';
     tr = tr + '            </div>';
     tr = tr + '         </td>';
     tr = tr + '         <td data-encabezado="Columna 03">';
     tr = tr + '             <div class="form-group m-0">';
-    tr = tr + '                     <select class="form-control form-control-sm" id="cbo-columna' + fila + '-' + (j + 4) + '">';
+    tr = tr + '                     <select class="form-control form-control-sm" id="cbo-det-3-' + (j + 1) + '">';
     tr = tr + '                          <option value="0">Seleccione</option>';
     tr = tr + '                     </select>';
     tr = tr + '            </div>';
     tr = tr + '         </td>';
     tr = tr + '         <td data-encabezado="Columna 04">';
     tr = tr + '              <div class="form-group m-0">';
-    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="cbo-columna' + fila + '-' + (j + 5) + '">';
+    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-1-' + (j + 1) + '">';
     tr = tr + '              </div>';
     tr = tr + '         </td>';
     tr = tr + '         <td data-encabezado="Columna 05">';
     tr = tr + '              <div class="form-group m-0">';
-    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="cbo-columna' + fila + '-' + (j + 6) + '">';
+    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-2-' + (j + 1) + '">';
     tr = tr + '              </div>';
     tr = tr + '         </td>';
     tr = tr + '         <td data-encabezado="Columna 06">';
     tr = tr + '              <div class="form-group m-0">';
-    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="cbo-columna' + fila + '-' + (j + 7) + '">';
+    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-3-' + (j + 1) + '">';
     tr = tr + '              </div>';
     tr = tr + '         </td>';
     tr = tr + '         <td data-encabezado="Columna 07">';
     tr = tr + '              <div class="form-group m-0">';
-    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="cbo-columna' + fila + '-' + (j + 8) + '">';
+    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-4-' + (j + 1) + '">';
     tr = tr + '              </div>';
     tr = tr + '         </td>';
     tr = tr + '         <td data-encabezado="Columna 07">';
     tr = tr + '              <div class="form-group m-0">';
-    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="cbo-columna' + fila + '-' + (j + 9) + '">';
+    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-5-' + (j + 1) + '">';
     tr = tr + '              </div>';
+    tr = tr + '         </td>';
+    tr = tr + '         <td data-encabezado="Subtotal">';
+    tr = tr + '               <div class="form-group m-0">';
+    tr = tr + '                       <input class="form-control form-control-sm text-right" type="text" id="txt-det-6-' + (j + 1) + '">';
+    tr = tr + '               </div>';
+    tr = tr + '         </td>';
+    tr = tr + '         <td class="text-center" data-encabezado="Sustento">';
+    tr = tr + '                <div class="form-group m-0">';
+    tr = tr + '                       <button class="btn btn-secondary btn-sm m-0" onclick="fn_calcularIndicadores();"><i class="fas fa-upload mr-1"></i>+</button>';
+    tr = tr + '                </div>';
     tr = tr + '         </td>';
     tr = tr + '         <td class="text-center" data-encabezado="Sustento">';
     tr = tr + '                <div class="form-group m-0">';
@@ -292,39 +576,13 @@ function CargarTablaIndicador(datat, j) {
     tr = tr + '                          </div>';
     tr = tr + '               </div>';
     tr = tr + '         </td>';
-
-
-
-    /*tr = tr + '<td id="c1" style="background-color: orange;"><select class="form-control small" id="annoB' + fila + '"><option value="2018">2018</option>';
-    tr = tr + '            <option value="2019" class="small">2019</option>';
-    tr = tr + '            <option value="2020">2020</option>';
-    tr = tr + '            <option value="2021">2021</option>';
-    tr = tr + '            <option value="2022">2022</option></select></td>';
-    tr = tr + '<td id="c2" style="background-color: orange;"><select id="tipoVehiculoB' + fila + '" class="form-control small"></select></td>';
-    tr = tr + '<td id="c3" style="background-color: orange;"><select id="tipoCombustibleB' + fila + '" class="form-control small"></select></td>';
-    tr = tr + '<td id="c4" style="background-color: orange;"><input type"text" class="form-control small" id="krvB' + fila + '"/></td>';
-    tr = tr + '<td id="c5" style="background-color: orange;"><input type"text" class="form-control small" id="cantidadB' + fila + '"/></td>';
-    tr = tr + '<td id="c6" style="background-color: orange;"><input type"text" class="form-control small" id="totalB' + fila + '" readonly/></td>';
-    tr = tr + '<td id="c7" style="background-color: green;"><select class="form-control small" id="annoI' + fila + '"><option value="2018">2018</option>';
-    tr = tr + '            <option value="2019" class="small">2019</option>';
-    tr = tr + '            <option value="2020">2020</option>';
-    tr = tr + '            <option value="2021">2021</option>';
-    tr = tr + '            <option value="2022">2022</option></select></td>';
-    tr = tr + '<td id="c8" style="background-color: green;"><select id="tipoVehiculoI' + fila + '" class="form-control small"></select></td>';
-    tr = tr + '<td id="c9" style="background-color: green;"><select id="tipoFuenteI' + fila + '" class="form-control small"></select></td>';
-    tr = tr + '<td id="c10" style="background-color: green;"><input type"text" class="form-control small" id="krvI' + fila + '"/></td>';
-    tr = tr + '<td id="c11" style="background-color: green;"><input type"text" class="form-control small" id="cantidadI' + fila + '"/></td>';
-    tr = tr + '<td id="c12" style="background-color: green;"><input type"text" class="form-control small" id="totalI' + fila + '" readonly/></td>';
-    tr = tr + '<td id="c13"><input type"text" class="form-control small" id="totalR' + fila + '" readonly/></td>';
-    tr = tr + '<td id="c14"><input type="file" class="form-control small" id="adjunto' + fila + '"/></td>';
-    tr = tr + '<td><button class="btn btn_primary" onclick="fn_calcularIndicador(' + fila + ');">Calcular</button>';
-    tr = tr + '<td><button class="btn btn_primary" onclick="fn_eliminarFila(' + fila + ');">Eliminar</button>';*/
     tr = tr + '</tr>';
     $("#cuerpoTablaIndicador").append(tr);
-    //fn_CargarListaTipoVehiculo(datat, j, fila);
-    $("#tablaIndicador").data("fila", fila);
+    fn_CargarListaTipoVehiculo(datat, j);
+    //$("#tablaIndicador").data("fila", fila);
 
 }
+
 
 function fn_calcularIndicador(fila) {
     var item = {
@@ -368,7 +626,6 @@ function fn_procesoDetalleIndicador(url, estado) {
     var respuesta = MRV.Ajax(url, item, false);
     if (respuesta.success) {
         if (estado == 0) {
-            $("#mensajeModalAvance #mensajeWarningAvance").remove();
             $("#mensajeModalAvance #mensajeDangerAvance").remove();
             var msj = '                   <div class="col-sm-12 col-md-12 col-lg-12" id="mensajeWarningAvance">';
             msj = msj + '                       <div class="alert alert-warning d-flex align-items-stretch" role="alert">';
@@ -386,8 +643,8 @@ function fn_procesoDetalleIndicador(url, estado) {
             msj = msj + '                            </div>';
             msj = msj + '                        </div>';
             msj = msj + '                    </div>';
+            $("#guardar-avance #modalAvanceBoton").hide();
             $('#mensajeModalAvance').append(msj);
-            //fn_accionesMitigacion();
         } else {
             $('#mensajeModalRegistrar #mensajeGoodRegistro').remove();
             $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
@@ -407,6 +664,7 @@ function fn_procesoDetalleIndicador(url, estado) {
             msj = msj + '                                <hr><small class="mb-0">Los datos de su detalle de indicadores fueron guardados exitosamente, espere la aprobación del especialista para continuar. En breve le notificaremos el estado de su solicitud de revisión.</small>';
             msj = msj + '                            </div>';
             msj = msj + '                        </div>';
+            $("#solicitar-revision #modalRegistrarBoton").hide();
             $('#mensajeModalRegistrar').append(msj);
             $("#Control").data("modal", 1);
             if (respuesta.extra == "1") {
@@ -415,7 +673,6 @@ function fn_procesoDetalleIndicador(url, estado) {
         }
     } else {
         if (estado == 0) {
-            $("#mensajeModalAvance #mensajeWarningAvance").remove();
             $("#mensajeModalAvance #mensajeDangerAvance").remove();
             var msj = '                   <div class="col-sm-12 col-md-12 col-lg-12" id="mensajeDangerAvance">';
             msj = msj + '                       <div class="alert alert-danger d-flex align-items-stretch" role="alert">';
@@ -468,15 +725,14 @@ function fn_procesoDetalleIndicador(url, estado) {
             location.href = baseUrl + "Gestion/AccionMitigacion";
         } else {
             $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
-            $("#mensajeModalAvance #mensajeDangerAvance").remove();
-            $("#mensajeModalAvance #mensajeWarningAvance").remove();
+            $("#solicitar-revision #modalRegistrarBoton").show();
         }
     });
 
     $("#guardar-avance").on("hidden.bs.modal", function () {
-            $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
             $("#mensajeModalAvance #mensajeDangerAvance").remove();
             $("#mensajeModalAvance #mensajeWarningAvance").remove();
+            $("#guardar-avance #modalAvanceBoton").show();
     });
 }
 
