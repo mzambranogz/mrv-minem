@@ -4,12 +4,6 @@
     Layout = "~/Views/Shared/_SesionLayout.cshtml";
 }
 
-$(document).ready(function () {
-    CargarTablaMantenimiento();
-    MRV.CargarSelect(baseUrl + "Portal/ListaSectorInstitucion", "#cbo-sector", "ID_SECTOR_INST", "DESCRIPCION");
-    fn_cargarRol();
-    fn_modalInicio();
-});
 
 <div class="flecha-top"><i class="fas fa-angle-double-right fa-2x text-dark btn-slider-bottom"></i></div>
 <div class="container-fluid map-root" id="historia">
@@ -386,7 +380,9 @@ $(document).ready(function () {
                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Registro de Nuevo Usuario <br><small class="text-muted">Complete los siguientes campos para registrar un nuevo usuario</small><small class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</small></h5>
+                            <div id="cabeceraRegistrarMantenimientoUsuario"><h5 class="modal-title" id="exampleModalLabel">Registro de Nuevo Usuario <br><small class="text-muted">Complete los siguientes campos para registrar un nuevo usuario</small><small class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</small></h5></div>
+                            <div id="cabeceraEditarMantenimientoUsuario"><h5 class="modal-title" id="exampleModalLabel">Actualización de Usuario <br><small class="text-muted">Considerar los campos obligatorios para actualizar los datos del usuario</small><small class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</small></h5></div>
+                            @*<h5 class="modal-title" id="exampleModalLabel">Registro de Nuevo Usuario <br><small class="text-muted">Complete los siguientes campos para registrar un nuevo usuario</small><small class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</small></h5>*@
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         </div>
                         <div class="modal-body medidas-modal">
@@ -617,41 +613,63 @@ $(document).ready(function () {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <div class="alert alert-danger d-flex align-items-stretch" role="alert">
-                                            <div class="alert-wrap mr-3">
-                                                <div class="sa">
-                                                    <div class="sa-error">
-                                                        <div class="sa-error-x">
-                                                            <div class="sa-error-left"></div>
-                                                            <div class="sa-error-right"></div>
+                                @*<div class="row">
+                                        <div class="col-sm-12 col-md-12 col-lg-12">
+                                            <div class="alert alert-danger d-flex align-items-stretch" role="alert" >
+                                                <div class="alert-wrap mr-3">
+                                                    <div class="sa">
+                                                        <div class="sa-error">
+                                                            <div class="sa-error-x">
+                                                                <div class="sa-error-left"></div>
+                                                                <div class="sa-error-right"></div>
+                                                            </div>
+                                                            <div class="sa-error-placeholder"></div>
+                                                            <div class="sa-error-fix"></div>
                                                         </div>
-                                                        <div class="sa-error-placeholder"></div>
-                                                        <div class="sa-error-fix"></div>
                                                     </div>
                                                 </div>
+                                                <div class="alert-wrap">
+                                                    <h6>Error de registro</h6>
+                                                    <hr><small class="mb-0">Verifique que los datos sean correctamente ingresados, complete todos los campos obligatorios e intente otra vez.</small>
+                                                </div>
                                             </div>
-                                            <div class="alert-wrap">
-                                                <h6>Error de registro</h6>
-                                                <hr><small class="mb-0">Verifique que los datos sean correctamente ingresados, complete todos los campos obligatorios e intente otra vez.</small>
+                                            <div class="alert alert-success d-flex align-items-stretch" role="alert">
+                                                <div class="alert-wrap mr-3">
+                                                    <div class="sa">
+                                                        <div class="sa-success">
+                                                            <div class="sa-success-tip"></div>
+                                                            <div class="sa-success-long"></div>
+                                                            <div class="sa-success-placeholder"></div>
+                                                            <div class="sa-success-fix"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="alert-wrap">
+                                                    <h6>Bien hecho</h6>
+                                                    <hr><small class="mb-0">Los datos ingresados fueron guardados exitosamente, verifique su bandeja para comprobarlo. Utilice el buscador para encontrar su nuevo registro.</small>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="alert alert-success d-flex align-items-stretch" role="alert">
-                                            <div class="alert-wrap mr-3">
-                                                <div class="sa">
-                                                    <div class="sa-success">
-                                                        <div class="sa-success-tip"></div>
-                                                        <div class="sa-success-long"></div>
-                                                        <div class="sa-success-placeholder"></div>
-                                                        <div class="sa-success-fix"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="alert-wrap">
-                                                <h6>Bien hecho</h6>
-                                                <hr><small class="mb-0">Los datos ingresados fueron guardados exitosamente, verifique su bandeja para comprobarlo. Utilice el buscador para encontrar su nuevo registro.</small>
-                                            </div>
+                                    </div>*@
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <div class="alert alert-danger" role="alert" id="errorRegistrarMantenimientoUsuario">
+                                            <h4><i class="fas fa-exclamation-triangle"></i>&nbsp;Error de registro</h4>
+                                            <p>Ocurrió un error al tratar de registrar su información, vuélvalo a intentar nuevamente.</p>
+                                            <hr>
+                                            <p class="mb-0">Verifique los datos ingresados e intente otra vez.</p>
+                                        </div>
+                                        <div class="alert alert-danger" role="alert" id="errorEditarMantenimientoUsuario">
+                                            <h4><i class="fas fa-exclamation-triangle"></i>&nbsp;Error de actualización</h4>
+                                            <p>Ocurrió un error al tratar de actualizar su información, vuélvalo a intentar nuevamente.</p>
+                                            <hr>
+                                            <p class="mb-0">Verifique los datos ingresados e intente otra vez.</p>
+                                        </div>
+                                        <div class="alert alert-success" role="alert" id="correctoMantenimientoUsuario">
+                                            <h4><i class="fas fa-check"></i>&nbsp;Bien hecho</h4>
+                                            <p>Los datos ingresados fueron guardados exitosamente, verifique su bandeja para comprobarlo.</p>
+                                            <hr>
+                                            <p class="mb-0" id="mensajeRegistroMantenimientoUsuario">Utilice el buscador para encontrar su nuevo registro.</p>
                                         </div>
                                     </div>
                                 </div>
