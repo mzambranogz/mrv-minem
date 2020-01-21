@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - lunes-enero-20-2020   
+-- Archivo creado  - martes-enero-21-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_ADMIN_SISTEMA
@@ -1035,7 +1035,7 @@ END PKG_MRV_CALCULO;
             UPDATE T_GEND_INDICADOR 
             SET 	ID_INICIATIVA = pID_INICIATIVA, 
                     ANNO_BASE = pANNO, 
-                    ID_TIPO_VEHICULO_BASE = pID_INDICADOR, 
+                    ID_TIPO_VEHICULO_BASE = pID_TIPO_VEHICULO, 
                     ID_TIPO_COMBUSTIBLE_BASE = pID_TIPO_COMBUSTIBLE, 
                     KRV_BASE = pKRV,
                     CANT_BASE = pCANTIDAD, 
@@ -1684,7 +1684,8 @@ END PKG_MRV_DETALLE_INDICADORES;
                INI.DESC_INICIATIVA, 
                INI.PRIVACIDAD_INICIATIVA, 
                INI.INVERSION_INICIATIVA, 
-               INI.ID_MONEDA, 
+               INI.ID_MONEDA,
+               M.DESCRIPCION MONEDA, 
                INI.FECHA_IMPLE_INICIATIVA,
                TRIM(USU.NOMBRES_USUARIO) || ' ' || TRIM(USU.APELLIDOS_USUARIO) NOMBRES,
                USU.EMAIL_USUARIO CORREO,
@@ -1695,6 +1696,7 @@ END PKG_MRV_DETALLE_INDICADORES;
         INNER JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
         INNER JOIN T_GENM_INSTITUCION INS ON USU.ID_INSTITUCION = INS.ID_INSTITUCION
         INNER JOIN T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
+        LEFT JOIN T_MAE_MONEDA M ON INI.ID_MONEDA = M.ID_MONEDA
         WHERE ID_INICIATIVA = pID_INICIATIVA;
     END USP_SEL_CARGA_INICIATIVA;
     
