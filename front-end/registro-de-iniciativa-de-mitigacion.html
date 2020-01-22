@@ -19,7 +19,7 @@
   <body>
     <div class="container-fluid menu-nav bg-sutil fixed-top" id="cabecera">
       <div class="container menu-main linea">
-        <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar p-0">
+        <header class="navbar navbar-expand flex-column flex-md-row bd-navbar p-0">
           <ul class="navbar-nav mr-md-auto">
             <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1" href="https://www.gob.pe/minem" target="_blank"><img src="./images/logo-minem.jpg" height="40"></a></li>
             <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1" href="https://www.thegef.org/" target="_blank"><img src="./images/logo_gef.svg" height="45"></a></li>
@@ -32,12 +32,12 @@
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="./index.html"><i class="fas fa-house-damage"></i><span class="d-none d-xs-block d-sm-block d-lg-none pl-1 mostrar-inicio">Inicio</span></a></li>
-              <li class="nav-item"><a class="nav-link nav-active text-dark font-weight-bold px-2" href="./acciones-de-mitigacion-interno.html"><i class="fas fa-solar-panel pr-1"></i>Iniciativas de Mitigación</a></li>
-              <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="./reportes.html"><i class="fas fa-file-invoice pr-1"></i>Reportes</a></li>
-              <li class="nav-item"><a class="nav-link text-dark font-weight-bold px-2" href="./resultados.html"><i class="fas fa-chart-pie pr-1"></i>Resultados</a></li>
-            </ul><a class="btn text-dark px-2 mr-2 notificaciones" href="./notificaciones.html" rol="button"><i class="far fa-bell">&nbsp;</i><span class="badge badge-light">18</span><span class="d-none d-xs-block d-sm-block d-lg-none pl-1 font-weight-bold mostrar-inicio">Notificaciones</span></a>
-            <div class="btn-group w-sm-100"><a class="btn btn-danger dropdown-toggle text-white font-weight-bold" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-tie pr-1"></i>Mi cuenta</a>
+              <li class="nav-item"><a class="nav-link text-dark px-2" href="./index.html"><i class="fas fa-house-damage"></i><span class="d-none d-xs-block d-sm-block d-lg-none pl-1 mostrar-inicio">Inicio</span></a></li>
+              <li class="nav-item"><a class="nav-link nav-active text-dark px-2" href="./acciones-de-mitigacion-interno.html"><i class="fas fa-solar-panel pr-1"></i>Iniciativas de Mitigación</a></li>
+              <li class="nav-item"><a class="nav-link text-dark px-2" href="./reportes.html"><i class="fas fa-file-invoice pr-1"></i>Reportes</a></li>
+              <li class="nav-item"><a class="nav-link text-dark px-2" href="./resultados.html"><i class="fas fa-chart-pie pr-1"></i>Resultados</a></li>
+            </ul><a class="btn text-dark px-2 mr-2 notificaciones" href="./notificaciones.html" rol="button"><i class="far fa-bell">&nbsp;</i><span class="badge badge-light">18</span><span class="d-none d-xs-block d-sm-block d-lg-none pl-1 mostrar-inicio">Notificaciones</span></a>
+            <div class="btn-group w-sm-100"><a class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0"><i class="fas fa-user-tie pr-1"></i>Mi cuenta</a>
               <div class="dropdown-menu dropdown-menu-right w-sm-100"><span class="dropdown-item">Ricardo Sánchez <br><span class="badge badge-actor-02">Usuario Administrado</span><br><span class="badge badge-actor-03">Especialista</span><br><span class="badge badge-actor-04">Evaluador MINAM</span><br><span class="badge badge-actor-05">Verificador Externo</span><br><span class="badge badge-actor-06">Administrador MINEM</span></span><a class="dropdown-item" href="./mantenimiento-de-tablas.html"><i class="fas fa-cogs pr-1"></i>Mantenimiento de tablas</a><a class="dropdown-item" href="./cambiar.html"><i class="fas fa-key pr-1"></i>Cambiar contraseña</a>
                 <div class="dropdown-divider"></div><a class="dropdown-item" href="./login.html"><i class="fas fa-sign-out-alt pr-1"></i>Salir del sistema</a>
               </div>
@@ -91,7 +91,9 @@
                 <div class="container py-5">
                   <div class="row">
                     <div class="col-12">
-                      <div class="h5 pb-5 text-primary">Paso 1/4: Introducción | Promoción de vehiculos eléctricos a nivel nacional&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small></div>
+                      <div class="h5 pb-5 text-primary">
+                        <div class="steps">PASO 1 DE 4: &nbsp;</div>Introducción | Promoción de vehiculos eléctricos a nivel nacional&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small>
+                      </div>
                     </div>
                   </div>
                   <div class="row">
@@ -131,7 +133,9 @@
                 <div class="container py-5">
                   <div class="row">
                     <div class="col-12">
-                      <div class="h5 pb-5 text-primary">Paso 2/4: Datos principales<br><small class="text-muted">Complete información</small></div>
+                      <div class="h5 pb-5 text-primary">
+                        <div class="steps">PASO 2 DE 4: &nbsp;</div>Datos principales<br><small class="text-muted">Complete información</small>
+                      </div>
                     </div>
                   </div>
                   <div class="row">
@@ -204,7 +208,9 @@
                 <div class="container py-5">
                   <div class="row">
                     <div class="col-12">
-                      <div class="h5 pb-5 text-primary">Paso 3/4: Datos generales<br><small class="text-muted">Complete información</small></div>
+                      <div class="h5 pb-5 text-primary">
+                        <div class="steps">PASO 3 DE 4: &nbsp;</div>Datos generales<br><small class="text-muted">Complete información</small>
+                      </div>
                     </div>
                   </div>
                   <div class="row">
@@ -439,7 +445,9 @@
                 <div class="container py-5">
                   <div class="row">
                     <div class="col-12">
-                      <div class="h5 pb-5 text-primary">Paso 4/4: Indicadores&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Información ligada a la iniciativa de mitigación</small></div>
+                      <div class="h5 pb-5 text-primary">
+                        <div class="steps">PASO 4 DE 4: &nbsp;</div>Indicadores&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Información ligada a la iniciativa de mitigación</small>
+                      </div>
                     </div>
                   </div>
                   <div class="row">
@@ -544,7 +552,7 @@
                   </div>
                   <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                      <div class="alert alert-warning"><strong>No te preocupes,&nbsp;</strong>que podrás cambiar la medida de mitigacion en cualquier momento.</div>
+                      <div class="alert alert-warning">No te preocupes, que podrás cambiar la medida de mitigacion en cualquier momento.</div>
                     </div>
                   </div>
                 </div>
@@ -705,9 +713,23 @@
             </div>
           </div>
           <div class="col-sm-12 col-md-6">
-            <div class="navbar flex-md-row justify-content-start"><a class="nav-link p-1" href="https://www.gob.pe/minem" target="_blank"><img src="./images/logo-minem-blanco.png" height="70"></a><a class="nav-link p-1" href="https://www.thegef.org/" target="_blank"><img src="./images/logo-gef-blanco.png" height="90"></a><a class="nav-link p-1 pr-0" href="https://www.pe.undp.org/" target="_blank"><img src="./images/logo-pnud-blanco.png" height="160"></a></div>
-            <div class="navbar flex-md-row justify-content-start"><a class="nav-link p-1" href="http://namasenergia.minem.gob.pe/" target="_blank"><img src="./images/logo-nama-blanco.png" height="50"></a><img src="./images/logo-blockchain-blanco.png" height="100"></div>
+            <!--.navbar.flex-md-row.justify-content-start
+            a.nav-link.p-1(href="https://www.gob.pe/minem", target="_blank")
+              img(src="./images/logo-minem-blanco.png", height="70")
+            a.nav-link.p-1(href="https://www.thegef.org/", target="_blank")
+              img(src="./images/logo-gef-blanco.png", height="90")
+            a.nav-link.p-1.pr-0(href="https://www.pe.undp.org/", target="_blank")
+              img(src="./images/logo-pnud-blanco.png", height="160")
+            -->
+            <div class="navbar flex-md-row justify-content-start"><a class="nav-link p-1" href="http://namasenergia.minem.gob.pe/" target="_blank"><img src="./images/logo-nama-blanco.png" height="70"></a></div>
+            <div class="navbar flex-md-row justify-content-start"><img src="./images/logo-blockchain-blanco.png" height="90"></div>
           </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-12">
+            <div class="dropdown-divider"></div>
+          </div>
+          <div class="col-sm-12 col-md-12 text-right text-white">&copy; MINEM | Todos los derechos reservados</div>
         </div>
       </footer>
     </div>
