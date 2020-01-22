@@ -102,6 +102,11 @@ namespace MRVMinem.Controllers
             return View(modelo);
         }
 
+        public ActionResult CambiarClave()
+        {
+            return View();
+        }
+
         public ActionResult SeguimientoIniciativa(int id)
         {
             MvSesion modelo = new MvSesion();
@@ -438,6 +443,38 @@ namespace MRVMinem.Controllers
             var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
+        }
+
+        public JsonResult VerificarClave(UsuarioBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = UsuarioLN.VerificarClave(entidad);
+            itemRespuesta.success = entidad.OK;
+            if (!entidad.OK)
+            { 
+                itemRespuesta.extra = entidad.extra;
+            }
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult CambiarNuevaClave(UsuarioBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+            entidad = UsuarioLN.CambiarClave(entidad);
+            itemRespuesta.success = entidad.OK;
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult validarConfirmarCorreo(UsuarioBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            //entidad = UsuarioLN.validarConfirmarCorreo(entidad);
+            //itemRespuesta.success = entidad.OK;
+            //itemRespuesta.extra = entidad.extra;
+            itemRespuesta.success = true;
+            return Respuesta(itemRespuesta);
         }
 
 

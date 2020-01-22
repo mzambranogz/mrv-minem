@@ -253,7 +253,7 @@ namespace datos.minem.gob.pe
             {
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
                 {
-                    string sp = sPackage + "USP_SEL_VERIFICAR_CLAVE";
+                    string sp = sPackage + "USP_SEL_CLAVE";
                     var p = new OracleDynamicParameters();
                     p.Add("pID_USUARIO", entidad.ID_USUARIO);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
@@ -268,6 +268,30 @@ namespace datos.minem.gob.pe
             }
 
             return usuario;
+        }
+
+        public UsuarioBE CambiarClave(UsuarioBE entidad)
+        {
+            //UsuarioBE usuario = null;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_UPD_CAMBIAR_CLAVE";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    p.Add("pNUEVO_PASSWORD", entidad.NUEVO_PASSWORD_USUARIO);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+
+            return entidad;
         }
 
     }

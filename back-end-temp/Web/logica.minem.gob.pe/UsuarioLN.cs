@@ -96,7 +96,7 @@ namespace logica.minem.gob.pe
             if (!entidad.OK)
             {
                 entidad.OK = false;
-                entidad.extra = "La contraseña actual no es la correcta";
+                entidad.extra = "La contraseña actual no es la correcta.";
             }
 
             return entidad;
@@ -104,9 +104,8 @@ namespace logica.minem.gob.pe
 
         public static UsuarioBE CambiarClave(UsuarioBE entidad)
         {
-
-            return entidad;
-            //En construccion
+            entidad.NUEVO_PASSWORD_USUARIO = Seguridad.hashSal(entidad.NUEVO_PASSWORD_USUARIO);
+            return usuarioDA.CambiarClave(entidad);
         }
     }
 }

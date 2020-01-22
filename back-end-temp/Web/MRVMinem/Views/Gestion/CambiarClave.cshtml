@@ -1,6 +1,6 @@
 ﻿@{
     ViewBag.Title = "Confirmar Correo";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_SesionLayout.cshtml";
 }
 
 <div class="container-fluid banner d-flex flex-row justify-content-center align-items-center" id="carousel">
@@ -60,7 +60,8 @@
                     <div class="form-group">
                         <div class="g-recaptcha" data-sitekey="6Ldqw8sUAAAAAM2nmHyMhCNd3HtkOJyWc8nsh7DR"></div>
                     </div>
-                    <div class="alert alert-danger d-flex align-items-stretch" role="alert">
+                    <div id="seccionMensaje"></div>
+                    @*<div class="alert alert-danger d-flex align-items-stretch" role="alert">
                         <div class="alert-wrap mr-3">
                             <div class="sa">
                                 <div class="sa-error">
@@ -93,7 +94,8 @@
                             <h6>Bien hecho</h6>
                             <hr><small class="mb-0">Ya puede utilizar su nueva contraseña, cierre sesión y verifíquelo por favor.</small>
                         </div>
-                    </div>
+                    </div>*@
+
                     <button class="btn-lg btn-primary w-100" type="submit"><i class="fas fa-sync px-1"></i>Cambiar</button>
                 </form>
                 <p class="pt-4 mb-0 text-center"><a href="./acciones-de-mitigacion-interno.html">Regresar</a></p>
@@ -114,3 +116,58 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        fn_cargarOpciones();
+    });
+
+    function fn_establecerVista() {
+
+        var opcion = '<span class="dropdown-item">' + $("#Control").data("nombres") + ' <br>';
+        if ($("#Control").data("rol") == 1) {
+            opcion = opcion + '<span class="badge badge-actor-02">Usuario Administrado</span></span>'
+        } else if ($("#Control").data("rol") == 2) {
+            opcion = opcion + '<span class="badge badge-actor-03">Especialista</span></span>'
+        } else if ($("#Control").data("rol") == 3) {
+            opcion = opcion + '<span class="badge badge-actor-06">Administrador MINEM</span></span>'
+        } else if ($("#Control").data("rol") == 4) {
+            opcion = opcion + '<span class="badge badge-actor-04">Evaluador MINAM</span></span>'
+        } else if ($("#Control").data("rol") == 5) {
+            opcion = opcion + '<span class="badge badge-actor-05">Verificador Externo</span></span>'
+        }
+
+        if ($("#Control").data("opcion6") == 1) { //Añade a las opciones el mantenimiento de tablas
+            opcion = opcion + '<a class="dropdown-item" href="#" onclick="fn_mantenimiento();"><i class="fas fa-cogs pr-1"></i>Mantenimiento de tablas</a>';
+        }
+
+        if ($("#Control").data("opcion7") == 1) {
+            opcion = opcion + '<a class="dropdown-item" href="#" onclick="fn_Clave();"><i class="fas fa-key pr-1"></i>Cambiar contraseña</a>';
+        }
+
+        opcion = opcion + '<div class="dropdown-divider"></div><a class="dropdown-item" href="#" onclick="salirSesion();"><i class="fas fa-sign-out-alt pr-1"></i>Salir del sistema</a>';
+
+        $("#usuario-rol").append(opcion);
+    }
+
+    function fn_cargarOpciones() {
+        $("#Control").data("usuario",@Session["usuario"]);
+        $("#Control").data("nombres",'@Session["nombres"]');
+        $("#Control").data("correo",'@Session["correo"]');
+        $("#Control").data("rol",@Session["rol"]);
+        $("#Control").data("institucion",'@Session["institucion"]');
+        $("#Control").data("direccion",'@Session["direccion"]');
+        $("#Control").data("sector",'@Session["sector"]');
+        $("#Control").data("opcion1",@Session["opcion1"]);
+        $("#Control").data("opcion2",@Session["opcion2"]);
+        $("#Control").data("opcion3",@Session["opcion3"]);
+        $("#Control").data("opcion4",@Session["opcion4"]);
+        $("#Control").data("opcion5",@Session["opcion5"]);
+        $("#Control").data("opcion6",@Session["opcion6"]);
+        $("#Control").data("opcion7",@Session["opcion7"]);
+        $("#Control").data("opcion8",@Session["opcion8"]);
+        $("#Control").data("opcion9",@Session["opcion9"]);
+        fn_establecerVista();
+    }
+</script>
+<script src="~/js/CambiarClave.js"></script>
