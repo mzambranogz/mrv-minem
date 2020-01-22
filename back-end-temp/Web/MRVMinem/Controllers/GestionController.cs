@@ -369,7 +369,7 @@ namespace MRVMinem.Controllers
             return Respuesta(itemRespuesta);
         }
 
-        
+
         public JsonResult EvaluarIniciativaDetalleIndicador(IndicadorBE entidad)
         {
             ResponseEntity itemRespuesta = new ResponseEntity();
@@ -378,7 +378,7 @@ namespace MRVMinem.Controllers
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }
-        
+
         public JsonResult ListaIniciativasEvaluar(IniciativaBE entidad)
         {
             List<IniciativaBE> lista = IniciativaLN.ListaIniciativaEvaluar(entidad);
@@ -420,9 +420,24 @@ namespace MRVMinem.Controllers
             return jsonResult;
         }
 
+        public JsonResult ListaUsuarioMedidaMitigacion(UsuarioMedMitBE entidad)
+        {
+            List<UsuarioMedMitBE> lista = UsuarioLN.ListaUsuarioMedidaMitigacion(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
         public JsonResult EditarUsuario(UsuarioBE entidad)
         {
             ResponseEntity itemRespuesta = new ResponseEntity();
+            if (!string.IsNullOrEmpty(entidad.MEDIDAS))
+            {
+                entidad.MEDIDAS = entidad.MEDIDAS.Substring(0, entidad.MEDIDAS.Length - 1);
+            }
+            entidad.USUARIO_REGISTRO = Session["usuario"].ToString();
+            entidad.IP_PC = Request.UserHostAddress.ToString().Trim();
+
             entidad = UsuarioLN.EditarUsuario(entidad);
             if ((entidad.ID_ESTADO_ANTERIOR == 0 && entidad.ID_ESTADO_USUARIO == 1) || (entidad.ID_ESTADO_ANTERIOR == 2 && entidad.ID_ESTADO_USUARIO == 1))
             {
@@ -452,7 +467,7 @@ namespace MRVMinem.Controllers
             entidad = UsuarioLN.VerificarClave(entidad);
             itemRespuesta.success = entidad.OK;
             if (!entidad.OK)
-            { 
+            {
                 itemRespuesta.extra = entidad.extra;
             }
             return Respuesta(itemRespuesta);
@@ -532,7 +547,7 @@ namespace MRVMinem.Controllers
 
             entidad = NotificacionLN.RegistraVistoNotificacion(entidad);
             itemRespuesta.success = entidad.OK;
-            itemRespuesta.message = entidad.OK? "Se registro la visualización de la notificación": "Ocurrio error al registrar la visualización de la notificación";
+            itemRespuesta.message = entidad.OK ? "Se registro la visualización de la notificación" : "Ocurrio error al registrar la visualización de la notificación";
             return Respuesta(itemRespuesta);
         }
     }

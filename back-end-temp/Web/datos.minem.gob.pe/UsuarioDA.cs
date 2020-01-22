@@ -93,6 +93,22 @@ namespace datos.minem.gob.pe
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
                 entidad.OK = true;
+                string[] medidas;
+                if (!string.IsNullOrEmpty(entidad.MEDIDAS))
+                {
+                    medidas = entidad.MEDIDAS.Split('|');
+                    for (int i = 0; i < medidas.Length; i++)
+                    {
+                        UsuarioMedMitBE entidad2 = new UsuarioMedMitBE() { ID_USUARIO = entidad.ID_USUARIO, ID_MEDMIT = int.Parse(medidas[i]), USUARIO_REGISTRO = entidad.USUARIO_REGISTRO, IP_PC = entidad.IP_PC };
+                        entidad2 = RegistraUsuarioMedidaMitigacion(entidad2);
+                        if (!entidad2.OK)
+                        {
+                            entidad.OK = false;
+                            entidad.extra = entidad2.extra;
+                            break;
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -103,6 +119,65 @@ namespace datos.minem.gob.pe
 
             return entidad;
         }
+
+        public UsuarioMedMitBE RegistraUsuarioMedidaMitigacion(UsuarioMedMitBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = "USERMRV.PKG_MRV_MANTENIMIENTO." + "USP_DEL_USUARIO_MEDMIT";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    p.Add("pID_USUREG", entidad.USUARIO_REGISTRO);
+                    p.Add("pIP", entidad.IP_PC);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                }
+
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = "USERMRV.PKG_MRV_MANTENIMIENTO." + "USP_MNT_USUARIO_MEDMIT";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pID_USUREG", entidad.USUARIO_REGISTRO);
+                    p.Add("pIP", entidad.IP_PC);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+                entidad.extra = ex.Message;
+            }
+            return entidad;
+        }
+
+
+        public List<UsuarioMedMitBE> ListaUsuarioMedidaMitigacion(UsuarioMedMitBE entidad)
+        {
+            List<UsuarioMedMitBE> Lista = null;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = "USERMRV.PKG_MRV_MANTENIMIENTO." + "USP_SEL_USUARIO_MEDMIT";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<UsuarioMedMitBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
         public UsuarioBE ObtenerPassword(UsuarioBE entidad)
         {
             List<UsuarioBE> Lista = null;

@@ -176,6 +176,36 @@
         function probar() {
             alert('1:' + $("#Control").data("opcion1") + '- 2: ' + $("#Control").data("opcion2") + '-3: ' + $("#Control").data("opcion3") + '-4: ' + $("#Control").data("opcion4") + '-5: ' + $("#Control").data("opcion5") + '-6: ' + $("#Control").data("opcion6") + '-7: ' + $("#Control").data("opcion7") + '-8: ' + $("#Control").data("opcion8") + ' - 9:' + $("#Control").data("opcion9") + ' RESP' + $("#Control").data("nombres") + ' ' + $("#Control").data("correo") + ' ' + $("#Control").data("institucion") + ' ' + $("#Control").data("sector") + ' ' + $("#Control").data("direccion") + ' ' + $("#Control").data("iniciativa") + ' medido:' + $("#Control").data("mitigacion") + ' rol:' + $("#Control").data("rol") + ' usu:' + $("#Control").data("usuario"));
         }
+
+        function fn_actualizaCampana() {
+            var item = {
+                ID_ROL: $("#Control").data("rol"),
+                ID_USUARIO: $("#Control").data("usuario")
+            }
+            url = baseUrl + "Gestion/ConsultaNotificaciones";
+            var respuesta = MRV.Ajax(url, item, false);
+            if (respuesta.success) {
+                $("#numNotificacion").html(respuesta.extra);
+            }
+        }
+
+        function enLinea() {
+            //ws = new WebSocket("ws://172.20.3.49:9002");
+            ws = new WebSocket("ws://10.0.0.103:9002");
+            ws.onopen = function () {
+                console.log("Conectado");
+            }
+            ws.onclose = function (event) {
+                console.log("Desconectado por: " + event.reason);
+            }
+            ws.onmessage = function (event) {
+                var data = event.data;
+                if (data != "") {
+                    console.log("Campana Actualizada");
+                    fn_actualizaCampana();
+                }
+            }
+        }
     </script>
 </body>
 </html>

@@ -76,6 +76,10 @@ namespace logica.minem.gob.pe
             return usuarioDA.SeleccionarMantenimientoUsuario(entidad);
         }
 
+        public static List<UsuarioMedMitBE> ListaUsuarioMedidaMitigacion(UsuarioMedMitBE entidad)
+        {
+            return usuarioDA.ListaUsuarioMedidaMitigacion(entidad);
+        }
         public static UsuarioBE validarConfirmarCorreo(UsuarioBE entidad)
         {
             return usuarioDA.validarConfirmarCorreo(entidad);

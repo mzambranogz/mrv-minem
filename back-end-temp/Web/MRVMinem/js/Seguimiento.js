@@ -1,6 +1,8 @@
 ﻿$(document).ready(function () {
     $("#Control").data("iniciativa", $("#identificador").val())
-    fn_mostrarSeguimiento();    
+    fn_mostrarSeguimiento();
+    fn_actualizaCampana();
+    enLinea();
 });
 
 function fn_mostrarSeguimiento() {

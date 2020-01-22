@@ -431,67 +431,11 @@
                                                 <input class="form-control" type="text" id="txt-celular" placeholder="Ingrese su celular" aria-describedby="inputGroup5" required>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-12 col-lg-6">
-                                        <div class="form-group">
-                                            <label for="txt-institucion">Institución</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
-                                                <input class="form-control" type="text" id="txt-institucion" placeholder="Ingrese su institución" aria-describedby="inputGroup6" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="txt-ruc">RUC</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup7"><i class="fas fa-landmark"></i></span></div>
-                                                <input class="form-control" type="text" id="txt-ruc" placeholder="Ingrese su RUC" aria-describedby="inputGroup7" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="txt-direccion">Dirección</label>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup8"><i class="fas fa-landmark"></i></span></div>
-                                                <input class="form-control" type="text" id="txt-direccion" placeholder="Ingrese su dirección" aria-describedby="inputGroup8" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="cbo-sector">Sector</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
-                                                <select class="form-control" id="cbo-sector" aria-describedby="inputGroup9" required>
-                                                    <option>-Seleccione un sector-</option>
-                                                    <option>Sector 01</option>
-                                                    <option>Sector 02</option>
-                                                    <option>Sector 03</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="txt-pswd">Contraseña</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup2"><i class="fas fa-key"></i></span></div>
-                                                <input class="form-control" type="password" id="txt-pswd" placeholder="Ingresar contraseña" aria-describedby="inputGroup2" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="cbo-perfil">Perfil</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="fas fa-user-tie"></i></span></div>
-                                                <select class="form-control" id="cbo-perfil" aria-describedby="inputGroup10" required>
-                                                    <option>-Seleccione un perfil de usuario-</option>
-                                                    <option class="badge-actor-02 font-weight-bold">Usuario Administrado</option>
-                                                    <option class="badge-actor-03 font-weight-bold">Especialista</option>
-                                                    <option class="badge-actor-04 font-weight-bold">Evaluador MINAM</option>
-                                                    <option class="badge-actor-05 font-weight-bold">Verificado Externo</option>
-                                                    <option class="badge-actor-06 font-weight-bold">Administrador MINEM</option>
-                                                </select>
-                                            </div>
-                                        </div>
                                         <div class="form-group medidas-especialista" style="display: none;">
                                             <label for="mlt-medidas">Medidas asignadas<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span></label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-tachometer-alt"></i></span></div>
-                                                <div class="form-control" style="height:90px; overflow-y: auto;">
+                                                <div class="form-control" style="height:90px; overflow-y: auto;" id="medidaGroup">
                                                     <div class="col-auto my-1">
                                                         <div class="custom-control custom-checkbox mr-sm-2">
                                                             <input class="custom-control-input" type="checkbox" id="rad-med-01">
@@ -589,6 +533,62 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-lg-6">
+                                        <div class="form-group">
+                                            <label for="txt-institucion">Institución</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
+                                                <input class="form-control" type="text" id="txt-institucion" placeholder="Ingrese su institución" aria-describedby="inputGroup6" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txt-ruc">RUC</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup7"><i class="fas fa-landmark"></i></span></div>
+                                                <input class="form-control" type="text" id="txt-ruc" placeholder="Ingrese su RUC" aria-describedby="inputGroup7" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txt-direccion">Dirección</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup8"><i class="fas fa-landmark"></i></span></div>
+                                                <input class="form-control" type="text" id="txt-direccion" placeholder="Ingrese su dirección" aria-describedby="inputGroup8" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="cbo-sector">Sector</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
+                                                <select class="form-control" id="cbo-sector" aria-describedby="inputGroup9" required>
+                                                    <option>-Seleccione un sector-</option>
+                                                    <option>Sector 01</option>
+                                                    <option>Sector 02</option>
+                                                    <option>Sector 03</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txt-pswd">Contraseña</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup2"><i class="fas fa-key"></i></span></div>
+                                                <input class="form-control" type="password" id="txt-pswd" placeholder="Ingresar contraseña" aria-describedby="inputGroup2" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="cbo-perfil">Perfil</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="fas fa-user-tie"></i></span></div>
+                                                <select class="form-control" id="cbo-perfil" aria-describedby="inputGroup10" required>
+                                                    @*<option>-Seleccione un perfil de usuario-</option>
+                                                    <option class="badge-actor-02 font-weight-bold">Usuario Administrado</option>
+                                                    <option class="badge-actor-03 font-weight-bold">Especialista</option>
+                                                    <option class="badge-actor-04 font-weight-bold">Evaluador MINAM</option>
+                                                    <option class="badge-actor-05 font-weight-bold">Verificado Externo</option>
+                                                    <option class="badge-actor-06 font-weight-bold">Administrador MINEM</option>*@
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="form-group">

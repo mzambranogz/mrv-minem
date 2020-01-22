@@ -34,7 +34,8 @@ $(document).ready(function () {
     });
 
     
-    
+    fn_actualizaCampana();
+    enLinea();
 
 });
 

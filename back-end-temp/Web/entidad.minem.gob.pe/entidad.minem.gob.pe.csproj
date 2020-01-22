@@ -60,7 +60,9 @@
     <Compile Include="TipoFuenteBE.cs" />
     <Compile Include="TipoVehiculoBE.cs" />
     <Compile Include="UbicacionBE.cs" />
+    <Compile Include="UsuarioAuxBE.cs" />
     <Compile Include="UsuarioBE.cs" />
+    <Compile Include="UsuarioMedMitBE.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

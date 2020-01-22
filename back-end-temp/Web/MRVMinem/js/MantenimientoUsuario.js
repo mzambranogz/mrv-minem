@@ -2,7 +2,10 @@
     CargarTablaMantenimiento();
     MRV.CargarSelect(baseUrl + "Portal/ListaSectorInstitucion", "#cbo-sector", "ID_SECTOR_INST", "DESCRIPCION");
     fn_cargarRol();
+    fn_cargaMedidaMitigacion();
     fn_modalInicio();
+    fn_actualizaCampana();
+    enLinea();
 });
 
 function fn_modalInicio() {
@@ -105,11 +108,30 @@ function fn_seleccionarMantenimientoUsuario(id) {
                         $("#txt-ruc").val(data[i]["RUC"]);
                         $("#cbo-sector").val(data[i]["ID_SECTOR_INST"]);
                         $("#cbo-perfil").val(data[i]["ID_ROL"]);
-                        $("#estado-usuario").data("estado",data[i]["ID_ESTADO_USUARIO"]); //ADD
+                        $("#estado-usuario").data("estado", data[i]["ID_ESTADO_USUARIO"]); //ADD
                         if (data[i]["ID_ESTADO_USUARIO"] == 1) {
                             $("#rad-01").prop("checked", true);
                         } else if (data[i]["ID_ESTADO_USUARIO"] == 2) {
                             $("#rad-02").prop("checked", true);
+                        }
+                        Number(data[i]["ID_ROL"]) == 2 ? $(".medidas-especialista").show() : $(".medidas-especialista").hide()
+                        if (Number(data[i]["ID_ROL"]) == 2) {
+                            $.ajax({
+                                url: baseUrl + "Gestion/ListaUsuarioMedidaMitigacion",
+                                type: 'POST',
+                                datatype: 'json',
+                                data: Item,
+                                success: function (data2) {
+                                    debugger;
+                                    if (data2.length > 0) {
+                                        for (var x = 0; x < data2.length; x++) {
+                                            $("#rad-med-0" + data2[x]["ID_MEDMIT"]).prop('checked', true);
+                                        }
+                                    }
+
+                                }
+                            });
+
                         }
                     }
                 }
@@ -131,6 +153,18 @@ function fn_editarMantenimiento() {
             estado = $('#rad-0' + (i + 1)).data("value");
         }
     }
+    debugger;
+    var idMedmit = "";
+    var medmit = $("[id^=rad-med-0]");
+    if (medmit.length > 0) {
+        for (var i = 0; i < medmit.length; i++) {
+            if (medmit[i].checked) {
+                idMedmit += medmit[i].value + "|";
+            }
+        }
+    }
+
+
     var url = baseUrl + "Gestion/EditarUsuario";
     //debugger;
     var item = {
@@ -147,7 +181,8 @@ function fn_editarMantenimiento() {
         ID_ROL: $("#cbo-perfil").val(),
         DIRECCION: $("#txt-direccion").val(),
         ID_ESTADO_USUARIO: estado,
-        ID_ESTADO_ANTERIOR: $("#estado-usuario").data("estado")
+        ID_ESTADO_ANTERIOR: $("#estado-usuario").data("estado"),
+        MEDIDAS: idMedmit
     };
     var mensaje = "";
     var respuesta = MRV.Ajax(url, item, false);
@@ -199,6 +234,27 @@ $("#modal-usuario").on("hidden.bs.modal", function () {
     fn_modalInicio();
 });
 
+function fn_cargaMedidaMitigacion() {
+    var Item = {
+    };
+    $.ajax({
+        url: baseUrl + "Mantenimiento/ListarMedidaMitigacion",
+        type: 'POST',
+        datatype: 'json',
+        data: Item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    $("#medidaGroup").html("");
+                    for (var i = 0; i < data.length; i++) {
+                        //$("#medidaGroup").append('<option class="badge-actor-0' + (i + 2) + ' font-weight-bold" value="' + data[i]["ID_ROL"] + '">' + data[i]["DESCRIPCION_ROL"] + '</option>');
+                        $("#medidaGroup").append("<div class='col-auto my-1'><div class='custom-control custom-checkbox mr-sm-2'><input class='custom-control-input' type='checkbox' id='rad-med-0" + (i + 1) + "' value=" + data[i]["ID_MEDMIT"] + "><label class='custom-control-label' for='rad-med-0" + (i + 1) + "'>" + data[i]["NOMBRE_MEDMIT"] + "</label></div></div>");
+                    }
+                }
+            }
+        }
+    });
 
+}
 
 

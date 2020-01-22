@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace entidad.minem.gob.pe
 {
-    public class UsuarioBE : BaseBE
+    public partial class UsuarioBE : BaseBE
     {
         public int ID_USUARIO { get; set; }
         public string EMAIL_USUARIO { get; set; }
