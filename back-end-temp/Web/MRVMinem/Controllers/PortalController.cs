@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Text;
 using System.Net.Mail;
 using System.Net.Mime;
+using MRVMinem.Models;
 
 namespace MRVMinem.Controllers
 {
@@ -26,6 +27,13 @@ namespace MRVMinem.Controllers
 
         public ActionResult AccionMitigacion()
         {
+            return View();
+        }
+
+        public ActionResult ConfirmarCorreo(int id)
+        {
+            MvSesion modelo = new MvSesion();
+            modelo.identificador = id;
             return View();
         }
 
@@ -117,6 +125,34 @@ namespace MRVMinem.Controllers
             {
                 itemRespuesta.extra = entidad.extra;
             }
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult VerificarClave(UsuarioBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = UsuarioLN.VerificarClave(entidad);
+            itemRespuesta.success = entidad.OK;
+            if (entidad.OK)
+            {
+                entidad = UsuarioLN.CambiarClave(entidad);
+            }
+            else
+            {
+                itemRespuesta.extra = entidad.extra;
+            }
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult validarConfirmarCorreo(UsuarioBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            //entidad = UsuarioLN.validarConfirmarCorreo(entidad);
+            //itemRespuesta.success = entidad.OK;
+            //itemRespuesta.extra = entidad.extra;
+            itemRespuesta.success = true;
             return Respuesta(itemRespuesta);
         }
 

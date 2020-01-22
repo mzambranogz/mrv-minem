@@ -145,6 +145,7 @@
     <Content Include="images\logo_pnud.svg" />
     <Content Include="images\_fonfo_footer.png" />
     <Content Include="js\AccionMitigacion.js" />
+    <Content Include="js\CambiarClave.js" />
     <Content Include="js\ConfirmarCorreo.js" />
     <Content Include="js\DetalleIndicador.js" />
     <Content Include="js\IniciativaMitigacion.js" />
@@ -220,6 +221,7 @@
     <Content Include="Views\Gestion\MantenimientoTablas.cshtml" />
     <Content Include="Views\Gestion\MantenimientoUsuario.cshtml" />
     <Content Include="Views\Portal\ConfirmarCorreo.cshtml" />
+    <Content Include="Views\Gestion\CambiarClave.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

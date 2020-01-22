@@ -105,6 +105,7 @@ function fn_seleccionarMantenimientoUsuario(id) {
                         $("#txt-ruc").val(data[i]["RUC"]);
                         $("#cbo-sector").val(data[i]["ID_SECTOR_INST"]);
                         $("#cbo-perfil").val(data[i]["ID_ROL"]);
+                        $("#estado-usuario").data("estado",data[i]["ID_ESTADO_USUARIO"]); //ADD
                         if (data[i]["ID_ESTADO_USUARIO"] == 1) {
                             $("#rad-01").prop("checked", true);
                         } else if (data[i]["ID_ESTADO_USUARIO"] == 2) {
@@ -145,7 +146,8 @@ function fn_editarMantenimiento() {
         RUC: $("#txt-ruc").val(),
         ID_ROL: $("#cbo-perfil").val(),
         DIRECCION: $("#txt-direccion").val(),
-        ID_ESTADO_USUARIO: estado
+        ID_ESTADO_USUARIO: estado,
+        ID_ESTADO_ANTERIOR: $("#estado-usuario").data("estado")
     };
     var mensaje = "";
     var respuesta = MRV.Ajax(url, item, false);

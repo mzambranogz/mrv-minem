@@ -6,6 +6,12 @@ using System.Web.Mvc;
 using entidad.minem.gob.pe;
 using logica.minem.gob.pe;
 using MRVMinem.Core;
+using MRVMinem.Repositorio;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Text;
+using System.Net.Mail;
+using System.Net.Mime;
 using MRVMinem.Models;
 
 namespace MRVMinem.Controllers
@@ -412,8 +418,16 @@ namespace MRVMinem.Controllers
         public JsonResult EditarUsuario(UsuarioBE entidad)
         {
             ResponseEntity itemRespuesta = new ResponseEntity();
-
             entidad = UsuarioLN.EditarUsuario(entidad);
+            if ((entidad.ID_ESTADO_ANTERIOR == 0 && entidad.ID_ESTADO_USUARIO == 1) || (entidad.ID_ESTADO_ANTERIOR == 2 && entidad.ID_ESTADO_USUARIO == 1))
+            {
+                EnvioCorreo hilo_correo = new EnvioCorreo(entidad);    //.CreacionUsuario(entidad);
+                                                                       //Thread hilo = new Thread(new ThreadStart(hilo_correo.CreacionUsuario));
+                                                                       //hilo.Start();
+                                                                       //hilo.Join();
+
+                Task tarea = Task.Factory.StartNew(() => hilo_correo.AprobacionUsuario());
+            }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }
