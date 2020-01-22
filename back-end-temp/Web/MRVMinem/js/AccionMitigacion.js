@@ -75,6 +75,22 @@ function fn_verificarIniciativaDetalle(id) {
      location.href = baseUrl + "Gestion/DetalleIndicador?id=" + $("#Control").data("iniciativa");
  }
 
+ function fn_verMasPrivadoIniciativaG(ini) {
+     location.href = baseUrl + "Gestion/VerMasIniciativa?ini=" + ini;
+ }
+
+ function fn_verMasPrivadoIniciativaDetalleG(ini) {
+     location.href = baseUrl + "Gestion/VerMasIniciativaDetalle?ini=" + ini;
+ }
+
+ function fn_verMasPrivadoIniciativaP(ini) {
+     location.href = baseUrl + "Portal/VerMasIniciativa?ini=" + ini;
+ }
+
+ function fn_verMasPrivadoIniciativaDetalleP(ini) {
+     location.href = baseUrl + "Portal/VerMasIniciativaDetalle?ini=" + ini;
+ }
+
 function CargarListarIniciativaMitigacionPublico(vUrl) {
     var Item = {};
     $.ajax({
@@ -97,13 +113,14 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
                                 progreso = '50%';
                             } else if (data[i]["PROGRESO"] == 3 && data[i]["ID_ESTADO"] != 0) {
                                 progreso = '75%';
-                            } else if (data[i]["PROGRESO"] == 4 || data[i]["PROGRESO"] == 5 || data[i]["PROGRESO"] == 6) {
+                            } else if (data[i]["PROGRESO"] == 4 || data[i]["PROGRESO"] == 5 || data[i]["PROGRESO"] == 6 || data[i]["PROGRESO"] == 7) {
                                 progreso = '100%';
                             }
                         }
 
                         var tr = '<tr>';
-                        tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + (1 + i) + '</th>';
+                        //tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + (1 + i) + '</th>';
+                        tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + data[i]["ID_INICIATIVA"] + '</th>';
                         tr = tr + '<td data-encabezado="Nombre de Iniciativa">' + data[i]["NOMBRE_INICIATIVA"] + '</td>';
                         tr = tr + '<td data-encabezado="Progreso">';
                         tr = tr + '         <div class="progress" style="height: 20px;">';
@@ -116,8 +133,11 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
                         tr = tr + '     <div class="btn-group">';
                         tr = tr + '         <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
                         tr = tr + '         <div class="dropdown-menu dropdown-menu-right">';
-                        tr = tr + '             <a class="dropdown-item" href="./ver-mas-accion-de-mitigacion.html"><i class="fas fa-plus-circle"></i>&nbsp;Ver más</a>';
-                        tr = tr + '             <a class="dropdown-item" href="./seguimiento-de-accion-de-mitigacion.html"><i class="fas fa-history"></i>&nbsp;Seguimiento</a>';
+                        if (data[i]["PROGRESO"] == 1 || data[i]["PROGRESO"] == 2) {
+                            tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_verMasPrivadoIniciativaP(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-plus-circle"></i>&nbsp;Ver más</a>';
+                        } else if (data[i]["PROGRESO"] >= 3) {
+                            tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_verMasPrivadoIniciativaDetalleP(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-plus-circle"></i>&nbsp;Ver más</a>';
+                        }
                         tr = tr + '         </div>';
                         tr = tr + '     </div>';
                         tr = tr + '</td>';
@@ -160,7 +180,8 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                         }
 
                         var tr = '<tr>';
-                        tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + (1 + i) + '</th>';
+                        //tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + (1 + i) + '</th>'; 
+                        tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + data[i]["ID_INICIATIVA"] + '</th>';
                         tr = tr + '<td data-encabezado="Nombre de Iniciativa">' + data[i]["NOMBRE_INICIATIVA"] + '</td>';
                         tr = tr + '<td data-encabezado="Progreso">';
                         tr = tr + '         <div class="progress" style="height: 20px;">';
@@ -180,7 +201,11 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                             tr = tr + '         <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
                         }
                         tr = tr + '         <div class="dropdown-menu dropdown-menu-right">';
-                        tr = tr + '             <a class="dropdown-item" href="./ver-mas-accion-de-mitigacion.html"><i class="fas fa-plus-circle"></i>&nbsp;Ver más</a>';
+                        if (data[i]["PROGRESO"] == 1 || data[i]["PROGRESO"] == 2) {
+                            tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_verMasPrivadoIniciativaG(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-plus-circle"></i>&nbsp;Ver más</a>';
+                        } else if (data[i]["PROGRESO"] >= 3) {
+                            tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_verMasPrivadoIniciativaDetalleG(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-plus-circle"></i>&nbsp;Ver más</a>';
+                        }
                         tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_mostrarSeguimiento(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-history"></i>&nbsp;Seguimiento</a>';
                         if ($('#Control').data('rol') == 2 || $('#Control').data('rol') == 1) {
                             if (data[i]["PROGRESO"] == 1 && data[i]["ID_ESTADO"] == 0) {

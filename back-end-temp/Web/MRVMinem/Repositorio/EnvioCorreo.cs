@@ -21,7 +21,8 @@ namespace MRVMinem.Repositorio
         public void CreacionUsuario()
         {
             string cuerpo = CuerpoCreacionUsuario(xEntidad);
-            string De = "mrv@grupo-zuniga.com";
+            //string De = "mrv@grupo-zuniga.com";
+            string De = WebConfigurationManager.AppSettings.Get("Usermail");
             string asunto = xEntidad.NOMBRES_USUARIO + " " + xEntidad.APELLIDOS_USUARIO + ", " + "Gracias por registrarte en nuestra plataforma MRV del sector energía";
             List<string> Para = new List<string>();
             Para.Add(xEntidad.EMAIL_USUARIO);
@@ -34,8 +35,9 @@ namespace MRVMinem.Repositorio
 
         public void AprobacionUsuario()
         {
-            string cuerpo = CuerpoAprobacionUsuario(xEntidad);
-            string De = "mrv@grupo-zuniga.com";
+            string cuerpo = CuerpoAprobacionUsuario(xEntidad, WebConfigurationManager.AppSettings.Get("Server"));
+            //string De = "mrv@grupo-zuniga.com";
+            string De = WebConfigurationManager.AppSettings.Get("Usermail");
             string asunto = xEntidad.NOMBRES_USUARIO + " " + xEntidad.APELLIDOS_USUARIO + ", " + "Su cuenta ha sido aprobada";
             List<string> Para = new List<string>();
             Para.Add(xEntidad.EMAIL_USUARIO);
@@ -105,7 +107,7 @@ namespace MRVMinem.Repositorio
             return sb.ToString();
         }
 
-        private string CuerpoAprobacionUsuario(UsuarioBE entidad)
+        private string CuerpoAprobacionUsuario(UsuarioBE entidad, string server)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(" <html xmlns=\"http://www.w3.org/1999/xhtml\">");
@@ -114,7 +116,7 @@ namespace MRVMinem.Repositorio
             sb.Append(" </title></head>");
             sb.Append(" <body>");
             sb.Append("<div style=\"font-family: Roboto;font-size:12px;margin:0 auto;margin-top:50px;width:650px;\" ><img src=\"cid:imagenBanner\" width=\"150\" />");
-            sb.Append("     <div style=\"border-bottom: 1px solid #ededed;\"></div><br/><br/><strong> Estimado Usuario: &nbsp;</strong><span> " + entidad.NOMBRES_USUARIO + " " + entidad.APELLIDOS_USUARIO + ", su cuenta ha sido aprobada, pulse <a href=\"10.0.0.103/mrv-minem/Home/login\">aqui</a> para que inicie sesion</span><br/><br/>");
+            sb.Append("     <div style=\"border-bottom: 1px solid #ededed;\"></div><br/><br/><strong> Estimado Usuario: &nbsp;</strong><span> " + entidad.NOMBRES_USUARIO + " " + entidad.APELLIDOS_USUARIO + ", su cuenta ha sido aprobada, pulse <a href=\"" + server + "Home/login\">aqui</a> para que inicie sesion</span><br/><br/>");
             sb.Append("         <div style=\"border-left:1px solid #ededed;margin:10px;padding:10px;\">");
             sb.Append("     </div>");
             sb.Append("</div>");

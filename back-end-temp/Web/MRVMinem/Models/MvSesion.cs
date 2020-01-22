@@ -10,5 +10,6 @@ namespace MRVMinem.Models
         public int identificador { get; set; }
         public int iniciativa { get; set; }
         public int revision { get; set; }
+        public int detalle { get; set; }
     }
 }

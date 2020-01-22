@@ -37,6 +37,22 @@ namespace MRVMinem.Controllers
             return View();
         }
 
+        public ActionResult VerMasIniciativa(int ini)
+        {
+            MvSesion modelo = new MvSesion();
+            modelo.iniciativa = ini;
+            modelo.detalle = 0;
+            return View(modelo);
+        }
+
+        public ActionResult VerMasIniciativaDetalle(int ini)
+        {
+            MvSesion modelo = new MvSesion();
+            modelo.iniciativa = ini;
+            modelo.detalle = 1;
+            return View(modelo);
+        }
+
         public JsonResult ListaSectorInstitucion(SectorInstitucionBE entidad)
         {
             List<SectorInstitucionBE> lista = SectorInstitucionLN.ListaSectorInstitucion(entidad);

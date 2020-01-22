@@ -19,6 +19,13 @@
     <link rel="stylesheet" href="~/css/style.css">
     <script src="~/js/script.js"></script>
     <script src="~/js/MRV.js"></script>
+    <script type="text/javascript">
+        var baseUrl = '@Url.Content("~")';
+
+        function fn_regresarListaIniciativa() {
+            location.href = baseUrl + "Portal/AccionMitigacion";
+        }
+    </script>
 </head>
 <body>
     <div class="container-fluid menu-nav bg-sutil fixed-top" id="cabecera">
@@ -91,9 +98,7 @@
     <div id="Control" data-usuario="0"></div>
     @*<script src="~/js/script.js"></script>    
     <script src="~/js/MRV.js"></script>*@
-    <script type="text/javascript">
-        var baseUrl = '@Url.Content("~")';
-    </script>
+    
     @*<script src="~/js/RegistroUsuario.js"></script>*@    
     @*<script src="~/js/AccionMitigacion.js"></script>*@  
 </body>

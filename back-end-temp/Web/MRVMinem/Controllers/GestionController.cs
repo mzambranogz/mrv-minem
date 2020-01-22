@@ -124,6 +124,23 @@ namespace MRVMinem.Controllers
             return View();
         }
         ////////////////////////////
+
+        public ActionResult VerMasIniciativa(int ini)
+        {
+            MvSesion modelo = new MvSesion();
+            modelo.iniciativa = ini;
+            modelo.detalle = 0;
+            return View(modelo);
+        }
+
+        public ActionResult VerMasIniciativaDetalle(int ini)
+        {
+            MvSesion modelo = new MvSesion();
+            modelo.iniciativa = ini;
+            modelo.detalle = 1;
+            return View(modelo);
+        }
+
         public JsonResult ListaIniciativasEspecialista(IniciativaBE entidad)
         {
             List<IniciativaBE> lista = IniciativaLN.ListaIniciativaEspecialista(entidad);

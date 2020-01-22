@@ -159,6 +159,7 @@
     <Content Include="js\RegistroUsuario.js" />
     <Content Include="js\script.js" />
     <Content Include="js\Seguimiento.js" />
+    <Content Include="js\VerMas.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -223,6 +224,10 @@
     <Content Include="Views\Gestion\MantenimientoUsuario.cshtml" />
     <Content Include="Views\Portal\ConfirmarCorreo.cshtml" />
     <Content Include="Views\Gestion\CambiarClave.cshtml" />
+    <Content Include="Views\Gestion\VerMasIniciativa.cshtml" />
+    <Content Include="Views\Gestion\VerMasIniciativaDetalle.cshtml" />
+    <Content Include="Views\Portal\VerMasIniciativa.cshtml" />
+    <Content Include="Views\Portal\VerMasIniciativaDetalle.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
