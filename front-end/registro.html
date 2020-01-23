@@ -82,65 +82,65 @@
                     <label for="txt-user">Email</label>
                     <div class="input-group">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-envelope"></i></span></div>
-                      <input class="form-control" type="email" id="txt-user" placeholder="Dirección de email" aria-describedby="inputGroup1" required>
+                      <input class="form-control" type="email" id="txt-user" placeholder="Dirección de email" aria-describedby="inputGroup1" pattern="^[a-zA-Z0-9.!#$%&amp;’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$" maxlength="54" required>
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="txt-nombre">Nombres</label>
                     <div class="input-group">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup3"><i class="fas fa-user-tie"></i></span></div>
-                      <input class="form-control" type="text" id="txt-nombre" placeholder="Ingrese su nombres" aria-describedby="inputGroup3" required>
+                      <input class="form-control" type="text" id="txt-nombre" placeholder="Ingrese su nombres" aria-describedby="inputGroup3" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{3,54}" maxlength="54" required>
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="txt-apellido">Apellidos</label>
                     <div class="input-group">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-user-tie"></i></span></div>
-                      <input class="form-control" type="text" id="txt-apellido" placeholder="Ingrese su apellidos" aria-describedby="inputGroup4" required>
+                      <input class="form-control" type="text" id="txt-apellido" placeholder="Ingrese su apellidos" aria-describedby="inputGroup4" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{8,54}" maxlength="54" required>
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="txt-telefono">Teléfono</label>
                     <div class="input-group">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup11"><i class="fas fa-phone-alt"></i></span></div>
-                      <input class="form-control" type="text" id="txt-telefono" placeholder="Ingrese su teléfono" aria-describedby="inputGroup11" required>
+                      <input class="form-control" type="tel" id="txt-telefono" placeholder="Ingrese su teléfono" aria-describedby="inputGroup11" pattern="[0-9]{6,10}" maxlength="10" required>
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="txt-anexo">Anexo</label>
                     <div class="input-group">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup12"><i class="fas fa-phone-square-alt"></i></span></div>
-                      <input class="form-control" type="text" id="txt-anexo" placeholder="Ingrese su anexo" aria-describedby="inputGroup12" required>
+                      <input class="form-control" type="tel" id="txt-anexo" placeholder="Ingrese su anexo" aria-describedby="inputGroup12" pattern="[0-9]{4,5}" maxlength="5" required>
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="txt-celular">Celular</label>
                     <div class="input-group">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-mobile-alt"></i></span></div>
-                      <input class="form-control" type="text" id="txt-celular" placeholder="Ingrese su celular" aria-describedby="inputGroup5" required>
+                      <input class="form-control" type="text" id="txt-celular" placeholder="Ingrese su celular" aria-describedby="inputGroup5" pattern="[0-9]{9,12}" maxlength="12" required>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-12 col-lg-6">
                   <div class="form-group">
-                    <label for="txt-institucion">Institución &nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                    <label for="txt-institucion">Institución &nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="top" title="Ingrese el nombre comercial o razón social de su empresa"></i></label>
                     <div class="input-group">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
-                      <input class="form-control" type="text" id="txt-institucion" placeholder="Ingrese su institución" aria-describedby="inputGroup6" required>
+                      <input class="form-control" type="text" id="txt-institucion" placeholder="Ingrese su institución" aria-describedby="inputGroup6" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{8,70}" maxlength="70" required>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="txt-ruc">RUC</label>
+                    <label for="txt-ruc">RUC&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="top" title="Se necesita un RUC de persona jurídica"></i></label>
                     <div class="input-group">
-                      <div class="input-group-prepend"><span class="input-group-text" id="inputGroup7"><i class="fas fa-landmark"></i></span></div>
-                      <input class="form-control" type="text" id="txt-ruc" placeholder="Ingrese su RUC" aria-describedby="inputGroup7" required>
+                      <div class="input-group-prepend"><span class="input-group-text" id="inputGroup7"><i class="fas fa-landmark"></i></span><span class="input-group-text bg-white pr-0 font-weight-bold">20</span></div>
+                      <input class="form-control pl-0 border-left-0" type="text" id="txt-ruc" placeholder="######### complete su RUC" aria-describedby="inputGroup7" pattern="[0-9]{9}" maxlength="9" required>
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="txt-direccion">Dirección</label>
                     <div class="input-group">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup8"><i class="fas fa-landmark"></i></span></div>
-                      <input class="form-control" type="text" id="txt-direccion" placeholder="Ingrese su dirección" aria-describedby="inputGroup8" required>
+                      <input class="form-control" type="text" id="txt-direccion" placeholder="Ingrese su dirección" aria-describedby="inputGroup8" pattern="[a-zA-Z0-9 /\@#$%&amp;]+" maxlength="120" required>
                     </div>
                   </div>
                   <div class="form-group">
@@ -156,10 +156,9 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="txt-pswd">Contraseña</label>
+                    <label for="txt-pswd">Contraseña&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="top" title="Su contraseña debe incluir 8 caracteres como mínimo, 1 minúscula, 1 mayúscula, 1 número y 1 caracter especial."></i></label>
                     <div class="input-group">
-                      <div class="input-group-prepend"><span class="input-group-text" id="inputGroup2"><i class="fas fa-key"></i></span></div>
-                      <input class="form-control" type="text" id="txt-pswd" placeholder="Su contraseña necesita mayúscula, minúscula y números" aria-describedby="inputGroup2" required>
+                      <div class="input-group-prepend"><span class="input-group-text" id="inputGroup2"><i class="fas fa-key"></i></span></div><input class="form-control" type="password" id="txt-pswd" placeholder="Ingrese se contraseña" aria-describedby="inputGroup2" pattern="(?=.*\d)(?=.*[!@#$&*])(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Su contraseña debe incluir 8 caracteres como mínimo, 1 minúscula, 1 mayúscula, 1 número y 1 caracter especial." required>
                     </div>
                   </div>
                   <div class="form-group">
