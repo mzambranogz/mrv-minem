@@ -96,6 +96,16 @@ namespace datos.minem.gob.pe
                 string[] medidas;
                 if (!string.IsNullOrEmpty(entidad.MEDIDAS))
                 {
+                    using (IDbConnection db = new OracleConnection(CadenaConexion))
+                    {
+                        string sp = "USERMRV.PKG_MRV_MANTENIMIENTO." + "USP_DEL_USUARIO_MEDMIT";
+                        var p = new OracleDynamicParameters();
+                        p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                        p.Add("pID_USUREG", entidad.USUARIO_REGISTRO);
+                        p.Add("pIP", entidad.IP_PC);
+                        db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                    }
+
                     medidas = entidad.MEDIDAS.Split('|');
                     for (int i = 0; i < medidas.Length; i++)
                     {
@@ -124,16 +134,6 @@ namespace datos.minem.gob.pe
         {
             try
             {
-                using (IDbConnection db = new OracleConnection(CadenaConexion))
-                {
-                    string sp = "USERMRV.PKG_MRV_MANTENIMIENTO." + "USP_DEL_USUARIO_MEDMIT";
-                    var p = new OracleDynamicParameters();
-                    p.Add("pID_USUARIO", entidad.ID_USUARIO);
-                    p.Add("pID_USUREG", entidad.USUARIO_REGISTRO);
-                    p.Add("pIP", entidad.IP_PC);
-                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
-                }
-
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
                 {
                     string sp = "USERMRV.PKG_MRV_MANTENIMIENTO." + "USP_MNT_USUARIO_MEDMIT";

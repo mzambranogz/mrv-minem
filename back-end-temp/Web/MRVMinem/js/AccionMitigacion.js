@@ -10,6 +10,8 @@
         } else if ($("#Control").data("rol") == 4 || $("#Control").data("rol") == 5) {
             CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaIniciativasEvaluar");
         }
+        fn_actualizaCampana();
+        enLinea();
     } else {
         CargarListarIniciativaMitigacionPublico(baseUrl + "Portal/ListaIniciativasPublico");
     }
@@ -17,9 +19,63 @@
     MRV.CargarSelect(baseUrl + "Administrado/Gestion/ListarMedidaMitigacion", "#medMitigacion", "ID_MAE_MEDMIT", "NOMBRE_MEDMIT");
     MRV.CargarSelect(baseUrl + "Administrado/Gestion/ListarMoneda", "#mMoneda", "ID_MONEDA", "DESCRIPCION");
     */
-    fn_actualizaCampana();
-    enLinea();
+
+    $(".miColumna").click(function (event) {
+        var id = "";
+        if (event.target.nodeName == "SPAN") {
+            id = event.target.firstElementChild.id;
+        } else {
+            id = event.target.id;
+        }
+
+        debugger;
+        $(".miColumna > i").removeClass("fa-sort-up");
+        $(".miColumna > i").removeClass("fa-sort-down");
+        $(".miColumna > i").addClass("fa-sort");
+        $(".miColumna > i").css("color", "lightgray");
+
+
+        if ($("#columna").val() == id) {
+            if ($("#orden").val() == "ASC") {
+                $("#orden").val("DESC")
+                $("#" + id).removeClass("fa-sort-up");
+                $("#" + id).addClass("fa-sort-down");
+            }
+            else {
+                $("#orden").val("ASC")
+                $("#" + id).removeClass("fa-sort-down");
+                $("#" + id).addClass("fa-sort-up");
+            }
+            $("#" + id).css("color", "white");
+        }
+        else {
+            $("#columna").val(id);
+            $("#orden").val("ASC")
+            $("#" + id).removeClass("fa-sort");
+            $("#" + id).addClass("fa-sort-up");
+            $("#" + id).css("color", "white");
+        }
+
+        fn_CargaIniciativas();
+    });
+    
 });
+
+function fn_CargaIniciativas() {
+    if ($("#Control").data("usuario") > 0) {
+        if ($("#Control").data("rol") == 2) {
+            CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaIniciativasEspecialista");
+        } else if ($("#Control").data("rol") == 3) {
+            CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaIniciativasGeneral");
+        } else if ($("#Control").data("rol") == 1) {
+            CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaIniciativasUsuario");
+        } else if ($("#Control").data("rol") == 4 || $("#Control").data("rol") == 5) {
+            CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaIniciativasEvaluar");
+        }
+    } else {
+        CargarListarIniciativaMitigacionPublico(baseUrl + "Portal/ListaIniciativasPublico");
+    }
+}
 
 function CargarOpcionesCuerpo() {
     if ($("#Control").data("opcion9") == 1) {
@@ -27,16 +83,16 @@ function CargarOpcionesCuerpo() {
     }
 }
 
-function fn_revisarIniciativa(ini){
-     location.href = baseUrl + "Gestion/RevisarIniciativa?id=" + 0+"&ini="+ini;
+function fn_revisarIniciativa(ini) {
+    location.href = baseUrl + "Gestion/RevisarIniciativa?id=" + 0 + "&ini=" + ini;
 }
 
-function fn_mostrarCorregirIniciativa(ini){
+function fn_mostrarCorregirIniciativa(ini) {
     location.href = baseUrl + "Gestion/CorregirIniciativa?ini=" + ini;
 }
 
-function fn_revisarDetalle(id){
-     location.href = baseUrl + "Gestion/RevisarDetalleIndicador?id=" + id;
+function fn_revisarDetalle(id) {
+    location.href = baseUrl + "Gestion/RevisarDetalleIndicador?id=" + id;
 }
 
 function fn_revisarDetalleAdmin(id) {
@@ -51,48 +107,53 @@ function fn_verificarIniciativaDetalle(id) {
     location.href = baseUrl + "Gestion/VerificarIniciativaDetalle?id=" + id;
 }
 
- function fn_cargarIdIniciativa(id) {
-     $("#Control").data("iniciativa",id);
- }
+function fn_cargarIdIniciativa(id) {
+    $("#Control").data("iniciativa", id);
+}
 
- function fn_mostrarEditarIndicador(id) {
-     location.href = baseUrl + "Gestion/DetalleIndicador?id=" + id;
- }
+function fn_mostrarEditarIndicador(id) {
+    location.href = baseUrl + "Gestion/DetalleIndicador?id=" + id;
+}
 
- function fn_mostrarEditarIniciativa(ini) {
-     location.href = baseUrl + "Gestion/IniciativaMitigacion?id=" + 0 + "&ini=" + ini;
- }
+function fn_mostrarEditarIniciativa(ini) {
+    location.href = baseUrl + "Gestion/IniciativaMitigacion?id=" + 0 + "&ini=" + ini;
+}
 
- function fn_mostrarCorregirIndicador(id) {
-     location.href = baseUrl + "Gestion/CorregirDetalleIndicador?id=" + id;
- }
+function fn_mostrarCorregirIndicador(id) {
+    location.href = baseUrl + "Gestion/CorregirDetalleIndicador?id=" + id;
+}
 
- function fn_mostrarSeguimiento(id) {
-     location.href = baseUrl + "Gestion/SeguimientoIniciativa?id=" + id;
- }
+function fn_mostrarSeguimiento(id) {
+    location.href = baseUrl + "Gestion/SeguimientoIniciativa?id=" + id;
+}
 
- function fn_mostrarDetalleIndicador() {
-     location.href = baseUrl + "Gestion/DetalleIndicador?id=" + $("#Control").data("iniciativa");
- }
+function fn_mostrarDetalleIndicador() {
+    location.href = baseUrl + "Gestion/DetalleIndicador?id=" + $("#Control").data("iniciativa");
+}
 
- function fn_verMasPrivadoIniciativaG(ini) {
-     location.href = baseUrl + "Gestion/VerMasIniciativa?ini=" + ini;
- }
+function fn_verMasPrivadoIniciativaG(ini) {
+    location.href = baseUrl + "Gestion/VerMasIniciativa?ini=" + ini;
+}
 
- function fn_verMasPrivadoIniciativaDetalleG(ini) {
-     location.href = baseUrl + "Gestion/VerMasIniciativaDetalle?ini=" + ini;
- }
+function fn_verMasPrivadoIniciativaDetalleG(ini) {
+    location.href = baseUrl + "Gestion/VerMasIniciativaDetalle?ini=" + ini;
+}
 
- function fn_verMasPrivadoIniciativaP(ini) {
-     location.href = baseUrl + "Portal/VerMasIniciativa?ini=" + ini;
- }
+function fn_verMasPrivadoIniciativaP(ini) {
+    location.href = baseUrl + "Portal/VerMasIniciativa?ini=" + ini;
+}
 
- function fn_verMasPrivadoIniciativaDetalleP(ini) {
-     location.href = baseUrl + "Portal/VerMasIniciativaDetalle?ini=" + ini;
- }
+function fn_verMasPrivadoIniciativaDetalleP(ini) {
+    location.href = baseUrl + "Portal/VerMasIniciativaDetalle?ini=" + ini;
+}
 
 function CargarListarIniciativaMitigacionPublico(vUrl) {
-    var Item = {};
+    var Item = {
+        cantidad_registros: $("#cantidad-registros").val(),
+        pagina: $("#pagina").val(),
+        order_by: $("#columna").val(),
+        order_orden: $("#orden").val()
+    };
     $.ajax({
         url: vUrl,
         type: 'POST',
@@ -103,6 +164,13 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
                 if (data.length > 0) {
 
                     $("#cuerpoMitigacion").html("");
+                    var resultado = "";
+                    var inicio = 0;
+                    var fin = 0;
+                    var total_registros = 0;
+                    var pagina = 0;
+                    var total_paginas = 0;
+
                     for (var i = 0; i < data.length; i++) {
 
                         var progreso = '0%;';
@@ -120,7 +188,7 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
 
                         var tr = '<tr>';
                         //tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + (1 + i) + '</th>';
-                        tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + data[i]["ID_INICIATIVA"] + '</th>';
+                        tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + data[i]["RowNumber"] + '</th>';
                         tr = tr + '<td data-encabezado="Nombre de Iniciativa">' + data[i]["NOMBRE_INICIATIVA"] + '</td>';
                         tr = tr + '<td data-encabezado="Progreso">';
                         tr = tr + '         <div class="progress" style="height: 20px;">';
@@ -143,6 +211,25 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
                         tr = tr + '</td>';
                         tr = tr + '</tr>';
                         $("#cuerpoMitigacion").append(tr);
+
+                        pagina = Number(data[i]["pagina"]);
+                        total_paginas = Number(data[i]["total_paginas"]);
+                        total_registros = Number(data[i]["total_registros"]);
+                        inicio = (Number(data[i]["cantidad_registros"]) * pagina) - Number(data[i]["cantidad_registros"]) + 1;
+                        fin = Number(data[i]["cantidad_registros"]) * pagina;
+                        if (pagina == total_paginas) {
+                            if (fin > total_registros)
+                                fin = total_registros
+                        }
+                        resultado = inicio + " de " + fin;
+                    }
+
+                    $("#resultado").html(resultado);
+                    $("#total-registros").html(total_registros);
+                    $("#pagina-actual").html(pagina);
+                    $("#total-paginas").html(total_paginas);
+                    if (Number($("#pagina").val()) > total_paginas) {
+                        $("#pagina").val(total_paginas);
                     }
                 }
             }
@@ -150,9 +237,43 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
     });
 }
 
+
+function fn_avance_grilla(boton) {
+    //debugger;
+    var total = 0;
+    var miPag = 0;
+    miPag = Number($("#pagina").val());
+    total = Number($("#total-paginas").html());
+
+    if (boton == 1) {
+        miPag = 1;
+    }
+    if (boton == 2) {
+        if (miPag > 1) {
+            miPag--;
+        }
+    }
+    if (boton == 3) {
+        if (miPag < total) {
+            miPag++;
+        }
+    }
+    if (boton == 4) {
+        miPag = total;
+    }
+    $("#pagina").val(miPag);
+    fn_CargaIniciativas();
+}
+
+
+
 function CargarListarIniciativaMitigacionGeneral(vUrl) {
     var Item = {
-        ID_USUARIO: $("#Control").data("usuario")
+        ID_USUARIO: $("#Control").data("usuario"),
+        cantidad_registros: $("#cantidad-registros").val(),
+        pagina: $("#pagina").val(),
+        order_by: $("#columna").val(),
+        order_orden: $("#orden").val()
     };
     $.ajax({
         url: vUrl,
@@ -181,7 +302,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
 
                         var tr = '<tr>';
                         //tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + (1 + i) + '</th>'; 
-                        tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + data[i]["ID_INICIATIVA"] + '</th>';
+                        tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + data[i]["RowNumber"] + '</th>';
                         tr = tr + '<td data-encabezado="Nombre de Iniciativa">' + data[i]["NOMBRE_INICIATIVA"] + '</td>';
                         tr = tr + '<td data-encabezado="Progreso">';
                         tr = tr + '         <div class="progress" style="height: 20px;">';
@@ -194,7 +315,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
 
                         tr = tr + '     <div class="btn-group">';
                         //if (data[i]["ID_ESTADO"] == 2 && data[i]["PROGRESO"] == 1) {
-                          //  tr = tr + '         <div class="acciones fase-01 dropdown-toggle text-warning" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
+                        //  tr = tr + '         <div class="acciones fase-01 dropdown-toggle text-warning" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
                         if (data[i]["PROGRESO"] == 2 || data[i]["PROGRESO"] == 3 || data[i]["PROGRESO"] == 4 || data[i]["PROGRESO"] == 5 || data[i]["PROGRESO"] == 6 || data[i]["PROGRESO"] == 7) {
                             tr = tr + '         <div class="acciones fase-02 dropdown-toggle text-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
                         } else {
@@ -219,7 +340,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                             } else if (data[i]["PROGRESO"] == 3 && (data[i]["ID_ESTADO"] == 2 || data[i]["ID_ESTADO"] == 6)) {
                                 tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_mostrarCorregirIndicador(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
                             }
-                        }                        
+                        }
                         if ($('#Control').data('rol') == 2 && data[i]["PROGRESO"] == 1) {
                             tr = tr + '             <a class="dropdown-item text-primary" href="#" onclick="fn_revisarIniciativa(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-check"></i>&nbsp;Revisar</a>';
                         } else if ($('#Control').data('rol') == 2 && data[i]["PROGRESO"] == 3) {
@@ -239,6 +360,24 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                         tr = tr + '</td>';
                         tr = tr + '</tr>';
                         $("#cuerpoMitigacion").append(tr);
+
+                        pagina = Number(data[i]["pagina"]);
+                        total_paginas = Number(data[i]["total_paginas"]);
+                        total_registros = Number(data[i]["total_registros"]);
+                        inicio = (Number(data[i]["cantidad_registros"]) * pagina) - Number(data[i]["cantidad_registros"]) + 1;
+                        fin = Number(data[i]["cantidad_registros"]) * pagina;
+                        if (pagina == total_paginas) {
+                            if (fin > total_registros)
+                                fin = total_registros
+                        }
+                        resultado = inicio + " de " + fin;
+                    }
+                    $("#resultado").html(resultado);
+                    $("#total-registros").html(total_registros);
+                    $("#pagina-actual").html(pagina);
+                    $("#total-paginas").html(total_paginas);
+                    if (Number($("#pagina").val()) > total_paginas) {
+                        $("#pagina").val(total_paginas);
                     }
                 }
             }

@@ -25,6 +25,10 @@ namespace datos.minem.gob.pe
                 {
                     string sp = sPackage + "USP_SEL_INICIATIVAS_PUBLICO";
                     var p = new OracleDynamicParameters();
+                    p.Add("pRegistros", entidad.cantidad_registros);
+                    p.Add("pPagina", entidad.pagina);
+                    p.Add("pSortColumn", entidad.order_by);
+                    p.Add("pSortOrder", entidad.order_orden);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
 
@@ -53,6 +57,10 @@ namespace datos.minem.gob.pe
                     string sp = sPackage + "USP_SEL_INICIATIVAS_ESPEC";
                     var p = new OracleDynamicParameters();
                     p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    p.Add("pRegistros", entidad.cantidad_registros);
+                    p.Add("pPagina", entidad.pagina);
+                    p.Add("pSortColumn", entidad.order_by);
+                    p.Add("pSortOrder", entidad.order_orden);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
 
@@ -80,6 +88,10 @@ namespace datos.minem.gob.pe
                 {
                     string sp = sPackage + "USP_SEL_INICIATIVAS_GENERAL";
                     var p = new OracleDynamicParameters();
+                    p.Add("pRegistros", entidad.cantidad_registros);
+                    p.Add("pPagina", entidad.pagina);
+                    p.Add("pSortColumn", entidad.order_by);
+                    p.Add("pSortOrder", entidad.order_orden);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
 
@@ -108,6 +120,10 @@ namespace datos.minem.gob.pe
                     string sp = sPackage + "USP_SEL_INICIATIVAS_USUARIO";
                     var p = new OracleDynamicParameters();
                     p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    p.Add("pRegistros", entidad.cantidad_registros);
+                    p.Add("pPagina", entidad.pagina);
+                    p.Add("pSortColumn", entidad.order_by);
+                    p.Add("pSortOrder", entidad.order_orden);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
 
@@ -516,6 +532,10 @@ namespace datos.minem.gob.pe
                 {
                     string sp = sPackage + "USP_SEL_INICIATIVAS_EVALUAR";
                     var p = new OracleDynamicParameters();
+                    p.Add("pRegistros", entidad.cantidad_registros);
+                    p.Add("pPagina", entidad.pagina);
+                    p.Add("pSortColumn", entidad.order_by);
+                    p.Add("pSortOrder", entidad.order_orden);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
 

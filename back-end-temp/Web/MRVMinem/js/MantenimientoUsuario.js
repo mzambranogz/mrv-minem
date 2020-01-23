@@ -94,6 +94,17 @@ function fn_seleccionarMantenimientoUsuario(id) {
         data: Item,
         success: function (data) {
             if (data != null && data != "") {
+
+                $("#rad-01").prop("checked", false);
+                $("#rad-02").prop("checked", false);
+
+                var medmit = $("[id^=rad-med-0]");
+                if (medmit.length > 0) {
+                    for (var i = 0; i < medmit.length; i++) {
+                        medmit[i].checked = false;
+                    }
+                }
+
                 if (data.length > 0) {
                     for (var i = 0; i < data.length; i++) {
                         $("#userMantenimiento").data("value", data[i]["ID_USUARIO"]);
