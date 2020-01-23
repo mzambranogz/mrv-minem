@@ -13,6 +13,8 @@ using System.Text;
 using System.Net.Mail;
 using System.Net.Mime;
 using MRVMinem.Models;
+using System.IO;
+using System.Web.Configuration;
 
 namespace MRVMinem.Controllers
 {
@@ -66,7 +68,7 @@ namespace MRVMinem.Controllers
             entidad = UsuarioLN.VerificarEmail(entidad);
             ResponseEntity itemRespuesta = new ResponseEntity();
 
-            
+
             if (!entidad.OK)
             {
                 itemRespuesta.success = false;
@@ -113,6 +115,68 @@ namespace MRVMinem.Controllers
             }
             return Respuesta(itemRespuesta);
         }
+
+        public JsonResult RegistrarUsuario2(HttpPostedFileBase fledeclaracion, FormCollection forms)
+        {
+            UsuarioBE entidad = new UsuarioBE();
+
+            entidad.ID_SECTOR_INST = int.Parse(Request.Form["TERMINOS"].ToString());
+            entidad.EMAIL_USUARIO = Request.Form["EMAIL_USUARIO"].ToString();
+            entidad.NOMBRES_USUARIO = Request.Form["NOMBRES_USUARIO"].ToString();
+            entidad.APELLIDOS_USUARIO = Request.Form["APELLIDOS_USUARIO"].ToString();
+            entidad.PASSWORD_USUARIO = Request.Form["PASSWORD_USUARIO"].ToString();
+            entidad.TELEFONO_USUARIO = Request.Form["TELEFONO_USUARIO"].ToString();
+            entidad.CELULAR_USUARIO = Request.Form["CELULAR_USUARIO"].ToString();
+            entidad.ANEXO_USUARIO = Request.Form["ANEXO_USUARIO"].ToString();
+            entidad.INSTITUCION = Request.Form["INSTITUCION"].ToString();
+            entidad.RUC = Request.Form["RUC"].ToString();
+            entidad.DIRECCION = Request.Form["DIRECCION"].ToString();
+            entidad.TERMINOS = Char.Parse(Request.Form["TERMINOS"]);
+
+            ResponseEntity itemRespuesta = new ResponseEntity();
+            InstitucionBE institucion = new InstitucionBE(entidad.ID_SECTOR_INST, entidad.RUC, entidad.INSTITUCION, entidad.DIRECCION);
+
+            institucion = InstitucionLN.registrarInstitucion(institucion);
+            if (institucion.ID_INSTITUCION != 0)
+            {
+                entidad.ID_INSTITUCION = institucion.ID_INSTITUCION;
+                entidad = UsuarioLN.RegistraUsuario(entidad);
+
+                if (!entidad.OK)
+                {
+                    itemRespuesta.success = false;
+                    itemRespuesta.extra = entidad.extra;
+                }
+                else
+                {
+                    string nomArchivoSave = "";
+                    var content = new byte[fledeclaracion.ContentLength];
+                    fledeclaracion.InputStream.Read(content, 0, fledeclaracion.ContentLength);
+                    double tamanio = (fledeclaracion.ContentLength / 1024);
+                    nomArchivoSave = Guid.NewGuid() + Path.GetExtension(fledeclaracion.FileName).ToString();
+                    var carpeta = WebConfigurationManager.AppSettings.Get("DJ");
+                    var ruta = Path.Combine(carpeta, nomArchivoSave);
+                    fledeclaracion.SaveAs(ruta);
+
+
+                    EnvioCorreo hilo_correo = new EnvioCorreo(entidad);    //.CreacionUsuario(entidad);
+                    //Thread hilo = new Thread(new ThreadStart(hilo_correo.CreacionUsuario));
+                    //hilo.Start();
+                    //hilo.Join();
+
+                    Task tarea = Task.Factory.StartNew(() => hilo_correo.CreacionUsuario());
+
+                    itemRespuesta.success = true;
+                }
+            }
+            else
+            {
+                itemRespuesta.success = false;
+                itemRespuesta.extra = institucion.extra;
+            }
+            return Respuesta(itemRespuesta);
+        }
+
 
         public JsonResult ListaIniciativasPublico(IniciativaBE entidad)
         {

@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="BaseBE.cs" />
     <Compile Include="EnergeticoBE.cs" />
+    <Compile Include="EscenarioRptBE.cs" />
     <Compile Include="GasEfectoInvernaderoBE.cs" />
     <Compile Include="IndicadorBE.cs" />
     <Compile Include="IniciativaAuxBE.cs" />

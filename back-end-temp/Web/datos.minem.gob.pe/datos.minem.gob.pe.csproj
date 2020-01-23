@@ -52,6 +52,7 @@
     <Compile Include="BaseDA.cs" />
     <Compile Include="DataBaseHelpers\OracleHelper.cs" />
     <Compile Include="EnergeticoDA.cs" />
+    <Compile Include="EscenarioRptDA.cs" />
     <Compile Include="GasEfectoInvernaderoDA.cs" />
     <Compile Include="IndicadorDA.cs" />
     <Compile Include="IniciativaDA.cs" />
