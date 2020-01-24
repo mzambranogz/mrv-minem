@@ -12,7 +12,7 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="./index.html">Inicio</a></li>
                 <li class="breadcrumb-item"><a href="./acciones-de-mitigacion-interno.html">Listado de Iniciativas de Mitigación</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Evaluación de Iniciativa de Mitigación y Detalles de Indicadores</li>
+                <li class="breadcrumb-item active" aria-current="page">Verificación de Iniciativa de Mitigación y Detalles de Indicadores</li>
             </ol>
         </nav>
     </div>
@@ -23,12 +23,12 @@
             <div class="container py-4">
                 <div class="row">
                     <div class="col-md-12 col-lg-6 pt-4">
-                        <div class="h4">Evaluación de Iniciativa de Mitigación y Detalles de Indicadores&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Asigne información importante a su detalle de indicadores, <br>complete todos los campos para una mejor especificación.</small></div>
+                        <div class="h4">Verificación de Iniciativa de Mitigación y Detalles de Indicadores&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Asigne información importante a su detalle de indicadores, <br>complete todos los campos para una mejor especificación.</small></div>
                     </div>
                     <div class="col-md-12 col-lg-6 pt-4">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
-                            <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#aprobar-evaluacion"><a class="aprobar-evaluacion" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-check px-1"></i>Aprobar verificación</a></span><span data-toggle="modal" data-target="#observar-evaluacion"><a class="observar-evaluacion" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-eye px-1"></i>Observar verificación</a></span></div>
+                            <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#aprobar-verificacion"><a class="aprobar-verificacion" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-check px-1"></i>Aprobar verificación</a></span><span data-toggle="modal" data-target="#observar-verificacion"><a class="observar-verificacion" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-eye px-1"></i>Observar verificación</a></span></div>
                         </div>
                     </div>
                 </div>
@@ -144,11 +144,9 @@
                                 <label for="txa-ubicacion">Ubicación<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
                                 <div class="input-group" id="campoUbicacion">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
-                                    @*<textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
-                                        Lima&nbsp;
-                                        Arequipa&nbsp;
-                                        Tacna
-                                    </textarea>*@
+                                    <!-- <textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">Lima&nbsp; -->
+                                    <!-- Arequipa&nbsp; -->
+                                    <!-- Tacna</textarea> -->
                                 </div>
                             </div>
                         </div>
@@ -187,10 +185,8 @@
                                 <label for="mlt-energetico">Energético asociado<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
                                 <div class="input-group" id="campoEnerg">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
-                                    @*<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
-                                        Combustibles fósiles&nbsp;
-                                        Electricidad&nbsp;
-                                    </textarea>*@
+                                    <!-- <textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">Combustibles fósiles&nbsp; -->
+                                    <!-- Electricidad&nbsp;</textarea> -->
                                 </div>
                             </div>
                         </div>
@@ -199,11 +195,9 @@
                                 <label for="mlt-gei">Gases de efecto invernadero<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
                                 <div class="input-group" id="campoGei">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
-                                    @*<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
-                                        CO2
-                                        y&nbsp;
-                                        CH 2
-                                    </textarea>*@
+                                    <!-- <textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">CO2 -->
+                                    <!-- y&nbsp; -->
+                                    <!-- CH 2</textarea> -->
                                 </div>
                             </div>
                         </div>
@@ -222,7 +216,7 @@
                                 <label for="txt-enfoque">Enfoque<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup20"><i class="fas fa-square-root-alt"></i></span></div>
-                                    <input class="form-control-plaintext" id="txt-enfoque" aria-describedby="inputGroup20" value="Enfoque 01" readonly>
+                                    <input class="form-control-plaintext" id="txt-enfoque" aria-describedby="inputGroup20" value="Vehiculo electrico" readonly>
                                 </div>
                             </div>
                         </div>
@@ -251,266 +245,266 @@
                                         </tr>
                                     </thead>
                                     <tbody id="cuerpoTablaIndicador" data-row="0" data-total="0">
-                                        @*<tr>
-                                            <th class="text-center" data-encabezado="Número" scope="row">1</th>
-                                            <td data-encabezado="Columna 01">Valor 1</td>
-                                            <td data-encabezado="Columna 02">Texto 1</td>
-                                            <td data-encabezado="Columna 03">Valor 1</td>
-                                            <td data-encabezado="Columna 04">Texto 1</td>
-                                            <td data-encabezado="Columna 05">Valor 1</td>
-                                            <td data-encabezado="Columna 06">Texto 1</td>
-                                            <td data-encabezado="Columna 07">Valor 1</td>
-                                            <td data-encabezado="Columna 08">Texto 1</td>
-                                            <td data-encabezado="Columna 09">Valor 1</td>
-                                            <td data-encabezado="Columna 10">Texto 1</td>
-                                            <td data-encabezado="Columna 11">Valor 1</td>
-                                            <td data-encabezado="Columna 12">Texto 1</td>
-                                            <td data-encabezado="Columna 13">Valor 1</td>
-                                            <td data-encabezado="Columna 14">Texto 1</td>
-                                            <td data-encabezado="Columna 15">Valor 1</td>
-                                            <td data-encabezado="Columna 16">Texto 1</td>
-                                            <td data-encabezado="Subtotal">1,500.00</td>
-                                            <td class="text-center" data-encabezado="Sustento">
-                                                <div class="form-group m-0">
-                                                    <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label>
-                                                    <input class="d-none fil-file-control" type="file" id="fle-doc">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" data-encabezado="Número" scope="row">2</th>
-                                            <td data-encabezado="Columna 01">Valor 1</td>
-                                            <td data-encabezado="Columna 02">Texto 1</td>
-                                            <td data-encabezado="Columna 03">Valor 1</td>
-                                            <td data-encabezado="Columna 04">Texto 1</td>
-                                            <td data-encabezado="Columna 05">Valor 1</td>
-                                            <td data-encabezado="Columna 06">Texto 1</td>
-                                            <td data-encabezado="Columna 07">Valor 1</td>
-                                            <td data-encabezado="Columna 08">Texto 1</td>
-                                            <td data-encabezado="Columna 09">Valor 1</td>
-                                            <td data-encabezado="Columna 10">Texto 1</td>
-                                            <td data-encabezado="Columna 11">Valor 1</td>
-                                            <td data-encabezado="Columna 12">Texto 1</td>
-                                            <td data-encabezado="Columna 13">Valor 1</td>
-                                            <td data-encabezado="Columna 14">Texto 1</td>
-                                            <td data-encabezado="Columna 15">Valor 1</td>
-                                            <td data-encabezado="Columna 16">Texto 1</td>
-                                            <td data-encabezado="Subtotal">1,500.00</td>
-                                            <td class="text-center" data-encabezado="Sustento">
-                                                <div class="form-group m-0">
-                                                    <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label>
-                                                    <input class="d-none fil-file-control" type="file" id="fle-doc">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" data-encabezado="Número" scope="row">3</th>
-                                            <td data-encabezado="Columna 01">Valor 1</td>
-                                            <td data-encabezado="Columna 02">Texto 1</td>
-                                            <td data-encabezado="Columna 03">Valor 1</td>
-                                            <td data-encabezado="Columna 04">Texto 1</td>
-                                            <td data-encabezado="Columna 05">Valor 1</td>
-                                            <td data-encabezado="Columna 06">Texto 1</td>
-                                            <td data-encabezado="Columna 07">Valor 1</td>
-                                            <td data-encabezado="Columna 08">Texto 1</td>
-                                            <td data-encabezado="Columna 09">Valor 1</td>
-                                            <td data-encabezado="Columna 10">Texto 1</td>
-                                            <td data-encabezado="Columna 11">Valor 1</td>
-                                            <td data-encabezado="Columna 12">Texto 1</td>
-                                            <td data-encabezado="Columna 13">Valor 1</td>
-                                            <td data-encabezado="Columna 14">Texto 1</td>
-                                            <td data-encabezado="Columna 15">Valor 1</td>
-                                            <td data-encabezado="Columna 16">Texto 1</td>
-                                            <td data-encabezado="Subtotal">1,500.00</td>
-                                            <td class="text-center" data-encabezado="Sustento">
-                                                <div class="form-group m-0">
-                                                    <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label>
-                                                    <input class="d-none fil-file-control" type="file" id="fle-doc">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" data-encabezado="Número" scope="row">4</th>
-                                            <td data-encabezado="Columna 01">Valor 1</td>
-                                            <td data-encabezado="Columna 02">Texto 1</td>
-                                            <td data-encabezado="Columna 03">Valor 1</td>
-                                            <td data-encabezado="Columna 04">Texto 1</td>
-                                            <td data-encabezado="Columna 05">Valor 1</td>
-                                            <td data-encabezado="Columna 06">Texto 1</td>
-                                            <td data-encabezado="Columna 07">Valor 1</td>
-                                            <td data-encabezado="Columna 08">Texto 1</td>
-                                            <td data-encabezado="Columna 09">Valor 1</td>
-                                            <td data-encabezado="Columna 10">Texto 1</td>
-                                            <td data-encabezado="Columna 11">Valor 1</td>
-                                            <td data-encabezado="Columna 12">Texto 1</td>
-                                            <td data-encabezado="Columna 13">Valor 1</td>
-                                            <td data-encabezado="Columna 14">Texto 1</td>
-                                            <td data-encabezado="Columna 15">Valor 1</td>
-                                            <td data-encabezado="Columna 16">Texto 1</td>
-                                            <td data-encabezado="Subtotal">1,500.00</td>
-                                            <td class="text-center" data-encabezado="Sustento">
-                                                <div class="form-group m-0">
-                                                    <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label>
-                                                    <input class="d-none fil-file-control" type="file" id="fle-doc">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" data-encabezado="Número" scope="row">5</th>
-                                            <td data-encabezado="Columna 01">Valor 1</td>
-                                            <td data-encabezado="Columna 02">Texto 1</td>
-                                            <td data-encabezado="Columna 03">Valor 1</td>
-                                            <td data-encabezado="Columna 04">Texto 1</td>
-                                            <td data-encabezado="Columna 05">Valor 1</td>
-                                            <td data-encabezado="Columna 06">Texto 1</td>
-                                            <td data-encabezado="Columna 07">Valor 1</td>
-                                            <td data-encabezado="Columna 08">Texto 1</td>
-                                            <td data-encabezado="Columna 09">Valor 1</td>
-                                            <td data-encabezado="Columna 10">Texto 1</td>
-                                            <td data-encabezado="Columna 11">Valor 1</td>
-                                            <td data-encabezado="Columna 12">Texto 1</td>
-                                            <td data-encabezado="Columna 13">Valor 1</td>
-                                            <td data-encabezado="Columna 14">Texto 1</td>
-                                            <td data-encabezado="Columna 15">Valor 1</td>
-                                            <td data-encabezado="Columna 16">Texto 1</td>
-                                            <td data-encabezado="Subtotal">1,500.00</td>
-                                            <td class="text-center" data-encabezado="Sustento">
-                                                <div class="form-group m-0">
-                                                    <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label>
-                                                    <input class="d-none fil-file-control" type="file" id="fle-doc">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" data-encabezado="Número" scope="row">6</th>
-                                            <td data-encabezado="Columna 01">Valor 1</td>
-                                            <td data-encabezado="Columna 02">Texto 1</td>
-                                            <td data-encabezado="Columna 03">Valor 1</td>
-                                            <td data-encabezado="Columna 04">Texto 1</td>
-                                            <td data-encabezado="Columna 05">Valor 1</td>
-                                            <td data-encabezado="Columna 06">Texto 1</td>
-                                            <td data-encabezado="Columna 07">Valor 1</td>
-                                            <td data-encabezado="Columna 08">Texto 1</td>
-                                            <td data-encabezado="Columna 09">Valor 1</td>
-                                            <td data-encabezado="Columna 10">Texto 1</td>
-                                            <td data-encabezado="Columna 11">Valor 1</td>
-                                            <td data-encabezado="Columna 12">Texto 1</td>
-                                            <td data-encabezado="Columna 13">Valor 1</td>
-                                            <td data-encabezado="Columna 14">Texto 1</td>
-                                            <td data-encabezado="Columna 15">Valor 1</td>
-                                            <td data-encabezado="Columna 16">Texto 1</td>
-                                            <td data-encabezado="Subtotal">1,500.00</td>
-                                            <td class="text-center" data-encabezado="Sustento">
-                                                <div class="form-group m-0">
-                                                    <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label>
-                                                    <input class="d-none fil-file-control" type="file" id="fle-doc">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" data-encabezado="Número" scope="row">7</th>
-                                            <td data-encabezado="Columna 01">Valor 1</td>
-                                            <td data-encabezado="Columna 02">Texto 1</td>
-                                            <td data-encabezado="Columna 03">Valor 1</td>
-                                            <td data-encabezado="Columna 04">Texto 1</td>
-                                            <td data-encabezado="Columna 05">Valor 1</td>
-                                            <td data-encabezado="Columna 06">Texto 1</td>
-                                            <td data-encabezado="Columna 07">Valor 1</td>
-                                            <td data-encabezado="Columna 08">Texto 1</td>
-                                            <td data-encabezado="Columna 09">Valor 1</td>
-                                            <td data-encabezado="Columna 10">Texto 1</td>
-                                            <td data-encabezado="Columna 11">Valor 1</td>
-                                            <td data-encabezado="Columna 12">Texto 1</td>
-                                            <td data-encabezado="Columna 13">Valor 1</td>
-                                            <td data-encabezado="Columna 14">Texto 1</td>
-                                            <td data-encabezado="Columna 15">Valor 1</td>
-                                            <td data-encabezado="Columna 16">Texto 1</td>
-                                            <td data-encabezado="Subtotal">1,500.00</td>
-                                            <td class="text-center" data-encabezado="Sustento">
-                                                <div class="form-group m-0">
-                                                    <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label>
-                                                    <input class="d-none fil-file-control" type="file" id="fle-doc">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" data-encabezado="Número" scope="row">8</th>
-                                            <td data-encabezado="Columna 01">Valor 1</td>
-                                            <td data-encabezado="Columna 02">Texto 1</td>
-                                            <td data-encabezado="Columna 03">Valor 1</td>
-                                            <td data-encabezado="Columna 04">Texto 1</td>
-                                            <td data-encabezado="Columna 05">Valor 1</td>
-                                            <td data-encabezado="Columna 06">Texto 1</td>
-                                            <td data-encabezado="Columna 07">Valor 1</td>
-                                            <td data-encabezado="Columna 08">Texto 1</td>
-                                            <td data-encabezado="Columna 09">Valor 1</td>
-                                            <td data-encabezado="Columna 10">Texto 1</td>
-                                            <td data-encabezado="Columna 11">Valor 1</td>
-                                            <td data-encabezado="Columna 12">Texto 1</td>
-                                            <td data-encabezado="Columna 13">Valor 1</td>
-                                            <td data-encabezado="Columna 14">Texto 1</td>
-                                            <td data-encabezado="Columna 15">Valor 1</td>
-                                            <td data-encabezado="Columna 16">Texto 1</td>
-                                            <td data-encabezado="Subtotal">1,500.00</td>
-                                            <td class="text-center" data-encabezado="Sustento">
-                                                <div class="form-group m-0">
-                                                    <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label>
-                                                    <input class="d-none fil-file-control" type="file" id="fle-doc">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" data-encabezado="Número" scope="row">9</th>
-                                            <td data-encabezado="Columna 01">Valor 1</td>
-                                            <td data-encabezado="Columna 02">Texto 1</td>
-                                            <td data-encabezado="Columna 03">Valor 1</td>
-                                            <td data-encabezado="Columna 04">Texto 1</td>
-                                            <td data-encabezado="Columna 05">Valor 1</td>
-                                            <td data-encabezado="Columna 06">Texto 1</td>
-                                            <td data-encabezado="Columna 07">Valor 1</td>
-                                            <td data-encabezado="Columna 08">Texto 1</td>
-                                            <td data-encabezado="Columna 09">Valor 1</td>
-                                            <td data-encabezado="Columna 10">Texto 1</td>
-                                            <td data-encabezado="Columna 11">Valor 1</td>
-                                            <td data-encabezado="Columna 12">Texto 1</td>
-                                            <td data-encabezado="Columna 13">Valor 1</td>
-                                            <td data-encabezado="Columna 14">Texto 1</td>
-                                            <td data-encabezado="Columna 15">Valor 1</td>
-                                            <td data-encabezado="Columna 16">Texto 1</td>
-                                            <td data-encabezado="Subtotal">1,500.00</td>
-                                            <td class="text-center" data-encabezado="Sustento">
-                                                <div class="form-group m-0">
-                                                    <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label>
-                                                    <input class="d-none fil-file-control" type="file" id="fle-doc">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" data-encabezado="Número" scope="row">10</th>
-                                            <td data-encabezado="Columna 01">Valor 1</td>
-                                            <td data-encabezado="Columna 02">Texto 1</td>
-                                            <td data-encabezado="Columna 03">Valor 1</td>
-                                            <td data-encabezado="Columna 04">Texto 1</td>
-                                            <td data-encabezado="Columna 05">Valor 1</td>
-                                            <td data-encabezado="Columna 06">Texto 1</td>
-                                            <td data-encabezado="Columna 07">Valor 1</td>
-                                            <td data-encabezado="Columna 08">Texto 1</td>
-                                            <td data-encabezado="Columna 09">Valor 1</td>
-                                            <td data-encabezado="Columna 10">Texto 1</td>
-                                            <td data-encabezado="Columna 11">Valor 1</td>
-                                            <td data-encabezado="Columna 12">Texto 1</td>
-                                            <td data-encabezado="Columna 13">Valor 1</td>
-                                            <td data-encabezado="Columna 14">Texto 1</td>
-                                            <td data-encabezado="Columna 15">Valor 1</td>
-                                            <td data-encabezado="Columna 16">Texto 1</td>
-                                            <td data-encabezado="Subtotal">1,500.00</td>
-                                            <td class="text-center" data-encabezado="Sustento">
-                                                <div class="form-group m-0">
-                                                    <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label>
-                                                    <input class="d-none fil-file-control" type="file" id="fle-doc">
-                                                </div>
-                                            </td>
-                                        </tr>*@
+                                        <!-- <tr> -->
+                                        <!-- <th class="text-center" data-encabezado="Número" scope="row">1</th> -->
+                                        <!-- <td data-encabezado="Columna 01">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 02">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 03">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 04">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 05">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 06">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 07">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 08">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 09">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 10">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 11">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 12">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 13">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 14">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 15">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 16">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Subtotal">1,500.00</td> -->
+                                        <!-- <td class="text-center" data-encabezado="Sustento"> -->
+                                        <!-- <div class="form-group m-0"> -->
+                                        <!-- <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label> -->
+                                        <!-- <input class="d-none fil-file-control" type="file" id="fle-doc"> -->
+                                        <!-- </div> -->
+                                        <!-- </td> -->
+                                        <!-- </tr> -->
+                                        <!-- <tr> -->
+                                        <!-- <th class="text-center" data-encabezado="Número" scope="row">2</th> -->
+                                        <!-- <td data-encabezado="Columna 01">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 02">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 03">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 04">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 05">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 06">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 07">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 08">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 09">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 10">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 11">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 12">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 13">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 14">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 15">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 16">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Subtotal">1,500.00</td> -->
+                                        <!-- <td class="text-center" data-encabezado="Sustento"> -->
+                                        <!-- <div class="form-group m-0"> -->
+                                        <!-- <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label> -->
+                                        <!-- <input class="d-none fil-file-control" type="file" id="fle-doc"> -->
+                                        <!-- </div> -->
+                                        <!-- </td> -->
+                                        <!-- </tr> -->
+                                        <!-- <tr> -->
+                                        <!-- <th class="text-center" data-encabezado="Número" scope="row">3</th> -->
+                                        <!-- <td data-encabezado="Columna 01">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 02">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 03">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 04">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 05">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 06">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 07">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 08">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 09">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 10">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 11">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 12">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 13">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 14">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 15">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 16">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Subtotal">1,500.00</td> -->
+                                        <!-- <td class="text-center" data-encabezado="Sustento"> -->
+                                        <!-- <div class="form-group m-0"> -->
+                                        <!-- <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label> -->
+                                        <!-- <input class="d-none fil-file-control" type="file" id="fle-doc"> -->
+                                        <!-- </div> -->
+                                        <!-- </td>         -->
+                                        <!-- </tr> -->
+                                        <!-- <tr> -->
+                                        <!-- <th class="text-center" data-encabezado="Número" scope="row">4</th> -->
+                                        <!-- <td data-encabezado="Columna 01">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 02">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 03">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 04">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 05">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 06">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 07">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 08">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 09">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 10">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 11">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 12">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 13">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 14">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 15">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 16">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Subtotal">1,500.00</td> -->
+                                        <!-- <td class="text-center" data-encabezado="Sustento"> -->
+                                        <!-- <div class="form-group m-0"> -->
+                                        <!-- <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label> -->
+                                        <!-- <input class="d-none fil-file-control" type="file" id="fle-doc"> -->
+                                        <!-- </div> -->
+                                        <!-- </td> -->
+                                        <!-- </tr> -->
+                                        <!-- <tr> -->
+                                        <!-- <th class="text-center" data-encabezado="Número" scope="row">5</th> -->
+                                        <!-- <td data-encabezado="Columna 01">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 02">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 03">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 04">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 05">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 06">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 07">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 08">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 09">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 10">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 11">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 12">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 13">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 14">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 15">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 16">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Subtotal">1,500.00</td> -->
+                                        <!-- <td class="text-center" data-encabezado="Sustento"> -->
+                                        <!-- <div class="form-group m-0"> -->
+                                        <!-- <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label> -->
+                                        <!-- <input class="d-none fil-file-control" type="file" id="fle-doc"> -->
+                                        <!-- </div> -->
+                                        <!-- </td> -->
+                                        <!-- </tr> -->
+                                        <!-- <tr> -->
+                                        <!-- <th class="text-center" data-encabezado="Número" scope="row">6</th> -->
+                                        <!-- <td data-encabezado="Columna 01">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 02">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 03">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 04">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 05">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 06">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 07">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 08">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 09">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 10">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 11">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 12">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 13">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 14">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 15">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 16">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Subtotal">1,500.00</td> -->
+                                        <!-- <td class="text-center" data-encabezado="Sustento"> -->
+                                        <!-- <div class="form-group m-0"> -->
+                                        <!-- <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label> -->
+                                        <!-- <input class="d-none fil-file-control" type="file" id="fle-doc"> -->
+                                        <!-- </div> -->
+                                        <!-- </td> -->
+                                        <!-- </tr> -->
+                                        <!-- <tr> -->
+                                        <!-- <th class="text-center" data-encabezado="Número" scope="row">7</th> -->
+                                        <!-- <td data-encabezado="Columna 01">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 02">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 03">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 04">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 05">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 06">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 07">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 08">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 09">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 10">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 11">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 12">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 13">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 14">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 15">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 16">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Subtotal">1,500.00</td> -->
+                                        <!-- <td class="text-center" data-encabezado="Sustento"> -->
+                                        <!-- <div class="form-group m-0"> -->
+                                        <!-- <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label> -->
+                                        <!-- <input class="d-none fil-file-control" type="file" id="fle-doc"> -->
+                                        <!-- </div> -->
+                                        <!-- </td> -->
+                                        <!-- </tr> -->
+                                        <!-- <tr> -->
+                                        <!-- <th class="text-center" data-encabezado="Número" scope="row">8</th> -->
+                                        <!-- <td data-encabezado="Columna 01">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 02">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 03">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 04">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 05">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 06">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 07">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 08">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 09">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 10">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 11">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 12">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 13">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 14">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 15">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 16">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Subtotal">1,500.00</td> -->
+                                        <!-- <td class="text-center" data-encabezado="Sustento"> -->
+                                        <!-- <div class="form-group m-0"> -->
+                                        <!-- <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label> -->
+                                        <!-- <input class="d-none fil-file-control" type="file" id="fle-doc"> -->
+                                        <!-- </div> -->
+                                        <!-- </td> -->
+                                        <!-- </tr> -->
+                                        <!-- <tr> -->
+                                        <!-- <th class="text-center" data-encabezado="Número" scope="row">9</th> -->
+                                        <!-- <td data-encabezado="Columna 01">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 02">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 03">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 04">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 05">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 06">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 07">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 08">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 09">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 10">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 11">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 12">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 13">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 14">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 15">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 16">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Subtotal">1,500.00</td> -->
+                                        <!-- <td class="text-center" data-encabezado="Sustento"> -->
+                                        <!-- <div class="form-group m-0"> -->
+                                        <!-- <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label> -->
+                                        <!-- <input class="d-none fil-file-control" type="file" id="fle-doc"> -->
+                                        <!-- </div> -->
+                                        <!-- </td> -->
+                                        <!-- </tr> -->
+                                        <!-- <tr> -->
+                                        <!-- <th class="text-center" data-encabezado="Número" scope="row">10</th> -->
+                                        <!-- <td data-encabezado="Columna 01">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 02">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 03">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 04">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 05">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 06">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 07">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 08">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 09">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 10">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 11">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 12">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 13">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 14">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 15">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 16">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Subtotal">1,500.00</td> -->
+                                        <!-- <td class="text-center" data-encabezado="Sustento"> -->
+                                        <!-- <div class="form-group m-0"> -->
+                                        <!-- <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label> -->
+                                        <!-- <input class="d-none fil-file-control" type="file" id="fle-doc"> -->
+                                        <!-- </div> -->
+                                        <!-- </td> -->
+                                        <!-- </tr> -->
                                     </tbody>
                                 </table>
                             </div>
@@ -542,8 +536,8 @@
                                     <tbody>
                                         <tr>
                                             <th class="text-center" data-encabezado="Número" scope="row">1</th>
-                                            <td data-encabezado="Resumen" id="resumen-detalle">@*Nombre de la Medida Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia earum asperiores do*@</td>
-                                            <td data-encabezado="Total" id="total-detalle">@*<strong>150,000.00</strong>*@</td>
+                                            <td data-encabezado="Resumen" id="resumen-detalle"><!--Nombre de la Medida Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia earum asperiores do--></td>
+                                            <td data-encabezado="Total" id="total-detalle"><!--<strong>150,000.00</strong>--></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -562,32 +556,32 @@
                         <div class="col-sm-12-col-md-12 col-lg-6">
                             <div class="form-group">
                                 <label>Archivos adjuntos: 0 en total</label>
-                                @*<div class="input-group mb-3">
-                                    <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-file-pdf"></i></span></div><span class="form-control-plaintext">NombreDeArchivo.pdf</span>
-                                    <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="fas fa-download"></i></span></div>
-                                </div>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-file-word"></i></span></div><span class="form-control-plaintext">NombreDeArchivo.docx</span>
-                                    <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="fas fa-download"></i></span></div>
-                                </div>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend"><span class="input-group-text"><i class="far fa-file-image"></i></span></div><span class="form-control-plaintext">NombreDeArchivo.jpg</span>
-                                    <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="fas fa-download"></i></span></div>
-                                </div>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-file-image"></i></span></div><span class="form-control-plaintext">NombreDeArchivo.png</span>
-                                    <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="fas fa-download"></i></span></div>
-                                </div>*@
+                                <!-- <div class="input-group mb-3"> -->
+                                <!-- <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-file-pdf"></i></span></div><span class="form-control-plaintext">NombreDeArchivo.pdf</span> -->
+                                <!-- <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="fas fa-download"></i></span></div> -->
+                                <!-- </div> -->
+                                <!-- <div class="input-group mb-3"> -->
+                                <!-- <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-file-word"></i></span></div><span class="form-control-plaintext">NombreDeArchivo.docx</span> -->
+                                <!-- <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="fas fa-download"></i></span></div> -->
+                                <!-- </div> -->
+                                <!-- <div class="input-group mb-3"> -->
+                                <!-- <div class="input-group-prepend"><span class="input-group-text"><i class="far fa-file-image"></i></span></div><span class="form-control-plaintext">NombreDeArchivo.jpg</span> -->
+                                <!-- <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="fas fa-download"></i></span></div> -->
+                                <!-- </div> -->
+                                <!-- <div class="input-group mb-3"> -->
+                                <!-- <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-file-image"></i></span></div><span class="form-control-plaintext">NombreDeArchivo.png</span> -->
+                                <!-- <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="fas fa-download"></i></span></div> -->
+                                <!-- </div> -->
                             </div>
                         </div>
                         <div class="col-sm-12-col-md-12 col-lg-6">
                             <label>Visibilidad de datos</label><br>
                             <div class="custom-control custom-checkbox d-inline-block">
-                                <input class="custom-control-input" type="checkbox" id="chk-publicar" checked>
+                                <input class="custom-control-input" type="checkbox" id="chk-publicar" disabled checked>
                                 <label class="custom-control-label" for="chk-publicar">Hacer públicos los datos registrados.</label>
                             </div>
                             <div class="custom-control custom-checkbox d-inline-block">
-                                <input class="custom-control-input" type="checkbox" id="chk-publicar-monto-inversion">
+                                <input class="custom-control-input" type="checkbox" id="chk-publicar-monto-inversion" disabled>
                                 <label class="custom-control-label" for="chk-publicar-monto-inversion">Hacer público "Monto de inversión"</label>
                             </div>
                         </div>
@@ -597,14 +591,14 @@
                         <div class="col-sm-12 col-md-12 col-lg-6">&nbsp;</div>
                         <div class="col-sm-12 col-md-12 col-lg-6 text-right">
                             <div class="row justify-content-end">
-                                <div class="col-lg-6"><a class="btn btn-warning px-5 w-100 nav-tab text-center mb-3" href="#" data-toggle="modal" data-target="#observar-evaluacion"><i class="fas fa-eye px-1"></i>Observar</a></div>
-                                <div class="col-lg-6"><a class="btn btn-primary px-5 w-100 nav-tab text-center" href="#" data-toggle="modal" data-target="#aprobar-evaluacion">Aprobar<i class="fas fa-check px-1"></i></a></div>
+                                <div class="col-lg-6"><a class="btn btn-warning px-5 w-100 text-center mb-3" href="#" data-toggle="modal" data-target="#observar-verificacion"><i class="fas fa-eye px-1"></i>Observar</a></div>
+                                <div class="col-lg-6"><a class="btn btn-primary px-5 w-100 text-center" href="#" data-toggle="modal" data-target="#aprobar-verificacion">Aprobar<i class="fas fa-check px-1"></i></a></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="modal fade" id="aprobar-evaluacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="aprobar-verificacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -614,44 +608,62 @@
                         <div class="modal-body medidas-modal">
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <h3 class="text-center">¿Confirma aprobar esta evaluación? <br></h3>
+                                    <h3 class="text-center">¿Confirma aprobar esta verificación? <br></h3>
                                     <p class="text-center">Está de acuerdo en aprobar todos los datos vinculados en de esta iniciativa de mitigación, como de los detalles de indicadores registrados.</p>
                                 </div>
                                 <div class="col-sm-12 col-md-12 col-lg-12" id="modalAprobacion">
-                                    @*<div class="alert alert-danger d-flex align-items-stretch" role="alert">
-                                            <div class="alert-wrap mr-3">
-                                                <div class="sa">
-                                                    <div class="sa-error">
-                                                        <div class="sa-error-x">
-                                                            <div class="sa-error-left"></div>
-                                                            <div class="sa-error-right"></div>
-                                                        </div>
-                                                        <div class="sa-error-placeholder"></div>
-                                                        <div class="sa-error-fix"></div>
-                                                    </div>
+                                    <!-- <div class="alert alert-danger d-flex align-items-stretch" role="alert"> -->
+                                    <!-- <div class="alert-wrap mr-3"> -->
+                                    <!-- <div class="sa"> -->
+                                    <!-- <div class="sa-error"> -->
+                                    <!-- <div class="sa-error-x"> -->
+                                    <!-- <div class="sa-error-left"></div> -->
+                                    <!-- <div class="sa-error-right"></div> -->
+                                    <!-- </div> -->
+                                    <!-- <div class="sa-error-placeholder"></div> -->
+                                    <!-- <div class="sa-error-fix"></div> -->
+                                    <!-- </div> -->
+                                    <!-- </div> -->
+                                    <!-- </div> -->
+                                    <!-- <div class="alert-wrap"> -->
+                                    <!-- <h6>Error de aprobación</h6> -->
+                                    <!-- <hr><small class="mb-0">Ocurrió un error de comunicación con el servidor, intente otra vez.</small> -->
+                                    <!-- </div> -->
+                                    <!-- </div> -->
+                                    <!-- <div class="alert alert-success d-flex align-items-stretch" role="alert"> -->
+                                    <!-- <div class="alert-wrap mr-3"> -->
+                                    <!-- <div class="sa"> -->
+                                    <!-- <div class="sa-success"> -->
+                                    <!-- <div class="sa-success-tip"></div> -->
+                                    <!-- <div class="sa-success-long"></div> -->
+                                    <!-- <div class="sa-success-placeholder"></div> -->
+                                    <!-- <div class="sa-success-fix"></div> -->
+                                    <!-- </div> -->
+                                    <!-- </div> -->
+                                    <!-- </div> -->
+                                    <!-- <div class="alert-wrap"> -->
+                                    <!-- <h6>Bien hecho</h6> -->
+                                    <!-- <hr><small class="mb-0">Se aprobó correctamente esta verificación, se procederá a notificar al Especialista.</small> -->
+                                    <!-- </div> -->
+                                    <!-- </div> -->
+                                    @*<div class="alert alert-warning d-flex align-items-stretch" role="alert">
+                                        <div class="alert-wrap mr-3">
+                                            <div class="sa">
+                                                <div class="sa-warning">
+                                                    <div class="sa-warning-body"></div>
+                                                    <div class="sa-warning-dot"></div>
                                                 </div>
-                                            </div>
-                                            <div class="alert-wrap">
-                                                <h6>Error de aprobación</h6>
-                                                <hr><small class="mb-0">Ocurrió un error de comunicación con el servidor, intente otra vez.</small>
                                             </div>
                                         </div>
-                                        <div class="alert alert-success d-flex align-items-stretch" role="alert">
-                                            <div class="alert-wrap mr-3">
-                                                <div class="sa">
-                                                    <div class="sa-success">
-                                                        <div class="sa-success-tip"></div>
-                                                        <div class="sa-success-long"></div>
-                                                        <div class="sa-success-placeholder"></div>
-                                                        <div class="sa-success-fix"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="alert-wrap">
-                                                <h6>Bien hecho</h6>
-                                                <hr><small class="mb-0">Se aprobó correctamente esta evaluación, se procederá a notificar al Especialista.</small>
-                                            </div>
-                                        </div>*@
+                                        <div class="alert-wrap">
+                                            <h6>Mercado de carbono</h6>
+                                            <hr><small class="mb-0">
+                                                Se ha generado la cadena de bloques para la medida de mitigación&nbsp;<strong>aprobada&nbsp;</strong>
+                                                <hr>
+                                                <div class="text-monospace" style="word-break: break-all;">341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb72</div>
+                                            </small>
+                                        </div>
+                                    </div>*@
                                 </div>
                             </div>
                         </div>
@@ -662,7 +674,7 @@
                     </div>
                 </div>
             </div>
-            <div class="modal fade" id="observar-evaluacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="observar-verificacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -671,7 +683,7 @@
                         </div>
                         <div class="modal-body medidas-modal">
                             <div class="row mb-2">
-                                <div class="col-sm-12 col-md-6 col-lg-6"><strong>De: Erick Sanchez&nbsp;<span class="badge badge-actor-04">Evaluador MINAM</span></strong><br><strong>Para: Juan Perez&nbsp;<span class="badge badge-actor-03">Especialista</span></strong></div>
+                                <div class="col-sm-12 col-md-6 col-lg-6"><strong>De: Erick Sanchez&nbsp;<span class="badge badge-actor-05">Verificador Externo</span></strong><br><strong>Para: Juan Perez&nbsp;<span class="badge badge-actor-03">Especialista</span></strong></div>
                                 <div class="col-sm-12 col-md-6 col-lg-6 text-right"><strong>Fecha de Registro: 25/02/2020</strong></div>
                             </div>
                             <div class="row">
@@ -703,40 +715,40 @@
                             </div>
                             <div class="row">
                                 <div class="col-12" id="modalRevision">
-                                    @*<div class="alert alert-danger d-flex align-items-stretch" role="alert">
-                                            <div class="alert-wrap mr-3">
-                                                <div class="sa">
-                                                    <div class="sa-error">
-                                                        <div class="sa-error-x">
-                                                            <div class="sa-error-left"></div>
-                                                            <div class="sa-error-right"></div>
-                                                        </div>
-                                                        <div class="sa-error-placeholder"></div>
-                                                        <div class="sa-error-fix"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="alert-wrap">
-                                                <h6>Error de registro</h6>
-                                                <hr><small class="mb-0">Sus observaciones no fueron enviadas, intentelo nuevamente.</small>
-                                            </div>
-                                        </div>
-                                        <div class="alert alert-success d-flex align-items-stretch" role="alert">
-                                            <div class="alert-wrap mr-3">
-                                                <div class="sa">
-                                                    <div class="sa-success">
-                                                        <div class="sa-success-tip"></div>
-                                                        <div class="sa-success-long"></div>
-                                                        <div class="sa-success-placeholder"></div>
-                                                        <div class="sa-success-fix"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="alert-wrap">
-                                                <h6>Bien hecho</h6>
-                                                <hr><small class="mb-0">Sus observaciones se enviaron correctamente.</small>
-                                            </div>
-                                        </div>*@
+                                    <!-- <div class="alert alert-danger d-flex align-items-stretch" role="alert"> -->
+                                    <!-- <div class="alert-wrap mr-3"> -->
+                                    <!-- <div class="sa"> -->
+                                    <!-- <div class="sa-error"> -->
+                                    <!-- <div class="sa-error-x"> -->
+                                    <!-- <div class="sa-error-left"></div> -->
+                                    <!-- <div class="sa-error-right"></div> -->
+                                    <!-- </div> -->
+                                    <!-- <div class="sa-error-placeholder"></div> -->
+                                    <!-- <div class="sa-error-fix"></div> -->
+                                    <!-- </div> -->
+                                    <!-- </div> -->
+                                    <!-- </div> -->
+                                    <!-- <div class="alert-wrap"> -->
+                                    <!-- <h6>Error de registro</h6> -->
+                                    <!-- <hr><small class="mb-0">Sus observaciones no fueron enviadas, intentelo nuevamente.</small> -->
+                                    <!-- </div> -->
+                                    <!-- </div> -->
+                                    <!-- <div class="alert alert-success d-flex align-items-stretch" role="alert"> -->
+                                    <!-- <div class="alert-wrap mr-3"> -->
+                                    <!-- <div class="sa"> -->
+                                    <!-- <div class="sa-success"> -->
+                                    <!-- <div class="sa-success-tip"></div> -->
+                                    <!-- <div class="sa-success-long"></div> -->
+                                    <!-- <div class="sa-success-placeholder"></div> -->
+                                    <!-- <div class="sa-success-fix"></div> -->
+                                    <!-- </div> -->
+                                    <!-- </div> -->
+                                    <!-- </div> -->
+                                    <!-- <div class="alert-wrap"> -->
+                                    <!-- <h6>Bien hecho</h6> -->
+                                    <!-- <hr><small class="mb-0">Sus observaciones se enviaron correctamente.</small> -->
+                                    <!-- </div> -->
+                                    <!-- </div> -->
                                 </div>
                             </div>
                         </div>

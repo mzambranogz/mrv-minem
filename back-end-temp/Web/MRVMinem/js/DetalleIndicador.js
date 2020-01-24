@@ -1055,6 +1055,7 @@ function fn_evaluarIniciativaDetalle() {
     var respuesta = MRV.Ajax(url, item, false);
     if (respuesta.success) {
         $("#modalAprobacion #modalCorrectoAprobacion").remove();
+        $("#modalAprobacion #modalBCAprobacion").remove();
         $("#modalAprobacion #modalErrorAprobacion").remove();
         var msj = '                           <div class="alert alert-success d-flex align-items-stretch" role="alert" id="modalCorrectoAprobacion">';
         msj = msj + '                               <div class="alert-wrap mr-3">';
@@ -1072,8 +1073,29 @@ function fn_evaluarIniciativaDetalle() {
         msj = msj + '                                    <hr><small class="mb-0">Se aprobó correctamente esta evaluación, se procederá a notificar al Especialista.</small>';
         msj = msj + '                                </div>';
         msj = msj + '                            </div>';
+
+        var msj1 = '    <div class="alert alert-warning d-flex align-items-stretch" role="alert" id="modalBCAprobacion">';
+        msj1 = msj1 + '     <div class="alert-wrap mr-3">';
+        msj1 = msj1 + '     <div class="sa">';
+        msj1 = msj1 + '         <div class="sa-warning">';
+        msj1 = msj1 + '             <div class="sa-warning-body"></div>';
+        msj1 = msj1 + '             <div class="sa-warning-dot"></div>';
+        msj1 = msj1 + '         </div>';
+        msj1 = msj1 + '     </div>';
+        msj1 = msj1 + '     </div>';
+        msj1 = msj1 + '     <div class="alert-wrap">';
+        msj1 = msj1 + '     <h6>Mercado de carbono</h6>';
+        msj1 = msj1 + '     <hr><small class="mb-0">';
+        msj1 = msj1 + '         Se ha generado la cadena de bloques para la medida de mitigación&nbsp;<strong>aprobada&nbsp;</strong>';
+        msj1 = msj1 + '         <hr>';
+        msj1 = msj1 + '         <div class="text-monospace" style="word-break: break-all;">341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb72</div>';
+        msj1 = msj1 + '     </small>';
+        msj1 = msj1 + '     </div>';
+        msj1 = msj1 + '</div>';
+
         $("#aprobar-evaluacion #modalAprobarBoton").hide();
         $("#modalAprobacion").append(msj);
+        $("#modalAprobacion").append(msj1);
         $("#Control").data("modal", 1);
     } else {
         $("#modalAprobacion #modalErrorAprobacion").remove();
@@ -1103,6 +1125,7 @@ function fn_evaluarIniciativaDetalle() {
             location.href = baseUrl + "Gestion/AccionMitigacion";
         } else {
             $("#modalAprobacion #modalErrorAprobacion").remove();
+            $("#modalAprobacion #modalBCAprobacion").remove();
             $("#aprobar-evaluacion #modalAprobarBoton").show();
         }
     });
@@ -1118,6 +1141,7 @@ function fn_verificarIniciativaDetalle() {
     var respuesta = MRV.Ajax(url, item, false);
     if (respuesta.success) {
         $("#modalAprobacion #modalCorrectoAprobacion").remove();
+        $("#modalAprobacion #modalBCAprobacion").remove();
         $("#modalAprobacion #modalErrorAprobacion").remove();
         var msj = '                           <div class="alert alert-success d-flex align-items-stretch" role="alert" id="modalCorrectoAprobacion">';
         msj = msj + '                               <div class="alert-wrap mr-3">';
@@ -1135,8 +1159,29 @@ function fn_verificarIniciativaDetalle() {
         msj = msj + '                                    <hr><small class="mb-0">Se aprobó correctamente esta verificación, se procederá a notificar al Especialista.</small>';
         msj = msj + '                                </div>';
         msj = msj + '                            </div>';
-        $("#aprobar-evaluacion #modalAprobarBoton").hide();
+
+        var msj1 = '    <div class="alert alert-warning d-flex align-items-stretch" role="alert" id="modalBCAprobacion">';
+        msj1 = msj1 + '     <div class="alert-wrap mr-3">';
+        msj1 = msj1 + '     <div class="sa">';
+        msj1 = msj1 + '         <div class="sa-warning">';
+        msj1 = msj1 + '             <div class="sa-warning-body"></div>';
+        msj1 = msj1 + '             <div class="sa-warning-dot"></div>';
+        msj1 = msj1 + '         </div>';
+        msj1 = msj1 + '     </div>';
+        msj1 = msj1 + '     </div>';
+        msj1 = msj1 + '     <div class="alert-wrap">';
+        msj1 = msj1 + '     <h6>Mercado de carbono</h6>';
+        msj1 = msj1 + '     <hr><small class="mb-0">';
+        msj1 = msj1 + '         Se ha generado la cadena de bloques para la medida de mitigación&nbsp;<strong>aprobada&nbsp;</strong>';
+        msj1 = msj1 + '         <hr>';
+        msj1 = msj1 + '         <div class="text-monospace" style="word-break: break-all;">341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb72</div>';
+        msj1 = msj1 + '     </small>';
+        msj1 = msj1 + '     </div>';
+        msj1 = msj1 + '</div>';
+
+        $("#aprobar-verificacion #modalAprobarBoton").hide();
         $("#modalAprobacion").append(msj);
+        $("#modalAprobacion").append(msj1);
         $("#Control").data("modal", 1);
     } else {
         $("#modalAprobacion #modalErrorAprobacion").remove();
@@ -1161,12 +1206,13 @@ function fn_verificarIniciativaDetalle() {
         $("#modalAprobacion").append(msj);
     }
 
-    $("#aprobar-evaluacion").on("hidden.bs.modal", function () {
+    $("#aprobar-verificacion").on("hidden.bs.modal", function () {
         if ($("#Control").data("modal") == 1) {
             location.href = baseUrl + "Gestion/AccionMitigacion";
         } else {
             $("#modalAprobacion #modalErrorAprobacion").remove();
-            $("#aprobar-evaluacion #modalAprobarBoton").show();
+            $("#modalAprobacion #modalBCAprobacion").remove();
+            $("#aprobar-verificacion #modalAprobarBoton").show();
         }
     });
 }
