@@ -369,5 +369,53 @@ namespace datos.minem.gob.pe
             return entidad;
         }
 
+        public UsuarioBE obtenerUsuario(UsuarioBE entidad)
+        {
+            //UsuarioBE usuario = null;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_UPD_OBTENER_USUARIO";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pEMAIL_USUARIO", entidad.EMAIL_USUARIO);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    entidad = db.Query<UsuarioBE>(sp, p, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+
+            return entidad;
+        }
+
+        public UsuarioBE obtenerUsuarioId(int cod)
+        {
+            UsuarioBE entidad = null;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_UPD_OBTENER_USUARIO_ID";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_USUARIO", cod);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    entidad = db.Query<UsuarioBE>(sp, p, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+
+            return entidad;
+        }
+
     }
 }

@@ -111,5 +111,15 @@ namespace logica.minem.gob.pe
             entidad.NUEVO_PASSWORD_USUARIO = Seguridad.hashSal(entidad.NUEVO_PASSWORD_USUARIO);
             return usuarioDA.CambiarClave(entidad);
         }
+
+        public static UsuarioBE obtenerUsuario(UsuarioBE entidad)
+        {
+            return usuarioDA.obtenerUsuario(entidad);
+        }
+
+        public static UsuarioBE obtenerUsuarioId(int cod)
+        {
+            return usuarioDA.obtenerUsuarioId(cod);
+        }
     }
 }

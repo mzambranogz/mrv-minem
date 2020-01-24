@@ -55,6 +55,13 @@ namespace MRVMinem.Controllers
             return View(modelo);
         }
 
+        public ActionResult ReestablecerClave(int id)
+        {
+            MvSesion modelo = new MvSesion();
+            modelo.identificador = id;
+            return View(modelo);
+        }
+
         public JsonResult ListaSectorInstitucion(SectorInstitucionBE entidad)
         {
             List<SectorInstitucionBE> lista = SectorInstitucionLN.ListaSectorInstitucion(entidad);
@@ -204,6 +211,41 @@ namespace MRVMinem.Controllers
             else
             {
                 itemRespuesta.extra = entidad.extra;
+            }
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult VerificarEmailRecuperar(UsuarioBE entidad)
+        {
+            entidad = UsuarioLN.VerificarEmail(entidad);
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+
+            if (!entidad.OK)
+            {
+                itemRespuesta.success = true;
+            }
+            else
+            {
+                itemRespuesta.success = false;
+            }
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult EnviarCorreoRecuperar(UsuarioBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+            entidad = UsuarioLN.obtenerUsuario(entidad);
+
+            if (entidad.OK)
+            {
+                EnvioCorreo hilo_correo = new EnvioCorreo(entidad);
+                Task tarea = Task.Factory.StartNew(() => hilo_correo.recuperarClave());
+                itemRespuesta.success = true;
+            }
+            else
+            {
+                itemRespuesta.success = false;
             }
             return Respuesta(itemRespuesta);
         }

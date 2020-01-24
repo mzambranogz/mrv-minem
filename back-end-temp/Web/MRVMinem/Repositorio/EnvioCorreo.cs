@@ -12,11 +12,24 @@ namespace MRVMinem.Repositorio
     public class EnvioCorreo
     {
         UsuarioBE xEntidad;
+        IniciativaBE xEntidadI;
+        IndicadorBE xEntidadID;
+        int xOpc;
         public EnvioCorreo(UsuarioBE entidad)
         {
             xEntidad = entidad;
         }
 
+        public EnvioCorreo(IniciativaBE entidad, int opc)
+        {
+            xEntidadI = entidad;
+            xOpc = opc;
+        }
+
+        public EnvioCorreo(IndicadorBE entidad)
+        {
+            xEntidadID = entidad;
+        }
         //public bool CreacionUsuario(UsuarioBE entidad)
         public void CreacionUsuario()
         {
@@ -28,7 +41,7 @@ namespace MRVMinem.Repositorio
             Para.Add(xEntidad.EMAIL_USUARIO);
             List<string> Cco = CorreoOculto(WebConfigurationManager.AppSettings.Get("CorreoOculto"));
 
-            bool envioCorreo = Correo.EnviarEmail(De, Para, asunto, cuerpo, true, null, Cco, null);
+            bool envioCorreo = Correo.EnviarEmail("registro", De, Para, asunto, cuerpo, true, null, Cco, null);
 
             //return envioCorreo;
         }
@@ -43,7 +56,33 @@ namespace MRVMinem.Repositorio
             Para.Add(xEntidad.EMAIL_USUARIO);
             List<string> Cco = CorreoOculto(WebConfigurationManager.AppSettings.Get("CorreoOculto"));
 
-            bool envioCorreo = Correo.EnviarEmail(De, Para, asunto, cuerpo, true, null, Cco, null);
+            bool envioCorreo = Correo.EnviarEmail("aprobar", De, Para, asunto, cuerpo, true, null, Cco, null);
+        }
+
+        public void recuperarClave()
+        {
+            string cuerpo = CuerpoRecuperarClave(xEntidad, WebConfigurationManager.AppSettings.Get("Server"));
+            //string De = "mrv@grupo-zuniga.com";
+            string De = WebConfigurationManager.AppSettings.Get("Usermail");
+            string asunto = xEntidad.NOMBRES + ", " + "reestablecimiento de contraseña";
+            List<string> Para = new List<string>();
+            Para.Add(xEntidad.EMAIL_USUARIO);
+            List<string> Cco = CorreoOculto(WebConfigurationManager.AppSettings.Get("CorreoOculto"));
+
+            bool envioCorreo = Correo.EnviarEmail("", De, Para, asunto, cuerpo, true, null, Cco, null);
+        }
+
+        public void menajeIniciativa()
+        {
+            string cuerpo = CuerpoMensajeIniciativa(xEntidadI, WebConfigurationManager.AppSettings.Get("Server"));
+            //string De = "mrv@grupo-zuniga.com";
+            string De = WebConfigurationManager.AppSettings.Get("Usermail");
+            string asunto = xEntidadI.ASUNTO;
+            List<string> Para = new List<string>();
+            Para.Add(xEntidadI.EMAIL_USUARIO);
+            List<string> Cco = CorreoOculto(WebConfigurationManager.AppSettings.Get("CorreoOculto"));
+
+            bool envioCorreo = Correo.EnviarEmail("", De, Para, asunto, cuerpo, true, null, Cco, null);
         }
 
         private string CuerpoCreacionUsuario(UsuarioBE entidad)
@@ -122,6 +161,46 @@ namespace MRVMinem.Repositorio
             sb.Append("</div>");
             //sb.Append("<div><a href=\"10.0.0.102/mrv-minem/Publico/Portal/Login\">Pulse aqui para verificar su cuenta</a></div><br/>");
             //sb.Append("<div><a href=\"10.0.0.103/mrv-minem/Portal/ConfirmarCorreo/10\">Pulse aqui para verificar su cuenta</a></div><br/>");
+            sb.Append(" </body>");
+            sb.Append(" </html>");
+
+            return sb.ToString();
+        }
+
+        private string CuerpoRecuperarClave(UsuarioBE entidad, string server)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(" <html xmlns=\"http://www.w3.org/1999/xhtml\">");
+            sb.Append(" <head>");
+            sb.Append(" <title>");
+            sb.Append(" </title></head>");
+            sb.Append(" <body>");
+            sb.Append("<div style=\"font-family: Roboto;font-size:12px;margin:0 auto;margin-top:50px;width:650px;\" ><img src=\"cid:imagenBanner\" width=\"150\" />");
+            sb.Append("     <div style=\"border-bottom: 1px solid #ededed;\"></div><br/><br/><strong> Estimado Usuario: &nbsp;</strong><span>" + entidad.NOMBRES + " , podrá reestablecer su contraseña a través de este link: </span><br/><span><a href=\"" + server + "Portal/ReestablecerClave?id=" + entidad.ID_USUARIO + "\">Minem/RecuperarClave/HzLoAdpikOlXcdl</a></span><br/><br/>");
+            sb.Append("         <div style=\"border-left:1px solid #ededed;margin:10px;padding:10px;\">");
+            sb.Append("     </div>");
+            sb.Append("</div>");
+            //sb.Append("<div><a href=\"10.0.0.102/mrv-minem/Publico/Portal/Login\">Pulse aqui para verificar su cuenta</a></div><br/>");
+            //sb.Append("<div><a href=\"10.0.0.103/mrv-minem/Portal/ConfirmarCorreo/10\">Pulse aqui para verificar su cuenta</a></div><br/>");
+            sb.Append(" </body>");
+            sb.Append(" </html>");
+
+            return sb.ToString();
+        }
+
+        private string CuerpoMensajeIniciativa(IniciativaBE entidad, string server)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(" <html xmlns=\"http://www.w3.org/1999/xhtml\">");
+            sb.Append(" <head>");
+            sb.Append(" <title>");
+            sb.Append(" </title></head>");
+            sb.Append(" <body>");
+            sb.Append("<div style=\"font-family: Roboto;font-size:12px;margin:0 auto;margin-top:50px;width:650px;\" ><img src=\"cid:imagenBanner\" width=\"150\" />");
+            sb.Append("     <div style=\"border-bottom: 1px solid #ededed;\"></div><br/><br/><span>" + entidad.DESCRIPCION + "</span><span><a href=\"" + server + "Home/login\">" + server + "Home/login</a></span><br/>");
+            sb.Append("         <div style=\"border-left:1px solid #ededed;margin:10px;padding:10px;\">");
+            sb.Append("     </div>");
+            sb.Append("</div>");
             sb.Append(" </body>");
             sb.Append(" </html>");
 

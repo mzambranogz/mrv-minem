@@ -257,6 +257,7 @@
     <Content Include="Reportes\DsEscenario.xss">
       <DependentUpon>DsEscenario.xsd</DependentUpon>
     </Content>
+    <Content Include="Views\Portal\ReestablecerClave.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -285,7 +286,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Reportes\EscenarioRpt.rdlc" />
+    <EmbeddedResource Include="Reportes\EscenarioRpt.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

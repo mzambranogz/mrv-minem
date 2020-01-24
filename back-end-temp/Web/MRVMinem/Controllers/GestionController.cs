@@ -210,6 +210,19 @@ namespace MRVMinem.Controllers
             ResponseEntity itemRespuesta = new ResponseEntity();
 
             entidad = IniciativaLN.RegistrarIniciativaMitigacion(entidad);
+            if (entidad.OK)
+            {
+                if (entidad.ID_ESTADO == 1)
+                {
+                    var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
+                    entidad.EMAIL_USUARIO = "alfonso@grupo-zuniga.com";
+                    entidad.ASUNTO = "Registro Iniciativa - Entidad " + usuario.INSTITUCION;
+                    entidad.DESCRIPCION = "El usuario de la entidad " + usuario.INSTITUCION + " ha realizado un registro de la Iniciativa (" + entidad.NOMBRE_INICIATIVA + "), en espera de su revisión.<br><br/>";
+                    EnvioCorreo hilo_correo = new EnvioCorreo(entidad, 1);
+                    Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+                }
+
+            }
             itemRespuesta.success = entidad.OK;
             itemRespuesta.extra = entidad.ID_ESTADO.ToString();
             return Respuesta(itemRespuesta);
@@ -220,6 +233,19 @@ namespace MRVMinem.Controllers
             ResponseEntity itemRespuesta = new ResponseEntity();
 
             entidad = IniciativaLN.ActualizarIniciativaMitigacion(entidad);
+            if (entidad.OK)
+            {
+                if (entidad.ID_ESTADO == 5)
+                {
+                    var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
+                    entidad.EMAIL_USUARIO = "alfonso@grupo-zuniga.com";
+                    entidad.ASUNTO = "Observación subsanada Iniciativa - Entidad " + usuario.INSTITUCION;
+                    entidad.DESCRIPCION = "El usuario de la entidad " + usuario.INSTITUCION + " ha subsanado la(s) observación(es) de la Iniciativa llamada (" + entidad.NOMBRE_INICIATIVA + "), en espera de su revisión.<br/><br/>";
+                    EnvioCorreo hilo_correo = new EnvioCorreo(entidad, 1);
+                    Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+                }
+
+            }
             itemRespuesta.success = entidad.OK;
             itemRespuesta.extra = entidad.ID_ESTADO.ToString();
             return Respuesta(itemRespuesta);
@@ -262,6 +288,14 @@ namespace MRVMinem.Controllers
             ResponseEntity itemRespuesta = new ResponseEntity();
 
             entidad = IniciativaLN.ObservacionIniciativaMitigacion(entidad);
+            if (entidad.OK)
+            {
+                //var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
+                entidad.ASUNTO = "Observación Iniciativa - MRVMinem ";
+                entidad.DESCRIPCION = "En la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") se ha detectado algunos datos a corregir, los detalles en la siguiente descripción: <br/>" + entidad.DESCRIPCION + "<br/><br/>";
+                EnvioCorreo hilo_correo = new EnvioCorreo(entidad, 1);
+                Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+            }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }
@@ -271,6 +305,14 @@ namespace MRVMinem.Controllers
             ResponseEntity itemRespuesta = new ResponseEntity();
 
             entidad = IniciativaLN.AprobarIniciativaMitigacion(entidad);
+            if (entidad.OK)
+            {
+                //var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
+                entidad.ASUNTO = "Aprobación Iniciativa - MRVMinem ";
+                entidad.DESCRIPCION = "Su iniciativa fue revisada y aprobada<br/><br/>";
+                EnvioCorreo hilo_correo = new EnvioCorreo(entidad, 1);
+                Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+            }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }
@@ -320,6 +362,16 @@ namespace MRVMinem.Controllers
             ResponseEntity itemRespuesta = new ResponseEntity();
 
             entidad = IndicadorLN.RegistrarDetalleIndicador(entidad);
+            if (entidad.ID_ESTADO == 1)
+            {
+                var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
+                IniciativaBE iniciativa = new IniciativaBE();
+                iniciativa.EMAIL_USUARIO = "alfonso@grupo-zuniga.com";
+                iniciativa.ASUNTO = "Registro Detalle Indicador - Entidad " + usuario.INSTITUCION;
+                iniciativa.DESCRIPCION = "El usuario de la entidad " + usuario.INSTITUCION + " ha registrado el/los detalle(s) de la Iniciativa (" + entidad.NOMBRE_INICIATIVA + "), en espera de su revisión.<br/><br/>";
+                EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 2);
+                Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+            }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }
@@ -346,6 +398,16 @@ namespace MRVMinem.Controllers
             ResponseEntity itemRespuesta = new ResponseEntity();
 
             entidad = IndicadorLN.ObservacionDetalleIndicador(entidad);
+            if (entidad.OK)
+            {
+                //var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
+                IniciativaBE iniciativa = new IniciativaBE();
+                iniciativa.EMAIL_USUARIO = entidad.EMAIL_USUARIO;
+                iniciativa.ASUNTO = "Observación Detalle Indicador - MRVMinem ";
+                iniciativa.DESCRIPCION = "En los detalles indicadores de laa iniciativa (" + entidad.NOMBRE_INICIATIVA + ") se ha detectado algunos datos a corregir, los detalles en la siguiente descripción: <br/>" + entidad.DESCRIPCION + "<br/><br/>";
+                EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
+                Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+            }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }
@@ -355,6 +417,16 @@ namespace MRVMinem.Controllers
             ResponseEntity itemRespuesta = new ResponseEntity();
 
             entidad = IndicadorLN.AprobarDetalleIndicador(entidad);
+            if (entidad.OK)
+            {
+                //var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
+                IniciativaBE iniciativa = new IniciativaBE();
+                iniciativa.EMAIL_USUARIO = entidad.EMAIL_USUARIO;
+                iniciativa.ASUNTO = "Aprobación Detalle Indicador - MRVMinem ";
+                iniciativa.DESCRIPCION = "Los detalles de indicadores de su iniciativa fueron revisadas y aprobadas<br/><br/>";
+                EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
+                Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+            }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }
@@ -364,6 +436,16 @@ namespace MRVMinem.Controllers
             ResponseEntity itemRespuesta = new ResponseEntity();
 
             entidad = IndicadorLN.CorregirDetalleIndicador(entidad);
+            if (entidad.ID_ESTADO == 5)
+            {
+                var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
+                IniciativaBE iniciativa = new IniciativaBE();
+                iniciativa.EMAIL_USUARIO = "alfonso@grupo-zuniga.com";
+                iniciativa.ASUNTO = "Observación subsanada de Detalle Indicador - Entidad " + usuario.INSTITUCION;
+                iniciativa.DESCRIPCION = "El usuario de la entidad " + usuario.INSTITUCION + " ha subsanado la(s) observación(es) de el/los detalle(s) de indicador(es) de la Iniciativa (" + entidad.NOMBRE_INICIATIVA + "), en espera de su revisión.<br/><br/>";
+                EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
+                Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+            }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }
