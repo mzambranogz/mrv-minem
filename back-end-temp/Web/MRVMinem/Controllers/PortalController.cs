@@ -250,6 +250,56 @@ namespace MRVMinem.Controllers
             return Respuesta(itemRespuesta);
         }
 
+        public JsonResult ListarMedidaMitigacion(MedidaMitigacionBE entidad)
+        {
+            List<MedidaMitigacionBE> lista = MedidaMitigacionLN.ListarMedidaMitigacion(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListarSector(SectorInstitucionBE entidad)
+        {
+            List<SectorInstitucionBE> lista = SectorInstitucionLN.ListaSectorInstitucion(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+
+        public JsonResult ListaEnergetico(GasEfectoInvernaderoBE entidad)
+        {
+            List<GasEfectoInvernaderoBE> lista = GasEfectoInvernaderoLN.ListarGEI(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListaEnergeticoProyecto(EnergeticoBE entidad)
+        {
+            List<EnergeticoBE> lista = EnergeticoLN.ListarENERGProyecto(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        //Busqueda
+        public JsonResult BusquedaSimple(BusquedaSimpleBE entidad)
+        {
+            List<IniciativaBE> lista = BusquedaSimpleLN.BusquedaSimple(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult BusquedaAvanzada(BusquedaAvanzadaBE entidad)
+        {
+            List<IniciativaBE> lista = BusquedaAvanzaLN.BusquedaAvanzada(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
         private void limpiarSetearSesion(List<RolOpcionesBE> lista)
         {
             Session["opcion1"] = 0;

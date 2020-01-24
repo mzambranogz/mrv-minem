@@ -1157,3 +1157,43 @@ PL/SQL: Statement ignored
 24/01/2020 10:28:40 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12541: TNS:no listener
 24/01/2020 10:28:40 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12541: TNS:no listener
 24/01/2020 10:28:40 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.RolOpcionesBE] ListarRolOpciones(Int32), Línea: 29] - ORA-12541: TNS:no listener
+24/01/2020 02:36:46 p.m.: [Método: Void ThrowDataException(System.Exception, Int32, System.Data.IDataReader, System.Object), Línea: 0] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+24/01/2020 02:36:46 p.m.: [Método: entidad.minem.gob.pe.IniciativaBE Deserialize8ed41cdf-ee0c-410b-a819-4212284c8212(System.Data.IDataReader), Línea: 0] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+24/01/2020 02:36:46 p.m.: [Método: Boolean MoveNext(), Línea: 0] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+24/01/2020 02:36:46 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+24/01/2020 02:36:46 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+24/01/2020 02:36:46 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+24/01/2020 02:36:46 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListarIniciativaAvance(entidad.minem.gob.pe.IniciativaBE), Línea: 459] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+24/01/2020 02:37:45 p.m.: [Método: Void ThrowDataException(System.Exception, Int32, System.Data.IDataReader, System.Object), Línea: 0] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+24/01/2020 02:37:45 p.m.: [Método: entidad.minem.gob.pe.IniciativaBE Deserialize8ed41cdf-ee0c-410b-a819-4212284c8212(System.Data.IDataReader), Línea: 0] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+24/01/2020 02:37:45 p.m.: [Método: Boolean MoveNext(), Línea: 0] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+24/01/2020 02:37:45 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+24/01/2020 02:37:45 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+24/01/2020 02:37:45 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+24/01/2020 02:37:45 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListarIniciativaAvance(entidad.minem.gob.pe.IniciativaBE), Línea: 459] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+24/01/2020 02:38:25 p.m.: [Método: Void ThrowDataException(System.Exception, Int32, System.Data.IDataReader, System.Object), Línea: 0] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+24/01/2020 02:38:25 p.m.: [Método: entidad.minem.gob.pe.IniciativaBE Deserialize8ed41cdf-ee0c-410b-a819-4212284c8212(System.Data.IDataReader), Línea: 0] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+24/01/2020 02:38:25 p.m.: [Método: Boolean MoveNext(), Línea: 0] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+24/01/2020 02:38:25 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+24/01/2020 02:38:25 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+24/01/2020 02:38:25 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+24/01/2020 02:38:25 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListarIniciativaAvance(entidad.minem.gob.pe.IniciativaBE), Línea: 459] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+24/01/2020 02:40:44 p.m.: [Método: Void ThrowDataException(System.Exception, Int32, System.Data.IDataReader, System.Object), Línea: 0] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+24/01/2020 02:40:44 p.m.: [Método: entidad.minem.gob.pe.IniciativaBE Deserialize8ed41cdf-ee0c-410b-a819-4212284c8212(System.Data.IDataReader), Línea: 0] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+24/01/2020 02:40:44 p.m.: [Método: Boolean MoveNext(), Línea: 0] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+24/01/2020 02:40:44 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+24/01/2020 02:40:44 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+24/01/2020 02:40:44 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+24/01/2020 02:40:44 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListarIniciativaAvance(entidad.minem.gob.pe.IniciativaBE), Línea: 459] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+24/01/2020 02:52:39 p.m.: [Método: Void Open(), Línea: 0] - No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'OracleConnection'.
+24/01/2020 02:52:39 p.m.: [Método: Boolean MoveNext(), Línea: 0] - No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'OracleConnection'.
+24/01/2020 02:52:39 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'OracleConnection'.
+24/01/2020 02:52:39 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'OracleConnection'.
+24/01/2020 02:52:39 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'OracleConnection'.
+24/01/2020 02:52:39 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListarIniciativaAvance(entidad.minem.gob.pe.IniciativaBE), Línea: 459] - No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'OracleConnection'.

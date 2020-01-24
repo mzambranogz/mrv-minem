@@ -13,6 +13,7 @@ using System.Text;
 using System.Net.Mail;
 using System.Net.Mime;
 using MRVMinem.Models;
+using System.Web.Configuration;
 
 namespace MRVMinem.Controllers
 {
@@ -228,7 +229,7 @@ namespace MRVMinem.Controllers
                 if (entidad.ID_ESTADO == 1)
                 {
                     var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
-                    entidad.EMAIL_USUARIO = "alfonso@grupo-zuniga.com";
+                    entidad.EMAIL_USUARIO = WebConfigurationManager.AppSettings.Get("UsermailEsp");
                     entidad.ASUNTO = "Registro Iniciativa - Entidad " + usuario.INSTITUCION;
                     entidad.DESCRIPCION = "El usuario de la entidad " + usuario.INSTITUCION + " ha realizado un registro de la Iniciativa (" + entidad.NOMBRE_INICIATIVA + "), en espera de su revisión.<br><br/>";
                     EnvioCorreo hilo_correo = new EnvioCorreo(entidad, 1);
@@ -251,7 +252,7 @@ namespace MRVMinem.Controllers
                 if (entidad.ID_ESTADO == 5)
                 {
                     var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
-                    entidad.EMAIL_USUARIO = "alfonso@grupo-zuniga.com";
+                    entidad.EMAIL_USUARIO = WebConfigurationManager.AppSettings.Get("UsermailEsp");
                     entidad.ASUNTO = "Observación subsanada Iniciativa - Entidad " + usuario.INSTITUCION;
                     entidad.DESCRIPCION = "El usuario de la entidad " + usuario.INSTITUCION + " ha subsanado la(s) observación(es) de la Iniciativa llamada (" + entidad.NOMBRE_INICIATIVA + "), en espera de su revisión.<br/><br/>";
                     EnvioCorreo hilo_correo = new EnvioCorreo(entidad, 1);
@@ -379,7 +380,7 @@ namespace MRVMinem.Controllers
             {
                 var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
                 IniciativaBE iniciativa = new IniciativaBE();
-                iniciativa.EMAIL_USUARIO = "alfonso@grupo-zuniga.com";
+                iniciativa.EMAIL_USUARIO = WebConfigurationManager.AppSettings.Get("UsermailEsp");
                 iniciativa.ASUNTO = "Registro Detalle Indicador - Entidad " + usuario.INSTITUCION;
                 iniciativa.DESCRIPCION = "El usuario de la entidad " + usuario.INSTITUCION + " ha registrado el/los detalle(s) de la Iniciativa (" + entidad.NOMBRE_INICIATIVA + "), en espera de su revisión.<br/><br/>";
                 EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 2);
@@ -417,7 +418,7 @@ namespace MRVMinem.Controllers
                 IniciativaBE iniciativa = new IniciativaBE();
                 iniciativa.EMAIL_USUARIO = entidad.EMAIL_USUARIO;
                 iniciativa.ASUNTO = "Observación Detalle Indicador - MRVMinem ";
-                iniciativa.DESCRIPCION = "En los detalles indicadores de laa iniciativa (" + entidad.NOMBRE_INICIATIVA + ") se ha detectado algunos datos a corregir, los detalles en la siguiente descripción: <br/>" + entidad.DESCRIPCION + "<br/><br/>";
+                iniciativa.DESCRIPCION = "En los detalles indicadores de la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") se ha detectado algunos datos a corregir, los detalles en la siguiente descripción: <br/>" + entidad.DESCRIPCION + "<br/><br/>";
                 EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
             }
@@ -453,7 +454,7 @@ namespace MRVMinem.Controllers
             {
                 var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
                 IniciativaBE iniciativa = new IniciativaBE();
-                iniciativa.EMAIL_USUARIO = "alfonso@grupo-zuniga.com";
+                iniciativa.EMAIL_USUARIO = WebConfigurationManager.AppSettings.Get("UsermailEsp");
                 iniciativa.ASUNTO = "Observación subsanada de Detalle Indicador - Entidad " + usuario.INSTITUCION;
                 iniciativa.DESCRIPCION = "El usuario de la entidad " + usuario.INSTITUCION + " ha subsanado la(s) observación(es) de el/los detalle(s) de indicador(es) de la Iniciativa (" + entidad.NOMBRE_INICIATIVA + "), en espera de su revisión.<br/><br/>";
                 EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
@@ -477,6 +478,16 @@ namespace MRVMinem.Controllers
             ResponseEntity itemRespuesta = new ResponseEntity();
 
             entidad = IndicadorLN.AprobarAdminIniciativaDetalleIndicador(entidad);
+            if (entidad.OK)
+            {
+                //var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
+                IniciativaBE iniciativa = new IniciativaBE();
+                iniciativa.EMAIL_USUARIO = WebConfigurationManager.AppSettings.Get("UsermailEsp");
+                iniciativa.ASUNTO = "Aprobación Iniciativa y Detalle Indicador - MRVMinem ";
+                iniciativa.DESCRIPCION = "Los detalles de indicadores y la iniciativa ("+entidad.NOMBRE_INICIATIVA+") fueron revisados y aprobadas por el Administrador MINEM<br/><br/>";
+                EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
+                Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+            }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }
@@ -487,6 +498,16 @@ namespace MRVMinem.Controllers
             ResponseEntity itemRespuesta = new ResponseEntity();
 
             entidad = IndicadorLN.EvaluarIniciativaDetalleIndicador(entidad);
+            if (entidad.OK)
+            {
+                //var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
+                IniciativaBE iniciativa = new IniciativaBE();
+                iniciativa.EMAIL_USUARIO = WebConfigurationManager.AppSettings.Get("UsermailEsp");
+                iniciativa.ASUNTO = "Evaluación Iniciativa y Detalle Indicador - MRVMinem ";
+                iniciativa.DESCRIPCION = "Los detalles de indicadores y la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") fueron revisados y aprobadas por el Evaluador MINAM<br/><br/>";
+                EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
+                Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+            }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }
@@ -504,6 +525,16 @@ namespace MRVMinem.Controllers
             ResponseEntity itemRespuesta = new ResponseEntity();
 
             entidad = IndicadorLN.VerificarIniciativaDetalleIndicador(entidad);
+            if (entidad.OK)
+            {
+                //var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
+                IniciativaBE iniciativa = new IniciativaBE();
+                iniciativa.EMAIL_USUARIO = WebConfigurationManager.AppSettings.Get("UsermailEsp");
+                iniciativa.ASUNTO = "Verificación Iniciativa y Detalle Indicador - MRVMinem ";
+                iniciativa.DESCRIPCION = "Los detalles de indicadores y la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") fueron revisados y aprobadas por el Verificador Externo<br/><br/>";
+                EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
+                Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+            }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }
@@ -661,6 +692,85 @@ namespace MRVMinem.Controllers
             itemRespuesta.success = entidad.OK;
             itemRespuesta.message = entidad.OK ? "Se registro la visualización de la notificación" : "Ocurrio error al registrar la visualización de la notificación";
             return Respuesta(itemRespuesta);
+        }
+
+        //Busqueda Simple Privada
+        public JsonResult BusquedaSimpleUsuario(BusquedaSimpleBE entidad)
+        {
+            List<IniciativaBE> lista = BusquedaSimpleLN.BusquedaSimplePrivado(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+        public JsonResult BusquedaSimpleEsp(BusquedaSimpleBE entidad)
+        {
+            List<IniciativaBE> lista = BusquedaSimpleLN.BusquedaSimpleEsp(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult BusquedaSimpleMi(BusquedaSimpleBE entidad)
+        {
+            List<IniciativaBE> lista = BusquedaSimpleLN.BusquedaSimplePrivadoMi(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+        public JsonResult BusquedaSimpleEvaMRV(BusquedaSimpleBE entidad)
+        {
+            List<IniciativaBE> lista = BusquedaSimpleLN.BusquedaSimplePrivadoEvaMRV(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult BusquedaSimpleVerVis(BusquedaSimpleBE entidad)
+        {
+            List<IniciativaBE> lista = BusquedaSimpleLN.BusquedaSimplePrivadoVerVis(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        //Busqueda Avanzada Privada
+        public JsonResult BusquedaAvanzadaUsuario(BusquedaAvanzadaBE entidad)
+        {
+            List<IniciativaBE> lista = BusquedaAvanzaLN.BusquedaAvanzadaPrivado(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult BusquedaAvanzadaEspecialista(BusquedaAvanzadaBE entidad)
+        {
+            List<IniciativaBE> lista = BusquedaAvanzaLN.BusquedaAvanzadaPrivadoEspecialista(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult BusquedaAvanzadaAdmMi(BusquedaAvanzadaBE entidad)
+        {
+            List<IniciativaBE> lista = BusquedaAvanzaLN.BusquedaAvanzadaAdmMi(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+        public JsonResult BusquedaAvanzadaEvaMRV(BusquedaAvanzadaBE entidad)
+        {
+            List<IniciativaBE> lista = BusquedaAvanzaLN.BusquedaAvanzadaEvaMRV(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult BusquedaAvanzadaVerVis(BusquedaAvanzadaBE entidad)
+        {
+            List<IniciativaBE> lista = BusquedaAvanzaLN.BusquedaAvanzadaVerVis(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
     }
 }

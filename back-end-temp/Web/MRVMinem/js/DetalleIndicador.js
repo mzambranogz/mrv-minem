@@ -4,6 +4,7 @@ $(document).ready(function () {
     $("#Control").data("revision", $("#revision").val());
 
     if ($("#revision").val() == 1) {
+        debugger;
         CargarDetalleIndicadorRevision();
     } else {
         CargarDetalleIndicador();
@@ -1047,7 +1048,8 @@ function fn_revisarAdminDetalleIndicador() {
 function fn_evaluarIniciativaDetalle() {
     var item = {
         ID_INICIATIVA: $("#Control").data("iniciativa"),
-        ID_USUARIO: $("#Control").data("usuario")
+        ID_USUARIO: $("#Control").data("usuario"),
+        NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val()
     }
     url = baseUrl + "Gestion/EvaluarIniciativaDetalleIndicador";
     var respuesta = MRV.Ajax(url, item, false);
@@ -1109,7 +1111,8 @@ function fn_evaluarIniciativaDetalle() {
 function fn_verificarIniciativaDetalle() {
     var item = {
         ID_INICIATIVA: $("#Control").data("iniciativa"),
-        ID_USUARIO: $("#Control").data("usuario")
+        ID_USUARIO: $("#Control").data("usuario"),
+        NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val()
     }
     url = baseUrl + "Gestion/VerificarIniciativaDetalleIndicador";
     var respuesta = MRV.Ajax(url, item, false);

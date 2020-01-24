@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseBE.cs" />
+    <Compile Include="BusquedaAvanzadaBE.cs" />
+    <Compile Include="BusquedaSimpleBE.cs" />
     <Compile Include="EnergeticoBE.cs" />
     <Compile Include="EscenarioRptBE.cs" />
     <Compile Include="GasEfectoInvernaderoBE.cs" />

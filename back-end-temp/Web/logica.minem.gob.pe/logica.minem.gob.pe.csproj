@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusquedaAvanzadaLN.cs" />
+    <Compile Include="BusquedaSimpleLN.cs" />
     <Compile Include="EnergeticoLN.cs" />
     <Compile Include="EscenarioRptLN.cs" />
     <Compile Include="GasEfectoInvernaderoLN.cs" />

@@ -36,5 +36,29 @@ namespace datos.minem.gob.pe
 
             return Lista;
         }
+
+        public List<EnergeticoBE> ListarENERGProyecto(EnergeticoBE entidad)
+        {
+            List<EnergeticoBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_ENERG";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<EnergeticoBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
     }
 }
