@@ -179,7 +179,10 @@ function CargarDatosIniciativa() {
                             }
                         }
                         if (data[i]["PRIVACIDAD_INICIATIVA"] == 1) {
-                            $("regPrivacidad").prop("checked", true);
+                            $("#chk-publicar").prop("checked", true);
+                        }
+                        if (data[i]["PRIVACIDAD_INVERSION"] == 1) {
+                            $("#chk-publicar-monto-inversion").prop("checked", true);
                         }
                     }
                 }
@@ -745,6 +748,87 @@ function fn_procesoDetalleIndicador(url, estado) {
         $("#guardar-avance #modalAvanceBoton").show();
     });
 }
+
+
+//function fn_guardarDetalleIndicador() {
+//    var url = baseUrl + "Gestion/RegistrarDetalleIndicador";
+//    //fn_procesoDetalleIndicador(url, 1);
+
+//    var options = {
+//        type: "POST",
+//        dataType: "json",
+//        contentType: false,
+//        url: url,
+//        processData: false,
+//        data: ({
+//            ID_INICIATIVA: $("#Control").data("iniciativa"),
+//            ID_USUARIO: $("#Control").data("usuario"),
+//            NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
+//            ID_ESTADO: 1
+//        }),
+//        xhr: function () {  // Custom XMLHttpRequest
+//            var myXhr = $.ajaxSettings.xhr();
+//            if (myXhr.upload) { // Check if upload property exists
+//                //myXhr.upload.addEventListener('progress', progressHandlingFunction, false); // For handling the progress of the upload
+//            }
+//            return myXhr;
+//        },
+//        resetForm: false,
+//        beforeSubmit: function (formData, jqForm, options) {
+//            return true;
+//        },
+//        success: function (response, textStatus, myXhr) {
+//            if (response.success) {
+//                var msj = '                       <div class="alert alert-success d-flex align-items-stretch" role="alert">';
+//                msj = msj + '                            <div class="alert-wrap mr-3">';
+//                msj = msj + '                                <div class="sa">';
+//                msj = msj + '                                    <div class="sa-success">';
+//                msj = msj + '                                        <div class="sa-success-tip"></div>';
+//                msj = msj + '                                        <div class="sa-success-long"></div>';
+//                msj = msj + '                                        <div class="sa-success-placeholder"></div>';
+//                msj = msj + '                                        <div class="sa-success-fix"></div>';
+//                msj = msj + '                                    </div>';
+//                msj = msj + '                                </div>';
+//                msj = msj + '                            </div>';
+//                msj = msj + '                            <div class="alert-wrap">';
+//                msj = msj + '                                <h6>Bien hecho</h6>';
+//                msj = msj + '                                <hr><small class="mb-0">Su registro fue exitoso, en breve le notificaremos el estado a través de un email.</small>';
+//                msj = msj + '                            </div>';
+//                msj = msj + '                        </div>';
+//                $("#seccionMensaje").append(msj);
+//                //setTimeout(dirigir, 5000);
+//            } else {
+//                var msj = '                      <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="errorRegistro">';
+//                msj = msj + '                           <div class="alert-wrap mr-3">';
+//                msj = msj + '                                <div class="sa">';
+//                msj = msj + '                                    <div class="sa-error">';
+//                msj = msj + '                                        <div class="sa-error-x">';
+//                msj = msj + '                                            <div class="sa-error-left"></div>';
+//                msj = msj + '                                            <div class="sa-error-right"></div>';
+//                msj = msj + '                                        </div>';
+//                msj = msj + '                                        <div class="sa-error-placeholder"></div>';
+//                msj = msj + '                                        <div class="sa-error-fix"></div>';
+//                msj = msj + '                                    </div>';
+//                msj = msj + '                                </div>';
+//                msj = msj + '                            </div>';
+//                msj = msj + '                            <div class="alert-wrap">';
+//                msj = msj + '                                <h6>Error de registro</h6>';
+//                msj = msj + '                                <hr><small class="mb-0">Ocurrio un problema durante el registro.</small>';
+//                msj = msj + '                            </div>';
+//                msj = msj + '                        </div>';
+//                $("#seccionMensaje").append(msj);
+//            }
+//        },
+//        error: function (myXhr, textStatus, errorThrown) {
+//            console.log(myXhr);
+//            console.log(textStatus);
+//            console.log(errorThrown);
+//        }
+//    };
+
+//    $("#formRegistrar").ajaxForm(options);
+//    $("#formRegistrar").submit();
+//}
 
 function fn_guardarDetalleIndicador() {
     var url = baseUrl + "Gestion/RegistrarDetalleIndicador";

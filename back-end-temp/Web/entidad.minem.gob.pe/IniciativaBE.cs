@@ -13,6 +13,7 @@ namespace entidad.minem.gob.pe
         public DateTime FECHA_IMPLE_INICIATIVA { get; set; }
         public DateTime FECHA_CREA_INICIATIVA { get; set; }
         public char PRIVACIDAD_INICIATIVA { get; set; }
+        public char PRIVACIDAD_INVERSION { get; set; }
         public double INVERSION_INICIATIVA { get; set; }
         public int ID_MONEDA { get; set; }
         public int ID_METODOLOGIA { get; set; }

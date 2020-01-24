@@ -395,16 +395,20 @@ namespace datos.minem.gob.pe
 
         public UsuarioBE obtenerUsuarioId(int cod)
         {
-            UsuarioBE entidad = null;
+            UsuarioBE entidad = new UsuarioBE();
             try
             {
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
                 {
-                    string sp = sPackage + "USP_UPD_OBTENER_USUARIO_ID";
+                    string sp = sPackage + "USP_UPD_OBTENER_USUARIO_ID"; //AGREGAR AL STORE CAMPOS DE USUARIO COMO INSTITUCION, SECTOR, ETC
                     var p = new OracleDynamicParameters();
                     p.Add("pID_USUARIO", cod);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
-                    entidad = db.Query<UsuarioBE>(sp, p, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                    var ent = db.Query<UsuarioBE>(sp, p, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                    if (ent != null)
+                    {
+                        entidad = ent;
+                    }
                 }
                 entidad.OK = true;
             }

@@ -63,3 +63,4 @@ C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\obj\Release\RdlCompile.compiled
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\obj\Release\MRVMinem.dll
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\obj\Release\MRVMinem.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\Reportes\EscenarioRpt.rdlc

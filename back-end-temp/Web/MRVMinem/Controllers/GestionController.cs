@@ -205,6 +205,19 @@ namespace MRVMinem.Controllers
             return jsonResult;
         }
 
+        public JsonResult CargarDatosUsuario(UsuarioBE entidad)
+        {
+            List<UsuarioBE> lista = new List<UsuarioBE>();
+            entidad = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
+            if (entidad.OK)
+            {
+                lista.Add(entidad);
+            }            
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
         public JsonResult RegistrarIniciativaMitigacion(IniciativaBE entidad)
         {
             ResponseEntity itemRespuesta = new ResponseEntity();

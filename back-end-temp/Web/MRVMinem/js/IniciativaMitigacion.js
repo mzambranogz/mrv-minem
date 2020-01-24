@@ -142,10 +142,12 @@ function fn_cargarIniciativa() {
                             if (data[i]["FECHA"].toString() != "01/01/0001") {
                                 $("#txt-fecha-inicio").val(data[i]["FECHA"].toString());
                             }
-                        }
-                        
+                        }                        
                         if (data[i]["PRIVACIDAD_INICIATIVA"] == 1) {
-                            $("regPrivacidad").prop("checked", true); 
+                            $("#chk-publicar").prop("checked", true);
+                        }
+                        if (data[i]["PRIVACIDAD_INVERSION"] == 1) {
+                            $("#chk-publicar-monto-inversion").prop("checked", true);
                         }
                     }
                 }
@@ -156,10 +158,16 @@ function fn_cargarIniciativa() {
 
 
 function fn_procesoIniciativa(url, estado) {
-    var terminos = $("input:checkbox[id=regPrivacidad]:checked").val();
+    debugger;
+    var terminos = $("#chk-publicar").prop("checked");
+    var inversion = $("#chk-publicar-monto-inversion").prop("checked");
     var privacidad = '0';
+    var privacidad_monto = '0';
     if (terminos) {
         privacidad = '1'; //0 - PRIVADO : 1 - PUBLICO
+    }
+    if (inversion){
+        privacidad_monto = '1'; //0 - PRIVADO : 1 - PUBLICO
     }
 
     var energetico = "";
@@ -193,6 +201,7 @@ function fn_procesoIniciativa(url, estado) {
         NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
         DESC_INICIATIVA: $("#txa-descripcion-medida").val(),
         PRIVACIDAD_INICIATIVA: privacidad,
+        PRIVACIDAD_INVERSION: privacidad_monto,
         INVERSION_INICIATIVA: $("#txt-monto-inversion").val(),
         ID_MONEDA: $("#cbo-moneda").val(),
         FECHA_IMPLE_INICIATIVA: $("#txt-fecha-inicio").val(),
@@ -317,6 +326,7 @@ function fn_procesoIniciativa(url, estado) {
 
 
 function fn_RegistrarIniciativaMitigacion() {
+    debugger;
     var url = baseUrl + "Gestion/RegistrarIniciativaMitigacion";
     fn_procesoIniciativa(url, 1);
 }
@@ -389,11 +399,37 @@ function fn_ObtenerMedidaMitigacion(id) {
 }
 // txa-nombre-iniciativa, txa-descripcion-medida, txt-monto-inversion, txt-fecha-inicio
 function CargarDatosIniciativa() {
-    $("#txt-nombre-responsable").val($("#Control").data("nombres"));
-    $("#txt-nombre-institucion").val($("#Control").data("institucion"));
-    $("#txt-correo-electronico").val($("#Control").data("correo"));
-    $("#txt-direccion").val($("#Control").data("direccion"));
-    $("#txt-sector-institucion").val($("#Control").data("sector"));
+
+    //$("#txt-nombre-responsable").val($("#Control").data("nombres"));
+    //$("#txt-nombre-institucion").val($("#Control").data("institucion"));
+    //$("#txt-correo-electronico").val($("#Control").data("correo"));
+    //$("#txt-direccion").val($("#Control").data("direccion"));
+    //$("#txt-sector-institucion").val($("#Control").data("sector"));
+
+    var Item =
+    {
+        ID_USUARIO: $("#Control").data("usuario")
+    };
+    $.ajax({
+        url: baseUrl + "Gestion/CargarDatosUsuario",
+        type: 'POST',
+        datatype: 'json',
+        data: Item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    for (var i = 0; i < data.length; i++) {
+                        $("#txt-nombre-responsable").val(data[i]["NOMBRES"]);
+                        $("#txt-nombre-institucion").val(data[i]["INSTITUCION"]);
+                        $("#txt-correo-electronico").val(data[i]["EMAIL_USUARIO"]);
+                        $("#txt-direccion").val(data[i]["DIRECCION"]);
+                        $("#txt-sector-institucion").val(data[i]["SECTOR"]);
+                    }
+                }
+            }
+        }
+    });
+
 }
 
 function CargarInicio() {

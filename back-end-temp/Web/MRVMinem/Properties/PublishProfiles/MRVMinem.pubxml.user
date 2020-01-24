@@ -12,13 +12,13 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>03/30/2019 17:21:38</publishTime>
     </File>
     <File Include="bin/datos.minem.gob.pe.dll">
-      <publishTime>01/23/2020 20:13:17</publishTime>
+      <publishTime>01/24/2020 10:45:20</publishTime>
     </File>
     <File Include="bin/de/Microsoft.SqlServer.Types.resources.dll">
       <publishTime>02/21/2014 05:26:06</publishTime>
     </File>
     <File Include="bin/entidad.minem.gob.pe.dll">
-      <publishTime>01/23/2020 20:13:17</publishTime>
+      <publishTime>01/24/2020 10:45:19</publishTime>
     </File>
     <File Include="bin/es/Microsoft.ReportViewer.WebForms.resources.dll">
       <publishTime>05/29/2015 21:25:26</publishTime>
@@ -57,7 +57,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>02/21/2014 05:27:16</publishTime>
     </File>
     <File Include="bin/logica.minem.gob.pe.dll">
-      <publishTime>01/23/2020 20:13:18</publishTime>
+      <publishTime>01/24/2020 10:45:20</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>06/15/2015 02:06:24</publishTime>
@@ -72,13 +72,16 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>07/25/2012 11:48:56</publishTime>
     </File>
     <File Include="bin/MRVMinem.dll">
-      <publishTime>01/23/2020 20:13:27</publishTime>
+      <publishTime>01/24/2020 10:45:25</publishTime>
     </File>
     <File Include="bin/Oracle.DataAccess.dll">
       <publishTime>07/31/2014 22:11:18</publishTime>
     </File>
     <File Include="bin/pt/Microsoft.SqlServer.Types.resources.dll">
       <publishTime>02/21/2014 05:25:24</publishTime>
+    </File>
+    <File Include="bin/Reportes/EscenarioRpt.rdlc">
+      <publishTime>01/23/2020 13:31:03</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>06/18/2015 20:19:46</publishTime>
@@ -366,16 +369,16 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/23/2020 13:31:09</publishTime>
     </File>
     <File Include="js/DetalleIndicador.js">
-      <publishTime>01/23/2020 19:02:01</publishTime>
+      <publishTime>01/24/2020 07:31:32</publishTime>
     </File>
     <File Include="js/IniciativaMitigacion.js">
-      <publishTime>01/23/2020 19:04:13</publishTime>
+      <publishTime>01/24/2020 09:32:12</publishTime>
     </File>
     <File Include="js/jquery.form.js">
       <publishTime>01/23/2020 13:31:09</publishTime>
     </File>
     <File Include="js/Login.js">
-      <publishTime>01/23/2020 13:31:09</publishTime>
+      <publishTime>01/24/2020 10:34:27</publishTime>
     </File>
     <File Include="js/MantenimientoTablas.js">
       <publishTime>01/23/2020 13:31:09</publishTime>
@@ -396,7 +399,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/23/2020 19:30:44</publishTime>
     </File>
     <File Include="js/RegistroUsuario.js">
-      <publishTime>01/23/2020 19:43:34</publishTime>
+      <publishTime>01/24/2020 01:18:35</publishTime>
     </File>
     <File Include="js/script.js">
       <publishTime>01/23/2020 13:31:09</publishTime>
@@ -405,7 +408,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/23/2020 13:31:09</publishTime>
     </File>
     <File Include="js/VerMas.js">
-      <publishTime>01/23/2020 13:31:09</publishTime>
+      <publishTime>01/24/2020 07:08:39</publishTime>
     </File>
     <File Include="packages.config">
       <publishTime>01/23/2020 13:31:09</publishTime>
@@ -432,7 +435,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/23/2020 13:31:04</publishTime>
     </File>
     <File Include="Views/Gestion/DetalleIndicador.cshtml">
-      <publishTime>01/23/2020 13:31:04</publishTime>
+      <publishTime>01/24/2020 07:28:37</publishTime>
     </File>
     <File Include="Views/Gestion/DetalleNotificacion.cshtml">
       <publishTime>01/23/2020 13:31:04</publishTime>
@@ -477,13 +480,13 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/23/2020 13:31:04</publishTime>
     </File>
     <File Include="Views/Home/login.cshtml">
-      <publishTime>01/23/2020 13:31:04</publishTime>
+      <publishTime>01/24/2020 09:49:38</publishTime>
     </File>
     <File Include="Views/Home/recuperar.cshtml">
       <publishTime>01/23/2020 19:18:52</publishTime>
     </File>
     <File Include="Views/Home/registro.cshtml">
-      <publishTime>01/23/2020 13:31:04</publishTime>
+      <publishTime>01/24/2020 00:42:57</publishTime>
     </File>
     <File Include="Views/Portal/AccionMitigacion.cshtml">
       <publishTime>01/23/2020 18:35:29</publishTime>
@@ -513,7 +516,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/23/2020 13:31:05</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/23/2020 20:13:30</publishTime>
+      <publishTime>01/24/2020 10:45:29</publishTime>
     </File>
   </ItemGroup>
 </Project>

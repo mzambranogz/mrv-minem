@@ -325,10 +325,19 @@ function fn_registrarUsuario() {
     //}
 }
 
+$(document).on('change', '#fledeclaracion', function () {
+    debugger;
+    var fileInput = this.value;
+    var fileName = this.files[0].name;
+    var fileSize = this.files[0].size;
 
-
-
-function fn_GrabarUsuario() {
-
-
-}
+    var ext = /(.pdf)$/i;
+    $("#mensajeFile #msj").remove();
+    if (ext.exec(fileInput) && fileName == "modelo-declaracion-jurada.pdf" && (fileSize >= 60000 && fileSize <= 110000)) {
+        $("#mensajeFile").append('<small style="color: green;" id="msj">Documento cargado</small>');
+    } else {        
+        $("#txt-declaracion").val("");
+        this.value = '';
+        $("#mensajeFile").append('<small style="color: red;" id="msj">*archivo no permitido</small>');
+    }
+});

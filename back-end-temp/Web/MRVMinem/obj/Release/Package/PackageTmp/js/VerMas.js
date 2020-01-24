@@ -179,9 +179,12 @@ function CargarDatosIniciativa() {
                         if (data[i]["FECHA"].toString() != "01/01/0001") {
                             $("#txt-fecha-inicio").val(data[i]["FECHA"].toString());
                         }
-                        if (data[i]["PRIVACIDAD_INICIATIVA"] == 1) {
-                            $("regPrivacidad").prop("checked", true);
-                        }
+                        //if (data[i]["PRIVACIDAD_INICIATIVA"] == 1) {
+                        //    $("#chk-publicar").prop("checked", true);
+                        //}
+                        //if (data[i]["PRIVACIDAD_INVERSION"] == 1) {
+                        //    $("#chk-publicar-monto-inversion").prop("checked", true);
+                        //}
                     }
                 }
             }
