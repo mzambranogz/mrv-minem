@@ -5,6 +5,15 @@
     });
 });
 
+$(function () {
+    $(".validar").keydown(function (event) {
+        //alert(event.keyCode);
+        if ((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105) && event.keyCode !== 190 && event.keyCode !== 110 && event.keyCode !== 8 && event.keyCode !== 9) {
+            return false;
+        }
+    });
+});
+
 function CargarListaSectorInstitucion() {
     var Item = {};
     $.ajax({
@@ -65,6 +74,29 @@ function fn_validar(e) {
     var validar = $("#txt-re-pswd").val();
     $("#seccionMensaje #errorRegistro").remove();
     //debugger;
+    if (!(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test($("#txt-user").val()))) {
+        arr.push("Debe ingresar un correo electrónico válido");
+    }
+    if ($("#txt-nombre").val().trim() === ""){
+        arr.push("Debe ingresar su(s) nombre(s) ");
+    }
+    if ($("#txt-apellido").val().trim() === ""){
+        arr.push("Debe ingresar su(s) apellido(s)");
+    }
+    if ($("#txt-institucion").val().trim() === ""){
+        arr.push("Debe ingresar el nombre de su Institución");
+    }
+    debugger;
+    if ($("#txt-ruc").val().length < 9){
+        arr.push("El ruc debe contener 11 caracteres");
+    }
+    if ($("#txt-direccion").val().trim() === ""){
+        arr.push("Debe ingresar el domicilio fiscal de la Institución");
+    }
+    if ($("#cbo-sector").val() == 0){
+        arr.push("Debe seleccionar un Sector");
+    }
+
     if (clave == validar) {
         if (!(/[a-zñ]/.test(clave) && /[A-ZÑ]/.test(clave) && /[0-9]/.test(clave))) {
             arr.push("La contraseña debe contener minuscula(s), mayúscula(s) y número(s)");
@@ -93,11 +125,13 @@ function fn_validar(e) {
         fn_verificarEmail();
         return true;
     } else {
-        var error = '<ul>';
+        //var error = '<ul>';
+        var error = '';
         $.each(arr, function (ind, elem) {
-            error = error + '<li><small class="mb-0">' + elem + '</li></small>';
+            //error = error + '<li><small class="mb-0">' + elem + '</li></small>';
+            error = error + '<small class="mb-0">' + elem + '</small><br/>';
         });
-        error = error + '</ul>';
+        //error = error + '</ul>';
         var msj = '                      <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="errorRegistro">';
         msj = msj + '                           <div class="alert-wrap mr-3">';
         msj = msj + '                                <div class="sa">';
@@ -247,6 +281,7 @@ function fn_registrarUsuario() {
                 msj = msj + '                                <hr><small class="mb-0">Su registro fue exitoso, en breve le notificaremos el estado a través de un email.</small>';
                 msj = msj + '                            </div>';
                 msj = msj + '                        </div>';
+                $("#btnRegistrar").hide();
                 $("#seccionMensaje").append(msj);
                 setTimeout(dirigir, 5000);
             } else {

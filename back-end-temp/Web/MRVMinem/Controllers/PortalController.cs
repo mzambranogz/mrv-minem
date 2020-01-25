@@ -136,7 +136,7 @@ namespace MRVMinem.Controllers
             entidad.CELULAR_USUARIO = Request.Form["CELULAR_USUARIO"].ToString();
             entidad.ANEXO_USUARIO = Request.Form["ANEXO_USUARIO"].ToString();
             entidad.INSTITUCION = Request.Form["INSTITUCION"].ToString();
-            entidad.RUC = Request.Form["RUC"].ToString();
+            entidad.RUC = 20+Request.Form["RUC"].ToString();
             entidad.DIRECCION = Request.Form["DIRECCION"].ToString();
             entidad.TERMINOS = Char.Parse(Request.Form["TERMINOS"]);
 

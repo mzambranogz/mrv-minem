@@ -1,9 +1,7 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "registro";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 
 
 <div class="container-fluid banner d-flex flex-row justify-content-center align-items-center" id="carousel">
@@ -38,72 +36,72 @@
             </div>
             <div class="col-md-6 col-lg-12 p-4 bg-light rounded-bottom">
                 <div class="h4">Regístrate <br><small class="text-muted">Cada institución, pública o privada, puede implementar en la medida de sus posibilidades cualquiera de las medidas de mitigación anteriormente señaladas, y hacer que las mismas aporten a las Contribuciones Nacionalmente Determinadas. Para ello deberán asegurar mediante una&nbsp;<strong>declaración jurada&nbsp;</strong>que las emisiones de&nbsp;<strong>GEI&nbsp;</strong>reducidas no serán comercializadas. En esta primera etapa, se contemplan solo 12 medidas de mitigación, las mismas que han sido trabajadas por el Proyecto  Acciones Nacionales Apropiadas de Mitigación (<strong>NAMA</strong>) en los sectores de generación de energía y su uso final en el Perú.</small></div>
-                <form class="pt-4" id="formRegistrar" enctype="multipart/form-data" method="post">
+                <form class="pt-4" id="formRegistrar" action="./acciones-de-mitigacion.html">
                     <div class="row">
                         <div class="col-md-12 col-lg-6">
                             <div class="form-group">
                                 <label for="txt-user">Email</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-envelope"></i></span></div>
-                                    <input class="form-control" type="text" id="txt-user" placeholder="Dirección de email" aria-describedby="inputGroup1" required>
+                                    <input class="form-control" type="email" id="txt-user" placeholder="Dirección de email" aria-describedby="inputGroup1" pattern="" maxlength="54" required>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="txt-nombre">Nombre</label>
+                                <label for="txt-nombre">Nombres</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup3"><i class="fas fa-user-tie"></i></span></div>
-                                    <input class="form-control" type="text" id="txt-nombre" placeholder="Ingrese su nombre" aria-describedby="inputGroup3" required>
+                                    <input class="form-control" type="text" id="txt-nombre" placeholder="Ingrese su nombres" aria-describedby="inputGroup3" pattern="@ViewBag.Estilo" maxlength="54" required>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="txt-apellido">Apellido</label>
+                                <label for="txt-apellido">Apellidos</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-user-tie"></i></span></div>
-                                    <input class="form-control" type="text" id="txt-apellido" placeholder="Ingrese su apellido" aria-describedby="inputGroup4" required>
+                                    <input class="form-control" type="text" id="txt-apellido" placeholder="Ingrese su apellidos" aria-describedby="inputGroup4" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{8,54}" maxlength="54" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="txt-telefono">Teléfono</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup11"><i class="fas fa-phone-alt"></i></span></div>
-                                    <input class="form-control" type="text" id="txt-telefono" placeholder="Ingrese su teléfono" aria-describedby="inputGroup11" required>
+                                    <input class="form-control" type="tel" id="txt-telefono" placeholder="Ingrese su teléfono" aria-describedby="inputGroup11" pattern="[0-9]{6,10}" maxlength="10" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="txt-anexo">Anexo</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup12"><i class="fas fa-phone-square-alt"></i></span></div>
-                                    <input class="form-control" type="text" id="txt-anexo" placeholder="Ingrese su anexo" aria-describedby="inputGroup12" required>
+                                    <input class="form-control" type="tel" id="txt-anexo" placeholder="Ingrese su anexo" aria-describedby="inputGroup12" pattern="[0-9]{4,5}" maxlength="5" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="txt-celular">Celular</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-mobile-alt"></i></span></div>
-                                    <input class="form-control" type="text" id="txt-celular" placeholder="Ingrese su celular" aria-describedby="inputGroup5" required>
+                                    <input class="form-control" type="text" id="txt-celular" placeholder="Ingrese su celular" aria-describedby="inputGroup5" pattern="[0-9]{9,12}" maxlength="12" required>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12 col-lg-6" id="seccionMensaje"> @**@
+                        <div class="col-md-12 col-lg-6">
                             <div class="form-group">
-                                <label for="txt-institucion">Institución</label>
+                                <label for="txt-institucion">Institución &nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="top" title="Ingrese el nombre comercial o razón social de su empresa"></i></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
-                                    <input class="form-control" type="text" id="txt-institucion" placeholder="Ingrese su institución" aria-describedby="inputGroup6" required>
+                                    <input class="form-control" type="text" id="txt-institucion" placeholder="Ingrese su institución" aria-describedby="inputGroup6" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{8,70}" maxlength="70" required>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="txt-ruc">RUC</label>
+                                <label for="txt-ruc">RUC&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="top" title="Se necesita un RUC de persona jurídica"></i></label>
                                 <div class="input-group">
-                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup7"><i class="fas fa-landmark"></i></span></div>
-                                    <input class="form-control" type="text" id="txt-ruc" placeholder="Ingrese su RUC" aria-describedby="inputGroup7" required>
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup7"><i class="fas fa-landmark"></i></span><span class="input-group-text bg-white pr-0 font-weight-bold">20</span></div>
+                                    <input class="form-control pl-0 border-left-0 validar" type="text" id="txt-ruc" placeholder="######### complete su RUC" aria-describedby="inputGroup7" pattern="[0-9]{9}" maxlength="9" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="txt-direccion">Dirección</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup8"><i class="fas fa-landmark"></i></span></div>
-                                    <input class="form-control" type="text" id="txt-direccion" placeholder="Ingrese su dirección" aria-describedby="inputGroup8" required>
+                                    <input class="form-control" type="text" id="txt-direccion" placeholder="Ingrese su dirección" aria-describedby="inputGroup8" pattern="@ViewBag.Estilo" maxlength="120" required>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -112,17 +110,16 @@
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
                                     <select class="form-control" id="cbo-sector" aria-describedby="inputGroup9" required>
                                         <option value="0">-Seleccione un sector-</option>
-                                        <!--<option>Sector 01</option>
-                                        <option>Sector 02</option>
-                                        <option>Sector 03</option>-->
+                                        <!-- <option>Sector 01</option> -->
+                                        <!-- <option>Sector 02</option> -->
+                                        <!-- <option>Sector 03</option> -->
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="txt-pswd">Contraseña</label>
+                                <label for="txt-pswd">Contraseña&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="top" title="Su contraseña debe incluir 8 caracteres como mínimo, 1 minúscula, 1 mayúscula, 1 número y 1 caracter especial."></i></label>
                                 <div class="input-group">
-                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup2"><i class="fas fa-key"></i></span></div>
-                                    <input class="form-control" type="password" id="txt-pswd" placeholder="Su contraseña necesita mayúscula, minúscula y números" aria-describedby="inputGroup2" required>
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup2"><i class="fas fa-key"></i></span></div><input class="form-control" type="password" id="txt-pswd" placeholder="Ingrese se contraseña" aria-describedby="inputGroup2" title="Su contraseña debe incluir 8 caracteres como mínimo, 1 minúscula, 1 mayúscula, 1 número y 1 caracter especial." required>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -153,44 +150,41 @@
                             <div class="form-group">
                                 <div class="g-recaptcha" data-sitekey="6Ldqw8sUAAAAAM2nmHyMhCNd3HtkOJyWc8nsh7DR"></div>
                             </div>
-
-                            @*
-                            <div class="alert alert-danger d-flex align-items-stretch" role="alert">
-                                <div class="alert-wrap mr-3">
-                                    <div class="sa">
-                                        <div class="sa-error">
-                                            <div class="sa-error-x">
-                                                <div class="sa-error-left"></div>
-                                                <div class="sa-error-right"></div>
-                                            </div>
-                                            <div class="sa-error-placeholder"></div>
-                                            <div class="sa-error-fix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="alert-wrap">
-                                    <h6>Error de registro</h6>
-                                    <hr><small class="mb-0">El correo ingresado ya existe, utilice un correo válido para su registro.</small>
-                                </div>
-                            </div>
-                            <div class="alert alert-success d-flex align-items-stretch" role="alert">
-                                <div class="alert-wrap mr-3">
-                                    <div class="sa">
-                                        <div class="sa-success">
-                                            <div class="sa-success-tip"></div>
-                                            <div class="sa-success-long"></div>
-                                            <div class="sa-success-placeholder"></div>
-                                            <div class="sa-success-fix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="alert-wrap">
-                                    <h6>Bien hecho</h6>
-                                    <hr><small class="mb-0">Su registro fue exitoso, en breve le notificaremos el estado a través de un email.</small>
-                                </div>
-                            </div>
-                            *@
-
+                            <div id="seccionMensaje"></div>
+                            <!-- <div class="alert alert-danger d-flex align-items-stretch" role="alert"> -->
+                            <!-- <div class="alert-wrap mr-3"> -->
+                            <!-- <div class="sa"> -->
+                            <!-- <div class="sa-error"> -->
+                            <!-- <div class="sa-error-x"> -->
+                            <!-- <div class="sa-error-left"></div> -->
+                            <!-- <div class="sa-error-right"></div> -->
+                            <!-- </div> -->
+                            <!-- <div class="sa-error-placeholder"></div> -->
+                            <!-- <div class="sa-error-fix"></div> -->
+                            <!-- </div> -->
+                            <!-- </div> -->
+                            <!-- </div> -->
+                            <!-- <div class="alert-wrap"> -->
+                            <!-- <h6>Error de registro</h6> -->
+                            <!-- <hr><small class="mb-0">El correo ingresado ya existe, utilice un correo válido para su registro.</small> -->
+                            <!-- </div> -->
+                            <!-- </div> -->
+                            <!-- <div class="alert alert-success d-flex align-items-stretch" role="alert"> -->
+                            <!-- <div class="alert-wrap mr-3"> -->
+                            <!-- <div class="sa"> -->
+                            <!-- <div class="sa-success"> -->
+                            <!-- <div class="sa-success-tip"></div> -->
+                            <!-- <div class="sa-success-long"></div> -->
+                            <!-- <div class="sa-success-placeholder"></div> -->
+                            <!-- <div class="sa-success-fix"></div> -->
+                            <!-- </div> -->
+                            <!-- </div> -->
+                            <!-- </div> -->
+                            <!-- <div class="alert-wrap"> -->
+                            <!-- <h6>Bien hecho</h6> -->
+                            <!-- <hr><small class="mb-0">Su registro fue exitoso, en breve le notificaremos el estado a través de un email.</small> -->
+                            <!-- </div> -->
+                            <!-- </div> -->
                             <!--.alert.alert-warning.d-flex.align-items-stretch(role="alert")
                             .alert-wrap.mr-3
                               .sa

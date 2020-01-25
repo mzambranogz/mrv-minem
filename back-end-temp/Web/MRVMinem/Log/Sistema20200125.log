@@ -1,0 +1,871 @@
+25/01/2020 06:24:27 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_PUBLICO'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:24:27 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_PUBLICO'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:24:27 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_PUBLICO'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:24:27 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_PUBLICO'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:24:27 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_PUBLICO'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:24:27 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_PUBLICO'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:24:27 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_PUBLICO'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:24:27 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_PUBLICO'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:24:27 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_PUBLICO'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:24:27 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_PUBLICO'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:24:27 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaIniciativaPublico(entidad.minem.gob.pe.IniciativaBE), Línea: 33] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_PUBLICO'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:51:55 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:51:55 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:51:55 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:51:55 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:51:55 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:51:55 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:51:55 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:51:55 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:51:55 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:51:55 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:51:55 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaIniciativaUsuario(entidad.minem.gob.pe.IniciativaBE), Línea: 128] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:52:57 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:52:57 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:52:57 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:52:57 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:52:57 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:52:57 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:52:57 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:52:57 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:52:57 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:52:57 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:52:57 a.m.: [Método: entidad.minem.gob.pe.UsuarioBE obtenerUsuarioId(Int32), Línea: 407] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:58:53 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:58:53 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:58:53 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:58:53 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:58:53 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:58:53 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:58:53 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:58:53 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:58:53 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:58:53 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 06:58:53 a.m.: [Método: entidad.minem.gob.pe.UsuarioBE obtenerUsuarioId(Int32), Línea: 407] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:05:51 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:05:51 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:05:51 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:05:51 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:05:51 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:05:51 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:05:51 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:05:51 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:05:51 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:05:51 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:05:51 a.m.: [Método: entidad.minem.gob.pe.UsuarioBE obtenerUsuarioId(Int32), Línea: 407] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:05:57 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:05:57 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:05:57 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:05:57 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:05:57 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:05:57 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:05:57 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:05:57 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:05:57 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:05:57 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:05:57 a.m.: [Método: entidad.minem.gob.pe.UsuarioBE obtenerUsuarioId(Int32), Línea: 407] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:09:05 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:09:05 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:09:05 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:09:05 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:09:05 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:09:05 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:09:05 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:09:05 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:09:05 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:09:05 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:09:05 a.m.: [Método: entidad.minem.gob.pe.UsuarioBE obtenerUsuarioId(Int32), Línea: 407] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:13:26 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:13:26 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:13:26 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:13:26 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:13:26 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:13:26 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:13:26 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:13:26 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:13:26 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:13:26 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:13:26 a.m.: [Método: entidad.minem.gob.pe.UsuarioBE obtenerUsuarioId(Int32), Línea: 407] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:13:31 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:13:31 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:13:31 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:13:31 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:13:31 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:13:31 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:13:31 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:13:31 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:13:31 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:13:31 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:13:31 a.m.: [Método: entidad.minem.gob.pe.UsuarioBE obtenerUsuarioId(Int32), Línea: 407] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:19:52 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:19:52 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:19:52 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:19:52 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:19:52 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:19:52 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:19:52 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:19:52 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:19:52 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:19:52 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:19:52 a.m.: [Método: entidad.minem.gob.pe.UsuarioBE obtenerUsuarioId(Int32), Línea: 407] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:23:42 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:23:42 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:23:42 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:23:42 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:23:42 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:23:42 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:23:42 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:23:42 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:23:42 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:23:42 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:23:42 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaIniciativaUsuario(entidad.minem.gob.pe.IniciativaBE), Línea: 128] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:23:46 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:23:46 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:23:46 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:23:46 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:23:46 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:23:46 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:23:46 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:23:46 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:23:46 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:23:46 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:23:46 a.m.: [Método: entidad.minem.gob.pe.UsuarioBE obtenerUsuarioId(Int32), Línea: 407] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:31:19 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:31:19 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:31:19 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:31:19 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:31:19 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:31:19 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:31:19 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:31:19 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:31:19 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:31:19 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 07:31:19 a.m.: [Método: entidad.minem.gob.pe.UsuarioBE obtenerUsuarioId(Int32), Línea: 407] - ORA-06550: línea 1, columna 37:
+PLS-00302: el componente 'USP_UPD_OBTENER_USUARIO_ID' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 11:42:29 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 11:42:29 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 11:42:29 a.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 11:42:29 a.m.: [Método: Void Open(), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 11:42:29 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 11:42:29 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 11:42:29 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 11:42:29 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 11:42:29 a.m.: [Método: entidad.minem.gob.pe.UsuarioBE ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 193] - ORA-12541: TNS:no listener
+25/01/2020 11:42:58 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+25/01/2020 11:42:58 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+25/01/2020 11:42:58 a.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+25/01/2020 11:42:58 a.m.: [Método: Void Open(), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+25/01/2020 11:42:58 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+25/01/2020 11:42:58 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+25/01/2020 11:42:58 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+25/01/2020 11:42:58 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+25/01/2020 11:42:58 a.m.: [Método: entidad.minem.gob.pe.UsuarioBE ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 193] - ORA-12170: TNS:Connect timeout occurred
+25/01/2020 11:43:41 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12547: TNS:lost contact
+25/01/2020 11:43:41 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12547: TNS:lost contact
+25/01/2020 11:43:41 a.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12547: TNS:lost contact
+25/01/2020 11:43:41 a.m.: [Método: Void Open(), Línea: 0] - ORA-12547: TNS:lost contact
+25/01/2020 11:43:41 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12547: TNS:lost contact
+25/01/2020 11:43:41 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12547: TNS:lost contact
+25/01/2020 11:43:41 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12547: TNS:lost contact
+25/01/2020 11:43:41 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12547: TNS:lost contact
+25/01/2020 11:43:41 a.m.: [Método: entidad.minem.gob.pe.UsuarioBE ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 193] - ORA-12547: TNS:lost contact
+25/01/2020 11:49:39 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 3460
+Session ID: 187 Serial number: 1715
+25/01/2020 11:49:39 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 3460
+Session ID: 187 Serial number: 1715
+25/01/2020 11:49:39 a.m.: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 3460
+Session ID: 187 Serial number: 1715
+25/01/2020 11:49:39 a.m.: [Método: Int32 ExecuteNonQuery(Oracle.DataAccess.Client.OracleConnection, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 255] - ORA-03135: connection lost contact
+Process ID: 3460
+Session ID: 187 Serial number: 1715
+25/01/2020 11:49:39 a.m.: [Método: Int32 ExecuteNonQuery(System.String, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 178] - ORA-03135: connection lost contact
+Process ID: 3460
+Session ID: 187 Serial number: 1715
+25/01/2020 11:49:39 a.m.: [Método: Boolean VerificarEstadoUsuario(entidad.minem.gob.pe.UsuarioBE), Línea: 223] - ORA-03135: connection lost contact
+Process ID: 3460
+Session ID: 187 Serial number: 1715
+25/01/2020 11:49:39 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-03114: not connected to ORACLE
+25/01/2020 11:49:39 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-03114: not connected to ORACLE
+25/01/2020 11:49:39 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-03114: not connected to ORACLE
+25/01/2020 11:49:39 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-03114: not connected to ORACLE
+25/01/2020 11:49:39 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-03114: not connected to ORACLE
+25/01/2020 11:49:39 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-03114: not connected to ORACLE
+25/01/2020 11:49:39 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-03114: not connected to ORACLE
+25/01/2020 11:49:39 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-03114: not connected to ORACLE
+25/01/2020 11:49:39 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-03114: not connected to ORACLE
+25/01/2020 11:49:39 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-03114: not connected to ORACLE
+25/01/2020 11:49:39 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.RolOpcionesBE] ListarRolOpciones(Int32), Línea: 29] - ORA-03114: not connected to ORACLE
+25/01/2020 11:55:44 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 9756
+Session ID: 421 Serial number: 26386
+25/01/2020 11:55:44 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 9756
+Session ID: 421 Serial number: 26386
+25/01/2020 11:55:44 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 9756
+Session ID: 421 Serial number: 26386
+25/01/2020 11:55:44 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 9756
+Session ID: 421 Serial number: 26386
+25/01/2020 11:55:44 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 9756
+Session ID: 421 Serial number: 26386
+25/01/2020 11:55:44 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 9756
+Session ID: 421 Serial number: 26386
+25/01/2020 11:55:44 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 9756
+Session ID: 421 Serial number: 26386
+25/01/2020 11:55:44 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 9756
+Session ID: 421 Serial number: 26386
+25/01/2020 11:55:44 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 9756
+Session ID: 421 Serial number: 26386
+25/01/2020 11:55:44 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 9756
+Session ID: 421 Serial number: 26386
+25/01/2020 11:55:44 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorBE] ListarDetalleIndicadorRevision(entidad.minem.gob.pe.IndicadorBE), Línea: 199] - ORA-03135: connection lost contact
+Process ID: 9756
+Session ID: 421 Serial number: 26386
+25/01/2020 12:07:13 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 14688
+Session ID: 303 Serial number: 13617
+25/01/2020 12:07:13 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 14688
+Session ID: 303 Serial number: 13617
+25/01/2020 12:07:13 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 14688
+Session ID: 303 Serial number: 13617
+25/01/2020 12:07:13 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 14688
+Session ID: 303 Serial number: 13617
+25/01/2020 12:07:13 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 14688
+Session ID: 303 Serial number: 13617
+25/01/2020 12:07:13 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 14688
+Session ID: 303 Serial number: 13617
+25/01/2020 12:07:13 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 14688
+Session ID: 303 Serial number: 13617
+25/01/2020 12:07:13 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 14688
+Session ID: 303 Serial number: 13617
+25/01/2020 12:07:13 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 14688
+Session ID: 303 Serial number: 13617
+25/01/2020 12:07:13 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 14688
+Session ID: 303 Serial number: 13617
+25/01/2020 12:07:13 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.MedidaMitigacionBE] ListarMedidaMitigacion(entidad.minem.gob.pe.MedidaMitigacionBE), Línea: 28] - ORA-03135: connection lost contact
+Process ID: 14688
+Session ID: 303 Serial number: 13617
+25/01/2020 12:07:28 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Timeout de solicitud de conexión
+25/01/2020 12:07:28 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Timeout de solicitud de conexión
+25/01/2020 12:07:28 p.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - Timeout de solicitud de conexión
+25/01/2020 12:07:28 p.m.: [Método: Void Open(), Línea: 0] - Timeout de solicitud de conexión
+25/01/2020 12:07:28 p.m.: [Método: Boolean MoveNext(), Línea: 0] - Timeout de solicitud de conexión
+25/01/2020 12:07:28 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Timeout de solicitud de conexión
+25/01/2020 12:07:28 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Timeout de solicitud de conexión
+25/01/2020 12:07:28 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Timeout de solicitud de conexión
+25/01/2020 12:07:28 p.m.: [Método: entidad.minem.gob.pe.NotificacionBE ConsultaNotificaciones(Int32, Int32), Línea: 31] - Timeout de solicitud de conexión
+25/01/2020 12:07:31 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:31 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:31 p.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:31 p.m.: [Método: Void Open(), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:31 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:31 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:31 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:31 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:31 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.GasEfectoInvernaderoBE] ListarGEI(entidad.minem.gob.pe.GasEfectoInvernaderoBE), Línea: 28] - ORA-12541: TNS:no listener
+25/01/2020 12:07:34 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:34 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:34 p.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:34 p.m.: [Método: Void Open(), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:34 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:34 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:34 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:34 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:34 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.EnergeticoBE] ListarENERGProyecto(entidad.minem.gob.pe.EnergeticoBE), Línea: 51] - ORA-12541: TNS:no listener
+25/01/2020 12:07:37 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:37 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:37 p.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:37 p.m.: [Método: Void Open(), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:37 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:37 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:37 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:37 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:37 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SectorInstitucionBE] ListaSectorInstitucion(entidad.minem.gob.pe.SectorInstitucionBE), Línea: 30] - ORA-12541: TNS:no listener
+25/01/2020 12:07:40 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:40 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:40 p.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:40 p.m.: [Método: Void Open(), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:40 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:40 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:40 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:40 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:40 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaIniciativaEspecialista(entidad.minem.gob.pe.IniciativaBE), Línea: 65] - ORA-12541: TNS:no listener
+25/01/2020 12:07:51 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:51 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:51 p.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:51 p.m.: [Método: Void Open(), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:51 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:51 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:51 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:51 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:51 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaIniciativaEspecialista(entidad.minem.gob.pe.IniciativaBE), Línea: 65] - ORA-12541: TNS:no listener
+25/01/2020 12:07:55 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:55 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:55 p.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:55 p.m.: [Método: Void Open(), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:55 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:55 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:55 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:55 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:55 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SectorInstitucionBE] ListaSectorInstitucion(entidad.minem.gob.pe.SectorInstitucionBE), Línea: 30] - ORA-12541: TNS:no listener
+25/01/2020 12:07:58 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:58 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:58 p.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:58 p.m.: [Método: Void Open(), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:58 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:58 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:58 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:58 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:07:58 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.GasEfectoInvernaderoBE] ListarGEI(entidad.minem.gob.pe.GasEfectoInvernaderoBE), Línea: 28] - ORA-12541: TNS:no listener
+25/01/2020 12:08:01 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:01 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:01 p.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:01 p.m.: [Método: Void Open(), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:01 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:01 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:01 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:01 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:01 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.EnergeticoBE] ListarENERGProyecto(entidad.minem.gob.pe.EnergeticoBE), Línea: 51] - ORA-12541: TNS:no listener
+25/01/2020 12:08:16 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Timeout de solicitud de conexión
+25/01/2020 12:08:16 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - Timeout de solicitud de conexión
+25/01/2020 12:08:16 p.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - Timeout de solicitud de conexión
+25/01/2020 12:08:16 p.m.: [Método: Void Open(), Línea: 0] - Timeout de solicitud de conexión
+25/01/2020 12:08:16 p.m.: [Método: Boolean MoveNext(), Línea: 0] - Timeout de solicitud de conexión
+25/01/2020 12:08:16 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Timeout de solicitud de conexión
+25/01/2020 12:08:16 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Timeout de solicitud de conexión
+25/01/2020 12:08:16 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Timeout de solicitud de conexión
+25/01/2020 12:08:16 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.MedidaMitigacionBE] ListarMedidaMitigacion(entidad.minem.gob.pe.MedidaMitigacionBE), Línea: 28] - Timeout de solicitud de conexión
+25/01/2020 12:08:17 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:17 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:17 p.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:17 p.m.: [Método: Void Open(), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:17 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:17 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:17 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:17 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:17 p.m.: [Método: entidad.minem.gob.pe.NotificacionBE ConsultaNotificaciones(Int32, Int32), Línea: 31] - ORA-12541: TNS:no listener
+25/01/2020 12:08:23 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:23 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:23 p.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:23 p.m.: [Método: Void Open(), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:23 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:23 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:23 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:23 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:23 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.MedidaMitigacionBE] ListarMedidaMitigacion(entidad.minem.gob.pe.MedidaMitigacionBE), Línea: 28] - ORA-12541: TNS:no listener
+25/01/2020 12:08:25 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:25 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:25 p.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:25 p.m.: [Método: Void Open(), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:25 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:25 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:25 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:25 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:25 p.m.: [Método: entidad.minem.gob.pe.NotificacionBE ConsultaNotificaciones(Int32, Int32), Línea: 31] - ORA-12541: TNS:no listener
+25/01/2020 12:08:28 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:28 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:28 p.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:28 p.m.: [Método: Void Open(), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:28 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:28 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:28 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:28 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:28 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SectorInstitucionBE] ListaSectorInstitucion(entidad.minem.gob.pe.SectorInstitucionBE), Línea: 30] - ORA-12541: TNS:no listener
+25/01/2020 12:08:30 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:30 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:30 p.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:30 p.m.: [Método: Void Open(), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:30 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:30 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:30 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:30 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:08:30 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaIniciativaEspecialista(entidad.minem.gob.pe.IniciativaBE), Línea: 65] - ORA-12541: TNS:no listener
+25/01/2020 12:09:13 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 9008
+Session ID: 185 Serial number: 13086
+25/01/2020 12:09:13 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 9008
+Session ID: 185 Serial number: 13086
+25/01/2020 12:09:13 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 9008
+Session ID: 185 Serial number: 13086
+25/01/2020 12:09:13 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 9008
+Session ID: 185 Serial number: 13086
+25/01/2020 12:09:13 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 9008
+Session ID: 185 Serial number: 13086
+25/01/2020 12:09:13 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 9008
+Session ID: 185 Serial number: 13086
+25/01/2020 12:09:13 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 9008
+Session ID: 185 Serial number: 13086
+25/01/2020 12:09:13 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 9008
+Session ID: 185 Serial number: 13086
+25/01/2020 12:09:13 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 9008
+Session ID: 185 Serial number: 13086
+25/01/2020 12:09:13 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 9008
+Session ID: 185 Serial number: 13086
+25/01/2020 12:09:13 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.MedidaMitigacionBE] ListarMedidaMitigacion(entidad.minem.gob.pe.MedidaMitigacionBE), Línea: 28] - ORA-03135: connection lost contact
+Process ID: 9008
+Session ID: 185 Serial number: 13086
+25/01/2020 12:09:21 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:09:21 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:09:21 p.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:09:21 p.m.: [Método: Void Open(), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:09:21 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:09:21 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:09:21 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:09:21 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12541: TNS:no listener
+25/01/2020 12:09:21 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.GasEfectoInvernaderoBE] ListarGEI(entidad.minem.gob.pe.GasEfectoInvernaderoBE), Línea: 28] - ORA-12541: TNS:no listener

@@ -192,13 +192,14 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
 
                         var tr = '<tr>';
                         //tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + (1 + i) + '</th>';
-                        tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + data[i]["RowNumber"] + '</th>';
+                        //tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + data[i]["RowNumber"] + '</th>';
+                        tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + data[i]["ID_INICIATIVA"] + '</th>';
                         tr = tr + '<td data-encabezado="Nombre de Iniciativa">' + data[i]["NOMBRE_INICIATIVA"] + '</td>';
                         tr = tr + '<td data-encabezado="Progreso">';
                         tr = tr + '         <div class="progress" style="height: 20px;">';
                         tr = tr + '                 <div class="progress-bar progress-bar-striped" role="progressbar" style="width: ' + progreso + ';" aria-valuenow="' + progreso.substring(0, progreso.length - 1) + '" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">' + progreso + '</div>';
                         tr = tr + '</div></td>';
-                        tr = tr + '<td>' + data[i]["FECHA"].toString() + '</td>';
+                        tr = tr + '<td class="text-center">' + data[i]["FECHA"].toString() + '</td>';
                         tr = tr + '<td>' + data[i]["NOMBRE_MEDMIT"] + '</td>';
                         tr = tr + '<td>' + data[i]["NOMBRE_INSTITUCION"] + '</td>';
                         tr = tr + '<td class="text-center text-xs-right" data-encabezado="Acciones">';
@@ -306,13 +307,14 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
 
                         var tr = '<tr>';
                         //tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + (1 + i) + '</th>'; 
-                        tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + data[i]["RowNumber"] + '</th>';
+                        //tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + data[i]["RowNumber"] + '</th>';
+                        tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + data[i]["ID_INICIATIVA"] + '</th>';
                         tr = tr + '<td data-encabezado="Nombre de Iniciativa">' + data[i]["NOMBRE_INICIATIVA"] + '</td>';
                         tr = tr + '<td data-encabezado="Progreso">';
                         tr = tr + '         <div class="progress" style="height: 20px;">';
                         tr = tr + '                 <div class="progress-bar progress-bar-striped" role="progressbar" style="width: ' + progreso + ';" aria-valuenow="' + progreso.substring(0, progreso.length - 1) + '" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">' + progreso + '</div>';
                         tr = tr + '</div></td>';
-                        tr = tr + '<td>' + data[i]["FECHA"].toString() + '</td>';
+                        tr = tr + '<td class="text-center">' + data[i]["FECHA"].toString() + '</td>';
                         tr = tr + '<td>' + data[i]["NOMBRE_MEDMIT"] + '</td>';
                         tr = tr + '<td>' + data[i]["NOMBRE_INSTITUCION"] + '</td>';
                         tr = tr + '<td class="text-center text-xs-right" data-encabezado="Acciones">';
@@ -1058,13 +1060,14 @@ function tablaMitigacionPublico(data) {
         }
 
         var tr = '<tr>';
-        tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + (1 + i) + '</th>';
+        //tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + (1 + i) + '</th>';
+        tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + data[i]["ID_INICIATIVA"] + '</th>';
         tr = tr + '<td data-encabezado="Nombre de Iniciativa">' + data[i]["NOMBRE_INICIATIVA"] + '</td>';
         tr = tr + '<td data-encabezado="Progreso">';
         tr = tr + '         <div class="progress" style="height: 20px;">';
         tr = tr + '                 <div class="progress-bar progress-bar-striped" role="progressbar" style="width: ' + progreso + ';" aria-valuenow="' + progreso.substring(0, progreso.length - 1) + '" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">' + progreso + '</div>';
         tr = tr + '</div></td>';
-        tr = tr + '<td>' + data[i]["FECHA"] + '</td>';
+        tr = tr + '<td class="text-center">' + data[i]["FECHA"] + '</td>';
         tr = tr + '<td>' + data[i]["NOMBRE_MEDMIT"] + '</td>';
         tr = tr + '<td>' + data[i]["NOMBRE_INSTITUCION"] + '</td>';
         tr = tr + '<td class="text-center text-xs-right" data-encabezado="Acciones">';
@@ -1100,13 +1103,14 @@ function tablaMitigacionPrivado(data) {
 
         var tr = '<tr>';
         //tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + (1 + i) + '</th>'; 
-        tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + data[i]["RowNumber"] + '</th>';
+        //tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + data[i]["RowNumber"] + '</th>';
+        tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + data[i]["ID_INICIATIVA"] + '</th>';
         tr = tr + '<td data-encabezado="Nombre de Iniciativa">' + data[i]["NOMBRE_INICIATIVA"] + '</td>';
         tr = tr + '<td data-encabezado="Progreso">';
         tr = tr + '         <div class="progress" style="height: 20px;">';
         tr = tr + '                 <div class="progress-bar progress-bar-striped" role="progressbar" style="width: ' + progreso + ';" aria-valuenow="' + progreso.substring(0, progreso.length - 1) + '" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">' + progreso + '</div>';
         tr = tr + '</div></td>';
-        tr = tr + '<td>' + data[i]["FECHA"].toString() + '</td>';
+        tr = tr + '<td class="text-center">' + data[i]["FECHA"].toString() + '</td>';
         tr = tr + '<td>' + data[i]["NOMBRE_MEDMIT"] + '</td>';
         tr = tr + '<td>' + data[i]["NOMBRE_INSTITUCION"] + '</td>';
         tr = tr + '<td class="text-center text-xs-right" data-encabezado="Acciones">';

@@ -174,6 +174,8 @@ function CargarDatosIniciativa() {
                                 //$("#txt-fecha-inicio").val("2019-12-12"); FORMATO EJEMPLO PARA CARGA
                             }
                         } else {
+                            $("#receptorObservacion").append(data[i]["NOMBRES"]);
+                            $("#emisorObservacion").append($("#Control").data("nombres"));
                             $("#txt-moneda").val(data[i]["MONEDA"]);
                             if (data[i]["FECHA"].toString() != "01/01/0001") {
                                 $("#txt-fecha-inicio").val(data[i]["FECHA"].toString());

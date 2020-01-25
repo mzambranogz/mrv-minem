@@ -140,6 +140,8 @@ function fn_cargarIniciativa() {
                                 //$("#txt-fecha-inicio").val("2019-12-12"); FORMATO EJEMPLO PARA CARGA
                             }
                         } else {
+                            $("#receptorObservacion").append(data[i]["NOMBRES"]);
+                            $("#emisorObservacion").append($("#Control").data("nombres"));
                             $("#txt-moneda").val(data[i]["MONEDA"]);
                             if (data[i]["FECHA"].toString() != "01/01/0001") {
                                 $("#txt-fecha-inicio").val(data[i]["FECHA"].toString());
@@ -158,9 +160,72 @@ function fn_cargarIniciativa() {
     });
 }
 
+function validarCheck(id, sid) {
+    for (var i = 0; i < $(id).data("cantidad") ; i++) {
+        if ($(sid + (i + 1)).prop('checked')) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function validarCampo() {
+
+    if ($("#txa-nombre-iniciativa").val().trim() === ""){
+        return false;
+    }
+    if ($("#txa-descripcion-medida").val().trim() === ""){
+        return false;
+    }
+    if ($("#cbo-moneda").val() == 0){
+        return false;
+    }
+    if ($("#txt-monto-inversion").val().trim() === ""){
+        return false;
+    }
+    if ($("#txt-fecha-inicio").val() == ""){
+        return false;
+    }
+    if (!validarCheck("#listaUbicacion", "#U")) {
+        return false;
+    }
+    if (!validarCheck("#listaEnerg", "#E")) {
+        return false;
+    }
+    if (!validarCheck("#listaGei", "#G")){
+        return false;
+    }
+    return true;
+}
 
 function fn_procesoIniciativa(url, estado) {
     debugger;
+    if (estado == 1 || estado == 5) {
+        if (!validarCampo()) {
+            $('#mensajeModalRegistrar #mensajeGoodRegistro').remove();
+            $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
+            var msj = '                       <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="mensajeDangerRegistro">';
+            msj = msj + '                            <div class="alert-wrap mr-3">';
+            msj = msj + '                                <div class="sa">';
+            msj = msj + '                                    <div class="sa-error">';
+            msj = msj + '                                       <div class="sa-error-x">';
+            msj = msj + '                                           <div class="sa-error-left"></div>';
+            msj = msj + '                                           <div class="sa-error-right"></div>';
+            msj = msj + '                                       </div>';
+            msj = msj + '                                       <div class="sa-error-placeholder"></div>';
+            msj = msj + '                                       <div class="sa-error-fix"></div>';
+            msj = msj + '                                   </div>';
+            msj = msj + '                               </div>';
+            msj = msj + '                           </div>';
+            msj = msj + '                           <div class="alert-wrap">';
+            msj = msj + '                                <h6>Error de registro</h6>';
+            msj = msj + '                                <hr><small class="mb-0">Por favor, completar los campos obligatorios (*).</small>';
+            msj = msj + '                           </div>';
+            msj = msj + '                     </div>';
+            $('#mensajeModalRegistrar').append(msj);
+            return false;
+        }
+    }
     var terminos = $("#chk-publicar").prop("checked");
     var inversion = $("#chk-publicar-monto-inversion").prop("checked");
     var privacidad = '0';
@@ -310,21 +375,21 @@ function fn_procesoIniciativa(url, estado) {
         }
     }
 
-    $("#solicitar-revision").on("hidden.bs.modal", function () {
-        if ($("#Control").data("modal") == 1) {
-            location.href = baseUrl + "Gestion/AccionMitigacion";
-        } else {
-            $('#mensajeModalRegistrar #mensajeGoodRegistro').remove();
-            $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
-        }        
-    });
-
     $("#guardar-avance").on("hidden.bs.modal", function () {
             $("#mensajeModalAvance #mensajeWarningAvance").remove();
             $("#mensajeModalAvance #mensajeDangerAvance").remove();
             $("#guardar-avance #modalAvanceBoton").show();
     });
 }
+
+$("#solicitar-revision").on("hidden.bs.modal", function () {
+    if ($("#Control").data("modal") == 1) {
+        location.href = baseUrl + "Gestion/AccionMitigacion";
+    } else {
+        $('#mensajeModalRegistrar #mensajeGoodRegistro').remove();
+        $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
+    }
+});
 
 
 function fn_RegistrarIniciativaMitigacion() {
@@ -583,7 +648,16 @@ $(document).ready(function () {
     $("#Control").data("mitigacion", $("#identificador").val());
     $("#Control").data("iniciativa", $("#iniciativa").val());
     $("#Control").data("revision", $("#revision").val());
-    fn_ListarMedidaMitigacion();    
+    fn_ListarMedidaMitigacion();
+});
+
+$(function () {
+    $(".validar").keydown(function (event) {
+        //alert(event.keyCode);
+        if ((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105) && event.keyCode !== 190 && event.keyCode !== 110 && event.keyCode !== 8 && event.keyCode !== 9) {
+            return false;
+        }
+    });
 });
 
 function fn_cambiarIniciativaMitigacion(id) {

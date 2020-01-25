@@ -192,7 +192,8 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
 
                         var tr = '<tr>';
                         //tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + (1 + i) + '</th>';
-                        tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + data[i]["RowNumber"] + '</th>';
+                        //tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + data[i]["RowNumber"] + '</th>';
+                        tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + data[i]["ID_INICIATIVA"] + '</th>';
                         tr = tr + '<td data-encabezado="Nombre de Iniciativa">' + data[i]["NOMBRE_INICIATIVA"] + '</td>';
                         tr = tr + '<td data-encabezado="Progreso">';
                         tr = tr + '         <div class="progress" style="height: 20px;">';
@@ -306,7 +307,8 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
 
                         var tr = '<tr>';
                         //tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + (1 + i) + '</th>'; 
-                        tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + data[i]["RowNumber"] + '</th>';
+                        //tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + data[i]["RowNumber"] + '</th>';
+                        tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + data[i]["ID_INICIATIVA"] + '</th>';
                         tr = tr + '<td data-encabezado="Nombre de Iniciativa">' + data[i]["NOMBRE_INICIATIVA"] + '</td>';
                         tr = tr + '<td data-encabezado="Progreso">';
                         tr = tr + '         <div class="progress" style="height: 20px;">';

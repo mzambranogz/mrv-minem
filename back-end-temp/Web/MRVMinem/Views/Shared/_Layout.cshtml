@@ -29,14 +29,17 @@
     </script>
 </head>
 <body>
+
+
     <div class="container-fluid menu-nav bg-sutil fixed-top" id="cabecera">
         <div class="container menu-main linea">
             <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar p-0">
-                <ul class="navbar-nav mr-md-auto">
+                <a class="navbar-brand mr-md-auto animated fadeIn mx-0" href="./index.html"><img src="~/images/logo_mrv_new_negro.svg" height="36"></a>
+                <ul class="navbar-nav ml-md-auto">
                     <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1" href="https://www.gob.pe/minem" target="_blank"><img src="~/images/logo-minem.jpg" height="40"></a></li>
                     <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1" href="https://www.thegef.org/" target="_blank"><img src="~/images/logo_gef.svg" height="45"></a></li>
                     <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1 pr-0" href="https://www.pe.undp.org/" target="_blank"><img src="~/images/logo_pnud.svg" height="51"></a></li>
-                </ul><a class="navbar-brand ml-md-auto animated fadeIn mx-0" href="./index.html"><img src="~/images/logo_mrv_new_negro.svg" height="36"></a>
+                </ul>
             </header>
         </div>
         <div class="container menu-sub">
@@ -46,9 +49,9 @@
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item"><a class="nav-link nav-active px-2" href="@Url.Action("Index", "Home")"><i class="fas fa-house-damage"></i><span class="d-none d-xs-block d-sm-block d-lg-none pl-1 mostrar-inicio">Inicio</span></a></li>
                         <li class="nav-item"><a class="nav-link px-2" href="@Url.Action("AccionMitigacion", "Portal")"><i class="fas fa-solar-panel pr-1"></i>Iniciativas de Mitigación</a></li>
-                        <li class="nav-item"><a class="nav-link px-2" href="./reportes.html"><i class="fas fa-file-invoice pr-1"></i>Reportes</a></li>
-                        <li class="nav-item"><a class="nav-link px-2" href="./resultados.html"><i class="fas fa-chart-pie pr-1"></i>Resultados</a></li>
-                    </ul><a class="btn btn-primary btn-md px-2 mr-2" href="@Url.Action("login", "Home")" role="button"><i class="fas fa-sign-in-alt pr-1"></i>Ingresar</a><a class="btn btn-success btn-md px-2" href="@Url.Action("registro", "Home")" role="button"><i class="fas fa-paper-plane pr-1"></i>Registrarse</a>
+                        <li class="nav-item"><a class="nav-link px-2" href="#"><i class="fas fa-file-invoice pr-1"></i>Reportes</a></li>
+                        <li class="nav-item"><a class="nav-link px-2" href="#"><i class="fas fa-chart-pie pr-1"></i>Resultados</a></li>
+                    </ul><a class="btn btn-outline-primary border-0 btn-md px-2 mr-2" href="@Url.Action("login", "Home")" role="button"><i class="fas fa-sign-in-alt pr-1"></i>Ingresar</a><a class="btn btn-outline-success border-0 btn-md px-2" href="@Url.Action("registro", "Home")" role="button"><i class="fas fa-paper-plane pr-1"></i>Registrarse</a>
                 </div>
             </nav>
         </div>
@@ -59,6 +62,7 @@
     <div>
         @RenderBody()
     </div>
+
 
     <div class="container-fluid foot d-flex flex-row justify-content-center align-items-center" id="pie">
         <footer class="container">
@@ -76,9 +80,9 @@
                         <div class="col-sm-12 col-md-6 text-white">
                             <div class="lead font-weight-bold">Más información</div>
                             <ul class="list-unstyled">
-                                <li class="py-1"><a class="text-white" href="./documentos/Manual_Usuario_MRV.pdf" download><i class="fas fa-file-pdf mr-2"></i>Manual de Usuario</a></li>
-                                <li class="py-1"><a class="text-white" href="./preguntas-frecuentes.html"><i class="fas fa-question-circle mr-2"></i>Preguntas frecuentes</a></li>
-                                <li class="py-1"><a class="text-white" href="./terminos-y-condiciones.html"><i class="fab fa-readme mr-2"></i>Términos y Condiciones</a></li>
+                                <li class="py-1"><a class="text-white" href="~/Documentos/Manual_Usuario_MRV.pdf" download><i class="fas fa-file-pdf mr-2"></i>Manual de Usuario</a></li>
+                                <li class="py-1"><a class="text-white" href="#"><i class="fas fa-question-circle mr-2"></i>Preguntas frecuentes</a></li>
+                                <li class="py-1"><a class="text-white" href="#"><i class="fab fa-readme mr-2"></i>Términos y Condiciones</a></li>
                             </ul>
                         </div>
                         <div class="col-sm-12 text-white">
@@ -95,14 +99,14 @@
                 <div class="col-sm-12 col-md-6">
                     <!--.navbar.flex-md-row.justify-content-start
                     a.nav-link.p-1(href="https://www.gob.pe/minem", target="_blank")
-                      img(src="~/images/logo-minem-blanco.png", height="70")
+                      img(src="./images/logo-minem-blanco.png", height="70")
                     a.nav-link.p-1(href="https://www.thegef.org/", target="_blank")
-                      img(src="~/images/logo-gef-blanco.png", height="90")
+                      img(src="./images/logo-gef-blanco.png", height="90")
                     a.nav-link.p-1.pr-0(href="https://www.pe.undp.org/", target="_blank")
-                      img(src="~/images/logo-pnud-blanco.png", height="160")
+                      img(src="./images/logo-pnud-blanco.png", height="160")
                     -->
                     <div class="navbar flex-md-row justify-content-start"><a class="nav-link p-1" href="http://namasenergia.minem.gob.pe/" target="_blank"><img class="m-3" src="~/images/logo-nama-blanco.png" height="70"></a></div>
-                    <div class="navbar flex-md-row justify-content-start"><img class="m-3" src="~/images/logo-blockchain-blanco.png" height="90"></div>
+                    <div class="navbar flex-md-row justify-content-start"><img class="m-3" src="~/images/logo-blockchain-blanco.png" height="80"></div>
                 </div>
             </div>
             <div class="row">
