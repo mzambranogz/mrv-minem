@@ -106,6 +106,7 @@ function fn_cargarEnergetico() {
 }
 
 function fn_cargarIniciativa() {
+    debugger;
     var Item =
     {
         ID_INICIATIVA: $("#Control").data("iniciativa")
@@ -131,6 +132,7 @@ function fn_cargarIniciativa() {
                         if (data[i]["INVERSION_INICIATIVA"] != 0) {
                             $("#txt-monto-inversion").val(data[i]["INVERSION_INICIATIVA"]);
                         }
+                        debugger;
                         if ($("#Control").data("revision") == 0) {
                             $("#cbo-moneda").val(data[i]["ID_MONEDA"]);
                             if (data[i]["FECHA"].toString() != "01/01/0001") {
@@ -388,15 +390,47 @@ function fn_ObtenerMedidaMitigacion(id) {
             if (data != null && data != "") {
                 if (data.length > 0) {
                     for (var i = 0; i < data.length; i++) {
+                        $("#nombreMedida span").remove();
                         $("#txt-categoria").val(data[i]["IPSC_MEDMIT"]);
                         $("#txa-objetivo").val(data[i]["OBJETIVO_MEDMIT"]);
                         $("#txa-descripcion").val(data[i]["DESCRIPCION_MEDMIT"]);
+                        $("#cbo-medida-mitigacion-seleccionada").val(data[i]["ID_MEDMIT"]);
+                        $("#nombreMedida").append('<span>' + data[i]["NOMBRE_MEDMIT"] + '</span>');
                     }
                 }
             }
         }
     });
 }
+
+$("#cbo-medida-mitigacion-seleccionada").change(function () {
+    var Item = {
+        ID_MEDMIT: $("#cbo-medida-mitigacion-seleccionada").val()
+    };
+    $.ajax({
+        url: baseUrl + "Gestion/ObtenerMedidaMitigacion",
+        type: 'POST',
+        datatype: 'json',
+        data: Item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    for (var i = 0; i < data.length; i++) {
+                        $("#nombreMedida span").remove();
+                        $("#txt-categoria").val(data[i]["IPSC_MEDMIT"]);
+                        $("#txa-objetivo").val(data[i]["OBJETIVO_MEDMIT"]);
+                        $("#txa-descripcion").val(data[i]["DESCRIPCION_MEDMIT"]);
+                        //$("#cbo-medida-mitigacion-seleccionada").val(data[i]["ID_MEDMIT"]);
+                        $("#nombreMedida").append('<span id="medida">' + data[i]["NOMBRE_MEDMIT"] + '</span>');
+                        $("#Control").data("mitigacion", $("#cbo-medida-mitigacion-seleccionada").val())
+                    }
+                }
+            }
+        }
+    });
+});
+
+
 // txa-nombre-iniciativa, txa-descripcion-medida, txt-monto-inversion, txt-fecha-inicio
 function CargarDatosIniciativa() {
 
@@ -422,7 +456,7 @@ function CargarDatosIniciativa() {
                         $("#txt-nombre-responsable").val(data[i]["NOMBRES"]);
                         $("#txt-nombre-institucion").val(data[i]["INSTITUCION"]);
                         $("#txt-correo-electronico").val(data[i]["EMAIL_USUARIO"]);
-                        $("#txt-direccion").val(data[i]["DIRECCION"]);
+                        $("#txt-direccion").val(data[i]["DIRECCION"]);                        
                         $("#txt-sector-institucion").val(data[i]["SECTOR"]);
                     }
                 }
@@ -549,7 +583,7 @@ $(document).ready(function () {
     $("#Control").data("mitigacion", $("#identificador").val());
     $("#Control").data("iniciativa", $("#iniciativa").val());
     $("#Control").data("revision", $("#revision").val());
-    fn_ListarGEI();
+    fn_ListarMedidaMitigacion();    
 });
 
 function fn_cambiarIniciativaMitigacion(id) {
@@ -683,6 +717,28 @@ function fn_observacionIniciativaMitigacion() {
             $("#modalRevision #modalErrorRevision").remove();
             $("#modalRevision #modalCorrectoRevision").remove();
             $("#observar-revision #modalObservacionBoton").show();
+        }
+    });
+}
+
+function fn_ListarMedidaMitigacion() {
+    var item = {
+    };
+    vurl = baseUrl + "Portal/ListarMedidaMitigacion";
+    $.ajax({
+        url: vurl,
+        type: 'POST',
+        datatype: 'json',
+        data: item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    for (var i = 0; i < data.length; i++) {
+                        $("#cbo-medida-mitigacion-seleccionada").append('<option value="' + data[i]["ID_MEDMIT"] + '">' + data[i]["NOMBRE_MEDMIT"] + '</option>');
+                    }
+                }
+            }
+            fn_ListarGEI();
         }
     });
 }

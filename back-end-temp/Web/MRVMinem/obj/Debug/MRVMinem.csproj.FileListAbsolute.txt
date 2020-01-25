@@ -64,3 +64,4 @@ C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\obj\Debug\MRVMinem.dll
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\obj\Debug\MRVMinem.pdb
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\Reportes\EscenarioRpt.rdlc
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\Archivos\dj\LEEME.txt
