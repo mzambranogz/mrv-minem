@@ -1,12 +1,14 @@
-﻿$(document).ready(function () {
+﻿/// <reference path="C:\Users\JK\Desktop\BACKUP 20-01-20\back-end\Web\MRVMinem\Views/Gestion/Sesion.cshtml" />
+$(document).ready(function () {
     $("#Control").data("iniciativa", $("#identificador").val());
     $("#Control").data("revision", $("#revision").val());
-    
+
     if ($("#revision").val() == 1) {
+        debugger;
         CargarDetalleIndicadorRevision();
     } else {
         CargarDetalleIndicador();
-    }    
+    }
     CargarDatosIniciativa();
     fn_cargarUbicacion();
     fn_cargarEnergetico();
@@ -32,8 +34,9 @@
 
     });
 
+
     fn_actualizaCampana();
-    enLinea();    
+    enLinea();
 
 });
 
@@ -52,7 +55,7 @@ function fn_calcularTotalCO2(row) {
 
 function fn_calcularIndicadores() {
     var fila = $("#tablaIndicador").data("fila");
-    if (validarCampo(fila)) {        
+    if (validarCampo(fila)) {
         var item = {
             ID_INDICADOR: $("#detalles-tr-" + fila).data("value"),
             ID_INICIATIVA: $("#Control").data("iniciativa"),
@@ -81,7 +84,7 @@ function fn_calcularIndicadores() {
                         }
                     }
                 }
-                
+
                 row = $("#cuerpoTablaIndicador").data("row") + 1;
                 $("#cuerpoTablaIndicador").data("row", row);
                 fn_calcularTotalCO2(row);
@@ -105,13 +108,13 @@ function validarCampo(fila) {
         return false;
     } else if ($("#cbo-det-3-" + fila).val() == 0) {
         return false;
-    } else if ($("#txt-det-1-"+fila).val() == "") {
+    } else if ($("#txt-det-1-" + fila).val() == "") {
         return false;
-    } else if ($("#txt-det-2-"+fila).val() == "") {
+    } else if ($("#txt-det-2-" + fila).val() == "") {
         return false;
     } else {
         return true;
-    } 
+    }
 }
 
 function fn_ObtenerMedidaMitigacion(id) {
@@ -138,7 +141,7 @@ function fn_ObtenerMedidaMitigacion(id) {
     });
 }
 
-function CargarDatosIniciativa(){
+function CargarDatosIniciativa() {
     var Item =
     {
         ID_INICIATIVA: $("#identificador").val()
@@ -164,13 +167,25 @@ function CargarDatosIniciativa(){
                         if (data[i]["INVERSION_INICIATIVA"] != 0) {
                             $("#txt-monto-inversion").val(data[i]["INVERSION_INICIATIVA"]);
                         }
-                        $("#cbo-moneda").val(data[i]["ID_MONEDA"]);
-                        /*if (data[i]["FECHA"].toString() != "0001-01-01") {
-                            $("#txt-fecha-inicio").val(data[i]["FECHA"].toString());
-                            //$("#txt-fecha-inicio").val("2019-12-12"); FORMATO EJEMPLO PARA CARGA
-                        }*/
+                        if ($("#Control").data("revision") == 0) {
+                            $("#cbo-moneda").val(data[i]["ID_MONEDA"]);
+                            if (data[i]["FECHA"].toString() != "01/01/0001") {
+                                $("#txt-fecha-inicio").val(data[i]["FECHA_EDITAR"]);
+                                //$("#txt-fecha-inicio").val("2019-12-12"); FORMATO EJEMPLO PARA CARGA
+                            }
+                        } else {
+                            $("#receptorObservacion").append(data[i]["NOMBRES"]);
+                            $("#emisorObservacion").append($("#Control").data("nombres"));
+                            $("#txt-moneda").val(data[i]["MONEDA"]);
+                            if (data[i]["FECHA"].toString() != "01/01/0001") {
+                                $("#txt-fecha-inicio").val(data[i]["FECHA"].toString());
+                            }
+                        }
                         if (data[i]["PRIVACIDAD_INICIATIVA"] == 1) {
-                            $("regPrivacidad").prop("checked", true);
+                            $("#chk-publicar").prop("checked", true);
+                        }
+                        if (data[i]["PRIVACIDAD_INVERSION"] == 1) {
+                            $("#chk-publicar-monto-inversion").prop("checked", true);
                         }
                     }
                 }
@@ -193,12 +208,12 @@ function fn_cargarUbicacion() {
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
-                        var msj = '<textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">';
-                        for (var j = 0; j < data.length; j++) {
-                            msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
-                        }
-                        msj = msj + ' </textarea>';
-                        $("#campoUbicacion").append(msj);
+                    var msj = '<textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">';
+                    for (var j = 0; j < data.length; j++) {
+                        msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
+                    }
+                    msj = msj + ' </textarea>';
+                    $("#campoUbicacion").append(msj);
                 }
             }
         }
@@ -219,12 +234,12 @@ function fn_cargarGei() {
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
-                        var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">';
-                        for (var j = 0; j < data.length; j++) {
-                            msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
-                        }
-                        msj = msj + ' </textarea>';
-                        $("#campoGei").append(msj);
+                    var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">';
+                    for (var j = 0; j < data.length; j++) {
+                        msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
+                    }
+                    msj = msj + ' </textarea>';
+                    $("#campoGei").append(msj);
                 }
             }
         }
@@ -244,12 +259,12 @@ function fn_cargarEnergetico() {
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
-                        var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">';
-                        for (var j = 0; j < data.length; j++) {
-                            msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
-                        }
-                        msj = msj + ' </textarea>';
-                        $("#campoEnerg").append(msj);
+                    var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">';
+                    for (var j = 0; j < data.length; j++) {
+                        msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
+                    }
+                    msj = msj + ' </textarea>';
+                    $("#campoEnerg").append(msj);
                 }
             }
         }
@@ -274,7 +289,7 @@ function CargarDetalleIndicador() {
                         CargarTablaIndicador(data, i);
                     }
                     $("#cuerpoTablaIndicador").data("row", data.length);
-                } 
+                }
             } else {
                 CargarSoloTablaIndicador();
                 $("#total-detalle").append('<strong id="total">0.00</strong>');
@@ -340,13 +355,13 @@ function llenarTabla(data, j) {
     $("#txt-det-1-" + (j + 1)).val(data[j]["KRV_BASE"]);
     $("#txt-det-2-" + (j + 1)).val(data[j]["CANT_BASE"]);
     //$("#tipoFuenteI" + fila).val(data[i]["ID_TIPO_FUENTE_INIMIT"]);
-    $("#txt-det-4-" + (j + 1)).val(data[j]["TOTAL_GEI_BASE"]); 
+    $("#txt-det-4-" + (j + 1)).val(data[j]["TOTAL_GEI_BASE"]);
     $("#txt-det-5-" + (j + 1)).val(data[j]["TOTAL_GEI_INIMIT"]);
     $("#txt-det-6-" + (j + 1)).val(data[j]["TOTAL_GEI_REDUCIDO"]);
     $("#detalles-tr-" + (j + 1)).data("value", data[j]["ID_INDICADOR"]);
     $("#cuerpoTablaIndicador").data("total", $("#cuerpoTablaIndicador").data("total") + data[j]["TOTAL_GEI_REDUCIDO"]);
     $("#total-detalle #total").remove();
-    $("#total-detalle").append('<strong id="total">'+$("#cuerpoTablaIndicador").data("total")+'</strong>');
+    $("#total-detalle").append('<strong id="total">' + $("#cuerpoTablaIndicador").data("total") + '</strong>');
     //alert($("#cuerpoTablaIndicador").data("total"));
 }
 
@@ -385,13 +400,13 @@ function CargarDetalleIndicadorRevision() {
                 for (var i = 0; i < data.length; i++) {
                     var tr = "";
                     tr = tr + '<tr>';
-                    tr = tr + '                        <th class="text-center" data-encabezado="Número" scope="row">'+ (i + 1) +'</th>';
-                    tr = tr + '                        <td data-encabezado="Columna 01">'+ data[i]["ANNOB"] +'</td>';
-                    tr = tr + '                        <td data-encabezado="Columna 02">'+ data[i]["TIPO_VEHICULO"] + '</td>';
-                    tr = tr + '                        <td data-encabezado="Columna 03">'+ data[i]["TIPO_COMBUSTIBLE"] +'</td>';
-                    tr = tr + '                        <td data-encabezado="Columna 04">'+ data[i]["KRVB"] +'</td>';
-                    tr = tr + '                        <td data-encabezado="Columna 05">'+ data[i]["CANTIDADB"] +'</td>';
-                    tr = tr + '                        <td data-encabezado="Columna 06">'+ data[i]["RENDIMIENTO"] +'</td>';
+                    tr = tr + '                        <th class="text-center" data-encabezado="Número" scope="row">' + (i + 1) + '</th>';
+                    tr = tr + '                        <td data-encabezado="Columna 01">' + data[i]["ANNOB"] + '</td>';
+                    tr = tr + '                        <td data-encabezado="Columna 02">' + data[i]["TIPO_VEHICULO"] + '</td>';
+                    tr = tr + '                        <td data-encabezado="Columna 03">' + data[i]["TIPO_COMBUSTIBLE"] + '</td>';
+                    tr = tr + '                        <td data-encabezado="Columna 04">' + data[i]["KRVB"] + '</td>';
+                    tr = tr + '                        <td data-encabezado="Columna 05">' + data[i]["CANTIDADB"] + '</td>';
+                    tr = tr + '                        <td data-encabezado="Columna 06">' + data[i]["RENDIMIENTO"] + '</td>';
                     tr = tr + '                        <td data-encabezado="Columna 07">' + data[i]["TOTAL_GEI_INIMIT"] + '</td>';
                     tr = tr + '                        <td data-encabezado="Columna 08">' + data[i]["TOTAL_GEI_INIMIT"] + '</td>';
                     tr = tr + '                        <td data-encabezado="Columna 09">' + data[i]["TOTAL_GEI_REDUCIDO"] + '</td>';
@@ -620,6 +635,7 @@ function fn_procesoDetalleIndicador(url, estado) {
     var item = {
         ID_INICIATIVA: $("#Control").data("iniciativa"),
         ID_USUARIO: $("#Control").data("usuario"),
+        NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
         ID_ESTADO: estado
     };
     var mensaje = "";
@@ -730,11 +746,92 @@ function fn_procesoDetalleIndicador(url, estado) {
     });
 
     $("#guardar-avance").on("hidden.bs.modal", function () {
-            $("#mensajeModalAvance #mensajeDangerAvance").remove();
-            $("#mensajeModalAvance #mensajeWarningAvance").remove();
-            $("#guardar-avance #modalAvanceBoton").show();
+        $("#mensajeModalAvance #mensajeDangerAvance").remove();
+        $("#mensajeModalAvance #mensajeWarningAvance").remove();
+        $("#guardar-avance #modalAvanceBoton").show();
     });
 }
+
+
+//function fn_guardarDetalleIndicador() {
+//    var url = baseUrl + "Gestion/RegistrarDetalleIndicador";
+//    //fn_procesoDetalleIndicador(url, 1);
+
+//    var options = {
+//        type: "POST",
+//        dataType: "json",
+//        contentType: false,
+//        url: url,
+//        processData: false,
+//        data: ({
+//            ID_INICIATIVA: $("#Control").data("iniciativa"),
+//            ID_USUARIO: $("#Control").data("usuario"),
+//            NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
+//            ID_ESTADO: 1
+//        }),
+//        xhr: function () {  // Custom XMLHttpRequest
+//            var myXhr = $.ajaxSettings.xhr();
+//            if (myXhr.upload) { // Check if upload property exists
+//                //myXhr.upload.addEventListener('progress', progressHandlingFunction, false); // For handling the progress of the upload
+//            }
+//            return myXhr;
+//        },
+//        resetForm: false,
+//        beforeSubmit: function (formData, jqForm, options) {
+//            return true;
+//        },
+//        success: function (response, textStatus, myXhr) {
+//            if (response.success) {
+//                var msj = '                       <div class="alert alert-success d-flex align-items-stretch" role="alert">';
+//                msj = msj + '                            <div class="alert-wrap mr-3">';
+//                msj = msj + '                                <div class="sa">';
+//                msj = msj + '                                    <div class="sa-success">';
+//                msj = msj + '                                        <div class="sa-success-tip"></div>';
+//                msj = msj + '                                        <div class="sa-success-long"></div>';
+//                msj = msj + '                                        <div class="sa-success-placeholder"></div>';
+//                msj = msj + '                                        <div class="sa-success-fix"></div>';
+//                msj = msj + '                                    </div>';
+//                msj = msj + '                                </div>';
+//                msj = msj + '                            </div>';
+//                msj = msj + '                            <div class="alert-wrap">';
+//                msj = msj + '                                <h6>Bien hecho</h6>';
+//                msj = msj + '                                <hr><small class="mb-0">Su registro fue exitoso, en breve le notificaremos el estado a través de un email.</small>';
+//                msj = msj + '                            </div>';
+//                msj = msj + '                        </div>';
+//                $("#seccionMensaje").append(msj);
+//                //setTimeout(dirigir, 5000);
+//            } else {
+//                var msj = '                      <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="errorRegistro">';
+//                msj = msj + '                           <div class="alert-wrap mr-3">';
+//                msj = msj + '                                <div class="sa">';
+//                msj = msj + '                                    <div class="sa-error">';
+//                msj = msj + '                                        <div class="sa-error-x">';
+//                msj = msj + '                                            <div class="sa-error-left"></div>';
+//                msj = msj + '                                            <div class="sa-error-right"></div>';
+//                msj = msj + '                                        </div>';
+//                msj = msj + '                                        <div class="sa-error-placeholder"></div>';
+//                msj = msj + '                                        <div class="sa-error-fix"></div>';
+//                msj = msj + '                                    </div>';
+//                msj = msj + '                                </div>';
+//                msj = msj + '                            </div>';
+//                msj = msj + '                            <div class="alert-wrap">';
+//                msj = msj + '                                <h6>Error de registro</h6>';
+//                msj = msj + '                                <hr><small class="mb-0">Ocurrio un problema durante el registro.</small>';
+//                msj = msj + '                            </div>';
+//                msj = msj + '                        </div>';
+//                $("#seccionMensaje").append(msj);
+//            }
+//        },
+//        error: function (myXhr, textStatus, errorThrown) {
+//            console.log(myXhr);
+//            console.log(textStatus);
+//            console.log(errorThrown);
+//        }
+//    };
+
+//    $("#formRegistrar").ajaxForm(options);
+//    $("#formRegistrar").submit();
+//}
 
 function fn_guardarDetalleIndicador() {
     var url = baseUrl + "Gestion/RegistrarDetalleIndicador";
@@ -757,11 +854,13 @@ function fn_corregirAvances() {
 }
 
 function fn_observacionDetalleIndicador() {
-    url = baseUrl + "Gestion/ObservacionDetalleIndicador"
+    url = baseUrl + "Gestion/ObservacionDetalleIndicador";
     var item = {
         ID_INICIATIVA: $("#Control").data("iniciativa"),
         ID_USUARIO: $("#Control").data("usuario"),
         DESCRIPCION: $("#txa-observacion-detalle").val(),
+        EMAIL_USUARIO: $("#txt-correo-electronico").val(),
+        NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
         ID_ESTADO: $("#cbo-tipo-observacion").val()
     };
     var mensaje = "";
@@ -785,6 +884,7 @@ function fn_observacionDetalleIndicador() {
         msj = msj + '                                    <hr><small class="mb-0">Sus observaciones se enviaron correctamente.</small>';
         msj = msj + '                                </div>';
         msj = msj + '                            </div>';
+        $("#observar-revision #modalObservacionBoton").hide();
         $("#modalRevision").append(msj);
         $("#Control").data("modal", 1);
     } else {
@@ -815,6 +915,7 @@ function fn_observacionDetalleIndicador() {
             location.href = baseUrl + "Gestion/AccionMitigacion";
         } else {
             $("#modalRevision #modalErrorRevision").remove();
+            $("#observar-revision #modalObservacionBoton").show();
         }
     });
 }
@@ -822,14 +923,15 @@ function fn_observacionDetalleIndicador() {
 function fn_revisarDetalleIndicador() {
     var item = {
         ID_INICIATIVA: $("#Control").data("iniciativa"),
-        ID_USUARIO: $("#Control").data("usuario")
+        ID_USUARIO: $("#Control").data("usuario"),
+        EMAIL_USUARIO: $("#txt-correo-electronico").val(),
+        NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val()
     }
     url = baseUrl + "Gestion/AprobarDetalleIndicador";
     var respuesta = MRV.Ajax(url, item, false);
     if (respuesta.success) {
         $("#modalAprobacion #modalCorrectoAprobacion").remove();
         $("#modalAprobacion #modalErrorAprobacion").remove();
-        $("#aprobar-revision #modalAprobarBoton").remove();
         var msj = '                           <div class="alert alert-success d-flex align-items-stretch" role="alert" id="modalCorrectoAprobacion">';
         msj = msj + '                               <div class="alert-wrap mr-3">';
         msj = msj + '                                    <div class="sa">';
@@ -846,6 +948,7 @@ function fn_revisarDetalleIndicador() {
         msj = msj + '                                    <hr><small class="mb-0">Se aprobó correctamente esta revisión, se procederá a notificar al Usuario Administrado.</small>';
         msj = msj + '                                </div>';
         msj = msj + '                            </div>';
+        $("#aprobar-revision #modalAprobarBoton").hide();
         $("#modalAprobacion").append(msj);
         $("#Control").data("modal", 1);
     } else {
@@ -876,6 +979,7 @@ function fn_revisarDetalleIndicador() {
             location.href = baseUrl + "Gestion/AccionMitigacion";
         } else {
             $("#modalAprobacion #modalErrorAprobacion").remove();
+            $("#aprobar-revision #modalAprobarBoton").show();
         }
     });
 }
@@ -884,7 +988,8 @@ function fn_revisarDetalleIndicador() {
 function fn_revisarAdminDetalleIndicador() {
     var item = {
         ID_INICIATIVA: $("#Control").data("iniciativa"),
-        ID_USUARIO: $("#Control").data("usuario")
+        ID_USUARIO: $("#Control").data("usuario"),
+        NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val()
     }
     url = baseUrl + "Gestion/AprobarAdminIniciativaDetalleIndicador";
     var respuesta = MRV.Ajax(url, item, false);
@@ -945,14 +1050,15 @@ function fn_revisarAdminDetalleIndicador() {
 function fn_evaluarIniciativaDetalle() {
     var item = {
         ID_INICIATIVA: $("#Control").data("iniciativa"),
-        ID_USUARIO: $("#Control").data("usuario")
+        ID_USUARIO: $("#Control").data("usuario"),
+        NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val()
     }
     url = baseUrl + "Gestion/EvaluarIniciativaDetalleIndicador";
     var respuesta = MRV.Ajax(url, item, false);
     if (respuesta.success) {
         $("#modalAprobacion #modalCorrectoAprobacion").remove();
+        $("#modalAprobacion #modalBCAprobacion").remove();
         $("#modalAprobacion #modalErrorAprobacion").remove();
-        $("#aprobar-revision #modalAprobarBoton").remove();
         var msj = '                           <div class="alert alert-success d-flex align-items-stretch" role="alert" id="modalCorrectoAprobacion">';
         msj = msj + '                               <div class="alert-wrap mr-3">';
         msj = msj + '                                    <div class="sa">';
@@ -969,7 +1075,29 @@ function fn_evaluarIniciativaDetalle() {
         msj = msj + '                                    <hr><small class="mb-0">Se aprobó correctamente esta evaluación, se procederá a notificar al Especialista.</small>';
         msj = msj + '                                </div>';
         msj = msj + '                            </div>';
+
+        var msj1 = '    <div class="alert alert-warning d-flex align-items-stretch" role="alert" id="modalBCAprobacion">';
+        msj1 = msj1 + '     <div class="alert-wrap mr-3">';
+        msj1 = msj1 + '     <div class="sa">';
+        msj1 = msj1 + '         <div class="sa-warning">';
+        msj1 = msj1 + '             <div class="sa-warning-body"></div>';
+        msj1 = msj1 + '             <div class="sa-warning-dot"></div>';
+        msj1 = msj1 + '         </div>';
+        msj1 = msj1 + '     </div>';
+        msj1 = msj1 + '     </div>';
+        msj1 = msj1 + '     <div class="alert-wrap">';
+        msj1 = msj1 + '     <h6>Mercado de carbono</h6>';
+        msj1 = msj1 + '     <hr><small class="mb-0">';
+        msj1 = msj1 + '         Se ha generado la cadena de bloques para la medida de mitigación&nbsp;<strong>aprobada&nbsp;</strong>';
+        msj1 = msj1 + '         <hr>';
+        msj1 = msj1 + '         <div class="text-monospace" style="word-break: break-all;">341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb72</div>';
+        msj1 = msj1 + '     </small>';
+        msj1 = msj1 + '     </div>';
+        msj1 = msj1 + '</div>';
+
+        $("#aprobar-evaluacion #modalAprobarBoton").hide();
         $("#modalAprobacion").append(msj);
+        $("#modalAprobacion").append(msj1);
         $("#Control").data("modal", 1);
     } else {
         $("#modalAprobacion #modalErrorAprobacion").remove();
@@ -999,6 +1127,8 @@ function fn_evaluarIniciativaDetalle() {
             location.href = baseUrl + "Gestion/AccionMitigacion";
         } else {
             $("#modalAprobacion #modalErrorAprobacion").remove();
+            $("#modalAprobacion #modalBCAprobacion").remove();
+            $("#aprobar-evaluacion #modalAprobarBoton").show();
         }
     });
 }
@@ -1006,14 +1136,15 @@ function fn_evaluarIniciativaDetalle() {
 function fn_verificarIniciativaDetalle() {
     var item = {
         ID_INICIATIVA: $("#Control").data("iniciativa"),
-        ID_USUARIO: $("#Control").data("usuario")
+        ID_USUARIO: $("#Control").data("usuario"),
+        NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val()
     }
     url = baseUrl + "Gestion/VerificarIniciativaDetalleIndicador";
     var respuesta = MRV.Ajax(url, item, false);
     if (respuesta.success) {
         $("#modalAprobacion #modalCorrectoAprobacion").remove();
+        $("#modalAprobacion #modalBCAprobacion").remove();
         $("#modalAprobacion #modalErrorAprobacion").remove();
-        $("#aprobar-revision #modalAprobarBoton").remove();
         var msj = '                           <div class="alert alert-success d-flex align-items-stretch" role="alert" id="modalCorrectoAprobacion">';
         msj = msj + '                               <div class="alert-wrap mr-3">';
         msj = msj + '                                    <div class="sa">';
@@ -1030,7 +1161,29 @@ function fn_verificarIniciativaDetalle() {
         msj = msj + '                                    <hr><small class="mb-0">Se aprobó correctamente esta verificación, se procederá a notificar al Especialista.</small>';
         msj = msj + '                                </div>';
         msj = msj + '                            </div>';
+
+        var msj1 = '    <div class="alert alert-warning d-flex align-items-stretch" role="alert" id="modalBCAprobacion">';
+        msj1 = msj1 + '     <div class="alert-wrap mr-3">';
+        msj1 = msj1 + '     <div class="sa">';
+        msj1 = msj1 + '         <div class="sa-warning">';
+        msj1 = msj1 + '             <div class="sa-warning-body"></div>';
+        msj1 = msj1 + '             <div class="sa-warning-dot"></div>';
+        msj1 = msj1 + '         </div>';
+        msj1 = msj1 + '     </div>';
+        msj1 = msj1 + '     </div>';
+        msj1 = msj1 + '     <div class="alert-wrap">';
+        msj1 = msj1 + '     <h6>Mercado de carbono</h6>';
+        msj1 = msj1 + '     <hr><small class="mb-0">';
+        msj1 = msj1 + '         Se ha generado la cadena de bloques para la medida de mitigación&nbsp;<strong>aprobada&nbsp;</strong>';
+        msj1 = msj1 + '         <hr>';
+        msj1 = msj1 + '         <div class="text-monospace" style="word-break: break-all;">341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb72</div>';
+        msj1 = msj1 + '     </small>';
+        msj1 = msj1 + '     </div>';
+        msj1 = msj1 + '</div>';
+
+        $("#aprobar-verificacion #modalAprobarBoton").hide();
         $("#modalAprobacion").append(msj);
+        $("#modalAprobacion").append(msj1);
         $("#Control").data("modal", 1);
     } else {
         $("#modalAprobacion #modalErrorAprobacion").remove();
@@ -1055,11 +1208,13 @@ function fn_verificarIniciativaDetalle() {
         $("#modalAprobacion").append(msj);
     }
 
-    $("#aprobar-evaluacion").on("hidden.bs.modal", function () {
+    $("#aprobar-verificacion").on("hidden.bs.modal", function () {
         if ($("#Control").data("modal") == 1) {
             location.href = baseUrl + "Gestion/AccionMitigacion";
         } else {
             $("#modalAprobacion #modalErrorAprobacion").remove();
+            $("#modalAprobacion #modalBCAprobacion").remove();
+            $("#aprobar-verificacion #modalAprobarBoton").show();
         }
     });
 }

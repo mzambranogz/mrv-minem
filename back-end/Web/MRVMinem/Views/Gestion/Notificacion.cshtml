@@ -8,7 +8,7 @@
     <div class="container">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="@Url.Action("Index","Gestion")">Inicio</a></li>
                 <li class="breadcrumb-item"><a href="@Url.Action("AccionMitigacion","Gestion")">Iniciativas de Mitigación</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Notificaciones</li>
             </ol>
@@ -98,7 +98,7 @@
                 </div>
             </div>
             <div class="modal fade" id="modal-ver-mas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-               
+
             </div>
         </div>
     </div>
@@ -131,7 +131,7 @@
         }
 
         if ($("#Control").data("opcion7") == 1) {
-            opcion = opcion + '<a class="dropdown-item" href="./cambiar.html"><i class="fas fa-key pr-1"></i>Cambiar contraseña</a>';
+            opcion = opcion + '<a class="dropdown-item" href="#" onclick="fn_Clave();"><i class="fas fa-key pr-1"></i>Cambiar contraseña</a>';
         }
 
         opcion = opcion + '<div class="dropdown-divider"></div><a class="dropdown-item" href="#" onclick="salirSesion();"><i class="fas fa-sign-out-alt pr-1"></i>Salir del sistema</a>';

@@ -11,7 +11,7 @@ using utilitario.minem.gob.pe;
 
 namespace datos.minem.gob.pe
 {
-    public class NotificacionDA: BaseDA
+    public class NotificacionDA : BaseDA
     {
         private string sPackage = "USERMRV.PKG_MRV_NOTIFICACION.";
 
@@ -53,6 +53,10 @@ namespace datos.minem.gob.pe
                     string sp = sPackage + "USP_SEL_USUARIO_NOTIFICACION";
                     var p = new OracleDynamicParameters();
                     p.Add("pID_ROL", entidad.ID_ROL);
+                    p.Add("pRegistros", entidad.cantidad_registros);
+                    p.Add("pPagina", entidad.pagina);
+                    p.Add("pSortColumn", entidad.order_by);
+                    p.Add("pSortOrder", entidad.order_orden);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<NotificacionBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
                 }
@@ -69,6 +73,30 @@ namespace datos.minem.gob.pe
             }
 
             return Lista;
+        }
+
+        public NotificacionBE RegistraVistoNotificacion(NotificacionBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_UPD_VISTO_NOTIFICACION";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pIdNotificacion", entidad.ID_NOTIFICACION);
+                    p.Add("pIdIniciativa", entidad.ID_INICIATIVA);
+                    p.Add("pIdUsuarioVisto", entidad.ID_USUARIO_VISTO);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return entidad;
         }
 
     }

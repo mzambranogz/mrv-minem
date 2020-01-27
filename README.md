@@ -7,7 +7,7 @@ Fuentes del proyecto en **C# .Net**, arquitectura MVC.
 
 ## DATA BASE SOURCE
 
-Script's **Oracle 12c** data base
+Script's **Oracle 12c/12g** data base
 
 ## FRONT END SOURCE
 

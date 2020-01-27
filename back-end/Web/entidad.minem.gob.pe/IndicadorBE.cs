@@ -55,5 +55,7 @@ namespace entidad.minem.gob.pe
         public string TIPO_VEHICULO { get; set; }
         public string TIPO_COMBUSTIBLE { get; set; }
         public double RENDIMIENTO { get; set; }
+        public string NOMBRE_INICIATIVA { get; set; }
+        public string EMAIL_USUARIO { get; set; }
     }
 }

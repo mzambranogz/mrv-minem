@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace entidad.minem.gob.pe
 {
-    public class UsuarioBE : BaseBE
+    public partial class UsuarioBE : BaseBE
     {
         public int ID_USUARIO { get; set; }
         public string EMAIL_USUARIO { get; set; }
@@ -19,6 +19,7 @@ namespace entidad.minem.gob.pe
         public int ID_SECTOR_INST { get; set; }
         public int ID_INSTITUCION { get; set; }
         public int ID_ESTADO_USUARIO { get; set; }
+        public int ID_ESTADO_ANTERIOR { get; set; }
         public string SECTOR { get; set; }
         public string RUC { get; set; }
         public string USUARIO { get; set; }
@@ -30,6 +31,7 @@ namespace entidad.minem.gob.pe
         public int ID_ROL { get; set; }
         public string ROL { get; set; }
         public string ESTADO { get; set; }
+        public string NUEVO_PASSWORD_USUARIO { get; set; }
 
     }
 }

@@ -34,6 +34,13 @@ namespace MRVMinem.Controllers
             return View(modelo);
         }
 
+        public ActionResult CorregirIniciativa(int ini)
+        {
+            MvSesion modelo = new MvSesion();
+            modelo.iniciativa = ini;
+            return View(modelo);
+        }
+
         public ActionResult RevisarIniciativa(int id, int ini)
         {
             MvSesion modelo = new MvSesion();
@@ -54,6 +61,7 @@ namespace MRVMinem.Controllers
         {
             MvSesion modelo = new MvSesion();
             modelo.identificador = id;
+            modelo.revision = 1;
             return View(modelo);
         }
 
@@ -91,7 +99,17 @@ namespace MRVMinem.Controllers
             modelo.identificador = id;
             return View(modelo);
         }
+        ////////////////////
+        public ActionResult MantenimientoTablas()
+        {
+            return View();
+        }
 
+        public ActionResult MantenimientoUsuario()
+        {
+            return View();
+        }
+        ////////////////////////////
         public JsonResult ListaIniciativasEspecialista(IniciativaBE entidad)
         {
             List<IniciativaBE> lista = IniciativaLN.ListaIniciativaEspecialista(entidad);
@@ -284,6 +302,14 @@ namespace MRVMinem.Controllers
             return Respuesta(itemRespuesta);
         }
 
+        public JsonResult ListarDetalleIndicadorRevision(IndicadorBE entidad)
+        {
+            List<IndicadorBE> lista = IndicadorLN.ListarDetalleIndicadorRevision(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
         public JsonResult ObservacionDetalleIndicador(IndicadorBE entidad)
         {
             ResponseEntity itemRespuesta = new ResponseEntity();
@@ -329,7 +355,7 @@ namespace MRVMinem.Controllers
             return Respuesta(itemRespuesta);
         }
 
-
+        
         public JsonResult EvaluarIniciativaDetalleIndicador(IndicadorBE entidad)
         {
             ResponseEntity itemRespuesta = new ResponseEntity();
@@ -338,7 +364,7 @@ namespace MRVMinem.Controllers
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }
-
+        
         public JsonResult ListaIniciativasEvaluar(IniciativaBE entidad)
         {
             List<IniciativaBE> lista = IniciativaLN.ListaIniciativaEvaluar(entidad);
@@ -359,6 +385,39 @@ namespace MRVMinem.Controllers
         public JsonResult MostrarSeguimiento(IniciativaBE entidad)
         {
             List<IniciativaBE> lista = IniciativaLN.MostrarSeguimiento(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+        //////////////////////////////////////////
+        public JsonResult ListaMantenimientoUsuario(UsuarioBE entidad)
+        {
+            List<UsuarioBE> lista = UsuarioLN.ListaMantenimientoUsuario(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult SeleccionarMantenimientoUsuario(UsuarioBE entidad)
+        {
+            List<UsuarioBE> lista = UsuarioLN.SeleccionarMantenimientoUsuario(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult EditarUsuario(UsuarioBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = UsuarioLN.EditarUsuario(entidad);
+            itemRespuesta.success = entidad.OK;
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult ListarRol(RolBE entidad)
+        {
+            List<RolBE> lista = RolLN.ListarRol(entidad);
             var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
@@ -407,20 +466,5 @@ namespace MRVMinem.Controllers
             return jsonResult;
         }
 
-        public ActionResult DetalleNotificacion(NotificacionBE entidad)
-        {
-            NotificacionBE modelo = NotificacionLN.GetNotificacion(entidad);
-            return View(modelo);
-        }
-
-        public JsonResult RegistraVistoNotificacion(NotificacionBE entidad)
-        {
-            ResponseEntity itemRespuesta = new ResponseEntity();
-
-            entidad = NotificacionLN.RegistraVistoNotificacion(entidad);
-            itemRespuesta.success = entidad.OK;
-            itemRespuesta.message = entidad.OK? "Se registro la visualización de la notificación": "Ocurrio error al registrar la visualización de la notificación";
-            return Respuesta(itemRespuesta);
-        }
     }
 }

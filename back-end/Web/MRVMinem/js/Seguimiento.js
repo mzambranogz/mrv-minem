@@ -157,6 +157,39 @@ function fn_mostrarSeguimiento() {
                         //$("#seguimiento").append(tr);
                     }
 
+                    if (data[i]["ID_ETAPA"] == 4 && data[i]["ID_ESTADO"] == 2) {
+                        tr = tr + '<div class="timeline">';
+                        tr = tr + '<div class="timeline-icon"><i class="fas fa-eye"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
+                        tr = tr + '<div class="timeline-content">';
+                        tr = tr + '<h5 class="title">SOLICITUD DE REVISIÓN OBSERVADA <br><small class="text-muted">INICIATIVA / DETALLES</small></h5>';
+                        tr = tr + '<p class="description"><span class="text-link">' + data[i]["EMAIL_USUARIO"] + '<br></span></span><span class="badge badge-actor-06">Administrador MINEM</span></p>';
+                        tr = tr + '</div>';
+                        tr = tr + '</div>';
+                        //$("#seguimiento").append(tr);
+                    }
+
+                    if (data[i]["ID_ETAPA"] == 4 && data[i]["ID_ESTADO"] == 5) {
+                        tr = tr + '<div class="timeline">';
+                        tr = tr + '<div class="timeline-icon"><i class="fas fa-clock"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
+                        tr = tr + '<div class="timeline-content">';
+                        tr = tr + '<h5 class="title">SOLICITUD DE REVISIÓN OBSERVADA SUBSANADA <br><small class="text-muted">INICIATIVA / DETALLES</small></h5>';
+                        tr = tr + '<p class="description"><span class="text-link">' + data[i]["EMAIL_USUARIO"] + '<br></span><span class="badge badge-actor-02">Usuario Administrado</span></p>';
+                        tr = tr + '</div>';
+                        tr = tr + '</div>';
+                        //$("#seguimiento").append(tr);
+                    }
+
+                    if (data[i]["ID_ETAPA"] == 5 && data[i]["ID_ESTADO"] == 3) {
+                        tr = tr + '<div class="timeline">';
+                        tr = tr + '<div class="timeline-icon"><i class="fas fa-check-double"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
+                        tr = tr + '<div class="timeline-content">';
+                        tr = tr + '<h5 class="title">SOLICITUD DE REVISIÓN APROBADA <br><small class="text-muted">INICIATIVA / DETALLES</small></h5>';
+                        tr = tr + '<p class="description"><span class="text-link">' + data[i]["EMAIL_USUARIO"] + '<br></span><span class="badge badge-actor-06">Administrador MINEM</span></p>';
+                        tr = tr + '</div>';
+                        tr = tr + '</div>';
+                        //$("#seguimiento").append(tr);
+                    }
+
                     if (data[i]["ID_ETAPA"] == 5 && data[i]["ID_ESTADO"] == 2) {
                         tr = tr + '<div class="timeline">';
                         tr = tr + '<div class="timeline-icon"><i class="fas fa-eye"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';

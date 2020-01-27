@@ -1,9 +1,7 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "registro";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 
 
 <div class="container-fluid banner d-flex flex-row justify-content-center align-items-center" id="carousel">
@@ -38,72 +36,72 @@
             </div>
             <div class="col-md-6 col-lg-12 p-4 bg-light rounded-bottom">
                 <div class="h4">Regístrate <br><small class="text-muted">Cada institución, pública o privada, puede implementar en la medida de sus posibilidades cualquiera de las medidas de mitigación anteriormente señaladas, y hacer que las mismas aporten a las Contribuciones Nacionalmente Determinadas. Para ello deberán asegurar mediante una&nbsp;<strong>declaración jurada&nbsp;</strong>que las emisiones de&nbsp;<strong>GEI&nbsp;</strong>reducidas no serán comercializadas. En esta primera etapa, se contemplan solo 12 medidas de mitigación, las mismas que han sido trabajadas por el Proyecto  Acciones Nacionales Apropiadas de Mitigación (<strong>NAMA</strong>) en los sectores de generación de energía y su uso final en el Perú.</small></div>
-                <form class="pt-4" id="formRegistrar">
+                <form class="pt-4" id="formRegistrar" @*action="./acciones-de-mitigacion.html"*@>
                     <div class="row">
                         <div class="col-md-12 col-lg-6">
                             <div class="form-group">
                                 <label for="txt-user">Email</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-envelope"></i></span></div>
-                                    <input class="form-control" type="text" id="txt-user" placeholder="Dirección de email" aria-describedby="inputGroup1" required>
+                                    <input class="form-control" type="email" id="txt-user" placeholder="Dirección de email" aria-describedby="inputGroup1" pattern="" maxlength="54" required>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="txt-nombre">Nombre</label>
+                                <label for="txt-nombre">Nombres</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup3"><i class="fas fa-user-tie"></i></span></div>
-                                    <input class="form-control" type="text" id="txt-nombre" placeholder="Ingrese su nombre" aria-describedby="inputGroup3" required>
+                                    <input class="form-control" type="text" id="txt-nombre" placeholder="Ingrese su nombres" aria-describedby="inputGroup3" pattern="@ViewBag.Estilo" maxlength="54" required>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="txt-apellido">Apellido</label>
+                                <label for="txt-apellido">Apellidos</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-user-tie"></i></span></div>
-                                    <input class="form-control" type="text" id="txt-apellido" placeholder="Ingrese su apellido" aria-describedby="inputGroup4" required>
+                                    <input class="form-control" type="text" id="txt-apellido" placeholder="Ingrese su apellidos" aria-describedby="inputGroup4" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{8,54}" maxlength="54" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="txt-telefono">Teléfono</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup11"><i class="fas fa-phone-alt"></i></span></div>
-                                    <input class="form-control" type="text" id="txt-telefono" placeholder="Ingrese su teléfono" aria-describedby="inputGroup11" required>
+                                    <input class="form-control" type="tel" id="txt-telefono" placeholder="Ingrese su teléfono" aria-describedby="inputGroup11" pattern="[0-9]{6,10}" maxlength="10" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="txt-anexo">Anexo</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup12"><i class="fas fa-phone-square-alt"></i></span></div>
-                                    <input class="form-control" type="text" id="txt-anexo" placeholder="Ingrese su anexo" aria-describedby="inputGroup12" required>
+                                    <input class="form-control" type="tel" id="txt-anexo" placeholder="Ingrese su anexo" aria-describedby="inputGroup12" pattern="[0-9]{4,5}" maxlength="5" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="txt-celular">Celular</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-mobile-alt"></i></span></div>
-                                    <input class="form-control" type="text" id="txt-celular" placeholder="Ingrese su celular" aria-describedby="inputGroup5" required>
+                                    <input class="form-control" type="text" id="txt-celular" placeholder="Ingrese su celular" aria-describedby="inputGroup5" pattern="[0-9]{9,12}" maxlength="12" required>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12 col-lg-6" id="seccionMensaje"> @**@
+                        <div class="col-md-12 col-lg-6">
                             <div class="form-group">
-                                <label for="txt-institucion">Institución</label>
+                                <label for="txt-institucion">Institución &nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="top" title="Ingrese el nombre comercial o razón social de su empresa"></i></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
-                                    <input class="form-control" type="text" id="txt-institucion" placeholder="Ingrese su institución" aria-describedby="inputGroup6" required>
+                                    <input class="form-control" type="text" id="txt-institucion" placeholder="Ingrese su institución" aria-describedby="inputGroup6" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{8,70}" maxlength="70" required>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="txt-ruc">RUC</label>
+                                <label for="txt-ruc">RUC&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="top" title="Se necesita un RUC de persona jurídica"></i></label>
                                 <div class="input-group">
-                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup7"><i class="fas fa-landmark"></i></span></div>
-                                    <input class="form-control" type="text" id="txt-ruc" placeholder="Ingrese su RUC" aria-describedby="inputGroup7" required>
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup7"><i class="fas fa-landmark"></i></span><span class="input-group-text bg-white pr-0 font-weight-bold">20</span></div>
+                                    <input class="form-control pl-0 border-left-0 validar" type="text" id="txt-ruc" placeholder="######### complete su RUC" aria-describedby="inputGroup7" pattern="[0-9]{9}" maxlength="9" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="txt-direccion">Dirección</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup8"><i class="fas fa-landmark"></i></span></div>
-                                    <input class="form-control" type="text" id="txt-direccion" placeholder="Ingrese su dirección" aria-describedby="inputGroup8" required>
+                                    <input class="form-control" type="text" id="txt-direccion" placeholder="Ingrese su dirección" aria-describedby="inputGroup8" pattern="@ViewBag.Estilo" maxlength="120" required>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -112,17 +110,16 @@
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
                                     <select class="form-control" id="cbo-sector" aria-describedby="inputGroup9" required>
                                         <option value="0">-Seleccione un sector-</option>
-                                        <!--<option>Sector 01</option>
-                                        <option>Sector 02</option>
-                                        <option>Sector 03</option>-->
+                                        <!-- <option>Sector 01</option> -->
+                                        <!-- <option>Sector 02</option> -->
+                                        <!-- <option>Sector 03</option> -->
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="txt-pswd">Contraseña</label>
+                                <label for="txt-pswd">Contraseña&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="top" title="Su contraseña debe incluir 8 caracteres como mínimo, 1 minúscula, 1 mayúscula, 1 número y 1 caracter especial."></i></label>
                                 <div class="input-group">
-                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup2"><i class="fas fa-key"></i></span></div>
-                                    <input class="form-control" type="password" id="txt-pswd" placeholder="Su contraseña necesita mayúscula, minúscula y números" aria-describedby="inputGroup2" required>
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup2"><i class="fas fa-key"></i></span></div><input class="form-control" type="password" id="txt-pswd" placeholder="Ingrese se contraseña" aria-describedby="inputGroup2" title="Su contraseña debe incluir 8 caracteres como mínimo, 1 minúscula, 1 mayúscula, 1 número y 1 caracter especial." required>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -133,15 +130,16 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="txt-declaracion">Declaración jurada&nbsp;<small><a href="./documentos/modelo-declaracion-jurada.pdf" download>(&nbsp;<i class="fas fa-file-pdf"></i>&nbsp;Descargar modelo de declaración jurada&nbsp;)</a></small></label>
+                                <label for="txt-declaracion">Declaración jurada&nbsp;<small><a href="~/Documentos/modelo-declaracion-jurada.pdf" download>(&nbsp;<i class="fas fa-file-pdf"></i>&nbsp;Descargar modelo de declaración jurada&nbsp;)</a></small></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup13"><i class="fas fa-file-pdf"></i></span></div>
                                     <input class="form-control cursor-pointer txt-file-control" type="text" id="txt-declaracion" placeholder="Suba su declaración jurada" aria-describedby="inputGroup13" required>
-                                    <input class="d-none fil-file-control" type="file" id="fle-declaracion">
+                                    <input class="d-none fil-file-control" type="file" id="fledeclaracion" name="fledeclaracion">
                                     <div class="input-group-append">
                                         <label class="input-group-text cursor-pointer" for="txt-declaracion"><i class="fas fa-upload mr-1"></i>Subir archivo</label>
                                     </div>
                                 </div>
+                                <div id="mensajeFile"></div> <!-- add 24-01-20-->
                             </div>
                             <div class="form-group">
                                 <div class="custom-control custom-checkbox">
@@ -152,44 +150,41 @@
                             <div class="form-group">
                                 <div class="g-recaptcha" data-sitekey="6Ldqw8sUAAAAAM2nmHyMhCNd3HtkOJyWc8nsh7DR"></div>
                             </div>
-
-                            @*
-                            <div class="alert alert-danger d-flex align-items-stretch" role="alert">
-                                <div class="alert-wrap mr-3">
-                                    <div class="sa">
-                                        <div class="sa-error">
-                                            <div class="sa-error-x">
-                                                <div class="sa-error-left"></div>
-                                                <div class="sa-error-right"></div>
-                                            </div>
-                                            <div class="sa-error-placeholder"></div>
-                                            <div class="sa-error-fix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="alert-wrap">
-                                    <h6>Error de registro</h6>
-                                    <hr><small class="mb-0">El correo ingresado ya existe, utilice un correo válido para su registro.</small>
-                                </div>
-                            </div>
-                            <div class="alert alert-success d-flex align-items-stretch" role="alert">
-                                <div class="alert-wrap mr-3">
-                                    <div class="sa">
-                                        <div class="sa-success">
-                                            <div class="sa-success-tip"></div>
-                                            <div class="sa-success-long"></div>
-                                            <div class="sa-success-placeholder"></div>
-                                            <div class="sa-success-fix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="alert-wrap">
-                                    <h6>Bien hecho</h6>
-                                    <hr><small class="mb-0">Su registro fue exitoso, en breve le notificaremos el estado a través de un email.</small>
-                                </div>
-                            </div>
-                            *@
-
+                            <div id="seccionMensaje"></div>
+                            <!-- <div class="alert alert-danger d-flex align-items-stretch" role="alert"> -->
+                            <!-- <div class="alert-wrap mr-3"> -->
+                            <!-- <div class="sa"> -->
+                            <!-- <div class="sa-error"> -->
+                            <!-- <div class="sa-error-x"> -->
+                            <!-- <div class="sa-error-left"></div> -->
+                            <!-- <div class="sa-error-right"></div> -->
+                            <!-- </div> -->
+                            <!-- <div class="sa-error-placeholder"></div> -->
+                            <!-- <div class="sa-error-fix"></div> -->
+                            <!-- </div> -->
+                            <!-- </div> -->
+                            <!-- </div> -->
+                            <!-- <div class="alert-wrap"> -->
+                            <!-- <h6>Error de registro</h6> -->
+                            <!-- <hr><small class="mb-0">El correo ingresado ya existe, utilice un correo válido para su registro.</small> -->
+                            <!-- </div> -->
+                            <!-- </div> -->
+                            <!-- <div class="alert alert-success d-flex align-items-stretch" role="alert"> -->
+                            <!-- <div class="alert-wrap mr-3"> -->
+                            <!-- <div class="sa"> -->
+                            <!-- <div class="sa-success"> -->
+                            <!-- <div class="sa-success-tip"></div> -->
+                            <!-- <div class="sa-success-long"></div> -->
+                            <!-- <div class="sa-success-placeholder"></div> -->
+                            <!-- <div class="sa-success-fix"></div> -->
+                            <!-- </div> -->
+                            <!-- </div> -->
+                            <!-- </div> -->
+                            <!-- <div class="alert-wrap"> -->
+                            <!-- <h6>Bien hecho</h6> -->
+                            <!-- <hr><small class="mb-0">Su registro fue exitoso, en breve le notificaremos el estado a través de un email.</small> -->
+                            <!-- </div> -->
+                            <!-- </div> -->
                             <!--.alert.alert-warning.d-flex.align-items-stretch(role="alert")
                             .alert-wrap.mr-3
                               .sa
@@ -202,8 +197,8 @@
                               hr
                               small.mb-0 En breve le notificaremos el estado de su registro.
                             -->
-                            <button class="btn-lg btn-primary w-100" type="submit"><i class="fas fa-paper-plane px-1"></i>Registrarse</button>
-                            <p class="pt-4 mb-0 text-center">¿Ya tiene un cuenta?&nbsp;<a href="@Url.Action("login", "Home")">Ingrese ahora <br></a><a href="./recuperar.html">¿Olvidó su contraseña?</a></p>
+                            <button class="btn-lg btn-primary w-100" type="button" id="btnRegistrar"><i class="fas fa-paper-plane px-1"></i>Registrarse</button>
+                            <p class="pt-4 mb-0 text-center">¿Ya tiene un cuenta?&nbsp;<a href="@Url.Action("login", "Home")">Ingrese ahora <br></a><a href="@Url.Action("recuperar","Home")">¿Olvidó su contraseña?</a></p>
                         </div>
                     </div>
                 </form>
@@ -214,10 +209,10 @@
 <div class="container-fluid" id="reportes-resultados">
     <div class="row">
         <div class="col-sm-12 col-md-6 col-lg-4 p-0 o-h">
-            <div class="bg-reportes"><a class="enlace-reportes d-flex flex-row justify-content-center align-items-center" href="./reportes.html"><i class="fas fa-file-invoice px-1 mr-2"></i>Reportes</a></div>
+            <div class="bg-reportes"><a class="enlace-reportes d-flex flex-row justify-content-center align-items-center" href="#"><i class="fas fa-file-invoice px-1 mr-2"></i>Reportes</a></div>
         </div>
         <div class="col-sm-12 col-md-6 col-lg-4 p-0 o-h">
-            <div class="bg-acciones-resultados"><a class="enlace-acciones-resultados d-flex flex-row justify-content-center align-items-center" href="./acciones-y-resultados.html"><i class="fas fa-chart-pie px-1 mr-2"></i>Acciones y Resultados</a></div>
+            <div class="bg-acciones-resultados"><a class="enlace-acciones-resultados d-flex flex-row justify-content-center align-items-center" href="@Url.Action("Resultados","Portal")"><i class="fas fa-chart-pie px-1 mr-2"></i>Acciones y Resultados</a></div>
         </div>
         <div class="col-sm-12 col-md-12 col-lg-4 p-0 o-h">
             <div class="bg-registro"><a class="enlace-registro d-flex flex-row justify-content-center align-items-center" href="@Url.Action("registro", "Home")"><i class="fas fa-user-circle px-1 mr-2"></i>Regístrate</a></div>
@@ -232,16 +227,62 @@
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-12">
                                     <h3 class="text-center">Términos y Condiciones de Uso</h3>
-                                    <p class="text-justify"></p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo exercitationem illo tempore ratione blanditiis sequi debitis magni harum, quisquam, magnam alias officia nesciunt accusamus perspiciatis quod vitae excepturi rerum omnis! -> Parrafo0
-                                    <p class="text-justify"></p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo exercitationem illo tempore ratione blanditiis sequi debitis magni harum, quisquam, magnam alias officia nesciunt accusamus perspiciatis quod vitae excepturi rerum omnis! -> Parrafo1
-                                    <p class="text-justify"></p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo exercitationem illo tempore ratione blanditiis sequi debitis magni harum, quisquam, magnam alias officia nesciunt accusamus perspiciatis quod vitae excepturi rerum omnis! -> Parrafo2
-                                    <p class="text-justify"></p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo exercitationem illo tempore ratione blanditiis sequi debitis magni harum, quisquam, magnam alias officia nesciunt accusamus perspiciatis quod vitae excepturi rerum omnis! -> Parrafo3
-                                    <p class="text-justify"></p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo exercitationem illo tempore ratione blanditiis sequi debitis magni harum, quisquam, magnam alias officia nesciunt accusamus perspiciatis quod vitae excepturi rerum omnis! -> Parrafo4
-                                    <p class="text-justify"></p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo exercitationem illo tempore ratione blanditiis sequi debitis magni harum, quisquam, magnam alias officia nesciunt accusamus perspiciatis quod vitae excepturi rerum omnis! -> Parrafo5
-                                    <p class="text-justify"></p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo exercitationem illo tempore ratione blanditiis sequi debitis magni harum, quisquam, magnam alias officia nesciunt accusamus perspiciatis quod vitae excepturi rerum omnis! -> Parrafo6
-                                    <p class="text-justify"></p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo exercitationem illo tempore ratione blanditiis sequi debitis magni harum, quisquam, magnam alias officia nesciunt accusamus perspiciatis quod vitae excepturi rerum omnis! -> Parrafo7
-                                    <p class="text-justify"></p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo exercitationem illo tempore ratione blanditiis sequi debitis magni harum, quisquam, magnam alias officia nesciunt accusamus perspiciatis quod vitae excepturi rerum omnis! -> Parrafo8
-                                    <p class="text-justify"></p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo exercitationem illo tempore ratione blanditiis sequi debitis magni harum, quisquam, magnam alias officia nesciunt accusamus perspiciatis quod vitae excepturi rerum omnis! -> Parrafo9
+                                    <h4 class="text-center">1. DATOS DE IDENTIFICACIÓN</h4>
+                                    <p class="text-justify">Usted está visitando el Portal del  GZ (el “Sitio Web o la Aplicación”), de titularidad de EMPRESA EDITORA EL GZ S.A., con R.U.C. N°20143229816, y SERVICIOS ESPECIALES DE EDICIÓN S.A. con R.U.C. N° 20100544866, ambas con domicilio en Jirón Santa Rosa N° 300, Cercado de Lima, provincia y departamento de Lima (el “Grupo El GZ”).</p>
+                                    <h4 class="text-center">2. ACCESO Y ACEPTACIÓN DEL USUARIO</h4>
+                                    <p class="text-justify"><p>Estos Términos y Condiciones regulan el acceso y utilización por parte del Usuario de los servicios y facilidades que ofrece el Sitio Web o la Aplicación. La condición de “Usuario” es adquirida por la mera navegación y/o utilización del Sitio Web o la Aplicación.</p>
+                                    <p class="text-justify">El Usuario puede acceder y navegar por el Sitio Web o la Aplicación libremente sin necesidad de registrarse y/o suscribirse. Sin embargo, en algunos casos se requerirá del registro y/o suscripción para acceder a los servicios suministrados por el Grupo El GZ o por terceros, a través del Sitio Web o la Aplicación, los cuales pueden estar sujetos a condiciones específicas.</p>
+                                    <p class="text-justify">Asimismo, el acceso y navegación por el Sitio Web y la Aplicación por parte del Usuario implica la aceptación sin reservas de todas las disposiciones incluidas en los presentes Términos y Condiciones.</p>
+                                    <h4 class="text-center">3. MODIFICACIÓN DE LOS TÉRMINOS Y CONDICIONES</h4>
+                                    <p class="text-justify"><p>El Grupo El GZ se reserva expresamente el derecho a modificar, actualizar o ampliar en cualquier momento los presentes Términos y Condiciones.</p>
+                                    <p class="text-justify">Cualquier modificación, actualización o ampliación producida en los presentes Términos y Condiciones será inmediatamente publicada siendo responsabilidad del Usuario revisar los Términos y Condiciones vigentes al momento de la navegación.</p>
+                                    <p class="text-justify">En caso de que el Usuario no estuviera de acuerdo con las modificaciones mencionadas, podrá optar por no hacer uso de los servicios ofrecidos por el Grupo El GZ a través del Sitio Web o la Aplicación.</p>
+                                    <h4 class="text-center">4. USO DEL SITIO WEB O LA APLICACIÓN</h4>
+                                    <p class="text-justify">Los servicios que se ofrecen a través del presente Sitio Web o Aplicación se encuentran disponibles sólo para aquellas personas que puedan celebrar contratos legalmente vinculantes de acuerdo a lo establecido por la ley aplicable. Al acceder al Sitio Web o la Aplicación, el Usuario declara ser mayor de 18 años de edad y encontrarse facultado a asumir obligaciones vinculantes con respecto a cualquier tipo de responsabilidad que se produzca por el uso del Sitio Web o la Aplicación.</p>
+                                    <p class="text-justify">El Usuario se compromete a utilizar el Sitio Web o la Aplicación de conformidad con la Ley, los presentes Términos y Condiciones, la moral, las buenas costumbres y el orden público. En este sentido, la utilización por parte del Usuario del Sitio Web o la Aplicación se realizará de conformidad con las siguientes directivas:</p>
+                                    <ul>
+                                        <li>El Usuario se obliga a no utilizar el Sitio Web o la Aplicación con fines o efectos ilícitos o contrarios al contenido de los presentes Términos y Condiciones, lesivos de los intereses o derechos de terceros, o que de cualquier forma pueda dañar, inutilizar, deteriorar la plataforma o impedir un normal disfrute del Sitio Web o la Aplicación por otros Usuarios.</li>
+                                        <li>El Usuario se compromete expresamente a no destruir, alterar, inutilizar o, de cualquier otra forma, dañar los datos, programas o documentos electrónicos y demás que se encuentren en el Sitio Web o la Aplicación.</li>
+                                        <li>El Usuario se compromete a no obstaculizar el acceso a otros Usuarios mediante el consumo masivo de los recursos informáticos a través de los cuales el Grupo El GZ presta el servicio, así como a no realizar acciones que dañen, interrumpan o generen errores en dichos sistemas o servicios.</li>
+                                        <li>El Usuario se compromete a no intentar penetrar o probar la vulnerabilidad de un sistema o de una red propia del Sitio Web o la Aplicación, así como quebrantar las medidas de seguridad o de autenticación del mismo.</li>
+                                        <li>El Usuario se compromete a hacer un uso adecuado de los contenidos que se ofrecen en el Sitio Web o la Aplicación y a no emplearlos para incurrir en actividades ilícitas, así como a no publicar ningún tipo de contenido ilícito.</li>
+                                        <li>El Usuario se compromete a no utilizar el Sitio Web o la Aplicación para, a modo de referencia, más no limitativo, enviar correos electrónicos masivos (spam) o correos electrónicos con contenido amenazante, abusivo, hostil, ultrajante, difamatorio, vulgar, obsceno o injurioso. Asimismo, se compromete a no utilizar un lenguaje ilícito, abusivo, amenazante, obsceno, vulgar, racista, ni cualquier lenguaje que se considere inapropiado, ni anunciar o proporcionar enlaces a sitios que contengan materia ilegal u otro contenido que pueda dañar o deteriorar la red personal o computadora de otro Usuario.</li>
+                                    </ul>
+                                    <p>El Grupo El GZ se reserva la potestad de determinar a su libre criterio, cuándo se produce la vulneración de cualquiera de los preceptos enunciados en el presente apartado por parte de los contenidos publicados por algún Usuario, así como la potestad de eliminar dichos contenidos del Sitio Web o la Aplicación.</p>
+                                    <p>En el caso en que un Usuario infrinja lo establecido en el presente apartado, el Grupo El GZ procederá a realizar alguna de las siguientes acciones, dependiendo de la gravedad o recurrencia de la infracción:</p>
+                                    <ol>
+                                        <li>Amonestación al Usuario.</li>
+                                        <li>Suspensión temporal de la cuenta del Usuario.</li>
+                                        <li>Cancelación definitiva de la cuenta del Usuario.</li>
+                                        <li>Acciones por responsabilidades civiles o penales.</li>
+                                    </ol>
+                                    <h4 class="text-center">5. REGISTRO Y RESPONSABILIDAD POR CONTRASEÑAS</h4>
+                                    <p class="text-justify">El Usuario podrá navegar por el Sitio Web o la Aplicación sin necesidad de registrarse en una cuenta. Sin embargo, en algunos casos se requerirá del registro y/o suscripción para acceder al Sitio Web o la Aplicación. La cuenta de Usuario no debe incluir el nombre de otra persona con la intención de hacerse pasar por esa persona, ni ser ofensivo, vulgar, obsceno o contrario a la moral y las buenas costumbres.</p>
+                                    <p class="text-justify">Los Usuarios registrados y/o suscritos contarán con una clave personal o contraseña con la cual podrán acceder a su cuenta personal. Cada Usuario es responsable de su propia contraseña, y deberá mantenerla bajo absoluta reserva y confidencialidad, sin revelarla o compartirla, en ningún caso, con terceros. Cada Usuario es responsable de todas las acciones realizadas mediante el uso de su contraseña. Toda acción realizada a través de la cuenta personal de un Usuario se presume realizada por el Usuario titular de dicha cuenta.</pclass="text-justify">
+                                    <p class="text-justify">En el caso de que un Usuario identificara que un tercero conociera y usara su contraseña y su cuenta personal, deberá notificarlo de manera inmediata al Grupo El GZ.</p>
+                                    <p class="text-justify">El Grupo El GZ no será responsable de cualquier daño relacionado con la divulgación del nombre de un Usuario o de su contraseña, o del uso que cualquier persona dé al nombre de un Usuario o contraseña.</p>
+                                    <p class="text-justify">El Grupo El GZ puede solicitar el cambio de un nombre de Usuario y contraseña cuando considere que la cuenta ya no es segura, o si se recibe alguna queja o denuncia respecto al nombre de un Usuario que viole derechos de terceros.</p>
+                                    <p class="text-justify">Las comunicaciones concernientes a la administración de la contraseña pueden ser enviadas a contacto@peruid.pe</p>
+                                    <h4 class="text-center">6. PROPIEDAD INTELECTUAL</h4>
+                                    <p class="text-justify">Todos los derechos de propiedad intelectual del Sitio Web o la Aplicación y de sus contenidos y diseños pertenecen al Grupo El GZ o, en su caso, a terceras personas. En aquellos casos en que sean propiedad de terceros, el Grupo El GZ cuenta con las licencias necesarias para su utilización.</p>
+                                    <p class="text-justify">Quedan expresamente prohibidas la reproducción, distribución, transformación, comunicación pública, puesta a disposición o cualquier modo de utilización, de la totalidad o parte de los contenidos del Sitio Web o la Aplicación, en cualquier soporte y por cualquier medio técnico, sin la autorización del Grupo El GZ. El Usuario se compromete a respetar los derechos de propiedad intelectual de titularidad del Grupo El GZ y de terceros.</pclass="text-justify">
+                                    <p class="text-justify">Asimismo, queda expresamente prohibida la utilización o reproducción de cualquier marca registrada, nombre o logotipo que figure en el Sitio Web o la Aplicación sin la autorización previa y por escrito del Grupo El GZ, así como la utilización del software que opera el Sitio Web o la Aplicación con excepción de aquellos usos permitidos bajo estos Términos y Condiciones.</p>
+                                    <p class="text-justify">Finalmente, quedan igualmente prohibidas a título enunciativo las siguientes prácticas:</p>
+                                    <ul>
+                                        <li>La presentación de una página del Sitio Web o la Aplicación en una ventana que no pertenezca al Grupo El GZ, mediante la técnica denominada "framing" a no ser que se cuente con la autorización previa y por escrito del Grupo El GZ.</li>
+                                        <li>La inserción de una imagen difundida en el Sitio Web o la Aplicación en una página no perteneciente al Grupo El GZ, mediante la técnica denominada "inline linking", si ello no cuenta con la autorización previa y por escrito del Grupo El GZ.</li>
+                                    </ul>
+                                    <h4 class="text-center">7. CONTENIDO GENERADO POR EL USUARIO</h4>
+                                    <p class="text-justify">Existen determinadas secciones en las que el Usuario puede crear o generar contenido, como las zonas de comentarios, blogs, conversaciones en foros, entre otros. En dichas situaciones el Usuario podrá cargar videos, audios, gráficos, imágenes, producir textos, entre otros, (“Contenido Generado por el Usuario” o “CGU”).</p>
+                                    <p class="text-justify">El Usuario se compromete a cumplir las directivas de Uso del Sitio Web o la Aplicación contenidas en el numeral 5 de los presentes Términos y Condiciones. En específico, el Usuario se compromete a no utilizar el Sitio Web o la Aplicación para incluir contenido amenazante, abusivo, hostil, ultrajante, difamatorio, vulgar, obsceno o injurioso. Asimismo, se compromete a no utilizar un lenguaje ilícito, abusivo, amenazante, obsceno, vulgar, racista, ni cualquier lenguaje que se considere inapropiado.</p>
+                                    <p class="text-justify">El Usuario declara ser titular originario de todos los derechos de propiedad intelectual sobre el CGU. Sin embargo, al cargar dicho contenido en el Sitio Web o la Aplicación, el Usuario otorga al Grupo El GZ una autorización o licencia no exclusiva, libre de pago de regalías, ilimitada e irrevocable y que aplica globalmente sobre todos los derechos, títulos e intereses del CGU, a fin de que el Grupo El GZ pueda utilizarlo, incluyendo, entre otros, el derecho a reproducirlo, modificarlo, crear trabajos derivados, editarlo, adaptarlo, traducirlo, distribuirlo, comercializarlo, ponerlo a disposición del público y cualquier forma de utilización, a través de cualquier medio, sea a través del Sitio Web o la Aplicación, como de medios no electrónicos.</p>
+                                    <p class="text-justify">Cabe indicar que la autorización brindada al Grupo El GZ no es exclusiva, razón por la cual el Usuario puede continuar utilizando el CGU en cualquier medio e incluso permitir a otros que lo utilicen, siempre que tal uso no perjudique e interfiera con la autorización y derechos que el Usuario le otorga al Grupo El GZ.</p>
+                                    <p class="text-justify">De igual forma, el Usuario reconoce y acepta que otros Usuarios de los Sitios Web o Aplicaciones del Grupo El GZ visualicen, descarguen, enlacen y accedan al CGU y utilicen dichos contenidos de acuerdo con las posibilidades que el Sitio Web o la Aplicación ofrecen, de conformidad con lo establecido en el numeral 5 de este documento y siempre que no tengan uso comercial.</p>
+                                    <p> class="text-justify" El Grupo El GZ no garantiza la veracidad, exactitud, exhaustividad y actualidad del CGU en el Sitio Web o la Aplicación. En cualquier caso, el Usuario será el único responsable de las manifestaciones falsas, inexactas o difamatorias que realice y de los perjuicios que pudiera causar al Sitio Web o la Aplicación o a terceros por la información que facilite.</p>
+                                    <p class="text-justify">El Grupo El GZ no se hace responsable por el CGU y traslada toda responsabilidad sobre éstos a cada Usuario proveedor de dichos contenidos.</p>
+                                    <h4 class="text-center">8. ENLACES DE TERCEROS</h4>
+                                    <p class="text-justify">En el supuesto de que en el Sitio Web o la Aplicación se dispusieran enlaces o hipervínculos hacia otros sitios de Internet, el Grupo El GZ declara que no ejerce ningún tipo de control sobre dichos sitios y contenidos. En ningún caso el Grupo El GZ asumirá responsabilidad alguna por los contenidos de algún enlace perteneciente a una web ajena, ni garantizará la disponibilidad técnica, calidad, fiabilidad, exactitud, veracidad, validez y constitucionalidad de cualquier material o información contenida en los hipervínculos u otros lugares de Internet.</p>
+                                    <p class="text-justify">Estos enlaces se proporcionan únicamente para informar al Usuario sobre la existencia de otras fuentes de información sobre un tema concreto, y la inclusión de un enlace no implica la aprobación de la página web enlazada por parte del Grupo El GZ.</p>
                                 </div>
                             </div>
                         </div>

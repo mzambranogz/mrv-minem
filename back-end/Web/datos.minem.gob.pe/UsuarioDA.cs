@@ -41,7 +41,6 @@ namespace datos.minem.gob.pe
         }
         public UsuarioBE RegistraUsuario(UsuarioBE entidad)
         {
-
             try
             {
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
@@ -56,10 +55,38 @@ namespace datos.minem.gob.pe
                     p.Add("pTELEFONO_USUARIO", entidad.TELEFONO_USUARIO);
                     p.Add("pANEXO_USUARIO", entidad.ANEXO_USUARIO);
                     p.Add("pCELULAR_USUARIO", entidad.CELULAR_USUARIO);
-                    p.Add("pFLG_TERMINOS", entidad.TERMINOS);
+                    p.Add("pID_ROL", entidad.ID_ROL);
+                    p.Add("pID_ESTADO_USUARIO", entidad.ID_ESTADO_USUARIO);
+                    p.Add("pFLG_TERMINOS", entidad.TERMINOS);                   
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
                 entidad.OK = true;
+                string[] medidas;
+                if (!string.IsNullOrEmpty(entidad.MEDIDAS))
+                {
+                    using (IDbConnection db = new OracleConnection(CadenaConexion))
+                    {
+                        string sp = "USERMRV.PKG_MRV_MANTENIMIENTO." + "USP_DEL_USUARIO_MEDMIT";
+                        var p = new OracleDynamicParameters();
+                        p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                        p.Add("pID_USUREG", entidad.USUARIO_REGISTRO);
+                        p.Add("pIP", entidad.IP_PC);
+                        db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                    }
+
+                    medidas = entidad.MEDIDAS.Split('|');
+                    for (int i = 0; i < medidas.Length; i++)
+                    {
+                        UsuarioMedMitBE entidad2 = new UsuarioMedMitBE() { ID_USUARIO = entidad.ID_USUARIO, ID_MEDMIT = int.Parse(medidas[i]), USUARIO_REGISTRO = entidad.USUARIO_REGISTRO, IP_PC = entidad.IP_PC };
+                        entidad2 = RegistraUsuarioMedidaMitigacion(entidad2);
+                        if (!entidad2.OK)
+                        {
+                            entidad.OK = false;
+                            entidad.extra = entidad2.extra;
+                            break;
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -93,6 +120,32 @@ namespace datos.minem.gob.pe
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
                 entidad.OK = true;
+                string[] medidas;
+                if (!string.IsNullOrEmpty(entidad.MEDIDAS))
+                {
+                    using (IDbConnection db = new OracleConnection(CadenaConexion))
+                    {
+                        string sp = "USERMRV.PKG_MRV_MANTENIMIENTO." + "USP_DEL_USUARIO_MEDMIT";
+                        var p = new OracleDynamicParameters();
+                        p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                        p.Add("pID_USUREG", entidad.USUARIO_REGISTRO);
+                        p.Add("pIP", entidad.IP_PC);
+                        db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                    }
+
+                    medidas = entidad.MEDIDAS.Split('|');
+                    for (int i = 0; i < medidas.Length; i++)
+                    {
+                        UsuarioMedMitBE entidad2 = new UsuarioMedMitBE() { ID_USUARIO = entidad.ID_USUARIO, ID_MEDMIT = int.Parse(medidas[i]), USUARIO_REGISTRO = entidad.USUARIO_REGISTRO, IP_PC = entidad.IP_PC };
+                        entidad2 = RegistraUsuarioMedidaMitigacion(entidad2);
+                        if (!entidad2.OK)
+                        {
+                            entidad.OK = false;
+                            entidad.extra = entidad2.extra;
+                            break;
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -103,6 +156,55 @@ namespace datos.minem.gob.pe
 
             return entidad;
         }
+
+        public UsuarioMedMitBE RegistraUsuarioMedidaMitigacion(UsuarioMedMitBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = "USERMRV.PKG_MRV_MANTENIMIENTO." + "USP_MNT_USUARIO_MEDMIT";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pID_USUREG", entidad.USUARIO_REGISTRO);
+                    p.Add("pIP", entidad.IP_PC);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+                entidad.extra = ex.Message;
+            }
+            return entidad;
+        }
+
+
+        public List<UsuarioMedMitBE> ListaUsuarioMedidaMitigacion(UsuarioMedMitBE entidad)
+        {
+            List<UsuarioMedMitBE> Lista = null;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = "USERMRV.PKG_MRV_MANTENIMIENTO." + "USP_SEL_USUARIO_MEDMIT";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<UsuarioMedMitBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
         public UsuarioBE ObtenerPassword(UsuarioBE entidad)
         {
             List<UsuarioBE> Lista = null;
@@ -223,5 +325,128 @@ namespace datos.minem.gob.pe
 
             return Lista;
         }
+
+        public UsuarioBE validarConfirmarCorreo(UsuarioBE entidad)
+        {
+            UsuarioBE usuario = null;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_VALIDAR_CORREO";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    usuario = db.Query<UsuarioBE>(sp, p, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return usuario;
+        }
+
+        public UsuarioBE VerificarClave(UsuarioBE entidad)
+        {
+            UsuarioBE usuario = null;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_CLAVE";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    usuario = db.Query<UsuarioBE>(sp, p, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+
+            return usuario;
+        }
+
+        public UsuarioBE CambiarClave(UsuarioBE entidad)
+        {
+            //UsuarioBE usuario = null;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_UPD_CAMBIAR_CLAVE";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    p.Add("pNUEVO_PASSWORD", entidad.NUEVO_PASSWORD_USUARIO);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+
+            return entidad;
+        }
+
+        public UsuarioBE obtenerUsuario(UsuarioBE entidad)
+        {
+            //UsuarioBE usuario = null;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_UPD_OBTENER_USUARIO";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pEMAIL_USUARIO", entidad.EMAIL_USUARIO);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    entidad = db.Query<UsuarioBE>(sp, p, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+
+            return entidad;
+        }
+
+        public UsuarioBE obtenerUsuarioId(int cod)
+        {
+            UsuarioBE entidad = new UsuarioBE();
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_UPD_OBTENER_USUARIO_ID"; //AGREGAR AL STORE CAMPOS DE USUARIO COMO INSTITUCION, SECTOR, ETC
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_USUARIO", cod);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    var ent = db.Query<UsuarioBE>(sp, p, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                    if (ent != null)
+                    {
+                        entidad = ent;
+                    }
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+
+            return entidad;
+        }
+
     }
 }

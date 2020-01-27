@@ -1,23 +1,16 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "MantenimientoUsuario";
     Layout = "~/Views/Shared/_SesionLayout.cshtml";
 }
 
-$(document).ready(function () {
-    CargarTablaMantenimiento();
-    MRV.CargarSelect(baseUrl + "Portal/ListaSectorInstitucion", "#cbo-sector", "ID_SECTOR_INST", "DESCRIPCION");
-    fn_cargarRol();
-    fn_modalInicio();
-});
 
 <div class="flecha-top"><i class="fas fa-angle-double-right fa-2x text-dark btn-slider-bottom"></i></div>
 <div class="container-fluid map-root" id="historia">
     <div class="container">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
-                <li class="breadcrumb-item"><a href="./mantenimiento-de-tablas.html">Mantenimiento de Tablas</a></li>
+                <li class="breadcrumb-item"><a href="@Url.Action("Index","Gestion")">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="@Url.Action("MantenimientoTablas","Gestion")">Mantenimiento de Tablas</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Mantenimiento de Usuarios</li>
             </ol>
         </nav>
@@ -37,7 +30,7 @@ $(document).ready(function () {
                     <div class="col-md-12 col-lg-6 pt-4">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
-                            <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#modal-usuario"><a class="agregar-iniciativa" href="#" onclick="fn_nuevoMantenimientoUsuario();" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-plus px-1"></i>Agregar usuario</a></span></div>
+                            <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#modal-usuario"><a class="agregar-iniciativa" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]" id="validarUsuario" onclick="regUsuario();" data-guardar="0"><i class="fas fa-plus px-1"></i>Agregar usuario</a></span></div><!-- add -->
                         </div>
                     </div>
                 </div>
@@ -64,8 +57,8 @@ $(document).ready(function () {
                     </div>
                 </div>
             </div>
-            <div class="container-fluid py-4 px-0">
-                <div class="h5">Bandeja de Ususarios&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></div>
+            <div class="container-fluid py-4">
+                <div class="h5">Bandeja de Usu.arios&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></div>
                 <div class="dropdown-divider"></div>
                 <div class="row">
                     <div class="col-12 px-0">
@@ -84,276 +77,198 @@ $(document).ready(function () {
                                     </tr>
                                 </thead>
                                 <tbody id="cuerpoMantenimientoUsuario">
-                                    @*<tr>
-                                            <th class="text-center" data-encabezado="Número" scope="row">1</th>
-                                            <td data-encabezado="Nombre y Apellido">Ricardo Avalos</td>
-                                            <td data-encabezado="Email">ravalos@empresa.com.pe</td>
-                                            <td data-encabezado="Istitución">EMPRESA DE TRANSPORTE ETUPSA</td>
-                                            <td data-encabezado="Dirección">Av. Los Angeles N° 4680</td>
-                                            <td data-encabezado="Perfil">
-                                                <span class="badge badge-actor-02">Usuario Administrado</span>
-                                            </td>
-                                            <td data-encabezado="Estado">
-                                                <span class="badge badge-actor-por-aprobar"><i class="fas fa-question-circle mr-1"></i>Por aprobar</span>
-                                            </td>
-                                            <td class="text-center text-xs-right" data-encabezado="Acciones">
-                                                <div class="btn-group">
-                                                    <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                                                    <div class="dropdown-menu dropdown-menu-right">
-                                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-usuario">
-                                                            <i class="fas fa-edit"></i>&nbsp;
-                                                            Editar
-                                                        </a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion">
-                                                            <i class="fas fa-trash"></i>&nbsp;
-                                                            Eliminar
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" data-encabezado="Número" scope="row">2</th>
-                                            <td data-encabezado="Nombre y Apellido">Ricardo Avalos</td>
-                                            <td data-encabezado="Email">ravalos@empresa.com.pe</td>
-                                            <td data-encabezado="Istitución">EMPRESA DE TRANSPORTE ETUPSA</td>
-                                            <td data-encabezado="Dirección">Av. Los Angeles N° 4680</td>
-                                            <td data-encabezado="Perfil">
-                                                <span class="badge badge-actor-02">Usuario Administrado</span>
-                                            </td>
-                                            <td data-encabezado="Estado">
-                                                <span class="badge badge-actor-por-aprobar"><i class="fas fa-question-circle mr-1"></i>Por aprobar</span>
-                                            </td>
-                                            <td class="text-center text-xs-right" data-encabezado="Acciones">
-                                                <div class="btn-group">
-                                                    <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                                                    <div class="dropdown-menu dropdown-menu-right">
-                                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-usuario">
-                                                            <i class="fas fa-edit"></i>&nbsp;
-                                                            Editar
-                                                        </a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion">
-                                                            <i class="fas fa-trash"></i>&nbsp;
-                                                            Eliminar
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" data-encabezado="Número" scope="row">3</th>
-                                            <td data-encabezado="Nombre y Apellido">Ricardo Avalos</td>
-                                            <td data-encabezado="Email">ravalos@empresa.com.pe</td>
-                                            <td data-encabezado="Istitución">EMPRESA DE TRANSPORTE ETUPSA</td>
-                                            <td data-encabezado="Dirección">Av. Los Angeles N° 4680</td>
-                                            <td data-encabezado="Perfil">
-                                                <span class="badge badge-actor-02">Usuario Administrado</span>
-                                            </td>
-                                            <td data-encabezado="Estado">
-                                                <span class="badge badge-actor-por-aprobar"><i class="fas fa-question-circle mr-1"></i>Por aprobar</span>
-                                            </td>
-                                            <td class="text-center text-xs-right" data-encabezado="Acciones">
-                                                <div class="btn-group">
-                                                    <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                                                    <div class="dropdown-menu dropdown-menu-right">
-                                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-usuario">
-                                                            <i class="fas fa-edit"></i>&nbsp;
-                                                            Editar
-                                                        </a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion">
-                                                            <i class="fas fa-trash"></i>&nbsp;
-                                                            Eliminar
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" data-encabezado="Número" scope="row">4</th>
-                                            <td data-encabezado="Nombre y Apellido">Ricardo Avalos</td>
-                                            <td data-encabezado="Email">ravalos@empresa.com.pe</td>
-                                            <td data-encabezado="Istitución">EMPRESA DE TRANSPORTE ETUPSA</td>
-                                            <td data-encabezado="Dirección">Av. Los Angeles N° 4680</td>
-                                            <td data-encabezado="Perfil">
-                                                <span class="badge badge-actor-02">Usuario Administrado</span>
-                                            </td>
-                                            <td data-encabezado="Estado">
-                                                <span class="badge badge-actor-por-aprobar"><i class="fas fa-question-circle mr-1"></i>Por aprobar</span>
-                                            </td>
-                                            <td class="text-center text-xs-right" data-encabezado="Acciones">
-                                                <div class="btn-group">
-                                                    <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                                                    <div class="dropdown-menu dropdown-menu-right">
-                                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-usuario">
-                                                            <i class="fas fa-edit"></i>&nbsp;
-                                                            Editar
-                                                        </a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion">
-                                                            <i class="fas fa-trash"></i>&nbsp;
-                                                            Eliminar
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" data-encabezado="Número" scope="row">5</th>
-                                            <td data-encabezado="Nombre y Apellido">Ricardo Avalos</td>
-                                            <td data-encabezado="Email">ravalos@empresa.com.pe</td>
-                                            <td data-encabezado="Istitución">EMPRESA DE TRANSPORTE ETUPSA</td>
-                                            <td data-encabezado="Dirección">Av. Los Angeles N° 4680</td>
-                                            <td data-encabezado="Perfil">
-                                                <span class="badge badge-actor-02">Usuario Administrado</span>
-                                            </td>
-                                            <td data-encabezado="Estado">
-                                                <span class="badge badge-actor-desaprobado"><i class="fas fa-times-circle mr-1"></i>Desaprobado</span>
-                                            </td>
-                                            <td class="text-center text-xs-right" data-encabezado="Acciones">
-                                                <div class="btn-group">
-                                                    <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                                                    <div class="dropdown-menu dropdown-menu-right">
-                                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-usuario">
-                                                            <i class="fas fa-edit"></i>&nbsp;
-                                                            Editar
-                                                        </a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion">
-                                                            <i class="fas fa-trash"></i>&nbsp;
-                                                            Eliminar
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" data-encabezado="Número" scope="row">6</th>
-                                            <td data-encabezado="Nombre y Apellido">Ricardo Avalos</td>
-                                            <td data-encabezado="Email">ravalos@empresa.com.pe</td>
-                                            <td data-encabezado="Istitución">EMPRESA DE TRANSPORTE ETUPSA</td>
-                                            <td data-encabezado="Dirección">Av. Los Angeles N° 4680</td>
-                                            <td data-encabezado="Perfil">
-                                                <span class="badge badge-actor-02">Usuario Administrado</span>
-                                            </td>
-                                            <td data-encabezado="Estado">
-                                                <span class="badge badge-actor-aprobado"><i class="fas fa-check-circle mr-1"></i>Aprobado</span>
-                                            </td>
-                                            <td class="text-center text-xs-right" data-encabezado="Acciones">
-                                                <div class="btn-group">
-                                                    <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                                                    <div class="dropdown-menu dropdown-menu-right">
-                                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-usuario">
-                                                            <i class="fas fa-edit"></i>&nbsp;
-                                                            Editar
-                                                        </a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion">
-                                                            <i class="fas fa-trash"></i>&nbsp;
-                                                            Eliminar
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" data-encabezado="Número" scope="row">7</th>
-                                            <td data-encabezado="Nombre y Apellido">Ricardo Avalos</td>
-                                            <td data-encabezado="Email">ravalos@empresa.com.pe</td>
-                                            <td data-encabezado="Istitución">EMPRESA DE TRANSPORTE ETUPSA</td>
-                                            <td data-encabezado="Dirección">Av. Los Angeles N° 4680</td>
-                                            <td data-encabezado="Perfil">
-                                                <span class="badge badge-actor-03">Especialista</span>
-                                            </td>
-                                            <td data-encabezado="Estado">
-                                                <span class="badge badge-actor-aprobado"><i class="fas fa-check-circle mr-1"></i>Aprobado</span>
-                                            </td>
-                                            <td class="text-center text-xs-right" data-encabezado="Acciones">
-                                                <div class="btn-group">
-                                                    <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                                                    <div class="dropdown-menu dropdown-menu-right">
-                                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-usuario">
-                                                            <i class="fas fa-edit"></i>&nbsp;
-                                                            Editar
-                                                        </a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion">
-                                                            <i class="fas fa-trash"></i>&nbsp;
-                                                            Eliminar
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" data-encabezado="Número" scope="row">8</th>
-                                            <td data-encabezado="Nombre y Apellido">Ricardo Avalos</td>
-                                            <td data-encabezado="Email">ravalos@empresa.com.pe</td>
-                                            <td data-encabezado="Istitución">EMPRESA DE TRANSPORTE ETUPSA</td>
-                                            <td data-encabezado="Dirección">Av. Los Angeles N° 4680</td>
-                                            <td data-encabezado="Perfil">
-                                                <span class="badge badge-actor-04">Evaluador MINAM</span>
-                                            </td>
-                                            <td data-encabezado="Estado">
-                                                <span class="badge badge-actor-aprobado"><i class="fas fa-check-circle mr-1"></i>Aprobado</span>
-                                            </td>
-                                            <td class="text-center text-xs-right" data-encabezado="Acciones">
-                                                <div class="btn-group">
-                                                    <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                                                    <div class="dropdown-menu dropdown-menu-right">
-                                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-usuario">
-                                                            <i class="fas fa-edit"></i>&nbsp;
-                                                            Editar
-                                                        </a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion">
-                                                            <i class="fas fa-trash"></i>&nbsp;
-                                                            Eliminar
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" data-encabezado="Número" scope="row">9</th>
-                                            <td data-encabezado="Nombre y Apellido">Ricardo Avalos</td>
-                                            <td data-encabezado="Email">ravalos@empresa.com.pe</td>
-                                            <td data-encabezado="Istitución">EMPRESA DE TRANSPORTE ETUPSA</td>
-                                            <td data-encabezado="Dirección">Av. Los Angeles N° 4680</td>
-                                            <td data-encabezado="Perfil">
-                                                <span class="badge badge-actor-05">Verificador Externo</span>
-                                            </td>
-                                            <td data-encabezado="Estado">
-                                                <span class="badge badge-actor-aprobado"><i class="fas fa-check-circle mr-1"></i>Aprobado</span>
-                                            </td>
-                                            <td class="text-center text-xs-right" data-encabezado="Acciones">
-                                                <div class="btn-group">
-                                                    <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                                                    <div class="dropdown-menu dropdown-menu-right">
-                                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-usuario">
-                                                            <i class="fas fa-edit"></i>&nbsp;
-                                                            Editar
-                                                        </a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion">
-                                                            <i class="fas fa-trash"></i>&nbsp;
-                                                            Eliminar
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-center" data-encabezado="Número" scope="row">10</th>
-                                            <td data-encabezado="Nombre y Apellido">Ricardo Avalos</td>
-                                            <td data-encabezado="Email">ravalos@empresa.com.pe</td>
-                                            <td data-encabezado="Istitución">EMPRESA DE TRANSPORTE ETUPSA</td>
-                                            <td data-encabezado="Dirección">Av. Los Angeles N° 4680</td>
-                                            <td data-encabezado="Perfil">
-                                                <span class="badge badge-actor-06">Administrador MINEM</span>
-                                            </td>
-                                            <td data-encabezado="Estado">
-                                                <span class="badge badge-actor-aprobado"><i class="fas fa-check-circle mr-1"></i>Aprobado</span>
-                                            </td>
-                                            <td class="text-center text-xs-right" data-encabezado="Acciones">
-                                                <div class="btn-group">
-                                                    <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                                                    <div class="dropdown-menu dropdown-menu-right">
-                                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-usuario">
-                                                            <i class="fas fa-edit"></i>&nbsp;
-                                                            Editar
-                                                        </a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion">
-                                                            <i class="fas fa-trash"></i>&nbsp;
-                                                            Eliminar
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>*@
+                                    <!--<tr>
+                                      <th class="text-center" data-encabezado="Número" scope="row">1</th>
+                                      <td data-encabezado="Nombre y Apellido">Ricardo Avalos</td>
+                                      <td data-encabezado="Email">ravalos@empresa.com.pe</td>
+                                      <td data-encabezado="Istitución">EMPRESA DE TRANSPORTE ETUPSA</td>
+                                      <td data-encabezado="Dirección">Av. Los Angeles N° 4680</td>
+                                      <td data-encabezado="Perfil"><span class="badge badge-actor-02">Usuario Administrado</span>
+                                      </td>
+                                      <td data-encabezado="Estado"><span class="badge badge-actor-por-aprobar"><i class="fas fa-question-circle mr-1"></i>Por aprobar</span>
+                                      </td>
+                                      <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                        <div class="btn-group">
+                                          <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                          <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-usuario"><i class="fas fa-edit"></i>&nbsp;
+                                              Editar</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion"><i class="fas fa-trash"></i>&nbsp;
+                                              Eliminar</a></div>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <th class="text-center" data-encabezado="Número" scope="row">2</th>
+                                      <td data-encabezado="Nombre y Apellido">Ricardo Avalos</td>
+                                      <td data-encabezado="Email">ravalos@empresa.com.pe</td>
+                                      <td data-encabezado="Istitución">EMPRESA DE TRANSPORTE ETUPSA</td>
+                                      <td data-encabezado="Dirección">Av. Los Angeles N° 4680</td>
+                                      <td data-encabezado="Perfil"><span class="badge badge-actor-02">Usuario Administrado</span>
+                                      </td>
+                                      <td data-encabezado="Estado"><span class="badge badge-actor-por-aprobar"><i class="fas fa-question-circle mr-1"></i>Por aprobar</span>
+                                      </td>
+                                      <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                        <div class="btn-group">
+                                          <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                          <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-usuario"><i class="fas fa-edit"></i>&nbsp;
+                                              Editar</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion"><i class="fas fa-trash"></i>&nbsp;
+                                              Eliminar</a></div>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <th class="text-center" data-encabezado="Número" scope="row">3</th>
+                                      <td data-encabezado="Nombre y Apellido">Ricardo Avalos</td>
+                                      <td data-encabezado="Email">ravalos@empresa.com.pe</td>
+                                      <td data-encabezado="Istitución">EMPRESA DE TRANSPORTE ETUPSA</td>
+                                      <td data-encabezado="Dirección">Av. Los Angeles N° 4680</td>
+                                      <td data-encabezado="Perfil"><span class="badge badge-actor-02">Usuario Administrado</span>
+                                      </td>
+                                      <td data-encabezado="Estado"><span class="badge badge-actor-por-aprobar"><i class="fas fa-question-circle mr-1"></i>Por aprobar</span>
+                                      </td>
+                                      <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                        <div class="btn-group">
+                                          <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                          <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-usuario"><i class="fas fa-edit"></i>&nbsp;
+                                              Editar</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion"><i class="fas fa-trash"></i>&nbsp;
+                                              Eliminar</a></div>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <th class="text-center" data-encabezado="Número" scope="row">4</th>
+                                      <td data-encabezado="Nombre y Apellido">Ricardo Avalos</td>
+                                      <td data-encabezado="Email">ravalos@empresa.com.pe</td>
+                                      <td data-encabezado="Istitución">EMPRESA DE TRANSPORTE ETUPSA</td>
+                                      <td data-encabezado="Dirección">Av. Los Angeles N° 4680</td>
+                                      <td data-encabezado="Perfil"><span class="badge badge-actor-02">Usuario Administrado</span>
+                                      </td>
+                                      <td data-encabezado="Estado"><span class="badge badge-actor-por-aprobar"><i class="fas fa-question-circle mr-1"></i>Por aprobar</span>
+                                      </td>
+                                      <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                        <div class="btn-group">
+                                          <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                          <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-usuario"><i class="fas fa-edit"></i>&nbsp;
+                                              Editar</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion"><i class="fas fa-trash"></i>&nbsp;
+                                              Eliminar</a></div>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <th class="text-center" data-encabezado="Número" scope="row">5</th>
+                                      <td data-encabezado="Nombre y Apellido">Ricardo Avalos</td>
+                                      <td data-encabezado="Email">ravalos@empresa.com.pe</td>
+                                      <td data-encabezado="Istitución">EMPRESA DE TRANSPORTE ETUPSA</td>
+                                      <td data-encabezado="Dirección">Av. Los Angeles N° 4680</td>
+                                      <td data-encabezado="Perfil"><span class="badge badge-actor-02">Usuario Administrado</span>
+                                      </td>
+                                      <td data-encabezado="Estado"><span class="badge badge-actor-desaprobado"><i class="fas fa-times-circle mr-1"></i>Desaprobado</span>
+                                      </td>
+                                      <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                        <div class="btn-group">
+                                          <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                          <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-usuario"><i class="fas fa-edit"></i>&nbsp;
+                                              Editar</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion"><i class="fas fa-trash"></i>&nbsp;
+                                              Eliminar</a></div>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <th class="text-center" data-encabezado="Número" scope="row">6</th>
+                                      <td data-encabezado="Nombre y Apellido">Ricardo Avalos</td>
+                                      <td data-encabezado="Email">ravalos@empresa.com.pe</td>
+                                      <td data-encabezado="Istitución">EMPRESA DE TRANSPORTE ETUPSA</td>
+                                      <td data-encabezado="Dirección">Av. Los Angeles N° 4680</td>
+                                      <td data-encabezado="Perfil"><span class="badge badge-actor-02">Usuario Administrado</span>
+                                      </td>
+                                      <td data-encabezado="Estado"><span class="badge badge-actor-aprobado"><i class="fas fa-check-circle mr-1"></i>Aprobado</span>
+                                      </td>
+                                      <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                        <div class="btn-group">
+                                          <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                          <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-usuario"><i class="fas fa-edit"></i>&nbsp;
+                                              Editar</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion"><i class="fas fa-trash"></i>&nbsp;
+                                              Eliminar</a></div>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <th class="text-center" data-encabezado="Número" scope="row">7</th>
+                                      <td data-encabezado="Nombre y Apellido">Ricardo Avalos</td>
+                                      <td data-encabezado="Email">ravalos@empresa.com.pe</td>
+                                      <td data-encabezado="Istitución">EMPRESA DE TRANSPORTE ETUPSA</td>
+                                      <td data-encabezado="Dirección">Av. Los Angeles N° 4680</td>
+                                      <td data-encabezado="Perfil"><span class="badge badge-actor-03">Especialista</span>
+                                      </td>
+                                      <td data-encabezado="Estado"><span class="badge badge-actor-aprobado"><i class="fas fa-check-circle mr-1"></i>Aprobado</span>
+                                      </td>
+                                      <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                        <div class="btn-group">
+                                          <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                          <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-usuario"><i class="fas fa-edit"></i>&nbsp;
+                                              Editar</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion"><i class="fas fa-trash"></i>&nbsp;
+                                              Eliminar</a></div>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <th class="text-center" data-encabezado="Número" scope="row">8</th>
+                                      <td data-encabezado="Nombre y Apellido">Ricardo Avalos</td>
+                                      <td data-encabezado="Email">ravalos@empresa.com.pe</td>
+                                      <td data-encabezado="Istitución">EMPRESA DE TRANSPORTE ETUPSA</td>
+                                      <td data-encabezado="Dirección">Av. Los Angeles N° 4680</td>
+                                      <td data-encabezado="Perfil"><span class="badge badge-actor-04">Evaluador MINAM</span>
+                                      </td>
+                                      <td data-encabezado="Estado"><span class="badge badge-actor-aprobado"><i class="fas fa-check-circle mr-1"></i>Aprobado</span>
+                                      </td>
+                                      <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                        <div class="btn-group">
+                                          <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                          <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-usuario"><i class="fas fa-edit"></i>&nbsp;
+                                              Editar</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion"><i class="fas fa-trash"></i>&nbsp;
+                                              Eliminar</a></div>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <th class="text-center" data-encabezado="Número" scope="row">9</th>
+                                      <td data-encabezado="Nombre y Apellido">Ricardo Avalos</td>
+                                      <td data-encabezado="Email">ravalos@empresa.com.pe</td>
+                                      <td data-encabezado="Istitución">EMPRESA DE TRANSPORTE ETUPSA</td>
+                                      <td data-encabezado="Dirección">Av. Los Angeles N° 4680</td>
+                                      <td data-encabezado="Perfil"><span class="badge badge-actor-05">Verificador Externo</span>
+                                      </td>
+                                      <td data-encabezado="Estado"><span class="badge badge-actor-aprobado"><i class="fas fa-check-circle mr-1"></i>Aprobado</span>
+                                      </td>
+                                      <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                        <div class="btn-group">
+                                          <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                          <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-usuario"><i class="fas fa-edit"></i>&nbsp;
+                                              Editar</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion"><i class="fas fa-trash"></i>&nbsp;
+                                              Eliminar</a></div>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <th class="text-center" data-encabezado="Número" scope="row">10</th>
+                                      <td data-encabezado="Nombre y Apellido">Ricardo Avalos</td>
+                                      <td data-encabezado="Email">ravalos@empresa.com.pe</td>
+                                      <td data-encabezado="Istitución">EMPRESA DE TRANSPORTE ETUPSA</td>
+                                      <td data-encabezado="Dirección">Av. Los Angeles N° 4680</td>
+                                      <td data-encabezado="Perfil"><span class="badge badge-actor-06">Administrador MINEM</span>
+                                      </td>
+                                      <td data-encabezado="Estado"><span class="badge badge-actor-aprobado"><i class="fas fa-check-circle mr-1"></i>Aprobado</span>
+                                      </td>
+                                      <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                        <div class="btn-group">
+                                          <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                          <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-usuario"><i class="fas fa-edit"></i>&nbsp;
+                                              Editar</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion"><i class="fas fa-trash"></i>&nbsp;
+                                              Eliminar
+                                              </a>
+                                          </div>
+                                        </div>
+                                      </td>
+                                    </tr>-->
                                 </tbody>
                                 <tfoot>
                                     <tr>
@@ -377,6 +292,7 @@ $(document).ready(function () {
                                         </td>
                                     </tr>
                                 </tfoot>
+                                <!--</tbody>-->
                             </table>
                         </div>
                     </div>
@@ -386,7 +302,9 @@ $(document).ready(function () {
                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Registro de Nuevo Usuario <br><small class="text-muted">Complete los siguientes campos para registrar un nuevo usuario</small><small class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</small></h5>
+                            <div id="cabeceraRegistrarMantenimientoUsuario"><h5 class="modal-title" id="exampleModalLabel">Registro de Nuevo Usuario <br><small class="text-muted">Complete los siguientes campos para registrar un nuevo usuario</small><small class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</small></h5></div>
+                            <div id="cabeceraEditarMantenimientoUsuario"><h5 class="modal-title" id="exampleModalLabel">Actualización de Usuario <br><small class="text-muted">Considerar los campos obligatorios para actualizar los datos del usuario</small><small class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</small></h5></div>
+                            <!--<h5 class="modal-title" id="exampleModalLabel">Registro de Nuevo Usuario <br><small class="text-muted">Complete los siguientes campos para registrar un nuevo usuario</small><small class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</small></h5>-->
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         </div>
                         <div class="modal-body medidas-modal">
@@ -435,67 +353,12 @@ $(document).ready(function () {
                                                 <input class="form-control" type="text" id="txt-celular" placeholder="Ingrese su celular" aria-describedby="inputGroup5" required>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-12 col-lg-6">
-                                        <div class="form-group">
-                                            <label for="txt-institucion">Institución</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
-                                                <input class="form-control" type="text" id="txt-institucion" placeholder="Ingrese su institución" aria-describedby="inputGroup6" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="txt-ruc">RUC</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup7"><i class="fas fa-landmark"></i></span></div>
-                                                <input class="form-control" type="text" id="txt-ruc" placeholder="Ingrese su RUC" aria-describedby="inputGroup7" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="txt-direccion">Dirección</label>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup8"><i class="fas fa-landmark"></i></span></div>
-                                                <input class="form-control" type="text" id="txt-direccion" placeholder="Ingrese su dirección" aria-describedby="inputGroup8" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="cbo-sector">Sector</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
-                                                <select class="form-control" id="cbo-sector" aria-describedby="inputGroup9" required>
-                                                    <option>-Seleccione un sector-</option>
-                                                    <option>Sector 01</option>
-                                                    <option>Sector 02</option>
-                                                    <option>Sector 03</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="txt-pswd">Contraseña</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup2"><i class="fas fa-key"></i></span></div>
-                                                <input class="form-control" type="password" id="txt-pswd" placeholder="Ingresar contraseña" aria-describedby="inputGroup2" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="cbo-perfil">Perfil</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="fas fa-user-tie"></i></span></div>
-                                                <select class="form-control" id="cbo-perfil" aria-describedby="inputGroup10" required>
-                                                    <option>-Seleccione un perfil de usuario-</option>
-                                                    <option class="badge-actor-02 font-weight-bold">Usuario Administrado</option>
-                                                    <option class="badge-actor-03 font-weight-bold">Especialista</option>
-                                                    <option class="badge-actor-04 font-weight-bold">Evaluador MINAM</option>
-                                                    <option class="badge-actor-05 font-weight-bold">Verificado Externo</option>
-                                                    <option class="badge-actor-06 font-weight-bold">Administrador MINEM</option>
-                                                </select>
-                                            </div>
-                                        </div>
+
                                         <div class="form-group medidas-especialista" style="display: none;">
                                             <label for="mlt-medidas">Medidas asignadas<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span></label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-tachometer-alt"></i></span></div>
-                                                <div class="form-control" style="height:90px; overflow-y: auto;">
+                                                <div class="form-control" style="height:90px; overflow-y: auto;" id="medidaGroup">
                                                     <div class="col-auto my-1">
                                                         <div class="custom-control custom-checkbox mr-sm-2">
                                                             <input class="custom-control-input" type="checkbox" id="rad-med-01">
@@ -595,19 +458,180 @@ $(document).ready(function () {
                                                 </div>
                                             </div>
                                         </div>
+
+                                    </div>
+
+                                    <div class="col-md-12 col-lg-6">
+                                        <div class="form-group">
+                                            <label for="txt-institucion">Institución</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
+                                                <input class="form-control" type="text" id="txt-institucion" placeholder="Ingrese su institución" aria-describedby="inputGroup6" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txt-ruc">RUC</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup7"><i class="fas fa-landmark"></i></span></div>
+                                                <input class="form-control" type="text" id="txt-ruc" placeholder="Ingrese su RUC" aria-describedby="inputGroup7" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txt-direccion">Dirección</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup8"><i class="fas fa-landmark"></i></span></div>
+                                                <input class="form-control" type="text" id="txt-direccion" placeholder="Ingrese su dirección" aria-describedby="inputGroup8" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="cbo-sector">Sector</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
+                                                <select class="form-control" id="cbo-sector" aria-describedby="inputGroup9" required>
+                                                    <option value="0">-Seleccione un sector-</option>
+                                                    <!--<option>Sector 01</option>
+                                                    <option>Sector 02</option>
+                                                    <option>Sector 03</option>-->
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txt-pswd">Contraseña</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup2"><i class="fas fa-key"></i></span></div>
+                                                <input class="form-control" type="password" id="txt-pswd" placeholder="Ingresar contraseña" aria-describedby="inputGroup2" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="cbo-perfil">Perfil</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="fas fa-user-tie"></i></span></div>
+                                                <select class="form-control" id="cbo-perfil" aria-describedby="inputGroup10" required>
+                                                    <option value="0">-Seleccione un perfil de usuario-</option>
+                                                    <!--<option class="badge-actor-02 font-weight-bold">Usuario Administrado</option>
+                                                    <option class="badge-actor-03 font-weight-bold">Especialista</option>
+                                                    <option class="badge-actor-04 font-weight-bold">Evaluador MINAM</option>
+                                                    <option class="badge-actor-05 font-weight-bold">Verificado Externo</option>
+                                                    <option class="badge-actor-06 font-weight-bold">Administrador MINEM</option>-->
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+
+
+
+
+
+
+                                        <!--
+
+                                        <div class="form-group medidas-especialista" style="display: none;">
+                                          <label for="mlt-medidas">Medidas asignadas<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span></label>
+                                          <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-tachometer-alt"></i></span></div>
+                                            <div class="form-control" style="height:90px; overflow-y: auto;">
+                                              <div class="col-auto my-1">
+                                                <div class="custom-control custom-checkbox mr-sm-2">
+                                                  <input class="custom-control-input" type="checkbox" id="rad-med-01">
+                                                  <label class="custom-control-label" for="rad-med-01">Medida de Mitigación &nbsp;1
+                                                  </label>
+                                                </div>
+                                              </div>
+                                              <div class="col-auto my-1">
+                                                <div class="custom-control custom-checkbox mr-sm-2">
+                                                  <input class="custom-control-input" type="checkbox" id="rad-med-02">
+                                                  <label class="custom-control-label" for="rad-med-02">Medida de Mitigación &nbsp;2
+                                                  </label>
+                                                </div>
+                                              </div>
+                                              <div class="col-auto my-1">
+                                                <div class="custom-control custom-checkbox mr-sm-2">
+                                                  <input class="custom-control-input" type="checkbox" id="rad-med-03">
+                                                  <label class="custom-control-label" for="rad-med-03">Medida de Mitigación &nbsp;3
+                                                  </label>
+                                                </div>
+                                              </div>
+                                              <div class="col-auto my-1">
+                                                <div class="custom-control custom-checkbox mr-sm-2">
+                                                  <input class="custom-control-input" type="checkbox" id="rad-med-04">
+                                                  <label class="custom-control-label" for="rad-med-04">Medida de Mitigación &nbsp;4
+                                                  </label>
+                                                </div>
+                                              </div>
+                                              <div class="col-auto my-1">
+                                                <div class="custom-control custom-checkbox mr-sm-2">
+                                                  <input class="custom-control-input" type="checkbox" id="rad-med-05">
+                                                  <label class="custom-control-label" for="rad-med-05">Medida de Mitigación &nbsp;5
+                                                  </label>
+                                                </div>
+                                              </div>
+                                              <div class="col-auto my-1">
+                                                <div class="custom-control custom-checkbox mr-sm-2">
+                                                  <input class="custom-control-input" type="checkbox" id="rad-med-06">
+                                                  <label class="custom-control-label" for="rad-med-06">Medida de Mitigación &nbsp;6
+                                                  </label>
+                                                </div>
+                                              </div>
+                                              <div class="col-auto my-1">
+                                                <div class="custom-control custom-checkbox mr-sm-2">
+                                                  <input class="custom-control-input" type="checkbox" id="rad-med-07">
+                                                  <label class="custom-control-label" for="rad-med-07">Medida de Mitigación &nbsp;7
+                                                  </label>
+                                                </div>
+                                              </div>
+                                              <div class="col-auto my-1">
+                                                <div class="custom-control custom-checkbox mr-sm-2">
+                                                  <input class="custom-control-input" type="checkbox" id="rad-med-08">
+                                                  <label class="custom-control-label" for="rad-med-08">Medida de Mitigación &nbsp;8
+                                                  </label>
+                                                </div>
+                                              </div>
+                                              <div class="col-auto my-1">
+                                                <div class="custom-control custom-checkbox mr-sm-2">
+                                                  <input class="custom-control-input" type="checkbox" id="rad-med-09">
+                                                  <label class="custom-control-label" for="rad-med-09">Medida de Mitigación &nbsp;9
+                                                  </label>
+                                                </div>
+                                              </div>
+                                              <div class="col-auto my-1">
+                                                <div class="custom-control custom-checkbox mr-sm-2">
+                                                  <input class="custom-control-input" type="checkbox" id="rad-med-010">
+                                                  <label class="custom-control-label" for="rad-med-010">Medida de Mitigación &nbsp;10
+                                                  </label>
+                                                </div>
+                                              </div>
+                                              <div class="col-auto my-1">
+                                                <div class="custom-control custom-checkbox mr-sm-2">
+                                                  <input class="custom-control-input" type="checkbox" id="rad-med-011">
+                                                  <label class="custom-control-label" for="rad-med-011">Medida de Mitigación &nbsp;11
+                                                  </label>
+                                                </div>
+                                              </div>
+                                              <div class="col-auto my-1">
+                                                <div class="custom-control custom-checkbox mr-sm-2">
+                                                  <input class="custom-control-input" type="checkbox" id="rad-med-012">
+                                                  <label class="custom-control-label" for="rad-med-012">Medida de Mitigación &nbsp;12
+                                                  </label>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>-->
+
                                         <div class="form-group">
                                             <label for="mlt-gei">Estado<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span></label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-shield-alt"></i></span></div>
                                                 <div class="form-control" style="height:90px; overflow-y: auto;">
                                                     <div class="col-auto my-1">
-                                                        <div class="custom-control custom-checkbox mr-sm-2">
+                                                        <div class="custom-control custom-radio mr-sm-2">
                                                             <input class="custom-control-input" type="radio" name="rad-estado" id="rad-01" data-value="1">
-                                                            <label class="custom-control-label badge badge-actor-aprobado" for="rad-01"><i class="fas fa-check-circle mr-1"></i>Aprobadoo</label>
+                                                            <label class="custom-control-label badge badge-actor-aprobado" for="rad-01"><i class="fas fa-check-circle mr-1"></i>Aprobado</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-auto my-1">
-                                                        <div class="custom-control custom-checkbox mr-sm-2">
+                                                        <div class="custom-control custom-radio mr-sm-2">
                                                             <input class="custom-control-input" type="radio" name="rad-estado" id="rad-02" data-value="2">
                                                             <label class="custom-control-label badge badge-actor-desaprobado" for="rad-02"><i class="fas fa-times-circle mr-1"></i>Desaprobado</label>
                                                         </div>
@@ -615,50 +639,76 @@ $(document).ready(function () {
                                                 </div>
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>
+
+                                <!--<div class="row">
+                                  <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <div class="alert alert-danger d-flex align-items-stretch" role="alert">
+                                      <div class="alert-wrap mr-3">
+                                        <div class="sa">
+                                          <div class="sa-error">
+                                            <div class="sa-error-x">
+                                              <div class="sa-error-left"></div>
+                                              <div class="sa-error-right"></div>
+                                            </div>
+                                            <div class="sa-error-placeholder"></div>
+                                            <div class="sa-error-fix"></div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="alert-wrap">
+                                        <h6>Error de registro</h6>
+                                        <hr><small class="mb-0">Verifique que los datos sean correctamente ingresados, complete todos los campos obligatorios e intente otra vez.</small>
+                                      </div>
+                                    </div>
+                                    <div class="alert alert-success d-flex align-items-stretch" role="alert">
+                                      <div class="alert-wrap mr-3">
+                                        <div class="sa">
+                                          <div class="sa-success">
+                                            <div class="sa-success-tip"></div>
+                                            <div class="sa-success-long"></div>
+                                            <div class="sa-success-placeholder"></div>
+                                            <div class="sa-success-fix"></div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="alert-wrap">
+                                        <h6>Bien hecho</h6>
+                                        <hr><small class="mb-0">Los datos ingresados fueron guardados exitosamente, verifique su bandeja para comprobarlo. Utilice el buscador para encontrar su nuevo registro.</small>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>-->
+
                                 <div class="row">
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <div class="alert alert-danger d-flex align-items-stretch" role="alert">
-                                            <div class="alert-wrap mr-3">
-                                                <div class="sa">
-                                                    <div class="sa-error">
-                                                        <div class="sa-error-x">
-                                                            <div class="sa-error-left"></div>
-                                                            <div class="sa-error-right"></div>
-                                                        </div>
-                                                        <div class="sa-error-placeholder"></div>
-                                                        <div class="sa-error-fix"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="alert-wrap">
-                                                <h6>Error de registro</h6>
-                                                <hr><small class="mb-0">Verifique que los datos sean correctamente ingresados, complete todos los campos obligatorios e intente otra vez.</small>
-                                            </div>
+                                    <div class="col-sm-12 col-md-12 col-lg-12" id="seccionMensaje">
+                                        <div class="alert alert-danger" role="alert" id="errorRegistrarMantenimientoUsuario">
+                                            <h4><i class="fas fa-exclamation-triangle"></i>&nbsp;Error de registro</h4>
+                                            <p>Ocurrió un error al tratar de registrar su información, vuélvalo a intentar nuevamente.</p>
+                                            <hr>
+                                            <p class="mb-0">Verifique los datos ingresados e intente otra vez.</p>
                                         </div>
-                                        <div class="alert alert-success d-flex align-items-stretch" role="alert">
-                                            <div class="alert-wrap mr-3">
-                                                <div class="sa">
-                                                    <div class="sa-success">
-                                                        <div class="sa-success-tip"></div>
-                                                        <div class="sa-success-long"></div>
-                                                        <div class="sa-success-placeholder"></div>
-                                                        <div class="sa-success-fix"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="alert-wrap">
-                                                <h6>Bien hecho</h6>
-                                                <hr><small class="mb-0">Los datos ingresados fueron guardados exitosamente, verifique su bandeja para comprobarlo. Utilice el buscador para encontrar su nuevo registro.</small>
-                                            </div>
+                                        <div class="alert alert-danger" role="alert" id="errorEditarMantenimientoUsuario">
+                                            <h4><i class="fas fa-exclamation-triangle"></i>&nbsp;Error de actualización</h4>
+                                            <p>Ocurrió un error al tratar de actualizar su información, vuélvalo a intentar nuevamente.</p>
+                                            <hr>
+                                            <p class="mb-0">Verifique los datos ingresados e intente otra vez.</p>
+                                        </div>
+                                        <div class="alert alert-success" role="alert" id="correctoMantenimientoUsuario">
+                                            <h4><i class="fas fa-check"></i>&nbsp;Bien hecho</h4>
+                                            <p>Los datos ingresados fueron guardados exitosamente, verifique su bandeja para comprobarlo.</p>
+                                            <hr>
+                                            <p class="mb-0" id="mensajeRegistroMantenimientoUsuario">Utilice el buscador para encontrar su nuevo registro.</p>
                                         </div>
                                     </div>
                                 </div>
+
                             </form>
                         </div>
                         <div class="modal-footer" id="pieMantenimientoUsuario">
-                            @*-add-*@<div id="userMantenimiento"></div>
+                            <div id="userMantenimiento"></div>
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
                             <button class="btn btn-primary" type="button" onclick="fn_editarMantenimiento();">Guardar</button>
                         </div>
@@ -711,7 +761,7 @@ $(document).ready(function () {
         }
 
         if ($("#Control").data("opcion7") == 1) {
-            opcion = opcion + '<a class="dropdown-item" href="./cambiar.html"><i class="fas fa-key pr-1"></i>Cambiar contraseña</a>';
+            opcion = opcion + '<a class="dropdown-item" href="#" onclick="fn_Clave();"><i class="fas fa-key pr-1"></i>Cambiar contraseña</a>';
         }
 
         opcion = opcion + '<div class="dropdown-divider"></div><a class="dropdown-item" href="#" onclick="salirSesion();"><i class="fas fa-sign-out-alt pr-1"></i>Salir del sistema</a>';

@@ -5,12 +5,20 @@
 }
 @Html.HiddenFor(m => m.identificador)
 
-<div>
+<div class="mt-5">
+    <div class="mt-5 p-5">
 
-    <p id="respuesta"></p>
+        <div class="mt-5 pt-5">
+            <p id="respuesta"></p>
+        </div>
+    </div>
+    
+    
 
 </div>
-
-<script src="~/js/DetalleIndicador.js"></script>
+<script type="text/javascript">
+    var vurl = '@Url.Content("~")';
+</script>
+<script src="~/js/ConfirmarCorreo.js"></script>
 
 

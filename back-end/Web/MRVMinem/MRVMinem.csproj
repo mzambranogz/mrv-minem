@@ -48,6 +48,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -89,6 +90,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Archivos\dj\LEEME.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Archivos\sustentatorios\LEEME.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="css\style.css" />
     <Content Include="fonts\fa-brands-400.svg" />
     <Content Include="fonts\fa-regular-400.svg" />
@@ -145,9 +152,11 @@
     <Content Include="images\logo_pnud.svg" />
     <Content Include="images\_fonfo_footer.png" />
     <Content Include="js\AccionMitigacion.js" />
+    <Content Include="js\CambiarClave.js" />
     <Content Include="js\ConfirmarCorreo.js" />
     <Content Include="js\DetalleIndicador.js" />
     <Content Include="js\IniciativaMitigacion.js" />
+    <Content Include="js\jquery.form.js" />
     <Content Include="js\Login.js" />
     <Content Include="js\MantenimientoTablas.js" />
     <Content Include="js\MantenimientoUsuario.js" />
@@ -158,6 +167,8 @@
     <Content Include="js\RegistroUsuario.js" />
     <Content Include="js\script.js" />
     <Content Include="js\Seguimiento.js" />
+    <Content Include="js\VerMas.js" />
+    <Content Include="Reportes\frmReportes.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -166,7 +177,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\GestionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MantenimientoController.cs" />
     <Compile Include="Controllers\PortalController.cs" />
+    <Compile Include="Controllers\ReportesController.cs" />
     <Compile Include="Core\BaseController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -174,6 +187,18 @@
     <Compile Include="Models\MvIniciativa.cs" />
     <Compile Include="Models\MvSesion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes\DsEscenario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsEscenario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReportes.aspx.cs">
+      <DependentUpon>frmReportes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReportes.aspx.designer.cs">
+      <DependentUpon>frmReportes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Repositorio\EnvioCorreo.cs" />
     <Compile Include="Response\ResponseEntity.cs" />
   </ItemGroup>
@@ -183,6 +208,20 @@
     </Content>
     <Content Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\login.cshtml" />
+    <Content Include="Views\Home\registro.cshtml" />
+    <Content Include="Views\Home\recuperar.cshtml" />
+    <Content Include="Views\Portal\AccionMitigacion.cshtml" />
+    <Content Include="Documentos\Manual_Usuario_MRV.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Documentos\modelo-declaracion-jurada.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\favicon\manifest.json" />
+    <Content Include="images\favicon\site.webmanifest" />
+    <Content Include="images\favicon\_manifest.json" />
     <Content Include="fonts\fa-brands-400.eot" />
     <Content Include="fonts\fa-brands-400.ttf" />
     <Content Include="fonts\fa-brands-400.woff" />
@@ -195,17 +234,6 @@
     <Content Include="fonts\fa-solid-900.ttf" />
     <Content Include="fonts\fa-solid-900.woff" />
     <Content Include="fonts\fa-solid-900.woff2" />
-    <Content Include="images\favicon\manifest.json" />
-    <Content Include="images\favicon\site.webmanifest" />
-    <Content Include="images\favicon\_manifest.json" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\login.cshtml" />
-    <Content Include="Views\Home\registro.cshtml" />
-    <Content Include="Views\Home\recuperar.cshtml" />
-    <Content Include="Views\Portal\AccionMitigacion.cshtml" />
-    <Content Include="Log\Sistema20200116.log" />
-    <Content Include="Log\Sistema20200117.log" />
-    <Content Include="Log\Sistema20200118.log" />
     <None Include="Properties\PublishProfiles\MRVMinem.pubxml" />
     <Content Include="Views\Gestion\AccionMitigacion.cshtml" />
     <Content Include="Views\Shared\_SesionLayout.cshtml" />
@@ -223,7 +251,31 @@
     <Content Include="Views\Gestion\MantenimientoTablas.cshtml" />
     <Content Include="Views\Gestion\MantenimientoUsuario.cshtml" />
     <Content Include="Views\Portal\ConfirmarCorreo.cshtml" />
+    <Content Include="Views\Gestion\CambiarClave.cshtml" />
+    <Content Include="Views\Gestion\VerMasIniciativa.cshtml" />
+    <Content Include="Views\Gestion\VerMasIniciativaDetalle.cshtml" />
+    <Content Include="Views\Portal\VerMasIniciativa.cshtml" />
+    <Content Include="Views\Portal\VerMasIniciativaDetalle.cshtml" />
+    <Content Include="Views\Reportes\Reportes.cshtml" />
     <Content Include="Views\Gestion\DetalleNotificacion.cshtml" />
+    <Content Include="Reportes\DsEscenario.xsc">
+      <DependentUpon>DsEscenario.xsd</DependentUpon>
+    </Content>
+    <None Include="Reportes\DsEscenario.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsEscenario.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reportes\DsEscenario.xss">
+      <DependentUpon>DsEscenario.xsd</DependentUpon>
+    </Content>
+    <Content Include="Views\Portal\ReestablecerClave.cshtml" />
+    <Content Include="Views\Portal\Resultados.cshtml" />
+    <Content Include="Views\Portal\TerminosCondiciones.cshtml" />
+    <Content Include="Views\Gestion\TerminosCondiciones.cshtml" />
+    <Content Include="Views\Gestion\PreguntasFrecuentes.cshtml" />
+    <Content Include="Views\Portal\PreguntasFrecuentes.cshtml" />
+    <Content Include="Views\Gestion\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -233,6 +285,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Mantenimiento\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\entidad.minem.gob.pe\entidad.minem.gob.pe.csproj">
@@ -247,6 +300,11 @@
       <Project>{bc063656-bf97-48a0-8057-e4ac84c4e10f}</Project>
       <Name>utilitario.minem.gob.pe</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reportes\EscenarioRpt.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

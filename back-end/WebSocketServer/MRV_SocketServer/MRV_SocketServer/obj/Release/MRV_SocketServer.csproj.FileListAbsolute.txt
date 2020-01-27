@@ -1,6 +1,0 @@
-D:\DGEE\mrv-minem\WebSocketServer\MRV_SocketServer\MRV_SocketServer\bin\Release\MRV_SocketServer.exe.config
-D:\DGEE\mrv-minem\WebSocketServer\MRV_SocketServer\MRV_SocketServer\bin\Release\MRV_SocketServer.exe
-D:\DGEE\mrv-minem\WebSocketServer\MRV_SocketServer\MRV_SocketServer\bin\Release\MRV_SocketServer.pdb
-D:\DGEE\mrv-minem\WebSocketServer\MRV_SocketServer\MRV_SocketServer\bin\Release\Fleck.dll
-D:\DGEE\mrv-minem\WebSocketServer\MRV_SocketServer\MRV_SocketServer\obj\Release\MRV_SocketServer.exe
-D:\DGEE\mrv-minem\WebSocketServer\MRV_SocketServer\MRV_SocketServer\obj\Release\MRV_SocketServer.pdb

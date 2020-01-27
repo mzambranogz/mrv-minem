@@ -41,7 +41,8 @@ namespace logica.minem.gob.pe
             if (string.IsNullOrEmpty(ent.PASSWORD_USUARIO))
             {
                 entidad.OK = false;
-            }else
+            }
+            else
             {
                 entidad.OK = Seguridad.CompararHashSal(entidad.PASSWORD_USUARIO, ent.PASSWORD_USUARIO);
                 entidad.ID_USUARIO = ent.ID_USUARIO;
@@ -73,6 +74,52 @@ namespace logica.minem.gob.pe
         public static List<UsuarioBE> SeleccionarMantenimientoUsuario(UsuarioBE entidad)
         {
             return usuarioDA.SeleccionarMantenimientoUsuario(entidad);
+        }
+
+        public static List<UsuarioMedMitBE> ListaUsuarioMedidaMitigacion(UsuarioMedMitBE entidad)
+        {
+            return usuarioDA.ListaUsuarioMedidaMitigacion(entidad);
+        }
+        public static UsuarioBE validarConfirmarCorreo(UsuarioBE entidad)
+        {
+            return usuarioDA.validarConfirmarCorreo(entidad);
+        }
+
+        public static UsuarioBE VerificarClave(UsuarioBE entidad)
+        {
+            var ent = usuarioDA.VerificarClave(entidad);
+            if (string.IsNullOrEmpty(ent.PASSWORD_USUARIO))
+            {
+                entidad.OK = false;
+            }
+            else
+            {
+                entidad.OK = Seguridad.CompararHashSal(entidad.PASSWORD_USUARIO, ent.PASSWORD_USUARIO);
+            }
+
+            if (!entidad.OK)
+            {
+                entidad.OK = false;
+                entidad.extra = "La contraseña actual no es la correcta.";
+            }
+
+            return entidad;
+        }
+
+        public static UsuarioBE CambiarClave(UsuarioBE entidad)
+        {
+            entidad.NUEVO_PASSWORD_USUARIO = Seguridad.hashSal(entidad.NUEVO_PASSWORD_USUARIO);
+            return usuarioDA.CambiarClave(entidad);
+        }
+
+        public static UsuarioBE obtenerUsuario(UsuarioBE entidad)
+        {
+            return usuarioDA.obtenerUsuario(entidad);
+        }
+
+        public static UsuarioBE obtenerUsuarioId(int cod)
+        {
+            return usuarioDA.obtenerUsuarioId(cod);
         }
     }
 }

@@ -15,5 +15,10 @@ namespace logica.minem.gob.pe
         {
             return energ.ListarENERG(entidad);
         }
+
+        public static List<EnergeticoBE> ListarENERGProyecto(EnergeticoBE entidad)
+        {
+            return energ.ListarENERGProyecto(entidad);
+        }
     }
 }

@@ -9,8 +9,8 @@
     <div class="container">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="./index.html">Inicio</a></li>
-                <li class="breadcrumb-item"><a href="./acciones-de-mitigacion-interno.html">Listado de Iniciativas de Mitigación</a></li>
+                <li class="breadcrumb-item"><a href="@Url.Action("Index","Gestion")">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="@Url.Action("AccionMitigacion","Gestion")">Listado de Iniciativas de Mitigación</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Registro de Iniciativa de Identificación</li>
             </ol>
         </nav>
@@ -27,11 +27,7 @@
                     <div class="col-md-12 col-lg-6 pt-4">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
-                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                <span data-toggle="modal" data-target="#medidas-mitigacion-listado"><a class="cambiar-medida" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-sync px-1"></i>Cambiar de medida</a></span>
-                                <span data-toggle="modal" data-target="#solicitar-revision"><a class="solicitar-revision" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-paper-plane px-1"></i>Solicitar revisión</a></span>
-                                <span data-toggle="modal" data-target="#guardar-avance"><a class="guardar-avances" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-save px-1"></i>Guardar avances</a></span>
-                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#medidas-mitigacion-listado"><a class="cambiar-medida" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-sync px-1"></i>Cambiar de medida</a></span><span data-toggle="modal" data-target="#solicitar-revision"><a class="solicitar-revision" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-paper-plane px-1"></i>Solicitar revisión</a></span><span data-toggle="modal" data-target="#guardar-avance"><a class="guardar-avances" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-save px-1"></i>Guardar avances</a></span></div>
                         </div>
                     </div>
                 </div>
@@ -53,7 +49,34 @@
                         <div class="container py-5">
                             <div class="row">
                                 <div class="col-12">
-                                    <div class="h5 pb-5 text-primary">Promoción de vehiculos eléctricos a nivel nacional&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small></div>
+                                    <div class="h5 pb-5 text-primary">
+                                        <div class="steps">PASO 1 DE 4: &nbsp;</div>Introducción | <span id="nombreMedida">@*Promoción de vehiculos eléctricos a nivel nacional*@</span>&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12-col-md-12 col-lg-12">
+                                    <div class="form-group">
+                                        <label for="cbo-medida-mitigacion-seleccionada">Medida de mitigación<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span></label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup30"><i class="fas fa-tachometer-alt"></i></span></div>
+                                            <select class="form-control" id="cbo-medida-mitigacion-seleccionada" aria-describedby="inputGroup30">
+                                                <option value="0">-Seleccione-</option>
+                                                @*<option>Transformación del mercado de iluminación del sector residencial</option>
+                                                    <option>Reemplazo de lámparas de alumbrado público por lámparas LED</option>
+                                                    <option>Etiquetado de eficiencia energética</option>
+                                                    <option>Auditorías energéticas sector público</option>
+                                                    <option>Reemplazo de lámparas por lámparas LED en el sector público</option>
+                                                    <option>Eficiencia energética en el sector industrial</option>
+                                                    <option>Reemplazo lámparas en el sector comercial</option>
+                                                    <option selected>Promoción de vehículos eléctricos a nivel nacional</option>
+                                                    <option>Suministro de electricidad con energía renovable en áreas no conectadas</option>
+                                                    <option>Cocción limpia</option>
+                                                    <option>Combinación de energías renovables</option>
+                                                    <option>Generación distribuida</option>*@
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="row">
@@ -75,7 +98,7 @@
                                 </div>
                                 <div class="col-sm-12-col-md-12 col-lg-6">
                                     <div class="form-group">
-                                        <label for="txa-descripcion">Descripción</label>
+                                        <label for="txa-descripcion">Descripción de la medida de mitigación seleccionada</label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup3"><i class="fas fa-landmark"></i></span></div>
                                             <textarea class="form-control-plaintext" id="txa-descripcion" aria-describedby="inputGroup3" cols="30" rows="8" readonly>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus porro quibusdam, repellat ipsa consequatur magni, vitae earum iure deleniti quod ad. Autem amet fugit, deleniti repellat veritatis aperiam minus nam !Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus porro quibusdam, repellat ipsa consequatur magni, vitae earum iure deleniti quod ad. Autem amet fugit, deleniti repellat veritatis aperiam minus nam!</textarea>
@@ -84,8 +107,14 @@
                                 </div>
                             </div>
                             <div class="dropdown-divider my-5"></div>
-                            <div class="row justify-content-end">
-                                <div class="col-lg-3"><a class="btn btn-success px-5 w-100 nav-tab text-center" href="#" dest="2">Siguiente<i class="fas fa-arrow-right pl-1"></i></a></div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-6"><span class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</span></div>
+                                <div class="col-sm-12 col-md-12 col-lg-6 text-right">
+                                    <div class="row justify-content-end">
+                                        <div class="col-lg-6">&nbsp;</div>
+                                        <div class="col-lg-6"><a class="btn btn-success px-5 w-100 nav-tab text-center" href="#" dest="2">Siguiente<i class="fas fa-arrow-right pl-1"></i></a></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -93,7 +122,9 @@
                         <div class="container py-5">
                             <div class="row">
                                 <div class="col-12">
-                                    <div class="h5 pb-5 text-primary">Datos principales<br><small class="text-muted">Complete información</small></div>
+                                    <div class="h5 pb-5 text-primary">
+                                        <div class="steps">PASO 2 DE 4: &nbsp;</div>Datos principales<br><small class="text-muted">Complete información</small>
+                                    </div>
                                 </div>
                             </div>
                             <div class="row">
@@ -166,7 +197,9 @@
                         <div class="container py-5">
                             <div class="row">
                                 <div class="col-12">
-                                    <div class="h5 pb-5 text-primary">Datos generales<br><small class="text-muted">Complete información</small></div>
+                                    <div class="h5 pb-5 text-primary">
+                                        <div class="steps">PASO 3 DE 4: &nbsp;</div>Datos generales<br><small class="text-muted">Complete información</small>
+                                    </div>
                                 </div>
                             </div>
                             <div class="row">
@@ -183,198 +216,174 @@
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
                                             <div class="form-control" style="height:120px; overflow-y: auto;" id="listaUbicacion">
-                                                @*<div class="col-auto my-1">
-                                                        <div class="custom-control custom-checkbox mr-sm-2">
-                                                            <input class="custom-control-input" type="checkbox" id="chk-region-1">
-                                                            <label class="custom-control-label" for="chk-region-1">
-                                                                Departamento&nbsp;1
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-auto my-1">
-                                                        <div class="custom-control custom-checkbox mr-sm-2">
-                                                            <input class="custom-control-input" type="checkbox" id="chk-region-2">
-                                                            <label class="custom-control-label" for="chk-region-2">
-                                                                Departamento&nbsp;2
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-auto my-1">
-                                                        <div class="custom-control custom-checkbox mr-sm-2">
-                                                            <input class="custom-control-input" type="checkbox" id="chk-region-3">
-                                                            <label class="custom-control-label" for="chk-region-3">
-                                                                Departamento&nbsp;3
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-auto my-1">
-                                                        <div class="custom-control custom-checkbox mr-sm-2">
-                                                            <input class="custom-control-input" type="checkbox" id="chk-region-4">
-                                                            <label class="custom-control-label" for="chk-region-4">
-                                                                Departamento&nbsp;4
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-auto my-1">
-                                                        <div class="custom-control custom-checkbox mr-sm-2">
-                                                            <input class="custom-control-input" type="checkbox" id="chk-region-5">
-                                                            <label class="custom-control-label" for="chk-region-5">
-                                                                Departamento&nbsp;5
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-auto my-1">
-                                                        <div class="custom-control custom-checkbox mr-sm-2">
-                                                            <input class="custom-control-input" type="checkbox" id="chk-region-6">
-                                                            <label class="custom-control-label" for="chk-region-6">
-                                                                Departamento&nbsp;6
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-auto my-1">
-                                                        <div class="custom-control custom-checkbox mr-sm-2">
-                                                            <input class="custom-control-input" type="checkbox" id="chk-region-7">
-                                                            <label class="custom-control-label" for="chk-region-7">
-                                                                Departamento&nbsp;7
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-auto my-1">
-                                                        <div class="custom-control custom-checkbox mr-sm-2">
-                                                            <input class="custom-control-input" type="checkbox" id="chk-region-8">
-                                                            <label class="custom-control-label" for="chk-region-8">
-                                                                Departamento&nbsp;8
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-auto my-1">
-                                                        <div class="custom-control custom-checkbox mr-sm-2">
-                                                            <input class="custom-control-input" type="checkbox" id="chk-region-9">
-                                                            <label class="custom-control-label" for="chk-region-9">
-                                                                Departamento&nbsp;9
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-auto my-1">
-                                                        <div class="custom-control custom-checkbox mr-sm-2">
-                                                            <input class="custom-control-input" type="checkbox" id="chk-region-10">
-                                                            <label class="custom-control-label" for="chk-region-10">
-                                                                Departamento&nbsp;10
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-auto my-1">
-                                                        <div class="custom-control custom-checkbox mr-sm-2">
-                                                            <input class="custom-control-input" type="checkbox" id="chk-region-11">
-                                                            <label class="custom-control-label" for="chk-region-11">
-                                                                Departamento&nbsp;11
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-auto my-1">
-                                                        <div class="custom-control custom-checkbox mr-sm-2">
-                                                            <input class="custom-control-input" type="checkbox" id="chk-region-12">
-                                                            <label class="custom-control-label" for="chk-region-12">
-                                                                Departamento&nbsp;12
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-auto my-1">
-                                                        <div class="custom-control custom-checkbox mr-sm-2">
-                                                            <input class="custom-control-input" type="checkbox" id="chk-region-13">
-                                                            <label class="custom-control-label" for="chk-region-13">
-                                                                Departamento&nbsp;13
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-auto my-1">
-                                                        <div class="custom-control custom-checkbox mr-sm-2">
-                                                            <input class="custom-control-input" type="checkbox" id="chk-region-14">
-                                                            <label class="custom-control-label" for="chk-region-14">
-                                                                Departamento&nbsp;14
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-auto my-1">
-                                                        <div class="custom-control custom-checkbox mr-sm-2">
-                                                            <input class="custom-control-input" type="checkbox" id="chk-region-15">
-                                                            <label class="custom-control-label" for="chk-region-15">
-                                                                Departamento&nbsp;15
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-auto my-1">
-                                                        <div class="custom-control custom-checkbox mr-sm-2">
-                                                            <input class="custom-control-input" type="checkbox" id="chk-region-16">
-                                                            <label class="custom-control-label" for="chk-region-16">
-                                                                Departamento&nbsp;16
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-auto my-1">
-                                                        <div class="custom-control custom-checkbox mr-sm-2">
-                                                            <input class="custom-control-input" type="checkbox" id="chk-region-17">
-                                                            <label class="custom-control-label" for="chk-region-17">
-                                                                Departamento&nbsp;17
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-auto my-1">
-                                                        <div class="custom-control custom-checkbox mr-sm-2">
-                                                            <input class="custom-control-input" type="checkbox" id="chk-region-18">
-                                                            <label class="custom-control-label" for="chk-region-18">
-                                                                Departamento&nbsp;18
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-auto my-1">
-                                                        <div class="custom-control custom-checkbox mr-sm-2">
-                                                            <input class="custom-control-input" type="checkbox" id="chk-region-19">
-                                                            <label class="custom-control-label" for="chk-region-19">
-                                                                Departamento&nbsp;19
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-auto my-1">
-                                                        <div class="custom-control custom-checkbox mr-sm-2">
-                                                            <input class="custom-control-input" type="checkbox" id="chk-region-20">
-                                                            <label class="custom-control-label" for="chk-region-20">
-                                                                Departamento&nbsp;20
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-auto my-1">
-                                                        <div class="custom-control custom-checkbox mr-sm-2">
-                                                            <input class="custom-control-input" type="checkbox" id="chk-region-21">
-                                                            <label class="custom-control-label" for="chk-region-21">
-                                                                Departamento&nbsp;21
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-auto my-1">
-                                                        <div class="custom-control custom-checkbox mr-sm-2">
-                                                            <input class="custom-control-input" type="checkbox" id="chk-region-22">
-                                                            <label class="custom-control-label" for="chk-region-22">
-                                                                Departamento&nbsp;22
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-auto my-1">
-                                                        <div class="custom-control custom-checkbox mr-sm-2">
-                                                            <input class="custom-control-input" type="checkbox" id="chk-region-23">
-                                                            <label class="custom-control-label" for="chk-region-23">
-                                                                Departamento&nbsp;23
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-auto my-1">
-                                                        <div class="custom-control custom-checkbox mr-sm-2">
-                                                            <input class="custom-control-input" type="checkbox" id="chk-region-24">
-                                                            <label class="custom-control-label" for="chk-region-24">
-                                                                Departamento&nbsp;24
-                                                            </label>
-                                                        </div>
-                                                    </div>*@
+                                                <!--<div class="col-auto my-1">
+                                                  <div class="custom-control custom-checkbox mr-sm-2">
+                                                    <input class="custom-control-input" type="checkbox" id="chk-region-1">
+                                                    <label class="custom-control-label" for="chk-region-1">Departamento&nbsp;1
+                                                    </label>
+                                                  </div>
+                                                </div>
+                                                <div class="col-auto my-1">
+                                                  <div class="custom-control custom-checkbox mr-sm-2">
+                                                    <input class="custom-control-input" type="checkbox" id="chk-region-2">
+                                                    <label class="custom-control-label" for="chk-region-2">Departamento&nbsp;2
+                                                    </label>
+                                                  </div>
+                                                </div>
+                                                <div class="col-auto my-1">
+                                                  <div class="custom-control custom-checkbox mr-sm-2">
+                                                    <input class="custom-control-input" type="checkbox" id="chk-region-3">
+                                                    <label class="custom-control-label" for="chk-region-3">Departamento&nbsp;3
+                                                    </label>
+                                                  </div>
+                                                </div>
+                                                <div class="col-auto my-1">
+                                                  <div class="custom-control custom-checkbox mr-sm-2">
+                                                    <input class="custom-control-input" type="checkbox" id="chk-region-4">
+                                                    <label class="custom-control-label" for="chk-region-4">Departamento&nbsp;4
+                                                    </label>
+                                                  </div>
+                                                </div>
+                                                <div class="col-auto my-1">
+                                                  <div class="custom-control custom-checkbox mr-sm-2">
+                                                    <input class="custom-control-input" type="checkbox" id="chk-region-5">
+                                                    <label class="custom-control-label" for="chk-region-5">Departamento&nbsp;5
+                                                    </label>
+                                                  </div>
+                                                </div>
+                                                <div class="col-auto my-1">
+                                                  <div class="custom-control custom-checkbox mr-sm-2">
+                                                    <input class="custom-control-input" type="checkbox" id="chk-region-6">
+                                                    <label class="custom-control-label" for="chk-region-6">Departamento&nbsp;6
+                                                    </label>
+                                                  </div>
+                                                </div>
+                                                <div class="col-auto my-1">
+                                                  <div class="custom-control custom-checkbox mr-sm-2">
+                                                    <input class="custom-control-input" type="checkbox" id="chk-region-7">
+                                                    <label class="custom-control-label" for="chk-region-7">Departamento&nbsp;7
+                                                    </label>
+                                                  </div>
+                                                </div>
+                                                <div class="col-auto my-1">
+                                                  <div class="custom-control custom-checkbox mr-sm-2">
+                                                    <input class="custom-control-input" type="checkbox" id="chk-region-8">
+                                                    <label class="custom-control-label" for="chk-region-8">Departamento&nbsp;8
+                                                    </label>
+                                                  </div>
+                                                </div>
+                                                <div class="col-auto my-1">
+                                                  <div class="custom-control custom-checkbox mr-sm-2">
+                                                    <input class="custom-control-input" type="checkbox" id="chk-region-9">
+                                                    <label class="custom-control-label" for="chk-region-9">Departamento&nbsp;9
+                                                    </label>
+                                                  </div>
+                                                </div>
+                                                <div class="col-auto my-1">
+                                                  <div class="custom-control custom-checkbox mr-sm-2">
+                                                    <input class="custom-control-input" type="checkbox" id="chk-region-10">
+                                                    <label class="custom-control-label" for="chk-region-10">Departamento&nbsp;10
+                                                    </label>
+                                                  </div>
+                                                </div>
+                                                <div class="col-auto my-1">
+                                                  <div class="custom-control custom-checkbox mr-sm-2">
+                                                    <input class="custom-control-input" type="checkbox" id="chk-region-11">
+                                                    <label class="custom-control-label" for="chk-region-11">Departamento&nbsp;11
+                                                    </label>
+                                                  </div>
+                                                </div>
+                                                <div class="col-auto my-1">
+                                                  <div class="custom-control custom-checkbox mr-sm-2">
+                                                    <input class="custom-control-input" type="checkbox" id="chk-region-12">
+                                                    <label class="custom-control-label" for="chk-region-12">Departamento&nbsp;12
+                                                    </label>
+                                                  </div>
+                                                </div>
+                                                <div class="col-auto my-1">
+                                                  <div class="custom-control custom-checkbox mr-sm-2">
+                                                    <input class="custom-control-input" type="checkbox" id="chk-region-13">
+                                                    <label class="custom-control-label" for="chk-region-13">Departamento&nbsp;13
+                                                    </label>
+                                                  </div>
+                                                </div>
+                                                <div class="col-auto my-1">
+                                                  <div class="custom-control custom-checkbox mr-sm-2">
+                                                    <input class="custom-control-input" type="checkbox" id="chk-region-14">
+                                                    <label class="custom-control-label" for="chk-region-14">Departamento&nbsp;14
+                                                    </label>
+                                                  </div>
+                                                </div>
+                                                <div class="col-auto my-1">
+                                                  <div class="custom-control custom-checkbox mr-sm-2">
+                                                    <input class="custom-control-input" type="checkbox" id="chk-region-15">
+                                                    <label class="custom-control-label" for="chk-region-15">Departamento&nbsp;15
+                                                    </label>
+                                                  </div>
+                                                </div>
+                                                <div class="col-auto my-1">
+                                                  <div class="custom-control custom-checkbox mr-sm-2">
+                                                    <input class="custom-control-input" type="checkbox" id="chk-region-16">
+                                                    <label class="custom-control-label" for="chk-region-16">Departamento&nbsp;16
+                                                    </label>
+                                                  </div>
+                                                </div>
+                                                <div class="col-auto my-1">
+                                                  <div class="custom-control custom-checkbox mr-sm-2">
+                                                    <input class="custom-control-input" type="checkbox" id="chk-region-17">
+                                                    <label class="custom-control-label" for="chk-region-17">Departamento&nbsp;17
+                                                    </label>
+                                                  </div>
+                                                </div>
+                                                <div class="col-auto my-1">
+                                                  <div class="custom-control custom-checkbox mr-sm-2">
+                                                    <input class="custom-control-input" type="checkbox" id="chk-region-18">
+                                                    <label class="custom-control-label" for="chk-region-18">Departamento&nbsp;18
+                                                    </label>
+                                                  </div>
+                                                </div>
+                                                <div class="col-auto my-1">
+                                                  <div class="custom-control custom-checkbox mr-sm-2">
+                                                    <input class="custom-control-input" type="checkbox" id="chk-region-19">
+                                                    <label class="custom-control-label" for="chk-region-19">Departamento&nbsp;19
+                                                    </label>
+                                                  </div>
+                                                </div>
+                                                <div class="col-auto my-1">
+                                                  <div class="custom-control custom-checkbox mr-sm-2">
+                                                    <input class="custom-control-input" type="checkbox" id="chk-region-20">
+                                                    <label class="custom-control-label" for="chk-region-20">Departamento&nbsp;20
+                                                    </label>
+                                                  </div>
+                                                </div>
+                                                <div class="col-auto my-1">
+                                                  <div class="custom-control custom-checkbox mr-sm-2">
+                                                    <input class="custom-control-input" type="checkbox" id="chk-region-21">
+                                                    <label class="custom-control-label" for="chk-region-21">Departamento&nbsp;21
+                                                    </label>
+                                                  </div>
+                                                </div>
+                                                <div class="col-auto my-1">
+                                                  <div class="custom-control custom-checkbox mr-sm-2">
+                                                    <input class="custom-control-input" type="checkbox" id="chk-region-22">
+                                                    <label class="custom-control-label" for="chk-region-22">Departamento&nbsp;22
+                                                    </label>
+                                                  </div>
+                                                </div>
+                                                <div class="col-auto my-1">
+                                                  <div class="custom-control custom-checkbox mr-sm-2">
+                                                    <input class="custom-control-input" type="checkbox" id="chk-region-23">
+                                                    <label class="custom-control-label" for="chk-region-23">Departamento&nbsp;23
+                                                    </label>
+                                                  </div>
+                                                </div>
+                                                <div class="col-auto my-1">
+                                                  <div class="custom-control custom-checkbox mr-sm-2">
+                                                    <input class="custom-control-input" type="checkbox" id="chk-region-24">
+                                                    <label class="custom-control-label" for="chk-region-24">Departamento&nbsp;24
+                                                    </label>
+                                                  </div>
+                                                </div>-->
                                             </div>
                                         </div>
                                     </div>
@@ -385,11 +394,11 @@
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="far fa-money-bill-alt"></i></span></div>
                                             <select class="form-control" id="cbo-moneda" aria-describedby="inputGroup10">
-                                                <option value="0">-Seleccione-</option>
-                                                @*<option>Soles</option>
-                                                    <option>Dólares</option>
-                                                    <option>Euro</option>
-                                                    <option>Yen</option>*@
+                                                <option>-Seleccione-</option>
+                                                <!--<option>Soles</option>
+                                                <option>Dólares</option>
+                                                <option>Euro</option>
+                                                <option>Yen</option>-->
                                             </select>
                                         </div>
                                     </div>
@@ -425,7 +434,9 @@
                         <div class="container py-5">
                             <div class="row">
                                 <div class="col-12">
-                                    <div class="h5 pb-5 text-primary">Indicadores&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Información ligada a la iniciativa de mitigación</small></div>
+                                    <div class="h5 pb-5 text-primary">
+                                        <div class="steps">PASO 4 DE 4: &nbsp;</div>Indicadores&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Información ligada a la iniciativa de mitigación</small>
+                                    </div>
                                 </div>
                             </div>
                             <div class="row">
@@ -435,18 +446,18 @@
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
                                             <div class="form-control" style="height:90px; overflow-y: auto;" id="listaEnerg">
-                                                @*<div class="col-auto my-1">
-                                                        <div class="custom-control custom-checkbox mr-sm-2">
-                                                            <input class="custom-control-input" type="checkbox" id="chk-energetico-01">
-                                                            <label class="custom-control-label" for="chk-energetico-01">Combustibles fósiles&nbsp;</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-auto my-1">
-                                                        <div class="custom-control custom-checkbox mr-sm-2">
-                                                            <input class="custom-control-input" type="checkbox" id="chk-energetico-02">
-                                                            <label class="custom-control-label" for="chk-energetico-02">Electricidad&nbsp;</label>
-                                                        </div>
-                                                    </div>*@
+                                                <!--<div class="col-auto my-1">
+                                                  <div class="custom-control custom-checkbox mr-sm-2">
+                                                    <input class="custom-control-input" type="checkbox" id="chk-energetico-01">
+                                                    <label class="custom-control-label" for="chk-energetico-01">Combustibles fósiles&nbsp;</label>
+                                                  </div>
+                                                </div>
+                                                <div class="col-auto my-1">
+                                                  <div class="custom-control custom-checkbox mr-sm-2">
+                                                    <input class="custom-control-input" type="checkbox" id="chk-energetico-02">
+                                                    <label class="custom-control-label" for="chk-energetico-02">Electricidad&nbsp;</label>
+                                                  </div>
+                                                </div>-->
                                             </div>
                                         </div>
                                     </div>
@@ -457,21 +468,20 @@
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
                                             <div class="form-control" style="height:90px; overflow-y: auto;" id="listaGei">
-                                                @*<div class="col-auto my-1">
-                                                        <div class="custom-control custom-checkbox mr-sm-2">
-                                                            <input class="custom-control-input" type="checkbox" id="chk-gei-01">
-                                                            <label class="custom-control-label" for="chk-gei-01">CO<sub>2</sub></label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-auto my-1">
-                                                        <div class="custom-control custom-checkbox mr-sm-2">
-                                                            <input class="custom-control-input" type="checkbox" id="chk-gei-02">
-                                                            <label class="custom-control-label" for="chk-gei-02">
-                                                                CO<sub>2</sub>&nbsp;y&nbsp;
-                                                                CH<sub>2</sub>
-                                                            </label>
-                                                        </div>
-                                                    </div>*@
+                                                <!--<div class="col-auto my-1">
+                                                  <div class="custom-control custom-checkbox mr-sm-2">
+                                                    <input class="custom-control-input" type="checkbox" id="chk-gei-01">
+                                                    <label class="custom-control-label" for="chk-gei-01">CO<sub>2</sub></label>
+                                                  </div>
+                                                </div>
+                                                <div class="col-auto my-1">
+                                                  <div class="custom-control custom-checkbox mr-sm-2">
+                                                    <input class="custom-control-input" type="checkbox" id="chk-gei-02">
+                                                    <label class="custom-control-label" for="chk-gei-02">CO<sub>2</sub>&nbsp;y&nbsp;
+                                                      CH<sub>2</sub>
+                                                    </label>
+                                                  </div>
+                                                </div>-->
                                             </div>
                                         </div>
                                     </div>
@@ -529,13 +539,18 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <div class="alert alert-warning">No te preocupes, que podrás cambiar la medida de mitigacion en cualquier momento.</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal fade" id="solicitar-revision" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                    <div class="modal-content" id="modalVentana">
+                    <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Mensaje de Usuario</h5>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -569,46 +584,46 @@
                                             </div>
                                         </div>
                                     </div>
-                                    @*<div class="alert alert-danger d-flex align-items-stretch" role="alert">
-                                            <div class="alert-wrap mr-3">
-                                                <div class="sa">
-                                                    <div class="sa-error">
-                                                        <div class="sa-error-x">
-                                                            <div class="sa-error-left"></div>
-                                                            <div class="sa-error-right"></div>
-                                                        </div>
-                                                        <div class="sa-error-placeholder"></div>
-                                                        <div class="sa-error-fix"></div>
-                                                    </div>
-                                                </div>
+                                    <!--<div class="alert alert-danger d-flex align-items-stretch" role="alert">
+                                      <div class="alert-wrap mr-3">
+                                        <div class="sa">
+                                          <div class="sa-error">
+                                            <div class="sa-error-x">
+                                              <div class="sa-error-left"></div>
+                                              <div class="sa-error-right"></div>
                                             </div>
-                                            <div class="alert-wrap">
-                                                <h6>Error de registro</h6>
-                                                <hr><small class="mb-0">Verifique que los datos sean correctamente ingresados, complete todos los campos obligatorios e intente otra vez.</small>
-                                            </div>
-                                        </div>*@
-                                    @*<div class="alert alert-success d-flex align-items-stretch" role="alert">
-                                            <div class="alert-wrap mr-3">
-                                                <div class="sa">
-                                                    <div class="sa-success">
-                                                        <div class="sa-success-tip"></div>
-                                                        <div class="sa-success-long"></div>
-                                                        <div class="sa-success-placeholder"></div>
-                                                        <div class="sa-success-fix"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="alert-wrap">
-                                                <h6>Bien hecho</h6>
-                                                <hr><small class="mb-0">Los datos de su iniciativa fueron guardados exitosamente, espere la aprobación del especialista para continuar con el registro de detalle de indicadores. En breve le notificaremos el estado de su solicitud de revisión.</small>
-                                            </div>
-                                        </div>*@
+                                            <div class="sa-error-placeholder"></div>
+                                            <div class="sa-error-fix"></div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="alert-wrap">
+                                        <h6>Error de registro</h6>
+                                        <hr><small class="mb-0">Verifique que los datos sean correctamente ingresados, complete todos los campos obligatorios e intente otra vez.</small>
+                                      </div>
+                                    </div>
+                                    <div class="alert alert-success d-flex align-items-stretch" role="alert">
+                                      <div class="alert-wrap mr-3">
+                                        <div class="sa">
+                                          <div class="sa-success">
+                                            <div class="sa-success-tip"></div>
+                                            <div class="sa-success-long"></div>
+                                            <div class="sa-success-placeholder"></div>
+                                            <div class="sa-success-fix"></div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="alert-wrap">
+                                        <h6>Bien hecho</h6>
+                                        <hr><small class="mb-0">Los datos de su iniciativa fueron guardados exitosamente, espere la aprobación del especialista para continuar con el registro de detalle de indicadores. En breve le notificaremos el estado de su solicitud de revisión.</small>
+                                      </div>
+                                    </div>-->
                                 </div>
                             </div>
                         </div>
                         <div class="modal-footer" id="modalRegistrarBoton">
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
-                            <button class="btn btn-primary" type="button" onclick="fn_CorregirIniciativaMitigacion();">Si</button>
+                            <button class="btn btn-primary" type="button" onclick="fn_GuardarIniciativaMitigacion();">Si</button>
                         </div>
                     </div>
                 </div>
@@ -626,22 +641,22 @@
                                     <h3 class="text-center">¿Desea guardar su avance? <br></h3>
                                     <p class="text-center">Los datos ingresados serán almacenados temporalmente y podrán ser regularizados al editar su iniciativa.</p>
                                 </div>
-                                @*<div class="col-sm-12 col-md-12 col-lg-12">
-                                        <div class="alert alert-warning d-flex align-items-stretch" role="alert">
-                                            <div class="alert-wrap mr-3">
-                                                <div class="sa">
-                                                    <div class="sa-warning">
-                                                        <div class="sa-warning-body"></div>
-                                                        <div class="sa-warning-dot"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="alert-wrap">
-                                                <h6>Sus avances fueron guardados</h6>
-                                                <hr>Recuerde, podrá solicitar una revisión una vez complete todos los campos obligatorios.
-                                            </div>
+                                <!--<div class="col-sm-12 col-md-12 col-lg-12">
+                                  <div class="alert alert-warning d-flex align-items-stretch" role="alert">
+                                    <div class="alert-wrap mr-3">
+                                      <div class="sa">
+                                        <div class="sa-warning">
+                                          <div class="sa-warning-body"></div>
+                                          <div class="sa-warning-dot"></div>
                                         </div>
-                                    </div>*@
+                                      </div>
+                                    </div>
+                                    <div class="alert-wrap">
+                                      <h6>Sus avances fueron guardados</h6>
+                                      <hr>Recuerde, podrá solicitar una revisión una vez complete todos los campos obligatorios.
+                                    </div>
+                                  </div>
+                                </div>-->
                             </div>
                         </div>
                         <div class="modal-footer" id="modalAvanceBoton">
@@ -659,6 +674,8 @@
 <script type="text/javascript">
     $(document).ready(function () {
         fn_cargarOpciones();
+        fn_actualizaCampana();
+        enLinea();
     });
 
     function fn_establecerVista() {
@@ -681,7 +698,7 @@
         }
 
         if ($("#Control").data("opcion7") == 1) {
-            opcion = opcion + '<a class="dropdown-item" href="./cambiar.html"><i class="fas fa-key pr-1"></i>Cambiar contraseña</a>';
+            opcion = opcion + '<a class="dropdown-item" href="#" onclick="fn_Clave();"><i class="fas fa-key pr-1"></i>Cambiar contraseña</a>';
         }
 
         opcion = opcion + '<div class="dropdown-divider"></div><a class="dropdown-item" href="#" onclick="salirSesion();"><i class="fas fa-sign-out-alt pr-1"></i>Salir del sistema</a>';

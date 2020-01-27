@@ -41,7 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseBE.cs" />
+    <Compile Include="BusquedaAvanzadaBE.cs" />
+    <Compile Include="BusquedaSimpleBE.cs" />
     <Compile Include="EnergeticoBE.cs" />
+    <Compile Include="EscenarioRptBE.cs" />
     <Compile Include="GasEfectoInvernaderoBE.cs" />
     <Compile Include="IndicadorBE.cs" />
     <Compile Include="IniciativaAuxBE.cs" />
@@ -60,7 +63,9 @@
     <Compile Include="TipoFuenteBE.cs" />
     <Compile Include="TipoVehiculoBE.cs" />
     <Compile Include="UbicacionBE.cs" />
+    <Compile Include="UsuarioAuxBE.cs" />
     <Compile Include="UsuarioBE.cs" />
+    <Compile Include="UsuarioMedMitBE.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

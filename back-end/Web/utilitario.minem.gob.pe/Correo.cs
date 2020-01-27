@@ -15,7 +15,7 @@ namespace utilitario.minem.gob.pe
     public static class Correo
     {
 
-        public static bool EnviarEmail(string asDe, List<string> asPara, string asAsunto, string asCuerpo, bool asesHtml, List<string> asCC = null, List<string> asCO = null, List<Attachment> listaAdjunto = null)
+        public static bool EnviarEmail(string proceso, string asDe, List<string> asPara, string asAsunto, string asCuerpo, bool asesHtml, List<string> asCC = null, List<string> asCO = null, List<Attachment> listaAdjunto = null)
         {
             MailMessage correo = new MailMessage();
             SmtpClient smpt = new SmtpClient();
@@ -60,22 +60,22 @@ namespace utilitario.minem.gob.pe
                 correo.Subject = asAsunto;
 
                 AlternateView htmlView = AlternateView.CreateAlternateViewFromString(asCuerpo, Encoding.UTF8, MediaTypeNames.Text.Html);
+                htmlView = mostrarImagen(htmlView, proceso);
+                //LinkedResource imgLogo = new LinkedResource(@WebConfigurationManager.AppSettings.Get("ImagenMem"), MediaTypeNames.Image.Jpeg);
+                //imgLogo.ContentId = "imagenMEM";
+                //htmlView.LinkedResources.Add(imgLogo);
 
-                LinkedResource imgLogo = new LinkedResource(@WebConfigurationManager.AppSettings.Get("ImagenMem"), MediaTypeNames.Image.Jpeg);
-                imgLogo.ContentId = "imagenMEM";
-                htmlView.LinkedResources.Add(imgLogo);
+                //LinkedResource imgBanner = new LinkedResource(@WebConfigurationManager.AppSettings.Get("ImagenBanner"), MediaTypeNames.Image.Jpeg);
+                //imgBanner.ContentId = "imagenBanner";
+                //htmlView.LinkedResources.Add(imgBanner);
 
-                LinkedResource imgBanner = new LinkedResource(@WebConfigurationManager.AppSettings.Get("ImagenBanner"), MediaTypeNames.Image.Jpeg);
-                imgBanner.ContentId = "imagenBanner";
-                htmlView.LinkedResources.Add(imgBanner);
+                //LinkedResource imgGef = new LinkedResource(@WebConfigurationManager.AppSettings.Get("ImagenGef"), MediaTypeNames.Image.Jpeg);
+                //imgGef.ContentId = "imagenGEF";
+                //htmlView.LinkedResources.Add(imgGef);
 
-                LinkedResource imgGef = new LinkedResource(@WebConfigurationManager.AppSettings.Get("ImagenGef"), MediaTypeNames.Image.Jpeg);
-                imgGef.ContentId = "imagenGEF";
-                htmlView.LinkedResources.Add(imgGef);
-
-                LinkedResource imgPnud = new LinkedResource(@WebConfigurationManager.AppSettings.Get("ImagenPnud"), MediaTypeNames.Image.Jpeg);
-                imgPnud.ContentId = "imagenPNUD";
-                htmlView.LinkedResources.Add(imgPnud);
+                //LinkedResource imgPnud = new LinkedResource(@WebConfigurationManager.AppSettings.Get("ImagenPnud"), MediaTypeNames.Image.Jpeg);
+                //imgPnud.ContentId = "imagenPNUD";
+                //htmlView.LinkedResources.Add(imgPnud);
 
                 correo.AlternateViews.Add(htmlView);
                 correo.IsBodyHtml = asesHtml;
@@ -108,6 +108,36 @@ namespace utilitario.minem.gob.pe
                 Log.Error(ex);
                 return false;
             }
+        }
+
+        private static AlternateView mostrarImagen(AlternateView htmlView, string proceso)
+        {
+            if (proceso == "registro")
+            {
+                LinkedResource imgLogo = new LinkedResource(@WebConfigurationManager.AppSettings.Get("ImagenMem"), MediaTypeNames.Image.Jpeg);
+                imgLogo.ContentId = "imagenMEM";
+                htmlView.LinkedResources.Add(imgLogo);
+
+                LinkedResource imgBanner = new LinkedResource(@WebConfigurationManager.AppSettings.Get("ImagenBanner"), MediaTypeNames.Image.Jpeg);
+                imgBanner.ContentId = "imagenBanner";
+                htmlView.LinkedResources.Add(imgBanner);
+
+                LinkedResource imgGef = new LinkedResource(@WebConfigurationManager.AppSettings.Get("ImagenGef"), MediaTypeNames.Image.Jpeg);
+                imgGef.ContentId = "imagenGEF";
+                htmlView.LinkedResources.Add(imgGef);
+
+                LinkedResource imgPnud = new LinkedResource(@WebConfigurationManager.AppSettings.Get("ImagenPnud"), MediaTypeNames.Image.Jpeg);
+                imgPnud.ContentId = "imagenPNUD";
+                htmlView.LinkedResources.Add(imgPnud);
+            }
+            else if (proceso == "aprobar")
+            {
+                LinkedResource imgBanner = new LinkedResource(@WebConfigurationManager.AppSettings.Get("ImagenBanner"), MediaTypeNames.Image.Jpeg);
+                imgBanner.ContentId = "imagenBanner";
+                htmlView.LinkedResources.Add(imgBanner);
+            }
+
+            return htmlView;
         }
     }
 }
