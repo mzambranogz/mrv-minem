@@ -1,0 +1,825 @@
+﻿@model MRVMinem.Models.MvSesion
+@{
+    ViewBag.Title = "Revisar Detalle Indicador";
+    Layout = "~/Views/Shared/_SesionLayout.cshtml";
+}
+@Html.HiddenFor(m => m.identificador)
+@Html.HiddenFor(m => m.revision)
+
+<div class="container-fluid map-root" id="historia">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="./index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="./acciones-de-mitigacion-interno.html">Listado de Iniciativas de Mitigación</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Evaluación de Iniciativa de Mitigación y Detalles de Indicadores</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="container-fluid my-4" id="cuerpo">
+    <div class="row m-0">
+        <div class="col-12 cuerpo-interior">
+            <div class="container py-4">
+                <div class="row">
+                    <div class="col-md-12 col-lg-6 pt-4">
+                        <div class="h4">Evaluación de Iniciativa de Mitigación y Detalles de Indicadores&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Asigne información importante a su detalle de indicadores, <br>complete todos los campos para una mejor especificación.</small></div>
+                    </div>
+                    <div class="col-md-12 col-lg-6 pt-4">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
+                            <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#aprobar-evaluacion"><a class="aprobar-evaluacion" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-check px-1"></i>Aprobar evaluación</a></span><span data-toggle="modal" data-target="#observar-evaluacion"><a class="observar-evaluacion" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-eye px-1"></i>Observar evaluación</a></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid py-4 px-0 bg-white">
+                <div class="container py-5">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="h5 pb-5 text-primary">Promoción de vehiculos eléctricos a nivel nacional&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="txt-categoria">Categoría IPSC</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-landmark"></i></span></div>
+                                    <input class="form-control-plaintext" type="text" id="txt-categoria" value="Energía - Combustión móvil" aria-describedby="inputGroup1" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txa-objetivo">Objetivo</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup2"><i class="fas fa-landmark"></i></span></div>
+                                    <textarea class="form-control-plaintext" id="txa-objetivo" aria-describedby="inputGroup2" cols="30" rows="5" readonly>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus porro quibusdam, repellat ipsa consequatur magni, vitae earum iure deleniti quod ad. Autem amet fugit, deleniti repellat veritatis aperiam minus nam!</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="txa-descripcion">Descripción</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup3"><i class="fas fa-landmark"></i></span></div>
+                                    <textarea class="form-control-plaintext" id="txa-descripcion" aria-describedby="inputGroup3" cols="30" rows="8" readonly>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus porro quibusdam, repellat ipsa consequatur magni, vitae earum iure deleniti quod ad. Autem amet fugit, deleniti repellat veritatis aperiam minus nam !Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus porro quibusdam, repellat ipsa consequatur magni, vitae earum iure deleniti quod ad. Autem amet fugit, deleniti repellat veritatis aperiam minus nam!</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="h5 py-5 text-primary">Datos principales</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12-col-md-12 col-lg-12">
+                            <div class="form-group">
+                                <label for="txa-nombre-iniciativa">Nombre de la iniciativa<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="En caso no posea un nombre, coloque el nombre de la medida de mitigación seguido de un guión y nombre o siglas de la institución."></i></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-tachometer-alt"></i></span></div>
+                                    <textarea class="form-control-plaintext" id="txa-nombre-iniciativa" aria-describedby="inputGroup4" cols="30" rows="5" readonly placeholder="Ingrese un nombre para su iniciativa">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor officia, sequi hic, vel quia repellat architecto quasi corporis quidem doloribus earum praesentium molestiae illo, iure voluptates autem voluptate inventore! Inventore.</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txa-descripcion-medida">Descripción de la medida<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indicar la ubicación, tecnología considerada y cantidades de la misma."></i></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-tachometer-alt"></i></span></div>
+                                    <textarea class="form-control-plaintext" id="txa-descripcion-medida" aria-describedby="inputGroup5" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil optio corrupti itaque tempora pariatur nemo ipsam quis porro magnam dolorum a, dolore explicabo eveniet velit natus voluptate aperiam, reprehenderit ipsa!</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="txa-nombre-responsable">Responsable del registro</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
+                                    <input class="form-control-plaintext" id="txt-nombre-responsable" aria-describedby="inputGroup6" value="Ricardo Sanchez" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="txa-nombre-institucion">Nombre de la institución</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup7"><i class="fas fa-landmark"></i></span></div>
+                                    <input class="form-control-plaintext" id="txt-nombre-institucion" aria-describedby="inputGroup7" value="COORPORACION ENERGIA ASOCIADOS SAC" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="txt-correo-electronico">Correo electrónico</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup8"><i class="fas fa-landmark"></i></span></div>
+                                    <input class="form-control-plaintext" id="txt-correo-electronico" aria-describedby="inputGroup8" value="rsanchez@coorpenerasosac.com" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="txt-direccion">Dirección</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
+                                    <input class="form-control-plaintext" id="txt-direccion" aria-describedby="inputGroup9" value="Av. Los Heros Nro 1457 - SJL" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="h5 py-5 text-primary">Datos generales</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="txt-sector-insi¿titucion">Sector de la institución</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
+                                    <input class="form-control-plaintext" id="txt-sector-institucion" aria-describedby="inputGroup9" value="MINERÍA" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txa-ubicacion">Ubicación<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                <div class="input-group" id="campoUbicacion">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
+                                    <!-- <textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">Lima&nbsp; -->
+                                    <!-- Arequipa&nbsp; -->
+                                    <!-- Tacna</textarea> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="txt-moneda">Moneda<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup11"><i class="far fa-money-bill-alt"></i></span></div>
+                                    <input class="form-control-plaintext" type="text" id="txt-moneda" aria-describedby="inputGroup10" value="Soles" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txt-monto-inversion">Monto de inversión<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup11"><i class="fas fa-wallet"></i></span></div>
+                                    <input class="form-control-plaintext" type="text" id="txt-monto-inversion" aria-describedby="inputGroup11" value="100,000.00" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txt-fecha-inicio">Fecha de Inicio del proyecto<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique el año de inicio del proyecto"></i></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup12"><i class="fas fa-calendar-alt"></i></span></div>
+                                    <input class="form-control-plaintext" type="text" id="txt-fecha-inicio" aria-describedby="inputGroup12" value="25/10/2018" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="h5 py-5 text-primary">Indicadores</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="mlt-energetico">Energético asociado<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                <div class="input-group" id="campoEnerg">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
+                                    <!-- <textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">Combustibles fósiles&nbsp; -->
+                                    <!-- Electricidad&nbsp;</textarea> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="mlt-gei">Gases de efecto invernadero<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                <div class="input-group" id="campoGei">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
+                                    @*<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
+                                            CO2
+                                            y&nbsp;
+                                            CH 2
+                                        </textarea>*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown-divider"></div>
+                <div class="container py-5">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="h5 pb-5 text-primary">Detalles de Identificación<br><small class="text-muted">Complete información</small></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="txt-enfoque">Enfoque<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup20"><i class="fas fa-square-root-alt"></i></span></div>
+                                    <input class="form-control-plaintext" id="txt-enfoque" aria-describedby="inputGroup20" value="Vehiculo Electrico" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12-col-md-12 col-lg-6">&nbsp;</div>
+                    </div>
+                </div>
+                <div class="container-fluid py-4">
+                    <div class="h5">Registro de Detalles&nbsp;<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></div>
+                    <div class="dropdown-divider"></div>
+                    <div class="row">
+                        <div class="col-12 px-0">
+                            <div class="table-responsive tabla-principal tabla-detalle-indicadores">
+                                <table class="table table-hover" id="tablaIndicador" data-fila="0">
+                                    <thead>
+                                        <tr class="bg-primary text-white">
+                                            <
+                                            <th class="text-center" scope="col"><span>#&nbsp;</span></th>
+                                            <th scope="col"><span>Año&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
+                                            <th scope="col"><span>Tipo Vehiculo&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
+                                            <th scope="col"><span>Tipo Combustible&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
+                                            <th scope="col"><span>KRV&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
+                                            <th scope="col"><span>Cantidad&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
+                                            <th scope="col"><span>Factor de Rendimiento&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
+                                            <th scope="col"><span>Línea Base Emisiones GEI (tCO2e)</span></th>
+                                            <th scope="col"><span>Iniciativa Mitigación Emisiones GEI (tCO2e)</span></th>
+                                            <th scope="col"><span>Emisiones GEI Reducidas (tCO2e)</span></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="cuerpoTablaIndicador" data-row="0" data-total="0">
+                                        <!-- <tr> -->
+                                        <!-- <th class="text-center" data-encabezado="Número" scope="row">1</th> -->
+                                        <!-- <td data-encabezado="Columna 01">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 02">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 03">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 04">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 05">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 06">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 07">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 08">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 09">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 10">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 11">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 12">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 13">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 14">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 15">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 16">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Subtotal">1,500.00</td> -->
+                                        <!-- <td class="text-center" data-encabezado="Sustento"> -->
+                                        <!-- <div class="form-group m-0"> -->
+                                        <!-- <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label> -->
+                                        <!-- <input class="d-none fil-file-control" type="file" id="fle-doc"> -->
+                                        <!-- </div> -->
+                                        <!-- </td> -->
+                                        <!-- </tr> -->
+                                        <!-- <tr> -->
+                                        <!-- <th class="text-center" data-encabezado="Número" scope="row">2</th> -->
+                                        <!-- <td data-encabezado="Columna 01">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 02">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 03">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 04">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 05">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 06">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 07">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 08">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 09">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 10">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 11">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 12">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 13">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 14">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 15">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 16">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Subtotal">1,500.00</td> -->
+                                        <!-- <td class="text-center" data-encabezado="Sustento"> -->
+                                        <!-- <div class="form-group m-0"> -->
+                                        <!-- <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label> -->
+                                        <!-- <input class="d-none fil-file-control" type="file" id="fle-doc"> -->
+                                        <!-- </div> -->
+                                        <!-- </td> -->
+                                        <!-- </tr> -->
+                                        <!-- <tr> -->
+                                        <!-- <th class="text-center" data-encabezado="Número" scope="row">3</th> -->
+                                        <!-- <td data-encabezado="Columna 01">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 02">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 03">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 04">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 05">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 06">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 07">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 08">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 09">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 10">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 11">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 12">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 13">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 14">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 15">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 16">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Subtotal">1,500.00</td> -->
+                                        <!-- <td class="text-center" data-encabezado="Sustento"> -->
+                                        <!-- <div class="form-group m-0"> -->
+                                        <!-- <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label> -->
+                                        <!-- <input class="d-none fil-file-control" type="file" id="fle-doc"> -->
+                                        <!-- </div> -->
+                                        <!-- </td> -->
+                                        <!-- </tr> -->
+                                        <!-- <tr> -->
+                                        <!-- <th class="text-center" data-encabezado="Número" scope="row">4</th> -->
+                                        <!-- <td data-encabezado="Columna 01">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 02">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 03">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 04">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 05">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 06">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 07">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 08">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 09">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 10">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 11">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 12">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 13">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 14">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 15">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 16">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Subtotal">1,500.00</td> -->
+                                        <!-- <td class="text-center" data-encabezado="Sustento"> -->
+                                        <!-- <div class="form-group m-0"> -->
+                                        <!-- <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label> -->
+                                        <!-- <input class="d-none fil-file-control" type="file" id="fle-doc"> -->
+                                        <!-- </div> -->
+                                        <!-- </td> -->
+                                        <!-- </tr> -->
+                                        <!-- <tr> -->
+                                        <!-- <th class="text-center" data-encabezado="Número" scope="row">5</th> -->
+                                        <!-- <td data-encabezado="Columna 01">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 02">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 03">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 04">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 05">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 06">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 07">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 08">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 09">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 10">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 11">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 12">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 13">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 14">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 15">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 16">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Subtotal">1,500.00</td> -->
+                                        <!-- <td class="text-center" data-encabezado="Sustento"> -->
+                                        <!-- <div class="form-group m-0"> -->
+                                        <!-- <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label> -->
+                                        <!-- <input class="d-none fil-file-control" type="file" id="fle-doc"> -->
+                                        <!-- </div> -->
+                                        <!-- </td> -->
+                                        <!-- </tr> -->
+                                        <!-- <tr> -->
+                                        <!-- <th class="text-center" data-encabezado="Número" scope="row">6</th> -->
+                                        <!-- <td data-encabezado="Columna 01">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 02">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 03">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 04">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 05">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 06">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 07">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 08">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 09">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 10">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 11">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 12">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 13">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 14">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 15">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 16">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Subtotal">1,500.00</td> -->
+                                        <!-- <td class="text-center" data-encabezado="Sustento"> -->
+                                        <!-- <div class="form-group m-0"> -->
+                                        <!-- <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label> -->
+                                        <!-- <input class="d-none fil-file-control" type="file" id="fle-doc"> -->
+                                        <!-- </div> -->
+                                        <!-- </td> -->
+                                        <!-- </tr> -->
+                                        <!-- <tr> -->
+                                        <!-- <th class="text-center" data-encabezado="Número" scope="row">7</th> -->
+                                        <!-- <td data-encabezado="Columna 01">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 02">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 03">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 04">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 05">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 06">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 07">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 08">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 09">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 10">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 11">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 12">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 13">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 14">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 15">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 16">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Subtotal">1,500.00</td> -->
+                                        <!-- <td class="text-center" data-encabezado="Sustento"> -->
+                                        <!-- <div class="form-group m-0"> -->
+                                        <!-- <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label> -->
+                                        <!-- <input class="d-none fil-file-control" type="file" id="fle-doc"> -->
+                                        <!-- </div> -->
+                                        <!-- </td> -->
+                                        <!-- </tr> -->
+                                        <!-- <tr> -->
+                                        <!-- <th class="text-center" data-encabezado="Número" scope="row">8</th> -->
+                                        <!-- <td data-encabezado="Columna 01">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 02">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 03">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 04">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 05">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 06">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 07">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 08">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 09">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 10">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 11">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 12">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 13">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 14">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 15">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 16">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Subtotal">1,500.00</td> -->
+                                        <!-- <td class="text-center" data-encabezado="Sustento"> -->
+                                        <!-- <div class="form-group m-0"> -->
+                                        <!-- <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label> -->
+                                        <!-- <input class="d-none fil-file-control" type="file" id="fle-doc"> -->
+                                        <!-- </div> -->
+                                        <!-- </td> -->
+                                        <!-- </tr> -->
+                                        <!-- <tr> -->
+                                        <!-- <th class="text-center" data-encabezado="Número" scope="row">9</th> -->
+                                        <!-- <td data-encabezado="Columna 01">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 02">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 03">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 04">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 05">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 06">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 07">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 08">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 09">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 10">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 11">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 12">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 13">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 14">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 15">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 16">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Subtotal">1,500.00</td> -->
+                                        <!-- <td class="text-center" data-encabezado="Sustento"> -->
+                                        <!-- <div class="form-group m-0"> -->
+                                        <!-- <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label> -->
+                                        <!-- <input class="d-none fil-file-control" type="file" id="fle-doc"> -->
+                                        <!-- </div> -->
+                                        <!-- </td> -->
+                                        <!-- </tr> -->
+                                        <!-- <tr> -->
+                                        <!-- <th class="text-center" data-encabezado="Número" scope="row">10</th> -->
+                                        <!-- <td data-encabezado="Columna 01">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 02">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 03">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 04">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 05">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 06">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 07">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 08">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 09">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 10">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 11">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 12">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 13">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 14">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Columna 15">Valor 1</td> -->
+                                        <!-- <td data-encabezado="Columna 16">Texto 1</td> -->
+                                        <!-- <td data-encabezado="Subtotal">1,500.00</td> -->
+                                        <!-- <td class="text-center" data-encabezado="Sustento"> -->
+                                        <!-- <div class="form-group m-0"> -->
+                                        <!-- <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label> -->
+                                        <!-- <input class="d-none fil-file-control" type="file" id="fle-doc"> -->
+                                        <!-- </div> -->
+                                        <!-- </td> -->
+                                        <!-- </tr> -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown-divider"></div>
+                <div class="container py-5">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="h5 pb-5 text-primary">Resumen<br><small class="text-muted">Este es el detalle de su detalle de indicadores</small></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container py-4">
+                    <div class="h5">Registro de Detalles&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></div>
+                    <div class="dropdown-divider"></div>
+                    <div class="row">
+                        <div class="col-12 px-0">
+                            <div class="table-responsive tabla-principal">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr class="bg-primary text-white">
+                                            <th class="text-center" scope="col" width="2%"><span>#&nbsp;</span></th>
+                                            <th scope="col" width="88%"><span>Resumen</span></th>
+                                            <th scope="col" width="10%"><span>Total</span></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th class="text-center" data-encabezado="Número" scope="row">1</th>
+                                            <td data-encabezado="Resumen" id="resumen-detalle"><!--Nombre de la Medida Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia earum asperiores do--></td>
+                                            <td data-encabezado="Total" id="total-detalle"><!--<strong>150,000.00</strong>--></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown-divider"></div>
+                <div class="container py-5">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="h5 pb-5 text-primary">Documentos&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Cargue uno o varios documentos sustentatorios</small></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label>Archivos adjuntos: 0 en total</label>
+                                <!-- <div class="input-group mb-3"> -->
+                                <!-- <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-file-pdf"></i></span></div><span class="form-control-plaintext">NombreDeArchivo.pdf</span> -->
+                                <!-- <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="fas fa-download"></i></span></div> -->
+                                <!-- </div> -->
+                                <!-- <div class="input-group mb-3"> -->
+                                <!-- <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-file-word"></i></span></div><span class="form-control-plaintext">NombreDeArchivo.docx</span> -->
+                                <!-- <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="fas fa-download"></i></span></div> -->
+                                <!-- </div> -->
+                                <!-- <div class="input-group mb-3"> -->
+                                <!-- <div class="input-group-prepend"><span class="input-group-text"><i class="far fa-file-image"></i></span></div><span class="form-control-plaintext">NombreDeArchivo.jpg</span> -->
+                                <!-- <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="fas fa-download"></i></span></div> -->
+                                <!-- </div> -->
+                                <!-- <div class="input-group mb-3"> -->
+                                <!-- <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-file-image"></i></span></div><span class="form-control-plaintext">NombreDeArchivo.png</span> -->
+                                <!-- <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="fas fa-download"></i></span></div> -->
+                                <!-- </div> -->
+                            </div>
+                        </div>
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <label>Visibilidad de datos</label><br>
+                            <div class="custom-control custom-checkbox d-inline-block">
+                                <input class="custom-control-input" type="checkbox" id="chk-publicar" disabled checked>
+                                <label class="custom-control-label" for="chk-publicar">Hacer públicos los datos registrados.</label>
+                            </div>
+                            <div class="custom-control custom-checkbox d-inline-block">
+                                <input class="custom-control-input" type="checkbox" id="chk-publicar-monto-inversion" disabled>
+                                <label class="custom-control-label" for="chk-publicar-monto-inversion">Hacer público "Monto de inversión"</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown-divider my-5"></div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-6">&nbsp;</div>
+                        <div class="col-sm-12 col-md-12 col-lg-6 text-right">
+                            <div class="row justify-content-end">
+                                <div class="col-lg-6"><a class="btn btn-warning px-5 w-100 nav-tab text-center mb-3" href="#" data-toggle="modal" data-target="#observar-evaluacion"><i class="fas fa-eye px-1"></i>Observar</a></div>
+                                <div class="col-lg-6"><a class="btn btn-primary px-5 w-100 nav-tab text-center" href="#" data-toggle="modal" data-target="#aprobar-evaluacion">Aprobar<i class="fas fa-check px-1"></i></a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="aprobar-evaluacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Mensaje de Usuario</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body medidas-modal">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <h3 class="text-center">¿Confirma aprobar esta evaluación? <br></h3>
+                                    <p class="text-center">Está de acuerdo en aprobar todos los datos vinculados en de esta iniciativa de mitigación, como de los detalles de indicadores registrados.</p>
+                                </div>
+                                <div class="col-sm-12 col-md-12 col-lg-12" id="modalAprobacion">
+                                    <!-- <div class="alert alert-danger d-flex align-items-stretch" role="alert"> -->
+                                    <!-- <div class="alert-wrap mr-3"> -->
+                                    <!-- <div class="sa"> -->
+                                    <!-- <div class="sa-error"> -->
+                                    <!-- <div class="sa-error-x"> -->
+                                    <!-- <div class="sa-error-left"></div> -->
+                                    <!-- <div class="sa-error-right"></div> -->
+                                    <!-- </div> -->
+                                    <!-- <div class="sa-error-placeholder"></div> -->
+                                    <!-- <div class="sa-error-fix"></div> -->
+                                    <!-- </div> -->
+                                    <!-- </div> -->
+                                    <!-- </div> -->
+                                    <!-- <div class="alert-wrap"> -->
+                                    <!-- <h6>Error de aprobación</h6> -->
+                                    <!-- <hr><small class="mb-0">Ocurrió un error de comunicación con el servidor, intente otra vez.</small> -->
+                                    <!-- </div> -->
+                                    <!-- </div> -->
+                                    <!-- <div class="alert alert-success d-flex align-items-stretch" role="alert"> -->
+                                    <!-- <div class="alert-wrap mr-3"> -->
+                                    <!-- <div class="sa"> -->
+                                    <!-- <div class="sa-success"> -->
+                                    <!-- <div class="sa-success-tip"></div> -->
+                                    <!-- <div class="sa-success-long"></div> -->
+                                    <!-- <div class="sa-success-placeholder"></div> -->
+                                    <!-- <div class="sa-success-fix"></div> -->
+                                    <!-- </div> -->
+                                    <!-- </div> -->
+                                    <!-- </div> -->
+                                    <!-- <div class="alert-wrap"> -->
+                                    <!-- <h6>Bien hecho</h6> -->
+                                    <!-- <hr><small class="mb-0">Se aprobó correctamente esta evaluación, se procederá a notificar al Especialista.</small> -->
+                                    <!-- </div> -->
+                                    <!-- </div> -->
+                                </div>
+                            </div>
+                            @*<div class="alert alert-warning d-flex align-items-stretch" role="alert">
+                                <div class="alert-wrap mr-3">
+                                    <div class="sa">
+                                        <div class="sa-warning">
+                                            <div class="sa-warning-body"></div>
+                                            <div class="sa-warning-dot"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="alert-wrap">
+                                    <h6>Mercado de carbono</h6>
+                                    <hr><small class="mb-0">
+                                        Se ha generado la cadena de bloques para la medida de mitigación&nbsp;<strong>aprobada&nbsp;</strong>
+                                        <hr>
+                                        <div class="text-monospace" style="word-break: break-all;">341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb72</div>
+                                    </small>
+                                </div>
+                            </div>*@
+                        </div>
+                        <div class="modal-footer" id="modalAprobarBoton">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
+                            <button class="btn btn-primary" type="button" onclick="fn_evaluarIniciativaDetalle();">Si</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="observar-evaluacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Observaciones</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body medidas-modal">
+                    <div class="row mb-2">
+                        <div class="col-sm-12 col-md-6 col-lg-6"><strong>De: Erick Sanchez&nbsp;<span class="badge badge-actor-04">Evaluador MINAM</span></strong><br><strong>Para: Juan Perez&nbsp;<span class="badge badge-actor-03">Especialista</span></strong></div>
+                        <div class="col-sm-12 col-md-6 col-lg-6 text-right"><strong>Fecha de Registro: 25/02/2020</strong></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="cbo-tipo-observacion">Tipo de observación<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="En caso no posea un nombre, coloque el nombre de la medida de mitigación seguido de un guión y nombre o siglas de la institución."></i></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="fas fa-exclamation-triangle"></i></span></div>
+                                    <select class="form-control" id="cbo-tipo-observacion" aria-describedby="inputGroup10">
+                                        <option>-Seleccione-</option>
+                                        <option class="bg-warning">Corrección</option>
+                                        <option class="bg-danger text-white">Error</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12-col-md-12 col-lg-6"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12-col-md-12 col-lg-12">
+                            <div class="form-group">
+                                <label for="txa-nombre-iniciativa">Observaciones:<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="En caso no posea un nombre, coloque el nombre de la medida de mitigación seguido de un guión y nombre o siglas de la institución."></i></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-comment-alt"></i></span></div>
+                                    <textarea class="form-control" id="txa-nombre-iniciativa" aria-describedby="inputGroup4" cols="30" rows="5" required placeholder="Ingrese un nombre para su iniciativa"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12" id="modalRevision">
+                            <!-- <div class="alert alert-danger d-flex align-items-stretch" role="alert"> -->
+                            <!-- <div class="alert-wrap mr-3"> -->
+                            <!-- <div class="sa"> -->
+                            <!-- <div class="sa-error"> -->
+                            <!-- <div class="sa-error-x"> -->
+                            <!-- <div class="sa-error-left"></div> -->
+                            <!-- <div class="sa-error-right"></div> -->
+                            <!-- </div> -->
+                            <!-- <div class="sa-error-placeholder"></div> -->
+                            <!-- <div class="sa-error-fix"></div> -->
+                            <!-- </div> -->
+                            <!-- </div> -->
+                            <!-- </div> -->
+                            <!-- <div class="alert-wrap"> -->
+                            <!-- <h6>Error de registro</h6> -->
+                            <!-- <hr><small class="mb-0">Sus observaciones no fueron enviadas, intentelo nuevamente.</small> -->
+                            <!-- </div> -->
+                            <!-- </div> -->
+                            <!-- <div class="alert alert-success d-flex align-items-stretch" role="alert"> -->
+                            <!-- <div class="alert-wrap mr-3"> -->
+                            <!-- <div class="sa"> -->
+                            <!-- <div class="sa-success"> -->
+                            <!-- <div class="sa-success-tip"></div> -->
+                            <!-- <div class="sa-success-long"></div> -->
+                            <!-- <div class="sa-success-placeholder"></div> -->
+                            <!-- <div class="sa-success-fix"></div> -->
+                            <!-- </div> -->
+                            <!-- </div> -->
+                            <!-- </div> -->
+                            <!-- <div class="alert-wrap"> -->
+                            <!-- <h6>Bien hecho</h6> -->
+                            <!-- <hr><small class="mb-0">Sus observaciones se enviaron correctamente.</small> -->
+                            <!-- </div> -->
+                            <!-- </div> -->
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer" id="modalObservacionBoton">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button><a class="btn btn-primary" href="./registro-de-iniciativa-de-mitigacion.html">Enviar<i class="fas fa-paper-plane ml-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        fn_cargarOpciones();
+    });
+
+    function fn_establecerVista() {
+
+        var opcion = '<span class="dropdown-item">' + $("#Control").data("nombres") + ' <br>';
+        if ($("#Control").data("rol") == 1) {
+            opcion = opcion + '<span class="badge badge-actor-02">Usuario Administrado</span></span>'
+        } else if ($("#Control").data("rol") == 2) {
+            opcion = opcion + '<span class="badge badge-actor-03">Especialista</span></span>'
+        } else if ($("#Control").data("rol") == 3) {
+            opcion = opcion + '<span class="badge badge-actor-06">Administrador MINEM</span></span>'
+        } else if ($("#Control").data("rol") == 4) {
+            opcion = opcion + '<span class="badge badge-actor-04">Evaluador MINAM</span></span>'
+        } else if ($("#Control").data("rol") == 5) {
+            opcion = opcion + '<span class="badge badge-actor-05">Verificador Externo</span></span>'
+        }
+
+        if ($("#Control").data("opcion6") == 1) { //Añade a las opciones el mantenimiento de tablas
+            opcion = opcion + '<a class="dropdown-item" href="#" onclick="fn_mantenimiento();"><i class="fas fa-cogs pr-1"></i>Mantenimiento de tablas</a>';
+        }
+
+        if ($("#Control").data("opcion7") == 1) {
+            opcion = opcion + '<a class="dropdown-item" href="#" onclick="fn_Clave();"><i class="fas fa-key pr-1"></i>Cambiar contraseña</a>';
+        }
+
+        opcion = opcion + '<div class="dropdown-divider"></div><a class="dropdown-item" href="#" onclick="salirSesion();"><i class="fas fa-sign-out-alt pr-1"></i>Salir del sistema</a>';
+
+        $("#usuario-rol").append(opcion);
+    }
+
+    function fn_cargarOpciones() {
+        $("#Control").data("usuario",@Session["usuario"]);
+        $("#Control").data("nombres",'@Session["nombres"]');
+        $("#Control").data("correo",'@Session["correo"]');
+        $("#Control").data("rol",@Session["rol"]);
+        $("#Control").data("institucion",'@Session["institucion"]');
+        $("#Control").data("direccion",'@Session["direccion"]');
+        $("#Control").data("sector",'@Session["sector"]');
+        $("#Control").data("opcion1",@Session["opcion1"]);
+        $("#Control").data("opcion2",@Session["opcion2"]);
+        $("#Control").data("opcion3",@Session["opcion3"]);
+        $("#Control").data("opcion4",@Session["opcion4"]);
+        $("#Control").data("opcion5",@Session["opcion5"]);
+        $("#Control").data("opcion6",@Session["opcion6"]);
+        $("#Control").data("opcion7",@Session["opcion7"]);
+        $("#Control").data("opcion8",@Session["opcion8"]);
+        $("#Control").data("opcion9",@Session["opcion9"]);
+        fn_establecerVista();
+    }
+</script>
+<script src="~/js/DetalleIndicador.js"></script>
+

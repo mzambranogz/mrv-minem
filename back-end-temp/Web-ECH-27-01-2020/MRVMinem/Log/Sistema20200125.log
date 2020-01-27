@@ -1,0 +1,548 @@
+25/01/2020 16:19:58: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12170: TNS:Se ha producido un timeout de conexión
+25/01/2020 16:19:58: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12170: TNS:Se ha producido un timeout de conexión
+25/01/2020 16:19:58: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12170: TNS:Se ha producido un timeout de conexión
+25/01/2020 16:19:58: [Método: Void Open(), Línea: 0] - ORA-12170: TNS:Se ha producido un timeout de conexión
+25/01/2020 16:19:58: [Método: Boolean MoveNext(), Línea: 0] - ORA-12170: TNS:Se ha producido un timeout de conexión
+25/01/2020 16:19:58: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12170: TNS:Se ha producido un timeout de conexión
+25/01/2020 16:19:58: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12170: TNS:Se ha producido un timeout de conexión
+25/01/2020 16:19:58: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12170: TNS:Se ha producido un timeout de conexión
+25/01/2020 16:19:58: [Método: entidad.minem.gob.pe.UsuarioBE ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 193] - ORA-12170: TNS:Se ha producido un timeout de conexión
+25/01/2020 16:23:56: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:23:56: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:23:56: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:23:56: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:23:56: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:23:56: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:23:56: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:23:56: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:23:56: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:23:56: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaIniciativaUsuario(entidad.minem.gob.pe.IniciativaBE), Línea: 128] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:26:26: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:26:26: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:26:26: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:26:26: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:26:26: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:26:26: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:26:26: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:26:26: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:26:26: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:26:26: [Método: entidad.minem.gob.pe.UsuarioBE obtenerUsuarioId(Int32), Línea: 407] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:28:40: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_INS_INICIATIVA_MITIGACION'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:28:40: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_INS_INICIATIVA_MITIGACION'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:28:40: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_INS_INICIATIVA_MITIGACION'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:28:40: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_INS_INICIATIVA_MITIGACION'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:28:40: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_INS_INICIATIVA_MITIGACION'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:28:40: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_INS_INICIATIVA_MITIGACION'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:28:40: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_INS_INICIATIVA_MITIGACION'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:28:40: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_INS_INICIATIVA_MITIGACION'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:28:40: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_INS_INICIATIVA_MITIGACION'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:28:40: [Método: entidad.minem.gob.pe.IniciativaBE RegistrarIniciativaMitigacion(entidad.minem.gob.pe.IniciativaBE), Línea: 164] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_INS_INICIATIVA_MITIGACION'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:28:40: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:28:40: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:28:40: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:28:40: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:28:40: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:28:40: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:28:40: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:28:40: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:28:40: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:28:40: [Método: entidad.minem.gob.pe.UsuarioBE obtenerUsuarioId(Int32), Línea: 407] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:28:42: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:28:42: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:28:42: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:28:42: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:28:42: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:28:42: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:28:42: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:28:42: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:28:42: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 16:28:42: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaIniciativaUsuario(entidad.minem.gob.pe.IniciativaBE), Línea: 128] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:02:32: [Método: Void ThrowDataException(System.Exception, Int32, System.Data.IDataReader, System.Object), Línea: 0] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+25/01/2020 17:02:32: [Método: entidad.minem.gob.pe.IniciativaBE Deserialize5627cda6-471a-4f3d-9d5c-e386c8a0f434(System.Data.IDataReader), Línea: 0] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+25/01/2020 17:02:32: [Método: Boolean MoveNext(), Línea: 0] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+25/01/2020 17:02:32: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+25/01/2020 17:02:32: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+25/01/2020 17:02:32: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+25/01/2020 17:02:32: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListarIniciativaAvance(entidad.minem.gob.pe.IniciativaBE), Línea: 459] - Error parsing column 6 (PRIVACIDAD_INVERSION=<null>)
+25/01/2020 17:03:24: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:03:24: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:03:24: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:03:24: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:03:24: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:03:24: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:03:24: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:03:24: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:03:24: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:03:24: [Método: entidad.minem.gob.pe.UsuarioBE obtenerUsuarioId(Int32), Línea: 407] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:04:33: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01400: cannot insert NULL into ("USERMRV"."T_GENM_INICIATIVA"."ID_INICIATIVA")
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 82
+ORA-06512: at line 1
+25/01/2020 17:04:33: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01400: cannot insert NULL into ("USERMRV"."T_GENM_INICIATIVA"."ID_INICIATIVA")
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 82
+ORA-06512: at line 1
+25/01/2020 17:04:33: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01400: cannot insert NULL into ("USERMRV"."T_GENM_INICIATIVA"."ID_INICIATIVA")
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 82
+ORA-06512: at line 1
+25/01/2020 17:04:33: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-01400: cannot insert NULL into ("USERMRV"."T_GENM_INICIATIVA"."ID_INICIATIVA")
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 82
+ORA-06512: at line 1
+25/01/2020 17:04:33: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01400: cannot insert NULL into ("USERMRV"."T_GENM_INICIATIVA"."ID_INICIATIVA")
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 82
+ORA-06512: at line 1
+25/01/2020 17:04:33: [Método: Boolean MoveNext(), Línea: 0] - ORA-01400: cannot insert NULL into ("USERMRV"."T_GENM_INICIATIVA"."ID_INICIATIVA")
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 82
+ORA-06512: at line 1
+25/01/2020 17:04:33: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-01400: cannot insert NULL into ("USERMRV"."T_GENM_INICIATIVA"."ID_INICIATIVA")
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 82
+ORA-06512: at line 1
+25/01/2020 17:04:33: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-01400: cannot insert NULL into ("USERMRV"."T_GENM_INICIATIVA"."ID_INICIATIVA")
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 82
+ORA-06512: at line 1
+25/01/2020 17:04:33: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-01400: cannot insert NULL into ("USERMRV"."T_GENM_INICIATIVA"."ID_INICIATIVA")
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 82
+ORA-06512: at line 1
+25/01/2020 17:04:33: [Método: entidad.minem.gob.pe.IniciativaBE RegistrarIniciativaMitigacion(entidad.minem.gob.pe.IniciativaBE), Línea: 164] - ORA-01400: cannot insert NULL into ("USERMRV"."T_GENM_INICIATIVA"."ID_INICIATIVA")
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 82
+ORA-06512: at line 1
+25/01/2020 17:04:33: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:04:33: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:04:33: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:04:33: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:04:33: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:04:33: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:04:33: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:04:33: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:04:33: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:04:33: [Método: entidad.minem.gob.pe.UsuarioBE obtenerUsuarioId(Int32), Línea: 407] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:07:02: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:07:02: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:07:02: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:07:02: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:07:02: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:07:02: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:07:02: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:07:02: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:07:02: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:07:02: [Método: entidad.minem.gob.pe.UsuarioBE obtenerUsuarioId(Int32), Línea: 407] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:11:32: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01400: cannot insert NULL into ("USERMRV"."T_GENM_INICIATIVA"."ID_INICIATIVA")
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 82
+ORA-06512: at line 1
+25/01/2020 17:11:32: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01400: cannot insert NULL into ("USERMRV"."T_GENM_INICIATIVA"."ID_INICIATIVA")
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 82
+ORA-06512: at line 1
+25/01/2020 17:11:32: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01400: cannot insert NULL into ("USERMRV"."T_GENM_INICIATIVA"."ID_INICIATIVA")
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 82
+ORA-06512: at line 1
+25/01/2020 17:11:32: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-01400: cannot insert NULL into ("USERMRV"."T_GENM_INICIATIVA"."ID_INICIATIVA")
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 82
+ORA-06512: at line 1
+25/01/2020 17:11:32: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01400: cannot insert NULL into ("USERMRV"."T_GENM_INICIATIVA"."ID_INICIATIVA")
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 82
+ORA-06512: at line 1
+25/01/2020 17:11:32: [Método: Boolean MoveNext(), Línea: 0] - ORA-01400: cannot insert NULL into ("USERMRV"."T_GENM_INICIATIVA"."ID_INICIATIVA")
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 82
+ORA-06512: at line 1
+25/01/2020 17:11:32: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-01400: cannot insert NULL into ("USERMRV"."T_GENM_INICIATIVA"."ID_INICIATIVA")
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 82
+ORA-06512: at line 1
+25/01/2020 17:11:32: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-01400: cannot insert NULL into ("USERMRV"."T_GENM_INICIATIVA"."ID_INICIATIVA")
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 82
+ORA-06512: at line 1
+25/01/2020 17:11:32: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-01400: cannot insert NULL into ("USERMRV"."T_GENM_INICIATIVA"."ID_INICIATIVA")
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 82
+ORA-06512: at line 1
+25/01/2020 17:11:32: [Método: entidad.minem.gob.pe.IniciativaBE RegistrarIniciativaMitigacion(entidad.minem.gob.pe.IniciativaBE), Línea: 164] - ORA-01400: cannot insert NULL into ("USERMRV"."T_GENM_INICIATIVA"."ID_INICIATIVA")
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 82
+ORA-06512: at line 1
+25/01/2020 17:13:23: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01400: cannot insert NULL into ("USERMRV"."T_GEND_INICIATIVA_ENERG"."ID_INICIATIVA_ENERG")
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 151
+ORA-06512: at line 1
+25/01/2020 17:13:23: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01400: cannot insert NULL into ("USERMRV"."T_GEND_INICIATIVA_ENERG"."ID_INICIATIVA_ENERG")
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 151
+ORA-06512: at line 1
+25/01/2020 17:13:23: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-01400: cannot insert NULL into ("USERMRV"."T_GEND_INICIATIVA_ENERG"."ID_INICIATIVA_ENERG")
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 151
+ORA-06512: at line 1
+25/01/2020 17:13:23: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-01400: cannot insert NULL into ("USERMRV"."T_GEND_INICIATIVA_ENERG"."ID_INICIATIVA_ENERG")
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 151
+ORA-06512: at line 1
+25/01/2020 17:13:23: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-01400: cannot insert NULL into ("USERMRV"."T_GEND_INICIATIVA_ENERG"."ID_INICIATIVA_ENERG")
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 151
+ORA-06512: at line 1
+25/01/2020 17:13:23: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-01400: cannot insert NULL into ("USERMRV"."T_GEND_INICIATIVA_ENERG"."ID_INICIATIVA_ENERG")
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 151
+ORA-06512: at line 1
+25/01/2020 17:13:23: [Método: entidad.minem.gob.pe.IniciativaBE ProcesoIniciativaEnergetico(System.String, Int32), Línea: 232] - ORA-01400: cannot insert NULL into ("USERMRV"."T_GEND_INICIATIVA_ENERG"."ID_INICIATIVA_ENERG")
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 151
+ORA-06512: at line 1
+25/01/2020 17:15:23: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01400: cannot insert NULL into ("USERMRV"."T_GEND_INICIATIVA_GEI"."ID_INICIATIVA_GEI")
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 180
+ORA-06512: at line 1
+25/01/2020 17:15:23: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01400: cannot insert NULL into ("USERMRV"."T_GEND_INICIATIVA_GEI"."ID_INICIATIVA_GEI")
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 180
+ORA-06512: at line 1
+25/01/2020 17:15:23: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-01400: cannot insert NULL into ("USERMRV"."T_GEND_INICIATIVA_GEI"."ID_INICIATIVA_GEI")
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 180
+ORA-06512: at line 1
+25/01/2020 17:15:23: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-01400: cannot insert NULL into ("USERMRV"."T_GEND_INICIATIVA_GEI"."ID_INICIATIVA_GEI")
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 180
+ORA-06512: at line 1
+25/01/2020 17:15:23: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-01400: cannot insert NULL into ("USERMRV"."T_GEND_INICIATIVA_GEI"."ID_INICIATIVA_GEI")
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 180
+ORA-06512: at line 1
+25/01/2020 17:15:23: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-01400: cannot insert NULL into ("USERMRV"."T_GEND_INICIATIVA_GEI"."ID_INICIATIVA_GEI")
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 180
+ORA-06512: at line 1
+25/01/2020 17:15:23: [Método: entidad.minem.gob.pe.IniciativaBE ProcesoIniciativaGei(System.String, Int32), Línea: 285] - ORA-01400: cannot insert NULL into ("USERMRV"."T_GEND_INICIATIVA_GEI"."ID_INICIATIVA_GEI")
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 180
+ORA-06512: at line 1
+25/01/2020 17:18:09: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: missing expression
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 193
+ORA-06512: at line 1
+25/01/2020 17:18:09: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: missing expression
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 193
+ORA-06512: at line 1
+25/01/2020 17:18:09: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-00936: missing expression
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 193
+ORA-06512: at line 1
+25/01/2020 17:18:09: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-00936: missing expression
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 193
+ORA-06512: at line 1
+25/01/2020 17:18:09: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-00936: missing expression
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 193
+ORA-06512: at line 1
+25/01/2020 17:18:09: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00936: missing expression
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 193
+ORA-06512: at line 1
+25/01/2020 17:18:09: [Método: entidad.minem.gob.pe.IniciativaBE ActualizarIniciativaGei(System.String, Int32), Línea: 311] - ORA-00936: missing expression
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 193
+ORA-06512: at line 1
+25/01/2020 17:22:49: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:22:49: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:22:49: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:22:49: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:22:49: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:22:49: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:22:49: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:22:49: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:22:49: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 17:22:49: [Método: entidad.minem.gob.pe.UsuarioBE obtenerUsuarioId(Int32), Línea: 407] - ORA-06550: line 1, column 37:
+PLS-00302: component 'USP_UPD_OBTENER_USUARIO_ID' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+25/01/2020 23:00:05: [Método: Void ThrowDataException(System.Exception, Int32, System.Data.IDataReader, System.Object), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:00:05: [Método: entidad.minem.gob.pe.IndicadorBE Deserialize3d23fcb8-f3e7-470b-969f-f6ab20172e63(System.Data.IDataReader), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:00:05: [Método: Boolean MoveNext(), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:00:05: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:00:05: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:00:05: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:00:05: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorBE] CalcularIndicador(entidad.minem.gob.pe.IndicadorBE), Línea: 85] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:00:12: [Método: Void ThrowDataException(System.Exception, Int32, System.Data.IDataReader, System.Object), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:00:12: [Método: entidad.minem.gob.pe.IndicadorBE Deserialize3d23fcb8-f3e7-470b-969f-f6ab20172e63(System.Data.IDataReader), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:00:12: [Método: Boolean MoveNext(), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:00:12: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:00:12: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:00:12: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:00:12: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorBE] CalcularIndicador(entidad.minem.gob.pe.IndicadorBE), Línea: 85] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:00:15: [Método: Void ThrowDataException(System.Exception, Int32, System.Data.IDataReader, System.Object), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:00:15: [Método: entidad.minem.gob.pe.IndicadorBE Deserialize3d23fcb8-f3e7-470b-969f-f6ab20172e63(System.Data.IDataReader), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:00:15: [Método: Boolean MoveNext(), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:00:15: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:00:15: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:00:15: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:00:15: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorBE] CalcularIndicador(entidad.minem.gob.pe.IndicadorBE), Línea: 85] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:08:47: [Método: Void ThrowDataException(System.Exception, Int32, System.Data.IDataReader, System.Object), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:08:47: [Método: entidad.minem.gob.pe.IndicadorBE Deserialize3cefa21c-be17-41f4-8508-6e8afa113e34(System.Data.IDataReader), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:08:47: [Método: Boolean MoveNext(), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:08:47: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:08:47: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:08:47: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:08:47: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorBE] CalcularIndicador(entidad.minem.gob.pe.IndicadorBE), Línea: 85] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:11:17: [Método: Void ThrowDataException(System.Exception, Int32, System.Data.IDataReader, System.Object), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:11:17: [Método: entidad.minem.gob.pe.IndicadorBE Deserialize3cefa21c-be17-41f4-8508-6e8afa113e34(System.Data.IDataReader), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:11:17: [Método: Boolean MoveNext(), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:11:17: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:11:17: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:11:17: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:11:17: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorBE] CalcularIndicador(entidad.minem.gob.pe.IndicadorBE), Línea: 85] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:16:25: [Método: Void ThrowDataException(System.Exception, Int32, System.Data.IDataReader, System.Object), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:16:25: [Método: entidad.minem.gob.pe.IndicadorBE Deserialize3cefa21c-be17-41f4-8508-6e8afa113e34(System.Data.IDataReader), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:16:25: [Método: Boolean MoveNext(), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:16:25: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:16:25: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:16:25: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:16:25: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorBE] CalcularIndicador(entidad.minem.gob.pe.IndicadorBE), Línea: 85] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:22:12: [Método: Void ThrowDataException(System.Exception, Int32, System.Data.IDataReader, System.Object), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:22:12: [Método: entidad.minem.gob.pe.IndicadorBE Deserializead46f247-d6c8-4a29-9367-735fd6d12158(System.Data.IDataReader), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:22:12: [Método: Boolean MoveNext(), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:22:12: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:22:12: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:22:12: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
+25/01/2020 23:22:12: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorBE] CalcularIndicador(entidad.minem.gob.pe.IndicadorBE), Línea: 85] - Error parsing column 0 (TOTAL_GEI_INIMIT=<null>)
