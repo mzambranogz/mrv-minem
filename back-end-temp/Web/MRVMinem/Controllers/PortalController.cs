@@ -67,6 +67,16 @@ namespace MRVMinem.Controllers
             return View();
         }
 
+        public ActionResult TerminosCondiciones()
+        {
+            return View();
+        }
+
+        public ActionResult PreguntasFrecuentes()
+        {
+            return View();
+        }
+
         public JsonResult ListaSectorInstitucion(SectorInstitucionBE entidad)
         {
             List<SectorInstitucionBE> lista = SectorInstitucionLN.ListaSectorInstitucion(entidad);

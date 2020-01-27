@@ -271,6 +271,11 @@
     </Content>
     <Content Include="Views\Portal\ReestablecerClave.cshtml" />
     <Content Include="Views\Portal\Resultados.cshtml" />
+    <Content Include="Views\Portal\TerminosCondiciones.cshtml" />
+    <Content Include="Views\Gestion\TerminosCondiciones.cshtml" />
+    <Content Include="Views\Gestion\PreguntasFrecuentes.cshtml" />
+    <Content Include="Views\Portal\PreguntasFrecuentes.cshtml" />
+    <Content Include="Views\Gestion\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

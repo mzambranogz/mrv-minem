@@ -142,6 +142,16 @@ namespace MRVMinem.Controllers
             return View(modelo);
         }
 
+        public ActionResult TerminosCondiciones()
+        {
+            return View();
+        }
+
+        public ActionResult PreguntasFrecuentes()
+        {
+            return View();
+        }
+
         public JsonResult ListaIniciativasEspecialista(IniciativaBE entidad)
         {
             List<IniciativaBE> lista = IniciativaLN.ListaIniciativaEspecialista(entidad);

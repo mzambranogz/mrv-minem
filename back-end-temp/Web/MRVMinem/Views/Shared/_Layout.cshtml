@@ -34,7 +34,7 @@
     <div class="container-fluid menu-nav bg-sutil fixed-top" id="cabecera">
         <div class="container menu-main linea">
             <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar p-0">
-                <a class="navbar-brand mr-md-auto animated fadeIn mx-0" href="./index.html"><img src="~/images/logo_mrv_new_negro.svg" height="36"></a>
+                <a class="navbar-brand mr-md-auto animated fadeIn mx-0" href="@Url.Action("Index","Home")"><img src="~/images/logo_mrv_new_negro.svg" height="36"></a>
                 <ul class="navbar-nav ml-md-auto">
                     <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1" href="https://www.gob.pe/minem" target="_blank"><img src="~/images/logo-minem.jpg" height="40"></a></li>
                     <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1" href="https://www.thegef.org/" target="_blank"><img src="~/images/logo_gef.svg" height="45"></a></li>
@@ -81,8 +81,8 @@
                             <div class="lead font-weight-bold">Más información</div>
                             <ul class="list-unstyled">
                                 <li class="py-1"><a class="text-white" href="~/Documentos/Manual_Usuario_MRV.pdf" download><i class="fas fa-file-pdf mr-2"></i>Manual de Usuario</a></li>
-                                <li class="py-1"><a class="text-white" href="#"><i class="fas fa-question-circle mr-2"></i>Preguntas frecuentes</a></li>
-                                <li class="py-1"><a class="text-white" href="#"><i class="fab fa-readme mr-2"></i>Términos y Condiciones</a></li>
+                                <li class="py-1"><a class="text-white" href="@Url.Action("PreguntasFrecuentes","Portal")"><i class="fas fa-question-circle mr-2"></i>Preguntas frecuentes</a></li>
+                                <li class="py-1"><a class="text-white" href="@Url.Action("TerminosCondiciones","Portal")"><i class="fab fa-readme mr-2"></i>Términos y Condiciones</a></li>
                             </ul>
                         </div>
                         <div class="col-sm-12 text-white">

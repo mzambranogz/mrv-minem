@@ -205,16 +205,31 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
                     for (var i = 0; i < data.length; i++) {
 
                         var progreso = '0%;';
-                        if (data[i]["ID_ESTADO"] != 0 || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3) || (data[i]["ID_ESTADO"] == 2 && data[i]["PROGRESO"] == 1)) {
-                            if (data[i]["PROGRESO"] == 1) {
+                        if (data[i]["ID_ESTADO"] != 0) {
+                            if (data[i]["PROGRESO"] == 1 && (data[i]["ID_ESTADO"] == 1 || data[i]["ID_ESTADO"] == 5 || data[i]["ID_ESTADO"] == 2)) {
                                 progreso = '25%';
-                            } else if (data[i]["PROGRESO"] == 2 || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3)) {
+                            } else if (data[i]["PROGRESO"] == 2) {
                                 progreso = '50%';
-                            } else if (data[i]["PROGRESO"] == 3 && data[i]["ID_ESTADO"] != 0) {
+                            } else if (data[i]["PROGRESO"] == 3 && (data[i]["ID_ESTADO"] == 1 || data[i]["ID_ESTADO"] == 5 || data[i]["ID_ESTADO"] == 2) || data[i]["ID_ESTADO"] == 6) {
                                 progreso = '75%';
                             } else if (data[i]["PROGRESO"] == 4 || data[i]["PROGRESO"] == 5 || data[i]["PROGRESO"] == 6 || data[i]["PROGRESO"] == 7) {
                                 progreso = '100%';
                             }
+                        }
+
+                        var tooltip = "";
+                        if (data[i]["PROGRESO"] == 1 && (data[i]["ID_ESTADO"] == 1)) {
+                            tooltip = "Iniciativa de mitigación registrada";
+                        } else if (data[i]["PROGRESO"] == 1 && data[i]["ID_ESTADO"] == 2 || data[i]["ID_ESTADO"] == 5) {
+                            tooltip = "Iniciativa de mitigación observado";
+                        } else if (data[i]["PROGRESO"] == 2) {
+                            tooltip = "Iniciativa de mitigación aprobada";
+                        } else if (data[i]["PROGRESO"] == 3 && (data[i]["ID_ESTADO"] == 1)) {
+                            tooltip = "Detalle de indicadores registrado";
+                        } else if (data[i]["PROGRESO"] == 3 && (data[i]["ID_ESTADO"] == 2 || data[i]["ID_ESTADO"] == 5 || data[i]["ID_ESTADO"] == 6)) {
+                            tooltip = "Detalle de indicadores observado";
+                        } else if (data[i]["PROGRESO"] == 4 || data[i]["PROGRESO"] == 5 || data[i]["PROGRESO"] == 6 || data[i]["PROGRESO"] == 7) {
+                            tooltip = "Detalle de indicadores aprobado";
                         }
 
                         var tr = '<tr>';
@@ -224,7 +239,7 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
                         tr = tr + '<td data-encabezado="Nombre de Iniciativa">' + data[i]["NOMBRE_INICIATIVA"] + '</td>';
                         tr = tr + '<td data-encabezado="Progreso">';
                         tr = tr + '         <div class="progress" style="height: 20px;">';
-                        tr = tr + '                 <div class="progress-bar progress-bar-striped" role="progressbar" style="width: ' + progreso + ';" aria-valuenow="' + progreso.substring(0, progreso.length - 1) + '" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">' + progreso + '</div>';
+                        tr = tr + '                 <div class="progress-bar progress-bar-striped" role="progressbar" style="width: ' + progreso + ';" aria-valuenow="' + progreso.substring(0, progreso.length - 1) + '" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="' + tooltip + '">' + progreso + '</div>';
                         tr = tr + '</div></td>';
                         tr = tr + '<td class="text-center">' + data[i]["FECHA"].toString() + '</td>';
                         tr = tr + '<td>' + data[i]["NOMBRE_MEDMIT"] + '</td>';
@@ -327,7 +342,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                                 progreso = '50%';
                             } else if (data[i]["PROGRESO"] == 3 && (data[i]["ID_ESTADO"] == 1 || data[i]["ID_ESTADO"] == 5 || data[i]["ID_ESTADO"] == 2) || data[i]["ID_ESTADO"] == 6) {
                                 progreso = '75%';
-                            } else if (data[i]["PROGRESO"] == 4) {
+                            } else if (data[i]["PROGRESO"] == 4  || data[i]["PROGRESO"] == 5 || data[i]["PROGRESO"] == 6 || data[i]["PROGRESO"] == 7) {
                                 progreso = '100%';
                             }
                         }
@@ -343,7 +358,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                             tooltip = "Detalle de indicadores registrado";
                         } else if (data[i]["PROGRESO"] == 3 && (data[i]["ID_ESTADO"] == 2 || data[i]["ID_ESTADO"] == 5 || data[i]["ID_ESTADO"] == 6)) {
                             tooltip = "Detalle de indicadores observado";
-                        } else if (data[i]["PROGRESO"] == 4) {
+                        } else if (data[i]["PROGRESO"] == 4 || data[i]["PROGRESO"] == 5 || data[i]["PROGRESO"] == 6 || data[i]["PROGRESO"] == 7) {
                             tooltip = "Detalle de indicadores aprobado";
                         }
 
