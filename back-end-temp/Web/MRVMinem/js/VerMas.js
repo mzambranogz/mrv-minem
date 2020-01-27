@@ -1,4 +1,5 @@
 ﻿$(document).ready(function () {
+    debugger;
     $("#Control").data("iniciativa", $("#iniciativa").val());
     if ($("#detalle").val() == 1) {
         CargarDetalleIndicadorVerMas();

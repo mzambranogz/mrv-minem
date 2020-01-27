@@ -1,5 +1,13 @@
-﻿$(document).ready(function () {
+﻿function fn_limpiarCampo() {
+    debugger;
+    $("#txt-user").val("");
+    $("#txt-direccion").val("");
+    $("#txt-pswd").val("");
+}
+
+$(document).ready(function () {
     CargarListaSectorInstitucion();
+    fn_limpiarCampo();
     $("#btnRegistrar").click(function (e) {
         fn_validar(e);
     });
@@ -102,7 +110,7 @@ function fn_validar(e) {
             arr.push("La contraseña debe contener minuscula(s), mayúscula(s) y número(s)");
         }
         if (clave.length < 6) {
-            arr.push("La contraseña debe contener 6 o más caracteres");
+            arr.push("La contraseña debe contener 8 o más caracteres");
         }
     } else {
         arr.push("Las contraseñas no coinciden");
@@ -228,6 +236,8 @@ function fn_registrarUsuario() {
         INSTITUCION: $("#txt-institucion").val(),
         RUC: $("#txt-ruc").val(),
         DIRECCION: $("#txt-direccion").val(),
+        ID_ROL: 1,
+        ID_ESTADO_USUARIO: 0,
         TERMINOS: '1'
     };
     debugger;
@@ -250,6 +260,8 @@ function fn_registrarUsuario() {
             INSTITUCION: $("#txt-institucion").val(),
             RUC: $("#txt-ruc").val(),
             DIRECCION: $("#txt-direccion").val(),
+            ID_ROL: 1,
+            ID_ESTADO_USUARIO: 0,
             TERMINOS: '1'
         }),
         xhr: function () {  // Custom XMLHttpRequest
@@ -368,7 +380,7 @@ $(document).on('change', '#fledeclaracion', function () {
 
     var ext = /(.pdf)$/i;
     $("#mensajeFile #msj").remove();
-    if (ext.exec(fileInput) && fileName == "modelo-declaracion-jurada.pdf" && (fileSize >= 60000 && fileSize <= 110000)) {
+    if (ext.exec(fileInput) /*&& fileName == "modelo-declaracion-jurada.pdf"*/ && (/*fileSize >= 60000 &&*/ fileSize <= 12000000)) {
         $("#mensajeFile").append('<small style="color: green;" id="msj">Documento cargado</small>');
     } else {        
         $("#txt-declaracion").val("");

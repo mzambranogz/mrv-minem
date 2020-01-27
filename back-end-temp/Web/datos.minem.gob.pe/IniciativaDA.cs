@@ -582,6 +582,130 @@ namespace datos.minem.gob.pe
             return Lista;
         }
 
+        public List<IniciativaBE> ListaObservado(IniciativaBE entidad)
+        {
+            List<IniciativaBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_INICIATIVAS_OBSERVADO";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pRegistros", entidad.cantidad_registros);
+                    p.Add("pPagina", entidad.pagina);
+                    p.Add("pSortColumn", entidad.order_by);
+                    p.Add("pSortOrder", entidad.order_orden);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in Lista)
+                    {
+                        item.FECHA = item.FECHA_DERIVACION.ToString("dd/MM/yyyy");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+        public List<IniciativaBE> ListaAprobado(IniciativaBE entidad)
+        {
+            List<IniciativaBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_INICIATIVAS_APROBADO";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pRegistros", entidad.cantidad_registros);
+                    p.Add("pPagina", entidad.pagina);
+                    p.Add("pSortColumn", entidad.order_by);
+                    p.Add("pSortOrder", entidad.order_orden);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in Lista)
+                    {
+                        item.FECHA = item.FECHA_DERIVACION.ToString("dd/MM/yyyy");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+        public List<IniciativaBE> ListaTodo(IniciativaBE entidad)
+        {
+            List<IniciativaBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_INICIATIVAS_TODO";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pRegistros", entidad.cantidad_registros);
+                    p.Add("pPagina", entidad.pagina);
+                    p.Add("pSortColumn", entidad.order_by);
+                    p.Add("pSortOrder", entidad.order_orden);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in Lista)
+                    {
+                        item.FECHA = item.FECHA_DERIVACION.ToString("dd/MM/yyyy");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+        public List<IniciativaBE> ListaIniciativaVerificar(IniciativaBE entidad)
+        {
+            List<IniciativaBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_INICIATIVAS_VERIFICAR";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pRegistros", entidad.cantidad_registros);
+                    p.Add("pPagina", entidad.pagina);
+                    p.Add("pSortColumn", entidad.order_by);
+                    p.Add("pSortOrder", entidad.order_orden);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in Lista)
+                    {
+                        item.FECHA = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
     }
 
 

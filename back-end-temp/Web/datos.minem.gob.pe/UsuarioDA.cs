@@ -41,7 +41,6 @@ namespace datos.minem.gob.pe
         }
         public UsuarioBE RegistraUsuario(UsuarioBE entidad)
         {
-
             try
             {
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
@@ -56,10 +55,38 @@ namespace datos.minem.gob.pe
                     p.Add("pTELEFONO_USUARIO", entidad.TELEFONO_USUARIO);
                     p.Add("pANEXO_USUARIO", entidad.ANEXO_USUARIO);
                     p.Add("pCELULAR_USUARIO", entidad.CELULAR_USUARIO);
-                    p.Add("pFLG_TERMINOS", entidad.TERMINOS);
+                    p.Add("pID_ROL", entidad.ID_ROL);
+                    p.Add("pID_ESTADO_USUARIO", entidad.ID_ESTADO_USUARIO);
+                    p.Add("pFLG_TERMINOS", entidad.TERMINOS);                   
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
                 entidad.OK = true;
+                string[] medidas;
+                if (!string.IsNullOrEmpty(entidad.MEDIDAS))
+                {
+                    using (IDbConnection db = new OracleConnection(CadenaConexion))
+                    {
+                        string sp = "USERMRV.PKG_MRV_MANTENIMIENTO." + "USP_DEL_USUARIO_MEDMIT";
+                        var p = new OracleDynamicParameters();
+                        p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                        p.Add("pID_USUREG", entidad.USUARIO_REGISTRO);
+                        p.Add("pIP", entidad.IP_PC);
+                        db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                    }
+
+                    medidas = entidad.MEDIDAS.Split('|');
+                    for (int i = 0; i < medidas.Length; i++)
+                    {
+                        UsuarioMedMitBE entidad2 = new UsuarioMedMitBE() { ID_USUARIO = entidad.ID_USUARIO, ID_MEDMIT = int.Parse(medidas[i]), USUARIO_REGISTRO = entidad.USUARIO_REGISTRO, IP_PC = entidad.IP_PC };
+                        entidad2 = RegistraUsuarioMedidaMitigacion(entidad2);
+                        if (!entidad2.OK)
+                        {
+                            entidad.OK = false;
+                            entidad.extra = entidad2.extra;
+                            break;
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {

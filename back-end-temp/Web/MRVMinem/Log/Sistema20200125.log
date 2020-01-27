@@ -869,3 +869,83 @@ Session ID: 185 Serial number: 13086
 25/01/2020 12:09:21 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12541: TNS:no listener
 25/01/2020 12:09:21 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12541: TNS:no listener
 25/01/2020 12:09:21 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.GasEfectoInvernaderoBE] ListarGEI(entidad.minem.gob.pe.GasEfectoInvernaderoBE), Línea: 28] - ORA-12541: TNS:no listener
+25/01/2020 11:43:11 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:43:11 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:43:11 p.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:43:11 p.m.: [Método: Void Open(), Línea: 0] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:43:11 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:43:11 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:43:11 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:43:11 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:43:11 p.m.: [Método: entidad.minem.gob.pe.UsuarioBE ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 193] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:43:15 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:43:15 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:43:15 p.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:43:15 p.m.: [Método: Void Open(), Línea: 0] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:43:15 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:43:15 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:43:15 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:43:15 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:43:15 p.m.: [Método: entidad.minem.gob.pe.UsuarioBE ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 193] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:43:48 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:43:48 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:43:48 p.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:43:48 p.m.: [Método: Void Open(), Línea: 0] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:43:48 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:43:48 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:43:48 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:43:48 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:43:48 p.m.: [Método: entidad.minem.gob.pe.UsuarioBE ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 193] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:44:05 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:44:05 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:44:05 p.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:44:05 p.m.: [Método: Void Open(), Línea: 0] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:44:05 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:44:05 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:44:05 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:44:05 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:44:05 p.m.: [Método: entidad.minem.gob.pe.UsuarioBE ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 193] - ORA-12543: TNS:destination host unreachable
+25/01/2020 11:46:54 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_GENERAL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 11:46:54 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_GENERAL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 11:46:54 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_GENERAL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 11:46:54 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_GENERAL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 11:46:54 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_GENERAL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 11:46:54 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_GENERAL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 11:46:54 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_GENERAL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 11:46:54 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_GENERAL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 11:46:54 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_GENERAL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 11:46:54 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_GENERAL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+25/01/2020 11:46:54 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaIniciativaGeneral(entidad.minem.gob.pe.IniciativaBE), Línea: 96] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_SEL_INICIATIVAS_GENERAL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored

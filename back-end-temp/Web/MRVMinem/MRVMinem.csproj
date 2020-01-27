@@ -270,6 +270,7 @@
       <DependentUpon>DsEscenario.xsd</DependentUpon>
     </Content>
     <Content Include="Views\Portal\ReestablecerClave.cshtml" />
+    <Content Include="Views\Portal\Resultados.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

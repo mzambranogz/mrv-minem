@@ -62,6 +62,11 @@ namespace MRVMinem.Controllers
             return View(modelo);
         }
 
+        public ActionResult Resultados()
+        {
+            return View();
+        }
+
         public JsonResult ListaSectorInstitucion(SectorInstitucionBE entidad)
         {
             List<SectorInstitucionBE> lista = SectorInstitucionLN.ListaSectorInstitucion(entidad);
@@ -138,6 +143,8 @@ namespace MRVMinem.Controllers
             entidad.INSTITUCION = Request.Form["INSTITUCION"].ToString();
             entidad.RUC = 20+Request.Form["RUC"].ToString();
             entidad.DIRECCION = Request.Form["DIRECCION"].ToString();
+            entidad.ID_ROL = int.Parse(Request.Form["ID_ROL"].ToString());
+            entidad.ID_ESTADO_USUARIO = int.Parse(Request.Form["ID_ESTADO_USUARIO"].ToString());
             entidad.TERMINOS = Char.Parse(Request.Form["TERMINOS"]);
 
             ResponseEntity itemRespuesta = new ResponseEntity();

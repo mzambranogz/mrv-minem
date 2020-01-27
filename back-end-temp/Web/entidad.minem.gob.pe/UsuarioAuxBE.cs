@@ -9,5 +9,7 @@ namespace entidad.minem.gob.pe
     public partial class UsuarioBE
     {
         public string MEDIDAS { get; set; }
+        public string ASUNTO { get; set; }
+        public string DESCRIPCION { get; set; }
     }
 }

@@ -581,16 +581,67 @@ namespace MRVMinem.Controllers
             entidad.USUARIO_REGISTRO = Session["usuario"].ToString();
             entidad.IP_PC = Request.UserHostAddress.ToString().Trim();
 
-            entidad = UsuarioLN.EditarUsuario(entidad);
-            if ((entidad.ID_ESTADO_ANTERIOR == 0 && entidad.ID_ESTADO_USUARIO == 1) || (entidad.ID_ESTADO_ANTERIOR == 2 && entidad.ID_ESTADO_USUARIO == 1))
+            if (entidad.ESTADO == "1")
             {
-                EnvioCorreo hilo_correo = new EnvioCorreo(entidad);    //.CreacionUsuario(entidad);
-                                                                       //Thread hilo = new Thread(new ThreadStart(hilo_correo.CreacionUsuario));
-                                                                       //hilo.Start();
-                                                                       //hilo.Join();
-
-                Task tarea = Task.Factory.StartNew(() => hilo_correo.AprobacionUsuario());
+                InstitucionBE institucion = new InstitucionBE(entidad.ID_SECTOR_INST, entidad.RUC, entidad.INSTITUCION, entidad.DIRECCION);
+                institucion = InstitucionLN.registrarInstitucion(institucion);
+                if (institucion.ID_INSTITUCION != 0)
+                {
+                    entidad.ID_INSTITUCION = institucion.ID_INSTITUCION;
+                    entidad = UsuarioLN.RegistraUsuario(entidad);
+                }
             }
+            else
+            {
+                entidad = UsuarioLN.EditarUsuario(entidad);
+            }
+            
+            if (entidad.OK)
+            {
+                if (entidad.ESTADO == "1")
+                {
+                    string perfil = "";
+                    string estado = "";
+                    if (entidad.ID_ROL == 1)
+                    {
+                        perfil = "Usuario Administrado";
+                    }
+                    else if (entidad.ID_ROL == 2)
+                    {
+                        perfil = "Especialista";
+                    }
+                    else if (entidad.ID_ROL == 3)
+                    {
+                        perfil = "Administrador";
+                    }
+                    else if (entidad.ID_ROL == 4)
+                    {
+                        perfil = "Evluador";
+                    }
+                    else if (entidad.ID_ROL == 5)
+                    {
+                        perfil = "Verificador";
+                    }
+
+                    if (entidad.ID_ESTADO_USUARIO == 1) 
+                    {
+                        estado = " Además, tiene los permisos para acceder al sistema"; 
+                    }
+                    entidad.ASUNTO = "Registro - MRVMinem ";
+                    entidad.DESCRIPCION = entidad.NOMBRES_USUARIO + " " + entidad.APELLIDOS_USUARIO + "ha sido registrado por el Administrador MINEM con el perfil " + perfil + "." + estado + "<br/><br/>";
+                    EnvioCorreo hilo_correo = new EnvioCorreo(entidad);
+                    Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeUsuarioReg());
+                }
+                else
+                {
+                    if ((entidad.ID_ESTADO_ANTERIOR == 0 && entidad.ID_ESTADO_USUARIO == 1) || (entidad.ID_ESTADO_ANTERIOR == 2 && entidad.ID_ESTADO_USUARIO == 1))
+                    {
+                        EnvioCorreo hilo_correo = new EnvioCorreo(entidad);
+                        Task tarea = Task.Factory.StartNew(() => hilo_correo.AprobacionUsuario());
+                    }
+                }
+            }           
+            
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }
@@ -768,6 +819,38 @@ namespace MRVMinem.Controllers
         public JsonResult BusquedaAvanzadaVerVis(BusquedaAvanzadaBE entidad)
         {
             List<IniciativaBE> lista = BusquedaAvanzaLN.BusquedaAvanzadaVerVis(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListaObservado(IniciativaBE entidad)
+        {
+            List<IniciativaBE> lista = IniciativaLN.ListaObservado(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListaAprobado(IniciativaBE entidad)
+        {
+            List<IniciativaBE> lista = IniciativaLN.ListaAprobado(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListaTodo(IniciativaBE entidad)
+        {
+            List<IniciativaBE> lista = IniciativaLN.ListaTodo(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListaIniciativasVerificar(IniciativaBE entidad)
+        {
+            List<IniciativaBE> lista = IniciativaLN.ListaIniciativaVerificar(entidad);
             var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;

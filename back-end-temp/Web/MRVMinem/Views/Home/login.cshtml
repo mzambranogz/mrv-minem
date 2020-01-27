@@ -85,7 +85,7 @@
 
                     <button class="btn-lg btn-primary w-100" type="submit"><i class="fas fa-sign-in-alt px-1"></i>Ingresar</button>
                 </form>
-                <p class="pt-4 mb-0 text-center">¿No tienes una cuenta?&nbsp;<a href="./registro.html">Regístrese ahora <br></a><a href="@Url.Action("recuperar", "Home")">¿Olvidó su contraseña?</a></p>
+                <p class="pt-4 mb-0 text-center">¿No tienes una cuenta?&nbsp;<a href="@Url.Action("registro", "Home")">Regístrese ahora <br></a><a href="@Url.Action("recuperar", "Home")">¿Olvidó su contraseña?</a></p>
             </div>
         </div>
     </div>
@@ -96,7 +96,7 @@
             <div class="bg-reportes"><a class="enlace-reportes d-flex flex-row justify-content-center align-items-center" href="#"><i class="fas fa-file-invoice px-1 mr-2"></i>Reportes</a></div>
         </div>
         <div class="col-sm-12 col-md-6 col-lg-4 p-0 o-h">
-            <div class="bg-acciones-resultados"><a class="enlace-acciones-resultados d-flex flex-row justify-content-center align-items-center" href="#"><i class="fas fa-chart-pie px-1 mr-2"></i>Resultados</a></div>
+            <div class="bg-acciones-resultados"><a class="enlace-acciones-resultados d-flex flex-row justify-content-center align-items-center" href="@Url.Action("Resultados", "Portal")"><i class="fas fa-chart-pie px-1 mr-2"></i>Resultados</a></div>
         </div>
         <div class="col-sm-12 col-md-12 col-lg-4 p-0 o-h">
             <div class="bg-registro"><a class="enlace-registro d-flex flex-row justify-content-center align-items-center" href="@Url.Action("registro", "Home")"><i class="fas fa-user-circle px-1 mr-2"></i>Registrarse</a></div>

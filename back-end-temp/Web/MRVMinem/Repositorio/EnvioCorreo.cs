@@ -56,7 +56,7 @@ namespace MRVMinem.Repositorio
             Para.Add(xEntidad.EMAIL_USUARIO);
             List<string> Cco = CorreoOculto(WebConfigurationManager.AppSettings.Get("CorreoOculto"));
 
-            bool envioCorreo = Correo.EnviarEmail("aprobar", De, Para, asunto, cuerpo, true, null, Cco, null);
+            bool envioCorreo = Correo.EnviarEmail("", De, Para, asunto, cuerpo, true, null, Cco, null);
         }
 
         public void recuperarClave()
@@ -80,6 +80,19 @@ namespace MRVMinem.Repositorio
             string asunto = xEntidadI.ASUNTO;
             List<string> Para = new List<string>();
             Para.Add(xEntidadI.EMAIL_USUARIO);
+            List<string> Cco = CorreoOculto(WebConfigurationManager.AppSettings.Get("CorreoOculto"));
+
+            bool envioCorreo = Correo.EnviarEmail("", De, Para, asunto, cuerpo, true, null, Cco, null);
+        }
+
+        public void menajeUsuarioReg()
+        {
+            string cuerpo = CuerpoMensajeUsuarioReg(xEntidad, WebConfigurationManager.AppSettings.Get("Server"));
+            //string De = "mrv@grupo-zuniga.com";
+            string De = WebConfigurationManager.AppSettings.Get("Usermail");
+            string asunto = xEntidad.ASUNTO;
+            List<string> Para = new List<string>();
+            Para.Add(xEntidad.EMAIL_USUARIO);
             List<string> Cco = CorreoOculto(WebConfigurationManager.AppSettings.Get("CorreoOculto"));
 
             bool envioCorreo = Correo.EnviarEmail("", De, Para, asunto, cuerpo, true, null, Cco, null);
@@ -154,7 +167,7 @@ namespace MRVMinem.Repositorio
             sb.Append(" <title>");
             sb.Append(" </title></head>");
             sb.Append(" <body>");
-            sb.Append("<div style=\"font-family: Roboto;font-size:12px;margin:0 auto;margin-top:50px;width:650px;\" ><img src=\"cid:imagenBanner\" width=\"150\" />");
+            sb.Append("<div style=\"font-family: Roboto;font-size:12px;margin:0 auto;margin-top:50px;width:650px;\" >");
             sb.Append("     <div style=\"border-bottom: 1px solid #ededed;\"></div><br/><br/><strong> Estimado Usuario: &nbsp;</strong><span> " + entidad.NOMBRES_USUARIO + " " + entidad.APELLIDOS_USUARIO + ", su cuenta ha sido aprobada, pulse <a href=\"" + server + "Home/login\">aqui</a> para que inicie sesion</span><br/><br/>");
             sb.Append("         <div style=\"border-left:1px solid #ededed;margin:10px;padding:10px;\">");
             sb.Append("     </div>");
@@ -175,7 +188,7 @@ namespace MRVMinem.Repositorio
             sb.Append(" <title>");
             sb.Append(" </title></head>");
             sb.Append(" <body>");
-            sb.Append("<div style=\"font-family: Roboto;font-size:12px;margin:0 auto;margin-top:50px;width:650px;\" ><img src=\"cid:imagenBanner\" width=\"150\" />");
+            sb.Append("<div style=\"font-family: Roboto;font-size:12px;margin:0 auto;margin-top:50px;width:650px;\">");
             sb.Append("     <div style=\"border-bottom: 1px solid #ededed;\"></div><br/><br/><strong> Estimado Usuario: &nbsp;</strong><span>" + entidad.NOMBRES + " , podrá reestablecer su contraseña a través de este link: </span><br/><span><a href=\"" + server + "Portal/ReestablecerClave?id=" + entidad.ID_USUARIO + "\">Minem/RecuperarClave/HzLoAdpikOlXcdl</a></span><br/><br/>");
             sb.Append("         <div style=\"border-left:1px solid #ededed;margin:10px;padding:10px;\">");
             sb.Append("     </div>");
@@ -189,6 +202,25 @@ namespace MRVMinem.Repositorio
         }
 
         private string CuerpoMensajeIniciativa(IniciativaBE entidad, string server)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(" <html xmlns=\"http://www.w3.org/1999/xhtml\">");
+            sb.Append(" <head>");
+            sb.Append(" <title>");
+            sb.Append(" </title></head>");
+            sb.Append(" <body>");
+            sb.Append("<div style=\"font-family: Roboto;font-size:12px;margin:0 auto;margin-top:50px;width:650px;\" ><img src=\"cid:imagenBanner\" width=\"150\" />");
+            sb.Append("     <div style=\"border-bottom: 1px solid #ededed;\"></div><br/><br/><span>" + entidad.DESCRIPCION + "</span><span><a href=\"" + server + "Home/login\">" + server + "Home/login</a></span><br/>");
+            sb.Append("         <div style=\"border-left:1px solid #ededed;margin:10px;padding:10px;\">");
+            sb.Append("     </div>");
+            sb.Append("</div>");
+            sb.Append(" </body>");
+            sb.Append(" </html>");
+
+            return sb.ToString();
+        }
+
+        private string CuerpoMensajeUsuarioReg(UsuarioBE entidad, string server)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(" <html xmlns=\"http://www.w3.org/1999/xhtml\">");

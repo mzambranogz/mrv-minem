@@ -30,7 +30,7 @@
                     <div class="col-md-12 col-lg-6 pt-4">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
-                            <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#modal-usuario"><a class="agregar-iniciativa" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-plus px-1"></i>Agregar usuario</a></span></div>
+                            <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#modal-usuario"><a class="agregar-iniciativa" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]" id="validarUsuario" onclick="regUsuario();" data-guardar="0"><i class="fas fa-plus px-1"></i>Agregar usuario</a></span></div><!-- add -->
                         </div>
                     </div>
                 </div>
@@ -302,6 +302,8 @@
                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
+                            <div id="cabeceraRegistrarMantenimientoUsuario"><h5 class="modal-title" id="exampleModalLabel">Registro de Nuevo Usuario <br><small class="text-muted">Complete los siguientes campos para registrar un nuevo usuario</small><small class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</small></h5></div>
+                            <div id="cabeceraEditarMantenimientoUsuario"><h5 class="modal-title" id="exampleModalLabel">Actualización de Usuario <br><small class="text-muted">Considerar los campos obligatorios para actualizar los datos del usuario</small><small class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</small></h5></div>
                             <!--<h5 class="modal-title" id="exampleModalLabel">Registro de Nuevo Usuario <br><small class="text-muted">Complete los siguientes campos para registrar un nuevo usuario</small><small class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</small></h5>-->
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         </div>
@@ -486,7 +488,7 @@
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
                                                 <select class="form-control" id="cbo-sector" aria-describedby="inputGroup9" required>
-                                                    <option>-Seleccione un sector-</option>
+                                                    <option value="0">-Seleccione un sector-</option>
                                                     <!--<option>Sector 01</option>
                                                     <option>Sector 02</option>
                                                     <option>Sector 03</option>-->
@@ -505,7 +507,7 @@
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="fas fa-user-tie"></i></span></div>
                                                 <select class="form-control" id="cbo-perfil" aria-describedby="inputGroup10" required>
-                                                    <option>-Seleccione un perfil de usuario-</option>
+                                                    <option value="0">-Seleccione un perfil de usuario-</option>
                                                     <!--<option class="badge-actor-02 font-weight-bold">Usuario Administrado</option>
                                                     <option class="badge-actor-03 font-weight-bold">Especialista</option>
                                                     <option class="badge-actor-04 font-weight-bold">Evaluador MINAM</option>
@@ -624,13 +626,13 @@
                                                 <div class="form-control" style="height:90px; overflow-y: auto;">
                                                     <div class="col-auto my-1">
                                                         <div class="custom-control custom-radio mr-sm-2">
-                                                            <input class="custom-control-input" type="radio" name="rad-estado" id="rad-01">
+                                                            <input class="custom-control-input" type="radio" name="rad-estado" id="rad-01" data-value="1">
                                                             <label class="custom-control-label badge badge-actor-aprobado" for="rad-01"><i class="fas fa-check-circle mr-1"></i>Aprobado</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-auto my-1">
                                                         <div class="custom-control custom-radio mr-sm-2">
-                                                            <input class="custom-control-input" type="radio" name="rad-estado" id="rad-02">
+                                                            <input class="custom-control-input" type="radio" name="rad-estado" id="rad-02" data-value="2">
                                                             <label class="custom-control-label badge badge-actor-desaprobado" for="rad-02"><i class="fas fa-times-circle mr-1"></i>Desaprobado</label>
                                                         </div>
                                                     </div>
@@ -681,7 +683,7 @@
                                 </div>-->
 
                                 <div class="row">
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <div class="col-sm-12 col-md-12 col-lg-12" id="seccionMensaje">
                                         <div class="alert alert-danger" role="alert" id="errorRegistrarMantenimientoUsuario">
                                             <h4><i class="fas fa-exclamation-triangle"></i>&nbsp;Error de registro</h4>
                                             <p>Ocurrió un error al tratar de registrar su información, vuélvalo a intentar nuevamente.</p>
@@ -706,6 +708,7 @@
                             </form>
                         </div>
                         <div class="modal-footer" id="pieMantenimientoUsuario">
+                            <div id="userMantenimiento"></div>
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
                             <button class="btn btn-primary" type="button" onclick="fn_editarMantenimiento();">Guardar</button>
                         </div>
