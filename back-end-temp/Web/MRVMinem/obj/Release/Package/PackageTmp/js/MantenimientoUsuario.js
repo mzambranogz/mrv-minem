@@ -380,15 +380,9 @@ function fn_cargaMedidaMitigacion() {
 function regUsuario() {
     fn_limpiarCampo();
     $("#validarUsuario").data("guardar", 1);
+    $("#cabeceraEditarMantenimientoUsuario").hide();
 }
 
-function grabarUsuario() {
-    if ($("#validarUsuario").data("guardar") == 0) {
-
-    } else {
-        fn_editarMantenimiento();
-    }
-}
 
 
 

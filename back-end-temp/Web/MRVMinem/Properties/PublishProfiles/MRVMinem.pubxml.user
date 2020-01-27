@@ -24,7 +24,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>03/30/2019 17:21:38</publishTime>
     </File>
     <File Include="bin/datos.minem.gob.pe.dll">
-      <publishTime>01/26/2020 23:02:56</publishTime>
+      <publishTime>01/27/2020 09:01:10</publishTime>
     </File>
     <File Include="bin/de/Microsoft.SqlServer.Types.resources.dll">
       <publishTime>02/21/2014 05:26:06</publishTime>
@@ -75,7 +75,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>02/21/2014 05:27:16</publishTime>
     </File>
     <File Include="bin/logica.minem.gob.pe.dll">
-      <publishTime>01/26/2020 23:02:57</publishTime>
+      <publishTime>01/27/2020 09:01:12</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>06/15/2015 02:06:24</publishTime>
@@ -90,7 +90,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>07/25/2012 11:48:56</publishTime>
     </File>
     <File Include="bin/MRVMinem.dll">
-      <publishTime>01/26/2020 23:03:05</publishTime>
+      <publishTime>01/27/2020 09:01:20</publishTime>
     </File>
     <File Include="bin/Oracle.DataAccess.dll">
       <publishTime>07/31/2014 22:11:18</publishTime>
@@ -384,7 +384,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/23/2020 13:31:45</publishTime>
     </File>
     <File Include="js/AccionMitigacion.js">
-      <publishTime>01/26/2020 22:24:52</publishTime>
+      <publishTime>01/27/2020 00:28:18</publishTime>
     </File>
     <File Include="js/CambiarClave.js">
       <publishTime>01/23/2020 18:47:10</publishTime>
@@ -408,7 +408,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/23/2020 13:31:09</publishTime>
     </File>
     <File Include="js/MantenimientoUsuario.js">
-      <publishTime>01/26/2020 16:17:13</publishTime>
+      <publishTime>01/27/2020 00:44:45</publishTime>
     </File>
     <File Include="js/MRV.js">
       <publishTime>01/23/2020 13:31:09</publishTime>
@@ -450,58 +450,67 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/23/2020 13:31:03</publishTime>
     </File>
     <File Include="Views/Gestion/AccionMitigacion.cshtml">
-      <publishTime>01/26/2020 22:20:35</publishTime>
+      <publishTime>01/27/2020 01:17:17</publishTime>
     </File>
     <File Include="Views/Gestion/CambiarClave.cshtml">
-      <publishTime>01/23/2020 13:31:03</publishTime>
+      <publishTime>01/27/2020 01:15:32</publishTime>
     </File>
     <File Include="Views/Gestion/CorregirDetalleIndicador.cshtml">
-      <publishTime>01/24/2020 21:03:43</publishTime>
+      <publishTime>01/27/2020 08:39:48</publishTime>
     </File>
     <File Include="Views/Gestion/CorregirIniciativa.cshtml">
-      <publishTime>01/24/2020 19:29:39</publishTime>
+      <publishTime>01/27/2020 01:31:32</publishTime>
     </File>
     <File Include="Views/Gestion/DetalleIndicador.cshtml">
-      <publishTime>01/24/2020 21:14:24</publishTime>
+      <publishTime>01/27/2020 08:57:02</publishTime>
     </File>
     <File Include="Views/Gestion/DetalleNotificacion.cshtml">
       <publishTime>01/23/2020 13:31:04</publishTime>
     </File>
     <File Include="Views/Gestion/EvaluarIniciativaDetalle.cshtml">
-      <publishTime>01/24/2020 16:55:33</publishTime>
+      <publishTime>01/27/2020 01:46:42</publishTime>
+    </File>
+    <File Include="Views/Gestion/Index.cshtml">
+      <publishTime>01/27/2020 01:11:39</publishTime>
     </File>
     <File Include="Views/Gestion/IniciativaMitigacion.cshtml">
-      <publishTime>01/25/2020 10:07:48</publishTime>
+      <publishTime>01/27/2020 01:17:18</publishTime>
     </File>
     <File Include="Views/Gestion/MantenimientoTablas.cshtml">
-      <publishTime>01/23/2020 13:31:04</publishTime>
+      <publishTime>01/27/2020 01:21:12</publishTime>
     </File>
     <File Include="Views/Gestion/MantenimientoUsuario.cshtml">
-      <publishTime>01/26/2020 17:38:05</publishTime>
+      <publishTime>01/27/2020 01:22:30</publishTime>
     </File>
     <File Include="Views/Gestion/Notificacion.cshtml">
-      <publishTime>01/23/2020 13:31:04</publishTime>
+      <publishTime>01/27/2020 01:33:22</publishTime>
+    </File>
+    <File Include="Views/Gestion/PreguntasFrecuentes.cshtml">
+      <publishTime>01/27/2020 01:03:10</publishTime>
     </File>
     <File Include="Views/Gestion/RevisarAdminDetalleIndicador.cshtml">
-      <publishTime>01/23/2020 13:31:04</publishTime>
+      <publishTime>01/27/2020 08:40:19</publishTime>
     </File>
     <File Include="Views/Gestion/RevisarDetalleIndicador.cshtml">
-      <publishTime>01/25/2020 13:20:08</publishTime>
+      <publishTime>01/27/2020 08:57:38</publishTime>
     </File>
     <File Include="Views/Gestion/RevisarIniciativa.cshtml">
-      <publishTime>01/25/2020 11:57:04</publishTime>
+      <publishTime>01/27/2020 01:27:42</publishTime>
     </File>
     <File Include="Views/Gestion/SeguimientoIniciativa.cshtml">
-      <publishTime>01/23/2020 13:31:04</publishTime>
+      <publishTime>01/27/2020 01:28:09</publishTime>
+    </File>
+    <File Include="Views/Gestion/TerminosCondiciones.cshtml">
+      <publishTime>01/27/2020 01:04:24</publishTime>
     </File>
     <File Include="Views/Gestion/VerificarIniciativaDetalle.cshtml">
-      <publishTime>01/24/2020 16:30:24</publishTime>
+      <publishTime>01/27/2020 01:29:28</publishTime>
     </File>
     <File Include="Views/Gestion/VerMasIniciativa.cshtml">
-      <publishTime>01/23/2020 13:31:04</publishTime>
+      <publishTime>01/27/2020 01:34:18</publishTime>
     </File>
     <File Include="Views/Gestion/VerMasIniciativaDetalle.cshtml">
-      <publishTime>01/23/2020 13:31:04</publishTime>
+      <publishTime>01/27/2020 01:34:59</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
       <publishTime>01/25/2020 17:04:47</publishTime>
@@ -513,7 +522,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/25/2020 17:04:47</publishTime>
     </File>
     <File Include="Views/Home/registro.cshtml">
-      <publishTime>01/25/2020 17:02:56</publishTime>
+      <publishTime>01/27/2020 01:46:42</publishTime>
     </File>
     <File Include="Views/Portal/AccionMitigacion.cshtml">
       <publishTime>01/25/2020 17:11:16</publishTime>
@@ -521,32 +530,38 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <File Include="Views/Portal/ConfirmarCorreo.cshtml">
       <publishTime>01/23/2020 13:31:05</publishTime>
     </File>
+    <File Include="Views/Portal/PreguntasFrecuentes.cshtml">
+      <publishTime>01/27/2020 01:02:17</publishTime>
+    </File>
     <File Include="Views/Portal/ReestablecerClave.cshtml">
-      <publishTime>01/25/2020 17:08:32</publishTime>
+      <publishTime>01/27/2020 01:38:32</publishTime>
     </File>
     <File Include="Views/Portal/Resultados.cshtml">
       <publishTime>01/25/2020 17:33:04</publishTime>
+    </File>
+    <File Include="Views/Portal/TerminosCondiciones.cshtml">
+      <publishTime>01/27/2020 01:03:59</publishTime>
     </File>
     <File Include="Views/Portal/VerMasIniciativa.cshtml">
       <publishTime>01/25/2020 17:23:04</publishTime>
     </File>
     <File Include="Views/Portal/VerMasIniciativaDetalle.cshtml">
-      <publishTime>01/23/2020 13:31:05</publishTime>
+      <publishTime>01/27/2020 01:39:55</publishTime>
     </File>
     <File Include="Views/Reportes/Reportes.cshtml">
-      <publishTime>01/23/2020 13:31:05</publishTime>
+      <publishTime>01/27/2020 01:58:33</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>01/25/2020 17:29:06</publishTime>
+      <publishTime>01/27/2020 01:43:23</publishTime>
     </File>
     <File Include="Views/Shared/_SesionLayout.cshtml">
-      <publishTime>01/26/2020 18:06:47</publishTime>
+      <publishTime>01/27/2020 01:47:04</publishTime>
     </File>
     <File Include="Views/web.config">
       <publishTime>01/23/2020 13:31:05</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/26/2020 23:03:12</publishTime>
+      <publishTime>01/27/2020 09:01:25</publishTime>
     </File>
   </ItemGroup>
 </Project>
