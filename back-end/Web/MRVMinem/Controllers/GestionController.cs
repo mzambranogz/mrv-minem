@@ -337,6 +337,7 @@ namespace MRVMinem.Controllers
                 entidad.DESCRIPCION = "Su iniciativa fue revisada y aprobada<br/><br/>";
                 EnvioCorreo hilo_correo = new EnvioCorreo(entidad, 1);
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+                itemRespuesta.extra = entidad.DESCRIPCION;
             }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
@@ -451,6 +452,7 @@ namespace MRVMinem.Controllers
                 iniciativa.DESCRIPCION = "Los detalles de indicadores de su iniciativa fueron revisadas y aprobadas<br/><br/>";
                 EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+                itemRespuesta.extra = entidad.DESCRIPCION;
             }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);

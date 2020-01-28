@@ -1,0 +1,664 @@
+-- Generado por Oracle SQL Developer Data Modeler 19.2.0.182.1216
+--   en:        2019-12-23 18:25:10 COT
+--   sitio:      Oracle Database 12c
+--   tipo:      Oracle Database 12c
+
+
+
+CREATE TABLE t_gend_factor (
+    p_gend_factor                 INTEGER NOT NULL,
+    t_genm_factor_p_genm_factor   INTEGER NOT NULL,
+    descripcion                   VARCHAR2(30)
+);
+
+ALTER TABLE t_gend_factor ADD CONSTRAINT t_gend_factor_pk PRIMARY KEY ( p_gend_factor );
+
+CREATE TABLE t_gend_factorvalor (
+    p_gend_factorvalor            INTEGER NOT NULL,
+    t_gend_factor_p_gend_factor   INTEGER NOT NULL,
+    valor                         NUMBER(10, 2)
+);
+
+ALTER TABLE t_gend_factorvalor ADD CONSTRAINT t_gend_factorvalor_pk PRIMARY KEY ( p_gend_factorvalor );
+
+CREATE TABLE t_gend_iniciaivagei (
+    p_gend_iniciativagei                  INTEGER NOT NULL,
+    t_mae_gei_p_mae_gei                   INTEGER NOT NULL, 
+--  ERROR: Column name length exceeds maximum allowed length(30) 
+    t_genm_iniciativa_p_genm_iniciativa   INTEGER NOT NULL
+);
+
+ALTER TABLE t_gend_iniciaivagei ADD CONSTRAINT t_gend_iniciaivagei_pk PRIMARY KEY ( p_gend_iniciativagei );
+
+CREATE TABLE t_gend_iniciativa_energetico (
+    p_gend_iniciativa_energetico          INTEGER NOT NULL, 
+--  ERROR: Column name length exceeds maximum allowed length(30) 
+    t_genm_iniciativa_p_genm_iniciativa   INTEGER NOT NULL, 
+--  ERROR: Column name length exceeds maximum allowed length(30) 
+    t_mae_energetico_p_mae_energetico     INTEGER NOT NULL
+);
+
+--  ERROR: PK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_gend_iniciativa_energetico ADD CONSTRAINT t_gend_iniciativa_energetico_pk PRIMARY KEY ( p_gend_iniciativa_energetico
+);
+
+--  ERROR: Table name length exceeds maximum allowed length(30) 
+CREATE TABLE t_gend_iniciativa_tipodocumentoaval ( 
+--  ERROR: Column name length exceeds maximum allowed length(30) 
+    p_gend_indicadorcompuesto_tipodocumentoaval                               INTEGER NOT NULL, 
+--  ERROR: Column name length exceeds maximum allowed length(30) 
+    t_mae_tipodocumentoaval_p_mae_tipodocumentoaval                           INTEGER NOT NULL, 
+--  ERROR: Column name length exceeds maximum allowed length(30) 
+    t_genm_iniciativa_tipodocumentoaval_p_genm_iniciativa_tipodocumentoaval   CHAR(18) NOT NULL
+);
+
+--  ERROR: PK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_gend_iniciativa_tipodocumentoaval ADD CONSTRAINT t_gend_iniciativa_tipodocumentoaval_pk PRIMARY KEY ( p_gend_indicadorcompuesto_tipodocumentoaval
+);
+
+CREATE TABLE t_gend_iniciativacompuesto (
+    p_gend_indicadorcompuesto                       INTEGER NOT NULL, 
+--  ERROR: Column name length exceeds maximum allowed length(30) 
+    t_mae_campometodologia_p_mae_campometodologia   INTEGER NOT NULL, 
+--  ERROR: Column name length exceeds maximum allowed length(30) 
+    t_genm_iniciativa_p_genm_iniciativa             INTEGER NOT NULL, 
+--  ERROR: Column name length exceeds maximum allowed length(30) 
+    t_mae_tipolista_p_mae_tipolista                 INTEGER,
+    valor                                           NUMBER(10, 2)
+);
+
+ALTER TABLE t_gend_iniciativacompuesto ADD CONSTRAINT t_gend_iniciativacompuesto_pk PRIMARY KEY ( p_gend_indicadorcompuesto );
+
+CREATE TABLE t_gend_iniciativaubicacion (
+    p_gend_iniciativaubicacion            INTEGER NOT NULL, 
+--  ERROR: Column name length exceeds maximum allowed length(30) 
+    t_genm_iniciativa_p_genm_iniciativa   INTEGER NOT NULL,
+    t_mae_ubigeo_p_mae_ubigeo             INTEGER NOT NULL
+);
+
+ALTER TABLE t_gend_iniciativaubicacion ADD CONSTRAINT t_gend_iniciativaubicacion_pk PRIMARY KEY ( p_gend_iniciativaubicacion );
+
+CREATE TABLE t_gend_medidasmitigacion (
+    p_gend_medidamitigacion                            INTEGER NOT NULL, 
+--  ERROR: Column name length exceeds maximum allowed length(30) 
+    t_genm_medidasmitigacion_p_genm_medidamitigacion   INTEGER NOT NULL,
+    medidasmitigaciondetalleitem                       VARCHAR2(200)
+);
+
+ALTER TABLE t_gend_medidasmitigacion ADD CONSTRAINT t_gend_medidasmitigacion_pk PRIMARY KEY ( p_gend_medidamitigacion );
+
+CREATE TABLE t_gend_metodologia (
+    p_gend_metodologia                                 INTEGER NOT NULL, 
+--  ERROR: Column name length exceeds maximum allowed length(30) 
+    t_genm_medidasmitigacion_p_genm_medidamitigacion   INTEGER NOT NULL,
+    descripcion                                        VARCHAR2 
+--  ERROR: VARCHAR2 size not specified 
+);
+
+ALTER TABLE t_gend_metodologia ADD CONSTRAINT t_gend_metodologia_pk PRIMARY KEY ( p_gend_metodologia );
+
+CREATE TABLE t_gend_trazabilidad (
+    p_gend_trazanilidad                       INTEGER NOT NULL, 
+--  ERROR: Column name length exceeds maximum allowed length(30) 
+    t_genm_trazabilidad_p_genm_trazabilidad   INTEGER NOT NULL,
+    t_mae_usuario_p_mae_usuario               INTEGER NOT NULL,
+    fecharegistro                             DATE,
+    descripcion                               CLOB,
+    f_mae_etapa                               INTEGER
+);
+
+ALTER TABLE t_gend_trazabilidad ADD CONSTRAINT t_gend_trazabilidad_pk PRIMARY KEY ( p_gend_trazanilidad );
+
+CREATE TABLE t_genm_ayuda (
+    p_genm_ayuda                             INTEGER NOT NULL, 
+--  ERROR: Column name length exceeds maximum allowed length(30) 
+    t_mae_paginaseccion_p_maepaginaseccion   INTEGER NOT NULL,
+    descripcion_vis_es                       VARCHAR2(4000),
+    descripcion_tec_es                       VARCHAR2(4000),
+    descripcion_vis_en                       VARCHAR2(4000),
+    descripcion_tec_en                       VARCHAR2(4000),
+    codigoayuda                              VARCHAR2(5),
+    t_mae_usuario_p_mae_usuario              INTEGER NOT NULL,
+    descripcion_tec_es1                      VARCHAR2(20)
+);
+
+ALTER TABLE t_genm_ayuda ADD CONSTRAINT t_genm_ayuda_pk PRIMARY KEY ( p_genm_ayuda );
+
+CREATE TABLE t_genm_bolckchain (
+    p_genm_blockchain                     INTEGER NOT NULL, 
+--  ERROR: Column name length exceeds maximum allowed length(30) 
+    t_genm_iniciativa_p_genm_iniciativa   INTEGER NOT NULL
+);
+
+ALTER TABLE t_genm_bolckchain ADD CONSTRAINT t_genm_bolckchain_pk PRIMARY KEY ( p_genm_blockchain );
+
+CREATE TABLE t_genm_escenario (
+    p_genm_escenario                                   INTEGER NOT NULL,
+    ano                                                INTEGER,
+    bau_emision                                        NUMBER(10, 2),
+    mitigacion_emision                                 NUMBER(10, 2),
+    reduccion                                          NUMBER(10, 2),
+    valor_software                                     NUMBER(10, 2),
+    expost                                             NUMBER(10, 2),
+    metaanual                                          NUMBER(10, 2), 
+--  ERROR: Column name length exceeds maximum allowed length(30) 
+    t_genm_medidasmitigacion_p_genm_medidamitigacion   INTEGER NOT NULL
+);
+
+ALTER TABLE t_genm_escenario ADD CONSTRAINT t_genm_escenario_pk PRIMARY KEY ( p_genm_escenario );
+
+CREATE TABLE t_genm_factor (
+    p_genm_factor                                      INTEGER NOT NULL, 
+--  ERROR: Column name length exceeds maximum allowed length(30) 
+    t_genm_medidasmitigacion_p_genm_medidamitigacion   INTEGER NOT NULL
+);
+
+ALTER TABLE t_genm_factor ADD CONSTRAINT t_genm_factor_pk PRIMARY KEY ( p_genm_factor );
+
+CREATE TABLE t_genm_iniciativa (
+    p_genm_iniciativa                                  INTEGER NOT NULL, 
+--  ERROR: Column name length exceeds maximum allowed length(30) 
+    t_genm_medidasmitigacion_p_genm_medidamitigacion   INTEGER NOT NULL,
+    t_mae_usuario_p_mae_usuario                        INTEGER NOT NULL,
+    iniciativanombre                                   VARCHAR2(4000),
+    iniciativadescripcion                              VARCHAR2(4000),
+    iniciativafechacreacion                            DATE,
+    t_mae_estado_p_mae_estado                          INTEGER NOT NULL,
+    iniciativaprivacidad                               CHAR(1),
+    iniciativainversion                                NUMBER(10, 2),
+    t_mae_moneda_p_mae_moneda                          INTEGER NOT NULL,
+    iniciativafechaimplementacion                      DATE, 
+--  ERROR: Column name length exceeds maximum allowed length(30) 
+    t_gend_metodologia_p_gend_metodologia              INTEGER NOT NULL,
+    t_mae_etapa_p_mae_etapa                            INTEGER NOT NULL, 
+--  ERROR: Column name length exceeds maximum allowed length(30) 
+    t_gend_iniciaivagei_p_gend_iniciativagei           INTEGER NOT NULL
+);
+
+ALTER TABLE t_genm_iniciativa ADD CONSTRAINT t_genm_iniciativa_pk PRIMARY KEY ( p_genm_iniciativa );
+
+--  ERROR: Table name length exceeds maximum allowed length(30) 
+CREATE TABLE t_genm_iniciativa_tipodocumentoaval ( 
+--  ERROR: Column name length exceeds maximum allowed length(30) 
+    p_genm_iniciativa_tipodocumentoaval   CHAR(18) NOT NULL, 
+--  ERROR: Column name length exceeds maximum allowed length(30) 
+    t_genm_iniciativa_p_genm_iniciativa   INTEGER NOT NULL
+);
+
+--  ERROR: PK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_genm_iniciativa_tipodocumentoaval ADD CONSTRAINT t_genm_iniciativa_tipodocumentoaval_pk PRIMARY KEY ( p_genm_iniciativa_tipodocumentoaval
+);
+
+CREATE TABLE t_genm_institucion (
+    p_genm_institucion     INTEGER NOT NULL,
+    instituciontipo        INTEGER,
+    institucionruc         VARCHAR2(20),
+    institucionnombre      VARCHAR2(100),
+    instituciondireccion   VARCHAR2(100)
+);
+
+ALTER TABLE t_genm_institucion ADD CONSTRAINT t_genm_institucion_pk PRIMARY KEY ( p_genm_institucion );
+
+CREATE TABLE t_genm_medidasmitigacion (
+    p_genm_medidamitigacion                               INTEGER NOT NULL, 
+--  ERROR: Column name length exceeds maximum allowed length(30) 
+    t_mae_metodologiaaplicada_p_mae_metodologiaaplicada   INTEGER NOT NULL,
+    medidamitigaciondescripcion                           VARCHAR2(100),
+    t_genm_nama_p_genm_nama                               INTEGER NOT NULL,
+    medidamitigacionobjetivo                              VARCHAR2 
+--  ERROR: VARCHAR2 size not specified 
+    ,
+    medidamitigacioncategoria_ipsc                        VARCHAR2(50)
+);
+
+ALTER TABLE t_genm_medidasmitigacion ADD CONSTRAINT t_genm_medidasmitigacion_pk PRIMARY KEY ( p_genm_medidamitigacion );
+
+CREATE TABLE t_genm_nama (
+    p_genm_nama   INTEGER NOT NULL,
+    descripcion   VARCHAR2(100)
+);
+
+ALTER TABLE t_genm_nama ADD CONSTRAINT t_genm_nama_pk PRIMARY KEY ( p_genm_nama );
+
+CREATE TABLE t_genm_trazabilidad (
+    p_genm_trazabilidad                   INTEGER NOT NULL, 
+--  ERROR: Column name length exceeds maximum allowed length(30) 
+    t_genm_iniciativa_p_genm_iniciativa   INTEGER NOT NULL
+);
+
+ALTER TABLE t_genm_trazabilidad ADD CONSTRAINT t_genm_trazabilidad_pk PRIMARY KEY ( p_genm_trazabilidad );
+
+CREATE TABLE t_mae_actor (
+    p_mae_actor   INTEGER NOT NULL,
+    descripcion   VARCHAR2(30)
+);
+
+ALTER TABLE t_mae_actor ADD CONSTRAINT t_mae_actor_pk PRIMARY KEY ( p_mae_actor );
+
+CREATE TABLE t_mae_campometodologia (
+    p_mae_campometodologia                             INTEGER NOT NULL, 
+--  ERROR: Column name length exceeds maximum allowed length(30) 
+    t_gend_metodologia_p_gend_metodologia              INTEGER NOT NULL, 
+--  ERROR: Column name length exceeds maximum allowed length(30) 
+    t_genm_medidasmitigacion_p_genm_medidamitigacion   INTEGER NOT NULL,
+    nombrecampo                                        VARCHAR2(30),
+    tipocampoctrl                                      VARCHAR2(30)
+);
+
+ALTER TABLE t_mae_campometodologia ADD CONSTRAINT t_mae_campometodologia_pk PRIMARY KEY ( p_mae_campometodologia );
+
+CREATE TABLE t_mae_energetico (
+    p_mae_energetico   INTEGER NOT NULL,
+    descripcion        VARCHAR2(100)
+);
+
+ALTER TABLE t_mae_energetico ADD CONSTRAINT t_mae_energetico_pk PRIMARY KEY ( p_mae_energetico );
+
+CREATE TABLE t_mae_estado (
+    p_mae_estado   INTEGER NOT NULL,
+    descripcion    VARCHAR2(30)
+);
+
+ALTER TABLE t_mae_estado ADD CONSTRAINT t_mae_estado_pk PRIMARY KEY ( p_mae_estado );
+
+CREATE TABLE t_mae_etapa (
+    p_mae_etapa   INTEGER NOT NULL,
+    descripcion   VARCHAR2(30)
+);
+
+ALTER TABLE t_mae_etapa ADD CONSTRAINT t_mae_etapa_pk PRIMARY KEY ( p_mae_etapa );
+
+CREATE TABLE t_mae_gei (
+    p_mae_gei     INTEGER NOT NULL,
+    descripcion   VARCHAR2(50)
+);
+
+ALTER TABLE t_mae_gei ADD CONSTRAINT t_mae_gei_pk PRIMARY KEY ( p_mae_gei );
+
+CREATE TABLE t_mae_lista (
+    p_mae_lista   INTEGER NOT NULL,
+    descripcion   VARCHAR2(30)
+);
+
+ALTER TABLE t_mae_lista ADD CONSTRAINT t_mae_lista_pk PRIMARY KEY ( p_mae_lista );
+
+CREATE TABLE t_mae_metodologiaaplicada (
+    p_mae_metodologiaaplicada   INTEGER NOT NULL,
+    descripcion                 VARCHAR2(250)
+);
+
+ALTER TABLE t_mae_metodologiaaplicada ADD CONSTRAINT t_mae_metodologiaaplicada_pk PRIMARY KEY ( p_mae_metodologiaaplicada );
+
+CREATE TABLE t_mae_moneda (
+    p_mae_moneda   INTEGER NOT NULL,
+    descripcion    VARCHAR2(20)
+);
+
+ALTER TABLE t_mae_moneda ADD CONSTRAINT t_mae_moneda_pk PRIMARY KEY ( p_mae_moneda );
+
+CREATE TABLE t_mae_pagina (
+    p_mae_pagina   INTEGER NOT NULL,
+    descripcion    VARCHAR2(50),
+    codigopagina   VARCHAR2(3)
+);
+
+ALTER TABLE t_mae_pagina ADD CONSTRAINT t_mae_pagina_pk PRIMARY KEY ( p_mae_pagina );
+
+CREATE TABLE t_mae_paginaseccion (
+    p_maepaginaseccion          INTEGER NOT NULL,
+    t_mae_pagina_p_mae_pagina   INTEGER NOT NULL,
+    descripcion                 VARCHAR2(50),
+    codigopaginaseccion         VARCHAR2(2)
+);
+
+ALTER TABLE t_mae_paginaseccion ADD CONSTRAINT t_mae_paginaseccion_pk PRIMARY KEY ( p_maepaginaseccion );
+
+CREATE TABLE t_mae_perfilusuario (
+    p_mae_perfilusuario   INTEGER NOT NULL,
+    descripcion           VARCHAR2(50)
+);
+
+ALTER TABLE t_mae_perfilusuario ADD CONSTRAINT t_mae_perfilusuario_pk PRIMARY KEY ( p_mae_perfilusuario );
+
+CREATE TABLE t_mae_plazo (
+    p_mae_plazo               INTEGER NOT NULL,
+    diasplazo                 INTEGER,
+    t_mae_etapa_p_mae_etapa   INTEGER NOT NULL
+);
+
+ALTER TABLE t_mae_plazo ADD CONSTRAINT t_mae_plazo_pk PRIMARY KEY ( p_mae_plazo );
+
+CREATE TABLE t_mae_rolusuario (
+    p_mae_rolusuario                          INTEGER NOT NULL, 
+--  ERROR: Column name length exceeds maximum allowed length(30) 
+    t_mae_perfilusuario_p_mae_perfilusuario   INTEGER NOT NULL,
+    acceso                                    VARCHAR2(20)
+);
+
+ALTER TABLE t_mae_rolusuario ADD CONSTRAINT t_mae_rolusuario_pk PRIMARY KEY ( p_mae_rolusuario );
+
+CREATE TABLE t_mae_sectorinstitucion (
+    p_mae_sectorinstitucion   INTEGER NOT NULL,
+    descripcion               VARCHAR2(30)
+);
+
+ALTER TABLE t_mae_sectorinstitucion ADD CONSTRAINT t_mae_sectorinstitucion_pk PRIMARY KEY ( p_mae_sectorinstitucion );
+
+CREATE TABLE t_mae_tipodocumentoaval (
+    p_mae_tipodocumentoaval   INTEGER NOT NULL,
+    descripcion               VARCHAR2(30)
+);
+
+ALTER TABLE t_mae_tipodocumentoaval ADD CONSTRAINT t_mae_tipodocumentoaval_pk PRIMARY KEY ( p_mae_tipodocumentoaval );
+
+CREATE TABLE t_mae_tipolista (
+    p_mae_tipolista           INTEGER NOT NULL,
+    t_mae_lista_p_mae_lista   INTEGER NOT NULL,
+    descripcion               CHAR(18)
+);
+
+ALTER TABLE t_mae_tipolista ADD CONSTRAINT t_mae_tipolista_pk PRIMARY KEY ( p_mae_tipolista );
+
+CREATE TABLE t_mae_ubigeo (
+    p_mae_ubigeo   INTEGER NOT NULL,
+    nomdepa        VARCHAR2(30),
+    nomprov        VARCHAR2(20),
+    nomdist        VARCHAR2(30)
+);
+
+ALTER TABLE t_mae_ubigeo ADD CONSTRAINT t_mae_ubigeo_pk PRIMARY KEY ( p_mae_ubigeo );
+
+CREATE TABLE t_mae_usuario (
+    p_mae_usuario                                     INTEGER NOT NULL,
+    usuariologin                                      VARCHAR2(20),
+    usuarionombre                                     CHAR(20),
+    usuarioapellido                                   VARCHAR2(30),
+    usuariodireccion                                  VARCHAR2(100), 
+--  ERROR: Column name length exceeds maximum allowed length(30) 
+    t_genm_institucion_p_genm_institucion             INTEGER NOT NULL,
+    usuariopassword                                   VARCHAR2(20),
+    usuarioemail                                      VARCHAR2(40), 
+--  ERROR: Column name length exceeds maximum allowed length(30) 
+    t_mae_perfilusuario_p_mae_perfilusuario           INTEGER NOT NULL,
+    t_mae_actor_p_mae_actor                           INTEGER NOT NULL, 
+--  ERROR: Column name length exceeds maximum allowed length(30) 
+    t_mae_sectorinstitucion_p_mae_sectorinstitucion   INTEGER NOT NULL
+);
+
+ALTER TABLE t_mae_usuario ADD CONSTRAINT t_mae_usuario_pk PRIMARY KEY ( p_mae_usuario );
+
+CREATE TABLE t_mae_variableformula (
+    p_mae_variableformula                   INTEGER NOT NULL, 
+--  ERROR: Column name length exceeds maximum allowed length(30) 
+    t_gend_metodologia_p_gend_metodologia   INTEGER NOT NULL,
+    descripcion                             VARCHAR2(20)
+);
+
+ALTER TABLE t_mae_variableformula ADD CONSTRAINT t_mae_variableformula_pk PRIMARY KEY ( p_mae_variableformula );
+
+ALTER TABLE t_gend_factor
+    ADD CONSTRAINT t_gend_factor_t_genm_factor_fk FOREIGN KEY ( t_genm_factor_p_genm_factor )
+        REFERENCES t_genm_factor ( p_genm_factor );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_gend_factorvalor
+    ADD CONSTRAINT t_gend_factorvalor_t_gend_factor_fk FOREIGN KEY ( t_gend_factor_p_gend_factor )
+        REFERENCES t_gend_factor ( p_gend_factor );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_gend_iniciaivagei
+    ADD CONSTRAINT t_gend_iniciaivagei_t_genm_iniciativa_fk FOREIGN KEY ( t_genm_iniciativa_p_genm_iniciativa )
+        REFERENCES t_genm_iniciativa ( p_genm_iniciativa );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_gend_iniciaivagei
+    ADD CONSTRAINT t_gend_iniciaivagei_t_mae_gei_fk FOREIGN KEY ( t_mae_gei_p_mae_gei )
+        REFERENCES t_mae_gei ( p_mae_gei );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_gend_iniciativa_energetico
+    ADD CONSTRAINT t_gend_iniciativa_energetico_t_genm_iniciativa_fk FOREIGN KEY ( t_genm_iniciativa_p_genm_iniciativa )
+        REFERENCES t_genm_iniciativa ( p_genm_iniciativa );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_gend_iniciativa_energetico
+    ADD CONSTRAINT t_gend_iniciativa_energetico_t_mae_energetico_fk FOREIGN KEY ( t_mae_energetico_p_mae_energetico )
+        REFERENCES t_mae_energetico ( p_mae_energetico );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_gend_iniciativa_tipodocumentoaval
+    ADD CONSTRAINT t_gend_iniciativa_tipodocumentoaval_t_genm_iniciativa_tipodocumentoaval_fk FOREIGN KEY ( t_genm_iniciativa_tipodocumentoaval_p_genm_iniciativa_tipodocumentoaval
+    )
+        REFERENCES t_genm_iniciativa_tipodocumentoaval ( p_genm_iniciativa_tipodocumentoaval );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_gend_iniciativa_tipodocumentoaval
+    ADD CONSTRAINT t_gend_iniciativa_tipodocumentoaval_t_mae_tipodocumentoaval_fk FOREIGN KEY ( t_mae_tipodocumentoaval_p_mae_tipodocumentoaval
+    )
+        REFERENCES t_mae_tipodocumentoaval ( p_mae_tipodocumentoaval );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_gend_iniciativacompuesto
+    ADD CONSTRAINT t_gend_iniciativacompuesto_t_genm_iniciativa_fk FOREIGN KEY ( t_genm_iniciativa_p_genm_iniciativa )
+        REFERENCES t_genm_iniciativa ( p_genm_iniciativa );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_gend_iniciativacompuesto
+    ADD CONSTRAINT t_gend_iniciativacompuesto_t_mae_campometodologia_fk FOREIGN KEY ( t_mae_campometodologia_p_mae_campometodologia
+    )
+        REFERENCES t_mae_campometodologia ( p_mae_campometodologia );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_gend_iniciativacompuesto
+    ADD CONSTRAINT t_gend_iniciativacompuesto_t_mae_tipolista_fk FOREIGN KEY ( t_mae_tipolista_p_mae_tipolista )
+        REFERENCES t_mae_tipolista ( p_mae_tipolista );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_gend_iniciativaubicacion
+    ADD CONSTRAINT t_gend_iniciativaubicacion_t_genm_iniciativa_fk FOREIGN KEY ( t_genm_iniciativa_p_genm_iniciativa )
+        REFERENCES t_genm_iniciativa ( p_genm_iniciativa );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_gend_iniciativaubicacion
+    ADD CONSTRAINT t_gend_iniciativaubicacion_t_mae_ubigeo_fk FOREIGN KEY ( t_mae_ubigeo_p_mae_ubigeo )
+        REFERENCES t_mae_ubigeo ( p_mae_ubigeo );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_gend_medidasmitigacion
+    ADD CONSTRAINT t_gend_medidasmitigacion_t_genm_medidasmitigacion_fk FOREIGN KEY ( t_genm_medidasmitigacion_p_genm_medidamitigacion
+    )
+        REFERENCES t_genm_medidasmitigacion ( p_genm_medidamitigacion );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_gend_metodologia
+    ADD CONSTRAINT t_gend_metodologia_t_genm_medidasmitigacion_fk FOREIGN KEY ( t_genm_medidasmitigacion_p_genm_medidamitigacion )
+        REFERENCES t_genm_medidasmitigacion ( p_genm_medidamitigacion );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_gend_trazabilidad
+    ADD CONSTRAINT t_gend_trazabilidad_t_genm_trazabilidad_fk FOREIGN KEY ( t_genm_trazabilidad_p_genm_trazabilidad )
+        REFERENCES t_genm_trazabilidad ( p_genm_trazabilidad );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_gend_trazabilidad
+    ADD CONSTRAINT t_gend_trazabilidad_t_mae_usuario_fk FOREIGN KEY ( t_mae_usuario_p_mae_usuario )
+        REFERENCES t_mae_usuario ( p_mae_usuario );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_genm_ayuda
+    ADD CONSTRAINT t_genm_ayuda_t_mae_paginaseccion_fk FOREIGN KEY ( t_mae_paginaseccion_p_maepaginaseccion )
+        REFERENCES t_mae_paginaseccion ( p_maepaginaseccion );
+
+ALTER TABLE t_genm_ayuda
+    ADD CONSTRAINT t_genm_ayuda_t_mae_usuario_fk FOREIGN KEY ( t_mae_usuario_p_mae_usuario )
+        REFERENCES t_mae_usuario ( p_mae_usuario );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_genm_bolckchain
+    ADD CONSTRAINT t_genm_bolckchain_t_genm_iniciativa_fk FOREIGN KEY ( t_genm_iniciativa_p_genm_iniciativa )
+        REFERENCES t_genm_iniciativa ( p_genm_iniciativa );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_genm_escenario
+    ADD CONSTRAINT t_genm_escenario_t_genm_medidasmitigacion_fk FOREIGN KEY ( t_genm_medidasmitigacion_p_genm_medidamitigacion )
+        REFERENCES t_genm_medidasmitigacion ( p_genm_medidamitigacion );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_genm_factor
+    ADD CONSTRAINT t_genm_factor_t_genm_medidasmitigacion_fk FOREIGN KEY ( t_genm_medidasmitigacion_p_genm_medidamitigacion )
+        REFERENCES t_genm_medidasmitigacion ( p_genm_medidamitigacion );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_genm_iniciativa
+    ADD CONSTRAINT t_genm_iniciativa_t_gend_iniciaivagei_fk FOREIGN KEY ( t_gend_iniciaivagei_p_gend_iniciativagei )
+        REFERENCES t_gend_iniciaivagei ( p_gend_iniciativagei );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_genm_iniciativa
+    ADD CONSTRAINT t_genm_iniciativa_t_gend_metodologia_fk FOREIGN KEY ( t_gend_metodologia_p_gend_metodologia )
+        REFERENCES t_gend_metodologia ( p_gend_metodologia );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_genm_iniciativa
+    ADD CONSTRAINT t_genm_iniciativa_t_genm_medidasmitigacion_fk FOREIGN KEY ( t_genm_medidasmitigacion_p_genm_medidamitigacion )
+        REFERENCES t_genm_medidasmitigacion ( p_genm_medidamitigacion );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_genm_iniciativa
+    ADD CONSTRAINT t_genm_iniciativa_t_mae_estado_fk FOREIGN KEY ( t_mae_estado_p_mae_estado )
+        REFERENCES t_mae_estado ( p_mae_estado );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_genm_iniciativa
+    ADD CONSTRAINT t_genm_iniciativa_t_mae_etapa_fk FOREIGN KEY ( t_mae_etapa_p_mae_etapa )
+        REFERENCES t_mae_etapa ( p_mae_etapa );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_genm_iniciativa
+    ADD CONSTRAINT t_genm_iniciativa_t_mae_moneda_fk FOREIGN KEY ( t_mae_moneda_p_mae_moneda )
+        REFERENCES t_mae_moneda ( p_mae_moneda );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_genm_iniciativa
+    ADD CONSTRAINT t_genm_iniciativa_t_mae_usuario_fk FOREIGN KEY ( t_mae_usuario_p_mae_usuario )
+        REFERENCES t_mae_usuario ( p_mae_usuario );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_genm_iniciativa_tipodocumentoaval
+    ADD CONSTRAINT t_genm_iniciativa_tipodocumentoaval_t_genm_iniciativa_fk FOREIGN KEY ( t_genm_iniciativa_p_genm_iniciativa )
+        REFERENCES t_genm_iniciativa ( p_genm_iniciativa );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_genm_medidasmitigacion
+    ADD CONSTRAINT t_genm_medidasmitigacion_t_genm_nama_fk FOREIGN KEY ( t_genm_nama_p_genm_nama )
+        REFERENCES t_genm_nama ( p_genm_nama );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_genm_medidasmitigacion
+    ADD CONSTRAINT t_genm_medidasmitigacion_t_mae_metodologiaaplicada_fk FOREIGN KEY ( t_mae_metodologiaaplicada_p_mae_metodologiaaplicada
+    )
+        REFERENCES t_mae_metodologiaaplicada ( p_mae_metodologiaaplicada );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_genm_trazabilidad
+    ADD CONSTRAINT t_genm_trazabilidad_t_genm_iniciativa_fk FOREIGN KEY ( t_genm_iniciativa_p_genm_iniciativa )
+        REFERENCES t_genm_iniciativa ( p_genm_iniciativa );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_mae_campometodologia
+    ADD CONSTRAINT t_mae_campometodologia_t_gend_metodologia_fk FOREIGN KEY ( t_gend_metodologia_p_gend_metodologia )
+        REFERENCES t_gend_metodologia ( p_gend_metodologia );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_mae_campometodologia
+    ADD CONSTRAINT t_mae_campometodologia_t_genm_medidasmitigacion_fk FOREIGN KEY ( t_genm_medidasmitigacion_p_genm_medidamitigacion
+    )
+        REFERENCES t_genm_medidasmitigacion ( p_genm_medidamitigacion );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_mae_paginaseccion
+    ADD CONSTRAINT t_mae_paginaseccion_t_mae_pagina_fk FOREIGN KEY ( t_mae_pagina_p_mae_pagina )
+        REFERENCES t_mae_pagina ( p_mae_pagina );
+
+ALTER TABLE t_mae_plazo
+    ADD CONSTRAINT t_mae_plazo_t_mae_etapa_fk FOREIGN KEY ( t_mae_etapa_p_mae_etapa )
+        REFERENCES t_mae_etapa ( p_mae_etapa );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_mae_rolusuario
+    ADD CONSTRAINT t_mae_rolusuario_t_mae_perfilusuario_fk FOREIGN KEY ( t_mae_perfilusuario_p_mae_perfilusuario )
+        REFERENCES t_mae_perfilusuario ( p_mae_perfilusuario );
+
+ALTER TABLE t_mae_tipolista
+    ADD CONSTRAINT t_mae_tipolista_t_mae_lista_fk FOREIGN KEY ( t_mae_lista_p_mae_lista )
+        REFERENCES t_mae_lista ( p_mae_lista );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_mae_usuario
+    ADD CONSTRAINT t_mae_usuario_t_genm_institucion_fk FOREIGN KEY ( t_genm_institucion_p_genm_institucion )
+        REFERENCES t_genm_institucion ( p_genm_institucion );
+
+ALTER TABLE t_mae_usuario
+    ADD CONSTRAINT t_mae_usuario_t_mae_actor_fk FOREIGN KEY ( t_mae_actor_p_mae_actor )
+        REFERENCES t_mae_actor ( p_mae_actor );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_mae_usuario
+    ADD CONSTRAINT t_mae_usuario_t_mae_perfilusuario_fk FOREIGN KEY ( t_mae_perfilusuario_p_mae_perfilusuario )
+        REFERENCES t_mae_perfilusuario ( p_mae_perfilusuario );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_mae_usuario
+    ADD CONSTRAINT t_mae_usuario_t_mae_sectorinstitucion_fk FOREIGN KEY ( t_mae_sectorinstitucion_p_mae_sectorinstitucion )
+        REFERENCES t_mae_sectorinstitucion ( p_mae_sectorinstitucion );
+
+--  ERROR: FK name length exceeds maximum allowed length(30) 
+ALTER TABLE t_mae_variableformula
+    ADD CONSTRAINT t_mae_variableformula_t_gend_metodologia_fk FOREIGN KEY ( t_gend_metodologia_p_gend_metodologia )
+        REFERENCES t_gend_metodologia ( p_gend_metodologia );
+
+
+
+-- Informe de Resumen de Oracle SQL Developer Data Modeler: 
+-- 
+-- CREATE TABLE                            40
+-- CREATE INDEX                             0
+-- ALTER TABLE                             84
+-- CREATE VIEW                              0
+-- ALTER VIEW                               0
+-- CREATE PACKAGE                           0
+-- CREATE PACKAGE BODY                      0
+-- CREATE PROCEDURE                         0
+-- CREATE FUNCTION                          0
+-- CREATE TRIGGER                           0
+-- ALTER TRIGGER                            0
+-- CREATE COLLECTION TYPE                   0
+-- CREATE STRUCTURED TYPE                   0
+-- CREATE STRUCTURED TYPE BODY              0
+-- CREATE CLUSTER                           0
+-- CREATE CONTEXT                           0
+-- CREATE DATABASE                          0
+-- CREATE DIMENSION                         0
+-- CREATE DIRECTORY                         0
+-- CREATE DISK GROUP                        0
+-- CREATE ROLE                              0
+-- CREATE ROLLBACK SEGMENT                  0
+-- CREATE SEQUENCE                          0
+-- CREATE MATERIALIZED VIEW                 0
+-- CREATE MATERIALIZED VIEW LOG             0
+-- CREATE SYNONYM                           0
+-- CREATE TABLESPACE                        0
+-- CREATE USER                              0
+-- 
+-- DROP TABLESPACE                          0
+-- DROP DATABASE                            0
+-- 
+-- REDACTION POLICY                         0
+-- TSDP POLICY                              0
+-- 
+-- ORDS DROP SCHEMA                         0
+-- ORDS ENABLE SCHEMA                       0
+-- ORDS ENABLE OBJECT                       0
+-- 
+-- ERRORS                                  77
+-- WARNINGS                                 0
