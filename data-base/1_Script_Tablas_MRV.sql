@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - lunes-enero-27-2020   
+-- Archivo creado  - martes-enero-28-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Sequence SQ_GEND_DETALLE_INICIATIVA
@@ -61,11 +61,6 @@
 --------------------------------------------------------
 
    CREATE SEQUENCE  "SQ_GEND_INICIATIVA_UBICACION"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 281 CACHE 20 NOORDER  NOCYCLE   ;
---------------------------------------------------------
---  DDL for Sequence SQ_GEND_SEGUIMIENTO
---------------------------------------------------------
-
-   CREATE SEQUENCE  "SQ_GEND_SEGUIMIENTO"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE   ;
 --------------------------------------------------------
 --  DDL for Sequence SQ_GEND_VARIANTE_ATRIBUTO
 --------------------------------------------------------

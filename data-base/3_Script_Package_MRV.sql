@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - lunes-enero-27-2020   
+-- Archivo creado  - martes-enero-28-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_ADMIN_SISTEMA
@@ -1674,27 +1674,42 @@ END PKG_MRV_CALCULO;
         VALUES (pID_INICIATIVA, pID_USUARIO,3,0, SYSDATE);
     END USP_UPD_AVANCE_DETALLE;
 
-    ---------------------------------------- 18-01-20
+  
+    
     PROCEDURE USP_UPD_APROBAR_DETALLE(
-        pID_INICIATIVA IN   NUMBER,
-        pID_USUARIO IN NUMBER
-    )AS
+        pID_INICIATIVA IN NUMBER,
+        pID_USUARIO    IN NUMBER) 
+    AS
+        vIdUsuario NUMBER;
     BEGIN
-        UPDATE  T_GENM_INICIATIVA 
-        SET     ID_ESTADO = 3,
-                ID_ETAPA = 4
-        WHERE   ID_INICIATIVA = pID_INICIATIVA;
-
-        INSERT INTO T_GEND_DETALLE_INICIATIVA (ID_INICIATIVA, ID_REMITENTE, ID_ETAPA, ID_ESTADO, FECHA_DERIVACION)
-        VALUES (pID_INICIATIVA, pID_USUARIO,4,3, SYSDATE);
-        PKG_MRV_NOTIFICACION.USP_INS_NOTIFICACION(pIdIniciativa         =>  pID_INICIATIVA,
-                                                  pIdEtapa              =>  4,
-                                                  pIdEstado             =>  3,
-                                                  pIdRol                =>  1,
-                                                  pIdUsuario            =>  NULL,
-                                                  pDescripcion          =>  '',
-                                                  pIdEstadoNotificacion =>  3); 
+        UPDATE T_GENM_INICIATIVA
+           SET ID_ESTADO = 3, ID_ETAPA = 4
+         WHERE ID_INICIATIVA = pID_INICIATIVA;
+    
+        INSERT INTO T_GEND_DETALLE_INICIATIVA
+            (ID_INICIATIVA,
+             ID_REMITENTE,
+             ID_ETAPA,
+             ID_ESTADO,
+             FECHA_DERIVACION)
+        VALUES
+            (pID_INICIATIVA, pID_USUARIO, 4, 3, SYSDATE);
+        
+        --SE DEBE NOTIFICAR AL USUARIO  --28.01.2020
+        SELECT ID_USUARIO INTO vIdUsuario FROM T_GENM_INICIATIVA WHERE ID_INICIATIVA = pID_INICIATIVA;
+        PKG_MRV_NOTIFICACION.USP_INS_NOTIFICACION(pIdIniciativa         => pID_INICIATIVA,
+                                                  pIdEtapa              => 4,
+                                                  pIdEstado             => 3,
+                                                  pIdRol                => 1,
+                                                  pIdUsuario            => vIdUsuario,
+                                                  pDescripcion          => 'Los detalles de indicadores de su iniciativa fueron revisadas y aprobadas',
+                                                  pIdEstadoNotificacion => 3);
     END USP_UPD_APROBAR_DETALLE;
+
+    
+    
+    
+    
 
     PROCEDURE USP_UPD_OBSERVACION_DETALLE(
         pID_INICIATIVA IN NUMBER,
@@ -2194,22 +2209,32 @@ END PKG_MRV_DETALLE_INDICADORES;
         pID_INICIATIVA IN   NUMBER,
         pID_USUARIO IN NUMBER
     )AS
+        vIdUsuario NUMBER;
     BEGIN --SE MODIFICO 18-01-20
         UPDATE  T_GENM_INICIATIVA 
         SET     ID_ESTADO = 3,
                 ID_ETAPA = 2
         WHERE   ID_INICIATIVA = pID_INICIATIVA;
-
+        
         INSERT INTO T_GEND_DETALLE_INICIATIVA (ID_INICIATIVA, ID_REMITENTE, ID_ETAPA, ID_ESTADO, FECHA_DERIVACION)
         VALUES (pID_INICIATIVA, pID_USUARIO,2,3, SYSDATE);
+        
+        --SE DEBE NOTIFICAR AL USUARIO ADMINISTRADO --28.01.2020
+        SELECT ID_USUARIO INTO vIdUsuario FROM T_GENM_INICIATIVA WHERE ID_INICIATIVA = pID_INICIATIVA;
+        
         PKG_MRV_NOTIFICACION.USP_INS_NOTIFICACION(pIdIniciativa         =>  pID_INICIATIVA,
                                                   pIdEtapa              =>  2,
                                                   pIdEstado             =>  3,
                                                   pIdRol                =>  1,
-                                                  pIdUsuario            =>  pID_USUARIO,
-                                                  pDescripcion          =>  '',
+                                                  pIdUsuario            =>  vIdUsuario,
+                                                  pDescripcion          =>  'Su iniciativa fue revisada y aprobada',
                                                   pIdEstadoNotificacion =>  3);     
     END USP_UPD_APROBAR_INICIATIVA;
+
+
+
+
+
 
     PROCEDURE USP_UPD_OBSERVACION_INICIATIVA(
         pID_INICIATIVA IN NUMBER,
