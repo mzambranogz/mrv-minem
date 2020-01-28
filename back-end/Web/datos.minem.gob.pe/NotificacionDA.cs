@@ -26,8 +26,8 @@ namespace datos.minem.gob.pe
                     string sp = sPackage + "USP_SEL_NUM_NOFIFICACION";
                     var p = new OracleDynamicParameters();
                     p.Add("pIdRol", IdRol);
-                    //p.Add("pIdUsuario", 0);
-                    p.Add("pIdUsuario", Idusuario);
+                    p.Add("pIdUsuario", 0);
+                    //p.Add("pIdUsuario", Idusuario);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     entidad = db.Query<NotificacionBE>(sp, p, commandType: CommandType.StoredProcedure).FirstOrDefault();
                 }

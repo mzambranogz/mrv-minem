@@ -7,6 +7,7 @@ $(document).ready(function () {
     $("#Control").data("revision", $("#revision").val());
 
     if ($("#revision").val() == 1) {
+        debugger;
         CargarDetalleIndicadorRevision();
     } else {
         CargarDetalleIndicador();
@@ -22,7 +23,6 @@ $(document).ready(function () {
 
         console.log(fila);
         $("#tablaIndicador").data("fila", fila);
-
     });
 
     $(document).on("click", ".agregarCampos", function (e) {
@@ -139,6 +139,7 @@ function fn_crearLinea(fila) {
     //MRV.CargarSelect(baseUrl + "Gestion/ListarTipoCombustible", "#cbo-det-3-1", "ID_TIPO_COMBUSTIBLE", "DESCRIPCION");
 }
 
+
 function fn_calcularTotalCO2(row) {
     var total = 0.0;
     for (var i = 0; i < row; i++) {
@@ -149,6 +150,8 @@ function fn_calcularTotalCO2(row) {
     $("#total-detalle #total").remove();
     $("#total-detalle").append('<strong id="total">' + total + '</strong>');
 }
+
+
 
 function fn_calcularIndicadores() {
     var fila = $("#tablaIndicador").data("fila");
@@ -192,7 +195,7 @@ function fn_calcularIndicadores() {
 }
 
 function fn_calcularIndicadores2(fila) {
-    //debugger;
+    debugger;
     if (validarCampo(fila)) {
         var item = {
             ID_INDICADOR: $("#detalles-tr-" + fila).data("value"),
@@ -238,6 +241,11 @@ $("#cbo-enfoque").change(function () {
     //alert("hola");
     //validarCampo();
 });
+
+
+//$(document).on("focusout", "#krvB" + 1, function () {
+//    validarCampo();
+//});
 
 function validarCampo(fila) {
     if ($("#cbo-det-2-" + fila).val() == 0) {
@@ -471,12 +479,12 @@ function CargarDetalleIndicador() {
 
 function cargarAnio() {
 
-    var tr = '<option value="2019">2019</option>';
-    tr = tr + '<option value="2020">2020</option>';
-    tr = tr + '<option value="2021">2021</option>';
-    tr = tr + '<option value="2022">2022</option>';
-    tr = tr + '<option value="2023">2023</option>';
-    tr = tr + '<option value="2024">2024</option>';
+    var tr = '                                  <option value="2019">2019</option>';
+    tr = tr + '                                  <option value="2020">2020</option>';
+    tr = tr + '                                  <option value="2021">2021</option>';
+    tr = tr + '                                  <option value="2022">2022</option>';
+    tr = tr + '                                  <option value="2023">2023</option>';
+    tr = tr + '                                  <option value="2024">2024</option>';
     return tr;
 }
 
@@ -538,6 +546,25 @@ function llenarTabla(data, j) {
     $("#total-detalle").append('<strong id="total">' + $("#cuerpoTablaIndicador").data("total") + '</strong>');
     //alert($("#cuerpoTablaIndicador").data("total"));
 }
+
+/*function fn_CargarListaTipoFuente(datat, j) {
+    var Item = {};
+    $.ajax({
+        url: baseUrl + "Gestion/ListarTipoFuente",
+        type: 'POST',
+        datatype: 'json',
+        data: Item
+    }).done(function (data) {
+        if (data != null && data != "") {
+            if (data.length > 0) {
+                for (var i = 0; i < data.length; i++) {
+                    $("#cbo-det-2-" + (j + 1)).append('<option value="' + data[i]["ID_TIPO_FUENTE"] + '">' + data[i]["DESCRIPCION"] + '</option>');
+                }
+            }
+        }
+       llenarTabla(fila, datat, j);
+    });
+}*/
 
 function CargarDetalleIndicadorRevision() {
     var Item = {
@@ -702,7 +729,6 @@ function CargarSoloTablaIndicador() {
     //$("#tablaIndicador").data("fila", fila);
 
 }
-
 function CargarTablaIndicador(datat, j) {
     var fila = $("#tablaIndicador").data("fila") + 1;
     var tr = '<tr id="detalles-tr-' + (j + 1) + '" data-value="0" >';
@@ -828,6 +854,7 @@ function fn_calcularIndicador(fila) {
         }
     });
 }
+
 
 function fn_procesoDetalleIndicador(url, estado) {
     debugger;
@@ -1020,6 +1047,87 @@ function fn_procesoDetalleIndicador(url, estado) {
     });
 }
 
+
+//function fn_guardarDetalleIndicador() {
+//    var url = baseUrl + "Gestion/RegistrarDetalleIndicador";
+//    //fn_procesoDetalleIndicador(url, 1);
+
+//    var options = {
+//        type: "POST",
+//        dataType: "json",
+//        contentType: false,
+//        url: url,
+//        processData: false,
+//        data: ({
+//            ID_INICIATIVA: $("#Control").data("iniciativa"),
+//            ID_USUARIO: $("#Control").data("usuario"),
+//            NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
+//            ID_ESTADO: 1
+//        }),
+//        xhr: function () {  // Custom XMLHttpRequest
+//            var myXhr = $.ajaxSettings.xhr();
+//            if (myXhr.upload) { // Check if upload property exists
+//                //myXhr.upload.addEventListener('progress', progressHandlingFunction, false); // For handling the progress of the upload
+//            }
+//            return myXhr;
+//        },
+//        resetForm: false,
+//        beforeSubmit: function (formData, jqForm, options) {
+//            return true;
+//        },
+//        success: function (response, textStatus, myXhr) {
+//            if (response.success) {
+//                var msj = '                       <div class="alert alert-success d-flex align-items-stretch" role="alert">';
+//                msj = msj + '                            <div class="alert-wrap mr-3">';
+//                msj = msj + '                                <div class="sa">';
+//                msj = msj + '                                    <div class="sa-success">';
+//                msj = msj + '                                        <div class="sa-success-tip"></div>';
+//                msj = msj + '                                        <div class="sa-success-long"></div>';
+//                msj = msj + '                                        <div class="sa-success-placeholder"></div>';
+//                msj = msj + '                                        <div class="sa-success-fix"></div>';
+//                msj = msj + '                                    </div>';
+//                msj = msj + '                                </div>';
+//                msj = msj + '                            </div>';
+//                msj = msj + '                            <div class="alert-wrap">';
+//                msj = msj + '                                <h6>Bien hecho</h6>';
+//                msj = msj + '                                <hr><small class="mb-0">Su registro fue exitoso, en breve le notificaremos el estado a través de un email.</small>';
+//                msj = msj + '                            </div>';
+//                msj = msj + '                        </div>';
+//                $("#seccionMensaje").append(msj);
+//                //setTimeout(dirigir, 5000);
+//            } else {
+//                var msj = '                      <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="errorRegistro">';
+//                msj = msj + '                           <div class="alert-wrap mr-3">';
+//                msj = msj + '                                <div class="sa">';
+//                msj = msj + '                                    <div class="sa-error">';
+//                msj = msj + '                                        <div class="sa-error-x">';
+//                msj = msj + '                                            <div class="sa-error-left"></div>';
+//                msj = msj + '                                            <div class="sa-error-right"></div>';
+//                msj = msj + '                                        </div>';
+//                msj = msj + '                                        <div class="sa-error-placeholder"></div>';
+//                msj = msj + '                                        <div class="sa-error-fix"></div>';
+//                msj = msj + '                                    </div>';
+//                msj = msj + '                                </div>';
+//                msj = msj + '                            </div>';
+//                msj = msj + '                            <div class="alert-wrap">';
+//                msj = msj + '                                <h6>Error de registro</h6>';
+//                msj = msj + '                                <hr><small class="mb-0">Ocurrio un problema durante el registro.</small>';
+//                msj = msj + '                            </div>';
+//                msj = msj + '                        </div>';
+//                $("#seccionMensaje").append(msj);
+//            }
+//        },
+//        error: function (myXhr, textStatus, errorThrown) {
+//            console.log(myXhr);
+//            console.log(textStatus);
+//            console.log(errorThrown);
+//        }
+//    };
+
+//    $("#formRegistrar").ajaxForm(options);
+//    $("#formRegistrar").submit();
+//}
+
 function fn_guardarDetalleIndicador() {
     var url = baseUrl + "Gestion/RegistrarDetalleIndicador2";
     fn_procesoDetalleIndicador(url, 1);
@@ -1138,8 +1246,6 @@ function fn_revisarDetalleIndicador() {
         $("#aprobar-revision #modalAprobarBoton").hide();
         $("#modalAprobacion").append(msj);
         $("#Control").data("modal", 1);
-        if (ws != null) ws.send(respuesta.extra);
-
     } else {
         $("#modalAprobacion #modalErrorAprobacion").remove();
         var msj = '                           <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="modalErrorAprobacion">';
@@ -1172,6 +1278,7 @@ function fn_revisarDetalleIndicador() {
         }
     });
 }
+
 
 function fn_revisarAdminDetalleIndicador() {
     var item = {
@@ -1432,3 +1539,4 @@ function fn_verfilesutento(idIniciativaSustento) {
         window.open(urlMostrar, "_blank");
     }
 }
+

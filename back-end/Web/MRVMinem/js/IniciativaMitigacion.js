@@ -695,7 +695,6 @@ function fn_revisarIniciativaMitigacion() {
         $("#aprobar-revision #modalAprobarBoton").hide();
         $("#modalAprobacion").append(msj);
         $("#Control").data("modal", 1);
-        if (ws != null) ws.send(respuesta.extra);
     } else {
         $("#modalAprobacion #modalErrorAprobacion").remove();
         var msj = '                           <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="modalErrorAprobacion">';

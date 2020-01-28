@@ -145,40 +145,6 @@ namespace datos.minem.gob.pe
             {
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
                 {
-                    string sp = sPackage + "USP_PRC_INDICADOR";
-                    var p = new OracleDynamicParameters();
-                    p.Add("pID_INDICADOR", entidad.ID_INDICADOR);
-                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
-                    p.Add("pANNO", entidad.ANNOB);
-                    p.Add("pID_TIPO_VEHICULO", entidad.ID_TIPO_VEHICULOB);
-                    p.Add("pID_TIPO_COMBUSTIBLE", entidad.ID_TIPO_COMBUSTIBLEB);
-                    p.Add("pKRV", entidad.KRVB);
-                    p.Add("pCANTIDAD", entidad.CANTIDADB);
-                    p.Add("pF_REN", entidad.FACTOR_RENDIMIENTO);
-                    p.Add("pTOTAL_GEI", entidad.TOTAL_GEI_BASE);
-                    p.Add("pTOTAL_GEI_INIMIT", entidad.TOTAL_GEI_INIMIT);
-                    p.Add("pTOTAL_GEI_REDUCIDO", entidad.TOTAL_GEI_REDUCIDO);
-                    p.Add("pID_TIPO_FUENTE", entidad.ID_TIPO_FUENTEI);
-                    p.Add("pADJUNTO", entidad.ADJUNTO);
-                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
-                }
-                entidad.OK = true;
-            }
-            catch (Exception ex)
-            {
-                Log.Error(ex);
-                entidad.OK = false;
-            }
-
-            return entidad;
-        }
-
-        public IniciativaBE RegistrarEnvioDetalle(IniciativaBE entidad)
-        {
-            try
-            {
-                using (IDbConnection db = new OracleConnection(CadenaConexion))
-                {
                     string sp = sPackage + "USP_UPD_REGISTRO_DETALLE";
                     var p = new OracleDynamicParameters();
                     p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
@@ -464,5 +430,27 @@ namespace datos.minem.gob.pe
             return entidad;
         }
 
+        public IniciativaBE RegistrarEnvioDetalle(IniciativaBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_UPD_REGISTRO_DETALLE";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+
+            return entidad;
+        }
     }
 }
