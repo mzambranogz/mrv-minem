@@ -583,31 +583,31 @@ function CargarDetalleIndicadorRevision() {
                     var tr = "";
                     tr = tr + '<tr>';
                     tr = tr + '                        <th class="text-center" data-encabezado="Número" scope="row">' + (i + 1) + '</th>';
-                    tr = tr + '                        <td data-encabezado="Columna 01">' + data[i]["ANNOB"] + '</td>';
-                    tr = tr + '                        <td data-encabezado="Columna 02">' + data[i]["TIPO_VEHICULO"] + '</td>';
-                    tr = tr + '                        <td data-encabezado="Columna 03">' + data[i]["TIPO_COMBUSTIBLE"] + '</td>';
-                    tr = tr + '                        <td data-encabezado="Columna 04">' + data[i]["KRVB"] + '</td>';
-                    tr = tr + '                        <td data-encabezado="Columna 05">' + data[i]["CANTIDADB"] + '</td>';
-                    tr = tr + '                        <td data-encabezado="Columna 06">' + data[i]["RENDIMIENTO"] + '</td>';
-                    tr = tr + '                        <td data-encabezado="Columna 07">' + data[i]["TOTAL_GEI_INIMIT"] + '</td>';
-                    tr = tr + '                        <td data-encabezado="Columna 08">' + data[i]["TOTAL_GEI_INIMIT"] + '</td>';
-                    tr = tr + '                        <td data-encabezado="Columna 09">' + data[i]["TOTAL_GEI_REDUCIDO"] + '</td>';
-                    if (data[i]["ADJUNTO"] != null && data[i]["ADJUNTO"] != "") {
-                        tr = tr + '                    <td data-encabezado="Columna 10">';
-                        tr = tr + '                <div class="form-group m-0">';
-                        tr = tr + '                       <label class="btn btn-secondary btn-sm m-0" onclick="fn_verfileindicaor(' + data[i]["ID_INDICADOR"] + ')"><i class="fas fa-download mr-1"></i>Ver</label>';
-                        tr = tr + '                </div>';
-                        tr = tr + '         </td>';
+                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 01">' + data[i]["ANNOB"] + '</td>';
+                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 02">' + data[i]["TIPO_VEHICULO"] + '</td>';
+                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 03">' + data[i]["TIPO_COMBUSTIBLE"] + '</td>';
+                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 04">' + data[i]["KRVB"] + '</td>';
+                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 05">' + data[i]["CANTIDADB"] + '</td>';
+                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 06">' + data[i]["RENDIMIENTO"] + '</td>';
+                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 07">' + data[i]["TOTAL_GEI_INIMIT"] + '</td>';
+                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 08">' + data[i]["TOTAL_GEI_INIMIT"] + '</td>';
+                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 09">' + data[i]["TOTAL_GEI_REDUCIDO"] + '</td>';
+                    //if (data[i]["ADJUNTO"] != null && data[i]["ADJUNTO"] != "") {
+                    //    tr = tr + '                    <td data-encabezado="Columna 10">';
+                    //    tr = tr + '                <div class="form-group m-0">';
+                    //    tr = tr + '                       <label class="btn btn-secondary btn-sm m-0" onclick="fn_verfileindicaor(' + data[i]["ID_INDICADOR"] + ')"><i class="fas fa-download mr-1"></i>Ver</label>';
+                    //    tr = tr + '                </div>';
+                    //    tr = tr + '         </td>';
 
 
-                    } else {
-                        tr = tr + '                        <td data-encabezado="Columna 10"></td>';
-                    }
+                    //} else {
+                    //    tr = tr + '                        <td data-encabezado="Columna 10"></td>';
+                    //}
                     tr = tr + '</tr>';
                     $("#cuerpoTablaIndicador").append(tr);
                     $("#cuerpoTablaIndicador").data("total", $("#cuerpoTablaIndicador").data("total") + data[i]["TOTAL_GEI_REDUCIDO"]);
                     $("#total-detalle #total").remove();
-                    $("#total-detalle").append('<strong id="total">' + $("#cuerpoTablaIndicador").data("total") + '</strong>');
+                    $("#total-detalle").append('<strong id="total">' + Math.round($("#cuerpoTablaIndicador").data("total") * 100) / 100 + ' (tCO<sub>2</sub>eq)</strong>');
                 }
             }
         } else {

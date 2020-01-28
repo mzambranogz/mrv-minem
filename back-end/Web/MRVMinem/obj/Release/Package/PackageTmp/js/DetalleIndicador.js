@@ -1,4 +1,7 @@
 ﻿/// <reference path="C:\Users\JK\Desktop\BACKUP 20-01-20\back-end\Web\MRVMinem\Views/Gestion/Sesion.cshtml" />
+var indicadores = new Array();
+var documentos = new Array();
+
 $(document).ready(function () {
     $("#Control").data("iniciativa", $("#identificador").val());
     $("#Control").data("revision", $("#revision").val());
@@ -20,25 +23,122 @@ $(document).ready(function () {
 
         console.log(fila);
         $("#tablaIndicador").data("fila", fila);
-        //validarCampo();
-
-
-        /*$("#tipoVehiculoB" + fila).on('change', function () {
-            console.log("a");
-        });*/
-
-        //$("#tipoCombustibleB" + fila).on("change", function () {
-        //    console.log("b");
-        //    validarCampo();
-        //});
-
     });
 
+    $(document).on("click", ".agregarCampos", function (e) {
+        //debugger;
+        e.preventDefault();
+        CargarSoloTablaIndicador();
+        //var n = $(".tabla-detalle-indicadores").find("tbody").find("th").length + 1;
+        //var t = fn_crearLinea(n); //$(this).parent().parent().parent().parent().clone().html();
+        ////$(".tabla-detalle-indicadores").find("tbody").append("<tr id='detalles-tr-" + n + "'>" + t + "</tr>"); //, $(".dropdown-menu").removeClass("show"), l()
+        //$("#cuerpoTablaIndicador").append(tr);
+        //if (n == 1) {
+        //    MRV.CargarSelect(baseUrl + "Gestion/ListarTipoVehiculo", "#cbo-det-2-" + n + "", "ID_TIPO_VEHICULO", "DESCRIPCION");
+        //    MRV.CargarSelect(baseUrl + "Gestion/ListarTipoCombustible", "#cbo-det-3-" + n + "", "ID_TIPO_COMBUSTIBLE", "DESCRIPCION");
+        //}
+    })
 
     fn_actualizaCampana();
     enLinea();
 
 });
+
+
+function fn_crearLinea(fila) {
+    var tr = '<tr id="detalles-tr-' + fila + '" data-value="' + fila + '0" >';
+    tr = tr + '         <th class="text-center" data-encabezado="Número" scope="row" id="row-' + fila + '">' + fila + '</th>';
+    tr = tr + '         <td data-encabezado="Columna 01">';
+    tr = tr + '             <div class="form-group m-0">';
+    tr = tr + '                     <select class="form-control form-control-sm" id="cbo-det-1-' + fila + '" onchange="fn_calcularIndicadores2(' + fila + ')">';
+    tr = tr + '                          <option value="2018">2018</option>';
+    tr = tr + cargarAnio();
+    tr = tr + '                     </select>';
+    tr = tr + '            </div>';
+    tr = tr + '         </td>';
+    tr = tr + '         <td data-encabezado="Columna 02">';
+    tr = tr + '             <div class="form-group m-0">';
+    tr = tr + '                     <select class="form-control form-control-sm" id="cbo-det-2-' + fila + '" onchange="fn_calcularIndicadores2(' + fila + ')">';
+    tr = tr + '                          <option value="0">Seleccione</option>';
+    tr = tr + '                     </select>';
+    tr = tr + '            </div>';
+    tr = tr + '         </td>';
+    tr = tr + '         <td data-encabezado="Columna 03">';
+    tr = tr + '             <div class="form-group m-0">';
+    tr = tr + '                     <select class="form-control form-control-sm" id="cbo-det-3-' + fila + '" onchange="fn_calcularIndicadores2(' + fila + ')">';
+    tr = tr + '                          <option value="0">Seleccione</option>';
+    tr = tr + '                     </select>';
+    tr = tr + '            </div>';
+    tr = tr + '         </td>';
+    tr = tr + '         <td data-encabezado="Columna 04">';
+    tr = tr + '              <div class="form-group m-0">';
+    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-1-' + fila + '" onBlur="fn_calcularIndicadores2(' + fila + ')">';
+    tr = tr + '              </div>';
+    tr = tr + '         </td>';
+    tr = tr + '         <td data-encabezado="Columna 05">';
+    tr = tr + '              <div class="form-group m-0">';
+    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-2-' + fila + '" onBlur="fn_calcularIndicadores2(' + fila + ')">';
+    tr = tr + '              </div>';
+    tr = tr + '         </td>';
+    tr = tr + '         <td data-encabezado="Columna 06">';
+    tr = tr + '              <div class="form-group m-0">';
+    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-3-' + fila + '" onBlur="fn_calcularIndicadores2(' + fila + ')">';
+    tr = tr + '              </div>';
+    tr = tr + '         </td>';
+    tr = tr + '         <td data-encabezado="Columna 07">';
+    tr = tr + '              <div class="form-group m-0">';
+    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-4-' + fila + '" disabled>';
+    tr = tr + '              </div>';
+    tr = tr + '         </td>';
+    tr = tr + '         <td data-encabezado="Columna 07">';
+    tr = tr + '              <div class="form-group m-0">';
+    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-5-' + fila + '" disabled>';
+    tr = tr + '              </div>';
+    tr = tr + '         </td>';
+    tr = tr + '         <td data-encabezado="Subtotal">';
+    tr = tr + '               <div class="form-group m-0">';
+    tr = tr + '                       <input class="form-control form-control-sm text-right" type="text" id="txt-det-6-' + fila + '" disabled>';
+    tr = tr + '               </div>';
+    tr = tr + '         </td>';
+    //tr = tr + '         <td class="text-center" data-encabezado="Calcular">';
+    //tr = tr + '                <div class="form-group m-0">';
+    //tr = tr + '                       <button class="btn btn-secondary btn-sm m-0" onclick="fn_calcularIndicadores();"><i class="fas fa-upload mr-1"></i>+</button>';
+    //tr = tr + '                </div>';
+    //tr = tr + '         </td>';
+    tr = tr + '         <td class="text-center" data-encabezado="Sustento">';
+    tr = tr + '                <div class="form-group m-0">';
+    tr = tr + '                       <label class="btn btn-secondary btn-sm m-0" for="fledoc-' + fila + '"><i class="fas fa-upload mr-1"></i>Cargar</label>';
+    //tr = tr + '                       <input class="d-none fil-file-control" type="file" name="fledoc" id="fledoc-' + fila + '">';
+    tr = tr + '                       <input class="d-none" type="file" name="fledoc" id="fledoc-' + fila + '">';
+    tr = tr + '                </div>';
+    tr = tr + '         </td>';
+    tr = tr + '         <td class="text-center text-xs-right" data-encabezado="Acciones">';
+    tr = tr + '                <div class="btn-group">';
+    tr = tr + '                     <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
+    tr = tr + '                          <div class="dropdown-menu dropdown-menu-right">';
+    tr = tr + '                                  <a class="dropdown-item agregarCampos" href="#">';
+    tr = tr + '                                         <i class="fas fa-plus-circle"></i>&nbsp;Agregar';
+    tr = tr + '                                  </a><a class="dropdown-item quitarCampos" href="#">';
+    tr = tr + '                                         <i class="fas fa-minus-circle"></i>&nbsp;Eliminar';
+    tr = tr + '                                  </a>';
+    tr = tr + '                          </div>';
+    tr = tr + '               </div>';
+    tr = tr + '         </td>';
+
+    tr = tr + '         <td class="text-hide" data-encabezado="ID_INDICADOR" style="display:none;">';
+    tr = tr + '               <div class="form-group m-0">';
+    tr = tr + '                       <input class="form-control form-control-sm text-right" type="text" id="txt-det-7-' + fila + '" disabled>';
+    tr = tr + '               </div>';
+    tr = tr + '         </td>';
+
+    tr = tr + '</tr>';
+
+    return tr;
+    //$("#cuerpoTablaIndicador").append(tr);
+    //MRV.CargarSelect(baseUrl + "Gestion/ListarTipoVehiculo", "#cbo-det-2-1", "ID_TIPO_VEHICULO", "DESCRIPCION");
+    //MRV.CargarSelect(baseUrl + "Gestion/ListarTipoCombustible", "#cbo-det-3-1", "ID_TIPO_COMBUSTIBLE", "DESCRIPCION");
+}
+
 
 function fn_calcularTotalCO2(row) {
     var total = 0.0;
@@ -85,7 +185,51 @@ function fn_calcularIndicadores() {
                     }
                 }
 
-                row = $("#cuerpoTablaIndicador").data("row") + 1;
+                //row = $("#cuerpoTablaIndicador").data("row") + 1;
+                var row = $(".tabla-detalle-indicadores").find("tbody").find("th").length;
+                $("#cuerpoTablaIndicador").data("row", row);
+                fn_calcularTotalCO2(row);
+            }
+        });
+    }
+}
+
+function fn_calcularIndicadores2(fila) {
+    debugger;
+    if (validarCampo(fila)) {
+        var item = {
+            ID_INDICADOR: $("#detalles-tr-" + fila).data("value"),
+            ID_INICIATIVA: $("#Control").data("iniciativa"),
+            ANNOB: $("#cbo-det-1-" + fila).val(),
+            ID_TIPO_VEHICULOB: $("#cbo-det-2-" + fila).val(),
+            ID_TIPO_COMBUSTIBLEB: $("#cbo-det-3-" + fila).val(),
+            KRVB: $("#txt-det-1-" + fila).val(),
+            CANTIDADB: $("#txt-det-2-" + fila).val(),
+            FACTOR_RENDIMIENTO: $("#txt-det-3-" + fila).val(),
+            ID_TIPO_FUENTEI: $("#cbo-enfoque").val(),
+        }
+        //alert("e:" + $("#detalles-tr-" + fila).data("value"));
+        $.ajax({
+            url: baseUrl + 'Gestion/CalcularIndicador',
+            type: 'POST',
+            datatype: 'json',
+            data: item,
+            success: function (data) {
+                if (data != null && data != "") {
+                    if (data.length > 0) {
+                        for (var i = 0; i < data.length; i++) {
+                            $("#txt-det-3-" + fila).val(data[i]["FACTOR_RENDIMIENTO"]);
+                            $("#txt-det-4-" + fila).val(data[i]["TOTAL_GEI_BASE"]);
+                            $("#txt-det-5-" + fila).val(data[i]["TOTAL_GEI_INIMIT"]);
+                            $("#txt-det-6-" + fila).val(data[i]["TOTAL_GEI_REDUCIDO"]);
+                            $("#txt-det-6-" + fila).val(data[i]["TOTAL_GEI_REDUCIDO"]);
+                            //$("#detalles-tr-" + fila).data("value", data[i]["ID_INDICADOR"]);
+                        }
+                    }
+                }
+
+                //row = $("#cuerpoTablaIndicador").data("row") + 1;
+                var row = $(".tabla-detalle-indicadores").find("tbody").find("th").length;
                 $("#cuerpoTablaIndicador").data("row", row);
                 fn_calcularTotalCO2(row);
             }
@@ -186,6 +330,41 @@ function CargarDatosIniciativa() {
                         }
                         if (data[i]["PRIVACIDAD_INVERSION"] == 1) {
                             $("#chk-publicar-monto-inversion").prop("checked", true);
+                        }
+                        debugger;
+                        if (data[i]["ListaSustentos"] != null) {
+                            for (var sus = 0; sus < data[i]["ListaSustentos"].length; sus++) {
+
+                                var output = [];
+                                var extension = "fa-file-word";
+
+                                if ((data[i]["ListaSustentos"])[sus]["ADJUNTO"].includes("pdf")) {
+                                    extension = "fa-file-pdf";
+                                } else {
+                                    if ((data[i]["ListaSustentos"])[sus]["ADJUNTO"].includes("jpeg") || (data[i]["ListaSustentos"])[sus]["ADJUNTO"].includes("png") || (data[i]["ListaSustentos"])[sus]["ADJUNTO"].includes("jpg")) {
+                                        extension = "fa-file-image";
+                                    } else {
+                                        if ((data[i]["ListaSustentos"])[sus]["ADJUNTO"].includes("xlsx") || (data[i]["ListaSustentos"])[sus]["ADJUNTO"].includes("xls")) {
+                                            extension = "fa-file-excel";
+                                        } else {
+                                            if ((data[i]["ListaSustentos"])[sus]["ADJUNTO"].includes("pptx") || (data[i]["ListaSustentos"])[sus]["ADJUNTO"].includes("ppt")) {
+                                                extension = "fa-file-powerpoint";
+                                            } else {
+                                                if ((data[i]["ListaSustentos"])[sus]["ADJUNTO"].includes("docx") || (data[i]["ListaSustentos"])[sus]["ADJUNTO"].includes("doc")) {
+                                                    extension = "fa-file-word";
+                                                } else {
+                                                    extension = "fa-file";
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                output.push('<div class="input-group mb-3">', '<div class="input-group-prepend">', '<span class="input-group-text">', '<i class="fas ', extension, '">', '</i>', '</span>', '</div>', '<span class="form-control-plaintext">', escape((data[i]["ListaSustentos"])[sus]["ADJUNTO"]), '</span>', '<div class="form-group m-0">', '<label class="btn btn-secondary btn-sm m-0" onclick="fn_verfilesutento(', (data[i]["ListaSustentos"])[sus]["ID_INICIATIVA_SUSTENTATORIO"], ')"><i class="fas fa-download mr-1"></i>Ver</label>', '</div>', '</div>');
+
+                                $("#archivos-documentos").append(output.join(''));
+
+                            }
+                            $("#total-documentos").html(data[i]["ListaSustentos"].length);
                         }
                     }
                 }
@@ -349,15 +528,18 @@ function fn_CargarListaTipoCombustible(datat, j) {
 }
 
 function llenarTabla(data, j) {
+    debugger;
     $("#cbo-det-1-" + (j + 1)).val(data[j]["ANNO_BASE"]);
     $("#cbo-det-2-" + (j + 1)).val(data[j]["ID_TIPO_VEHICULO_BASE"]);
     $("#cbo-det-3-" + (j + 1)).val(data[j]["ID_TIPO_COMBUSTIBLE_BASE"]);
     $("#txt-det-1-" + (j + 1)).val(data[j]["KRV_BASE"]);
     $("#txt-det-2-" + (j + 1)).val(data[j]["CANT_BASE"]);
+    $("#txt-det-3-" + (j + 1)).val(data[j]["F_RENDIMIENTO"]);
     //$("#tipoFuenteI" + fila).val(data[i]["ID_TIPO_FUENTE_INIMIT"]);
     $("#txt-det-4-" + (j + 1)).val(data[j]["TOTAL_GEI_BASE"]);
     $("#txt-det-5-" + (j + 1)).val(data[j]["TOTAL_GEI_INIMIT"]);
     $("#txt-det-6-" + (j + 1)).val(data[j]["TOTAL_GEI_REDUCIDO"]);
+    $("#txt-det-7-" + (j + 1)).val(data[j]["ID_INDICADOR"]);
     $("#detalles-tr-" + (j + 1)).data("value", data[j]["ID_INDICADOR"]);
     $("#cuerpoTablaIndicador").data("total", $("#cuerpoTablaIndicador").data("total") + data[j]["TOTAL_GEI_REDUCIDO"]);
     $("#total-detalle #total").remove();
@@ -401,20 +583,31 @@ function CargarDetalleIndicadorRevision() {
                     var tr = "";
                     tr = tr + '<tr>';
                     tr = tr + '                        <th class="text-center" data-encabezado="Número" scope="row">' + (i + 1) + '</th>';
-                    tr = tr + '                        <td data-encabezado="Columna 01">' + data[i]["ANNOB"] + '</td>';
-                    tr = tr + '                        <td data-encabezado="Columna 02">' + data[i]["TIPO_VEHICULO"] + '</td>';
-                    tr = tr + '                        <td data-encabezado="Columna 03">' + data[i]["TIPO_COMBUSTIBLE"] + '</td>';
-                    tr = tr + '                        <td data-encabezado="Columna 04">' + data[i]["KRVB"] + '</td>';
-                    tr = tr + '                        <td data-encabezado="Columna 05">' + data[i]["CANTIDADB"] + '</td>';
-                    tr = tr + '                        <td data-encabezado="Columna 06">' + data[i]["RENDIMIENTO"] + '</td>';
-                    tr = tr + '                        <td data-encabezado="Columna 07">' + data[i]["TOTAL_GEI_INIMIT"] + '</td>';
-                    tr = tr + '                        <td data-encabezado="Columna 08">' + data[i]["TOTAL_GEI_INIMIT"] + '</td>';
-                    tr = tr + '                        <td data-encabezado="Columna 09">' + data[i]["TOTAL_GEI_REDUCIDO"] + '</td>';
+                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 01">' + data[i]["ANNOB"] + '</td>';
+                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 02">' + data[i]["TIPO_VEHICULO"] + '</td>';
+                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 03">' + data[i]["TIPO_COMBUSTIBLE"] + '</td>';
+                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 04">' + data[i]["KRVB"] + '</td>';
+                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 05">' + data[i]["CANTIDADB"] + '</td>';
+                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 06">' + data[i]["RENDIMIENTO"] + '</td>';
+                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 07">' + data[i]["TOTAL_GEI_INIMIT"] + '</td>';
+                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 08">' + data[i]["TOTAL_GEI_INIMIT"] + '</td>';
+                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 09">' + data[i]["TOTAL_GEI_REDUCIDO"] + '</td>';
+                    //if (data[i]["ADJUNTO"] != null && data[i]["ADJUNTO"] != "") {
+                    //    tr = tr + '                    <td data-encabezado="Columna 10">';
+                    //    tr = tr + '                <div class="form-group m-0">';
+                    //    tr = tr + '                       <label class="btn btn-secondary btn-sm m-0" onclick="fn_verfileindicaor(' + data[i]["ID_INDICADOR"] + ')"><i class="fas fa-download mr-1"></i>Ver</label>';
+                    //    tr = tr + '                </div>';
+                    //    tr = tr + '         </td>';
+
+
+                    //} else {
+                    //    tr = tr + '                        <td data-encabezado="Columna 10"></td>';
+                    //}
                     tr = tr + '</tr>';
                     $("#cuerpoTablaIndicador").append(tr);
                     $("#cuerpoTablaIndicador").data("total", $("#cuerpoTablaIndicador").data("total") + data[i]["TOTAL_GEI_REDUCIDO"]);
                     $("#total-detalle #total").remove();
-                    $("#total-detalle").append('<strong id="total">' + $("#cuerpoTablaIndicador").data("total") + '</strong>');
+                    $("#total-detalle").append('<strong id="total">' + Math.round($("#cuerpoTablaIndicador").data("total") * 100) / 100 + ' (tCO<sub>2</sub>eq)</strong>');
                 }
             }
         } else {
@@ -425,93 +618,117 @@ function CargarDetalleIndicadorRevision() {
 }
 
 function CargarSoloTablaIndicador() {
-    var tr = '<tr id="detalles-tr-1" data-value="0" >';
-    tr = tr + '         <th class="text-center" data-encabezado="Número" scope="row">' + 1 + '</th>';
-    tr = tr + '         <td data-encabezado="Columna 01">';
-    tr = tr + '             <div class="form-group m-0">';
-    tr = tr + '                     <select class="form-control form-control-sm" id="cbo-det-1-1">';
-    tr = tr + '                          <option value="2018">2018</option>';
-    tr = tr + cargarAnio();
-    tr = tr + '                     </select>';
-    tr = tr + '            </div>';
-    tr = tr + '         </td>';
-    tr = tr + '         <td data-encabezado="Columna 02">';
-    tr = tr + '             <div class="form-group m-0">';
-    tr = tr + '                     <select class="form-control form-control-sm" id="cbo-det-2-1">';
-    tr = tr + '                          <option value="0">Seleccione</option>';
-    tr = tr + '                     </select>';
-    tr = tr + '            </div>';
-    tr = tr + '         </td>';
-    tr = tr + '         <td data-encabezado="Columna 03">';
-    tr = tr + '             <div class="form-group m-0">';
-    tr = tr + '                     <select class="form-control form-control-sm" id="cbo-det-3-1">';
-    tr = tr + '                          <option value="0">Seleccione</option>';
-    tr = tr + '                     </select>';
-    tr = tr + '            </div>';
-    tr = tr + '         </td>';
-    tr = tr + '         <td data-encabezado="Columna 04">';
-    tr = tr + '              <div class="form-group m-0">';
-    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-1-1">';
-    tr = tr + '              </div>';
-    tr = tr + '         </td>';
-    tr = tr + '         <td data-encabezado="Columna 05">';
-    tr = tr + '              <div class="form-group m-0">';
-    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-2-1">';
-    tr = tr + '              </div>';
-    tr = tr + '         </td>';
-    tr = tr + '         <td data-encabezado="Columna 06">';
-    tr = tr + '              <div class="form-group m-0">';
-    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-3-1">';
-    tr = tr + '              </div>';
-    tr = tr + '         </td>';
-    tr = tr + '         <td data-encabezado="Columna 07">';
-    tr = tr + '              <div class="form-group m-0">';
-    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-4-1">';
-    tr = tr + '              </div>';
-    tr = tr + '         </td>';
-    tr = tr + '         <td data-encabezado="Columna 07">';
-    tr = tr + '              <div class="form-group m-0">';
-    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-5-1">';
-    tr = tr + '              </div>';
-    tr = tr + '         </td>';
-    tr = tr + '         <td data-encabezado="Subtotal">';
-    tr = tr + '               <div class="form-group m-0">';
-    tr = tr + '                       <input class="form-control form-control-sm text-right" type="text" id="txt-det-6-1">';
-    tr = tr + '               </div>';
-    tr = tr + '         </td>';
-    tr = tr + '         <td class="text-center" data-encabezado="Sustento">';
-    tr = tr + '                <div class="form-group m-0">';
-    tr = tr + '                       <button class="btn btn-secondary btn-sm m-0" onclick="fn_calcularIndicadores();"><i class="fas fa-upload mr-1"></i>+</button>';
-    tr = tr + '                </div>';
-    tr = tr + '         </td>';
-    tr = tr + '         <td class="text-center" data-encabezado="Sustento">';
-    tr = tr + '                <div class="form-group m-0">';
-    tr = tr + '                       <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-upload mr-1"></i>Cargar</label>';
-    tr = tr + '                       <input class="d-none fil-file-control" type="file" id="fle-doc">';
-    tr = tr + '                </div>';
-    tr = tr + '         </td>';
-    tr = tr + '         <td class="text-center text-xs-right" data-encabezado="Acciones">';
-    tr = tr + '                <div class="btn-group">';
-    tr = tr + '                     <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
-    tr = tr + '                          <div class="dropdown-menu dropdown-menu-right">';
-    tr = tr + '                                  <a class="dropdown-item agregarCampos" href="#">';
-    tr = tr + '                                         <i class="fas fa-plus-circle"></i>&nbsp;Agregar';
-    tr = tr + '                                  </a><a class="dropdown-item quitarCampos" href="#">';
-    tr = tr + '                                         <i class="fas fa-minus-circle"></i>&nbsp;Eliminar';
-    tr = tr + '                                  </a>';
-    tr = tr + '                          </div>';
-    tr = tr + '               </div>';
-    tr = tr + '         </td>';
-    tr = tr + '</tr>';
-    $("#cuerpoTablaIndicador").append(tr);
-    MRV.CargarSelect(baseUrl + "Gestion/ListarTipoVehiculo", "#cbo-det-2-1", "ID_TIPO_VEHICULO", "DESCRIPCION");
-    MRV.CargarSelect(baseUrl + "Gestion/ListarTipoCombustible", "#cbo-det-3-1", "ID_TIPO_COMBUSTIBLE", "DESCRIPCION");
+    var n = $(".tabla-detalle-indicadores").find("tbody").find("th").length + 1;
+    var t = fn_crearLinea(n);
+    $("#cuerpoTablaIndicador").append(t);
+    //if (n == 1) {
+    MRV.CargarSelect(baseUrl + "Gestion/ListarTipoVehiculo", "#cbo-det-2-" + n + "", "ID_TIPO_VEHICULO", "DESCRIPCION");
+    MRV.CargarSelect(baseUrl + "Gestion/ListarTipoCombustible", "#cbo-det-3-" + n + "", "ID_TIPO_COMBUSTIBLE", "DESCRIPCION");
+    //}
+
+    //debugger;
+    //var tr = '<tr id="detalles-tr-1" data-value="0" >';
+    //tr = tr + '         <th class="text-center" data-encabezado="Número" scope="row" id="row-1">' + 1 + '</th>';
+    //tr = tr + '         <td data-encabezado="Columna 01">';
+    //tr = tr + '             <div class="form-group m-0">';
+    //tr = tr + '                     <select class="form-control form-control-sm" id="cbo-det-1-1">';
+    //tr = tr + '                          <option value="2018">2018</option>';
+    //tr = tr + cargarAnio();
+    //tr = tr + '                     </select>';
+    //tr = tr + '            </div>';
+    //tr = tr + '         </td>';
+    //tr = tr + '         <td data-encabezado="Columna 02">';
+    //tr = tr + '             <div class="form-group m-0">';
+    //tr = tr + '                     <select class="form-control form-control-sm" id="cbo-det-2-1">';
+    //tr = tr + '                          <option value="0">Seleccione</option>';
+    //tr = tr + '                     </select>';
+    //tr = tr + '            </div>';
+    //tr = tr + '         </td>';
+    //tr = tr + '         <td data-encabezado="Columna 03">';
+    //tr = tr + '             <div class="form-group m-0">';
+    //tr = tr + '                     <select class="form-control form-control-sm" id="cbo-det-3-1">';
+    //tr = tr + '                          <option value="0">Seleccione</option>';
+    //tr = tr + '                     </select>';
+    //tr = tr + '            </div>';
+    //tr = tr + '         </td>';
+    //tr = tr + '         <td data-encabezado="Columna 04">';
+    //tr = tr + '              <div class="form-group m-0">';
+    //tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-1-1" onBlur="fn_calcularIndicadores2(1)">';
+    //tr = tr + '              </div>';
+    //tr = tr + '         </td>';
+    //tr = tr + '         <td data-encabezado="Columna 05">';
+    //tr = tr + '              <div class="form-group m-0">';
+    //tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-2-1" onBlur="fn_calcularIndicadores2(1)">';
+    //tr = tr + '              </div>';
+    //tr = tr + '         </td>';
+    //tr = tr + '         <td data-encabezado="Columna 06">';
+    //tr = tr + '              <div class="form-group m-0">';
+    //tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-3-1" onBlur="fn_calcularIndicadores2(1)">';
+    //tr = tr + '              </div>';
+    //tr = tr + '         </td>';
+    //tr = tr + '         <td data-encabezado="Columna 07">';
+    //tr = tr + '              <div class="form-group m-0">';
+    //tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-4-1" disabled>';
+    //tr = tr + '              </div>';
+    //tr = tr + '         </td>';
+    //tr = tr + '         <td data-encabezado="Columna 07">';
+    //tr = tr + '              <div class="form-group m-0">';
+    //tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-5-1" disabled>';
+    //tr = tr + '              </div>';
+    //tr = tr + '         </td>';
+    //tr = tr + '         <td data-encabezado="Subtotal">';
+    //tr = tr + '               <div class="form-group m-0">';
+    //tr = tr + '                       <input class="form-control form-control-sm text-right" type="text" id="txt-det-6-1" disabled>';
+    //tr = tr + '               </div>';
+    //tr = tr + '         </td>';
+    //tr = tr + '         <td class="text-center" data-encabezado="Sustento">';
+    //tr = tr + '                <div class="form-group m-0">';
+    //tr = tr + '                       <button class="btn btn-secondary btn-sm m-0" onclick="fn_calcularIndicadores();"><i class="fas fa-upload mr-1"></i>+</button>';
+    //tr = tr + '                </div>';
+    //tr = tr + '         </td>';
+    //tr = tr + '         <td class="text-center" data-encabezado="Sustento">';
+    //tr = tr + '                <div class="form-group m-0">';
+    //tr = tr + '                       <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-upload mr-1"></i>Cargar</label>';
+    //tr = tr + '                       <input class="d-none fil-file-control" type="file" id="fle-doc">';
+    //tr = tr + '                </div>';
+    //tr = tr + '         </td>';
+    //tr = tr + '         <td class="text-center text-xs-right" data-encabezado="Acciones">';
+    //tr = tr + '                <div class="btn-group">';
+    //tr = tr + '                     <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
+    //tr = tr + '                          <div class="dropdown-menu dropdown-menu-right">';
+    //tr = tr + '                                  <a class="dropdown-item agregarCampos" href="#">';
+    //tr = tr + '                                         <i class="fas fa-plus-circle"></i>&nbsp;Agregar';
+    //tr = tr + '                                  </a><a class="dropdown-item quitarCampos" href="#">';
+    //tr = tr + '                                         <i class="fas fa-minus-circle"></i>&nbsp;Eliminar';
+    //tr = tr + '                                  </a>';
+    //tr = tr + '                          </div>';
+    //tr = tr + '               </div>';
+    //tr = tr + '         </td>';
+    //tr = tr + '</tr>';
+    //$("#cuerpoTablaIndicador").append(tr);
+    //MRV.CargarSelect(baseUrl + "Gestion/ListarTipoVehiculo", "#cbo-det-2-1", "ID_TIPO_VEHICULO", "DESCRIPCION");
+    //MRV.CargarSelect(baseUrl + "Gestion/ListarTipoCombustible", "#cbo-det-3-1", "ID_TIPO_COMBUSTIBLE", "DESCRIPCION");
+
+    ////////////var item = {
+    ////////////    RowNumber: 1,
+    ////////////    ID_INDICADOR: 0,
+    ////////////    ID_INICIATIVA: $("#Control").data("iniciativa"),
+    ////////////    ANNOB: "",
+    ////////////    ID_TIPO_VEHICULOB: "",
+    ////////////    ID_TIPO_COMBUSTIBLEB: "",
+    ////////////    KRVB: 0,
+    ////////////    CANTIDADB: 0,
+    ////////////    FACTOR_RENDIMIENTO: 0,
+    ////////////    ID_TIPO_FUENTEI: 0
+    ////////////}
+    ////////////indicadores.push(item);
+    ////////////console.log(indicadores);
+
     //MRV.CargarSelect(baseUrl + "Gestion/ListarTipoVehiculo", "#tipoVehiculoI" + fila, "ID_TIPO_VEHICULO", "DESCRIPCION");
     //MRV.CargarSelect(baseUrl + "Gestion/ListarTipoFuente", "#tipoFuenteI" + fila, "ID_TIPO_FUENTE", "DESCRIPCION");
     //$("#tablaIndicador").data("fila", fila);
 
 }
-
 function CargarTablaIndicador(datat, j) {
     var fila = $("#tablaIndicador").data("fila") + 1;
     var tr = '<tr id="detalles-tr-' + (j + 1) + '" data-value="0" >';
@@ -555,28 +772,29 @@ function CargarTablaIndicador(datat, j) {
     tr = tr + '         </td>';
     tr = tr + '         <td data-encabezado="Columna 07">';
     tr = tr + '              <div class="form-group m-0">';
-    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-4-' + (j + 1) + '">';
+    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-4-' + (j + 1) + '" disabled>';
     tr = tr + '              </div>';
     tr = tr + '         </td>';
     tr = tr + '         <td data-encabezado="Columna 07">';
     tr = tr + '              <div class="form-group m-0">';
-    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-5-' + (j + 1) + '">';
+    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-5-' + (j + 1) + '" disabled>';
     tr = tr + '              </div>';
     tr = tr + '         </td>';
     tr = tr + '         <td data-encabezado="Subtotal">';
     tr = tr + '               <div class="form-group m-0">';
-    tr = tr + '                       <input class="form-control form-control-sm text-right" type="text" id="txt-det-6-' + (j + 1) + '">';
+    tr = tr + '                       <input class="form-control form-control-sm text-right" type="text" id="txt-det-6-' + (j + 1) + '" disabled>';
     tr = tr + '               </div>';
     tr = tr + '         </td>';
+    //tr = tr + '         <td class="text-center" data-encabezado="Sustento">';
+    //tr = tr + '                <div class="form-group m-0">';
+    //tr = tr + '                       <button class="btn btn-secondary btn-sm m-0" onclick="fn_calcularIndicadores();"><i class="fas fa-upload mr-1"></i>+</button>';
+    //tr = tr + '                </div>';
+    //tr = tr + '         </td>';
     tr = tr + '         <td class="text-center" data-encabezado="Sustento">';
     tr = tr + '                <div class="form-group m-0">';
-    tr = tr + '                       <button class="btn btn-secondary btn-sm m-0" onclick="fn_calcularIndicadores();"><i class="fas fa-upload mr-1"></i>+</button>';
-    tr = tr + '                </div>';
-    tr = tr + '         </td>';
-    tr = tr + '         <td class="text-center" data-encabezado="Sustento">';
-    tr = tr + '                <div class="form-group m-0">';
-    tr = tr + '                       <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-upload mr-1"></i>Cargar</label>';
-    tr = tr + '                       <input class="d-none fil-file-control" type="file" id="fle-doc">';
+    tr = tr + '                       <label class="btn btn-secondary btn-sm m-0" for="fledoc-' + (j + 1) + '"><i class="fas fa-upload mr-1"></i>Cargar</label>';
+    //tr = tr + '                       <input class="d-none fil-file-control" type="file" id="fledoc-' + (j + 1) + '" name="fledoc">';
+    tr = tr + '                       <input class="d-none" type="file" id="fledoc-' + (j + 1) + '" name="fledoc">';
     tr = tr + '                </div>';
     tr = tr + '         </td>';
     tr = tr + '         <td class="text-center text-xs-right" data-encabezado="Acciones">';
@@ -591,13 +809,19 @@ function CargarTablaIndicador(datat, j) {
     tr = tr + '                          </div>';
     tr = tr + '               </div>';
     tr = tr + '         </td>';
+
+    tr = tr + '         <td class="text-hide" data-encabezado="ID_INDICADOR" style="display:none;">';
+    tr = tr + '               <div class="form-group m-0">';
+    tr = tr + '                       <input class="form-control form-control-sm text-right" type="text" id="txt-det-7-' + (j + 1) + '" disabled>';
+    tr = tr + '               </div>';
+    tr = tr + '         </td>';
+
     tr = tr + '</tr>';
     $("#cuerpoTablaIndicador").append(tr);
     fn_CargarListaTipoVehiculo(datat, j);
     //$("#tablaIndicador").data("fila", fila);
 
 }
-
 
 function fn_calcularIndicador(fila) {
     var item = {
@@ -631,110 +855,181 @@ function fn_calcularIndicador(fila) {
     });
 }
 
+
 function fn_procesoDetalleIndicador(url, estado) {
+    debugger;
+    var n = $(".tabla-detalle-indicadores").find("tbody").find("th").length + 1;
+    for (var fila = 1 ; fila < n; fila++) {
+        var itx = {
+            ID_INDICADOR: $("#txt-det-7-" + fila).val(),
+            ID_INICIATIVA: $("#Control").data("iniciativa"),
+            ANNOB: $("#cbo-det-1-" + fila).val(),
+            ID_TIPO_VEHICULOB: $("#cbo-det-2-" + fila).val(),
+            ID_TIPO_COMBUSTIBLEB: $("#cbo-det-3-" + fila).val(),
+            KRVB: $("#txt-det-1-" + fila).val(),
+            CANTIDADB: $("#txt-det-2-" + fila).val(),
+            FACTOR_RENDIMIENTO: $("#txt-det-3-" + fila).val(),
+            TOTAL_GEI_BASE: $("#txt-det-4-" + fila).val(),
+            TOTAL_GEI_INIMIT: $("#txt-det-5-" + fila).val(),
+            TOTAL_GEI_REDUCIDO: $("#txt-det-6-" + fila).val(),
+            ID_TIPO_FUENTEI: $("#cbo-enfoque").val(),
+            ADJUNTO_BASE: $("#fledoc-" + fila).val()
+        }
+        indicadores.push(itx);
+    }
+
+    var sustentos = document.getElementById("fledocumentos");
+    for (var sus = 0; sus < sustentos.files.length; sus++) {
+        var sux = {
+            ID_INICIATIVA: $("#Control").data("iniciativa"),
+            ADJUNTO_BASE: sustentos.files[sus].name,
+            FLAG_ESTADO: "1"
+        }
+        documentos.push(sux);
+    }
+
     var item = {
         ID_INICIATIVA: $("#Control").data("iniciativa"),
         ID_USUARIO: $("#Control").data("usuario"),
         NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
-        ID_ESTADO: estado
+        ID_ESTADO: estado,
+        ListaIndicadores: indicadores,
+        ListaSustentos: documentos
     };
-    var mensaje = "";
-    var respuesta = MRV.Ajax(url, item, false);
-    if (respuesta.success) {
-        if (estado == 0) {
-            $("#mensajeModalAvance #mensajeDangerAvance").remove();
-            var msj = '                   <div class="col-sm-12 col-md-12 col-lg-12" id="mensajeWarningAvance">';
-            msj = msj + '                       <div class="alert alert-warning d-flex align-items-stretch" role="alert">';
-            msj = msj + '                            <div class="alert-wrap mr-3">';
-            msj = msj + '                                <div class="sa">';
-            msj = msj + '                                    <div class="sa-warning">';
-            msj = msj + '                                        <div class="sa-warning-body"></div>';
-            msj = msj + '                                        <div class="sa-warning-dot"></div>';
-            msj = msj + '                                    </div>';
-            msj = msj + '                                </div>';
-            msj = msj + '                            </div>';
-            msj = msj + '                            <div class="alert-wrap">';
-            msj = msj + '                                <h6>Sus avances fueron guardados</h6>';
-            msj = msj + '                                <hr>Recuerde, podrá solicitar una revisión una vez complete todos los campos obligatorios.';
-            msj = msj + '                            </div>';
-            msj = msj + '                        </div>';
-            msj = msj + '                    </div>';
-            $("#guardar-avance #modalAvanceBoton").hide();
-            $('#mensajeModalAvance').append(msj);
-        } else {
-            $('#mensajeModalRegistrar #mensajeGoodRegistro').remove();
-            $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
-            var msj = '                       <div class="alert alert-success d-flex align-items-stretch" role="alert" id="mensajeGoodRegistro">';
-            msj = msj + '                            <div class="alert-wrap mr-3">';
-            msj = msj + '                                <div class="sa">';
-            msj = msj + '                                    <div class="sa-success">';
-            msj = msj + '                                        <div class="sa-success-tip"></div>';
-            msj = msj + '                                        <div class="sa-success-long"></div>';
-            msj = msj + '                                        <div class="sa-success-placeholder"></div>';
-            msj = msj + '                                        <div class="sa-success-fix"></div>';
-            msj = msj + '                                    </div>';
-            msj = msj + '                                </div>';
-            msj = msj + '                            </div>';
-            msj = msj + '                            <div class="alert-wrap">';
-            msj = msj + '                                <h6>Bien hecho</h6>';
-            msj = msj + '                                <hr><small class="mb-0">Los datos de su detalle de indicadores fueron guardados exitosamente, espere la aprobación del especialista para continuar. En breve le notificaremos el estado de su solicitud de revisión.</small>';
-            msj = msj + '                            </div>';
-            msj = msj + '                        </div>';
-            $("#solicitar-revision #modalRegistrarBoton").hide();
-            $('#mensajeModalRegistrar').append(msj);
-            $("#Control").data("modal", 1);
-            if (respuesta.extra == "1") {
-                if (ws != null) ws.send(respuesta.extra);
+
+    var options = {
+        type: "POST",
+        dataType: "json",
+        contentType: false,
+        url: url,
+        processData: false,
+        data: ({
+            ID_INICIATIVA: $("#Control").data("iniciativa"),
+            ID_USUARIO: $("#Control").data("usuario"),
+            NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
+            ID_ESTADO: estado,
+            ListaIndicadores: indicadores,
+            ListaSustentos: documentos
+        }),
+        xhr: function () {  // Custom XMLHttpRequest
+            var myXhr = $.ajaxSettings.xhr();
+            if (myXhr.upload) { // Check if upload property exists
+                //myXhr.upload.addEventListener('progress', progressHandlingFunction, false); // For handling the progress of the upload
             }
+            return myXhr;
+        },
+        resetForm: false,
+        beforeSubmit: function (formData, jqForm, options) {
+            return true;
+        },
+        success: function (response, textStatus, myXhr) {
+            if (response.success) {
+                if (estado == 0) {
+                    $("#mensajeModalAvance #mensajeDangerAvance").remove();
+                    var msj = '                   <div class="col-sm-12 col-md-12 col-lg-12" id="mensajeWarningAvance">';
+                    msj = msj + '                       <div class="alert alert-warning d-flex align-items-stretch" role="alert">';
+                    msj = msj + '                            <div class="alert-wrap mr-3">';
+                    msj = msj + '                                <div class="sa">';
+                    msj = msj + '                                    <div class="sa-warning">';
+                    msj = msj + '                                        <div class="sa-warning-body"></div>';
+                    msj = msj + '                                        <div class="sa-warning-dot"></div>';
+                    msj = msj + '                                    </div>';
+                    msj = msj + '                                </div>';
+                    msj = msj + '                            </div>';
+                    msj = msj + '                            <div class="alert-wrap">';
+                    msj = msj + '                                <h6>Sus avances fueron guardados</h6>';
+                    msj = msj + '                                <hr>Recuerde, podrá solicitar una revisión una vez complete todos los campos obligatorios.';
+                    msj = msj + '                            </div>';
+                    msj = msj + '                        </div>';
+                    msj = msj + '                    </div>';
+                    $("#guardar-avance #modalAvanceBoton").hide();
+                    $('#mensajeModalAvance').append(msj);
+                } else {
+                    $('#mensajeModalRegistrar #mensajeGoodRegistro').remove();
+                    $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
+                    var msj = '                       <div class="alert alert-success d-flex align-items-stretch" role="alert" id="mensajeGoodRegistro">';
+                    msj = msj + '                            <div class="alert-wrap mr-3">';
+                    msj = msj + '                                <div class="sa">';
+                    msj = msj + '                                    <div class="sa-success">';
+                    msj = msj + '                                        <div class="sa-success-tip"></div>';
+                    msj = msj + '                                        <div class="sa-success-long"></div>';
+                    msj = msj + '                                        <div class="sa-success-placeholder"></div>';
+                    msj = msj + '                                        <div class="sa-success-fix"></div>';
+                    msj = msj + '                                    </div>';
+                    msj = msj + '                                </div>';
+                    msj = msj + '                            </div>';
+                    msj = msj + '                            <div class="alert-wrap">';
+                    msj = msj + '                                <h6>Bien hecho</h6>';
+                    msj = msj + '                                <hr><small class="mb-0">Los datos de su detalle de indicadores fueron guardados exitosamente, espere la aprobación del especialista para continuar. En breve le notificaremos el estado de su solicitud de revisión.</small>';
+                    msj = msj + '                            </div>';
+                    msj = msj + '                        </div>';
+                    $("#solicitar-revision #modalRegistrarBoton").hide();
+                    $('#mensajeModalRegistrar').append(msj);
+                    $("#Control").data("modal", 1);
+                    if (response.extra == "1") {
+                        if (ws != null) ws.send(response.extra);
+                    }
+                }
+            } else {
+                if (estado == 0) {
+                    $("#mensajeModalAvance #mensajeDangerAvance").remove();
+                    var msj = '                   <div class="col-sm-12 col-md-12 col-lg-12" id="mensajeDangerAvance">';
+                    msj = msj + '                       <div class="alert alert-danger d-flex align-items-stretch" role="alert">';
+                    msj = msj + '                            <div class="alert-wrap mr-3">';
+                    msj = msj + '                                <div class="sa">';
+                    msj = msj + '                                    <div class="sa-error">';
+                    msj = msj + '                                       <div class="sa-error-x">';
+                    msj = msj + '                                           <div class="sa-error-left"></div>';
+                    msj = msj + '                                           <div class="sa-error-right"></div>';
+                    msj = msj + '                                       </div>';
+                    msj = msj + '                                       <div class="sa-error-placeholder"></div>';
+                    msj = msj + '                                       <div class="sa-error-fix"></div>';
+                    msj = msj + '                                   </div>';
+                    msj = msj + '                               </div>';
+                    msj = msj + '                           </div>';
+                    msj = msj + '                            <div class="alert-wrap">';
+                    msj = msj + '                                <h6>Error</h6>';
+                    msj = msj + '                                <hr>Ocurrio un error durante el proceso de guardado del avance.';
+                    msj = msj + '                            </div>';
+                    msj = msj + '                        </div>';
+                    msj = msj + '                    </div>';
+                    $('#mensajeModalAvance').append(msj);
+                } else {
+                    $('#mensajeModalRegistrar #mensajeGoodRegistro').remove();
+                    $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
+                    var msj = '                       <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="mensajeDangerRegistro">';
+                    msj = msj + '                            <div class="alert-wrap mr-3">';
+                    msj = msj + '                                <div class="sa">';
+                    msj = msj + '                                    <div class="sa-error">';
+                    msj = msj + '                                       <div class="sa-error-x">';
+                    msj = msj + '                                           <div class="sa-error-left"></div>';
+                    msj = msj + '                                           <div class="sa-error-right"></div>';
+                    msj = msj + '                                       </div>';
+                    msj = msj + '                                       <div class="sa-error-placeholder"></div>';
+                    msj = msj + '                                       <div class="sa-error-fix"></div>';
+                    msj = msj + '                                   </div>';
+                    msj = msj + '                               </div>';
+                    msj = msj + '                           </div>';
+                    msj = msj + '                           <div class="alert-wrap">';
+                    msj = msj + '                                <h6>Error de registro</h6>';
+                    msj = msj + '                                <hr><small class="mb-0">Verifique que los datos sean correctamente ingresados, complete todos los campos obligatorios e intente otra vez.</small>';
+                    msj = msj + '                           </div>';
+                    msj = msj + '                     </div>';
+                    $('#mensajeModalRegistrar').append(msj);
+                }
+            }
+        },
+        error: function (myXhr, textStatus, errorThrown) {
+            console.log(myXhr);
+            console.log(textStatus);
+            console.log(errorThrown);
         }
-    } else {
-        if (estado == 0) {
-            $("#mensajeModalAvance #mensajeDangerAvance").remove();
-            var msj = '                   <div class="col-sm-12 col-md-12 col-lg-12" id="mensajeDangerAvance">';
-            msj = msj + '                       <div class="alert alert-danger d-flex align-items-stretch" role="alert">';
-            msj = msj + '                            <div class="alert-wrap mr-3">';
-            msj = msj + '                                <div class="sa">';
-            msj = msj + '                                    <div class="sa-error">';
-            msj = msj + '                                       <div class="sa-error-x">';
-            msj = msj + '                                           <div class="sa-error-left"></div>';
-            msj = msj + '                                           <div class="sa-error-right"></div>';
-            msj = msj + '                                       </div>';
-            msj = msj + '                                       <div class="sa-error-placeholder"></div>';
-            msj = msj + '                                       <div class="sa-error-fix"></div>';
-            msj = msj + '                                   </div>';
-            msj = msj + '                               </div>';
-            msj = msj + '                           </div>';
-            msj = msj + '                            <div class="alert-wrap">';
-            msj = msj + '                                <h6>Error</h6>';
-            msj = msj + '                                <hr>Ocurrio un error durante el proceso de guardado del avance.';
-            msj = msj + '                            </div>';
-            msj = msj + '                        </div>';
-            msj = msj + '                    </div>';
-            $('#mensajeModalAvance').append(msj);
-        } else {
-            $('#mensajeModalRegistrar #mensajeGoodRegistro').remove();
-            $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
-            var msj = '                       <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="mensajeDangerRegistro">';
-            msj = msj + '                            <div class="alert-wrap mr-3">';
-            msj = msj + '                                <div class="sa">';
-            msj = msj + '                                    <div class="sa-error">';
-            msj = msj + '                                       <div class="sa-error-x">';
-            msj = msj + '                                           <div class="sa-error-left"></div>';
-            msj = msj + '                                           <div class="sa-error-right"></div>';
-            msj = msj + '                                       </div>';
-            msj = msj + '                                       <div class="sa-error-placeholder"></div>';
-            msj = msj + '                                       <div class="sa-error-fix"></div>';
-            msj = msj + '                                   </div>';
-            msj = msj + '                               </div>';
-            msj = msj + '                           </div>';
-            msj = msj + '                           <div class="alert-wrap">';
-            msj = msj + '                                <h6>Error de registro</h6>';
-            msj = msj + '                                <hr><small class="mb-0">Verifique que los datos sean correctamente ingresados, complete todos los campos obligatorios e intente otra vez.</small>';
-            msj = msj + '                           </div>';
-            msj = msj + '                     </div>';
-            $('#mensajeModalRegistrar').append(msj);
-        }
-    }
+    };
+
+    $("#formRegistrar").ajaxForm(options);
+    $("#formRegistrar").submit();
+
+
 
     $("#solicitar-revision").on("hidden.bs.modal", function () {
         if ($("#Control").data("modal") == 1) {
@@ -834,7 +1129,7 @@ function fn_procesoDetalleIndicador(url, estado) {
 //}
 
 function fn_guardarDetalleIndicador() {
-    var url = baseUrl + "Gestion/RegistrarDetalleIndicador";
+    var url = baseUrl + "Gestion/RegistrarDetalleIndicador2";
     fn_procesoDetalleIndicador(url, 1);
 }
 
@@ -1219,5 +1514,29 @@ function fn_verificarIniciativaDetalle() {
     });
 }
 
+function fn_verfileindicaor(idIndicador) {
+    var item = {
+        ID_INICIATIVA: $("#Control").data("iniciativa"),
+        ID_INDICADOR: idIndicador
+    };
+    var url = baseUrl + 'Gestion/GetDetalleIndicador';
+    var respuesta = MRV.Ajax(url, item, false);
+    if (respuesta.success) {
+        var urlMostrar = baseUrl + "Temp/" + respuesta.extra;
+        window.open(urlMostrar, "_blank");
+    }
+}
 
+function fn_verfilesutento(idIniciativaSustento) {
+    var item = {
+        ID_INICIATIVA: $("#Control").data("iniciativa"),
+        ID_INICIATIVA_SUSTENTATORIO: idIniciativaSustento
+    };
+    var url = baseUrl + 'Gestion/GeIniciativaSustento';
+    var respuesta = MRV.Ajax(url, item, false);
+    if (respuesta.success) {
+        var urlMostrar = baseUrl + "Temp/" + respuesta.extra;
+        window.open(urlMostrar, "_blank");
+    }
+}
 

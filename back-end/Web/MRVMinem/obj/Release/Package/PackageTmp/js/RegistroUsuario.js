@@ -6,6 +6,7 @@
 }
 
 $(document).ready(function () {
+    debugger;
     CargarListaSectorInstitucion();
     fn_limpiarCampo();
     $("#btnRegistrar").click(function (e) {
