@@ -59,6 +59,7 @@
     <Compile Include="RolOpcionesBE.cs" />
     <Compile Include="SectorInstitucionBE.cs" />
     <Compile Include="SessionBE.cs" />
+    <Compile Include="SustentoIniciativaBE.cs" />
     <Compile Include="TipoCombustibleBE.cs" />
     <Compile Include="TipoFuenteBE.cs" />
     <Compile Include="TipoVehiculoBE.cs" />

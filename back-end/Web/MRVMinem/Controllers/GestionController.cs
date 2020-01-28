@@ -14,6 +14,7 @@ using System.Net.Mail;
 using System.Net.Mime;
 using MRVMinem.Models;
 using System.Web.Configuration;
+using System.IO;
 
 namespace MRVMinem.Controllers
 {
@@ -385,7 +386,7 @@ namespace MRVMinem.Controllers
         {
             ResponseEntity itemRespuesta = new ResponseEntity();
 
-            entidad = IndicadorLN.RegistrarDetalleIndicador(entidad);
+            //entidad = IndicadorLN.RegistrarDetalleIndicador(entidad);
             if (entidad.ID_ESTADO == 1)
             {
                 var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
@@ -864,6 +865,147 @@ namespace MRVMinem.Controllers
             var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
+        }
+
+
+        //cambios 26.01.2020
+        public JsonResult RegistrarDetalleIndicador2(HttpPostedFileBase[] fledoc, HttpPostedFileBase[] fledocumentos, IniciativaBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            if (fledoc != null)
+            {
+                foreach (var f in fledoc)
+                {
+                    if (f != null)
+                    {
+                        string archivoOriginal = f.FileName;
+                        string nomArchivoSave = "";
+                        nomArchivoSave = Guid.NewGuid() + Path.GetExtension(f.FileName).ToString();
+                        var carpeta = WebConfigurationManager.AppSettings.Get("Sustentatorio");
+                        var ruta = Path.Combine(carpeta, nomArchivoSave);
+                        f.SaveAs(ruta);
+
+
+                        if (entidad.ListaIndicadores != null)
+                        {
+                            foreach (IndicadorBE item in entidad.ListaIndicadores)
+                            {
+                                if (item.ADJUNTO_BASE != null)
+                                {
+                                    if (item.ADJUNTO_BASE.Contains(archivoOriginal))
+                                    {
+                                        item.ADJUNTO = nomArchivoSave;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (fledocumentos != null)
+            {
+                foreach (var f in fledocumentos)
+                {
+                    if (f != null)
+                    {
+                        string archivoOriginal = f.FileName;
+                        string nomArchivoSave = "";
+                        nomArchivoSave = Guid.NewGuid() + Path.GetExtension(f.FileName).ToString();
+                        var carpeta = WebConfigurationManager.AppSettings.Get("Sustentatorio");
+                        var ruta = Path.Combine(carpeta, nomArchivoSave);
+                        f.SaveAs(ruta);
+
+
+                        if (entidad.ListaSustentos != null)
+                        {
+                            foreach (SustentoIniciativaBE item in entidad.ListaSustentos)
+                            {
+                                if (item.ADJUNTO_BASE != null)
+                                {
+                                    if (item.ADJUNTO_BASE.Contains(archivoOriginal))
+                                    {
+                                        item.ADJUNTO = nomArchivoSave;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        //else
+                        //{
+                        //    entidad.ListaSustentos = new List<SustentoIniciativaBE>();
+                        //}
+                        //SustentoIniciativaBE item2 = new SustentoIniciativaBE() { ID_INICIATIVA = entidad.ID_INICIATIVA, ADJUNTO = nomArchivoSave };
+                        //entidad.ListaSustentos.Add(item2);
+                    }
+                }
+            }
+
+            IndicadorBE indicador = null;
+            if (entidad.ListaIndicadores != null)
+                indicador = IndicadorLN.RegistraTodosIndicadores(entidad.ListaIndicadores);
+
+            SustentoIniciativaBE sustento = null;
+            if (entidad.ListaSustentos != null)
+                sustento = IndicadorLN.RegistraTodosSustentoIniciativa(entidad.ListaSustentos);
+
+            entidad = IndicadorLN.RegistrarEnvioDetalle(entidad);
+
+            if (entidad.ID_ESTADO == 1)
+            {
+                var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
+                IniciativaBE iniciativa = new IniciativaBE();
+                iniciativa.EMAIL_USUARIO = WebConfigurationManager.AppSettings.Get("UsermailEsp");
+                iniciativa.ASUNTO = "Registro Detalle Indicador - Entidad " + usuario.INSTITUCION;
+                iniciativa.DESCRIPCION = "El usuario de la entidad " + usuario.INSTITUCION + " ha registrado el/los detalle(s) de la Iniciativa (" + entidad.NOMBRE_INICIATIVA + "), en espera de su revisión.<br/><br/>";
+                EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 2);
+                Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+            }
+            itemRespuesta.success = entidad.OK;
+            itemRespuesta.extra = entidad.ID_ESTADO.ToString();
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult GetDetalleIndicador(IndicadorBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            IndicadorBE lista = IndicadorLN.GetDetalleIndicador(entidad);
+            string carpetaTemp = WebConfigurationManager.AppSettings["RutaTemp"];
+            string carpeta = WebConfigurationManager.AppSettings["Sustentatorio"];
+            if (lista != null)
+            {
+                if (System.IO.File.Exists(carpeta + "\\" + lista.ADJUNTO))
+                {
+                    System.IO.File.Copy(carpeta + "\\" + lista.ADJUNTO, carpetaTemp + "\\" + lista.ADJUNTO, true);
+                    itemRespuesta.success = true;
+                }
+                itemRespuesta.extra = lista.ADJUNTO;
+            }
+
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult GeIniciativaSustento(SustentoIniciativaBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            List<SustentoIniciativaBE> lista = IniciativaLN.ListaSustentoIniciativa(entidad);
+            string carpetaTemp = WebConfigurationManager.AppSettings["RutaTemp"];
+            string carpeta = WebConfigurationManager.AppSettings["Sustentatorio"];
+            if (lista != null)
+            {
+                if (System.IO.File.Exists(carpeta + "\\" + lista[0].ADJUNTO))
+                {
+                    System.IO.File.Copy(carpeta + "\\" + lista[0].ADJUNTO, carpetaTemp + "\\" + lista[0].ADJUNTO, true);
+                    itemRespuesta.success = true;
+                }
+                itemRespuesta.extra = lista[0].ADJUNTO;
+            }
+
+            return Respuesta(itemRespuesta);
         }
     }
 }

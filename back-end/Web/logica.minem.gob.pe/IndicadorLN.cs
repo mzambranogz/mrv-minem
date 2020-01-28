@@ -86,5 +86,38 @@ namespace logica.minem.gob.pe
         {
             return indicador.VerificarIniciativaDetalleIndicador(entidad);
         }
+
+        /*==== add==========*/
+        public static IndicadorBE RegistraTodosIndicadores(List<IndicadorBE> ListaIndicadores)
+        {
+            IndicadorBE entidad = null;
+            foreach (IndicadorBE item in ListaIndicadores)
+            {
+                entidad = indicador.RegistrarDetalleIndicador(item);
+            }
+            return entidad;
+        }
+
+        public static SustentoIniciativaBE RegistraTodosSustentoIniciativa(List<SustentoIniciativaBE> ListaSustentos)
+        {
+            SustentoIniciativaBE entidad = null;
+            foreach (SustentoIniciativaBE item in ListaSustentos)
+            {
+                entidad = indicador.RegistrarSustentoIniciativa(item);
+            }
+            return entidad;
+        }
+
+        public static IniciativaBE RegistrarEnvioDetalle(IniciativaBE entidad)
+        {
+            return indicador.RegistrarEnvioDetalle(entidad);
+        }
+
+        public static IndicadorBE GetDetalleIndicador(IndicadorBE entidad)
+        {
+            return indicador.GetDetalleIndicador(entidad);
+
+        }
     }
+    
 }

@@ -222,7 +222,7 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
                             tooltip = "Iniciativa de mitigación registrada";
                         } else if (data[i]["PROGRESO"] == 1 && data[i]["ID_ESTADO"] == 2 || data[i]["ID_ESTADO"] == 5) {
                             tooltip = "Iniciativa de mitigación observado";
-                        } else if (data[i]["PROGRESO"] == 2) {
+                        } else if (data[i]["PROGRESO"] == 2 && data[i]["ID_ESTADO"] == 3) {
                             tooltip = "Iniciativa de mitigación aprobada";
                         } else if (data[i]["PROGRESO"] == 3 && (data[i]["ID_ESTADO"] == 1)) {
                             tooltip = "Detalle de indicadores registrado";
@@ -352,7 +352,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                             tooltip = "Iniciativa de mitigación registrada";
                         } else if (data[i]["PROGRESO"] == 1 && data[i]["ID_ESTADO"] == 2 || data[i]["ID_ESTADO"] == 5) {
                             tooltip = "Iniciativa de mitigación observado";
-                        } else if (data[i]["PROGRESO"] == 2) {
+                        } else if (data[i]["PROGRESO"] == 2 && data[i]["ID_ESTADO"] == 3) {
                             tooltip = "Iniciativa de mitigación aprobada";
                         } else if (data[i]["PROGRESO"] == 3 && (data[i]["ID_ESTADO"] == 1)) {
                             tooltip = "Detalle de indicadores registrado";
@@ -396,7 +396,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                                 tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_mostrarEditarIniciativa(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
                             } else if (data[i]["PROGRESO"] == 1 && data[i]["ID_ESTADO"] == 2 && $('#Control').data('rol') == 1) {
                                 tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_mostrarCorregirIniciativa(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
-                            } else if (data[i]["PROGRESO"] == 2 && $('#Control').data('rol') == 1) {
+                            } else if (data[i]["PROGRESO"] == 2 && $('#Control').data('rol') == 1 && data[i]["ID_ESTADO"] == 3) {
                                 tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_cargarIdIniciativa(' + data[i]["ID_INICIATIVA"] + ');" data-toggle="modal" data-target="#tipo-ingreso-detalle"><i class="fas fa-clipboard-list"></i>&nbsp;Detalles</a>';
                             } else if (data[i]["PROGRESO"] == 3 && data[i]["ID_ESTADO"] == 0 && $('#Control').data('rol') == 1) {
                                 tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_mostrarEditarIndicador(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
@@ -1192,7 +1192,7 @@ function tablaMitigacionPrivado(data) {
                 tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_mostrarEditarIniciativa(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
             } else if (data[i]["PROGRESO"] == 1 && data[i]["ID_ESTADO"] == 2 && $('#Control').data('rol') == 1) {
                 tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_mostrarCorregirIniciativa(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
-            } else if (data[i]["PROGRESO"] == 2 && $('#Control').data('rol') == 1) {
+            } else if (data[i]["PROGRESO"] == 2 && $('#Control').data('rol') == 1 && data[i]["ID_ESTADO"] == 3) {
                 tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_cargarIdIniciativa(' + data[i]["ID_INICIATIVA"] + ');" data-toggle="modal" data-target="#tipo-ingreso-detalle"><i class="fas fa-clipboard-list"></i>&nbsp;Detalles</a>';
             } else if (data[i]["PROGRESO"] == 3 && data[i]["ID_ESTADO"] == 0 && $('#Control').data('rol') == 1) {
                 tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_mostrarEditarIndicador(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';

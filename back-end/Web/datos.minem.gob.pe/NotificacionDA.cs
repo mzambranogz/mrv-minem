@@ -7,13 +7,14 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Configuration;
 using utilitario.minem.gob.pe;
 
 namespace datos.minem.gob.pe
 {
     public class NotificacionDA : BaseDA
     {
-        private string sPackage = "USERMRV.PKG_MRV_NOTIFICACION.";
+        private string sPackage = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_NOTIFICACION.";
 
         public NotificacionBE ConsultaNotificaciones(int Idusuario, int IdRol)
         {

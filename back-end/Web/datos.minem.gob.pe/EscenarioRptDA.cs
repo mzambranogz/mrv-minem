@@ -7,13 +7,14 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Configuration;
 using utilitario.minem.gob.pe;
 
 namespace datos.minem.gob.pe
 {
     public class EscenarioRptDA : BaseDA
     {
-        private string sPackage = "USERMRV.PKG_MRV_REPORTES.";
+        private string sPackage = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_REPORTES.";
 
         public List<EscenarioRptBE> ListaEscenariosRpt(EscenarioRptBE entidad)
         {

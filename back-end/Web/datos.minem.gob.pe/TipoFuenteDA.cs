@@ -8,12 +8,13 @@ using utilitario.minem.gob.pe;
 using Dapper;
 using Oracle.DataAccess.Client;
 using System.Data;
+using System.Web.Configuration;
 
 namespace datos.minem.gob.pe
 {
     public class TipoFuenteDA : BaseDA
     {
-        public string sPackage = "USERMRV.PKG_MRV_DETALLE_INDICADORES.";
+        public string sPackage = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_DETALLE_INDICADORES.";
         public List<TipoFuenteBE> ListarTipoFuente(TipoFuenteBE entidad)
         {
             List<TipoFuenteBE> Lista = null;

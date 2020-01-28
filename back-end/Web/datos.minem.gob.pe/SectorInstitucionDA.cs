@@ -9,12 +9,13 @@ using System.Data;
 using Dapper;
 using entidad.minem.gob.pe;
 using System.Configuration;
+using System.Web.Configuration;
 
 namespace datos.minem.gob.pe
 {
     public class SectorInstitucionDA : BaseDA
     {
-        private string sPackage = "USERMRV.PKG_MRV_ADMIN_SISTEMA.";
+        private string sPackage = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_ADMIN_SISTEMA.";
 
         public List<SectorInstitucionBE> ListaSectorInstitucion(SectorInstitucionBE entidad)
         {

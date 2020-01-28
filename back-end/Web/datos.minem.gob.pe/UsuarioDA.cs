@@ -10,12 +10,13 @@ using Dapper;
 using utilitario.minem.gob.pe;
 using MRVMinem.Datos.DataBaseHelpers;
 using Oracle.DataAccess.Types;
+using System.Web.Configuration;
 
 namespace datos.minem.gob.pe
 {
     public class UsuarioDA : BaseDA
     {
-        private string sPackage = "USERMRV.PKG_MRV_ADMIN_SISTEMA.";
+        private string sPackage = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_ADMIN_SISTEMA.";
 
         public int VerificarEmail(UsuarioBE entidad)
         {
@@ -66,7 +67,7 @@ namespace datos.minem.gob.pe
                 {
                     using (IDbConnection db = new OracleConnection(CadenaConexion))
                     {
-                        string sp = "USERMRV.PKG_MRV_MANTENIMIENTO." + "USP_DEL_USUARIO_MEDMIT";
+                        string sp = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_MANTENIMIENTO." + "USP_DEL_USUARIO_MEDMIT";
                         var p = new OracleDynamicParameters();
                         p.Add("pID_USUARIO", entidad.ID_USUARIO);
                         p.Add("pID_USUREG", entidad.USUARIO_REGISTRO);
@@ -104,7 +105,7 @@ namespace datos.minem.gob.pe
             {
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
                 {
-                    string sp = "USERMRV.PKG_MRV_MANTENIMIENTO." + "USP_UPD_USUARIO";
+                    string sp = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_MANTENIMIENTO." + "USP_UPD_USUARIO";
                     var p = new OracleDynamicParameters();
                     p.Add("pID_USUARIO", entidad.ID_USUARIO);
                     p.Add("pNOMBRES_USUARIO", entidad.NOMBRES_USUARIO);
@@ -125,7 +126,7 @@ namespace datos.minem.gob.pe
                 {
                     using (IDbConnection db = new OracleConnection(CadenaConexion))
                     {
-                        string sp = "USERMRV.PKG_MRV_MANTENIMIENTO." + "USP_DEL_USUARIO_MEDMIT";
+                        string sp = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_MANTENIMIENTO." + "USP_DEL_USUARIO_MEDMIT";
                         var p = new OracleDynamicParameters();
                         p.Add("pID_USUARIO", entidad.ID_USUARIO);
                         p.Add("pID_USUREG", entidad.USUARIO_REGISTRO);
@@ -163,7 +164,7 @@ namespace datos.minem.gob.pe
             {
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
                 {
-                    string sp = "USERMRV.PKG_MRV_MANTENIMIENTO." + "USP_MNT_USUARIO_MEDMIT";
+                    string sp = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_MANTENIMIENTO." + "USP_MNT_USUARIO_MEDMIT";
                     var p = new OracleDynamicParameters();
                     p.Add("pID_USUARIO", entidad.ID_USUARIO);
                     p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
@@ -190,7 +191,7 @@ namespace datos.minem.gob.pe
             {
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
                 {
-                    string sp = "USERMRV.PKG_MRV_MANTENIMIENTO." + "USP_SEL_USUARIO_MEDMIT";
+                    string sp = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_MANTENIMIENTO." + "USP_SEL_USUARIO_MEDMIT";
                     var p = new OracleDynamicParameters();
                     p.Add("pID_USUARIO", entidad.ID_USUARIO);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
@@ -270,7 +271,7 @@ namespace datos.minem.gob.pe
             {
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
                 {
-                    string sp = "USERMRV.PKG_MRV_INICIATIVA_MITIGACION." + "USP_SEL_INFORMACION_USUARIO";
+                    string sp = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_INICIATIVA_MITIGACION." + "USP_SEL_INFORMACION_USUARIO";
                     var p = new OracleDynamicParameters();
                     p.Add("pID_USUARIO", entidad.ID_USUARIO);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
@@ -291,7 +292,7 @@ namespace datos.minem.gob.pe
             {
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
                 {
-                    string sp = "USERMRV.PKG_MRV_MANTENIMIENTO." + "USP_SEL_MANTENIMIENTO_USUARIO";
+                    string sp = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_MANTENIMIENTO." + "USP_SEL_MANTENIMIENTO_USUARIO";
                     var p = new OracleDynamicParameters();
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<UsuarioBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
@@ -311,7 +312,7 @@ namespace datos.minem.gob.pe
             {
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
                 {
-                    string sp = "USERMRV.PKG_MRV_MANTENIMIENTO." + "USP_SEL_MANTE_ID_USUARIO";
+                    string sp = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_MANTENIMIENTO." + "USP_SEL_MANTE_ID_USUARIO";
                     var p = new OracleDynamicParameters();
                     p.Add("pID_USUARIO", entidad.ID_USUARIO);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);

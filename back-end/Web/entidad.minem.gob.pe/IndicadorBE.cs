@@ -34,9 +34,12 @@ namespace entidad.minem.gob.pe
         public int CANTIDADI { get; set; }
         public int TOTALI { get; set; }
         public int TOTALR { get; set; }
-        public double TOTAL_GEI_INIMIT { get; set; }
-        public double TOTAL_GEI_REDUCIDO { get; set; }
-        public double TOTAL_GEI_BASE { get; set; }
+        public decimal TOTAL_GEI_INIMIT { get; set; }
+        public decimal TOTAL_GEI_REDUCIDO { get; set; }
+        public decimal TOTAL_GEI_BASE { get; set; }
+        public string ADJUNTO { get; set; }
+        public string ADJUNTO_BASE { get; set; }
+
 
         public int ANNO_BASE { get; set; }
         public int ID_TIPO_VEHICULO_BASE { get; set; }
@@ -50,6 +53,7 @@ namespace entidad.minem.gob.pe
         public int KRV_INIMIT { get; set; }
         public int CANT_INIMIT { get; set; }
         public double FACTOR_RENDIMIENTO { get; set; }
+        public double F_RENDIMIENTO { get; set; }
         public int ID_USUARIO { get; set; }
         public int ID_ESTADO { get; set; }
         public string TIPO_VEHICULO { get; set; }

@@ -8,12 +8,13 @@ using utilitario.minem.gob.pe;
 using Dapper;
 using Oracle.DataAccess.Client;
 using System.Data;
+using System.Web.Configuration;
 
 namespace datos.minem.gob.pe
 {
     public class IndicadorDA : BaseDA
     {
-        public string sPackage = "USERMRV.PKG_MRV_DETALLE_INDICADORES.";
+        public string sPackage = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_DETALLE_INDICADORES.";
         public List<IndicadorBE> ListarTablaIndicador(IndicadorBE entidad)
         {
             List<IndicadorBE> Lista = null;
@@ -70,16 +71,16 @@ namespace datos.minem.gob.pe
             {
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
                 {
-                    string sp = sPackage + "USP_PRC_CALCULAR_INDICADOR";
+                    string sp = sPackage + "USP_PRC_CALCULAR_INDICADOR2";
                     var p = new OracleDynamicParameters();
-                    p.Add("pID_INDICADOR", entidad.ID_INDICADOR);
-                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    //p.Add("pID_INDICADOR", entidad.ID_INDICADOR);
+                    //p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
                     p.Add("pANNO", entidad.ANNOB);
                     p.Add("pID_TIPO_VEHICULO", entidad.ID_TIPO_VEHICULOB);
                     p.Add("pID_TIPO_COMBUSTIBLE", entidad.ID_TIPO_COMBUSTIBLEB);
                     p.Add("pKRV", entidad.KRVB);
                     p.Add("pCANTIDAD", entidad.CANTIDADB);
-                    p.Add("pF_REN", entidad.FACTOR_RENDIMIENTO);
+                    //p.Add("pF_REN", entidad.FACTOR_RENDIMIENTO);
                     p.Add("pID_TIPO_FUENTE", entidad.ID_TIPO_FUENTEI);                                        
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<IndicadorBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
@@ -375,6 +376,78 @@ namespace datos.minem.gob.pe
                 Log.Error(ex);
                 entidad.OK = false;
                 entidad.extra = ex.Message;
+            }
+
+            return entidad;
+        }
+
+        public SustentoIniciativaBE RegistrarSustentoIniciativa(SustentoIniciativaBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_PRC_INICIATIVA_SUSTENTO";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA_SUSTENTATORIO", entidad.ID_INICIATIVA_SUSTENTATORIO);
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pADJUNTO", entidad.ADJUNTO);
+                    p.Add("pESTADO", entidad.FLAG_ESTADO);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+
+            return entidad;
+        }
+
+        public IndicadorBE GetDetalleIndicador(IndicadorBE entidad)
+        {
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_GET_INDICADOR";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_INDICADOR", entidad.ID_INDICADOR);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    entidad = db.Query<IndicadorBE>(sp, p, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return entidad;
+        }
+
+        public IniciativaBE RegistrarEnvioDetalle(IniciativaBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_UPD_REGISTRO_DETALLE";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
             }
 
             return entidad;

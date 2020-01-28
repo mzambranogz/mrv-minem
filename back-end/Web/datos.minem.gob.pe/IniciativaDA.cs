@@ -7,13 +7,14 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Configuration;
 using utilitario.minem.gob.pe;
 
 namespace datos.minem.gob.pe
 {
     public class IniciativaDA : BaseDA
     {
-        private string sPackage = "USERMRV.PKG_MRV_INICIATIVA_MITIGACION.";
+        private string sPackage = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_INICIATIVA_MITIGACION.";
 
         public List<IniciativaBE> ListaIniciativaPublico(IniciativaBE entidad)
         {
@@ -462,6 +463,8 @@ namespace datos.minem.gob.pe
                     {
                         item.FECHA = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
                         item.FECHA_EDITAR = item.FECHA_IMPLE_INICIATIVA.ToString("yyyy-MM-dd");
+                        SustentoIniciativaBE pValor = new SustentoIniciativaBE() { ID_INICIATIVA = entidad.ID_INICIATIVA, ID_INICIATIVA_SUSTENTATORIO = 0 };
+                        item.ListaSustentos = ListaSustentoIniciativa(pValor);
                     }
                 }
             }
@@ -471,6 +474,31 @@ namespace datos.minem.gob.pe
             }
 
             return Lista;
+        }
+
+        public List<SustentoIniciativaBE> ListaSustentoIniciativa(SustentoIniciativaBE entidad)
+        {
+            List<SustentoIniciativaBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = "PKG_MRV_DETALLE_INDICADORES." + "USP_SEL_INICIATIVA_SUSTENTO";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_INICIATIVA_SUSTENTATORIO", entidad.ID_INICIATIVA_SUSTENTATORIO);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<SustentoIniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+
         }
 
         public IniciativaBE AprobarIniciativaMitigacion(IniciativaBE entidad)
@@ -562,7 +590,7 @@ namespace datos.minem.gob.pe
             {
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
                 {
-                    string sp = "USERMRV.PKG_MRV_REPORTES." + "USP_SEL_SEGUIMIENTO_INICIATIVA";
+                    string sp = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_REPORTES." + "USP_SEL_SEGUIMIENTO_INICIATIVA";
                     var p = new OracleDynamicParameters();
                     p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
