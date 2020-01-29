@@ -489,6 +489,14 @@ END PKG_MRV_DETALLE_INDICADORES;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
+    
+    PROCEDURE USP_SEL_INICIATIVAS_REVISADO(
+        pRegistros  INTEGER,
+      	pPagina     INTEGER,
+      	pSortColumn IN VARCHAR2,
+      	pSortOrder  IN VARCHAR2,
+        pRefcursor OUT SYS_REFCURSOR
+    );
 
     PROCEDURE USP_SEL_INICIATIVAS_TODO(
         pRegistros  INTEGER,
@@ -2568,6 +2576,7 @@ END PKG_MRV_DETALLE_INDICADORES;
                         LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
                         LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
                         WHERE INI.PRIVACIDAD_INICIATIVA = ''1''
+                        ORDER BY INI.ID_INICIATIVA DESC
 					)
                     WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
 		OPEN pRefcursor FOR vQuery;   
@@ -2651,6 +2660,7 @@ END PKG_MRV_DETALLE_INDICADORES;
                         LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
                         LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
                         WHERE USU.ID_USUARIO = ' || TO_CHAR(pID_USUARIO) || '
+                        ORDER BY INI.ID_INICIATIVA DESC
 					)
                     WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
 		OPEN pRefcursor FOR vQuery;        
@@ -2679,7 +2689,7 @@ END PKG_MRV_DETALLE_INDICADORES;
         LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
         LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
         LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
-        WHERE INI.ID_ESTADO = 2 AND INI.ID_ETAPA IN (1,3);
+        WHERE INI.ID_ESTADO = 2;
 
         vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
         IF vPagina2 = 0 THEN
@@ -2717,7 +2727,8 @@ END PKG_MRV_DETALLE_INDICADORES;
                         LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
                         LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
                         LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
-                        WHERE INI.ID_ESTADO = 2 AND INI.ID_ETAPA IN (1,3)
+                        WHERE INI.ID_ESTADO = 2
+                        ORDER BY INI.ID_INICIATIVA DESC
 					)
                     WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
 
@@ -2785,12 +2796,80 @@ END PKG_MRV_DETALLE_INDICADORES;
                         LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
                         LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
                         WHERE INI.ID_ESTADO = 3
+                        ORDER BY INI.ID_INICIATIVA DESC
 					)
                     WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
 
         OPEN pRefcursor FOR vQuery;
 
     END USP_SEL_INICIATIVAS_APROBADO;
+    
+    PROCEDURE USP_SEL_INICIATIVAS_REVISADO(
+        pRegistros  INTEGER,
+      	pPagina     INTEGER,
+      	pSortColumn IN VARCHAR2,
+      	pSortOrder  IN VARCHAR2,
+        pRefcursor OUT SYS_REFCURSOR
+    )AS
+    	vPaginas    INTEGER;
+        vTotal      INTEGER;
+        vPagina2    INTEGER := pPagina;
+        vPageIndex  INTEGER := 0;
+        vQuery      VARCHAR2(10000) := '';
+        vSortColumn2 VARCHAR2(1000);
+    BEGIN    
+      	SELECT  COUNT(1) INTO vTotal
+        FROM T_GENM_INICIATIVA INI
+        LEFT JOIN T_MAE_ETAPA ET ON INI.ID_ETAPA = ET.ID_ETAPA
+        LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
+        LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
+        LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
+        WHERE INI.ID_ESTADO = 3 AND INI.ID_ETAPA = 5;
+
+        vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
+        IF vPagina2 = 0 THEN
+            vPagina2 := 1;
+        END IF;
+        IF vPagina2 > vPaginas THEN
+            vPagina2 := vPaginas;
+        END IF;
+
+        vPageIndex := vPagina2 - 1;
+        IF pSortColumn = 'FECHA' THEN
+            vSortColumn2 := 'FECHA_IMPLE_INICIATIVA';
+        ELSIF pSortColumn = 'PROGRESO' THEN
+          	vSortColumn2 := 'INI.ID_ETAPA';
+        ELSE
+        	vSortColumn2 := pSortColumn;
+        END IF;
+
+        vQuery := 'SELECT *    FROM (
+                        SELECT  INI.ID_INICIATIVA,
+                                INI.NOMBRE_INICIATIVA,
+                                ET.DESCRIPCION,
+                                INI.FECHA_IMPLE_INICIATIVA,
+                                MD.NOMBRE_MEDMIT,
+                                NVL(INST.NOMBRE_INSTITUCION,''-'') NOMBRE_INSTITUCION,
+                                INI.ID_ESTADO,
+                                INI.ID_ETAPA PROGRESO,
+                                ROW_NUMBER() OVER (ORDER BY ' || vSortColumn2 || ' ' || pSortOrder ||') AS ROWNUMBER,'
+                                || vPaginas || ' AS total_paginas,'
+                                || vPagina2 || ' AS pagina,'
+                                || pRegistros || ' AS cantidad_registros,'
+                                || vTotal || ' AS total_registros
+                        FROM T_GENM_INICIATIVA INI
+                        LEFT JOIN T_MAE_ETAPA ET ON INI.ID_ETAPA = ET.ID_ETAPA
+                        LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
+                        LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
+                        LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
+                        WHERE INI.ID_ESTADO = 3 AND INI.ID_ETAPA = 5
+                        ORDER BY INI.ID_INICIATIVA DESC
+					)
+                    WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
+
+        OPEN pRefcursor FOR vQuery;
+
+    END USP_SEL_INICIATIVAS_REVISADO;
 
 
     PROCEDURE USP_SEL_INICIATIVAS_TODO(
