@@ -1,0 +1,266 @@
+29/01/2020 10:06:44 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12547: TNS:lost contact
+29/01/2020 10:06:44 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12547: TNS:lost contact
+29/01/2020 10:06:44 a.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12547: TNS:lost contact
+29/01/2020 10:06:44 a.m.: [Método: Void Open(), Línea: 0] - ORA-12547: TNS:lost contact
+29/01/2020 10:06:44 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12547: TNS:lost contact
+29/01/2020 10:06:44 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12547: TNS:lost contact
+29/01/2020 10:06:44 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12547: TNS:lost contact
+29/01/2020 10:06:44 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12547: TNS:lost contact
+29/01/2020 10:06:44 a.m.: [Método: entidad.minem.gob.pe.UsuarioBE ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 221] - ORA-12547: TNS:lost contact
+29/01/2020 10:07:13 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:07:13 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:07:13 a.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:07:13 a.m.: [Método: Void Open(), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:07:13 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:07:13 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:07:13 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:07:13 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:07:13 a.m.: [Método: entidad.minem.gob.pe.UsuarioBE ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 221] - ORA-12541: TNS:no listener
+29/01/2020 10:07:27 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:07:27 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:07:27 a.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:07:27 a.m.: [Método: Void Open(), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:07:27 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:07:27 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:07:27 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:07:27 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:07:27 a.m.: [Método: entidad.minem.gob.pe.UsuarioBE ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 221] - ORA-12541: TNS:no listener
+29/01/2020 10:07:36 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:07:36 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:07:36 a.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:07:36 a.m.: [Método: Void Open(), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:07:36 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:07:36 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:07:36 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:07:36 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:07:36 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SectorInstitucionBE] ListaSectorInstitucion(entidad.minem.gob.pe.SectorInstitucionBE), Línea: 31] - ORA-12541: TNS:no listener
+29/01/2020 10:09:32 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_INICIATIVA_SUSTENTO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:09:32 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_INICIATIVA_SUSTENTO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:09:32 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_INICIATIVA_SUSTENTO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:09:32 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_INICIATIVA_SUSTENTO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:09:32 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_INICIATIVA_SUSTENTO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:09:32 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_INICIATIVA_SUSTENTO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:09:32 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_INICIATIVA_SUSTENTO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:09:32 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_INICIATIVA_SUSTENTO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:09:32 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_INICIATIVA_SUSTENTO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:09:32 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_INICIATIVA_SUSTENTO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:09:32 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SustentoIniciativaBE] ListaSustentoIniciativa(entidad.minem.gob.pe.SustentoIniciativaBE), Línea: 492] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_INICIATIVA_SUSTENTO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:10:10 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_INICIATIVA_SUSTENTO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:10:10 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_INICIATIVA_SUSTENTO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:10:10 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_INICIATIVA_SUSTENTO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:10:10 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_INICIATIVA_SUSTENTO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:10:10 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_INICIATIVA_SUSTENTO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:10:10 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_INICIATIVA_SUSTENTO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:10:10 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_INICIATIVA_SUSTENTO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:10:10 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_INICIATIVA_SUSTENTO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:10:10 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_INICIATIVA_SUSTENTO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:10:10 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_INICIATIVA_SUSTENTO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:10:10 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SustentoIniciativaBE] ListaSustentoIniciativa(entidad.minem.gob.pe.SustentoIniciativaBE), Línea: 492] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_INICIATIVA_SUSTENTO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:10:29 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00302: component 'USP_PRC_CALCULAR_INDICADOR2' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:10:29 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00302: component 'USP_PRC_CALCULAR_INDICADOR2' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:10:29 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00302: component 'USP_PRC_CALCULAR_INDICADOR2' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:10:29 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00302: component 'USP_PRC_CALCULAR_INDICADOR2' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:10:29 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00302: component 'USP_PRC_CALCULAR_INDICADOR2' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:10:29 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00302: component 'USP_PRC_CALCULAR_INDICADOR2' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:10:29 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00302: component 'USP_PRC_CALCULAR_INDICADOR2' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:10:29 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00302: component 'USP_PRC_CALCULAR_INDICADOR2' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:10:29 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00302: component 'USP_PRC_CALCULAR_INDICADOR2' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:10:29 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00302: component 'USP_PRC_CALCULAR_INDICADOR2' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:10:29 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorBE] CalcularIndicador(entidad.minem.gob.pe.IndicadorBE), Línea: 86] - ORA-06550: line 1, column 43:
+PLS-00302: component 'USP_PRC_CALCULAR_INDICADOR2' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:10:31 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00302: component 'USP_PRC_CALCULAR_INDICADOR2' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:10:31 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00302: component 'USP_PRC_CALCULAR_INDICADOR2' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:10:31 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00302: component 'USP_PRC_CALCULAR_INDICADOR2' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:10:31 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00302: component 'USP_PRC_CALCULAR_INDICADOR2' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:10:31 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00302: component 'USP_PRC_CALCULAR_INDICADOR2' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:10:31 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00302: component 'USP_PRC_CALCULAR_INDICADOR2' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:10:31 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00302: component 'USP_PRC_CALCULAR_INDICADOR2' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:10:31 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00302: component 'USP_PRC_CALCULAR_INDICADOR2' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:10:31 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00302: component 'USP_PRC_CALCULAR_INDICADOR2' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:10:31 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00302: component 'USP_PRC_CALCULAR_INDICADOR2' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:10:31 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorBE] CalcularIndicador(entidad.minem.gob.pe.IndicadorBE), Línea: 86] - ORA-06550: line 1, column 43:
+PLS-00302: component 'USP_PRC_CALCULAR_INDICADOR2' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+29/01/2020 10:26:56 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12547: TNS:lost contact
+29/01/2020 10:26:56 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12547: TNS:lost contact
+29/01/2020 10:26:56 a.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12547: TNS:lost contact
+29/01/2020 10:26:56 a.m.: [Método: Void Open(), Línea: 0] - ORA-12547: TNS:lost contact
+29/01/2020 10:26:56 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12547: TNS:lost contact
+29/01/2020 10:26:56 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12547: TNS:lost contact
+29/01/2020 10:26:56 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12547: TNS:lost contact
+29/01/2020 10:26:56 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12547: TNS:lost contact
+29/01/2020 10:26:56 a.m.: [Método: entidad.minem.gob.pe.UsuarioBE ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 221] - ORA-12547: TNS:lost contact
+29/01/2020 10:29:04 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12547: TNS:lost contact
+29/01/2020 10:29:04 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12547: TNS:lost contact
+29/01/2020 10:29:04 a.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12547: TNS:lost contact
+29/01/2020 10:29:04 a.m.: [Método: Void Open(), Línea: 0] - ORA-12547: TNS:lost contact
+29/01/2020 10:29:04 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12547: TNS:lost contact
+29/01/2020 10:29:04 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12547: TNS:lost contact
+29/01/2020 10:29:04 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12547: TNS:lost contact
+29/01/2020 10:29:04 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12547: TNS:lost contact
+29/01/2020 10:29:04 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SectorInstitucionBE] ListaSectorInstitucion(entidad.minem.gob.pe.SectorInstitucionBE), Línea: 31] - ORA-12547: TNS:lost contact
+29/01/2020 10:30:11 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:30:11 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:30:11 a.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:30:11 a.m.: [Método: Void Open(), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:30:11 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:30:11 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:30:11 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:30:11 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:30:11 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SectorInstitucionBE] ListaSectorInstitucion(entidad.minem.gob.pe.SectorInstitucionBE), Línea: 31] - ORA-12541: TNS:no listener
+29/01/2020 10:30:34 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:30:34 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:30:34 a.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:30:34 a.m.: [Método: Void Open(), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:30:34 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:30:34 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:30:34 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:30:34 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:30:34 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SectorInstitucionBE] ListaSectorInstitucion(entidad.minem.gob.pe.SectorInstitucionBE), Línea: 31] - ORA-12541: TNS:no listener
+29/01/2020 10:30:37 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:30:37 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:30:37 a.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:30:37 a.m.: [Método: Void Open(), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:30:37 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:30:37 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:30:37 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:30:37 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:30:37 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SectorInstitucionBE] ListaSectorInstitucion(entidad.minem.gob.pe.SectorInstitucionBE), Línea: 31] - ORA-12541: TNS:no listener
+29/01/2020 10:31:43 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:31:43 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:31:43 a.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:31:43 a.m.: [Método: Void Open(), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:31:43 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:31:43 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:31:43 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:31:43 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12541: TNS:no listener
+29/01/2020 10:31:43 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SectorInstitucionBE] ListaSectorInstitucion(entidad.minem.gob.pe.SectorInstitucionBE), Línea: 31] - ORA-12541: TNS:no listener

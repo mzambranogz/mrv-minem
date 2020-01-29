@@ -190,6 +190,8 @@ function fn_registrarUsuario() {
         TELEFONO_USUARIO: $("#txt-telefono").val(),
         CELULAR_USUARIO: $("#txt-celular").val(),
         ANEXO_USUARIO: $("#txt-anexo").val(),
+        ID_ROL: 1,
+        ID_ESTADO_USUARIO: '0',
         ID_SECTOR_INST: $("#cbo-sector").val(),
         INSTITUCION: $("#txt-institucion").val(),
         RUC: $("#txt-ruc").val(),
@@ -212,6 +214,8 @@ function fn_registrarUsuario() {
             TELEFONO_USUARIO: $("#txt-telefono").val(),
             CELULAR_USUARIO: $("#txt-celular").val(),
             ANEXO_USUARIO: $("#txt-anexo").val(),
+            ID_ROL: 1,
+            ID_ESTADO_USUARIO: '0',
             ID_SECTOR_INST: $("#cbo-sector").val(),
             INSTITUCION: $("#txt-institucion").val(),
             RUC: $("#txt-ruc").val(),
@@ -247,6 +251,7 @@ function fn_registrarUsuario() {
                 msj = msj + '                                <hr><small class="mb-0">Su registro fue exitoso, en breve le notificaremos el estado a través de un email.</small>';
                 msj = msj + '                            </div>';
                 msj = msj + '                        </div>';
+                $("#btnRegistrar").hide();
                 $("#seccionMensaje").append(msj);
                 setTimeout(dirigir, 5000);
             } else {
@@ -333,11 +338,11 @@ $(document).on('change', '#fledeclaracion', function () {
 
     var ext = /(.pdf)$/i;
     $("#mensajeFile #msj").remove();
-    if (ext.exec(fileInput) && fileName == "modelo-declaracion-jurada.pdf" && (fileSize >= 60000 && fileSize <= 110000)) {
-        $("#mensajeFile").append('<small style="color: green;" id="msj">Documento cargado</small>');
+    if (ext.exec(fileInput) /*&& fileName == "modelo-declaracion-jurada.pdf"*/ && (fileSize <= 12000000)) {
+        //$("#mensajeFile").append('<small style="color: green;" id="msj">Documento cargado</small>');
     } else {
         $("#txt-declaracion").val("");
         this.value = '';
-        $("#mensajeFile").append('<small style="color: red;" id="msj">*archivo no permitido</small>');
+        //$("#mensajeFile").append('<small style="color: red;" id="msj">*archivo no permitido</small>');
     }
 });
