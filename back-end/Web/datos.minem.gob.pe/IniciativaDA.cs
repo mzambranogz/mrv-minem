@@ -672,6 +672,99 @@ namespace datos.minem.gob.pe
             return Lista;
         }
 
+        public List<IniciativaBE> ListaRevisado(IniciativaBE entidad)
+        {
+            List<IniciativaBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_INICIATIVAS_REVISADO";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pRegistros", entidad.cantidad_registros);
+                    p.Add("pPagina", entidad.pagina);
+                    p.Add("pSortColumn", entidad.order_by);
+                    p.Add("pSortOrder", entidad.order_orden);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in Lista)
+                    {
+                        item.FECHA = item.FECHA_DERIVACION.ToString("dd/MM/yyyy");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+        public List<IniciativaBE> ListaEvaluado(IniciativaBE entidad)
+        {
+            List<IniciativaBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_INICIATIVAS_EVALUADO";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pRegistros", entidad.cantidad_registros);
+                    p.Add("pPagina", entidad.pagina);
+                    p.Add("pSortColumn", entidad.order_by);
+                    p.Add("pSortOrder", entidad.order_orden);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in Lista)
+                    {
+                        item.FECHA = item.FECHA_DERIVACION.ToString("dd/MM/yyyy");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+        public List<IniciativaBE> ListaVerificado(IniciativaBE entidad)
+        {
+            List<IniciativaBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_INICIATIVAS_VERIFICADO";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pRegistros", entidad.cantidad_registros);
+                    p.Add("pPagina", entidad.pagina);
+                    p.Add("pSortColumn", entidad.order_by);
+                    p.Add("pSortOrder", entidad.order_orden);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in Lista)
+                    {
+                        item.FECHA = item.FECHA_DERIVACION.ToString("dd/MM/yyyy");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
         public List<IniciativaBE> ListaTodo(IniciativaBE entidad)
         {
             List<IniciativaBE> Lista = null;

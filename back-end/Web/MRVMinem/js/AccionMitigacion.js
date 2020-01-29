@@ -86,6 +86,12 @@ function fn_CargaIniciativas() {
         } else if ($("#estadoIniciativa").data("estado") == 3) {
             CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaAprobado");
         } else if ($("#estadoIniciativa").data("estado") == 4) {
+            CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaRevisado");
+        } else if ($("#estadoIniciativa").data("estado") == 5) {
+            CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaEvaluado");
+        } else if ($("#estadoIniciativa").data("estado") == 6) {
+            CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaVerificado");
+        } else if ($("#estadoIniciativa").data("estado") == 7) {
             CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaTodo");
         }
         
@@ -104,10 +110,13 @@ function CargarOpcionesCuerpo() {
         var filtro = '<div class="btn-group">';
         filtro +=    '                <a class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1"><i class="fas fa-filter">&nbsp;</i>Filtrar por estados</a>';
         filtro +=    '                    <div class="dropdown-menu">';
-        filtro += '                           <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(1);"><i class="fas fa-search">&nbsp;</i>Pendientes</a>';
-        filtro +=    '                        <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(2);"><i class="fas fa-eye">&nbsp;</i>Observadas</a>';
-        filtro +=    '                        <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(3);"><i class="fas fa-check">&nbsp;</i>Aprobados</a>';
-        filtro +=    '                        <div class="dropdown-divider"></div><a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(4);"><i class="fas fa-tachometer-alt">&nbsp;</i>Todas</a>';
+        filtro += '                             <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(1);"><i class="fas fa-hourglass">&nbsp;</i>Pendientes</a>';
+        filtro +=    '                          <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(2);"><i class="fas fa-eye">&nbsp;</i>Observadas</a>';
+        filtro += '                             <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(3);"><i class="fas fa-check">&nbsp;</i>Aprobados</a>';
+        filtro += '                             <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(4);"><i class="fas fa-check-double">&nbsp;</i>Revisadas</a>';
+        filtro += '                             <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(5);"><i class="fas fa-clipboard-check">&nbsp;</i>Evaluadas</a>';
+        filtro += '                             <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(6);"><i class="fas fa-tasks">&nbsp;</i>Verificadas</a>';
+        filtro +=    '                        <div class="dropdown-divider"></div><a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(7);"><i class="fas fa-tachometer-alt">&nbsp;</i>Todas</a>';
         filtro +=    '                    </div>';
         filtro += ' </div>';
         $("#seccionFiltro").append(filtro);

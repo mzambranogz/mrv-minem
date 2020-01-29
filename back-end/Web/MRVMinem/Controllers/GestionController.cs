@@ -851,6 +851,30 @@ namespace MRVMinem.Controllers
             return jsonResult;
         }
 
+        public JsonResult ListaRevisado(IniciativaBE entidad)
+        {
+            List<IniciativaBE> lista = IniciativaLN.ListaRevisado(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListaEvaluado(IniciativaBE entidad)
+        {
+            List<IniciativaBE> lista = IniciativaLN.ListaEvaluado(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListaVerificado(IniciativaBE entidad)
+        {
+            List<IniciativaBE> lista = IniciativaLN.ListaVerificado(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
         public JsonResult ListaTodo(IniciativaBE entidad)
         {
             List<IniciativaBE> lista = IniciativaLN.ListaTodo(entidad);

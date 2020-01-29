@@ -142,7 +142,7 @@ namespace MRVMinem.Controllers
         {
             UsuarioBE entidad = new UsuarioBE();
 
-            entidad.ID_SECTOR_INST = int.Parse(Request.Form["TERMINOS"].ToString());
+            entidad.ID_SECTOR_INST = int.Parse(Request.Form["ID_SECTOR_INST"].ToString());
             entidad.EMAIL_USUARIO = Request.Form["EMAIL_USUARIO"].ToString();
             entidad.NOMBRES_USUARIO = Request.Form["NOMBRES_USUARIO"].ToString();
             entidad.APELLIDOS_USUARIO = Request.Form["APELLIDOS_USUARIO"].ToString();
@@ -173,15 +173,23 @@ namespace MRVMinem.Controllers
                 }
                 else
                 {
-                    string nomArchivoSave = "";
-                    var content = new byte[fledeclaracion.ContentLength];
-                    fledeclaracion.InputStream.Read(content, 0, fledeclaracion.ContentLength);
-                    double tamanio = (fledeclaracion.ContentLength / 1024);
-                    nomArchivoSave = Guid.NewGuid() + Path.GetExtension(fledeclaracion.FileName).ToString();
-                    var carpeta = WebConfigurationManager.AppSettings.Get("DJ");
-                    var ruta = Path.Combine(carpeta, nomArchivoSave);
-                    fledeclaracion.SaveAs(ruta);
-
+                    try
+                    {
+                        string nomArchivoSave = "";
+                        var content = new byte[fledeclaracion.ContentLength];
+                        fledeclaracion.InputStream.Read(content, 0, fledeclaracion.ContentLength);
+                        double tamanio = (fledeclaracion.ContentLength / 1024);
+                        nomArchivoSave = Guid.NewGuid() + Path.GetExtension(fledeclaracion.FileName).ToString();
+                        var carpeta = WebConfigurationManager.AppSettings.Get("DJ");
+                        var ruta = Path.Combine(carpeta, nomArchivoSave);
+                        fledeclaracion.SaveAs(ruta);
+                        itemRespuesta.success = true;
+                    }
+                    catch (Exception e)
+                    {
+                        itemRespuesta.success = false;
+                        itemRespuesta.extra = e.Message;
+                    }
 
                     EnvioCorreo hilo_correo = new EnvioCorreo(entidad);    //.CreacionUsuario(entidad);
                     //Thread hilo = new Thread(new ThreadStart(hilo_correo.CreacionUsuario));
@@ -190,7 +198,7 @@ namespace MRVMinem.Controllers
 
                     Task tarea = Task.Factory.StartNew(() => hilo_correo.CreacionUsuario());
 
-                    itemRespuesta.success = true;
+                    
                 }
             }
             else
