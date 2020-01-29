@@ -14,6 +14,8 @@
     <link rel="shortcut icon" href="images/favicon/favicon.ico">
     <meta name="msapplication-config" content="images/favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
     <link rel="stylesheet" href="./css/style.css">
   </head>
   <body>
@@ -92,7 +94,7 @@
                   <div class="row">
                     <div class="col-12">
                       <div class="h5 pb-5 text-primary">
-                        <div class="steps">PASO 1 DE 4: &nbsp;</div>Introducción | Promoción de vehiculos eléctricos a nivel nacional&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small>
+                        <div class="steps">PASO 1 DE 4 &nbsp;</div>Promoción de vehiculos eléctricos a nivel nacional&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small>
                       </div>
                     </div>
                   </div>
@@ -165,7 +167,7 @@
                   <div class="row">
                     <div class="col-12">
                       <div class="h5 pb-5 text-primary">
-                        <div class="steps">PASO 2 DE 4: &nbsp;</div>Datos principales<br><small class="text-muted">Complete información</small>
+                        <div class="steps">PASO 2 DE 4 &nbsp;</div>Datos principales<br><small class="text-muted">Complete información</small>
                       </div>
                     </div>
                   </div>
@@ -240,7 +242,7 @@
                   <div class="row">
                     <div class="col-12">
                       <div class="h5 pb-5 text-primary">
-                        <div class="steps">PASO 3 DE 4: &nbsp;</div>Datos generales<br><small class="text-muted">Complete información</small>
+                        <div class="steps">PASO 3 DE 4 &nbsp;</div>Datos generales<br><small class="text-muted">Complete información</small>
                       </div>
                     </div>
                   </div>
@@ -257,7 +259,7 @@
                         <label for="mls-ubicaciones">Ubicación<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
                         <div class="input-group">
                           <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
-                          <div class="form-control" style="height:120px; overflow-y: auto;">
+                          <div class="form-control" style="height:214px; overflow-y: auto;">
                             <div class="col-auto my-1">
                               <div class="custom-control custom-checkbox mr-sm-2">
                                 <input class="custom-control-input" type="checkbox" id="chk-region-1">
@@ -452,10 +454,17 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="txt-fecha-inicio">Fecha de Inicio del proyecto<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique el año de inicio del proyecto"></i></label>
+                        <label for="txt-fecha-inicio">Fecha de Inicio del proyecto<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique la fecha de inicio del proyecto"></i></label>
                         <div class="input-group">
                           <div class="input-group-prepend"><span class="input-group-text" id="inputGroup12"><i class="fas fa-calendar-alt"></i></span></div>
-                          <input class="form-control" type="date" id="txt-fecha-inicio" placeholder="Ingrese nombre de la iniciativa" aria-describedby="inputGroup12" min="2000-01-01" max="2030-12-31">
+                          <input class="form-control" type="date" id="txt-fecha-inicio" placeholder="Ingrese fecha de inicio" aria-describedby="inputGroup12" min="2000-01-01" max="2030-12-31">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="txt-fecha-fin">Fecha de Fin del proyecto<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique la fecha de finalización del proyecto"></i></label>
+                        <div class="input-group">
+                          <div class="input-group-prepend"><span class="input-group-text" id="inputGroup30"><i class="fas fa-calendar-alt"></i></span></div>
+                          <input class="form-control" type="date" id="txt-fecha-fin" placeholder="Ingrese fecha de fin" aria-describedby="inputGroup30" min="2000-01-01" max="2030-12-31">
                         </div>
                       </div>
                     </div>
@@ -477,7 +486,7 @@
                   <div class="row">
                     <div class="col-12">
                       <div class="h5 pb-5 text-primary">
-                        <div class="steps">PASO 4 DE 4: &nbsp;</div>Indicadores&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Información ligada a la iniciativa de mitigación</small>
+                        <div class="steps">PASO 4 DE 4 &nbsp;</div>Indicadores&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Información ligada a la iniciativa de mitigación</small>
                       </div>
                     </div>
                   </div>
