@@ -320,6 +320,7 @@ namespace MRVMinem.Controllers
                 entidad.DESCRIPCION = "En la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") se ha detectado algunos datos a corregir, los detalles en la siguiente descripción: <br/>" + entidad.DESCRIPCION + "<br/><br/>";
                 EnvioCorreo hilo_correo = new EnvioCorreo(entidad, 1);
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+                itemRespuesta.extra = entidad.DESCRIPCION;
             }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
@@ -337,6 +338,7 @@ namespace MRVMinem.Controllers
                 entidad.DESCRIPCION = "Su iniciativa fue revisada y aprobada<br/><br/>";
                 EnvioCorreo hilo_correo = new EnvioCorreo(entidad, 1);
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+                itemRespuesta.extra = entidad.DESCRIPCION;
             }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
@@ -432,6 +434,7 @@ namespace MRVMinem.Controllers
                 iniciativa.DESCRIPCION = "En los detalles indicadores de la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") se ha detectado algunos datos a corregir, los detalles en la siguiente descripción: <br/>" + entidad.DESCRIPCION + "<br/><br/>";
                 EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+                itemRespuesta.extra = entidad.DESCRIPCION;
             }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
@@ -451,6 +454,7 @@ namespace MRVMinem.Controllers
                 iniciativa.DESCRIPCION = "Los detalles de indicadores de su iniciativa fueron revisadas y aprobadas<br/><br/>";
                 EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+                itemRespuesta.extra = entidad.DESCRIPCION;
             }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
