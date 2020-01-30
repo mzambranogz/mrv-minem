@@ -139,12 +139,18 @@ function fn_cargarIniciativa() {
                                 $("#txt-fecha-inicio").val(data[i]["FECHA_EDITAR"]);
                                 //$("#txt-fecha-inicio").val("2019-12-12"); FORMATO EJEMPLO PARA CARGA
                             }
+                            if (data[i]["FECHA_FIN"].toString() != "01/01/0001") {
+                                $("#txt-fecha-fin").val(data[i]["FECHA_EDITAR_FIN"]);
+                            }
                         } else {
                             $("#receptorObservacion").append(data[i]["NOMBRES"]);
                             $("#emisorObservacion").append($("#Control").data("nombres"));
                             $("#txt-moneda").val(data[i]["MONEDA"]);
                             if (data[i]["FECHA"].toString() != "01/01/0001") {
                                 $("#txt-fecha-inicio").val(data[i]["FECHA"].toString());
+                            }
+                            if (data[i]["FECHA_FIN"].toString() != "01/01/0001") {
+                                $("#txt-fecha-fin").val(data[i]["FECHA_FIN"].toString());
                             }
                         }                        
                         if (data[i]["PRIVACIDAD_INICIATIVA"] == 1) {
@@ -272,6 +278,7 @@ function fn_procesoIniciativa(url, estado) {
         INVERSION_INICIATIVA: $("#txt-monto-inversion").val(),
         ID_MONEDA: $("#cbo-moneda").val(),
         FECHA_IMPLE_INICIATIVA: $("#txt-fecha-inicio").val(),
+        FECHA_FIN_INICIATIVA: $("#txt-fecha-fin").val(),
         ID_ESTADO: estado,
         ENERGETICO: energetico,
         GEI: gei,

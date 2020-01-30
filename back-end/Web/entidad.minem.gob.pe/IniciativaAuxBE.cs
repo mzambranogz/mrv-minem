@@ -22,7 +22,9 @@ namespace entidad.minem.gob.pe
         public string USUARIO { get; set; }
         public string EMAIL_USUARIO { get; set; }
         public string FECHA_EDITAR { get; set; }
+        public string FECHA_EDITAR_FIN { get; set; }
         public string ASUNTO { get; set; }
+        public int ID_ROL { get; set; }
         public List<IndicadorBE> ListaIndicadores { get; set; }
         public List<SustentoIniciativaBE> ListaSustentos { get; set; }
     }

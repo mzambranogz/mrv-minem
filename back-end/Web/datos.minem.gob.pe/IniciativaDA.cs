@@ -158,6 +158,7 @@ namespace datos.minem.gob.pe
                     p.Add("pINVERSION_INICIATIVA", entidad.INVERSION_INICIATIVA);
                     p.Add("pID_MONEDA", entidad.ID_MONEDA);
                     p.Add("pFECHA_IMPLE_INICIATIVA", entidad.FECHA_IMPLE_INICIATIVA);
+                    p.Add("pFECHA_FIN_INICIATIVA", entidad.FECHA_FIN_INICIATIVA);
                     p.Add("pPRIVACIDAD_INICIATIVA", entidad.PRIVACIDAD_INICIATIVA);
                     p.Add("pPRIVACIDAD_INVERSION", entidad.PRIVACIDAD_INVERSION);
                     p.Add("pID_ESTADO", entidad.ID_ESTADO);
@@ -201,6 +202,7 @@ namespace datos.minem.gob.pe
                     p.Add("pINVERSION_INICIATIVA", entidad.INVERSION_INICIATIVA);
                     p.Add("pID_MONEDA", entidad.ID_MONEDA);
                     p.Add("pFECHA_IMPLE_INICIATIVA", entidad.FECHA_IMPLE_INICIATIVA);
+                    p.Add("pFECHA_FIN_INICIATIVA", entidad.FECHA_FIN_INICIATIVA);
                     p.Add("pPRIVACIDAD_INICIATIVA", entidad.PRIVACIDAD_INICIATIVA);
                     p.Add("pID_ESTADO", entidad.ID_ESTADO);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
@@ -463,6 +465,8 @@ namespace datos.minem.gob.pe
                     {
                         item.FECHA = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
                         item.FECHA_EDITAR = item.FECHA_IMPLE_INICIATIVA.ToString("yyyy-MM-dd");
+                        item.FECHA_FIN = item.FECHA_FIN_INICIATIVA.ToString("dd/MM/yyyy");
+                        item.FECHA_EDITAR_FIN = item.FECHA_FIN_INICIATIVA.ToString("yyyy-MM-dd");
                         SustentoIniciativaBE pValor = new SustentoIniciativaBE() { ID_INICIATIVA = entidad.ID_INICIATIVA, ID_INICIATIVA_SUSTENTATORIO = 0 };
                         item.ListaSustentos = ListaSustentoIniciativa(pValor);
                     }
@@ -629,7 +633,7 @@ namespace datos.minem.gob.pe
 
                     foreach (var item in Lista)
                     {
-                        item.FECHA = item.FECHA_DERIVACION.ToString("dd/MM/yyyy");
+                        item.FECHA = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
                     }
                 }
             }
@@ -660,7 +664,7 @@ namespace datos.minem.gob.pe
 
                     foreach (var item in Lista)
                     {
-                        item.FECHA = item.FECHA_DERIVACION.ToString("dd/MM/yyyy");
+                        item.FECHA = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
                     }
                 }
             }
@@ -691,7 +695,7 @@ namespace datos.minem.gob.pe
 
                     foreach (var item in Lista)
                     {
-                        item.FECHA = item.FECHA_DERIVACION.ToString("dd/MM/yyyy");
+                        item.FECHA = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
                     }
                 }
             }
@@ -722,7 +726,7 @@ namespace datos.minem.gob.pe
 
                     foreach (var item in Lista)
                     {
-                        item.FECHA = item.FECHA_DERIVACION.ToString("dd/MM/yyyy");
+                        item.FECHA = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
                     }
                 }
             }
@@ -753,7 +757,7 @@ namespace datos.minem.gob.pe
 
                     foreach (var item in Lista)
                     {
-                        item.FECHA = item.FECHA_DERIVACION.ToString("dd/MM/yyyy");
+                        item.FECHA = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
                     }
                 }
             }
@@ -810,6 +814,306 @@ namespace datos.minem.gob.pe
                     p.Add("pPagina", entidad.pagina);
                     p.Add("pSortColumn", entidad.order_by);
                     p.Add("pSortOrder", entidad.order_orden);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in Lista)
+                    {
+                        item.FECHA = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+
+        /////////////////////////////////////////////////////////////////EXCEL
+        public List<IniciativaBE> ListaExcelIniciativaUsuario(IniciativaBE entidad)
+        {
+            List<IniciativaBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_EXCEL_INI_USU";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in Lista)
+                    {
+                        item.FECHA = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+        public List<IniciativaBE> ListaExcelIniciativaEspecialista(IniciativaBE entidad)
+        {
+            List<IniciativaBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_EXCEL_INI_ESP";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in Lista)
+                    {
+                        item.FECHA = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+        public List<IniciativaBE> ListaExcelIniciativaAdministrador(IniciativaBE entidad)
+        {
+            List<IniciativaBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_EXCEL_INI_ADM";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in Lista)
+                    {
+                        item.FECHA = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+        public List<IniciativaBE> ListaExcelIniciativaEvaluador(IniciativaBE entidad)
+        {
+            List<IniciativaBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_EXCEL_INI_EVA";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in Lista)
+                    {
+                        item.FECHA = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+        public List<IniciativaBE> ListaExcelIniciativaVerificador(IniciativaBE entidad)
+        {
+            List<IniciativaBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_EXCEL_INI_VRF";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in Lista)
+                    {
+                        item.FECHA = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+        public List<IniciativaBE> ListaExcelIniciativaObservado(IniciativaBE entidad)
+        {
+            List<IniciativaBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_EXCEL_INI_OBSERVADO";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in Lista)
+                    {
+                        item.FECHA = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+        public List<IniciativaBE> ListaExcelIniciativaAprobado(IniciativaBE entidad)
+        {
+            List<IniciativaBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_EXCEL_INI_APROBADO";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in Lista)
+                    {
+                        item.FECHA = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+        public List<IniciativaBE> ListaExcelIniciativaRevisado(IniciativaBE entidad)
+        {
+            List<IniciativaBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_EXCEL_INI_REVISADO";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in Lista)
+                    {
+                        item.FECHA = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+        public List<IniciativaBE> ListaExcelIniciativaEvaluado(IniciativaBE entidad)
+        {
+            List<IniciativaBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_EXCEL_INI_EVALUADO";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in Lista)
+                    {
+                        item.FECHA = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+        public List<IniciativaBE> ListaExcelIniciativaVerificado(IniciativaBE entidad)
+        {
+            List<IniciativaBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_EXCEL_INI_VERIFICADO";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in Lista)
+                    {
+                        item.FECHA = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+        public List<IniciativaBE> ListaExcelIniciativaTodo(IniciativaBE entidad)
+        {
+            List<IniciativaBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_EXCEL_INI_TODO";
+                    var p = new OracleDynamicParameters();
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
 

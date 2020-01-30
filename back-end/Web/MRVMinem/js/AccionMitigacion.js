@@ -337,10 +337,10 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
         datatype: 'json',
         data: Item,
         success: function (data) {
-            if (data != null && data != "") {
+            $("#cuerpoMitigacion").html("");
+            if (data != null && data != "") {                
                 if (data.length > 0) {
-
-                    $("#cuerpoMitigacion").html("");
+                    //$("#cuerpoMitigacion").html("");
                     for (var i = 0; i < data.length; i++) {
 
                         var progreso = '0%;';
@@ -1333,4 +1333,34 @@ function tablaMitigacionEstado(data) {
         if (Number($("#pagina").val()) > total_paginas) {
             $("#pagina").val(total_paginas);
         }
+}
+
+//////EXPORTAR
+
+function exportarIniciativa() {
+    var item = {
+        ID_USUARIO: $("#Control").data("usuario"),
+        ID_ROL: $("#Control").data("rol"),
+        ID_ESTADO: $("#estadoIniciativa").data("estado")
+    };
+
+    var url = baseUrl + 'Gestion/ExportarIniciativa';
+
+    var parametros = {
+        Url: url,
+        Item: JSON.stringify(item)
+    };
+
+    var frm = '<form id = "frmDescarga" name = "frmDescarga" method = "POST" target = "_blank" action = "' + url + '"></form>';
+    var hdn = '<input type = "hidden" id = "url" name = "url" />';
+    var hdnFormato = '<input type = "hidden" id = "formato" name = "formato" />';
+    var hdnItem = '<input type = "hidden" id = "item" name = "item" />';
+    jQuery('#divExportar').append(frm)
+    jQuery(hdn).appendTo(jQuery('#frmDescarga'));
+    jQuery(hdnFormato).appendTo(jQuery('#frmDescarga'));
+    jQuery(hdnItem).appendTo(jQuery('#frmDescarga'));
+    jQuery('#frmDescarga #url').val(parametros.Url);
+    jQuery('#frmDescarga #item').val(parametros.Item);
+    jQuery('#frmDescarga').submit();
+    jQuery('#frmDescarga').remove();
 }

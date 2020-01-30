@@ -370,5 +370,61 @@ namespace logica.minem.gob.pe
         {
             return iniciativaDA.ListaSustentoIniciativa(entidad);
         }
+
+        //////////////////////////////////////////////////////////////////// EXCEL
+        public static List<IniciativaBE> ListaExcelIniciativaUsuario(IniciativaBE entidad)
+        {
+            return iniciativaDA.ListaExcelIniciativaUsuario(entidad);
+        }
+
+        public static List<IniciativaBE> ListaExcelIniciativaEspecialista(IniciativaBE entidad)
+        {
+            return iniciativaDA.ListaExcelIniciativaEspecialista(entidad);
+        }
+
+        public static List<IniciativaBE> ListaExcelIniciativaAdministrador(IniciativaBE entidad)
+        {
+            return iniciativaDA.ListaExcelIniciativaAdministrador(entidad);
+        }
+
+        public static List<IniciativaBE> ListaExcelIniciativaEvaluador(IniciativaBE entidad)
+        {
+            return iniciativaDA.ListaExcelIniciativaEvaluador(entidad);
+        }
+
+        public static List<IniciativaBE> ListaExcelIniciativaVerificador(IniciativaBE entidad)
+        {
+            return iniciativaDA.ListaExcelIniciativaVerificador(entidad);
+        }
+
+        public static List<IniciativaBE> ListaExcelIniciativaObservado(IniciativaBE entidad)
+        {
+            return iniciativaDA.ListaExcelIniciativaObservado(entidad);
+        }
+
+        public static List<IniciativaBE> ListaExcelIniciativaAprobado(IniciativaBE entidad)
+        {
+            return iniciativaDA.ListaExcelIniciativaAprobado(entidad);
+        }
+
+        public static List<IniciativaBE> ListaExcelIniciativaRevisado(IniciativaBE entidad)
+        {
+            return iniciativaDA.ListaExcelIniciativaRevisado(entidad);
+        }
+
+        public static List<IniciativaBE> ListaExcelIniciativaEvaluado(IniciativaBE entidad)
+        {
+            return iniciativaDA.ListaExcelIniciativaEvaluado(entidad);
+        }
+
+        public static List<IniciativaBE> ListaExcelIniciativaVerificado(IniciativaBE entidad)
+        {
+            return iniciativaDA.ListaExcelIniciativaVerificado(entidad);
+        }
+
+        public static List<IniciativaBE> ListaExcelIniciativaTodo(IniciativaBE entidad)
+        {
+            return iniciativaDA.ListaExcelIniciativaTodo(entidad);
+        }
     }
 }

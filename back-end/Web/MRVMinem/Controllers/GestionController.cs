@@ -17,6 +17,8 @@ using System.Web.Configuration;
 using System.IO;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
+using System.Drawing;
+using utilitario.minem.gob.pe;
 
 namespace MRVMinem.Controllers
 {
@@ -262,7 +264,16 @@ namespace MRVMinem.Controllers
             entidad = IniciativaLN.ActualizarIniciativaMitigacion(entidad);
             if (entidad.OK)
             {
-                if (entidad.ID_ESTADO == 5)
+                if (entidad.ID_ESTADO == 1)
+                {
+                    var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
+                    entidad.EMAIL_USUARIO = WebConfigurationManager.AppSettings.Get("UsermailEsp");
+                    entidad.ASUNTO = "Registro Iniciativa - Entidad " + usuario.INSTITUCION;
+                    entidad.DESCRIPCION = "El usuario de la entidad " + usuario.INSTITUCION + " ha realizado un registro de la Iniciativa (" + entidad.NOMBRE_INICIATIVA + "), en espera de su revisión.<br><br/>";
+                    EnvioCorreo hilo_correo = new EnvioCorreo(entidad, 1);
+                    Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+                }
+                else if (entidad.ID_ESTADO == 5)
                 {
                     var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
                     entidad.EMAIL_USUARIO = WebConfigurationManager.AppSettings.Get("UsermailEsp");
@@ -1134,7 +1145,288 @@ namespace MRVMinem.Controllers
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
+            }   
+                     
+        }
+
+        public void ExportarIniciativa(string item)
+        {
+            try
+            {
+                if (item != null)
+                {
+                    var entidad = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<IniciativaBE>(item);
+                    ExportarToExcelIniciativaMitigacion(entidad);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
             }
         }
+
+        public void ExportarToExcelIniciativaMitigacion(IniciativaBE entidad)
+        {
+            List<IniciativaBE> lista = new List<IniciativaBE>();
+            if (entidad.ID_ESTADO == 1)
+            {
+                if (entidad.ID_ROL == 1)
+                {
+                    lista = IniciativaLN.ListaExcelIniciativaUsuario(entidad);
+                }
+                else if (entidad.ID_ROL == 2)
+                {
+                    lista = IniciativaLN.ListaExcelIniciativaEspecialista(entidad);
+                }
+                else if (entidad.ID_ROL == 3)
+                {
+                    lista = IniciativaLN.ListaExcelIniciativaAdministrador(entidad);
+                }
+                else if (entidad.ID_ROL == 4)
+                {
+                    lista = IniciativaLN.ListaExcelIniciativaEvaluador(entidad);
+                }
+                else if (entidad.ID_ROL == 5)
+                {
+                    lista = IniciativaLN.ListaExcelIniciativaVerificador(entidad);
+                }
+            }
+            else if (entidad.ID_ESTADO == 2)
+            {
+                lista = IniciativaLN.ListaExcelIniciativaObservado(entidad);
+            }
+            else if (entidad.ID_ESTADO == 3)
+            {
+                lista = IniciativaLN.ListaExcelIniciativaAprobado(entidad);
+            }
+            else if (entidad.ID_ESTADO == 4)
+            {
+                lista = IniciativaLN.ListaExcelIniciativaRevisado(entidad);
+            }
+            else if (entidad.ID_ESTADO == 5)
+            {
+                lista = IniciativaLN.ListaExcelIniciativaEvaluado(entidad);
+            }
+            else if (entidad.ID_ESTADO == 6)
+            {
+                lista = IniciativaLN.ListaExcelIniciativaVerificado(entidad);
+            }
+            else if (entidad.ID_ESTADO == 7)
+            {
+                lista = IniciativaLN.ListaExcelIniciativaTodo(entidad);
+            }
+
+            //var lista = IniciativaLN.ListaObservado(entidad);
+            int row = 2;
+            try
+            {
+                string cadena_fecha = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+
+                using (ExcelPackage package = new ExcelPackage())
+                {
+                    var ws1 = package.Workbook.Worksheets.Add("INICIATIVA MITIGACIÓN");
+                    using (var m = ws1.Cells[1, 1, row, 6])
+                    {
+                        m.Style.Font.Bold = true;
+                        m.Style.WrapText = true;
+                        m.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        m.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        m.Style.Font.Size = 14;
+                        m.Merge = true;
+                        m.Value = "INICIATIVA MITIGACIÓN " + cadena_fecha;
+                    }
+                    ws1.View.FreezePanes(2, 1);
+                    row++;
+                    ws1.Cells["A" + row].Value = "N°";
+                    ws1.Cells["A" + row].AutoFitColumns(5);
+                    ws1.Cells["B" + row].Value = "NOMBRE DE INICIATIVA";
+                    ws1.Cells["B" + row].AutoFitColumns(60);
+                    ws1.Cells["C" + row].Value = "PROGRESO";
+                    ws1.Cells["C" + row].AutoFitColumns(15);
+                    ws1.Cells["D" + row].Value = "FECHA DE INICIO";
+                    ws1.Cells["D" + row].AutoFitColumns(20);
+                    ws1.Cells["E" + row].Value = "MEDIDA DE MITIGACIÓN";
+                    ws1.Cells["E" + row].AutoFitColumns(60);
+                    ws1.Cells["F" + row].Value = "ENTIDAD";
+                    ws1.Cells["F" + row].AutoFitColumns(35);
+
+                    FormatoCelda(ws1, "A", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "B", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "C", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "D", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "E", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "F", row, 0, 123, 255, 255, 255, 255);
+                    ws1.Row(row).Height = 42;
+                    row++;
+                    if (lista.Count > 0)
+                    {
+                        var xNum = 0;
+                        foreach (IniciativaBE dt_fila in lista)
+                        {
+                            xNum++;
+                            ws1.Cells["A" + row].Value = xNum;
+                            ws1.Cells["B" + row].Value = dt_fila.NOMBRE_INICIATIVA;
+                            ws1.Cells["C" + row].Value = Convert.ToString(dt_fila.PROGRESO*25) + "%";
+                            ws1.Cells["D" + row].Value = dt_fila.FECHA;
+                            ws1.Cells["E" + row].Value = dt_fila.NOMBRE_MEDMIT;
+                            ws1.Cells["F" + row].Value = dt_fila.NOMBRE_INSTITUCION;
+                            formatoDetalle(ws1, "A", "F", row);
+                            row++;
+                        }
+                        row++;
+                    }
+
+                    string strFileName = "LISTA_INICIATIVA_MITIGACION_" + DateTime.Now.ToString() + ".xlsx";
+                    Response.Clear();
+                    byte[] dataByte = package.GetAsByteArray();
+                    Response.AddHeader("Content-Disposition", "inline;filename=\"" + strFileName + "\"");
+                    Response.AddHeader("Content-Length", dataByte.Length.ToString());
+                    Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                    Response.BinaryWrite(dataByte);
+                    Response.End();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public void ExportarMantenimientoUsuario(string item)
+        {
+            try
+            {
+                if (item != null)
+                {
+                    var entidad = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<UsuarioBE>(item);
+                    ExportarToExcelMantenimientoUsuario(entidad);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+        }
+
+        public void ExportarToExcelMantenimientoUsuario(UsuarioBE entidad)
+        {
+            var lista = UsuarioLN.ListaMantenimientoUsuario(entidad);
+            int row = 2;
+            try
+            {
+                string cadena_fecha = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+
+                using (ExcelPackage package = new ExcelPackage())
+                {
+                    var ws1 = package.Workbook.Worksheets.Add("MANTENIMIENTO USUARIO");
+                    using (var m = ws1.Cells[1, 1, row, 7])
+                    {
+                        m.Style.Font.Bold = true;
+                        m.Style.WrapText = true;
+                        m.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        m.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        m.Style.Font.Size = 14;
+                        m.Merge = true;
+                        m.Value = "MANTENIMIENTO USUARIO " + cadena_fecha;
+                    }
+                    ws1.View.FreezePanes(2, 1);
+                    row++;
+                    ws1.Cells["A" + row].Value = "N°";
+                    ws1.Cells["A" + row].AutoFitColumns(5);
+                    ws1.Cells["B" + row].Value = "NOMBRES Y APELLIDOS";
+                    ws1.Cells["B" + row].AutoFitColumns(40);
+                    ws1.Cells["C" + row].Value = "CORREO";
+                    ws1.Cells["C" + row].AutoFitColumns(40);
+                    ws1.Cells["D" + row].Value = "INSTITUCIÓN";
+                    ws1.Cells["D" + row].AutoFitColumns(45);
+                    ws1.Cells["E" + row].Value = "DIRECCIÓN";
+                    ws1.Cells["E" + row].AutoFitColumns(45);
+                    ws1.Cells["F" + row].Value = "PERFIL";
+                    ws1.Cells["F" + row].AutoFitColumns(30);
+                    ws1.Cells["G" + row].Value = "ESTADO";
+                    ws1.Cells["G" + row].AutoFitColumns(20);
+
+                    FormatoCelda(ws1, "A", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "B", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "C", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "D", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "E", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "F", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "G", row, 0, 123, 255, 255, 255, 255);
+                    ws1.Row(row).Height = 42;
+                    row++;
+                    if (lista.Count > 0)
+                    {
+                        var xNum = 0;
+                        foreach (UsuarioBE dt_fila in lista)
+                        {
+                            xNum++;
+                            ws1.Cells["A" + row].Value = xNum;
+                            ws1.Cells["B" + row].Value = dt_fila.NOMBRES;
+                            ws1.Cells["C" + row].Value = dt_fila.CORREO;
+                            ws1.Cells["D" + row].Value = dt_fila.INSTITUCION;
+                            ws1.Cells["E" + row].Value = dt_fila.DIRECCION;
+                            ws1.Cells["F" + row].Value = dt_fila.ROL;
+                            ws1.Cells["G" + row].Value = dt_fila.ESTADO;
+                            formatoDetalle(ws1, "A", "G", row);
+                            row++;
+                        }
+                        row++;
+                    }
+
+                    string strFileName = "LISTA_USUARIO_" + DateTime.Now.ToString() + ".xlsx";
+                    Response.Clear();
+                    byte[] dataByte = package.GetAsByteArray();
+                    Response.AddHeader("Content-Disposition", "inline;filename=\"" + strFileName + "\"");
+                    Response.AddHeader("Content-Length", dataByte.Length.ToString());
+                    Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                    Response.BinaryWrite(dataByte);
+                    Response.End();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        private void FormatoCelda(ExcelWorksheet ws1, string letra, int row, int color1, int color2, int color3, int fontc1, int fontc2, int fontc3)
+        {
+            using (var m = ws1.Cells[letra + row + ":" + letra + row])
+            {
+                m.Style.Font.Bold = true;
+                m.Style.WrapText = false;
+                m.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                m.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                m.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                //m.Style.Fill.BackgroundColor.SetColor(Color.FromArgb(66, 139, 202));
+                m.Style.Fill.BackgroundColor.SetColor(Color.FromArgb(color1, color2, color3));
+                m.Style.Font.Color.SetColor(Color.FromArgb(fontc1, fontc2, fontc3));
+                m.Style.Font.Size = 12;
+                m.Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                m.Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                m.Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                m.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                //m.Style.Border.Top.Color.SetColor(Color.FromArgb(221, 221, 221));
+                //m.Style.Border.Left.Color.SetColor(Color.FromArgb(255, 255, 255));
+                //m.Style.Border.Right.Color.SetColor(Color.FromArgb(255, 255, 255));
+                //m.Style.Border.Bottom.Color.SetColor(Color.FromArgb(255, 255, 255));
+                m.Style.Border.Top.Color.SetColor(Color.FromArgb(color1, color2, color3));
+                m.Style.Border.Left.Color.SetColor(Color.FromArgb(color1, color2, color3));
+                m.Style.Border.Right.Color.SetColor(Color.FromArgb(color1, color2, color3));
+                m.Style.Border.Bottom.Color.SetColor(Color.FromArgb(color1, color2, color3));
+            }
+
+        }
+
+        private void formatoDetalle(ExcelWorksheet ws1, string letraI, string letraF, int row)
+        {
+            using (var m = ws1.Cells[letraI + row + ":" + letraF + row])
+            {
+                m.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                m.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+            }
+        }
+
     }
 }
