@@ -67,7 +67,7 @@ function fn_validar(e) {
     //debugger;
     if (clave == validar) {
         if (!(/[a-zñ]/.test(clave) && /[A-ZÑ]/.test(clave) && /[0-9]/.test(clave))) {
-            arr.push("La contraseña debe contener minuscula(s), mayúscula(s) y número(s)");
+            arr.push("La contraseña debe contener minúscula(s), mayúscula(s), número(s) y caracter(es) especial(es)");
         }
         if (clave.length < 6) {
             arr.push("La contraseña debe contener 6 o más caracteres");

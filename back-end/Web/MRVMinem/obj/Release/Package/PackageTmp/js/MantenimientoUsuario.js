@@ -383,6 +383,33 @@ function regUsuario() {
     $("#cabeceraEditarMantenimientoUsuario").hide();
 }
 
+//////////////////////////////////////EXPORTAR
+
+function exportarMantenimientoUsuario(){
+    var item = {
+    };
+
+    var url = baseUrl + 'Gestion/ExportarMantenimientoUsuario';
+
+    var parametros = {
+        Url: url,
+        Item: JSON.stringify(item)
+    };
+
+    var frm = '<form id = "frmDescarga" name = "frmDescarga" method = "POST" target = "_blank" action = "' + url + '"></form>';
+    var hdn = '<input type = "hidden" id = "url" name = "url" />';
+    var hdnFormato = '<input type = "hidden" id = "formato" name = "formato" />';
+    var hdnItem = '<input type = "hidden" id = "item" name = "item" />';
+    jQuery('#divExportar').append(frm)
+    jQuery(hdn).appendTo(jQuery('#frmDescarga'));
+    jQuery(hdnFormato).appendTo(jQuery('#frmDescarga'));
+    jQuery(hdnItem).appendTo(jQuery('#frmDescarga'));
+    jQuery('#frmDescarga #url').val(parametros.Url);
+    jQuery('#frmDescarga #item').val(parametros.Item);
+    jQuery('#frmDescarga').submit();
+    jQuery('#frmDescarga').remove();
+}
+
 
 
 

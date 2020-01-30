@@ -21,7 +21,7 @@
                             }
                         }
                     } else {
-                        var msj = '<textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">';
+                        var msj = '<textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="8" readonly placeholder="Ingrese una descripción para su iniciativa">';
                         for (var j = 0; j < data.length; j++) {
                             msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
                         }
@@ -139,12 +139,18 @@ function fn_cargarIniciativa() {
                                 $("#txt-fecha-inicio").val(data[i]["FECHA_EDITAR"]);
                                 //$("#txt-fecha-inicio").val("2019-12-12"); FORMATO EJEMPLO PARA CARGA
                             }
+                            if (data[i]["FECHA_FIN"].toString() != "01/01/0001") {
+                                $("#txt-fecha-fin").val(data[i]["FECHA_EDITAR_FIN"]);
+                            }
                         } else {
                             $("#receptorObservacion").append(data[i]["NOMBRES"]);
                             $("#emisorObservacion").append($("#Control").data("nombres"));
                             $("#txt-moneda").val(data[i]["MONEDA"]);
                             if (data[i]["FECHA"].toString() != "01/01/0001") {
                                 $("#txt-fecha-inicio").val(data[i]["FECHA"].toString());
+                            }
+                            if (data[i]["FECHA_FIN"].toString() != "01/01/0001") {
+                                $("#txt-fecha-fin").val(data[i]["FECHA_FIN"].toString());
                             }
                         }                        
                         if (data[i]["PRIVACIDAD_INICIATIVA"] == 1) {
@@ -272,6 +278,7 @@ function fn_procesoIniciativa(url, estado) {
         INVERSION_INICIATIVA: $("#txt-monto-inversion").val(),
         ID_MONEDA: $("#cbo-moneda").val(),
         FECHA_IMPLE_INICIATIVA: $("#txt-fecha-inicio").val(),
+        FECHA_FIN_INICIATIVA: $("#txt-fecha-fin").val(),
         ID_ESTADO: estado,
         ENERGETICO: energetico,
         GEI: gei,
@@ -321,9 +328,9 @@ function fn_procesoIniciativa(url, estado) {
             $("#solicitar-revision #modalRegistrarBoton").hide();
             $('#mensajeModalRegistrar').append(msj);
             $("#Control").data("modal", 1);
-            if (respuesta.extra == "1") {
-                if (ws != null) ws.send(respuesta.extra);
-            }
+            //if (respuesta.extra == "1") {
+            if (ws != null) ws.send(respuesta.extra);
+            //}
         }
     } else {
         if (estado == 0) {
@@ -762,7 +769,7 @@ function fn_observacionIniciativaMitigacion() {
         $("#observar-revision #modalObservacionBoton").hide();
         $("#modalRevision").append(msj);
         $("#Control").data("modal", 1);
-        if (ws != null) ws.send(response.extra);
+        if (ws != null) ws.send(respuesta.extra);
     } else {
         $("#modalRevision #modalErrorRevision").remove();
         var msj = '                           <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="modalErrorRevision">';

@@ -21,7 +21,7 @@
                             }
                         }
                     } else {
-                        var msj = '<textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">';
+                        var msj = '<textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="8" readonly placeholder="Ingrese una descripción para su iniciativa">';
                         for (var j = 0; j < data.length; j++) {
                             msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
                         }

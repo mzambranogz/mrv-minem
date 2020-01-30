@@ -223,6 +223,7 @@ C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\Archivos\dj\LEEME.txt
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\Archivos\sustentatorios\LEEME.txt
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\Log\LEEME.txt
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\Temp\LEEME.txt
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\Documentos\Manual_Usuario_MRV.pdf
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\Documentos\modelo-declaracion-jurada.pdf
@@ -231,6 +232,7 @@ C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\MRVMinem.dll
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\MRVMinem.pdb
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\entidad.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\EPPlus.dll
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\logica.minem.gob.pe.dll
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\Microsoft.ReportViewer.WebForms.dll
@@ -280,5 +282,3 @@ C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\obj\Debug\RdlCompile.compiled
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\obj\Debug\MRVMinem.dll
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\obj\Debug\MRVMinem.pdb
-C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\EPPlus.dll
-C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\Log\LEEME.txt

@@ -7,7 +7,7 @@ $(document).ready(function () {
     $("#Control").data("revision", $("#revision").val());
 
     if ($("#revision").val() == 1) {
-        debugger;
+        //debugger;
         CargarDetalleIndicadorRevision();
     } else {
         CargarDetalleIndicador();
@@ -105,13 +105,13 @@ function fn_crearLinea(fila) {
     //tr = tr + '                       <button class="btn btn-secondary btn-sm m-0" onclick="fn_calcularIndicadores();"><i class="fas fa-upload mr-1"></i>+</button>';
     //tr = tr + '                </div>';
     //tr = tr + '         </td>';
-    tr = tr + '         <td class="text-center" data-encabezado="Sustento">';
-    tr = tr + '                <div class="form-group m-0">';
-    tr = tr + '                       <label class="btn btn-secondary btn-sm m-0" for="fledoc-' + fila + '"><i class="fas fa-upload mr-1"></i>Cargar</label>';
+    //tr = tr + '         <td class="text-center" data-encabezado="Sustento">';
+    //tr = tr + '                <div class="form-group m-0">';
+    //tr = tr + '                       <label class="btn btn-secondary btn-sm m-0" for="fledoc-' + fila + '"><i class="fas fa-upload mr-1"></i>Cargar</label>';
     //tr = tr + '                       <input class="d-none fil-file-control" type="file" name="fledoc" id="fledoc-' + fila + '">';
-    tr = tr + '                       <input class="d-none" type="file" name="fledoc" id="fledoc-' + fila + '">';
-    tr = tr + '                </div>';
-    tr = tr + '         </td>';
+    //tr = tr + '                       <input class="d-none" type="file" name="fledoc" id="fledoc-' + fila + '">';
+    //tr = tr + '                </div>';
+    //tr = tr + '         </td>';
     tr = tr + '         <td class="text-center text-xs-right" data-encabezado="Acciones">';
     tr = tr + '                <div class="btn-group">';
     tr = tr + '                     <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
@@ -148,7 +148,7 @@ function fn_calcularTotalCO2(row) {
     }
     $("#cuerpoTablaIndicador").data("total", total);
     $("#total-detalle #total").remove();
-    $("#total-detalle").append('<strong id="total">' + total + '</strong>');
+    $("#total-detalle").append('<strong id="total">' + (Math.round(total * 100) / 100) + ' tCO<sub>2</sub>eq</strong>');
 }
 
 
@@ -195,7 +195,7 @@ function fn_calcularIndicadores() {
 }
 
 function fn_calcularIndicadores2(fila) {
-    debugger;
+    //debugger;
     if (validarCampo(fila)) {
         var item = {
             ID_INDICADOR: $("#detalles-tr-" + fila).data("value"),
@@ -337,7 +337,7 @@ function CargarDatosIniciativa() {
                         if (data[i]["PRIVACIDAD_INVERSION"] == 1) {
                             $("#chk-publicar-monto-inversion").prop("checked", true);
                         }
-                        debugger;
+                        //debugger;
                         if (data[i]["ListaSustentos"] != null) {
                             for (var sus = 0; sus < data[i]["ListaSustentos"].length; sus++) {
 
@@ -393,7 +393,7 @@ function fn_cargarUbicacion() {
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
-                    var msj = '<textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">';
+                    var msj = '<textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="8" readonly placeholder="Ingrese una descripción para su iniciativa">';
                     for (var j = 0; j < data.length; j++) {
                         msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
                     }
@@ -477,7 +477,7 @@ function CargarDetalleIndicador() {
                 }
             } else {
                 CargarSoloTablaIndicador();
-                $("#total-detalle").append('<strong id="total">0.00</strong>');
+                $("#total-detalle").append('<strong id="total">0.00 tCO<sub>2</sub>eq</strong>');
             }
         }
     });
@@ -534,7 +534,7 @@ function fn_CargarListaTipoCombustible(datat, j) {
 }
 
 function llenarTabla(data, j) {
-    debugger;
+    //debugger;
     $("#cbo-det-1-" + (j + 1)).val(data[j]["ANNO_BASE"]);
     $("#cbo-det-2-" + (j + 1)).val(data[j]["ID_TIPO_VEHICULO_BASE"]);
     $("#cbo-det-3-" + (j + 1)).val(data[j]["ID_TIPO_COMBUSTIBLE_BASE"]);
@@ -549,7 +549,7 @@ function llenarTabla(data, j) {
     $("#detalles-tr-" + (j + 1)).data("value", data[j]["ID_INDICADOR"]);
     $("#cuerpoTablaIndicador").data("total", $("#cuerpoTablaIndicador").data("total") + data[j]["TOTAL_GEI_REDUCIDO"]);
     $("#total-detalle #total").remove();
-    $("#total-detalle").append('<strong id="total">' + $("#cuerpoTablaIndicador").data("total") + '</strong>');
+    $("#total-detalle").append('<strong id="total">' + (Math.round($("#cuerpoTablaIndicador").data("total") * 100) / 100) + ' tCO<sub>2</sub>eq</strong>');
     //alert($("#cuerpoTablaIndicador").data("total"));
 }
 
@@ -595,7 +595,7 @@ function CargarDetalleIndicadorRevision() {
                     tr = tr + '                        <td class="text-center" data-encabezado="Columna 04">' + data[i]["KRVB"] + '</td>';
                     tr = tr + '                        <td class="text-center" data-encabezado="Columna 05">' + data[i]["CANTIDADB"] + '</td>';
                     tr = tr + '                        <td class="text-center" data-encabezado="Columna 06">' + data[i]["RENDIMIENTO"] + '</td>';
-                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 07">' + data[i]["TOTAL_GEI_INIMIT"] + '</td>';
+                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 07">' + data[i]["TOTAL_GEI_BASE"] + '</td>';
                     tr = tr + '                        <td class="text-center" data-encabezado="Columna 08">' + data[i]["TOTAL_GEI_INIMIT"] + '</td>';
                     tr = tr + '                        <td class="text-center" data-encabezado="Columna 09">' + data[i]["TOTAL_GEI_REDUCIDO"] + '</td>';
                     //if (data[i]["ADJUNTO"] != null && data[i]["ADJUNTO"] != "") {
@@ -613,11 +613,11 @@ function CargarDetalleIndicadorRevision() {
                     $("#cuerpoTablaIndicador").append(tr);
                     $("#cuerpoTablaIndicador").data("total", $("#cuerpoTablaIndicador").data("total") + data[i]["TOTAL_GEI_REDUCIDO"]);
                     $("#total-detalle #total").remove();
-                    $("#total-detalle").append('<strong id="total">' + Math.round($("#cuerpoTablaIndicador").data("total") * 100) / 100 + ' (tCO<sub>2</sub>eq)</strong>');
+                    $("#total-detalle").append('<strong id="total">' + (Math.round($("#cuerpoTablaIndicador").data("total") * 100) / 100) + ' tCO<sub>2</sub>eq</strong>');
                 }
             }
         } else {
-            $("#total-detalle").append('<strong id="total">0.00</strong>');
+            $("#total-detalle").append('<strong id="total">0.00 tCO<sub>2</sub>eq</strong>');
         }
         //fn_CargarListaTipoCombustible(datat, j);
     });
@@ -796,13 +796,13 @@ function CargarTablaIndicador(datat, j) {
     //tr = tr + '                       <button class="btn btn-secondary btn-sm m-0" onclick="fn_calcularIndicadores();"><i class="fas fa-upload mr-1"></i>+</button>';
     //tr = tr + '                </div>';
     //tr = tr + '         </td>';
-    tr = tr + '         <td class="text-center" data-encabezado="Sustento">';
-    tr = tr + '                <div class="form-group m-0">';
-    tr = tr + '                       <label class="btn btn-secondary btn-sm m-0" for="fledoc-' + (j + 1) + '"><i class="fas fa-upload mr-1"></i>Cargar</label>';
+    //tr = tr + '         <td class="text-center" data-encabezado="Sustento">';
+    //tr = tr + '                <div class="form-group m-0">';
+    //tr = tr + '                       <label class="btn btn-secondary btn-sm m-0" for="fledoc-' + (j + 1) + '"><i class="fas fa-upload mr-1"></i>Cargar</label>';
     //tr = tr + '                       <input class="d-none fil-file-control" type="file" id="fledoc-' + (j + 1) + '" name="fledoc">';
-    tr = tr + '                       <input class="d-none" type="file" id="fledoc-' + (j + 1) + '" name="fledoc">';
-    tr = tr + '                </div>';
-    tr = tr + '         </td>';
+    //tr = tr + '                       <input class="d-none" type="file" id="fledoc-' + (j + 1) + '" name="fledoc">';
+    //tr = tr + '                </div>';
+    //tr = tr + '         </td>';
     tr = tr + '         <td class="text-center text-xs-right" data-encabezado="Acciones">';
     tr = tr + '                <div class="btn-group">';
     tr = tr + '                     <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
@@ -863,7 +863,7 @@ function fn_calcularIndicador(fila) {
 
 
 function fn_procesoDetalleIndicador(url, estado) {
-    debugger;
+    //debugger;
     var n = $(".tabla-detalle-indicadores").find("tbody").find("th").length + 1;
     for (var fila = 1 ; fila < n; fila++) {
         var itx = {
@@ -1548,5 +1548,33 @@ function fn_verfilesutento(idIniciativaSustento) {
         var urlMostrar = baseUrl + "Temp/" + respuesta.extra;
         window.open(urlMostrar, "_blank");
     }
+}
+
+////////////////Exportar
+
+function exportarDetalle() {
+    var item = {
+        ID_INICIATIVA: $("#Control").data("iniciativa")
+    };
+
+    var url = baseUrl + 'Gestion/ExportarDetalleIndicador';
+
+    var parametros = {
+        Url: url,
+        Item: JSON.stringify(item)
+    };
+
+    var frm = '<form id = "frmDescarga" name = "frmDescarga" method = "POST" target = "_blank" action = "' + url + '"></form>';
+    var hdn = '<input type = "hidden" id = "url" name = "url" />';
+    var hdnFormato = '<input type = "hidden" id = "formato" name = "formato" />';
+    var hdnItem = '<input type = "hidden" id = "item" name = "item" />';
+    jQuery('#divExportar').append(frm)
+    jQuery(hdn).appendTo(jQuery('#frmDescarga'));
+    jQuery(hdnFormato).appendTo(jQuery('#frmDescarga'));
+    jQuery(hdnItem).appendTo(jQuery('#frmDescarga'));
+    jQuery('#frmDescarga #url').val(parametros.Url);
+    jQuery('#frmDescarga #item').val(parametros.Item);
+    jQuery('#frmDescarga').submit();
+    jQuery('#frmDescarga').remove();
 }
 

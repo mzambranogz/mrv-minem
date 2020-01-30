@@ -1390,6 +1390,145 @@ namespace MRVMinem.Controllers
             }
         }
 
+        public void ExportarDetalleIndicador(string item)
+        {
+            try
+            {
+                if (item != null)
+                {
+                    var entidad = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<IndicadorBE>(item);
+                    ExportarToExcelDetalleIndicador(entidad);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+        }
+
+        public void ExportarToExcelDetalleIndicador(IndicadorBE entidad)
+        {
+            var lista = IndicadorLN.ListarDetalleIndicador(entidad);
+            int row = 2;
+            try
+            {
+                string cadena_fecha = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+
+                using (ExcelPackage package = new ExcelPackage())
+                {
+                    var ws1 = package.Workbook.Worksheets.Add("DETALLE INDICADORES");
+                    using (var m = ws1.Cells[1, 1, row, 10])
+                    {
+                        m.Style.Font.Bold = true;
+                        m.Style.WrapText = true;
+                        m.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        m.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        m.Style.Font.Size = 14;
+                        m.Merge = true;
+                        m.Value = "DETALLE INDICADORES " + cadena_fecha;
+                    }
+                    ws1.View.FreezePanes(2, 1);
+                    row++;
+                    ws1.Cells["A" + row].Value = "N°";
+                    ws1.Cells["A" + row].AutoFitColumns(5);
+                    ws1.Cells["B" + row].Value = "AÑO";
+                    ws1.Cells["B" + row].AutoFitColumns(10);
+                    ws1.Cells["C" + row].Value = "TIPO VEHÍCULO";
+                    ws1.Cells["C" + row].AutoFitColumns(25);
+                    ws1.Cells["D" + row].Value = "TIPO COMBUSTIBLE";
+                    ws1.Cells["D" + row].AutoFitColumns(25);
+                    ws1.Cells["E" + row].Value = "KRV";
+                    ws1.Cells["E" + row].AutoFitColumns(15);
+                    ws1.Cells["F" + row].Value = "CANTIDAD";
+                    ws1.Cells["F" + row].AutoFitColumns(15);
+                    ws1.Cells["G" + row].Value = "FACTOR RENDIMIENTO";
+                    ws1.Cells["G" + row].AutoFitColumns(25);
+                    ws1.Cells["H" + row].Value = "LÍNEA BASE EMISIONES GEI (tCO2eq)";
+                    ws1.Cells["H" + row].AutoFitColumns(40);
+                    ws1.Cells["I" + row].Value = "INICIATIVA M. EMISIONES GEI (tCO2eq)";
+                    ws1.Cells["I" + row].AutoFitColumns(40);
+                    ws1.Cells["J" + row].Value = "EMISIONES GEI REDUCIDAS (tCO2eq)";
+                    ws1.Cells["J" + row].AutoFitColumns(40);
+
+                    //using (var m = ws1.Cells["A" + row + ":I" + row])
+                    //{
+                    //    m.Style.Font.Bold = true;
+                    //    m.Style.WrapText = false;
+                    //    m.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                    //    m.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                    //    m.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                    //    m.Style.Fill.BackgroundColor.SetColor(Color.FromArgb(66, 139, 202));
+                    //    m.Style.Font.Color.SetColor(Color.FromArgb(255, 255, 255));
+                    //    m.Style.Font.Size = 12;
+                    //    m.Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                    //    m.Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                    //    m.Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                    //    m.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                    //    m.Style.Border.Top.Color.SetColor(Color.FromArgb(221, 221, 221));
+                    //    m.Style.Border.Left.Color.SetColor(Color.FromArgb(255, 255, 255));
+                    //    m.Style.Border.Right.Color.SetColor(Color.FromArgb(255, 255, 255));
+                    //    m.Style.Border.Bottom.Color.SetColor(Color.FromArgb(255, 255, 255));
+                    //}
+                    FormatoCelda(ws1, "A", row, 40, 167, 69, 255, 255, 255); //V
+                    FormatoCelda(ws1, "B", row, 40, 167, 69, 255, 255, 255); //V
+                    FormatoCelda(ws1, "C", row, 40, 167, 69, 255, 255, 255); //V
+                    FormatoCelda(ws1, "D", row, 255, 193, 7, 52, 58, 64); //N
+                    FormatoCelda(ws1, "E", row, 40, 167, 69, 255, 255, 255); //V
+                    FormatoCelda(ws1, "F", row, 40, 167, 69, 255, 255, 255); //V
+                    FormatoCelda(ws1, "G", row, 40, 167, 69, 255, 255, 255); //V
+                    FormatoCelda(ws1, "H", row, 255, 193, 7, 52, 58, 64); //N
+                    FormatoCelda(ws1, "I", row, 40, 167, 69, 255, 255, 255); //V
+                    FormatoCelda(ws1, "J", row, 0, 123, 255, 255, 255, 255); //A
+                    ws1.Row(row).Height = 42;
+                    var total = 0.0;
+                    row++;
+                    if (lista.Count > 0)
+                    {
+                        var xNum = 0;
+                        foreach (IndicadorBE dt_fila in lista)
+                        {
+                            xNum++;
+                            ws1.Cells["A" + row].Value = xNum;
+                            ws1.Cells["B" + row].Value = dt_fila.ANNO_BASE;
+                            ws1.Cells["C" + row].Value = dt_fila.TIPO_VEHICULO;
+                            ws1.Cells["D" + row].Value = dt_fila.TIPO_COMBUSTIBLE;
+                            ws1.Cells["E" + row].Value = dt_fila.KRV_BASE;
+                            ws1.Cells["F" + row].Value = dt_fila.CANT_BASE;
+                            ws1.Cells["G" + row].Value = dt_fila.F_RENDIMIENTO;
+                            ws1.Cells["H" + row].Value = dt_fila.TOTAL_GEI_BASE;
+                            ws1.Cells["I" + row].Value = dt_fila.TOTAL_GEI_INIMIT;
+                            ws1.Cells["J" + row].Value = dt_fila.TOTAL_GEI_REDUCIDO;
+                            total += Double.Parse(dt_fila.TOTAL_GEI_REDUCIDO.ToString());
+                            formatoDetalle(ws1, "A", "J", row);
+                            row++;
+                        }
+                        row++;
+                    }
+
+                    row++;
+                    ws1.Cells["I" + row].Value = "TOTAL (tCO2eq)";
+                    ws1.Cells["J" + row].Value = total;
+                    formatoDetalle(ws1, "I", "J", row);
+                    ws1.Cells["I" + row].Style.Font.Bold = true;
+
+                    string strFileName = "DETALLE_INDICADORES_" + DateTime.Now.ToString() + ".xlsx";
+                    Response.Clear();
+                    byte[] dataByte = package.GetAsByteArray();
+                    Response.AddHeader("Content-Disposition", "inline;filename=\"" + strFileName + "\"");
+                    Response.AddHeader("Content-Length", dataByte.Length.ToString());
+                    Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                    Response.BinaryWrite(dataByte);
+                    Response.End();
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
         private void FormatoCelda(ExcelWorksheet ws1, string letra, int row, int color1, int color2, int color3, int fontc1, int fontc2, int fontc3)
         {
             using (var m = ws1.Cells[letra + row + ":" + letra + row])

@@ -50,7 +50,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="h5 pb-5 text-primary">
-                                        <div class="steps">PASO 1 DE 4: &nbsp;</div>Introducción | <span id="nombreMedida">@*Promoción de vehiculos eléctricos a nivel nacional*@</span>&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small>
+                                        <div class="steps">PASO 1 DE 4 &nbsp;</div><span id="nombreMedida">@*Promoción de vehiculos eléctricos a nivel nacional*@</span>&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small>
                                     </div>
                                 </div>
                             </div>
@@ -123,7 +123,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="h5 pb-5 text-primary">
-                                        <div class="steps">PASO 2 DE 4: &nbsp;</div>Datos principales<br><small class="text-muted">Complete información</small>
+                                        <div class="steps">PASO 2 DE 4 &nbsp;</div>Datos principales<br><small class="text-muted">Complete información</small>
                                     </div>
                                 </div>
                             </div>
@@ -198,7 +198,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="h5 pb-5 text-primary">
-                                        <div class="steps">PASO 3 DE 4: &nbsp;</div>Datos generales<br><small class="text-muted">Complete información</small>
+                                        <div class="steps">PASO 3 DE 4 &nbsp;</div>Datos generales<br><small class="text-muted">Complete información</small>
                                     </div>
                                 </div>
                             </div>
@@ -416,6 +416,13 @@
                                             <input class="form-control" type="date" id="txt-fecha-inicio" placeholder="Ingrese nombre de la iniciativa" aria-describedby="inputGroup12" min="2000-01-01" max="2030-12-31">
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <label for="txt-fecha-fin">Fecha de Fin del proyecto<span class="text-danger font-weight-bold">&nbsp;&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique la fecha de finalización del proyecto"></i></label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup30"><i class="fas fa-calendar-alt"></i></span></div>
+                                            <input class="form-control" type="date" id="txt-fecha-fin" placeholder="Ingrese fecha de fin" aria-describedby="inputGroup30" min="2000-01-01" max="2030-12-31">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="dropdown-divider my-5"></div>
@@ -435,7 +442,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="h5 pb-5 text-primary">
-                                        <div class="steps">PASO 4 DE 4: &nbsp;</div>Indicadores&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Información ligada a la iniciativa de mitigación</small>
+                                        <div class="steps">PASO 4 DE 4 &nbsp;</div>Indicadores&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Información ligada a la iniciativa de mitigación</small>
                                     </div>
                                 </div>
                             </div>
@@ -680,17 +687,19 @@
 
     function fn_establecerVista() {
 
-        var opcion = '<span class="dropdown-item">' + $("#Control").data("nombres") + ' <br>';
+        $("#nombreUsuario").append('<i class="fas fa-user-tie pr-1"></i>'+$("#Control").data("nombres"));
+        //var opcion = '<span class="dropdown-item">' + $("#Control").data("nombres") + ' <br>';
+        var opcion = '';
         if ($("#Control").data("rol") == 1) {
-            opcion = opcion + '<span class="badge badge-actor-02">Usuario Administrado</span></span>'
+            opcion = opcion + '<span class="dropdown-item font-weight-bold">Rol: &nbsp;<span class="badge badge-actor-02">Usuario Administrado</span></span>'
         } else if ($("#Control").data("rol") == 2) {
-            opcion = opcion + '<span class="badge badge-actor-03">Especialista</span></span>'
+            opcion = opcion + '<span class="dropdown-item font-weight-bold">Rol: &nbsp;<span class="badge badge-actor-03">Especialista</span></span>'
         } else if ($("#Control").data("rol") == 3) {
-            opcion = opcion + '<span class="badge badge-actor-06">Administrador MINEM</span></span>'
+            opcion = opcion + '<span class="dropdown-item font-weight-bold">Rol: &nbsp;<span class="badge badge-actor-06">Administrador MINEM</span></span>'
         } else if ($("#Control").data("rol") == 4) {
-            opcion = opcion + '<span class="badge badge-actor-04">Evaluador MINAM</span></span>'
+            opcion = opcion + '<span class="dropdown-item font-weight-bold">Rol: &nbsp;<span class="badge badge-actor-04">Evaluador MINAM</span></span>'
         } else if ($("#Control").data("rol") == 5) {
-            opcion = opcion + '<span class="badge badge-actor-05">Verificador Externo</span></span>'
+            opcion = opcion + '<span class="dropdown-item font-weight-bold">Rol: &nbsp;<span class="badge badge-actor-05">Verificador Externo</span></span>'
         }
 
         if ($("#Control").data("opcion6") == 1) { //Añade a las opciones el mantenimiento de tablas

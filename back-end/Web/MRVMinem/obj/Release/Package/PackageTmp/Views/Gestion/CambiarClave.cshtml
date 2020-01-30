@@ -126,17 +126,19 @@
 
     function fn_establecerVista() {
 
-        var opcion = '<span class="dropdown-item">' + $("#Control").data("nombres") + ' <br>';
+        $("#nombreUsuario").append('<i class="fas fa-user-tie pr-1"></i>'+$("#Control").data("nombres"));
+        //var opcion = '<span class="dropdown-item">' + $("#Control").data("nombres") + ' <br>';
+        var opcion = '';
         if ($("#Control").data("rol") == 1) {
-            opcion = opcion + '<span class="badge badge-actor-02">Usuario Administrado</span></span>'
+            opcion = opcion + '<span class="dropdown-item font-weight-bold">Rol: &nbsp;<span class="badge badge-actor-02">Usuario Administrado</span></span>'
         } else if ($("#Control").data("rol") == 2) {
-            opcion = opcion + '<span class="badge badge-actor-03">Especialista</span></span>'
+            opcion = opcion + '<span class="dropdown-item font-weight-bold">Rol: &nbsp;<span class="badge badge-actor-03">Especialista</span></span>'
         } else if ($("#Control").data("rol") == 3) {
-            opcion = opcion + '<span class="badge badge-actor-06">Administrador MINEM</span></span>'
+            opcion = opcion + '<span class="dropdown-item font-weight-bold">Rol: &nbsp;<span class="badge badge-actor-06">Administrador MINEM</span></span>'
         } else if ($("#Control").data("rol") == 4) {
-            opcion = opcion + '<span class="badge badge-actor-04">Evaluador MINAM</span></span>'
+            opcion = opcion + '<span class="dropdown-item font-weight-bold">Rol: &nbsp;<span class="badge badge-actor-04">Evaluador MINAM</span></span>'
         } else if ($("#Control").data("rol") == 5) {
-            opcion = opcion + '<span class="badge badge-actor-05">Verificador Externo</span></span>'
+            opcion = opcion + '<span class="dropdown-item font-weight-bold">Rol: &nbsp;<span class="badge badge-actor-05">Verificador Externo</span></span>'
         }
 
         if ($("#Control").data("opcion6") == 1) { //Añade a las opciones el mantenimiento de tablas
