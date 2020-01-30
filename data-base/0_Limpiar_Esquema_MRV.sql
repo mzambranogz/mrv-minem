@@ -1,8 +1,10 @@
+-- Ejecutarlo 2 veces, para eliminar todos los objetos del esquema
+
 SET SERVEROUTPUT ON SIZE 1000000
 BEGIN
   FOR cur_rec IN (SELECT object_name, object_type
                   FROM   user_objects
-                  WHERE  object_type IN ('TABLE', 'VIEW', 'PACKAGE', 'PROCEDURE', 'FUNCTION', 'SEQUENCE')) LOOP
+                  WHERE  object_type IN ('SEQUENCE', 'INDEX', 'TRIGGER', 'TABLE', 'VIEW', 'PACKAGE', 'PROCEDURE', 'FUNCTION')) LOOP
     BEGIN
       IF cur_rec.object_type = 'TABLE' THEN
         EXECUTE IMMEDIATE 'DROP ' || cur_rec.object_type || ' "' || cur_rec.object_name || '" CASCADE CONSTRAINTS';
