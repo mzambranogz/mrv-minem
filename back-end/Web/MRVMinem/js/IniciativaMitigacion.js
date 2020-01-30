@@ -321,9 +321,9 @@ function fn_procesoIniciativa(url, estado) {
             $("#solicitar-revision #modalRegistrarBoton").hide();
             $('#mensajeModalRegistrar').append(msj);
             $("#Control").data("modal", 1);
-            if (respuesta.extra == "1") {
-                if (ws != null) ws.send(respuesta.extra);
-            }
+            //if (respuesta.extra == "1") {
+            if (ws != null) ws.send(respuesta.extra);
+            //}
         }
     } else {
         if (estado == 0) {
@@ -762,7 +762,7 @@ function fn_observacionIniciativaMitigacion() {
         $("#observar-revision #modalObservacionBoton").hide();
         $("#modalRevision").append(msj);
         $("#Control").data("modal", 1);
-        if (ws != null) ws.send(response.extra);
+        if (ws != null) ws.send(respuesta.extra);
     } else {
         $("#modalRevision #modalErrorRevision").remove();
         var msj = '                           <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="modalErrorRevision">';

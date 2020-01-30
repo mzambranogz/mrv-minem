@@ -1,25 +1,7 @@
-﻿function fn_limpiarCampo() {
-    debugger;
-    $("#txt-user").val("");
-    $("#txt-direccion").val("");
-    $("#txt-pswd").val("");
-}
-
-$(document).ready(function () {
-    debugger;
+﻿$(document).ready(function () {
     CargarListaSectorInstitucion();
-    fn_limpiarCampo();
     $("#btnRegistrar").click(function (e) {
         fn_validar(e);
-    });
-});
-
-$(function () {
-    $(".validar").keydown(function (event) {
-        //alert(event.keyCode);
-        if ((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105) && event.keyCode !== 190 && event.keyCode !== 110 && event.keyCode !== 8 && event.keyCode !== 9) {
-            return false;
-        }
     });
 });
 
@@ -83,35 +65,12 @@ function fn_validar(e) {
     var validar = $("#txt-re-pswd").val();
     $("#seccionMensaje #errorRegistro").remove();
     //debugger;
-    if (!(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test($("#txt-user").val()))) {
-        arr.push("Debe ingresar un correo electrónico válido");
-    }
-    if ($("#txt-nombre").val().trim() === ""){
-        arr.push("Debe ingresar su(s) nombre(s) ");
-    }
-    if ($("#txt-apellido").val().trim() === ""){
-        arr.push("Debe ingresar su(s) apellido(s)");
-    }
-    if ($("#txt-institucion").val().trim() === ""){
-        arr.push("Debe ingresar el nombre de su Institución");
-    }
-    debugger;
-    if ($("#txt-ruc").val().length < 9){
-        arr.push("El ruc debe contener 11 caracteres");
-    }
-    if ($("#txt-direccion").val().trim() === ""){
-        arr.push("Debe ingresar el domicilio fiscal de la Institución");
-    }
-    if ($("#cbo-sector").val() == 0){
-        arr.push("Debe seleccionar un Sector");
-    }
-
     if (clave == validar) {
         if (!(/[a-zñ]/.test(clave) && /[A-ZÑ]/.test(clave) && /[0-9]/.test(clave))) {
             arr.push("La contraseña debe contener minuscula(s), mayúscula(s) y número(s)");
         }
         if (clave.length < 6) {
-            arr.push("La contraseña debe contener 8 o más caracteres");
+            arr.push("La contraseña debe contener 6 o más caracteres");
         }
     } else {
         arr.push("Las contraseñas no coinciden");
@@ -134,13 +93,11 @@ function fn_validar(e) {
         fn_verificarEmail();
         return true;
     } else {
-        //var error = '<ul>';
-        var error = '';
+        var error = '<ul>';
         $.each(arr, function (ind, elem) {
-            //error = error + '<li><small class="mb-0">' + elem + '</li></small>';
-            error = error + '<small class="mb-0">' + elem + '</small><br/>';
+            error = error + '<li><small class="mb-0">' + elem + '</li></small>';
         });
-        //error = error + '</ul>';
+        error = error + '</ul>';
         var msj = '                      <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="errorRegistro">';
         msj = msj + '                           <div class="alert-wrap mr-3">';
         msj = msj + '                                <div class="sa">';
@@ -233,12 +190,12 @@ function fn_registrarUsuario() {
         TELEFONO_USUARIO: $("#txt-telefono").val(),
         CELULAR_USUARIO: $("#txt-celular").val(),
         ANEXO_USUARIO: $("#txt-anexo").val(),
+        ID_ROL: 1,
+        ID_ESTADO_USUARIO: '0',
         ID_SECTOR_INST: $("#cbo-sector").val(),
         INSTITUCION: $("#txt-institucion").val(),
         RUC: $("#txt-ruc").val(),
         DIRECCION: $("#txt-direccion").val(),
-        ID_ROL: 1,
-        ID_ESTADO_USUARIO: 0,
         TERMINOS: '1'
     };
     debugger;
@@ -257,12 +214,12 @@ function fn_registrarUsuario() {
             TELEFONO_USUARIO: $("#txt-telefono").val(),
             CELULAR_USUARIO: $("#txt-celular").val(),
             ANEXO_USUARIO: $("#txt-anexo").val(),
+            ID_ROL: 1,
+            ID_ESTADO_USUARIO: '0',
             ID_SECTOR_INST: $("#cbo-sector").val(),
             INSTITUCION: $("#txt-institucion").val(),
             RUC: $("#txt-ruc").val(),
             DIRECCION: $("#txt-direccion").val(),
-            ID_ROL: 1,
-            ID_ESTADO_USUARIO: 0,
             TERMINOS: '1'
         }),
         xhr: function () {  // Custom XMLHttpRequest
@@ -381,11 +338,11 @@ $(document).on('change', '#fledeclaracion', function () {
 
     var ext = /(.pdf)$/i;
     $("#mensajeFile #msj").remove();
-    if (ext.exec(fileInput) /*&& fileName == "modelo-declaracion-jurada.pdf"*/ && (/*fileSize >= 60000 &&*/ fileSize <= 12000000)) {
-        $("#mensajeFile").append('<small style="color: green;" id="msj">Documento cargado</small>');
-    } else {        
+    if (ext.exec(fileInput) /*&& fileName == "modelo-declaracion-jurada.pdf"*/ && (fileSize <= 12000000)) {
+        //$("#mensajeFile").append('<small style="color: green;" id="msj">Documento cargado</small>');
+    } else {
         $("#txt-declaracion").val("");
         this.value = '';
-        $("#mensajeFile").append('<small style="color: red;" id="msj">*archivo no permitido</small>');
+        //$("#mensajeFile").append('<small style="color: red;" id="msj">*archivo no permitido</small>');
     }
 });

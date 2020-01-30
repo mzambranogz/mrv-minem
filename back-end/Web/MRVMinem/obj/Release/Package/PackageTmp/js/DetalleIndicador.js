@@ -479,12 +479,12 @@ function CargarDetalleIndicador() {
 
 function cargarAnio() {
 
-    var tr = '                                  <option value="2019">2019</option>';
-    tr = tr + '                                  <option value="2020">2020</option>';
-    tr = tr + '                                  <option value="2021">2021</option>';
-    tr = tr + '                                  <option value="2022">2022</option>';
-    tr = tr + '                                  <option value="2023">2023</option>';
-    tr = tr + '                                  <option value="2024">2024</option>';
+    var tr = '<option value="2019">2019</option>';
+    tr = tr + '<option value="2020">2020</option>';
+    tr = tr + '<option value="2021">2021</option>';
+    tr = tr + '<option value="2022">2022</option>';
+    tr = tr + '<option value="2023">2023</option>';
+    tr = tr + '<option value="2024">2024</option>';
     return tr;
 }
 
@@ -1182,6 +1182,8 @@ function fn_observacionDetalleIndicador() {
         $("#observar-revision #modalObservacionBoton").hide();
         $("#modalRevision").append(msj);
         $("#Control").data("modal", 1);
+        if (ws != null) ws.send(respuesta.extra);
+
     } else {
         $("#modalRevision #modalErrorRevision").remove();
         var msj = '                           <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="modalErrorRevision">';
@@ -1246,6 +1248,8 @@ function fn_revisarDetalleIndicador() {
         $("#aprobar-revision #modalAprobarBoton").hide();
         $("#modalAprobacion").append(msj);
         $("#Control").data("modal", 1);
+        if (ws != null) ws.send(respuesta.extra);
+
     } else {
         $("#modalAprobacion #modalErrorAprobacion").remove();
         var msj = '                           <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="modalErrorAprobacion">';

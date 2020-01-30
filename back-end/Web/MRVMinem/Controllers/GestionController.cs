@@ -15,6 +15,8 @@ using System.Net.Mime;
 using MRVMinem.Models;
 using System.Web.Configuration;
 using System.IO;
+using OfficeOpenXml;
+using OfficeOpenXml.Style;
 
 namespace MRVMinem.Controllers
 {
@@ -1034,6 +1036,105 @@ namespace MRVMinem.Controllers
             }
 
             return Respuesta(itemRespuesta);
+        }
+
+        //EXPORTAR EXCEL
+        public void ExportarToExcelProyectos(IniciativaBE entidad)
+        {
+            //ProyectoBE proyecto = new ProyectoBE();
+
+            //proyecto.ID_CLIENTE = entidad.IdCliente;
+            //proyecto.NOMBRE = entidad.Nombre;
+            //proyecto.ID_RESOLUCION = entidad.Resolucion == null ? "-" : entidad.Resolucion;
+            //proyecto.ID_PRIORIDAD = entidad.TipoPrioridad == null ? "-" : entidad.TipoPrioridad;
+            //proyecto.ID_TIPO_RUBRO = entidad.Rubro;
+            //proyecto.ID_SITUACION_PROY = entidad.Situacion;
+            //var dt = ProyectoLN.ListaProyectos(proyecto);
+            int row = 5;
+            try
+            {
+                string cadena_fecha = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+
+                using (ExcelPackage package = new ExcelPackage())
+                {
+                    var ws1 = package.Workbook.Worksheets.Add("PROYECTOS INVERSION SOCIAL");
+                    using (var rng = ws1.Cells[1, 1, row, 6])
+                    {
+                        rng.Style.Font.Bold = true;
+                        rng.Style.WrapText = true;
+                        rng.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        rng.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        rng.Style.Font.Size = 14;
+                        rng.Merge = true;
+                        rng.Value = "PROYECTOS DE INVERSIÓN SOCIAL " + cadena_fecha;
+                    }
+                    ws1.View.FreezePanes(2, 1);
+                    row++;
+                    ws1.Cells["A" + row].Value = "N°";
+                    ws1.Cells["A" + row].AutoFitColumns(10);
+                    ws1.Cells["B" + row].Value = "NOMBRE DEL PROYECTO";
+                    ws1.Cells["B" + row].AutoFitColumns(120);
+                    ws1.Cells["C" + row].Value = "RESOLUCIÓN";
+                    ws1.Cells["C" + row].AutoFitColumns(40);
+                    ws1.Cells["D" + row].Value = "TIPO DE PRIORIDAD";
+                    ws1.Cells["D" + row].AutoFitColumns(40);
+                    ws1.Cells["E" + row].Value = "RUBRO";
+                    ws1.Cells["E" + row].AutoFitColumns(40);
+                    ws1.Cells["F" + row].Value = "SITUACIÓN DEL PROYECTO";
+                    ws1.Cells["F" + row].AutoFitColumns(50);
+
+                    //using (var rng = ws1.Cells["A" + row + ":F" + row])
+                    //{
+                    //    rng.Style.Font.Bold = true;
+                    //    rng.Style.WrapText = false;
+                    //    rng.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                    //    rng.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                    //    rng.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                    //    rng.Style.Fill.BackgroundColor.SetColor(Color.FromArgb(66, 139, 202));
+                    //    rng.Style.Font.Color.SetColor(Color.FromArgb(255, 255, 255));
+                    //    rng.Style.Font.Size = 12;
+                    //    rng.Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                    //    rng.Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                    //    rng.Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                    //    rng.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                    //    rng.Style.Border.Top.Color.SetColor(Color.FromArgb(221, 221, 221));
+                    //    rng.Style.Border.Left.Color.SetColor(Color.FromArgb(255, 255, 255));
+                    //    rng.Style.Border.Right.Color.SetColor(Color.FromArgb(255, 255, 255));
+                    //    rng.Style.Border.Bottom.Color.SetColor(Color.FromArgb(255, 255, 255));
+                    //}
+                    //ws1.Row(row).Height = 42;
+                    //row++;
+                    //if (dt.Count > 0)
+                    //{
+                    //    var xNum = 0;
+                    //    foreach (ProyectoBE dt_fila in dt)
+                    //    {
+                    //        xNum++;
+                    //        ws1.Cells["A" + row].Value = xNum;
+                    //        ws1.Cells["B" + row].Value = dt_fila.NOMBRE;
+                    //        ws1.Cells["C" + row].Value = dt_fila.RESOLUCION;
+                    //        ws1.Cells["D" + row].Value = dt_fila.TIPO_PRIORIDAD;
+                    //        ws1.Cells["E" + row].Value = dt_fila.DESC_TIPO_RUBRO;
+                    //        ws1.Cells["F" + row].Value = dt_fila.SITUACION_PROYECTO;
+                    //        row++;
+                    //    }
+                    //    row++;
+                    //}
+
+                    string strFileName = "PROYECTOS_INVERSION_" + DateTime.Now.ToString() + ".xlsx";
+                    Response.Clear();
+                    byte[] dataByte = package.GetAsByteArray();
+                    Response.AddHeader("Content-Disposition", "inline;filename=\"" + strFileName + "\"");
+                    Response.AddHeader("Content-Length", dataByte.Length.ToString());
+                    Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                    Response.BinaryWrite(dataByte);
+                    Response.End();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

@@ -49,6 +49,7 @@
 function fn_CargarNotificacion() {
     var Item = {
         ID_ROL: $("#Control").data("rol"),
+        ID_USUARIO: $("#Control").data("usuario"),
         cantidad_registros: $("#cantidad-registros").val(),
         pagina: $("#pagina").val(),
         order_by: $("#columna").val(),
