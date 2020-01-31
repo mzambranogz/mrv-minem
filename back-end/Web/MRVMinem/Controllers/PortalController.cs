@@ -230,6 +230,7 @@ namespace MRVMinem.Controllers
                 //Session["Opciones"] = session; 
                 //itemRespuesta.extra = entidad.ID_USUARIO.ToString();
                 Session["usuario"] = entidad.ID_USUARIO.ToString();
+                Session["socket"] = WebConfigurationManager.AppSettings.Get("Socket");
                 List<RolOpcionesBE> lista = RolOpcionesLN.ListarOpciones(entidad.ID_USUARIO);
                 limpiarSetearSesion(lista);
             }

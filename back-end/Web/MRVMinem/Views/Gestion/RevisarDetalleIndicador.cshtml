@@ -47,7 +47,9 @@
                 <div class="container py-5">
                     <div class="row">
                         <div class="col-12">
-                            <div class="h5 pb-5 text-primary">Promoción de vehiculos eléctricos a nivel nacional&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small></div>
+                            <div class="h5 pb-5 text-primary">
+                                Promoción de vehiculos eléctricos a nivel nacional&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -581,8 +583,8 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-12-col-md-12 col-lg-6">
-                            <div class="form-group" id="archivos-documentos">
-                                <label>Archivos adjuntos: <span id="total-documentos">0</span> en total</label>
+                            <div class="form-group" id="archivos-documentos"> <!-- add id-->
+                                <label>Archivos adjuntos: <span id="total-documentos">0</span> en total</label> <!-- add id-->
                                 @*<div class="input-group mb-3">
                                         <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-file-pdf"></i></span></div><span class="form-control-plaintext">NombreDeArchivo.pdf</span>
                                         <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="fas fa-download"></i></span></div>
@@ -604,11 +606,11 @@
                         <div class="col-sm-12-col-md-12 col-lg-6">
                             <label>Visibilidad de datos</label><br>
                             <div class="custom-control custom-checkbox d-inline-block">
-                                <input class="custom-control-input" type="checkbox" id="chk-publicar" checked>
+                                <input class="custom-control-input" type="checkbox" id="chk-publicar" disabled checked>
                                 <label class="custom-control-label" for="chk-publicar">Hacer públicos los datos registrados.</label>
                             </div>
                             <div class="custom-control custom-checkbox d-inline-block">
-                                <input class="custom-control-input" type="checkbox" id="chk-publicar-monto-inversion">
+                                <input class="custom-control-input" type="checkbox" id="chk-publicar-monto-inversion" disabled>
                                 <label class="custom-control-label" for="chk-publicar-monto-inversion">Hacer público "Monto de inversión"</label>
                             </div>
                         </div>

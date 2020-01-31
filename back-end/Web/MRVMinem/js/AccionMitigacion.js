@@ -214,10 +214,10 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
                     for (var i = 0; i < data.length; i++) {
 
                         var progreso = '0%;';
-                        if (data[i]["ID_ESTADO"] != 0) {
+                        if (data[i]["ID_ESTADO"] != 0 || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3)) {
                             if (data[i]["PROGRESO"] == 1 && (data[i]["ID_ESTADO"] == 1 || data[i]["ID_ESTADO"] == 5 || data[i]["ID_ESTADO"] == 2)) {
                                 progreso = '25%';
-                            } else if (data[i]["PROGRESO"] == 2) {
+                            } else if (data[i]["PROGRESO"] == 2 || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3)) {
                                 progreso = '50%';
                             } else if (data[i]["PROGRESO"] == 3 && (data[i]["ID_ESTADO"] == 1 || data[i]["ID_ESTADO"] == 5 || data[i]["ID_ESTADO"] == 2) || data[i]["ID_ESTADO"] == 6) {
                                 progreso = '75%';
@@ -231,7 +231,7 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
                             tooltip = "Iniciativa de mitigación registrada";
                         } else if (data[i]["PROGRESO"] == 1 && data[i]["ID_ESTADO"] == 2 || data[i]["ID_ESTADO"] == 5) {
                             tooltip = "Iniciativa de mitigación observado";
-                        } else if (data[i]["PROGRESO"] == 2 && data[i]["ID_ESTADO"] == 3) {
+                        } else if ((data[i]["PROGRESO"] == 2 && data[i]["ID_ESTADO"] == 3) || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3)) {
                             tooltip = "Iniciativa de mitigación aprobada";
                         } else if (data[i]["PROGRESO"] == 3 && (data[i]["ID_ESTADO"] == 1)) {
                             tooltip = "Detalle de indicadores registrado";
@@ -344,12 +344,12 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                     for (var i = 0; i < data.length; i++) {
 
                         var progreso = '0%;';
-                        if (data[i]["ID_ESTADO"] != 0) {
+                        if (data[i]["ID_ESTADO"] != 0 || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3)) {
                             if (data[i]["PROGRESO"] == 1 && (data[i]["ID_ESTADO"] == 1 || data[i]["ID_ESTADO"] == 5 || data[i]["ID_ESTADO"] == 2)) {
                                 progreso = '25%';
-                            } else if (data[i]["PROGRESO"] == 2) {
+                            } else if (data[i]["PROGRESO"] == 2 || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3)) {
                                 progreso = '50%';
-                            } else if (data[i]["PROGRESO"] == 3 && (data[i]["ID_ESTADO"] == 1 || data[i]["ID_ESTADO"] == 5 || data[i]["ID_ESTADO"] == 2) || data[i]["ID_ESTADO"] == 6) {
+                            } else if (data[i]["PROGRESO"] == 3 && (data[i]["ID_ESTADO"] == 1 || data[i]["ID_ESTADO"] == 5 || data[i]["ID_ESTADO"] == 2 || data[i]["ID_ESTADO"] == 6)) {
                                 progreso = '75%';
                             } else if (data[i]["PROGRESO"] == 4  || data[i]["PROGRESO"] == 5 || data[i]["PROGRESO"] == 6 || data[i]["PROGRESO"] == 7) {
                                 progreso = '100%';
@@ -361,7 +361,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                             tooltip = "Iniciativa de mitigación registrada";
                         } else if (data[i]["PROGRESO"] == 1 && data[i]["ID_ESTADO"] == 2 || data[i]["ID_ESTADO"] == 5) {
                             tooltip = "Iniciativa de mitigación observado";
-                        } else if (data[i]["PROGRESO"] == 2 && data[i]["ID_ESTADO"] == 3) {
+                        } else if ((data[i]["PROGRESO"] == 2 && data[i]["ID_ESTADO"] == 3) || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3)) {
                             tooltip = "Iniciativa de mitigación aprobada";
                         } else if (data[i]["PROGRESO"] == 3 && (data[i]["ID_ESTADO"] == 1)) {
                             tooltip = "Detalle de indicadores registrado";

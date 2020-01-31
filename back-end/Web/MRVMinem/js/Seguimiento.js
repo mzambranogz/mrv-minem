@@ -90,7 +90,7 @@ function fn_mostrarSeguimiento() {
                     }
                     
 
-                    if (data[i]["ID_ETAPA"] == 3 && data[i]["ID_ESTADO"] == 0) {
+                    if ((data[i]["ID_ETAPA"] == 3 && data[i]["ID_ESTADO"] == 0) || (data[i]["ID_ETAPA"] == 3 && data[i]["ID_ESTADO"] == 6)) {
                         tr = tr + '<div class="timeline">';
                         tr = tr + '<div class="timeline-icon"><i class="fas fa-save"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
                         tr = tr + '<div class="timeline-content">';

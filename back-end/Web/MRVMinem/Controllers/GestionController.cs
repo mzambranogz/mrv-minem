@@ -988,11 +988,27 @@ namespace MRVMinem.Controllers
             if (entidad.ListaIndicadores != null)
                 indicador = IndicadorLN.RegistraTodosIndicadores(entidad.ListaIndicadores);
 
+            IniciativaBE iniciativaM = null;
+            if (!string.IsNullOrEmpty(entidad.ID_INDICADOR_DELETE))
+                iniciativaM = IndicadorLN.EliminarIndicadores(entidad);
+
             SustentoIniciativaBE sustento = null;
             if (entidad.ListaSustentos != null)
                 sustento = IndicadorLN.RegistraTodosSustentoIniciativa(entidad.ListaSustentos);
 
-            entidad = IndicadorLN.RegistrarEnvioDetalle(entidad);
+            if (entidad.ID_ESTADO == 1) //add 30-01-20
+            {
+                entidad = IndicadorLN.RegistrarEnvioDetalle(entidad);
+            }
+            else if (entidad.ID_ESTADO == 5) //add 30-01-20
+            {
+                entidad = IndicadorLN.CorregirDetalleIndicador2(entidad);
+            }
+            else if (entidad.ID_ESTADO == 0 || entidad.ID_ESTADO == 6) //add 30-01-20
+            {
+                entidad = IndicadorLN.RegistrarAvanceDetalleIndicador(entidad);
+            }
+            
 
             if (entidad.ID_ESTADO == 1)
             {
@@ -1002,6 +1018,16 @@ namespace MRVMinem.Controllers
                 iniciativa.ASUNTO = "Registro Detalle Indicador - Entidad " + usuario.INSTITUCION;
                 iniciativa.DESCRIPCION = "El usuario de la entidad " + usuario.INSTITUCION + " ha registrado el/los detalle(s) de la Iniciativa (" + entidad.NOMBRE_INICIATIVA + "), en espera de su revisión.<br/><br/>";
                 EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 2);
+                Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+            }
+            else if (entidad.ID_ESTADO == 5)
+            {
+                var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
+                IniciativaBE iniciativa = new IniciativaBE();
+                iniciativa.EMAIL_USUARIO = WebConfigurationManager.AppSettings.Get("UsermailEsp");
+                iniciativa.ASUNTO = "Observación subsanada de Detalle Indicador - Entidad " + usuario.INSTITUCION;
+                iniciativa.DESCRIPCION = "El usuario de la entidad " + usuario.INSTITUCION + " ha subsanado la(s) observación(es) de el/los detalle(s) de indicador(es) de la Iniciativa (" + entidad.NOMBRE_INICIATIVA + "), en espera de su revisión.<br/><br/>";
+                EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
             }
             itemRespuesta.success = entidad.OK;

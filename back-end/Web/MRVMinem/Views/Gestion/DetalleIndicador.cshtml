@@ -55,7 +55,9 @@
                             <div class="container py-5">
                                 <div class="row">
                                     <div class="col-12">
-                                        <div class="h5 pb-5 text-primary">Promoción de vehiculos eléctricos a nivel nacional&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small></div>
+                                        <div class="h5 pb-5 text-primary">
+                                            <div class="steps">PASO 1 DE 4 &nbsp;</div>Promoción de vehiculos eléctricos a nivel nacional&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -87,7 +89,9 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-12">
-                                        <div class="h5 py-5 text-primary">Datos principales</div>
+                                        <div class="h5 py-5 text-primary">Datos principales
+                                            <div class="steps">PASO 1 DE 4 &nbsp;</div>Promoción de vehiculos eléctricos a nivel nacional&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -243,7 +247,9 @@
                             <div class="container py-5">
                                 <div class="row">
                                     <div class="col-12">
-                                        <div class="h5 pb-5 text-primary">Detalles de Identificación<br><small class="text-muted">Complete información</small></div>
+                                        <div class="h5 pb-5 text-primary">
+                                            <div class="steps">PASO 2 DE 4 &nbsp;</div>Detalles de Identificación<br><small class="text-muted">Complete información</small>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -274,7 +280,7 @@
                                             <table class="table table-hover" id="tablaIndicador" data-fila="0">
                                                 <thead>
                                                     <tr class="bg-primary text-white">
-                                                        <th class="text-center" style="background-color: green;" scope="col"><span>#&nbsp;</span></th>
+                                                        <th class="text-center" style="background-color: green;" scope="col"><span>N°&nbsp;</span></th>
                                                         <th class="text-center" style="background-color: green;" scope="col"><span>Año&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
                                                         <th class="text-center" style="background-color: green;" scope="col"><span>Tipo Vehiculo&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
                                                         <th class="text-center" style="background-color: orange;" scope="col"><span>Tipo Combustible&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
@@ -300,7 +306,25 @@
                                                         <th class="text-hide" scope="col" style="display:none;">Id. Iniciativa</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody id="cuerpoTablaIndicador" data-row="0" data-total="0"></tbody>
+                                                <tbody id="cuerpoTablaIndicador" data-row="0" data-total="0" data-delete=""></tbody> <!-- add id delete-->
+                                            </table>
+                                        </div>
+                                        <div class="table-responsive tabla-principal mt-3">
+                                            <table class="table table-hover">
+                                                <thead>
+                                                    <tr class="bg-primary text-white">
+                                                        <th class="text-center" scope="col" width="2%"><span>N°&nbsp;</span></th>
+                                                        <th scope="col" width="88%"><span>Resumen</span></th>
+                                                        <th scope="col" width="10%"><span>Total</span></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th class="text-center" data-encabezado="Número" scope="row">1</th>
+                                                        <td data-encabezado="Resumen" id="resumen-detalle">@*Nombre de la Medida Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia earum asperiores do*@</td>
+                                                        <td data-encabezado="Total" id="total-detalle">@*<strong>0.00</strong>*@</td>
+                                                    </tr>
+                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
@@ -323,7 +347,9 @@
                             <div class="container py-5">
                                 <div class="row">
                                     <div class="col-12">
-                                        <div class="h5 pb-5 text-primary">Resumen<br><small class="text-muted">Este es el detalle de su detalle de indicadores</small></div>
+                                        <div class="h5 pb-5 text-primary">
+                                            <div class="steps">PASO 3 DE 4 &nbsp;</div>Resumen<br><small class="text-muted">Este es el detalle de su detalle de indicadores</small>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -344,8 +370,8 @@
                                                 <tbody>
                                                     <tr>
                                                         <th class="text-center" data-encabezado="Número" scope="row">1</th>
-                                                        <td data-encabezado="Resumen" id="resumen-detalle">@*Nombre de la Medida Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia earum asperiores do*@</td>
-                                                        <td data-encabezado="Total" id="total-detalle">@*<strong>0.00</strong>*@</td>
+                                                        <td data-encabezado="Resumen" id="resumen-detalle2">@*Nombre de la Medida Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia earum asperiores do*@</td>
+                                                        <td data-encabezado="Total" id="total-detalle2">@*<strong>0.00</strong>*@</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -368,7 +394,9 @@
                             <div class="container py-5">
                                 <div class="row">
                                     <div class="col-12">
-                                        <div class="h5 pb-5 text-primary">Documentos&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Cargue uno o varios documentos sustentatorios</small></div>
+                                        <div class="h5 pb-5 text-primary">
+                                            <div class="steps">PASO 4 DE 4 &nbsp;</div>Documentos&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Cargue uno o varios documentos sustentatorios</small>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row">

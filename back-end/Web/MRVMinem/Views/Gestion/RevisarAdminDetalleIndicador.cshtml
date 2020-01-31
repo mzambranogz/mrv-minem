@@ -256,16 +256,16 @@
                                 <table class="table table-hover" id="tablaIndicador" data-fila="0">
                                     <thead>
                                         <tr class="bg-primary text-white">
-                                            <th class="text-center" scope="col"><span>#&nbsp;</span></th>
-                                            <th scope="col"><span>Año&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                            <th scope="col"><span>Tipo Vehiculo&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                            <th scope="col"><span>Tipo Combustible&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                            <th scope="col"><span>KRV&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                            <th scope="col"><span>Cantidad&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                            <th scope="col"><span>Factor de Rendimiento&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                            <th scope="col"><span>Línea Base Emisiones GEI (tCO2e)</span></th>
-                                            <th scope="col"><span>Iniciativa Mitigación Emisiones GEI (tCO2e)</span></th>
-                                            <th scope="col"><span>Emisiones GEI Reducidas (tCO2e)</span></th>
+                                            <th class="text-center" style="background-color: green;" scope="col"><span>#&nbsp;</span></th>
+                                            <th class="text-center" style="background-color: green;" scope="col"><span>Año&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
+                                            <th class="text-center" style="background-color: green;" scope="col"><span>Tipo Vehiculo&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
+                                            <th class="text-center" style="background-color: orange;" scope="col"><span>Tipo Combustible&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
+                                            <th class="text-center" style="background-color: green;" scope="col"><span>KRV&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
+                                            <th class="text-center" style="background-color: green;" scope="col"><span>Cantidad&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
+                                            <th class="text-center" style="background-color: green;" scope="col"><span>Factor de Rendimiento&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
+                                            <th class="text-center" style="background-color: orange;" scope="col"><span>Línea Base Emisiones GEI (tCO<sub>2</sub>eq)</span></th>
+                                            <th class="text-center" style="background-color: green;" scope="col"><span>Iniciativa Mitigación Emisiones GEI (tCO<sub>2</sub>eq)</span></th>
+                                            <th class="text-center" style="background-color: #2271b3;" scope="col"><span>Emisiones GEI Reducidas (tCO<sub>2</sub>eq)</span></th>
                                         </tr>
                                     </thead>
                                     <tbody id="cuerpoTablaIndicador" data-row="0" data-total="0">
@@ -578,8 +578,8 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-12-col-md-12 col-lg-6">
-                            <div class="form-group">
-                                <label>Archivos adjuntos: 0 en total</label>
+                            <div class="form-group" id="archivos-documentos">
+                                <label>Archivos adjuntos: <span id="total-documentos">0</span> en total</label>
                                 @*<div class="input-group mb-3">
                                         <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-file-pdf"></i></span></div><span class="form-control-plaintext">NombreDeArchivo.pdf</span>
                                         <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="fas fa-download"></i></span></div>
@@ -601,11 +601,11 @@
                         <div class="col-sm-12-col-md-12 col-lg-6">
                             <label>Visibilidad de datos</label><br>
                             <div class="custom-control custom-checkbox d-inline-block">
-                                <input class="custom-control-input" type="checkbox" id="chk-publicar" checked>
+                                <input class="custom-control-input" type="checkbox" id="chk-publicar" disabled checked>
                                 <label class="custom-control-label" for="chk-publicar">Hacer públicos los datos registrados.</label>
                             </div>
                             <div class="custom-control custom-checkbox d-inline-block">
-                                <input class="custom-control-input" type="checkbox" id="chk-publicar-monto-inversion">
+                                <input class="custom-control-input" type="checkbox" id="chk-publicar-monto-inversion" disabled>
                                 <label class="custom-control-label" for="chk-publicar-monto-inversion">Hacer público "Monto de inversión"</label>
                             </div>
                         </div>

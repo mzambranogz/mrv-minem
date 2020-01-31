@@ -47,6 +47,11 @@ namespace logica.minem.gob.pe
             return indicador.AvanceDetalleIndicador(entidad);
         }
 
+        public static IniciativaBE RegistrarAvanceDetalleIndicador(IniciativaBE entidad) //add 30-01-20
+        {
+            return indicador.RegistrarAvanceDetalleIndicador(entidad);
+        }
+
         public static IndicadorBE AprobarDetalleIndicador(IndicadorBE entidad)
         {
             return indicador.AprobarDetalleIndicador(entidad);
@@ -117,6 +122,17 @@ namespace logica.minem.gob.pe
         {
             return indicador.GetDetalleIndicador(entidad);
 
+        }
+
+        public static IniciativaBE EliminarIndicadores(IniciativaBE entidad)
+        {
+            return indicador.EliminarIndicadores(entidad);
+
+        }
+
+        public static IniciativaBE CorregirDetalleIndicador2(IniciativaBE entidad)
+        {
+            return indicador.CorregirDetalleIndicador2(entidad);
         }
     }
     
