@@ -66,12 +66,15 @@
           <div class="container py-4">
             <div class="row">
               <div class="col-md-12 col-lg-6 pt-4">
-                <div class="h4">Evaluación de Iniciativa de Mitigación y Detalles de Indicadores&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Asigne información importante a su detalle de indicadores, <br>complete todos los campos para una mejor especificación.</small></div>
+                <div class="h4">Evaluación de Iniciativa de Mitigación y Detalles de Indicadores&nbsp;<br><small class="text-muted">Apruebe, observe o descargue sus detalles de indicadores en formato excel o toda la inicitiva en formato pdf</small></div>
               </div>
               <div class="col-md-12 col-lg-6 pt-4">
                 <div class="row">
                   <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
-                  <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#aprobar-evaluacion"><a class="aprobar-evaluacion" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-check px-1"></i>Aprobar evaluación</a></span><span data-toggle="modal" data-target="#observar-evaluacion"><a class="observar-evaluacion" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-eye px-1"></i>Observar evaluación</a></span>
+                  <div class="col-sm-12 col-md-6 col-lg-6">
+                    <div class="btn-group btn-group-lg w-100 mb-3" data-toggle="tooltip" data-placement="top" title="Dar por aprobado esta iniciativa de mitigación"><a class="btn btn-primary dropdown-toggle w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0"><i class="fas fa-check pr-1"></i>Aprobar evaluación</a>
+                      <div class="dropdown-menu dropdown-menu-right w-100"><a class="dropdown-item" href="#" data-toggle="modal" data-target="#aprobar-evaluacion"><i class="fas fa-user-circle pr-1"></i>Enviar al Evaluador MINAM</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#aprobar-evaluacion"><i class="far fa-user-circle pr-1"></i>Enviar al Verificador Externo</a></div>
+                    </div><span data-toggle="modal" data-target="#aprobar-evaluacion"><a class="aprobar-evaluacion" href="#" data-toggle="tooltip" data-placement="top" title="Dar por aprobado esta iniciativa de mitigación"><i class="fas fa-check px-1"></i>Aprobar evaluación</a></span><span data-toggle="modal" data-target="#observar-evaluacion"><a class="observar-evaluacion" href="#" data-toggle="tooltip" data-placement="top" title="¿Encontró alguna observación? utilice esta opción para solicitar una corrección"><i class="fas fa-eye px-1"></i>Observar evaluación</a></span>
                     <div class="btn-group btn-group-lg w-100"><a class="btn btn-success dropdown-toggle w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0"><i class="fas fa-download pr-1"></i>Descargar</a>
                       <div class="dropdown-menu dropdown-menu-right w-100"><a class="dropdown-item" href="#"><i class="fas fa-file-excel pr-1"></i>Formato excel</a><a class="dropdown-item" href="#"><i class="fas fa-file-pdf pr-1"></i>Formato pdf</a></div>
                     </div>
@@ -84,7 +87,7 @@
             <div class="container py-5">
               <div class="row">
                 <div class="col-12">
-                  <div class="h5 pb-5 text-primary">Promoción de vehiculos eléctricos a nivel nacional&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small></div>
+                  <div class="h5 pb-5 text-primary">Promoción de vehiculos eléctricos a nivel nacional&nbsp;</div>
                 </div>
               </div>
               <div class="row">
@@ -122,14 +125,14 @@
               <div class="row">
                 <div class="col-sm-12-col-md-12 col-lg-12">
                   <div class="form-group">
-                    <label for="txa-nombre-iniciativa">Nombre de la iniciativa<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="En caso no posea un nombre, coloque el nombre de la medida de mitigación seguido de un guión y nombre o siglas de la institución."></i></label>
+                    <label for="txa-nombre-iniciativa">Nombre de la iniciativa<span class="text-danger font-weight-bold">&nbsp;</span></label>
                     <div class="input-group">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-tachometer-alt"></i></span></div>
                       <textarea class="form-control-plaintext" id="txa-nombre-iniciativa" aria-describedby="inputGroup4" cols="30" rows="5" readonly placeholder="Ingrese un nombre para su iniciativa">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor officia, sequi hic, vel quia repellat architecto quasi corporis quidem doloribus earum praesentium molestiae illo, iure voluptates autem voluptate inventore! Inventore.</textarea>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="txa-descripcion-medida">Descripción de la medida<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indicar la ubicación, tecnología considerada y cantidades de la misma."></i></label>
+                    <label for="txa-descripcion-medida">Descripción de la medida<span class="text-danger font-weight-bold">&nbsp;</span></label>
                     <div class="input-group">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-tachometer-alt"></i></span></div>
                       <textarea class="form-control-plaintext" id="txa-descripcion-medida" aria-describedby="inputGroup5" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil optio corrupti itaque tempora pariatur nemo ipsam quis porro magnam dolorum a, dolore explicabo eveniet velit natus voluptate aperiam, reprehenderit ipsa!</textarea>
@@ -188,7 +191,7 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="txa-ubicacion">Ubicación<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                    <label for="txa-ubicacion">Ubicación<span class="text-danger font-weight-bold">&nbsp;</span></label>
                     <div class="input-group">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
                       <textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="8" readonly placeholder="Ingrese una descripción para su iniciativa">Lima&nbsp;
@@ -206,7 +209,7 @@ Tacna</textarea>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="txt-monto-inversion">Monto de inversión<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                    <label for="txt-monto-inversion">Monto de inversión<span class="text-danger font-weight-bold">&nbsp;</span></label>
                     <div class="input-group">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup11"><i class="fas fa-wallet"></i></span></div>
                       <input class="form-control-plaintext" type="text" id="txt-monto-inversion" aria-describedby="inputGroup11" value="100,000.00" readonly>
@@ -236,7 +239,7 @@ Tacna</textarea>
               <div class="row">
                 <div class="col-sm-12-col-md-12 col-lg-6">
                   <div class="form-group">
-                    <label for="mlt-energetico">Energético asociado<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                    <label for="mlt-energetico">Energético asociado<span class="text-danger font-weight-bold">&nbsp;</span></label>
                     <div class="input-group">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
                       <textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">Combustibles fósiles&nbsp;
@@ -246,7 +249,7 @@ Electricidad&nbsp;</textarea>
                 </div>
                 <div class="col-sm-12-col-md-12 col-lg-6">
                   <div class="form-group">
-                    <label for="mlt-gei">Gases de efecto invernadero<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                    <label for="mlt-gei">Gases de efecto invernadero</label>
                     <div class="input-group">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
                       <textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">CO2
@@ -261,13 +264,13 @@ CH 2</textarea>
             <div class="container py-5">
               <div class="row">
                 <div class="col-12">
-                  <div class="h5 pb-5 text-primary">Detalles de Identificación<br><small class="text-muted">Complete información</small></div>
+                  <div class="h5 pb-5 text-primary">Detalles de Indicadores</div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-sm-12-col-md-12 col-lg-6">
                   <div class="form-group">
-                    <label for="txt-enfoque">Enfoque<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                    <label for="txt-enfoque">Enfoque</label>
                     <div class="input-group">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup20"><i class="fas fa-square-root-alt"></i></span></div>
                       <input class="form-control-plaintext" id="txt-enfoque" aria-describedby="inputGroup20" value="Enfoque 01" readonly>
@@ -278,8 +281,6 @@ CH 2</textarea>
               </div>
             </div>
             <div class="container-fluid py-4">
-              <div class="h5">Registro de Detalles&nbsp;<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></div>
-              <div class="dropdown-divider"></div>
               <div class="row">
                 <div class="col-12 px-0">
                   <div class="table-responsive tabla-principal tabla-detalle-indicadores">
@@ -578,13 +579,11 @@ CH 2</textarea>
             <div class="container py-5">
               <div class="row">
                 <div class="col-12">
-                  <div class="h5 pb-5 text-primary">Resumen<br><small class="text-muted">Este es el detalle de su detalle de indicadores</small></div>
+                  <div class="h5 pb-5 text-primary">Resumen</div>
                 </div>
               </div>
             </div>
             <div class="container py-4">
-              <div class="h5">Registro de Detalles&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></div>
-              <div class="dropdown-divider"></div>
               <div class="row">
                 <div class="col-12 px-0">
                   <div class="table-responsive tabla-principal">
@@ -612,7 +611,7 @@ CH 2</textarea>
             <div class="container py-5">
               <div class="row">
                 <div class="col-12">
-                  <div class="h5 pb-5 text-primary">Documentos&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Cargue uno o varios documentos sustentatorios</small></div>
+                  <div class="h5 pb-5 text-primary">Documentos&nbsp;</div>
                 </div>
               </div>
               <div class="row">
@@ -664,7 +663,11 @@ CH 2</textarea>
                 <div class="col-sm-12 col-md-12 col-lg-6 text-right">
                   <div class="row justify-content-end">
                     <div class="col-lg-6"><a class="btn btn-warning px-5 w-100 text-center mb-3" href="#" data-toggle="modal" data-target="#observar-evaluacion"><i class="fas fa-eye px-1"></i>Observar</a></div>
-                    <div class="col-lg-6"><a class="btn btn-primary px-5 w-100 text-center" href="#" data-toggle="modal" data-target="#aprobar-evaluacion">Aprobar<i class="fas fa-check px-1"></i></a></div>
+                    <div class="col-lg-6">
+                      <div class="btn-group btn-group w-100 mb-3"><a class="btn btn-primary dropdown-toggle w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0"><i class="fas fa-check pr-1"></i>Aprobar revisión</a>
+                        <div class="dropdown-menu dropdown-menu-right w-100"><a class="dropdown-item" href="#" data-toggle="modal" data-target="#aprobar-evaluacion"><i class="fas fa-user-circle pr-1"></i>Enviar al Evaluador MINAM</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#aprobar-evaluacion"><i class="far fa-user-circle pr-1"></i>Enviar al Verificador Externo</a></div>
+                      </div><a class="btn btn-primary px-5 w-100 text-center" href="#" data-toggle="modal" data-target="#aprobar-evaluacion"><i class="fas fa-check px-1"></i>Aprobar</a>
+                    </div>
                   </div>
                 </div>
               </div>
