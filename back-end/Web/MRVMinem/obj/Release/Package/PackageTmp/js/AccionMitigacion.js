@@ -1,71 +1,4 @@
-﻿$(document).ready(function () {
-    CargarOpcionesCuerpo();
-    CargarMedidaMitigacion();
-    CargarSector();
-    CargarEnergeticoLineaBase();
-    CargarEnergeticoProyecto();
-    if ($("#Control").data("usuario") > 0) {
-        if ($("#Control").data("rol") == 2) {
-            CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaIniciativasEspecialista");
-        } else if ($("#Control").data("rol") == 3) {
-            CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaIniciativasGeneral");
-        } else if ($("#Control").data("rol") == 1) {
-            CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaIniciativasUsuario");
-        } else if ($("#Control").data("rol") == 4) {
-            CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaIniciativasEvaluar");
-        } else if ($("#Control").data("rol") == 5) {
-            CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaIniciativasVerificar");
-        }
-        fn_actualizaCampana();
-        enLinea();
-    } else {
-        CargarListarIniciativaMitigacionPublico(baseUrl + "Portal/ListaIniciativasPublico");
-    }
-    /*MRV.CargarSelect(baseUrl + "Publico/Portal/ListaSectorInstitucion", "#mSector", "ID_SECTOR_INST", "DESCRIPCION");
-    MRV.CargarSelect(baseUrl + "Administrado/Gestion/ListarMedidaMitigacion", "#medMitigacion", "ID_MAE_MEDMIT", "NOMBRE_MEDMIT");
-    MRV.CargarSelect(baseUrl + "Administrado/Gestion/ListarMoneda", "#mMoneda", "ID_MONEDA", "DESCRIPCION");
-    */
-
-    $(".miColumna").click(function (event) {
-        var id = "";
-        if (event.target.nodeName == "SPAN") {
-            id = event.target.firstElementChild.id;
-        } else {
-            id = event.target.id;
-        }
-
-        debugger;
-        $(".miColumna > i").removeClass("fa-sort-up");
-        $(".miColumna > i").removeClass("fa-sort-down");
-        $(".miColumna > i").addClass("fa-sort");
-        $(".miColumna > i").css("color", "lightgray");
-
-
-        if ($("#columna").val() == id) {
-            if ($("#orden").val() == "ASC") {
-                $("#orden").val("DESC")
-                $("#" + id).removeClass("fa-sort-up");
-                $("#" + id).addClass("fa-sort-down");
-            }
-            else {
-                $("#orden").val("ASC")
-                $("#" + id).removeClass("fa-sort-down");
-                $("#" + id).addClass("fa-sort-up");
-            }
-            $("#" + id).css("color", "white");
-        }
-        else {
-            $("#columna").val(id);
-            $("#orden").val("ASC")
-            $("#" + id).removeClass("fa-sort");
-            $("#" + id).addClass("fa-sort-up");
-            $("#" + id).css("color", "white");
-        }
-
-        fn_CargaIniciativas();
-    });
-    
-});
+﻿
 
 function fn_CargaIniciativas() {
     if ($("#Control").data("usuario") > 0) {
@@ -101,26 +34,26 @@ function fn_CargaIniciativas() {
 }
 
 function CargarOpcionesCuerpo() {
-    if ($("#Control").data("opcion9") == 1) {
-        $('#nuevaIniciativa').append('<span data-toggle="modal" data-target="#medidas-mitigacion-listado"><a class="agregar-iniciativa" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-plus px-1"></i>Agregar iniciativa</a></span>');
-        //$("#seccionFiltro").hide();
-    }
+    //if ($("#Control").data("opcion9") == 1) {
+    //    $('#nuevaIniciativa').append('<span data-toggle="modal" data-target="#medidas-mitigacion-listado"><a class="agregar-iniciativa" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-plus px-1"></i>Agregar iniciativa</a></span>');
+    //    //$("#seccionFiltro").hide();
+    //}
 
-    if ($("#Control").data("rol") != 1) {
-        var filtro = '<div class="btn-group">';
-        filtro +=    '                <a class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1"><i class="fas fa-filter">&nbsp;</i>Filtrar por estados</a>';
-        filtro +=    '                    <div class="dropdown-menu">';
-        filtro += '                             <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(1);"><i class="fas fa-hourglass">&nbsp;</i>Pendientes</a>';
-        filtro +=    '                          <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(2);"><i class="fas fa-eye">&nbsp;</i>Observadas</a>';
-        filtro += '                             <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(3);"><i class="fas fa-check">&nbsp;</i>Aprobados</a>';
-        filtro += '                             <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(4);"><i class="fas fa-check-double">&nbsp;</i>Revisadas</a>';
-        filtro += '                             <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(5);"><i class="fas fa-clipboard-check">&nbsp;</i>Evaluadas</a>';
-        filtro += '                             <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(6);"><i class="fas fa-tasks">&nbsp;</i>Verificadas</a>';
-        filtro +=    '                        <div class="dropdown-divider"></div><a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(7);"><i class="fas fa-tachometer-alt">&nbsp;</i>Todas</a>';
-        filtro +=    '                    </div>';
-        filtro += ' </div>';
-        $("#seccionFiltro").append(filtro);
-    }
+    //if ($("#Control").data("rol") != 1) {
+    //    var filtro = '<div class="btn-group">';
+    //    filtro +=    '                <a class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1"><i class="fas fa-filter">&nbsp;</i>Filtrar por estados</a>';
+    //    filtro +=    '                    <div class="dropdown-menu">';
+    //    filtro += '                             <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(1);"><i class="fas fa-hourglass">&nbsp;</i>Pendientes</a>';
+    //    filtro +=    '                          <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(2);"><i class="fas fa-eye">&nbsp;</i>Observadas</a>';
+    //    filtro += '                             <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(3);"><i class="fas fa-check">&nbsp;</i>Aprobados</a>';
+    //    filtro += '                             <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(4);"><i class="fas fa-check-double">&nbsp;</i>Revisadas</a>';
+    //    filtro += '                             <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(5);"><i class="fas fa-clipboard-check">&nbsp;</i>Evaluadas</a>';
+    //    filtro += '                             <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(6);"><i class="fas fa-tasks">&nbsp;</i>Verificadas</a>';
+    //    filtro +=    '                        <div class="dropdown-divider"></div><a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(7);"><i class="fas fa-tachometer-alt">&nbsp;</i>Todas</a>';
+    //    filtro +=    '                    </div>';
+    //    filtro += ' </div>';
+    //    $("#seccionFiltro").append(filtro);
+    //}
 }
 
 function fn_revisarIniciativa(ini) {
@@ -136,7 +69,7 @@ function fn_revisarDetalle(id) {
 }
 
 function fn_revisarDetalleAdmin(id) {
-    location.href = baseUrl + "Gestion/RevisarAdminDetalleIndicador?id=" + id;
+    location.href = baseUrl + "Gestion/RevisarAdminDetalleIndicador?id=" + id;    
 }
 
 function fn_evaluarIniciativaDetalle(id) {
@@ -214,10 +147,10 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
                     for (var i = 0; i < data.length; i++) {
 
                         var progreso = '0%;';
-                        if (data[i]["ID_ESTADO"] != 0) {
+                        if (data[i]["ID_ESTADO"] != 0 || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3)) {
                             if (data[i]["PROGRESO"] == 1 && (data[i]["ID_ESTADO"] == 1 || data[i]["ID_ESTADO"] == 5 || data[i]["ID_ESTADO"] == 2)) {
                                 progreso = '25%';
-                            } else if (data[i]["PROGRESO"] == 2) {
+                            } else if (data[i]["PROGRESO"] == 2 || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3)) {
                                 progreso = '50%';
                             } else if (data[i]["PROGRESO"] == 3 && (data[i]["ID_ESTADO"] == 1 || data[i]["ID_ESTADO"] == 5 || data[i]["ID_ESTADO"] == 2) || data[i]["ID_ESTADO"] == 6) {
                                 progreso = '75%';
@@ -231,7 +164,7 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
                             tooltip = "Iniciativa de mitigación registrada";
                         } else if (data[i]["PROGRESO"] == 1 && data[i]["ID_ESTADO"] == 2 || data[i]["ID_ESTADO"] == 5) {
                             tooltip = "Iniciativa de mitigación observado";
-                        } else if (data[i]["PROGRESO"] == 2 && data[i]["ID_ESTADO"] == 3) {
+                        } else if ((data[i]["PROGRESO"] == 2 && data[i]["ID_ESTADO"] == 3) || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3)) {
                             tooltip = "Iniciativa de mitigación aprobada";
                         } else if (data[i]["PROGRESO"] == 3 && (data[i]["ID_ESTADO"] == 1)) {
                             tooltip = "Detalle de indicadores registrado";
@@ -344,12 +277,12 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                     for (var i = 0; i < data.length; i++) {
 
                         var progreso = '0%;';
-                        if (data[i]["ID_ESTADO"] != 0) {
+                        if (data[i]["ID_ESTADO"] != 0 || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3)) {
                             if (data[i]["PROGRESO"] == 1 && (data[i]["ID_ESTADO"] == 1 || data[i]["ID_ESTADO"] == 5 || data[i]["ID_ESTADO"] == 2)) {
                                 progreso = '25%';
-                            } else if (data[i]["PROGRESO"] == 2) {
+                            } else if (data[i]["PROGRESO"] == 2 || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3)) {
                                 progreso = '50%';
-                            } else if (data[i]["PROGRESO"] == 3 && (data[i]["ID_ESTADO"] == 1 || data[i]["ID_ESTADO"] == 5 || data[i]["ID_ESTADO"] == 2) || data[i]["ID_ESTADO"] == 6) {
+                            } else if (data[i]["PROGRESO"] == 3 && (data[i]["ID_ESTADO"] == 1 || data[i]["ID_ESTADO"] == 5 || data[i]["ID_ESTADO"] == 2 || data[i]["ID_ESTADO"] == 6)) {
                                 progreso = '75%';
                             } else if (data[i]["PROGRESO"] == 4  || data[i]["PROGRESO"] == 5 || data[i]["PROGRESO"] == 6 || data[i]["PROGRESO"] == 7) {
                                 progreso = '100%';
@@ -361,7 +294,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                             tooltip = "Iniciativa de mitigación registrada";
                         } else if (data[i]["PROGRESO"] == 1 && data[i]["ID_ESTADO"] == 2 || data[i]["ID_ESTADO"] == 5) {
                             tooltip = "Iniciativa de mitigación observado";
-                        } else if (data[i]["PROGRESO"] == 2 && data[i]["ID_ESTADO"] == 3) {
+                        } else if ((data[i]["PROGRESO"] == 2 && data[i]["ID_ESTADO"] == 3) || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3)) {
                             tooltip = "Iniciativa de mitigación aprobada";
                         } else if (data[i]["PROGRESO"] == 3 && (data[i]["ID_ESTADO"] == 1)) {
                             tooltip = "Detalle de indicadores registrado";
@@ -415,6 +348,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                         }
                         if ($('#Control').data('rol') == 2 && data[i]["PROGRESO"] == 1 && (data[i]["ID_ESTADO"] == 1 || data[i]["ID_ESTADO"] == 5)) {
                             tr = tr + '             <a class="dropdown-item text-primary" href="#" onclick="fn_revisarIniciativa(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-check"></i>&nbsp;Revisar</a>';
+                            //tr = tr + '             <a class="dropdown-item text-primary" href="@Url.Action("MantenimientoTablas","Gestion")"><i class="fas fa-check"></i>&nbsp;Revisar</a>';
                         } else if ($('#Control').data('rol') == 2 && data[i]["PROGRESO"] == 3 && (data[i]["ID_ESTADO"] == 1 || data[i]["ID_ESTADO"] == 5)) {
                             tr = tr + '<a class="dropdown-item text-primary" href="#" onclick="fn_revisarDetalle(' + data[i]["ID_INICIATIVA"] + ')"><i class="fas fa-check-double"></i>&nbsp;Revisar</a>';
                         }
@@ -432,6 +366,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                         tr = tr + '</td>';
                         tr = tr + '</tr>';
                         $("#cuerpoMitigacion").append(tr);
+                        $('[data-toggle="tooltip"]').tooltip();
 
                         pagina = Number(data[i]["pagina"]);
                         total_paginas = Number(data[i]["total_paginas"]);
@@ -442,7 +377,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                             if (fin > total_registros)
                                 fin = total_registros
                         }
-                        resultado = inicio + " de " + fin;
+                        resultado = inicio + " de " + fin
                     }
                     $("#resultado").html(resultado);
                     $("#total-registros").html(total_registros);
@@ -451,8 +386,10 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                     if (Number($("#pagina").val()) > total_paginas) {
                         $("#pagina").val(total_paginas);
                     }
+
                 }
             }
+            $('[data-toggle="tooltip"]').tooltip();
         }
     });
 }
@@ -1364,3 +1301,73 @@ function exportarIniciativa() {
     jQuery('#frmDescarga').submit();
     jQuery('#frmDescarga').remove();
 }
+
+
+$(document).ready(function () {
+    CargarOpcionesCuerpo();
+    CargarMedidaMitigacion();
+    CargarSector();
+    CargarEnergeticoLineaBase();
+    CargarEnergeticoProyecto();
+    if ($("#Control").data("usuario") > 0) {
+        if ($("#Control").data("rol") == 2) {
+            CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaIniciativasEspecialista");
+        } else if ($("#Control").data("rol") == 3) {
+            CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaIniciativasGeneral");
+        } else if ($("#Control").data("rol") == 1) {
+            CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaIniciativasUsuario");
+        } else if ($("#Control").data("rol") == 4) {
+            CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaIniciativasEvaluar");
+        } else if ($("#Control").data("rol") == 5) {
+            CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaIniciativasVerificar");
+        }
+        fn_actualizaCampana();
+        enLinea();
+    } else {
+        CargarListarIniciativaMitigacionPublico(baseUrl + "Portal/ListaIniciativasPublico");
+    }
+    /*MRV.CargarSelect(baseUrl + "Publico/Portal/ListaSectorInstitucion", "#mSector", "ID_SECTOR_INST", "DESCRIPCION");
+    MRV.CargarSelect(baseUrl + "Administrado/Gestion/ListarMedidaMitigacion", "#medMitigacion", "ID_MAE_MEDMIT", "NOMBRE_MEDMIT");
+    MRV.CargarSelect(baseUrl + "Administrado/Gestion/ListarMoneda", "#mMoneda", "ID_MONEDA", "DESCRIPCION");
+    */
+
+    $(".miColumna").click(function (event) {
+        var id = "";
+        if (event.target.nodeName == "SPAN") {
+            id = event.target.firstElementChild.id;
+        } else {
+            id = event.target.id;
+        }
+
+        debugger;
+        $(".miColumna > i").removeClass("fa-sort-up");
+        $(".miColumna > i").removeClass("fa-sort-down");
+        $(".miColumna > i").addClass("fa-sort");
+        $(".miColumna > i").css("color", "lightgray");
+
+
+        if ($("#columna").val() == id) {
+            if ($("#orden").val() == "ASC") {
+                $("#orden").val("DESC")
+                $("#" + id).removeClass("fa-sort-up");
+                $("#" + id).addClass("fa-sort-down");
+            }
+            else {
+                $("#orden").val("ASC")
+                $("#" + id).removeClass("fa-sort-down");
+                $("#" + id).addClass("fa-sort-up");
+            }
+            $("#" + id).css("color", "white");
+        }
+        else {
+            $("#columna").val(id);
+            $("#orden").val("ASC")
+            $("#" + id).removeClass("fa-sort");
+            $("#" + id).addClass("fa-sort-up");
+            $("#" + id).css("color", "white");
+        }
+
+        fn_CargaIniciativas();
+    });
+
+});

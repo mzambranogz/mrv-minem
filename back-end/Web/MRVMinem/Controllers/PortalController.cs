@@ -379,6 +379,31 @@ namespace MRVMinem.Controllers
                 Session["nombres"] = item.NOMBRES;
                 Session["correo"] = item.CORREO;
                 Session["rol"] = item.ID_ROL;
+                if (item.ID_ROL == 1)
+                {
+                    Session["nombreRol"] = "Administrado";
+                    Session["colorRol"] = "02";
+                }
+                else if (item.ID_ROL == 2)
+                {
+                    Session["nombreRol"] = "Especialista";
+                    Session["colorRol"] = "03";
+                }
+                else if (item.ID_ROL == 3)
+                {
+                    Session["nombreRol"] = "Administrador MINEM";
+                    Session["colorRol"] = "06";
+                }
+                else if (item.ID_ROL == 4)
+                {
+                    Session["nombreRol"] = "Evaluador MINAM";
+                    Session["colorRol"] = "04";
+                }
+                else if (item.ID_ROL == 5)
+                {
+                    Session["nombreRol"] = "Verificador Externo";
+                    Session["colorRol"] = "05";
+                }
                 Session["institucion"] = item.INSTITUCION;
                 Session["direccion"] = item.DIRECCION;
                 Session["sector"] = item.SECTOR;

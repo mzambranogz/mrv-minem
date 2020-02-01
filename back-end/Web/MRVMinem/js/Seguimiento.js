@@ -257,6 +257,7 @@ function fn_mostrarSeguimiento() {
                     $("#seguimiento").append(tr);
                     }
                     //$("#seguimiento").append(tr);
+                    $(".timeline:last-child").attr("style", "margin-top: 0px !important");
                 }
             }
         }

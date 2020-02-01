@@ -118,7 +118,7 @@ function fn_crearLinea(fila) {
     tr = tr + '                          <div class="dropdown-menu dropdown-menu-right">';
     tr = tr + '                                  <a class="dropdown-item agregarCampos" href="#">';
     tr = tr + '                                         <i class="fas fa-plus-circle"></i>&nbsp;Agregar';
-    tr = tr + '                                  </a><a class="dropdown-item quitarCampos" href="#">';
+    tr = tr + '                                  </a><a class="dropdown-item quitarCampos" href="#" onclick="fn_restarTotalCO2();">';
     tr = tr + '                                         <i class="fas fa-minus-circle"></i>&nbsp;Eliminar';
     tr = tr + '                                  </a>';
     tr = tr + '                          </div>';
@@ -139,16 +139,41 @@ function fn_crearLinea(fila) {
     //MRV.CargarSelect(baseUrl + "Gestion/ListarTipoCombustible", "#cbo-det-3-1", "ID_TIPO_COMBUSTIBLE", "DESCRIPCION");
 }
 
+function fn_restarTotalCO2() {
+    debugger;
+    var row = $(".tabla-detalle-indicadores").find("tbody").find("th").length-1;
+    $("#cuerpoTablaIndicador").data("row", row);
+    if ($("#txt-det-6-" + $("#tablaIndicador").data("fila")).val() != '') {
+        var t = parseFloat($("#txt-det-6-" + $("#tablaIndicador").data("fila")).val()); 
+        var tt = parseFloat($("#cuerpoTablaIndicador").data("total")) - t;
+        $("#cuerpoTablaIndicador").data("total", tt);
+        $("#total-detalle #total").remove();
+        $("#total-detalle").append('<strong id="total">' + (Math.round(tt * 100) / 100) + ' tCO<sub>2</sub>eq</strong>');
+        $("#total-detalle2 #total2").remove();
+        $("#total-detalle2").append('<strong id="total2">' + (Math.round(tt * 100) / 100) + ' tCO<sub>2</sub>eq</strong>');
+        if ($("#txt-det-7-" + $("#tablaIndicador").data("fila")).val() != '') {
+            var id_borrar = $("#cuerpoTablaIndicador").data("delete") + $("#txt-det-7-" + $("#tablaIndicador").data("fila")).val() + ",";
+            $("#cuerpoTablaIndicador").data("delete", id_borrar);
+        }
+    }
+    //fn_calcularTotalCO2(row);
+}
+
 
 function fn_calcularTotalCO2(row) {
     var total = 0.0;
     for (var i = 0; i < row; i++) {
-        total = total + parseFloat($("#txt-det-6-" + (i + 1)).val());
+        console.log($("#txt-det-6-" + (i + 1)).val());
+        if ($("#txt-det-6-" + (i + 1)).val() != '') {
+            total = total + parseFloat($("#txt-det-6-" + (i + 1)).val());
+        }        
         //alert(total);
     }
     $("#cuerpoTablaIndicador").data("total", total);
     $("#total-detalle #total").remove();
-    $("#total-detalle").append('<strong id="total">' + total + ' tCO<sub>2</sub>eq</strong>');
+    $("#total-detalle").append('<strong id="total">' + (Math.round(total * 100) / 100) + ' tCO<sub>2</sub>eq</strong>');
+    $("#total-detalle2 #total2").remove();
+    $("#total-detalle2").append('<strong id="total2">' + (Math.round(total * 100) / 100) + ' tCO<sub>2</sub>eq</strong>');
 }
 
 
@@ -222,7 +247,7 @@ function fn_calcularIndicadores2(fila) {
                             $("#txt-det-4-" + fila).val(data[i]["TOTAL_GEI_BASE"]);
                             $("#txt-det-5-" + fila).val(data[i]["TOTAL_GEI_INIMIT"]);
                             $("#txt-det-6-" + fila).val(data[i]["TOTAL_GEI_REDUCIDO"]);
-                            $("#txt-det-6-" + fila).val(data[i]["TOTAL_GEI_REDUCIDO"]);
+                            //$("#txt-det-7-" + fila).val(data[i]["ID_INDICADOR"]);
                             //$("#detalles-tr-" + fila).data("value", data[i]["ID_INDICADOR"]);
                         }
                     }
@@ -278,6 +303,7 @@ function fn_ObtenerMedidaMitigacion(id) {
                         $("#txa-objetivo").val(data[i]["OBJETIVO_MEDMIT"]);
                         $("#txa-descripcion").val(data[i]["DESCRIPCION_MEDMIT"]);
                         $("#resumen-detalle").append(data[i]["IPSC_MEDMIT"]);
+                        $("#resumen-detalle2").append(data[i]["IPSC_MEDMIT"]);
                     }
                 }
             }
@@ -286,6 +312,7 @@ function fn_ObtenerMedidaMitigacion(id) {
 }
 
 function CargarDatosIniciativa() {
+    debugger;
     var Item =
     {
         ID_INICIATIVA: $("#identificador").val()
@@ -300,6 +327,7 @@ function CargarDatosIniciativa() {
                 if (data.length > 0) {
                     for (var i = 0; i < data.length; i++) {
                         fn_ObtenerMedidaMitigacion(data[i]["ID_MEDMIT"]);
+                        fn_DatosComentario(data[i]["ID_MEDMIT"]);
                         $("#Control").data("mitigacion", data[i]["ID_MEDMIT"]);
                         $("#txa-nombre-iniciativa").val(data[i]["NOMBRE_INICIATIVA"]);
                         $("#txa-descripcion-medida").val(data[i]["DESC_INICIATIVA"]);
@@ -321,7 +349,7 @@ function CargarDatosIniciativa() {
                                 $("#txt-fecha-fin").val(data[i]["FECHA_EDITAR_FIN"]);
                             }
                         } else {
-                            $("#receptorObservacion").append(data[i]["NOMBRES"]);
+                            //$("#receptorObservacion").append(data[i]["NOMBRES"]);
                             $("#emisorObservacion").append($("#Control").data("nombres"));
                             $("#txt-moneda").val(data[i]["MONEDA"]);
                             if (data[i]["FECHA"].toString() != "01/01/0001") {
@@ -478,6 +506,7 @@ function CargarDetalleIndicador() {
             } else {
                 CargarSoloTablaIndicador();
                 $("#total-detalle").append('<strong id="total">0.00 tCO<sub>2</sub>eq</strong>');
+                $("#total-detalle2").append('<strong id="total2">0.00 tCO<sub>2</sub>eq</strong>');
             }
         }
     });
@@ -549,7 +578,9 @@ function llenarTabla(data, j) {
     $("#detalles-tr-" + (j + 1)).data("value", data[j]["ID_INDICADOR"]);
     $("#cuerpoTablaIndicador").data("total", $("#cuerpoTablaIndicador").data("total") + data[j]["TOTAL_GEI_REDUCIDO"]);
     $("#total-detalle #total").remove();
-    $("#total-detalle").append('<strong id="total">' + $("#cuerpoTablaIndicador").data("total") + '</strong>');
+    $("#total-detalle").append('<strong id="total">' + (Math.round($("#cuerpoTablaIndicador").data("total") * 100) / 100) + ' tCO<sub>2</sub>eq</strong>');
+    $("#total-detalle2 #total2").remove();
+    $("#total-detalle2").append('<strong id="total2">' + (Math.round($("#cuerpoTablaIndicador").data("total") * 100) / 100) + ' tCO<sub>2</sub>eq</strong>');
     //alert($("#cuerpoTablaIndicador").data("total"));
 }
 
@@ -809,7 +840,7 @@ function CargarTablaIndicador(datat, j) {
     tr = tr + '                          <div class="dropdown-menu dropdown-menu-right">';
     tr = tr + '                                  <a class="dropdown-item agregarCampos" href="#">';
     tr = tr + '                                         <i class="fas fa-plus-circle"></i>&nbsp;Agregar';
-    tr = tr + '                                  </a><a class="dropdown-item quitarCampos" href="#">';
+    tr = tr + '                                  </a><a class="dropdown-item quitarCampos" href="#" onclick="fn_restarTotalCO2();">';
     tr = tr + '                                         <i class="fas fa-minus-circle"></i>&nbsp;Eliminar';
     tr = tr + '                                  </a>';
     tr = tr + '                          </div>';
@@ -864,24 +895,29 @@ function fn_calcularIndicador(fila) {
 
 function fn_procesoDetalleIndicador(url, estado) {
     //debugger;
+    indicadores = [];
+    documentos = [];
     var n = $(".tabla-detalle-indicadores").find("tbody").find("th").length + 1;
+    debugger;
     for (var fila = 1 ; fila < n; fila++) {
-        var itx = {
-            ID_INDICADOR: $("#txt-det-7-" + fila).val(),
-            ID_INICIATIVA: $("#Control").data("iniciativa"),
-            ANNOB: $("#cbo-det-1-" + fila).val(),
-            ID_TIPO_VEHICULOB: $("#cbo-det-2-" + fila).val(),
-            ID_TIPO_COMBUSTIBLEB: $("#cbo-det-3-" + fila).val(),
-            KRVB: $("#txt-det-1-" + fila).val(),
-            CANTIDADB: $("#txt-det-2-" + fila).val(),
-            FACTOR_RENDIMIENTO: $("#txt-det-3-" + fila).val(),
-            TOTAL_GEI_BASE: $("#txt-det-4-" + fila).val(),
-            TOTAL_GEI_INIMIT: $("#txt-det-5-" + fila).val(),
-            TOTAL_GEI_REDUCIDO: $("#txt-det-6-" + fila).val(),
-            ID_TIPO_FUENTEI: $("#cbo-enfoque").val(),
-            ADJUNTO_BASE: $("#fledoc-" + fila).val()
-        }
-        indicadores.push(itx);
+        if ($("#txt-det-6-" + fila).val() != '') {
+            var itx = {
+                ID_INDICADOR: $("#txt-det-7-" + fila).val(),
+                ID_INICIATIVA: $("#Control").data("iniciativa"),
+                ANNOB: $("#cbo-det-1-" + fila).val(),
+                ID_TIPO_VEHICULOB: $("#cbo-det-2-" + fila).val(),
+                ID_TIPO_COMBUSTIBLEB: $("#cbo-det-3-" + fila).val(),
+                KRVB: $("#txt-det-1-" + fila).val(),
+                CANTIDADB: $("#txt-det-2-" + fila).val(),
+                FACTOR_RENDIMIENTO: $("#txt-det-3-" + fila).val(),
+                TOTAL_GEI_BASE: $("#txt-det-4-" + fila).val(),
+                TOTAL_GEI_INIMIT: $("#txt-det-5-" + fila).val(),
+                TOTAL_GEI_REDUCIDO: $("#txt-det-6-" + fila).val(),
+                ID_TIPO_FUENTEI: $("#cbo-enfoque").val(),
+                ADJUNTO_BASE: $("#fledoc-" + fila).val()
+            }
+            indicadores.push(itx);
+        }        
     }
 
     var sustentos = document.getElementById("fledocumentos");
@@ -894,10 +930,17 @@ function fn_procesoDetalleIndicador(url, estado) {
         documentos.push(sux);
     }
 
+    var id_delete = "";
+    if ($("#cuerpoTablaIndicador").data("delete") != "") {
+        id_delete = $("#cuerpoTablaIndicador").data("delete");
+        id_delete = id_delete.substring(0, id_delete.length - 1);
+    }
+
     var item = {
         ID_INICIATIVA: $("#Control").data("iniciativa"),
         ID_USUARIO: $("#Control").data("usuario"),
         NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
+        ID_INDICADOR_DELETE: id_delete,
         ID_ESTADO: estado,
         ListaIndicadores: indicadores,
         ListaSustentos: documentos
@@ -913,6 +956,7 @@ function fn_procesoDetalleIndicador(url, estado) {
             ID_INICIATIVA: $("#Control").data("iniciativa"),
             ID_USUARIO: $("#Control").data("usuario"),
             NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
+            ID_INDICADOR_DELETE: id_delete,
             ID_ESTADO: estado,
             ListaIndicadores: indicadores,
             ListaSustentos: documentos
@@ -930,7 +974,7 @@ function fn_procesoDetalleIndicador(url, estado) {
         },
         success: function (response, textStatus, myXhr) {
             if (response.success) {
-                if (estado == 0) {
+                if (estado == 0 || estado == 6) {
                     $("#mensajeModalAvance #mensajeDangerAvance").remove();
                     var msj = '                   <div class="col-sm-12 col-md-12 col-lg-12" id="mensajeWarningAvance">';
                     msj = msj + '                       <div class="alert alert-warning d-flex align-items-stretch" role="alert">';
@@ -950,7 +994,7 @@ function fn_procesoDetalleIndicador(url, estado) {
                     msj = msj + '                    </div>';
                     $("#guardar-avance #modalAvanceBoton").hide();
                     $('#mensajeModalAvance').append(msj);
-                } else {
+                } else if (estado == 1 || estado == 5){
                     $('#mensajeModalRegistrar #mensajeGoodRegistro').remove();
                     $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
                     var msj = '                       <div class="alert alert-success d-flex align-items-stretch" role="alert" id="mensajeGoodRegistro">';
@@ -1140,18 +1184,19 @@ function fn_guardarDetalleIndicador() {
 }
 
 function fn_guardarAvances() {
-    var url = baseUrl + "Gestion/AvanceDetalleIndicador";
+    //var url = baseUrl + "Gestion/AvanceDetalleIndicador";
+    var url = baseUrl + "Gestion/RegistrarDetalleIndicador2";
     fn_procesoDetalleIndicador(url, 0);
 }
 
 function fn_corregirDetalleIndicador() {
-    var url = baseUrl + "Gestion/CorregirDetIndicador";
+    var url = baseUrl + "Gestion/RegistrarDetalleIndicador2";
     fn_procesoDetalleIndicador(url, 5);
 }
 
 function fn_corregirAvances() {
-    var url = baseUrl + "Gestion/CorregirAvanceDetalleIndicador";
-    fn_procesoDetalleIndicador(url, 0);
+    var url = baseUrl + "Gestion/RegistrarDetalleIndicador2";
+    fn_procesoDetalleIndicador(url, 6);
 }
 
 function fn_observacionDetalleIndicador() {
@@ -1289,6 +1334,75 @@ function fn_revisarDetalleIndicador() {
     });
 }
 
+function fn_observacionAdminDetalleIndicador() {
+    url = baseUrl + "Gestion/ObservacionAdminDetalleIndicador";
+    var item = {
+        ID_INICIATIVA: $("#Control").data("iniciativa"),
+        ID_USUARIO: $("#Control").data("usuario"),
+        DESCRIPCION: $("#txa-observacion-detalle").val(),
+        EMAIL_USUARIO: $("#txt-correo-electronico").val(),
+        NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
+        ID_ESTADO: $("#cbo-tipo-observacion").val(),
+        ID_MEDMIT: $("#Control").data("mitigacion")
+    };
+    var mensaje = "";
+    var respuesta = MRV.Ajax(url, item, false);
+    if (respuesta.success) {
+        $("#modalRevision #modalErrorRevision").remove();
+        $("#modalRevision #modalCorrectoRevision").remove();
+        var msj = '                           <div class="alert alert-success d-flex align-items-stretch" role="alert" id="modalCorrectoRevision">';
+        msj = msj + '                               <div class="alert-wrap mr-3">';
+        msj = msj + '                                    <div class="sa">';
+        msj = msj + '                                        <div class="sa-success">';
+        msj = msj + '                                            <div class="sa-success-tip"></div>';
+        msj = msj + '                                            <div class="sa-success-long"></div>';
+        msj = msj + '                                            <div class="sa-success-placeholder"></div>';
+        msj = msj + '                                            <div class="sa-success-fix"></div>';
+        msj = msj + '                                        </div>';
+        msj = msj + '                                    </div>';
+        msj = msj + '                                </div>';
+        msj = msj + '                                <div class="alert-wrap">';
+        msj = msj + '                                    <h6>Bien hecho</h6';
+        msj = msj + '                                    <hr><small class="mb-0">Sus observaciones se enviaron correctamente.</small>';
+        msj = msj + '                                </div>';
+        msj = msj + '                            </div>';
+        $("#observar-revision #modalObservacionBoton").hide();
+        $("#modalRevision").append(msj);
+        $("#Control").data("modal", 1);
+        if (ws != null) ws.send(respuesta.extra);
+
+    } else {
+        $("#modalRevision #modalErrorRevision").remove();
+        var msj = '                           <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="modalErrorRevision">';
+        msj = msj + '                               <div class="alert-wrap mr-3">';
+        msj = msj + '                                    <div class="sa">';
+        msj = msj + '                                        <div class="sa-error">';
+        msj = msj + '                                            <div class="sa-error-x">';
+        msj = msj + '                                                <div class="sa-error-left"></div>';
+        msj = msj + '                                                <div class="sa-error-right"></div>';
+        msj = msj + '                                            </div>';
+        msj = msj + '                                            <div class="sa-error-placeholder"></div>';
+        msj = msj + '                                            <div class="sa-error-fix"></div>';
+        msj = msj + '                                        </div>';
+        msj = msj + '                                    </div>';
+        msj = msj + '                                </div>';
+        msj = msj + '                                <div class="alert-wrap">';
+        msj = msj + '                                    <h6>Error de registro</h6>';
+        msj = msj + '                                    <hr><small class="mb-0">Sus observaciones no fueron enviadas, intentelo nuevamente.</small>';
+        msj = msj + '                                </div>';
+        msj = msj + '                            </div>';
+        $("#modalRevision").append(msj);
+    }
+
+    $("#observar-revision").on("hidden.bs.modal", function () {
+        if ($("#Control").data("modal") == 1) {
+            location.href = baseUrl + "Gestion/AccionMitigacion";
+        } else {
+            $("#modalRevision #modalErrorRevision").remove();
+            $("#observar-revision #modalObservacionBoton").show();
+        }
+    });
+}
 
 function fn_revisarAdminDetalleIndicador() {
     var item = {
@@ -1576,5 +1690,32 @@ function exportarDetalle() {
     jQuery('#frmDescarga #item').val(parametros.Item);
     jQuery('#frmDescarga').submit();
     jQuery('#frmDescarga').remove();
+}
+
+function fn_DatosComentario(id) {
+    var Item = {
+        ID_MEDMIT: id,
+        ID_ROL: $("#Control").data("rol")
+    };
+    vurl = baseUrl + "Gestion/ObtenerUsuario";
+    $.ajax({
+        url: vurl,
+        type: 'POST',
+        datatype: 'json',
+        data: Item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    for (var i = 0; i < data.length; i++) {
+                        $("#txt-categoria").val(data[i]["IPSC_MEDMIT"]);
+                        $("#txa-objetivo").val(data[i]["OBJETIVO_MEDMIT"]);
+                        $("#txa-descripcion").val(data[i]["DESCRIPCION_MEDMIT"]);
+                        $("#resumen-detalle").append(data[i]["IPSC_MEDMIT"]);
+                        $("#resumen-detalle2").append(data[i]["IPSC_MEDMIT"]);
+                    }
+                }
+            }
+        }
+    });
 }
 

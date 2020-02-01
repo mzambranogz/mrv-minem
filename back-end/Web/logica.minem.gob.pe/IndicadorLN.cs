@@ -134,6 +134,11 @@ namespace logica.minem.gob.pe
         {
             return indicador.CorregirDetalleIndicador2(entidad);
         }
+
+        //public static IniciativaBE ObtenerEspecialista()
+        //{
+        //    return indicador.CorregirDetalleIndicador2(entidad);
+        //}
     }
     
 }

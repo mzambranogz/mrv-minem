@@ -312,6 +312,7 @@ function fn_ObtenerMedidaMitigacion(id) {
 }
 
 function CargarDatosIniciativa() {
+    debugger;
     var Item =
     {
         ID_INICIATIVA: $("#identificador").val()
@@ -326,6 +327,7 @@ function CargarDatosIniciativa() {
                 if (data.length > 0) {
                     for (var i = 0; i < data.length; i++) {
                         fn_ObtenerMedidaMitigacion(data[i]["ID_MEDMIT"]);
+                        //fn_DatosComentario(data[i]["ID_MEDMIT"]);
                         $("#Control").data("mitigacion", data[i]["ID_MEDMIT"]);
                         $("#txa-nombre-iniciativa").val(data[i]["NOMBRE_INICIATIVA"]);
                         $("#txa-descripcion-medida").val(data[i]["DESC_INICIATIVA"]);
@@ -347,7 +349,7 @@ function CargarDatosIniciativa() {
                                 $("#txt-fecha-fin").val(data[i]["FECHA_EDITAR_FIN"]);
                             }
                         } else {
-                            $("#receptorObservacion").append(data[i]["NOMBRES"]);
+                            //$("#receptorObservacion").append(data[i]["NOMBRES"]);
                             $("#emisorObservacion").append($("#Control").data("nombres"));
                             $("#txt-moneda").val(data[i]["MONEDA"]);
                             if (data[i]["FECHA"].toString() != "01/01/0001") {
@@ -1332,6 +1334,75 @@ function fn_revisarDetalleIndicador() {
     });
 }
 
+function fn_observacionAdminDetalleIndicador() {
+    url = baseUrl + "Gestion/ObservacionAdminDetalleIndicador";
+    var item = {
+        ID_INICIATIVA: $("#Control").data("iniciativa"),
+        ID_USUARIO: $("#Control").data("usuario"),
+        DESCRIPCION: $("#txa-observacion-detalle").val(),
+        EMAIL_USUARIO: $("#txt-correo-electronico").val(),
+        NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
+        ID_ESTADO: $("#cbo-tipo-observacion").val(),
+        ID_MEDMIT: $("#Control").data("mitigacion")
+    };
+    var mensaje = "";
+    var respuesta = MRV.Ajax(url, item, false);
+    if (respuesta.success) {
+        $("#modalRevision #modalErrorRevision").remove();
+        $("#modalRevision #modalCorrectoRevision").remove();
+        var msj = '                           <div class="alert alert-success d-flex align-items-stretch" role="alert" id="modalCorrectoRevision">';
+        msj = msj + '                               <div class="alert-wrap mr-3">';
+        msj = msj + '                                    <div class="sa">';
+        msj = msj + '                                        <div class="sa-success">';
+        msj = msj + '                                            <div class="sa-success-tip"></div>';
+        msj = msj + '                                            <div class="sa-success-long"></div>';
+        msj = msj + '                                            <div class="sa-success-placeholder"></div>';
+        msj = msj + '                                            <div class="sa-success-fix"></div>';
+        msj = msj + '                                        </div>';
+        msj = msj + '                                    </div>';
+        msj = msj + '                                </div>';
+        msj = msj + '                                <div class="alert-wrap">';
+        msj = msj + '                                    <h6>Bien hecho</h6';
+        msj = msj + '                                    <hr><small class="mb-0">Sus observaciones se enviaron correctamente.</small>';
+        msj = msj + '                                </div>';
+        msj = msj + '                            </div>';
+        $("#observar-revision #modalObservacionBoton").hide();
+        $("#modalRevision").append(msj);
+        $("#Control").data("modal", 1);
+        if (ws != null) ws.send(respuesta.extra);
+
+    } else {
+        $("#modalRevision #modalErrorRevision").remove();
+        var msj = '                           <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="modalErrorRevision">';
+        msj = msj + '                               <div class="alert-wrap mr-3">';
+        msj = msj + '                                    <div class="sa">';
+        msj = msj + '                                        <div class="sa-error">';
+        msj = msj + '                                            <div class="sa-error-x">';
+        msj = msj + '                                                <div class="sa-error-left"></div>';
+        msj = msj + '                                                <div class="sa-error-right"></div>';
+        msj = msj + '                                            </div>';
+        msj = msj + '                                            <div class="sa-error-placeholder"></div>';
+        msj = msj + '                                            <div class="sa-error-fix"></div>';
+        msj = msj + '                                        </div>';
+        msj = msj + '                                    </div>';
+        msj = msj + '                                </div>';
+        msj = msj + '                                <div class="alert-wrap">';
+        msj = msj + '                                    <h6>Error de registro</h6>';
+        msj = msj + '                                    <hr><small class="mb-0">Sus observaciones no fueron enviadas, intentelo nuevamente.</small>';
+        msj = msj + '                                </div>';
+        msj = msj + '                            </div>';
+        $("#modalRevision").append(msj);
+    }
+
+    $("#observar-revision").on("hidden.bs.modal", function () {
+        if ($("#Control").data("modal") == 1) {
+            location.href = baseUrl + "Gestion/AccionMitigacion";
+        } else {
+            $("#modalRevision #modalErrorRevision").remove();
+            $("#observar-revision #modalObservacionBoton").show();
+        }
+    });
+}
 
 function fn_revisarAdminDetalleIndicador() {
     var item = {
@@ -1619,5 +1690,32 @@ function exportarDetalle() {
     jQuery('#frmDescarga #item').val(parametros.Item);
     jQuery('#frmDescarga').submit();
     jQuery('#frmDescarga').remove();
+}
+
+function fn_DatosComentario(id) {
+    var Item = {
+        ID_MEDMIT: id,
+        ID_ROL: $("#Control").data("rol")
+    };
+    vurl = baseUrl + "Gestion/ObtenerUsuario";
+    $.ajax({
+        url: vurl,
+        type: 'POST',
+        datatype: 'json',
+        data: Item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    for (var i = 0; i < data.length; i++) {
+                        $("#txt-categoria").val(data[i]["IPSC_MEDMIT"]);
+                        $("#txa-objetivo").val(data[i]["OBJETIVO_MEDMIT"]);
+                        $("#txa-descripcion").val(data[i]["DESCRIPCION_MEDMIT"]);
+                        $("#resumen-detalle").append(data[i]["IPSC_MEDMIT"]);
+                        $("#resumen-detalle2").append(data[i]["IPSC_MEDMIT"]);
+                    }
+                }
+            }
+        }
+    });
 }
 

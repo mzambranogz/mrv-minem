@@ -31,7 +31,30 @@ namespace MRVMinem.Controllers
         }
         public ActionResult AccionMitigacion()
         {
-            return View();
+            ListaObjeto modelo = new ListaObjeto();
+            IniciativaBE ini = new IniciativaBE();
+            ini.ID_USUARIO = Convert.ToInt32(Session["usuario"]);
+            if (Convert.ToInt32(Session["rol"]) == 1)
+            {
+                modelo.listaIni = IniciativaLN.ListaIniciativaUsuario(ini);
+            }
+            else if (Convert.ToInt32(Session["rol"]) == 2)
+            {
+                modelo.listaIni = IniciativaLN.ListaIniciativaEspecialista(ini);
+            }
+            else if (Convert.ToInt32(Session["rol"]) == 3)
+            {
+                modelo.listaIni = IniciativaLN.ListaIniciativaGeneral(ini);
+            }
+            else if (Convert.ToInt32(Session["rol"]) == 4)
+            {
+                modelo.listaIni = IniciativaLN.ListaIniciativaEvaluar(ini);
+            }
+            else if (Convert.ToInt32(Session["rol"]) == 5)
+            {
+                modelo.listaIni = IniciativaLN.ListaIniciativaVerificar(ini);
+            }
+            return View(modelo);
         }
         public ActionResult Sesion()
         {
@@ -115,6 +138,7 @@ namespace MRVMinem.Controllers
 
         public ActionResult SeguimientoIniciativa(int id)
         {
+            ViewBag.usuario = Session["nombres"];
             MvSesion modelo = new MvSesion();
             modelo.identificador = id;
             return View(modelo);
@@ -497,6 +521,27 @@ namespace MRVMinem.Controllers
             ResponseEntity itemRespuesta = new ResponseEntity();
 
             entidad = IndicadorLN.CorregirAvanceDetalleIndicador(entidad);
+            itemRespuesta.success = entidad.OK;
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult ObservacionAdminDetalleIndicador(IndicadorBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            //entidad = IndicadorLN.ObservacionDetalleIndicador(entidad);
+            //IndicadorLN.ObservacionDetalleIndicador();
+            if (entidad.OK)
+            {
+                //var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
+                IniciativaBE iniciativa = new IniciativaBE();
+                iniciativa.EMAIL_USUARIO = entidad.EMAIL_USUARIO;
+                iniciativa.ASUNTO = "Observación Detalle Indicador - MRVMinem ";
+                iniciativa.DESCRIPCION = "En los detalles indicadores de la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") se ha detectado algunos datos a corregir, los detalles en la siguiente descripción: <br/>" + entidad.DESCRIPCION + "<br/><br/>";
+                EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
+                Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+                itemRespuesta.extra = entidad.DESCRIPCION;
+            }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }

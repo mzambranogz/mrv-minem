@@ -249,16 +249,16 @@
                                 <table class="table table-hover" id="tablaIndicador" data-fila="0">
                                     <thead>
                                         <tr class="bg-primary text-white">
-                                            <th class="text-center" scope="col"><span>#&nbsp;</span></th>
-                                            <th scope="col"><span>Año&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                            <th scope="col"><span>Tipo Vehiculo&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                            <th scope="col"><span>Tipo Combustible&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                            <th scope="col"><span>KRV&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                            <th scope="col"><span>Cantidad&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                            <th scope="col"><span>Factor de Rendimiento&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                            <th scope="col"><span>Línea Base Emisiones GEI (tCO2e)</span></th>
-                                            <th scope="col"><span>Iniciativa Mitigación Emisiones GEI (tCO2e)</span></th>
-                                            <th scope="col"><span>Emisiones GEI Reducidas (tCO2e)</span></th>
+                                            <th class="text-center" style="background-color: green;" scope="col"><span>#&nbsp;</span></th>
+                                            <th class="text-center" style="background-color: green;" scope="col"><span>Año&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
+                                            <th class="text-center" style="background-color: green;" scope="col"><span>Tipo Vehiculo&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
+                                            <th class="text-center" style="background-color: orange;" scope="col"><span>Tipo Combustible&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
+                                            <th class="text-center" style="background-color: green;" scope="col"><span>KRV&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
+                                            <th class="text-center" style="background-color: green;" scope="col"><span>Cantidad&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
+                                            <th class="text-center" style="background-color: green;" scope="col"><span>Factor de Rendimiento&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
+                                            <th class="text-center" style="background-color: orange;" scope="col"><span>Línea Base Emisiones GEI (tCO<sub>2</sub>eq)</span></th>
+                                            <th class="text-center" style="background-color: green;" scope="col"><span>Iniciativa Mitigación Emisiones GEI (tCO<sub>2</sub>eq)</span></th>
+                                            <th class="text-center" style="background-color: #2271b3;" scope="col"><span>Emisiones GEI Reducidas (tCO<sub>2</sub>eq)</span></th>
                                         </tr>
                                     </thead>
                                     <tbody id="cuerpoTablaIndicador" data-row="0" data-total="0">
@@ -571,8 +571,8 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-12-col-md-12 col-lg-6">
-                            <div class="form-group">
-                                <label>Archivos adjuntos: 0 en total</label>
+                            <div class="form-group" id="archivos-documentos">
+                                <label>Archivos adjuntos: <span id="total-documentos">0</span> en total</label>
                                 <!-- <div class="input-group mb-3"> -->
                                 <!-- <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-file-pdf"></i></span></div><span class="form-control-plaintext">NombreDeArchivo.pdf</span> -->
                                 <!-- <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="fas fa-download"></i></span></div> -->
@@ -792,60 +792,8 @@
     </div>
 </div>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        fn_cargarOpciones();
-    });
 
-    function fn_establecerVista() {
-
-        $("#nombreUsuario").append('<i class="fas fa-user-tie pr-1"></i>'+$("#Control").data("nombres"));
-        //var opcion = '<span class="dropdown-item">' + $("#Control").data("nombres") + ' <br>';
-        var opcion = '';
-        if ($("#Control").data("rol") == 1) {
-            opcion = opcion + '<span class="dropdown-item font-weight-bold">Rol: &nbsp;<span class="badge badge-actor-02">Usuario Administrado</span></span>'
-        } else if ($("#Control").data("rol") == 2) {
-            opcion = opcion + '<span class="dropdown-item font-weight-bold">Rol: &nbsp;<span class="badge badge-actor-03">Especialista</span></span>'
-        } else if ($("#Control").data("rol") == 3) {
-            opcion = opcion + '<span class="dropdown-item font-weight-bold">Rol: &nbsp;<span class="badge badge-actor-06">Administrador MINEM</span></span>'
-        } else if ($("#Control").data("rol") == 4) {
-            opcion = opcion + '<span class="dropdown-item font-weight-bold">Rol: &nbsp;<span class="badge badge-actor-04">Evaluador MINAM</span></span>'
-        } else if ($("#Control").data("rol") == 5) {
-            opcion = opcion + '<span class="dropdown-item font-weight-bold">Rol: &nbsp;<span class="badge badge-actor-05">Verificador Externo</span></span>'
-        }
-
-        if ($("#Control").data("opcion6") == 1) { //Añade a las opciones el mantenimiento de tablas
-            opcion = opcion + '<a class="dropdown-item" href="#" onclick="fn_mantenimiento();"><i class="fas fa-cogs pr-1"></i>Mantenimiento de tablas</a>';
-        }
-
-        if ($("#Control").data("opcion7") == 1) {
-            opcion = opcion + '<a class="dropdown-item" href="#" onclick="fn_Clave();"><i class="fas fa-key pr-1"></i>Cambiar contraseña</a>';
-        }
-
-        opcion = opcion + '<div class="dropdown-divider"></div><a class="dropdown-item" href="#" onclick="salirSesion();"><i class="fas fa-sign-out-alt pr-1"></i>Salir del sistema</a>';
-
-        $("#usuario-rol").append(opcion);
-    }
-
-    function fn_cargarOpciones() {
-        $("#Control").data("usuario",@Session["usuario"]);
-        $("#Control").data("nombres",'@Session["nombres"]');
-        $("#Control").data("correo",'@Session["correo"]');
-        $("#Control").data("rol",@Session["rol"]);
-        $("#Control").data("institucion",'@Session["institucion"]');
-        $("#Control").data("direccion",'@Session["direccion"]');
-        $("#Control").data("sector",'@Session["sector"]');
-        $("#Control").data("opcion1",@Session["opcion1"]);
-        $("#Control").data("opcion2",@Session["opcion2"]);
-        $("#Control").data("opcion3",@Session["opcion3"]);
-        $("#Control").data("opcion4",@Session["opcion4"]);
-        $("#Control").data("opcion5",@Session["opcion5"]);
-        $("#Control").data("opcion6",@Session["opcion6"]);
-        $("#Control").data("opcion7",@Session["opcion7"]);
-        $("#Control").data("opcion8",@Session["opcion8"]);
-        $("#Control").data("opcion9",@Session["opcion9"]);
-        fn_establecerVista();
-    }
-</script>
+<script src="~/js/script.js"></script>
+<script src="~/js/MRV.js"></script>
 <script src="~/js/DetalleIndicador.js"></script>
 

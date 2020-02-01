@@ -652,6 +652,7 @@ function fn_ListarGEI() {
 }
 
 $(document).ready(function () {
+    debugger;
     $("#Control").data("mitigacion", $("#identificador").val());
     $("#Control").data("iniciativa", $("#iniciativa").val());
     $("#Control").data("revision", $("#revision").val());
