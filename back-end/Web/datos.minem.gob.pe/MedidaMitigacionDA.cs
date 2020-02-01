@@ -70,5 +70,35 @@ namespace datos.minem.gob.pe
             return Lista;
         }
 
+        public MedidaMitigacionBE getMedidaMitigacion(int medida)
+        {
+            MedidaMitigacionBE medida_mitigacion = new MedidaMitigacionBE();
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_MEDIDA_MITIGACION";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_MEDMIT", medida);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    var med = db.Query<MedidaMitigacionBE>(sp, p, commandType: CommandType.StoredProcedure).FirstOrDefault();
+
+                    if (med != null)
+                    {
+                        medida_mitigacion = med;
+                    }
+                }
+                medida_mitigacion.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                medida_mitigacion.OK = false;
+            }
+
+            return medida_mitigacion;
+        }
+
     }
 }

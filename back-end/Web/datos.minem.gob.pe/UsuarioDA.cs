@@ -449,5 +449,60 @@ namespace datos.minem.gob.pe
             return entidad;
         }
 
+        public UsuarioBE EspecialistaMedida(int medida)
+        {
+            UsuarioBE entidad = new UsuarioBE();
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_ESPECIALISTA_MEDMIT"; //AGREGAR AL STORE CAMPOS DE USUARIO COMO INSTITUCION, SECTOR, ETC
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_MEDMIT", medida);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    var ent = db.Query<UsuarioBE>(sp, p, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                    if (ent != null)
+                    {
+                        entidad = ent;
+                    }
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+
+            return entidad;
+        }
+
+        public UsuarioBE UsuarioAdministrador()
+        {
+            UsuarioBE entidad = new UsuarioBE();
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_USUARIO_ADMIN";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    var ent = db.Query<UsuarioBE>(sp, p, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                    if (ent != null)
+                    {
+                        entidad = ent;
+                    }
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+
+            return entidad;
+        }
+
     }
 }

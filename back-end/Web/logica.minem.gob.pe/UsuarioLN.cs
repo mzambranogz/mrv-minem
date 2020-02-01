@@ -121,5 +121,16 @@ namespace logica.minem.gob.pe
         {
             return usuarioDA.obtenerUsuarioId(cod);
         }
+
+        /////////////
+        public static UsuarioBE EspecialistaMedida(int medida)
+        {
+            return usuarioDA.EspecialistaMedida(medida);
+        }
+
+        public static UsuarioBE UsuarioAdministrador()
+        {
+            return usuarioDA.UsuarioAdministrador();
+        }
     }
 }

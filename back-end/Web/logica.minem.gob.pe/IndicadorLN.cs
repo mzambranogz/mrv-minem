@@ -135,6 +135,16 @@ namespace logica.minem.gob.pe
             return indicador.CorregirDetalleIndicador2(entidad);
         }
 
+        ///////////////////////////////////////
+        public static List<IndicadorBE> ListarDetalleIndicadorDatos(IniciativaBE entidad)
+        {
+            return indicador.ListarDetalleIndicadorDatos(entidad);
+        }
+
+        public static IndicadorBE ObservacionAdminDetalleIndicador(IndicadorBE entidad)
+        {
+            return indicador.ObservacionAdminDetalleIndicador(entidad);
+        }
         //public static IniciativaBE ObtenerEspecialista()
         //{
         //    return indicador.CorregirDetalleIndicador2(entidad);

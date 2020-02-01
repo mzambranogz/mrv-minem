@@ -1,9 +1,9 @@
-﻿@model MRVMinem.Models.MvSesion
+﻿@model MRVMinem.Models.ListaObjeto
 @{
     ViewBag.Title = "Revisar Admin Detalle Indicador";
     Layout = "~/Views/Shared/_SesionLayout.cshtml";
 }
-@Html.HiddenFor(m => m.identificador)
+@Html.HiddenFor(m => m.iniciativa_mit.ID_INICIATIVA)
 @Html.HiddenFor(m => m.revision)
 
 
@@ -57,14 +57,14 @@
                                 <label for="txt-categoria">Categoría IPSC</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-landmark"></i></span></div>
-                                    <input class="form-control-plaintext" type="text" id="txt-categoria" value="Energía - Combustión móvil" aria-describedby="inputGroup1" readonly>
+                                    <input class="form-control-plaintext" type="text" id="txt-categoria" value="@Model.medida.IPSC_MEDMIT" aria-describedby="inputGroup1" readonly>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="txa-objetivo">Objetivo</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup2"><i class="fas fa-landmark"></i></span></div>
-                                    <textarea class="form-control-plaintext" id="txa-objetivo" aria-describedby="inputGroup2" cols="30" rows="5" readonly>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus porro quibusdam, repellat ipsa consequatur magni, vitae earum iure deleniti quod ad. Autem amet fugit, deleniti repellat veritatis aperiam minus nam!</textarea>
+                                    <textarea class="form-control-plaintext" id="txa-objetivo" aria-describedby="inputGroup2" cols="30" rows="5" readonly>@Model.medida.OBJETIVO_MEDMIT</textarea>
                                 </div>
                             </div>
                         </div>
@@ -73,7 +73,7 @@
                                 <label for="txa-descripcion">Descripción</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup3"><i class="fas fa-landmark"></i></span></div>
-                                    <textarea class="form-control-plaintext" id="txa-descripcion" aria-describedby="inputGroup3" cols="30" rows="8" readonly>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus porro quibusdam, repellat ipsa consequatur magni, vitae earum iure deleniti quod ad. Autem amet fugit, deleniti repellat veritatis aperiam minus nam !Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus porro quibusdam, repellat ipsa consequatur magni, vitae earum iure deleniti quod ad. Autem amet fugit, deleniti repellat veritatis aperiam minus nam!</textarea>
+                                    <textarea class="form-control-plaintext" id="txa-descripcion" aria-describedby="inputGroup3" cols="30" rows="8" readonly>@Model.medida.DESCRIPCION_MEDMIT</textarea>
                                 </div>
                             </div>
                         </div>
@@ -89,14 +89,14 @@
                                 <label for="txa-nombre-iniciativa">Nombre de la iniciativa<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="En caso no posea un nombre, coloque el nombre de la medida de mitigación seguido de un guión y nombre o siglas de la institución."></i></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-tachometer-alt"></i></span></div>
-                                    <textarea class="form-control-plaintext" id="txa-nombre-iniciativa" aria-describedby="inputGroup4" cols="30" rows="5" readonly placeholder="Ingrese un nombre para su iniciativa">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor officia, sequi hic, vel quia repellat architecto quasi corporis quidem doloribus earum praesentium molestiae illo, iure voluptates autem voluptate inventore! Inventore.</textarea>
+                                    <textarea class="form-control-plaintext" id="txa-nombre-iniciativa" aria-describedby="inputGroup4" cols="30" rows="5" readonly placeholder="Ingrese un nombre para su iniciativa">@Model.iniciativa_mit.NOMBRE_INICIATIVA</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="txa-descripcion-medida">Descripción de la medida<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indicar la ubicación, tecnología considerada y cantidades de la misma."></i></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-tachometer-alt"></i></span></div>
-                                    <textarea class="form-control-plaintext" id="txa-descripcion-medida" aria-describedby="inputGroup5" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil optio corrupti itaque tempora pariatur nemo ipsam quis porro magnam dolorum a, dolore explicabo eveniet velit natus voluptate aperiam, reprehenderit ipsa!</textarea>
+                                    <textarea class="form-control-plaintext" id="txa-descripcion-medida" aria-describedby="inputGroup5" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">@Model.iniciativa_mit.DESC_INICIATIVA</textarea>
                                 </div>
                             </div>
                         </div>
@@ -105,7 +105,7 @@
                                 <label for="txa-nombre-responsable">Responsable del registro</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
-                                    <input class="form-control-plaintext" id="txt-nombre-responsable" aria-describedby="inputGroup6" value="Ricardo Sanchez" readonly>
+                                    <input class="form-control-plaintext" id="txt-nombre-responsable" aria-describedby="inputGroup6" value="@Model.iniciativa_mit.NOMBRES" readonly>
                                 </div>
                             </div>
                         </div>
@@ -114,7 +114,7 @@
                                 <label for="txa-nombre-institucion">Nombre de la institución</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup7"><i class="fas fa-landmark"></i></span></div>
-                                    <input class="form-control-plaintext" id="txt-nombre-institucion" aria-describedby="inputGroup7" value="COORPORACION ENERGIA ASOCIADOS SAC" readonly>
+                                    <input class="form-control-plaintext" id="txt-nombre-institucion" aria-describedby="inputGroup7" value="@Model.iniciativa_mit.INSTITUCION" readonly>
                                 </div>
                             </div>
                         </div>
@@ -123,7 +123,7 @@
                                 <label for="txt-correo-electronico">Correo electrónico</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup8"><i class="fas fa-landmark"></i></span></div>
-                                    <input class="form-control-plaintext" id="txt-correo-electronico" aria-describedby="inputGroup8" value="rsanchez@coorpenerasosac.com" readonly>
+                                    <input class="form-control-plaintext" id="txt-correo-electronico" aria-describedby="inputGroup8" value="@Model.iniciativa_mit.CORREO" readonly>
                                 </div>
                             </div>
                         </div>
@@ -132,7 +132,7 @@
                                 <label for="txt-direccion">Dirección</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
-                                    <input class="form-control-plaintext" id="txt-direccion" aria-describedby="inputGroup9" value="Av. Los Heros Nro 1457 - SJL" readonly>
+                                    <input class="form-control-plaintext" id="txt-direccion" aria-describedby="inputGroup9" value="@Model.iniciativa_mit.DIRECCION" readonly>
                                 </div>
                             </div>
                         </div>
@@ -148,18 +148,22 @@
                                 <label for="txt-sector-insi¿titucion">Sector de la institución</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
-                                    <input class="form-control-plaintext" id="txt-sector-institucion" aria-describedby="inputGroup9" value="MINERÍA" readonly>
+                                    <input class="form-control-plaintext" id="txt-sector-institucion" aria-describedby="inputGroup9" value="@Model.iniciativa_mit.SECTOR" readonly>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="txa-ubicacion">Ubicación<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
-                                <div class="input-group" id="campoUbicacion">
+                                <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
-                                    @*<textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
-                                            Lima&nbsp;
+                                    <textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="8" readonly placeholder="Ingrese una descripción para su iniciativa">
+                                            @*Lima&nbsp;
                                             Arequipa&nbsp;
-                                            Tacna
-                                        </textarea>*@
+                                            Tacna*@
+                                        @foreach (var item in Model.listaUbicacion)
+                                        {
+                                            @item.DESCRIPCION <text>&nbsp;</text>
+                                        }
+                                    </textarea>
                                 </div>
                             </div>
                         </div>
@@ -168,28 +172,28 @@
                                 <label for="txt-moneda">Moneda<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="far fa-money-bill-alt"></i></span></div>
-                                    <input class="form-control-plaintext" type="text" id="txt-moneda" aria-describedby="inputGroup10" value="Soles" readonly>
+                                    <input class="form-control-plaintext" type="text" id="txt-moneda" aria-describedby="inputGroup10" value="@Model.iniciativa_mit.MONEDA" readonly>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="txt-monto-inversion">Monto de inversión<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup11"><i class="fas fa-wallet"></i></span></div>
-                                    <input class="form-control-plaintext" type="text" id="txt-monto-inversion" aria-describedby="inputGroup11" value="100,000.00" readonly>
+                                    <input class="form-control-plaintext" type="text" id="txt-monto-inversion" aria-describedby="inputGroup11" value="@Model.iniciativa_mit.INVERSION_INICIATIVA" readonly>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="txt-fecha-inicio">Fecha de Inicio del proyecto<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique el año de inicio del proyecto"></i></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup12"><i class="fas fa-calendar-alt"></i></span></div>
-                                    <input class="form-control-plaintext" type="text" id="txt-fecha-inicio" aria-describedby="inputGroup12" value="25/10/2018" readonly>
+                                    <input class="form-control-plaintext" type="text" id="txt-fecha-inicio" aria-describedby="inputGroup12" value="@Model.iniciativa_mit.FECHA" readonly>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="txt-fecha-fin">Fecha de Fin del proyecto<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup12"><i class="fas fa-calendar-alt"></i></span></div>
-                                    <input class="form-control-plaintext" type="text" id="txt-fecha-fin" aria-describedby="inputGroup12" value="25/10/2021" readonly>
+                                    <input class="form-control-plaintext" type="text" id="txt-fecha-fin" aria-describedby="inputGroup12" value="@Model.iniciativa_mit.FECHA_FIN" readonly>
                                 </div>
                             </div>
                         </div>
@@ -203,25 +207,33 @@
                         <div class="col-sm-12-col-md-12 col-lg-6">
                             <div class="form-group">
                                 <label for="mlt-energetico">Energético asociado<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
-                                <div class="input-group" id="campoEnerg">
+                                <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
-                                    @*<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
-                                            Combustibles fósiles&nbsp;
-                                            Electricidad&nbsp;
-                                        </textarea>*@
+                                    <textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
+                                            @*Combustibles fósiles&nbsp;
+                                            Electricidad&nbsp;*@
+                                        @foreach (var item in Model.listaEnergetico)
+                                        {
+                                            @item.DESCRIPCION <text>&nbsp;</text>
+                                        }
+                                    </textarea>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-12-col-md-12 col-lg-6">
                             <div class="form-group">
                                 <label for="mlt-gei">Gases de efecto invernadero<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
-                                <div class="input-group" id="campoGei">
+                                <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
-                                    @*<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
-                                            CO2
+                                    <textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
+                                            @*CO2
                                             y&nbsp;
-                                            CH 2
-                                        </textarea>*@
+                                            CH 2*@
+                                        @foreach (var item in Model.listaGei)
+                                        {
+                                            @item.DESCRIPCION <text>&nbsp;</text>
+                                        }
+                                    </textarea>
                                 </div>
                             </div>
                         </div>
@@ -269,242 +281,33 @@
                                         </tr>
                                     </thead>
                                     <tbody id="cuerpoTablaIndicador" data-row="0" data-total="0">
+                                        @{ 
+                                            var total_reducido = 0.0;
+                                        }
+                                        @foreach (var item in Model.listaIndicador)
+                                        {
+                                            var i = 0;
+                                            i++;
+                                            <tr>
+                                                <th class="text-center" data-encabezado="Número" scope="row">@i</th>
+                                                <td class="text-center" data-encabezado="Columna 01">@item.ANNO_BASE</td>
+                                                <td class="text-center" data-encabezado="Columna 02">@item.TIPO_VEHICULO</td>
+                                                <td class="text-center" data-encabezado="Columna 03">@item.TIPO_COMBUSTIBLE</td>
+                                                <td class="text-center" data-encabezado="Columna 04">@item.KRVB</td>
+                                                <td class="text-center" data-encabezado="Columna 05">@item.CANTIDADB</td>
+                                                <td class="text-center" data-encabezado="Columna 06">@item.RENDIMIENTO</td>
+                                                <td class="text-center" data-encabezado="Columna 07">@item.TOTAL_GEI_BASE</td>
+                                                <td class="text-center" data-encabezado="Columna 08">@item.TOTAL_GEI_INIMIT</td>
+                                                <td class="text-center" data-encabezado="Columna 09">@item.TOTAL_GEI_REDUCIDO</td>
+                                            </tr>
+
+                                            total_reducido += Convert.ToDouble(item.TOTAL_GEI_REDUCIDO);
+                                        }
+                                        @{ 
+                                            total_reducido = Math.Round(total_reducido * 100) / 100;
+                                        }
                                         @*<tr>
                                                 <th class="text-center" data-encabezado="Número" scope="row">1</th>
-                                                <td data-encabezado="Columna 01">Valor 1</td>
-                                                <td data-encabezado="Columna 02">Texto 1</td>
-                                                <td data-encabezado="Columna 03">Valor 1</td>
-                                                <td data-encabezado="Columna 04">Texto 1</td>
-                                                <td data-encabezado="Columna 05">Valor 1</td>
-                                                <td data-encabezado="Columna 06">Texto 1</td>
-                                                <td data-encabezado="Columna 07">Valor 1</td>
-                                                <td data-encabezado="Columna 08">Texto 1</td>
-                                                <td data-encabezado="Columna 09">Valor 1</td>
-                                                <td data-encabezado="Columna 10">Texto 1</td>
-                                                <td data-encabezado="Columna 11">Valor 1</td>
-                                                <td data-encabezado="Columna 12">Texto 1</td>
-                                                <td data-encabezado="Columna 13">Valor 1</td>
-                                                <td data-encabezado="Columna 14">Texto 1</td>
-                                                <td data-encabezado="Columna 15">Valor 1</td>
-                                                <td data-encabezado="Columna 16">Texto 1</td>
-                                                <td data-encabezado="Subtotal">1,500.00</td>
-                                                <td class="text-center" data-encabezado="Sustento">
-                                                    <div class="form-group m-0">
-                                                        <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label>
-                                                        <input class="d-none fil-file-control" type="file" id="fle-doc">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th class="text-center" data-encabezado="Número" scope="row">2</th>
-                                                <td data-encabezado="Columna 01">Valor 1</td>
-                                                <td data-encabezado="Columna 02">Texto 1</td>
-                                                <td data-encabezado="Columna 03">Valor 1</td>
-                                                <td data-encabezado="Columna 04">Texto 1</td>
-                                                <td data-encabezado="Columna 05">Valor 1</td>
-                                                <td data-encabezado="Columna 06">Texto 1</td>
-                                                <td data-encabezado="Columna 07">Valor 1</td>
-                                                <td data-encabezado="Columna 08">Texto 1</td>
-                                                <td data-encabezado="Columna 09">Valor 1</td>
-                                                <td data-encabezado="Columna 10">Texto 1</td>
-                                                <td data-encabezado="Columna 11">Valor 1</td>
-                                                <td data-encabezado="Columna 12">Texto 1</td>
-                                                <td data-encabezado="Columna 13">Valor 1</td>
-                                                <td data-encabezado="Columna 14">Texto 1</td>
-                                                <td data-encabezado="Columna 15">Valor 1</td>
-                                                <td data-encabezado="Columna 16">Texto 1</td>
-                                                <td data-encabezado="Subtotal">1,500.00</td>
-                                                <td class="text-center" data-encabezado="Sustento">
-                                                    <div class="form-group m-0">
-                                                        <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label>
-                                                        <input class="d-none fil-file-control" type="file" id="fle-doc">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th class="text-center" data-encabezado="Número" scope="row">3</th>
-                                                <td data-encabezado="Columna 01">Valor 1</td>
-                                                <td data-encabezado="Columna 02">Texto 1</td>
-                                                <td data-encabezado="Columna 03">Valor 1</td>
-                                                <td data-encabezado="Columna 04">Texto 1</td>
-                                                <td data-encabezado="Columna 05">Valor 1</td>
-                                                <td data-encabezado="Columna 06">Texto 1</td>
-                                                <td data-encabezado="Columna 07">Valor 1</td>
-                                                <td data-encabezado="Columna 08">Texto 1</td>
-                                                <td data-encabezado="Columna 09">Valor 1</td>
-                                                <td data-encabezado="Columna 10">Texto 1</td>
-                                                <td data-encabezado="Columna 11">Valor 1</td>
-                                                <td data-encabezado="Columna 12">Texto 1</td>
-                                                <td data-encabezado="Columna 13">Valor 1</td>
-                                                <td data-encabezado="Columna 14">Texto 1</td>
-                                                <td data-encabezado="Columna 15">Valor 1</td>
-                                                <td data-encabezado="Columna 16">Texto 1</td>
-                                                <td data-encabezado="Subtotal">1,500.00</td>
-                                                <td class="text-center" data-encabezado="Sustento">
-                                                    <div class="form-group m-0">
-                                                        <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label>
-                                                        <input class="d-none fil-file-control" type="file" id="fle-doc">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th class="text-center" data-encabezado="Número" scope="row">4</th>
-                                                <td data-encabezado="Columna 01">Valor 1</td>
-                                                <td data-encabezado="Columna 02">Texto 1</td>
-                                                <td data-encabezado="Columna 03">Valor 1</td>
-                                                <td data-encabezado="Columna 04">Texto 1</td>
-                                                <td data-encabezado="Columna 05">Valor 1</td>
-                                                <td data-encabezado="Columna 06">Texto 1</td>
-                                                <td data-encabezado="Columna 07">Valor 1</td>
-                                                <td data-encabezado="Columna 08">Texto 1</td>
-                                                <td data-encabezado="Columna 09">Valor 1</td>
-                                                <td data-encabezado="Columna 10">Texto 1</td>
-                                                <td data-encabezado="Columna 11">Valor 1</td>
-                                                <td data-encabezado="Columna 12">Texto 1</td>
-                                                <td data-encabezado="Columna 13">Valor 1</td>
-                                                <td data-encabezado="Columna 14">Texto 1</td>
-                                                <td data-encabezado="Columna 15">Valor 1</td>
-                                                <td data-encabezado="Columna 16">Texto 1</td>
-                                                <td data-encabezado="Subtotal">1,500.00</td>
-                                                <td class="text-center" data-encabezado="Sustento">
-                                                    <div class="form-group m-0">
-                                                        <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label>
-                                                        <input class="d-none fil-file-control" type="file" id="fle-doc">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th class="text-center" data-encabezado="Número" scope="row">5</th>
-                                                <td data-encabezado="Columna 01">Valor 1</td>
-                                                <td data-encabezado="Columna 02">Texto 1</td>
-                                                <td data-encabezado="Columna 03">Valor 1</td>
-                                                <td data-encabezado="Columna 04">Texto 1</td>
-                                                <td data-encabezado="Columna 05">Valor 1</td>
-                                                <td data-encabezado="Columna 06">Texto 1</td>
-                                                <td data-encabezado="Columna 07">Valor 1</td>
-                                                <td data-encabezado="Columna 08">Texto 1</td>
-                                                <td data-encabezado="Columna 09">Valor 1</td>
-                                                <td data-encabezado="Columna 10">Texto 1</td>
-                                                <td data-encabezado="Columna 11">Valor 1</td>
-                                                <td data-encabezado="Columna 12">Texto 1</td>
-                                                <td data-encabezado="Columna 13">Valor 1</td>
-                                                <td data-encabezado="Columna 14">Texto 1</td>
-                                                <td data-encabezado="Columna 15">Valor 1</td>
-                                                <td data-encabezado="Columna 16">Texto 1</td>
-                                                <td data-encabezado="Subtotal">1,500.00</td>
-                                                <td class="text-center" data-encabezado="Sustento">
-                                                    <div class="form-group m-0">
-                                                        <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label>
-                                                        <input class="d-none fil-file-control" type="file" id="fle-doc">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th class="text-center" data-encabezado="Número" scope="row">6</th>
-                                                <td data-encabezado="Columna 01">Valor 1</td>
-                                                <td data-encabezado="Columna 02">Texto 1</td>
-                                                <td data-encabezado="Columna 03">Valor 1</td>
-                                                <td data-encabezado="Columna 04">Texto 1</td>
-                                                <td data-encabezado="Columna 05">Valor 1</td>
-                                                <td data-encabezado="Columna 06">Texto 1</td>
-                                                <td data-encabezado="Columna 07">Valor 1</td>
-                                                <td data-encabezado="Columna 08">Texto 1</td>
-                                                <td data-encabezado="Columna 09">Valor 1</td>
-                                                <td data-encabezado="Columna 10">Texto 1</td>
-                                                <td data-encabezado="Columna 11">Valor 1</td>
-                                                <td data-encabezado="Columna 12">Texto 1</td>
-                                                <td data-encabezado="Columna 13">Valor 1</td>
-                                                <td data-encabezado="Columna 14">Texto 1</td>
-                                                <td data-encabezado="Columna 15">Valor 1</td>
-                                                <td data-encabezado="Columna 16">Texto 1</td>
-                                                <td data-encabezado="Subtotal">1,500.00</td>
-                                                <td class="text-center" data-encabezado="Sustento">
-                                                    <div class="form-group m-0">
-                                                        <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label>
-                                                        <input class="d-none fil-file-control" type="file" id="fle-doc">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th class="text-center" data-encabezado="Número" scope="row">7</th>
-                                                <td data-encabezado="Columna 01">Valor 1</td>
-                                                <td data-encabezado="Columna 02">Texto 1</td>
-                                                <td data-encabezado="Columna 03">Valor 1</td>
-                                                <td data-encabezado="Columna 04">Texto 1</td>
-                                                <td data-encabezado="Columna 05">Valor 1</td>
-                                                <td data-encabezado="Columna 06">Texto 1</td>
-                                                <td data-encabezado="Columna 07">Valor 1</td>
-                                                <td data-encabezado="Columna 08">Texto 1</td>
-                                                <td data-encabezado="Columna 09">Valor 1</td>
-                                                <td data-encabezado="Columna 10">Texto 1</td>
-                                                <td data-encabezado="Columna 11">Valor 1</td>
-                                                <td data-encabezado="Columna 12">Texto 1</td>
-                                                <td data-encabezado="Columna 13">Valor 1</td>
-                                                <td data-encabezado="Columna 14">Texto 1</td>
-                                                <td data-encabezado="Columna 15">Valor 1</td>
-                                                <td data-encabezado="Columna 16">Texto 1</td>
-                                                <td data-encabezado="Subtotal">1,500.00</td>
-                                                <td class="text-center" data-encabezado="Sustento">
-                                                    <div class="form-group m-0">
-                                                        <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label>
-                                                        <input class="d-none fil-file-control" type="file" id="fle-doc">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th class="text-center" data-encabezado="Número" scope="row">8</th>
-                                                <td data-encabezado="Columna 01">Valor 1</td>
-                                                <td data-encabezado="Columna 02">Texto 1</td>
-                                                <td data-encabezado="Columna 03">Valor 1</td>
-                                                <td data-encabezado="Columna 04">Texto 1</td>
-                                                <td data-encabezado="Columna 05">Valor 1</td>
-                                                <td data-encabezado="Columna 06">Texto 1</td>
-                                                <td data-encabezado="Columna 07">Valor 1</td>
-                                                <td data-encabezado="Columna 08">Texto 1</td>
-                                                <td data-encabezado="Columna 09">Valor 1</td>
-                                                <td data-encabezado="Columna 10">Texto 1</td>
-                                                <td data-encabezado="Columna 11">Valor 1</td>
-                                                <td data-encabezado="Columna 12">Texto 1</td>
-                                                <td data-encabezado="Columna 13">Valor 1</td>
-                                                <td data-encabezado="Columna 14">Texto 1</td>
-                                                <td data-encabezado="Columna 15">Valor 1</td>
-                                                <td data-encabezado="Columna 16">Texto 1</td>
-                                                <td data-encabezado="Subtotal">1,500.00</td>
-                                                <td class="text-center" data-encabezado="Sustento">
-                                                    <div class="form-group m-0">
-                                                        <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label>
-                                                        <input class="d-none fil-file-control" type="file" id="fle-doc">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th class="text-center" data-encabezado="Número" scope="row">9</th>
-                                                <td data-encabezado="Columna 01">Valor 1</td>
-                                                <td data-encabezado="Columna 02">Texto 1</td>
-                                                <td data-encabezado="Columna 03">Valor 1</td>
-                                                <td data-encabezado="Columna 04">Texto 1</td>
-                                                <td data-encabezado="Columna 05">Valor 1</td>
-                                                <td data-encabezado="Columna 06">Texto 1</td>
-                                                <td data-encabezado="Columna 07">Valor 1</td>
-                                                <td data-encabezado="Columna 08">Texto 1</td>
-                                                <td data-encabezado="Columna 09">Valor 1</td>
-                                                <td data-encabezado="Columna 10">Texto 1</td>
-                                                <td data-encabezado="Columna 11">Valor 1</td>
-                                                <td data-encabezado="Columna 12">Texto 1</td>
-                                                <td data-encabezado="Columna 13">Valor 1</td>
-                                                <td data-encabezado="Columna 14">Texto 1</td>
-                                                <td data-encabezado="Columna 15">Valor 1</td>
-                                                <td data-encabezado="Columna 16">Texto 1</td>
-                                                <td data-encabezado="Subtotal">1,500.00</td>
-                                                <td class="text-center" data-encabezado="Sustento">
-                                                    <div class="form-group m-0">
-                                                        <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label>
-                                                        <input class="d-none fil-file-control" type="file" id="fle-doc">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th class="text-center" data-encabezado="Número" scope="row">10</th>
                                                 <td data-encabezado="Columna 01">Valor 1</td>
                                                 <td data-encabezado="Columna 02">Texto 1</td>
                                                 <td data-encabezado="Columna 03">Valor 1</td>
@@ -560,8 +363,8 @@
                                     <tbody>
                                         <tr>
                                             <th class="text-center" data-encabezado="Número" scope="row">1</th>
-                                            <td data-encabezado="Resumen" id="resumen-detalle">@*Nombre de la Medida Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia earum asperiores do*@</td>
-                                            <td data-encabezado="Total" id="total-detalle">@*<strong>150,000.00</strong>*@</td>
+                                            <td data-encabezado="Resumen" id="resumen-detalle">@Model.medida.NOMBRE_MEDMIT</td>
+                                            <td data-encabezado="Total"><strong>@total_reducido tCO<sub>2</sub>eq</strong></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -601,11 +404,26 @@
                         <div class="col-sm-12-col-md-12 col-lg-6">
                             <label>Visibilidad de datos</label><br>
                             <div class="custom-control custom-checkbox d-inline-block">
-                                <input class="custom-control-input" type="checkbox" id="chk-publicar" disabled checked>
+                                @if (Model.iniciativa_mit.PRIVACIDAD_INICIATIVA == '1')
+                                {
+                                    <input class="custom-control-input" type="checkbox" id="chk-publicar" disabled checked>
+                                }
+                                else
+                                {
+                                    <input class="custom-control-input" type="checkbox" id="chk-publicar" disabled>
+                                }
+
                                 <label class="custom-control-label" for="chk-publicar">Hacer públicos los datos registrados.</label>
                             </div>
                             <div class="custom-control custom-checkbox d-inline-block">
-                                <input class="custom-control-input" type="checkbox" id="chk-publicar-monto-inversion" disabled>
+                                @if (Model.iniciativa_mit.PRIVACIDAD_INVERSION == '1')
+                                {
+                                    <input class="custom-control-input" type="checkbox" id="chk-publicar-monto-inversion" disabled checked>
+                                }
+                                else
+                                {
+                                    <input class="custom-control-input" type="checkbox" id="chk-publicar-monto-inversion" disabled>
+                                }                                
                                 <label class="custom-control-label" for="chk-publicar-monto-inversion">Hacer público "Monto de inversión"</label>
                             </div>
                         </div>
@@ -705,7 +523,7 @@
                         </div>
                         <div class="modal-body medidas-modal">
                             <div class="row mb-2">
-                                <div class="col-sm-12 col-md-6 col-lg-6"><strong>De: Juan Perez&nbsp;<span class="badge badge-actor-03">Especialista</span></strong><br><strong>Para: Luis Silva&nbsp;<span class="badge badge-actor-02">Usuario Administrado</span></strong></div>
+                                <div class="col-sm-12 col-md-6 col-lg-6"><strong>De: @Session["nombres"]&nbsp;<span class="badge badge-actor-@Session["colorRol"]">@Session["nombreRol"]</span></strong><br><strong>Para: @Model.usuario.NOMBRES&nbsp;<span class="badge badge-actor-@Model.usuario.COLOR">@Model.usuario.ROL</span></strong></div>
                                 <div class="col-sm-12 col-md-6 col-lg-6 text-right"><strong>Fecha de Registro: 15/01/2020</strong></div>
                             </div>
                             <div class="row">
@@ -785,59 +603,7 @@
     </div>
 </div>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        fn_cargarOpciones();
-    });
 
-    function fn_establecerVista() {
-
-        $("#nombreUsuario").append('<i class="fas fa-user-tie pr-1"></i>'+$("#Control").data("nombres"));
-        //var opcion = '<span class="dropdown-item">' + $("#Control").data("nombres") + ' <br>';
-        var opcion = '';
-        if ($("#Control").data("rol") == 1) {
-            opcion = opcion + '<span class="dropdown-item font-weight-bold">Rol: &nbsp;<span class="badge badge-actor-02">Usuario Administrado</span></span>'
-        } else if ($("#Control").data("rol") == 2) {
-            opcion = opcion + '<span class="dropdown-item font-weight-bold">Rol: &nbsp;<span class="badge badge-actor-03">Especialista</span></span>'
-        } else if ($("#Control").data("rol") == 3) {
-            opcion = opcion + '<span class="dropdown-item font-weight-bold">Rol: &nbsp;<span class="badge badge-actor-06">Administrador MINEM</span></span>'
-        } else if ($("#Control").data("rol") == 4) {
-            opcion = opcion + '<span class="dropdown-item font-weight-bold">Rol: &nbsp;<span class="badge badge-actor-04">Evaluador MINAM</span></span>'
-        } else if ($("#Control").data("rol") == 5) {
-            opcion = opcion + '<span class="dropdown-item font-weight-bold">Rol: &nbsp;<span class="badge badge-actor-05">Verificador Externo</span></span>'
-        }
-
-        if ($("#Control").data("opcion6") == 1) { //Añade a las opciones el mantenimiento de tablas
-            opcion = opcion + '<a class="dropdown-item" href="#" onclick="fn_mantenimiento();"><i class="fas fa-cogs pr-1"></i>Mantenimiento de tablas</a>';
-        }
-
-        if ($("#Control").data("opcion7") == 1) {
-            opcion = opcion + '<a class="dropdown-item" href="#" onclick="fn_Clave();"><i class="fas fa-key pr-1"></i>Cambiar contraseña</a>';
-        }
-
-        opcion = opcion + '<div class="dropdown-divider"></div><a class="dropdown-item" href="#" onclick="salirSesion();"><i class="fas fa-sign-out-alt pr-1"></i>Salir del sistema</a>';
-
-        $("#usuario-rol").append(opcion);
-    }
-
-    function fn_cargarOpciones() {
-        $("#Control").data("usuario",@Session["usuario"]);
-        $("#Control").data("nombres",'@Session["nombres"]');
-        $("#Control").data("correo",'@Session["correo"]');
-        $("#Control").data("rol",@Session["rol"]);
-        $("#Control").data("institucion",'@Session["institucion"]');
-        $("#Control").data("direccion",'@Session["direccion"]');
-        $("#Control").data("sector",'@Session["sector"]');
-        $("#Control").data("opcion1",@Session["opcion1"]);
-        $("#Control").data("opcion2",@Session["opcion2"]);
-        $("#Control").data("opcion3",@Session["opcion3"]);
-        $("#Control").data("opcion4",@Session["opcion4"]);
-        $("#Control").data("opcion5",@Session["opcion5"]);
-        $("#Control").data("opcion6",@Session["opcion6"]);
-        $("#Control").data("opcion7",@Session["opcion7"]);
-        $("#Control").data("opcion8",@Session["opcion8"]);
-        $("#Control").data("opcion9",@Session["opcion9"]);
-        fn_establecerVista();
-    }
-</script>
+<script src="~/js/script.js"></script>
+<script src="~/js/MRV.js"></script>
 <script src="~/js/DetalleIndicador.js"></script>

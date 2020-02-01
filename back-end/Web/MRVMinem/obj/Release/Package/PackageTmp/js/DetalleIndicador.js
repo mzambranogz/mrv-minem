@@ -2,47 +2,7 @@
 var indicadores = new Array();
 var documentos = new Array();
 
-$(document).ready(function () {
-    $("#Control").data("iniciativa", $("#identificador").val());
-    $("#Control").data("revision", $("#revision").val());
 
-    if ($("#revision").val() == 1) {
-        //debugger;
-        CargarDetalleIndicadorRevision();
-    } else {
-        CargarDetalleIndicador();
-    }
-    CargarDatosIniciativa();
-    fn_cargarUbicacion();
-    fn_cargarEnergetico();
-    fn_cargarGei();
-
-    $(document).on("mouseover", "#cuerpoTablaIndicador tr", function () {
-
-        var fila = $(this).find('th:eq(0)').html();
-
-        console.log(fila);
-        $("#tablaIndicador").data("fila", fila);
-    });
-
-    $(document).on("click", ".agregarCampos", function (e) {
-        //debugger;
-        e.preventDefault();
-        CargarSoloTablaIndicador();
-        //var n = $(".tabla-detalle-indicadores").find("tbody").find("th").length + 1;
-        //var t = fn_crearLinea(n); //$(this).parent().parent().parent().parent().clone().html();
-        ////$(".tabla-detalle-indicadores").find("tbody").append("<tr id='detalles-tr-" + n + "'>" + t + "</tr>"); //, $(".dropdown-menu").removeClass("show"), l()
-        //$("#cuerpoTablaIndicador").append(tr);
-        //if (n == 1) {
-        //    MRV.CargarSelect(baseUrl + "Gestion/ListarTipoVehiculo", "#cbo-det-2-" + n + "", "ID_TIPO_VEHICULO", "DESCRIPCION");
-        //    MRV.CargarSelect(baseUrl + "Gestion/ListarTipoCombustible", "#cbo-det-3-" + n + "", "ID_TIPO_COMBUSTIBLE", "DESCRIPCION");
-        //}
-    })
-
-    fn_actualizaCampana();
-    enLinea();
-
-});
 
 
 function fn_crearLinea(fila) {
@@ -327,7 +287,7 @@ function CargarDatosIniciativa() {
                 if (data.length > 0) {
                     for (var i = 0; i < data.length; i++) {
                         fn_ObtenerMedidaMitigacion(data[i]["ID_MEDMIT"]);
-                        fn_DatosComentario(data[i]["ID_MEDMIT"]);
+                        //fn_DatosComentario(data[i]["ID_MEDMIT"]);
                         $("#Control").data("mitigacion", data[i]["ID_MEDMIT"]);
                         $("#txa-nombre-iniciativa").val(data[i]["NOMBRE_INICIATIVA"]);
                         $("#txa-descripcion-medida").val(data[i]["DESC_INICIATIVA"]);
@@ -1719,3 +1679,51 @@ function fn_DatosComentario(id) {
     });
 }
 
+$(document).ready(function () {
+
+    if ($("#iniciativa_mit_ID_INICIATIVA").val() > 0) {
+        $("#Control").data("iniciativa", $("#iniciativa_mit_ID_INICIATIVA").val());
+    } else {
+        $("#Control").data("iniciativa", $("#identificador").val());
+    }
+
+    $("#Control").data("iniciativa", $("#identificador").val());
+    $("#Control").data("revision", $("#revision").val());
+
+    if ($("#revision").val() == 1) {
+        //debugger;
+        CargarDetalleIndicadorRevision();
+    } else {
+        CargarDetalleIndicador();
+    }
+    CargarDatosIniciativa();
+    fn_cargarUbicacion();
+    fn_cargarEnergetico();
+    fn_cargarGei();
+
+    $(document).on("mouseover", "#cuerpoTablaIndicador tr", function () {
+
+        var fila = $(this).find('th:eq(0)').html();
+
+        console.log(fila);
+        $("#tablaIndicador").data("fila", fila);
+    });
+
+    $(document).on("click", ".agregarCampos", function (e) {
+        //debugger;
+        e.preventDefault();
+        CargarSoloTablaIndicador();
+        //var n = $(".tabla-detalle-indicadores").find("tbody").find("th").length + 1;
+        //var t = fn_crearLinea(n); //$(this).parent().parent().parent().parent().clone().html();
+        ////$(".tabla-detalle-indicadores").find("tbody").append("<tr id='detalles-tr-" + n + "'>" + t + "</tr>"); //, $(".dropdown-menu").removeClass("show"), l()
+        //$("#cuerpoTablaIndicador").append(tr);
+        //if (n == 1) {
+        //    MRV.CargarSelect(baseUrl + "Gestion/ListarTipoVehiculo", "#cbo-det-2-" + n + "", "ID_TIPO_VEHICULO", "DESCRIPCION");
+        //    MRV.CargarSelect(baseUrl + "Gestion/ListarTipoCombustible", "#cbo-det-3-" + n + "", "ID_TIPO_COMBUSTIBLE", "DESCRIPCION");
+        //}
+    })
+
+    fn_actualizaCampana();
+    enLinea();
+
+});

@@ -426,5 +426,12 @@ namespace logica.minem.gob.pe
         {
             return iniciativaDA.ListaExcelIniciativaTodo(entidad);
         }
+
+        /////////////////////////////////////////////////////////////////
+        public static IniciativaBE IniciativaMitigacionDatos(IniciativaBE entidad)
+        {
+            return iniciativaDA.IniciativaMitigacionDatos(entidad);
+        }
+
     }
 }

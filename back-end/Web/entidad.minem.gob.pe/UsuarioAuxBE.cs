@@ -11,5 +11,6 @@ namespace entidad.minem.gob.pe
         public string MEDIDAS { get; set; }
         public string ASUNTO { get; set; }
         public string DESCRIPCION { get; set; }
+        public string COLOR { get; set; }
     }
 }

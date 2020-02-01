@@ -24,7 +24,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/29/2020 11:47:41</publishTime>
     </File>
     <File Include="bin/datos.minem.gob.pe.dll">
-      <publishTime>01/31/2020 21:08:52</publishTime>
+      <publishTime>02/01/2020 11:55:45</publishTime>
     </File>
     <File Include="bin/de/Microsoft.SqlServer.Types.resources.dll">
       <publishTime>02/21/2014 05:26:06</publishTime>
@@ -36,7 +36,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/29/2020 11:47:36</publishTime>
     </File>
     <File Include="bin/entidad.minem.gob.pe.dll">
-      <publishTime>01/31/2020 11:24:56</publishTime>
+      <publishTime>02/01/2020 11:55:44</publishTime>
     </File>
     <File Include="bin/EPPlus.dll">
       <publishTime>01/29/2020 11:55:55</publishTime>
@@ -81,7 +81,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/29/2020 19:41:01</publishTime>
     </File>
     <File Include="bin/logica.minem.gob.pe.dll">
-      <publishTime>01/31/2020 21:08:52</publishTime>
+      <publishTime>02/01/2020 11:55:45</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>01/29/2020 11:47:44</publishTime>
@@ -96,7 +96,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/29/2020 11:47:45</publishTime>
     </File>
     <File Include="bin/MRVMinem.dll">
-      <publishTime>01/31/2020 21:13:53</publishTime>
+      <publishTime>02/01/2020 11:55:52</publishTime>
     </File>
     <File Include="bin/Oracle.DataAccess.dll">
       <publishTime>07/31/2014 22:11:18</publishTime>
@@ -393,7 +393,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/29/2020 11:47:37</publishTime>
     </File>
     <File Include="js/AccionMitigacion.js">
-      <publishTime>01/31/2020 20:32:21</publishTime>
+      <publishTime>02/01/2020 01:05:25</publishTime>
     </File>
     <File Include="js/CambiarClave.js">
       <publishTime>01/29/2020 11:47:37</publishTime>
@@ -402,7 +402,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/29/2020 11:47:37</publishTime>
     </File>
     <File Include="js/DetalleIndicador.js">
-      <publishTime>01/31/2020 18:42:33</publishTime>
+      <publishTime>02/01/2020 11:45:44</publishTime>
     </File>
     <File Include="js/IniciativaMitigacion.js">
       <publishTime>01/31/2020 18:09:34</publishTime>
@@ -528,7 +528,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/31/2020 19:38:33</publishTime>
     </File>
     <File Include="Views/Gestion/RevisarAdminDetalleIndicador.cshtml">
-      <publishTime>01/31/2020 13:06:20</publishTime>
+      <publishTime>02/01/2020 11:53:23</publishTime>
     </File>
     <File Include="Views/Gestion/RevisarDetalleIndicador.cshtml">
       <publishTime>01/31/2020 18:17:31</publishTime>
@@ -600,7 +600,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/29/2020 11:47:36</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/31/2020 21:13:55</publishTime>
+      <publishTime>02/01/2020 11:55:55</publishTime>
     </File>
   </ItemGroup>
 </Project>

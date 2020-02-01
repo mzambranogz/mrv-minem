@@ -57,27 +57,29 @@ function CargarOpcionesCuerpo() {
 }
 
 function fn_revisarIniciativa(ini) {
-    location.href = baseUrl + "Gestion/RevisarIniciativa?id=" + 0 + "&ini=" + ini;
+    //location.href = baseUrl + "Gestion/RevisarIniciativa?id=" + 0 + "&ini=" + ini;
+    location.href = baseUrl + "Gestion/RevisarIniciativa/" + Math.round(Math.random()*100) + "/" + ini;
 }
 
 function fn_mostrarCorregirIniciativa(ini) {
-    location.href = baseUrl + "Gestion/CorregirIniciativa?ini=" + ini;
+    location.href = baseUrl + "Gestion/CorregirIniciativa/" + Math.round(Math.random() * 100) + "/"+ ini;
 }
 
 function fn_revisarDetalle(id) {
-    location.href = baseUrl + "Gestion/RevisarDetalleIndicador?id=" + id;
+    //location.href = baseUrl + "Gestion/RevisarDetalleIndicador?id=" + id;
+    location.href = baseUrl + "Gestion/RevisarDetalleIndicador/" + id + "/" + Math.round(Math.random() * 100);
 }
 
 function fn_revisarDetalleAdmin(id) {
-    location.href = baseUrl + "Gestion/RevisarAdminDetalleIndicador?id=" + id;    
+    location.href = baseUrl + "Gestion/RevisarAdminDetalleIndicador/" + id + "/"+Math.round(Math.random()*100);    
 }
 
 function fn_evaluarIniciativaDetalle(id) {
-    location.href = baseUrl + "Gestion/EvaluarIniciativaDetalle?id=" + id;
+    location.href = baseUrl + "Gestion/EvaluarIniciativaDetalle/" + id + "/" + Math.round(Math.random() * 100);
 }
 
 function fn_verificarIniciativaDetalle(id) {
-    location.href = baseUrl + "Gestion/VerificarIniciativaDetalle?id=" + id;
+    location.href = baseUrl + "Gestion/VerificarIniciativaDetalle/" + id + "/" + Math.round(Math.random() * 100);
 }
 
 function fn_cargarIdIniciativa(id) {
@@ -85,31 +87,31 @@ function fn_cargarIdIniciativa(id) {
 }
 
 function fn_mostrarEditarIndicador(id) {
-    location.href = baseUrl + "Gestion/DetalleIndicador?id=" + id;
+    location.href = baseUrl + "Gestion/DetalleIndicador/" + id + "/" + Math.round(Math.random() * 100);
 }
 
 function fn_mostrarEditarIniciativa(ini) {
-    location.href = baseUrl + "Gestion/IniciativaMitigacion?id=" + 0 + "&ini=" + ini;
+    location.href = baseUrl + "Gestion/IniciativaMitigacion/" + Math.round(Math.random() * 100) + "/" + ini;
 }
 
 function fn_mostrarCorregirIndicador(id) {
-    location.href = baseUrl + "Gestion/CorregirDetalleIndicador?id=" + id;
+    location.href = baseUrl + "Gestion/CorregirDetalleIndicador/" + id + "/" + Math.round(Math.random() * 100);
 }
 
 function fn_mostrarSeguimiento(id) {
-    location.href = baseUrl + "Gestion/SeguimientoIniciativa?id=" + id;
+    location.href = baseUrl + "Gestion/SeguimientoIniciativa/" + id + "/" + Math.round(Math.random() * 100);
 }
 
 function fn_mostrarDetalleIndicador() {
-    location.href = baseUrl + "Gestion/DetalleIndicador?id=" + $("#Control").data("iniciativa");
+    location.href = baseUrl + "Gestion/DetalleIndicador/" + $("#Control").data("iniciativa") + "/" + Math.round(Math.random() * 100);
 }
 
 function fn_verMasPrivadoIniciativaG(ini) {
-    location.href = baseUrl + "Gestion/VerMasIniciativa?ini=" + ini;
+    location.href = baseUrl + "Gestion/VerMasIniciativa/" + Math.round(Math.random() * 100) + "/" + ini;
 }
 
 function fn_verMasPrivadoIniciativaDetalleG(ini) {
-    location.href = baseUrl + "Gestion/VerMasIniciativaDetalle?ini=" + ini;
+    location.href = baseUrl + "Gestion/VerMasIniciativaDetalle/" + Math.round(Math.random() * 100) + "/" + ini;
 }
 
 function fn_verMasPrivadoIniciativaP(ini) {
