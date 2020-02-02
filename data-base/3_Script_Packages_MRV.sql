@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - viernes-enero-31-2020   
+-- Archivo creado  - sábado-febrero-01-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_ADMIN_SISTEMA
@@ -80,6 +80,16 @@
     PROCEDURE USP_UPD_OBTENER_USUARIO_ID(
         pID_USUARIO       IN NUMBER,
         pRefcursor           OUT SYS_REFCURSOR
+    );
+    
+    --01.02.20
+    PROCEDURE USP_SEL_ESPECIALISTA_MEDMIT(
+        pID_MEDMIT  IN NUMBER,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+    
+    PROCEDURE USP_SEL_USUARIO_ADMIN(
+        pRefcursor  OUT SYS_REFCURSOR
     );
 
 END PKG_MRV_ADMIN_SISTEMA;
@@ -280,12 +290,15 @@ END PKG_MRV_CALCULO;
 
     PROCEDURE USP_UPD_APROBAR_INI_DETALLE(
         pID_INICIATIVA IN   NUMBER,
-        pID_USUARIO IN NUMBER
+        pID_USUARIO IN NUMBER,
+        pID_ETAPA IN NUMBER,
+        pID_MEDMIT IN NUMBER
     );
 
     PROCEDURE USP_UPD_EVALUAR_INI_DETALLE(
         pID_INICIATIVA IN   NUMBER,
-        pID_USUARIO IN NUMBER
+        pID_USUARIO IN NUMBER,
+        pID_ADMINISTRADOR IN NUMBER
     );
 
     PROCEDURE USP_UPD_VERIFICAR_INI_DETALLE(
@@ -308,6 +321,22 @@ END PKG_MRV_CALCULO;
         pID_INICIATIVA IN NUMBER,
         pID_USUARIO IN NUMBER,
         pID_ESTADO IN NUMBER
+    );
+    
+    PROCEDURE USP_UPD_OBSERVACION_ADMIN_DET(
+        pID_INICIATIVA IN NUMBER,
+        pID_USUARIO IN NUMBER,
+        pDESCRIPCION IN VARCHAR2,
+        pID_ESTADO_NOTIFICACION IN NUMBER,
+        pID_MEDMIT  IN NUMBER
+    );
+    
+    PROCEDURE USP_UPD_OBSERVACION_EVA_DET(
+        pID_INICIATIVA IN NUMBER,
+        pID_USUARIO IN NUMBER,
+        pDESCRIPCION IN VARCHAR2,
+        pID_ESTADO_NOTIFICACION IN NUMBER,
+        pID_ADMINISTRADOR  IN NUMBER
     );
 
 END PKG_MRV_DETALLE_INDICADORES;
@@ -868,6 +897,11 @@ end PKG_MRV_NOTIFICACION;
         pCursor out SYS_REFCURSOR
   );
 
+  PROCEDURE SP_SEL_MEDMIT_RPT(
+        pIdMedMit   integer,
+        pCursor out SYS_REFCURSOR
+  );
+  
   PROCEDURE USP_SEL_SEGUIMIENTO_INICIATIVA(
     pID_INICIATIVA IN NUMBER,
     pRefCursor out SYS_REFCURSOR
@@ -1180,6 +1214,46 @@ END PKG_MRV_REPORTES;
         LEFT JOIN T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
         WHERE   ID_USUARIO = pID_USUARIO;
     END USP_UPD_OBTENER_USUARIO_ID;
+    
+    --01.02.20
+    PROCEDURE USP_SEL_ESPECIALISTA_MEDMIT(
+        pID_MEDMIT  IN NUMBER,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+    BEGIN
+        OPEN pRefcursor FOR 
+        SELECT U.ID_USUARIO,
+               TRIM(USU.NOMBRES_USUARIO) || ' ' || TRIM(USU.APELLIDOS_USUARIO) NOMBRES,
+               R.ID_ROL,
+               R.DESCRIPCION_ROL ROL,
+               USU.EMAIL_USUARIO,
+               '03' COLOR
+        FROM  T_MAE_USUARIO_MEDMIT U
+        LEFT JOIN T_GENM_USUARIO USU ON U.ID_USUARIO = USU.ID_USUARIO
+        LEFT JOIN T_MAE_USUARIO_ROL UR ON USU.ID_USUARIO = UR.ID_USUARIO
+        LEFT JOIN T_MAE_ROL R ON UR.ID_ROL = R.ID_ROL
+        WHERE U.ID_MEDMIT = pID_MEDMIT AND R.ID_ROL = 2;
+    END USP_SEL_ESPECIALISTA_MEDMIT;
+    
+    PROCEDURE USP_SEL_USUARIO_ADMIN(
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+    BEGIN
+        OPEN pRefcursor FOR 
+        SELECT * FROM(
+        SELECT USU.ID_USUARIO,
+               TRIM(USU.NOMBRES_USUARIO) || ' ' || TRIM(USU.APELLIDOS_USUARIO) NOMBRES,
+               R.ID_ROL,
+               R.DESCRIPCION_ROL ROL,
+               USU.EMAIL_USUARIO,
+               '06' COLOR
+        FROM  T_GENM_USUARIO USU
+        LEFT JOIN T_MAE_USUARIO_ROL UR ON USU.ID_USUARIO = UR.ID_USUARIO
+        LEFT JOIN T_MAE_ROL R ON UR.ID_ROL = R.ID_ROL
+        WHERE R.ID_ROL = 3
+        ORDER BY USU.ID_USUARIO ASC)
+        WHERE ROWNUM = 1;
+    END USP_SEL_USUARIO_ADMIN;
 
 END PKG_MRV_ADMIN_SISTEMA;
 
@@ -1811,9 +1885,11 @@ END PKG_MRV_CALCULO;
         pID_ESTADO_NOTIFICACION NUMBER
     )AS
         vIdDetalle NUMBER;
+        vIdUsuario  NUMBER;
     BEGIN
         UPDATE  T_GENM_INICIATIVA 
-        SET     ID_ESTADO = 2
+        SET     ID_ESTADO = 2,
+                ID_ETAPA = 3
         WHERE   ID_INICIATIVA = pID_INICIATIVA;
         
         SELECT SQ_GEND_DETALLE_INICIATIVA.NEXTVAL INTO vIdDetalle FROM DUAL;
@@ -1821,11 +1897,12 @@ END PKG_MRV_CALCULO;
         INSERT INTO T_GEND_DETALLE_INICIATIVA (id_detalle_iniciativa, ID_INICIATIVA, ID_REMITENTE, ID_ETAPA, ID_ESTADO, FECHA_DERIVACION)
         VALUES (vIdDetalle, pID_INICIATIVA, pID_USUARIO,3,2, SYSDATE);
 
+        SELECT ID_USUARIO INTO vIdUsuario FROM t_genm_iniciativa WHERE ID_INICIATIVA = pID_INICIATIVA;
         PKG_MRV_NOTIFICACION.USP_INS_NOTIFICACION(pIdIniciativa         =>  pID_INICIATIVA,
                                                   pIdEtapa              =>  3,
                                                   pIdEstado             =>  2,
                                                   pIdRol                =>  1,
-                                                  pIdUsuario            =>  NULL,
+                                                  pIdUsuario            =>  vIdUsuario,
                                                   pDescripcion          =>  pDESCRIPCION,
                                                   pIdEstadoNotificacion =>  pID_ESTADO_NOTIFICACION);
 
@@ -1866,24 +1943,42 @@ END PKG_MRV_CALCULO;
 
     PROCEDURE USP_UPD_APROBAR_INI_DETALLE(
         pID_INICIATIVA IN   NUMBER,
-        pID_USUARIO IN NUMBER
+        pID_USUARIO IN NUMBER,
+        pID_ETAPA IN NUMBER,
+        pID_MEDMIT IN NUMBER
     )AS
         vIdDetalle NUMBER;
+        vIdEspecialista NUMBER;
     BEGIN
         UPDATE  T_GENM_INICIATIVA
-        SET     ID_ETAPA = 5,
+        SET     ID_ETAPA = pID_ETAPA, --<---
                 ID_ESTADO = 3
         WHERE   ID_INICIATIVA = pID_INICIATIVA;
         
         SELECT SQ_GEND_DETALLE_INICIATIVA.NEXTVAL INTO vIdDetalle FROM DUAL;
         
         INSERT INTO T_GEND_DETALLE_INICIATIVA (id_detalle_iniciativa, ID_INICIATIVA, ID_REMITENTE, ID_ETAPA, ID_ESTADO, FECHA_DERIVACION)
-        VALUES (vIdDetalle, pID_INICIATIVA, pID_USUARIO,5,3, SYSDATE);
+        VALUES (vIdDetalle, pID_INICIATIVA, pID_USUARIO,pID_ETAPA,3, SYSDATE);
+        
+        --REGISTRAMOS LA NOTIFICACION DE DETALLE DE INDICADORES
+        SELECT COUNT(1) INTO vIdEspecialista FROM  T_MAE_USUARIO_MEDMIT U WHERE U.ID_MEDMIT = pID_MEDMIT;
+        IF vIdEspecialista > 0 THEN
+            SELECT MAX(ID_USUARIO) INTO vIdEspecialista FROM  T_MAE_USUARIO_MEDMIT U WHERE U.ID_MEDMIT = pID_MEDMIT;
+        END IF;
+        
+        PKG_MRV_NOTIFICACION.USP_INS_NOTIFICACION(pIdIniciativa         => pID_INICIATIVA,
+                                                  pIdEtapa              => pID_ETAPA, --<----
+                                                  pIdEstado             => 3,
+                                                  pIdRol                => 2,
+                                                  pIdUsuario            => vIdEspecialista,
+                                                  pDescripcion          => 'Los detalles de indicadores y la iniciativa fueron revisados y aprobadas por el Administrador MINEM',
+                                                  pIdEstadoNotificacion => 3);
     END USP_UPD_APROBAR_INI_DETALLE;
 
     PROCEDURE USP_UPD_EVALUAR_INI_DETALLE(
         pID_INICIATIVA IN   NUMBER,
-        pID_USUARIO IN NUMBER
+        pID_USUARIO IN NUMBER,
+        pID_ADMINISTRADOR IN NUMBER
     )AS
         vIdDetalle NUMBER;
     BEGIN
@@ -1896,6 +1991,14 @@ END PKG_MRV_CALCULO;
         
         INSERT INTO T_GEND_DETALLE_INICIATIVA (id_detalle_iniciativa, ID_INICIATIVA, ID_REMITENTE, ID_ETAPA, ID_ESTADO, FECHA_DERIVACION)
         VALUES (vIdDetalle, pID_INICIATIVA, pID_USUARIO,6,3, SYSDATE);
+        
+        PKG_MRV_NOTIFICACION.USP_INS_NOTIFICACION(pIdIniciativa         => pID_INICIATIVA,
+                                                  pIdEtapa              => 5, --<----
+                                                  pIdEstado             => 3,
+                                                  pIdRol                => 3,
+                                                  pIdUsuario            => pID_ADMINISTRADOR,
+                                                  pDescripcion          => 'Los detalles de indicadores y la iniciativa fueron revisados y aprobadas por el Evaluador MINAM',
+                                                  pIdEstadoNotificacion => 3);
     END USP_UPD_EVALUAR_INI_DETALLE;
 
     PROCEDURE USP_UPD_VERIFICAR_INI_DETALLE(
@@ -1977,6 +2080,69 @@ END PKG_MRV_CALCULO;
         VALUES (vIdDetalle, pID_INICIATIVA, pID_USUARIO, vMensajeDetalle,3,pID_ESTADO, SYSDATE);
 
     END USP_PRC_AVANCE_DETALLE;
+    
+    PROCEDURE USP_UPD_OBSERVACION_ADMIN_DET(
+        pID_INICIATIVA IN NUMBER,
+        pID_USUARIO IN NUMBER,
+        pDESCRIPCION IN VARCHAR2,
+        pID_ESTADO_NOTIFICACION IN NUMBER,
+        pID_MEDMIT  IN NUMBER
+    )AS
+        vIdDetalle       NUMBER;
+        vIdEspecialista  NUMBER;
+    BEGIN
+        UPDATE  T_GENM_INICIATIVA 
+        SET     ID_ESTADO = 2
+        WHERE   ID_INICIATIVA = pID_INICIATIVA;
+        
+        SELECT SQ_GEND_DETALLE_INICIATIVA.NEXTVAL INTO vIdDetalle FROM DUAL;
+        
+        INSERT INTO T_GEND_DETALLE_INICIATIVA (id_detalle_iniciativa, ID_INICIATIVA, ID_REMITENTE, ID_ETAPA, ID_ESTADO, FECHA_DERIVACION)
+        VALUES (vIdDetalle, pID_INICIATIVA, pID_USUARIO,4,2, SYSDATE);
+        
+        --REGISTRAMOS LA NOTIFICACION DE DETALLE DE INDICADORES
+        SELECT COUNT(1) INTO vIdEspecialista FROM  T_MAE_USUARIO_MEDMIT U WHERE U.ID_MEDMIT = pID_MEDMIT;
+        IF vIdEspecialista > 0 THEN
+            SELECT MAX(ID_USUARIO) INTO vIdEspecialista FROM  T_MAE_USUARIO_MEDMIT U WHERE U.ID_MEDMIT = pID_MEDMIT;
+        END IF;
+        
+        PKG_MRV_NOTIFICACION.USP_INS_NOTIFICACION(pIdIniciativa         =>  pID_INICIATIVA,
+                                                  pIdEtapa              =>  4,
+                                                  pIdEstado             =>  2,
+                                                  pIdRol                =>  2,
+                                                  pIdUsuario            =>  vIdEspecialista,
+                                                  pDescripcion          =>  pDESCRIPCION,
+                                                  pIdEstadoNotificacion =>  pID_ESTADO_NOTIFICACION);
+
+    END USP_UPD_OBSERVACION_ADMIN_DET;
+
+    PROCEDURE USP_UPD_OBSERVACION_EVA_DET(
+        pID_INICIATIVA IN NUMBER,
+        pID_USUARIO IN NUMBER,
+        pDESCRIPCION IN VARCHAR2,
+        pID_ESTADO_NOTIFICACION IN NUMBER,
+        pID_ADMINISTRADOR  IN NUMBER
+    )AS
+        vIdDetalle       NUMBER;
+    BEGIN
+        UPDATE  T_GENM_INICIATIVA 
+        SET     ID_ESTADO = 2
+        WHERE   ID_INICIATIVA = pID_INICIATIVA;
+        
+        SELECT SQ_GEND_DETALLE_INICIATIVA.NEXTVAL INTO vIdDetalle FROM DUAL;
+        
+        INSERT INTO T_GEND_DETALLE_INICIATIVA (id_detalle_iniciativa, ID_INICIATIVA, ID_REMITENTE, ID_ETAPA, ID_ESTADO, FECHA_DERIVACION)
+        VALUES (vIdDetalle, pID_INICIATIVA, pID_USUARIO,5,2, SYSDATE);
+        
+        PKG_MRV_NOTIFICACION.USP_INS_NOTIFICACION(pIdIniciativa         =>  pID_INICIATIVA,
+                                                  pIdEtapa              =>  5,
+                                                  pIdEstado             =>  2,
+                                                  pIdRol                =>  3,
+                                                  pIdUsuario            =>  pID_ADMINISTRADOR,
+                                                  pDescripcion          =>  pDESCRIPCION,
+                                                  pIdEstadoNotificacion =>  pID_ESTADO_NOTIFICACION);
+
+    END USP_UPD_OBSERVACION_EVA_DET;
 
 END PKG_MRV_DETALLE_INDICADORES;
 
@@ -2461,7 +2627,7 @@ END PKG_MRV_DETALLE_INDICADORES;
         LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
         LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
         LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
-        WHERE INI.ID_ESTADO IN (1,5) AND INI.ID_ETAPA IN (1,3);
+        WHERE INI.ID_ESTADO IN (1,5) AND INI.ID_ETAPA IN (1,3) OR (INI.ID_ESTADO = 2 AND INI.ID_ETAPA = 4);
 
         vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
         IF vPagina2 = 0 THEN
@@ -2499,8 +2665,7 @@ END PKG_MRV_DETALLE_INDICADORES;
                         LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
                         LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
                         LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
-                        WHERE INI.ID_ESTADO IN (1,5) AND INI.ID_ETAPA IN (1,3)
-                        ORDER BY INI.ID_INICIATIVA DESC
+                        WHERE INI.ID_ESTADO IN (1,5) AND INI.ID_ETAPA IN (1,3) OR (INI.ID_ESTADO = 2 AND INI.ID_ETAPA = 4)
 					)
                     WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
 
@@ -2583,7 +2748,6 @@ END PKG_MRV_DETALLE_INDICADORES;
                         LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
                         LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
                         WHERE INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 5
-                        ORDER BY INI.ID_INICIATIVA DESC
 					)
                     WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
 
@@ -2627,7 +2791,7 @@ END PKG_MRV_DETALLE_INDICADORES;
         LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
         LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
         LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
-        WHERE INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 4;
+        WHERE (INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 4) OR (INI.ID_ESTADO IN (2) AND INI.ID_ETAPA IN (5,8));
         --WHERE NOT (INI.ID_ESTADO = 0 AND INI.ID_ETAPA = 1);
 
         vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
@@ -2666,8 +2830,7 @@ END PKG_MRV_DETALLE_INDICADORES;
                         LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
                         LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
                         LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
-                        WHERE INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 4
-                        ORDER BY INI.ID_INICIATIVA DESC
+                        WHERE (INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 4) OR (INI.ID_ESTADO IN (2) AND INI.ID_ETAPA IN (5,8))
 					)
                     WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
 		OPEN pRefcursor FOR vQuery;   
@@ -2751,7 +2914,6 @@ END PKG_MRV_DETALLE_INDICADORES;
                         LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
                         LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
                         WHERE INI.PRIVACIDAD_INICIATIVA = ''1''
-                        ORDER BY INI.ID_INICIATIVA DESC
 					)
                     WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
 		OPEN pRefcursor FOR vQuery;   
@@ -2835,7 +2997,6 @@ END PKG_MRV_DETALLE_INDICADORES;
                         LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
                         LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
                         WHERE USU.ID_USUARIO = ' || TO_CHAR(pID_USUARIO) || '
-                        ORDER BY INI.ID_INICIATIVA DESC
 					)
                     WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
 		OPEN pRefcursor FOR vQuery;        
@@ -2903,7 +3064,6 @@ END PKG_MRV_DETALLE_INDICADORES;
                         LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
                         LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
                         WHERE INI.ID_ESTADO = 2
-                        ORDER BY INI.ID_INICIATIVA DESC
 					)
                     WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
 
@@ -2971,7 +3131,6 @@ END PKG_MRV_DETALLE_INDICADORES;
                         LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
                         LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
                         WHERE INI.ID_ESTADO = 3 AND INI.ID_ETAPA IN (2,4)
-                        ORDER BY INI.ID_INICIATIVA DESC
 					)
                     WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
 
@@ -2999,7 +3158,7 @@ END PKG_MRV_DETALLE_INDICADORES;
         LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
         LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
         LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
-        WHERE INI.ID_ESTADO = 3 AND INI.ID_ETAPA = 5;
+        WHERE INI.ID_ESTADO = 3 AND INI.ID_ETAPA IN (5,8);
 
         vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
         IF vPagina2 = 0 THEN
@@ -3037,8 +3196,7 @@ END PKG_MRV_DETALLE_INDICADORES;
                         LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
                         LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
                         LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
-                        WHERE INI.ID_ESTADO = 3 AND INI.ID_ETAPA = 5
-                        ORDER BY INI.ID_INICIATIVA DESC
+                        WHERE INI.ID_ESTADO = 3 AND INI.ID_ETAPA IN (5,8)
 					)
                     WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
 
@@ -3105,7 +3263,6 @@ END PKG_MRV_DETALLE_INDICADORES;
                         LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
                         LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
                         WHERE INI.ID_ESTADO = 3 AND INI.ID_ETAPA = 6
-                        ORDER BY INI.ID_INICIATIVA DESC
 					)
                     WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
 
@@ -3172,7 +3329,6 @@ END PKG_MRV_DETALLE_INDICADORES;
                         LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
                         LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
                         WHERE INI.ID_ESTADO = 3 AND INI.ID_ETAPA = 7
-                        ORDER BY INI.ID_INICIATIVA DESC
 					)
                     WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
 
@@ -3239,7 +3395,6 @@ END PKG_MRV_DETALLE_INDICADORES;
                         LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
                         LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
                         WHERE NOT (INI.ID_ESTADO = 0 AND INI.ID_ETAPA = 1)
-                        ORDER BY INI.ID_INICIATIVA DESC
 					)
                     WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
 
@@ -3306,7 +3461,6 @@ END PKG_MRV_DETALLE_INDICADORES;
                         LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
                         LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
                         WHERE INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 6
-                        ORDER BY INI.ID_INICIATIVA DESC
 					)
                     WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
 
@@ -4430,7 +4584,18 @@ end PKG_MRV_NOTIFICACION;
         WHERE   (E.ID_MEDMIT = pIdMedMit or pIdMedMit = 0)
                 AND E.FLAG_ESTADO = '1';
   END SP_SEL_ESCENARIOS_RPT;
-
+    
+  PROCEDURE SP_SEL_MEDMIT_RPT(
+        pIdMedMit   integer,
+        pCursor out SYS_REFCURSOR
+  ) AS
+  BEGIN
+        open pCursor for
+        SELECT  E.*  
+        FROM    T_MAE_MEDMIT E
+        WHERE (ID_MEDMIT = pIdMedMit OR pIdMedMit =0);
+  END SP_SEL_MEDMIT_RPT;
+    
   PROCEDURE USP_SEL_SEGUIMIENTO_INICIATIVA(
     pID_INICIATIVA IN NUMBER,
     prefCursor out SYS_REFCURSOR
