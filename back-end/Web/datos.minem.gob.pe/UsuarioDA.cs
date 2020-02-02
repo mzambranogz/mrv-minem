@@ -504,5 +504,32 @@ namespace datos.minem.gob.pe
             return entidad;
         }
 
+        public UsuarioBE UsuarioEvaluador()
+        {
+            UsuarioBE entidad = new UsuarioBE();
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_USUARIO_EVA";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    var ent = db.Query<UsuarioBE>(sp, p, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                    if (ent != null)
+                    {
+                        entidad = ent;
+                    }
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+
+            return entidad;
+        }
+
     }
 }

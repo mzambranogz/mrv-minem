@@ -148,9 +148,29 @@ namespace MRVMinem.Controllers
 
         public ActionResult VerificarIniciativaDetalle(int id, int ini)
         {
-            MvSesion modelo = new MvSesion();
-            modelo.identificador = id;
+            ListaObjeto modelo = new ListaObjeto();
+            IniciativaBE inic = new IniciativaBE();
+            inic.ID_INICIATIVA = id;
+            modelo.iniciativa_mit = inic;
+            modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
+            modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
+            modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
+            modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
+            modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
+            modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
+            if (modelo.iniciativa_mit.ID_ETAPA == 8)
+            {
+                modelo.usuario = UsuarioLN.UsuarioAdministrador();
+            }
+            else
+            {
+                modelo.usuario = UsuarioLN.UsuarioEvaluador();
+            }
+            Session["etapa"] = modelo.iniciativa_mit.ID_ETAPA;
+            Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
+            Session["usuario_destino"] = modelo.usuario.ID_USUARIO;
             modelo.revision = 1;
+            
             return View(modelo);
         }
 
