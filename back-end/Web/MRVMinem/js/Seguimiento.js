@@ -257,7 +257,14 @@ function fn_mostrarSeguimiento() {
                     $("#seguimiento").append(tr);
                     }
                     //$("#seguimiento").append(tr);
-                    $(".timeline:last-child").attr("style", "margin-top: 0px !important");
+                    var t = $(".timeline").length; //console.log(t);
+                    if (t % 2 == 0 && t > 2) { //console.log("entro 2");
+                        $(".timeline:last-child").attr('style', 'margin-top: 0px !important');
+                    } else if (t == 2) { //console.log("entro 3");
+                        $(".timeline:last-child").attr('style', 'margin-top: 140px !important');
+                    } else if (t == 1) {
+                        $(".timeline:last-child").attr('style', 'margin-top: 0px !important');
+                    }
                 }
             }
         }

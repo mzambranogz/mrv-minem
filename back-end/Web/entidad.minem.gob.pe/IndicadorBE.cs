@@ -20,6 +20,7 @@ namespace entidad.minem.gob.pe
         public string SIGLA { get; set; }
         public int ID_MEDMIT { get; set; }
         public char ESTADO_ACTOR { get; set; }
+        public int ID_ADMINISTRADOR { get; set; }
         //=======================================
         public int ID_INICIATIVA { get; set; }
         public int ANNOB { get; set; }

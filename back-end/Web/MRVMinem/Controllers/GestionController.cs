@@ -142,7 +142,7 @@ namespace MRVMinem.Controllers
             modelo.usuario = UsuarioLN.UsuarioAdministrador();
             modelo.revision = 1;
             Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
-            Session["id_medida"] = modelo.medida.ID_MEDMIT;
+            Session["usuario_destino"] = modelo.usuario.ID_USUARIO;
             return View(modelo);
         }
 
@@ -566,7 +566,6 @@ namespace MRVMinem.Controllers
                 //itemRespuesta.extra = entidad.DESCRIPCION;
                 Session["correo_destino"] = "";
                 Session["id_medida"] = 0;
-                Session["correo_destino"] = "";
             }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
@@ -589,27 +588,52 @@ namespace MRVMinem.Controllers
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
                 Session["correo_destino"] = "";
                 Session["id_medida"] = 0;
-                Session["correo_destino"] = "";
             }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }
 
+        public JsonResult ObservacionEvaluarDetalleIndicador(IndicadorBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad.ID_USUARIO = Convert.ToInt32(Session["usuario"]);
+            entidad.ID_ADMINISTRADOR = Convert.ToInt32(Session["usuario_destino"]);
+            entidad = IndicadorLN.ObservacionEvaluarDetalleIndicador(entidad);
+            if (entidad.OK)
+            {
+                IniciativaBE iniciativa = new IniciativaBE();
+                iniciativa.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
+                iniciativa.ASUNTO = "Observación Detalle Indicador - MRVMinem ";
+                iniciativa.DESCRIPCION = "En los detalles indicadores de la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") se ha detectado algunos datos a corregir, los detalles en la siguiente descripción: <br/>" + entidad.DESCRIPCION + "<br/><br/>";
+                EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
+                Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+                //itemRespuesta.extra = entidad.DESCRIPCION;
+                Session["correo_destino"] = "";
+                Session["usuario_destino"] = 0;
+            }
+            itemRespuesta.success = entidad.OK;
+            return Respuesta(itemRespuesta);
+        }
 
         public JsonResult EvaluarIniciativaDetalleIndicador(IndicadorBE entidad)
         {
             ResponseEntity itemRespuesta = new ResponseEntity();
 
+            entidad.ID_USUARIO = Convert.ToInt32(Session["usuario"]);
+            entidad.ID_ADMINISTRADOR = Convert.ToInt32(Session["usuario_destino"]);
             entidad = IndicadorLN.EvaluarIniciativaDetalleIndicador(entidad);
             if (entidad.OK)
             {
                 //var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
                 IniciativaBE iniciativa = new IniciativaBE();
-                iniciativa.EMAIL_USUARIO = WebConfigurationManager.AppSettings.Get("UsermailEsp");
+                iniciativa.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
                 iniciativa.ASUNTO = "Evaluación Iniciativa y Detalle Indicador - MRVMinem ";
-                iniciativa.DESCRIPCION = "Los detalles de indicadores y la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") fueron revisados y aprobadas por el Evaluador MINAM<br/><br/>";
+                iniciativa.DESCRIPCION = "Los detalles de indicadores y la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") fueron revisados y aprobados por el Evaluador MINAM<br/><br/>";
                 EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+                Session["correo_destino"] = "";
+                Session["usuario_destino"] = 0;
             }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
