@@ -1,12 +1,4 @@
-﻿$(document).ready(function () {
-    CargarTablaMantenimiento();
-    MRV.CargarSelect(baseUrl + "Portal/ListaSectorInstitucion", "#cbo-sector", "ID_SECTOR_INST", "DESCRIPCION");
-    fn_cargarRol();
-    fn_cargaMedidaMitigacion();
-    fn_modalInicio();
-    fn_actualizaCampana();
-    enLinea();
-});
+﻿
 
 function fn_modalInicio() {
     $("#ventanaEditar").show();
@@ -17,6 +9,7 @@ function fn_modalInicio() {
     $("#correctoMantenimientoUsuario").hide();
     $("#mensajeRegistroMantenimientoUsuario").show();
     $("#pieMantenimientoUsuario").show();
+    $("#pieCorrecto").hide();
 }
 
 function CargarTablaMantenimiento() {
@@ -31,46 +24,32 @@ function CargarTablaMantenimiento() {
                 if (data.length > 0) {
                     $("#cuerpoMantenimientoUsuario").html("");
                     for (var i = 0; i < data.length; i++) {
-                        var colorEstado = "";
-                        var colorRol = 0;
-                        if (data[i]["ID_ESTADO_USUARIO"] == 0) {
-                            colorEstado = 'por-aprobar';
-                        } else if (data[i]["ID_ESTADO_USUARIO"] == 1) {
-                            colorEstado = 'aprobado';
-                        } else if (data[i]["ID_ESTADO_USUARIO"] == 2) {
-                            colorEstado = 'desaprobado';
-                        }
-                        if (data[i]["ID_ROL"] == 1) {
-                            colorRol = 2;
-                        } else if (data[i]["ID_ROL"] == 2) {
-                            colorRol = 3;
-                        } else if (data[i]["ID_ROL"] == 3) {
-                            colorRol = 6;
-                        } else if (data[i]["ID_ROL"] == 4) {
-                            colorRol = 4;
-                        } else if (data[i]["ID_ROL"] == 5) {
-                            colorRol = 5;
-                        }
                         var tr = '<tr>';
                         tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + (1 + i) + '</th>';
                         tr = tr + '<td data-encabezado="Nombre y Apellido">' + data[i]["NOMBRES"] + '</td>';
                         tr = tr + '<td data-encabezado="Email">' + data[i]["CORREO"] + '</td>';
                         tr = tr + '<td data-encabezado="Istitución">' + data[i]["INSTITUCION"] + '</td>';
-                        tr = tr + '<td data-encabezado="Dirección">' + data[i]["DIRECCION"] + '</td>';
+                        if (data[i]["TELEFONO_USUARIO"] == null) {
+                            tr = tr + '<td data-encabezado="Dirección">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + ' - ' + data[i]["CELULAR_USUARIO"] + '</td>';
+                        } else if (data[i]["CELULAR_USUARIO"] == null) {
+                            tr = tr + '<td data-encabezado="Dirección">' + data[i]["TELEFONO_USUARIO"] + ' -  </td>';
+                        } else {
+                            tr = tr + '<td data-encabezado="Dirección">' + data[i]["TELEFONO_USUARIO"] + ' - ' + data[i]["CELULAR_USUARIO"] + '</td>';
+                        }
                         tr = tr + '<td data-encabezado="Perfil">';
-                        tr = tr + '     <span class="badge badge-actor-0' + colorRol + '">' + data[i]["ROL"] + '</span>';
+                        tr = tr + '     <span class="badge badge-actor-' + data[i]["COLOR"] + '">' + data[i]["ROL"] + '</span>';
                         tr = tr + '</td>';
                         tr = tr + '<td data-encabezado="Estado">';
-                        tr = tr + '     <span class="badge badge-actor-' + colorEstado + '"><i class="fas fa-question-circle mr-1"></i>' + data[i]["ESTADO"] + '</span>';
+                        tr = tr + '     <span class="badge badge-actor-' + data[i]["COLOR_ESTADO"] + '"><i class="fas fa-question-circle mr-1"></i>' + data[i]["ESTADO"] + '</span>';
                         tr = tr + '</td>';
                         tr = tr + '<td class="text-center text-xs-right" data-encabezado="Acciones">';
                         tr = tr + '     <div class="btn-group">';
                         tr = tr + '         <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
                         tr = tr + '         <div class="dropdown-menu dropdown-menu-right">';
                         tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_cargarDatosUserMantenimiento(' + data[i]["ID_USUARIO"] + ');" data-toggle="modal" data-target="#modal-usuario">';
-                        tr = tr + '                 <i class="fas fa-edit"></i>&nbsp;Editar';
+                        tr = tr + '                 <i class="fas fa-edit"></i>&nbsp;Verificar';
                         tr = tr + '             </a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion">';
-                        tr = tr + '                 <i class="fas fa-trash"></i>&nbsp;Eliminar';
+                        tr = tr + '                 <i class="fas fa-trash"></i>&nbsp;Deshabilitar';
                         tr = tr + '             </a>';
                         tr = tr + '         </div>';
                         tr = tr + "     </div></td>";
@@ -127,21 +106,22 @@ function fn_seleccionarMantenimientoUsuario(id) {
                         }
                         Number(data[i]["ID_ROL"]) == 2 ? $(".medidas-especialista").show() : $(".medidas-especialista").hide()
                         if (Number(data[i]["ID_ROL"]) == 2) {
-                            $.ajax({
-                                url: baseUrl + "Gestion/ListaUsuarioMedidaMitigacion",
-                                type: 'POST',
-                                datatype: 'json',
-                                data: Item,
-                                success: function (data2) {
-                                    debugger;
-                                    if (data2.length > 0) {
-                                        for (var x = 0; x < data2.length; x++) {
-                                            $("#rad-med-0" + data2[x]["ID_MEDMIT"]).prop('checked', true);
-                                        }
-                                    }
+                            //$.ajax({
+                            //    url: baseUrl + "Gestion/ListaUsuarioMedidaMitigacion",
+                            //    type: 'POST',
+                            //    datatype: 'json',
+                            //    data: Item,
+                            //    success: function (data2) {
+                            //        debugger;
+                            //        if (data2.length > 0) {
+                            //            for (var x = 0; x < data2.length; x++) {
+                            //                $("#rad-med-0" + data2[x]["ID_MEDMIT"]).prop('checked', true);
+                            //            }
+                            //        }
 
-                                }
-                            });
+                            //    }
+                            //});
+                            fn_cargaMedidaMitigacion(id);
 
                         }
                     }
@@ -209,7 +189,7 @@ function fn_validarCampo() {
         arr.push("La contraseña debe contener minuscula(s), mayúscula(s), número(s) y caracter(es) especial(es)");
     }
     if (clave.length < 6) {
-        arr.push("La contraseña debe contener 8 o más caracteres");
+        arr.push("La contraseña debe contener 6 o más caracteres");
     }
     if ($("#cbo-perfil").val() == 0) {
         arr.push("Debe seleccionar un Perfil");
@@ -241,7 +221,8 @@ function fn_validarCampo() {
         msj = msj + '                            </div>';
         msj = msj + '                            <div class="alert-wrap">';
         msj = msj + '                                <h6>Error de registro</h6>';
-        msj = msj + error;
+        //msj = msj + error;
+        msj = msj + '                                <hr><small class="mb-0">Verifique que los datos sean correctamente ingresados, complete todos los campos obligatorios e intente otra vez.</small>';
         msj = msj + '                            </div>';
         msj = msj + '                        </div>';
         $("#seccionMensaje").append(msj);
@@ -313,6 +294,7 @@ function fn_editarMantenimiento() {
         $("#pieMantenimientoUsuario").hide();
         $("#mensajeRegistroMantenimientoUsuario").hide();
         $("#correctoMantenimientoUsuario").show();
+        $("#pieCorrecto").show();
     } else {
         $("#ventanaEditar").show();
         $("#correctoMantenimientoUsuario").hide();
@@ -351,10 +333,12 @@ function fn_cargarDatosUserMantenimiento(id) {
 $("#modal-usuario").on("hidden.bs.modal", function () {
     fn_modalInicio();
     $("#seccionMensaje #errorRegistro").remove();
+    $("#pieCorrecto").hide();
 });
 
-function fn_cargaMedidaMitigacion() {
+function fn_cargaMedidaMitigacion(id) {
     var Item = {
+        ID_USUARIO: id
     };
     $.ajax({
         url: baseUrl + "Mantenimiento/ListarMedidaMitigacion",
@@ -367,8 +351,27 @@ function fn_cargaMedidaMitigacion() {
                     $("#medidaGroup").html("");
                     for (var i = 0; i < data.length; i++) {
                         //$("#medidaGroup").append('<option class="badge-actor-0' + (i + 2) + ' font-weight-bold" value="' + data[i]["ID_ROL"] + '">' + data[i]["DESCRIPCION_ROL"] + '</option>');
-                        $("#medidaGroup").append("<div class='col-auto my-1'><div class='custom-control custom-checkbox mr-sm-2'><input class='custom-control-input' type='checkbox' id='rad-med-0" + (i + 1) + "' value=" + data[i]["ID_MEDMIT"] + "><label class='custom-control-label' for='rad-med-0" + (i + 1) + "'>" + data[i]["NOMBRE_MEDMIT"] + "</label></div></div>");
+                        $("#medidaGroup").append("<div class='col-auto my-1'><div class='custom-control custom-checkbox mr-sm-2'><input class='custom-control-input' type='checkbox' id='rad-med-0" + data[i]["ID_MEDMIT"] + "' value=" + data[i]["ID_MEDMIT"] + "><label class='custom-control-label' for='rad-med-0" + data[i]["ID_MEDMIT"] + "'>" + data[i]["NOMBRE_MEDMIT"] + "</label></div></div>");
                     }
+
+                    if (id > 0) {
+                        $.ajax({
+                            url: baseUrl + "Gestion/ListaUsuarioMedidaMitigacion",
+                            type: 'POST',
+                            datatype: 'json',
+                            data: Item,
+                            success: function (data2) {
+                                debugger;
+                                if (data2.length > 0) {
+                                    for (var x = 0; x < data2.length; x++) {
+                                        $("#rad-med-0" + data2[x]["ID_MEDMIT"]).prop('checked', true);
+                                    }
+                                }
+
+                            }
+                        });
+                    }
+                    
                 }
             }
         }
@@ -378,15 +381,26 @@ function fn_cargaMedidaMitigacion() {
 /*========================================================*/
 
 function regUsuario() {
+    fn_cargaMedidaMitigacion(0);
     fn_limpiarCampo();
     $("#validarUsuario").data("guardar", 1);
     $("#cabeceraEditarMantenimientoUsuario").hide();
 }
 
 //////////////////////////////////////EXPORTAR
+$(document).ready(function () {
+    //CargarTablaMantenimiento();
+    MRV.CargarSelect(baseUrl + "Portal/ListaSectorInstitucion", "#cbo-sector", "ID_SECTOR_INST", "DESCRIPCION");
+    fn_cargarRol();
+    //fn_cargaMedidaMitigacion();
+    fn_modalInicio();
+    fn_actualizaCampana();
+    enLinea();
+});
 
 function exportarMantenimientoUsuario(){
     var item = {
+        DESCRIPCION: $("#txt-buscar").val()
     };
 
     var url = baseUrl + 'Gestion/ExportarMantenimientoUsuario';
@@ -408,6 +422,60 @@ function exportarMantenimientoUsuario(){
     jQuery('#frmDescarga #item').val(parametros.Item);
     jQuery('#frmDescarga').submit();
     jQuery('#frmDescarga').remove();
+}
+
+function fn_buscar() {
+    //$("#buscar-estado").data("value",1);
+    var Item = {
+        Buscar: $("#txt-buscar").val()
+    };
+    $.ajax({
+        url: baseUrl + "Gestion/BuscarMantenimientoUsuario",
+        type: 'POST',
+        datatype: 'json',
+        data: Item,
+        success: function (data) {
+            $("#cuerpoMantenimientoUsuario").html("");
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    //$("#cuerpoMantenimientoUsuario").html("");
+                    for (var i = 0; i < data.length; i++) {
+                        var tr = '<tr>';
+                        tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + (1 + i) + '</th>';
+                        tr = tr + '<td data-encabezado="Nombre y Apellido">' + data[i]["NOMBRES"] + '</td>';
+                        tr = tr + '<td data-encabezado="Email">' + data[i]["CORREO"] + '</td>';
+                        tr = tr + '<td data-encabezado="Istitución">' + data[i]["INSTITUCION"] + '</td>';
+                        if (data[i]["TELEFONO_USUARIO"] == null) {
+                            tr = tr + '<td data-encabezado="Dirección">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + ' - ' + data[i]["CELULAR_USUARIO"] + '</td>';
+                        } else if (data[i]["CELULAR_USUARIO"] == null) {
+                            tr = tr + '<td data-encabezado="Dirección">' + data[i]["TELEFONO_USUARIO"] + ' -  </td>';
+                        } else{
+                            tr = tr + '<td data-encabezado="Dirección">' + data[i]["TELEFONO_USUARIO"] + ' - ' + data[i]["CELULAR_USUARIO"] + '</td>';
+                        }
+                        tr = tr + '<td data-encabezado="Perfil">';
+                        tr = tr + '     <span class="badge badge-actor-' + data[i]["COLOR"] + '">' + data[i]["ROL"] + '</span>';
+                        tr = tr + '</td>';
+                        tr = tr + '<td data-encabezado="Estado">';
+                        tr = tr + '     <span class="badge badge-actor-' + data[i]["COLOR_ESTADO"] + '"><i class="fas fa-question-circle mr-1"></i>' + data[i]["ESTADO"] + '</span>';
+                        tr = tr + '</td>';
+                        tr = tr + '<td class="text-center text-xs-right" data-encabezado="Acciones">';
+                        tr = tr + '     <div class="btn-group">';
+                        tr = tr + '         <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
+                        tr = tr + '         <div class="dropdown-menu dropdown-menu-right">';
+                        tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_cargarDatosUserMantenimiento(' + data[i]["ID_USUARIO"] + ');" data-toggle="modal" data-target="#modal-usuario">';
+                        tr = tr + '                 <i class="fas fa-edit"></i>&nbsp;Verificar';
+                        tr = tr + '             </a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion">';
+                        tr = tr + '                 <i class="fas fa-trash"></i>&nbsp;Deshabilitar';
+                        tr = tr + '             </a>';
+                        tr = tr + '         </div>';
+                        tr = tr + "     </div></td>";
+                        tr = tr + '</tr>';
+                        $("#cuerpoMantenimientoUsuario").append(tr);
+                    }
+                }
+            }
+        }
+    });
 }
 
 

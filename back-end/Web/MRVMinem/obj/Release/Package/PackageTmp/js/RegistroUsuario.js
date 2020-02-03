@@ -1,10 +1,4 @@
-﻿$(document).ready(function () {
-    CargarListaSectorInstitucion();
-    $("#btnRegistrar").click(function (e) {
-        fn_validar(e);
-    });
-});
-
+﻿
 function CargarListaSectorInstitucion() {
     var Item = {};
     $.ajax({
@@ -64,9 +58,45 @@ function fn_validar(e) {
     var clave = $("#txt-pswd").val();
     var validar = $("#txt-re-pswd").val();
     $("#seccionMensaje #errorRegistro").remove();
-    //debugger;
+
+    if (!(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test($("#txt-user").val()))) {
+        arr.push("Ingrese un correo electrónico válido");
+    }
+
+    if ($("#txt-nombre").val().trim() === "") {
+        arr.push("Ingrese su(s) nombre(s)");
+    }
+
+    if ($("#txt-apellido").val().trim() === "") {
+        arr.push("Ingrese su(s) apellido(s)");
+    }
+
+    if ($("#rad-01").prop("checked")) {
+        if ($("#txt-telefono").val().trim() === "") {
+            arr.push("Ingrese un teléfono");
+        }
+    }
+
+    if ($("#rad-02").prop("checked")) {
+        if ($("#txt-celular").val().trim() === "") {
+            arr.push("Ingrese un celular");
+        }
+    }
+
+    if ($("#txt-institucion").val().trim() === "") {
+        arr.push("Ingrese el nombre de la Institución");
+    }
+
+    if ($("#txt-ruc").val().length < 11) {
+        arr.push("El ruc debe contener 11 caracteres");
+    }
+
+    if ($("#cbo-sector").val() == 0) {
+        arr.push("Debe seleccionar un Sector");
+    }
+
     if (clave == validar) {
-        if (!(/[a-zñ]/.test(clave) && /[A-ZÑ]/.test(clave) && /[0-9]/.test(clave))) {
+        if (!(/[a-zñ]/.test(clave) && /[A-ZÑ]/.test(clave) && /[0-9]/.test(clave) && /[*+-.,;/]/.test(clave))) {
             arr.push("La contraseña debe contener minúscula(s), mayúscula(s), número(s) y caracter(es) especial(es)");
         }
         if (clave.length < 6) {
@@ -198,7 +228,6 @@ function fn_registrarUsuario() {
         DIRECCION: $("#txt-direccion").val(),
         TERMINOS: '1'
     };
-    debugger;
 
     var options = {
         type: "POST",
@@ -331,7 +360,6 @@ function fn_registrarUsuario() {
 }
 
 $(document).on('change', '#fledeclaracion', function () {
-    debugger;
     var fileInput = this.value;
     var fileName = this.files[0].name;
     var fileSize = this.files[0].size;
@@ -345,4 +373,20 @@ $(document).on('change', '#fledeclaracion', function () {
         this.value = '';
         //$("#mensajeFile").append('<small style="color: red;" id="msj">*archivo no permitido</small>');
     }
+});
+
+$(function () {
+    $(".validar").keydown(function (event) {
+        //alert(event.keyCode);
+        if ((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105) && event.keyCode !== 190 && event.keyCode !== 110 && event.keyCode !== 8 && event.keyCode !== 9) {
+            return false;
+        }
+    });
+});
+
+$(document).ready(function () {
+    CargarListaSectorInstitucion();
+    $("#btnRegistrar").click(function (e) {
+        fn_validar(e);
+    });
 });

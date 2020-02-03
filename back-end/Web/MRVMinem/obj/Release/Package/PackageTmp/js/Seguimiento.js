@@ -179,7 +179,7 @@ function fn_mostrarSeguimiento() {
                         //$("#seguimiento").append(tr);
                     }
 
-                    if (data[i]["ID_ETAPA"] == 5 && data[i]["ID_ESTADO"] == 3) {
+                    if ((data[i]["ID_ETAPA"] == 5 || data[i]["ID_ETAPA"] == 8) && data[i]["ID_ESTADO"] == 3) {
                         tr = tr + '<div class="timeline">';
                         tr = tr + '<div class="timeline-icon"><i class="fas fa-check-double"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
                         tr = tr + '<div class="timeline-content">';
@@ -223,7 +223,7 @@ function fn_mostrarSeguimiento() {
                         //$("#seguimiento").append(tr);
                     }
 
-                    if (data[i]["ID_ETAPA"] == 6 && data[i]["ID_ESTADO"] == 2) {
+                    if ((data[i]["ID_ETAPA"] == 6 || data[i]["ID_ETAPA"] == 8) && data[i]["ID_ESTADO"] == 2) {
                         tr = tr + '<div class="timeline">';
                         tr = tr + '<div class="timeline-icon"><i class="fas fa-eye"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
                         tr = tr + '<div class="timeline-content">';
@@ -257,7 +257,14 @@ function fn_mostrarSeguimiento() {
                     $("#seguimiento").append(tr);
                     }
                     //$("#seguimiento").append(tr);
-                    $(".timeline:last-child").attr("style", "margin-top: 0px !important");
+                    var t = $(".timeline").length; //console.log(t);
+                    if (t % 2 == 0 && t > 2) { //console.log("entro 2");
+                        $(".timeline:last-child").attr('style', 'margin-top: 0px !important');
+                    } else if (t == 2) { //console.log("entro 3");
+                        $(".timeline:last-child").attr('style', 'margin-top: 140px !important');
+                    } else if (t == 1) {
+                        $(".timeline:last-child").attr('style', 'margin-top: 0px !important');
+                    }
                 }
             }
         }

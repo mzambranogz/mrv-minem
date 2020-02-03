@@ -24,7 +24,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/29/2020 11:47:41</publishTime>
     </File>
     <File Include="bin/datos.minem.gob.pe.dll">
-      <publishTime>02/01/2020 11:55:45</publishTime>
+      <publishTime>02/03/2020 11:01:51</publishTime>
     </File>
     <File Include="bin/de/Microsoft.SqlServer.Types.resources.dll">
       <publishTime>02/21/2014 05:26:06</publishTime>
@@ -36,7 +36,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/29/2020 11:47:36</publishTime>
     </File>
     <File Include="bin/entidad.minem.gob.pe.dll">
-      <publishTime>02/01/2020 11:55:44</publishTime>
+      <publishTime>02/03/2020 10:24:00</publishTime>
     </File>
     <File Include="bin/EPPlus.dll">
       <publishTime>01/29/2020 11:55:55</publishTime>
@@ -81,7 +81,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/29/2020 19:41:01</publishTime>
     </File>
     <File Include="bin/logica.minem.gob.pe.dll">
-      <publishTime>02/01/2020 11:55:45</publishTime>
+      <publishTime>02/03/2020 11:01:51</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>01/29/2020 11:47:44</publishTime>
@@ -96,7 +96,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/29/2020 11:47:45</publishTime>
     </File>
     <File Include="bin/MRVMinem.dll">
-      <publishTime>02/01/2020 11:55:52</publishTime>
+      <publishTime>02/03/2020 11:01:57</publishTime>
     </File>
     <File Include="bin/Oracle.DataAccess.dll">
       <publishTime>07/31/2014 22:11:18</publishTime>
@@ -168,7 +168,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/29/2020 11:47:36</publishTime>
     </File>
     <File Include="bin/utilitario.minem.gob.pe.dll">
-      <publishTime>01/29/2020 11:47:47</publishTime>
+      <publishTime>02/03/2020 10:24:00</publishTime>
     </File>
     <File Include="bin/zh-Hans/Microsoft.SqlServer.Types.resources.dll">
       <publishTime>02/21/2014 05:27:58</publishTime>
@@ -177,7 +177,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>02/21/2014 05:28:10</publishTime>
     </File>
     <File Include="css/style.css">
-      <publishTime>01/29/2020 20:58:30</publishTime>
+      <publishTime>01/31/2020 23:18:05</publishTime>
     </File>
     <File Include="Documentos/Manual_Usuario_MRV.pdf">
       <publishTime>01/29/2020 11:47:36</publishTime>
@@ -186,214 +186,214 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/29/2020 11:47:36</publishTime>
     </File>
     <File Include="fonts/fa-brands-400.eot">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="fonts/fa-brands-400.svg">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="fonts/fa-brands-400.ttf">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="fonts/fa-brands-400.woff">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="fonts/fa-brands-400.woff2">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="fonts/fa-regular-400.eot">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="fonts/fa-regular-400.svg">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="fonts/fa-regular-400.ttf">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="fonts/fa-regular-400.woff">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="fonts/fa-regular-400.woff2">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="fonts/fa-solid-900.eot">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="fonts/fa-solid-900.svg">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="fonts/fa-solid-900.ttf">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="fonts/fa-solid-900.woff">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="fonts/fa-solid-900.woff2">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="Global.asax">
       <publishTime>01/29/2020 11:47:36</publishTime>
     </File>
     <File Include="images/001.jpg">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>02/01/2020 20:41:18</publishTime>
     </File>
     <File Include="images/002.jpg">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/003.jpg">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/004.jpg">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/005.jpg">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/006.jpg">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/01_registro_manual.svg">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/02_registro_masivo.svg">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/bg-acciones-resultados.jpg">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/bg-registro.jpg">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/bg-reportes.jpg">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/favicon/android-chrome-192x192.png">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/favicon/android-chrome-256x256.png">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/favicon/apple-touch-icon.png">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/favicon/browserconfig.xml">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/favicon/favicon-16x16.png">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/favicon/favicon-32x32.png">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/favicon/favicon.ico">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/favicon/manifest.json">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/favicon/mstile-150x150.png">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/favicon/safari-pinned-tab.svg">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/favicon/site.webmanifest">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/favicon/_manifest.json">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/fondo_12_medidas.png">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/fondo_footer.png">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/ico_nama_amarillo_01.svg">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/ico_nama_amarillo_02.svg">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/ico_nama_amarillo_03.svg">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/ico_nama_amarillo_04.svg">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/ico_nama_amarillo_05.svg">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/ico_nama_amarillo_06.svg">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/ico_nama_amarillo_07.svg">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/ico_nama_azul_01.svg">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/ico_nama_rojo_01.svg">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/ico_nama_rojo_02.svg">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/ico_nama_verde_01.svg">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/ico_nama_verde_02.svg">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/logo-blockchain-blanco.png">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/logo-gef-blanco.png">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/logo-minem-blanco.png">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/logo-minem.jpg">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/logo-nama-blanco.png">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/logo-pnud-blanco.png">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/logo_gef.jpg">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/logo_gef.png">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/logo_gef.svg">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/logo_mrv_new_negro.jpg">
       <publishTime>01/29/2020 11:47:37</publishTime>
     </File>
     <File Include="images/logo_mrv_new_negro.png">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>02/01/2020 20:41:18</publishTime>
     </File>
     <File Include="images/logo_mrv_new_negro.svg">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/logo_pnud.jpg">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/logo_pnud.png">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/logo_pnud.svg">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="images/_fonfo_footer.png">
-      <publishTime>01/29/2020 11:47:37</publishTime>
+      <publishTime>01/29/2020 11:47:50</publishTime>
     </File>
     <File Include="js/AccionMitigacion.js">
-      <publishTime>02/01/2020 01:05:25</publishTime>
+      <publishTime>02/02/2020 18:09:44</publishTime>
     </File>
     <File Include="js/CambiarClave.js">
       <publishTime>01/29/2020 11:47:37</publishTime>
@@ -402,7 +402,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/29/2020 11:47:37</publishTime>
     </File>
     <File Include="js/DetalleIndicador.js">
-      <publishTime>02/01/2020 11:45:44</publishTime>
+      <publishTime>02/03/2020 11:00:56</publishTime>
     </File>
     <File Include="js/IniciativaMitigacion.js">
       <publishTime>01/31/2020 18:09:34</publishTime>
@@ -417,7 +417,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/29/2020 11:47:37</publishTime>
     </File>
     <File Include="js/MantenimientoUsuario.js">
-      <publishTime>01/30/2020 12:41:04</publishTime>
+      <publishTime>02/03/2020 04:58:34</publishTime>
     </File>
     <File Include="js/MRV.js">
       <publishTime>01/29/2020 11:47:37</publishTime>
@@ -435,13 +435,13 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/29/2020 11:47:37</publishTime>
     </File>
     <File Include="js/RegistroUsuario.js">
-      <publishTime>01/31/2020 11:55:44</publishTime>
+      <publishTime>02/02/2020 23:16:38</publishTime>
     </File>
     <File Include="js/script.js">
-      <publishTime>01/31/2020 12:35:42</publishTime>
+      <publishTime>01/31/2020 23:18:05</publishTime>
     </File>
     <File Include="js/Seguimiento.js">
-      <publishTime>01/31/2020 17:46:52</publishTime>
+      <publishTime>02/02/2020 19:54:36</publishTime>
     </File>
     <File Include="js/VerMas.js">
       <publishTime>01/29/2020 11:47:37</publishTime>
@@ -489,7 +489,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/29/2020 11:47:36</publishTime>
     </File>
     <File Include="Views/Gestion/AccionMitigacion.cshtml">
-      <publishTime>01/31/2020 20:49:06</publishTime>
+      <publishTime>02/01/2020 19:51:46</publishTime>
     </File>
     <File Include="Views/Gestion/CambiarClave.cshtml">
       <publishTime>01/31/2020 19:45:11</publishTime>
@@ -507,7 +507,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/29/2020 11:47:36</publishTime>
     </File>
     <File Include="Views/Gestion/EvaluarIniciativaDetalle.cshtml">
-      <publishTime>01/31/2020 19:37:27</publishTime>
+      <publishTime>02/02/2020 15:03:40</publishTime>
     </File>
     <File Include="Views/Gestion/Index.cshtml">
       <publishTime>01/31/2020 17:37:20</publishTime>
@@ -519,7 +519,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/31/2020 17:32:15</publishTime>
     </File>
     <File Include="Views/Gestion/MantenimientoUsuario.cshtml">
-      <publishTime>01/31/2020 17:33:05</publishTime>
+      <publishTime>02/03/2020 03:02:06</publishTime>
     </File>
     <File Include="Views/Gestion/Notificacion.cshtml">
       <publishTime>01/31/2020 19:38:01</publishTime>
@@ -528,10 +528,10 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/31/2020 19:38:33</publishTime>
     </File>
     <File Include="Views/Gestion/RevisarAdminDetalleIndicador.cshtml">
-      <publishTime>02/01/2020 11:53:23</publishTime>
+      <publishTime>02/02/2020 19:17:07</publishTime>
     </File>
     <File Include="Views/Gestion/RevisarDetalleIndicador.cshtml">
-      <publishTime>01/31/2020 18:17:31</publishTime>
+      <publishTime>02/02/2020 19:17:02</publishTime>
     </File>
     <File Include="Views/Gestion/RevisarIniciativa.cshtml">
       <publishTime>01/31/2020 17:49:42</publishTime>
@@ -543,7 +543,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/31/2020 19:41:04</publishTime>
     </File>
     <File Include="Views/Gestion/VerificarIniciativaDetalle.cshtml">
-      <publishTime>01/31/2020 19:41:32</publishTime>
+      <publishTime>02/03/2020 00:29:09</publishTime>
     </File>
     <File Include="Views/Gestion/VerMasIniciativa.cshtml">
       <publishTime>01/31/2020 19:41:57</publishTime>
@@ -555,13 +555,13 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/29/2020 11:47:36</publishTime>
     </File>
     <File Include="Views/Home/login.cshtml">
-      <publishTime>01/29/2020 11:47:36</publishTime>
+      <publishTime>02/03/2020 02:38:57</publishTime>
     </File>
     <File Include="Views/Home/recuperar.cshtml">
       <publishTime>01/29/2020 11:47:36</publishTime>
     </File>
     <File Include="Views/Home/registro.cshtml">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>02/02/2020 21:45:39</publishTime>
     </File>
     <File Include="Views/Portal/AccionMitigacion.cshtml">
       <publishTime>01/29/2020 11:47:36</publishTime>
@@ -591,16 +591,16 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/31/2020 20:27:32</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>01/29/2020 11:47:36</publishTime>
+      <publishTime>02/02/2020 22:03:43</publishTime>
     </File>
     <File Include="Views/Shared/_SesionLayout.cshtml">
-      <publishTime>01/31/2020 18:14:41</publishTime>
+      <publishTime>02/02/2020 22:04:29</publishTime>
     </File>
     <File Include="Views/web.config">
       <publishTime>01/29/2020 11:47:36</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>02/01/2020 11:55:55</publishTime>
+      <publishTime>02/03/2020 10:24:22</publishTime>
     </File>
   </ItemGroup>
 </Project>

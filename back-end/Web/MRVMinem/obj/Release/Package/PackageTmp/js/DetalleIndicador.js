@@ -1298,12 +1298,11 @@ function fn_observacionAdminDetalleIndicador() {
     url = baseUrl + "Gestion/ObservacionAdminDetalleIndicador";
     var item = {
         ID_INICIATIVA: $("#Control").data("iniciativa"),
-        ID_USUARIO: $("#Control").data("usuario"),
+        //ID_USUARIO: $("#Control").data("usuario"),
         DESCRIPCION: $("#txa-observacion-detalle").val(),
-        EMAIL_USUARIO: $("#txt-correo-electronico").val(),
+        //EMAIL_USUARIO: $("#txt-correo-electronico").val(),
         NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
-        ID_ESTADO: $("#cbo-tipo-observacion").val(),
-        ID_MEDMIT: $("#Control").data("mitigacion")
+        ID_ESTADO: $("#cbo-tipo-observacion").val(),     
     };
     var mensaje = "";
     var respuesta = MRV.Ajax(url, item, false);
@@ -1367,8 +1366,9 @@ function fn_observacionAdminDetalleIndicador() {
 function fn_revisarAdminDetalleIndicador() {
     var item = {
         ID_INICIATIVA: $("#Control").data("iniciativa"),
-        ID_USUARIO: $("#Control").data("usuario"),
-        NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val()
+        //ID_USUARIO: $("#Control").data("usuario"),
+        NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
+        ESTADO_ACTOR: $("#estado-actor").data("estado")
     }
     url = baseUrl + "Gestion/AprobarAdminIniciativaDetalleIndicador";
     var respuesta = MRV.Ajax(url, item, false);
@@ -1422,6 +1422,144 @@ function fn_revisarAdminDetalleIndicador() {
             location.href = baseUrl + "Gestion/AccionMitigacion";
         } else {
             $("#modalAprobacion #modalErrorAprobacion").remove();
+        }
+    });
+}
+
+function fn_observacionEvaluadorDetalleIndicador() {
+    url = baseUrl + "Gestion/ObservacionEvaluarDetalleIndicador";
+    var item = {
+        ID_INICIATIVA: $("#Control").data("iniciativa"),
+        //ID_USUARIO: $("#Control").data("usuario"),
+        DESCRIPCION: $("#txa-observacion-detalle").val(),
+        //EMAIL_USUARIO: $("#txt-correo-electronico").val(),
+        NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
+        ID_ESTADO: $("#cbo-tipo-observacion").val(),
+    };
+    var mensaje = "";
+    var respuesta = MRV.Ajax(url, item, false);
+    if (respuesta.success) {
+        $("#modalRevision #modalErrorRevision").remove();
+        $("#modalRevision #modalCorrectoRevision").remove();
+        var msj = '                           <div class="alert alert-success d-flex align-items-stretch" role="alert" id="modalCorrectoRevision">';
+        msj = msj + '                               <div class="alert-wrap mr-3">';
+        msj = msj + '                                    <div class="sa">';
+        msj = msj + '                                        <div class="sa-success">';
+        msj = msj + '                                            <div class="sa-success-tip"></div>';
+        msj = msj + '                                            <div class="sa-success-long"></div>';
+        msj = msj + '                                            <div class="sa-success-placeholder"></div>';
+        msj = msj + '                                            <div class="sa-success-fix"></div>';
+        msj = msj + '                                        </div>';
+        msj = msj + '                                    </div>';
+        msj = msj + '                                </div>';
+        msj = msj + '                                <div class="alert-wrap">';
+        msj = msj + '                                    <h6>Bien hecho</h6';
+        msj = msj + '                                    <hr><small class="mb-0">Sus observaciones se enviaron correctamente.</small>';
+        msj = msj + '                                </div>';
+        msj = msj + '                            </div>';
+        $("#observar-evaluacion #modalObservacionBoton").hide();
+        $("#modalRevision").append(msj);
+        $("#Control").data("modal", 1);
+        if (ws != null) ws.send(respuesta.extra);
+
+    } else {
+        $("#modalRevision #modalErrorRevision").remove();
+        var msj = '                           <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="modalErrorRevision">';
+        msj = msj + '                               <div class="alert-wrap mr-3">';
+        msj = msj + '                                    <div class="sa">';
+        msj = msj + '                                        <div class="sa-error">';
+        msj = msj + '                                            <div class="sa-error-x">';
+        msj = msj + '                                                <div class="sa-error-left"></div>';
+        msj = msj + '                                                <div class="sa-error-right"></div>';
+        msj = msj + '                                            </div>';
+        msj = msj + '                                            <div class="sa-error-placeholder"></div>';
+        msj = msj + '                                            <div class="sa-error-fix"></div>';
+        msj = msj + '                                        </div>';
+        msj = msj + '                                    </div>';
+        msj = msj + '                                </div>';
+        msj = msj + '                                <div class="alert-wrap">';
+        msj = msj + '                                    <h6>Error de registro</h6>';
+        msj = msj + '                                    <hr><small class="mb-0">Sus observaciones no fueron enviadas, intentelo nuevamente.</small>';
+        msj = msj + '                                </div>';
+        msj = msj + '                            </div>';
+        $("#modalRevision").append(msj);
+    }
+
+    $("#observar-evaluacion").on("hidden.bs.modal", function () {
+        if ($("#Control").data("modal") == 1) {
+            location.href = baseUrl + "Gestion/AccionMitigacion";
+        } else {
+            $("#modalRevision #modalErrorRevision").remove();
+            $("#observar-evaluacion #modalObservacionBoton").show();
+        }
+    });
+}
+
+function fn_observacionVerificarDetalleIndicador() {
+    url = baseUrl + "Gestion/ObservacionVerificarDetalleIndicador";
+    var item = {
+        ID_INICIATIVA: $("#Control").data("iniciativa"),
+        //ID_USUARIO: $("#Control").data("usuario"),
+        DESCRIPCION: $("#txa-observacion-detalle").val(),
+        //EMAIL_USUARIO: $("#txt-correo-electronico").val(),
+        NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
+        ID_ESTADO: $("#cbo-tipo-observacion").val(),
+    };
+    var mensaje = "";
+    var respuesta = MRV.Ajax(url, item, false);
+    if (respuesta.success) {
+        $("#modalRevision #modalErrorRevision").remove();
+        $("#modalRevision #modalCorrectoRevision").remove();
+        var msj = '                           <div class="alert alert-success d-flex align-items-stretch" role="alert" id="modalCorrectoRevision">';
+        msj = msj + '                               <div class="alert-wrap mr-3">';
+        msj = msj + '                                    <div class="sa">';
+        msj = msj + '                                        <div class="sa-success">';
+        msj = msj + '                                            <div class="sa-success-tip"></div>';
+        msj = msj + '                                            <div class="sa-success-long"></div>';
+        msj = msj + '                                            <div class="sa-success-placeholder"></div>';
+        msj = msj + '                                            <div class="sa-success-fix"></div>';
+        msj = msj + '                                        </div>';
+        msj = msj + '                                    </div>';
+        msj = msj + '                                </div>';
+        msj = msj + '                                <div class="alert-wrap">';
+        msj = msj + '                                    <h6>Bien hecho</h6';
+        msj = msj + '                                    <hr><small class="mb-0">Sus observaciones se enviaron correctamente.</small>';
+        msj = msj + '                                </div>';
+        msj = msj + '                            </div>';
+        $("#observar-verificacion #modalObservacionBoton").hide();
+        $("#modalRevision").append(msj);
+        $("#Control").data("modal", 1);
+        if (ws != null) ws.send(respuesta.extra);
+
+    } else {
+        $("#modalRevision #modalErrorRevision").remove();
+        var msj = '                           <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="modalErrorRevision">';
+        msj = msj + '                               <div class="alert-wrap mr-3">';
+        msj = msj + '                                    <div class="sa">';
+        msj = msj + '                                        <div class="sa-error">';
+        msj = msj + '                                            <div class="sa-error-x">';
+        msj = msj + '                                                <div class="sa-error-left"></div>';
+        msj = msj + '                                                <div class="sa-error-right"></div>';
+        msj = msj + '                                            </div>';
+        msj = msj + '                                            <div class="sa-error-placeholder"></div>';
+        msj = msj + '                                            <div class="sa-error-fix"></div>';
+        msj = msj + '                                        </div>';
+        msj = msj + '                                    </div>';
+        msj = msj + '                                </div>';
+        msj = msj + '                                <div class="alert-wrap">';
+        msj = msj + '                                    <h6>Error de registro</h6>';
+        msj = msj + '                                    <hr><small class="mb-0">Sus observaciones no fueron enviadas, intentelo nuevamente.</small>';
+        msj = msj + '                                </div>';
+        msj = msj + '                            </div>';
+        $("#modalRevision").append(msj);
+    }
+
+    $("#observar-verificacion").on("hidden.bs.modal", function () {
+        if ($("#Control").data("modal") == 1) {
+            location.href = baseUrl + "Gestion/AccionMitigacion";
+        } else {
+            $("#modalRevision #modalErrorRevision").remove();
+            $("#observar-verificacion #modalObservacionBoton").show();
         }
     });
 }
@@ -1677,6 +1815,12 @@ function fn_DatosComentario(id) {
             }
         }
     });
+}
+
+
+function fn_EstadoActor(id){
+    $("#estado-actor").data("estado", id);
+    //alert($("#estado-actor").data("estado"));
 }
 
 $(document).ready(function () {
