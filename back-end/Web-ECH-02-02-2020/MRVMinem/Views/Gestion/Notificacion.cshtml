@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewBag.Title = "Notificacion";
+    Layout = "~/Views/Shared/_SesionLayout.cshtml";
+}
+
+<div class="container-fluid map-root" id="historia">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="@Url.Action("Index","Gestion")">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="@Url.Action("AccionMitigacion","Gestion")">Iniciativas de Mitigación</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Notificaciones</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="container-fluid my-4" id="cuerpo">
+    <div class="row m-0">
+        <div class="col-12 cuerpo-interior">
+            <div class="container py-4">
+                <div class="row">
+                    <div class="col-md-12 col-lg-6 pt-4">
+                        <div class="h4">
+                            Notificaciones&nbsp;
+                            <!--i.fas.fa-question-circle.ayuda-tooltip(data-toggle="tooltip", data-placement="right", title="Texto de ayuda que describe el funcionamiento general del módulo [...]")--><br><small class="text-muted">Utilice la búsqueda para ubicar las notificaiones de acuerdo al criterio de su descripción.</small>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-6 pt-4"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-lg-6 pt-4">
+                        <form>
+                            <div class="form-group">
+                                <label for="txt-buscar">Buscar&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese si conoce el nombre de la iniciativa o la(s) palabra(s) asociada(s) a las iniciativas de interés. En caso de no encontrar resultados acceda a la búsqueda avanzada."></i></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-search"></i></span></div>
+                                    <input class="form-control" type="text" id="txt-buscar" placeholder="Ingrese la descripción de su búsqueda" aria-describedby="inputGroup1" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <button class="btn btn-success w-100 mb-2" type="submit"><i class="fas fa-search px-1"></i>Buscar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-12 col-lg-6 pt-4">
+                        <!--&nbsp;-->
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid py-4">
+                <div class="h5">Bandeja de Notificaciones&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></div>
+                <div class="dropdown-divider"></div>
+                <div class="row">
+                    <div class="col-12 px-0">
+                        <div class="table-responsive tabla-principal">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr class="bg-primary text-white">
+                                        <th scope="col" class="text-center"><span class="miColumna">N°&nbsp;<i class="fas fa-sort-down" style="color: lightgray" id="ID_NOTIFICACION"></i></span></th>
+                                        <th scope="col"><span class="miColumna">Nombre de Iniciativa&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NOMBRE_INICIATIVA"></i></span></th>
+                                        <th scope="col"><span class="miColumna">Progreso&nbsp;<i class="fas fa-sort" style="color: lightgray" id="PROGRESO"></i></span></th>
+                                        <th scope="col"><span class="miColumna">Fecha Registro&nbsp;<i class="fas fa-sort" id="FECHA_REGISTRO"></i></span></th>
+                                        <th scope="col"><span class="miColumna">Usuario Responsable&nbsp;<i class="fas fa-sort" style="color: lightgray" id="RESPONSABLE"></i></span></th>
+                                        <th scope="col"><span class="miColumna">Perfil&nbsp;<i class="fas fa-sort" style="color: lightgray" id="ROL"></i></span></th>
+                                        <th scope="col" class="text-center">Más</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cuerpoNotificacion"></tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td class="text-left" colspan="3"><strong>Resultado:&nbsp;</strong><span id="resultado">1-10</span> de <span id="total-registros">750</span> registros</td>
+                                        <td class="text-right text-xs-left" colspan="4">
+                                            <strong>Registros por página&nbsp;</strong>
+                                            <select id="cantidad-registros" onchange="fn_CargarNotificacion()">
+                                                <option value="10" selected>10</option>
+                                                <option value="25">25</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
+                                            </select>&nbsp;
+                                            <span id="pagina-actual">1</span> de <span id="total-paginas">75</span> páginas&nbsp;
+                                            <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                                <button class="btn btn-primary" id="primera-pagina" type="button" onclick="fn_avance_grilla(1)"><i class="fas fa-angle-double-left"></i></button>
+                                                <button class="btn btn-primary" id="anterior-pagina" type="button" onclick="fn_avance_grilla(2)"><i class="fas fa-angle-left"></i></button>
+                                                <input class="ir-pagina" id="pagina" type="number" value="1" min="1" onchange="fn_CargarNotificacion()">
+                                                <button class="btn btn-primary" id="siguiente-pagina" type="button" onclick="fn_avance_grilla(3)"><i class="fas fa-angle-right"></i></button>
+                                                <button class="btn btn-primary" id="ultima-pagina" type="button" onclick="fn_avance_grilla(4)"><i class="fas fa-angle-double-right"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modal-ver-mas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Hidden("columna", "ID_NOTIFICACION")
+@Html.Hidden("orden", "DESC")
+
+
+<script src="~/js/script.js"></script>
+<script src="~/js/MRV.js"></script>
+<script type="text/javascript" src="~/js/Notificacion.js"></script>
+
+
