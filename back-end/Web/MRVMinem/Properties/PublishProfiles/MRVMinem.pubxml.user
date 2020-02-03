@@ -24,7 +24,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/29/2020 11:47:41</publishTime>
     </File>
     <File Include="bin/datos.minem.gob.pe.dll">
-      <publishTime>02/03/2020 11:01:51</publishTime>
+      <publishTime>02/03/2020 12:02:27</publishTime>
     </File>
     <File Include="bin/de/Microsoft.SqlServer.Types.resources.dll">
       <publishTime>02/21/2014 05:26:06</publishTime>
@@ -81,7 +81,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/29/2020 19:41:01</publishTime>
     </File>
     <File Include="bin/logica.minem.gob.pe.dll">
-      <publishTime>02/03/2020 11:01:51</publishTime>
+      <publishTime>02/03/2020 12:02:27</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>01/29/2020 11:47:44</publishTime>
@@ -96,7 +96,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/29/2020 11:47:45</publishTime>
     </File>
     <File Include="bin/MRVMinem.dll">
-      <publishTime>02/03/2020 11:01:57</publishTime>
+      <publishTime>02/03/2020 12:02:32</publishTime>
     </File>
     <File Include="bin/Oracle.DataAccess.dll">
       <publishTime>07/31/2014 22:11:18</publishTime>
@@ -435,7 +435,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/29/2020 11:47:37</publishTime>
     </File>
     <File Include="js/RegistroUsuario.js">
-      <publishTime>02/02/2020 23:16:38</publishTime>
+      <publishTime>02/03/2020 11:33:38</publishTime>
     </File>
     <File Include="js/script.js">
       <publishTime>01/31/2020 23:18:05</publishTime>
@@ -489,7 +489,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/29/2020 11:47:36</publishTime>
     </File>
     <File Include="Views/Gestion/AccionMitigacion.cshtml">
-      <publishTime>02/01/2020 19:51:46</publishTime>
+      <publishTime>02/03/2020 11:58:18</publishTime>
     </File>
     <File Include="Views/Gestion/CambiarClave.cshtml">
       <publishTime>01/31/2020 19:45:11</publishTime>
@@ -555,13 +555,13 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/29/2020 11:47:36</publishTime>
     </File>
     <File Include="Views/Home/login.cshtml">
-      <publishTime>02/03/2020 02:38:57</publishTime>
+      <publishTime>02/03/2020 11:55:04</publishTime>
     </File>
     <File Include="Views/Home/recuperar.cshtml">
       <publishTime>01/29/2020 11:47:36</publishTime>
     </File>
     <File Include="Views/Home/registro.cshtml">
-      <publishTime>02/02/2020 21:45:39</publishTime>
+      <publishTime>02/03/2020 11:32:57</publishTime>
     </File>
     <File Include="Views/Portal/AccionMitigacion.cshtml">
       <publishTime>01/29/2020 11:47:36</publishTime>
@@ -600,7 +600,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/29/2020 11:47:36</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>02/03/2020 10:24:22</publishTime>
+      <publishTime>02/03/2020 12:02:34</publishTime>
     </File>
   </ItemGroup>
 </Project>
