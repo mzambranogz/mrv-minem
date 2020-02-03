@@ -10,7 +10,7 @@
             id = event.target.id;
         }
 
-        debugger;
+        //debugger;
         $(".miColumna > i").removeClass("fa-sort-up");
         $(".miColumna > i").removeClass("fa-sort-down");
         $(".miColumna > i").addClass("fa-sort");
@@ -100,8 +100,8 @@ function fn_CargarNotificacion() {
                         }
                         //debugger;
                         var tr = '<tr>';
-                        //tr = tr + '     <th class="text-center" data-encabezado="Número" scope="row">' + data[i]["ID_NOTIFICACION"] + '</th>';
-                        tr = tr + '     <th class="text-center" data-encabezado="Número" scope="row">' + data[i]["RowNumber"] + '</th>';
+                        tr = tr + '     <th class="text-center" data-encabezado="Número" scope="row">' + data[i]["ID_NOTIFICACION"] + '</th>';
+                        //tr = tr + '     <th class="text-center" data-encabezado="Número" scope="row">' + data[i]["RowNumber"] + '</th>';
                         tr = tr + '     <td data-encabezado="Nombre de Iniciativa">' + data[i]["NOMBRE_INICIATIVA"] + '</td>';
                         tr = tr + '     <td data-encabezado="Progreso">';
                         tr = tr + '         <div class="progress" style="height: 20px;">';
@@ -178,7 +178,7 @@ function fn_registros_grilla() {
 }
 
 function fn_modalNotificacion(idNotificacion, idEstado) {
-    debugger;
+    //debugger;
     var url = baseUrl + "Gestion/DetalleNotificacion?ID_NOTIFICACION=" + idNotificacion;
     $('#modal-ver-mas').load(url, function () {
         $('#modal-ver-mas').modal({ show: true });
@@ -188,22 +188,32 @@ function fn_modalNotificacion(idNotificacion, idEstado) {
 
 function fn_ir_iniciativa() {
     var item = {
-        ID_NOTIFICACION: $("#ID_NOTIFICACION").val(),
+        ID_NOTIFICACION: $("#ID_NOTIFICACION_BD").val(),
         ID_INICIATIVA: $("#ID_INICIATIVA").val(),
         ID_USUARIO_VISTO: $("#Control").data("usuario")
     };
     var url = baseUrl + "Gestion/RegistraVistoNotificacion";
     var respuesta = MRV.Ajax(url, item, false);
+    debugger;
     if (respuesta.success) {
         if (ws != null) ws.send(respuesta.message);
 
-        var url2 = "@Url.Action('RevisarIniciativa', 'Gestion', new { id='param1', ini='param2' })";
+        var url2 = baseUrl + "Gestion/";
         if ($("#Control").data("rol") == 1) {
-            url2 = "@Url.Action('CorregirIniciativa', 'Gestion', new { ini='param-name' })";
-            url2 = url2.replace("param1", $("#ID_INICIATIVA").val());
+            if ($("#ID_ESTADO_NOTIFICACION").val() == "1" || $("#ID_ESTADO_NOTIFICACION").val() == "2") {
+                url2 = url2 + "CorregirIniciativa?ini=" + $("#ID_INICIATIVA").val()
+            }
+            else {
+                url2 = url2 + "DetalleIndicador?id=" + $("#ID_INICIATIVA").val()
+            }
         }
         else {
-            url2 = url2.replace("param1", $("#ID_MEDMIT").val()).replace("param2", $("#ID_INICIATIVA").val());
+            //url2 = url2.replace("param1", $("#ID_MEDMIT").val()).replace("param2", $("#ID_INICIATIVA").val());
+            if ($("#ID_ETAPA").val() == "2") {
+                url2 = url2 + "RevisarIniciativa?id=" + $("#ID_MEDMIT").val() + "&ini=" + $("#ID_INICIATIVA").val()
+            } else {
+                url2 = url2 + "RevisarDetalleIndicador?id=" + $("#ID_INICIATIVA").val()
+            }
         }
 
         window.location.href = url2;

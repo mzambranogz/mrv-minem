@@ -110,7 +110,6 @@ namespace datos.minem.gob.pe
                     p.Add("pIdNotificacion", entidad.ID_NOTIFICACION);
                     p.Add("pIdIniciativa", entidad.ID_INICIATIVA);
                     p.Add("pIdUsuarioVisto", entidad.ID_USUARIO_VISTO);
-                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
                 entidad.OK = true;

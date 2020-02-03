@@ -306,7 +306,7 @@ namespace MRVMinem.Controllers
             if (entidad.OK)
             {
                 lista.Add(entidad);
-            }            
+            }
             var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
@@ -331,7 +331,7 @@ namespace MRVMinem.Controllers
 
             }
             itemRespuesta.success = entidad.OK;
-            itemRespuesta.extra = entidad.ID_ESTADO.ToString();
+            itemRespuesta.extra = entidad.ASUNTO;   // entidad.ID_ESTADO.ToString();
             return Respuesta(itemRespuesta);
         }
 
@@ -598,7 +598,7 @@ namespace MRVMinem.Controllers
                 iniciativa.DESCRIPCION = "En los detalles indicadores de la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") se ha detectado algunos datos a corregir, los detalles en la siguiente descripción: <br/>" + entidad.DESCRIPCION + "<br/><br/>";
                 EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
-                //itemRespuesta.extra = entidad.DESCRIPCION;
+                itemRespuesta.extra = entidad.DESCRIPCION;
                 Session["correo_destino"] = "";
                 Session["id_medida"] = 0;
             }
@@ -1075,124 +1075,147 @@ namespace MRVMinem.Controllers
         {
             ResponseEntity itemRespuesta = new ResponseEntity();
 
-            if (fledoc != null)
+            try
             {
-                foreach (var f in fledoc)
+                if (fledoc != null)
                 {
-                    if (f != null)
+                    foreach (var f in fledoc)
                     {
-                        string archivoOriginal = f.FileName;
-                        string nomArchivoSave = "";
-                        nomArchivoSave = Guid.NewGuid() + Path.GetExtension(f.FileName).ToString();
-                        var carpeta = WebConfigurationManager.AppSettings.Get("Sustentatorio");
-                        var ruta = Path.Combine(carpeta, nomArchivoSave);
-                        f.SaveAs(ruta);
-
-
-                        if (entidad.ListaIndicadores != null)
+                        if (f != null)
                         {
-                            foreach (IndicadorBE item in entidad.ListaIndicadores)
+                            string archivoOriginal = f.FileName;
+                            string nomArchivoSave = "";
+                            nomArchivoSave = Guid.NewGuid() + Path.GetExtension(f.FileName).ToString();
+                            var carpeta = WebConfigurationManager.AppSettings.Get("Sustentatorio");
+                            var ruta = Path.Combine(carpeta, nomArchivoSave);
+                            f.SaveAs(ruta);
+
+
+                            if (entidad.ListaIndicadores != null)
                             {
-                                if (item.ADJUNTO_BASE != null)
+                                foreach (IndicadorBE item in entidad.ListaIndicadores)
                                 {
-                                    if (item.ADJUNTO_BASE.Contains(archivoOriginal))
+                                    if (item.ADJUNTO_BASE != null)
                                     {
-                                        item.ADJUNTO = nomArchivoSave;
-                                        break;
+                                        if (item.ADJUNTO_BASE.Contains(archivoOriginal))
+                                        {
+                                            item.ADJUNTO = nomArchivoSave;
+                                            break;
+                                        }
                                     }
                                 }
                             }
                         }
                     }
                 }
-            }
 
-            if (fledocumentos != null)
-            {
-                foreach (var f in fledocumentos)
+                if (fledocumentos != null)
                 {
-                    if (f != null)
+                    foreach (var f in fledocumentos)
                     {
-                        string archivoOriginal = f.FileName;
-                        string nomArchivoSave = "";
-                        nomArchivoSave = Guid.NewGuid() + Path.GetExtension(f.FileName).ToString();
-                        var carpeta = WebConfigurationManager.AppSettings.Get("Sustentatorio");
-                        var ruta = Path.Combine(carpeta, nomArchivoSave);
-                        f.SaveAs(ruta);
-
-
-                        if (entidad.ListaSustentos != null)
+                        if (f != null)
                         {
-                            foreach (SustentoIniciativaBE item in entidad.ListaSustentos)
+                            string archivoOriginal = f.FileName;
+                            string nomArchivoSave = "";
+                            nomArchivoSave = Guid.NewGuid() + Path.GetExtension(f.FileName).ToString();
+                            var carpeta = WebConfigurationManager.AppSettings.Get("Sustentatorio");
+                            var ruta = Path.Combine(carpeta, nomArchivoSave);
+                            f.SaveAs(ruta);
+
+
+                            if (entidad.ListaSustentos != null)
                             {
-                                if (item.ADJUNTO_BASE != null)
+                                foreach (SustentoIniciativaBE item in entidad.ListaSustentos)
                                 {
-                                    if (item.ADJUNTO_BASE.Contains(archivoOriginal))
+                                    if (item.ADJUNTO_BASE != null)
                                     {
-                                        item.ADJUNTO = nomArchivoSave;
-                                        break;
+                                        if (item.ADJUNTO_BASE.Contains(archivoOriginal))
+                                        {
+                                            item.ADJUNTO = nomArchivoSave;
+                                            break;
+                                        }
                                     }
                                 }
                             }
                         }
-                        //else
-                        //{
-                        //    entidad.ListaSustentos = new List<SustentoIniciativaBE>();
-                        //}
-                        //SustentoIniciativaBE item2 = new SustentoIniciativaBE() { ID_INICIATIVA = entidad.ID_INICIATIVA, ADJUNTO = nomArchivoSave };
-                        //entidad.ListaSustentos.Add(item2);
                     }
                 }
+
+                IndicadorBE indicador = null;
+                if (entidad.ListaIndicadores != null)
+                {
+                    indicador = IndicadorLN.RegistraTodosIndicadores(entidad.ListaIndicadores);
+                    if (!indicador.OK)
+                    {
+                        itemRespuesta.success = false;
+                        itemRespuesta.message = "Ocurrio un problema durante el registro de indicadores.";
+                        itemRespuesta.extra = indicador.extra;
+                        return Respuesta(itemRespuesta);
+                    }
+                }
+
+                IniciativaBE iniciativaM = null;
+                if (!string.IsNullOrEmpty(entidad.ID_INDICADOR_DELETE))
+                    iniciativaM = IndicadorLN.EliminarIndicadores(entidad);
+
+                SustentoIniciativaBE sustento = null;
+                if (entidad.ListaSustentos != null)
+                {
+                    sustento = IndicadorLN.RegistraTodosSustentoIniciativa(entidad.ListaSustentos);
+                    if (!sustento.OK)
+                    {
+                        itemRespuesta.success = false;
+                        itemRespuesta.message = "Ocurrio un problema durante el registro del sustento.";
+                        itemRespuesta.extra = indicador.extra;
+                        return Respuesta(itemRespuesta);
+                    }
+                }
+
+                if (entidad.ID_ESTADO == 1) //add 30-01-20
+                {
+                    entidad = IndicadorLN.RegistrarEnvioDetalle(entidad);
+                }
+                else if (entidad.ID_ESTADO == 5) //add 30-01-20
+                {
+                    entidad = IndicadorLN.CorregirDetalleIndicador2(entidad);
+                }
+                else if (entidad.ID_ESTADO == 0 || entidad.ID_ESTADO == 6) //add 30-01-20
+                {
+                    entidad = IndicadorLN.RegistrarAvanceDetalleIndicador(entidad);
+                }
+
+
+                if (entidad.ID_ESTADO == 1)
+                {
+                    var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
+                    IniciativaBE iniciativa = new IniciativaBE();
+                    iniciativa.EMAIL_USUARIO = WebConfigurationManager.AppSettings.Get("UsermailEsp");
+                    iniciativa.ASUNTO = "Registro Detalle Indicador - Entidad " + usuario.INSTITUCION;
+                    iniciativa.DESCRIPCION = "El usuario de la entidad " + usuario.INSTITUCION + " ha registrado el/los detalle(s) de la Iniciativa (" + entidad.NOMBRE_INICIATIVA + "), en espera de su revisión.<br/><br/>";
+                    EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 2);
+                    Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+                }
+                else if (entidad.ID_ESTADO == 5)
+                {
+                    var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
+                    IniciativaBE iniciativa = new IniciativaBE();
+                    iniciativa.EMAIL_USUARIO = WebConfigurationManager.AppSettings.Get("UsermailEsp");
+                    iniciativa.ASUNTO = "Observación subsanada de Detalle Indicador - Entidad " + usuario.INSTITUCION;
+                    iniciativa.DESCRIPCION = "El usuario de la entidad " + usuario.INSTITUCION + " ha subsanado la(s) observación(es) de el/los detalle(s) de indicador(es) de la Iniciativa (" + entidad.NOMBRE_INICIATIVA + "), en espera de su revisión.<br/><br/>";
+                    EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
+                    Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+                }
+                itemRespuesta.success = entidad.OK;
+                itemRespuesta.extra = entidad.ID_ESTADO.ToString();
+            }
+            catch (Exception ex)
+            {
+                itemRespuesta.success = false;
+                itemRespuesta.message = "Ocurrio un problema durante el registro.";
+                itemRespuesta.extra = ex.Message;
+                Log.Error(ex);
             }
 
-            IndicadorBE indicador = null;
-            if (entidad.ListaIndicadores != null)
-                indicador = IndicadorLN.RegistraTodosIndicadores(entidad.ListaIndicadores);
-
-            IniciativaBE iniciativaM = null;
-            if (!string.IsNullOrEmpty(entidad.ID_INDICADOR_DELETE))
-                iniciativaM = IndicadorLN.EliminarIndicadores(entidad);
-
-            SustentoIniciativaBE sustento = null;
-            if (entidad.ListaSustentos != null)
-                sustento = IndicadorLN.RegistraTodosSustentoIniciativa(entidad.ListaSustentos);
-
-            if (entidad.ID_ESTADO == 1) //add 30-01-20
-            {
-                entidad = IndicadorLN.RegistrarEnvioDetalle(entidad);
-            }
-            else if (entidad.ID_ESTADO == 5) //add 30-01-20
-            {
-                entidad = IndicadorLN.CorregirDetalleIndicador2(entidad);
-            }
-            else if (entidad.ID_ESTADO == 0 || entidad.ID_ESTADO == 6) //add 30-01-20
-            {
-                entidad = IndicadorLN.RegistrarAvanceDetalleIndicador(entidad);
-            }
-            
-
-            if (entidad.ID_ESTADO == 1)
-            {
-                var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
-                IniciativaBE iniciativa = new IniciativaBE();
-                iniciativa.EMAIL_USUARIO = WebConfigurationManager.AppSettings.Get("UsermailEsp");
-                iniciativa.ASUNTO = "Registro Detalle Indicador - Entidad " + usuario.INSTITUCION;
-                iniciativa.DESCRIPCION = "El usuario de la entidad " + usuario.INSTITUCION + " ha registrado el/los detalle(s) de la Iniciativa (" + entidad.NOMBRE_INICIATIVA + "), en espera de su revisión.<br/><br/>";
-                EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 2);
-                Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
-            }
-            else if (entidad.ID_ESTADO == 5)
-            {
-                var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
-                IniciativaBE iniciativa = new IniciativaBE();
-                iniciativa.EMAIL_USUARIO = WebConfigurationManager.AppSettings.Get("UsermailEsp");
-                iniciativa.ASUNTO = "Observación subsanada de Detalle Indicador - Entidad " + usuario.INSTITUCION;
-                iniciativa.DESCRIPCION = "El usuario de la entidad " + usuario.INSTITUCION + " ha subsanado la(s) observación(es) de el/los detalle(s) de indicador(es) de la Iniciativa (" + entidad.NOMBRE_INICIATIVA + "), en espera de su revisión.<br/><br/>";
-                EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
-                Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
-            }
-            itemRespuesta.success = entidad.OK;
-            itemRespuesta.extra = entidad.ID_ESTADO.ToString();
             return Respuesta(itemRespuesta);
         }
 
@@ -1461,7 +1484,7 @@ namespace MRVMinem.Controllers
                             xNum++;
                             ws1.Cells["A" + row].Value = xNum;
                             ws1.Cells["B" + row].Value = dt_fila.NOMBRE_INICIATIVA;
-                            ws1.Cells["C" + row].Value = Convert.ToString(dt_fila.PROGRESO*25) + "%";
+                            ws1.Cells["C" + row].Value = Convert.ToString(dt_fila.PROGRESO * 25) + "%";
                             ws1.Cells["D" + row].Value = dt_fila.FECHA;
                             ws1.Cells["E" + row].Value = dt_fila.NOMBRE_MEDMIT;
                             ws1.Cells["F" + row].Value = dt_fila.NOMBRE_INSTITUCION;

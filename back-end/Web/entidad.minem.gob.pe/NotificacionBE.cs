@@ -16,6 +16,7 @@ namespace entidad.minem.gob.pe
         //public DateTime FECHA_REGISTRO { get; set; }
         public int ID_ROL { get; set; }
         public int ID_USUARIO { get; set; }
+        public int ID_USUARIO_REMITENTE { get; set; }
         public string FLG_VISTO { get; set; }
         public DateTime FECHA_VISTO { get; set; }
         public string DESCRIPCION { get; set; }

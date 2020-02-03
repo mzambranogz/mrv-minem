@@ -160,6 +160,7 @@ namespace datos.minem.gob.pe
                     p.Add("pTOTAL_GEI_REDUCIDO", entidad.TOTAL_GEI_REDUCIDO);
                     p.Add("pID_TIPO_FUENTE", entidad.ID_TIPO_FUENTEI);
                     p.Add("pADJUNTO", entidad.ADJUNTO);
+                    p.Add("pADJUNTO_BASE", entidad.ADJUNTO_BASE);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
                 entidad.OK = true;
@@ -167,6 +168,7 @@ namespace datos.minem.gob.pe
             catch (Exception ex)
             {
                 Log.Error(ex);
+                entidad.extra = ex.Message;
                 entidad.OK = false;
             }
 
@@ -431,6 +433,7 @@ namespace datos.minem.gob.pe
                     p.Add("pID_INICIATIVA_SUSTENTATORIO", entidad.ID_INICIATIVA_SUSTENTATORIO);
                     p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
                     p.Add("pADJUNTO", entidad.ADJUNTO);
+                    p.Add("pADJUNTO_BASE", entidad.ADJUNTO_BASE);
                     p.Add("pESTADO", entidad.FLAG_ESTADO);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
@@ -440,6 +443,7 @@ namespace datos.minem.gob.pe
             {
                 Log.Error(ex);
                 entidad.OK = false;
+                entidad.extra = ex.Message;
             }
 
             return entidad;

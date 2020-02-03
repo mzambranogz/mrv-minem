@@ -99,6 +99,10 @@ namespace logica.minem.gob.pe
             foreach (IndicadorBE item in ListaIndicadores)
             {
                 entidad = indicador.RegistrarDetalleIndicador(item);
+                if (!entidad.OK)
+                {
+                    break;
+                }
             }
             return entidad;
         }
@@ -109,6 +113,10 @@ namespace logica.minem.gob.pe
             foreach (SustentoIniciativaBE item in ListaSustentos)
             {
                 entidad = indicador.RegistrarSustentoIniciativa(item);
+                if (!entidad.OK)
+                {
+                    break;
+                }
             }
             return entidad;
         }
