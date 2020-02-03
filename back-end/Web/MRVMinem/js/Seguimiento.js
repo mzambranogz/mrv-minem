@@ -179,7 +179,7 @@ function fn_mostrarSeguimiento() {
                         //$("#seguimiento").append(tr);
                     }
 
-                    if (data[i]["ID_ETAPA"] == 5 && data[i]["ID_ESTADO"] == 3) {
+                    if ((data[i]["ID_ETAPA"] == 5 || data[i]["ID_ETAPA"] == 8) && data[i]["ID_ESTADO"] == 3) {
                         tr = tr + '<div class="timeline">';
                         tr = tr + '<div class="timeline-icon"><i class="fas fa-check-double"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
                         tr = tr + '<div class="timeline-content">';
@@ -223,7 +223,7 @@ function fn_mostrarSeguimiento() {
                         //$("#seguimiento").append(tr);
                     }
 
-                    if (data[i]["ID_ETAPA"] == 6 && data[i]["ID_ESTADO"] == 2) {
+                    if ((data[i]["ID_ETAPA"] == 6 || data[i]["ID_ETAPA"] == 8) && data[i]["ID_ESTADO"] == 2) {
                         tr = tr + '<div class="timeline">';
                         tr = tr + '<div class="timeline-icon"><i class="fas fa-eye"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
                         tr = tr + '<div class="timeline-content">';

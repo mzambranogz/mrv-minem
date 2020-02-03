@@ -405,6 +405,7 @@ namespace datos.minem.gob.pe
                     var p = new OracleDynamicParameters();
                     p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
                     p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    p.Add("pID_USUARIO_DESTINO", entidad.ID_USUARIO_DESTINO);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
                 entidad.OK = true;
@@ -603,6 +604,33 @@ namespace datos.minem.gob.pe
                     p.Add("pDESCRIPCION", entidad.DESCRIPCION);
                     p.Add("pID_ESTADO_NOTIFICACION", entidad.ID_ESTADO);
                     p.Add("pID_ADMINISTRADOR", entidad.ID_ADMINISTRADOR);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+                entidad.extra = ex.Message;
+            }
+
+            return entidad;
+        }
+
+        public IndicadorBE ObservacionVerificarDetalleIndicador(IndicadorBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_UPD_OBSERVACION_VRF_DET";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    p.Add("pDESCRIPCION", entidad.DESCRIPCION);
+                    p.Add("pID_ESTADO_NOTIFICACION", entidad.ID_ESTADO);
+                    p.Add("pID_USUARIO_DESTINO", entidad.ID_USUARIO_DESTINO);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
                 entidad.OK = true;

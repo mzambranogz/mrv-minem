@@ -94,9 +94,19 @@ namespace MRVMinem.Controllers
 
         public ActionResult RevisarDetalleIndicador(int id, int ini)
         {
-            MvSesion modelo = new MvSesion();
-            modelo.identificador = id;
+            ListaObjeto modelo = new ListaObjeto();
+            IniciativaBE inic = new IniciativaBE();
+            inic.ID_INICIATIVA = id;
+            modelo.iniciativa_mit = inic;
+            modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
+            modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
+            modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
+            modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
+            modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
+            modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
+            modelo.usuario = UsuarioLN.UsuarioIniciativa(modelo.iniciativa_mit.ID_USUARIO);
             modelo.revision = 1;
+            Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
             return View(modelo);
         }
 
@@ -166,7 +176,6 @@ namespace MRVMinem.Controllers
             {
                 modelo.usuario = UsuarioLN.UsuarioEvaluador();
             }
-            Session["etapa"] = modelo.iniciativa_mit.ID_ETAPA;
             Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
             Session["usuario_destino"] = modelo.usuario.ID_USUARIO;
             modelo.revision = 1;
@@ -504,17 +513,19 @@ namespace MRVMinem.Controllers
         {
             ResponseEntity itemRespuesta = new ResponseEntity();
 
+            entidad.ID_USUARIO = Convert.ToInt32(Session["usuario"]);
             entidad = IndicadorLN.ObservacionDetalleIndicador(entidad);
             if (entidad.OK)
             {
                 //var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
                 IniciativaBE iniciativa = new IniciativaBE();
-                iniciativa.EMAIL_USUARIO = entidad.EMAIL_USUARIO;
+                iniciativa.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
                 iniciativa.ASUNTO = "Observación Detalle Indicador - MRVMinem ";
                 iniciativa.DESCRIPCION = "En los detalles indicadores de la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") se ha detectado algunos datos a corregir, los detalles en la siguiente descripción: <br/>" + entidad.DESCRIPCION + "<br/><br/>";
                 EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
                 itemRespuesta.extra = entidad.DESCRIPCION;
+                Session["correo_destino"] = "";
             }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
@@ -524,17 +535,19 @@ namespace MRVMinem.Controllers
         {
             ResponseEntity itemRespuesta = new ResponseEntity();
 
+            entidad.ID_USUARIO = Convert.ToInt32(Session["usuario"]);
             entidad = IndicadorLN.AprobarDetalleIndicador(entidad);
             if (entidad.OK)
             {
                 //var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
                 IniciativaBE iniciativa = new IniciativaBE();
-                iniciativa.EMAIL_USUARIO = entidad.EMAIL_USUARIO;
+                iniciativa.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
                 iniciativa.ASUNTO = "Aprobación Detalle Indicador - MRVMinem ";
                 iniciativa.DESCRIPCION = "Los detalles de indicadores de su iniciativa fueron revisadas y aprobadas<br/><br/>";
                 EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
                 itemRespuesta.extra = entidad.DESCRIPCION;
+                Session["correo_destino"] = "";
             }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
@@ -667,20 +680,47 @@ namespace MRVMinem.Controllers
             return jsonResult;
         }
 
+        public JsonResult ObservacionVerificarDetalleIndicador(IndicadorBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad.ID_USUARIO = Convert.ToInt32(Session["usuario"]);
+            entidad.ID_USUARIO_DESTINO = Convert.ToInt32(Session["usuario_destino"]);
+            entidad = IndicadorLN.ObservacionVerificarDetalleIndicador(entidad);
+            if (entidad.OK)
+            {
+                IniciativaBE iniciativa = new IniciativaBE();
+                iniciativa.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
+                iniciativa.ASUNTO = "Observación Detalle Indicador - MRVMinem ";
+                iniciativa.DESCRIPCION = "En los detalles indicadores de la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") se ha detectado algunos datos a corregir, los detalles en la siguiente descripción: <br/>" + entidad.DESCRIPCION + "<br/><br/>";
+                EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
+                Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+                //itemRespuesta.extra = entidad.DESCRIPCION;
+                Session["correo_destino"] = "";
+                Session["usuario_destino"] = 0;
+            }
+            itemRespuesta.success = entidad.OK;
+            return Respuesta(itemRespuesta);
+        }
+
         public JsonResult VerificarIniciativaDetalleIndicador(IndicadorBE entidad)
         {
             ResponseEntity itemRespuesta = new ResponseEntity();
 
+            entidad.ID_USUARIO = Convert.ToInt32(Session["usuario"]);
+            entidad.ID_USUARIO_DESTINO = Convert.ToInt32(Session["usuario_destino"]);
             entidad = IndicadorLN.VerificarIniciativaDetalleIndicador(entidad);
             if (entidad.OK)
             {
                 //var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
                 IniciativaBE iniciativa = new IniciativaBE();
-                iniciativa.EMAIL_USUARIO = WebConfigurationManager.AppSettings.Get("UsermailEsp");
+                iniciativa.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
                 iniciativa.ASUNTO = "Verificación Iniciativa y Detalle Indicador - MRVMinem ";
                 iniciativa.DESCRIPCION = "Los detalles de indicadores y la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") fueron revisados y aprobadas por el Verificador Externo<br/><br/>";
                 EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+                Session["correo_destino"] = "";
+                Session["usuario_destino"] = 0;
             }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);

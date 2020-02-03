@@ -21,6 +21,8 @@ namespace entidad.minem.gob.pe
         public int ID_MEDMIT { get; set; }
         public char ESTADO_ACTOR { get; set; }
         public int ID_ADMINISTRADOR { get; set; }
+        public int ID_EVALUADOR { get; set; }
+        public int ID_USUARIO_DESTINO { get; set; }
         //=======================================
         public int ID_INICIATIVA { get; set; }
         public int ANNOB { get; set; }

@@ -150,6 +150,11 @@ namespace logica.minem.gob.pe
         {
             return indicador.ObservacionEvaluarDetalleIndicador(entidad);
         }
+
+        public static IndicadorBE ObservacionVerificarDetalleIndicador(IndicadorBE entidad)
+        {
+            return indicador.ObservacionVerificarDetalleIndicador(entidad);
+        }
     }
     
 }

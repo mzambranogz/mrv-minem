@@ -137,5 +137,10 @@ namespace logica.minem.gob.pe
         {
             return usuarioDA.UsuarioEvaluador();
         }
+
+        public static UsuarioBE UsuarioIniciativa(int id)
+        {
+            return usuarioDA.UsuarioIniciativa(id);
+        }
     }
 }
