@@ -297,10 +297,10 @@
                                     <tbody id="cuerpoTablaIndicador" data-row="0" data-total="0">
                                         @{
                                             var total_reducido = 0.0;
+                                            var i = 0;
                                         }
                                         @foreach (var item in Model.listaIndicador)
-                                        {
-                                            var i = 0;
+                                        {                                            
                                             i++;
                                             <tr>
                                                 <th class="text-center" data-encabezado="Número" scope="row">@i</th>

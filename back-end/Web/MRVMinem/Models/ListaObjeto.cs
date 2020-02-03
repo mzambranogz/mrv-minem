@@ -17,5 +17,6 @@ namespace MRVMinem.Models
         public List<UbicacionBE> listaUbicacion { get; set; }
         public List<EnergeticoBE> listaEnergetico { get; set; }
         public List<GasEfectoInvernaderoBE> listaGei { get; set; }
+        public List<UsuarioBE> listaUsuario { get; set; }
     }
 }

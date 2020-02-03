@@ -12,5 +12,9 @@ namespace entidad.minem.gob.pe
         public string ASUNTO { get; set; }
         public string DESCRIPCION { get; set; }
         public string COLOR { get; set; }
+        public string COLOR_ESTADO { get; set; }
+        public string DESCRIPCION_ESTADO_USU { get; set; }
+        public string NUMERO_CONTACTO { get; set; }
+        public int ESTADO_BUSCAR { get; set; }
     }
 }

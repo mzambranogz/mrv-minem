@@ -15,5 +15,6 @@ namespace entidad.minem.gob.pe
         public int ID_NAMA { get; set; }
         public string OBJETIVO_MEDMIT { get; set; }
         public string IPSC_MEDMIT { get; set; }
+        public int ID_USUARIO { get; set; }
     }
 }

@@ -60,22 +60,22 @@ namespace utilitario.minem.gob.pe
                 correo.Subject = asAsunto;
 
                 AlternateView htmlView = AlternateView.CreateAlternateViewFromString(asCuerpo, Encoding.UTF8, MediaTypeNames.Text.Html);
-                htmlView = mostrarImagen(htmlView, proceso);
-                //LinkedResource imgLogo = new LinkedResource(@WebConfigurationManager.AppSettings.Get("ImagenMem"), MediaTypeNames.Image.Jpeg);
-                //imgLogo.ContentId = "imagenMEM";
-                //htmlView.LinkedResources.Add(imgLogo);
+                //htmlView = mostrarImagen(htmlView, proceso);
+                LinkedResource imgLogo = new LinkedResource(@WebConfigurationManager.AppSettings.Get("ImagenMem"), MediaTypeNames.Image.Jpeg);
+                imgLogo.ContentId = "imagenMEM";
+                htmlView.LinkedResources.Add(imgLogo);
 
-                //LinkedResource imgBanner = new LinkedResource(@WebConfigurationManager.AppSettings.Get("ImagenBanner"), MediaTypeNames.Image.Jpeg);
-                //imgBanner.ContentId = "imagenBanner";
-                //htmlView.LinkedResources.Add(imgBanner);
+                LinkedResource imgBanner = new LinkedResource(@WebConfigurationManager.AppSettings.Get("ImagenBanner"), MediaTypeNames.Image.Jpeg);
+                imgBanner.ContentId = "imagenBanner";
+                htmlView.LinkedResources.Add(imgBanner);
 
-                //LinkedResource imgGef = new LinkedResource(@WebConfigurationManager.AppSettings.Get("ImagenGef"), MediaTypeNames.Image.Jpeg);
-                //imgGef.ContentId = "imagenGEF";
-                //htmlView.LinkedResources.Add(imgGef);
+                LinkedResource imgGef = new LinkedResource(@WebConfigurationManager.AppSettings.Get("ImagenGef"), MediaTypeNames.Image.Jpeg);
+                imgGef.ContentId = "imagenGEF";
+                htmlView.LinkedResources.Add(imgGef);
 
-                //LinkedResource imgPnud = new LinkedResource(@WebConfigurationManager.AppSettings.Get("ImagenPnud"), MediaTypeNames.Image.Jpeg);
-                //imgPnud.ContentId = "imagenPNUD";
-                //htmlView.LinkedResources.Add(imgPnud);
+                LinkedResource imgPnud = new LinkedResource(@WebConfigurationManager.AppSettings.Get("ImagenPnud"), MediaTypeNames.Image.Jpeg);
+                imgPnud.ContentId = "imagenPNUD";
+                htmlView.LinkedResources.Add(imgPnud);
 
                 correo.AlternateViews.Add(htmlView);
                 correo.IsBodyHtml = asesHtml;

@@ -26,5 +26,10 @@ namespace logica.minem.gob.pe
         {
             return medidaMitigacion.getMedidaMitigacion(medida);
         }
+
+        public static List<MedidaMitigacionBE> ListarMedidaMitigacionAsociado(MedidaMitigacionBE entidad)
+        {
+            return medidaMitigacion.ListarMedidaMitigacionAsociado(entidad);
+        }
     }
 }

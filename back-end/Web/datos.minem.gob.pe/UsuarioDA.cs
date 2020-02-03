@@ -559,5 +559,27 @@ namespace datos.minem.gob.pe
             return entidad;
         }
 
+        public List<UsuarioBE> BuscarMantenimientoUsuario(string buscar)
+        {
+            List<UsuarioBE> Lista = null;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_MANTENIMIENTO." + "USP_SEL_BUSCAR_USUARIO_MANT";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pBuscar", buscar);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<UsuarioBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
     }
 }

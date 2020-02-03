@@ -151,11 +151,19 @@ namespace MRVMinem.Controllers
             entidad.CELULAR_USUARIO = Request.Form["CELULAR_USUARIO"].ToString();
             entidad.ANEXO_USUARIO = Request.Form["ANEXO_USUARIO"].ToString();
             entidad.INSTITUCION = Request.Form["INSTITUCION"].ToString();
-            entidad.RUC = 20+Request.Form["RUC"].ToString();
+            entidad.RUC = Request.Form["RUC"].ToString();
             entidad.DIRECCION = Request.Form["DIRECCION"].ToString();
             entidad.ID_ROL = int.Parse(Request.Form["ID_ROL"].ToString());
             entidad.ID_ESTADO_USUARIO = int.Parse(Request.Form["ID_ESTADO_USUARIO"].ToString());
             entidad.TERMINOS = Char.Parse(Request.Form["TERMINOS"]);
+            if (entidad.ID_SECTOR_INST == 1)
+            {
+                entidad.SECTOR = "Público";
+            }
+            else if (entidad.ID_SECTOR_INST == 2)
+            {
+                entidad.SECTOR = "Privado";
+            }
 
             ResponseEntity itemRespuesta = new ResponseEntity();
             InstitucionBE institucion = new InstitucionBE(entidad.ID_SECTOR_INST, entidad.RUC, entidad.INSTITUCION, entidad.DIRECCION);
@@ -196,6 +204,7 @@ namespace MRVMinem.Controllers
                     //hilo.Start();
                     //hilo.Join();
 
+                    //hilo_correo.CreacionUsuario();
                     Task tarea = Task.Factory.StartNew(() => hilo_correo.CreacionUsuario());
 
                     itemRespuesta.success = true;

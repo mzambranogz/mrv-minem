@@ -142,5 +142,10 @@ namespace logica.minem.gob.pe
         {
             return usuarioDA.UsuarioIniciativa(id);
         }
+
+        public static List<UsuarioBE> BuscarMantenimientoUsuario(string buscar)
+        {
+            return usuarioDA.BuscarMantenimientoUsuario(buscar);
+        }
     }
 }

@@ -203,7 +203,9 @@ namespace MRVMinem.Controllers
 
         public ActionResult MantenimientoUsuario()
         {
-            return View();
+            ListaObjeto modelo = new ListaObjeto();
+            modelo.listaUsuario = UsuarioLN.ListaMantenimientoUsuario(modelo.usuario);
+            return View(modelo);
         }
         ////////////////////////////
 
@@ -1234,6 +1236,14 @@ namespace MRVMinem.Controllers
             return Respuesta(itemRespuesta);
         }
 
+        public JsonResult BuscarMantenimientoUsuario(string Buscar)
+        {
+            List<UsuarioBE> lista = UsuarioLN.BuscarMantenimientoUsuario(Buscar);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
         //EXPORTAR EXCEL
         public void ExportarToExcelProyectos(IniciativaBE entidad)
         {
@@ -1495,7 +1505,16 @@ namespace MRVMinem.Controllers
 
         public void ExportarToExcelMantenimientoUsuario(UsuarioBE entidad)
         {
-            var lista = UsuarioLN.ListaMantenimientoUsuario(entidad);
+            List<UsuarioBE> lista = null;
+            if (string.IsNullOrEmpty(entidad.DESCRIPCION))
+            {
+                lista = UsuarioLN.ListaMantenimientoUsuario(entidad);
+            }
+            else
+            {
+                lista = UsuarioLN.BuscarMantenimientoUsuario(entidad.DESCRIPCION);
+            }
+            
             int row = 2;
             try
             {
@@ -1524,7 +1543,7 @@ namespace MRVMinem.Controllers
                     ws1.Cells["C" + row].AutoFitColumns(40);
                     ws1.Cells["D" + row].Value = "INSTITUCIÓN";
                     ws1.Cells["D" + row].AutoFitColumns(45);
-                    ws1.Cells["E" + row].Value = "DIRECCIÓN";
+                    ws1.Cells["E" + row].Value = "TELÉFONO / CELULAR";
                     ws1.Cells["E" + row].AutoFitColumns(45);
                     ws1.Cells["F" + row].Value = "PERFIL";
                     ws1.Cells["F" + row].AutoFitColumns(30);
@@ -1550,7 +1569,18 @@ namespace MRVMinem.Controllers
                             ws1.Cells["B" + row].Value = dt_fila.NOMBRES;
                             ws1.Cells["C" + row].Value = dt_fila.CORREO;
                             ws1.Cells["D" + row].Value = dt_fila.INSTITUCION;
-                            ws1.Cells["E" + row].Value = dt_fila.DIRECCION;
+                            if (string.IsNullOrEmpty(dt_fila.TELEFONO_USUARIO))
+                            {
+                                ws1.Cells["E" + row].Value = "                    - "+dt_fila.CELULAR_USUARIO;
+                            } else if (string.IsNullOrEmpty(dt_fila.CELULAR_USUARIO))
+                            {
+                                ws1.Cells["E" + row].Value = dt_fila.TELEFONO_USUARIO + " -                    ";
+                            }
+                            else
+                            {
+                                ws1.Cells["E" + row].Value = dt_fila.TELEFONO_USUARIO + " - " + dt_fila.CELULAR_USUARIO;
+                            }
+                            //ws1.Cells["E" + row].Value = dt_fila.DIRECCION;
                             ws1.Cells["F" + row].Value = dt_fila.ROL;
                             ws1.Cells["G" + row].Value = dt_fila.ESTADO;
                             formatoDetalle(ws1, "A", "G", row);

@@ -100,5 +100,29 @@ namespace datos.minem.gob.pe
             return medida_mitigacion;
         }
 
+        public List<MedidaMitigacionBE> ListarMedidaMitigacionAsociado(MedidaMitigacionBE entidad)
+        {
+            List<MedidaMitigacionBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_LISTA_MEDMIT_ASOCIADO";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_USUARIO",entidad.ID_USUARIO);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<MedidaMitigacionBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
     }
 }

@@ -13,10 +13,11 @@ namespace MRVMinem.Controllers
         // GET: Mantenimiento
         public JsonResult ListarMedidaMitigacion(MedidaMitigacionBE entidad)
         {
-            List<MedidaMitigacionBE> lista = MedidaMitigacionLN.ListarMedidaMitigacion(entidad);
+            List<MedidaMitigacionBE> lista = MedidaMitigacionLN.ListarMedidaMitigacionAsociado(entidad);
             var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
         }
+
     }
 }
