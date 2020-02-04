@@ -1,11 +1,11 @@
 --------------------------------------------------------
--- Archivo creado  - sábado-febrero-01-2020   
+-- Archivo creado  - martes-febrero-04-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Sequence SQ_GEND_DETALLE_INICIATIVA
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "MRVMM"."SQ_GEND_DETALLE_INICIATIVA"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 461 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "MRVMM"."SQ_GEND_DETALLE_INICIATIVA"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 481 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence SQ_GEND_ENFOQUE_FACTOR
 --------------------------------------------------------
@@ -50,7 +50,7 @@
 --  DDL for Sequence SQ_GEND_INICIATIVA_GEI
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "MRVMM"."SQ_GEND_INICIATIVA_GEI"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 321 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "MRVMM"."SQ_GEND_INICIATIVA_GEI"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 341 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence SQ_GEND_INICIATIVA_SUSTENTA
 --------------------------------------------------------
@@ -60,7 +60,7 @@
 --  DDL for Sequence SQ_GEND_INICIATIVA_UBICACION
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "MRVMM"."SQ_GEND_INICIATIVA_UBICACION"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 361 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "MRVMM"."SQ_GEND_INICIATIVA_UBICACION"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 381 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence SQ_GEND_VARIANTE_ATRIBUTO
 --------------------------------------------------------
@@ -75,7 +75,7 @@
 --  DDL for Sequence SQ_GENM_INICIATIVA
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "MRVMM"."SQ_GENM_INICIATIVA"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 241 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "MRVMM"."SQ_GENM_INICIATIVA"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 261 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence SQ_GENM_INSTITUCION
 --------------------------------------------------------
@@ -85,7 +85,7 @@
 --  DDL for Sequence SQ_GENM_NOTIFICACION
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "MRVMM"."SQ_GENM_NOTIFICACION"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 321 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "MRVMM"."SQ_GENM_NOTIFICACION"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 341 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence SQ_GENM_USUARIO
 --------------------------------------------------------
@@ -757,7 +757,8 @@
 	"GEI_PRIVADO" NUMBER(18,4), 
 	"CANT_TOTAL" NUMBER(*,0), 
 	"CANT_PUBLICO" NUMBER(*,0), 
-	"CANT_PRIVADO" NUMBER(*,0)
+	"CANT_PRIVADO" NUMBER(*,0), 
+	"ASOCIADO" NUMBER
    ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
  NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
