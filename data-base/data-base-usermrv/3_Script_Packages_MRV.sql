@@ -30,7 +30,8 @@
         pCELULAR_USUARIO    IN VARCHAR2,
         pID_ROL             IN NUMBER, --ADD
         pID_ESTADO_USUARIO  IN NUMBER, --ADD
-        pFLG_TERMINOS       IN VARCHAR2
+        pFLG_TERMINOS       IN VARCHAR2,
+        pRefcursor          OUT SYS_REFCURSOR
     );
 
 
@@ -102,7 +103,6 @@
     );
 
 END PKG_MRV_ADMIN_SISTEMA;
-
 
 /
 --------------------------------------------------------
@@ -224,7 +224,6 @@ END PKG_MRV_CALCULO;
     pID_TIPO_FUENTE         IN NUMBER,
     pRefcursor              OUT SYS_REFCURSOR
   );
-
 
 
     PROCEDURE USP_PRC_INDICADOR(
@@ -1130,7 +1129,8 @@ END PKG_MRV_REPORTES;
         pCELULAR_USUARIO    IN VARCHAR2,
         pID_ROL             IN NUMBER, --ADD
         pID_ESTADO_USUARIO  IN NUMBER, --ADD
-        pFLG_TERMINOS       IN VARCHAR2
+        pFLG_TERMINOS       IN VARCHAR2,
+        pRefcursor          OUT SYS_REFCURSOR
     ) IS
         vIdUsuario  NUMBER;
   BEGIN  
@@ -1145,8 +1145,11 @@ END PKG_MRV_REPORTES;
 
         INSERT INTO T_MAE_USUARIO_ROL (ID_USUARIO, ID_ROL, FLG_ESTADO, DES_COMENTARIO) 
         VALUES (vIdUsuario, pID_ROL, 1, '');
+        
+        OPEN pRefcursor FOR
+        SELECT vIdUsuario CODIGO FROM DUAL;
 
-  END USP_INS_USUARIO; 
+  END USP_INS_USUARIO;
 
     PROCEDURE USP_SEL_INSTITUCION(
         pRefcursor OUT SYS_REFCURSOR
@@ -1264,7 +1267,7 @@ END PKG_MRV_REPORTES;
         LEFT JOIN T_GENM_USUARIO USU ON U.ID_USUARIO = USU.ID_USUARIO
         LEFT JOIN T_MAE_USUARIO_ROL UR ON USU.ID_USUARIO = UR.ID_USUARIO
         LEFT JOIN T_MAE_ROL R ON UR.ID_ROL = R.ID_ROL
-        WHERE U.ID_MEDMIT = pID_MEDMIT AND R.ID_ROL = 2;
+        WHERE U.ID_MEDMIT = pID_MEDMIT AND R.ID_ROL = 2 AND U.FLG_ESTADO = 1;
     END USP_SEL_ESPECIALISTA_MEDMIT;
 
     PROCEDURE USP_SEL_USUARIO_ADMIN(
@@ -1924,6 +1927,7 @@ END PKG_MRV_CALCULO;
     AS
         vIdUsuario NUMBER;
         vIdDetalle NUMBER;
+        vEntidad   VARCHAR2(100);
     BEGIN
         UPDATE T_GENM_INICIATIVA
            SET ID_ESTADO = 3, ID_ETAPA = 4
@@ -1950,6 +1954,27 @@ END PKG_MRV_CALCULO;
                                                   pIdUsuarioRemitente   => pID_USUARIO,
                                                   pDescripcion          => 'Los detalles de indicadores de su iniciativa fueron revisadas y aprobadas',
                                                   pIdEstadoNotificacion => 3);
+        
+        SELECT INS.NOMBRE_INSTITUCION INTO vEntidad
+        FROM T_GENM_USUARIO USU
+        INNER JOIN T_GENM_INSTITUCION INS ON USU.ID_INSTITUCION = INS.ID_INSTITUCION
+        WHERE USU.ID_USUARIO = vIdUsuario;
+        
+        --SE DEBE NOTIFICAR AL ADMINISTRADOR MRV
+        SELECT COUNT(1) INTO vIdUsuario FROM T_MAE_USUARIO_ROL WHERE ID_ROL = 3;
+        IF vIdUsuario > 0 THEN      
+            SELECT MAX(ID_USUARIO) INTO vIdUsuario FROM T_MAE_USUARIO_ROL WHERE ID_ROL = 3;
+            PKG_MRV_NOTIFICACION.USP_INS_NOTIFICACION(pIdIniciativa         => pID_INICIATIVA,
+                                                  pIdEtapa              => 5,
+                                                  pIdEstado             => 1,
+                                                  pIdRol                => 3,
+                                                  pIdUsuario            => vIdUsuario, 
+                                                  pIdUsuarioRemitente   => pID_USUARIO,
+                                                  pDescripcion          => 'La iniciativa y el detalle de indicadores de la entidad ' || TRIM(vEntidad) || ' fueron revisadas y aprobadas, y estan a la espera de su revisión',
+                                                  pIdEstadoNotificacion => 0);
+        END IF;
+                                                     
+                                                  
     END USP_UPD_APROBAR_DETALLE;
 
 

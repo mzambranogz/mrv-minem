@@ -82,27 +82,28 @@
         pID_USUARIO       IN NUMBER,
         pRefcursor           OUT SYS_REFCURSOR
     );
-    
+
     --01.02.20
     PROCEDURE USP_SEL_ESPECIALISTA_MEDMIT(
         pID_MEDMIT  IN NUMBER,
         pRefcursor  OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_USUARIO_ADMIN(
         pRefcursor  OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_USUARIO_EVA(
         pRefcursor  OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_USUARIO_INICIATIVA(
         pID_USUARIO IN NUMBER,
         pRefcursor  OUT SYS_REFCURSOR
     );
 
 END PKG_MRV_ADMIN_SISTEMA;
+
 
 /
 --------------------------------------------------------
@@ -161,6 +162,7 @@ END PKG_MRV_ADMIN_SISTEMA;
 
 END PKG_MRV_CALCULO;
 
+
 /
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_DETALLE_INDICADORES
@@ -173,7 +175,7 @@ END PKG_MRV_CALCULO;
         pID_INDICADOR   IN NUMBER,
         pRefcursor      OUT SYS_REFCURSOR
     );
-    
+
 
   PROCEDURE USP_SEL_LISTA_ENFOQUE(
         pID_MEDMIT  IN NUMBER,
@@ -184,13 +186,13 @@ END PKG_MRV_CALCULO;
         pID_ENFOQUE IN NUMBER,
         pRefcursor  OUT SYS_REFCURSOR
     );
-    
+
   PROCEDURE USP_SEL_INICIATIVA_SUSTENTO(
         pID_INICIATIVA                  IN NUMBER,
         pID_INICIATIVA_SUSTENTATORIO    IN NUMBER:=0,
         pRefcursor                      OUT SYS_REFCURSOR
     );
-    
+
 
   PROCEDURE USP_SEL_VARIANTE_ATRB(
         pID IN NUMBER,
@@ -214,7 +216,7 @@ END PKG_MRV_CALCULO;
     pID_TIPO_FUENTE   IN NUMBER,
     pRefcursor OUT  SYS_REFCURSOR
   );
-    
+
   PROCEDURE USP_PRC_CALCULAR_INDICADOR2(  
     pANNO                   IN NUMBER,
     pID_TIPO_VEHICULO       IN NUMBER,
@@ -224,11 +226,10 @@ END PKG_MRV_CALCULO;
     pID_TIPO_FUENTE         IN NUMBER,
     pRefcursor              OUT SYS_REFCURSOR
   );
-  
 
-      
+
     PROCEDURE USP_PRC_INDICADOR(
-    
+
     pID_INDICADOR        IN NUMBER,
     pID_INICIATIVA       IN NUMBER,
     pANNO                IN NUMBER,
@@ -241,19 +242,21 @@ END PKG_MRV_CALCULO;
     pTOTAL_GEI_INIMIT    IN NUMBER,
     pTOTAL_GEI_REDUCIDO  IN NUMBER,
     pID_TIPO_FUENTE      IN NUMBER,
-    pADJUNTO             IN VARCHAR2
+    pADJUNTO             IN VARCHAR2,
+    pADJUNTO_BASE        IN VARCHAR2
     );
 
 
     PROCEDURE USP_PRC_INICIATIVA_SUSTENTO(
-    
+
     pID_INICIATIVA_SUSTENTATORIO    NUMBER,
     pID_INICIATIVA                  NUMBER,
     pADJUNTO                        VARCHAR2,
+    pADJUNTO_BASE                   VARCHAR2,
     pESTADO                         VARCHAR2
-  
+
     );
-    
+
 
   PROCEDURE USP_UPD_ESTADO_INDICADOR(
     pID_INDICADOR IN NUMBER
@@ -321,19 +324,19 @@ END PKG_MRV_CALCULO;
         pID_INICIATIVA IN   NUMBER,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     --31-01
     PROCEDURE USP_UPD_ELIMINAR_DETALLE(
         pID_INICIATIVA IN NUMBER,
         pID_INDICADOR_DELETE IN VARCHAR2        
     );
-    
+
     PROCEDURE USP_PRC_AVANCE_DETALLE(
         pID_INICIATIVA IN NUMBER,
         pID_USUARIO IN NUMBER,
         pID_ESTADO IN NUMBER
     );
-    
+
     PROCEDURE USP_UPD_OBSERVACION_ADMIN_DET(
         pID_INICIATIVA IN NUMBER,
         pID_USUARIO IN NUMBER,
@@ -341,7 +344,7 @@ END PKG_MRV_CALCULO;
         pID_ESTADO_NOTIFICACION IN NUMBER,
         pID_MEDMIT  IN NUMBER
     );
-    
+
     PROCEDURE USP_UPD_OBSERVACION_EVA_DET(
         pID_INICIATIVA IN NUMBER,
         pID_USUARIO IN NUMBER,
@@ -349,7 +352,7 @@ END PKG_MRV_CALCULO;
         pID_ESTADO_NOTIFICACION IN NUMBER,
         pID_ADMINISTRADOR  IN NUMBER
     );
-    
+
     PROCEDURE USP_UPD_OBSERVACION_VRF_DET(
         pID_INICIATIVA IN NUMBER,
         pID_USUARIO IN NUMBER,
@@ -359,6 +362,7 @@ END PKG_MRV_CALCULO;
     );
 
 END PKG_MRV_DETALLE_INDICADORES;
+
 
 /
 --------------------------------------------------------
@@ -549,7 +553,7 @@ END PKG_MRV_DETALLE_INDICADORES;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_INICIATIVAS_REVISADO(
         pRegistros  INTEGER,
       	pPagina     INTEGER,
@@ -557,7 +561,7 @@ END PKG_MRV_DETALLE_INDICADORES;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_INICIATIVAS_EVALUADO(
         pRegistros  INTEGER,
       	pPagina     INTEGER,
@@ -565,7 +569,7 @@ END PKG_MRV_DETALLE_INDICADORES;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_INICIATIVAS_VERIFICADO(
         pRegistros  INTEGER,
       	pPagina     INTEGER,
@@ -589,57 +593,58 @@ END PKG_MRV_DETALLE_INDICADORES;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_INI_USU(
       	pID_USUARIO  INTEGER,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_INI_ESP(
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_INI_ADM(
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_INI_EVA(
         pRefcursor OUT SYS_REFCURSOR
     );
     PROCEDURE USP_SEL_EXCEL_INI_VRF(
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_INI_OBSERVADO(
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_INI_APROBADO(
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_INI_REVISADO(
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_INI_EVALUADO(
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_INI_VERIFICADO(
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_INI_TODO(
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_LISTA_MEDMIT_ASOCIADO(
         pID_USUARIO IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
     );
 
 END PKG_MRV_INICIATIVA_MITIGACION;
+
 
 /
 --------------------------------------------------------
@@ -863,6 +868,8 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
 
 END PKG_MRV_MANTENIMIENTO;
 
+
+
 /
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_NOTIFICACION
@@ -880,6 +887,7 @@ END PKG_MRV_MANTENIMIENTO;
         pIdEstado                   INTEGER,
         pIdRol                      INTEGER,
         pIdUsuario                  INTEGER,
+        pIdUsuarioRemitente         INTEGER,
         pDescripcion                VARCHAR2,
         pIdEstadoNotificacion       NUMBER);
 
@@ -912,6 +920,7 @@ END PKG_MRV_MANTENIMIENTO;
 
 end PKG_MRV_NOTIFICACION;
 
+
 /
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_REPORTES
@@ -928,7 +937,7 @@ end PKG_MRV_NOTIFICACION;
         pIdMedMit   integer,
         pCursor out SYS_REFCURSOR
   );
-  
+
   PROCEDURE USP_SEL_SEGUIMIENTO_INICIATIVA(
     pID_INICIATIVA IN NUMBER,
     pRefCursor out SYS_REFCURSOR
@@ -1034,6 +1043,8 @@ end PKG_MRV_NOTIFICACION;
 
 END PKG_MRV_REPORTES;
 
+
+
 /
 --------------------------------------------------------
 --  DDL for Package Body PKG_MRV_ADMIN_SISTEMA
@@ -1105,7 +1116,7 @@ END PKG_MRV_REPORTES;
     	vIdInstitucion NUMBER;
     BEGIN       
             SELECT SQ_GENM_INSTITUCION.NEXTVAL INTO vIdInstitucion FROM DUAL;
-            
+
             INSERT INTO T_GENM_INSTITUCION (ID_INSTITUCION, ID_SECTOR_INSTITUCION, RUC_INSTITUCION, NOMBRE_INSTITUCION, DIRECCION_INSTITUCION)
             VALUES (vIdInstitucion, pID_SECTOR_INSTITUCION, pRUC_INSTITUCION, pNOMBRE_INSTITUCION, pDIRECCION_INSTITUCION);  
 
@@ -1141,11 +1152,11 @@ END PKG_MRV_REPORTES;
 
         INSERT INTO T_MAE_USUARIO_ROL (ID_USUARIO, ID_ROL, FLG_ESTADO, DES_COMENTARIO) 
         VALUES (vIdUsuario, pID_ROL, 1, '');
-        
+
         OPEN pRefcursor FOR
         SELECT vIdUsuario CODIGO FROM DUAL;
 
-  END USP_INS_USUARIO; 
+  END USP_INS_USUARIO;
 
     PROCEDURE USP_SEL_INSTITUCION(
         pRefcursor OUT SYS_REFCURSOR
@@ -1245,7 +1256,7 @@ END PKG_MRV_REPORTES;
         LEFT JOIN T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
         WHERE   ID_USUARIO = pID_USUARIO;
     END USP_UPD_OBTENER_USUARIO_ID;
-    
+
     --01.02.20
     PROCEDURE USP_SEL_ESPECIALISTA_MEDMIT(
         pID_MEDMIT  IN NUMBER,
@@ -1265,7 +1276,7 @@ END PKG_MRV_REPORTES;
         LEFT JOIN T_MAE_ROL R ON UR.ID_ROL = R.ID_ROL
         WHERE U.ID_MEDMIT = pID_MEDMIT AND R.ID_ROL = 2 AND U.FLG_ESTADO = 1;
     END USP_SEL_ESPECIALISTA_MEDMIT;
-    
+
     PROCEDURE USP_SEL_USUARIO_ADMIN(
         pRefcursor  OUT SYS_REFCURSOR
     )AS
@@ -1285,7 +1296,7 @@ END PKG_MRV_REPORTES;
         ORDER BY USU.ID_USUARIO ASC)
         WHERE ROWNUM = 1;
     END USP_SEL_USUARIO_ADMIN;
-    
+
     PROCEDURE USP_SEL_USUARIO_EVA(
         pRefcursor  OUT SYS_REFCURSOR
     )AS
@@ -1305,7 +1316,7 @@ END PKG_MRV_REPORTES;
         ORDER BY USU.ID_USUARIO ASC)
         WHERE ROWNUM = 1;
     END USP_SEL_USUARIO_EVA;
-    
+
     PROCEDURE USP_SEL_USUARIO_INICIATIVA(
         pID_USUARIO IN NUMBER,
         pRefcursor  OUT SYS_REFCURSOR
@@ -1325,6 +1336,7 @@ END PKG_MRV_REPORTES;
     END USP_SEL_USUARIO_INICIATIVA;
 
 END PKG_MRV_ADMIN_SISTEMA;
+
 
 /
 --------------------------------------------------------
@@ -1490,6 +1502,7 @@ END PKG_MRV_ADMIN_SISTEMA;
 
 END PKG_MRV_CALCULO;
 
+
 /
 --------------------------------------------------------
 --  DDL for Package Body PKG_MRV_DETALLE_INDICADORES
@@ -1550,7 +1563,7 @@ END PKG_MRV_CALCULO;
         SELECT  IND.ID_INDICADOR, IND.ANNO_BASE, IND.ID_TIPO_VEHICULO_BASE, IND.ID_TIPO_COMBUSTIBLE_BASE, IND.KRV_BASE, IND.CANT_BASE, IND.TOTAL_GEI_BASE, 
                 IND.ANNO_INIMIT, IND.ID_TIPO_VEHICULO_INIMIT, IND.ID_TIPO_FUENTE_INIMIT, IND.KRV_INIMIT, IND.CANT_INIMIT, IND.TOTAL_GEI_INIMIT, IND.TOTAL_GEI_REDUCIDO,
                 IND.F_RENDIMIENTO, --ECG
-                IND.ADJUNTO,
+                IND.ADJUNTO, IND.ADJUNTO_BASE,
                 TV.DESCRIPCION TIPO_VEHICULO,
                 TC.DESCRIPCION TIPO_COMBUSTIBLE
         FROM    T_GEND_INDICADOR IND
@@ -1586,7 +1599,7 @@ END PKG_MRV_CALCULO;
 
         IF (pID_INDICADOR = 0) THEN
             SELECT SQ_GEND_INDICADOR.NEXTVAL INTO vIdIndicador FROM DUAL;
-            
+
             INSERT INTO T_GEND_INDICADOR (ID_INDICADOR, ID_INICIATIVA, ANNO_BASE, ID_TIPO_VEHICULO_BASE, ID_TIPO_COMBUSTIBLE_BASE, KRV_BASE, CANT_BASE, TOTAL_GEI_BASE, ANNO_INIMIT, ID_TIPO_VEHICULO_INIMIT, ID_TIPO_FUENTE_INIMIT, KRV_INIMIT, CANT_INIMIT, F_RENDIMIENTO,TOTAL_GEI_INIMIT, TOTAL_GEI_REDUCIDO, FLG_ESTADO)
             VALUES (vIdIndicador, pID_INICIATIVA, pANNO, pID_TIPO_VEHICULO, pID_TIPO_COMBUSTIBLE, pKRV, pCANTIDAD, vTotalB,pANNO, pID_TIPO_VEHICULO, pID_TIPO_FUENTE, pKRV, pCANTIDAD, vRendimiento,vTotalI, vTotalR,1);
             --SELECT NVL(MAX(ID_INDICADOR), 0) INTO vIdIndicador FROM T_GEND_INDICADOR; 
@@ -1619,8 +1632,8 @@ END PKG_MRV_CALCULO;
         FROM T_GEND_INDICADOR
         WHERE ID_INDICADOR = vIdIndicador;
   END USP_PRC_CALCULAR_INDICADOR;
-  
-  
+
+
   PROCEDURE USP_PRC_CALCULAR_INDICADOR2(  pANNO                IN NUMBER,
                                           pID_TIPO_VEHICULO    IN NUMBER,
                                           pID_TIPO_COMBUSTIBLE IN NUMBER,
@@ -1633,7 +1646,7 @@ END PKG_MRV_CALCULO;
         vTotalI      NUMBER;
         vTotalR      NUMBER;
     BEGIN
-    
+
         SELECT PKG_MRV_CALCULO.FN_Base_Electricos(pKRV,
                                                   pCANTIDAD,
                                                   pID_TIPO_VEHICULO,
@@ -1652,7 +1665,7 @@ END PKG_MRV_CALCULO;
           INTO vRendimiento
           FROM DUAL;
         vTotalR := vTotalB - vTotalI;
-    
+
         OPEN pRefcursor FOR
             SELECT TRUNC(vTotalI, 4) AS TOTAL_GEI_INIMIT,
                    TRUNC(vTotalR, 4) AS TOTAL_GEI_REDUCIDO,
@@ -1660,8 +1673,8 @@ END PKG_MRV_CALCULO;
                    TRUNC(vRendimiento, 4) AS FACTOR_RENDIMIENTO
               FROM DUAL;
     END USP_PRC_CALCULAR_INDICADOR2;
-    
-    
+
+
     PROCEDURE USP_PRC_INDICADOR(pID_INDICADOR        IN NUMBER,
                                 pID_INICIATIVA       IN NUMBER,
                                 pANNO                IN NUMBER,
@@ -1674,13 +1687,14 @@ END PKG_MRV_CALCULO;
                                 pTOTAL_GEI_INIMIT    IN NUMBER,
                                 pTOTAL_GEI_REDUCIDO  IN NUMBER,
                                 pID_TIPO_FUENTE      IN NUMBER,
-                                pADJUNTO             IN VARCHAR2) IS
+                                pADJUNTO             IN VARCHAR2,
+                                pADJUNTO_BASE        IN VARCHAR2) IS
         vIdIndicador NUMBER;
     BEGIN
-    
+
         IF (pID_INDICADOR = 0) THEN
             SELECT SQ_GEND_INDICADOR.NEXTVAL INTO vIdIndicador FROM DUAL;
-        
+
             INSERT INTO T_GEND_INDICADOR
                 (ID_INDICADOR,
                  ID_INICIATIVA,
@@ -1699,7 +1713,8 @@ END PKG_MRV_CALCULO;
                  TOTAL_GEI_INIMIT,
                  TOTAL_GEI_REDUCIDO,
                  FLG_ESTADO, 
-                 ADJUNTO)
+                 ADJUNTO,
+                 ADJUNTO_BASE)
             VALUES
                 (vIdIndicador,
                  pID_INICIATIVA,
@@ -1718,7 +1733,8 @@ END PKG_MRV_CALCULO;
                  pTOTAL_GEI_INIMIT,
                  pTOTAL_GEI_REDUCIDO,
                  1,
-                 pADJUNTO);
+                 pADJUNTO,
+                 pADJUNTO_BASE);
             SELECT NVL(MAX(ID_INDICADOR), 0)
               INTO vIdIndicador
               FROM T_GEND_INDICADOR;
@@ -1739,9 +1755,10 @@ END PKG_MRV_CALCULO;
                    F_RENDIMIENTO            = pF_REN,
                    TOTAL_GEI_INIMIT         = pTOTAL_GEI_INIMIT,
                    TOTAL_GEI_REDUCIDO       = pTOTAL_GEI_REDUCIDO,
-                   ADJUNTO                  = pADJUNTO
+                   ADJUNTO                  = pADJUNTO,
+                   ADJUNTO_BASE             = pADJUNTO_BASE
              WHERE ID_INDICADOR = pID_INDICADOR;
-            
+
         END IF;
     END USP_PRC_INDICADOR;
 
@@ -1749,7 +1766,9 @@ END PKG_MRV_CALCULO;
         pID_INICIATIVA_SUSTENTATORIO NUMBER,
         pID_INICIATIVA  NUMBER,
         pADJUNTO        VARCHAR2,
+        pADJUNTO_BASE    VARCHAR2,
         pESTADO         VARCHAR2
+
     )
     AS
         vIdIniciativaSustento NUMBER;
@@ -1759,9 +1778,10 @@ END PKG_MRV_CALCULO;
             INSERT INTO T_GEND_INICIATIVA_SUSTENTA(ID_INICIATIVA_SUSTENTATORIO,
                                                    ID_INICIATIVA,
                                                    ADJUNTO,
+                                                   ADJUNTO_BASE,
                                                    FLAG_ESTADO)
-            VALUES(vIdIniciativaSustento, pID_INICIATIVA, pADJUNTO, '1');
-            
+            VALUES(vIdIniciativaSustento, pID_INICIATIVA, pADJUNTO, pADJUNTO_BASE, '1');
+
         ELSE
             UPDATE T_GEND_INICIATIVA_SUSTENTA
             SET ADJUNTO = pADJUNTO,
@@ -1770,7 +1790,7 @@ END PKG_MRV_CALCULO;
                     AND ID_INICIATIVA = pID_INICIATIVA;
         END IF;
     END USP_PRC_INICIATIVA_SUSTENTO; 
-    
+
     PROCEDURE USP_GET_INDICADOR(
         pID_INICIATIVA  NUMBER,
         pID_INDICADOR   NUMBER,
@@ -1861,29 +1881,30 @@ END PKG_MRV_CALCULO;
         U.ID_INSTITUCION = X.ID_INSTITUCION
         WHERE   I.ID_INICIATIVA = pID_INICIATIVA;
 
-       
-       
+
+
         UPDATE  T_GENM_INICIATIVA
         SET     ID_ETAPA = 3,
                 ID_ESTADO = 1
         WHERE   ID_INICIATIVA = pID_INICIATIVA;
-        
+
         SELECT SQ_GEND_DETALLE_INICIATIVA.NEXTVAL INTO vIdDetalle FROM DUAL;
-        
+
         INSERT INTO T_GEND_DETALLE_INICIATIVA (id_detalle_iniciativa, ID_INICIATIVA, ID_REMITENTE, DESC_INICIATIVA, ID_ETAPA, ID_ESTADO, FECHA_DERIVACION)
         VALUES (vIdDetalle, pID_INICIATIVA, pID_USUARIO, 'REGISTRAR DETALLE INDICADOR',3,1, SYSDATE);
-        
+
         --REGISTRAMOS LA NOTIFICACION DE DETALLE DE INDICADORES
         SELECT COUNT(1) INTO vIdEspecialista FROM  T_MAE_USUARIO_MEDMIT U WHERE U.ID_MEDMIT = vID_MEDMIT;
         IF vIdEspecialista > 0 THEN
             SELECT MAX(ID_USUARIO) INTO vIdEspecialista FROM  T_MAE_USUARIO_MEDMIT U WHERE U.ID_MEDMIT = vID_MEDMIT;
         END IF;
-                
+
         PKG_MRV_NOTIFICACION.USP_INS_NOTIFICACION(pIdIniciativa         => pID_INICIATIVA,
                                                   pIdEtapa              => 3,
                                                   pIdEstado             => 1,
                                                   pIdRol                => 2,
                                                   pIdUsuario            => vIdEspecialista,
+                                                  pIdUsuarioRemitente   => pID_USUARIO,
                                                   pDescripcion          => 'El usuario de la entidad ' || TRIM(vEntidad) || 'ha registrado el/los detalle(s) de la Iniciativa (' || vIniciativa || '), en espera de su revisiÛn',
                                                   pIdEstadoNotificacion =>  0);
 
@@ -1900,28 +1921,29 @@ END PKG_MRV_CALCULO;
         SET     ID_ETAPA = 3,
                 ID_ESTADO = 0
         WHERE   ID_INICIATIVA = pID_INICIATIVA; 
-        
+
         SELECT SQ_GEND_DETALLE_INICIATIVA.NEXTVAL INTO vIdDetalle FROM DUAL;
-        
+
         INSERT INTO T_GEND_DETALLE_INICIATIVA (id_detalle_iniciativa, ID_INICIATIVA, ID_REMITENTE, ID_ETAPA, ID_ESTADO, FECHA_DERIVACION)
         VALUES (vIdDetalle, pID_INICIATIVA, pID_USUARIO,3,0, SYSDATE);
     END USP_UPD_AVANCE_DETALLE;
 
-  
-    
+
+
     PROCEDURE USP_UPD_APROBAR_DETALLE(
         pID_INICIATIVA IN NUMBER,
         pID_USUARIO    IN NUMBER) 
     AS
         vIdUsuario NUMBER;
         vIdDetalle NUMBER;
+        vEntidad   VARCHAR2(100);
     BEGIN
         UPDATE T_GENM_INICIATIVA
            SET ID_ESTADO = 3, ID_ETAPA = 4
          WHERE ID_INICIATIVA = pID_INICIATIVA;
-        
+
         SELECT SQ_GEND_DETALLE_INICIATIVA.NEXTVAL INTO vIdDetalle FROM DUAL;
-        
+
         INSERT INTO T_GEND_DETALLE_INICIATIVA
             (id_detalle_iniciativa, ID_INICIATIVA,
              ID_REMITENTE,
@@ -1930,7 +1952,7 @@ END PKG_MRV_CALCULO;
              FECHA_DERIVACION)
         VALUES
             (vIdDetalle, pID_INICIATIVA, pID_USUARIO, 4, 3, SYSDATE);
-        
+
         --SE DEBE NOTIFICAR AL USUARIO  --28.01.2020
         SELECT ID_USUARIO INTO vIdUsuario FROM T_GENM_INICIATIVA WHERE ID_INICIATIVA = pID_INICIATIVA;
         PKG_MRV_NOTIFICACION.USP_INS_NOTIFICACION(pIdIniciativa         => pID_INICIATIVA,
@@ -1938,14 +1960,36 @@ END PKG_MRV_CALCULO;
                                                   pIdEstado             => 3,
                                                   pIdRol                => 1,
                                                   pIdUsuario            => vIdUsuario,
+                                                  pIdUsuarioRemitente   => pID_USUARIO,
                                                   pDescripcion          => 'Los detalles de indicadores de su iniciativa fueron revisadas y aprobadas',
                                                   pIdEstadoNotificacion => 3);
+
+        SELECT INS.NOMBRE_INSTITUCION INTO vEntidad
+        FROM T_GENM_USUARIO USU
+        INNER JOIN T_GENM_INSTITUCION INS ON USU.ID_INSTITUCION = INS.ID_INSTITUCION
+        WHERE USU.ID_USUARIO = vIdUsuario;
+
+        --SE DEBE NOTIFICAR AL ADMINISTRADOR MRV
+        SELECT COUNT(1) INTO vIdUsuario FROM T_MAE_USUARIO_ROL WHERE ID_ROL = 3;
+        IF vIdUsuario > 0 THEN      
+            SELECT MAX(ID_USUARIO) INTO vIdUsuario FROM T_MAE_USUARIO_ROL WHERE ID_ROL = 3;
+            PKG_MRV_NOTIFICACION.USP_INS_NOTIFICACION(pIdIniciativa         => pID_INICIATIVA,
+                                                  pIdEtapa              => 5,
+                                                  pIdEstado             => 1,
+                                                  pIdRol                => 3,
+                                                  pIdUsuario            => vIdUsuario, 
+                                                  pIdUsuarioRemitente   => pID_USUARIO,
+                                                  pDescripcion          => 'La iniciativa y el detalle de indicadores de la entidad ' || TRIM(vEntidad) || ' fueron revisadas y aprobadas, y estan a la espera de su revisiÛn',
+                                                  pIdEstadoNotificacion => 0);
+        END IF;
+
+
     END USP_UPD_APROBAR_DETALLE;
 
-    
-    
-    
-    
+
+
+
+--PKG_MRV_DETALLE_INDICADORES.USP_UPD_OBSERVACION_DETALLE
 
     PROCEDURE USP_UPD_OBSERVACION_DETALLE(
         pID_INICIATIVA IN NUMBER,
@@ -1954,24 +1998,31 @@ END PKG_MRV_CALCULO;
         pID_ESTADO_NOTIFICACION NUMBER
     )AS
         vIdDetalle NUMBER;
-        vIdUsuario  NUMBER;
+        vIdEspecialista  NUMBER;
+        vIdMedmit NUMBER;
     BEGIN
         UPDATE  T_GENM_INICIATIVA 
-        SET     ID_ESTADO = 2,
-                ID_ETAPA = 3
+        SET     ID_ESTADO = 2
+
         WHERE   ID_INICIATIVA = pID_INICIATIVA;
-        
+
+        SELECT I.ID_MEDMIT INTO vIdMedMit FROM T_GENM_INICIATIVA I WHERE I.ID_INICIATIVA = pID_INICIATIVA;
         SELECT SQ_GEND_DETALLE_INICIATIVA.NEXTVAL INTO vIdDetalle FROM DUAL;
-        
+
         INSERT INTO T_GEND_DETALLE_INICIATIVA (id_detalle_iniciativa, ID_INICIATIVA, ID_REMITENTE, ID_ETAPA, ID_ESTADO, FECHA_DERIVACION)
         VALUES (vIdDetalle, pID_INICIATIVA, pID_USUARIO,3,2, SYSDATE);
 
-        SELECT ID_USUARIO INTO vIdUsuario FROM t_genm_iniciativa WHERE ID_INICIATIVA = pID_INICIATIVA;
+        ---BUSCAMOS AL ESPECIALISTA MRV
+        SELECT COUNT(1) INTO vIdEspecialista FROM  T_MAE_USUARIO_MEDMIT U WHERE U.ID_MEDMIT = vIdMedMit;
+        IF vIdEspecialista > 0 THEN
+            SELECT MAX(ID_USUARIO) INTO vIdEspecialista FROM  T_MAE_USUARIO_MEDMIT U WHERE U.ID_MEDMIT = vIdMedMit;
+        END IF;
         PKG_MRV_NOTIFICACION.USP_INS_NOTIFICACION(pIdIniciativa         =>  pID_INICIATIVA,
                                                   pIdEtapa              =>  3,
                                                   pIdEstado             =>  2,
                                                   pIdRol                =>  1,
-                                                  pIdUsuario            =>  vIdUsuario,
+                                                  pIdUsuario            =>  vIdEspecialista,
+                                                  pIdUsuarioRemitente   =>  pID_USUARIO,
                                                   pDescripcion          =>  pDESCRIPCION,
                                                   pIdEstadoNotificacion =>  pID_ESTADO_NOTIFICACION);
 
@@ -1984,12 +2035,16 @@ END PKG_MRV_CALCULO;
     )IS
         vEntidad VARCHAR2(50);
         vIdDetalle NUMBER;
+        vIdEspecialista NUMBER;
+        vIdMedMit NUMBER;
+
     BEGIN       
 
         UPDATE  T_GENM_INICIATIVA
         SET     ID_ESTADO = 5
         WHERE ID_INICIATIVA = pID_INICIATIVA;
 
+        SELECT I.ID_MEDMIT INTO vIdMedMit FROM T_GENM_INICIATIVA I WHERE I.ID_INICIATIVA = pID_INICIATIVA;
         SELECT SQ_GEND_DETALLE_INICIATIVA.NEXTVAL INTO vIdDetalle FROM DUAL;
         INSERT INTO T_GEND_DETALLE_INICIATIVA (id_detalle_iniciativa, ID_INICIATIVA, ID_REMITENTE, ID_ETAPA, ID_ESTADO, FECHA_DERIVACION)
         VALUES (vIdDetalle, pID_INICIATIVA, pID_USUARIO,3,5, SYSDATE);
@@ -1999,11 +2054,18 @@ END PKG_MRV_CALCULO;
             FROM T_GENM_USUARIO USU
             INNER JOIN T_GENM_INSTITUCION INS ON USU.ID_INSTITUCION = INS.ID_INSTITUCION
             WHERE USU.ID_USUARIO = pID_USUARIO;
+
+            SELECT COUNT(1) INTO vIdEspecialista FROM  T_MAE_USUARIO_MEDMIT U WHERE U.ID_MEDMIT = vIdMedMit;
+            IF vIdEspecialista > 0 THEN
+                SELECT MAX(ID_USUARIO) INTO vIdEspecialista FROM  T_MAE_USUARIO_MEDMIT U WHERE U.ID_MEDMIT = vIdMedMit;
+            END IF;
+
             PKG_MRV_NOTIFICACION.USP_INS_NOTIFICACION(pIdIniciativa         =>  pID_INICIATIVA,
                                                       pIdEtapa              =>  3,
                                                       pIdEstado             =>  1,
                                                       pIdRol                =>  2,
                                                       pIdUsuario            =>  pID_USUARIO,
+                                                      pIdUsuarioRemitente   =>  vIdEspecialista, 
                                                       pDescripcion          =>  'La entidad ' || TRIM(vEntidad) || ' ha corregido el detalle de indicadores correctamente y requiere su revisiÛn',
                                                       pIdEstadoNotificacion =>  0); 
 
@@ -2023,23 +2085,24 @@ END PKG_MRV_CALCULO;
         SET     ID_ETAPA = pID_ETAPA, --<---
                 ID_ESTADO = 3
         WHERE   ID_INICIATIVA = pID_INICIATIVA;
-        
+
         SELECT SQ_GEND_DETALLE_INICIATIVA.NEXTVAL INTO vIdDetalle FROM DUAL;
-        
+
         INSERT INTO T_GEND_DETALLE_INICIATIVA (id_detalle_iniciativa, ID_INICIATIVA, ID_REMITENTE, ID_ETAPA, ID_ESTADO, FECHA_DERIVACION)
         VALUES (vIdDetalle, pID_INICIATIVA, pID_USUARIO,pID_ETAPA,3, SYSDATE);
-        
+
         --REGISTRAMOS LA NOTIFICACION DE DETALLE DE INDICADORES
         SELECT COUNT(1) INTO vIdEspecialista FROM  T_MAE_USUARIO_MEDMIT U WHERE U.ID_MEDMIT = pID_MEDMIT;
         IF vIdEspecialista > 0 THEN
             SELECT MAX(ID_USUARIO) INTO vIdEspecialista FROM  T_MAE_USUARIO_MEDMIT U WHERE U.ID_MEDMIT = pID_MEDMIT;
         END IF;
-        
+
         PKG_MRV_NOTIFICACION.USP_INS_NOTIFICACION(pIdIniciativa         => pID_INICIATIVA,
                                                   pIdEtapa              => pID_ETAPA, --<----
                                                   pIdEstado             => 3,
                                                   pIdRol                => 2,
                                                   pIdUsuario            => vIdEspecialista,
+                                                  pIdUsuarioRemitente   => pID_USUARIO,
                                                   pDescripcion          => 'Los detalles de indicadores y la iniciativa fueron revisados y aprobadas por el Administrador MINEM',
                                                   pIdEstadoNotificacion => 3);
     END USP_UPD_APROBAR_INI_DETALLE;
@@ -2055,17 +2118,18 @@ END PKG_MRV_CALCULO;
         SET     ID_ETAPA = 6,
                 ID_ESTADO = 3
         WHERE   ID_INICIATIVA = pID_INICIATIVA;
-        
+
         SELECT SQ_GEND_DETALLE_INICIATIVA.NEXTVAL INTO vIdDetalle FROM DUAL;
-        
+
         INSERT INTO T_GEND_DETALLE_INICIATIVA (id_detalle_iniciativa, ID_INICIATIVA, ID_REMITENTE, ID_ETAPA, ID_ESTADO, FECHA_DERIVACION)
         VALUES (vIdDetalle, pID_INICIATIVA, pID_USUARIO,6,3, SYSDATE);
-        
+
         PKG_MRV_NOTIFICACION.USP_INS_NOTIFICACION(pIdIniciativa         => pID_INICIATIVA,
                                                   pIdEtapa              => 5, --<----
                                                   pIdEstado             => 3,
                                                   pIdRol                => 3,
                                                   pIdUsuario            => pID_ADMINISTRADOR,
+                                                  pIdUsuarioRemitente   => pID_USUARIO,
                                                   pDescripcion          => 'Los detalles de indicadores y la iniciativa fueron revisados y aprobadas por el Evaluador MINAM',
                                                   pIdEstadoNotificacion => 3);
     END USP_UPD_EVALUAR_INI_DETALLE;
@@ -2082,7 +2146,7 @@ END PKG_MRV_CALCULO;
         SET     ID_ESTADO = 3,
                 ID_ETAPA = 7
         WHERE   ID_INICIATIVA = pID_INICIATIVA;
-        
+
         SELECT UR.ID_ROL INTO vRol FROM T_GENM_USUARIO U 
         LEFT JOIN T_MAE_USUARIO_ROL UR ON U.ID_USUARIO = UR.ID_USUARIO
         WHERE U.ID_USUARIO = pID_USUARIO_DESTINO;
@@ -2091,12 +2155,13 @@ END PKG_MRV_CALCULO;
 
         INSERT INTO T_GEND_DETALLE_INICIATIVA (id_detalle_iniciativa, ID_INICIATIVA, ID_REMITENTE, ID_ETAPA, ID_ESTADO, FECHA_DERIVACION)
         VALUES (vIdDetalle, pID_INICIATIVA, pID_USUARIO,7,3, SYSDATE);
-        
+
         PKG_MRV_NOTIFICACION.USP_INS_NOTIFICACION(pIdIniciativa         => pID_INICIATIVA,
                                                   pIdEtapa              => 7,
                                                   pIdEstado             => 3,
                                                   pIdRol                => vRol,
                                                   pIdUsuario            => pID_USUARIO_DESTINO,
+                                                  pIdUsuarioRemitente   => pID_USUARIO,
                                                   pDescripcion          => 'Los detalles de indicadores y la iniciativa fueron revisados y aprobadas por el Verificador Externo',
                                                   pIdEstadoNotificacion => 3);
     END USP_UPD_VERIFICAR_INI_DETALLE;
@@ -2125,7 +2190,7 @@ END PKG_MRV_CALCULO;
         WHERE DI.ID_INICIATIVA = pID_INICIATIVA AND FLG_ESTADO = 1
         ORDER BY ID_INDICADOR ASC; 
     END USP_SEL_LISTAR_DET_INDIC_REV;
-    
+
     --31-01
     PROCEDURE USP_UPD_ELIMINAR_DETALLE(
         pID_INICIATIVA IN NUMBER,
@@ -2136,7 +2201,7 @@ END PKG_MRV_CALCULO;
         vSql := 'UPDATE T_GEND_INDICADOR SET FLG_ESTADO = 0 WHERE ID_INICIATIVA ='||pID_INICIATIVA||' AND ID_INDICADOR IN ('||pID_INDICADOR_DELETE||')';
         EXECUTE IMMEDIATE vSql;
     END USP_UPD_ELIMINAR_DETALLE;
-    
+
     PROCEDURE USP_PRC_AVANCE_DETALLE(
         pID_INICIATIVA IN NUMBER,
         pID_USUARIO IN NUMBER,
@@ -2150,7 +2215,7 @@ END PKG_MRV_CALCULO;
         SET     ID_ETAPA = 3,
                 ID_ESTADO = pID_ESTADO
         WHERE   ID_INICIATIVA = pID_INICIATIVA;
-        
+
         IF pID_ESTADO = 0 THEN
             vMensajeDetalle := 'GUARDAR AVANCE DETALLE';
         ELSE
@@ -2163,7 +2228,7 @@ END PKG_MRV_CALCULO;
         VALUES (vIdDetalle, pID_INICIATIVA, pID_USUARIO, vMensajeDetalle,3,pID_ESTADO, SYSDATE);
 
     END USP_PRC_AVANCE_DETALLE;
-    
+
     PROCEDURE USP_UPD_OBSERVACION_ADMIN_DET(
         pID_INICIATIVA IN NUMBER,
         pID_USUARIO IN NUMBER,
@@ -2178,23 +2243,24 @@ END PKG_MRV_CALCULO;
         SET     ID_ESTADO = 2,
                 ID_ETAPA = 4
         WHERE   ID_INICIATIVA = pID_INICIATIVA;
-        
+
         SELECT SQ_GEND_DETALLE_INICIATIVA.NEXTVAL INTO vIdDetalle FROM DUAL;
-        
+
         INSERT INTO T_GEND_DETALLE_INICIATIVA (id_detalle_iniciativa, ID_INICIATIVA, ID_REMITENTE, ID_ETAPA, ID_ESTADO, FECHA_DERIVACION)
         VALUES (vIdDetalle, pID_INICIATIVA, pID_USUARIO,4,2, SYSDATE);
-        
+
         --REGISTRAMOS LA NOTIFICACION DE DETALLE DE INDICADORES
         SELECT COUNT(1) INTO vIdEspecialista FROM  T_MAE_USUARIO_MEDMIT U WHERE U.ID_MEDMIT = pID_MEDMIT;
         IF vIdEspecialista > 0 THEN
             SELECT MAX(ID_USUARIO) INTO vIdEspecialista FROM  T_MAE_USUARIO_MEDMIT U WHERE U.ID_MEDMIT = pID_MEDMIT;
         END IF;
-        
+
         PKG_MRV_NOTIFICACION.USP_INS_NOTIFICACION(pIdIniciativa         =>  pID_INICIATIVA,
                                                   pIdEtapa              =>  4,
                                                   pIdEstado             =>  2,
                                                   pIdRol                =>  2,
                                                   pIdUsuario            =>  vIdEspecialista,
+                                                  pIdUsuarioRemitente   =>  pID_USUARIO,
                                                   pDescripcion          =>  pDESCRIPCION,
                                                   pIdEstadoNotificacion =>  pID_ESTADO_NOTIFICACION);
 
@@ -2213,22 +2279,23 @@ END PKG_MRV_CALCULO;
         SET     ID_ESTADO = 2,
                 ID_ETAPA = 5
         WHERE   ID_INICIATIVA = pID_INICIATIVA;
-        
+
         SELECT SQ_GEND_DETALLE_INICIATIVA.NEXTVAL INTO vIdDetalle FROM DUAL;
-        
+
         INSERT INTO T_GEND_DETALLE_INICIATIVA (id_detalle_iniciativa, ID_INICIATIVA, ID_REMITENTE, ID_ETAPA, ID_ESTADO, FECHA_DERIVACION)
         VALUES (vIdDetalle, pID_INICIATIVA, pID_USUARIO,5,2, SYSDATE);
-        
+
         PKG_MRV_NOTIFICACION.USP_INS_NOTIFICACION(pIdIniciativa         =>  pID_INICIATIVA,
                                                   pIdEtapa              =>  5,
                                                   pIdEstado             =>  2,
                                                   pIdRol                =>  3,
                                                   pIdUsuario            =>  pID_ADMINISTRADOR,
+                                                  pIdUsuarioRemitente   =>  pID_USUARIO,                                             
                                                   pDescripcion          =>  pDESCRIPCION,
                                                   pIdEstadoNotificacion =>  pID_ESTADO_NOTIFICACION);
 
     END USP_UPD_OBSERVACION_EVA_DET;
-    
+
     PROCEDURE USP_UPD_OBSERVACION_VRF_DET(
         pID_INICIATIVA IN NUMBER,
         pID_USUARIO IN NUMBER,
@@ -2243,7 +2310,7 @@ END PKG_MRV_CALCULO;
         UPDATE  T_GENM_INICIATIVA 
         SET     ID_ESTADO = 2
         WHERE   ID_INICIATIVA = pID_INICIATIVA;
-        
+
         SELECT ID_ETAPA INTO vEtapa FROM T_GENM_INICIATIVA WHERE ID_INICIATIVA = pID_INICIATIVA;
         SELECT UR.ID_ROL INTO vRol FROM T_GENM_USUARIO U 
         LEFT JOIN T_MAE_USUARIO_ROL UR ON U.ID_USUARIO = UR.ID_USUARIO
@@ -2258,12 +2325,14 @@ END PKG_MRV_CALCULO;
                                                   pIdEstado             =>  2,
                                                   pIdRol                =>  vRol,
                                                   pIdUsuario            =>  pID_USUARIO_DESTINO,
+                                                  pIdUsuarioRemitente   =>  pID_USUARIO,
                                                   pDescripcion          =>  pDESCRIPCION,
                                                   pIdEstadoNotificacion =>  pID_ESTADO_NOTIFICACION);
 
     END USP_UPD_OBSERVACION_VRF_DET;
 
 END PKG_MRV_DETALLE_INDICADORES;
+
 
 /
 --------------------------------------------------------
@@ -2367,32 +2436,34 @@ END PKG_MRV_DETALLE_INDICADORES;
             INSERT INTO T_GEND_DETALLE_INICIATIVA (id_detalle_iniciativa,ID_INICIATIVA, ID_REMITENTE, ID_DESTINO, DESC_INICIATIVA, ID_ETAPA, ID_ESTADO, FECHA_DERIVACION)
             VALUES (vIdDetalleIniciativa, vIdIniciativa, pID_USUARIO, 81, 'REGISTRO INICIATIVA', 1, pID_ESTADO, SYSDATE);
 
-            
+
         IF pID_ESTADO = 1 THEN
                 SELECT INS.NOMBRE_INSTITUCION INTO vEntidad 
                 FROM T_GENM_USUARIO USU
                 INNER JOIN T_GENM_INSTITUCION INS ON USU.ID_INSTITUCION = INS.ID_INSTITUCION
                 WHERE USU.ID_USUARIO = pID_USUARIO;
-                
+
                 --ECG-26.01.2020
                 SELECT COUNT(1) INTO vIdEspecialista FROM  T_MAE_USUARIO_MEDMIT U WHERE U.ID_MEDMIT = pID_MEDMIT;
                 IF vIdEspecialista > 0 THEN
                     SELECT MAX(ID_USUARIO) INTO vIdEspecialista FROM  T_MAE_USUARIO_MEDMIT U WHERE U.ID_MEDMIT = pID_MEDMIT;
                 END IF;
 
-                
+                --ENVIO DE INICIATIVA PARA REVISION
                 PKG_MRV_NOTIFICACION.USP_INS_NOTIFICACION(pIdIniciativa         => vIdIniciativa,
                                                           pIdEtapa              => 1,
                                                           pIdEstado             => 1,
                                                           pIdRol                => 2,
                                                           pIdUsuario            => vIdEspecialista,
+                                                          pIdUsuarioRemitente   => pID_USUARIO, 
                                                           pDescripcion          => 'La iniciativa de la entidad ' || TRIM(vEntidad) || ' ha sido registrado correctamente y requiere su revisiÛn',
                                                           pIdEstadoNotificacion =>  0);
             END IF;
         END IF;
 
         OPEN pRefcursor FOR
-        SELECT MAX(ID_INICIATIVA) ID_INICIATIVA FROM T_GENM_INICIATIVA;
+        SELECT vIdIniciativa ID_INICIATIVA FROM DUAL;
+        --SELECT MAX(ID_INICIATIVA) ID_INICIATIVA FROM T_GENM_INICIATIVA;
     END USP_INS_INICIATIVA_MITIGACION;
 
 
@@ -2538,7 +2609,7 @@ END PKG_MRV_DETALLE_INDICADORES;
                    FECHA_FIN_INICIATIVA   = PFECHA_FIN_INICIATIVA,
                    PRIVACIDAD_INICIATIVA  = pPRIVACIDAD_INICIATIVA
                WHERE ID_INICIATIVA        = pID_INICIATIVA ;
-               
+
                SELECT SQ_GEND_DETALLE_INICIATIVA.NEXTVAL INTO vIdDetalleIniciativa FROM DUAL; 
                INSERT INTO T_GEND_DETALLE_INICIATIVA (id_detalle_iniciativa, ID_INICIATIVA, ID_REMITENTE, DESC_INICIATIVA, ID_ETAPA, ID_ESTADO, FECHA_DERIVACION)          
                VALUES (vIdDetalleIniciativa, pID_INICIATIVA, pID_USUARIO, 'GUARDAR AVANCE', 1, pID_ESTADO, SYSDATE);
@@ -2555,7 +2626,7 @@ END PKG_MRV_DETALLE_INDICADORES;
                    PRIVACIDAD_INICIATIVA  = pPRIVACIDAD_INICIATIVA,
                    ID_ESTADO              = pID_ESTADO
                WHERE ID_INICIATIVA        = pID_INICIATIVA ;
-               
+
                 IF pID_ESTADO = 1 THEN
                     vEstadoIniciativa := 'REGISTRO DE INICIATIVA';
                     vEstadoMensaje := 'registrado';
@@ -2563,27 +2634,28 @@ END PKG_MRV_DETALLE_INDICADORES;
                     vEstadoIniciativa := 'CORRECCION DE INICIATIVA';
                     vEstadoMensaje := 'subsanado';
                 END IF;
-                
+
                 SELECT SQ_GEND_DETALLE_INICIATIVA.NEXTVAL INTO vIdDetalleIniciativa FROM DUAL;                     
                 INSERT INTO T_GEND_DETALLE_INICIATIVA (id_detalle_iniciativa,ID_INICIATIVA, ID_REMITENTE, ID_DESTINO, DESC_INICIATIVA, ID_ETAPA, ID_ESTADO, FECHA_DERIVACION)
                 VALUES (vIdDetalleIniciativa, pID_INICIATIVA, pID_USUARIO, 81, vEstadoIniciativa, 1, pID_ESTADO, SYSDATE);
-                                
+
                 SELECT INS.NOMBRE_INSTITUCION INTO vEntidad 
                 FROM T_GENM_USUARIO USU
                 INNER JOIN T_GENM_INSTITUCION INS ON USU.ID_INSTITUCION = INS.ID_INSTITUCION
                 WHERE USU.ID_USUARIO = pID_USUARIO;
-                
+
                 --RECUPERAMOS EL ID DEL USUARIO ESPECILISTA MRV
                 SELECT COUNT(1) INTO vIdEspecialista FROM  T_MAE_USUARIO_MEDMIT U WHERE U.ID_MEDMIT = pID_MEDMIT;
                 IF vIdEspecialista > 0 THEN
                     SELECT MAX(ID_USUARIO) INTO vIdEspecialista FROM  T_MAE_USUARIO_MEDMIT U WHERE U.ID_MEDMIT = pID_MEDMIT;
                 END IF;
-                
+
                 PKG_MRV_NOTIFICACION.USP_INS_NOTIFICACION(pIdIniciativa         => pID_INICIATIVA,
                                                           pIdEtapa              => 1,
                                                           pIdEstado             => pID_ESTADO,
                                                           pIdRol                => 2,
                                                           pIdUsuario            => vIdEspecialista,
+                                                          pIdUsuarioRemitente   => pID_USUARIO,
                                                           pDescripcion          => 'La iniciativa de la entidad ' || TRIM(vEntidad) || ' ha sido '|| TRIM(vEstadoMensaje) ||' correctamente y requiere su revisiÛn',
                                                           pIdEstadoNotificacion =>  0);
         END IF;
@@ -2679,19 +2751,20 @@ END PKG_MRV_DETALLE_INDICADORES;
         SET     ID_ESTADO = 3,
                 ID_ETAPA = 2
         WHERE   ID_INICIATIVA = pID_INICIATIVA;
-        
+
         SELECT SQ_GEND_DETALLE_INICIATIVA.NEXTVAL INTO vIdDetalleIniciativa FROM DUAL;
         INSERT INTO T_GEND_DETALLE_INICIATIVA (id_detalle_iniciativa, ID_INICIATIVA, ID_REMITENTE, ID_ETAPA, ID_ESTADO, FECHA_DERIVACION)
         VALUES (vIdDetalleIniciativa, pID_INICIATIVA, pID_USUARIO,2,3, SYSDATE);
-        
+
         --SE DEBE NOTIFICAR AL USUARIO ADMINISTRADO --28.01.2020
         SELECT ID_USUARIO INTO vIdUsuario FROM T_GENM_INICIATIVA WHERE ID_INICIATIVA = pID_INICIATIVA;
-        
+
         PKG_MRV_NOTIFICACION.USP_INS_NOTIFICACION(pIdIniciativa         =>  pID_INICIATIVA,
                                                   pIdEtapa              =>  2,
                                                   pIdEstado             =>  3,
                                                   pIdRol                =>  1,
                                                   pIdUsuario            =>  vIdUsuario,
+                                                  pIdUsuarioRemitente   =>  pID_USUARIO,
                                                   pDescripcion          =>  'Su iniciativa fue revisada y aprobada',
                                                   pIdEstadoNotificacion =>  3);     
     END USP_UPD_APROBAR_INICIATIVA;
@@ -2708,11 +2781,11 @@ END PKG_MRV_DETALLE_INDICADORES;
         UPDATE  T_GENM_INICIATIVA 
         SET     ID_ESTADO = 2
         WHERE   ID_INICIATIVA = pID_INICIATIVA;
-        
+
         SELECT SQ_GEND_DETALLE_INICIATIVA.NEXTVAL INTO vIdDetalleIniciativa FROM DUAL;
         INSERT INTO T_GEND_DETALLE_INICIATIVA (id_detalle_iniciativa, ID_INICIATIVA, ID_REMITENTE, ID_ETAPA, ID_ESTADO, FECHA_DERIVACION)
         VALUES (vIdDetalleIniciativa, pID_INICIATIVA, pID_USUARIO,1,2, SYSDATE);
-        
+
         --RECUPERAMOS EL ID DEL USUARIO ADMINISTRADO
         SELECT ID_USUARIO INTO vIdUsuario FROM t_genm_iniciativa WHERE ID_INICIATIVA = pID_INICIATIVA;
         PKG_MRV_NOTIFICACION.USP_INS_NOTIFICACION(pIdIniciativa         =>  pID_INICIATIVA,
@@ -2720,6 +2793,7 @@ END PKG_MRV_DETALLE_INDICADORES;
                                                   pIdEstado             =>  2,
                                                   pIdRol                =>  1,
                                                   pIdUsuario            =>  vIdUsuario,
+                                                  pIdUsuarioRemitente   =>  pID_USUARIO,
                                                   pDescripcion          =>  pDESCRIPCION,
                                                   pIdEstadoNotificacion =>  pID_ESTADO_NOTIFICACION);
 
@@ -2975,7 +3049,7 @@ END PKG_MRV_DETALLE_INDICADORES;
     END USP_SEL_INICIATIVAS_GENERAL;   
 
     PROCEDURE USP_SEL_INICIATIVAS_PUBLICO(
-        
+
         pRegistros  INTEGER,
       	pPagina     INTEGER,
       	pSortColumn IN VARCHAR2,
@@ -3586,7 +3660,7 @@ END PKG_MRV_DETALLE_INDICADORES;
 
         OPEN pRefcursor FOR vQuery;
     END USP_SEL_INICIATIVAS_VERIFICAR;
-    
+
     PROCEDURE USP_SEL_EXCEL_INI_USU(
       	pID_USUARIO  INTEGER,
         pRefcursor OUT SYS_REFCURSOR
@@ -3608,7 +3682,7 @@ END PKG_MRV_DETALLE_INDICADORES;
                         WHERE USU.ID_USUARIO = pID_USUARIO
                         ORDER BY INI.ID_INICIATIVA DESC;
     END USP_SEL_EXCEL_INI_USU;
-    
+
     PROCEDURE USP_SEL_EXCEL_INI_ESP(
         pRefcursor OUT SYS_REFCURSOR
     )AS
@@ -3629,7 +3703,7 @@ END PKG_MRV_DETALLE_INDICADORES;
                         WHERE INI.ID_ESTADO IN (1,5) AND INI.ID_ETAPA IN (1,3)
                         ORDER BY INI.ID_INICIATIVA DESC;
     END USP_SEL_EXCEL_INI_ESP;
-    
+
     PROCEDURE USP_SEL_EXCEL_INI_ADM(
         pRefcursor OUT SYS_REFCURSOR
     )AS
@@ -3650,7 +3724,7 @@ END PKG_MRV_DETALLE_INDICADORES;
                         WHERE INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 4
                         ORDER BY INI.ID_INICIATIVA DESC;
     END USP_SEL_EXCEL_INI_ADM;
-    
+
     PROCEDURE USP_SEL_EXCEL_INI_EVA(
         pRefcursor OUT SYS_REFCURSOR
     )AS
@@ -3671,7 +3745,7 @@ END PKG_MRV_DETALLE_INDICADORES;
                         WHERE INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 5
                         ORDER BY INI.ID_INICIATIVA DESC;
     END USP_SEL_EXCEL_INI_EVA;
-    
+
     PROCEDURE USP_SEL_EXCEL_INI_VRF(
         pRefcursor OUT SYS_REFCURSOR
     )AS
@@ -3692,7 +3766,7 @@ END PKG_MRV_DETALLE_INDICADORES;
                         WHERE INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 6
                         ORDER BY INI.ID_INICIATIVA DESC;
     END USP_SEL_EXCEL_INI_VRF;
-    
+
     PROCEDURE USP_SEL_EXCEL_INI_OBSERVADO(
         pRefcursor OUT SYS_REFCURSOR
     )AS
@@ -3713,7 +3787,7 @@ END PKG_MRV_DETALLE_INDICADORES;
                         WHERE INI.ID_ETAPA = 2
                         ORDER BY INI.ID_INICIATIVA DESC;
     END USP_SEL_EXCEL_INI_OBSERVADO;
-    
+
     PROCEDURE USP_SEL_EXCEL_INI_APROBADO(
         pRefcursor OUT SYS_REFCURSOR
     )AS
@@ -3734,7 +3808,7 @@ END PKG_MRV_DETALLE_INDICADORES;
                         WHERE INI.ID_ESTADO = 3 AND INI.ID_ETAPA IN (2,4)
                         ORDER BY INI.ID_INICIATIVA DESC;
     END USP_SEL_EXCEL_INI_APROBADO;
-    
+
     PROCEDURE USP_SEL_EXCEL_INI_REVISADO(
         pRefcursor OUT SYS_REFCURSOR
     )AS
@@ -3755,7 +3829,7 @@ END PKG_MRV_DETALLE_INDICADORES;
                         WHERE INI.ID_ESTADO = 3 AND INI.ID_ETAPA = 5
                         ORDER BY INI.ID_INICIATIVA DESC;
     END USP_SEL_EXCEL_INI_REVISADO;
-    
+
     PROCEDURE USP_SEL_EXCEL_INI_EVALUADO(
         pRefcursor OUT SYS_REFCURSOR
     )AS
@@ -3776,7 +3850,7 @@ END PKG_MRV_DETALLE_INDICADORES;
                         WHERE INI.ID_ESTADO = 3 AND INI.ID_ETAPA = 6
                         ORDER BY INI.ID_INICIATIVA DESC;
     END USP_SEL_EXCEL_INI_EVALUADO;
-    
+
     PROCEDURE USP_SEL_EXCEL_INI_VERIFICADO(
         pRefcursor OUT SYS_REFCURSOR
     )AS
@@ -3797,7 +3871,7 @@ END PKG_MRV_DETALLE_INDICADORES;
                         WHERE INI.ID_ESTADO = 3 AND INI.ID_ETAPA = 7
                         ORDER BY INI.ID_INICIATIVA DESC;
     END USP_SEL_EXCEL_INI_VERIFICADO;
-    
+
     PROCEDURE USP_SEL_EXCEL_INI_TODO(
         pRefcursor OUT SYS_REFCURSOR
     )AS
@@ -3818,7 +3892,7 @@ END PKG_MRV_DETALLE_INDICADORES;
                         WHERE NOT (INI.ID_ESTADO = 0 AND INI.ID_ETAPA = 1)
                         ORDER BY INI.ID_INICIATIVA DESC;
     END USP_SEL_EXCEL_INI_TODO;
-    
+
     PROCEDURE USP_SEL_LISTA_MEDMIT_ASOCIADO(
         pID_USUARIO IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
@@ -3832,6 +3906,7 @@ END PKG_MRV_DETALLE_INDICADORES;
     END USP_SEL_LISTA_MEDMIT_ASOCIADO;
 
 END PKG_MRV_INICIATIVA_MITIGACION;
+
 
 /
 --------------------------------------------------------
@@ -4373,7 +4448,7 @@ PROCEDURE USP_SEL_LISTA_ESCENARIO(
 			 FECHA_MODIFICA   = SYSDATE,
 			 IP_MODIFICA      = pIP
 	   WHERE U.ID_USUARIO = pID_USUARIO;
-       
+
        --ADD 03-02-20
        UPDATE   T_MAE_MEDMIT
        SET      ASOCIADO = 0
@@ -4413,7 +4488,7 @@ PROCEDURE USP_SEL_LISTA_ESCENARIO(
 	  VALUES
 		(pID_USUARIO, pID_MEDMIT, '1', pID_USUREG, SYSDATE, pIP);
 	END IF;
-    
+
     --ADD 03-02-20
     UPDATE  T_MAE_MEDMIT
     SET     ASOCIADO = pID_USUARIO
@@ -4445,7 +4520,7 @@ PROCEDURE USP_SEL_LISTA_ESCENARIO(
     	vIdInstitucion NUMBER;
     BEGIN      
             SELECT SQ_GENM_INSTITUCION.NEXTVAL INTO vIdInstitucion FROM DUAL;
-            
+
             INSERT INTO T_GENM_INSTITUCION (ID_INSTITUCION, ID_SECTOR_INSTITUCION, RUC_INSTITUCION, NOMBRE_INSTITUCION, DIRECCION_INSTITUCION)
             VALUES (vIdInstitucion, pID_SECTOR_INSTITUCION, pRUC_INSTITUCION, pNOMBRE_INSTITUCION, pDIRECCION_INSTITUCION);  
 
@@ -4472,7 +4547,7 @@ PROCEDURE USP_SEL_LISTA_ESCENARIO(
         vIdUsuario  NUMBER;
   BEGIN  
         SELECT SQ_GENM_USUARIO.NEXTVAL INTO vIdUsuario FROM DUAL;
-        
+
         INSERT INTO T_GENM_USUARIO (ID_USUARIO, NOMBRES_USUARIO, APELLIDOS_USUARIO, ID_INSTITUCION, PASSWORD_USUARIO,EMAIL_USUARIO, 
                     ID_ESTADO_USUARIO, TELEFONO_USUARIO, ANEXO_USUARIO, CELULAR_USUARIO, FLG_ESTADO, ID_TERMINOS, FLG_TERMINOS)
         VALUES     (vIdUsuario, pNOMBRES_USUARIO, pAPELLIDOS_USUARIO, pID_INSTITUCION, pPASSWORD_USUARIO,pEMAIL_USUARIO, 
@@ -4538,10 +4613,12 @@ PROCEDURE USP_SEL_LISTA_ESCENARIO(
               OR LOWER(TRANSLATE(EU.DESCRIPCION,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like '%'||LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou'))||'%'
               OR LOWER(TRANSLATE(U.CELULAR_USUARIO,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like '%'||LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou'))||'%' )
         ORDER BY U.ID_USUARIO DESC;
-        
+
     END USP_SEL_BUSCAR_USUARIO_MANT;
 
 END PKG_MRV_MANTENIMIENTO;
+
+
 
 /
 --------------------------------------------------------
@@ -4555,6 +4632,7 @@ END PKG_MRV_MANTENIMIENTO;
         pIdEstado                   INTEGER,
         pIdRol                      INTEGER,
         pIdUsuario                  INTEGER,
+        pIdUsuarioRemitente         INTEGER,
         pDescripcion                VARCHAR2,
         pIdEstadoNotificacion       NUMBER
     )
@@ -4571,7 +4649,8 @@ END PKG_MRV_MANTENIMIENTO;
                                         ID_ROL,
                                         ID_USUARIO,
                                         DESCRIPCION,
-                                        ID_ESTADO_NOTIFICACION)
+                                        ID_ESTADO_NOTIFICACION,
+                                        ID_USUARIO_REMITENTE)
         VALUES( vIdNotificacion,
                 pIdIniciativa,
                 pIdEtapa,
@@ -4580,7 +4659,8 @@ END PKG_MRV_MANTENIMIENTO;
                 pIdRol,
                 pIdUsuario,
                 pDescripcion,
-                pIdEstadoNotificacion);
+                pIdEstadoNotificacion,
+                pIdUsuarioRemitente);
     END USP_INS_NOTIFICACION;
 
     PROCEDURE USP_UPD_VISTO_NOTIFICACION(
@@ -4661,7 +4741,7 @@ END PKG_MRV_MANTENIMIENTO;
         ELSIF pSortColumn = 'PROGRESO' THEN
             vSortColumn2 := 'INI.ID_ETAPA';
         ELSIF pSortColumn = 'ROL' THEN
-            vSortColumn2 := '(CASE NVL(N.ID_USUARIO, 0)
+            vSortColumn2 := '(CASE NVL(N.ID_USUARIO_REMITENTE, 0)
                         WHEN 0 THEN (SELECT NVL(RO.DESCRIPCION_ROL,'''') 
                                      FROM T_GENM_INICIATIVA INICI
                                      INNER JOIN T_GENM_USUARIO USUA ON INICI.ID_USUARIO = USUA.ID_USUARIO
@@ -4671,7 +4751,7 @@ END PKG_MRV_MANTENIMIENTO;
                             ELSE    (SELECT NVL(R.DESCRIPCION_ROL,'''') FROM T_GENM_USUARIO US
                                      INNER JOIN T_MAE_USUARIO_ROL UR ON US.ID_USUARIO = UR.ID_USUARIO
                                      INNER JOIN T_MAE_ROL R ON UR.ID_ROL = R.ID_ROL
-                                     WHERE US.ID_USUARIO = N.ID_USUARIO)
+                                     WHERE US.ID_USUARIO = N.ID_USUARIO_REMITENTE)
                     END)';
         ELSE
             vSortColumn2 := pSortColumn;
@@ -4691,7 +4771,7 @@ END PKG_MRV_MANTENIMIENTO;
                                     WHERE INIC.ID_INICIATIVA = N.ID_INICIATIVA),''-'')
                         ELSE NVL((TRIM(U.NOMBRES_USUARIO) ||'' ''|| TRIM(U.APELLIDOS_USUARIO)),''-'')
                     END AS RESPONSABLE,
-                    CASE NVL(N.ID_USUARIO, 0)
+                    CASE NVL(N.ID_USUARIO_REMITENTE, 0)
                         WHEN 0 THEN (SELECT RO.ID_ROL 
                                      FROM T_GENM_INICIATIVA INICI
                                      INNER JOIN T_GENM_USUARIO USUA ON INICI.ID_USUARIO = USUA.ID_USUARIO
@@ -4701,9 +4781,9 @@ END PKG_MRV_MANTENIMIENTO;
                             ELSE    (SELECT R.ID_ROL  FROM T_GENM_USUARIO US
                                      INNER JOIN T_MAE_USUARIO_ROL UR ON US.ID_USUARIO = UR.ID_USUARIO
                                      INNER JOIN T_MAE_ROL R ON UR.ID_ROL = R.ID_ROL
-                                     WHERE US.ID_USUARIO = N.ID_USUARIO)
+                                     WHERE US.ID_USUARIO = N.ID_USUARIO_REMITENTE)
                     END AS ID_ROL,
-                    CASE NVL(N.ID_USUARIO, 0)
+                    CASE NVL(N.ID_USUARIO_REMITENTE, 0)
                         WHEN 0 THEN NVL((SELECT RO.DESCRIPCION_ROL
                                      FROM T_GENM_INICIATIVA INICI
                                      INNER JOIN T_GENM_USUARIO USUA ON INICI.ID_USUARIO = USUA.ID_USUARIO
@@ -4713,7 +4793,7 @@ END PKG_MRV_MANTENIMIENTO;
                             ELSE    NVL((SELECT R.DESCRIPCION_ROL FROM T_GENM_USUARIO US
                                      INNER JOIN T_MAE_USUARIO_ROL UR ON US.ID_USUARIO = UR.ID_USUARIO
                                      INNER JOIN T_MAE_ROL R ON UR.ID_ROL = R.ID_ROL
-                                     WHERE US.ID_USUARIO = N.ID_USUARIO),''-'')
+                                     WHERE US.ID_USUARIO = N.ID_USUARIO_REMITENTE),''-'')
                     END AS ROL,
                     N.DESCRIPCION,
                     N.ID_ESTADO_NOTIFICACION,
@@ -4724,7 +4804,7 @@ END PKG_MRV_MANTENIMIENTO;
                     || vTotal || ' AS total_registros
                 FROM T_GENM_NOTIFICACION N 
                 LEFT JOIN T_GENM_INICIATIVA INI ON N.ID_INICIATIVA = INI.ID_INICIATIVA
-                LEFT JOIN T_GENM_USUARIO U ON N.ID_USUARIO = U.ID_USUARIO
+                LEFT JOIN T_GENM_USUARIO U ON N.ID_USUARIO_REMITENTE = U.ID_USUARIO
                 WHERE N.ID_ROL = ' || TO_CHAR(pID_ROL) || ' AND N.FLG_VISTO = ''0'' 
                 AND N.ID_USUARIO = ' || TO_CHAR(pIdUsuario) || ' 
                 )
@@ -4743,17 +4823,18 @@ END PKG_MRV_MANTENIMIENTO;
                N.ID_ESTADO,
                N.ID_ESTADO_NOTIFICACION,
                N.DESCRIPCION,
-               N.ID_ROL,
+               UR.ID_ROL,
                NVL(X.NOMBRE_INSTITUCION,
                    TRIM(U.NOMBRES_USUARIO) || ' ' ||
                    TRIM(U.APELLIDOS_USUARIO)) RESPONSABLE,
                I.NOMBRE_INICIATIVA,
                R.DESCRIPCION_ROL ROL,
                TRIM(UX.NOMBRES_USUARIO) || ' ' ||
-               TRIM(UX.APELLIDOS_USUARIO) EVALUADOR,
+               TRIM(UX.APELLIDOS_USUARIO) REMITENTE,
                N.ID_INICIATIVA,
                N.FECHA_REGISTRO,
-               I.ID_MEDMIT
+               I.ID_MEDMIT,
+               N.ID_ETAPA
           FROM T_GENM_NOTIFICACION N
          INNER JOIN T_GENM_INICIATIVA I
             ON N.ID_INICIATIVA = I.ID_INICIATIVA
@@ -4761,8 +4842,10 @@ END PKG_MRV_MANTENIMIENTO;
             ON I.ID_USUARIO = U.ID_USUARIO
           LEFT JOIN T_GENM_INSTITUCION X
             ON U.ID_INSTITUCION = X.ID_INSTITUCION
+          LEFT JOIN T_GENM_USUARIO UX
+            ON N.ID_USUARIO_REMITENTE = UX.ID_USUARIO  
           LEFT JOIN T_MAE_USUARIO_ROL UR
-            ON N.ID_USUARIO = UR.ID_USUARIO
+            ON N.ID_USUARIO_REMITENTE = UR.ID_USUARIO
           LEFT JOIN T_MAE_ROL R
             ON UR.ID_ROL = R.ID_ROL
           LEFT JOIN T_GENM_USUARIO UX
@@ -4772,6 +4855,7 @@ END PKG_MRV_MANTENIMIENTO;
     END USP_GET_NOTIFICACION;
 
 end PKG_MRV_NOTIFICACION;
+
 
 /
 --------------------------------------------------------
@@ -4802,7 +4886,7 @@ end PKG_MRV_NOTIFICACION;
         WHERE   (E.ID_MEDMIT = pIdMedMit or pIdMedMit = 0)
                 AND E.FLAG_ESTADO = '1';
   END SP_SEL_ESCENARIOS_RPT;
-    
+
   PROCEDURE SP_SEL_MEDMIT_RPT(
         pIdMedMit   integer,
         pCursor out SYS_REFCURSOR
@@ -4813,7 +4897,7 @@ end PKG_MRV_NOTIFICACION;
         FROM    T_MAE_MEDMIT E
         WHERE (ID_MEDMIT = pIdMedMit OR pIdMedMit =0);
   END SP_SEL_MEDMIT_RPT;
-    
+
   PROCEDURE USP_SEL_SEGUIMIENTO_INICIATIVA(
     pID_INICIATIVA IN NUMBER,
     prefCursor out SYS_REFCURSOR
@@ -5241,5 +5325,7 @@ end PKG_MRV_NOTIFICACION;
 
 
 END PKG_MRV_REPORTES;
+
+
 
 /
