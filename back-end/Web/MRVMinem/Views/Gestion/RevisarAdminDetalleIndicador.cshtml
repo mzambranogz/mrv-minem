@@ -390,7 +390,66 @@
                     <div class="row">
                         <div class="col-sm-12-col-md-12 col-lg-6">
                             <div class="form-group" id="archivos-documentos">
-                                <label>Archivos adjuntos: <span id="total-documentos">0</span> en total</label>
+                                @{
+                                    var total = 0;
+                                    if (Model.iniciativa_mit.ListaSustentos != null)
+                                    {
+                                        total = Model.iniciativa_mit.ListaSustentos.Count();
+                                    }
+                                }
+                                <label>Archivos adjuntos: <span id="total-documentos">@total</span> en total</label>
+                                @{
+                                    if (Model.iniciativa_mit.ListaSustentos != null)
+                                    {
+                                        var extension = "fa-file-word";
+
+                                        foreach (var item in Model.iniciativa_mit.ListaSustentos)
+                                        {
+                                            if (item.ADJUNTO_BASE.Contains("pdf"))
+                                            {
+                                                extension = "fa-file-pdf";
+                                            }
+                                            else
+                                            {
+                                                if (item.ADJUNTO_BASE.Contains("jpeg") || item.ADJUNTO_BASE.Contains("png") || item.ADJUNTO_BASE.Contains("jpg") || item.ADJUNTO_BASE.Contains("gif"))
+                                                {
+                                                    extension = "fa-file-image";
+                                                }
+                                                else
+                                                {
+                                                    if (item.ADJUNTO_BASE.Contains("xls") || item.ADJUNTO_BASE.Contains("xlsx"))
+                                                    {
+                                                        extension = "fa-file-excel";
+                                                    }
+                                                    else
+                                                    {
+                                                        if (item.ADJUNTO_BASE.Contains("ppt") || item.ADJUNTO_BASE.Contains("pptx"))
+                                                        {
+                                                            extension = "fa-file-powerpoint";
+                                                        }
+                                                        else
+                                                        {
+                                                            if (item.ADJUNTO_BASE.Contains("doc") || item.ADJUNTO_BASE.Contains("docx"))
+                                                            {
+                                                                extension = "fa-file-word";
+                                                            }
+                                                            else
+                                                            {
+                                                                extension = "fa-file";
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend"><span class="input-group-text"><i class="fas @extension"></i></span></div><span class="form-control-plaintext">@item.ADJUNTO_BASE</span>
+                                                <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="fas fa-download" onclick="fn_verfilesutento(@item.ID_INICIATIVA_SUSTENTATORIO)"></i></span></div>
+                                            </div>
+                                        }
+                                    }
+                                }
+
                                 @*<div class="input-group mb-3">
                                         <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-file-pdf"></i></span></div><span class="form-control-plaintext">NombreDeArchivo.pdf</span>
                                         <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="fas fa-download"></i></span></div>

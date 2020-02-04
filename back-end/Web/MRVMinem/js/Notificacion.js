@@ -201,18 +201,24 @@ function fn_ir_iniciativa() {
         var url2 = baseUrl + "Gestion/";
         if ($("#Control").data("rol") == 1) {
             if ($("#ID_ESTADO_NOTIFICACION").val() == "1" || $("#ID_ESTADO_NOTIFICACION").val() == "2") {
-                url2 = url2 + "CorregirIniciativa?ini=" + $("#ID_INICIATIVA").val()
+                url2 = url2 + "CorregirIniciativa/" + Math.round(Math.random() * 100) + "/" + $("#ID_INICIATIVA").val()
             }
             else {
-                url2 = url2 + "DetalleIndicador?id=" + $("#ID_INICIATIVA").val()
+                url2 = url2 + "DetalleIndicador/" + $("#ID_INICIATIVA").val() + "/" + Math.round(Math.random() * 100);
             }
         }
         else {
-            //url2 = url2.replace("param1", $("#ID_MEDMIT").val()).replace("param2", $("#ID_INICIATIVA").val());
-            if ($("#ID_ETAPA").val() == "2") {
-                url2 = url2 + "RevisarIniciativa?id=" + $("#ID_MEDMIT").val() + "&ini=" + $("#ID_INICIATIVA").val()
-            } else {
-                url2 = url2 + "RevisarDetalleIndicador?id=" + $("#ID_INICIATIVA").val()
+            if ($("#Control").data("rol") == 2) {
+                if ($("#ID_ETAPA").val() == "1") {
+                    url2 = url2 + "RevisarIniciativa/" + $("#ID_MEDMIT").val() + "/" + $("#ID_INICIATIVA").val();
+                } else {
+                    url2 = url2 + "RevisarDetalleIndicador/" + $("#ID_INICIATIVA").val() + "/" + Math.round(Math.random() * 100);
+                }
+            }
+            else {
+                if ($("#Control").data("rol") == 3) {
+                    url2 = url2 + "RevisarAdminDetalleIndicador/" + $("#ID_INICIATIVA").val() + "/" + Math.round(Math.random() * 100);
+                }
             }
         }
 

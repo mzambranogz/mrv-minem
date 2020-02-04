@@ -179,7 +179,6 @@ namespace MRVMinem.Controllers
             Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
             Session["usuario_destino"] = modelo.usuario.ID_USUARIO;
             modelo.revision = 1;
-            
             return View(modelo);
         }
 
@@ -432,6 +431,7 @@ namespace MRVMinem.Controllers
                 itemRespuesta.extra = entidad.DESCRIPCION;
             }
             itemRespuesta.success = entidad.OK;
+            itemRespuesta.extra = entidad.ASUNTO;
             return Respuesta(itemRespuesta);
         }
 

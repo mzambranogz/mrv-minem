@@ -13,3 +13,7 @@ C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.csprojResolveAssemblyReference.cache
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.dll
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.pdb
+E:\Eduardo\mrv-minem\back-end\Web\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+E:\Eduardo\mrv-minem\back-end\Web\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+E:\Eduardo\mrv-minem\back-end\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.dll
+E:\Eduardo\mrv-minem\back-end\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.pdb
