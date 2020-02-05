@@ -231,7 +231,13 @@ namespace MRVMinem.Controllers
         public ActionResult MantenimientoUsuario()
         {
             ListaObjeto modelo = new ListaObjeto();
-            modelo.listaUsuario = UsuarioLN.ListaMantenimientoUsuario(modelo.usuario);
+            UsuarioBE usu = new UsuarioBE();
+            usu.buscar = "";
+            usu.cantidad_registros = 10;
+            usu.pagina = 1;
+            usu.order_by = "ID_USUARIO";
+            usu.order_orden = "DESC";
+            modelo.listaUsuario = UsuarioLN.BuscarMantenimientoUsuario(usu);
             return View(modelo);
         }
         ////////////////////////////
@@ -1313,9 +1319,9 @@ namespace MRVMinem.Controllers
             return Respuesta(itemRespuesta);
         }
 
-        public JsonResult BuscarMantenimientoUsuario(string Buscar)
+        public JsonResult BuscarMantenimientoUsuario(UsuarioBE entidad)
         {
-            List<UsuarioBE> lista = UsuarioLN.BuscarMantenimientoUsuario(Buscar);
+            List<UsuarioBE> lista = UsuarioLN.BuscarMantenimientoUsuario(entidad);
             var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
@@ -1583,14 +1589,14 @@ namespace MRVMinem.Controllers
         public void ExportarToExcelMantenimientoUsuario(UsuarioBE entidad)
         {
             List<UsuarioBE> lista = null;
-            if (string.IsNullOrEmpty(entidad.DESCRIPCION))
-            {
+            //if (string.IsNullOrEmpty(entidad.DESCRIPCION))
+            //{
                 lista = UsuarioLN.ListaMantenimientoUsuario(entidad);
-            }
-            else
-            {
-                lista = UsuarioLN.BuscarMantenimientoUsuario(entidad.DESCRIPCION);
-            }
+            //}
+            //else
+            //{
+            //    lista = UsuarioLN.BuscarMantenimientoUsuario(entidad);
+            //}
             
             int row = 2;
             try

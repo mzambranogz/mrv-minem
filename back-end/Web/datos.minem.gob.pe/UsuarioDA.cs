@@ -296,6 +296,9 @@ namespace datos.minem.gob.pe
                 {
                     string sp = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_MANTENIMIENTO." + "USP_SEL_MANTENIMIENTO_USUARIO";
                     var p = new OracleDynamicParameters();
+                    p.Add("pBuscar", entidad.buscar);
+                    p.Add("pSortColumn", entidad.order_by);
+                    p.Add("pSortOrder", entidad.order_orden);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<UsuarioBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
                 }
@@ -561,7 +564,7 @@ namespace datos.minem.gob.pe
             return entidad;
         }
 
-        public List<UsuarioBE> BuscarMantenimientoUsuario(string buscar)
+        public List<UsuarioBE> BuscarMantenimientoUsuario(UsuarioBE entidad)
         {
             List<UsuarioBE> Lista = null;
             try
@@ -570,7 +573,11 @@ namespace datos.minem.gob.pe
                 {
                     string sp = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_MANTENIMIENTO." + "USP_SEL_BUSCAR_USUARIO_MANT";
                     var p = new OracleDynamicParameters();
-                    p.Add("pBuscar", buscar);
+                    p.Add("pBuscar", entidad.buscar);
+                    p.Add("pRegistros", entidad.cantidad_registros);
+                    p.Add("pPagina", entidad.pagina);
+                    p.Add("pSortColumn", entidad.order_by);
+                    p.Add("pSortOrder", entidad.order_orden);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<UsuarioBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
                 }

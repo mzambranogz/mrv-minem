@@ -1,4 +1,89 @@
-﻿$(".miColumna").click(function (event) {
+﻿function fn_CargaUsuarios() {
+    debugger;
+    var Item = {
+        buscar: $("#buscar-usuarios").data("campo"),
+        cantidad_registros: $("#cantidad-registros").val(),
+        pagina: $("#pagina").val(),
+        order_by: $("#columna").val(),
+        order_orden: $("#orden").val()
+    };
+    $.ajax({
+        url: baseUrl + "Gestion/BuscarMantenimientoUsuario",
+        type: 'POST',
+        datatype: 'json',
+        data: Item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+
+                    $("#cuerpoMantenimientoUsuario").html("");
+                    var resultado = "";
+                    var inicio = 0;
+                    var fin = 0;
+                    var total_registros = 0;
+                    var pagina = 0;
+                    var total_paginas = 0;
+
+                    for (var i = 0; i < data.length; i++) {
+
+                        var tr = '<tr>';
+                        tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + data[i]["ID_USUARIO"] + '</th>';
+                        tr = tr + '<td data-encabezado="Nombre y Apellido">' + data[i]["NOMBRES"] + '</td>';
+                        tr = tr + '<td data-encabezado="Email">' + data[i]["CORREO"] + '</td>';
+                        tr = tr + '<td data-encabezado="Istitución">' + data[i]["INSTITUCION"] + '</td>';
+                        if (data[i]["TELEFONO_USUARIO"] == null) {
+                            tr = tr + '<td data-encabezado="Dirección">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + ' - ' + data[i]["CELULAR_USUARIO"] + '</td>';
+                        } else if (data[i]["CELULAR_USUARIO"] == null) {
+                            tr = tr + '<td data-encabezado="Dirección">' + data[i]["TELEFONO_USUARIO"] + ' -  </td>';
+                        } else {
+                            tr = tr + '<td data-encabezado="Dirección">' + data[i]["TELEFONO_USUARIO"] + ' - ' + data[i]["CELULAR_USUARIO"] + '</td>';
+                        }
+                        tr = tr + '<td data-encabezado="Perfil">';
+                        tr = tr + '     <span class="badge badge-actor-' + data[i]["COLOR"] + '">' + data[i]["ROL"] + '</span>';
+                        tr = tr + '</td>';
+                        tr = tr + '<td data-encabezado="Estado">';
+                        tr = tr + '     <span class="badge badge-actor-' + data[i]["COLOR_ESTADO"] + '"><i class="fas fa-question-circle mr-1"></i>' + data[i]["ESTADO"] + '</span>';
+                        tr = tr + '</td>';
+                        tr = tr + '<td class="text-center text-xs-right" data-encabezado="Acciones">';
+                        tr = tr + '     <div class="btn-group">';
+                        tr = tr + '         <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
+                        tr = tr + '         <div class="dropdown-menu dropdown-menu-right">';
+                        tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_cargarDatosUserMantenimiento(' + data[i]["ID_USUARIO"] + ');" data-toggle="modal" data-target="#modal-usuario">';
+                        tr = tr + '                 <i class="fas fa-edit"></i>&nbsp;Verificar';
+                        tr = tr + '             </a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion">';
+                        tr = tr + '                 <i class="fas fa-trash"></i>&nbsp;Deshabilitar';
+                        tr = tr + '             </a>';
+                        tr = tr + '         </div>';
+                        tr = tr + "     </div></td>";
+                        tr = tr + '</tr>';
+                        $("#cuerpoMantenimientoUsuario").append(tr);
+
+                        pagina = Number(data[i]["pagina"]);
+                        total_paginas = Number(data[i]["total_paginas"]);
+                        total_registros = Number(data[i]["total_registros"]);
+                        inicio = (Number(data[i]["cantidad_registros"]) * pagina) - Number(data[i]["cantidad_registros"]) + 1;
+                        fin = Number(data[i]["cantidad_registros"]) * pagina;
+                        if (pagina == total_paginas) {
+                            if (fin > total_registros)
+                                fin = total_registros
+                        }
+                        resultado = inicio + " de " + fin;
+                    }
+
+                    $("#resultado").html(resultado);
+                    $("#total-registros").html(total_registros);
+                    $("#pagina-actual").html(pagina);
+                    $("#total-paginas").html(total_paginas);
+                    if (Number($("#pagina").val()) > total_paginas) {
+                        $("#pagina").val(total_paginas);
+                    }
+                }
+            }
+        }
+    });
+}
+
+$(".miColumna").click(function (event) {
     debugger;
     var id = "";
     if (event.target.nodeName == "SPAN") {
@@ -465,7 +550,9 @@ $(document).ready(function () {
 
 function exportarMantenimientoUsuario(){
     var item = {
-        DESCRIPCION: $("#txt-buscar").val()
+        buscar: $("#buscar-usuarios").data("campo"),
+        order_by: $("#columna").val(),
+        order_orden: $("#orden").val()
     };
 
     var url = baseUrl + 'Gestion/ExportarMantenimientoUsuario';
@@ -490,57 +577,61 @@ function exportarMantenimientoUsuario(){
 }
 
 function fn_buscar() {
+    //$("#buscar-usuarios").data("buscar",1);
+    $("#buscar-usuarios").data("campo", $("#txt-buscar").val());
+
+    fn_CargaUsuarios();
     //$("#buscar-estado").data("value",1);
-    var Item = {
-        Buscar: $("#txt-buscar").val()
-    };
-    $.ajax({
-        url: baseUrl + "Gestion/BuscarMantenimientoUsuario",
-        type: 'POST',
-        datatype: 'json',
-        data: Item,
-        success: function (data) {
-            $("#cuerpoMantenimientoUsuario").html("");
-            if (data != null && data != "") {
-                if (data.length > 0) {
-                    //$("#cuerpoMantenimientoUsuario").html("");
-                    for (var i = 0; i < data.length; i++) {
-                        var tr = '<tr>';
-                        tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + (1 + i) + '</th>';
-                        tr = tr + '<td data-encabezado="Nombre y Apellido">' + data[i]["NOMBRES"] + '</td>';
-                        tr = tr + '<td data-encabezado="Email">' + data[i]["CORREO"] + '</td>';
-                        tr = tr + '<td data-encabezado="Istitución">' + data[i]["INSTITUCION"] + '</td>';
-                        if (data[i]["TELEFONO_USUARIO"] == null) {
-                            tr = tr + '<td data-encabezado="Dirección">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + ' - ' + data[i]["CELULAR_USUARIO"] + '</td>';
-                        } else if (data[i]["CELULAR_USUARIO"] == null) {
-                            tr = tr + '<td data-encabezado="Dirección">' + data[i]["TELEFONO_USUARIO"] + ' -  </td>';
-                        } else{
-                            tr = tr + '<td data-encabezado="Dirección">' + data[i]["TELEFONO_USUARIO"] + ' - ' + data[i]["CELULAR_USUARIO"] + '</td>';
-                        }
-                        tr = tr + '<td data-encabezado="Perfil">';
-                        tr = tr + '     <span class="badge badge-actor-' + data[i]["COLOR"] + '">' + data[i]["ROL"] + '</span>';
-                        tr = tr + '</td>';
-                        tr = tr + '<td data-encabezado="Estado">';
-                        tr = tr + '     <span class="badge badge-actor-' + data[i]["COLOR_ESTADO"] + '"><i class="fas fa-question-circle mr-1"></i>' + data[i]["ESTADO"] + '</span>';
-                        tr = tr + '</td>';
-                        tr = tr + '<td class="text-center text-xs-right" data-encabezado="Acciones">';
-                        tr = tr + '     <div class="btn-group">';
-                        tr = tr + '         <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
-                        tr = tr + '         <div class="dropdown-menu dropdown-menu-right">';
-                        tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_cargarDatosUserMantenimiento(' + data[i]["ID_USUARIO"] + ');" data-toggle="modal" data-target="#modal-usuario">';
-                        tr = tr + '                 <i class="fas fa-edit"></i>&nbsp;Verificar';
-                        tr = tr + '             </a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion">';
-                        tr = tr + '                 <i class="fas fa-trash"></i>&nbsp;Deshabilitar';
-                        tr = tr + '             </a>';
-                        tr = tr + '         </div>';
-                        tr = tr + "     </div></td>";
-                        tr = tr + '</tr>';
-                        $("#cuerpoMantenimientoUsuario").append(tr);
-                    }
-                }
-            }
-        }
-    });
+    //var Item = {
+    //    Buscar: $("#txt-buscar").val()
+    //};
+    //$.ajax({
+    //    url: baseUrl + "Gestion/BuscarMantenimientoUsuario",
+    //    type: 'POST',
+    //    datatype: 'json',
+    //    data: Item,
+    //    success: function (data) {
+    //        $("#cuerpoMantenimientoUsuario").html("");
+    //        if (data != null && data != "") {
+    //            if (data.length > 0) {
+    //                //$("#cuerpoMantenimientoUsuario").html("");
+    //                for (var i = 0; i < data.length; i++) {
+    //                    var tr = '<tr>';
+    //                    tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + (1 + i) + '</th>';
+    //                    tr = tr + '<td data-encabezado="Nombre y Apellido">' + data[i]["NOMBRES"] + '</td>';
+    //                    tr = tr + '<td data-encabezado="Email">' + data[i]["CORREO"] + '</td>';
+    //                    tr = tr + '<td data-encabezado="Istitución">' + data[i]["INSTITUCION"] + '</td>';
+    //                    if (data[i]["TELEFONO_USUARIO"] == null) {
+    //                        tr = tr + '<td data-encabezado="Dirección">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + ' - ' + data[i]["CELULAR_USUARIO"] + '</td>';
+    //                    } else if (data[i]["CELULAR_USUARIO"] == null) {
+    //                        tr = tr + '<td data-encabezado="Dirección">' + data[i]["TELEFONO_USUARIO"] + ' -  </td>';
+    //                    } else{
+    //                        tr = tr + '<td data-encabezado="Dirección">' + data[i]["TELEFONO_USUARIO"] + ' - ' + data[i]["CELULAR_USUARIO"] + '</td>';
+    //                    }
+    //                    tr = tr + '<td data-encabezado="Perfil">';
+    //                    tr = tr + '     <span class="badge badge-actor-' + data[i]["COLOR"] + '">' + data[i]["ROL"] + '</span>';
+    //                    tr = tr + '</td>';
+    //                    tr = tr + '<td data-encabezado="Estado">';
+    //                    tr = tr + '     <span class="badge badge-actor-' + data[i]["COLOR_ESTADO"] + '"><i class="fas fa-question-circle mr-1"></i>' + data[i]["ESTADO"] + '</span>';
+    //                    tr = tr + '</td>';
+    //                    tr = tr + '<td class="text-center text-xs-right" data-encabezado="Acciones">';
+    //                    tr = tr + '     <div class="btn-group">';
+    //                    tr = tr + '         <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
+    //                    tr = tr + '         <div class="dropdown-menu dropdown-menu-right">';
+    //                    tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_cargarDatosUserMantenimiento(' + data[i]["ID_USUARIO"] + ');" data-toggle="modal" data-target="#modal-usuario">';
+    //                    tr = tr + '                 <i class="fas fa-edit"></i>&nbsp;Verificar';
+    //                    tr = tr + '             </a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion">';
+    //                    tr = tr + '                 <i class="fas fa-trash"></i>&nbsp;Deshabilitar';
+    //                    tr = tr + '             </a>';
+    //                    tr = tr + '         </div>';
+    //                    tr = tr + "     </div></td>";
+    //                    tr = tr + '</tr>';
+    //                    $("#cuerpoMantenimientoUsuario").append(tr);
+    //                }
+    //            }
+    //        }
+    //    }
+    //});
 }
 
 

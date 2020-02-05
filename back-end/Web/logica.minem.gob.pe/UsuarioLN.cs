@@ -69,6 +69,7 @@ namespace logica.minem.gob.pe
         }
         public static List<UsuarioBE> ListaMantenimientoUsuario(UsuarioBE entidad)
         {
+            if (string.IsNullOrEmpty(entidad.buscar)) entidad.buscar = ""; 
             return usuarioDA.ListaMantenimientoUsuario(entidad);
         }
         public static List<UsuarioBE> SeleccionarMantenimientoUsuario(UsuarioBE entidad)
@@ -143,9 +144,10 @@ namespace logica.minem.gob.pe
             return usuarioDA.UsuarioIniciativa(id);
         }
 
-        public static List<UsuarioBE> BuscarMantenimientoUsuario(string buscar)
+        public static List<UsuarioBE> BuscarMantenimientoUsuario(UsuarioBE entidad)
         {
-            return usuarioDA.BuscarMantenimientoUsuario(buscar);
+            if (string.IsNullOrEmpty(entidad.buscar)) entidad.buscar = "";
+            return usuarioDA.BuscarMantenimientoUsuario(entidad);
         }
     }
 }

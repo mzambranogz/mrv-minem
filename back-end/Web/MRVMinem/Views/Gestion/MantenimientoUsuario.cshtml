@@ -6,6 +6,8 @@
 
 @{
     var i = 0;
+    var total_reg = 0;
+    var total_pag = 0;
 }
 
 <div class="flecha-top"><i class="fas fa-angle-double-right fa-2x text-dark btn-slider-bottom"></i></div>
@@ -43,7 +45,7 @@
                         <div>
                             @*<form>*@
                             <div class="form-group">
-                                <label for="txt-buscar" id="buscar-estado" data-value="0">Buscar&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Utilice la búsqueda ingresando una descripción para ubicar sus registros"></i></label>
+                                <label for="txt-buscar">Buscar&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Utilice la búsqueda ingresando una descripción para ubicar sus registros"></i></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-search"></i></span></div>
                                     <input class="form-control" type="text" id="txt-buscar" placeholder="Ingrese la descripción de su búsqueda" aria-describedby="inputGroup1" required>
@@ -53,7 +55,7 @@
                                 <div class="col-sm-12 col-md-6 col-lg-6">
                                     <button class="btn btn-success w-100 mb-2" onclick="exportarMantenimientoUsuario();"><i class="fas fa-file-download px-1"></i>Descargar Excel</button><div id="divExportar"></div> <!-- add metodo exportar y div creado con su id -->
                                 </div>
-                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                <div class="col-sm-12 col-md-6 col-lg-6" id="buscar-usuarios" data-buscar="0" data-campo="">
                                     <button class="btn btn-info w-100 mb-2" onclick="fn_buscar();"><i class="fas fa-search px-1"></i>Buscar</button>
                                 </div>
                             </div>
@@ -74,13 +76,13 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr class="bg-primary text-white">
-                                        <th class="text-center" scope="col"><span>N°&nbsp;<i class="fas fa-sort" style="color: lightgray" id="ID_USUARIO"></i></span></th>
-                                        <th scope="col"><span>Nombre y Apellido&nbsp;<i class="fas fa-sort"></i></span></th>
-                                        <th scope="col"><span>Correo electrónico&nbsp;<i class="fas fa-sort"></i></span></th>
-                                        <th scope="col"><span>Institución&nbsp;<i class="fas fa-sort"></i></span></th>
-                                        <th scope="col"><span>Teléfono / Celular&nbsp;<i class="fas fa-sort"></i></span></th>
-                                        <th scope="col"><span>Perfil&nbsp;<i class="fas fa-sort"></i></span></th>
-                                        <th scope="col"><span>Estado&nbsp;<i class="fas fa-sort"></i></span></th>
+                                        <th class="text-center" scope="col"><span class="miColumna">N°&nbsp;<i class="fas fa-sort" style="color: lightgray" id="ID_USUARIO"></i></span></th>
+                                        <th scope="col"><span class="miColumna">Nombre y Apellido&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NOMBRES_USUARIO"></i></span></th>
+                                        <th scope="col"><span class="miColumna">Correo electrónico&nbsp;<i class="fas fa-sort" style="color: lightgray" id="EMAIL_USUARIO"></i></span></th>
+                                        <th scope="col"><span class="miColumna">Institución&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NOMBRE_INSTITUCION"></i></span></th>
+                                        <th scope="col"><span class="miColumna">Teléfono / Celular&nbsp;<i class="fas fa-sort" style="color: lightgray" id="TELEFONO_USUARIO"></i></span></th>
+                                        <th scope="col"><span class="miColumna">Perfil&nbsp;<i class="fas fa-sort" style="color: lightgray" id="DESCRIPCION_ROL"></i></span></th>
+                                        <th scope="col"><span class="miColumna">Estado&nbsp;<i class="fas fa-sort" style="color: lightgray" id="ID_ESTADO_USUARIO"></i></span></th>
                                         <th class="text-center" scope="col">Acciones</th>
                                     </tr>
                                 </thead>
@@ -91,7 +93,7 @@
                                     {
                                         i++;
                                         <tr>
-                                            <th class="text-center" data-encabezado="Número" scope="row">@i</th>
+                                            <th class="text-center" data-encabezado="Número" scope="row">@item.ID_USUARIO</th>
                                             <td data-encabezado="Nombre y Apellido">@item.NOMBRES</td>
                                             <td data-encabezado="Email">@item.CORREO</td>
                                             <td data-encabezado="Istitución">@item.INSTITUCION</td>
@@ -125,12 +127,14 @@
                                                 </div>
                                             </td>
                                         </tr>
+                                        total_reg = @item.total_registros;
+                                        total_pag = @item.total_paginas;
                                     }
 
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <td class="text-left" colspan="3"><strong>Resultado:&nbsp;</strong>1-10 de 14 registros</td>
+                                        <td class="text-left" colspan="3"><strong>Resultado:&nbsp;</strong><span id="resultado">1-10</span> de <span id="total-registros">@total_reg</span> registros</td>
                                         <td class="text-right text-xs-left" colspan="5">
                                             <strong>Registros por página&nbsp;</strong>
                                             <select id="cantidad-registros" onchange="fn_CargaUsuarios()">
@@ -139,7 +143,7 @@
                                                 <option value="50">50</option>
                                                 <option value="100">100</option>
                                             </select>&nbsp;
-                                            <span id="pagina-actual">1</span> de <span id="total-paginas">75</span> páginas&nbsp;
+                                            <span id="pagina-actual">1</span> de <span id="total-paginas">@total_pag</span> páginas&nbsp;
                                             <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
                                                 <button class="btn btn-primary" id="primera-pagina" type="button" onclick="fn_avance_grilla(1)"><i class="fas fa-angle-double-left"></i></button>
                                                 <button class="btn btn-primary" id="anterior-pagina" type="button" onclick="fn_avance_grilla(2)"><i class="fas fa-angle-left"></i></button>
@@ -596,6 +600,8 @@
         </div>
     </div>
 </div>
+@Html.Hidden("columna", "ID_USUARIO")
+@Html.Hidden("orden", "ASC")
 
 <script src="~/js/script.js"></script>
 <script src="~/js/MRV.js"></script>
