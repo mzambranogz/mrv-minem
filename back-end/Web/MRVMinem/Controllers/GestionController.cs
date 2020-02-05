@@ -238,9 +238,15 @@ namespace MRVMinem.Controllers
 
         public ActionResult VerMasIniciativa(int id, int ini)
         {
-            MvSesion modelo = new MvSesion();
-            modelo.iniciativa = ini;
-            modelo.detalle = 0;
+            ListaObjeto modelo = new ListaObjeto();
+            IniciativaBE inic = new IniciativaBE();
+            inic.ID_INICIATIVA = ini;
+            modelo.iniciativa_mit = inic;
+            modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
+            modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
+            modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
+            modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
+            modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
             return View(modelo);
         }
 
@@ -259,7 +265,6 @@ namespace MRVMinem.Controllers
             modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
             modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
             modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
-            modelo.usuario = UsuarioLN.UsuarioIniciativa(modelo.iniciativa_mit.ID_USUARIO);
             modelo.detalle = 1;
             return View(modelo);
         }
