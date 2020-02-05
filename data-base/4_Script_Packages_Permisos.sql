@@ -1,6 +1,7 @@
 --------------------------------------------------------
 -- Permisos para paquetes
--- Archivo creado  - jueves-enero-31-2020   
+-- Archivo creado  - jueves-enero-31-2020 
+-- Se ejecuta desde el System  
 --------------------------------------------------------
 
 GRANT EXECUTE ON MRVMM.PKG_MRV_ADMIN_SISTEMA TO MRVMM_CON;

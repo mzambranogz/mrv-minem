@@ -1,6 +1,5 @@
 -- Ejecutarlo 2 veces, para eliminar todos los objetos del esquema
 
-SET SERVEROUTPUT ON SIZE 1000000
 BEGIN
   FOR cur_rec IN (SELECT object_name, object_type
                   FROM   user_objects

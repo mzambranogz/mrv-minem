@@ -1,6 +1,6 @@
 -- Ejecutarlo 2 veces, para eliminar todos los objetos del esquema
 
-SET SERVEROUTPUT ON SIZE 1000000
+SET SERVEROUTPUT ON SIZE 1000000 -- Se debe quitar o comentar esta linea si se ejecuta desde el PL/SQL Developer AllRound Automations
 BEGIN
   FOR cur_rec IN (SELECT object_name, object_type
                   FROM   user_objects
