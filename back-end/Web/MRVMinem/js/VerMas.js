@@ -1,13 +1,4 @@
-﻿$(document).ready(function () {
-    $("#Control").data("iniciativa", $("#iniciativa").val());
-    if ($("#detalle").val() == 1) {
-        CargarDetalleIndicadorVerMas();
-    }
-    CargarDatosIniciativa();
-    fn_cargarUbicacion();
-    fn_cargarEnergetico();
-    fn_cargarGei();
-});
+﻿
 
 function fn_cargarUbicacion() {
     var Item =
@@ -191,3 +182,33 @@ function CargarDatosIniciativa() {
         }
     });
 }
+
+
+function fn_verfilesutento(idIniciativaSustento) {
+    var item = {
+        ID_INICIATIVA: $("#Control").data("iniciativa"),
+        ID_INICIATIVA_SUSTENTATORIO: idIniciativaSustento
+    };
+    var url = baseUrl + 'Gestion/GeIniciativaSustento';
+    var respuesta = MRV.Ajax(url, item, false);
+    if (respuesta.success) {
+        var urlMostrar = baseUrl + "Temp/" + respuesta.extra;
+        window.open(urlMostrar, "_blank");
+    }
+}
+
+$(document).ready(function () {
+    //$("#Control").data("iniciativa", $("#iniciativa").val());
+    if ($("#iniciativa_mit_ID_INICIATIVA").val() > 0) {
+        $("#Control").data("iniciativa", $("#iniciativa_mit_ID_INICIATIVA").val());
+    } else {
+        $("#Control").data("iniciativa", $("#identificador").val());
+    }
+    if ($("#detalle").val() == 1) {
+        CargarDetalleIndicadorVerMas();
+    }
+    CargarDatosIniciativa();
+    fn_cargarUbicacion();
+    fn_cargarEnergetico();
+    fn_cargarGei();
+});
