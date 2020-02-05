@@ -1,5 +1,4 @@
 ﻿$(document).ready(function () {
-    debugger;
     $("#Control").data("iniciativa", $("#iniciativa").val());
     if ($("#detalle").val() == 1) {
         CargarDetalleIndicadorVerMas();
@@ -117,7 +116,7 @@ function CargarDetalleIndicadorVerMas() {
                     $("#cuerpoTablaIndicador").append(tr);
                     $("#cuerpoTablaIndicador").data("total", $("#cuerpoTablaIndicador").data("total") + data[i]["TOTAL_GEI_REDUCIDO"]);
                     $("#total-detalle #total").remove();
-                    $("#total-detalle").append('<strong id="total">' + $("#cuerpoTablaIndicador").data("total") + '</strong>');
+                    $("#total-detalle").append('<strong id="total">' + (Math.round($("#cuerpoTablaIndicador").data("total") * 100) / 100) + ' tCO<sub>2</sub>eq</strong>');
                 }
             }
         } else {

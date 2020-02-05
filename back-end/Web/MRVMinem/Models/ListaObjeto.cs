@@ -13,6 +13,7 @@ namespace MRVMinem.Models
         public List<IniciativaBE> listaIni { get; set; }
         public MedidaMitigacionBE medida { get; set; }
         public UsuarioBE usuario { get; set; }
+        public int detalle { get; set; }
         public List<IndicadorBE> listaIndicador { get; set; }
         public List<UbicacionBE> listaUbicacion { get; set; }
         public List<EnergeticoBE> listaEnergetico { get; set; }

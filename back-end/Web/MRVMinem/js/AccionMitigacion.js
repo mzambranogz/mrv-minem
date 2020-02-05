@@ -230,7 +230,6 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
 
 
 function fn_avance_grilla(boton) {
-    //debugger;
     var total = 0;
     var miPag = 0;
     miPag = Number($("#pagina").val());
@@ -354,11 +353,10 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                         } else if ($('#Control').data('rol') == 2 && ((data[i]["PROGRESO"] == 3 && (data[i]["ID_ESTADO"] == 1 || data[i]["ID_ESTADO"] == 5)) || (data[i]["ID_ESTADO"] == 4 || data[i]["ID_ESTADO"] == 2))) {
                             tr = tr + '<a class="dropdown-item text-primary" href="#" onclick="fn_revisarDetalle(' + data[i]["ID_INICIATIVA"] + ')"><i class="fas fa-check-double"></i>&nbsp;Revisar</a>';
                         }
-                        debugger;
                         if ($('#Control').data('rol') == 3 && ((data[i]["PROGRESO"] == 4 && data[i]["ID_ESTADO"] == 3) || ((data[i]["PROGRESO"] == 8 || data[i]["PROGRESO"] == 5) && data[i]["ID_ESTADO"] == 2))) {
                             tr = tr + '<a class="dropdown-item text-primary" href="#" onclick="fn_revisarDetalleAdmin(' + data[i]["ID_INICIATIVA"] + ')"><i class="fas fa-check-double"></i>&nbsp;Revisar</a>';
                         }
-                        if ($('#Control').data('rol') == 4 && ((data[i]["PROGRESO"] == 5 && (data[i]["ID_ESTADO"] == 3 || data[i]["ID_ESTADO"] == 5)) || (data[i]["ID_ESTADO"] == 6 || data[i]["ID_ESTADO"] == 2))) {
+                        if ($('#Control').data('rol') == 4 && ((data[i]["PROGRESO"] == 5 && (data[i]["ID_ESTADO"] == 3 || data[i]["ID_ESTADO"] == 5)) || (data[i]["PROGRESO"] == 6 && data[i]["ID_ESTADO"] == 2))) {
                             tr = tr + '             <a class="dropdown-item text-info" href="#" onclick="fn_evaluarIniciativaDetalle(' + data[i]["ID_INICIATIVA"] + ')"><i class="fas fa-clipboard-check"></i>&nbsp;Evaluar</a>';
                         }
                         if ($('#Control').data('rol') == 5 && (data[i]["PROGRESO"] == 6 || data[i]["PROGRESO"] == 8) && (data[i]["ID_ESTADO"] == 3 || data[i]["ID_ESTADO"] == 5)) {
@@ -566,7 +564,6 @@ function fn_buscarPublicoSimple() {
         datatype: 'json',
         data: item,
         success: function (data) {
-            debugger;
             if (data != null && data != "") {
                 if (data.length > 0) {
                     $("#cuerpoMitigacion").html("");
@@ -596,7 +593,6 @@ function fn_buscarPublicoAvanzado() {
         datatype: 'json',
         data: item,
         success: function (data) {
-            debugger;
             if (data != null && data != "") {
                 if (data.length > 0) {
                     $("#cuerpoMitigacion").html("");
@@ -675,7 +671,6 @@ function fn_buscarPrivadoSimple() {
         datatype: 'json',
         data: item,
         success: function (data) {
-            debugger;
             if (data != null && data != "") {
                 if (data.length > 0) {
 
@@ -712,7 +707,6 @@ function fn_buscarPrivadoAvanzadoUsuario(item, vurl) {
         datatype: 'json',
         data: item,
         success: function (data) {
-            debugger;
             if (data != null && data != "") {
                 if (data.length > 0) {
                     tablaMitigacionPrivado(data);
@@ -736,7 +730,6 @@ function fn_buscarPrivadoSimpleEsp() {
         datatype: 'json',
         data: item,
         success: function (data) {
-            debugger;
             if (data != null && data != "") {
                 if (data.length > 0) {
 
@@ -780,7 +773,6 @@ function fn_buscarPrivadoSimpleEsp() {
         datatype: 'json',
         data: item,
         success: function (data) {
-            debugger;
             if (data != null && data != "") {
                 if (data.length > 0) {
 
@@ -823,7 +815,6 @@ function fn_buscarPrivadoSimpleEsp() {
         datatype: 'json',
         data: item,
         success: function (data) {
-            debugger;
             if (data != null && data != "") {
                 if (data.length > 0) {
 
@@ -866,7 +857,6 @@ function fn_buscarPrivadoSimpleEsp() {
         datatype: 'json',
         data: item,
         success: function (data) {
-            debugger;
             if (data != null && data != "") {
                 if (data.length > 0) {
 
@@ -894,7 +884,6 @@ function fn_buscarPrivadoSimpleMi() {
         datatype: 'json',
         data: item,
         success: function (data) {
-            debugger;
             if (data != null && data != "") {
                 if (data.length > 0) {
 
@@ -922,7 +911,6 @@ function fn_buscarPrivadoSimpleEvaMRV() {
         datatype: 'json',
         data: item,
         success: function (data) {
-            debugger;
             if (data != null && data != "") {
                 if (data.length > 0) {
 
@@ -1177,6 +1165,15 @@ function fn_filtrarEstado(opc) {
     fn_CargaIniciativas();
 }
 
+//$("#filtro-estado .dropdown-item").on("click", function(e){
+//    e.preventDefault();
+//    var $t = $(this);
+//    var $e = $t.html();
+//    var $a = $t.parent().prev();
+//    //console.log($e);
+//    $a.html($e);
+// });
+
 function fn_filtrarObservado() {
     item = {
     };
@@ -1335,6 +1332,7 @@ $(document).ready(function () {
     */
 
     $(".miColumna").click(function (event) {
+        debugger;
         var id = "";
         if (event.target.nodeName == "SPAN") {
             id = event.target.firstElementChild.id;
@@ -1342,7 +1340,6 @@ $(document).ready(function () {
             id = event.target.id;
         }
 
-        debugger;
         $(".miColumna > i").removeClass("fa-sort-up");
         $(".miColumna > i").removeClass("fa-sort-down");
         $(".miColumna > i").addClass("fa-sort");

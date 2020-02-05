@@ -1,4 +1,69 @@
-﻿
+﻿$(".miColumna").click(function (event) {
+    debugger;
+    var id = "";
+    if (event.target.nodeName == "SPAN") {
+        id = event.target.firstElementChild.id;
+    } else {
+        id = event.target.id;
+    }
+
+    $(".miColumna > i").removeClass("fa-sort-up");
+    $(".miColumna > i").removeClass("fa-sort-down");
+    $(".miColumna > i").addClass("fa-sort");
+    $(".miColumna > i").css("color", "lightgray");
+
+
+    if ($("#columna").val() == id) {
+        if ($("#orden").val() == "ASC") {
+            $("#orden").val("DESC")
+            $("#" + id).removeClass("fa-sort-up");
+            $("#" + id).addClass("fa-sort-down");
+        }
+        else {
+            $("#orden").val("ASC")
+            $("#" + id).removeClass("fa-sort-down");
+            $("#" + id).addClass("fa-sort-up");
+        }
+        $("#" + id).css("color", "white");
+    }
+    else {
+        $("#columna").val(id);
+        $("#orden").val("ASC")
+        $("#" + id).removeClass("fa-sort");
+        $("#" + id).addClass("fa-sort-up");
+        $("#" + id).css("color", "white");
+    }
+
+    fn_CargaUsuarios();
+});
+
+function fn_avance_grilla(boton) {
+    var total = 0;
+    var miPag = 0;
+    miPag = Number($("#pagina").val());
+    total = Number($("#total-paginas").html());
+
+    if (boton == 1) {
+        miPag = 1;
+    }
+    if (boton == 2) {
+        if (miPag > 1) {
+            miPag--;
+        }
+    }
+    if (boton == 3) {
+        if (miPag < total) {
+            miPag++;
+        }
+    }
+    if (boton == 4) {
+        miPag = total;
+    }
+    $("#pagina").val(miPag);
+    fn_CargaUsuarios();
+}
+
+
 
 function fn_modalInicio() {
     $("#ventanaEditar").show();
@@ -112,7 +177,7 @@ function fn_seleccionarMantenimientoUsuario(id) {
                             //    datatype: 'json',
                             //    data: Item,
                             //    success: function (data2) {
-                            //        debugger;
+                            //         
                             //        if (data2.length > 0) {
                             //            for (var x = 0; x < data2.length; x++) {
                             //                $("#rad-med-0" + data2[x]["ID_MEDMIT"]).prop('checked', true);
@@ -232,7 +297,7 @@ function fn_validarCampo() {
 }
 
 function fn_editarMantenimiento() {
-    debugger;
+     
     $("#seccionMensaje #errorRegistro").remove();
     if ($("#validarUsuario").data("guardar") == 1){
         if (!fn_validarCampo()) {
@@ -248,7 +313,7 @@ function fn_editarMantenimiento() {
             estado = $('#rad-0' + (i + 1)).data("value");
         }
     }
-    debugger;
+     
     var idMedmit = "";
     var medmit = $("[id^=rad-med-0]");
     if (medmit.length > 0) {
@@ -261,7 +326,7 @@ function fn_editarMantenimiento() {
 
 
     var url = baseUrl + "Gestion/EditarUsuario";
-    //debugger;
+    // 
     var item = {
         ID_USUARIO: $("#userMantenimiento").data("value"),
         EMAIL_USUARIO: $("#txt-user").val(),
@@ -361,7 +426,7 @@ function fn_cargaMedidaMitigacion(id) {
                             datatype: 'json',
                             data: Item,
                             success: function (data2) {
-                                debugger;
+                                 
                                 if (data2.length > 0) {
                                     for (var x = 0; x < data2.length; x++) {
                                         $("#rad-med-0" + data2[x]["ID_MEDMIT"]).prop('checked', true);

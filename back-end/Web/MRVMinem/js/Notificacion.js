@@ -10,7 +10,6 @@
             id = event.target.id;
         }
 
-        //debugger;
         $(".miColumna > i").removeClass("fa-sort-up");
         $(".miColumna > i").removeClass("fa-sort-down");
         $(".miColumna > i").addClass("fa-sort");
@@ -62,7 +61,7 @@ function fn_CargarNotificacion() {
         datatype: 'json',
         data: Item,
         success: function (data) {
-            //debugger;
+
             if (data != null && data != "") {
                 if (data.length > 0) {
                     $("#cuerpoNotificacion").html("");
@@ -98,7 +97,7 @@ function fn_CargarNotificacion() {
                         } else if (data[i]["ID_ROL"] == 5) {
                             colorRol = 5;
                         }
-                        //debugger;
+
                         var tr = '<tr>';
                         tr = tr + '     <th class="text-center" data-encabezado="Número" scope="row">' + data[i]["ID_NOTIFICACION"] + '</th>';
                         //tr = tr + '     <th class="text-center" data-encabezado="Número" scope="row">' + data[i]["RowNumber"] + '</th>';
@@ -147,7 +146,7 @@ function fn_CargarNotificacion() {
 }
 
 function fn_avance_grilla(boton) {
-    //debugger;
+
     var total = 0;
     var miPag = 0;
     miPag = Number($("#pagina").val());
@@ -178,7 +177,7 @@ function fn_registros_grilla() {
 }
 
 function fn_modalNotificacion(idNotificacion, idEstado) {
-    //debugger;
+
     var url = baseUrl + "Gestion/DetalleNotificacion?ID_NOTIFICACION=" + idNotificacion;
     $('#modal-ver-mas').load(url, function () {
         $('#modal-ver-mas').modal({ show: true });
@@ -194,7 +193,7 @@ function fn_ir_iniciativa() {
     };
     var url = baseUrl + "Gestion/RegistraVistoNotificacion";
     var respuesta = MRV.Ajax(url, item, false);
-    debugger;
+
     if (respuesta.success) {
         if (ws != null) ws.send(respuesta.message);
 
@@ -211,7 +210,7 @@ function fn_ir_iniciativa() {
             if ($("#Control").data("rol") == 2) {
                 if ($("#ID_ETAPA").val() == "1") {
                     url2 = url2 + "RevisarIniciativa/" + $("#ID_MEDMIT").val() + "/" + $("#ID_INICIATIVA").val();
-                } else {
+            } else {
                     url2 = url2 + "RevisarDetalleIndicador/" + $("#ID_INICIATIVA").val() + "/" + Math.round(Math.random() * 100);
                 }
             }

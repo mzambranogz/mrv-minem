@@ -103,8 +103,8 @@
         </div>
     </div>
 </div>
-@Html.Hidden("columna", "ID_NOTIFICACION");
-@Html.Hidden("orden", "DESC");
+@Html.Hidden("columna", "FECHA_REGISTRO");
+@Html.Hidden("orden", "ASC");
 
 
 <script src="~/js/script.js"></script>

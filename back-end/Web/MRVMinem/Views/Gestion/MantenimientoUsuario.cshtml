@@ -34,7 +34,7 @@
                     <div class="col-md-12 col-lg-6 pt-4">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
-                            <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#modal-usuario"><a class="agregar-iniciativa" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]" id="validarUsuario" onclick="regUsuario();" data-guardar="0"><i class="fas fa-plus px-1"></i>Agregar usuario</a></span></div><!-- add -->
+                            <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#modal-usuario"><a class="agregar-iniciativa" href="#" data-toggle="tooltip" data-placement="top" title="Podrá registrar un nuevo usuario con el perfil requerido" id="validarUsuario" onclick="regUsuario();" data-guardar="0"><i class="fas fa-plus px-1"></i>Agregar usuario</a></span></div><!-- add -->
                         </div>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                                     <button class="btn btn-success w-100 mb-2" onclick="exportarMantenimientoUsuario();"><i class="fas fa-file-download px-1"></i>Descargar Excel</button><div id="divExportar"></div> <!-- add metodo exportar y div creado con su id -->
                                 </div>
                                 <div class="col-sm-12 col-md-6 col-lg-6">
-                                    <button class="btn btn-info w-100 mb-2" @*type="submit"*@ onclick="fn_buscar();"><i class="fas fa-search px-1"></i>Buscar</button>
+                                    <button class="btn btn-info w-100 mb-2" onclick="fn_buscar();"><i class="fas fa-search px-1"></i>Buscar</button>
                                 </div>
                             </div>
                         @*</form>*@
@@ -66,7 +66,7 @@
                 </div>
             </div>
             <div class="container-fluid py-4">
-                <div class="h5">Bandeja de Usuarios&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></div>
+                <div class="h5">Bandeja de Usuarios&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Bandeja de todos los usuarios registrados"></i></div>
                 <div class="dropdown-divider"></div>
                 <div class="row">
                     <div class="col-12 px-0">
@@ -74,7 +74,7 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr class="bg-primary text-white">
-                                        <th class="text-center" scope="col"><span>N°&nbsp;<i class="fas fa-sort"></i></span></th>
+                                        <th class="text-center" scope="col"><span>N°&nbsp;<i class="fas fa-sort" style="color: lightgray" id="ID_USUARIO"></i></span></th>
                                         <th scope="col"><span>Nombre y Apellido&nbsp;<i class="fas fa-sort"></i></span></th>
                                         <th scope="col"><span>Correo electrónico&nbsp;<i class="fas fa-sort"></i></span></th>
                                         <th scope="col"><span>Institución&nbsp;<i class="fas fa-sort"></i></span></th>
@@ -133,19 +133,19 @@
                                         <td class="text-left" colspan="3"><strong>Resultado:&nbsp;</strong>1-10 de 14 registros</td>
                                         <td class="text-right text-xs-left" colspan="5">
                                             <strong>Registros por página&nbsp;</strong>
-                                            <select id="catidad-rgistros">
+                                            <select id="cantidad-registros" onchange="fn_CargaUsuarios()">
                                                 <option value="10" selected>10</option>
                                                 <option value="25">25</option>
                                                 <option value="50">50</option>
                                                 <option value="100">100</option>
                                             </select>&nbsp;
-                                            1 de 75 páginas&nbsp;
+                                            <span id="pagina-actual">1</span> de <span id="total-paginas">75</span> páginas&nbsp;
                                             <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                                <button class="btn btn-primary" type="button"><i class="fas fa-angle-double-left"></i></button>
-                                                <button class="btn btn-primary" type="button"><i class="fas fa-angle-left"></i></button>
-                                                <input class="ir-pagina" type="number" value="1" min="1">
-                                                <button class="btn btn-primary" type="button"><i class="fas fa-angle-right"></i></button>
-                                                <button class="btn btn-primary" type="button"><i class="fas fa-angle-double-right"></i></button>
+                                                <button class="btn btn-primary" id="primera-pagina" type="button" onclick="fn_avance_grilla(1)"><i class="fas fa-angle-double-left"></i></button>
+                                                <button class="btn btn-primary" id="anterior-pagina" type="button" onclick="fn_avance_grilla(2)"><i class="fas fa-angle-left"></i></button>
+                                                <input class="ir-pagina" id="pagina" type="number" value="1" min="1" onchange="fn_CargaUsuarios()">
+                                                <button class="btn btn-primary" id="siguiente-pagina" type="button" onclick="fn_avance_grilla(3)"><i class="fas fa-angle-right"></i></button>
+                                                <button class="btn btn-primary" id="ultima-pagina" type="button" onclick="fn_avance_grilla(4)"><i class="fas fa-angle-double-right"></i></button>
                                             </div>
                                         </td>
                                     </tr>

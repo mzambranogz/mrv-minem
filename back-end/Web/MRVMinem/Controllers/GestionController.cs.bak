@@ -78,17 +78,35 @@ namespace MRVMinem.Controllers
 
         public ActionResult RevisarIniciativa(int id, int ini)
         {
-            MvSesion modelo = new MvSesion();
-            modelo.identificador = id;
-            modelo.iniciativa = ini;
+            ListaObjeto modelo = new ListaObjeto();
+            IniciativaBE inic = new IniciativaBE();
+            inic.ID_INICIATIVA = ini;
+            modelo.iniciativa_mit = inic;
+            modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
+            modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
+            modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
+            modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
+            modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
+            modelo.usuario = UsuarioLN.UsuarioIniciativa(modelo.iniciativa_mit.ID_USUARIO);
             modelo.revision = 1;
+            Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
             return View(modelo);
         }
 
         public ActionResult DetalleIndicador(int id, int ini)
         {
-            MvSesion modelo = new MvSesion();
-            modelo.identificador = id;
+            ListaObjeto modelo = new ListaObjeto();
+            IniciativaBE inic = new IniciativaBE();
+            inic.ID_INICIATIVA = id;
+            modelo.iniciativa_mit = inic;
+            modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
+            modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
+            modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
+            modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
+            modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
+            modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
+            modelo.usuario = UsuarioLN.EspecialistaMedida(modelo.iniciativa_mit.ID_MEDMIT);
+            Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
             return View(modelo);
         }
 
@@ -112,8 +130,18 @@ namespace MRVMinem.Controllers
 
         public ActionResult CorregirDetalleIndicador(int id, int ini)
         {
-            MvSesion modelo = new MvSesion();
-            modelo.identificador = id;
+            ListaObjeto modelo = new ListaObjeto();
+            IniciativaBE inic = new IniciativaBE();
+            inic.ID_INICIATIVA = id;
+            modelo.iniciativa_mit = inic;
+            modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
+            modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
+            modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
+            modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
+            modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
+            modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
+            modelo.usuario = UsuarioLN.EspecialistaMedida(modelo.iniciativa_mit.ID_MEDMIT);
+            Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
             return View(modelo);
         }
 
@@ -222,6 +250,17 @@ namespace MRVMinem.Controllers
             MvSesion modelo = new MvSesion();
             modelo.iniciativa = ini;
             modelo.detalle = 1;
+            //ListaObjeto modelo = new ListaObjeto();
+            //IniciativaBE inic = new IniciativaBE();
+            //inic.ID_INICIATIVA = ini;
+            //modelo.iniciativa_mit = inic;
+            //modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
+            //modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
+            //modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
+            //modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
+            //modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
+            //modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
+            //modelo.detalle = 1;
             return View(modelo);
         }
 
@@ -316,13 +355,14 @@ namespace MRVMinem.Controllers
         {
             ResponseEntity itemRespuesta = new ResponseEntity();
 
+            var especialista = UsuarioLN.EspecialistaMedida(entidad.ID_MEDMIT);
             entidad = IniciativaLN.RegistrarIniciativaMitigacion(entidad);
             if (entidad.OK)
             {
                 if (entidad.ID_ESTADO == 1)
                 {
                     var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
-                    entidad.EMAIL_USUARIO = WebConfigurationManager.AppSettings.Get("UsermailEsp");
+                    entidad.EMAIL_USUARIO = especialista.EMAIL_USUARIO;
                     entidad.ASUNTO = "Registro Iniciativa - Entidad " + usuario.INSTITUCION;
                     entidad.DESCRIPCION = "El usuario de la entidad " + usuario.INSTITUCION + " ha realizado un registro de la Iniciativa (" + entidad.NOMBRE_INICIATIVA + "), en espera de su revisión.<br><br/>";
                     EnvioCorreo hilo_correo = new EnvioCorreo(entidad, 1);
@@ -339,13 +379,14 @@ namespace MRVMinem.Controllers
         {
             ResponseEntity itemRespuesta = new ResponseEntity();
 
+            var especialista = UsuarioLN.EspecialistaMedida(entidad.ID_MEDMIT);
             entidad = IniciativaLN.ActualizarIniciativaMitigacion(entidad);
             if (entidad.OK)
             {
                 if (entidad.ID_ESTADO == 1)
                 {
                     var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
-                    entidad.EMAIL_USUARIO = WebConfigurationManager.AppSettings.Get("UsermailEsp");
+                    entidad.EMAIL_USUARIO = especialista.EMAIL_USUARIO;
                     entidad.ASUNTO = "Registro Iniciativa - Entidad " + usuario.INSTITUCION;
                     entidad.DESCRIPCION = "El usuario de la entidad " + usuario.INSTITUCION + " ha realizado un registro de la Iniciativa (" + entidad.NOMBRE_INICIATIVA + "), en espera de su revisión.<br><br/>";
                     EnvioCorreo hilo_correo = new EnvioCorreo(entidad, 1);
@@ -354,7 +395,7 @@ namespace MRVMinem.Controllers
                 else if (entidad.ID_ESTADO == 5)
                 {
                     var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
-                    entidad.EMAIL_USUARIO = WebConfigurationManager.AppSettings.Get("UsermailEsp");
+                    entidad.EMAIL_USUARIO = especialista.EMAIL_USUARIO;
                     entidad.ASUNTO = "Observación subsanada Iniciativa - Entidad " + usuario.INSTITUCION;
                     entidad.DESCRIPCION = "El usuario de la entidad " + usuario.INSTITUCION + " ha subsanado la(s) observación(es) de la Iniciativa llamada (" + entidad.NOMBRE_INICIATIVA + "), en espera de su revisión.<br/><br/>";
                     EnvioCorreo hilo_correo = new EnvioCorreo(entidad, 1);
@@ -403,15 +444,18 @@ namespace MRVMinem.Controllers
         {
             ResponseEntity itemRespuesta = new ResponseEntity();
 
+            entidad.ID_USUARIO = Convert.ToInt32(Session["usuario"]);
             entidad = IniciativaLN.ObservacionIniciativaMitigacion(entidad);
             if (entidad.OK)
             {
                 //var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
+                entidad.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
                 entidad.ASUNTO = "Observación Iniciativa - MRVMinem ";
                 entidad.DESCRIPCION = "En la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") se ha detectado algunos datos a corregir, los detalles en la siguiente descripción: <br/>" + entidad.DESCRIPCION + "<br/><br/>";
                 EnvioCorreo hilo_correo = new EnvioCorreo(entidad, 1);
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
                 itemRespuesta.extra = entidad.DESCRIPCION;
+                Session["correo_destino"] = "";
             }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
@@ -421,15 +465,18 @@ namespace MRVMinem.Controllers
         {
             ResponseEntity itemRespuesta = new ResponseEntity();
 
+            entidad.ID_USUARIO = Convert.ToInt32(Session["usuario"]);
             entidad = IniciativaLN.AprobarIniciativaMitigacion(entidad);
             if (entidad.OK)
             {
                 //var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
+                entidad.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
                 entidad.ASUNTO = "Aprobación Iniciativa - MRVMinem ";
                 entidad.DESCRIPCION = "Su iniciativa fue revisada y aprobada<br/><br/>";
                 EnvioCorreo hilo_correo = new EnvioCorreo(entidad, 1);
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
                 itemRespuesta.extra = entidad.DESCRIPCION;
+                Session["correo_destino"] = "";
             }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
@@ -817,7 +864,7 @@ namespace MRVMinem.Controllers
                         estado = " Además, tiene los permisos para acceder al sistema"; 
                     }
                     entidad.ASUNTO = "Registro - MRVMinem ";
-                    entidad.DESCRIPCION = entidad.NOMBRES_USUARIO + " " + entidad.APELLIDOS_USUARIO + "ha sido registrado por el Administrador MINEM con el perfil " + perfil + "." + estado + "<br/><br/>";
+                    entidad.DESCRIPCION = entidad.NOMBRES_USUARIO + " " + entidad.APELLIDOS_USUARIO + " ha sido registrado por el Administrador MINEM con el perfil " + perfil + "." + estado + "<br/><br/>";
                     EnvioCorreo hilo_correo = new EnvioCorreo(entidad);
                     Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeUsuarioReg());
                 }
@@ -1074,7 +1121,7 @@ namespace MRVMinem.Controllers
         public JsonResult RegistrarDetalleIndicador2(HttpPostedFileBase[] fledoc, HttpPostedFileBase[] fledocumentos, IniciativaBE entidad)
         {
             ResponseEntity itemRespuesta = new ResponseEntity();
-
+            entidad.ID_USUARIO = Convert.ToInt32(Session["usuario"]);
             try
             {
                 if (fledoc != null)
@@ -1189,7 +1236,7 @@ namespace MRVMinem.Controllers
                 {
                     var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
                     IniciativaBE iniciativa = new IniciativaBE();
-                    iniciativa.EMAIL_USUARIO = WebConfigurationManager.AppSettings.Get("UsermailEsp");
+                    iniciativa.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
                     iniciativa.ASUNTO = "Registro Detalle Indicador - Entidad " + usuario.INSTITUCION;
                     iniciativa.DESCRIPCION = "El usuario de la entidad " + usuario.INSTITUCION + " ha registrado el/los detalle(s) de la Iniciativa (" + entidad.NOMBRE_INICIATIVA + "), en espera de su revisión.<br/><br/>";
                     EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 2);
@@ -1199,12 +1246,13 @@ namespace MRVMinem.Controllers
                 {
                     var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
                     IniciativaBE iniciativa = new IniciativaBE();
-                    iniciativa.EMAIL_USUARIO = WebConfigurationManager.AppSettings.Get("UsermailEsp");
+                    iniciativa.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
                     iniciativa.ASUNTO = "Observación subsanada de Detalle Indicador - Entidad " + usuario.INSTITUCION;
                     iniciativa.DESCRIPCION = "El usuario de la entidad " + usuario.INSTITUCION + " ha subsanado la(s) observación(es) de el/los detalle(s) de indicador(es) de la Iniciativa (" + entidad.NOMBRE_INICIATIVA + "), en espera de su revisión.<br/><br/>";
                     EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
                     Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
                 }
+                Session["correo_destino"] = "";
                 itemRespuesta.success = entidad.OK;
                 itemRespuesta.extra = entidad.ID_ESTADO.ToString();
             }

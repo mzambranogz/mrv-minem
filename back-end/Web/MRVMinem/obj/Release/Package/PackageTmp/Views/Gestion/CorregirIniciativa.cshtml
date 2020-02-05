@@ -22,12 +22,16 @@
             <div class="container py-4">
                 <div class="row">
                     <div class="col-md-12 col-lg-6 pt-4">
-                        <div class="h4">Registro de Inicitiva de Mitigación&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Asigne información importante a su inicitiva de identificación, <br>complete todos los campos para una mejor especificación.</small></div>
+                        <div class="h4">Registro de Inicitiva de Mitigación&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Complete los campos obligatorios para registrar una nueva iniciativa de mitigación"></i><br><small class="text-muted">Asigne información importante a su inicitiva de identificación, <br>complete todos los campos para una mejor especificación.</small></div>
                     </div>
                     <div class="col-md-12 col-lg-6 pt-4">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
-                            <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#medidas-mitigacion-listado"><a class="cambiar-medida" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-sync px-1"></i>Cambiar de medida</a></span><span data-toggle="modal" data-target="#solicitar-revision"><a class="solicitar-revision" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-paper-plane px-1"></i>Solicitar revisión</a></span><span data-toggle="modal" data-target="#guardar-avance"><a class="guardar-avances" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-save px-1"></i>Guardar avances</a></span></div>
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <span data-toggle="modal" data-target="#medidas-mitigacion-listado"><a class="cambiar-medida" href="#" data-toggle="tooltip" data-placement="top" title="No te preocupes, que podrás cambiar la medida de mitigacion en cualquier momento"><i class="fas fa-sync px-1"></i>Cambiar de medida</a></span>
+                                <span data-toggle="modal" data-target="#solicitar-revision"><a class="solicitar-revision" href="#" data-toggle="tooltip" data-placement="top" title="Una vez complete todos los campos solicite una revisión para su iniciativa de mitigación"><i class="fas fa-paper-plane px-1"></i>Solicitar revisión</a></span>
+                                <span data-toggle="modal" data-target="#guardar-avance"><a class="guardar-avances" href="#" data-toggle="tooltip" data-placement="top" title="¿No tiene toda la información de su inicitiva?, guarde sus avances y retómelo después"><i class="fas fa-save px-1"></i>Guardar avances</a></span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -50,7 +54,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="h5 pb-5 text-primary">
-                                        <div class="steps">PASO 1 DE 4 &nbsp;</div><span id="nombreMedida">@*Promoción de vehiculos eléctricos a nivel nacional*@</span>&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small>
+                                        <div class="steps">PASO 1 DE 4 &nbsp;</div><span id="nombreMedida">@*Promoción de vehiculos eléctricos a nivel nacional*@</span>&nbsp;<br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small>
                                     </div>
                                 </div>
                             </div>
@@ -212,7 +216,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="mls-ubicaciones">Ubicación<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                        <label for="mls-ubicaciones">Ubicación<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione una o varias ubicaciones - regiones"></i></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
                                             <div class="form-control" style="height:120px; overflow-y: auto;" id="listaUbicacion">
@@ -403,7 +407,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="txt-monto-inversion">Monto de inversión<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                        <label for="txt-monto-inversion">Monto de inversión<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique el monto total que costó su inversión"></i></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup11"><i class="fas fa-wallet"></i></span></div>
                                             <input class="form-control" type="text" id="txt-monto-inversion" placeholder="Ingrese monto" aria-describedby="inputGroup11">
@@ -442,14 +446,14 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="h5 pb-5 text-primary">
-                                        <div class="steps">PASO 4 DE 4 &nbsp;</div>Indicadores&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Información ligada a la iniciativa de mitigación</small>
+                                        <div class="steps">PASO 4 DE 4 &nbsp;</div>Indicadores&nbsp;<br><small class="text-muted">Información ligada a la iniciativa de mitigación</small>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-12-col-md-12 col-lg-6">
                                     <div class="form-group">
-                                        <label for="mlt-energetico">Energético asociado<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                        <label for="mlt-energetico">Energético asociado<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione uno o varios energéticos asociados de acuerdo a la medida de mitigación seleccionada"></i></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
                                             <div class="form-control" style="height:90px; overflow-y: auto;" id="listaEnerg">
@@ -471,7 +475,7 @@
                                 </div>
                                 <div class="col-sm-12-col-md-12 col-lg-6">
                                     <div class="form-group">
-                                        <label for="mlt-gei">Gases de efecto invernadero<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                        <label for="mlt-gei">Gases de efecto invernadero<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione uno o varios GEI de acuerdo a la medida de mitigación seleccionada"></i></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
                                             <div class="form-control" style="height:90px; overflow-y: auto;" id="listaGei">
@@ -632,6 +636,9 @@
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
                             <button class="btn btn-primary" type="button" onclick="fn_GuardarIniciativaMitigacion();">Si</button>
                         </div>
+                        <div class="modal-footer" id="pieCorrecto"> <!-- add 04-02-2020 -->
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -669,6 +676,9 @@
                         <div class="modal-footer" id="modalAvanceBoton">
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
                             <button class="btn btn-primary" type="button" onclick="fn_guardarAvances();">Si</button>
+                        </div>
+                        <div class="modal-footer" id="pieCorrectoAvance"> <!-- add 04-02-2020 -->
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
                         </div>
                     </div>
                 </div>

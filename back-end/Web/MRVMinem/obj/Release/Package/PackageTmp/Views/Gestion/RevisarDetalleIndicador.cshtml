@@ -23,19 +23,19 @@
             <div class="container py-4">
                 <div class="row">
                     <div class="col-md-12 col-lg-6 pt-4">
-                        <div class="h4">Revisión de Iniciativa de Mitigación y Detalles de Indicadores&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Asigne información importante a su detalle de indicadores, <br>complete todos los campos para una mejor especificación.</small></div>
+                        <div class="h4">Revisión de Iniciativa de Mitigación y Detalles de Indicadores&nbsp;<br><small class="text-muted">Apruebe, observe o descargue sus detalles de indicadores en formato excel o toda la inicitiva en formato pdf</small></div>
                     </div>
                     <div class="col-md-12 col-lg-6 pt-4">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
                             <div class="col-sm-12 col-md-6 col-lg-6">
-                                <span data-toggle="modal" data-target="#aprobar-revision"><a class="aprobar-revision" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-check px-1"></i>Aprobar revisión</a></span>
-                                <span data-toggle="modal" data-target="#observar-revision"><a class="observar-revision" href="#" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"><i class="fas fa-eye px-1"></i>Observar revisión</a></span>
+                                <span data-toggle="modal" data-target="#aprobar-revision"><a class="aprobar-revision" href="#" data-toggle="tooltip" data-placement="top" title="Dar por aprobado esta iniciativa de mitigación"><i class="fas fa-check px-1"></i>Aprobar revisión</a></span>
+                                <span data-toggle="modal" data-target="#observar-revision"><a class="observar-revision" href="#" data-toggle="tooltip" data-placement="top" title="¿Encontró alguna observación? utilice esta opción para solicitar una corrección"><i class="fas fa-eye px-1"></i>Observar revisión</a></span>
                                 <div class="btn-group btn-group-lg w-100">
                                     <a class="btn btn-success dropdown-toggle w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0"><i class="fas fa-download pr-1"></i>Descargar</a>
                                     <div class="dropdown-menu dropdown-menu-right w-100">
                                         <a class="dropdown-item" href="#" onclick="exportarDetalle();"><i class="fas fa-file-excel pr-1"></i>Formato excel</a><div id="divExportar"></div> <!-- add metodo exportar y div creado con su id -->
-                                        <a class="dropdown-item" href="#"><i class="fas fa-file-pdf pr-1"></i>Formato pdf</a>
+                                        @*<a class="dropdown-item" href="#"><i class="fas fa-file-pdf pr-1"></i>Formato pdf</a>*@
                                     </div>
                                 </div>
                             </div>
@@ -48,7 +48,7 @@
                 <div class="container py-5">
                     <div class="row">
                         <div class="col-12">
-                            <div class="h5 pb-5 text-primary">Promoción de vehiculos eléctricos a nivel nacional&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small></div>
+                            <div class="h5 pb-5 text-primary">Promoción de vehiculos eléctricos a nivel nacional&nbsp;<br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small></div>
                         </div>
                     </div>
                     <div class="row">
@@ -86,14 +86,14 @@
                     <div class="row">
                         <div class="col-sm-12-col-md-12 col-lg-12">
                             <div class="form-group">
-                                <label for="txa-nombre-iniciativa">Nombre de la iniciativa<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="En caso no posea un nombre, coloque el nombre de la medida de mitigación seguido de un guión y nombre o siglas de la institución."></i></label>
+                                <label for="txa-nombre-iniciativa">Nombre de la iniciativa<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-tachometer-alt"></i></span></div>
                                     <textarea class="form-control-plaintext" id="txa-nombre-iniciativa" aria-describedby="inputGroup4" cols="30" rows="5" readonly placeholder="Ingrese un nombre para su iniciativa">@Model.iniciativa_mit.NOMBRE_INICIATIVA</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="txa-descripcion-medida">Descripción de la medida<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indicar la ubicación, tecnología considerada y cantidades de la misma."></i></label>
+                                <label for="txa-descripcion-medida">Descripción de la medida<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-tachometer-alt"></i></span></div>
                                     <textarea class="form-control-plaintext" id="txa-descripcion-medida" aria-describedby="inputGroup5" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">@Model.iniciativa_mit.DESC_INICIATIVA</textarea>
@@ -152,13 +152,13 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="txa-ubicacion">Ubicación<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                <label for="txa-ubicacion">Ubicación<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
                                     <textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="8" readonly placeholder="Ingrese una descripción para su iniciativa">
                                         @*Lima&nbsp;
-                                    Arequipa&nbsp;
-                                    Tacna*@
+                                Arequipa&nbsp;
+                                Tacna*@
                                         @foreach (var item in Model.listaUbicacion)
                                         {
                                             @item.DESCRIPCION <text>&nbsp;</text>
@@ -176,14 +176,14 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="txt-monto-inversion">Monto de inversión<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                <label for="txt-monto-inversion">Monto de inversión<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup11"><i class="fas fa-wallet"></i></span></div>
                                     <input class="form-control-plaintext" type="text" id="txt-monto-inversion" aria-describedby="inputGroup11" value="@Model.iniciativa_mit.INVERSION_INICIATIVA" readonly>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="txt-fecha-inicio">Fecha de Inicio del proyecto<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique el año de inicio del proyecto"></i></label>
+                                <label for="txt-fecha-inicio">Fecha de Inicio del proyecto<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup12"><i class="fas fa-calendar-alt"></i></span></div>
                                     <input class="form-control-plaintext" type="text" id="txt-fecha-inicio" aria-describedby="inputGroup12" value="@Model.iniciativa_mit.FECHA" readonly>
@@ -206,12 +206,12 @@
                     <div class="row">
                         <div class="col-sm-12-col-md-12 col-lg-6">
                             <div class="form-group">
-                                <label for="mlt-energetico">Energético asociado<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                <label for="mlt-energetico">Energético asociado<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
                                     <textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
                                         @*Combustibles fósiles&nbsp;
-                                    Electricidad&nbsp;*@
+                                Electricidad&nbsp;*@
                                         @foreach (var item in Model.listaEnergetico)
                                         {
                                             @item.DESCRIPCION <text>&nbsp;</text>
@@ -222,13 +222,13 @@
                         </div>
                         <div class="col-sm-12-col-md-12 col-lg-6">
                             <div class="form-group">
-                                <label for="mlt-gei">Gases de efecto invernadero<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                <label for="mlt-gei">Gases de efecto invernadero<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
                                     <textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
                                         @*CO2
-                                    y&nbsp;
-                                    CH 2*@
+                                y&nbsp;
+                                CH 2*@
                                         @foreach (var item in Model.listaGei)
                                         {
                                             @item.DESCRIPCION <text>&nbsp;</text>
@@ -249,7 +249,7 @@
                     <div class="row">
                         <div class="col-sm-12-col-md-12 col-lg-6">
                             <div class="form-group">
-                                <label for="txt-enfoque">Enfoque<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                <label for="txt-enfoque">Enfoque<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup20"><i class="fas fa-square-root-alt"></i></span></div>
                                     <input class="form-control-plaintext" id="txt-enfoque" aria-describedby="inputGroup20" value="Vehículo Eléctrico" readonly>
@@ -260,7 +260,7 @@
                     </div>
                 </div>
                 <div class="container-fluid py-4">
-                    <div class="h5">Registro de Detalles&nbsp;<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></div>
+                    @*<div class="h5">Registro de Detalles&nbsp;<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></div>*@
                     <div class="dropdown-divider"></div>
                     <div class="row">
                         <div class="col-12 px-0">
@@ -268,13 +268,13 @@
                                 <table class="table table-hover" id="tablaIndicador" data-fila="0">
                                     <thead>
                                         <tr class="bg-primary text-white">
-                                            <th class="text-center" style="background-color: green;" scope="col"><span>#&nbsp;</span></th>
-                                            <th class="text-center" style="background-color: green;" scope="col"><span>Año&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                            <th class="text-center" style="background-color: green;" scope="col"><span>Tipo Vehiculo&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                            <th class="text-center" style="background-color: orange;" scope="col"><span>Tipo Combustible&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                            <th class="text-center" style="background-color: green;" scope="col"><span>KRV&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                            <th class="text-center" style="background-color: green;" scope="col"><span>Cantidad&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                            <th class="text-center" style="background-color: green;" scope="col"><span>Factor de Rendimiento&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
+                                            <th class="text-center" style="background-color: green;" scope="col"><span>N°&nbsp;</span></th>
+                                            <th class="text-center" style="background-color: green;" scope="col"><span>Año&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Año"></i></span></th>
+                                            <th class="text-center" style="background-color: green;" scope="col"><span>Tipo Vehiculo&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Tipo Vehículo"></i></span></th>
+                                            <th class="text-center" style="background-color: orange;" scope="col"><span>Tipo Combustible&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Tipo Combustible"></i></span></th>
+                                            <th class="text-center" style="background-color: green;" scope="col"><span>KRV&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador KRV"></i></span></th>
+                                            <th class="text-center" style="background-color: green;" scope="col"><span>Cantidad&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Cantidad"></i></span></th>
+                                            <th class="text-center" style="background-color: green;" scope="col"><span>Factor de Rendimiento&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Rendimiento"></i></span></th>
                                             <th class="text-center" style="background-color: orange;" scope="col"><span>Línea Base Emisiones GEI (tCO<sub>2</sub>eq)</span></th>
                                             <th class="text-center" style="background-color: green;" scope="col"><span>Iniciativa Mitigación Emisiones GEI (tCO<sub>2</sub>eq)</span></th>
                                             <th class="text-center" style="background-color: #2271b3;" scope="col"><span>Emisiones GEI Reducidas (tCO<sub>2</sub>eq)</span></th>
@@ -307,31 +307,31 @@
                                             total_reducido = Math.Round(total_reducido * 100) / 100;
                                         }
                                         @*<tr>
-                                        <th class="text-center" data-encabezado="Número" scope="row">1</th>
-                                        <td data-encabezado="Columna 01">Valor 1</td>
-                                        <td data-encabezado="Columna 02">Texto 1</td>
-                                        <td data-encabezado="Columna 03">Valor 1</td>
-                                        <td data-encabezado="Columna 04">Texto 1</td>
-                                        <td data-encabezado="Columna 05">Valor 1</td>
-                                        <td data-encabezado="Columna 06">Texto 1</td>
-                                        <td data-encabezado="Columna 07">Valor 1</td>
-                                        <td data-encabezado="Columna 08">Texto 1</td>
-                                        <td data-encabezado="Columna 09">Valor 1</td>
-                                        <td data-encabezado="Columna 10">Texto 1</td>
-                                        <td data-encabezado="Columna 11">Valor 1</td>
-                                        <td data-encabezado="Columna 12">Texto 1</td>
-                                        <td data-encabezado="Columna 13">Valor 1</td>
-                                        <td data-encabezado="Columna 14">Texto 1</td>
-                                        <td data-encabezado="Columna 15">Valor 1</td>
-                                        <td data-encabezado="Columna 16">Texto 1</td>
-                                        <td data-encabezado="Subtotal">1,500.00</td>
-                                        <td class="text-center" data-encabezado="Sustento">
-                                            <div class="form-group m-0">
-                                                <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label>
-                                                <input class="d-none fil-file-control" type="file" id="fle-doc">
-                                            </div>
-                                        </td>
-                                    </tr>*@
+                                    <th class="text-center" data-encabezado="Número" scope="row">1</th>
+                                    <td data-encabezado="Columna 01">Valor 1</td>
+                                    <td data-encabezado="Columna 02">Texto 1</td>
+                                    <td data-encabezado="Columna 03">Valor 1</td>
+                                    <td data-encabezado="Columna 04">Texto 1</td>
+                                    <td data-encabezado="Columna 05">Valor 1</td>
+                                    <td data-encabezado="Columna 06">Texto 1</td>
+                                    <td data-encabezado="Columna 07">Valor 1</td>
+                                    <td data-encabezado="Columna 08">Texto 1</td>
+                                    <td data-encabezado="Columna 09">Valor 1</td>
+                                    <td data-encabezado="Columna 10">Texto 1</td>
+                                    <td data-encabezado="Columna 11">Valor 1</td>
+                                    <td data-encabezado="Columna 12">Texto 1</td>
+                                    <td data-encabezado="Columna 13">Valor 1</td>
+                                    <td data-encabezado="Columna 14">Texto 1</td>
+                                    <td data-encabezado="Columna 15">Valor 1</td>
+                                    <td data-encabezado="Columna 16">Texto 1</td>
+                                    <td data-encabezado="Subtotal">1,500.00</td>
+                                    <td class="text-center" data-encabezado="Sustento">
+                                        <div class="form-group m-0">
+                                            <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label>
+                                            <input class="d-none fil-file-control" type="file" id="fle-doc">
+                                        </div>
+                                    </td>
+                                </tr>*@
                                     </tbody>
                                 </table>
                             </div>
@@ -347,7 +347,7 @@
                     </div>
                 </div>
                 <div class="container py-4">
-                    <div class="h5">Registro de Detalles&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></div>
+                    @*<div class="h5">Registro de Detalles&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></div>*@
                     <div class="dropdown-divider"></div>
                     <div class="row">
                         <div class="col-12 px-0">
@@ -373,10 +373,11 @@
                     </div>
                 </div>
                 <div class="dropdown-divider"></div>
+
                 <div class="container py-5">
                     <div class="row">
                         <div class="col-12">
-                            <div class="h5 pb-5 text-primary">Documentos&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Cargue uno o varios documentos sustentatorios</small></div>
+                            <div class="h5 pb-5 text-primary">Documentos&nbsp;<br><small class="text-muted">Cargue uno o varios documentos sustentatorios</small></div>
                         </div>
                     </div>
                     <div class="row">
@@ -437,7 +438,7 @@
                                         <a class="btn btn-success dropdown-toggle w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0"><i class="fas fa-download pr-1"></i>Descargar</a>
                                         <div class="dropdown-menu dropdown-menu-right w-100">
                                             <a class="dropdown-item" href="#" onclick="exportarDetalle();"><i class="fas fa-file-excel pr-1"></i>Formato excel</a><div id="divExportar"></div> <!-- add metodo exportar y div creado con su id -->
-                                            <a class="dropdown-item" href="#"><i class="fas fa-file-pdf pr-1"></i>Formato pdf</a>
+                                            @*<a class="dropdown-item" href="#"><i class="fas fa-file-pdf pr-1"></i>Formato pdf</a>*@
                                         </div>
                                     </div>
                                 </div>
