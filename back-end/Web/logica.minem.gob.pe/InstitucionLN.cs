@@ -17,5 +17,10 @@ namespace logica.minem.gob.pe
         {
             return institucionDA.registrarInstitucion(entidad);
         }
+
+        public static List<InstitucionBE> ListaInstitucionPaginado(InstitucionBE entidad)
+        {
+            return institucionDA.ListaInstitucionPaginado(entidad);
+        }
     }
 }

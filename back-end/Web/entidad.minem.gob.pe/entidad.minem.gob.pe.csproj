@@ -49,6 +49,7 @@
     <Compile Include="IndicadorBE.cs" />
     <Compile Include="IniciativaAuxBE.cs" />
     <Compile Include="IniciativaBE.cs" />
+    <Compile Include="InstitucionAuxBE.cs" />
     <Compile Include="InstitucionBE.cs" />
     <Compile Include="MedidaMitigacionBE.cs" />
     <Compile Include="MonedaBE.cs" />

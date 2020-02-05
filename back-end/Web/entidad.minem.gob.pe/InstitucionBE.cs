@@ -6,21 +6,15 @@ using System.Threading.Tasks;
 
 namespace entidad.minem.gob.pe
 {
-    public class InstitucionBE : BaseBE
+    public partial class InstitucionBE : BaseBE
     {
-        public InstitucionBE(int INSTIPO, string INSRUC, string INSNOMBRE, string INSDIRECCION)
-        {
-            this.INSTIPO = INSTIPO;
-            this.INSRUC = INSRUC;
-            this.INSNOMBRE = INSNOMBRE;
-            this.INSDIRECCION = INSDIRECCION;
-        }
+        public InstitucionBE() { }
 
         public int ID_INSTITUCION { get; set; }
-        public int INSTIPO { get; set; }
-        public string INSRUC { get; set; }
-        public string INSNOMBRE { get; set; }
-        public string INSDIRECCION { get; set; }
-
+        public int ID_SECTOR_INSTITUCION { get; set; }
+        public string RUC_INSTITUCION { get; set; }
+        public string NOMBRE_INSTITUCION { get; set; }
+        public string DIRECCION_INSTITUCION { get; set; }
+        public string FLAG_ESTADO { get; set; }
     }
 }
