@@ -229,6 +229,7 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
 }
 
 
+
 function fn_avance_grilla(boton) {
     var total = 0;
     var miPag = 0;
@@ -258,15 +259,39 @@ function fn_avance_grilla(boton) {
 
 
 function CargarListarIniciativaMitigacionGeneral(vUrl) {
-    var Item = {
-        ID_USUARIO: $("#Control").data("usuario"),
-        cantidad_registros: $("#cantidad-registros").val(),
-        pagina: $("#pagina").val(),
-        order_by: $("#columna").val(),
-        order_orden: $("#orden").val()
+    var nurl = baseUrl;
+
+    if ($("#buscar").data("numero") == 0) {
+
+        var Item = {
+            buscar: $("#buscar-iniciativa").data("campo"),
+            cantidad_registros: $("#cantidad-registros").val(),
+            pagina: $("#pagina").val(),
+            order_by: $("#columna").val(),
+            order_orden: $("#orden").val(),
+            ID_USUARIO: $("#Control").data("usuario"),
+            ID_ESTADO: $("#estadoIniciativa").data("estado")
+        }
+        nurl = nurl + "Gestion/ListaBusquedaSimplePrivado";
+    } else {
+
+        var Item = {
+            medida_b: $("#cbo-medida-mitigacion").val(),
+            anio_b: $("#txt-fecha-inicio").val(),
+            sector_b: $("#cbo-sector").val(),
+            gei_b: $("#cbo-energetico-base").val(),
+            energ_b: $("#cbo-energetico-proyecto").val(),
+            cantidad_registros: $("#cantidad-registros").val(),
+            pagina: $("#pagina").val(),
+            order_by: $("#columna").val(),
+            order_orden: $("#orden").val(),
+            ID_USUARIO: $("#Control").data("usuario"),
+            ID_ESTADO: $("#estadoIniciativa").data("estado")
+        }
+        nurl = nurl + "Gestion/ListaBusquedaAvanzadaPrivado";
     };
     $.ajax({
-        url: vUrl,
+        url: nurl,
         type: 'POST',
         datatype: 'json',
         data: Item,
@@ -396,7 +421,12 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
 }
 
 
-
+function fn_busqueda_Privado() {
+    if ($("#buscar").data("numero") == 0) {
+        $("#buscar-iniciativa").data("campo", $("#txt-buscar").val());
+    }
+    fn_CargaIniciativas();
+}
 
 
 
@@ -608,7 +638,7 @@ function fn_buscarPublicoAvanzado() {
 
 
 //Funciones Busqueda Privado 
-function fn_busqueda_Privado() {
+function fn_busqueda_Priva() {
     if ($("#buscar").data("numero") == 0) {
 
         if ($("#Control").data("rol") == 1) {
@@ -1159,8 +1189,12 @@ function tablaMitigacionPrivado(data) {
     }
 }
 
-function fn_filtrarEstado(opc) {
-    debugger;
+function fn_filtrarEstado(opc, t) {
+    //debugger;
+    var $t = t;
+    var $e = $t.html();
+    var $a = $t.parent().prev();
+    $a.html($e);
     $("#estadoIniciativa").data("estado", opc);
     fn_CargaIniciativas();
 }
@@ -1275,12 +1309,39 @@ function tablaMitigacionEstado(data) {
 //////EXPORTAR
 
 function exportarIniciativa() {
-    var item = {
-        ID_USUARIO: $("#Control").data("usuario"),
-        ID_ROL: $("#Control").data("rol"),
-        ID_ESTADO: $("#estadoIniciativa").data("estado")
-    };
+    //var item = {
+    //    ID_USUARIO: $("#Control").data("usuario"),
+    //    ID_ROL: $("#Control").data("rol"),
+    //    ID_ESTADO: $("#estadoIniciativa").data("estado")
+    //};
 
+    if ($("#buscar").data("numero") == 0) {
+
+        var item = {
+            buscar: $("#buscar-iniciativa").data("campo"),
+            order_by: $("#columna").val(),
+            order_orden: $("#orden").val(),
+            ID_USUARIO: $("#Control").data("usuario"),
+            ID_ESTADO: $("#estadoIniciativa").data("estado"),
+            METODO: $("#buscar").data("numero")
+            }
+    }
+    else
+    {
+
+        var item = {
+            medida_b: $("#cbo-medida-mitigacion").val(),
+            anio_b: $("#txt-fecha-inicio").val(),
+            sector_b: $("#cbo-sector").val(),
+            gei_b: $("#cbo-energetico-base").val(),
+            energ_b: $("#cbo-energetico-proyecto").val(),
+            order_by: $("#columna").val(),
+            order_orden: $("#orden").val(),
+            ID_USUARIO: $("#Control").data("usuario"),
+            ID_ESTADO: $("#estadoIniciativa").data("estado"),
+            METODO: $("#buscar").data("numero")
+            }
+     }
     var url = baseUrl + 'Gestion/ExportarIniciativa';
 
     var parametros = {

@@ -106,7 +106,7 @@ function fn_cargarEnergetico() {
 }
 
 function fn_cargarIniciativa() {
-    debugger;
+     
     var Item =
     {
         ID_INICIATIVA: $("#Control").data("iniciativa")
@@ -132,7 +132,7 @@ function fn_cargarIniciativa() {
                         if (data[i]["INVERSION_INICIATIVA"] != 0) {
                             $("#txt-monto-inversion").val(data[i]["INVERSION_INICIATIVA"]);
                         }
-                        debugger;
+                         
                         if ($("#Control").data("revision") == 0) {
                             $("#cbo-moneda").val(data[i]["ID_MONEDA"]);
                             if (data[i]["FECHA"].toString() != "01/01/0001") {
@@ -205,7 +205,7 @@ function validarCampo() {
 }
 
 function fn_procesoIniciativa(url, estado) {
-    debugger;
+     
     if (estado == 1 || estado == 5) {
         if (!validarCampo()) {
             $('#mensajeModalRegistrar #mensajeGoodRegistro').remove();
@@ -404,7 +404,7 @@ $("#solicitar-revision").on("hidden.bs.modal", function () {
 
 
 function fn_RegistrarIniciativaMitigacion() {
-    debugger;
+     
     var url = baseUrl + "Gestion/RegistrarIniciativaMitigacion";
     fn_procesoIniciativa(url, 1);
 }

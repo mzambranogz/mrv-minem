@@ -75,9 +75,9 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr class="bg-primary text-white">
-                                        <th class="text-center" scope="col"><span class="miColumna">N°&nbsp;<i class="fas fa-sort" style="color: lightgray" id="ID_SECTOR_INST"></i></span></th>
-                                        <th scope="col"><span class="miColumna">Sector&nbsp;<i class="fas fa-sort-up" style="color: white" id="DESCRIPCION"></i></span></th>
-                                        <th class="text-center" scope="col">Acciones</th>
+                                        <th class="text-center" scope="col" width="5%"><span class="miColumna">N°&nbsp;<i class="fas fa-sort" style="color: lightgray" id="ID_SECTOR_INST"></i></span></th>
+                                        <th scope="col" width="85%"><span class="miColumna">Sector&nbsp;<i class="fas fa-sort-up" style="color: white" id="DESCRIPCION"></i></span></th>
+                                        <th class="text-center" scope="col" width="10%">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody id="cuerpoMantenimiento">
@@ -110,32 +110,31 @@
                                         }
                                     }
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <td class="text-left" colspan="3"><strong>Resultado:&nbsp;</strong><span id="resultado">1-10</span> de <span id="total-registros">@total_reg</span> registros</td>
-                                        <td class="text-right text-xs-left" colspan="5">
-                                            <strong>Registros por página&nbsp;</strong>
-                                            <select id="cantidad-registros" onchange="fn_CargaDatos()">
-                                                <option value="10" selected>10</option>
-                                                <option value="25">25</option>
-                                                <option value="50">50</option>
-                                                <option value="100">100</option>
-                                            </select>&nbsp;
-                                            <span id="pagina-actual">1</span> de <span id="total-paginas">@total_pag</span> páginas&nbsp;
-                                            <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                                <button class="btn btn-primary" id="primera-pagina" type="button" onclick="fn_avance_grilla(1)"><i class="fas fa-angle-double-left"></i></button>
-                                                <button class="btn btn-primary" id="anterior-pagina" type="button" onclick="fn_avance_grilla(2)"><i class="fas fa-angle-left"></i></button>
-                                                <input class="ir-pagina" id="pagina" type="number" value="1" min="1" onchange="fn_CargaDatos()">
-                                                <button class="btn btn-primary" id="siguiente-pagina" type="button" onclick="fn_avance_grilla(3)"><i class="fas fa-angle-right"></i></button>
-                                                <button class="btn btn-primary" id="ultima-pagina" type="button" onclick="fn_avance_grilla(4)"><i class="fas fa-angle-double-right"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tfoot>
                             </table>
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-sm-12 col-lg-6 mt-4">
+                        <strong>Resultado:&nbsp;</strong><span id="resultado">1-10</span> de <span id="total-registros">@total_reg</span> registros
+                    </div>
+                    <div class="col-sm-12 col-lg-6 text-right mt-4">
+                        <strong>Registros por página&nbsp;</strong>
+                        <select id="cantidad-registros" onchange="fn_CargaDatos()">
+                            <option value="10" selected>10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>&nbsp;
+                        <span id="pagina-actual">1</span> de <span id="total-paginas">@total_pag</span> páginas&nbsp;
+                        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                            <button class="btn btn-primary" id="primera-pagina" type="button" onclick="fn_avance_grilla(1)"><i class="fas fa-angle-double-left"></i></button>
+                            <button class="btn btn-primary" id="anterior-pagina" type="button" onclick="fn_avance_grilla(2)"><i class="fas fa-angle-left"></i></button>
+                            <input class="ir-pagina" id="pagina" type="number" value="1" min="1" onchange="fn_CargaDatos()">
+                            <button class="btn btn-primary" id="siguiente-pagina" type="button" onclick="fn_avance_grilla(3)"><i class="fas fa-angle-right"></i></button>
+                            <button class="btn btn-primary" id="ultima-pagina" type="button" onclick="fn_avance_grilla(4)"><i class="fas fa-angle-double-right"></i></button>
+                        </div>
+                    </div>
             </div>
 
             <div class="modal fade" id="modal-edicion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

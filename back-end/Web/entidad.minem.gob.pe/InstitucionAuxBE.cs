@@ -8,6 +8,7 @@ namespace entidad.minem.gob.pe
 {
     public partial class InstitucionBE
     {
+
         public InstitucionBE(int INSTIPO, string INSRUC, string INSNOMBRE, string INSDIRECCION)
         {
             this.INSTIPO = INSTIPO;
@@ -22,4 +23,5 @@ namespace entidad.minem.gob.pe
         public string INSDIRECCION { get; set; }
         public string SECTOR_INSTITUCION { get; set; }
     }
+
 }

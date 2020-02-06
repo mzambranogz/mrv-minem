@@ -41,7 +41,7 @@
                         @*<form>*@
                         <div class="form-group">
                             <label for="txt-buscar">Buscar&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese si conoce el nombre de la iniciativa o la(s) palabra(s) asociada(s) a las iniciativas de interés. En caso de no encontrar resultados acceda a la búsqueda avanzada."></i></label>
-                            <div class="input-group">
+                            <div class="input-group"><div id="buscar-iniciativa" data-campo=""></div><!-- add id + data campo-->
                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-search"></i></span></div>
                                 <input class="form-control" type="text" id="txt-buscar" placeholder="Ingrese la descripción de su búsqueda" aria-describedby="inputGroup1" required>
                             </div>
@@ -50,8 +50,8 @@
                             <div class="row">
                                 <div class="col-12 text-right">
                                     <div class="row">
-                                        <div class="col-12">
-                                            <div class="titulo-avanzado" id="buscar" data-toggle="collapse" href="#busqueda-avanzada" aria-expanded="false" aria-controls="busqueda-avanzada" onclick="valor();" data-numero="0"><span>Búsqueda avanzada&nbsp;<i class="fas fa-sort"></i></span></div>
+                                        <div class="col-12"><div id="buscar" data-numero="0"></div>
+                                            <div class="titulo-avanzado" data-toggle="collapse" href="#busqueda-avanzada" aria-expanded="false" aria-controls="busqueda-avanzada" onclick="valor();"><span>Búsqueda avanzada&nbsp;<i class="fas fa-sort"></i></span></div>
                                             <div class="collapse" id="busqueda-avanzada">
                                                 <div class="card card-body">
                                                     <div class="row">
@@ -71,10 +71,10 @@
                                                                                 <div class="input-group">
                                                                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup2"><i class="fas fa-tachometer-alt"></i></span></div>
                                                                                     <select class="form-control" id="cbo-medida-mitigacion" aria-describedby="inputGroup2">
-                                                                                        <!--<option>-Seleccione una Medida de Mitigación-</option>
-                                                                                        <option>Medida de Mitigación 01</option>
+                                                                                        <option value="0">-Seleccione una Medida de Mitigación-</option>
+                                                                                        @*<option>Medida de Mitigación 01</option>
                                                                                         <option>Medida de Mitigación 02</option>
-                                                                                        <option>Medida de Mitigación 03</option>-->
+                                                                                        <option>Medida de Mitigación 03</option>*@
                                                                                     </select>
                                                                                 </div>
                                                                             </div>
@@ -144,7 +144,7 @@
                                                                                 <div class="input-group">
                                                                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
                                                                                     <select class="form-control" id="cbo-sector" aria-describedby="inputGroup6">
-                                                                                        <option>-Seleccione-</option>
+                                                                                        <option value="0">-Seleccione-</option>
                                                                                         <!--<option>Privado - Micro empresa (10 < colaboradores)</option>
                                                                                         <option>Privado - Pequeña empresa (> 10 - < 50 colaboradores)</option>
                                                                                         <option>Privado - Mediana empresa (> 50 - < 250 colaboradores)</option>
@@ -267,13 +267,14 @@
                         <div class="btn-group">
                             <a class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1"><i class="fas fa-filter">&nbsp;</i>Filtrar por estados</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(1);"><i class="fas fa-hourglass">&nbsp;</i>Pendientes</a>
-                                <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(2);"><i class="fas fa-eye">&nbsp;</i>Observadas</a>
-                                <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(3);"><i class="fas fa-check">&nbsp;</i>Aprobados</a>
-                                <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(4);"><i class="fas fa-check-double">&nbsp;</i>Revisadas</a>
-                                <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(5);"><i class="fas fa-clipboard-check">&nbsp;</i>Evaluadas</a>
-                                <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(6);"><i class="fas fa-tasks">&nbsp;</i>Verificadas</a>
-                                <div class="dropdown-divider"></div><a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(7);"><i class="fas fa-tachometer-alt">&nbsp;</i>Todas</a>
+                                <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(1, $(this));"><i class="fas fa-hourglass">&nbsp;</i>Pendientes</a>
+                                <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(2, $(this));"><i class="fas fa-eye">&nbsp;</i>Observadas</a>
+                                <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(3, $(this));"><i class="fas fa-check">&nbsp;</i>Aprobados</a>
+                                <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(4, $(this));"><i class="fas fa-check-double">&nbsp;</i>Revisadas</a>
+                                <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(5, $(this));"><i class="fas fa-clipboard-check">&nbsp;</i>Evaluadas</a>
+                                <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(6, $(this));"><i class="fas fa-tasks">&nbsp;</i>Verificadas</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(7, $(this));"><i class="fas fa-tachometer-alt">&nbsp;</i>Todas</a>
                             </div>
                         </div>
                     }

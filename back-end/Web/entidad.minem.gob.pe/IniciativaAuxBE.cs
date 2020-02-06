@@ -28,5 +28,10 @@ namespace entidad.minem.gob.pe
         public string ID_INDICADOR_DELETE { get; set; }
         public List<IndicadorBE> ListaIndicadores { get; set; }
         public List<SustentoIniciativaBE> ListaSustentos { get; set; }
+        public int medida_b { get; set; }
+        public int anio_b { get; set; }
+        public int sector_b { get; set; }
+        public int gei_b { get; set; }
+        public int energ_b { get; set; }
     }
 }

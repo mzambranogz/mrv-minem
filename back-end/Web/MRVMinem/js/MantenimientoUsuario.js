@@ -42,16 +42,16 @@
                         tr = tr + '     <span class="badge badge-actor-' + data[i]["COLOR"] + '">' + data[i]["ROL"] + '</span>';
                         tr = tr + '</td>';
                         tr = tr + '<td data-encabezado="Estado">';
-                        tr = tr + '     <span class="badge badge-actor-' + data[i]["COLOR_ESTADO"] + '"><i class="fas fa-question-circle mr-1"></i>' + data[i]["ESTADO"] + '</span>';
+                        tr = tr + '     <span class="badge badge-actor-' + data[i]["COLOR_ESTADO"] + '"><i class="fas fa-'+data[i]["ICONO_ESTADO"]+'-circle mr-1"></i>' + data[i]["ESTADO"] + '</span>';
                         tr = tr + '</td>';
                         tr = tr + '<td class="text-center text-xs-right" data-encabezado="Acciones">';
                         tr = tr + '     <div class="btn-group">';
                         tr = tr + '         <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
                         tr = tr + '         <div class="dropdown-menu dropdown-menu-right">';
                         tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_cargarDatosUserMantenimiento(' + data[i]["ID_USUARIO"] + ');" data-toggle="modal" data-target="#modal-usuario">';
-                        tr = tr + '                 <i class="fas fa-edit"></i>&nbsp;Verificar';
+                        tr = tr + '                 <i class="fas fa-check"></i>&nbsp;Verificar';
                         tr = tr + '             </a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion">';
-                        tr = tr + '                 <i class="fas fa-trash"></i>&nbsp;Deshabilitar';
+                        tr = tr + '                 <i class="fas fa-times-circle"></i>&nbsp;Deshabilitar';
                         tr = tr + '             </a>';
                         tr = tr + '         </div>';
                         tr = tr + "     </div></td>";
@@ -435,7 +435,8 @@ function fn_editarMantenimiento() {
     var mensaje = "";
     var respuesta = MRV.Ajax(url, item, false);
     if (respuesta.success) {
-        CargarTablaMantenimiento();
+        fn_CargaUsuarios();
+        //CargarTablaMantenimiento();
         $("#ventanaEditar").hide();
         $("#cabeceraRegistrarMantenimientoUsuario").hide();
         $("#cabeceraEditarMantenimientoUsuario").hide();

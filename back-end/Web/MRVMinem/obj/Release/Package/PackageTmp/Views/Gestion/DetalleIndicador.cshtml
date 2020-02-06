@@ -548,6 +548,10 @@
                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
                                 <button class="btn btn-primary" type="button" onclick="fn_guardarDetalleIndicador();">Si</button>
                             </div>
+                            <div class="modal-footer" id="pieCorrecto">
+                                <!-- add 04-02-2020 -->
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -585,6 +589,10 @@
                             <div class="modal-footer" id="modalAvanceBoton">
                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
                                 <button class="btn btn-primary" type="button" onclick="fn_guardarAvances();">Si</button>
+                            </div>
+                            <div class="modal-footer" id="pieCorrectoAvance">
+                                <!-- add 04-02-2020 -->
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
                             </div>
                         </div>
                     </div>
@@ -626,11 +634,12 @@
                     }
                 }
             }
-            output.push('<div class="input-group mb-3">', '<div class="input-group-prepend">','<span class="input-group-text">','<i class="fas ',extension,'">','</i>','</span>','</div>','<span class="form-control-plaintext">',escape(f.name), '</span>', '</div>');
+            //output.push('<div class="input-group mb-3">', '<div class="input-group-prepend">','<span class="input-group-text">','<i class="fas ',extension,'">','</i>','</span>','</div>','<span class="form-control-plaintext">',escape(f.name), '</span>', '</div>');
+            output.push('<div class="input-group mb-3">', '<div class="input-group-prepend">', '<span class="input-group-text">', '<i class="fas ', extension, '">', '</i>', '</span>', '</div>', '<span class="form-control-plaintext">', decodeURI(f.name), '</span>', '</div>');
         }
         $("#archivos-documentos").append(output.join(''));
         $("#total-documentos").html(files.length);
-    }
+    } 
 
     document.getElementById('fledocumentos').addEventListener('change', handleFileSelect, false);
 </script>

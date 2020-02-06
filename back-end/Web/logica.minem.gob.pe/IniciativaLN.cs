@@ -433,5 +433,26 @@ namespace logica.minem.gob.pe
             return iniciativaDA.IniciativaMitigacionDatos(entidad);
         }
 
+        public static List<IniciativaBE> ListaBusquedaSimplePrivado(IniciativaBE entidad)
+        {
+            if (string.IsNullOrEmpty(entidad.buscar)) entidad.buscar = "";
+            return iniciativaDA.ListaBusquedaSimplePrivado(entidad);
+        }
+
+        public static List<IniciativaBE> ListaBusquedaAvanzadoPrivado(IniciativaBE entidad)
+        {
+            return iniciativaDA.ListaBusquedaAvanzadoPrivado(entidad);
+        }
+
+        public static List<IniciativaBE> ListaExcelSimple(IniciativaBE entidad)
+        {
+            return iniciativaDA.ListaExcelSimple(entidad);
+        }
+
+        public static List<IniciativaBE> ListaExcelAvanzado(IniciativaBE entidad)
+        {
+            return iniciativaDA.ListaExcelAvanzado(entidad);
+        }
+
     }
 }

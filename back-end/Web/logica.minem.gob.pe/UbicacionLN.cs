@@ -40,6 +40,5 @@ namespace logica.minem.gob.pe
         {
             return energ.EliminarUbicacion(entidad);
         }
-
     }
 }

@@ -32,7 +32,7 @@
                     <div class="col-md-12 col-lg-6 pt-4">
                         <form>
                             <div class="form-group">
-                                <label for="txt-buscar">Buscar&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese si conoce el nombre de la iniciativa o la(s) palabra(s) asociada(s) a las iniciativas de interés. En caso de no encontrar resultados acceda a la búsqueda avanzada."></i></label>
+                                <label for="txt-buscar">Buscar&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Utilice la búsqueda ingresando una descripción para ubicar sus registros."></i></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-search"></i></span></div>
                                     <input class="form-control" type="text" id="txt-buscar" placeholder="Ingrese la descripción de su búsqueda" aria-describedby="inputGroup1" required>
@@ -52,7 +52,7 @@
                 </div>
             </div>
             <div class="container-fluid py-4">
-                <div class="h5">Bandeja de Notificaciones&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></div>
+                <div class="h5">Bandeja de Notificaciones&nbsp;</div>
                 <div class="dropdown-divider"></div>
                 <div class="row">
                     <div class="col-12 px-0">
@@ -60,10 +60,10 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr class="bg-primary text-white">
-                                        <th scope="col" class="text-center"><span>#&nbsp;</span></th>
+                                        <th scope="col" class="text-center"><span class="miColumna">N°&nbsp;<i class="fas fa-sort-down" style="color: lightgray" id="ID_NOTIFICACION"></i></span></th>
                                         <th scope="col"><span class="miColumna">Nombre de Iniciativa&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NOMBRE_INICIATIVA"></i></span></th>
                                         <th scope="col"><span class="miColumna">Progreso&nbsp;<i class="fas fa-sort" style="color: lightgray" id="PROGRESO"></i></span></th>
-                                        <th scope="col"><span class="miColumna">Fecha Registro&nbsp;<i class="fas fa-sort-up" id="FECHA_REGISTRO"></i></span></th>
+                                        <th scope="col"><span class="miColumna">Fecha Registro&nbsp;<i class="fas fa-sort" id="FECHA_REGISTRO"></i></span></th>
                                         <th scope="col"><span class="miColumna">Usuario Responsable&nbsp;<i class="fas fa-sort" style="color: lightgray" id="RESPONSABLE"></i></span></th>
                                         <th scope="col"><span class="miColumna">Perfil&nbsp;<i class="fas fa-sort" style="color: lightgray" id="ROL"></i></span></th>
                                         <th scope="col" class="text-center">Más</th>
@@ -103,8 +103,8 @@
         </div>
     </div>
 </div>
-@Html.Hidden("columna", "FECHA_REGISTRO");
-@Html.Hidden("orden", "ASC");
+@Html.Hidden("columna", "ID_NOTIFICACION")
+@Html.Hidden("orden", "DESC")
 
 
 <script src="~/js/script.js"></script>

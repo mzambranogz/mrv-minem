@@ -164,6 +164,5 @@ namespace datos.minem.gob.pe
             return entidad;
         }
 
-
     }
 }

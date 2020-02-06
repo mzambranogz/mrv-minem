@@ -122,13 +122,12 @@ function fn_enviarCorreoRecuperacion() {
 }
 
 $("#frmReestablecerClave").on("submit", function (e) {
-    debugger;
+
     var arr = [];
     var clave = $("#txt-pswd").val();
     var reclave = $("#txt-re-pswd").val();
     $("#frmReestablecerClave #errorCambiar").remove();
     $("#frmReestablecerClave #correctoCambiar").remove();
-    debugger;
     if (clave == reclave) {
         if (!(/[a-zñ]/.test(clave) && /[A-ZÑ]/.test(clave) && /[0-9]/.test(clave))) {
             arr.push("La nueva contraseña debe contener minuscula(s), mayúscula(s) y número(s)");

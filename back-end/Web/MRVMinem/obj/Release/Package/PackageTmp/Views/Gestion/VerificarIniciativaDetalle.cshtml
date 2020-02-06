@@ -57,14 +57,14 @@
                     <div class="row">
                         <div class="col-sm-12-col-md-12 col-lg-6">
                             <div class="form-group">
-                                <label for="txt-categoria">Categoría IPSC</label>
+                                <label for="txt-categoria" class="font-weight-bold">Categoría IPSC</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-landmark"></i></span></div>
                                     <input class="form-control-plaintext" type="text" id="txt-categoria" value="@Model.medida.IPSC_MEDMIT" aria-describedby="inputGroup1" readonly>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="txa-objetivo">Objetivo</label>
+                                <label for="txa-objetivo" class="font-weight-bold">Objetivo</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup2"><i class="fas fa-landmark"></i></span></div>
                                     <textarea class="form-control-plaintext" id="txa-objetivo" aria-describedby="inputGroup2" cols="30" rows="5" readonly>@Model.medida.OBJETIVO_MEDMIT</textarea>
@@ -73,7 +73,7 @@
                         </div>
                         <div class="col-sm-12-col-md-12 col-lg-6">
                             <div class="form-group">
-                                <label for="txa-descripcion">Descripción</label>
+                                <label for="txa-descripcion" class="font-weight-bold">Descripción</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup3"><i class="fas fa-landmark"></i></span></div>
                                     <textarea class="form-control-plaintext" id="txa-descripcion" aria-describedby="inputGroup3" cols="30" rows="8" readonly>@Model.medida.DESCRIPCION_MEDMIT</textarea>
@@ -89,14 +89,14 @@
                     <div class="row">
                         <div class="col-sm-12-col-md-12 col-lg-12">
                             <div class="form-group">
-                                <label for="txa-nombre-iniciativa">Nombre de la iniciativa<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                <label for="txa-nombre-iniciativa" class="font-weight-bold">Nombre de la iniciativa<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-tachometer-alt"></i></span></div>
                                     <textarea class="form-control-plaintext" id="txa-nombre-iniciativa" aria-describedby="inputGroup4" cols="30" rows="5" readonly placeholder="Ingrese un nombre para su iniciativa">@Model.iniciativa_mit.NOMBRE_INICIATIVA</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="txa-descripcion-medida">Descripción de la medida<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                <label for="txa-descripcion-medida" class="font-weight-bold">Descripción de la medida<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-tachometer-alt"></i></span></div>
                                     <textarea class="form-control-plaintext" id="txa-descripcion-medida" aria-describedby="inputGroup5" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">@Model.iniciativa_mit.DESC_INICIATIVA</textarea>
@@ -105,7 +105,7 @@
                         </div>
                         <div class="col-sm-12-col-md-12 col-lg-6">
                             <div class="form-group">
-                                <label for="txa-nombre-responsable">Responsable del registro</label>
+                                <label for="txa-nombre-responsable" class="font-weight-bold">Responsable del registro</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
                                     <input class="form-control-plaintext" id="txt-nombre-responsable" aria-describedby="inputGroup6" value="@Model.iniciativa_mit.NOMBRES" readonly>
@@ -114,7 +114,7 @@
                         </div>
                         <div class="col-sm-12-col-md-12 col-lg-6">
                             <div class="form-group">
-                                <label for="txa-nombre-institucion">Nombre de la institución</label>
+                                <label for="txa-nombre-institucion" class="font-weight-bold">Nombre de la institución</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup7"><i class="fas fa-landmark"></i></span></div>
                                     <input class="form-control-plaintext" id="txt-nombre-institucion" aria-describedby="inputGroup7" value="@Model.iniciativa_mit.INSTITUCION" readonly>
@@ -123,7 +123,7 @@
                         </div>
                         <div class="col-sm-12-col-md-12 col-lg-6">
                             <div class="form-group">
-                                <label for="txt-correo-electronico">Correo electrónico</label>
+                                <label for="txt-correo-electronico" class="font-weight-bold">Correo electrónico</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup8"><i class="fas fa-landmark"></i></span></div>
                                     <input class="form-control-plaintext" id="txt-correo-electronico" aria-describedby="inputGroup8" value="@Model.iniciativa_mit.CORREO" readonly>
@@ -132,7 +132,7 @@
                         </div>
                         <div class="col-sm-12-col-md-12 col-lg-6">
                             <div class="form-group">
-                                <label for="txt-direccion">Dirección</label>
+                                <label for="txt-direccion" class="font-weight-bold">Dirección</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
                                     <input class="form-control-plaintext" id="txt-direccion" aria-describedby="inputGroup9" value="@Model.iniciativa_mit.DIRECCION" readonly>
@@ -148,23 +148,26 @@
                     <div class="row">
                         <div class="col-sm-12-col-md-12 col-lg-6">
                             <div class="form-group">
-                                <label for="txt-sector-insi¿titucion">Sector de la institución</label>
+                                <label for="txt-sector-institucion" class="font-weight-bold">Sector de la institución</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
                                     <input class="form-control-plaintext" id="txt-sector-institucion" aria-describedby="inputGroup9" value="@Model.iniciativa_mit.SECTOR" readonly>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="txa-ubicacion">Ubicación<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                <label for="txa-ubicacion" class="font-weight-bold">Ubicación<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
                                     <textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="8" readonly placeholder="Ingrese una descripción para su iniciativa">
                                         @*Lima&nbsp;
                                 Arequipa&nbsp;
                                 Tacna*@
-                                        @foreach (var item in Model.listaUbicacion)
+                                        @if (Model.listaUbicacion != null)
+                                        {
+                                            foreach (var item in Model.listaUbicacion)
                                         {
                                             @item.DESCRIPCION <text>&nbsp;</text>
+                                        }
                                         }
                                     </textarea>
                                 </div>
@@ -172,28 +175,28 @@
                         </div>
                         <div class="col-sm-12-col-md-12 col-lg-6">
                             <div class="form-group">
-                                <label for="txt-moneda">Moneda<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                <label for="txt-moneda" class="font-weight-bold">Moneda<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="far fa-money-bill-alt"></i></span></div>
                                     <input class="form-control-plaintext" type="text" id="txt-moneda" aria-describedby="inputGroup10" value="@Model.iniciativa_mit.MONEDA" readonly>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="txt-monto-inversion">Monto de inversión<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                <label for="txt-monto-inversion" class="font-weight-bold">Monto de inversión<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup11"><i class="fas fa-wallet"></i></span></div>
                                     <input class="form-control-plaintext" type="text" id="txt-monto-inversion" aria-describedby="inputGroup11" value="@Model.iniciativa_mit.INVERSION_INICIATIVA" readonly>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="txt-fecha-inicio">Fecha de Inicio del proyecto<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                <label for="txt-fecha-inicio" class="font-weight-bold">Fecha de Inicio del proyecto<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup12"><i class="fas fa-calendar-alt"></i></span></div>
                                     <input class="form-control-plaintext" type="text" id="txt-fecha-inicio" aria-describedby="inputGroup12" value="@Model.iniciativa_mit.FECHA" readonly>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="txt-fecha-fin">Fecha de Fin del proyecto<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                <label for="txt-fecha-fin" class="font-weight-bold">Fecha de Fin del proyecto<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup12"><i class="fas fa-calendar-alt"></i></span></div>
                                     <input class="form-control-plaintext" type="text" id="txt-fecha-fin" aria-describedby="inputGroup12" value="@Model.iniciativa_mit.FECHA_FIN" readonly>
@@ -209,33 +212,43 @@
                     <div class="row">
                         <div class="col-sm-12-col-md-12 col-lg-6">
                             <div class="form-group">
-                                <label for="mlt-energetico">Energético asociado<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                <label for="mlt-energetico" class="font-weight-bold">Energético asociado<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
                                     <textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
                                         @*Combustibles fósiles&nbsp;
                                 Electricidad&nbsp;*@
-                                        @foreach (var item in Model.listaEnergetico)
+
+                                        @if (Model.listaEnergetico != null)
+                                        {
+                                            foreach (var item in Model.listaEnergetico)
                                         {
                                             @item.DESCRIPCION <text>&nbsp;</text>
                                         }
+                                        }
+
                                     </textarea>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-12-col-md-12 col-lg-6">
                             <div class="form-group">
-                                <label for="mlt-gei">Gases de efecto invernadero<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                <label for="mlt-gei" class="font-weight-bold">Gases de efecto invernadero<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
                                     <textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
                                         @*CO2
                                 y&nbsp;
                                 CH 2*@
-                                        @foreach (var item in Model.listaGei)
+
+                                        @if (Model.listaGei != null)
+                                        {
+                                            foreach (var item in Model.listaGei)
                                         {
                                             @item.DESCRIPCION <text>&nbsp;</text>
                                         }
+                                        }
+
                                     </textarea>
                                 </div>
                             </div>
@@ -252,7 +265,7 @@
                     <div class="row">
                         <div class="col-sm-12-col-md-12 col-lg-6">
                             <div class="form-group">
-                                <label for="txt-enfoque">Enfoque<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                <label for="txt-enfoque" class="font-weight-bold">Enfoque<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup20"><i class="fas fa-square-root-alt"></i></span></div>
                                     <input class="form-control-plaintext" id="txt-enfoque" aria-describedby="inputGroup20" value="Vehículo Eléctrico" readonly>
@@ -286,14 +299,14 @@
                                     <tbody id="cuerpoTablaIndicador" data-row="0" data-total="0">
                                         @{
                                             var total_reducido = 0.0;
+                                            var i = 0;
                                         }
                                         @foreach (var item in Model.listaIndicador)
                                         {
-                                            var i = 0;
                                             i++;
                                             <tr>
                                                 <th class="text-center" data-encabezado="Número" scope="row">@i</th>
-                                                <td class="text-center" data-encabezado="Columna 01">@item.ANNO_BASE</td>
+                                                <td class="text-center" data-encabezado="Columna 01">@item.ANNOB</td>
                                                 <td class="text-center" data-encabezado="Columna 02">@item.TIPO_VEHICULO</td>
                                                 <td class="text-center" data-encabezado="Columna 03">@item.TIPO_COMBUSTIBLE</td>
                                                 <td class="text-center" data-encabezado="Columna 04">@item.KRVB</td>
@@ -345,7 +358,7 @@
                 <div class="container py-5">
                     <div class="row">
                         <div class="col-12">
-                            <div class="h5 pb-5 text-primary">Resumen<br><small class="text-muted">Este es el detalle de su detalle de indicadores</small></div>
+                            <div class="h5 pb-5 text-primary">Resumen@*<br><small class="text-muted">Este es el detalle de su detalle de indicadores</small>*@</div>
                         </div>
                     </div>
                 </div>
@@ -386,7 +399,7 @@
                     <div class="row">
                         <div class="col-sm-12-col-md-12 col-lg-6">
                             <div class="form-group" id="archivos-documentos">
-                                <label>Archivos adjuntos: <span id="total-documentos">0</span> en total</label>
+                                <label><span class="font-weight-bold">Archivos adjuntos: </span><span id="total-documentos">0</span> en total</label>
                                 @*<div class="input-group mb-3">
                                 <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-file-pdf"></i></span></div><span class="form-control-plaintext">NombreDeArchivo.pdf</span>
                                 <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="fas fa-download"></i></span></div>
@@ -406,7 +419,7 @@
                             </div>
                         </div>
                         <div class="col-sm-12-col-md-12 col-lg-6">
-                            <label>Visibilidad de datos</label><br>
+                            <label class="font-weight-bold">Visibilidad de datos</label><br>
                             <div class="custom-control custom-checkbox d-inline-block">
                                 @if (Model.iniciativa_mit.PRIVACIDAD_INICIATIVA == '1')
                                 {
@@ -532,6 +545,10 @@
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
                             <button class="btn btn-primary" type="button" onclick="fn_verificarIniciativaDetalle();">Si</button>
                         </div>
+                        <div class="modal-footer" id="pieCorrectoAprobacion">
+                            <!-- add 04-02-2020 -->
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -615,6 +632,10 @@
                         </div>
                         <div class="modal-footer" id="modalObservacionBoton">
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button><a class="btn btn-primary" href="#" onclick="fn_observacionVerificarDetalleIndicador();">Enviar<i class="fas fa-paper-plane ml-1"></i></a>
+                        </div>
+                        <div class="modal-footer" id="pieCorrectoObservacion">
+                            <!-- add 04-02-2020 -->
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
                         </div>
                     </div>
                 </div>

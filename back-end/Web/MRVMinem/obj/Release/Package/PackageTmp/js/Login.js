@@ -1,6 +1,5 @@
 ﻿
 $("#formLogin").on("submit", function (e) {
-    debugger;
     if (grecaptcha.getResponse() == "") {
         e.preventDefault();
         $("#seccionMensaje #errorLogin").remove();

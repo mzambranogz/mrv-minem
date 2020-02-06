@@ -1327,6 +1327,24 @@ namespace MRVMinem.Controllers
             return jsonResult;
         }
 
+        public JsonResult ListaBusquedaSimplePrivado(IniciativaBE entidad)
+        {
+            entidad.ID_ROL = Convert.ToInt32(Session["rol"]);
+            List<IniciativaBE> lista = IniciativaLN.ListaBusquedaSimplePrivado(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListaBusquedaAvanzadaPrivado(IniciativaBE entidad)
+        {
+            entidad.ID_ROL = Convert.ToInt32(Session["rol"]);
+            List<IniciativaBE> lista = IniciativaLN.ListaBusquedaAvanzadoPrivado(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
         //EXPORTAR EXCEL
         public void ExportarToExcelProyectos(IniciativaBE entidad)
         {
@@ -1434,6 +1452,7 @@ namespace MRVMinem.Controllers
                 if (item != null)
                 {
                     var entidad = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<IniciativaBE>(item);
+                    entidad.ID_ROL = Convert.ToInt32(Session["rol"]);
                     ExportarToExcelIniciativaMitigacion(entidad);
                 }
             }
@@ -1446,53 +1465,62 @@ namespace MRVMinem.Controllers
         public void ExportarToExcelIniciativaMitigacion(IniciativaBE entidad)
         {
             List<IniciativaBE> lista = new List<IniciativaBE>();
-            if (entidad.ID_ESTADO == 1)
+            if (entidad.METODO == 0)
             {
-                if (entidad.ID_ROL == 1)
-                {
-                    lista = IniciativaLN.ListaExcelIniciativaUsuario(entidad);
-                }
-                else if (entidad.ID_ROL == 2)
-                {
-                    lista = IniciativaLN.ListaExcelIniciativaEspecialista(entidad);
-                }
-                else if (entidad.ID_ROL == 3)
-                {
-                    lista = IniciativaLN.ListaExcelIniciativaAdministrador(entidad);
-                }
-                else if (entidad.ID_ROL == 4)
-                {
-                    lista = IniciativaLN.ListaExcelIniciativaEvaluador(entidad);
-                }
-                else if (entidad.ID_ROL == 5)
-                {
-                    lista = IniciativaLN.ListaExcelIniciativaVerificador(entidad);
-                }
-            }
-            else if (entidad.ID_ESTADO == 2)
+                lista = IniciativaLN.ListaExcelSimple(entidad);
+            }else
             {
-                lista = IniciativaLN.ListaExcelIniciativaObservado(entidad);
+                lista = IniciativaLN.ListaExcelAvanzado(entidad);
             }
-            else if (entidad.ID_ESTADO == 3)
-            {
-                lista = IniciativaLN.ListaExcelIniciativaAprobado(entidad);
-            }
-            else if (entidad.ID_ESTADO == 4)
-            {
-                lista = IniciativaLN.ListaExcelIniciativaRevisado(entidad);
-            }
-            else if (entidad.ID_ESTADO == 5)
-            {
-                lista = IniciativaLN.ListaExcelIniciativaEvaluado(entidad);
-            }
-            else if (entidad.ID_ESTADO == 6)
-            {
-                lista = IniciativaLN.ListaExcelIniciativaVerificado(entidad);
-            }
-            else if (entidad.ID_ESTADO == 7)
-            {
-                lista = IniciativaLN.ListaExcelIniciativaTodo(entidad);
-            }
+
+
+            //if (entidad.ID_ESTADO == 1)
+            //{
+            //    if (entidad.ID_ROL == 1)
+            //    {
+            //        lista = IniciativaLN.ListaExcelIniciativaUsuario(entidad);
+            //    }
+            //    else if (entidad.ID_ROL == 2)
+            //    {
+            //        lista = IniciativaLN.ListaExcelIniciativaEspecialista(entidad);
+            //    }
+            //    else if (entidad.ID_ROL == 3)
+            //    {
+            //        lista = IniciativaLN.ListaExcelIniciativaAdministrador(entidad);
+            //    }
+            //    else if (entidad.ID_ROL == 4)
+            //    {
+            //        lista = IniciativaLN.ListaExcelIniciativaEvaluador(entidad);
+            //    }
+            //    else if (entidad.ID_ROL == 5)
+            //    {
+            //        lista = IniciativaLN.ListaExcelIniciativaVerificador(entidad);
+            //    }
+            //}
+            //else if (entidad.ID_ESTADO == 2)
+            //{
+            //    lista = IniciativaLN.ListaExcelIniciativaObservado(entidad);
+            //}
+            //else if (entidad.ID_ESTADO == 3)
+            //{
+            //    lista = IniciativaLN.ListaExcelIniciativaAprobado(entidad);
+            //}
+            //else if (entidad.ID_ESTADO == 4)
+            //{
+            //    lista = IniciativaLN.ListaExcelIniciativaRevisado(entidad);
+            //}
+            //else if (entidad.ID_ESTADO == 5)
+            //{
+            //    lista = IniciativaLN.ListaExcelIniciativaEvaluado(entidad);
+            //}
+            //else if (entidad.ID_ESTADO == 6)
+            //{
+            //    lista = IniciativaLN.ListaExcelIniciativaVerificado(entidad);
+            //}
+            //else if (entidad.ID_ESTADO == 7)
+            //{
+            //    lista = IniciativaLN.ListaExcelIniciativaTodo(entidad);
+            //}
 
             //var lista = IniciativaLN.ListaObservado(entidad);
             int row = 2;
@@ -1542,7 +1570,8 @@ namespace MRVMinem.Controllers
                         foreach (IniciativaBE dt_fila in lista)
                         {
                             xNum++;
-                            ws1.Cells["A" + row].Value = xNum;
+                            //ws1.Cells["A" + row].Value = xNum;
+                            ws1.Cells["A" + row].Value = dt_fila.ID_INICIATIVA;
                             ws1.Cells["B" + row].Value = dt_fila.NOMBRE_INICIATIVA;
                             ws1.Cells["C" + row].Value = Convert.ToString(dt_fila.PROGRESO * 25) + "%";
                             ws1.Cells["D" + row].Value = dt_fila.FECHA;

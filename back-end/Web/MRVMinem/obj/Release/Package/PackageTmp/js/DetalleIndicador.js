@@ -97,7 +97,6 @@ function fn_crearLinea(fila) {
 }
 
 function fn_restarTotalCO2() {
-    debugger;
     var row = $(".tabla-detalle-indicadores").find("tbody").find("th").length - 1;
     $("#cuerpoTablaIndicador").data("row", row);
     if ($("#txt-det-6-" + $("#tablaIndicador").data("fila")).val() != '') {
@@ -255,7 +254,8 @@ function CargarDatosIniciativa() {
     debugger;
     var Item =
     {
-        ID_INICIATIVA: $("#identificador").val()
+        //ID_INICIATIVA: $("#identificador").val()
+        ID_INICIATIVA: $("#Control").data("iniciativa")
     };
     $.ajax({
         url: baseUrl + "Gestion/CargarSeleccionIniciativa",
@@ -332,7 +332,8 @@ function CargarDatosIniciativa() {
                                         }
                                     }
                                 }
-                                output.push('<div class="input-group mb-3">', '<div class="input-group-prepend">', '<span class="input-group-text">', '<i class="fas ', extension, '">', '</i>', '</span>', '</div>', '<span class="form-control-plaintext">', escape((data[i]["ListaSustentos"])[sus]["ADJUNTO"]), '</span>', '<div class="form-group m-0">', '<label class="btn btn-secondary btn-sm m-0" onclick="fn_verfilesutento(', (data[i]["ListaSustentos"])[sus]["ID_INICIATIVA_SUSTENTATORIO"], ')"><i class="fas fa-download mr-1"></i>Ver</label>', '</div>', '</div>');
+                                //output.push('<div class="input-group mb-3">', '<div class="input-group-prepend">', '<span class="input-group-text">', '<i class="fas ', extension, '">', '</i>', '</span>', '</div>', '<span class="form-control-plaintext">', escape((data[i]["ListaSustentos"])[sus]["ADJUNTO"]), '</span>', '<div class="form-group m-0">', '<label class="btn btn-secondary btn-sm m-0" onclick="fn_verfilesutento(', (data[i]["ListaSustentos"])[sus]["ID_INICIATIVA_SUSTENTATORIO"], ')"><i class="fas fa-download mr-1"></i>Ver</label>', '</div>', '</div>');
+                                output.push('<div class="input-group mb-3">', '<div class="input-group-prepend">', '<span class="input-group-text">', '<i class="fas ', extension, '">', '</i>', '</span>', '</div>', '<span class="form-control-plaintext">', decodeURI((data[i]["ListaSustentos"])[sus]["ADJUNTO_BASE"]), '</span>', '<div class="form-group m-0">', '<label class="btn btn-secondary btn-sm m-0" onclick="fn_verfilesutento(', (data[i]["ListaSustentos"])[sus]["ID_INICIATIVA_SUSTENTATORIO"], ')"><i class="fas fa-download mr-1"></i>Ver</label>', '</div>', '</div>');
 
                                 $("#archivos-documentos").append(output.join(''));
 
@@ -704,11 +705,9 @@ function fn_calcularIndicador(fila) {
 
 
 function fn_procesoDetalleIndicador(url, estado) {
-    //debugger;
     indicadores = [];
     documentos = [];
     var n = $(".tabla-detalle-indicadores").find("tbody").find("th").length + 1;
-    debugger;
     for (var fila = 1 ; fila < n; fila++) {
         if ($("#txt-det-6-" + fila).val() != '') {
             var itx = {
@@ -803,6 +802,7 @@ function fn_procesoDetalleIndicador(url, estado) {
                     msj = msj + '                        </div>';
                     msj = msj + '                    </div>';
                     $("#guardar-avance #modalAvanceBoton").hide();
+                    $("#pieCorrectoAvance").show();
                     $('#mensajeModalAvance').append(msj);
                 } else if (estado == 1 || estado == 5) {
                     $('#mensajeModalRegistrar #mensajeGoodRegistro').remove();
@@ -824,6 +824,7 @@ function fn_procesoDetalleIndicador(url, estado) {
                     msj = msj + '                            </div>';
                     msj = msj + '                        </div>';
                     $("#solicitar-revision #modalRegistrarBoton").hide();
+                    $("#pieCorrecto").show();
                     $('#mensajeModalRegistrar').append(msj);
                     $("#Control").data("modal", 1);
                     if (response.extra == "1") {
@@ -897,6 +898,7 @@ function fn_procesoDetalleIndicador(url, estado) {
         } else {
             $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
             $("#solicitar-revision #modalRegistrarBoton").show();
+            $("#pieCorrecto").hide();
         }
     });
 
@@ -904,6 +906,7 @@ function fn_procesoDetalleIndicador(url, estado) {
         $("#mensajeModalAvance #mensajeDangerAvance").remove();
         $("#mensajeModalAvance #mensajeWarningAvance").remove();
         $("#guardar-avance #modalAvanceBoton").show();
+        $("#pieCorrectoAvance").hide();
     });
 }
 
@@ -1041,6 +1044,7 @@ function fn_observacionDetalleIndicador() {
         msj = msj + '                                </div>';
         msj = msj + '                            </div>';
         $("#observar-revision #modalObservacionBoton").hide();
+        $("#pieCorrectoObservacion").show();
         $("#modalRevision").append(msj);
         $("#Control").data("modal", 1);
         if (ws != null) ws.send(respuesta.extra);
@@ -1074,6 +1078,7 @@ function fn_observacionDetalleIndicador() {
         } else {
             $("#modalRevision #modalErrorRevision").remove();
             $("#observar-revision #modalObservacionBoton").show();
+            $("#pieCorrectoObservacion").hide();
         }
     });
 }
@@ -1107,6 +1112,7 @@ function fn_revisarDetalleIndicador() {
         msj = msj + '                                </div>';
         msj = msj + '                            </div>';
         $("#aprobar-revision #modalAprobarBoton").hide();
+        $("#pieCorrectoAprobacion").show();
         $("#modalAprobacion").append(msj);
         $("#Control").data("modal", 1);
         if (ws != null) ws.send(respuesta.extra);
@@ -1140,6 +1146,7 @@ function fn_revisarDetalleIndicador() {
         } else {
             $("#modalAprobacion #modalErrorAprobacion").remove();
             $("#aprobar-revision #modalAprobarBoton").show();
+            $("#pieCorrectoAprobacion").hide();
         }
     });
 }
@@ -1177,6 +1184,7 @@ function fn_observacionAdminDetalleIndicador() {
         msj = msj + '                                </div>';
         msj = msj + '                            </div>';
         $("#observar-revision #modalObservacionBoton").hide();
+        $("#pieCorrectoObservacion").show();
         $("#modalRevision").append(msj);
         $("#Control").data("modal", 1);
         if (ws != null) ws.send(respuesta.extra);
@@ -1210,6 +1218,7 @@ function fn_observacionAdminDetalleIndicador() {
         } else {
             $("#modalRevision #modalErrorRevision").remove();
             $("#observar-revision #modalObservacionBoton").show();
+            $("#pieCorrectoObservacion").hide();
         }
     });
 }
@@ -1244,6 +1253,7 @@ function fn_revisarAdminDetalleIndicador() {
         msj = msj + '                                </div>';
         msj = msj + '                            </div>';
         $("#modalAprobacion").append(msj);
+        $("#pieCorrectoAprobacion").show();
         $("#Control").data("modal", 1);
     } else {
         $("#modalAprobacion #modalErrorAprobacion").remove();
@@ -1273,6 +1283,7 @@ function fn_revisarAdminDetalleIndicador() {
             location.href = baseUrl + "Gestion/AccionMitigacion";
         } else {
             $("#modalAprobacion #modalErrorAprobacion").remove();
+            $("#pieCorrectoAprobacion").hide();
         }
     });
 }
@@ -1309,6 +1320,7 @@ function fn_observacionEvaluadorDetalleIndicador() {
         msj = msj + '                                </div>';
         msj = msj + '                            </div>';
         $("#observar-evaluacion #modalObservacionBoton").hide();
+        $("#pieCorrectoObservacion").show();
         $("#modalRevision").append(msj);
         $("#Control").data("modal", 1);
         if (ws != null) ws.send(respuesta.extra);
@@ -1342,6 +1354,7 @@ function fn_observacionEvaluadorDetalleIndicador() {
         } else {
             $("#modalRevision #modalErrorRevision").remove();
             $("#observar-evaluacion #modalObservacionBoton").show();
+            $("#pieCorrectoObservacion").hide();
         }
     });
 }
@@ -1378,6 +1391,7 @@ function fn_observacionVerificarDetalleIndicador() {
         msj = msj + '                                </div>';
         msj = msj + '                            </div>';
         $("#observar-verificacion #modalObservacionBoton").hide();
+        $("#pieCorrectoObservacion").show();
         $("#modalRevision").append(msj);
         $("#Control").data("modal", 1);
         if (ws != null) ws.send(respuesta.extra);
@@ -1411,6 +1425,7 @@ function fn_observacionVerificarDetalleIndicador() {
         } else {
             $("#modalRevision #modalErrorRevision").remove();
             $("#observar-verificacion #modalObservacionBoton").show();
+            $("#pieCorrectoObservacion").hide();
         }
     });
 }
@@ -1464,6 +1479,7 @@ function fn_evaluarIniciativaDetalle() {
         msj1 = msj1 + '</div>';
 
         $("#aprobar-evaluacion #modalAprobarBoton").hide();
+        $("#pieCorrectoAprobacion").show();
         $("#modalAprobacion").append(msj);
         $("#modalAprobacion").append(msj1);
         $("#Control").data("modal", 1);
@@ -1497,6 +1513,7 @@ function fn_evaluarIniciativaDetalle() {
             $("#modalAprobacion #modalErrorAprobacion").remove();
             $("#modalAprobacion #modalBCAprobacion").remove();
             $("#aprobar-evaluacion #modalAprobarBoton").show();
+            $("#pieCorrectoAprobacion").hide();
         }
     });
 }
@@ -1550,6 +1567,7 @@ function fn_verificarIniciativaDetalle() {
         msj1 = msj1 + '</div>';
 
         $("#aprobar-verificacion #modalAprobarBoton").hide();
+        $("#pieCorrectoAprobacion").show();
         $("#modalAprobacion").append(msj);
         $("#modalAprobacion").append(msj1);
         $("#Control").data("modal", 1);
@@ -1583,6 +1601,7 @@ function fn_verificarIniciativaDetalle() {
             $("#modalAprobacion #modalErrorAprobacion").remove();
             $("#modalAprobacion #modalBCAprobacion").remove();
             $("#aprobar-verificacion #modalAprobarBoton").show();
+            $("#pieCorrectoAprobacion").hide();
         }
     });
 }
@@ -1674,8 +1693,17 @@ function fn_EstadoActor(id){
     //alert($("#estado-actor").data("estado"));
 }
 
+function inicio() {
+    $("#pieCorrectoObservacion").hide();
+    $("#pieCorrectoAprobacion").hide();
+    $("#pieCorrectoAvance").hide();
+    $("#pieCorrecto").hide();
+}
+
 $(document).ready(function () {
-    debugger;
+
+    inicio();
+
     if ($("#iniciativa_mit_ID_INICIATIVA").val() > 0) {
         $("#Control").data("iniciativa", $("#iniciativa_mit_ID_INICIATIVA").val());
     } else {
@@ -1705,7 +1733,6 @@ $(document).ready(function () {
     });
 
     $(document).on("click", ".agregarCampos", function (e) {
-        //debugger;
         e.preventDefault();
         CargarSoloTablaIndicador();
         //var n = $(".tabla-detalle-indicadores").find("tbody").find("th").length + 1;

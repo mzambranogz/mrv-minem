@@ -16,7 +16,6 @@ namespace datos.minem.gob.pe
     public class UbicacionDA : BaseDA
     {
         public string sPackage = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_MANTENIMIENTO.";
-
         public List<UbicacionBE> ListarUbicacion(UbicacionBE entidad)
         {
             List<UbicacionBE> Lista = null;
@@ -158,6 +157,5 @@ namespace datos.minem.gob.pe
 
             return entidad;
         }
-
     }
 }

@@ -41,6 +41,5 @@ namespace logica.minem.gob.pe
         {
             return sectorInstitucionDA.EliminarSector(entidad);
         }
-
     }
 }

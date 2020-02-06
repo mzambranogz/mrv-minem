@@ -302,10 +302,10 @@
     <Content Include="Views\Gestion\PreguntasFrecuentes.cshtml" />
     <Content Include="Views\Portal\PreguntasFrecuentes.cshtml" />
     <Content Include="Views\Gestion\Index.cshtml" />
-    <Content Include="Views\Mantenimiento\Instituciones.cshtml" />
-    <Content Include="Views\Mantenimiento\Ubicaciones.cshtml" />
-    <Content Include="Views\Mantenimiento\Sectores.cshtml" />
     <Content Include="Views\Mantenimiento\Escenarios.cshtml" />
+    <Content Include="Views\Mantenimiento\Instituciones.cshtml" />
+    <Content Include="Views\Mantenimiento\Sectores.cshtml" />
+    <Content Include="Views\Mantenimiento\Ubicaciones.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

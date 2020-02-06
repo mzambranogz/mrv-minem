@@ -1166,6 +1166,357 @@ namespace datos.minem.gob.pe
             return entidad;
         }
 
+        public List<IniciativaBE> ListaExcelSimple(IniciativaBE entidad)
+        {
+            List<IniciativaBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage;
+
+                    if (entidad.ID_ESTADO == 1)
+                    {
+                        if (entidad.ID_ROL == 1)
+                        {
+                            sp += "USP_SEL_EXCEL_SPL_PRI_USU";
+                        }
+                        else if (entidad.ID_ROL == 2)
+                        {
+                            sp += "USP_SEL_EXCEL_SPL_PRI_ESP";
+                        }
+                        else if (entidad.ID_ROL == 3)
+                        {
+                            sp += "USP_SEL_EXCEL_SPL_PRI_ADM";
+                        }
+                        else if (entidad.ID_ROL == 4)
+                        {
+                            sp += "USP_SEL_EXCEL_SPL_PRI_EVA";
+                        }
+                        else if (entidad.ID_ROL == 5)
+                        {
+                            sp += "USP_SEL_EXCEL_SPL_PRI_VRF";
+                        }
+                    }
+                    else if (entidad.ID_ESTADO == 2)
+                    {
+                        sp += "USP_SEL_EXCEL_SPL_PRI_OBSE";
+                    }
+                    else if (entidad.ID_ESTADO == 3)
+                    {
+                        sp += "USP_SEL_EXCEL_SPL_PRI_APRO";
+                    }
+                    else if (entidad.ID_ESTADO == 4)
+                    {
+                        sp += "USP_SEL_EXCEL_SPL_PRI_REVI";
+                    }
+                    else if (entidad.ID_ESTADO == 5)
+                    {
+                        sp += "USP_SEL_EXCEL_SPL_PRI_EVAL";
+                    }
+                    else if (entidad.ID_ESTADO == 6)
+                    {
+                        sp += "USP_SEL_EXCEL_SPL_PRI_VRFI";
+                    }
+                    else if (entidad.ID_ESTADO == 7)
+                    {
+                        sp += "USP_SEL_EXCEL_SPL_PRI_TODO";
+                    }
+
+                    var p = new OracleDynamicParameters();
+                    if (entidad.ID_ROL == 1)
+                    {
+                        p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    }
+                    p.Add("pBuscar", entidad.buscar);
+                    p.Add("pSortColumn", entidad.order_by);
+                    p.Add("pSortOrder", entidad.order_orden);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in Lista)
+                    {
+                        item.FECHA = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+        public List<IniciativaBE> ListaBusquedaSimplePrivado(IniciativaBE entidad)
+        {
+            List<IniciativaBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage;
+
+                    if (entidad.ID_ESTADO == 1)
+                    {
+                        if (entidad.ID_ROL == 1)
+                        {
+                            sp += "USP_SEL_BUSQUEDA_SPL_PRI_USU";
+                        }
+                        else if (entidad.ID_ROL == 2)
+                        {
+                            sp += "USP_SEL_BUSQUEDA_SPL_PRI_ESP";
+                        }
+                        else if (entidad.ID_ROL == 3)
+                        {
+                            sp += "USP_SEL_BUSQUEDA_SPL_PRI_ADM";
+                        }
+                        else if (entidad.ID_ROL == 4)
+                        {
+                            sp += "USP_SEL_BUSQUEDA_SPL_PRI_EVA";
+                        }
+                        else if (entidad.ID_ROL == 5)
+                        {
+                            sp += "USP_SEL_BUSQUEDA_SPL_PRI_VRF";
+                        }
+                    }
+                    else if (entidad.ID_ESTADO == 2)
+                    {
+                        sp += "USP_SEL_BUSQUEDA_SPL_PRI_OBSE";
+                    }
+                    else if (entidad.ID_ESTADO == 3)
+                    {
+                        sp += "USP_SEL_BUSQUEDA_SPL_PRI_APRO";
+                    }
+                    else if (entidad.ID_ESTADO == 4)
+                    {
+                        sp += "USP_SEL_BUSQUEDA_SPL_PRI_REVI";
+                    }
+                    else if (entidad.ID_ESTADO == 5)
+                    {
+                        sp += "USP_SEL_BUSQUEDA_SPL_PRI_EVAL";
+                    }
+                    else if (entidad.ID_ESTADO == 6)
+                    {
+                        sp += "USP_SEL_BUSQUEDA_SPL_PRI_VRFI";
+                    }
+                    else if (entidad.ID_ESTADO == 7)
+                    {
+                        sp += "USP_SEL_BUSQUEDA_SPL_PRI_TODO";
+                    }
+
+
+                    var p = new OracleDynamicParameters();
+                    if (entidad.ID_ROL == 1)
+                    {
+                        p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    }
+                    p.Add("pBuscar", entidad.buscar);
+                    p.Add("pRegistros", entidad.cantidad_registros);
+                    p.Add("pPagina", entidad.pagina);
+                    p.Add("pSortColumn", entidad.order_by);
+                    p.Add("pSortOrder", entidad.order_orden);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in Lista)
+                    {
+                        item.FECHA = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+
+
+        public List<IniciativaBE> ListaExcelAvanzado(IniciativaBE entidad)
+        {
+            List<IniciativaBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage;
+
+                    if (entidad.ID_ESTADO == 1)
+                    {
+                        if (entidad.ID_ROL == 1)
+                        {
+                            sp += "USP_SEL_EXCEL_AVA_PRI_USU";
+                        }
+                        else if (entidad.ID_ROL == 2)
+                        {
+                            sp += "USP_SEL_EXCEL_AVA_PRI_ESP";
+                        }
+                        else if (entidad.ID_ROL == 3)
+                        {
+                            sp += "USP_SEL_EXCEL_AVA_PRI_ADM";
+                        }
+                        else if (entidad.ID_ROL == 4)
+                        {
+                            sp += "USP_SEL_EXCEL_AVA_PRI_EVA";
+                        }
+                        else if (entidad.ID_ROL == 5)
+                        {
+                            sp += "USP_SEL_EXCEL_AVA_PRI_VRF";
+                        }
+                    }
+                    else if (entidad.ID_ESTADO == 2)
+                    {
+                        sp += "USP_SEL_EXCEL_AVA_PRI_OBSE";
+                    }
+                    else if (entidad.ID_ESTADO == 3)
+                    {
+                        sp += "USP_SEL_EXCEL_AVA_PRI_APRO";
+                    }
+                    else if (entidad.ID_ESTADO == 4)
+                    {
+                        sp += "USP_SEL_EXCEL_AVA_PRI_REVI";
+                    }
+                    else if (entidad.ID_ESTADO == 5)
+                    {
+                        sp += "USP_SEL_EXCEL_AVA_PRI_EVAL";
+                    }
+                    else if (entidad.ID_ESTADO == 6)
+                    {
+                        sp += "USP_SEL_EXCEL_AVA_PRI_VRFI";
+                    }
+                    else if (entidad.ID_ESTADO == 7)
+                    {
+                        sp += "USP_SEL_EXCEL_AVA_PRI_TODO";
+                    }
+
+
+
+                    var p = new OracleDynamicParameters();
+                    if (entidad.ID_ROL == 1)
+                    {
+                        p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    }
+                    p.Add("pMedida", entidad.medida_b);
+                    p.Add("pAnio", entidad.anio_b);
+                    p.Add("pSector", entidad.sector_b);
+                    p.Add("pGei", entidad.gei_b);
+                    p.Add("pEnerg", entidad.energ_b);
+                    p.Add("pSortColumn", entidad.order_by);
+                    p.Add("pSortOrder", entidad.order_orden);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in Lista)
+                    {
+                        item.FECHA = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+        public List<IniciativaBE> ListaBusquedaAvanzadoPrivado(IniciativaBE entidad)
+        {
+            List<IniciativaBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage;
+
+                    if (entidad.ID_ESTADO == 1)
+                    {
+                        if (entidad.ID_ROL == 1)
+                        {
+                            sp += "USP_SEL_BUSQUEDA_AVA_PRI_USU";
+                        }
+                        else if (entidad.ID_ROL == 2)
+                        {
+                            sp += "USP_SEL_BUSQUEDA_AVA_PRI_ESP";
+                        }
+                        else if (entidad.ID_ROL == 3)
+                        {
+                            sp += "USP_SEL_BUSQUEDA_AVA_PRI_ADM";
+                        }
+                        else if (entidad.ID_ROL == 4)
+                        {
+                            sp += "USP_SEL_BUSQUEDA_AVA_PRI_EVA";
+                        }
+                        else if (entidad.ID_ROL == 5)
+                        {
+                            sp += "USP_SEL_BUSQUEDA_AVA_PRI_VRF";
+                        }
+                    }
+                    else if (entidad.ID_ESTADO == 2)
+                    {
+                        sp += "USP_SEL_BUSQUEDA_AVA_PRI_OBSE";
+                    }
+                    else if (entidad.ID_ESTADO == 3)
+                    {
+                        sp += "USP_SEL_BUSQUEDA_AVA_PRI_APRO";
+                    }
+                    else if (entidad.ID_ESTADO == 4)
+                    {
+                        sp += "USP_SEL_BUSQUEDA_AVA_PRI_REVI";
+                    }
+                    else if (entidad.ID_ESTADO == 5)
+                    {
+                        sp += "USP_SEL_BUSQUEDA_AVA_PRI_EVAL";
+                    }
+                    else if (entidad.ID_ESTADO == 6)
+                    {
+                        sp += "USP_SEL_BUSQUEDA_AVA_PRI_VRFI";
+                    }
+                    else if (entidad.ID_ESTADO == 7)
+                    {
+                        sp += "USP_SEL_BUSQUEDA_AVA_PRI_TODO";
+                    }
+
+                    
+
+                    var p = new OracleDynamicParameters();
+                    if (entidad.ID_ROL == 1)
+                    {
+                        p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    }
+                    p.Add("pMedida", entidad.medida_b);
+                    p.Add("pAnio", entidad.anio_b);
+                    p.Add("pSector", entidad.sector_b);
+                    p.Add("pGei", entidad.gei_b);
+                    p.Add("pEnerg", entidad.energ_b);
+                    p.Add("pRegistros", entidad.cantidad_registros);
+                    p.Add("pPagina", entidad.pagina);
+                    p.Add("pSortColumn", entidad.order_by);
+                    p.Add("pSortOrder", entidad.order_orden);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in Lista)
+                    {
+                        item.FECHA = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
     }
 
 

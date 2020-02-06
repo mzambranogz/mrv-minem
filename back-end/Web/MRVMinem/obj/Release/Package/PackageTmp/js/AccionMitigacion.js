@@ -229,8 +229,8 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
 }
 
 
+
 function fn_avance_grilla(boton) {
-    //debugger;
     var total = 0;
     var miPag = 0;
     miPag = Number($("#pagina").val());
@@ -259,15 +259,39 @@ function fn_avance_grilla(boton) {
 
 
 function CargarListarIniciativaMitigacionGeneral(vUrl) {
-    var Item = {
-        ID_USUARIO: $("#Control").data("usuario"),
-        cantidad_registros: $("#cantidad-registros").val(),
-        pagina: $("#pagina").val(),
-        order_by: $("#columna").val(),
-        order_orden: $("#orden").val()
+    var nurl = baseUrl;
+
+    if ($("#buscar").data("numero") == 0) {
+
+        var Item = {
+            buscar: $("#buscar-iniciativa").data("campo"),
+            cantidad_registros: $("#cantidad-registros").val(),
+            pagina: $("#pagina").val(),
+            order_by: $("#columna").val(),
+            order_orden: $("#orden").val(),
+            ID_USUARIO: $("#Control").data("usuario"),
+            ID_ESTADO: $("#estadoIniciativa").data("estado")
+        }
+        nurl = nurl + "Gestion/ListaBusquedaSimplePrivado";
+    } else {
+
+        var Item = {
+            medida_b: $("#cbo-medida-mitigacion").val(),
+            anio_b: $("#txt-fecha-inicio").val(),
+            sector_b: $("#cbo-sector").val(),
+            gei_b: $("#cbo-energetico-base").val(),
+            energ_b: $("#cbo-energetico-proyecto").val(),
+            cantidad_registros: $("#cantidad-registros").val(),
+            pagina: $("#pagina").val(),
+            order_by: $("#columna").val(),
+            order_orden: $("#orden").val(),
+            ID_USUARIO: $("#Control").data("usuario"),
+            ID_ESTADO: $("#estadoIniciativa").data("estado")
+        }
+        nurl = nurl + "Gestion/ListaBusquedaAvanzadaPrivado";
     };
     $.ajax({
-        url: vUrl,
+        url: nurl,
         type: 'POST',
         datatype: 'json',
         data: Item,
@@ -354,7 +378,6 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                         } else if ($('#Control').data('rol') == 2 && ((data[i]["PROGRESO"] == 3 && (data[i]["ID_ESTADO"] == 1 || data[i]["ID_ESTADO"] == 5)) || (data[i]["ID_ESTADO"] == 4 || data[i]["ID_ESTADO"] == 2))) {
                             tr = tr + '<a class="dropdown-item text-primary" href="#" onclick="fn_revisarDetalle(' + data[i]["ID_INICIATIVA"] + ')"><i class="fas fa-check-double"></i>&nbsp;Revisar</a>';
                         }
-                        debugger;
                         if ($('#Control').data('rol') == 3 && ((data[i]["PROGRESO"] == 4 && data[i]["ID_ESTADO"] == 3) || ((data[i]["PROGRESO"] == 8 || data[i]["PROGRESO"] == 5) && data[i]["ID_ESTADO"] == 2))) {
                             tr = tr + '<a class="dropdown-item text-primary" href="#" onclick="fn_revisarDetalleAdmin(' + data[i]["ID_INICIATIVA"] + ')"><i class="fas fa-check-double"></i>&nbsp;Revisar</a>';
                         }
@@ -398,7 +421,12 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
 }
 
 
-
+function fn_busqueda_Privado() {
+    if ($("#buscar").data("numero") == 0) {
+        $("#buscar-iniciativa").data("campo", $("#txt-buscar").val());
+    }
+    fn_CargaIniciativas();
+}
 
 
 
@@ -566,7 +594,6 @@ function fn_buscarPublicoSimple() {
         datatype: 'json',
         data: item,
         success: function (data) {
-            debugger;
             if (data != null && data != "") {
                 if (data.length > 0) {
                     $("#cuerpoMitigacion").html("");
@@ -596,7 +623,6 @@ function fn_buscarPublicoAvanzado() {
         datatype: 'json',
         data: item,
         success: function (data) {
-            debugger;
             if (data != null && data != "") {
                 if (data.length > 0) {
                     $("#cuerpoMitigacion").html("");
@@ -612,7 +638,7 @@ function fn_buscarPublicoAvanzado() {
 
 
 //Funciones Busqueda Privado 
-function fn_busqueda_Privado() {
+function fn_busqueda_Priva() {
     if ($("#buscar").data("numero") == 0) {
 
         if ($("#Control").data("rol") == 1) {
@@ -675,7 +701,6 @@ function fn_buscarPrivadoSimple() {
         datatype: 'json',
         data: item,
         success: function (data) {
-            debugger;
             if (data != null && data != "") {
                 if (data.length > 0) {
 
@@ -712,7 +737,6 @@ function fn_buscarPrivadoAvanzadoUsuario(item, vurl) {
         datatype: 'json',
         data: item,
         success: function (data) {
-            debugger;
             if (data != null && data != "") {
                 if (data.length > 0) {
                     tablaMitigacionPrivado(data);
@@ -736,7 +760,6 @@ function fn_buscarPrivadoSimpleEsp() {
         datatype: 'json',
         data: item,
         success: function (data) {
-            debugger;
             if (data != null && data != "") {
                 if (data.length > 0) {
 
@@ -780,7 +803,6 @@ function fn_buscarPrivadoSimpleEsp() {
         datatype: 'json',
         data: item,
         success: function (data) {
-            debugger;
             if (data != null && data != "") {
                 if (data.length > 0) {
 
@@ -823,7 +845,6 @@ function fn_buscarPrivadoSimpleEsp() {
         datatype: 'json',
         data: item,
         success: function (data) {
-            debugger;
             if (data != null && data != "") {
                 if (data.length > 0) {
 
@@ -866,7 +887,6 @@ function fn_buscarPrivadoSimpleEsp() {
         datatype: 'json',
         data: item,
         success: function (data) {
-            debugger;
             if (data != null && data != "") {
                 if (data.length > 0) {
 
@@ -894,7 +914,6 @@ function fn_buscarPrivadoSimpleMi() {
         datatype: 'json',
         data: item,
         success: function (data) {
-            debugger;
             if (data != null && data != "") {
                 if (data.length > 0) {
 
@@ -922,7 +941,6 @@ function fn_buscarPrivadoSimpleEvaMRV() {
         datatype: 'json',
         data: item,
         success: function (data) {
-            debugger;
             if (data != null && data != "") {
                 if (data.length > 0) {
 
@@ -1171,20 +1189,24 @@ function tablaMitigacionPrivado(data) {
     }
 }
 
-function fn_filtrarEstado(opc) {
-    debugger;
+function fn_filtrarEstado(opc, t) {
+    //debugger;
+    var $t = t;
+    var $e = $t.html();
+    var $a = $t.parent().prev();
+    $a.html($e);
     $("#estadoIniciativa").data("estado", opc);
     fn_CargaIniciativas();
 }
 
-$("#filtro-estado .dropdown-item").on("click", function(e){
-    e.preventDefault();
-    var $t = $(this);
-    var $e = $t.html();
-    var $a = $t.parent().prev();
-    //console.log($e);
-    $a.html($e);
- });
+//$("#filtro-estado .dropdown-item").on("click", function(e){
+//    e.preventDefault();
+//    var $t = $(this);
+//    var $e = $t.html();
+//    var $a = $t.parent().prev();
+//    //console.log($e);
+//    $a.html($e);
+// });
 
 function fn_filtrarObservado() {
     item = {
@@ -1287,12 +1309,39 @@ function tablaMitigacionEstado(data) {
 //////EXPORTAR
 
 function exportarIniciativa() {
-    var item = {
-        ID_USUARIO: $("#Control").data("usuario"),
-        ID_ROL: $("#Control").data("rol"),
-        ID_ESTADO: $("#estadoIniciativa").data("estado")
-    };
+    //var item = {
+    //    ID_USUARIO: $("#Control").data("usuario"),
+    //    ID_ROL: $("#Control").data("rol"),
+    //    ID_ESTADO: $("#estadoIniciativa").data("estado")
+    //};
 
+    if ($("#buscar").data("numero") == 0) {
+
+        var item = {
+            buscar: $("#buscar-iniciativa").data("campo"),
+            order_by: $("#columna").val(),
+            order_orden: $("#orden").val(),
+            ID_USUARIO: $("#Control").data("usuario"),
+            ID_ESTADO: $("#estadoIniciativa").data("estado"),
+            METODO: $("#buscar").data("numero")
+            }
+    }
+    else
+    {
+
+        var item = {
+            medida_b: $("#cbo-medida-mitigacion").val(),
+            anio_b: $("#txt-fecha-inicio").val(),
+            sector_b: $("#cbo-sector").val(),
+            gei_b: $("#cbo-energetico-base").val(),
+            energ_b: $("#cbo-energetico-proyecto").val(),
+            order_by: $("#columna").val(),
+            order_orden: $("#orden").val(),
+            ID_USUARIO: $("#Control").data("usuario"),
+            ID_ESTADO: $("#estadoIniciativa").data("estado"),
+            METODO: $("#buscar").data("numero")
+            }
+     }
     var url = baseUrl + 'Gestion/ExportarIniciativa';
 
     var parametros = {
@@ -1344,6 +1393,7 @@ $(document).ready(function () {
     */
 
     $(".miColumna").click(function (event) {
+        debugger;
         var id = "";
         if (event.target.nodeName == "SPAN") {
             id = event.target.firstElementChild.id;
@@ -1351,7 +1401,6 @@ $(document).ready(function () {
             id = event.target.id;
         }
 
-        debugger;
         $(".miColumna > i").removeClass("fa-sort-up");
         $(".miColumna > i").removeClass("fa-sort-down");
         $(".miColumna > i").addClass("fa-sort");

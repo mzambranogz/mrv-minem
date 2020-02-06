@@ -5,7 +5,7 @@
     var reclave = $("#txt-re-pswd").val();
     $("#frmCambiarClave #errorCambiar").remove();
     $("#frmCambiarClave #correctoCambiar").remove();
-    debugger;
+     
     if (clave == reclave) {
         if (!(/[a-zñ]/.test(clave) && /[A-ZÑ]/.test(clave) && /[0-9]/.test(clave))) {
             arr.push("La nueva contraseña debe contener minuscula(s), mayúscula(s) y número(s)");
