@@ -34,10 +34,49 @@ namespace MRVMinem.Controllers
 
         public JsonResult BuscarInstitucion(InstitucionBE entidad)
         {
+            InstitucionBE lista = InstitucionLN.GetInstitucionPorId(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListaInstitucion(InstitucionBE entidad)
+        {
             List<InstitucionBE> lista = InstitucionLN.ListaInstitucionPaginado(entidad);
             var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
+        }
+
+        public JsonResult RegistrarInstitucion(InstitucionBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            if(entidad.FLAG_ESTADO == "1")
+            {
+                entidad.INSNOMBRE = entidad.NOMBRE_INSTITUCION;
+                entidad.INSDIRECCION = entidad.DIRECCION_INSTITUCION;
+                entidad.INSTIPO = entidad.ID_SECTOR_INSTITUCION;
+                entidad.INSRUC = entidad.RUC_INSTITUCION;
+                entidad = InstitucionLN.registrarInstitucion(entidad);
+            }
+            else
+            {
+                entidad = InstitucionLN.ActualizarInstitucion(entidad);
+            }
+            itemRespuesta.success = entidad.OK;
+            itemRespuesta.extra = entidad.extra;
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult EliminarInstitucion(InstitucionBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = InstitucionLN.EliminarInstitucion(entidad);
+            itemRespuesta.success = entidad.OK;
+            itemRespuesta.extra = entidad.extra;
+            return Respuesta(itemRespuesta);
         }
     }
 }

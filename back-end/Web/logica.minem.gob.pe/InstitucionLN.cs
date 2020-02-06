@@ -22,5 +22,20 @@ namespace logica.minem.gob.pe
         {
             return institucionDA.ListaInstitucionPaginado(entidad);
         }
+
+        public static InstitucionBE GetInstitucionPorId(InstitucionBE entidad)
+        {
+            return institucionDA.GetInstitucionPorId(entidad);
+        }
+
+        public static InstitucionBE ActualizarInstitucion(InstitucionBE entidad)
+        {
+            return institucionDA.ActualizarInstitucion(entidad);
+        }
+
+        public static InstitucionBE EliminarInstitucion(InstitucionBE entidad)
+        {
+            return institucionDA.EliminarInstitucion(entidad);
+        }
     }
 }

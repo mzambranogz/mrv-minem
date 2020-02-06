@@ -15,7 +15,8 @@ namespace datos.minem.gob.pe
 {
     public class InstitucionDA : BaseDA
     {
-        private string sPackage = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_ADMIN_SISTEMA.";
+        private string sPackage_2 = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_ADMIN_SISTEMA.";
+        private string sPackage = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_MANTENIMIENTO.";
 
         public List<InstitucionBE> ListaInstitucion(InstitucionBE entidad)
         {
@@ -25,7 +26,7 @@ namespace datos.minem.gob.pe
             {
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
                 {
-                    string sp = sPackage + "USP_SEL_INSTITUCION";
+                    string sp = sPackage_2 + "USP_SEL_INSTITUCION";
                     var p = new OracleDynamicParameters();
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<InstitucionBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
@@ -47,7 +48,7 @@ namespace datos.minem.gob.pe
             {
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
                 {
-                    string sp = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_MANTENIMIENTO." + "USP_SEL_INSTITUCION";
+                    string sp = sPackage + "USP_SEL_INSTITUCION";
                     var p = new OracleDynamicParameters();
                     p.Add("pRegistros", entidad.cantidad_registros);
                     p.Add("pPagina", entidad.pagina);
@@ -65,6 +66,27 @@ namespace datos.minem.gob.pe
             return Lista;
         }
 
+        public InstitucionBE GetInstitucionPorId(InstitucionBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_GET_INSTITUCION_ID";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pIdInstitucion", entidad.ID_INSTITUCION);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    entidad = db.Query<InstitucionBE>(sp, p, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return entidad;
+        }
+
         public InstitucionBE registrarInstitucion(InstitucionBE entidad)
         {
             int cod = 0;
@@ -72,7 +94,7 @@ namespace datos.minem.gob.pe
             {
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
                 {
-                    string sp = sPackage + "USP_INS_INSTITUCION";
+                    string sp = sPackage_2 + "USP_INS_INSTITUCION";
                     var parametros = new OracleParameter[5];
                     parametros[0] = new OracleParameter("pID_SECTOR_INSTITUCION", entidad.INSTIPO);
                     parametros[1] = new OracleParameter("pRUC_INSTITUCION", entidad.INSRUC);
@@ -82,6 +104,7 @@ namespace datos.minem.gob.pe
                     OracleHelper.ExecuteNonQuery(CadenaConexion, CommandType.StoredProcedure, sp, parametros);
                     cod = int.Parse(parametros[4].Value.ToString());
                     entidad.ID_INSTITUCION = cod;
+                    entidad.OK = true;
                 }
             }
             catch (Exception ex)
@@ -93,6 +116,53 @@ namespace datos.minem.gob.pe
             return entidad;
         }
 
+        public InstitucionBE ActualizarInstitucion(InstitucionBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_UPD_INSTITUCION";
+                    var parametros = new OracleParameter[5];
+                    parametros[0] = new OracleParameter("pID_INSTITUCION", entidad.ID_INSTITUCION);
+                    parametros[1] = new OracleParameter("pID_SECTOR_INSTITUCION", entidad.ID_SECTOR_INSTITUCION);
+                    parametros[2] = new OracleParameter("pRUC_INSTITUCION", entidad.RUC_INSTITUCION);
+                    parametros[3] = new OracleParameter("pNOMBRE_INSTITUCION", entidad.NOMBRE_INSTITUCION);
+                    parametros[4] = new OracleParameter("pDIRECCION_INSTITUCION", entidad.DIRECCION_INSTITUCION);
+                    OracleHelper.ExecuteNonQuery(CadenaConexion, CommandType.StoredProcedure, sp, parametros);
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                entidad.extra = ex.Message;
+                Log.Error(ex);
+            }
+
+            return entidad;
+        }
+
+        public InstitucionBE EliminarInstitucion(InstitucionBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_DEL_INSTITUCION";
+                    var parametros = new OracleParameter[1];
+                    parametros[0] = new OracleParameter("pID_INSTITUCION", entidad.ID_INSTITUCION);
+                    OracleHelper.ExecuteNonQuery(CadenaConexion, CommandType.StoredProcedure, sp, parametros);
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                entidad.extra = ex.Message;
+                Log.Error(ex);
+            }
+
+            return entidad;
+        }
 
 
     }

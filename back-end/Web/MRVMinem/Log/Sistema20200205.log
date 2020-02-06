@@ -868,3 +868,185 @@ ORA-06512: at line 1
 5/02/2020 06:38:25: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaIniciativaGeneral(entidad.minem.gob.pe.IniciativaBE), Línea: 97] - ORA-01476: divisor is equal to zero
 ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 651
 ORA-06512: at line 1
+05/02/2020 12:45:03: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 12:45:03: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 12:45:03: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 12:45:03: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 12:45:03: [Método: Boolean MoveNext(), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 12:45:03: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 12:45:03: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 12:45:03: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 12:45:03: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaIniciativaGeneral(entidad.minem.gob.pe.IniciativaBE), Línea: 97] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 13:09:10: [Método: Void AttachParameters(Oracle.DataAccess.Client.OracleCommand, Oracle.DataAccess.Client.OracleParameter[]), Línea: 55] - Referencia a objeto no establecida como instancia de un objeto.
+05/02/2020 13:09:10: [Método: Void PrepareCommand(Oracle.DataAccess.Client.OracleCommand, Oracle.DataAccess.Client.OracleConnection, Oracle.DataAccess.Client.OracleTransaction, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 128] - Referencia a objeto no establecida como instancia de un objeto.
+05/02/2020 13:09:10: [Método: Int32 ExecuteNonQuery(Oracle.DataAccess.Client.OracleConnection, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 252] - Referencia a objeto no establecida como instancia de un objeto.
+05/02/2020 13:09:10: [Método: Int32 ExecuteNonQuery(System.String, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 178] - Referencia a objeto no establecida como instancia de un objeto.
+05/02/2020 13:09:10: [Método: entidad.minem.gob.pe.InstitucionBE ActualizarInstitucion(entidad.minem.gob.pe.InstitucionBE), Línea: 131] - Referencia a objeto no establecida como instancia de un objeto.
+05/02/2020 13:12:04: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 13:12:04: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 13:12:04: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 13:12:04: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 13:12:04: [Método: Boolean MoveNext(), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 13:12:04: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 13:12:04: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 13:12:04: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 13:12:04: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaIniciativaGeneral(entidad.minem.gob.pe.IniciativaBE), Línea: 97] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 13:25:17: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 13:25:17: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 13:25:17: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 13:25:17: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 13:25:17: [Método: Boolean MoveNext(), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 13:25:17: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 13:25:17: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 13:25:17: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 13:25:17: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaIniciativaGeneral(entidad.minem.gob.pe.IniciativaBE), Línea: 97] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 13:31:36: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 13:31:36: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 13:31:36: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 13:31:36: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 13:31:36: [Método: Boolean MoveNext(), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 13:31:36: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 13:31:36: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 13:31:36: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 13:31:36: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaIniciativaGeneral(entidad.minem.gob.pe.IniciativaBE), Línea: 97] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 20:20:05: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 20:20:05: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 20:20:05: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 20:20:05: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 20:20:05: [Método: Boolean MoveNext(), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 20:20:05: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 20:20:05: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 20:20:05: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 20:20:05: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaIniciativaGeneral(entidad.minem.gob.pe.IniciativaBE), Línea: 97] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 20:30:37: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 20:30:37: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 20:30:37: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 20:30:37: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 20:30:37: [Método: Boolean MoveNext(), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 20:30:37: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 20:30:37: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 20:30:37: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 20:30:37: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaIniciativaGeneral(entidad.minem.gob.pe.IniciativaBE), Línea: 97] - ORA-01476: divisor is equal to zero
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 650
+ORA-06512: at line 1
+05/02/2020 20:31:21: [Método: Void AttachParameters(Oracle.DataAccess.Client.OracleCommand, Oracle.DataAccess.Client.OracleParameter[]), Línea: 55] - Referencia a objeto no establecida como instancia de un objeto.
+05/02/2020 20:31:21: [Método: Void PrepareCommand(Oracle.DataAccess.Client.OracleCommand, Oracle.DataAccess.Client.OracleConnection, Oracle.DataAccess.Client.OracleTransaction, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 128] - Referencia a objeto no establecida como instancia de un objeto.
+05/02/2020 20:31:21: [Método: Int32 ExecuteNonQuery(Oracle.DataAccess.Client.OracleConnection, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 252] - Referencia a objeto no establecida como instancia de un objeto.
+05/02/2020 20:31:21: [Método: Int32 ExecuteNonQuery(System.String, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 178] - Referencia a objeto no establecida como instancia de un objeto.
+05/02/2020 20:31:21: [Método: entidad.minem.gob.pe.InstitucionBE EliminarInstitucion(entidad.minem.gob.pe.InstitucionBE), Línea: 154] - Referencia a objeto no establecida como instancia de un objeto.
+05/02/2020 20:32:06: [Método: Void AttachParameters(Oracle.DataAccess.Client.OracleCommand, Oracle.DataAccess.Client.OracleParameter[]), Línea: 55] - Referencia a objeto no establecida como instancia de un objeto.
+05/02/2020 20:32:06: [Método: Void PrepareCommand(Oracle.DataAccess.Client.OracleCommand, Oracle.DataAccess.Client.OracleConnection, Oracle.DataAccess.Client.OracleTransaction, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 128] - Referencia a objeto no establecida como instancia de un objeto.
+05/02/2020 20:32:06: [Método: Int32 ExecuteNonQuery(Oracle.DataAccess.Client.OracleConnection, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 252] - Referencia a objeto no establecida como instancia de un objeto.
+05/02/2020 20:32:06: [Método: Int32 ExecuteNonQuery(System.String, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 178] - Referencia a objeto no establecida como instancia de un objeto.
+05/02/2020 20:32:06: [Método: entidad.minem.gob.pe.InstitucionBE EliminarInstitucion(entidad.minem.gob.pe.InstitucionBE), Línea: 154] - Referencia a objeto no establecida como instancia de un objeto.
+05/02/2020 20:36:12: [Método: Void AttachParameters(Oracle.DataAccess.Client.OracleCommand, Oracle.DataAccess.Client.OracleParameter[]), Línea: 55] - Referencia a objeto no establecida como instancia de un objeto.
+05/02/2020 20:36:12: [Método: Void PrepareCommand(Oracle.DataAccess.Client.OracleCommand, Oracle.DataAccess.Client.OracleConnection, Oracle.DataAccess.Client.OracleTransaction, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 128] - Referencia a objeto no establecida como instancia de un objeto.
+05/02/2020 20:36:12: [Método: Int32 ExecuteNonQuery(Oracle.DataAccess.Client.OracleConnection, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 252] - Referencia a objeto no establecida como instancia de un objeto.
+05/02/2020 20:36:12: [Método: Int32 ExecuteNonQuery(System.String, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 178] - Referencia a objeto no establecida como instancia de un objeto.
+05/02/2020 20:36:12: [Método: entidad.minem.gob.pe.InstitucionBE EliminarInstitucion(entidad.minem.gob.pe.InstitucionBE), Línea: 154] - Referencia a objeto no establecida como instancia de un objeto.
