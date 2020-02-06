@@ -1865,7 +1865,6 @@ namespace MRVMinem.Controllers
                 m.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
                 m.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
                 m.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                //m.Style.Fill.BackgroundColor.SetColor(Color.FromArgb(66, 139, 202));
                 m.Style.Fill.BackgroundColor.SetColor(Color.FromArgb(color1, color2, color3));
                 m.Style.Font.Color.SetColor(Color.FromArgb(fontc1, fontc2, fontc3));
                 m.Style.Font.Size = 12;
@@ -1873,10 +1872,6 @@ namespace MRVMinem.Controllers
                 m.Style.Border.Left.Style = ExcelBorderStyle.Thin;
                 m.Style.Border.Right.Style = ExcelBorderStyle.Thin;
                 m.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
-                //m.Style.Border.Top.Color.SetColor(Color.FromArgb(221, 221, 221));
-                //m.Style.Border.Left.Color.SetColor(Color.FromArgb(255, 255, 255));
-                //m.Style.Border.Right.Color.SetColor(Color.FromArgb(255, 255, 255));
-                //m.Style.Border.Bottom.Color.SetColor(Color.FromArgb(255, 255, 255));
                 m.Style.Border.Top.Color.SetColor(Color.FromArgb(color1, color2, color3));
                 m.Style.Border.Left.Color.SetColor(Color.FromArgb(color1, color2, color3));
                 m.Style.Border.Right.Color.SetColor(Color.FromArgb(color1, color2, color3));

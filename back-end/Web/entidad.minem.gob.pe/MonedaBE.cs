@@ -10,5 +10,6 @@ namespace entidad.minem.gob.pe
     {
         public int ID_MONEDA { get; set; }
         public string DESCRIPCION { get; set; }
+        public string FLAG_ESTADO { get; set; }
     }
 }

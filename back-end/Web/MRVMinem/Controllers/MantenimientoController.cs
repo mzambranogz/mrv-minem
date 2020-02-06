@@ -7,6 +7,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using utilitario.minem.gob.pe;
+using System.Drawing;
+using OfficeOpenXml;
+using OfficeOpenXml.Style;
 
 namespace MRVMinem.Controllers
 {
@@ -190,6 +194,62 @@ namespace MRVMinem.Controllers
             return Respuesta(itemRespuesta);
         }
 
+        ////////////////////////////////
+
+        public ActionResult Monedas(MonedaBE entidad)
+        {
+            if (entidad.pagina == 0)
+            {
+                entidad = new MonedaBE() { cantidad_registros = 10, order_by = "DESCRIPCION", order_orden = "ASC", pagina = 1, buscar = "" };
+            }
+            MvMoneda modelo = new MvMoneda();
+            modelo.ListaMonedas = MonedaLN.ListarMonedaPaginado(entidad);
+            return View(modelo);
+        }
+
+        public JsonResult BuscarMoneda(MonedaBE entidad)
+        {
+            MonedaBE lista = MonedaLN.GetMonedaPorId(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListaMonedas(MonedaBE entidad)
+        {
+            List<MonedaBE> lista = MonedaLN.ListarMonedaPaginado(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult RegistrarMoneda(MonedaBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            if (entidad.FLAG_ESTADO == "1")
+            {
+                entidad = MonedaLN.RegistrarMoneda(entidad);
+            }
+            else
+            {
+                entidad = MonedaLN.ActualizarMoneda(entidad);
+            }
+            itemRespuesta.success = entidad.OK;
+            itemRespuesta.extra = entidad.extra;
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult EliminarMoneda(MonedaBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = MonedaLN.EliminarMoneda(entidad);
+            itemRespuesta.success = entidad.OK;
+            itemRespuesta.extra = entidad.extra;
+            return Respuesta(itemRespuesta);
+        }
+
         //////
 
         public ActionResult Escenarios(EscenarioBE entidad)
@@ -209,6 +269,129 @@ namespace MRVMinem.Controllers
             var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
+        }
+
+
+        /////////// exportar excel
+
+        public void ExportarMantenimientoMonedas(string item)
+        {
+            try
+            {
+                if (item != null)
+                {
+                    var entidad = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<MonedaBE>(item);
+                    ExportarToExcelMantenimientoMonedas(entidad);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+        }
+
+        public void ExportarToExcelMantenimientoMonedas(MonedaBE entidad)
+        {
+            List<MonedaBE> lista = null;
+            //if (string.IsNullOrEmpty(entidad.DESCRIPCION))
+            //{
+            lista = MonedaLN.ListarMonedaExcel(entidad);
+            //}
+            //else
+            //{
+            //    lista = UsuarioLN.BuscarMantenimientoUsuario(entidad);
+            //}
+
+            int row = 2;
+            try
+            {
+                string cadena_fecha = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+
+                using (ExcelPackage package = new ExcelPackage())
+                {
+                    var ws1 = package.Workbook.Worksheets.Add("LISTA USUARIO");
+                    using (var m = ws1.Cells[1, 1, row, 2])
+                    {
+                        m.Style.Font.Bold = true;
+                        m.Style.WrapText = true;
+                        m.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        m.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        m.Style.Font.Size = 10;
+                        m.Merge = true;
+                        m.Value = "LISTA MONEDA " + cadena_fecha;
+                    }
+                    ws1.View.FreezePanes(2, 1);
+                    row++;
+                    ws1.Cells["A" + row].Value = "N°";
+                    ws1.Cells["A" + row].AutoFitColumns(5);
+                    ws1.Cells["B" + row].Value = "DESCRIPCIÓN";
+                    ws1.Cells["B" + row].AutoFitColumns(40);
+
+                    FormatoCelda(ws1, "A", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "B", row, 0, 123, 255, 255, 255, 255);
+                    ws1.Row(row).Height = 42;
+                    row++;
+                    if (lista.Count > 0)
+                    {
+                        var xNum = 0;
+                        foreach (MonedaBE dt_fila in lista)
+                        {
+                            xNum++;
+                            ws1.Cells["A" + row].Value = dt_fila.ID_MONEDA;
+                            ws1.Cells["B" + row].Value = dt_fila.DESCRIPCION;
+                            formatoDetalle(ws1, "A", "B", row);
+                            row++;
+                        }
+                        row++;
+                    }
+
+                    string strFileName = "LISTA_MONEDA_" + DateTime.Now.ToString() + ".xlsx";
+                    Response.Clear();
+                    byte[] dataByte = package.GetAsByteArray();
+                    Response.AddHeader("Content-Disposition", "inline;filename=\"" + strFileName + "\"");
+                    Response.AddHeader("Content-Length", dataByte.Length.ToString());
+                    Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                    Response.BinaryWrite(dataByte);
+                    Response.End();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        private void FormatoCelda(ExcelWorksheet ws1, string letra, int row, int color1, int color2, int color3, int fontc1, int fontc2, int fontc3)
+        {
+            using (var m = ws1.Cells[letra + row + ":" + letra + row])
+            {
+                m.Style.Font.Bold = true;
+                m.Style.WrapText = false;
+                m.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                m.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                m.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                m.Style.Fill.BackgroundColor.SetColor(Color.FromArgb(color1, color2, color3));
+                m.Style.Font.Color.SetColor(Color.FromArgb(fontc1, fontc2, fontc3));
+                m.Style.Font.Size = 12;
+                m.Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                m.Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                m.Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                m.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                m.Style.Border.Top.Color.SetColor(Color.FromArgb(color1, color2, color3));
+                m.Style.Border.Left.Color.SetColor(Color.FromArgb(color1, color2, color3));
+                m.Style.Border.Right.Color.SetColor(Color.FromArgb(color1, color2, color3));
+                m.Style.Border.Bottom.Color.SetColor(Color.FromArgb(color1, color2, color3));
+            }
+
+        }
+
+        private void formatoDetalle(ExcelWorksheet ws1, string letraI, string letraF, int row)
+        {
+            using (var m = ws1.Cells[letraI + row + ":" + letraF + row])
+            {
+                m.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                m.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+            }
         }
 
     }
