@@ -15,5 +15,31 @@ namespace logica.minem.gob.pe
         {
             return energ.ListarUbicacion(entidad);
         }
+
+        public static List<UbicacionBE> ListarUbicacionPaginado(UbicacionBE entidad)
+        {
+            return energ.ListarUbicacionPaginado(entidad);
+        }
+
+        public static UbicacionBE GetUbicacionPorId(UbicacionBE entidad)
+        {
+            return energ.GetUbicacionPorId(entidad);
+        }
+
+        public static UbicacionBE RegistrarUbicacion(UbicacionBE entidad)
+        {
+            return energ.RegistrarUbicacion(entidad);
+        }
+
+        public static UbicacionBE ActualizarUbicacion(UbicacionBE entidad)
+        {
+            return energ.ActualizarUbicacion(entidad);
+        }
+
+        public static UbicacionBE EliminarUbicacion(UbicacionBE entidad)
+        {
+            return energ.EliminarUbicacion(entidad);
+        }
+
     }
 }

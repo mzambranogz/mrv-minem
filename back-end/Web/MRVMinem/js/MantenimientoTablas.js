@@ -5,4 +5,13 @@
     if ($("#cbo-tabla-mantenimiento").val() == 3) {
         location.href = baseUrl + "Mantenimiento/Instituciones";
     }
+    if ($("#cbo-tabla-mantenimiento").val() == 4) {
+        location.href = baseUrl + "Mantenimiento/Ubicaciones";
+    }
+    if ($("#cbo-tabla-mantenimiento").val() == 5) {
+        location.href = baseUrl + "Mantenimiento/Sectores";
+    }
+    if ($("#cbo-tabla-mantenimiento").val() == 9) {
+        location.href = baseUrl + "Mantenimiento/Escenarios";
+    }
 }

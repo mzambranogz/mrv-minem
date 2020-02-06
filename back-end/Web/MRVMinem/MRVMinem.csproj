@@ -161,8 +161,11 @@
     <Content Include="js\IniciativaMitigacion.js" />
     <Content Include="js\jquery.form.js" />
     <Content Include="js\Login.js" />
+    <Content Include="js\MantenimientoEscenario.js" />
     <Content Include="js\MantenimientoInstitucion.js" />
+    <Content Include="js\MantenimientoSector.js" />
     <Content Include="js\MantenimientoTablas.js" />
+    <Content Include="js\MantenimientoUbicacion.js" />
     <Content Include="js\MantenimientoUsuario.js" />
     <Content Include="js\MRV.js" />
     <Content Include="js\Notificacion.js" />
@@ -196,9 +199,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ListaObjeto.cs" />
+    <Compile Include="Models\MvEscenario.cs" />
     <Compile Include="Models\MvIniciativa.cs" />
     <Compile Include="Models\MvInstitucion.cs" />
+    <Compile Include="Models\MvSector.cs" />
     <Compile Include="Models\MvSesion.cs" />
+    <Compile Include="Models\MvUbicacion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reportes\DsEscenario.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -297,6 +303,9 @@
     <Content Include="Views\Portal\PreguntasFrecuentes.cshtml" />
     <Content Include="Views\Gestion\Index.cshtml" />
     <Content Include="Views\Mantenimiento\Instituciones.cshtml" />
+    <Content Include="Views\Mantenimiento\Ubicaciones.cshtml" />
+    <Content Include="Views\Mantenimiento\Sectores.cshtml" />
+    <Content Include="Views\Mantenimiento\Escenarios.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

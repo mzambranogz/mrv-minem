@@ -16,5 +16,31 @@ namespace logica.minem.gob.pe
         {
             return sectorInstitucionDA.ListaSectorInstitucion(entidad);
         }
+
+        public static List<SectorInstitucionBE> ListarSectorPaginado(SectorInstitucionBE entidad)
+        {
+            return sectorInstitucionDA.ListarSectorPaginado(entidad);
+        }
+
+        public static SectorInstitucionBE GetSectorPorId(SectorInstitucionBE entidad)
+        {
+            return sectorInstitucionDA.GetSectorPorId(entidad);
+        }
+
+        public static SectorInstitucionBE RegistrarSector(SectorInstitucionBE entidad)
+        {
+            return sectorInstitucionDA.RegistrarSector(entidad);
+        }
+
+        public static SectorInstitucionBE ActualizarSector(SectorInstitucionBE entidad)
+        {
+            return sectorInstitucionDA.ActualizarSector(entidad);
+        }
+
+        public static SectorInstitucionBE EliminarSector(SectorInstitucionBE entidad)
+        {
+            return sectorInstitucionDA.EliminarSector(entidad);
+        }
+
     }
 }

@@ -1,9 +1,10 @@
-﻿@model MRVMinem.Models.MvInstitucion
+﻿@model MRVMinem.Models.MvEscenario
 
 @{
-    ViewBag.Title = "Instituciones";
+    ViewBag.Title = "Escenarios";
     Layout = "~/Views/Shared/_SesionLayout.cshtml";
 }
+
 
 @{
     var i = 0;
@@ -18,7 +19,7 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="@Url.Action("Index","Gestion")">Inicio</a></li>
                 <li class="breadcrumb-item"><a href="@Url.Action("MantenimientoTablas","Gestion")">Mantenimiento de Tablas</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Mantenimiento de Instituciones</li>
+                <li class="breadcrumb-item active" aria-current="page">Mantenimiento de Escenarios</li>
             </ol>
         </nav>
     </div>
@@ -30,14 +31,14 @@
                 <div class="row">
                     <div class="col-md-12 col-lg-6 pt-4">
                         <div class="h4">
-                            Mantenimiento de Instituciones&nbsp;
-                            <br><small class="text-muted">Utilice la búsqueda para encontrar a la institución indicada para el mantenimiento</small>
+                            Mantenimiento de Escenarios&nbsp;
+                            <br><small class="text-muted">Utilice la búsqueda para encontrar el escenario indicado para el mantenimiento</small>
                         </div>
                     </div>
                     <div class="col-md-12 col-lg-6 pt-4">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
-                            <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#modal-institucion"><a class="agregar-iniciativa" href="#" data-toggle="tooltip" data-placement="top" title="Podrá registrar una nueva institución" id="validarUsuario" onclick="regInstitucion();" data-guardar="0"><i class="fas fa-plus px-1"></i>Agregar institución</a></span></div>
+                            <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#modal-edicion"><a class="agregar-iniciativa" href="#" data-toggle="tooltip" data-placement="top" title="Podrá registrar un nuevo escenario" id="validarUsuario" onclick="regMantenimiento();" data-guardar="0"><i class="fas fa-plus px-1"></i>Agregar escenario</a></span></div>
                         </div>
                     </div>
                 </div>
@@ -53,7 +54,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-12 col-md-6 col-lg-6">
-                                    <button class="btn btn-success w-100 mb-2" onclick="exportarMantenimientoInstitucion();"><i class="fas fa-file-download px-1"></i>Descargar Excel</button><div id="divExportar"></div>
+                                    <button class="btn btn-success w-100 mb-2" onclick="exportarMantenimiento();"><i class="fas fa-file-download px-1"></i>Descargar Excel</button><div id="divExportar"></div>
                                 </div>
                                 <div class="col-sm-12 col-md-6 col-lg-6" id="buscar-usuarios" data-buscar="0" data-campo="">
                                     <button class="btn btn-info w-100 mb-2" onclick="fn_buscar();"><i class="fas fa-search px-1"></i>Buscar</button>
@@ -67,7 +68,7 @@
             </div>
 
             <div class="container-fluid py-4">
-                <div class="h5">Bandeja de Instituciones&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Bandeja de todas las instituciones registradas"></i></div>
+                <div class="h5">Bandeja de Escenarios&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Bandeja de todos los escenarios registrados"></i></div>
                 <div class="dropdown-divider"></div>
                 <div class="row">
                     <div class="col-12 px-0">
@@ -75,35 +76,43 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr class="bg-primary text-white">
-                                        <th class="text-center" scope="col"><span class="miColumna">N°&nbsp;<i class="fas fa-sort" style="color: lightgray" id="ID_INSTITUCION"></i></span></th>
-                                        <th scope="col"><span class="miColumna">Institución&nbsp;<i class="fas fa-sort-up" style="color: white" id="NOMBRE_INSTITUCION"></i></span></th>
-                                        <th scope="col"><span class="miColumna">R.U.C.&nbsp;<i class="fas fa-sort" style="color: lightgray" id="RUC_INSTITUCION"></i></span></th>
-                                        <th scope="col"><span class="miColumna">Dirección&nbsp;<i class="fas fa-sort" style="color: lightgray" id="DIRECCION_INSTITUCION"></i></span></th>
-                                        <th scope="col"><span class="miColumna">Sector&nbsp;<i class="fas fa-sort" style="color: lightgray" id="SECTOR_INSTITUCION"></i></span></th>
+                                        <th class="text-center" scope="col"><span class="miColumna">N°&nbsp;<i class="fas fa-sort" style="color: lightgray" id="ID_ESCENARIO"></i></span></th>
+                                        <th scope="col"><span class="miColumna">Año&nbsp;<i class="fas fa-sort" style="color: lightgray" id="ANNO"></i></span></th>
+                                        <th scope="col"><span class="miColumna">Medida&nbsp;<i class="fas fa-sort-up" style="color: white" id="NOMBRE_MEDMIT"></i></span></th>
+                                        <th scope="col"><span class="miColumna">BAU Emisiones<br />(tCO<sub>2</sub>/año)&nbsp;<i class="fas fa-sort" style="color: white" id="BAU_EMISION"></i></span></th>
+                                        <th scope="col"><span class="miColumna">MITIGACIÓN Emisiones<br />(tCO<sub>2</sub>/año)&nbsp;<i class="fas fa-sort" style="color: lightgray" id="MIT_EMISION"></i></span></th>
+                                        <th scope="col"><span class="miColumna">Reducción<br />(tCO<sub>2</sub>/año)&nbsp;<i class="fas fa-sort" style="color: lightgray" id="REDUCCION"></i></span></th>
+                                        <th scope="col"><span class="miColumna">Valores<br />(Soft. MRV)&nbsp;<i class="fas fa-sort" style="color: lightgray" id="VALOR_SOFTWARE"></i></span></th>
+                                        <th scope="col"><span class="miColumna">Ext ante-Exp post&nbsp;<i class="fas fa-sort" style="color: lightgray" id="EXPOST"></i></span></th>
+                                        <th scope="col"><span class="miColumna">Meta Anual&nbsp;<i class="fas fa-sort" style="color: lightgray" id="META_ANUAL"></i></span></th>
                                         <th class="text-center" scope="col">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody id="cuerpoMantenimiento">
 
-                                    @if (Model.ListaInstitucion != null)
+                                    @if (Model.ListaEscenarios != null)
                                     {
-                                        foreach (var item in Model.ListaInstitucion)
+                                        foreach (var item in Model.ListaEscenarios)
                                         {
                                             i++;
                                             <tr>
-                                                <th class="text-center" data-encabezado="Número" scope="row">@item.ID_INSTITUCION</th>
-                                                <td data-encabezado="Institucion">@item.NOMBRE_INSTITUCION</td>
-                                                <td data-encabezado="Ruc">@item.RUC_INSTITUCION</td>
-                                                <td data-encabezado="Direccion">@item.DIRECCION_INSTITUCION</td>
-                                                <td data-encabezado="Sector">@item.SECTOR_INSTITUCION</td>
+                                                <th class="text-center" data-encabezado="Número" scope="row">@item.ID_ESCENARIO</th>
+                                                <td data-encabezado="Año">@item.ANNO</td>
+                                                <td data-encabezado="Medida">@item.NOMBRE_MEDMIT</td>
+                                                <td data-encabezado="Bau-Emision">@item.BAU_EMISION</td>
+                                                <td data-encabezado="Mit-Emision">@item.MIT_EMISION</td>
+                                                <td data-encabezado="Reduccion">@item.REDUCCION</td>
+                                                <td data-encabezado="Valor-Software">@item.VALOR_SOFTWARE</td>
+                                                <td data-encabezado="Expost">@item.EXPOST</td>
+                                                <td data-encabezado="Meta-Anual">@item.META_ANUAL</td>
                                                 <td class="text-center text-xs-right" data-encabezado="Acciones">
                                                     <div class="btn-group">
                                                         <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
                                                         <div class="dropdown-menu dropdown-menu-right">
-                                                            <a class="dropdown-item" href="#" onclick="fn_cargarDatosMantenimiento(@item.ID_INSTITUCION);" data-toggle="modal" data-target="#modal-institucion">
+                                                            <a class="dropdown-item" href="#" onclick="fn_cargarDatosMantenimiento(@item.ID_ESCENARIO);" data-toggle="modal" data-target="#modal-edicion">
                                                                 <i class="fas fa-edit"></i>&nbsp;
                                                                 Editar
-                                                            </a><a class="dropdown-item" href="#" onclick="fn_Seleccionaregistro(@item.ID_INSTITUCION)" data-toggle="modal" data-target="#modal-confirmacion">
+                                                            </a><a class="dropdown-item" href="#" onclick="fn_Seleccionaregistro(@item.ID_ESCENARIO)" data-toggle="modal" data-target="#modal-confirmacion">
                                                                 <i class="fas fa-trash"></i>&nbsp;
                                                                 Deshabilitar
                                                             </a>
@@ -119,7 +128,7 @@
                                 <tfoot>
                                     <tr>
                                         <td class="text-left" colspan="3"><strong>Resultado:&nbsp;</strong><span id="resultado">1-10</span> de <span id="total-registros">@total_reg</span> registros</td>
-                                        <td class="text-right text-xs-left" colspan="5">
+                                        <td class="text-right text-xs-left" colspan="7">
                                             <strong>Registros por página&nbsp;</strong>
                                             <select id="cantidad-registros" onchange="fn_CargaDatos()">
                                                 <option value="10" selected>10</option>
@@ -144,12 +153,12 @@
                 </div>
             </div>
 
-            <div class="modal fade" id="modal-institucion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="modal-edicion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="title-nuevo">Registro de Nueva Institución <br><small class="text-muted">Complete los siguientes campos para registrar una nueva institución</small><small class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</small></h5>
-                            <h5 class="modal-title" id="title-edit">Modificación de una Institución <br><small class="text-muted">Complete los siguientes campos para actualizar una institución</small><small class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</small></h5>
+                            <h5 class="modal-title" id="title-nuevo">Registro de Nuevo Escenario <br><small class="text-muted">Complete los siguientes campos para registrar un nuevo escenario</small><small class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</small></h5>
+                            <h5 class="modal-title" id="title-edit">Modificación de un Escenario <br><small class="text-muted">Complete los siguientes campos para actualizar un escenario</small><small class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</small></h5>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         </div>
                         <div class="modal-body medidas-modal">
@@ -157,33 +166,10 @@
                                 <div class="row" id="ventanaEditar">
                                     <div class="col-md-12 col-lg-12">
                                         <div class="form-group">
-                                            <label for="txt-institucion">Institución</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                                            <label for="txt-descripcion">Sector</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
-                                                <input class="form-control" type="text" id="txt-institucion" placeholder="Ingrese su institución" aria-describedby="inputGroup6" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="txt-ruc">RUC</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup7"><i class="fas fa-landmark"></i></span></div>
-                                                <input class="form-control" type="text" id="txt-ruc" placeholder="Ingrese su RUC" aria-describedby="inputGroup7" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="txt-direccion">Dirección</label>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup8"><i class="fas fa-landmark"></i></span></div>
-                                                <input class="form-control" type="text" id="txt-direccion" placeholder="Ingrese su dirección" aria-describedby="inputGroup8" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="cbo-sector">Sector</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
-                                                <select class="form-control" id="cbo-sector" aria-describedby="inputGroup9" required>
-                                                    <option value="0">-Seleccione un sector-</option>
-                                                </select>
+                                                <input class="form-control" type="text" id="txt-descripcion" placeholder="Ingrese el sector" aria-describedby="inputGroup6" required>
                                             </div>
                                         </div>
                                     </div>
@@ -247,15 +233,12 @@
         </div>
     </div>
 </div>
-@Html.Hidden("columna", "NOMBRE_INSTITUCION")
+@Html.Hidden("columna", "NOMBRE_MEDMIT")
 @Html.Hidden("orden", "ASC")
 
 <script src="~/js/script.js"></script>
 <script src="~/js/MRV.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        fn_actualizaCampana();
-        enLinea();
-    });
-</script>
-<script src="~/js/MantenimientoInstitucion.js"></script>
+<script src="~/js/MantenimientoEscenario.js"></script>
+
+
+

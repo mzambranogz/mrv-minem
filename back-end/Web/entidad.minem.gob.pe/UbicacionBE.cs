@@ -10,5 +10,6 @@ namespace entidad.minem.gob.pe
     {
         public int ID_UBICACION { get; set; }
         public string DESCRIPCION { get; set; }
+        public string FLG_ESTADO { get; set; }
     }
 }

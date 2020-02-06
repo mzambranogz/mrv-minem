@@ -171,6 +171,7 @@ function fn_limpiarCampo() {
 }
 
 function fn_cargarDatosMantenimiento(id) {
+    fn_modalInicio();
     $("#validarUsuario").data("guardar", 0)
     $("#title-nuevo").hide()
     $("#title-edit").show();
