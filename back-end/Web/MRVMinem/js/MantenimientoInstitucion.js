@@ -58,7 +58,7 @@ function fn_CargaDatos() {
                         tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_cargarDatosMantenimiento(' + data[i]["ID_INSTITUCION"] + ');" data-toggle="modal" data-target="#modal-institucion">';
                         tr = tr + '                 <i class="fas fa-edit"></i>&nbsp;Editar';
                         tr = tr + '             </a><a class="dropdown-item" href="#" onclick="fn_Seleccionaregistro(' + data[i]["ID_INSTITUCION"] + ');" data-toggle="modal" data-target="#modal-confirmacion">';
-                        tr = tr + '                 <i class="fas fa-trash"></i>&nbsp;Deshabilitar';
+                        tr = tr + '                 <i class="fas fa-trash"></i>&nbsp;Eliminar';
                         tr = tr + '             </a>';
                         tr = tr + '         </div>';
                         tr = tr + "     </div></td>";

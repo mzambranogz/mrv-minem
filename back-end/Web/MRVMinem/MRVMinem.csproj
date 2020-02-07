@@ -161,6 +161,7 @@
     <Content Include="js\IniciativaMitigacion.js" />
     <Content Include="js\jquery.form.js" />
     <Content Include="js\Login.js" />
+    <Content Include="js\MantenimientoEnfoques.js" />
     <Content Include="js\MantenimientoEscenario.js" />
     <Content Include="js\MantenimientoGei.js" />
     <Content Include="js\MantenimientoInstitucion.js" />
@@ -201,6 +202,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ListaObjeto.cs" />
+    <Compile Include="Models\MvEnfoque.cs" />
     <Compile Include="Models\MvEscenario.cs" />
     <Compile Include="Models\MvGei.cs" />
     <Compile Include="Models\MvIniciativa.cs" />
@@ -312,6 +314,7 @@
     <Content Include="Views\Mantenimiento\Ubicaciones.cshtml" />
     <Content Include="Views\Mantenimiento\Monedas.cshtml" />
     <Content Include="Views\Mantenimiento\Gei.cshtml" />
+    <Content Include="Views\Mantenimiento\Enfoques.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -17,6 +17,9 @@
     if ($("#cbo-tabla-mantenimiento").val() == 7) {
         location.href = baseUrl + "Mantenimiento/Gei";
     }
+    if ($("#cbo-tabla-mantenimiento").val() == 8) {
+        location.href = baseUrl + "Mantenimiento/Enfoques";
+    }
     if ($("#cbo-tabla-mantenimiento").val() == 9) {
         location.href = baseUrl + "Mantenimiento/Escenarios";
     }

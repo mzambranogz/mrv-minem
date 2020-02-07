@@ -55,6 +55,7 @@
     <Compile Include="BusquedaSimpleDA.cs" />
     <Compile Include="DataBaseHelpers\OracleHelper.cs" />
     <Compile Include="EnergeticoDA.cs" />
+    <Compile Include="EnfoqueDA.cs" />
     <Compile Include="EscenarioDA.cs" />
     <Compile Include="EscenarioRptDA.cs" />
     <Compile Include="GasEfectoInvernaderoDA.cs" />

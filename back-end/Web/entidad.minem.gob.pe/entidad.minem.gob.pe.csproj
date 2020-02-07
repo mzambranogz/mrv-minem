@@ -44,6 +44,8 @@
     <Compile Include="BusquedaAvanzadaBE.cs" />
     <Compile Include="BusquedaSimpleBE.cs" />
     <Compile Include="EnergeticoBE.cs" />
+    <Compile Include="EnfoqueBE.cs" />
+    <Compile Include="EnfoqueAuxBE.cs" />
     <Compile Include="EscenarioAuxBE.cs" />
     <Compile Include="EscenarioBE.cs" />
     <Compile Include="EscenarioRptBE.cs" />
