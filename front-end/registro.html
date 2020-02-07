@@ -75,7 +75,7 @@
           </div>
           <div class="col-md-6 col-lg-12 p-4 bg-light rounded-bottom">
             <div class="h5"><small class="text-muted">Cada institución, pública o privada, puede implementar en la medida de sus posibilidades cualquiera de las medidas de mitigación anteriormente señaladas, y hacer que las mismas aporten a las Contribuciones Nacionalmente Determinadas. Para ello deberán asegurar mediante una&nbsp;<strong>declaración jurada&nbsp;</strong>que las emisiones de&nbsp;<strong>GEI&nbsp;</strong>reducidas no serán comercializadas. En esta primera etapa, se contemplan solo 12 medidas de mitigación, las mismas que han sido trabajadas por el Proyecto  Acciones Nacionales Apropiadas de Mitigación (<strong>NAMA</strong>) en los sectores de generación de energía y su uso final en el Perú.</small></div>
-            <form class="pt-4" id="frmRegistro" action="./acciones-de-mitigacion.html">
+            <form class="pt-4" id="formRegistrar" action="./acciones-de-mitigacion.html">
               <div class="row">
                 <div class="col-md-12 col-lg-6">
                   <div class="form-group">
@@ -88,14 +88,14 @@
                   <div class="form-group">
                     <label for="txt-nombre">Nombres</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
                     <div class="input-group">
-                      <div class="input-group-prepend"><span class="input-group-text" id="inputGroup3"><i class="fas fa-user-tie"></i></span></div>
+                      <div class="input-group-prepend"><span class="input-group-text" id="inputGroup3"><i class="fas fa-user"></i></span></div>
                       <input class="form-control" type="text" id="txt-nombre" placeholder="Ingrese su nombres" aria-describedby="inputGroup3" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{3,54}" maxlength="54" required>
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="txt-apellido">Apellidos</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
                     <div class="input-group">
-                      <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-user-tie"></i></span></div>
+                      <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-user"></i></span></div>
                       <input class="form-control" type="text" id="txt-apellido" placeholder="Ingrese su apellidos" aria-describedby="inputGroup4" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{8,54}" maxlength="54" required>
                     </div>
                   </div>
@@ -103,7 +103,7 @@
                     <label for="mlt-com">Seleccione teléfono o celular<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span></label>
                     <div class="input-group">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-headset"></i></span></div>
-                      <div class="form-control" style="height:123px; overflow-y: auto;">
+                      <div class="form-control" style="height:74px; overflow-y: auto;">
                         <div class="col-auto my-1">
                           <div class="custom-control custom-radio mr-sm-2">
                             <input class="custom-control-input" type="radio" name="rad-comunicacion" value="tel" id="rad-01" checked>
@@ -120,7 +120,7 @@
                     </div>
                   </div>
                   <div class="form-group tel">
-                    <label for="txt-telefono">Teléfono&nbsp;</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                    <label for="txt-telefono">Teléfono</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
                     <div class="input-group">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup11"><i class="fas fa-phone-alt"></i></span></div>
                       <input class="form-control" type="tel" id="txt-telefono" placeholder="Ingrese su teléfono" aria-describedby="inputGroup11" pattern="[0-9]{6,10}" maxlength="10" required>
@@ -134,7 +134,7 @@
                     </div>
                   </div>
                   <div class="form-group cel d-none">
-                    <label for="txt-celular">Celular&nbsp;</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                    <label for="txt-celular">Celular</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
                     <div class="input-group">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-mobile-alt"></i></span></div>
                       <input class="form-control" type="text" id="txt-celular" placeholder="Ingrese su celular" aria-describedby="inputGroup5" pattern="[0-9]{9,12}" maxlength="12" required>
@@ -143,14 +143,14 @@
                 </div>
                 <div class="col-md-12 col-lg-6">
                   <div class="form-group">
-                    <label for="txt-institucion">Institución &nbsp;</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="top" title="Ingrese el nombre comercial o razón social de su empresa"></i></span>
+                    <label for="txt-institucion">Institución</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="top" title="Ingrese el nombre comercial o razón social de su empresa"></i></span>
                     <div class="input-group">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
                       <input class="form-control" type="text" id="txt-institucion" placeholder="Ingrese su institución" aria-describedby="inputGroup6" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{8,70}" maxlength="70" required>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="txt-ruc">RUC&nbsp;</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="top" title="Se recomienda un RUC de persona jurídica"></i></span>
+                    <label for="txt-ruc">RUC</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="top" title="Se recomienda un RUC de persona jurídica"></i></span>
                     <div class="input-group">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup7"><i class="fas fa-landmark"></i></span>
                         <!--span.input-group-text.bg-white.pr-0.font-weight-bold 20 .pl-0.border-left-0-->
@@ -159,45 +159,58 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="txt-direccion">Dirección</label>
+                    <label for="txt-direccion">Domicilio legal</label>
                     <div class="input-group">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup8"><i class="fas fa-landmark"></i></span></div>
                       <input class="form-control" type="text" id="txt-direccion" placeholder="Ingrese su dirección" aria-describedby="inputGroup8" pattern="[a-zA-Z0-9 /\@#$%&amp;]+" maxlength="120" required>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="cbo-sector">Sector&nbsp;</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                    <label for="cbo-sector">Sector</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
                     <div class="input-group">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
                       <select class="form-control" id="cbo-sector" aria-describedby="inputGroup9" required>
                         <option>-Seleccione un sector-</option>
-                        <option>Sector 01</option>
-                        <option>Sector 02</option>
-                        <option>Sector 03</option>
+                        <option>SECTOR PUBLICO</option>
+                        <option>SECTOR PRIVADO</option>
                       </select>
-                    </div>
+                    </div><small class="text-primary dj d-none">
+                      <div class="fas fa-file-pdf"></div>&nbsp; Para registrarse es necesario descargar, firmar y subir escaneada la Declaración Jurada, a continuación: &nbsp;</small>
                   </div>
-                  <div class="form-group">
-                    <label for="txt-pswd">Contraseña&nbsp;</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="top" title="Su contraseña debe incluir 6 caracteres como mínimo, 1 minúscula, 1 mayúscula, 1 número y 1 caracter especial."></i></span>
-                    <div class="input-group">
-                      <div class="input-group-prepend"><span class="input-group-text" id="inputGroup2"><i class="fas fa-key"></i></span></div><input class="form-control" type="password" id="txt-pswd" placeholder="Ingrese se contraseña" aria-describedby="inputGroup2" pattern="(?=.*\d)(?=.*[!@#$&*])(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Su contraseña debe incluir 6 caracteres como mínimo, 1 minúscula, 1 mayúscula, 1 número y 1 caracter especial (!@#$&*)." required>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="txt-re-pswd">Confirmar contraseña</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
-                    <div class="input-group">
-                      <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="fas fa-key"></i></span></div>
-                      <input class="form-control" type="text" id="txt-re-pswd" placeholder="Confirmar su contraseña" aria-describedby="inputGroup10" required>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="txt-declaracion">Declaración jurada&nbsp;<small><a href="./documentos/modelo-declaracion-jurada.pdf" download>(&nbsp;<i class="fas fa-file-pdf"></i>&nbsp;Descargar modelo de declaración jurada&nbsp;)</a></small></label>
+                  <div class="form-group dj d-none">
+                    <label for="txt-declaracion">Declaración jurada</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;<small><a href="./documentos/modelo-declaracion-jurada.pdf" download>(<i class="fas fa-file-pdf"></i>&nbsp;Descargar modelo de Declaración Jurada)</a></small></span>
                     <div class="input-group">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup13"><i class="fas fa-file-pdf"></i></span></div>
                       <input class="form-control cursor-pointer txt-file-control" type="text" id="txt-declaracion" placeholder="Suba su declaración jurada" aria-describedby="inputGroup13" required>
                       <input class="d-none fil-file-control" type="file" id="fle-declaracion">
                       <div class="input-group-append">
                         <label class="input-group-text cursor-pointer" for="txt-declaracion"><i class="fas fa-upload mr-1"></i>Subir archivo</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="txt-pswd">Contraseña</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="top" title="Su contraseña debe incluir 6 caracteres como mínimo, 1 minúscula, 1 mayúscula, 1 número y 1 caracter especial (!@#$&amp;*)."></i></span>
+                    <div class="input-group">
+                      <div class="input-group-prepend"><span class="input-group-text" id="inputGroup2"><i class="fas fa-key"></i></span></div><input class="form-control" type="password" id="txt-pswd" placeholder="Ingrese se contraseña" aria-describedby="inputGroup2" pattern="(?=.*\d)(?=.*[!@#$&*])(?=.*[a-z])(?=.*[A-Z]).{6,}" required>
+                      <div class="input-group-append">
+                        <label class="input-group-text cursor-pointer ver-clave"><i class="fas fa-eye mr-1"></i>Mostrar</label>
+                      </div>
+                    </div>
+                    <div class="nivelSeguridad"><small class="text-primary">
+                        <div class="fas fa-shield-alt"></div>&nbsp; Nivel de seguridad: &nbsp;<span class="text-primary font-weight-bold" id="nivelseguridad">bajo</span>
+                        <div class="nivelesColores">
+                          <div class="spanNivelesColores"></div>
+                        </div></small>
+                      <div class="NivelesColores"></div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="txt-re-pswd">Confirmar contraseña</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                    <div class="input-group">
+                      <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="fas fa-key"></i></span></div>
+                      <input class="form-control" type="password" id="txt-re-pswd" placeholder="Confirmar su contraseña" aria-describedby="inputGroup10" required>
+                      <div class="input-group-append">
+                        <label class="input-group-text cursor-pointer ver-clave"><i class="fas fa-eye mr-1"></i>Mostrar</label>
                       </div>
                     </div>
                   </div>
