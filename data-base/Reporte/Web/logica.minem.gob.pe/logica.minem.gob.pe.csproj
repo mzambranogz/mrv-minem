@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{549DC82F-1B0B-46A3-A845-05AB4F41CD4E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>logica.minem.gob.pe</RootNamespace>
+    <AssemblyName>logica.minem.gob.pe</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusquedaAvanzadaLN.cs" />
+    <Compile Include="BusquedaSimpleLN.cs" />
+    <Compile Include="EnergeticoLN.cs" />
+    <Compile Include="EscenarioLN.cs" />
+    <Compile Include="EscenarioRptLN.cs" />
+    <Compile Include="GasEfectoInvernaderoLN.cs" />
+    <Compile Include="IndicadorLN.cs" />
+    <Compile Include="IniciativaLN.cs" />
+    <Compile Include="InstitucionLN.cs" />
+    <Compile Include="MedidaMitigacionLN.cs" />
+    <Compile Include="MonedaLN.cs" />
+    <Compile Include="NotificacionLN.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReporteLN.cs" />
+    <Compile Include="RolLN.cs" />
+    <Compile Include="RolOpcionesLN.cs" />
+    <Compile Include="SectorInstitucionLN.cs" />
+    <Compile Include="TipoCombustibleLN.cs" />
+    <Compile Include="TipoFuenteLN.cs" />
+    <Compile Include="TipoVehiculoLN.cs" />
+    <Compile Include="UbicacionLN.cs" />
+    <Compile Include="UsuarioLN.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\datos.minem.gob.pe\datos.minem.gob.pe.csproj">
+      <Project>{3c25a6a2-1ba6-4abf-b3f1-08152a40c977}</Project>
+      <Name>datos.minem.gob.pe</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\entidad.minem.gob.pe\entidad.minem.gob.pe.csproj">
+      <Project>{9944c03f-fd45-4c0a-b6a7-48c1540a3230}</Project>
+      <Name>entidad.minem.gob.pe</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\utilitario.minem.gob.pe\utilitario.minem.gob.pe.csproj">
+      <Project>{bc063656-bf97-48a0-8057-e4ac84c4e10f}</Project>
+      <Name>utilitario.minem.gob.pe</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
