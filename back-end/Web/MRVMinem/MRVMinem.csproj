@@ -162,6 +162,7 @@
     <Content Include="js\jquery.form.js" />
     <Content Include="js\Login.js" />
     <Content Include="js\MantenimientoEscenario.js" />
+    <Content Include="js\MantenimientoGei.js" />
     <Content Include="js\MantenimientoInstitucion.js" />
     <Content Include="js\MantenimientoMonedas.js" />
     <Content Include="js\MantenimientoSector.js" />
@@ -201,6 +202,7 @@
     </Compile>
     <Compile Include="Models\ListaObjeto.cs" />
     <Compile Include="Models\MvEscenario.cs" />
+    <Compile Include="Models\MvGei.cs" />
     <Compile Include="Models\MvIniciativa.cs" />
     <Compile Include="Models\MvInstitucion.cs" />
     <Compile Include="Models\MvMoneda.cs" />
@@ -309,6 +311,7 @@
     <Content Include="Views\Mantenimiento\Sectores.cshtml" />
     <Content Include="Views\Mantenimiento\Ubicaciones.cshtml" />
     <Content Include="Views\Mantenimiento\Monedas.cshtml" />
+    <Content Include="Views\Mantenimiento\Gei.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -252,6 +252,62 @@ namespace MRVMinem.Controllers
 
         //////
 
+        public ActionResult Gei(GasEfectoInvernaderoBE entidad)
+        {
+            if (entidad.pagina == 0)
+            {
+                entidad = new GasEfectoInvernaderoBE() { cantidad_registros = 10, order_by = "ID_GEI", order_orden = "ASC", pagina = 1, buscar = "" };
+            }
+            MvGei modelo = new MvGei();
+            modelo.ListaGei = GasEfectoInvernaderoLN.ListarGeiPaginado(entidad);
+            return View(modelo);
+        }
+
+        public JsonResult BuscarGei(GasEfectoInvernaderoBE entidad)
+        {
+            GasEfectoInvernaderoBE lista = GasEfectoInvernaderoLN.GetGeiPorId(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListaGei(GasEfectoInvernaderoBE entidad)
+        {
+            List<GasEfectoInvernaderoBE> lista = GasEfectoInvernaderoLN.ListarGeiPaginado(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult RegistrarGei(GasEfectoInvernaderoBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            if (entidad.FLAG_ESTADO == "1")
+            {
+                entidad = GasEfectoInvernaderoLN.RegistrarGei(entidad);
+            }
+            else
+            {
+                entidad = GasEfectoInvernaderoLN.ActualizarGei(entidad);
+            }
+            itemRespuesta.success = entidad.OK;
+            itemRespuesta.extra = entidad.extra;
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult EliminarGei(GasEfectoInvernaderoBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = GasEfectoInvernaderoLN.EliminarGei(entidad);
+            itemRespuesta.success = entidad.OK;
+            itemRespuesta.extra = entidad.extra;
+            return Respuesta(itemRespuesta);
+        }
+
+        /////////
+
         public ActionResult Escenarios(EscenarioBE entidad)
         {
             if (entidad.pagina == 0)
@@ -346,6 +402,109 @@ namespace MRVMinem.Controllers
                     }
 
                     string strFileName = "LISTA_MONEDA_" + DateTime.Now.ToString() + ".xlsx";
+                    Response.Clear();
+                    byte[] dataByte = package.GetAsByteArray();
+                    Response.AddHeader("Content-Disposition", "inline;filename=\"" + strFileName + "\"");
+                    Response.AddHeader("Content-Length", dataByte.Length.ToString());
+                    Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                    Response.BinaryWrite(dataByte);
+                    Response.End();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public void ExportarMantenimientoGei(string item)
+        {
+            try
+            {
+                if (item != null)
+                {
+                    var entidad = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<GasEfectoInvernaderoBE>(item);
+                    ExportarToExcelMantenimientoGei(entidad);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+        }
+
+        public void ExportarToExcelMantenimientoGei(GasEfectoInvernaderoBE entidad)
+        {
+            List<GasEfectoInvernaderoBE> lista = null;
+            //if (string.IsNullOrEmpty(entidad.DESCRIPCION))
+            //{
+            lista = GasEfectoInvernaderoLN.ListarGeiExcel(entidad);
+            //}
+            //else
+            //{
+            //    lista = UsuarioLN.BuscarMantenimientoUsuario(entidad);
+            //}
+
+            int row = 2;
+            try
+            {
+                string cadena_fecha = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+
+                using (ExcelPackage package = new ExcelPackage())
+                {
+                    var ws1 = package.Workbook.Worksheets.Add("LISTA GEI");
+                    using (var m = ws1.Cells[1, 1, row, 6])
+                    {
+                        m.Style.Font.Bold = true;
+                        m.Style.WrapText = true;
+                        m.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        m.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        m.Style.Font.Size = 12;
+                        m.Merge = true;
+                        m.Value = "LISTA GEI " + cadena_fecha;
+                    }
+                    ws1.View.FreezePanes(2, 1);
+                    row++;
+                    ws1.Cells["A" + row].Value = "N°";
+                    ws1.Cells["A" + row].AutoFitColumns(5);
+                    ws1.Cells["B" + row].Value = "DESCRIPCIÓN";
+                    ws1.Cells["B" + row].AutoFitColumns(40);
+                    ws1.Cells["C" + row].Value = "AR2";
+                    ws1.Cells["C" + row].AutoFitColumns(10);
+                    ws1.Cells["D" + row].Value = "AR4";
+                    ws1.Cells["D" + row].AutoFitColumns(10);
+                    ws1.Cells["E" + row].Value = "AR5";
+                    ws1.Cells["E" + row].AutoFitColumns(10);
+                    ws1.Cells["F" + row].Value = "AR6";
+                    ws1.Cells["F" + row].AutoFitColumns(10);
+
+                    FormatoCelda(ws1, "A", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "B", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "C", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "D", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "E", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "F", row, 0, 123, 255, 255, 255, 255);
+                    ws1.Row(row).Height = 42;
+                    row++;
+                    if (lista.Count > 0)
+                    {
+                        var xNum = 0;
+                        foreach (GasEfectoInvernaderoBE dt_fila in lista)
+                        {
+                            xNum++;
+                            ws1.Cells["A" + row].Value = dt_fila.ID_GEI;
+                            ws1.Cells["B" + row].Value = dt_fila.DESCRIPCION;
+                            ws1.Cells["C" + row].Value = dt_fila.AR2;
+                            ws1.Cells["D" + row].Value = dt_fila.AR4;
+                            ws1.Cells["E" + row].Value = dt_fila.AR5;
+                            ws1.Cells["F" + row].Value = dt_fila.AR6;
+                            formatoDetalle(ws1, "A", "F", row);
+                            row++;
+                        }
+                        row++;
+                    }
+
+                    string strFileName = "LISTA_GEI_" + DateTime.Now.ToString() + ".xlsx";
                     Response.Clear();
                     byte[] dataByte = package.GetAsByteArray();
                     Response.AddHeader("Content-Disposition", "inline;filename=\"" + strFileName + "\"");

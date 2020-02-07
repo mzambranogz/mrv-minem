@@ -20,7 +20,7 @@ function fn_CargaDatos() {
         order_orden: $("#orden").val()
     };
     $.ajax({
-        url: baseUrl + "Mantenimiento/ListaMonedas",
+        url: baseUrl + "Mantenimiento/ListaGei",
         type: 'POST',
         datatype: 'json',
         data: Item,
@@ -39,15 +39,19 @@ function fn_CargaDatos() {
                     for (var i = 0; i < data.length; i++) {
 
                         var tr = '<tr>';
-                        tr = tr + '<th class="text-center" data-encabezado="Número" scope="col">' + data[i]["ID_MONEDA"] + '</th>';
+                        tr = tr + '<th class="text-center" data-encabezado="Número" scope="col">' + data[i]["ID_GEI"] + '</th>';
                         tr = tr + '<td data-encabezado="Descripcion">' + data[i]["DESCRIPCION"] + '</td>';
+                        tr = tr + '<td class="text-center" data-encabezado="Descripcion">' + data[i]["AR2"] + '</td>';
+                        tr = tr + '<td class="text-center" data-encabezado="Descripcion">' + data[i]["AR4"] + '</td>';
+                        tr = tr + '<td class="text-center" data-encabezado="Descripcion">' + data[i]["AR5"] + '</td>';
+                        tr = tr + '<td class="text-center" data-encabezado="Descripcion">' + data[i]["AR6"] + '</td>';
                         tr = tr + '<td class="text-center text-xs-right" data-encabezado="Acciones">';
                         tr = tr + '     <div class="btn-group">';
                         tr = tr + '         <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
                         tr = tr + '         <div class="dropdown-menu dropdown-menu-right">';
-                        tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_cargarDatosMantenimiento(' + data[i]["ID_MONEDA"] + ');" data-toggle="modal" data-target="#modal-edicion">';
+                        tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_cargarDatosMantenimiento(' + data[i]["ID_GEI"] + ');" data-toggle="modal" data-target="#modal-edicion">';
                         tr = tr + '                 <i class="fas fa-edit"></i>&nbsp;Editar';
-                        tr = tr + '             </a><a class="dropdown-item" href="#" onclick="fn_Seleccionaregistro(' + data[i]["ID_MONEDA"] + ');" data-toggle="modal" data-target="#modal-confirmacion">';
+                        tr = tr + '             </a><a class="dropdown-item" href="#" onclick="fn_Seleccionaregistro(' + data[i]["ID_GEI"] + ');" data-toggle="modal" data-target="#modal-confirmacion">';
                         tr = tr + '                 <i class="fas fa-trash"></i>&nbsp;Eliminar';
                         tr = tr + '             </a>';
                         tr = tr + '         </div>';
@@ -153,6 +157,10 @@ function regMantenimiento() {
 
 function fn_limpiarCampo() {
     $("#txt-descripcion").val("");
+    $("#txt-ar2").val("");
+    $("#txt-ar4").val("");
+    $("#txt-ar5").val("");
+    $("#txt-ar6").val("");
     $("#title-nuevo").hide();
     $("#title-edit").hide();
 }
@@ -167,17 +175,21 @@ function fn_cargarDatosMantenimiento(id) {
 
 function fn_seleccionarMantenimiento(id) {
     var Item = {
-        ID_MONEDA: id
+        ID_GEI: id
     };
     $.ajax({
-        url: baseUrl + "Mantenimiento/BuscarMoneda",
+        url: baseUrl + "Mantenimiento/BuscarGei",
         type: 'POST',
         datatype: 'json',
         data: Item,
         success: function (data) {
             if (data != null && data != "") {
-                $("#userMantenimiento").data("value", data["ID_MONEDA"]);
+                $("#userMantenimiento").data("value", data["ID_GEI"]);
                 $("#txt-descripcion").val(data["DESCRIPCION"]);
+                $("#txt-ar2").val(data["AR2"]);
+                $("#txt-ar4").val(data["AR4"]);
+                $("#txt-ar5").val(data["AR5"]);
+                $("#txt-ar6").val(data["AR6"]);
             }
         }
     });
@@ -192,10 +204,14 @@ function fn_editarMantenimiento() {
         }
     }
 
-    var url = baseUrl + "Mantenimiento/RegistrarMoneda";
+    var url = baseUrl + "Mantenimiento/RegistrarGei";
     var item = {
-        ID_MONEDA: $("#userMantenimiento").data("value"),
+        ID_GEI: $("#userMantenimiento").data("value"),
         DESCRIPCION: $("#txt-descripcion").val(),
+        AR2: $("#txt-ar2").val(),
+        AR4: $("#txt-ar4").val(),
+        AR5: $("#txt-ar5").val(),
+        AR6: $("#txt-ar6").val(),
         FLAG_ESTADO: $("#validarUsuario").data("guardar")
     };
     var mensaje = "";
@@ -223,7 +239,19 @@ function fn_validarCampo() {
     var arr = [];
 
     if ($("#txt-descripcion").val().trim() === "") {
-        arr.push("Debe ingresar el nombre de la moneda");
+        arr.push("Debe ingresar el nombre del gas de efecto invernadero");
+    }
+    if ($("#txt-ar2").val().trim() === "") {
+        arr.push("Debe ingresar el valor de AR2");
+    }
+    if ($("#txt-ar4").val().trim() === "") {
+        arr.push("Debe ingresar el valor de AR4");
+    }
+    if ($("#txt-ar5").val().trim() === "") {
+        arr.push("Debe ingresar el valor de AR5");
+    }
+    if ($("#txt-ar6").val().trim() === "") {
+        arr.push("Debe ingresar el valor de AR6");
     }
 
     if (arr.length > 0) {
@@ -263,9 +291,9 @@ function fn_Seleccionaregistro(id) {
 }
 
 function fn_eliminarMantenimiento() {
-    var url = baseUrl + "Mantenimiento/EliminarMoneda";
+    var url = baseUrl + "Mantenimiento/EliminarGei";
     var item = {
-        ID_MONEDA: $("#userMantenimiento").data("value")
+        ID_GEI: $("#userMantenimiento").data("value")
     };
     var mensaje = "";
     var respuesta = MRV.Ajax(url, item, false);
@@ -288,7 +316,7 @@ function exportarMantenimiento() {
         order_orden: $("#orden").val()
     };
 
-    var url = baseUrl + 'Mantenimiento/ExportarMantenimientoMonedas';
+    var url = baseUrl + 'Mantenimiento/ExportarMantenimientoGei';
 
     var parametros = {
         Url: url,

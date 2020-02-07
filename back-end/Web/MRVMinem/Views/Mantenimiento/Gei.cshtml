@@ -1,7 +1,6 @@
-﻿@model MRVMinem.Models.MvMoneda
-
+﻿@model MRVMinem.Models.MvGei
 @{
-    ViewBag.Title = "Monedas";
+    ViewBag.Title = "Gei";
     Layout = "~/Views/Shared/_SesionLayout.cshtml";
 }
 
@@ -18,7 +17,7 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="@Url.Action("Index","Gestion")">Inicio</a></li>
                 <li class="breadcrumb-item"><a href="@Url.Action("MantenimientoTablas","Gestion")">Mantenimiento de Tablas</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Mantenimiento de Sectores</li>
+                <li class="breadcrumb-item active" aria-current="page">Mantenimiento de Gases de Efecto Invernadero</li>
             </ol>
         </nav>
     </div>
@@ -30,14 +29,14 @@
                 <div class="row">
                     <div class="col-md-12 col-lg-6 pt-4">
                         <div class="h4">
-                            Mantenimiento de Monedas&nbsp;
+                            Mantenimiento de Gases de Efecto Invernadero&nbsp;
                             <br><small class="text-muted">Utilice la búsqueda para encontrar el sector indicado para el mantenimiento</small>
                         </div>
                     </div>
                     <div class="col-md-12 col-lg-6 pt-4">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
-                            <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#modal-edicion"><a class="agregar-iniciativa" href="#" data-toggle="tooltip" data-placement="top" title="Podrá registrar un nuevo sector" id="validarUsuario" onclick="regMantenimiento();" data-guardar="0"><i class="fas fa-plus px-1"></i>Agregar Moneda</a></span></div>
+                            <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#modal-edicion"><a class="agregar-iniciativa" href="#" data-toggle="tooltip" data-placement="top" title="Podrá registrar un nuevo sector" id="validarUsuario" onclick="regMantenimiento();" data-guardar="0"><i class="fas fa-plus px-1"></i>Agregar Gas de Efecto Invernadero</a></span></div>
                         </div>
                     </div>
                 </div>
@@ -75,29 +74,37 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr class="bg-primary text-white">
-                                        <th class="text-center" scope="col" width="5%"><span class="miColumna">N°&nbsp;<i class="fas fa-sort" style="color: lightgray" id="ID_MONEDA"></i></span></th>
-                                        <th scope="col" width="85%"><span class="miColumna">Moneda&nbsp;<i class="fas fa-sort-up" style="color: white" id="DESCRIPCION"></i></span></th>
+                                        <th class="text-center" scope="col" width="5%"><span class="miColumna">N°&nbsp;<i class="fas fa-sort" style="color: lightgray" id="ID_GEI"></i></span></th>
+                                        <th scope="col" width="45%"><span class="miColumna">Gei&nbsp;<i class="fas fa-sort-up" style="color: white" id="DESCRIPCION"></i></span></th>
+                                        <th class="text-center" scope="col" width="10%"><span class="miColumna">AR2&nbsp;<i class="fas fa-sort-up" style="color: white" id="AR2"></i></span></th>
+                                        <th class="text-center" scope="col" width="10%"><span class="miColumna">AR4&nbsp;<i class="fas fa-sort-up" style="color: white" id="AR4"></i></span></th>
+                                        <th class="text-center" scope="col" width="10%"><span class="miColumna">AR5&nbsp;<i class="fas fa-sort-up" style="color: white" id="AR5"></i></span></th>
+                                        <th class="text-center" scope="col" width="10%"><span class="miColumna">AR6&nbsp;<i class="fas fa-sort-up" style="color: white" id="AR6"></i></span></th>
                                         <th class="text-center" scope="col" width="10%">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody id="cuerpoMantenimiento">
 
-                                    @if (Model.ListaMonedas != null)
+                                    @if (Model.ListaGei != null)
                                     {
-                                        foreach (var item in Model.ListaMonedas)
+                                        foreach (var item in Model.ListaGei)
                                         {
                                             i++;
                                             <tr>
-                                                <th class="text-center" data-encabezado="Número" scope="row">@item.ID_MONEDA</th>
+                                                <th class="text-center" data-encabezado="Número" scope="row">@item.ID_GEI</th>
                                                 <td data-encabezado="Descripcion">@item.DESCRIPCION</td>
+                                                <td class="text-center" data-encabezado="Descripcion">@item.AR2</td>
+                                                <td class="text-center" data-encabezado="Descripcion">@item.AR4</td>
+                                                <td class="text-center" data-encabezado="Descripcion">@item.AR5</td>
+                                                <td class="text-center" data-encabezado="Descripcion">@item.AR6</td>
                                                 <td class="text-center text-xs-right" data-encabezado="Acciones">
                                                     <div class="btn-group">
                                                         <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
                                                         <div class="dropdown-menu dropdown-menu-right">
-                                                            <a class="dropdown-item" href="#" onclick="fn_cargarDatosMantenimiento(@item.ID_MONEDA);" data-toggle="modal" data-target="#modal-edicion">
+                                                            <a class="dropdown-item" href="#" onclick="fn_cargarDatosMantenimiento(@item.ID_GEI);" data-toggle="modal" data-target="#modal-edicion">
                                                                 <i class="fas fa-edit"></i>&nbsp;
                                                                 Editar
-                                                            </a><a class="dropdown-item" href="#" onclick="fn_Seleccionaregistro(@item.ID_MONEDA)" data-toggle="modal" data-target="#modal-confirmacion">
+                                                            </a><a class="dropdown-item" href="#" onclick="fn_Seleccionaregistro(@item.ID_GEI)" data-toggle="modal" data-target="#modal-confirmacion">
                                                                 <i class="fas fa-trash"></i>&nbsp;
                                                                 Eliminar
                                                             </a>
@@ -141,8 +148,8 @@
                     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="title-nuevo">Registro de Nueva Moneda <br><small class="text-muted">Complete los siguientes campos para registrar una nueva moneda</small><small class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</small></h5>
-                                <h5 class="modal-title" id="title-edit">Modificación de una Moneda <br><small class="text-muted">Complete los siguientes campos para actualizar una nueva moneda</small><small class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</small></h5>
+                                <h5 class="modal-title" id="title-nuevo">Registro de nuevo gas de efecto de invernadero <br><small class="text-muted">Complete los siguientes campos para registrar un nuevo gas de efecto de invernadero</small><small class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</small></h5>
+                                <h5 class="modal-title" id="title-edit">Modificación de un gas de efecto de invernadero <br><small class="text-muted">Complete los siguientes campos para actualizar un nuevo gas de efecto de invernadero</small><small class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</small></h5>
                                 <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             </div>
                             <div class="modal-body medidas-modal">
@@ -150,10 +157,38 @@
                                     <div class="row" id="ventanaEditar">
                                         <div class="col-md-12 col-lg-12">
                                             <div class="form-group">
-                                                <label for="txt-descripcion">Moneda</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                                                <label for="txt-descripcion">Gas de efecto invernadero</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
                                                 <div class="input-group">
-                                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
-                                                    <input class="form-control" type="text" id="txt-descripcion" placeholder="Ingrese la moneda" aria-describedby="inputGroup6" required>
+                                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-bolt"></i></span></div>
+                                                    <input class="form-control" type="text" id="txt-descripcion" placeholder="Ingrese el gas de efecto invernadero" aria-describedby="inputGroup6" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txt-descripcion">AR2</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup7"><i class="fas fa-bolt"></i></span></div>
+                                                    <input class="form-control" type="text" id="txt-ar2" placeholder="Ingrese el valor de AR2" aria-describedby="inputGroup7" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txt-descripcion">AR4</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup8"><i class="fas fa-bolt"></i></span></div>
+                                                    <input class="form-control" type="text" id="txt-ar4" placeholder="Ingrese el valor de AR4" aria-describedby="inputGroup8" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txt-descripcion">AR5</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
+                                                    <input class="form-control" type="text" id="txt-ar5" placeholder="Ingrese el valor de AR5" aria-describedby="inputGroup9" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txt-descripcion">AR6</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="fas fa-bolt"></i></span></div>
+                                                    <input class="form-control" type="text" id="txt-ar6" placeholder="Ingrese el valor de AR6" aria-describedby="inputGroup10" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -219,12 +254,12 @@
     </div>
 </div>
 
-@Html.Hidden("columna", "DESCRIPCION")
+@Html.Hidden("columna", "ID_GEI")
 @Html.Hidden("orden", "ASC")
 
 <script src="~/js/script.js"></script>
 <script src="~/js/MRV.js"></script>
-<script src="~/js/MantenimientoMonedas.js"></script>
+<script src="~/js/MantenimientoGei.js"></script>
 
 
 
