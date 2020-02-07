@@ -1,11 +1,11 @@
 --------------------------------------------------------
--- Archivo creado  - miιrcoles-febrero-05-2020   
+-- Archivo creado  - jueves-febrero-06-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_ADMIN_SISTEMA
 --------------------------------------------------------
 
-  CREATE OR REPLACE PACKAGE "MRVMM"."PKG_MRV_ADMIN_SISTEMA" AS 
+  CREATE OR REPLACE EDITIONABLE PACKAGE "MRVMM"."PKG_MRV_ADMIN_SISTEMA" AS 
 
   
   PROCEDURE USP_SEL_VERIFICAR_EMAIL(
@@ -110,7 +110,7 @@ END PKG_MRV_ADMIN_SISTEMA;
 --  DDL for Package PKG_MRV_CALCULO
 --------------------------------------------------------
 
-  CREATE OR REPLACE PACKAGE "MRVMM"."PKG_MRV_CALCULO" AS 
+  CREATE OR REPLACE EDITIONABLE PACKAGE "MRVMM"."PKG_MRV_CALCULO" AS 
   
     FUNCTION FN_F_BAU(   
         p_tipo_vehiculo     IN number, 
@@ -168,7 +168,7 @@ END PKG_MRV_CALCULO;
 --  DDL for Package PKG_MRV_DETALLE_INDICADORES
 --------------------------------------------------------
 
-  CREATE OR REPLACE PACKAGE "MRVMM"."PKG_MRV_DETALLE_INDICADORES" AS 
+  CREATE OR REPLACE EDITIONABLE PACKAGE "MRVMM"."PKG_MRV_DETALLE_INDICADORES" AS 
 
    PROCEDURE USP_GET_INDICADOR(
         pID_INICIATIVA  IN NUMBER,
@@ -304,7 +304,7 @@ END PKG_MRV_CALCULO;
     PROCEDURE USP_UPD_APROBAR_INI_DETALLE(
         pID_INICIATIVA IN   NUMBER,
         pID_USUARIO IN NUMBER,
-        pID_ETAPA IN CHAR,
+        pID_ETAPA IN NUMBER,
         pID_MEDMIT IN NUMBER
     );
 
@@ -368,7 +368,7 @@ END PKG_MRV_DETALLE_INDICADORES;
 --  DDL for Package PKG_MRV_INICIATIVA_MITIGACION
 --------------------------------------------------------
 
-  CREATE OR REPLACE PACKAGE "MRVMM"."PKG_MRV_INICIATIVA_MITIGACION" AS 
+  CREATE OR REPLACE EDITIONABLE PACKAGE "MRVMM"."PKG_MRV_INICIATIVA_MITIGACION" AS 
 
 
     
@@ -1096,7 +1096,7 @@ END PKG_MRV_INICIATIVA_MITIGACION;
 --  DDL for Package PKG_MRV_MANTENIMIENTO
 --------------------------------------------------------
 
-  CREATE OR REPLACE PACKAGE "MRVMM"."PKG_MRV_MANTENIMIENTO" AS 
+  CREATE OR REPLACE EDITIONABLE PACKAGE "MRVMM"."PKG_MRV_MANTENIMIENTO" AS 
 
     PROCEDURE USP_SEL_MANTENIMIENTO_USUARIO(
         pBuscar	IN VARCHAR2,
@@ -1149,62 +1149,6 @@ END PKG_MRV_INICIATIVA_MITIGACION;
         pRefcursor OUT SYS_REFCURSOR
     );
 
-
-
-
-   PROCEDURE USP_SEL_LISTA_UBICACION(
-        pRefcursor  OUT SYS_REFCURSOR
-   );
-
-    PROCEDURE USP_SEL_UBICACION(
-        pID_UBICACION IN NUMBER,
-        pRefcursor  OUT SYS_REFCURSOR
-   );
-
-    PROCEDURE USP_UPD_UBICACION(
-       pID_UBICACION IN NUMBER,
-        pDescripcion  in varchar2
-   );
-
-    PROCEDURE USP_DEL_UBICACION(
-       pID_UBICACION IN NUMBER
-   );
-
-
-   PROCEDURE USP_INS_UBICACION(
-        pID_UBICACION IN NUMBER,
-        pDescripcion in varchar2,
-        pRefcursor OUT SYS_REFCURSOR
-    );
-
-
-   PROCEDURE USP_SEL_LISTA_SECTORINSTITUC(
-        pRefcursor  OUT SYS_REFCURSOR
-   );
-
-    PROCEDURE USP_SEL_SECTORINSTITUCION(
-        pID_SECTOR_INST IN NUMBER,
-        pRefcursor  OUT SYS_REFCURSOR
-   );
-
-    PROCEDURE USP_UPD_SECTORINSTITUCION(
-       pID_SECTOR_INST IN NUMBER,
-        pDescripcion  in varchar2
-   );
-
-    PROCEDURE USP_DEL_SECTORINSTITUCION(
-       pID_SECTOR_INST IN NUMBER
-   );
-
-
-    PROCEDURE USP_INS_SECTORINSTITUCION(
-        pDescripcion in varchar2,
-        pRefcursor OUT SYS_REFCURSOR
-    );
-
-
-
-
    PROCEDURE USP_SEL_LISTA_ROL(
         pRefcursor  OUT SYS_REFCURSOR
    );
@@ -1244,33 +1188,6 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
 
     PROCEDURE USP_DEL_MEDMIT(
        pID_MEDMIT IN NUMBER
-   );   
-
-
-
-    PROCEDURE USP_SEL_LISTA_ESCENARIO(
-        pRefcursor  OUT SYS_REFCURSOR
-   );
-
-    PROCEDURE USP_SEL_ESCENARIO(
-        pID_ESCENARIO IN NUMBER,
-        pRefcursor  OUT SYS_REFCURSOR
-   );
-
-    PROCEDURE USP_UPD_ESCENARIO(
-        pID_ESCENARIO IN NUMBER,
-        pID_MEDMIT IN NUMBER,
-        pANNO IN NUMBER,
-        pBAU_EMISION IN NUMBER,
-        pMIT_EMISION IN NUMBER,
-        pREDUCCION IN NUMBER,
-        pVALOR_SOFTWARE IN NUMBER,
-        pEXPOST IN NUMBER,
-        pMETA_ANUAL IN NUMBER
-   );
-
-    PROCEDURE USP_DEL_ESCENARIO(
-       pID_ESCENARIO IN NUMBER
    );   
 
     PROCEDURE USP_DEL_USUARIO_MEDMIT(
@@ -1324,6 +1241,174 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pSortColumn IN VARCHAR2,
         pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR);
+        
+    PROCEDURE USP_UPD_INSTITUCION(
+        pID_INSTITUCION			IN NUMBER,
+        pID_SECTOR_INSTITUCION  IN INTEGER,
+        pRUC_INSTITUCION        IN VARCHAR2,
+        pNOMBRE_INSTITUCION     IN VARCHAR2,
+        pDIRECCION_INSTITUCION  IN VARCHAR2
+    );
+        
+    PROCEDURE USP_DEL_INSTITUCION(
+      	pID_INSTITUCION			IN NUMBER);
+        
+    PROCEDURE USP_GET_INSTITUCION_ID(
+      	pIdInstitucion	NUMBER,
+        pRefcursor OUT SYS_REFCURSOR);
+        
+ 
+    PROCEDURE USP_GET_UBICACION(
+        pIdUbicacion    number,
+        pRefcursor  OUT SYS_REFCURSOR
+   );
+   
+   PROCEDURE USP_SEL_UBICACION(
+        pRegistros  INTEGER,
+        pPagina     INTEGER,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+   );
+   
+   PROCEDURE USP_UPD_UBICACION(
+       pID_UBICACION IN NUMBER,
+        pDescripcion  in varchar2
+   );
+   
+   PROCEDURE USP_INS_UBICACION(
+        pDescripcion in varchar2,
+        pIdUbicacion OUT NUMBER
+    );
+    
+    PROCEDURE USP_INS_SECTORINSTITUCION(
+        pDescripcion in varchar2,
+        pIdSector    OUT number
+    );
+    
+    PROCEDURE USP_UPD_SECTORINSTITUCION(
+       pID_SECTOR_INST IN NUMBER,
+        pDescripcion  in varchar2
+   );
+    
+    PROCEDURE USP_GET_SECTORINSTITUCION(
+        pID_SECTOR_INST IN NUMBER,
+        pRefcursor  OUT SYS_REFCURSOR
+   );
+   
+   PROCEDURE USP_SEL_SECTORINSTITUCION(
+        pRegistros  INTEGER,
+        pPagina     INTEGER,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+    
+    PROCEDURE USP_GET_ESCENARIO(
+        pID_ESCENARIO IN NUMBER,
+        pRefcursor  OUT SYS_REFCURSOR
+   );
+   
+   PROCEDURE USP_SEL_ESCENARIO(
+        pRegistros  INTEGER,
+        pPagina     INTEGER,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+   );
+   
+   PROCEDURE USP_INS_ESCENARIO(
+        pID_MEDMIT      IN NUMBER,
+        pANNO           IN NUMBER,
+        pBAU_EMISION    IN NUMBER,
+        pMIT_EMISION    IN NUMBER,
+        pREDUCCION      IN NUMBER,
+        pVALOR_SOFTWARE IN NUMBER,
+        pEXPOST         IN NUMBER,
+        pMETA_ANUAL     IN NUMBER,
+        pIdEscenario    OUT NUMBER
+   );
+   
+   PROCEDURE USP_INS_MONEDA(
+        pDESCRIPCION IN VARCHAR2,
+        pID_MONEDA    OUT NUMBER
+    );
+    
+    PROCEDURE USP_UPD_MONEDA(
+        pID_MONEDA IN NUMBER,
+        pDESCRIPCION  IN VARCHAR2
+   );
+   
+   PROCEDURE USP_DEL_MONEDA(
+       pID_MONEDA IN NUMBER
+   );
+    
+    PROCEDURE USP_GET_MONEDA(
+        pID_MONEDA IN NUMBER,
+        pRefcursor  OUT SYS_REFCURSOR
+   );
+   
+   PROCEDURE USP_SEL_BUSCAR_MONEDA(
+        pBuscar     IN VARCHAR2,
+        pRegistros  INTEGER,
+        pPagina     INTEGER,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+    
+    PROCEDURE USP_SEL_EXCEL_MONEDA(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+    
+    --GEI
+    
+    PROCEDURE USP_INS_GEI(
+        pDESCRIPCION IN VARCHAR2,
+        pAR2  IN NUMBER,
+        pAR4  IN NUMBER,
+        pAR5  IN NUMBER,
+        pAR6  IN NUMBER,
+        pID_GEI    OUT NUMBER
+    );
+    
+    PROCEDURE USP_UPD_GEI(
+        pID_GEI IN NUMBER,
+        pDESCRIPCION  IN VARCHAR2,
+        pAR2  IN NUMBER,
+        pAR4  IN NUMBER,
+        pAR5  IN NUMBER,
+        pAR6  IN NUMBER
+   );
+   
+   PROCEDURE USP_DEL_GEI(
+       pID_GEI IN NUMBER
+   );
+    
+    PROCEDURE USP_GET_GEI(
+        pID_GEI IN NUMBER,
+        pRefcursor  OUT SYS_REFCURSOR
+   );
+   
+   PROCEDURE USP_SEL_BUSCAR_GEI(
+        pBuscar     IN VARCHAR2,
+        pRegistros  INTEGER,
+        pPagina     INTEGER,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+    
+    PROCEDURE USP_SEL_EXCEL_GEI(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+    
 
 END PKG_MRV_MANTENIMIENTO;
 
@@ -1332,7 +1417,7 @@ END PKG_MRV_MANTENIMIENTO;
 --  DDL for Package PKG_MRV_NOTIFICACION
 --------------------------------------------------------
 
-  CREATE OR REPLACE PACKAGE "MRVMM"."PKG_MRV_NOTIFICACION" is
+  CREATE OR REPLACE EDITIONABLE PACKAGE "MRVMM"."PKG_MRV_NOTIFICACION" is
 
   -- Author  : Grupo Zuρiga - EC
   -- Created : 12/01/2020 13:09:51
@@ -1383,7 +1468,7 @@ end PKG_MRV_NOTIFICACION;
 --  DDL for Package PKG_MRV_REPORTES
 --------------------------------------------------------
 
-  CREATE OR REPLACE PACKAGE "MRVMM"."PKG_MRV_REPORTES" AS 
+  CREATE OR REPLACE EDITIONABLE PACKAGE "MRVMM"."PKG_MRV_REPORTES" AS 
 
   PROCEDURE SP_SEL_ESCENARIOS_RPT(
         pIdMedMit   integer,
@@ -1392,6 +1477,12 @@ end PKG_MRV_NOTIFICACION;
   
   PROCEDURE SP_SEL_INICIATIVAS_RPT(
         pIdIniciativa   integer,
+        pCursor out SYS_REFCURSOR
+  );
+  
+  PROCEDURE SP_SEL_INSTITUCIONES_RPT(
+        pIdMedMit       integer,
+        pIdSectorInst   integer,
         pCursor out SYS_REFCURSOR
   );
 
@@ -1510,7 +1601,7 @@ END PKG_MRV_REPORTES;
 --  DDL for Package Body PKG_MRV_ADMIN_SISTEMA
 --------------------------------------------------------
 
-  CREATE OR REPLACE PACKAGE BODY "MRVMM"."PKG_MRV_ADMIN_SISTEMA" AS
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "MRVMM"."PKG_MRV_ADMIN_SISTEMA" AS
 
     --Author: GRUPO ZUΡIGA
     --Created: 26/12/2019
@@ -1577,8 +1668,8 @@ END PKG_MRV_REPORTES;
     BEGIN       
             SELECT SQ_GENM_INSTITUCION.NEXTVAL INTO vIdInstitucion FROM DUAL;
 
-            INSERT INTO T_GENM_INSTITUCION (ID_INSTITUCION, ID_SECTOR_INSTITUCION, RUC_INSTITUCION, NOMBRE_INSTITUCION, DIRECCION_INSTITUCION)
-            VALUES (vIdInstitucion, pID_SECTOR_INSTITUCION, pRUC_INSTITUCION, pNOMBRE_INSTITUCION, pDIRECCION_INSTITUCION);  
+            INSERT INTO T_GENM_INSTITUCION (ID_INSTITUCION, ID_SECTOR_INSTITUCION, RUC_INSTITUCION, NOMBRE_INSTITUCION, DIRECCION_INSTITUCION, FLAG_ESTADO)
+            VALUES (vIdInstitucion, pID_SECTOR_INSTITUCION, pRUC_INSTITUCION, pNOMBRE_INSTITUCION, pDIRECCION_INSTITUCION, '1');  
 
             --SELECT nvl(MAX(ID_INSTITUCION),0) INTO vIdInstitucion FROM T_GENM_INSTITUCION; 
             pIdInstitucion := vIdInstitucion;
@@ -1797,13 +1888,12 @@ END PKG_MRV_REPORTES;
 
 END PKG_MRV_ADMIN_SISTEMA;
 
-
 /
 --------------------------------------------------------
 --  DDL for Package Body PKG_MRV_CALCULO
 --------------------------------------------------------
 
-  CREATE OR REPLACE PACKAGE BODY "MRVMM"."PKG_MRV_CALCULO" AS 
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "MRVMM"."PKG_MRV_CALCULO" AS 
 
 
     FUNCTION FN_F_BAU (
@@ -1968,7 +2058,7 @@ END PKG_MRV_CALCULO;
 --  DDL for Package Body PKG_MRV_DETALLE_INDICADORES
 --------------------------------------------------------
 
-  CREATE OR REPLACE PACKAGE BODY "MRVMM"."PKG_MRV_DETALLE_INDICADORES" AS
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "MRVMM"."PKG_MRV_DETALLE_INDICADORES" AS
 
     PROCEDURE USP_SEL_LISTA_ENFOQUE(
         pID_MEDMIT  IN NUMBER,
@@ -2535,7 +2625,7 @@ END PKG_MRV_CALCULO;
     PROCEDURE USP_UPD_APROBAR_INI_DETALLE(
         pID_INICIATIVA IN   NUMBER,
         pID_USUARIO IN NUMBER,
-        pID_ETAPA IN CHAR,
+        pID_ETAPA IN NUMBER,
         pID_MEDMIT IN NUMBER
     )AS
         vIdDetalle NUMBER;
@@ -2798,7 +2888,7 @@ END PKG_MRV_DETALLE_INDICADORES;
 --  DDL for Package Body PKG_MRV_INICIATIVA_MITIGACION
 --------------------------------------------------------
 
-  CREATE OR REPLACE PACKAGE BODY "MRVMM"."PKG_MRV_INICIATIVA_MITIGACION" AS
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "MRVMM"."PKG_MRV_INICIATIVA_MITIGACION" AS
 
 
   PROCEDURE USP_SEL_LISTA_MEDIDAMITIGACION(
@@ -7097,7 +7187,7 @@ END PKG_MRV_INICIATIVA_MITIGACION;
 --  DDL for Package Body PKG_MRV_MANTENIMIENTO
 --------------------------------------------------------
 
-  CREATE OR REPLACE PACKAGE BODY "MRVMM"."PKG_MRV_MANTENIMIENTO" AS
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "MRVMM"."PKG_MRV_MANTENIMIENTO" AS
     
     PROCEDURE USP_SEL_MANTENIMIENTO_USUARIO(
         pBuscar	IN VARCHAR2,
@@ -7302,149 +7392,7 @@ END PKG_MRV_INICIATIVA_MITIGACION;
         SELECT MAX(ID_NAMA) ID_NAMA FROM T_MAE_NAMA;
 
     END USP_INS_NAMA;
-
-
-
-    PROCEDURE USP_SEL_LISTA_UBICACION(
-        pRefcursor  OUT SYS_REFCURSOR
-   ) AS
-     BEGIN
-             OPEN    pRefcursor FOR
-            SELECT  ID_UBICACION,
-                    DESCRIPCION
-            FROM    T_MAE_UBICACION
-            WHERE   NVL(FLG_ESTADO,1) = 1;
-
-  END USP_SEL_LISTA_UBICACION;
-
-
-  PROCEDURE USP_SEL_UBICACION(
-        pID_UBICACION IN NUMBER,
-        pRefcursor  OUT SYS_REFCURSOR
-   )AS
-     BEGIN
-             OPEN    pRefcursor FOR
-            SELECT  ID_UBICACION,
-                    DESCRIPCION
-            FROM    T_MAE_UBICACION
-            WHERE   ID_UBICACION = pID_UBICACION;
-
-    END USP_SEL_UBICACION;
-
-
-    PROCEDURE USP_UPD_UBICACION(                  
-        pID_UBICACION IN NUMBER,
-        pDescripcion in varchar2
-   )AS
-     BEGIN
-             UPDATE T_MAE_UBICACION
-             set descripcion = pDescripcion
-             where id_ubicacion = pid_ubicacion;
-
-
-    END USP_UPD_UBICACION;
-
-
-     PROCEDURE USP_DEL_UBICACION(                  
-        pID_UBICACION IN NUMBER
-   )AS
-     BEGIN
-             UPDATE T_MAE_UBICACION
-             set FLG_ESTADO = 0
-             where id_ubicacion = pid_ubicacion;
-
-
-    END USP_DEL_UBICACION;
-
-
-
-PROCEDURE USP_INS_UBICACION(
-        pID_UBICACION IN NUMBER,
-        pDescripcion in varchar2,
-        pRefcursor OUT SYS_REFCURSOR
-    )AS
-    BEGIN
-        INSERT INTO T_MAE_UBICACION(ID_UBICACION, DESCRIPCION, FLG_ESTADO )
-        VALUES (pID_UBICACION, pDescripcion, 1);
-
-        OPEN pRefcursor FOR
-        SELECT MAX(ID_UBICACION) ID_UBICACION FROM T_MAE_UBICACION;
-
-    END USP_INS_UBICACION;
-
-
-
-
-  PROCEDURE USP_SEL_LISTA_SECTORINSTITUC(
-        pRefcursor  OUT SYS_REFCURSOR
-   ) AS
-     BEGIN
-             OPEN    pRefcursor FOR
-            SELECT  ID_SECTOR_INST,
-                    DESCRIPCION
-            FROM    T_MAE_SECTOR_INST
-            WHERE   NVL(FLAG_ESTADO,1) = 1;
-
-  END USP_SEL_LISTA_SECTORINSTITUC;
-
-
-  PROCEDURE USP_SEL_SECTORINSTITUCION(
-        pID_SECTOR_INST IN NUMBER,
-        pRefcursor  OUT SYS_REFCURSOR
-   )AS
-     BEGIN
-             OPEN    pRefcursor FOR
-            SELECT  ID_SECTOR_INST,
-                    DESCRIPCION
-            FROM    T_MAE_SECTOR_INST
-            WHERE   ID_SECTOR_INST = pID_SECTOR_INST;
-
-    END USP_SEL_SECTORINSTITUCION;
-
-
-
-    PROCEDURE USP_UPD_SECTORINSTITUCION(                 
-        pID_SECTOR_INST IN NUMBER,
-        pDescripcion in varchar2
-   )AS
-     BEGIN
-             UPDATE T_MAE_SECTOR_INST
-             set descripcion = pDescripcion
-             where id_sector_inst = pid_sector_inst;
-
-
-    END USP_UPD_SECTORINSTITUCION;
-
-
-     PROCEDURE USP_DEL_SECTORINSTITUCION(                  
-        pID_SECTOR_INST IN NUMBER
-    )AS
-     BEGIN
-             UPDATE T_MAE_SECTOR_INST
-             set FLAG_ESTADO = 0
-             where id_sector_inst = pid_sector_inst;  
-
-    END USP_DEL_SECTORINSTITUCION;
-
-
-    PROCEDURE USP_INS_SECTORINSTITUCION(
-        pDescripcion in varchar2,
-        pRefcursor OUT SYS_REFCURSOR
-    )AS
-    BEGIN
-        INSERT INTO T_MAE_SECTOR_INST(ID_SECTOR_INST, DESCRIPCION, FLAG_ESTADO )
-        VALUES ((SELECT MAX(ID_SECTOR_INST + 1) ID_SECTOR_INST FROM T_MAE_SECTOR_INST), pDescripcion, 1);
-
-        OPEN pRefcursor FOR
-        SELECT MAX(ID_SECTOR_INST) ID_SECTOR_INST FROM T_MAE_SECTOR_INST;
-    END USP_INS_SECTORINSTITUCION;
-
-
-
-
-
-
-
+    
 
    PROCEDURE USP_SEL_LISTA_ROL(
         pRefcursor  OUT SYS_REFCURSOR
@@ -7575,88 +7523,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
     END USP_DEL_MEDMIT;
 
 
----------------------
-
-PROCEDURE USP_SEL_LISTA_ESCENARIO(
-        pRefcursor  OUT SYS_REFCURSOR
-   ) AS
-     BEGIN
-             OPEN   pRefcursor FOR
-            SELECT  ES.ID_ESCENARIO,
-                    MM.DESCRIPCION_MEDMIT AS MEDMIT,
-                    ES.ANNO,
-                    ES.BAU_EMISION,
-                    ES.MIT_EMISION,
-                    ES.REDUCCION,
-                    ES.VALOR_SOFTWARE,
-                    ES.EXPOST,
-                    ES.META_ANUAL
-            FROM    T_GENM_ESCENARIO ES
-            INNER JOIN T_MAE_MEDMIT MM ON ES.ID_MEDMIT= MM.ID_MEDMIT
-            WHERE NVL(ES.FLAG_ESTADO, 1) = '1';
-
-  END USP_SEL_LISTA_ESCENARIO;
-
-
-  PROCEDURE USP_SEL_ESCENARIO(
-        pID_ESCENARIO IN NUMBER,
-        pRefcursor  OUT SYS_REFCURSOR
-   )AS
-     BEGIN
-             OPEN    pRefcursor FOR
-            SELECT  ID_ESCENARIO,
-                    ID_MEDMIT,
-                    ANNO,
-                    BAU_EMISION,
-                    MIT_EMISION,
-                    REDUCCION,
-                    VALOR_SOFTWARE,
-                    EXPOST,
-                    META_ANUAL
-            FROM    T_GENM_ESCENARIO
-            WHERE   ID_ESCENARIO = pID_ESCENARIO;
-
-    END USP_SEL_ESCENARIO;
-
-
-
-  PROCEDURE USP_UPD_ESCENARIO(                 
-        pID_ESCENARIO IN NUMBER,
-        pID_MEDMIT IN NUMBER,
-        pANNO IN NUMBER,
-        pBAU_EMISION IN NUMBER,
-        pMIT_EMISION IN NUMBER,
-        pREDUCCION IN NUMBER,
-        pVALOR_SOFTWARE IN NUMBER,
-        pEXPOST IN NUMBER,
-        pMETA_ANUAL IN NUMBER
-   )AS
-     BEGIN
-        UPDATE T_GENM_ESCENARIO
-        set id_medmit = pID_MEDMIT,
-            anno = pANNO,
-            bau_emision = pBAU_EMISION,
-            mit_emision = pMIT_EMISION,
-            reduccion = pREDUCCION,
-            valor_software = pVALOR_SOFTWARE,
-            expost = pEXPOST,
-            meta_anual = pMETA_ANUAL
-            where id_escenario = pID_ESCENARIO;
-
-    END USP_UPD_ESCENARIO;
-
-
-  PROCEDURE USP_DEL_ESCENARIO(                  
-        pID_ESCENARIO IN NUMBER
-   )AS
-     BEGIN
-             UPDATE T_GENM_ESCENARIO
-             set FLAG_ESTADO = 0
-             where id_escenario = pid_escenario;
-
-
-    END USP_DEL_ESCENARIO;
-
+--------------------
 
   PROCEDURE USP_DEL_USUARIO_MEDMIT(
         pID_USUARIO IN NUMBER,
@@ -7751,6 +7618,23 @@ PROCEDURE USP_SEL_LISTA_ESCENARIO(
 
     END USP_INS_MAN_INSTI;
     
+    PROCEDURE USP_UPD_INSTITUCION(
+      	pID_INSTITUCION			IN NUMBER,
+        pID_SECTOR_INSTITUCION  IN INTEGER,
+        pRUC_INSTITUCION        IN VARCHAR2,
+        pNOMBRE_INSTITUCION     IN VARCHAR2,
+        pDIRECCION_INSTITUCION  IN VARCHAR2
+    )
+    AS
+    BEGIN
+        UPDATE 	T_GENM_INSTITUCION I
+        SET 	I.ID_SECTOR_INSTITUCION = pID_SECTOR_INSTITUCION,
+        		I.RUC_INSTITUCION = pRUC_INSTITUCION,
+                I.NOMBRE_INSTITUCION = pNOMBRE_INSTITUCION,
+                I.DIRECCION_INSTITUCION = pDIRECCION_INSTITUCION
+        WHERE	I.ID_INSTITUCION = pID_INSTITUCION;
+    END USP_UPD_INSTITUCION;
+    
     PROCEDURE USP_SEL_INSTITUCION(
         pRegistros  INTEGER,
         pPagina     INTEGER,
@@ -7768,7 +7652,7 @@ PROCEDURE USP_SEL_LISTA_ESCENARIO(
     BEGIN
         SELECT  COUNT(1) INTO vTotal
         FROM    VW_T_GENM_INSTITUCION I
-                WHERE I.FLAG_ESTADO = '1';
+                WHERE NVL(I.FLAG_ESTADO,'1') = '1';
         
         vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
         IF vPagina2 = 0 THEN
@@ -7794,7 +7678,7 @@ PROCEDURE USP_SEL_LISTA_ESCENARIO(
                     || pRegistros || ' AS cantidad_registros,'
                     || vTotal || ' AS total_registros
                 FROM VW_T_GENM_INSTITUCION I
-                WHERE I.FLAG_ESTADO = ''1''
+                WHERE NVL(I.FLAG_ESTADO,''1'') = ''1''
                 )
                 WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
         OPEN pRefcursor FOR vQuery;
@@ -7951,6 +7835,593 @@ PROCEDURE USP_SEL_LISTA_ESCENARIO(
 		OPEN pRefcursor FOR vQuery;  
         
     END USP_SEL_BUSCAR_USUARIO_MANT;
+    
+    PROCEDURE USP_DEL_INSTITUCION(
+      	pID_INSTITUCION			IN NUMBER
+    )
+    AS
+    BEGIN
+      	UPDATE T_GENM_INSTITUCION I
+        SET I.FLAG_ESTADO = '0'
+        WHERE I.ID_INSTITUCION = pID_INSTITUCION;
+    
+    END USP_DEL_INSTITUCION;
+    
+    PROCEDURE USP_GET_INSTITUCION_ID(
+      	pIdInstitucion	NUMBER,
+        pRefcursor OUT SYS_REFCURSOR
+      ) AS
+      BEGIN
+            OPEN pRefcursor FOR
+            SELECT  I.ID_INSTITUCION,
+                    I.ID_SECTOR_INSTITUCION,
+                    I.RUC_INSTITUCION,
+                    I.NOMBRE_INSTITUCION,
+                    I.DIRECCION_INSTITUCION,
+                    I.FLAG_ESTADO  
+            FROM    T_GENM_INSTITUCION I
+            WHERE	I.ID_INSTITUCION = pIdInstitucion;
+      END USP_GET_INSTITUCION_ID;
+      
+      --06022020
+      
+      PROCEDURE USP_GET_UBICACION(
+        pIdUbicacion    number,
+        pRefcursor  OUT SYS_REFCURSOR
+   ) AS
+     BEGIN
+             OPEN    pRefcursor FOR
+            SELECT  ID_UBICACION,
+                    DESCRIPCION
+            FROM    T_MAE_UBICACION
+            WHERE   ID_UBICACION = pIdUbicacion AND
+                    NVL(FLG_ESTADO,1) = 1;
+
+  END USP_GET_UBICACION;
+
+  PROCEDURE USP_SEL_UBICACION(
+        pRegistros  INTEGER,
+        pPagina     INTEGER,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+   )AS
+        vPaginas    INTEGER;
+        vTotal      INTEGER;
+        vPagina2    INTEGER := pPagina;
+        vPageIndex  INTEGER := 0;
+        vQuery      VARCHAR2(10000) := '';
+        vSortColumn2 VARCHAR2(1000);
+    BEGIN
+        SELECT  COUNT(1) INTO vTotal
+        FROM    T_MAE_UBICACION I
+                WHERE I.FLG_ESTADO = '1';
+                
+        vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
+        IF vPagina2 = 0 THEN
+            vPagina2 := 1;
+        END IF;
+        IF vPagina2 > vPaginas THEN
+            vPagina2 := vPaginas;
+        END IF;
+        vPageIndex := vPagina2 - 1;
+        vSortColumn2 := pSortColumn;
+
+        vQuery := 'SELECT *    FROM (
+        SELECT      I.ID_UBICACION,
+                    I.DESCRIPCION,
+                    ROW_NUMBER() OVER (ORDER BY ' || vSortColumn2 || ' ' || pSortOrder ||') AS ROWNUMBER,'
+                    || vPaginas || ' AS total_paginas,'
+                    || vPagina2 || ' AS pagina,'
+                    || pRegistros || ' AS cantidad_registros,'
+                    || vTotal || ' AS total_registros
+                FROM T_MAE_UBICACION I
+                WHERE I.FLG_ESTADO = ''1''
+                )
+                WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
+        OPEN pRefcursor FOR vQuery;
+        
+    END USP_SEL_UBICACION;
+	
+  PROCEDURE USP_UPD_UBICACION(                  
+        pID_UBICACION IN NUMBER,
+        pDescripcion in varchar2
+   )AS
+     BEGIN
+             UPDATE T_MAE_UBICACION
+             set descripcion = pDescripcion
+             where id_ubicacion = pid_ubicacion;
+
+
+    END USP_UPD_UBICACION;
+
+    PROCEDURE USP_INS_UBICACION(
+        pDescripcion in varchar2,
+        pIdUbicacion OUT NUMBER
+    )AS
+    BEGIN
+        SELECT NVL(MAX(ID_UBICACION),0) + 1  INTO pIdUbicacion FROM T_MAE_UBICACION;
+        
+        INSERT INTO T_MAE_UBICACION(ID_UBICACION, DESCRIPCION, FLG_ESTADO )
+        VALUES (pIdUbicacion, pDescripcion, 1);
+
+    END USP_INS_UBICACION;
+	
+	
+---PKG_MRV_MANTENIMIENTO
+    PROCEDURE USP_INS_SECTORINSTITUCION(
+        pDescripcion in varchar2,
+        pIdSector    OUT number
+    )AS
+    BEGIN
+        SELECT NVL(MAX(ID_SECTOR_INST),0) + 1 INTO pIdSector FROM T_MAE_SECTOR_INST;
+        
+        INSERT INTO T_MAE_SECTOR_INST(ID_SECTOR_INST, DESCRIPCION, FLAG_ESTADO )
+        VALUES (pIdSector, pDescripcion, 1);
+
+    END USP_INS_SECTORINSTITUCION;
+	
+  PROCEDURE USP_UPD_SECTORINSTITUCION(                 
+        pID_SECTOR_INST IN NUMBER,
+        pDescripcion in varchar2
+   )AS
+     BEGIN
+             UPDATE T_MAE_SECTOR_INST
+             set descripcion = pDescripcion
+             where id_sector_inst = pid_sector_inst;
+
+
+    END USP_UPD_SECTORINSTITUCION;
+	
+	PROCEDURE USP_GET_SECTORINSTITUCION(
+        pID_SECTOR_INST IN NUMBER,
+        pRefcursor  OUT SYS_REFCURSOR
+   )AS
+     BEGIN
+             OPEN    pRefcursor FOR
+            SELECT  ID_SECTOR_INST,
+                    DESCRIPCION
+            FROM    T_MAE_SECTOR_INST
+            WHERE   ID_SECTOR_INST = pID_SECTOR_INST;
+
+    END USP_GET_SECTORINSTITUCION;
+    
+	
+    PROCEDURE USP_SEL_SECTORINSTITUCION(
+        pRegistros  INTEGER,
+        pPagina     INTEGER,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    )
+    AS
+        vPaginas    INTEGER;
+        vTotal      INTEGER;
+        vPagina2    INTEGER := pPagina;
+        vPageIndex  INTEGER := 0;
+        vQuery      VARCHAR2(10000) := '';
+        vSortColumn2 VARCHAR2(1000);
+    BEGIN
+        SELECT  COUNT(1) INTO vTotal
+        FROM    T_MAE_SECTOR_INST I
+                WHERE I.FLAG_ESTADO = '1';
+
+        vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
+        IF vPagina2 = 0 THEN
+            vPagina2 := 1;
+        END IF;
+        IF vPagina2 > vPaginas THEN
+            vPagina2 := vPaginas;
+        END IF;
+        vPageIndex := vPagina2 - 1;
+        vSortColumn2 := pSortColumn;
+
+        vQuery := 'SELECT *    FROM (
+        SELECT      I.ID_SECTOR_INST,
+                    I.DESCRIPCION,
+                    I.FLAG_ESTADO,
+                    ROW_NUMBER() OVER (ORDER BY ' || vSortColumn2 || ' ' || pSortOrder ||') AS ROWNUMBER,'
+                    || vPaginas || ' AS total_paginas,'
+                    || vPagina2 || ' AS pagina,'
+                    || pRegistros || ' AS cantidad_registros,'
+                    || vTotal || ' AS total_registros
+                FROM T_MAE_SECTOR_INST I
+                WHERE I.FLAG_ESTADO = ''1''
+                )
+                WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
+        OPEN pRefcursor FOR vQuery;
+    END USP_SEL_SECTORINSTITUCION;	
+	
+	PROCEDURE USP_GET_ESCENARIO(
+        pID_ESCENARIO IN NUMBER,
+        pRefcursor  OUT SYS_REFCURSOR
+   )AS
+     BEGIN
+             OPEN    pRefcursor FOR
+            SELECT  ID_ESCENARIO,
+                    ID_MEDMIT,
+                    ANNO,
+                    BAU_EMISION,
+                    MIT_EMISION,
+                    REDUCCION,
+                    VALOR_SOFTWARE,
+                    EXPOST,
+                    META_ANUAL
+            FROM    T_GENM_ESCENARIO
+            WHERE   ID_ESCENARIO = pID_ESCENARIO;
+
+    END USP_GET_ESCENARIO;	
+
+
+    PROCEDURE USP_SEL_ESCENARIO(
+        pRegistros  INTEGER,
+        pPagina     INTEGER,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+   )AS
+        vPaginas    INTEGER;
+        vTotal      INTEGER;
+        vPagina2    INTEGER := pPagina;
+        vPageIndex  INTEGER := 0;
+        vQuery      VARCHAR2(10000) := '';
+        vSortColumn2 VARCHAR2(1000);
+    BEGIN
+        SELECT  COUNT(1) INTO vTotal
+        FROM    VW_T_GENM_ESCENARIO I
+                WHERE I.FLAG_ESTADO = '1';
+
+        vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
+        IF vPagina2 = 0 THEN
+            vPagina2 := 1;
+        END IF;
+        IF vPagina2 > vPaginas THEN
+            vPagina2 := vPaginas;
+        END IF;
+        vPageIndex := vPagina2 - 1;
+        vSortColumn2 := pSortColumn;
+
+        vQuery := 'SELECT *    FROM (
+        SELECT      E.ID_ESCENARIO,
+                    E.ID_MEDMIT,
+                    E.NOMBRE_MEDMIT,
+                    E.ANNO,
+                    E.BAU_EMISION,
+                    E.MIT_EMISION,
+                    E.REDUCCION,
+                    E.VALOR_SOFTWARE,
+                    E.EXPOST,
+                    E.META_ANUAL,
+                    E.FLAG_ESTADO,
+                    ROW_NUMBER() OVER (ORDER BY ' || vSortColumn2 || ' ' || pSortOrder ||') AS ROWNUMBER,'
+                    || vPaginas || ' AS total_paginas,'
+                    || vPagina2 || ' AS pagina,'
+                    || pRegistros || ' AS cantidad_registros,'
+                    || vTotal || ' AS total_registros
+                FROM VW_T_GENM_ESCENARIO E
+                WHERE E.FLAG_ESTADO = ''1''
+                )
+                WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
+        OPEN pRefcursor FOR vQuery;
+        
+    END USP_SEL_ESCENARIO;
+	
+	      PROCEDURE USP_INS_ESCENARIO(
+        pID_MEDMIT      IN NUMBER,
+        pANNO           IN NUMBER,
+        pBAU_EMISION    IN NUMBER,
+        pMIT_EMISION    IN NUMBER,
+        pREDUCCION      IN NUMBER,
+        pVALOR_SOFTWARE IN NUMBER,
+        pEXPOST         IN NUMBER,
+        pMETA_ANUAL     IN NUMBER,
+        pIdEscenario    OUT NUMBER
+   )AS
+        vIdEscenario NUMBER;
+     BEGIN
+        SELECT NVL(MAX(E.ID_ESCENARIO),0)+1 INTO vIdEscenario FROM T_GENM_ESCENARIO E;
+        
+        INSERT INTO T_GENM_ESCENARIO(ID_ESCENARIO,
+                                     ID_MEDMIT,
+                                     ANNO,
+                                     BAU_EMISION,
+                                     MIT_EMISION,
+                                     REDUCCION,
+                                     VALOR_SOFTWARE,
+                                     EXPOST,
+                                     META_ANUAL,
+                                     FLAG_ESTADO)
+        VALUES( vIdEscenario,
+                pID_MEDMIT,
+                pANNO,
+                pBAU_EMISION,
+                pMIT_EMISION,
+                pREDUCCION,
+                pVALOR_SOFTWARE,
+                pEXPOST,
+                pMETA_ANUAL,
+                '1');
+
+    END USP_INS_ESCENARIO;
+    
+    -- MONEDA
+    
+    PROCEDURE USP_INS_MONEDA(
+        pDESCRIPCION IN VARCHAR2,
+        pID_MONEDA    OUT NUMBER
+    )AS
+    BEGIN
+        SELECT NVL(MAX(ID_MONEDA),0) + 1 INTO pID_MONEDA FROM T_MAE_MONEDA;
+        
+        INSERT INTO T_MAE_MONEDA(ID_MONEDA, DESCRIPCION, FLAG_ESTADO )
+        VALUES (pID_MONEDA, pDESCRIPCION, 1);
+
+    END USP_INS_MONEDA;
+    
+    
+    PROCEDURE USP_UPD_MONEDA(                 
+        pID_MONEDA IN NUMBER,
+        pDESCRIPCION in varchar2
+   )AS
+     BEGIN
+             UPDATE T_MAE_MONEDA
+             SET DESCRIPCION = pDESCRIPCION
+             where ID_MONEDA = pID_MONEDA;
+
+
+    END USP_UPD_MONEDA;
+	
+	PROCEDURE USP_DEL_MONEDA(                  
+        pID_MONEDA IN NUMBER
+   )AS
+     BEGIN
+             UPDATE T_MAE_MONEDA
+             set FLAG_ESTADO = 0
+             where ID_MONEDA = pID_MONEDA;
+
+
+    END USP_DEL_MONEDA;
+  
+	PROCEDURE USP_GET_MONEDA(
+        pID_MONEDA IN NUMBER,
+        pRefcursor  OUT SYS_REFCURSOR
+   )AS
+     BEGIN
+             OPEN    pRefcursor FOR
+            SELECT  ID_MONEDA,
+                    DESCRIPCION
+            FROM    T_MAE_MONEDA
+            WHERE   ID_MONEDA = pID_MONEDA;
+
+    END USP_GET_MONEDA;
+
+    PROCEDURE USP_SEL_BUSCAR_MONEDA(
+        pBuscar	IN VARCHAR2,
+        pRegistros IN INTEGER,
+      	pPagina    IN INTEGER,
+      	pSortColumn IN VARCHAR2,
+      	pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+        vPaginas    INTEGER;
+        vTotal      INTEGER;
+        vPagina2    INTEGER := pPagina;
+        vPageIndex  INTEGER := 0;
+        vQuery      VARCHAR2(30000) := '';
+        vSortColumn2 VARCHAR2(1000);
+      BEGIN
+      
+        SELECT COUNT(1) INTO vTotal
+        FROM  T_MAE_MONEDA
+        WHERE FLAG_ESTADO = 1 AND
+              (LOWER(TRANSLATE(DESCRIPCION,'ΑΙΝΣΪαινσϊ','AEIOUaeiou')) like '%'|| LOWER(TRANSLATE(pBuscar,'ΑΙΝΣΪαινσϊ','AEIOUaeiou')) ||'%');
+
+        vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
+        IF vPagina2 = 0 THEN
+            vPagina2 := 1;
+        END IF;
+        IF vPagina2 > vPaginas THEN
+            vPagina2 := vPaginas;
+        END IF;
+
+        vPageIndex := vPagina2 - 1;  
+        vSortColumn2 := pSortColumn;
+            
+        vQuery := 'SELECT *    FROM (
+                        SELECT    ID_MONEDA,
+                                  DESCRIPCION,
+                                                ROW_NUMBER() OVER (ORDER BY ' || vSortColumn2 || ' ' || pSortOrder ||') AS ROWNUMBER,'
+                                                || vPaginas || ' AS total_paginas,'
+                                                || vPagina2 || ' AS pagina,'
+                                                || pRegistros || ' AS cantidad_registros,'
+                                                || vTotal || ' AS total_registros
+                        FROM  T_MAE_MONEDA
+                        WHERE FLAG_ESTADO = 1 AND
+                        (LOWER(TRANSLATE(DESCRIPCION,''ΑΙΝΣΪαινσϊ'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''ΑΙΝΣΪαινσϊ'',''AEIOUaeiou'')) ||''%'' )
+					)
+                    WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
+		OPEN pRefcursor FOR vQuery;
+    
+    END USP_SEL_BUSCAR_MONEDA;
+    
+    PROCEDURE USP_SEL_EXCEL_MONEDA(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+        vQuery      VARCHAR2(30000) := '';
+        vSortColumn2 VARCHAR2(1000);
+      BEGIN
+        vSortColumn2 := pSortColumn;
+        vQuery := '
+                        SELECT    ID_MONEDA,
+                                  DESCRIPCION
+                        FROM  T_MAE_MONEDA
+                        WHERE FLAG_ESTADO = 1 AND
+                        (LOWER(TRANSLATE(DESCRIPCION,''ΑΙΝΣΪαινσϊ'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''ΑΙΝΣΪαινσϊ'',''AEIOUaeiou'')) ||''%'' )
+                        ORDER BY ' || vSortColumn2 || ' ' || pSortOrder || ' ' ;
+		OPEN pRefcursor FOR vQuery;
+    
+    END USP_SEL_EXCEL_MONEDA;
+    
+    
+    -- GEI
+    
+    PROCEDURE USP_INS_GEI(
+        pDESCRIPCION IN VARCHAR2,
+        pAR2  IN NUMBER,
+        pAR4  IN NUMBER,
+        pAR5  IN NUMBER,
+        pAR6  IN NUMBER,
+        pID_GEI    OUT NUMBER
+    )AS
+    BEGIN
+        SELECT NVL(MAX(ID_GEI),0) + 1 INTO pID_GEI FROM T_MAE_GEI;
+        
+        INSERT INTO T_MAE_GEI(ID_GEI, DESCRIPCION, AR2, AR4, AR5, AR6,FLAG_ESTADO )
+        VALUES (pID_GEI, pDESCRIPCION, pAR2, pAR4, pAR5, pAR6,1);
+
+    END USP_INS_GEI;
+    
+    
+    PROCEDURE USP_UPD_GEI(                 
+        pID_GEI IN NUMBER,
+        pDESCRIPCION in varchar2,
+        pAR2  IN NUMBER,
+        pAR4  IN NUMBER,
+        pAR5  IN NUMBER,
+        pAR6  IN NUMBER
+   )AS
+     BEGIN
+             UPDATE T_MAE_GEI
+             SET DESCRIPCION = pDESCRIPCION,
+                  AR2 = pAR2,
+                  AR4 = pAR4,
+                  AR5 = pAR5,
+                  AR6 = pAR6
+             where ID_GEI = pID_GEI;
+
+
+    END USP_UPD_GEI;
+	
+	PROCEDURE USP_DEL_GEI(                  
+        pID_GEI IN NUMBER
+   )AS
+     BEGIN
+             UPDATE T_MAE_GEI
+             set FLAG_ESTADO = 0
+             where ID_GEI = pID_GEI;
+
+
+    END USP_DEL_GEI;
+  
+	PROCEDURE USP_GET_GEI(
+        pID_GEI IN NUMBER,
+        pRefcursor  OUT SYS_REFCURSOR
+   )AS
+     BEGIN
+             OPEN    pRefcursor FOR
+            SELECT  ID_GEI,
+                    DESCRIPCION,
+                    AR2,
+                    AR4,
+                    AR5,
+                    AR6
+            FROM    T_MAE_GEI
+            WHERE   ID_GEI = pID_GEI;
+
+    END USP_GET_GEI;
+
+    PROCEDURE USP_SEL_BUSCAR_GEI(
+        pBuscar	IN VARCHAR2,
+        pRegistros IN INTEGER,
+      	pPagina    IN INTEGER,
+      	pSortColumn IN VARCHAR2,
+      	pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+        vPaginas    INTEGER;
+        vTotal      INTEGER;
+        vPagina2    INTEGER := pPagina;
+        vPageIndex  INTEGER := 0;
+        vQuery      VARCHAR2(30000) := '';
+        vSortColumn2 VARCHAR2(1000);
+      BEGIN
+      
+        SELECT COUNT(1) INTO vTotal
+        FROM  T_MAE_GEI
+        WHERE FLAG_ESTADO = 1 AND
+              (LOWER(TRANSLATE(DESCRIPCION,'ΑΙΝΣΪαινσϊ','AEIOUaeiou')) like '%'|| LOWER(TRANSLATE(pBuscar,'ΑΙΝΣΪαινσϊ','AEIOUaeiou')) ||'%'
+              OR LOWER(TRANSLATE(AR2,'ΑΙΝΣΪαινσϊ','AEIOUaeiou')) like '%'||LOWER(TRANSLATE(pBuscar,'ΑΙΝΣΪαινσϊ','AEIOUaeiou'))||'%' 
+              OR LOWER(TRANSLATE(AR4,'ΑΙΝΣΪαινσϊ','AEIOUaeiou')) like '%'||LOWER(TRANSLATE(pBuscar,'ΑΙΝΣΪαινσϊ','AEIOUaeiou'))||'%'
+              OR LOWER(TRANSLATE(AR5,'ΑΙΝΣΪαινσϊ','AEIOUaeiou')) like '%'||LOWER(TRANSLATE(pBuscar,'ΑΙΝΣΪαινσϊ','AEIOUaeiou'))||'%'
+              OR LOWER(TRANSLATE(AR6,'ΑΙΝΣΪαινσϊ','AEIOUaeiou')) like '%'||LOWER(TRANSLATE(pBuscar,'ΑΙΝΣΪαινσϊ','AEIOUaeiou'))||'%' );
+
+        vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
+        IF vPagina2 = 0 THEN
+            vPagina2 := 1;
+        END IF;
+        IF vPagina2 > vPaginas THEN
+            vPagina2 := vPaginas;
+        END IF;
+
+        vPageIndex := vPagina2 - 1;  
+        vSortColumn2 := pSortColumn;
+            
+        vQuery := 'SELECT *    FROM (
+                        SELECT    ID_GEI,
+                                  DESCRIPCION,
+                                  AR2,
+                                  AR4,
+                                  AR5,
+                                  AR6,
+                                                ROW_NUMBER() OVER (ORDER BY ' || vSortColumn2 || ' ' || pSortOrder ||') AS ROWNUMBER,'
+                                                || vPaginas || ' AS total_paginas,'
+                                                || vPagina2 || ' AS pagina,'
+                                                || pRegistros || ' AS cantidad_registros,'
+                                                || vTotal || ' AS total_registros
+                        FROM  T_MAE_GEI
+                        WHERE FLAG_ESTADO = 1 AND
+                        (LOWER(TRANSLATE(DESCRIPCION,''ΑΙΝΣΪαινσϊ'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''ΑΙΝΣΪαινσϊ'',''AEIOUaeiou'')) ||''%'' 
+                        OR LOWER(TRANSLATE(AR2,''ΑΙΝΣΪαινσϊ'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''ΑΙΝΣΪαινσϊ'',''AEIOUaeiou''))||''%'' 
+                        OR LOWER(TRANSLATE(AR4,''ΑΙΝΣΪαινσϊ'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''ΑΙΝΣΪαινσϊ'',''AEIOUaeiou''))||''%''
+                        OR LOWER(TRANSLATE(AR5,''ΑΙΝΣΪαινσϊ'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''ΑΙΝΣΪαινσϊ'',''AEIOUaeiou''))||''%''
+                        OR LOWER(TRANSLATE(AR6,''ΑΙΝΣΪαινσϊ'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''ΑΙΝΣΪαινσϊ'',''AEIOUaeiou''))||''%'' )
+					)
+                    WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
+		OPEN pRefcursor FOR vQuery;
+    
+    END USP_SEL_BUSCAR_GEI;
+    
+    PROCEDURE USP_SEL_EXCEL_GEI(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+        vQuery      VARCHAR2(30000) := '';
+        vSortColumn2 VARCHAR2(1000);
+      BEGIN
+        vSortColumn2 := pSortColumn;
+        vQuery := '
+                        SELECT    ID_GEI,
+                                  DESCRIPCION,
+                                  AR2,
+                                  AR4,
+                                  AR5,
+                                  AR6
+                        FROM  T_MAE_GEI
+                        WHERE FLAG_ESTADO = 1 AND
+                        (LOWER(TRANSLATE(DESCRIPCION,''ΑΙΝΣΪαινσϊ'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''ΑΙΝΣΪαινσϊ'',''AEIOUaeiou'')) ||''%'' 
+                        OR LOWER(TRANSLATE(AR2,''ΑΙΝΣΪαινσϊ'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''ΑΙΝΣΪαινσϊ'',''AEIOUaeiou''))||''%'' 
+                        OR LOWER(TRANSLATE(AR4,''ΑΙΝΣΪαινσϊ'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''ΑΙΝΣΪαινσϊ'',''AEIOUaeiou''))||''%''
+                        OR LOWER(TRANSLATE(AR5,''ΑΙΝΣΪαινσϊ'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''ΑΙΝΣΪαινσϊ'',''AEIOUaeiou''))||''%''
+                        OR LOWER(TRANSLATE(AR6,''ΑΙΝΣΪαινσϊ'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''ΑΙΝΣΪαινσϊ'',''AEIOUaeiou''))||''%'' )
+                        ORDER BY ' || vSortColumn2 || ' ' || pSortOrder || ' ' ;
+		OPEN pRefcursor FOR vQuery;
+    
+    END USP_SEL_EXCEL_GEI;
 
 END PKG_MRV_MANTENIMIENTO;
 
@@ -7959,7 +8430,7 @@ END PKG_MRV_MANTENIMIENTO;
 --  DDL for Package Body PKG_MRV_NOTIFICACION
 --------------------------------------------------------
 
-  CREATE OR REPLACE PACKAGE BODY "MRVMM"."PKG_MRV_NOTIFICACION" is
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "MRVMM"."PKG_MRV_NOTIFICACION" is
     PROCEDURE USP_INS_NOTIFICACION(
         pIdIniciativa               INTEGER,
         pIdEtapa                    INTEGER,
@@ -8196,7 +8667,7 @@ end PKG_MRV_NOTIFICACION;
 --  DDL for Package Body PKG_MRV_REPORTES
 --------------------------------------------------------
 
-  CREATE OR REPLACE PACKAGE BODY "MRVMM"."PKG_MRV_REPORTES" AS
+  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "MRVMM"."PKG_MRV_REPORTES" AS
 
   PROCEDURE SP_SEL_ESCENARIOS_RPT(
         pIdMedMit   integer,
@@ -8259,6 +8730,34 @@ end PKG_MRV_NOTIFICACION;
         ORDER BY        I.FECHA_IMPLE_INICIATIVA ASC;
         
   END SP_SEL_INICIATIVAS_RPT;
+
+
+  PROCEDURE SP_SEL_INSTITUCIONES_RPT(
+        pIdMedMit       integer,
+        pIdSectorInst   integer,
+        pCursor out SYS_REFCURSOR
+  ) AS
+  BEGIN
+        open pCursor for
+        
+        
+        SELECT  
+                        I.ID_INICIATIVA,
+                        INS.NOMBRE_INSTITUCION,
+                        I.NOMBRE_INICIATIVA,
+                        M.NOMBRE_MEDMIT,
+                        SEC.DESCRIPCION,
+                        I.GEI_TOTAL            
+                     
+        FROM            T_GENM_INICIATIVA I
+        INNER JOIN      T_GENM_USUARIO U ON I.ID_USUARIO=U.ID_USUARIO
+        INNER JOIN      T_GENM_INSTITUCION INS ON U.ID_INSTITUCION=INS.ID_INSTITUCION
+        INNER JOIN      T_MAE_MEDMIT M ON I.ID_MEDMIT=M.ID_MEDMIT 
+        INNER JOIN      T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION=SEC.ID_SECTOR_INST
+        WHERE           (I.ID_MEDMIT = pIdMedMit OR pIdMedMit =0) AND (SEC.ID_SECTOR_INST = pIdSectorInst OR pIdSectorInst =0)
+        ORDER BY        INS.NOMBRE_INSTITUCION DESC;
+             
+  END SP_SEL_INSTITUCIONES_RPT;
 
 
   PROCEDURE USP_SEL_SEGUIMIENTO_INICIATIVA(

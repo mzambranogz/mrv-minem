@@ -1,11 +1,11 @@
 --------------------------------------------------------
--- Archivo creado  - miércoles-febrero-05-2020   
+-- Archivo creado  - jueves-febrero-06-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Sequence SQ_GEND_DETALLE_INICIATIVA
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "MRVMM"."SQ_GEND_DETALLE_INICIATIVA"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 501 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "MRVMM"."SQ_GEND_DETALLE_INICIATIVA"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 521 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence SQ_GEND_ENFOQUE_FACTOR
 --------------------------------------------------------
@@ -80,17 +80,17 @@
 --  DDL for Sequence SQ_GENM_INSTITUCION
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "MRVMM"."SQ_GENM_INSTITUCION"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 241 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "MRVMM"."SQ_GENM_INSTITUCION"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 261 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence SQ_GENM_NOTIFICACION
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "MRVMM"."SQ_GENM_NOTIFICACION"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 381 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "MRVMM"."SQ_GENM_NOTIFICACION"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 401 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence SQ_GENM_USUARIO
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "MRVMM"."SQ_GENM_USUARIO"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 140 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "MRVMM"."SQ_GENM_USUARIO"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 160 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence SQ_MAE_FAQ
 --------------------------------------------------------
@@ -512,6 +512,36 @@
   BUFFER_POOL DEFAULT)
   TABLESPACE "USERS" ;
 --------------------------------------------------------
+--  DDL for Table T_GENM_MEDMIT_ENERG
+--------------------------------------------------------
+
+  CREATE TABLE "MRVMM"."T_GENM_MEDMIT_ENERG" 
+   (	"ID_MEDMIT_ENERG" NUMBER(*,0), 
+	"ID_MEDMIT" NUMBER(*,0), 
+	"ID_ENERG" NUMBER(*,0), 
+	"FLAG_ESTADO" CHAR(1 BYTE)
+   ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table T_GENM_MEDMIT_GEI
+--------------------------------------------------------
+
+  CREATE TABLE "MRVMM"."T_GENM_MEDMIT_GEI" 
+   (	"ID_MEDMIT_GEI" NUMBER(*,0), 
+	"ID_MEDMIT" NUMBER(*,0), 
+	"ID_GEI" NUMBER(*,0), 
+	"FLAG_ESTADO" CHAR(1 BYTE)
+   ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
 --  DDL for Table T_GENM_NOTIFICACION
 --------------------------------------------------------
 
@@ -726,7 +756,8 @@
 	"FLAG_ESTADO" CHAR(1 BYTE), 
 	"AR2" NUMBER(18,4), 
 	"AR4" NUMBER(18,4), 
-	"AR5" NUMBER(18,4)
+	"AR5" NUMBER(18,4), 
+	"AR6" NUMBER(*,0)
    ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
  NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
@@ -775,7 +806,8 @@
 
   CREATE TABLE "MRVMM"."T_MAE_MONEDA" 
    (	"ID_MONEDA" NUMBER(*,0), 
-	"DESCRIPCION" VARCHAR2(20 BYTE)
+	"DESCRIPCION" VARCHAR2(20 BYTE), 
+	"FLAG_ESTADO" CHAR(1 BYTE)
    ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
  NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
@@ -1021,6 +1053,26 @@
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
   BUFFER_POOL DEFAULT)
   TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for View VW_T_GENM_ESCENARIO
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE VIEW "MRVMM"."VW_T_GENM_ESCENARIO" ("ID_ESCENARIO", "ID_MEDMIT", "NOMBRE_MEDMIT", "ANNO", "BAU_EMISION", "MIT_EMISION", "REDUCCION", "VALOR_SOFTWARE", "EXPOST", "META_ANUAL", "FLAG_ESTADO") AS 
+  SELECT E.ID_ESCENARIO,
+           E.ID_MEDMIT,
+           M.NOMBRE_MEDMIT,
+           E.ANNO,
+           E.BAU_EMISION,
+           E.MIT_EMISION,
+           E.REDUCCION,
+           E.VALOR_SOFTWARE,
+           E.EXPOST,
+           E.META_ANUAL,
+           E.FLAG_ESTADO
+    FROM T_GENM_ESCENARIO E
+    INNER JOIN T_MAE_MEDMIT M
+    ON E.ID_MEDMIT = M.ID_MEDMIT
+;
 --------------------------------------------------------
 --  DDL for View VW_T_GENM_INSTITUCION
 --------------------------------------------------------
