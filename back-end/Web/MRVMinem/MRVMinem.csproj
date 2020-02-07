@@ -212,11 +212,10 @@
     <Compile Include="Models\MvSesion.cs" />
     <Compile Include="Models\MvUbicacion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reportes\DsEscenario.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DsEscenario.xsd</DependentUpon>
-    </Compile>
+    <Compile Include="Reportes\DsEscenario.Designer.cs" />
+    <Compile Include="Reportes\DsIniciativa.Designer.cs" />
+    <Compile Include="Reportes\DsInstitucion.Designer.cs" />
+    <Compile Include="Reportes\DsMedMit.Designer.cs" />
     <Compile Include="Reportes\frmReportes.aspx.cs">
       <DependentUpon>frmReportes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -290,17 +289,6 @@
     <Content Include="Views\Portal\VerMasIniciativaDetalle.cshtml" />
     <Content Include="Views\Reportes\Reportes.cshtml" />
     <Content Include="Views\Gestion\DetalleNotificacion.cshtml" />
-    <Content Include="Reportes\DsEscenario.xsc">
-      <DependentUpon>DsEscenario.xsd</DependentUpon>
-    </Content>
-    <None Include="Reportes\DsEscenario.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DsEscenario.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Reportes\DsEscenario.xss">
-      <DependentUpon>DsEscenario.xsd</DependentUpon>
-    </Content>
     <Content Include="Views\Portal\ReestablecerClave.cshtml" />
     <Content Include="Views\Portal\Resultados.cshtml" />
     <Content Include="Views\Portal\TerminosCondiciones.cshtml" />
@@ -315,6 +303,50 @@
     <Content Include="Views\Mantenimiento\Monedas.cshtml" />
     <Content Include="Views\Mantenimiento\Gei.cshtml" />
     <Content Include="Views\Mantenimiento\Enfoques.cshtml" />
+    <Content Include="Reportes\DsEscenario.xsc">
+      <DependentUpon>DsEscenario.xsd</DependentUpon>
+    </Content>
+    <None Include="Reportes\DsEscenario.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsEscenario1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Reportes\DsEscenario.xss">
+      <DependentUpon>DsEscenario.xsd</DependentUpon>
+    </Content>
+    <Content Include="Reportes\DsIniciativa.xsc">
+      <DependentUpon>DsIniciativa.xsd</DependentUpon>
+    </Content>
+    <None Include="Reportes\DsIniciativa.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsIniciativa1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Reportes\DsIniciativa.xss">
+      <DependentUpon>DsIniciativa.xsd</DependentUpon>
+    </Content>
+    <Content Include="Reportes\DsInstitucion.xsc">
+      <DependentUpon>DsInstitucion.xsd</DependentUpon>
+    </Content>
+    <None Include="Reportes\DsInstitucion.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsInstitucion1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Reportes\DsInstitucion.xss">
+      <DependentUpon>DsInstitucion.xsd</DependentUpon>
+    </Content>
+    <Content Include="Reportes\DsMedMit.xsc">
+      <DependentUpon>DsMedMit.xsd</DependentUpon>
+    </Content>
+    <None Include="Reportes\DsMedMit.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsMedMit1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Reportes\DsMedMit.xss">
+      <DependentUpon>DsMedMit.xsd</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -341,9 +373,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Reportes\EscenarioRpt.rdlc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\EscenarioRpt.rdlc" />
+    <EmbeddedResource Include="Reportes\rptIniciativa.rdlc" />
+    <EmbeddedResource Include="Reportes\rptInstitucion.rdlc" />
+    <EmbeddedResource Include="Reportes\rptMedMit.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
