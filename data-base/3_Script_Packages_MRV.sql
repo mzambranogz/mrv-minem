@@ -1,11 +1,11 @@
 --------------------------------------------------------
--- Archivo creado  - jueves-febrero-06-2020   
+-- Archivo creado  - viernes-febrero-07-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_ADMIN_SISTEMA
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "MRVMM"."PKG_MRV_ADMIN_SISTEMA" AS 
+  CREATE OR REPLACE PACKAGE "MRVMM"."PKG_MRV_ADMIN_SISTEMA" AS 
 
   
   PROCEDURE USP_SEL_VERIFICAR_EMAIL(
@@ -110,7 +110,7 @@ END PKG_MRV_ADMIN_SISTEMA;
 --  DDL for Package PKG_MRV_CALCULO
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "MRVMM"."PKG_MRV_CALCULO" AS 
+  CREATE OR REPLACE PACKAGE "MRVMM"."PKG_MRV_CALCULO" AS 
   
     FUNCTION FN_F_BAU(   
         p_tipo_vehiculo     IN number, 
@@ -162,13 +162,12 @@ END PKG_MRV_ADMIN_SISTEMA;
 
 END PKG_MRV_CALCULO;
 
-
 /
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_DETALLE_INDICADORES
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "MRVMM"."PKG_MRV_DETALLE_INDICADORES" AS 
+  CREATE OR REPLACE PACKAGE "MRVMM"."PKG_MRV_DETALLE_INDICADORES" AS 
 
    PROCEDURE USP_GET_INDICADOR(
         pID_INICIATIVA  IN NUMBER,
@@ -368,7 +367,7 @@ END PKG_MRV_DETALLE_INDICADORES;
 --  DDL for Package PKG_MRV_INICIATIVA_MITIGACION
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "MRVMM"."PKG_MRV_INICIATIVA_MITIGACION" AS 
+  CREATE OR REPLACE PACKAGE "MRVMM"."PKG_MRV_INICIATIVA_MITIGACION" AS 
 
 
     
@@ -1096,7 +1095,7 @@ END PKG_MRV_INICIATIVA_MITIGACION;
 --  DDL for Package PKG_MRV_MANTENIMIENTO
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "MRVMM"."PKG_MRV_MANTENIMIENTO" AS 
+  CREATE OR REPLACE PACKAGE "MRVMM"."PKG_MRV_MANTENIMIENTO" AS 
 
     PROCEDURE USP_SEL_MANTENIMIENTO_USUARIO(
         pBuscar	IN VARCHAR2,
@@ -1251,7 +1250,8 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
     );
         
     PROCEDURE USP_DEL_INSTITUCION(
-      	pID_INSTITUCION			IN NUMBER);
+      	pID_INSTITUCION			IN NUMBER
+    );
         
     PROCEDURE USP_GET_INSTITUCION_ID(
       	pIdInstitucion	NUMBER,
@@ -1270,6 +1270,10 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
    );
+   
+   PROCEDURE USP_DEL_UBICACION(
+      	pID_UBICACION IN NUMBER
+    );
    
    PROCEDURE USP_UPD_UBICACION(
        pID_UBICACION IN NUMBER,
@@ -1290,6 +1294,10 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
        pID_SECTOR_INST IN NUMBER,
         pDescripcion  in varchar2
    );
+   
+   PROCEDURE USP_DEL_SECTORINSTITUCION(
+      	pID_SECTOR_INST IN NUMBER
+    );
     
     PROCEDURE USP_GET_SECTORINSTITUCION(
         pID_SECTOR_INST IN NUMBER,
@@ -1409,6 +1417,82 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pRefcursor  OUT SYS_REFCURSOR
     );
     
+    --ENFOQUE
+    PROCEDURE USP_INS_ENFOQUE(
+        pDESCRIPCION IN VARCHAR2,
+        pID_MEDMIT IN NUMBER,
+        pID_ENFOQUE    OUT NUMBER
+    );
+
+    PROCEDURE USP_UPD_ENFOQUE(
+        pID_ENFOQUE IN NUMBER,
+        pDESCRIPCION  IN VARCHAR2,
+        pID_MEDMIT IN NUMBER
+   );
+
+   PROCEDURE USP_DEL_ENFOQUE(
+       pID_ENFOQUE IN NUMBER
+   );
+
+    PROCEDURE USP_GET_ENFOQUE(
+        pID_ENFOQUE IN NUMBER,
+        pRefcursor  OUT SYS_REFCURSOR
+   );
+
+   PROCEDURE USP_SEL_BUSCAR_ENFOQUE(
+        pBuscar     IN VARCHAR2,
+        pRegistros  INTEGER,
+        pPagina     INTEGER,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+
+    PROCEDURE USP_SEL_EXCEL_ENFOQUE(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+    
+    PROCEDURE USP_INS_ENERG(
+        pDESCRIPCION IN VARCHAR2,
+        pID_ENERG    OUT NUMBER
+    );
+
+    PROCEDURE USP_UPD_ENERG(
+        pID_ENERG IN NUMBER,
+        pDESCRIPCION  IN VARCHAR2
+   );
+
+   PROCEDURE USP_DEL_ENERG(
+       pID_ENERG IN NUMBER
+   );
+
+    PROCEDURE USP_GET_ENERG(
+        pID_ENERG IN NUMBER,
+        pRefcursor  OUT SYS_REFCURSOR
+   );
+
+   PROCEDURE USP_SEL_BUSCAR_ENERG(
+        pBuscar     IN VARCHAR2,
+        pRegistros  INTEGER,
+        pPagina     INTEGER,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+
+    PROCEDURE USP_SEL_EXCEL_ENERG(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+    
+    PROCEDURE USP_SEL_LISTA_UBICACION(
+        pRefcursor OUT SYS_REFCURSOR
+    );
 
 END PKG_MRV_MANTENIMIENTO;
 
@@ -1417,7 +1501,7 @@ END PKG_MRV_MANTENIMIENTO;
 --  DDL for Package PKG_MRV_NOTIFICACION
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "MRVMM"."PKG_MRV_NOTIFICACION" is
+  CREATE OR REPLACE PACKAGE "MRVMM"."PKG_MRV_NOTIFICACION" is
 
   -- Author  : Grupo ZuÒiga - EC
   -- Created : 12/01/2020 13:09:51
@@ -1468,7 +1552,7 @@ end PKG_MRV_NOTIFICACION;
 --  DDL for Package PKG_MRV_REPORTES
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE "MRVMM"."PKG_MRV_REPORTES" AS 
+  CREATE OR REPLACE PACKAGE "MRVMM"."PKG_MRV_REPORTES" AS 
 
   PROCEDURE SP_SEL_ESCENARIOS_RPT(
         pIdMedMit   integer,
@@ -1601,7 +1685,7 @@ END PKG_MRV_REPORTES;
 --  DDL for Package Body PKG_MRV_ADMIN_SISTEMA
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "MRVMM"."PKG_MRV_ADMIN_SISTEMA" AS
+  CREATE OR REPLACE PACKAGE BODY "MRVMM"."PKG_MRV_ADMIN_SISTEMA" AS
 
     --Author: GRUPO ZU—IGA
     --Created: 26/12/2019
@@ -1893,7 +1977,7 @@ END PKG_MRV_ADMIN_SISTEMA;
 --  DDL for Package Body PKG_MRV_CALCULO
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "MRVMM"."PKG_MRV_CALCULO" AS 
+  CREATE OR REPLACE PACKAGE BODY "MRVMM"."PKG_MRV_CALCULO" AS 
 
 
     FUNCTION FN_F_BAU (
@@ -1947,14 +2031,14 @@ END PKG_MRV_ADMIN_SISTEMA;
         Return (resultado);
     END;
     --------------------------------------------------------------------------
-    -- p_krv	: KRV Distancia Recorridad Anualmente por vehiculo promedio
+    -- p_krv : KRV Distancia Recorridad Anualmente por vehiculo promedio
     -- p_n	: Numero de Vehiculos
     -- p_tv	: Tipo Vehiculo
     -- p_tc	: Tipo Combustible
     -- p_anno	: AÒo
 
     -- Ejemplo :
-    -- PKG_MRV_DETALLE_INDICADORES.FN_Base_Electricos (57600,20,1,3,2018);
+    -- PKG_MRV_CALCULO.FN_Base_Electricos (57600,20,1,3,2018);
     -- Debe salir : 206.14
     --------------------------------------------------------------------------
     FUNCTION FN_Base_Electricos (
@@ -1985,7 +2069,7 @@ END PKG_MRV_ADMIN_SISTEMA;
     -- p_tf	: Tipo Fuente Electrica
     -- p_anno	: AÒo
     -- Ejemplo :
-    -- PKG_MRV_DETALLE_INDICADORES.FN_Iniciativa_Electricos (57600,20,1,1,2018);
+    -- PKG_MRV_CALCULO.FN_Iniciativa_Electricos (57600,20,1,1,2018);
     -- Debe salir : 0.04
     -------------------------------------------------------------------------- 
 
@@ -2024,7 +2108,7 @@ END PKG_MRV_ADMIN_SISTEMA;
     -- p_REN :  Parametro de Rendimiento (como variable)
     -- p_anno	: AÒo
     -- Ejemplo :
-    -- PKG_MRV_DETALLE_INDICADORES.FN_Iniciativa_Electricos (57600,20,1,1,2018);
+    -- PKG_MRV_CALCULO.FN_Iniciativa_Electricos2 (57600,20,1,1,2018);
     -- Debe salir : 0.04
     -------------------------------------------------------------------------- 
 
@@ -2052,13 +2136,12 @@ END PKG_MRV_ADMIN_SISTEMA;
 
 END PKG_MRV_CALCULO;
 
-
 /
 --------------------------------------------------------
 --  DDL for Package Body PKG_MRV_DETALLE_INDICADORES
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "MRVMM"."PKG_MRV_DETALLE_INDICADORES" AS
+  CREATE OR REPLACE PACKAGE BODY "MRVMM"."PKG_MRV_DETALLE_INDICADORES" AS
 
     PROCEDURE USP_SEL_LISTA_ENFOQUE(
         pID_MEDMIT  IN NUMBER,
@@ -2888,7 +2971,7 @@ END PKG_MRV_DETALLE_INDICADORES;
 --  DDL for Package Body PKG_MRV_INICIATIVA_MITIGACION
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "MRVMM"."PKG_MRV_INICIATIVA_MITIGACION" AS
+  CREATE OR REPLACE PACKAGE BODY "MRVMM"."PKG_MRV_INICIATIVA_MITIGACION" AS
 
 
   PROCEDURE USP_SEL_LISTA_MEDIDAMITIGACION(
@@ -7187,7 +7270,7 @@ END PKG_MRV_INICIATIVA_MITIGACION;
 --  DDL for Package Body PKG_MRV_MANTENIMIENTO
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "MRVMM"."PKG_MRV_MANTENIMIENTO" AS
+  CREATE OR REPLACE PACKAGE BODY "MRVMM"."PKG_MRV_MANTENIMIENTO" AS
     
     PROCEDURE USP_SEL_MANTENIMIENTO_USUARIO(
         pBuscar	IN VARCHAR2,
@@ -7923,6 +8006,15 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         
     END USP_SEL_UBICACION;
 	
+  PROCEDURE USP_DEL_UBICACION(
+      	pID_UBICACION IN NUMBER
+    )AS
+    BEGIN
+        UPDATE  T_MAE_UBICACION
+        SET     FLG_ESTADO = 0
+        WHERE   ID_UBICACION =pID_UBICACION;
+    END USP_DEL_UBICACION;
+    
   PROCEDURE USP_UPD_UBICACION(                  
         pID_UBICACION IN NUMBER,
         pDescripcion in varchar2
@@ -7972,6 +8064,15 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
 
 
     END USP_UPD_SECTORINSTITUCION;
+    
+    PROCEDURE USP_DEL_SECTORINSTITUCION(
+      	pID_SECTOR_INST IN NUMBER
+    )AS
+    BEGIN 
+        UPDATE  T_MAE_SECTOR_INST
+        SET     FLAG_ESTADO = 0
+        WHERE   ID_SECTOR_INST = pID_SECTOR_INST;
+    END USP_DEL_SECTORINSTITUCION;
 	
 	PROCEDURE USP_GET_SECTORINSTITUCION(
         pID_SECTOR_INST IN NUMBER,
@@ -8422,6 +8523,292 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
 		OPEN pRefcursor FOR vQuery;
     
     END USP_SEL_EXCEL_GEI;
+    
+    --ENFOQUE
+    
+    PROCEDURE USP_INS_ENFOQUE(
+        pDESCRIPCION IN VARCHAR2,
+        pID_MEDMIT IN NUMBER,
+        pID_ENFOQUE    OUT NUMBER
+    )AS
+    BEGIN
+        SELECT NVL(MAX(ID_ENFOQUE),0) + 1 INTO pID_ENFOQUE FROM T_GENM_ENFOQUE;
+
+        INSERT INTO T_GENM_ENFOQUE(ID_ENFOQUE, DESCRIPCION, ID_MEDMIT,FLAG_ESTADO )
+        VALUES (pID_ENFOQUE, pDESCRIPCION, pID_MEDMIT,1);
+
+    END USP_INS_ENFOQUE;
+
+
+    PROCEDURE USP_UPD_ENFOQUE(                 
+        pID_ENFOQUE IN NUMBER,
+        pDESCRIPCION in varchar2,
+        pID_MEDMIT IN NUMBER
+   )AS
+     BEGIN
+             UPDATE T_GENM_ENFOQUE
+             SET DESCRIPCION = pDESCRIPCION,
+                 ID_MEDMIT = pID_MEDMIT
+             where ID_ENFOQUE = pID_ENFOQUE;
+
+
+    END USP_UPD_ENFOQUE;
+
+	PROCEDURE USP_DEL_ENFOQUE(                  
+        pID_ENFOQUE IN NUMBER
+   )AS
+     BEGIN
+             UPDATE T_GENM_ENFOQUE
+             set FLAG_ESTADO = 0
+             where ID_ENFOQUE = pID_ENFOQUE;
+
+
+    END USP_DEL_ENFOQUE;
+
+	PROCEDURE USP_GET_ENFOQUE(
+        pID_ENFOQUE IN NUMBER,
+        pRefcursor  OUT SYS_REFCURSOR
+   )AS
+     BEGIN
+             OPEN    pRefcursor FOR
+            SELECT  ID_ENFOQUE,
+                    DESCRIPCION,
+                    ID_MEDMIT
+            FROM    T_GENM_ENFOQUE
+            WHERE   ID_ENFOQUE = pID_ENFOQUE;
+
+    END USP_GET_ENFOQUE;
+
+    PROCEDURE USP_SEL_BUSCAR_ENFOQUE(
+        pBuscar	IN VARCHAR2,
+        pRegistros IN INTEGER,
+      	pPagina    IN INTEGER,
+      	pSortColumn IN VARCHAR2,
+      	pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+        vPaginas    INTEGER;
+        vTotal      INTEGER;
+        vPagina2    INTEGER := pPagina;
+        vPageIndex  INTEGER := 0;
+        vQuery      VARCHAR2(30000) := '';
+        vSortColumn2 VARCHAR2(1000);
+      BEGIN
+
+        SELECT COUNT(1) INTO vTotal
+        FROM  T_GENM_ENFOQUE  E
+        LEFT JOIN T_MAE_MEDMIT M ON E.ID_MEDMIT = M.ID_MEDMIT
+        WHERE E.FLAG_ESTADO = 1 AND
+              ((LOWER(TRANSLATE(E.DESCRIPCION,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like '%'|| LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) ||'%')
+              OR (LOWER(TRANSLATE(M.NOMBRE_MEDMIT,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like '%'|| LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) ||'%'));
+
+        vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
+        IF vPagina2 = 0 THEN
+            vPagina2 := 1;
+        END IF;
+        IF vPagina2 > vPaginas THEN
+            vPagina2 := vPaginas;
+        END IF;
+
+        vPageIndex := vPagina2 - 1;  
+        
+        IF pSortColumn = 'ID_ENFOQUE' THEN
+            vSortColumn2 := 'E.ID_ENFOQUE';
+        ELSIF pSortColumn = 'DESCRIPCION' THEN
+          	vSortColumn2 := 'E.DESCRIPCION';
+        ELSIF pSortColumn = 'DESCRIPCION_MEDMIT' THEN
+          	vSortColumn2 := 'M.NOMBRE_MEDMIT';
+        ELSE
+            vSortColumn2 := pSortColumn;
+        END IF;
+        
+
+        vQuery := 'SELECT *    FROM (
+                        SELECT    E.ID_ENFOQUE,
+                                  E.DESCRIPCION,
+                                  M.NOMBRE_MEDMIT DESCRIPCION_MEDMIT,
+                                                ROW_NUMBER() OVER (ORDER BY ' || vSortColumn2 || ' ' || pSortOrder ||') AS ROWNUMBER,'
+                                                || vPaginas || ' AS total_paginas,'
+                                                || vPagina2 || ' AS pagina,'
+                                                || pRegistros || ' AS cantidad_registros,'
+                                                || vTotal || ' AS total_registros
+                        FROM  T_GENM_ENFOQUE E
+                        LEFT JOIN T_MAE_MEDMIT M ON E.ID_MEDMIT = M.ID_MEDMIT
+                        WHERE E.FLAG_ESTADO = 1 AND
+                        ((LOWER(TRANSLATE(E.DESCRIPCION,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' )
+                        OR (LOWER(TRANSLATE(M.NOMBRE_MEDMIT,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%''))
+					)
+                    WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
+		OPEN pRefcursor FOR vQuery;
+
+    END USP_SEL_BUSCAR_ENFOQUE;
+
+    PROCEDURE USP_SEL_EXCEL_ENFOQUE(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+        vQuery      VARCHAR2(30000) := '';
+        vSortColumn2 VARCHAR2(1000);
+      BEGIN
+        
+        IF pSortColumn = 'ID_ENFOQUE' THEN
+            vSortColumn2 := 'E.ID_ENFOQUE';
+        ELSIF pSortColumn = 'DESCRIPCION' THEN
+          	vSortColumn2 := 'E.DESCRIPCION';
+        ELSIF pSortColumn = 'DESCRIPCION_MEDMIT' THEN
+          	vSortColumn2 := 'M.NOMBRE_MEDMIT';
+        ELSE
+            vSortColumn2 := pSortColumn;
+        END IF;
+        
+        vQuery := '
+                        SELECT    E.ID_ENFOQUE,
+                                  E.DESCRIPCION,
+                                  M.NOMBRE_MEDMIT DESCRIPCION_MEDMIT
+                        FROM  T_GENM_ENFOQUE E
+                        LEFT JOIN T_MAE_MEDMIT M ON E.ID_MEDMIT = M.ID_MEDMIT
+                        WHERE E.FLAG_ESTADO = 1 AND
+                        ((LOWER(TRANSLATE(DESCRIPCION,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' )
+                        OR (LOWER(TRANSLATE(M.NOMBRE_MEDMIT,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%''))
+                        ORDER BY ' || vSortColumn2 || ' ' || pSortOrder || ' ' ;
+		OPEN pRefcursor FOR vQuery;
+
+    END USP_SEL_EXCEL_ENFOQUE;
+    
+    --ENERGETICO
+    
+    PROCEDURE USP_INS_ENERG(
+        pDESCRIPCION IN VARCHAR2,
+        pID_ENERG    OUT NUMBER
+    )AS
+    BEGIN
+        SELECT NVL(MAX(ID_ENERG),0) + 1 INTO pID_ENERG FROM T_MAE_ENERG;
+
+        INSERT INTO T_MAE_ENERG(ID_ENERG, DESCRIPCION, FLAG_ESTADO )
+        VALUES (pID_ENERG, pDESCRIPCION, 1);
+
+    END USP_INS_ENERG;
+
+
+    PROCEDURE USP_UPD_ENERG(                 
+        pID_ENERG IN NUMBER,
+        pDESCRIPCION in varchar2
+   )AS
+     BEGIN
+             UPDATE T_MAE_ENERG
+             SET DESCRIPCION = pDESCRIPCION
+             where ID_ENERG = pID_ENERG;
+
+
+    END USP_UPD_ENERG;
+
+	PROCEDURE USP_DEL_ENERG(                  
+        pID_ENERG IN NUMBER
+   )AS
+     BEGIN
+             UPDATE T_MAE_ENERG
+             set FLAG_ESTADO = 0
+             where ID_ENERG = pID_ENERG;
+
+
+    END USP_DEL_ENERG;
+
+    PROCEDURE USP_GET_ENERG(
+        pID_ENERG IN NUMBER,
+        pRefcursor  OUT SYS_REFCURSOR
+   )AS
+     BEGIN
+             OPEN    pRefcursor FOR
+            SELECT  ID_ENERG,
+                    DESCRIPCION
+            FROM    T_MAE_ENERG
+            WHERE   ID_ENERG = pID_ENERG;
+
+    END USP_GET_ENERG;
+
+    PROCEDURE USP_SEL_BUSCAR_ENERG(
+        pBuscar	IN VARCHAR2,
+        pRegistros IN INTEGER,
+      	pPagina    IN INTEGER,
+      	pSortColumn IN VARCHAR2,
+      	pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+        vPaginas    INTEGER;
+        vTotal      INTEGER;
+        vPagina2    INTEGER := pPagina;
+        vPageIndex  INTEGER := 0;
+        vQuery      VARCHAR2(30000) := '';
+        vSortColumn2 VARCHAR2(1000);
+      BEGIN
+
+        SELECT COUNT(1) INTO vTotal
+        FROM  T_MAE_ENERG
+        WHERE NVL(FLAG_ESTADO,1) = 1 AND
+              (LOWER(TRANSLATE(DESCRIPCION,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like '%'|| LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) ||'%');
+
+        vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
+        IF vPagina2 = 0 THEN
+            vPagina2 := 1;
+        END IF;
+        IF vPagina2 > vPaginas THEN
+            vPagina2 := vPaginas;
+        END IF;
+
+        vPageIndex := vPagina2 - 1;  
+        vSortColumn2 := pSortColumn;
+
+        vQuery := 'SELECT *    FROM (
+                        SELECT    ID_ENERG,
+                                  DESCRIPCION,
+                                                ROW_NUMBER() OVER (ORDER BY ' || vSortColumn2 || ' ' || pSortOrder ||') AS ROWNUMBER,'
+                                                || vPaginas || ' AS total_paginas,'
+                                                || vPagina2 || ' AS pagina,'
+                                                || pRegistros || ' AS cantidad_registros,'
+                                                || vTotal || ' AS total_registros
+                        FROM  T_MAE_ENERG
+                        WHERE NVL(FLAG_ESTADO,1) = 1 AND
+                        (LOWER(TRANSLATE(DESCRIPCION,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' )
+					)
+                    WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
+		OPEN pRefcursor FOR vQuery;
+
+    END USP_SEL_BUSCAR_ENERG;
+
+    PROCEDURE USP_SEL_EXCEL_ENERG(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+        vQuery      VARCHAR2(30000) := '';
+        vSortColumn2 VARCHAR2(1000);
+      BEGIN
+        vSortColumn2 := pSortColumn;
+        vQuery := '
+                        SELECT    ID_ENERG,
+                                  DESCRIPCION
+                        FROM  T_MAE_ENERG
+                        WHERE NVL(FLAG_ESTADO,1) = 1 AND
+                        (LOWER(TRANSLATE(DESCRIPCION,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' )
+                        ORDER BY ' || vSortColumn2 || ' ' || pSortOrder || ' ' ;
+		OPEN pRefcursor FOR vQuery;
+
+    END USP_SEL_EXCEL_ENERG;
+    
+    
+    PROCEDURE USP_SEL_LISTA_UBICACION(
+        pRefcursor OUT SYS_REFCURSOR
+    )AS
+    BEGIN
+        OPEN pRefcursor FOR
+        SELECT  ID_UBICACION,
+                DESCRIPCION
+        FROM    T_MAE_UBICACION
+        WHERE   FLG_ESTADO = 1;
+    END USP_SEL_LISTA_UBICACION;
 
 END PKG_MRV_MANTENIMIENTO;
 
@@ -8430,7 +8817,7 @@ END PKG_MRV_MANTENIMIENTO;
 --  DDL for Package Body PKG_MRV_NOTIFICACION
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "MRVMM"."PKG_MRV_NOTIFICACION" is
+  CREATE OR REPLACE PACKAGE BODY "MRVMM"."PKG_MRV_NOTIFICACION" is
     PROCEDURE USP_INS_NOTIFICACION(
         pIdIniciativa               INTEGER,
         pIdEtapa                    INTEGER,
@@ -8667,7 +9054,7 @@ end PKG_MRV_NOTIFICACION;
 --  DDL for Package Body PKG_MRV_REPORTES
 --------------------------------------------------------
 
-  CREATE OR REPLACE EDITIONABLE PACKAGE BODY "MRVMM"."PKG_MRV_REPORTES" AS
+  CREATE OR REPLACE PACKAGE BODY "MRVMM"."PKG_MRV_REPORTES" AS
 
   PROCEDURE SP_SEL_ESCENARIOS_RPT(
         pIdMedMit   integer,
