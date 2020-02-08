@@ -101,9 +101,12 @@
         pID_USUARIO IN NUMBER,
         pRefcursor  OUT SYS_REFCURSOR
     );
+    
+    PROCEDURE USP_UPD_PRIMERA_VISTA(
+        pID_USUARIO IN NUMBER
+    );
 
 END PKG_MRV_ADMIN_SISTEMA;
-
 
 /
 --------------------------------------------------------
@@ -114,8 +117,12 @@ END PKG_MRV_ADMIN_SISTEMA;
   
     FUNCTION FN_F_BAU(   
         p_tipo_vehiculo     IN number, 
-        p_tipo_combustible  IN number, 
-        p_anno              IN number    
+        p_tipo_combustible  IN number
+        --p_anno              IN number    
+    ) RETURN NUMBER;
+    
+    FUNCTION FN_F_CON (
+        p_anno              IN number
     ) RETURN NUMBER;
 
     FUNCTION FN_F_MIT(      
@@ -222,6 +229,7 @@ END PKG_MRV_CALCULO;
     pID_TIPO_COMBUSTIBLE    IN NUMBER,
     pKRV                    IN NUMBER,
     pCANTIDAD               IN NUMBER,
+    pF_REN                  IN NUMBER,
     pID_TIPO_FUENTE         IN NUMBER,
     pRefcursor              OUT SYS_REFCURSOR
   );
@@ -1787,6 +1795,16 @@ END PKG_MRV_REPORTES;
 
         INSERT INTO T_MAE_USUARIO_ROL (ID_USUARIO, ID_ROL, FLG_ESTADO, DES_COMENTARIO) 
         VALUES (vIdUsuario, pID_ROL, 1, '');
+        
+        IF pID_ROL = 1 THEN
+            UPDATE  T_GENM_USUARIO
+            SET     PRIMER_INICIO = 1
+            WHERE   ID_USUARIO = vIdUsuario;
+        ELSE
+            UPDATE  T_GENM_USUARIO
+            SET     PRIMER_INICIO = 0
+            WHERE   ID_USUARIO = vIdUsuario;
+        END IF;
 
         OPEN pRefcursor FOR
         SELECT vIdUsuario CODIGO FROM DUAL;
@@ -1830,7 +1848,8 @@ END PKG_MRV_REPORTES;
                             INS.NOMBRE_INSTITUCION INSTITUCION,
                             SEC.DESCRIPCION SECTOR,
                             U.EMAIL_USUARIO CORREO,
-                            INS.DIRECCION_INSTITUCION DIRECCION
+                            INS.DIRECCION_INSTITUCION DIRECCION,
+                            NVL(U.PRIMER_INICIO,1) PRIMER_INICIO
         FROM        T_MAE_USUARIO_ROL UR
         INNER JOIN  T_MAE_ROL R ON UR.ID_ROL = R.ID_ROL
         LEFT JOIN   T_GENM_USUARIO U ON UR.ID_USUARIO = U.ID_USUARIO
@@ -1969,6 +1988,15 @@ END PKG_MRV_REPORTES;
         LEFT JOIN T_MAE_ROL R ON UR.ID_ROL = R.ID_ROL
         WHERE USU.ID_USUARIO = pID_USUARIO;
     END USP_SEL_USUARIO_INICIATIVA;
+    
+    PROCEDURE USP_UPD_PRIMERA_VISTA(
+        pID_USUARIO IN NUMBER
+    )AS
+    BEGIN
+        UPDATE  T_GENM_USUARIO
+        SET     PRIMER_INICIO = 0
+        WHERE   ID_USUARIO = pID_USUARIO;
+    END USP_UPD_PRIMERA_VISTA;
 
 END PKG_MRV_ADMIN_SISTEMA;
 
@@ -1982,14 +2010,14 @@ END PKG_MRV_ADMIN_SISTEMA;
 
     FUNCTION FN_F_BAU (
         p_tipo_vehiculo number, 
-        p_tipo_combustible number, 
-        p_anno number
+        p_tipo_combustible number
+        --p_anno number
     ) RETURN NUMBER
     AS 
         resultado NUMBER;
     BEGIN   
         SELECT FACTOR INTO resultado FROM T_MAE_F_BAU 
-        WHERE Id_Tipo_Vehiculo=p_tipo_vehiculo and Id_Tipo_Combustible=p_tipo_combustible and anno=p_anno;
+        WHERE Id_Tipo_Vehiculo=p_tipo_vehiculo and Id_Tipo_Combustible=p_tipo_combustible;
         Return (resultado);
     END;
 
@@ -2030,6 +2058,18 @@ END PKG_MRV_ADMIN_SISTEMA;
         WHERE  anno=p_anno;
         Return (resultado);
     END;
+    
+    FUNCTION FN_F_CON (
+        p_anno number)
+    RETURN NUMBER
+    IS 
+        resultado NUMBER;
+    BEGIN
+        SELECT FACTOR INTO resultado FROM T_MAE_F_CON
+        WHERE  anno=p_anno;
+        Return (resultado);
+    END;
+    
     --------------------------------------------------------------------------
     -- p_krv : KRV Distancia Recorridad Anualmente por vehiculo promedio
     -- p_n	: Numero de Vehiculos
@@ -2053,7 +2093,7 @@ END PKG_MRV_ADMIN_SISTEMA;
         resultado   NUMBER;
         p_BAU       NUMBER;
     BEGIN  
-        p_BAU:=FN_F_BAU(p_tv,p_tc,p_anno);
+        p_BAU:=FN_F_BAU(p_tv,p_tc);
         resultado:= (p_krv*p_n*p_BAU)/1000000;    
         Return (resultado);
     END;
@@ -2069,8 +2109,8 @@ END PKG_MRV_ADMIN_SISTEMA;
     -- p_tf	: Tipo Fuente Electrica
     -- p_anno	: Año
     -- Ejemplo :
-    -- PKG_MRV_CALCULO.FN_Iniciativa_Electricos (57600,20,1,1,2018);
-    -- Debe salir : 0.04
+    -- PKG_MRV_CALCULO.FN_Iniciativa_Electricos (57600,20,1,1,2019);
+    -- Debe salir : 31.76
     -------------------------------------------------------------------------- 
 
     FUNCTION FN_Iniciativa_Electricos (
@@ -2086,12 +2126,14 @@ END PKG_MRV_ADMIN_SISTEMA;
         p_MIT       NUMBER;
         p_PER       NUMBER;
         p_REN       NUMBER;
+        p_CON       NUMBER;
     BEGIN
 
         p_MIT:=FN_F_MIT(p_tv,p_tf,p_anno);
         p_PER:=FN_F_PER(p_anno);
         p_REN:=FN_F_REN(p_tv,p_tf);   
-        resultado:= (p_krv*p_n*p_MIT*p_REN/(1-p_PER))/1000;
+        p_CON:=FN_F_CON(p_anno); 
+        resultado:= (p_krv*p_n*p_CON*p_REN/(1-p_PER))/1000;
 
         Return (resultado);
     END;
@@ -2108,8 +2150,8 @@ END PKG_MRV_ADMIN_SISTEMA;
     -- p_REN :  Parametro de Rendimiento (como variable)
     -- p_anno	: Año
     -- Ejemplo :
-    -- PKG_MRV_CALCULO.FN_Iniciativa_Electricos2 (57600,20,1,1,2018);
-    -- Debe salir : 0.04
+    -- PKG_MRV_CALCULO.FN_Iniciativa_Electricos2 (57600,20,1,1,'0,15',2019);
+    -- Debe salir : 29.25
     -------------------------------------------------------------------------- 
 
     FUNCTION FN_Iniciativa_Electricos2 (
@@ -2125,11 +2167,13 @@ END PKG_MRV_ADMIN_SISTEMA;
         resultado   NUMBER;
         p_MIT       NUMBER;
         p_PER       NUMBER;
+        p_CON       NUMBER;
     BEGIN
 
         p_MIT:=FN_F_MIT(p_tv,p_tf,p_anno);
         p_PER:=FN_F_PER(p_anno);  
-        resultado:= (p_krv*p_n*p_MIT*p_REN/(1-p_PER))/1000;
+        p_CON:=FN_F_CON(p_anno); 
+        resultado:= (p_krv*p_n*p_CON*p_REN/(1-p_PER))/1000;
 
         Return (resultado);
     END;
@@ -2272,6 +2316,7 @@ END PKG_MRV_CALCULO;
                                           pID_TIPO_COMBUSTIBLE IN NUMBER,
                                           pKRV                 IN NUMBER,
                                           pCANTIDAD            IN NUMBER,
+                                          pF_REN               IN NUMBER,
                                           pID_TIPO_FUENTE      IN NUMBER,
                                           pRefcursor           OUT SYS_REFCURSOR) IS
         vRendimiento NUMBER;
@@ -2287,16 +2332,36 @@ END PKG_MRV_CALCULO;
                                                   pANNO)
           INTO vTotalB
           FROM DUAL;
-        SELECT PKG_MRV_CALCULO.FN_Iniciativa_Electricos(pKRV,
+        
+        IF pF_REN = 0 THEN
+            SELECT PKG_MRV_CALCULO.FN_Iniciativa_Electricos(pKRV,
                                                         pCANTIDAD,
                                                         pID_TIPO_VEHICULO,
                                                         pID_TIPO_FUENTE,
                                                         pANNO)
-          INTO vTotalI
-          FROM DUAL;
-        SELECT PKG_MRV_CALCULO.FN_F_REN(pID_TIPO_VEHICULO, pID_TIPO_FUENTE)
-          INTO vRendimiento
-          FROM DUAL;
+            INTO vTotalI
+            FROM DUAL;
+        ELSE
+            SELECT PKG_MRV_CALCULO.FN_Iniciativa_Electricos2(pKRV, 
+                                                             pCANTIDAD, 
+                                                             pID_TIPO_VEHICULO, 
+                                                             pID_TIPO_FUENTE, 
+                                                             pF_REN, 
+                                                             pANNO)
+            INTO vTotalI
+            FROM DUAL;
+        END IF;
+        
+          
+        IF pF_REN = 0 THEN
+            SELECT PKG_MRV_CALCULO.FN_F_REN(pID_TIPO_VEHICULO, pID_TIPO_FUENTE)
+            INTO vRendimiento
+            FROM DUAL;
+        ELSE
+            vRendimiento := pF_REN;
+        END IF;
+        
+        
         vTotalR := vTotalB - vTotalI;
 
         OPEN pRefcursor FOR
