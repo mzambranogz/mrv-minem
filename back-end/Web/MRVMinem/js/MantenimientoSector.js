@@ -54,7 +54,7 @@ function fn_CargaDatos() {
                         tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_cargarDatosMantenimiento(' + data[i]["ID_SECTOR_INST"] + ');" data-toggle="modal" data-target="#modal-edicion">';
                         tr = tr + '                 <i class="fas fa-edit"></i>&nbsp;Editar';
                         tr = tr + '             </a><a class="dropdown-item" href="#" onclick="fn_Seleccionaregistro(' + data[i]["ID_SECTOR_INST"] + ');" data-toggle="modal" data-target="#modal-confirmacion">';
-                        tr = tr + '                 <i class="fas fa-trash"></i>&nbsp;Deshabilitar';
+                        tr = tr + '                 <i class="fas fa-trash"></i>&nbsp;Eliminar';
                         tr = tr + '             </a>';
                         tr = tr + '         </div>';
                         tr = tr + "     </div></td>";
@@ -264,9 +264,43 @@ function fn_validarCampo() {
     return true;
 }
 
+function fn_buscar() {
+    $("#buscar-usuarios").data("campo", $("#txt-buscar").val());
+    fn_CargaDatos();
+}
+
 function fn_Seleccionaregistro(id) {
     $("#userMantenimiento").data("value", id);
 }
+
+function exportarMantenimiento() {
+    var item = {
+        buscar: $("#buscar-usuarios").data("campo"),
+        order_by: $("#columna").val(),
+        order_orden: $("#orden").val()
+    };
+
+    var url = baseUrl + 'Mantenimiento/ExportarMantenimientoSector';
+
+    var parametros = {
+        Url: url,
+        Item: JSON.stringify(item)
+    };
+
+    var frm = '<form id = "frmDescarga" name = "frmDescarga" method = "POST" target = "_blank" action = "' + url + '"></form>';
+    var hdn = '<input type = "hidden" id = "url" name = "url" />';
+    var hdnFormato = '<input type = "hidden" id = "formato" name = "formato" />';
+    var hdnItem = '<input type = "hidden" id = "item" name = "item" />';
+    jQuery('#divExportar').append(frm)
+    jQuery(hdn).appendTo(jQuery('#frmDescarga'));
+    jQuery(hdnFormato).appendTo(jQuery('#frmDescarga'));
+    jQuery(hdnItem).appendTo(jQuery('#frmDescarga'));
+    jQuery('#frmDescarga #url').val(parametros.Url);
+    jQuery('#frmDescarga #item').val(parametros.Item);
+    jQuery('#frmDescarga').submit();
+    jQuery('#frmDescarga').remove();
+}
+
 
 function fn_eliminarMantenimiento() {
     var url = baseUrl + "Mantenimiento/EliminarSector";

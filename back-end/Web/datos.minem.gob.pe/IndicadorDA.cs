@@ -80,7 +80,7 @@ namespace datos.minem.gob.pe
                     p.Add("pID_TIPO_COMBUSTIBLE", entidad.ID_TIPO_COMBUSTIBLEB);
                     p.Add("pKRV", entidad.KRVB);
                     p.Add("pCANTIDAD", entidad.CANTIDADB);
-                    //p.Add("pF_REN", entidad.FACTOR_RENDIMIENTO);
+                    p.Add("pF_REN", entidad.FACTOR_RENDIMIENTO);
                     p.Add("pID_TIPO_FUENTE", entidad.ID_TIPO_FUENTEI);                                        
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<IndicadorBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
