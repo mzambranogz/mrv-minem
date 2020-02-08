@@ -20,7 +20,14 @@ namespace logica.minem.gob.pe
 
         public static List<InstitucionBE> ListaInstitucionPaginado(InstitucionBE entidad)
         {
+            if (string.IsNullOrEmpty(entidad.buscar)) entidad.buscar = "";
             return institucionDA.ListaInstitucionPaginado(entidad);
+        }
+
+        public static List<InstitucionBE> ListarInstitucionExcel(InstitucionBE entidad)
+        {
+            if (string.IsNullOrEmpty(entidad.buscar)) entidad.buscar = "";
+            return institucionDA.ListarInstitucionExcel(entidad);
         }
 
         public static InstitucionBE GetInstitucionPorId(InstitucionBE entidad)

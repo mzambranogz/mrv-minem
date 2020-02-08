@@ -29,7 +29,7 @@ namespace MRVMinem.Controllers
         {
             if (entidad.pagina == 0)
             {
-                entidad = new InstitucionBE() { cantidad_registros = 10, order_by = "NOMBRE_INSTITUCION", order_orden = "ASC", pagina = 1 };
+                entidad = new InstitucionBE() { cantidad_registros = 10, order_by = "NOMBRE_INSTITUCION", order_orden = "ASC", pagina = 1, buscar = "" };
             }
             MvInstitucion modelo = new MvInstitucion();
             modelo.ListaInstitucion = InstitucionLN.ListaInstitucionPaginado(entidad);
@@ -385,6 +385,105 @@ namespace MRVMinem.Controllers
 
 
         /////////// exportar excel
+        public void ExportarMantenimientoInstitucion(string item)
+        {
+            try
+            {
+                if (item != null)
+                {
+                    var entidad = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<InstitucionBE>(item);
+                    ExportarToExcelMantenimientoInstitucion(entidad);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+        }
+
+        public void ExportarToExcelMantenimientoInstitucion(InstitucionBE entidad)
+        {
+            List<InstitucionBE> lista = null;
+            //if (string.IsNullOrEmpty(entidad.DESCRIPCION))
+            //{
+            lista = InstitucionLN.ListarInstitucionExcel(entidad);
+            //}
+            //else
+            //{
+            //    lista = UsuarioLN.BuscarMantenimientoUsuario(entidad);
+            //}
+
+            int row = 2;
+            try
+            {
+                string cadena_fecha = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+
+                using (ExcelPackage package = new ExcelPackage())
+                {
+                    var ws1 = package.Workbook.Worksheets.Add("LISTA INSTITUCION");
+                    using (var m = ws1.Cells[1, 1, row, 5])
+                    {
+                        m.Style.Font.Bold = true;
+                        m.Style.WrapText = true;
+                        m.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        m.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        m.Style.Font.Size = 10;
+                        m.Merge = true;
+                        m.Value = "LISTA INSTITUCION " + cadena_fecha;
+                    }
+                    ws1.View.FreezePanes(2, 1);
+                    row++;
+                    ws1.Cells["A" + row].Value = "N°";
+                    ws1.Cells["A" + row].AutoFitColumns(5);
+                    ws1.Cells["B" + row].Value = "INSTITUCIÓN";
+                    ws1.Cells["B" + row].AutoFitColumns(40);
+                    ws1.Cells["C" + row].Value = "R.U.C.";
+                    ws1.Cells["C" + row].AutoFitColumns(40);
+                    ws1.Cells["D" + row].Value = "DIRECCIÓN";
+                    ws1.Cells["D" + row].AutoFitColumns(40);
+                    ws1.Cells["E" + row].Value = "SECTOR";
+                    ws1.Cells["E" + row].AutoFitColumns(40);
+
+                    FormatoCelda(ws1, "A", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "B", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "C", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "D", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "E", row, 0, 123, 255, 255, 255, 255);
+                    ws1.Row(row).Height = 42;
+                    row++;
+                    if (lista.Count > 0)
+                    {
+                        var xNum = 0;
+                        foreach (InstitucionBE dt_fila in lista)
+                        {
+                            xNum++;
+                            ws1.Cells["A" + row].Value = dt_fila.ID_INSTITUCION;
+                            ws1.Cells["B" + row].Value = dt_fila.NOMBRE_INSTITUCION;
+                            ws1.Cells["C" + row].Value = dt_fila.RUC_INSTITUCION;
+                            ws1.Cells["D" + row].Value = dt_fila.DIRECCION_INSTITUCION;                            
+                            ws1.Cells["E" + row].Value = dt_fila.SECTOR_INSTITUCION;
+                            formatoDetalle(ws1, "A", "E", row);
+                            row++;
+                        }
+                        row++;
+                    }
+
+                    string strFileName = "LISTA_INSTITUCION_" + DateTime.Now.ToString() + ".xlsx";
+                    Response.Clear();
+                    byte[] dataByte = package.GetAsByteArray();
+                    Response.AddHeader("Content-Disposition", "inline;filename=\"" + strFileName + "\"");
+                    Response.AddHeader("Content-Length", dataByte.Length.ToString());
+                    Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                    Response.BinaryWrite(dataByte);
+                    Response.End();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
         public void ExportarMantenimientoUbicacion(string item)
         {
             try
