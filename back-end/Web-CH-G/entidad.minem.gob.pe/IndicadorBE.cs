@@ -43,6 +43,7 @@ namespace entidad.minem.gob.pe
         public decimal TOTAL_GEI_BASE { get; set; }
         public string ADJUNTO { get; set; }
         public string ADJUNTO_BASE { get; set; }
+        public DateTime INICIO_OPERACIONES { get; set; }
 
 
         public int ANNO_BASE { get; set; }

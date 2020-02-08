@@ -158,6 +158,7 @@
     <Content Include="js\CambiarClave.js" />
     <Content Include="js\ConfirmarCorreo.js" />
     <Content Include="js\DetalleIndicador.js" />
+    <Content Include="js\DetalleIndicadorMasivo.js" />
     <Content Include="js\IniciativaMitigacion.js" />
     <Content Include="js\jquery.form.js" />
     <Content Include="js\Login.js" />
@@ -315,8 +316,8 @@
     <Content Include="Views\Mantenimiento\Ubicaciones.cshtml" />
     <Content Include="Views\Mantenimiento\Monedas.cshtml" />
     <Content Include="Views\Mantenimiento\Gei.cshtml" />
-	 <Content Include="Views\Detalle\DetalleIndicadorMasivo.cshtml" />
-	 <Content Include="Views\Mantenimiento\Enfoques.cshtml" />
+    <Content Include="Views\Detalle\DetalleIndicadorMasivo.cshtml" />
+    <Content Include="Views\Mantenimiento\Enfoques.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -73,15 +73,13 @@ namespace datos.minem.gob.pe
                 {
                     string sp = sPackage + "USP_PRC_CALCULAR_INDICADOR2";
                     var p = new OracleDynamicParameters();
-                    //p.Add("pID_INDICADOR", entidad.ID_INDICADOR);
-                    //p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
                     p.Add("pANNO", entidad.ANNOB);
                     p.Add("pID_TIPO_VEHICULO", entidad.ID_TIPO_VEHICULOB);
                     p.Add("pID_TIPO_COMBUSTIBLE", entidad.ID_TIPO_COMBUSTIBLEB);
                     p.Add("pKRV", entidad.KRVB);
                     p.Add("pCANTIDAD", entidad.CANTIDADB);
-                    //p.Add("pF_REN", entidad.FACTOR_RENDIMIENTO);
                     p.Add("pID_TIPO_FUENTE", entidad.ID_TIPO_FUENTEI);                                        
+                    p.Add("pF_REN", entidad.FACTOR_RENDIMIENTO);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<IndicadorBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
                 }

@@ -34,6 +34,10 @@ namespace MRVMinem.Controllers
             ListaObjeto modelo = new ListaObjeto();
             IniciativaBE ini = new IniciativaBE();
             ini.ID_USUARIO = Convert.ToInt32(Session["usuario"]);
+            ini.pagina = 1;
+            ini.cantidad_registros = 10;
+            ini.order_by = "ID_INICIATIVA";
+            ini.order_orden = "ASC";
             if (Convert.ToInt32(Session["rol"]) == 1)
             {
                 modelo.listaIni = IniciativaLN.ListaIniciativaUsuario(ini);

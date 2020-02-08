@@ -1,5 +1,4 @@
 ﻿@model MRVMinem.Models.ListaObjeto
-
 @{
     ViewBag.Title = "DetalleIndicadorMasivo";
     Layout = "~/Views/Shared/_SesionLayout.cshtml";
@@ -7,7 +6,6 @@
 }
 
 @Html.HiddenFor(m => m.iniciativa_mit.ID_INICIATIVA)
-
 <div class="container-fluid map-root" id="historia">
     <div class="container">
         <nav aria-label="breadcrumb">
@@ -169,7 +167,6 @@
                                             <label for="txa-ubicacion">Ubicación<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
                                             <div class="input-group" id="campoUbicacion">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
-
                                             </div>
                                         </div>
                                     </div>
@@ -215,7 +212,6 @@
                                             <label for="mlt-energetico">Energético asociado<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
                                             <div class="input-group" id="campoEnerg">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
-
                                             </div>
                                         </div>
                                     </div>
@@ -224,7 +220,6 @@
                                             <label for="mlt-gei">Gases de efecto invernadero<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
                                             <div class="input-group" id="campoGei">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
-
                                             </div>
                                         </div>
                                     </div>
@@ -266,7 +261,7 @@
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup13"><i class="fas fa-file-excel"></i></span></div>
                                                 <input class="form-control cursor-pointer txt-file-control" type="text" id="txt-declaracion" placeholder="Suba su plantilla" aria-describedby="inputGroup13" required>
-                                                <input class="d-none fil-file-control" type="file" id="fle-declaracion">
+                                                <input class="d-none fil-file-control" type="file" id="fledeclaracion" name="fledeclaracion" accept=".xls,.xlsx,.xlsm">
                                                 <div class="input-group-append" data-toggle="tooltip" data-placement="top" title="Suba la plantilla de excel completa con los datos requeridos para completar sus detalles de indicadores">
                                                     <label class="input-group-text cursor-pointer" for="txt-declaracion"><i class="fas fa-upload mr-1"></i>Subir plantilla</label>
                                                 </div>
@@ -408,7 +403,7 @@
                                     <div class="col-sm-12-col-md-12 col-lg-6">
                                         <div class="form-group" id="archivos-documentos">
                                             <label>Archivos adjuntos: <span id="total-documentos">0</span> en total</label>
-                                           
+
                                         </div>
                                     </div>
                                 </div>
@@ -476,59 +471,60 @@
                                                     <input class="custom-control-input" type="checkbox" id="chk-publicar">
                                                     <label class="custom-control-label" for="chk-publicar">Hacer públicos los datos registrados en esta iniciativa.</label>
                                                 </div>
-
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer" id="modalRegistrarBoton">
+                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
+                                        <button class="btn btn-primary" type="button" onclick="fn_guardarDetalleIndicador();">Si</button>
+                                    </div>
+                                    <div class="modal-footer" id="pieCorrecto">
+                                        <!-- add 04-02-2020 -->
+                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="modal-footer" id="modalRegistrarBoton">
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
-                                <button class="btn btn-primary" type="button" onclick="fn_guardarDetalleIndicador();">Si</button>
-                            </div>
-                            <div class="modal-footer" id="pieCorrecto">
-                                <!-- add 04-02-2020 -->
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="modal fade" id="guardar-avance" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Mensaje de Usuario</h5>
-                                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            </div>
-                            <div class="modal-body medidas-modal" id="mensajeModalAvance">
-                                <div class="row">
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <h3 class="text-center">¿Desea guardar su avance? <br></h3>
-                                        <p class="text-center">Los datos ingresados serán almacenados temporalmente y podrán ser regularizados al editar su iniciativa.</p>
+                        <div class="modal fade" id="guardar-avance" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Mensaje de Usuario</h5>
+                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                     </div>
-                                    @*<div class="col-sm-12 col-md-12 col-lg-12">
-                                            <div class="alert alert-warning d-flex align-items-stretch" role="alert">
-                                                <div class="alert-wrap mr-3">
-                                                    <div class="sa">
-                                                        <div class="sa-warning">
-                                                            <div class="sa-warning-body"></div>
-                                                            <div class="sa-warning-dot"></div>
+                                    <div class="modal-body medidas-modal" id="mensajeModalAvance">
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                                <h3 class="text-center">¿Desea guardar su avance? <br></h3>
+                                                <p class="text-center">Los datos ingresados serán almacenados temporalmente y podrán ser regularizados al editar su iniciativa.</p>
+                                            </div>
+                                            @*<div class="col-sm-12 col-md-12 col-lg-12">
+                                                    <div class="alert alert-warning d-flex align-items-stretch" role="alert">
+                                                        <div class="alert-wrap mr-3">
+                                                            <div class="sa">
+                                                                <div class="sa-warning">
+                                                                    <div class="sa-warning-body"></div>
+                                                                    <div class="sa-warning-dot"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="alert-wrap">
+                                                            <h6>Sus avances fueron guardados</h6>
+                                                            <hr>Recuerde, podrá solicitar una revisión una vez complete todos los campos obligatorios.
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="alert-wrap">
-                                                    <h6>Sus avances fueron guardados</h6>
-                                                    <hr>Recuerde, podrá solicitar una revisión una vez complete todos los campos obligatorios.
-                                                </div>
-                                            </div>
-                                        </div>*@
+                                                </div>*@
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer" id="modalAvanceBoton">
+                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
+                                        <button class="btn btn-primary" type="button" onclick="fn_guardarAvances();">Si</button>
+                                    </div>
+                                    <div class="modal-footer" id="pieCorrectoAvance">
+                                        <!-- add 04-02-2020 -->
+                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="modal-footer" id="modalAvanceBoton">
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
-                                <button class="btn btn-primary" type="button" onclick="fn_guardarAvances();">Si</button>
-                            </div>
-                            <div class="modal-footer" id="pieCorrectoAvance">
-                                <!-- add 04-02-2020 -->
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
                             </div>
                         </div>
                     </div>
@@ -536,9 +532,7 @@
             </div>
         </div>
     </form>
-
 </div>
-
 <script src="~/js/script.js"></script>
 <script src="~/js/MRV.js"></script>
 <script type="text/javascript">
@@ -570,13 +564,64 @@
                     }
                 }
             }
-            //output.push('<div class="input-group mb-3">', '<div class="input-group-prepend">','<span class="input-group-text">','<i class="fas ',extension,'">','</i>','</span>','</div>','<span class="form-control-plaintext">',escape(f.name), '</span>', '</div>');
             output.push('<div class="input-group mb-3">', '<div class="input-group-prepend">', '<span class="input-group-text">', '<i class="fas ', extension, '">', '</i>', '</span>', '</div>', '<span class="form-control-plaintext">', decodeURI(f.name), '</span>', '</div>');
         }
         $("#archivos-documentos").append(output.join(''));
         $("#total-documentos").html(files.length);
     }
 
+    function fn_CargarExcel(evt) {
+        var url = baseUrl + 'Detalle/ProcesarExcel';
+        var options = {
+            type: "POST",
+            dataType: "json",
+            contentType: false,
+            url: url,
+            processData: false,
+            data: ({
+                ID_INICIATIVA: $("#Control").data("iniciativa"),
+                ID_USUARIO: $("#Control").data("usuario"),
+                NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
+                ID_TIPO_FUENTEI: $("#cbo-enfoque").val()
+            }),
+            xhr: function () {  // Custom XMLHttpRequest
+                var myXhr = $.ajaxSettings.xhr();
+                if (myXhr.upload) { // Check if upload property exists
+                    //myXhr.upload.addEventListener('progress', progressHandlingFunction, false); // For handling the progress of the upload
+                }
+                return myXhr;
+            },
+            resetForm: false,
+            beforeSubmit: function (formData, jqForm, options) {
+                return true;
+            },
+            success: function (response, textStatus, myXhr) {
+                if (response != null && response != "") {
+                    console.log(response);
+                    if (response.length > 0) {
+                        for (var i = 0; i < response.length; i++) {
+                            debugger;
+                            CargarTablaIndicador(response, i);
+                        }
+                        $("#cuerpoTablaIndicador").data("row", response.length);
+                    }
+                } else {
+                    alert(response);
+                }
+            },
+            error: function (myXhr, textStatus, errorThrown) {
+                console.log(myXhr);
+                console.log(textStatus);
+                console.log(errorThrown);
+            }
+        };
+
+        $("#formRegistrar").ajaxForm(options);
+        $("#formRegistrar").submit();
+
+    }
+
     document.getElementById('fledocumentos').addEventListener('change', handleFileSelect, false);
+    document.getElementById('fledeclaracion').addEventListener('change', fn_CargarExcel, false);
 </script>
-<script src="~/js/DetalleIndicador.js"></script>
+<script src="~/js/DetalleIndicadorMasivo.js"></script>
