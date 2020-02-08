@@ -76,7 +76,7 @@ namespace datos.minem.gob.pe
             {
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
                 {
-                    string sp = sPackage + "USP_SEL_EXCEL_SECTORINSTITUCION";
+                    string sp = sPackage + "USP_SEL_EXCEL_SECTORINST";
                     var p = new OracleDynamicParameters();
                     p.Add("pBuscar", entidad.buscar);
                     p.Add("pSortColumn", entidad.order_by);

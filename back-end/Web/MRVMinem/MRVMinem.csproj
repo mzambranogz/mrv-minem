@@ -153,6 +153,7 @@
     <Content Include="images\logo_pnud.jpg" />
     <Content Include="images\logo_pnud.png" />
     <Content Include="images\logo_pnud.svg" />
+    <Content Include="images\password-level-47px.png" />
     <Content Include="images\_fonfo_footer.png" />
     <Content Include="js\AccionMitigacion.js" />
     <Content Include="js\CambiarClave.js" />
@@ -248,9 +249,6 @@
     <Content Include="Log\Sistema20200127.log" />
     <Content Include="Log\Sistema20200128.log" />
     <Content Include="Log\Sistema20200129.log" />
-    <Content Include="images\favicon\manifest.json" />
-    <Content Include="images\favicon\site.webmanifest" />
-    <Content Include="images\favicon\_manifest.json" />
     <Content Include="fonts\fa-brands-400.eot" />
     <Content Include="fonts\fa-brands-400.ttf" />
     <Content Include="fonts\fa-brands-400.woff" />
@@ -266,6 +264,9 @@
     <Content Include="Documentos\modelo-declaracion-jurada.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="images\favicon\manifest.json" />
+    <Content Include="images\favicon\site.webmanifest" />
+    <Content Include="images\favicon\_manifest.json" />
     <None Include="Properties\PublishProfiles\MRVMinem.pubxml" />
     <Content Include="Views\Gestion\AccionMitigacion.cshtml" />
     <Content Include="Views\Shared\_SesionLayout.cshtml" />

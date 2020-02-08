@@ -254,6 +254,44 @@ function fn_seleccionarMantenimientoUsuario(id) {
                         } else if (data[i]["ID_ESTADO_USUARIO"] == 2) {
                             $("#rad-02").prop("checked", true);
                         }
+                        $("#archivo-declaracion #seccion-file").remove();
+                        if (data[i]["ADJUNTO_BASE"] != null) {
+                            //for (var sus = 0; sus < data[i]["ListaSustentos"].length; sus++) {
+
+                                var output = [];
+                                var extension = "fa-file-word";
+
+                                if (data[i]["ADJUNTO_BASE"].includes("pdf")) {
+                                    extension = "fa-file-pdf";
+                                } else {
+                                    if (data[i]["ADJUNTO_BASE"].includes("jpeg") || data[i]["ADJUNTO_BASE"].includes("png") || data[i]["ADJUNTO_BASE"].includes("jpg")) {
+                                        extension = "fa-file-image";
+                                    } else {
+                                        if (data[i]["ADJUNTO_BASE"].includes("xlsx") || data[i]["ADJUNTO_BASE"].includes("xls")) {
+                                            extension = "fa-file-excel";
+                                        } else {
+                                            if (data[i]["ADJUNTO_BASE"].includes("pptx") || data[i]["ADJUNTO_BASE"].includes("ppt")) {
+                                                extension = "fa-file-powerpoint";
+                                            } else {
+                                                if (data[i]["ADJUNTO_BASE"].includes("docx") || data[i]["ADJUNTO_BASE"].includes("doc")) {
+                                                    extension = "fa-file-word";
+                                                } else {
+                                                    extension = "fa-file";
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                //$("#archivo-declaracion #seccion-file").remove();
+                                //output.push('<div class="input-group mb-3">', '<div class="input-group-prepend">', '<span class="input-group-text">', '<i class="fas ', extension, '">', '</i>', '</span>', '</div>', '<span class="form-control-plaintext">', escape((data[i]["ListaSustentos"])[sus]["ADJUNTO"]), '</span>', '<div class="form-group m-0">', '<label class="btn btn-secondary btn-sm m-0" onclick="fn_verfilesutento(', (data[i]["ListaSustentos"])[sus]["ID_INICIATIVA_SUSTENTATORIO"], ')"><i class="fas fa-download mr-1"></i>Ver</label>', '</div>', '</div>');
+                                output.push('<div id="seccion-file">', '<label for="txt-declaracion">Declaración jurada</label>', '<div class="input-group mb-3">', '<div class="input-group-prepend">', '<span class="input-group-text">', '<i class="fas ', extension, '">', '</i>', '</span>', '</div>', '<span class="form-control-plaintext">', decodeURI(data[i]["ADJUNTO_BASE"]), '</span>', '<div class="form-group m-0">', '<label class="btn btn-secondary btn-sm m-0" onclick="fn_verfileDeclaracion(', data[i]["ID_USUARIO"], ')"><i class="fas fa-download mr-1"></i>Ver</label>', '</div>', '</div>', '</div>');
+                                
+                                $("#archivo-declaracion").append(output.join(''));
+
+                            //}
+                            //$("#total-documentos").html(data[i]["ListaSustentos"].length);
+                        }
+
                         Number(data[i]["ID_ROL"]) == 2 ? $(".medidas-especialista").show() : $(".medidas-especialista").hide()
                         if (Number(data[i]["ID_ROL"]) == 2) {
                             //$.ajax({

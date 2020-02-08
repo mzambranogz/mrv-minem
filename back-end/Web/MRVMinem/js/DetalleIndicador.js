@@ -305,41 +305,41 @@ function CargarDatosIniciativa() {
                             $("#chk-publicar-monto-inversion").prop("checked", true);
                         }
 
-                        if (data[i]["ListaSustentos"] != null) {
-                            for (var sus = 0; sus < data[i]["ListaSustentos"].length; sus++) {
+                        //if (data[i]["ListaSustentos"] != null) {
+                        //    for (var sus = 0; sus < data[i]["ListaSustentos"].length; sus++) {
 
-                                var output = [];
-                                var extension = "fa-file-word";
+                        //        var output = [];
+                        //        var extension = "fa-file-word";
 
-                                if ((data[i]["ListaSustentos"])[sus]["ADJUNTO"].includes("pdf")) {
-                                    extension = "fa-file-pdf";
-                                } else {
-                                    if ((data[i]["ListaSustentos"])[sus]["ADJUNTO"].includes("jpeg") || (data[i]["ListaSustentos"])[sus]["ADJUNTO"].includes("png") || (data[i]["ListaSustentos"])[sus]["ADJUNTO"].includes("jpg")) {
-                                        extension = "fa-file-image";
-                                    } else {
-                                        if ((data[i]["ListaSustentos"])[sus]["ADJUNTO"].includes("xlsx") || (data[i]["ListaSustentos"])[sus]["ADJUNTO"].includes("xls")) {
-                                            extension = "fa-file-excel";
-                                        } else {
-                                            if ((data[i]["ListaSustentos"])[sus]["ADJUNTO"].includes("pptx") || (data[i]["ListaSustentos"])[sus]["ADJUNTO"].includes("ppt")) {
-                                                extension = "fa-file-powerpoint";
-                                            } else {
-                                                if ((data[i]["ListaSustentos"])[sus]["ADJUNTO"].includes("docx") || (data[i]["ListaSustentos"])[sus]["ADJUNTO"].includes("doc")) {
-                                                    extension = "fa-file-word";
-                                                } else {
-                                                    extension = "fa-file";
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                                //output.push('<div class="input-group mb-3">', '<div class="input-group-prepend">', '<span class="input-group-text">', '<i class="fas ', extension, '">', '</i>', '</span>', '</div>', '<span class="form-control-plaintext">', escape((data[i]["ListaSustentos"])[sus]["ADJUNTO"]), '</span>', '<div class="form-group m-0">', '<label class="btn btn-secondary btn-sm m-0" onclick="fn_verfilesutento(', (data[i]["ListaSustentos"])[sus]["ID_INICIATIVA_SUSTENTATORIO"], ')"><i class="fas fa-download mr-1"></i>Ver</label>', '</div>', '</div>');
-                                output.push('<div class="input-group mb-3">', '<div class="input-group-prepend">', '<span class="input-group-text">', '<i class="fas ', extension, '">', '</i>', '</span>', '</div>', '<span class="form-control-plaintext">', decodeURI((data[i]["ListaSustentos"])[sus]["ADJUNTO_BASE"]), '</span>', '<div class="form-group m-0">', '<label class="btn btn-secondary btn-sm m-0" onclick="fn_verfilesutento(', (data[i]["ListaSustentos"])[sus]["ID_INICIATIVA_SUSTENTATORIO"], ')"><i class="fas fa-download mr-1"></i>Ver</label>', '</div>', '</div>');
+                        //        if ((data[i]["ListaSustentos"])[sus]["ADJUNTO"].includes("pdf")) {
+                        //            extension = "fa-file-pdf";
+                        //        } else {
+                        //            if ((data[i]["ListaSustentos"])[sus]["ADJUNTO"].includes("jpeg") || (data[i]["ListaSustentos"])[sus]["ADJUNTO"].includes("png") || (data[i]["ListaSustentos"])[sus]["ADJUNTO"].includes("jpg")) {
+                        //                extension = "fa-file-image";
+                        //            } else {
+                        //                if ((data[i]["ListaSustentos"])[sus]["ADJUNTO"].includes("xlsx") || (data[i]["ListaSustentos"])[sus]["ADJUNTO"].includes("xls")) {
+                        //                    extension = "fa-file-excel";
+                        //                } else {
+                        //                    if ((data[i]["ListaSustentos"])[sus]["ADJUNTO"].includes("pptx") || (data[i]["ListaSustentos"])[sus]["ADJUNTO"].includes("ppt")) {
+                        //                        extension = "fa-file-powerpoint";
+                        //                    } else {
+                        //                        if ((data[i]["ListaSustentos"])[sus]["ADJUNTO"].includes("docx") || (data[i]["ListaSustentos"])[sus]["ADJUNTO"].includes("doc")) {
+                        //                            extension = "fa-file-word";
+                        //                        } else {
+                        //                            extension = "fa-file";
+                        //                        }
+                        //                    }
+                        //                }
+                        //            }
+                        //        }
+                        //        //output.push('<div class="input-group mb-3">', '<div class="input-group-prepend">', '<span class="input-group-text">', '<i class="fas ', extension, '">', '</i>', '</span>', '</div>', '<span class="form-control-plaintext">', escape((data[i]["ListaSustentos"])[sus]["ADJUNTO"]), '</span>', '<div class="form-group m-0">', '<label class="btn btn-secondary btn-sm m-0" onclick="fn_verfilesutento(', (data[i]["ListaSustentos"])[sus]["ID_INICIATIVA_SUSTENTATORIO"], ')"><i class="fas fa-download mr-1"></i>Ver</label>', '</div>', '</div>');
+                        //        output.push('<div class="input-group mb-3">', '<div class="input-group-prepend">', '<span class="input-group-text">', '<i class="fas ', extension, '">', '</i>', '</span>', '</div>', '<span class="form-control-plaintext">', decodeURI((data[i]["ListaSustentos"])[sus]["ADJUNTO_BASE"]), '</span>', '<div class="form-group m-0">', '<label class="btn btn-secondary btn-sm m-0" onclick="fn_verfilesutento(', (data[i]["ListaSustentos"])[sus]["ID_INICIATIVA_SUSTENTATORIO"], ')"><i class="fas fa-download mr-1"></i>Ver</label>', '</div>', '</div>');
 
-                                $("#archivos-documentos").append(output.join(''));
+                        //        $("#archivos-documentos").append(output.join(''));
 
-                            }
-                            $("#total-documentos").html(data[i]["ListaSustentos"].length);
-                        }
+                        //    }
+                        //    $("#total-documentos").html(data[i]["ListaSustentos"].length);
+                        //}
                     }
                 }
             }

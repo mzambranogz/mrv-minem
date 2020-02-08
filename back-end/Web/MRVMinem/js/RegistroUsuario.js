@@ -100,15 +100,17 @@ function fn_validar(e) {
             arr.push("La contraseña debe contener minúscula(s), mayúscula(s), número(s) y caracter(es) especial(es) [!@#$&*]");
         }
         if (clave.length < 6) {
-            arr.push("La contraseña debe contener 6 o más caracteres");
+            arr.push("La contraseña debe contener 6 o más caracteres por seguridad");
         }
     } else {
         arr.push("Las contraseñas no coinciden");
     }
 
-    if (!($('#fledeclaracion').val())) {
-        arr.push("Debe adjuntar la declaración jurada");
-    }
+    if ($("#cbo-sector").val() == 2) {
+        if (!($('#fle-declaracion').val())) {
+            arr.push("Debe adjuntar la declaración jurada");
+        }
+    }    
 
     if (!($("#chk-terminos-condiciones").prop("checked"))) {
         arr.push("Debe aceptar los términos y condiciones");
@@ -359,21 +361,7 @@ function fn_registrarUsuario() {
     //}
 }
 
-$(document).on('change', '#fledeclaracion', function () {
-    var fileInput = this.value;
-    var fileName = this.files[0].name;
-    var fileSize = this.files[0].size;
 
-    var ext = /(.pdf)$/i;
-    $("#mensajeFile #msj").remove();
-    if (ext.exec(fileInput) /*&& fileName == "modelo-declaracion-jurada.pdf"*/ && (fileSize <= 12000000)) {
-        //$("#mensajeFile").append('<small style="color: green;" id="msj">Documento cargado</small>');
-    } else {
-        $("#txt-declaracion").val("");
-        this.value = '';
-        //$("#mensajeFile").append('<small style="color: red;" id="msj">*archivo no permitido</small>');
-    }
-});
 
 $(function () {
     $(".validar").keydown(function (event) {
@@ -386,7 +374,32 @@ $(function () {
 
 $(document).ready(function () {
     CargarListaSectorInstitucion();
+    $("#txt-user").attr("pattern", "^[a-zA-Z0-9.!#$%&amp;’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$");
+    $("#txt-nombre").attr("pattern", "[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{3,54}");
+    $("#txt-apellido").attr("pattern", "[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{8,54}");
+    $("#txt-institucion").attr("pattern", "[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{8,70}");
+    $("#txt-direccion").attr("pattern", "[a-zA-Z0-9 /\@#$%&amp;]+");
+    $("#txt-pswd").attr("pattern", "(?=.*\d)(?=.*[!@#$&*])(?=.*[a-z])(?=.*[A-Z]).{6,}");
+    //$("#btnRegistrar").prop("disabled", true);
+
+    //$("#btnRegistrar").removeClass("btn-primary").addClass("btn-default");
     $("#btnRegistrar").click(function (e) {
         fn_validar(e);
     });
+});
+
+$(document).on('change', '#fle-declaracion', function () {
+    var fileInput = this.value;
+    var fileName = this.files[0].name;
+    var fileSize = this.files[0].size;
+
+    var ext = /(.pdf)$/i;
+    //$("#mensajeFile #msj").remove();
+    if (ext.exec(fileInput) /*&& fileName == "modelo-declaracion-jurada.pdf"*/ && (fileSize <= 1000000)) {
+        //$("#mensajeFile").append('<small style="color: green;" id="msj">Documento cargado</small>');
+    } else {
+        $("#txt-declaracion").val("");
+        this.value = '';
+        //$("#mensajeFile").append('<small style="color: red;" id="msj">*archivo no permitido</small>');
+    }
 });
