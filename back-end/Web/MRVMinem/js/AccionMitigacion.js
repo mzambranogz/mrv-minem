@@ -1432,3 +1432,15 @@ $(document).ready(function () {
     });
 
 });
+
+
+$("#modal-bienbenida").on("hidden.bs.modal", function () {
+    url = baseUrl + "Gestion/ActualizarPrimeraVisita"
+    var item = {
+    };
+    var mensaje = "";
+    var respuesta = MRV.Ajax(url, item, false);
+    if (respuesta.success) {
+    } else {
+    }
+});

@@ -32,28 +32,40 @@ namespace MRVMinem.Controllers
         public ActionResult AccionMitigacion()
         {
             ListaObjeto modelo = new ListaObjeto();
-            IniciativaBE ini = new IniciativaBE();
-            ini.ID_USUARIO = Convert.ToInt32(Session["usuario"]);
-            if (Convert.ToInt32(Session["rol"]) == 1)
+            UsuarioBE usu = new UsuarioBE();
+            if (Convert.ToString(Session["rol"]) == "1")
             {
-                modelo.listaIni = IniciativaLN.ListaIniciativaUsuario(ini);
+                usu.ID_USUARIO = Convert.ToInt32(Session["usuario"]);
+                usu.NOMBRES_USUARIO = Convert.ToString(Session["nombres"]);
+                usu.APELLIDOS_USUARIO = Convert.ToString(Session["apellidos"]);
+                usu.PRIMER_INICIO = Convert.ToString(Session["primer_inicio"]);
             }
-            else if (Convert.ToInt32(Session["rol"]) == 2)
+            else
             {
-                modelo.listaIni = IniciativaLN.ListaIniciativaEspecialista(ini);
+                usu.PRIMER_INICIO = "0";
             }
-            else if (Convert.ToInt32(Session["rol"]) == 3)
-            {
-                modelo.listaIni = IniciativaLN.ListaIniciativaGeneral(ini);
-            }
-            else if (Convert.ToInt32(Session["rol"]) == 4)
-            {
-                modelo.listaIni = IniciativaLN.ListaIniciativaEvaluar(ini);
-            }
-            else if (Convert.ToInt32(Session["rol"]) == 5)
-            {
-                modelo.listaIni = IniciativaLN.ListaIniciativaVerificar(ini);
-            }
+            
+            modelo.usuario = usu;
+            //if (Convert.ToInt32(Session["rol"]) == 1)
+            //{
+            //    modelo.listaIni = IniciativaLN.ListaIniciativaUsuario(ini);
+            //}
+            //else if (Convert.ToInt32(Session["rol"]) == 2)
+            //{
+            //    modelo.listaIni = IniciativaLN.ListaIniciativaEspecialista(ini);
+            //}
+            //else if (Convert.ToInt32(Session["rol"]) == 3)
+            //{
+            //    modelo.listaIni = IniciativaLN.ListaIniciativaGeneral(ini);
+            //}
+            //else if (Convert.ToInt32(Session["rol"]) == 4)
+            //{
+            //    modelo.listaIni = IniciativaLN.ListaIniciativaEvaluar(ini);
+            //}
+            //else if (Convert.ToInt32(Session["rol"]) == 5)
+            //{
+            //    modelo.listaIni = IniciativaLN.ListaIniciativaVerificar(ini);
+            //}
             return View(modelo);
         }
         public ActionResult Sesion()
@@ -63,9 +75,28 @@ namespace MRVMinem.Controllers
 
         public ActionResult IniciativaMitigacion(int id, int ini)
         {
-            MvSesion modelo = new MvSesion();
-            modelo.identificador = id;
-            modelo.iniciativa = ini;
+            //MvSesion modelo = new MvSesion();
+            //modelo.identificador = id;
+            //modelo.iniciativa = ini;
+            ListaObjeto modelo = new ListaObjeto();
+            IniciativaBE inic = new IniciativaBE();
+            inic.ID_INICIATIVA = ini;
+            inic.ID_MEDMIT = id;
+            modelo.iniciativa_mit = inic;
+            if (ini > 0){
+                                
+            }
+            else if (id > 0)
+            {
+                modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
+            }
+            //inic.ID_INICIATIVA = ini;
+            //modelo.iniciativa_mit = inic;
+            //modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
+            //modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
+            //modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
+            //modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
+            //modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
             return View(modelo);
         }
 
@@ -1343,6 +1374,17 @@ namespace MRVMinem.Controllers
             var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
+        }
+
+        public JsonResult ActualizarPrimeraVisita(UsuarioBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad.ID_USUARIO = Convert.ToInt32(Session["usuario"]);
+            entidad = UsuarioLN.ActualizarPrimeraVisita(entidad);
+            itemRespuesta.success = entidad.OK;
+
+            return Respuesta(itemRespuesta);
         }
 
         //EXPORTAR EXCEL

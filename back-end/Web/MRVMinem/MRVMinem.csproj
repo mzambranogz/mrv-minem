@@ -211,6 +211,7 @@
     <Compile Include="Models\MvSector.cs" />
     <Compile Include="Models\MvSesion.cs" />
     <Compile Include="Models\MvUbicacion.cs" />
+    <Compile Include="Models\MvUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reportes\DsEscenario.Designer.cs" />
     <Compile Include="Reportes\DsIniciativa.Designer.cs" />
