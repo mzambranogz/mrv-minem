@@ -88,7 +88,7 @@ namespace MRVMinem.Controllers
         {
             if (entidad.pagina == 0)
             {
-                entidad = new UbicacionBE() { cantidad_registros = 10, order_by = "DESCRIPCION", order_orden = "ASC", pagina = 1 };
+                entidad = new UbicacionBE() { cantidad_registros = 10, order_by = "DESCRIPCION", order_orden = "ASC", pagina = 1, buscar = "" };
             }
             MvUbicacion modelo = new MvUbicacion();
             modelo.ListaUbicacion = UbicacionLN.ListarUbicacionPaginado(entidad);
@@ -385,6 +385,92 @@ namespace MRVMinem.Controllers
 
 
         /////////// exportar excel
+        public void ExportarMantenimientoUbicacion(string item)
+        {
+            try
+            {
+                if (item != null)
+                {
+                    var entidad = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<UbicacionBE>(item);
+                    ExportarToExcelMantenimientoUbicacion(entidad);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+        }
+
+        public void ExportarToExcelMantenimientoUbicacion(UbicacionBE entidad)
+        {
+            List<UbicacionBE> lista = null;
+            //if (string.IsNullOrEmpty(entidad.DESCRIPCION))
+            //{
+            lista = UbicacionLN.ListarUbicacionExcel(entidad);
+            //}
+            //else
+            //{
+            //    lista = UsuarioLN.BuscarMantenimientoUsuario(entidad);
+            //}
+
+            int row = 2;
+            try
+            {
+                string cadena_fecha = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+
+                using (ExcelPackage package = new ExcelPackage())
+                {
+                    var ws1 = package.Workbook.Worksheets.Add("LISTA UBICACION");
+                    using (var m = ws1.Cells[1, 1, row, 2])
+                    {
+                        m.Style.Font.Bold = true;
+                        m.Style.WrapText = true;
+                        m.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        m.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        m.Style.Font.Size = 10;
+                        m.Merge = true;
+                        m.Value = "LISTA UBICACION " + cadena_fecha;
+                    }
+                    ws1.View.FreezePanes(2, 1);
+                    row++;
+                    ws1.Cells["A" + row].Value = "N°";
+                    ws1.Cells["A" + row].AutoFitColumns(5);
+                    ws1.Cells["B" + row].Value = "DESCRIPCIÓN";
+                    ws1.Cells["B" + row].AutoFitColumns(40);
+
+                    FormatoCelda(ws1, "A", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "B", row, 0, 123, 255, 255, 255, 255);
+                    ws1.Row(row).Height = 42;
+                    row++;
+                    if (lista.Count > 0)
+                    {
+                        var xNum = 0;
+                        foreach (UbicacionBE dt_fila in lista)
+                        {
+                            xNum++;
+                            ws1.Cells["A" + row].Value = dt_fila.ID_UBICACION;
+                            ws1.Cells["B" + row].Value = dt_fila.DESCRIPCION;
+                            formatoDetalle(ws1, "A", "B", row);
+                            row++;
+                        }
+                        row++;
+                    }
+
+                    string strFileName = "LISTA_UBICACION_" + DateTime.Now.ToString() + ".xlsx";
+                    Response.Clear();
+                    byte[] dataByte = package.GetAsByteArray();
+                    Response.AddHeader("Content-Disposition", "inline;filename=\"" + strFileName + "\"");
+                    Response.AddHeader("Content-Length", dataByte.Length.ToString());
+                    Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                    Response.BinaryWrite(dataByte);
+                    Response.End();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
 
         public void ExportarMantenimientoSector(string item)
         {

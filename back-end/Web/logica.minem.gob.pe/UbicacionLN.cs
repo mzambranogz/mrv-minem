@@ -18,7 +18,13 @@ namespace logica.minem.gob.pe
 
         public static List<UbicacionBE> ListarUbicacionPaginado(UbicacionBE entidad)
         {
+            if (string.IsNullOrEmpty(entidad.buscar)) entidad.buscar = "";
             return energ.ListarUbicacionPaginado(entidad);
+        }
+        public static List<UbicacionBE> ListarUbicacionExcel(UbicacionBE entidad)
+        {
+            if (string.IsNullOrEmpty(entidad.buscar)) entidad.buscar = "";
+            return energ.ListarUbicacionExcel(entidad);
         }
 
         public static UbicacionBE GetUbicacionPorId(UbicacionBE entidad)

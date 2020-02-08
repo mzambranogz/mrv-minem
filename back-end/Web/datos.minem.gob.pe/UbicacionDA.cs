@@ -49,6 +49,7 @@ namespace datos.minem.gob.pe
                 {
                     string sp = sPackage + "USP_SEL_UBICACION";
                     var p = new OracleDynamicParameters();
+                    p.Add("pBuscar", entidad.buscar);
                     p.Add("pRegistros", entidad.cantidad_registros);
                     p.Add("pPagina", entidad.pagina);
                     p.Add("pSortColumn", entidad.order_by);
@@ -57,6 +58,31 @@ namespace datos.minem.gob.pe
                     Lista = db.Query<UbicacionBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
                 }
 
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+        public List<UbicacionBE> ListarUbicacionExcel(UbicacionBE entidad)
+        {
+            List<UbicacionBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_EXCEL_UBICACION";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pBuscar", entidad.buscar);
+                    p.Add("pSortColumn", entidad.order_by);
+                    p.Add("pSortOrder", entidad.order_orden);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<UbicacionBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
             }
             catch (Exception ex)
             {
