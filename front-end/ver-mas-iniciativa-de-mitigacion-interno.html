@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,13 +19,13 @@
     <link rel="stylesheet" href="./css/style.css">
   </head>
   <body>
-    <div class="container-fluid menu-nav bg-sutil fixed-top" id="cabecera">
+    <div class="container-fluid menu-nav bg-sutil fixed-top d-print-none" id="cabecera">
       <div class="container menu-main linea">
         <header class="navbar navbar-expand flex-column flex-md-row bd-navbar p-0"><a class="navbar-brand mr-md-auto animated fadeIn mx-0" href="./index.html"><img src="./images/logo_mrv_new_negro.svg" height="36"></a>
           <ul class="navbar-nav ml-md-auto">
             <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1" href="https://www.gob.pe/minem" target="_blank"><img src="./images/logo-minem.jpg" height="40"></a></li>
             <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1" href="https://www.thegef.org/" target="_blank"><img src="./images/logo_gef.svg" height="45"></a></li>
-            <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1 pr-0" href="https://www.pe.undp.org/" target="_blank"><img src="./images/logo_pnud.svg" height="51"></a></li>
+            <li class="nav-item align-self-center"><a class="nav-link animated fadeIn p-1 mr-0" href="https://www.pe.undp.org/" target="_blank"><img src="./images/logo_pnud.svg" height="51"></a></li>
           </ul>
         </header>
       </div>
@@ -48,7 +48,7 @@
         </nav>
       </div>
     </div>
-    <div class="flecha-top"><i class="fas fa-angle-double-right fa-2x text-dark btn-slider-bottom"></i></div>
+    <div class="flecha-top d-print-none"><i class="fas fa-angle-double-right fa-2x text-dark btn-slider-bottom"></i></div>
     <div class="container-fluid map-root" id="historia">
       <div class="container">
         <nav aria-label="breadcrumb">
@@ -77,7 +77,7 @@
             </div>
           </div>
           <div class="container-fluid py-4 px-0 bg-white">
-            <div class="container py-5">
+            <div class="container pt-5">
               <div class="row">
                 <div class="col-12">
                   <div class="h5 pb-5 text-primary">Promoción de vehiculos eléctricos a nivel nacional&nbsp;</div>
@@ -86,7 +86,7 @@
               <div class="row">
                 <div class="col-sm-12-col-md-12 col-lg-6">
                   <div class="form-group">
-                    <label class="font-weight-bold" for="txt-categoria">Categoría IPSC</label>
+                    <label class="font-weight-bold" for="txt-categoria">Categoría IPCC</label>
                     <div class="input-group">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-landmark"></i></span></div>
                       <input class="form-control-plaintext" type="text" id="txt-categoria" value="Energía - Combustión móvil" aria-describedby="inputGroup1" readonly>
@@ -253,8 +253,7 @@ CH 2</textarea>
                 </div>
               </div>
             </div>
-            <div class="dropdown-divider"></div>
-            <div class="container py-5">
+            <div class="container pt-5">
               <div class="row">
                 <div class="col-12">
                   <div class="h5 pb-5 text-primary">Detalles de Indicadores</div>
@@ -273,7 +272,7 @@ CH 2</textarea>
                 <div class="col-sm-12-col-md-12 col-lg-6">&nbsp;</div>
               </div>
             </div>
-            <div class="container-fluid py-4">
+            <div class="container-fluid">
               <div class="row">
                 <div class="col-12 px-0">
                   <div class="table-responsive tabla-principal tabla-detalle-indicadores">
@@ -568,17 +567,16 @@ CH 2</textarea>
                 </div>
               </div>
             </div>
-            <div class="dropdown-divider"></div>
-            <div class="container py-5">
+            <div class="container pt-5">
               <div class="row">
                 <div class="col-12">
                   <div class="h5 pb-5 text-primary">Resumen</div>
                 </div>
               </div>
             </div>
-            <div class="container py-4">
+            <div class="container">
               <div class="row">
-                <div class="col-12 px-0">
+                <div class="col-12">
                   <div class="table-responsive tabla-principal">
                     <table class="table table-hover">
                       <thead>
@@ -600,7 +598,6 @@ CH 2</textarea>
                 </div>
               </div>
             </div>
-            <div class="dropdown-divider"></div>
             <div class="container py-5">
               <div class="row">
                 <div class="col-12">
@@ -646,20 +643,12 @@ CH 2</textarea>
         </div>
       </div>
     </div>
-    <div class="container-fluid foot d-flex flex-row justify-content-center align-items-center" id="pie">
+    <div class="container-fluid foot d-flex flex-row justify-content-center align-items-center d-print-none" id="pie">
       <footer class="container">
         <div class="row">
-          <div class="col-sm-12 col-md-6">
+          <div class="col-12">
             <div class="row">
-              <div class="col-sm-12 col-md-6 text-white">
-                <div class="lead font-weight-bold">Enlaces</div>
-                <ul class="list-unstyled">
-                  <li class="py-1"><a class="text-white" href="https://www.gob.pe/minem" target="_blank"><i class="fas fa-landmark mr-2"></i>MINEM</a></li>
-                  <li class="py-1"><a class="text-white" href="http://namasenergia.minem.gob.pe/" target="_blank"><i class="fas fa-landmark mr-2"></i>NAMA's</a></li>
-                  <li class="py-1"><a class="text-white" href="#" target="_blank"><i class="fas fa-sitemap mr-2"></i>Mapa del Sitio</a></li>
-                </ul>
-              </div>
-              <div class="col-sm-12 col-md-6 text-white">
+              <div class="col-sm-12 col-md-4 text-white">
                 <div class="lead font-weight-bold">Más información</div>
                 <ul class="list-unstyled">
                   <li class="py-1"><a class="text-white" href="./documentos/Manual_Usuario_MRV.pdf" download><i class="fas fa-file-pdf mr-2"></i>Manual de Usuario</a></li>
@@ -667,7 +656,14 @@ CH 2</textarea>
                   <li class="py-1"><a class="text-white" href="./terminos-y-condiciones.html"><i class="fab fa-readme mr-2"></i>Términos y Condiciones</a></li>
                 </ul>
               </div>
-              <div class="col-sm-12 text-white">
+              <div class="col-sm-12 col-md-4 text-white">
+                <div class="lead font-weight-bold">Tecnología</div>
+                <div class="navbar flex-md-row justify-content-start p-0 pt-1"><img src="./images/logo-blockchain-blanco.png" height="81"></div>
+              </div>
+              <div class="col-sm-12 col-md-4 text-white"></div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 col-md-4 text-white">
                 <div class="lead font-weight-bold">Contáctenos</div>
                 <ul class="list-unstyled mr-0">
                   <li class="py-1"><a class="text-white" href="tel: +5114111100"><i class="fas fa-phone-alt mr-2"></i>Teléfono: (+511) 411-1100</a></li>
@@ -676,9 +672,18 @@ CH 2</textarea>
                   <li class="py-1"><i class="fas fa-map-marker-alt mr-2"></i>Av. Las Artes Sur 260. San Borja. Lima. Perú</li>
                 </ul>
               </div>
+              <div class="col-sm-12 col-md-4 text-white">
+                <div class="lead font-weight-bold">Enlaces</div>
+                <ul class="list-unstyled">
+                  <li class="py-1"><a class="text-white" href="https://www.gob.pe/minem" target="_blank"><i class="fas fa-landmark mr-2"></i>MINEM</a></li>
+                  <li class="py-1"><a class="text-white" href="http://namasenergia.minem.gob.pe/" target="_blank"><i class="fas fa-landmark mr-2"></i>NAMA's</a></li>
+                  <li class="py-1"><a class="text-white" href="#" target="_blank"><i class="fas fa-sitemap mr-2"></i>Mapa del Sitio</a></li>
+                </ul>
+              </div>
+              <div class="col-sm-12 col-md-4 d-flex flex-row justify-content-end align-items-end">
+                <div class="navbar p-0"><a class="nav-link p-0" href="http://namasenergia.minem.gob.pe/" target="_blank"><img src="./images/logo-nama-blanco.png" height="70"></a></div>
+              </div>
             </div>
-          </div>
-          <div class="col-sm-12 col-md-6">
             <!--.navbar.flex-md-row.justify-content-start
             a.nav-link.p-1(href="https://www.gob.pe/minem", target="_blank")
               img(src="./images/logo-minem-blanco.png", height="70")
@@ -687,8 +692,6 @@ CH 2</textarea>
             a.nav-link.p-1.pr-0(href="https://www.pe.undp.org/", target="_blank")
               img(src="./images/logo-pnud-blanco.png", height="160")
             -->
-            <div class="navbar flex-md-row justify-content-start"><a class="nav-link p-1" href="http://namasenergia.minem.gob.pe/" target="_blank"><img class="m-3" src="./images/logo-nama-blanco.png" height="70"></a></div>
-            <div class="navbar flex-md-row justify-content-start"><img class="m-3" src="./images/logo-blockchain-blanco.png" height="70"></div>
           </div>
         </div>
         <div class="row">
