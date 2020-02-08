@@ -431,6 +431,7 @@ namespace MRVMinem.Controllers
                 Session["institucion"] = item.INSTITUCION;
                 Session["direccion"] = item.DIRECCION;
                 Session["sector"] = item.SECTOR;
+                Session["primer_inicio"] = item.PRIMER_INICIO;
             }
         }
 

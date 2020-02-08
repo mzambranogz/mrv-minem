@@ -94,3 +94,15 @@ C:\Gitsource\back-end\Web\datos.minem.gob.pe\bin\Debug\Dapper.xml
 C:\Gitsource\back-end\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.csprojResolveAssemblyReference.cache
 C:\Gitsource\back-end\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.dll
 C:\Gitsource\back-end\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.pdb
+C:\Gitsource\data-base\Reporte\Web\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.dll
+C:\Gitsource\data-base\Reporte\Web\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.pdb
+C:\Gitsource\data-base\Reporte\Web\datos.minem.gob.pe\bin\Debug\Dapper.dll
+C:\Gitsource\data-base\Reporte\Web\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+C:\Gitsource\data-base\Reporte\Web\datos.minem.gob.pe\bin\Debug\Oracle.DataAccess.dll
+C:\Gitsource\data-base\Reporte\Web\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.dll
+C:\Gitsource\data-base\Reporte\Web\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+C:\Gitsource\data-base\Reporte\Web\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.pdb
+C:\Gitsource\data-base\Reporte\Web\datos.minem.gob.pe\bin\Debug\Dapper.xml
+C:\Gitsource\data-base\Reporte\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Gitsource\data-base\Reporte\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.dll
+C:\Gitsource\data-base\Reporte\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.pdb

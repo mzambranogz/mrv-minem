@@ -33,5 +33,6 @@ namespace entidad.minem.gob.pe
         public string ESTADO { get; set; }
         public string NUEVO_PASSWORD_USUARIO { get; set; }
         public string ICONO_ESTADO { get; set; }
+        public string PRIMER_INICIO { get; set; }
     }
 }
