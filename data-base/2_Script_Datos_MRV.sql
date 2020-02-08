@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - viernes-febrero-07-2020   
+-- Archivo creado  - sábado-febrero-08-2020   
 --------------------------------------------------------
 REM INSERTING into MRVMM.T_GEND_ARCHIVO
 SET DEFINE OFF;
@@ -1154,4 +1154,3 @@ Insert into MRVMM.T_MAE_USUARIO_ROL (ID_USUARIO,ID_ROL,FLG_ESTADO,DES_COMENTARIO
 Insert into MRVMM.T_MAE_USUARIO_ROL (ID_USUARIO,ID_ROL,FLG_ESTADO,DES_COMENTARIO) values ('45','5','1',null);
 Insert into MRVMM.T_MAE_USUARIO_ROL (ID_USUARIO,ID_ROL,FLG_ESTADO,DES_COMENTARIO) values ('81','2','1',null);
 Insert into MRVMM.T_MAE_USUARIO_ROL (ID_USUARIO,ID_ROL,FLG_ESTADO,DES_COMENTARIO) values ('102','1','1',null);
-REM INSERTING into MRVMM.VW_T_GENM_ESCENARIO
