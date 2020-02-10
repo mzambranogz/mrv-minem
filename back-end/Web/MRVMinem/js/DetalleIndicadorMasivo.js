@@ -751,12 +751,12 @@ function fn_procesoDetalleIndicador(url, estado) {
                 ANNOB: $("#cbo-det-1-" + fila).val(),
                 ID_TIPO_VEHICULOB: $("#cbo-det-2-" + fila).val(),
                 ID_TIPO_COMBUSTIBLEB: $("#cbo-det-3-" + fila).val(),
-                KRVB: $("#txt-det-1-" + fila).val(),
-                CANTIDADB: $("#txt-det-2-" + fila).val(),
-                FACTOR_RENDIMIENTO: $("#txt-det-3-" + fila).val(),
-                TOTAL_GEI_BASE: $("#txt-det-4-" + fila).val(),
-                TOTAL_GEI_INIMIT: $("#txt-det-5-" + fila).val(),
-                TOTAL_GEI_REDUCIDO: $("#txt-det-6-" + fila).val(),
+                KRVB: $("#txt-det-2-" + fila).val(),
+                CANTIDADB: $("#txt-det-3-" + fila).val(),
+                FACTOR_RENDIMIENTO: $("#txt-det-4-" + fila).val(),
+                TOTAL_GEI_BASE: $("#txt-det-5-" + fila).val(),
+                TOTAL_GEI_INIMIT: $("#txt-det-6-" + fila).val(),
+                TOTAL_GEI_REDUCIDO: $("#txt-det-7-" + fila).val(),
                 ID_TIPO_FUENTEI: $("#cbo-enfoque").val(),
                 ADJUNTO_BASE: $("#fledoc-" + fila).val()
             }

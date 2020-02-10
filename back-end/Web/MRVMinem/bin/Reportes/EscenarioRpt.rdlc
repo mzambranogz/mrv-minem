@@ -67,10 +67,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.75917cm</Width>
+              <Width>1.09771cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.44708cm</Width>
+              <Width>1.83854cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -88,7 +88,7 @@
                             <TextRun>
                               <Value>=Sum(Fields!BAU_EMISION.Value)</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>7pt</FontSize>
                                 <Format>0.0;(0.0)</Format>
                               </Style>
                             </TextRun>
@@ -143,7 +143,7 @@
                             <TextRun>
                               <Value>=Sum(Fields!BAU_EMISION.Value)</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>7pt</FontSize>
                                 <Format>0.0;(0.0)</Format>
                               </Style>
                             </TextRun>
@@ -203,7 +203,7 @@
                             <TextRun>
                               <Value>=Sum(Fields!MIT_EMISION.Value)</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>7pt</FontSize>
                                 <Format>0.0;(0.0)</Format>
                               </Style>
                             </TextRun>
@@ -258,7 +258,7 @@
                             <TextRun>
                               <Value>=Sum(Fields!MIT_EMISION.Value)</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>7pt</FontSize>
                                 <Format>0.0;(0.0)</Format>
                               </Style>
                             </TextRun>
@@ -318,6 +318,7 @@
                             <TextRun>
                               <Value>=Sum(Fields!BAU_EMISION.Value) - Sum(Fields!MIT_EMISION.Value)</Value>
                               <Style>
+                                <FontSize>7pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Format>0.0;(0.0)</Format>
                               </Style>
@@ -373,6 +374,7 @@
                             <TextRun>
                               <Value>=Sum(Fields!BAU_EMISION.Value) - Sum(Fields!MIT_EMISION.Value)</Value>
                               <Style>
+                                <FontSize>7pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Format>0.0;(0.0)</Format>
                               </Style>
@@ -446,6 +448,7 @@
                           <TextRun>
                             <Value>=Fields!ANNO.Value</Value>
                             <Style>
+                              <FontSize>8pt</FontSize>
                               <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
@@ -503,6 +506,7 @@
                           <TextRun>
                             <Value>Acumulado</Value>
                             <Style>
+                              <FontSize>8pt</FontSize>
                               <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
@@ -560,7 +564,7 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>5.27813cm</Size>
+                    <Size>1.96333cm</Size>
                     <CellContents>
                       <Textbox Name="Textbox1">
                         <CanGrow>true</CanGrow>
@@ -571,6 +575,7 @@
                               <TextRun>
                                 <Value>BAU Emisiones (tCO2/año)</Value>
                                 <Style>
+                                  <FontSize>8pt</FontSize>
                                   <FontWeight>Bold</FontWeight>
                                 </Style>
                               </TextRun>
@@ -600,7 +605,7 @@
                 </TablixMember>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>5.27813cm</Size>
+                    <Size>1.96333cm</Size>
                     <CellContents>
                       <Textbox Name="Textbox13">
                         <CanGrow>true</CanGrow>
@@ -611,6 +616,7 @@
                               <TextRun>
                                 <Value>MITIGACION Emisiones (tCO2/año)</Value>
                                 <Style>
+                                  <FontSize>8pt</FontSize>
                                   <FontWeight>Bold</FontWeight>
                                 </Style>
                               </TextRun>
@@ -642,7 +648,7 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>5.27813cm</Size>
+                <Size>1.96333cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox7">
                     <CanGrow>true</CanGrow>
@@ -653,6 +659,7 @@
                           <TextRun>
                             <Value>Total</Value>
                             <Style>
+                              <FontSize>8pt</FontSize>
                               <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
@@ -681,10 +688,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DsEscenario</DataSetName>
-        <Top>6.02933cm</Top>
-        <Left>0.31432cm</Left>
+        <Top>2.53683cm</Top>
+        <Left>0.63182cm</Left>
         <Height>2.4cm</Height>
-        <Width>9.48438cm</Width>
+        <Width>4.89958cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1010,10 +1017,10 @@
           </Style>
         </ChartNoDataMessage>
         <DataSetName>DsEscenario</DataSetName>
-        <Top>10.39875cm</Top>
-        <Left>8.0298cm</Left>
-        <Height>8.94229cm</Height>
-        <Width>20.42459cm</Width>
+        <Top>5.82146cm</Top>
+        <Left>4.80188cm</Left>
+        <Height>6.66687cm</Height>
+        <Width>16.66751cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -1024,21 +1031,6 @@
           <BackgroundGradientType>None</BackgroundGradientType>
         </Style>
       </Chart>
-      <Image Name="MinemLogo">
-        <Source>Embedded</Source>
-        <Value>energiayminas</Value>
-        <Sizing>FitProportional</Sizing>
-        <Top>0.60537cm</Top>
-        <Left>12.7762cm</Left>
-        <Height>1.68479cm</Height>
-        <Width>8.45854cm</Width>
-        <ZIndex>2</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
       <Textbox Name="Textbox2">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -1048,7 +1040,7 @@
               <TextRun>
                 <Value>REPORTE DE ESCENARIO POR MEDIDA DE LÁMPARAS EN EL SECTOR PÚBLICO</Value>
                 <Style>
-                  <FontSize>17pt</FontSize>
+                  <FontSize>11pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
@@ -1059,11 +1051,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>3.93912cm</Top>
-        <Left>5.98933cm</Left>
+        <Top>1.08162cm</Top>
+        <Left>4.96063cm</Left>
         <Height>0.78521cm</Height>
-        <Width>24.05256cm</Width>
-        <ZIndex>3</ZIndex>
+        <Width>16.50876cm</Width>
+        <ZIndex>2</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1074,63 +1066,89 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Image Name="LogoPnud">
-        <Source>Embedded</Source>
-        <Value>pnud</Value>
-        <Sizing>FitProportional</Sizing>
-        <Top>0.60537cm</Top>
-        <Left>23.72647cm</Left>
-        <Height>1.96674cm</Height>
-        <Width>0.94437cm</Width>
-        <ZIndex>4</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
-      <Image Name="LogoGef">
-        <Source>Embedded</Source>
-        <Value>logogef</Value>
-        <Sizing>FitProportional</Sizing>
-        <Top>0.60537cm</Top>
-        <Left>21.68918cm</Left>
-        <Height>1.68479cm</Height>
-        <Width>1.55292cm</Width>
-        <ZIndex>5</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
-      <Image Name="LogoMrv">
-        <Source>Embedded</Source>
-        <Value>LogoMRVV</Value>
-        <Sizing>FitProportional</Sizing>
-        <Top>1.02829cm</Top>
-        <Left>0.31432cm</Left>
-        <Height>1.26187cm</Height>
-        <Width>6.10375cm</Width>
-        <ZIndex>6</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
     </ReportItems>
-    <Height>8.28125in</Height>
+    <Height>5.125in</Height>
     <Style />
   </Body>
-  <Width>12.27568in</Width>
+  <Width>10.15043in</Width>
   <Page>
+    <PageHeader>
+      <Height>2.54cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Image Name="LogoMrv">
+          <Source>Embedded</Source>
+          <Value>LogoMRVV</Value>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.65787cm</Top>
+          <Left>0.8964cm</Left>
+          <Height>0.78562cm</Height>
+          <Width>5.83917cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+        <Image Name="MinemLogo">
+          <Source>Embedded</Source>
+          <Value>energiayminas</Value>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.55245cm</Top>
+          <Left>15.21037cm</Left>
+          <Height>1.31437cm</Height>
+          <Width>6.89402cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+        <Image Name="LogoPnud">
+          <Source>Embedded</Source>
+          <Value>pnud</Value>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.55245cm</Top>
+          <Left>24.86419cm</Left>
+          <Height>1.31437cm</Height>
+          <Width>0.64984cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+        <Image Name="LogoGef">
+          <Source>Embedded</Source>
+          <Value>logogef</Value>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.55245cm</Top>
+          <Left>22.93273cm</Left>
+          <Height>1.31437cm</Height>
+          <Width>1.39069cm</Width>
+          <ZIndex>3</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
     <PageHeight>21cm</PageHeight>
     <PageWidth>29.7cm</PageWidth>
     <LeftMargin>0.5cm</LeftMargin>
     <RightMargin>0.5cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
+    <TopMargin>1cm</TopMargin>
+    <BottomMargin>1cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>

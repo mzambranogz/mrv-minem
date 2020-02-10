@@ -6,22 +6,22 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.68521cm</Width>
+              <Width>1.99729cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.61125cm</Width>
+              <Width>2.92333cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.53187cm</Width>
+              <Width>2.94979cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.61125cm</Width>
+              <Width>3.77cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>2.67167cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>2.20896cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -247,7 +247,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!ID_INICIATIVA.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -278,7 +280,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!NOMBRE_INSTITUCION.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -309,7 +313,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!NOMBRE_INICIATIVA.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -340,7 +346,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!NOMBRE_MEDMIT.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -371,7 +379,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!DESCRIPCION.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -402,7 +412,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!GEI_TOTAL.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -448,10 +460,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DtInstitucion</DataSetName>
-        <Top>4.86516cm</Top>
-        <Left>9.54382cm</Left>
+        <Top>1.69016cm</Top>
+        <Left>4.78132cm</Left>
         <Height>1.2cm</Height>
-        <Width>18.43958cm</Width>
+        <Width>16.52104cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -467,19 +479,21 @@
               <TextRun>
                 <Value>REPORTE DE INSTITUCIÓN POR INICIATIVA DE MITIGACIÓN</Value>
                 <Style>
-                  <FontSize>16pt</FontSize>
+                  <FontSize>11pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox13</rd:DefaultName>
-        <Top>3.70099cm</Top>
-        <Left>10.5537cm</Left>
+        <Top>0.52599cm</Top>
+        <Left>5.7912cm</Left>
         <Height>0.73229cm</Height>
-        <Width>16.4772cm</Width>
+        <Width>13.3022cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -491,78 +505,89 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Image Name="LogoMinem">
-        <Source>Embedded</Source>
-        <Value>energiayminas</Value>
-        <Sizing>FitProportional</Sizing>
-        <Top>0.52599cm</Top>
-        <Left>24.58792cm</Left>
-        <Height>1.5cm</Height>
-        <Width>7.07319cm</Width>
-        <ZIndex>2</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
-      <Image Name="LogoGef">
-        <Source>Embedded</Source>
-        <Value>logogef</Value>
-        <Sizing>FitProportional</Sizing>
-        <Top>0.52599cm</Top>
-        <Left>32.12854cm</Left>
-        <Height>1.5cm</Height>
-        <Width>1.5cm</Width>
-        <ZIndex>3</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
-      <Image Name="LogoPnud">
-        <Source>Embedded</Source>
-        <Value>pnud</Value>
-        <Sizing>FitProportional</Sizing>
-        <Top>0.52599cm</Top>
-        <Left>33.92771cm</Left>
-        <Height>1.76458cm</Height>
-        <Width>0.83854cm</Width>
-        <ZIndex>4</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
-      <Image Name="LogoMrvv">
-        <Source>Embedded</Source>
-        <Value>LogoMRVV</Value>
-        <Sizing>FitProportional</Sizing>
-        <Top>0.94932cm</Top>
-        <Left>3.51578cm</Left>
-        <Height>1.07667cm</Height>
-        <Width>5.86562cm</Width>
-        <ZIndex>5</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
     </ReportItems>
-    <Height>4.13542in</Height>
+    <Height>2.52084in</Height>
     <Style />
   </Body>
-  <Width>13.91667in</Width>
+  <Width>9.42709in</Width>
   <Page>
-    <PageHeight>29.7cm</PageHeight>
-    <PageWidth>21cm</PageWidth>
-    <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
+    <PageHeader>
+      <Height>2.66099cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Image Name="LogoMrvv">
+          <Source>Embedded</Source>
+          <Value>LogoMRVV</Value>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.47307cm</Top>
+          <Left>1.75966cm</Left>
+          <Height>0.81209cm</Height>
+          <Width>5.60104cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+        <Image Name="LogoMinem">
+          <Source>Embedded</Source>
+          <Value>energiayminas</Value>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.47307cm</Top>
+          <Left>14.82479cm</Left>
+          <Height>1.07667cm</Height>
+          <Width>5.53861cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+        <Image Name="LogoGef">
+          <Source>Embedded</Source>
+          <Value>logogef</Value>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.47307cm</Top>
+          <Left>21.09541cm</Left>
+          <Height>1.07667cm</Height>
+          <Width>1.05021cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+        <Image Name="LogoPnud">
+          <Source>Embedded</Source>
+          <Value>pnud</Value>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.47307cm</Top>
+          <Left>22.57708cm</Left>
+          <Height>1.5cm</Height>
+          <Width>0.65333cm</Width>
+          <ZIndex>3</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
+    <PageHeight>21cm</PageHeight>
+    <PageWidth>29.7cm</PageWidth>
+    <LeftMargin>1cm</LeftMargin>
+    <RightMargin>1cm</RightMargin>
+    <TopMargin>1cm</TopMargin>
+    <BottomMargin>1cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>

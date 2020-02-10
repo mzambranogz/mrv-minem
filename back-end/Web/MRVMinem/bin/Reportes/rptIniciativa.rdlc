@@ -6,28 +6,28 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.06418cm</Width>
+              <Width>1.77314cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.9958cm</Width>
+              <Width>2.96387cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.93295cm</Width>
+              <Width>2.80366cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.905cm</Width>
+              <Width>2.41008cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.74582cm</Width>
+              <Width>3.21787cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.49551cm</Width>
+              <Width>1.42043cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.51112cm</Width>
+              <Width>1.97712cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.0944cm</Width>
+              <Width>2.33128cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -540,10 +540,10 @@
                           <Style>Solid</Style>
                         </Border>
                         <BackgroundColor>WhiteSmoke</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingLeft>1pt</PaddingLeft>
+                        <PaddingRight>1pt</PaddingRight>
+                        <PaddingTop>1pt</PaddingTop>
+                        <PaddingBottom>1pt</PaddingBottom>
                       </Style>
                     </Textbox>
                   </CellContents>
@@ -609,31 +609,16 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DtIniciativa</DataSetName>
-        <Top>4.36244cm</Top>
-        <Left>0.64954cm</Left>
+        <Top>2.45744cm</Top>
+        <Left>4.45954cm</Left>
         <Height>1.2cm</Height>
-        <Width>13.74479cm</Width>
+        <Width>18.89745cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
-      <Image Name="MinemLogo">
-        <Source>Embedded</Source>
-        <Value>energiayminas</Value>
-        <Sizing>FitProportional</Sizing>
-        <Top>0.39371cm</Top>
-        <Left>7.1586cm</Left>
-        <Height>0.97083cm</Height>
-        <Width>4.87856cm</Width>
-        <ZIndex>1</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
       <Textbox Name="Textbox2">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -655,11 +640,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>3.03953cm</Top>
-        <Left>2.1553cm</Left>
-        <Height>0.73229cm</Height>
+        <Top>0.81703cm</Top>
+        <Left>8.1878cm</Left>
+        <Height>0.78521cm</Height>
         <Width>10.83437cm</Width>
-        <ZIndex>2</ZIndex>
+        <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -670,53 +655,8 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Image Name="LogoGef">
-        <Source>Embedded</Source>
-        <Value>logogef</Value>
-        <Sizing>FitProportional</Sizing>
-        <Top>0.39371cm</Top>
-        <Left>12.70013cm</Left>
-        <Height>1.34125cm</Height>
-        <Width>0.7417cm</Width>
-        <ZIndex>3</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
-      <Image Name="LogoPnud">
-        <Source>Embedded</Source>
-        <Value>pnud</Value>
-        <Sizing>FitProportional</Sizing>
-        <Top>0.39371cm</Top>
-        <Left>14.03203cm</Left>
-        <Height>1.34125cm</Height>
-        <Width>0.57396cm</Width>
-        <ZIndex>4</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
-      <Image Name="LogoMrvv">
-        <Source>Embedded</Source>
-        <Value>LogoMRVV</Value>
-        <Sizing>FitProportional</Sizing>
-        <Top>0.39371cm</Top>
-        <Left>0.64954cm</Left>
-        <Height>0.67979cm</Height>
-        <Width>4.05998cm</Width>
-        <ZIndex>5</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
     </ReportItems>
-    <Height>3.59375in</Height>
+    <Height>2.38542in</Height>
     <Style>
       <Border>
         <Style>None</Style>
@@ -724,14 +664,89 @@
       </Border>
     </Style>
   </Body>
-  <Width>9.29985in</Width>
+  <Width>10.01858in</Width>
   <Page>
-    <PageHeight>29.7cm</PageHeight>
-    <PageWidth>21cm</PageWidth>
-    <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
+    <PageHeader>
+      <Height>2.77812cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Image Name="LogoMrvv">
+          <Source>Embedded</Source>
+          <Value>LogoMRVV</Value>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.57892cm</Top>
+          <Left>0.96704cm</Left>
+          <Height>1.10312cm</Height>
+          <Width>4.56269cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+        <Image Name="MinemLogo">
+          <Source>Embedded</Source>
+          <Value>energiayminas</Value>
+          <Sizing>Fit</Sizing>
+          <Top>0.26142cm</Top>
+          <Left>17.15985cm</Left>
+          <Height>1.09678cm</Height>
+          <Width>5.2249cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>0cm</PaddingLeft>
+            <PaddingRight>0cm</PaddingRight>
+            <PaddingTop>0cm</PaddingTop>
+            <PaddingBottom>0cm</PaddingBottom>
+          </Style>
+        </Image>
+        <Image Name="LogoGef">
+          <Source>Embedded</Source>
+          <Value>logogef</Value>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.26142cm</Top>
+          <Left>22.84752cm</Left>
+          <Height>1.09678cm</Height>
+          <Width>1.13857cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+        <Image Name="LogoPnud">
+          <Source>Embedded</Source>
+          <Value>pnud</Value>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.10514cm</Top>
+          <Left>24.42286cm</Left>
+          <Height>1.25306cm</Height>
+          <Width>0.80972cm</Width>
+          <ZIndex>3</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
+    <PageHeight>21cm</PageHeight>
+    <PageWidth>29.7cm</PageWidth>
+    <LeftMargin>1cm</LeftMargin>
+    <RightMargin>1cm</RightMargin>
+    <TopMargin>1cm</TopMargin>
+    <BottomMargin>1cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>
