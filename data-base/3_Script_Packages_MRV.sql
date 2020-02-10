@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - s·bado-febrero-08-2020   
+-- Archivo creado  - lunes-febrero-10-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_ADMIN_SISTEMA
@@ -31,6 +31,8 @@
         pID_ROL             IN NUMBER, --ADD
         pID_ESTADO_USUARIO  IN NUMBER, --ADD
         pFLG_TERMINOS       IN VARCHAR2,
+        pADJUNTO            IN VARCHAR2,
+        pADJUNTO_BASE       IN VARCHAR2,
         pRefcursor          OUT SYS_REFCURSOR
     );
 
@@ -118,8 +120,13 @@ END PKG_MRV_ADMIN_SISTEMA;
     FUNCTION FN_F_BAU(   
         p_tipo_vehiculo     IN number, 
         p_tipo_combustible  IN number
-        --p_anno              IN number    
+    ) RETURN NUMBER;   
+    
+    FUNCTION FN_F_BAU2(   
+        p_tipo_vehiculo     IN number, 
+        p_tipo_combustible  IN number
     ) RETURN NUMBER;
+        
     
     FUNCTION FN_F_CON (
         p_anno              IN number
@@ -127,14 +134,12 @@ END PKG_MRV_ADMIN_SISTEMA;
 
     FUNCTION FN_F_MIT(      
         p_tipo_vehiculo     IN number, 
-        p_tipo_fuente       IN number, 
         p_anno              IN number    
     ) RETURN NUMBER;
 
 
     FUNCTION FN_F_REN(      
-        p_tipo_vehiculo     IN number, 
-        p_tipo_fuente       IN number
+        p_tipo_vehiculo     IN number
     ) RETURN NUMBER;
 
     FUNCTION FN_F_PER(      
@@ -157,6 +162,7 @@ END PKG_MRV_ADMIN_SISTEMA;
         p_tf                IN NUMBER,
         p_anno              IN NUMBER
        ) RETURN NUMBER;
+       
 
     FUNCTION FN_Iniciativa_Electricos2 (  
         p_krv               IN NUMBER, 
@@ -166,6 +172,66 @@ END PKG_MRV_ADMIN_SISTEMA;
         p_REN               IN NUMBER,
         p_anno              IN NUMBER
        ) RETURN NUMBER;       
+       
+       
+    FUNCTION FN_Base_Hibridos (  
+        p_krv               IN NUMBER, 
+        p_n                 IN NUMBER,
+        p_tv                IN NUMBER,
+        p_tc                IN NUMBER,
+        p_anno              IN NUMBER
+       ) RETURN NUMBER;    
+       
+
+    FUNCTION FN_Iniciativa_Hibridos (
+        p_krv               IN NUMBER, 
+        p_krv_combustible   IN NUMBER, 
+        p_n                 IN NUMBER, 
+        p_tv                IN NUMBER,
+        p_tc                IN NUMBER,
+        p_anno              IN NUMBER
+        ) RETURN NUMBER;
+
+    FUNCTION FN_Iniciativa_Hibridos2 (
+        p_krv                   NUMBER, 
+        p_krv_combustible       NUMBER, 
+        p_n                     NUMBER, 
+        p_tv                    NUMBER,
+        p_tc                    NUMBER,
+        p_REN                   NUMBER,
+        p_anno                  NUMBER
+        ) RETURN NUMBER;
+
+    FUNCTION FN_Base_Electricos_Consu (
+        p_consumo           IN NUMBER, 
+        p_tv                IN NUMBER,
+        p_tc                IN NUMBER,
+        p_anno              IN NUMBER
+        )RETURN NUMBER;  
+        
+        
+    FUNCTION FN_Iniciativa_Electricos_Consu (
+        p_consumo   NUMBER, 
+        p_tv        NUMBER,
+        p_anno      NUMBER
+        )RETURN NUMBER;  
+        
+    FUNCTION FN_Base_Hibridos_Consu (
+        p_consumo               NUMBER, 
+        p_consumo_combustible   NUMBER, 
+        p_tv                    NUMBER,
+        p_tc                    NUMBER,
+        p_anno                  NUMBER
+        ) RETURN NUMBER;    
+        
+    FUNCTION FN_Iniciativa_Hibridos_Consu (
+        p_consumo               NUMBER, 
+        p_consumo_combustible   NUMBER, 
+        p_tv                    NUMBER,
+        p_tc                    NUMBER,
+        p_anno                  NUMBER
+        )
+    RETURN NUMBER;   
 
 END PKG_MRV_CALCULO;
 
@@ -423,6 +489,7 @@ END PKG_MRV_DETALLE_INDICADORES;
         pFECHA_IMPLE_INICIATIVA IN DATE,
         pFECHA_FIN_INICIATIVA IN DATE,
         pPRIVACIDAD_INICIATIVA IN VARCHAR2,
+        pPRIVACIDAD_INVERSION IN VARCHAR2,
         pID_ESTADO  IN NUMBER
     );
 
@@ -1243,11 +1310,13 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
     );
     
     PROCEDURE USP_SEL_INSTITUCION(
+        pBuscar     VARCHAR2,
         pRegistros  INTEGER,
         pPagina     INTEGER,
         pSortColumn IN VARCHAR2,
         pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR);
+
         
     PROCEDURE USP_UPD_INSTITUCION(
         pID_INSTITUCION			IN NUMBER,
@@ -1272,6 +1341,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
    );
    
    PROCEDURE USP_SEL_UBICACION(
+        pBuscar     IN VARCHAR2,
         pRegistros  INTEGER,
         pPagina     INTEGER,
         pSortColumn IN VARCHAR2,
@@ -1313,6 +1383,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
    );
    
    PROCEDURE USP_SEL_SECTORINSTITUCION(
+        pBuscar     VARCHAR2,
         pRegistros  INTEGER,
         pPagina     INTEGER,
         pSortColumn IN VARCHAR2,
@@ -1326,6 +1397,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
    );
    
    PROCEDURE USP_SEL_ESCENARIO(
+        pBuscar     VARCHAR2,
         pRegistros  INTEGER,
         pPagina     INTEGER,
         pSortColumn IN VARCHAR2,
@@ -1500,6 +1572,50 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
     
     PROCEDURE USP_SEL_LISTA_UBICACION(
         pRefcursor OUT SYS_REFCURSOR
+    );
+    
+    PROCEDURE USP_SEL_EXCEL_SECTORINST(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+    
+    PROCEDURE USP_SEL_EXCEL_UBICACION(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+    
+    PROCEDURE USP_SEL_EXCEL_INSTITUCION(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+    
+    PROCEDURE USP_UPD_ESCENARIO(
+        pID_ESCENARIO   IN NUMBER,
+        pID_MEDMIT      IN NUMBER,
+        pANNO           IN NUMBER,
+        pBAU_EMISION    IN NUMBER,
+        pMIT_EMISION    IN NUMBER,
+        pREDUCCION      IN NUMBER,
+        pVALOR_SOFTWARE IN NUMBER,
+        pEXPOST         IN NUMBER,
+        pMETA_ANUAL     IN NUMBER
+   );
+
+    PROCEDURE USP_DEL_ESCENARIO(                  
+        pID_ESCENARIO IN NUMBER
+    );
+    
+    PROCEDURE USP_SEL_EXCEL_ESCENARIO(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
     );
 
 END PKG_MRV_MANTENIMIENTO;
@@ -1780,6 +1896,8 @@ END PKG_MRV_REPORTES;
         pID_ROL             IN NUMBER, --ADD
         pID_ESTADO_USUARIO  IN NUMBER, --ADD
         pFLG_TERMINOS       IN VARCHAR2,
+        pADJUNTO            IN VARCHAR2,
+        pADJUNTO_BASE       IN VARCHAR2,
         pRefcursor          OUT SYS_REFCURSOR
     ) IS
         vIdUsuario  NUMBER;
@@ -1787,15 +1905,15 @@ END PKG_MRV_REPORTES;
         SELECT SQ_GENM_USUARIO.NEXTVAL INTO vIdUsuario FROM DUAL;
 
         INSERT INTO T_GENM_USUARIO (ID_USUARIO, NOMBRES_USUARIO, APELLIDOS_USUARIO, ID_INSTITUCION, PASSWORD_USUARIO,EMAIL_USUARIO, 
-                    ID_ESTADO_USUARIO, TELEFONO_USUARIO, ANEXO_USUARIO, CELULAR_USUARIO, FLG_ESTADO, ID_TERMINOS, FLG_TERMINOS)
+                    ID_ESTADO_USUARIO, TELEFONO_USUARIO, ANEXO_USUARIO, CELULAR_USUARIO, FLG_ESTADO, ID_TERMINOS, FLG_TERMINOS, ADJUNTO, ADJUNTO_BASE)
         VALUES     (vIdUsuario, pNOMBRES_USUARIO, pAPELLIDOS_USUARIO, pID_INSTITUCION, pPASSWORD_USUARIO,pEMAIL_USUARIO, 
-                    pID_ESTADO_USUARIO, pTELEFONO_USUARIO, pANEXO_USUARIO, pCELULAR_USUARIO, 1, 1, pFLG_TERMINOS);
+                    pID_ESTADO_USUARIO, pTELEFONO_USUARIO, pANEXO_USUARIO, pCELULAR_USUARIO, 1, 1, pFLG_TERMINOS, pADJUNTO, pADJUNTO_BASE);
 
         --SELECT nvl(MAX(ID_USUARIO),0) INTO vIdUsuario FROM T_GENM_USUARIO;
 
         INSERT INTO T_MAE_USUARIO_ROL (ID_USUARIO, ID_ROL, FLG_ESTADO, DES_COMENTARIO) 
         VALUES (vIdUsuario, pID_ROL, 1, '');
-        
+
         IF pID_ROL = 1 THEN
             UPDATE  T_GENM_USUARIO
             SET     PRIMER_INICIO = 1
@@ -1832,9 +1950,10 @@ END PKG_MRV_REPORTES;
 
         OPEN pRefcursor FOR
         SELECT PASSWORD_USUARIO, ID_USUARIO FROM T_GENM_USUARIO
-        WHERE EMAIL_USUARIO = pUsuarioLogin;
+        WHERE LOWER(EMAIL_USUARIO) = LOWER(pUsuarioLogin);
 
-    END USP_SEL_PASSWORD;    
+    END USP_SEL_PASSWORD; 
+   
 
     PROCEDURE USP_SEL_USUARIO_ROL(
         pID_USUARIO          IN NUMBER,
@@ -2011,7 +2130,6 @@ END PKG_MRV_ADMIN_SISTEMA;
     FUNCTION FN_F_BAU (
         p_tipo_vehiculo number, 
         p_tipo_combustible number
-        --p_anno number
     ) RETURN NUMBER
     AS 
         resultado NUMBER;
@@ -2020,30 +2138,41 @@ END PKG_MRV_ADMIN_SISTEMA;
         WHERE Id_Tipo_Vehiculo=p_tipo_vehiculo and Id_Tipo_Combustible=p_tipo_combustible;
         Return (resultado);
     END;
+    
+    FUNCTION FN_F_BAU2 (
+        p_tipo_vehiculo number, 
+        p_tipo_combustible number
+    ) RETURN NUMBER
+    AS 
+        resultado NUMBER;
+    BEGIN   
+        SELECT FACTOR_MEDIA INTO resultado FROM T_MAE_F_BAU 
+        WHERE Id_Tipo_Vehiculo=p_tipo_vehiculo and Id_Tipo_Combustible=p_tipo_combustible;
+        Return (resultado);
+    END;
 
 
     FUNCTION FN_F_MIT (
         p_tipo_vehiculo number, 
-        p_tipo_fuente number, 
         p_anno number)
     RETURN NUMBER
     IS 
         resultado NUMBER;
     BEGIN
         SELECT FACTOR INTO resultado FROM T_MAE_F_MIT
-        WHERE Id_Tipo_Vehiculo=p_tipo_vehiculo and Id_Tipo_Fuente=p_tipo_fuente and anno=p_anno;
+        WHERE Id_Tipo_Vehiculo=p_tipo_vehiculo and anno=p_anno;
         Return (resultado);
     END;    
 
     FUNCTION FN_F_REN (
-        p_tipo_vehiculo number, 
-        p_tipo_fuente number)
+        p_tipo_vehiculo number
+    )
     RETURN NUMBER
     IS 
         resultado NUMBER;
     BEGIN
         SELECT  FACTOR INTO resultado FROM T_MAE_F_REN
-        WHERE   Id_Tipo_Vehiculo=p_tipo_vehiculo and Id_Tipo_Fuente=p_tipo_fuente;
+        WHERE   Id_Tipo_Vehiculo=p_tipo_vehiculo;
         Return  (resultado);
     END;   
 
@@ -2100,18 +2229,18 @@ END PKG_MRV_ADMIN_SISTEMA;
 
     --------------------------------------------------------------------------
     -- FUNCION FN_Iniciativa_Electricos  que Calcula la Emision de GEI para 
-    -- una Iniciativa de Vehiculos Electricos, determinando el Factor 
-    -- de Rendimiento
+    -- una Iniciativa de Vehiculos Electricos con Factor de Rendimiento Automatico
+					 
     --------------------------------------------------------------------------
     -- p_krv	: KRV Distancia Recorridad Anualmente por vehiculo promedio
     -- p_n	: Numero de Vehiculos
     -- p_tv	: Tipo Vehiculo
-    -- p_tf	: Tipo Fuente Electrica
+    -- p_tf	: Tipo Fuente   
     -- p_anno	: AÒo
     -- Ejemplo :
     -- PKG_MRV_CALCULO.FN_Iniciativa_Electricos (57600,20,1,1,2019);
     -- Debe salir : 31.76
-    -------------------------------------------------------------------------- 
+    --------------------------------------------------------------------------  
 
     FUNCTION FN_Iniciativa_Electricos (
         p_krv       NUMBER, 
@@ -2123,15 +2252,13 @@ END PKG_MRV_ADMIN_SISTEMA;
     RETURN NUMBER
     IS 
         resultado   NUMBER;
-        p_MIT       NUMBER;
         p_PER       NUMBER;
         p_REN       NUMBER;
         p_CON       NUMBER;
     BEGIN
 
-        p_MIT:=FN_F_MIT(p_tv,p_tf,p_anno);
         p_PER:=FN_F_PER(p_anno);
-        p_REN:=FN_F_REN(p_tv,p_tf);   
+        p_REN:=FN_F_REN(p_tv);    
         p_CON:=FN_F_CON(p_anno); 
         resultado:= (p_krv*p_n*p_CON*p_REN/(1-p_PER))/1000;
 
@@ -2140,8 +2267,8 @@ END PKG_MRV_ADMIN_SISTEMA;
 
     --------------------------------------------------------------------------
     -- FUNCION FN_Iniciativa_Electricos2  que Calcula la Emision de GEI para 
-    -- una Iniciativa de Vehiculos Electricos, ingresado  el Factor 
-    -- de Rendimiento como variable
+    -- una Iniciativa de Vehiculos Electricos, con Factor de Rendimiento manual
+								   
     --------------------------------------------------------------------------
     -- p_krv	: KRV Distancia Recorridad Anualmente por vehiculo promedio
     -- p_n	: Numero de Vehiculos
@@ -2152,7 +2279,7 @@ END PKG_MRV_ADMIN_SISTEMA;
     -- Ejemplo :
     -- PKG_MRV_CALCULO.FN_Iniciativa_Electricos2 (57600,20,1,1,'0,15',2019);
     -- Debe salir : 29.25
-    -------------------------------------------------------------------------- 
+    --------------------------------------------------------------------------  
 
     FUNCTION FN_Iniciativa_Electricos2 (
         p_krv       NUMBER, 
@@ -2165,16 +2292,254 @@ END PKG_MRV_ADMIN_SISTEMA;
     RETURN NUMBER
     IS 
         resultado   NUMBER;
-        p_MIT       NUMBER;
         p_PER       NUMBER;
         p_CON       NUMBER;
     BEGIN
 
-        p_MIT:=FN_F_MIT(p_tv,p_tf,p_anno);
         p_PER:=FN_F_PER(p_anno);  
         p_CON:=FN_F_CON(p_anno); 
         resultado:= (p_krv*p_n*p_CON*p_REN/(1-p_PER))/1000;
 
+        Return (resultado);
+    END;
+    
+            
+--------------------------------------------------------------------------
+    -- p_krv : KRV Distancia Recorridad Anualmente por vehiculo promedio
+    -- p_n	: Numero de Vehiculos
+    -- p_tv	: Tipo Vehiculo
+    -- p_tc	: Tipo Combustible
+    -- p_anno	: AÒo
+
+    -- Ejemplo :
+    -- PKG_MRV_CALCULO.FN_Base_Hibridos (57600,20,1,3,2018);
+    -- Debe salir : 206.14
+    --------------------------------------------------------------------------
+    FUNCTION FN_Base_Hibridos (
+        p_krv       NUMBER, 
+        p_n         NUMBER, 
+        p_tv        NUMBER,
+        p_tc        NUMBER,
+        p_anno      NUMBER
+        )
+    RETURN NUMBER
+    IS 
+        resultado   NUMBER;
+        p_BAU       NUMBER;
+    BEGIN  
+        p_BAU:=FN_F_BAU(p_tv,p_tc);
+        resultado:= (p_krv*p_n*p_BAU)/1000000;    
+        Return (resultado);
+    END;    
+    
+    
+    --------------------------------------------------------------------------
+    -- FUNCION FN_Iniciativa_Hibridos  que Calcula la Emision de GEI para 
+    -- una Iniciativa de Vehiculos Hibridos con factor de Rendimiento Automatico
+    --------------------------------------------------------------------------
+    -- p_krv	            : KRV Distancia Recorridad Anualmente por vehiculo promedio
+    -- p_krv_combustible	: KRV Distancia Recorridad Anualmente por vehiculo promedio (parte de combustible hibrido)
+    -- p_n	                : Numero de Vehiculos
+    -- p_tv	                : Tipo Vehiculo
+    -- p_tc	                : Tipo Combustible
+    -- p_anno	            : AÒo
+    -- Ejemplo :
+    -- PKG_MRV_CALCULO.FN_Iniciativa_Hibridos (43200,14400,20,1,3,2019);
+    -- Debe salir : 75.37
+    -------------------------------------------------------------------------- 
+
+    FUNCTION FN_Iniciativa_Hibridos (
+        p_krv                   NUMBER, 
+        p_krv_combustible       NUMBER, 
+        p_n                     NUMBER, 
+        p_tv                    NUMBER,
+        p_tc                    NUMBER,
+        p_anno                  NUMBER
+        )
+    RETURN NUMBER
+    IS 
+        resultado   NUMBER;
+        p_BAU       NUMBER;
+        p_PER       NUMBER;
+        p_REN       NUMBER;
+        p_CON       NUMBER;
+    BEGIN
+
+        p_BAU:=FN_F_BAU(p_tv,p_tc);
+        p_PER:=FN_F_PER(p_anno);
+        p_REN:=FN_F_REN(p_tv);   
+        p_CON:=FN_F_CON(p_anno); 
+        resultado:= (p_krv*p_n*p_REN*p_CON)/(1-p_PER)/1000 + (p_krv_combustible*p_n*p_BAU)/1000000 ;
+
+        Return (resultado);
+    END;
+
+    
+    --------------------------------------------------------------------------
+    -- FUNCION FN_Iniciativa_Hibridos2  que Calcula la Emision de GEI para 
+    -- una Iniciativa de Vehiculos Hibridos con factor de Rendimiento Manual
+    --------------------------------------------------------------------------
+    -- p_krv	            : KRV Distancia Recorridad Anualmente por vehiculo promedio
+    -- p_krv_combustible	: KRV Distancia Recorridad Anualmente por vehiculo promedio (parte de combustible hibrido)
+    -- p_n	                : Numero de Vehiculos
+    -- p_tv	                : Tipo Vehiculo
+    -- p_tc	                : Tipo Combustible
+    -- p_REN                : Factor de Rendimiento (variable)
+    -- p_anno	            : AÒo
+    -- Ejemplo :
+    -- PKG_MRV_CALCULO.FN_Iniciativa_Hibridos2 (43200,14400,20,1,3,'0,15',2019);
+    -- Debe salir : 75.37
+    -------------------------------------------------------------------------- 
+
+    FUNCTION FN_Iniciativa_Hibridos2 (
+        p_krv                   NUMBER, 
+        p_krv_combustible       NUMBER, 
+        p_n                     NUMBER, 
+        p_tv                    NUMBER,
+        p_tc                    NUMBER,
+        p_REN                   NUMBER,
+        p_anno                  NUMBER
+        )
+    RETURN NUMBER
+    IS 
+        resultado   NUMBER;
+        p_BAU       NUMBER;
+        p_PER       NUMBER;
+        p_CON       NUMBER;
+    BEGIN
+
+        p_BAU:=FN_F_BAU(p_tv,p_tc);
+        p_PER:=FN_F_PER(p_anno);
+        p_CON:=FN_F_CON(p_anno); 
+        resultado:= (p_krv*p_n*p_REN*p_CON)/(1-p_PER)/1000 + (p_krv_combustible*p_n*p_BAU)/1000000 ;
+
+        Return (resultado);
+    END;
+
+
+    -----------------------------------------------------------------------------------------------------------
+    -- p_consumo : Electricidad consumida por vehÌculos de categorÌa en estaciones de carga durante aÒo y (kWh)
+    -- p_tv	: Tipo Vehiculo
+    -- p_tc	: Tipo Combustible
+    -- p_anno	: AÒo
+    -- Ejemplo :
+    -- PKG_MRV_CALCULO.FN_Base_Electricos_Consu (222,1,3,2019);
+    -- Debe salir : 243.85
+    --------------------------------------------------------------------------
+    FUNCTION FN_Base_Electricos_Consu (
+        p_consumo   NUMBER, 
+        p_tv        NUMBER,
+        p_tc        NUMBER,
+        p_anno      NUMBER
+        )
+    RETURN NUMBER
+    IS 
+        resultado   NUMBER;
+        p_REN       NUMBER;
+        p_BAU       NUMBER;
+    BEGIN  
+        p_BAU:=FN_F_BAU(p_tv,p_tc);
+        p_REN:=FN_F_REN(p_tv);   
+        resultado:= p_consumo*1000/p_REN*p_BAU/1000000;    
+        Return (resultado);
+    END;
+    
+    
+    
+    -----------------------------------------------------------------------------------------------------------
+    -- p_consumo : Electricidad consumida por vehÌculos de categorÌa en estaciones de carga durante aÒo y (kWh)
+    -- p_tv	: Tipo Vehiculo
+    -- p_anno	: AÒo
+    -- Ejemplo :
+    -- PKG_MRV_CALCULO.FN_Iniciativa_Electricos_Consu (222,1,2019);
+    -- Debe salir : 42.16
+    --------------------------------------------------------------------------
+    FUNCTION FN_Iniciativa_Electricos_Consu (
+        p_consumo   NUMBER, 
+        p_tv        NUMBER,
+        p_anno      NUMBER
+        )
+    RETURN NUMBER
+    IS 
+        resultado   NUMBER;
+        p_PER       NUMBER;
+        p_REN       NUMBER;
+        p_MIT       NUMBER;
+    BEGIN  
+        p_PER:=FN_F_PER(p_anno);
+        p_REN:=FN_F_REN(p_tv); 
+        p_MIT:=FN_F_MIT(p_tv,p_anno);
+        
+        resultado:= (p_consumo/(1-p_PER)*1000/p_REN*p_MIT/1000);    
+        Return (resultado);
+    END;
+
+-----------------------------------------------------------------------------------------------------------
+    -- p_consumo : Electricidad consumida por vehÌculos de categorÌa en estaciones de carga durante aÒo y (kWh)
+    -- p_consumo_combustible : Consumo combustible  
+
+    -- p_tv	: Tipo Vehiculo
+    -- p_tc	: Tipo Combustible
+    -- p_anno	: AÒo
+    -- Ejemplo :
+    -- PKG_MRV_CALCULO.FN_Base_Hibridos_Consu (167,216,1,3,2018);
+    -- Debe salir : 185.10
+    --------------------------------------------------------------------------
+    FUNCTION FN_Base_Hibridos_Consu (
+        p_consumo               NUMBER, 
+        p_consumo_combustible   NUMBER, 
+        p_tv                    NUMBER,
+        p_tc                    NUMBER,
+        p_anno                  NUMBER
+        )
+    RETURN NUMBER
+    IS 
+        resultado   NUMBER;
+        p_PER       NUMBER;
+        p_REN       NUMBER;
+        p_BAU       NUMBER;
+        p_BAU2      NUMBER;
+    BEGIN  
+        p_PER:=FN_F_PER(p_anno);
+        p_REN:=FN_F_REN(p_tv);   
+        p_BAU:=FN_F_BAU(p_tv,p_tc);
+        p_BAU2:=FN_F_BAU2(p_tv,p_tc);
+        resultado:= (p_consumo*1000/p_REN*p_BAU/1000000)+(p_consumo_combustible*p_BAU2*p_BAU/1000000);    
+        Return (resultado);
+    END;
+    
+    
+    
+-----------------------------------------------------------------------------------------------------------
+    -- p_consumo : Electricidad consumida por vehÌculos de categorÌa en estaciones de carga durante aÒo y (kWh)
+    -- p_consumo_combustible : Consumo combustible  
+    -- p_tv	: Tipo Vehiculo
+    -- p_tc	: Tipo Combustible
+    -- p_anno	: AÒo
+    -- Ejemplo :
+    -- PKG_MRV_CALCULO.FN_Iniciativa_Hibridos_Consu (167,216,1,3,2018);
+    -- Debe salir : 29.96
+    --------------------------------------------------------------------------
+    FUNCTION FN_Iniciativa_Hibridos_Consu (
+        p_consumo               NUMBER, 
+        p_consumo_combustible   NUMBER, 
+        p_tv                    NUMBER,
+        p_tc                    NUMBER,
+        p_anno                  NUMBER
+        )
+    RETURN NUMBER
+    IS 
+        resultado   NUMBER;
+        p_PER       NUMBER;
+        p_CON       NUMBER; 
+        p_BAU       NUMBER;
+        p_BAU2      NUMBER;
+    BEGIN  
+        p_PER:=FN_F_PER(p_anno);
+        p_CON:=FN_F_CON(p_anno);  
+        p_BAU:=FN_F_BAU(p_tv,p_tc);
+        p_BAU2:=FN_F_BAU2(p_tv,p_tc);
+        resultado:= (p_consumo/(1-p_PER)*p_CON)+(p_consumo_combustible*p_BAU2*p_BAU/1000000);    
         Return (resultado);
     END;
 
@@ -2271,7 +2636,7 @@ END PKG_MRV_CALCULO;
 
         SELECT PKG_MRV_CALCULO.FN_Base_Electricos (pKRV,pCANTIDAD,pID_TIPO_VEHICULO,pID_TIPO_COMBUSTIBLE,pANNO) INTO vTotalB FROM DUAL;
         SELECT PKG_MRV_CALCULO.FN_Iniciativa_Electricos (pKRV,pCANTIDAD,pID_TIPO_VEHICULO,pID_TIPO_FUENTE,pANNO) INTO vTotalI FROM DUAL;
-        SELECT PKG_MRV_CALCULO.FN_F_REN (pID_TIPO_VEHICULO,pID_TIPO_FUENTE) INTO vRendimiento FROM DUAL;
+        SELECT PKG_MRV_CALCULO.FN_F_REN (pID_TIPO_VEHICULO) INTO vRendimiento FROM DUAL;
         vTotalR := vTotalB - vTotalI;
 
         IF (pID_INDICADOR = 0) THEN
@@ -2354,7 +2719,7 @@ END PKG_MRV_CALCULO;
         
           
         IF pF_REN = 0 THEN
-            SELECT PKG_MRV_CALCULO.FN_F_REN(pID_TIPO_VEHICULO, pID_TIPO_FUENTE)
+            SELECT PKG_MRV_CALCULO.FN_F_REN(pID_TIPO_VEHICULO) -- Factor de Rendimiento Simplificado
             INTO vRendimiento
             FROM DUAL;
         ELSE
@@ -3287,6 +3652,7 @@ END PKG_MRV_DETALLE_INDICADORES;
         pFECHA_IMPLE_INICIATIVA IN DATE,
         pFECHA_FIN_INICIATIVA IN DATE,
         pPRIVACIDAD_INICIATIVA IN VARCHAR2,
+        pPRIVACIDAD_INVERSION IN VARCHAR2,
         pID_ESTADO  IN NUMBER
     )IS
         vEntidad VARCHAR2(50);
@@ -3305,7 +3671,8 @@ END PKG_MRV_DETALLE_INDICADORES;
                    ID_MONEDA              = pID_MONEDA,
                    FECHA_IMPLE_INICIATIVA = pFECHA_IMPLE_INICIATIVA,
                    FECHA_FIN_INICIATIVA   = PFECHA_FIN_INICIATIVA,
-                   PRIVACIDAD_INICIATIVA  = pPRIVACIDAD_INICIATIVA
+                   PRIVACIDAD_INICIATIVA  = pPRIVACIDAD_INICIATIVA,
+                   PRIVACIDAD_INVERSION   = pPRIVACIDAD_INVERSION
                WHERE ID_INICIATIVA        = pID_INICIATIVA ;
 
                SELECT SQ_GEND_DETALLE_INICIATIVA.NEXTVAL INTO vIdDetalleIniciativa FROM DUAL; 
@@ -3322,6 +3689,7 @@ END PKG_MRV_DETALLE_INDICADORES;
                    FECHA_IMPLE_INICIATIVA = pFECHA_IMPLE_INICIATIVA,
                    FECHA_FIN_INICIATIVA   = pFECHA_FIN_INICIATIVA,
                    PRIVACIDAD_INICIATIVA  = pPRIVACIDAD_INICIATIVA,
+                   PRIVACIDAD_INVERSION   = pPRIVACIDAD_INVERSION,
                    ID_ESTADO              = pID_ESTADO
                WHERE ID_INICIATIVA        = pID_INICIATIVA ;
 
@@ -7437,8 +7805,10 @@ END PKG_MRV_INICIATIVA_MITIGACION;
                             INS.NOMBRE_INSTITUCION INSTITUCION,
                             INS.DIRECCION_INSTITUCION DIRECCION,
                             INS.RUC_INSTITUCION RUC,
-                            SEC.ID_SECTOR_INST,
-                            UR.ID_ROL
+                            SEC.ID_SECTOR_INST,                            
+                            UR.ID_ROL,
+                            U.ADJUNTO ADJUNTO,
+                            U.ADJUNTO_BASE ADJUNTO_BASE
         FROM        T_GENM_USUARIO U
         LEFT JOIN  T_GENM_INSTITUCION INS ON U.ID_INSTITUCION = INS.ID_INSTITUCION
         LEFT JOIN  T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
@@ -7784,6 +8154,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
     END USP_UPD_INSTITUCION;
     
     PROCEDURE USP_SEL_INSTITUCION(
+        pBuscar     VARCHAR2,
         pRegistros  INTEGER,
         pPagina     INTEGER,
         pSortColumn IN VARCHAR2,
@@ -7800,8 +8171,12 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
     BEGIN
         SELECT  COUNT(1) INTO vTotal
         FROM    VW_T_GENM_INSTITUCION I
-                WHERE NVL(I.FLAG_ESTADO,'1') = '1';
-        
+                WHERE NVL(I.FLAG_ESTADO,'1') = '1' AND
+                (LOWER(TRANSLATE(I.NOMBRE_INSTITUCION,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like '%'|| LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) ||'%' 
+              OR LOWER(TRANSLATE(I.DIRECCION_INSTITUCION,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like '%'|| LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) ||'%' 
+              OR LOWER(TRANSLATE(I.RUC_INSTITUCION,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like'%'|| LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) ||'%' 
+              OR LOWER(TRANSLATE(I.SECTOR_INSTITUCION,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like '%'||LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou'))||'%' );
+
         vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
         IF vPagina2 = 0 THEN
             vPagina2 := 1;
@@ -7811,7 +8186,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         END IF;
         vPageIndex := vPagina2 - 1;
         vSortColumn2 := pSortColumn;
-        
+
         vQuery := 'SELECT *    FROM (
         SELECT      I.ID_INSTITUCION,
                     I.ID_SECTOR_INSTITUCION,
@@ -7826,7 +8201,11 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
                     || pRegistros || ' AS cantidad_registros,'
                     || vTotal || ' AS total_registros
                 FROM VW_T_GENM_INSTITUCION I
-                WHERE NVL(I.FLAG_ESTADO,''1'') = ''1''
+                WHERE NVL(I.FLAG_ESTADO,''1'') = ''1'' AND
+                (LOWER(TRANSLATE(I.NOMBRE_INSTITUCION,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' 
+                  OR LOWER(TRANSLATE(I.DIRECCION_INSTITUCION,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' 
+                  OR LOWER(TRANSLATE(I.RUC_INSTITUCION,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' 
+                  OR LOWER(TRANSLATE(I.SECTOR_INSTITUCION,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou''))||''%'' )
                 )
                 WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
         OPEN pRefcursor FOR vQuery;
@@ -8028,6 +8407,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
   END USP_GET_UBICACION;
 
   PROCEDURE USP_SEL_UBICACION(
+        pBuscar     IN VARCHAR2,
         pRegistros  INTEGER,
         pPagina     INTEGER,
         pSortColumn IN VARCHAR2,
@@ -8043,8 +8423,9 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
     BEGIN
         SELECT  COUNT(1) INTO vTotal
         FROM    T_MAE_UBICACION I
-                WHERE I.FLG_ESTADO = '1';
-                
+                WHERE I.FLG_ESTADO = '1' AND
+                (LOWER(TRANSLATE(I.DESCRIPCION,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like '%'|| LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) ||'%' );
+
         vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
         IF vPagina2 = 0 THEN
             vPagina2 := 1;
@@ -8064,11 +8445,12 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
                     || pRegistros || ' AS cantidad_registros,'
                     || vTotal || ' AS total_registros
                 FROM T_MAE_UBICACION I
-                WHERE I.FLG_ESTADO = ''1''
+                WHERE I.FLG_ESTADO = ''1'' AND
+                (LOWER(TRANSLATE(I.DESCRIPCION,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' )
                 )
                 WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
         OPEN pRefcursor FOR vQuery;
-        
+
     END USP_SEL_UBICACION;
 	
   PROCEDURE USP_DEL_UBICACION(
@@ -8154,6 +8536,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
     
 	
     PROCEDURE USP_SEL_SECTORINSTITUCION(
+        pBuscar     VARCHAR2,
         pRegistros  INTEGER,
         pPagina     INTEGER,
         pSortColumn IN VARCHAR2,
@@ -8170,7 +8553,8 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
     BEGIN
         SELECT  COUNT(1) INTO vTotal
         FROM    T_MAE_SECTOR_INST I
-                WHERE I.FLAG_ESTADO = '1';
+                WHERE I.FLAG_ESTADO = '1' AND
+                (LOWER(TRANSLATE(I.DESCRIPCION,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like '%'|| LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) ||'%' );
 
         vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
         IF vPagina2 = 0 THEN
@@ -8192,7 +8576,8 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
                     || pRegistros || ' AS cantidad_registros,'
                     || vTotal || ' AS total_registros
                 FROM T_MAE_SECTOR_INST I
-                WHERE I.FLAG_ESTADO = ''1''
+                WHERE I.FLAG_ESTADO = ''1'' AND
+                (LOWER(TRANSLATE(I.DESCRIPCION,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' )
                 )
                 WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
         OPEN pRefcursor FOR vQuery;
@@ -8220,6 +8605,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
 
 
     PROCEDURE USP_SEL_ESCENARIO(
+        pBuscar     VARCHAR2,
         pRegistros  INTEGER,
         pPagina     INTEGER,
         pSortColumn IN VARCHAR2,
@@ -8235,7 +8621,15 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
     BEGIN
         SELECT  COUNT(1) INTO vTotal
         FROM    VW_T_GENM_ESCENARIO I
-                WHERE I.FLAG_ESTADO = '1';
+        WHERE I.FLAG_ESTADO = '1' AND
+                (LOWER(TRANSLATE(I.NOMBRE_MEDMIT,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like '%'|| LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) ||'%' 
+              OR LOWER(TRANSLATE(I.ANNO,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like '%'|| LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) ||'%' 
+              OR LOWER(TRANSLATE(I.BAU_EMISION,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like'%'|| LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) ||'%' 
+              OR LOWER(TRANSLATE(I.MIT_EMISION,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like'%'|| LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) ||'%' 
+              OR LOWER(TRANSLATE(I.REDUCCION,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like'%'|| LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) ||'%' 
+              OR LOWER(TRANSLATE(I.VALOR_SOFTWARE,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like'%'|| LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) ||'%' 
+              OR LOWER(TRANSLATE(I.EXPOST,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like'%'|| LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) ||'%' 
+              OR LOWER(TRANSLATE(I.META_ANUAL,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like '%'||LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou'))||'%' );
 
         vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
         IF vPagina2 = 0 THEN
@@ -8265,14 +8659,22 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
                     || pRegistros || ' AS cantidad_registros,'
                     || vTotal || ' AS total_registros
                 FROM VW_T_GENM_ESCENARIO E
-                WHERE E.FLAG_ESTADO = ''1''
+                WHERE E.FLAG_ESTADO = ''1'' AND
+                (LOWER(TRANSLATE(E.NOMBRE_MEDMIT,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' 
+              OR LOWER(TRANSLATE(E.ANNO,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' 
+              OR LOWER(TRANSLATE(E.BAU_EMISION,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' 
+              OR LOWER(TRANSLATE(E.MIT_EMISION,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' 
+              OR LOWER(TRANSLATE(E.REDUCCION,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' 
+              OR LOWER(TRANSLATE(E.VALOR_SOFTWARE,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' 
+              OR LOWER(TRANSLATE(E.EXPOST,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' 
+              OR LOWER(TRANSLATE(E.META_ANUAL,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou''))||''%'' )
                 )
                 WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
         OPEN pRefcursor FOR vQuery;
-        
+
     END USP_SEL_ESCENARIO;
 	
-	      PROCEDURE USP_INS_ESCENARIO(
+	PROCEDURE USP_INS_ESCENARIO(
         pID_MEDMIT      IN NUMBER,
         pANNO           IN NUMBER,
         pBAU_EMISION    IN NUMBER,
@@ -8283,10 +8685,9 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pMETA_ANUAL     IN NUMBER,
         pIdEscenario    OUT NUMBER
    )AS
-        vIdEscenario NUMBER;
      BEGIN
-        SELECT NVL(MAX(E.ID_ESCENARIO),0)+1 INTO vIdEscenario FROM T_GENM_ESCENARIO E;
-        
+        SELECT NVL(MAX(E.ID_ESCENARIO),0)+1 INTO pIdEscenario FROM T_GENM_ESCENARIO E;
+
         INSERT INTO T_GENM_ESCENARIO(ID_ESCENARIO,
                                      ID_MEDMIT,
                                      ANNO,
@@ -8297,7 +8698,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
                                      EXPOST,
                                      META_ANUAL,
                                      FLAG_ESTADO)
-        VALUES( vIdEscenario,
+        VALUES( pIdEscenario,
                 pID_MEDMIT,
                 pANNO,
                 pBAU_EMISION,
@@ -8874,6 +9275,154 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         FROM    T_MAE_UBICACION
         WHERE   FLG_ESTADO = 1;
     END USP_SEL_LISTA_UBICACION;
+    
+    PROCEDURE USP_SEL_EXCEL_SECTORINST(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+        vQuery      VARCHAR2(30000) := '';
+        vSortColumn2 VARCHAR2(1000);
+      BEGIN
+        vSortColumn2 := pSortColumn;
+        vQuery := '
+                        SELECT    ID_SECTOR_INST,
+                                  DESCRIPCION
+                        FROM  T_MAE_SECTOR_INST
+                        WHERE NVL(FLAG_ESTADO,1) = 1 AND
+                        (LOWER(TRANSLATE(DESCRIPCION,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' )
+                        ORDER BY ' || vSortColumn2 || ' ' || pSortOrder || ' ' ;
+		OPEN pRefcursor FOR vQuery;
+
+    END USP_SEL_EXCEL_SECTORINST;
+    
+    PROCEDURE USP_SEL_EXCEL_UBICACION(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+        vQuery      VARCHAR2(30000) := '';
+        vSortColumn2 VARCHAR2(1000);
+      BEGIN
+        vSortColumn2 := pSortColumn;
+        vQuery := '
+                        SELECT    ID_UBICACION,
+                                  DESCRIPCION
+                        FROM  T_MAE_UBICACION
+                        WHERE NVL(FLG_ESTADO,1) = 1 AND
+                        (LOWER(TRANSLATE(DESCRIPCION,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' )
+                        ORDER BY ' || vSortColumn2 || ' ' || pSortOrder || ' ' ;
+		OPEN pRefcursor FOR vQuery;
+
+    END USP_SEL_EXCEL_UBICACION;
+    
+    
+    
+PROCEDURE USP_SEL_EXCEL_INSTITUCION(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+        vQuery      VARCHAR2(30000) := '';
+        vSortColumn2 VARCHAR2(1000);
+      BEGIN
+        vSortColumn2 := pSortColumn;
+        vQuery := '
+        SELECT      I.ID_INSTITUCION,
+                    I.ID_SECTOR_INSTITUCION,
+                    I.SECTOR_INSTITUCION,
+                    I.RUC_INSTITUCION,
+                    I.NOMBRE_INSTITUCION,
+                    I.DIRECCION_INSTITUCION,
+                    I.FLAG_ESTADO
+                FROM VW_T_GENM_INSTITUCION I
+                WHERE NVL(I.FLAG_ESTADO,''1'') = ''1'' AND
+                (LOWER(TRANSLATE(I.NOMBRE_INSTITUCION,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' 
+                  OR LOWER(TRANSLATE(I.DIRECCION_INSTITUCION,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' 
+                  OR LOWER(TRANSLATE(I.RUC_INSTITUCION,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' 
+                  OR LOWER(TRANSLATE(I.SECTOR_INSTITUCION,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou''))||''%'' )
+                        ORDER BY ' || vSortColumn2 || ' ' || pSortOrder || ' ' ;
+		OPEN pRefcursor FOR vQuery;
+
+    END USP_SEL_EXCEL_INSTITUCION;
+    
+    
+    PROCEDURE USP_UPD_ESCENARIO(
+	pID_ESCENARIO   IN NUMBER,
+        pID_MEDMIT      IN NUMBER,
+        pANNO           IN NUMBER,
+        pBAU_EMISION    IN NUMBER,
+        pMIT_EMISION    IN NUMBER,
+        pREDUCCION      IN NUMBER,
+        pVALOR_SOFTWARE IN NUMBER,
+        pEXPOST         IN NUMBER,
+        pMETA_ANUAL     IN NUMBER
+   )AS
+     BEGIN
+     
+        UPDATE  T_GENM_ESCENARIO
+        SET     ID_MEDMIT = pID_MEDMIT,
+                ANNO = pANNO,
+                BAU_EMISION = pBAU_EMISION,
+                MIT_EMISION = pMIT_EMISION,
+                REDUCCION = pREDUCCION,
+                VALOR_SOFTWARE = pVALOR_SOFTWARE,
+                EXPOST = pEXPOST,
+                META_ANUAL = pMETA_ANUAL
+       WHERE    ID_ESCENARIO = pID_ESCENARIO;
+
+    END USP_UPD_ESCENARIO;
+    
+    PROCEDURE USP_DEL_ESCENARIO(                  
+        pID_ESCENARIO IN NUMBER
+   )AS
+     BEGIN
+             UPDATE T_GENM_ESCENARIO
+             set FLAG_ESTADO = 0
+             where ID_ESCENARIO = pID_ESCENARIO;
+
+
+    END USP_DEL_ESCENARIO;
+    
+    PROCEDURE USP_SEL_EXCEL_ESCENARIO(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+        vQuery      VARCHAR2(30000) := '';
+        vSortColumn2 VARCHAR2(1000);
+      BEGIN
+        vSortColumn2 := pSortColumn;
+        vQuery := '
+        SELECT      E.ID_ESCENARIO,
+                    E.ID_MEDMIT,
+                    E.NOMBRE_MEDMIT,
+                    E.ANNO,
+                    E.BAU_EMISION,
+                    E.MIT_EMISION,
+                    E.REDUCCION,
+                    E.VALOR_SOFTWARE,
+                    E.EXPOST,
+                    E.META_ANUAL,
+                    E.FLAG_ESTADO
+                FROM VW_T_GENM_ESCENARIO E
+                WHERE E.FLAG_ESTADO = ''1'' AND
+                (LOWER(TRANSLATE(E.NOMBRE_MEDMIT,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' 
+              OR LOWER(TRANSLATE(E.ANNO,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' 
+              OR LOWER(TRANSLATE(E.BAU_EMISION,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' 
+              OR LOWER(TRANSLATE(E.MIT_EMISION,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' 
+              OR LOWER(TRANSLATE(E.REDUCCION,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' 
+              OR LOWER(TRANSLATE(E.VALOR_SOFTWARE,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' 
+              OR LOWER(TRANSLATE(E.EXPOST,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' 
+              OR LOWER(TRANSLATE(E.META_ANUAL,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou''))||''%'' )
+                        ORDER BY ' || vSortColumn2 || ' ' || pSortOrder || ' ' ;
+		OPEN pRefcursor FOR vQuery;
+
+    END USP_SEL_EXCEL_ESCENARIO;
 
 END PKG_MRV_MANTENIMIENTO;
 
