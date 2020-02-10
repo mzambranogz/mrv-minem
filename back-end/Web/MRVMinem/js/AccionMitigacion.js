@@ -106,6 +106,10 @@ function fn_mostrarDetalleIndicador() {
     location.href = baseUrl + "Gestion/DetalleIndicador/" + $("#Control").data("iniciativa") + "/" + Math.round(Math.random() * 100);
 }
 
+function fn_mostrarDetalleIndicadorMasivo() {
+    location.href = baseUrl + "Detalle/DetalleIndicadorMasivo/" + $("#Control").data("iniciativa") + "/" + Math.round(Math.random() * 100);
+}
+
 function fn_verMasPrivadoIniciativaG(ini) {
     location.href = baseUrl + "Gestion/VerMasIniciativa/" + Math.round(Math.random() * 100) + "/" + ini;
 }

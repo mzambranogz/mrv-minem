@@ -49,13 +49,13 @@
                 <div class="container py-5">
                     <div class="row">
                         <div class="col-12">
-                            <div class="h5 pb-5 text-primary">Promoción de vehiculos eléctricos a nivel nacional&nbsp;<br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small></div>
+                            <div class="h5 pb-5 text-primary">@Model.medida.NOMBRE_MEDMIT@*Promoción de vehiculos eléctricos a nivel nacional*@&nbsp;<br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12-col-md-12 col-lg-6">
                             <div class="form-group">
-                                <label for="txt-categoria" class="font-weight-bold">Categoría IPSC</label>
+                                <label for="txt-categoria" class="font-weight-bold">Categoría IPCC</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-landmark"></i></span></div>
                                     <input class="form-control-plaintext" type="text" id="txt-categoria" value="@Model.medida.IPSC_MEDMIT" aria-describedby="inputGroup1" readonly>
@@ -397,7 +397,66 @@
                     <div class="row">
                         <div class="col-sm-12-col-md-12 col-lg-6">
                             <div class="form-group" id="archivos-documentos">
-                                <label><span class="font-weight-bold">Archivos adjuntos: </span><span id="total-documentos">0</span> en total</label>
+                                @{
+                                    var total = 0;
+                                    if (Model.iniciativa_mit.ListaSustentos != null)
+                                    {
+                                        total = Model.iniciativa_mit.ListaSustentos.Count();
+                                    }
+                                }
+                                <label>Archivos adjuntos: <span id="total-documentos">@total</span> en total</label>
+                                @{
+                                    if (Model.iniciativa_mit.ListaSustentos != null)
+                                    {
+                                        var extension = "fa-file-word";
+
+                                        foreach (var item in Model.iniciativa_mit.ListaSustentos)
+                                        {
+                                            if (item.ADJUNTO_BASE.Contains("pdf"))
+                                            {
+                                                extension = "fa-file-pdf";
+                                            }
+                                            else
+                                            {
+                                                if (item.ADJUNTO_BASE.Contains("jpeg") || item.ADJUNTO_BASE.Contains("png") || item.ADJUNTO_BASE.Contains("jpg") || item.ADJUNTO_BASE.Contains("gif"))
+                                                {
+                                                    extension = "fa-file-image";
+                                                }
+                                                else
+                                                {
+                                                    if (item.ADJUNTO_BASE.Contains("xls") || item.ADJUNTO_BASE.Contains("xlsx"))
+                                                    {
+                                                        extension = "fa-file-excel";
+                                                    }
+                                                    else
+                                                    {
+                                                        if (item.ADJUNTO_BASE.Contains("ppt") || item.ADJUNTO_BASE.Contains("pptx"))
+                                                        {
+                                                            extension = "fa-file-powerpoint";
+                                                        }
+                                                        else
+                                                        {
+                                                            if (item.ADJUNTO_BASE.Contains("doc") || item.ADJUNTO_BASE.Contains("docx"))
+                                                            {
+                                                                extension = "fa-file-word";
+                                                            }
+                                                            else
+                                                            {
+                                                                extension = "fa-file";
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend"><span class="input-group-text"><i class="fas @extension"></i></span></div><span class="form-control-plaintext">@item.ADJUNTO_BASE</span>
+                                                <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="fas fa-download" onclick="fn_verfilesutento(@item.ID_INICIATIVA_SUSTENTATORIO)"></i></span></div>
+                                            </div>
+                                        }
+                                    }
+                                }
+
                                 @*<div class="input-group mb-3">
                                 <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-file-pdf"></i></span></div><span class="form-control-plaintext">NombreDeArchivo.pdf</span>
                                 <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="fas fa-download"></i></span></div>
@@ -564,7 +623,7 @@
                         <div class="col-sm-12 col-md-6 col-lg-6 text-right">@*<strong>Fecha de Registro: 25/02/2020</strong>*@</div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-12-col-md-12 col-lg-6">
+                        <div class="col-sm-12-col-md-12 col-lg-6" hidden>
                             <div class="form-group">
                                 <label for="cbo-tipo-observacion">Tipo de observación<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="En caso no posea un nombre, coloque el nombre de la medida de mitigación seguido de un guión y nombre o siglas de la institución."></i></label>
                                 <div class="input-group">
@@ -582,7 +641,7 @@
                     <div class="row">
                         <div class="col-sm-12-col-md-12 col-lg-12">
                             <div class="form-group">
-                                <label for="txa-nombre-iniciativa">Observaciones:<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="En caso no posea un nombre, coloque el nombre de la medida de mitigación seguido de un guión y nombre o siglas de la institución."></i></label>
+                                <label for="txa-nombre-iniciativa">Observaciones:<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-comment-alt"></i></span></div>
                                     <textarea class="form-control" id="txa-observacion-detalle" aria-describedby="inputGroup4" cols="30" rows="5" required placeholder="Ingrese un nombre para su iniciativa"></textarea>

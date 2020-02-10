@@ -177,6 +177,9 @@ function validarCheck(id, sid) {
 
 function validarCampo() {
 
+    if ($("#cbo-medida-mitigacion-seleccionada").val() == 0) {
+        return false;
+    }
     if ($("#txa-nombre-iniciativa").val().trim() === ""){
         return false;
     }
@@ -266,7 +269,7 @@ function fn_procesoIniciativa(url, estado) {
         }
     }
     ubicacion = ubicacion.substring(0, ubicacion.length - 1);
-
+    debugger;
     var item = {
         ID_INICIATIVA: $("#Control").data("iniciativa"), //
         ID_MEDMIT: $("#Control").data("mitigacion"),
@@ -480,6 +483,11 @@ function fn_ObtenerMedidaMitigacion(id) {
 }
 
 $("#cbo-medida-mitigacion-seleccionada").change(function () {
+    $("#txt-categoria").val("");
+    $("#txa-objetivo").val("");
+    $("#txa-descripcion").val("");
+    $("#nombreMedida span").remove();
+    $("#Control").data("mitigacion", 0);
     var Item = {
         ID_MEDMIT: $("#cbo-medida-mitigacion-seleccionada").val()
     };
@@ -492,7 +500,7 @@ $("#cbo-medida-mitigacion-seleccionada").change(function () {
             if (data != null && data != "") {
                 if (data.length > 0) {
                     for (var i = 0; i < data.length; i++) {
-                        $("#nombreMedida span").remove();
+                        //$("#nombreMedida span").remove();
                         $("#txt-categoria").val(data[i]["IPSC_MEDMIT"]);
                         $("#txa-objetivo").val(data[i]["OBJETIVO_MEDMIT"]);
                         $("#txa-descripcion").val(data[i]["DESCRIPCION_MEDMIT"]);
@@ -850,3 +858,13 @@ $(document).ready(function () {
     $("#Control").data("revision", $("#revision").val());
     fn_ListarMedidaMitigacion();
 });
+
+//$(document).on("change", "#cbo-medida-mitigacion-seleccionada", function () {
+
+//    if ($("#cbo-medida-mitigacion-seleccionada").val() == 0) {
+//        $("#txt-categoria").val("");
+//        $("#txa-objetivo").val("");
+//        $("#txa-descripcion").val("");
+//    }
+
+//});

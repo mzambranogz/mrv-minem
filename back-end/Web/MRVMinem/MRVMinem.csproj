@@ -159,6 +159,7 @@
     <Content Include="js\CambiarClave.js" />
     <Content Include="js\ConfirmarCorreo.js" />
     <Content Include="js\DetalleIndicador.js" />
+    <Content Include="js\DetalleIndicadorMasivo.js" />
     <Content Include="js\IniciativaMitigacion.js" />
     <Content Include="js\jquery.form.js" />
     <Content Include="js\Login.js" />
@@ -194,6 +195,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DetalleController.cs" />
     <Compile Include="Controllers\GestionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MantenimientoController.cs" />
@@ -269,6 +271,9 @@
     <Content Include="images\favicon\manifest.json" />
     <Content Include="images\favicon\site.webmanifest" />
     <Content Include="images\favicon\_manifest.json" />
+    <Content Include="Documentos\4.1 Plantilla_Electricos_Masivo.xlsm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\PublishProfiles\MRVMinem.pubxml" />
     <Content Include="Views\Gestion\AccionMitigacion.cshtml" />
     <Content Include="Views\Shared\_SesionLayout.cshtml" />
@@ -352,6 +357,7 @@
       <DependentUpon>DsMedMit.xsd</DependentUpon>
     </Content>
     <Content Include="Views\Mantenimiento\Energeticos.cshtml" />
+    <Content Include="Views\Detalle\DetalleIndicadorMasivo.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -378,10 +384,18 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Reportes\EscenarioRpt.rdlc" />
-    <EmbeddedResource Include="Reportes\rptIniciativa.rdlc" />
-    <EmbeddedResource Include="Reportes\rptInstitucion.rdlc" />
-    <EmbeddedResource Include="Reportes\rptMedMit.rdlc" />
+    <EmbeddedResource Include="Reportes\EscenarioRpt.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptIniciativa.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptInstitucion.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptMedMit.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

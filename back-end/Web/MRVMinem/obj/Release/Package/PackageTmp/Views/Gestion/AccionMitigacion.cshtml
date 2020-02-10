@@ -27,12 +27,17 @@
                     <div class="col-md-12 col-lg-6 pt-4">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
-                            <div class="col-sm-12 col-md-6 col-lg-6" id="nuevaIniciativa">
+                            @*<div class="col-sm-12 col-md-6 col-lg-6" id="nuevaIniciativa">*@
                                 @if (Convert.ToInt32(Session["rol"]) == 1)
                                 {
-                                    <span data-toggle="modal" data-target="#medidas-mitigacion-listado"><a class="agregar-iniciativa" href="#" data-toggle="tooltip" data-placement="top" title="Seleccione una medida de mitigación para agregar una nueva inicitiva de mitigación"><i class="fas fa-plus px-1"></i>Agregar iniciativa</a></span>
+                                    <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#medidas-mitigacion-listado"><a class="agregar-iniciativa" href="#" data-toggle="tooltip" data-placement="top" title="Seleccione una medida de mitigación para agregar una nueva inicitiva de mitigación">
+                                        @if (Model.usuario.PRIMER_INICIO == "1")
+                                        {
+                                            <i class="far fa-hand-point-left fa-3x primerIngreso animated bounceInRight infinite"></i>
+                                        }                                        
+                                        <i class="fas fa-plus px-1"></i>Agregar iniciativa</a></span></div>
                                 }
-                            </div>
+                            @*</div>*@
                         </div>
                     </div>
                 </div>
@@ -411,7 +416,7 @@
                             <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
                                 <div class="row">
                                     <div class="col-sm-12 col-md-6 col-lg-6 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_mostrarDetalleIndicador();" data-toggle="tooltip" data-placement="top" title="Registro manual de detalle de indicadores"><img src="~/images/01_registro_manual.svg"></a></div>
-                                    <div class="col-sm-12 col-md-6 col-lg-6 pb-5 text-center"><a class="d-inline-block" href="#" data-toggle="tooltip" data-placement="top" title="Registro a través de archivo excel"><img src="~/images/02_registro_masivo.svg"></a></div>
+                                    <div class="col-sm-12 col-md-6 col-lg-6 pb-5 text-center"><a class="d-inline-block" href="#" onclick="fn_mostrarDetalleIndicadorMasivo();" data-toggle="tooltip" data-placement="top" title="Registro a través de archivo excel"><img src="~/images/02_registro_masivo.svg"></a></div>
                                 </div>
                             </div>
                         </div>
@@ -477,6 +482,27 @@
                 </div>
             </div>
         </div>
+
+        <div class="modal fade" id="modal-bienbenida" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Bienvenido a:</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="~/images/logo_mrv_new_negro.svg" width="50%"><img class="img-fluid mt-3" src="~/images/001.jpg">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <div class="alert alert-success mt-3 text-justify">Bienvenido&nbsp;<strong>@Model.usuario.NOMBRES_USUARIO&nbsp;@Model.usuario.APELLIDOS_USUARIO</strong>, su registro fue aprobado. Le invitamos a enviarnos su&nbsp;<strong>Iniciativa de Mitigación &nbsp;</strong>haciendo click en el botón&nbsp;<i class="fas fa-plus mr-1"></i><strong>Agregar iniciativa</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>var primerIngreso=@Model.usuario.PRIMER_INICIO;</script>
+
     </div>
 </div>
 

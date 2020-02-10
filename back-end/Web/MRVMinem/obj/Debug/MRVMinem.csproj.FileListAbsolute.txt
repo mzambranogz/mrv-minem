@@ -645,3 +645,8 @@ C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\obj\Debug\RdlCompile.compiled
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\obj\Debug\MRVMinem.dll
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\obj\Debug\MRVMinem.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\Documentos\4.1 Plantilla_Electricos_Masivo.xlsm
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\Reportes\EscenarioRpt.rdlc
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\Reportes\rptIniciativa.rdlc
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\Reportes\rptInstitucion.rdlc
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\Reportes\rptMedMit.rdlc
