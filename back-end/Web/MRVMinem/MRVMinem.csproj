@@ -162,6 +162,7 @@
     <Content Include="js\IniciativaMitigacion.js" />
     <Content Include="js\jquery.form.js" />
     <Content Include="js\Login.js" />
+    <Content Include="js\MantenimientoEnergeticos.js" />
     <Content Include="js\MantenimientoEnfoques.js" />
     <Content Include="js\MantenimientoEscenario.js" />
     <Content Include="js\MantenimientoGei.js" />
@@ -203,6 +204,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ListaObjeto.cs" />
+    <Compile Include="Models\MvEnergetico.cs" />
     <Compile Include="Models\MvEnfoque.cs" />
     <Compile Include="Models\MvEscenario.cs" />
     <Compile Include="Models\MvGei.cs" />
@@ -349,6 +351,7 @@
     <Content Include="Reportes\DsMedMit.xss">
       <DependentUpon>DsMedMit.xsd</DependentUpon>
     </Content>
+    <Content Include="Views\Mantenimiento\Energeticos.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

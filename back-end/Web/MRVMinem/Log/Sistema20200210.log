@@ -1,0 +1,100 @@
+10/02/2020 01:04:00 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:04:00 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:04:00 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:04:00 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:04:00 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:04:00 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:04:00 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:04:00 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:04:00 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:04:00 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:04:00 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.EscenarioBE] ListaEscenariosPaginado(entidad.minem.gob.pe.EscenarioBE), Línea: 36] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:07:32 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:07:32 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:07:32 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:07:32 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:07:32 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:07:32 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:07:32 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:07:32 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:07:32 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:07:32 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:07:32 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.EscenarioBE] ListaEscenariosPaginado(entidad.minem.gob.pe.EscenarioBE), Línea: 36] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:51:32 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_DEL_ESCENARIO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+10/02/2020 01:51:32 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_DEL_ESCENARIO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+10/02/2020 01:51:32 a.m.: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_DEL_ESCENARIO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+10/02/2020 01:51:32 a.m.: [Método: Int32 ExecuteNonQuery(Oracle.DataAccess.Client.OracleConnection, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 255] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_DEL_ESCENARIO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+10/02/2020 01:51:32 a.m.: [Método: Int32 ExecuteNonQuery(System.String, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 178] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_DEL_ESCENARIO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+10/02/2020 01:51:32 a.m.: [Método: entidad.minem.gob.pe.EscenarioBE EliminarEscenario(entidad.minem.gob.pe.EscenarioBE), Línea: 140] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_DEL_ESCENARIO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+10/02/2020 01:59:02 a.m.: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+10/02/2020 01:59:02 a.m.: [Método: Int32 ParseInt32(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+10/02/2020 01:59:02 a.m.: [Método: Int32 Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+10/02/2020 01:59:02 a.m.: [Método: entidad.minem.gob.pe.EscenarioBE RegistrarEscenario(entidad.minem.gob.pe.EscenarioBE), Línea: 87] - La cadena de entrada no tiene el formato correcto.
+10/02/2020 02:02:01 a.m.: [Método: Oracle.DataAccess.Client.OracleParameter Add(Oracle.DataAccess.Client.OracleParameter), Línea: 0] - El objeto OracleParameter ya está en una recopilación
+10/02/2020 02:02:01 a.m.: [Método: Void AttachParameters(Oracle.DataAccess.Client.OracleCommand, Oracle.DataAccess.Client.OracleParameter[]), Línea: 60] - El objeto OracleParameter ya está en una recopilación
+10/02/2020 02:02:01 a.m.: [Método: Void PrepareCommand(Oracle.DataAccess.Client.OracleCommand, Oracle.DataAccess.Client.OracleConnection, Oracle.DataAccess.Client.OracleTransaction, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 128] - El objeto OracleParameter ya está en una recopilación
+10/02/2020 02:02:01 a.m.: [Método: Int32 ExecuteNonQuery(Oracle.DataAccess.Client.OracleConnection, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 252] - El objeto OracleParameter ya está en una recopilación
+10/02/2020 02:02:01 a.m.: [Método: Int32 ExecuteNonQuery(System.String, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 178] - El objeto OracleParameter ya está en una recopilación
+10/02/2020 02:02:01 a.m.: [Método: entidad.minem.gob.pe.EscenarioBE RegistrarEscenario(entidad.minem.gob.pe.EscenarioBE), Línea: 86] - El objeto OracleParameter ya está en una recopilación

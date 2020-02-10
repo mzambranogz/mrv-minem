@@ -368,11 +368,19 @@ namespace MRVMinem.Controllers
         {
             if (entidad.pagina == 0)
             {
-                entidad = new EscenarioBE() { cantidad_registros = 10, order_by = "NOMBRE_MEDMIT", order_orden = "ASC", pagina = 1 };
+                entidad = new EscenarioBE() { cantidad_registros = 10, order_by = "NOMBRE_MEDMIT", order_orden = "ASC", pagina = 1, buscar = "" };
             }
             MvEscenario modelo = new MvEscenario();
             modelo.ListaEscenarios = EscenarioLN.ListaEscenariosPaginado(entidad);
             return View(modelo);
+        }
+
+        public JsonResult BuscarEscenario(EscenarioBE entidad)
+        {
+            EscenarioBE lista = EscenarioLN.GetEscenarioPorId(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
 
         public JsonResult ListaEscenarios(EscenarioBE entidad)
@@ -383,6 +391,88 @@ namespace MRVMinem.Controllers
             return jsonResult;
         }
 
+        public JsonResult RegistrarEscenario(EscenarioBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            if (entidad.FLAG_ESTADO == "1")
+            {
+                entidad = EscenarioLN.RegistrarEscenario(entidad);
+            }
+            else
+            {
+                entidad = EscenarioLN.ActualizarEscenario(entidad);
+            }
+            itemRespuesta.success = entidad.OK;
+            itemRespuesta.extra = entidad.extra;
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult EliminarEscenarios(EscenarioBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = EscenarioLN.EliminarEscenario(entidad);
+            itemRespuesta.success = entidad.OK;
+            itemRespuesta.extra = entidad.extra;
+            return Respuesta(itemRespuesta);
+        }
+
+        public ActionResult Energeticos(EnergeticoBE entidad)
+        {
+            if (entidad.pagina == 0)
+            {
+                entidad = new EnergeticoBE() { cantidad_registros = 10, order_by = "ID_ENERG", order_orden = "ASC", pagina = 1, buscar = "" };
+            }
+            MvEnergetico modelo = new MvEnergetico();
+            modelo.ListaEnergetico = EnergeticoLN.ListarEnergeticoPaginado(entidad);
+            return View(modelo);
+        }
+
+        public JsonResult BuscarEnergetico(EnergeticoBE entidad)
+        {
+            EnergeticoBE lista = EnergeticoLN.GetEnergeticoPorId(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListaEnergeticos(EnergeticoBE entidad)
+        {
+            List<EnergeticoBE> lista = EnergeticoLN.ListarEnergeticoPaginado(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult RegistrarEnergetico(EnergeticoBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            if (entidad.FLAG_ESTADO == "1")
+            {
+                entidad = EnergeticoLN.RegistrarEnergetico(entidad);
+            }
+            else
+            {
+                entidad = EnergeticoLN.ActualizarEnergetico(entidad);
+            }
+            itemRespuesta.success = entidad.OK;
+            itemRespuesta.extra = entidad.extra;
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult EliminarEnergetico(EnergeticoBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = EnergeticoLN.EliminarEnergetico(entidad);
+            itemRespuesta.success = entidad.OK;
+            itemRespuesta.extra = entidad.extra;
+            return Respuesta(itemRespuesta);
+        }
+
+        /////////////////////////////
 
         /////////// exportar excel
         public void ExportarMantenimientoInstitucion(string item)
@@ -431,7 +521,7 @@ namespace MRVMinem.Controllers
                         m.Merge = true;
                         m.Value = "LISTA INSTITUCION " + cadena_fecha;
                     }
-                    ws1.View.FreezePanes(2, 1);
+                    ws1.View.FreezePanes(4, 1);
                     row++;
                     ws1.Cells["A" + row].Value = "N°";
                     ws1.Cells["A" + row].AutoFitColumns(5);
@@ -530,7 +620,7 @@ namespace MRVMinem.Controllers
                         m.Merge = true;
                         m.Value = "LISTA UBICACION " + cadena_fecha;
                     }
-                    ws1.View.FreezePanes(2, 1);
+                    ws1.View.FreezePanes(4, 1);
                     row++;
                     ws1.Cells["A" + row].Value = "N°";
                     ws1.Cells["A" + row].AutoFitColumns(5);
@@ -617,7 +707,7 @@ namespace MRVMinem.Controllers
                         m.Merge = true;
                         m.Value = "LISTA SECTOR " + cadena_fecha;
                     }
-                    ws1.View.FreezePanes(2, 1);
+                    ws1.View.FreezePanes(4, 1);
                     row++;
                     ws1.Cells["A" + row].Value = "N°";
                     ws1.Cells["A" + row].AutoFitColumns(5);
@@ -704,7 +794,7 @@ namespace MRVMinem.Controllers
                         m.Merge = true;
                         m.Value = "LISTA MONEDA " + cadena_fecha;
                     }
-                    ws1.View.FreezePanes(2, 1);
+                    ws1.View.FreezePanes(4, 1);
                     row++;
                     ws1.Cells["A" + row].Value = "N°";
                     ws1.Cells["A" + row].AutoFitColumns(5);
@@ -791,7 +881,7 @@ namespace MRVMinem.Controllers
                         m.Merge = true;
                         m.Value = "LISTA GEI " + cadena_fecha;
                     }
-                    ws1.View.FreezePanes(2, 1);
+                    ws1.View.FreezePanes(4, 1);
                     row++;
                     ws1.Cells["A" + row].Value = "N°";
                     ws1.Cells["A" + row].AutoFitColumns(5);
@@ -894,7 +984,7 @@ namespace MRVMinem.Controllers
                         m.Merge = true;
                         m.Value = "LISTA ENFOQUE " + cadena_fecha;
                     }
-                    ws1.View.FreezePanes(2, 1);
+                    ws1.View.FreezePanes(4, 1);
                     row++;
                     ws1.Cells["A" + row].Value = "N°";
                     ws1.Cells["A" + row].AutoFitColumns(5);
@@ -924,6 +1014,194 @@ namespace MRVMinem.Controllers
                     }
 
                     string strFileName = "LISTA_ENFOQUE_" + DateTime.Now.ToString() + ".xlsx";
+                    Response.Clear();
+                    byte[] dataByte = package.GetAsByteArray();
+                    Response.AddHeader("Content-Disposition", "inline;filename=\"" + strFileName + "\"");
+                    Response.AddHeader("Content-Length", dataByte.Length.ToString());
+                    Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                    Response.BinaryWrite(dataByte);
+                    Response.End();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public void ExportarMantenimientoEscenarios(string item)
+        {
+            try
+            {
+                if (item != null)
+                {
+                    var entidad = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<EscenarioBE>(item);
+                    ExportarToExcelMantenimientoEscenarios(entidad);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+        }
+
+        public void ExportarToExcelMantenimientoEscenarios(EscenarioBE entidad)
+        {
+            List<EscenarioBE> lista = null;
+            lista = EscenarioLN.ListarEscenarioExcel(entidad);
+
+            int row = 2;
+            try
+            {
+                string cadena_fecha = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+
+                using (ExcelPackage package = new ExcelPackage())
+                {
+                    var ws1 = package.Workbook.Worksheets.Add("LISTA ESCENARIO");
+                    using (var m = ws1.Cells[1, 1, row, 9])
+                    {
+                        m.Style.Font.Bold = true;
+                        m.Style.WrapText = true;
+                        m.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        m.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        m.Style.Font.Size = 10;
+                        m.Merge = true;
+                        m.Value = "LISTA ESCENARIO " + cadena_fecha;
+                    }
+                    ws1.View.FreezePanes(4, 1);
+                    row++;
+                    ws1.Cells["A" + row].Value = "N°";
+                    ws1.Cells["A" + row].AutoFitColumns(5);
+                    ws1.Cells["B" + row].Value = "AÑO";
+                    ws1.Cells["B" + row].AutoFitColumns(10);
+                    ws1.Cells["C" + row].Value = "MEDIDA MITIGACIÓN";
+                    ws1.Cells["C" + row].AutoFitColumns(40);
+                    ws1.Cells["D" + row].Value = "BAU EMISIÓN";
+                    ws1.Cells["D" + row].AutoFitColumns(20);
+                    ws1.Cells["E" + row].Value = "MITIGACIÓN EMISIÓN";
+                    ws1.Cells["E" + row].AutoFitColumns(20);
+                    ws1.Cells["F" + row].Value = "REDUCCIÓN";
+                    ws1.Cells["F" + row].AutoFitColumns(20);
+                    ws1.Cells["G" + row].Value = "VALOR SOFTWARE";
+                    ws1.Cells["G" + row].AutoFitColumns(20);
+                    ws1.Cells["H" + row].Value = "EXPOST";
+                    ws1.Cells["H" + row].AutoFitColumns(20);
+                    ws1.Cells["I" + row].Value = "META ANUAL";
+                    ws1.Cells["I" + row].AutoFitColumns(20);
+
+                    FormatoCelda(ws1, "A", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "B", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "C", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "D", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "E", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "F", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "G", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "H", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "I", row, 0, 123, 255, 255, 255, 255);
+                    ws1.Row(row).Height = 42;
+                    row++;
+                    if (lista.Count > 0)
+                    {
+                        var xNum = 0;
+                        foreach (EscenarioBE dt_fila in lista)
+                        {
+                            xNum++;
+                            ws1.Cells["A" + row].Value = dt_fila.ID_ESCENARIO;
+                            ws1.Cells["B" + row].Value = dt_fila.ANNO;
+                            ws1.Cells["C" + row].Value = dt_fila.NOMBRE_MEDMIT;
+                            ws1.Cells["D" + row].Value = dt_fila.BAU_EMISION;
+                            ws1.Cells["E" + row].Value = dt_fila.MIT_EMISION;
+                            ws1.Cells["F" + row].Value = dt_fila.REDUCCION;
+                            ws1.Cells["G" + row].Value = dt_fila.VALOR_SOFTWARE;
+                            ws1.Cells["H" + row].Value = dt_fila.EXPOST;
+                            ws1.Cells["I" + row].Value = dt_fila.META_ANUAL;
+                            formatoDetalle(ws1, "A", "I", row);
+                            row++;
+                        }
+                        row++;
+                    }
+
+                    string strFileName = "LISTA_ESCENARIO_" + DateTime.Now.ToString() + ".xlsx";
+                    Response.Clear();
+                    byte[] dataByte = package.GetAsByteArray();
+                    Response.AddHeader("Content-Disposition", "inline;filename=\"" + strFileName + "\"");
+                    Response.AddHeader("Content-Length", dataByte.Length.ToString());
+                    Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                    Response.BinaryWrite(dataByte);
+                    Response.End();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public void ExportarMantenimientoEnergeticos(string item)
+        {
+            try
+            {
+                if (item != null)
+                {
+                    var entidad = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<EnergeticoBE>(item);
+                    ExportarToExcelMantenimientoEnergeticos(entidad);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+        }
+
+        public void ExportarToExcelMantenimientoEnergeticos(EnergeticoBE entidad)
+        {
+            List<EnergeticoBE> lista = null;
+            lista = EnergeticoLN.ListarEnergeticoExcel(entidad);
+
+            int row = 2;
+            try
+            {
+                string cadena_fecha = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+
+                using (ExcelPackage package = new ExcelPackage())
+                {
+                    var ws1 = package.Workbook.Worksheets.Add("LISTA ENERGETICO");
+                    using (var m = ws1.Cells[1, 1, row, 2])
+                    {
+                        m.Style.Font.Bold = true;
+                        m.Style.WrapText = true;
+                        m.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        m.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        m.Style.Font.Size = 10;
+                        m.Merge = true;
+                        m.Value = "LISTA ENERGÉTICO " + cadena_fecha;
+                    }
+                    ws1.View.FreezePanes(4, 1);
+                    row++;
+                    ws1.Cells["A" + row].Value = "N°";
+                    ws1.Cells["A" + row].AutoFitColumns(5);
+                    ws1.Cells["B" + row].Value = "DESCRIPCIÓN";
+                    ws1.Cells["B" + row].AutoFitColumns(40);
+
+                    FormatoCelda(ws1, "A", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "B", row, 0, 123, 255, 255, 255, 255);
+                    ws1.Row(row).Height = 42;
+                    row++;
+                    if (lista.Count > 0)
+                    {
+                        var xNum = 0;
+                        foreach (EnergeticoBE dt_fila in lista)
+                        {
+                            xNum++;
+                            ws1.Cells["A" + row].Value = dt_fila.ID_ENERG;
+                            ws1.Cells["B" + row].Value = dt_fila.DESCRIPCION;
+                            formatoDetalle(ws1, "A", "B", row);
+                            row++;
+                        }
+                        row++;
+                    }
+
+                    string strFileName = "LISTA_ENERGETICOA_" + DateTime.Now.ToString() + ".xlsx";
                     Response.Clear();
                     byte[] dataByte = package.GetAsByteArray();
                     Response.AddHeader("Content-Disposition", "inline;filename=\"" + strFileName + "\"");

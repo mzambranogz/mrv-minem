@@ -1,12 +1,4 @@
-﻿$(document).ready(function () {
-    //MRV.CargarSelect(baseUrl + "Portal/ListaSectorInstitucion", "#cbo-sector", "ID_SECTOR_INST", "DESCRIPCION");
-    MRV.CargarSelect(baseUrl + "Portal/ListarMedidaMitigacion", "#cbo-medida", "ID_MEDMIT", "NOMBRE_MEDMIT");
-    fn_modalInicio();
-    fn_actualizaCampana();
-    enLinea();
-});
-
-function fn_modalInicio() {
+﻿function fn_modalInicio() {
     $("#ventanaEditar").show();
     $("#title-nuevo").hide();
     $("#title-edit").hide();
@@ -28,7 +20,7 @@ function fn_CargaDatos() {
         order_orden: $("#orden").val()
     };
     $.ajax({
-        url: baseUrl + "Mantenimiento/ListaEscenarios",
+        url: baseUrl + "Mantenimiento/ListaEnergeticos",
         type: 'POST',
         datatype: 'json',
         data: Item,
@@ -47,22 +39,15 @@ function fn_CargaDatos() {
                     for (var i = 0; i < data.length; i++) {
 
                         var tr = '<tr>';
-                        tr = tr + '<th class="text-center" data-encabezado="Número" scope="col">' + data[i]["ID_ESCENARIO"] + '</th>';
-                        tr = tr + '<td data-encabezado="Descripcion">' + data[i]["ANNO"] + '</td>';
-                        tr = tr + '<td data-encabezado="Descripcion">' + data[i]["NOMBRE_MEDMIT"] + '</td>';
-                        tr = tr + '<td data-encabezado="Descripcion">' + data[i]["BAU_EMISION"] + '</td>';
-                        tr = tr + '<td data-encabezado="Descripcion">' + data[i]["MIT_EMISION"] + '</td>';
-                        tr = tr + '<td data-encabezado="Descripcion">' + data[i]["REDUCCION"] + '</td>';
-                        tr = tr + '<td data-encabezado="Descripcion">' + data[i]["VALOR_SOFTWARE"] + '</td>';
-                        tr = tr + '<td data-encabezado="Descripcion">' + data[i]["EXPOST"] + '</td>';
-                        tr = tr + '<td data-encabezado="Descripcion">' + data[i]["META_ANUAL"] + '</td>';
+                        tr = tr + '<th class="text-center" data-encabezado="Número" scope="col">' + data[i]["ID_ENERG"] + '</th>';
+                        tr = tr + '<td data-encabezado="Descripcion">' + data[i]["DESCRIPCION"] + '</td>';
                         tr = tr + '<td class="text-center text-xs-right" data-encabezado="Acciones">';
                         tr = tr + '     <div class="btn-group">';
                         tr = tr + '         <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
                         tr = tr + '         <div class="dropdown-menu dropdown-menu-right">';
-                        tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_cargarDatosMantenimiento(' + data[i]["ID_ESCENARIO"] + ');" data-toggle="modal" data-target="#modal-edicion">';
+                        tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_cargarDatosMantenimiento(' + data[i]["ID_ENERG"] + ');" data-toggle="modal" data-target="#modal-edicion">';
                         tr = tr + '                 <i class="fas fa-edit"></i>&nbsp;Editar';
-                        tr = tr + '             </a><a class="dropdown-item" href="#" onclick="fn_Seleccionaregistro(' + data[i]["ID_ESCENARIO"] + ');" data-toggle="modal" data-target="#modal-confirmacion">';
+                        tr = tr + '             </a><a class="dropdown-item" href="#" onclick="fn_Seleccionaregistro(' + data[i]["ID_ENERG"] + ');" data-toggle="modal" data-target="#modal-confirmacion">';
                         tr = tr + '                 <i class="fas fa-trash"></i>&nbsp;Eliminar';
                         tr = tr + '             </a>';
                         tr = tr + '         </div>';
@@ -182,24 +167,17 @@ function fn_cargarDatosMantenimiento(id) {
 
 function fn_seleccionarMantenimiento(id) {
     var Item = {
-        ID_ESCENARIO: id
+        ID_ENERG: id
     };
     $.ajax({
-        url: baseUrl + "Mantenimiento/BuscarEscenario",
+        url: baseUrl + "Mantenimiento/BuscarEnergetico",
         type: 'POST',
         datatype: 'json',
         data: Item,
         success: function (data) {
             if (data != null && data != "") {
-                $("#userMantenimiento").data("value", data["ID_ESCENARIO"]);
-                $("#cbo-anio").val(data["ANNO"]);
-                $("#cbo-medida").val(data["ID_MEDMIT"]);
-                $("#txt-bau").val(data["BAU_EMISION"]);
-                $("#txt-mitigacion").val(data["MIT_EMISION"]);
-                $("#txt-reduccion").val(data["REDUCCION"]);
-                $("#txt-soft").val(data["VALOR_SOFTWARE"]);
-                $("#txt-ext").val(data["EXPOST"]);
-                $("#txt-meta").val(data["META_ANUAL"]);
+                $("#userMantenimiento").data("value", data["ID_ENERG"]);
+                $("#txt-descripcion").val(data["DESCRIPCION"]);
             }
         }
     });
@@ -214,17 +192,10 @@ function fn_editarMantenimiento() {
         }
     }
 
-    var url = baseUrl + "Mantenimiento/RegistrarEscenario";
+    var url = baseUrl + "Mantenimiento/RegistrarEnergetico";
     var item = {
-        ID_ESCENARIO: $("#userMantenimiento").data("value"),
-        ANNO: $("#cbo-anio").val(),
-        ID_MEDMIT: $("#cbo-medida").val(),
-        BAU_EMISION: $("#txt-bau").val(),
-        MIT_EMISION: $("#txt-mitigacion").val(),
-        REDUCCION: $("#txt-reduccion").val(),
-        VALOR_SOFTWARE: $("#txt-soft").val(),
-        EXPOST: $("#txt-ext").val(),
-        META_ANUAL: $("#txt-meta").val(),
+        ID_ENERG: $("#userMantenimiento").data("value"),
+        DESCRIPCION: $("#txt-descripcion").val(),
         FLAG_ESTADO: $("#validarUsuario").data("guardar")
     };
     var mensaje = "";
@@ -251,31 +222,9 @@ function fn_editarMantenimiento() {
 function fn_validarCampo() {
     var arr = [];
 
-    if ($("#cbo-anio").val() == 0) {
-        arr.push("Debe seleccionar un año");
+    if ($("#txt-descripcion").val().trim() === "") {
+        arr.push("Debe ingresar el nombre del energético");
     }
-    if ($("#cbo-medida").val() == 0) {
-        arr.push("Debe seleccionar una medida");
-    }
-    if ($("#txt-bau").val().trim() === "") {
-        arr.push("Debe ingresar la emisión de línea base");
-    }
-    if ($("#txt-mitigacion").val().trim() === "") {
-        arr.push("Debe ingresar la emisión de la mitigación");
-    }
-    if ($("#txt-reduccion").val().trim() === "") {
-        arr.push("Debe ingresar la reducción");
-    }
-    if ($("#txt-soft").val().trim() === "") {
-        arr.push("Debe ingresar el valor del software MRV");
-    }
-    if ($("#txt-ext").val().trim() === "") {
-        arr.push("Debe ingresar el ext post");
-    }
-    if ($("#txt-meta").val().trim() === "") {
-        arr.push("Debe ingresar la meta anual");
-    }
-
 
     if (arr.length > 0) {
         $("#correctoMantenimientoUsuario").hide();
@@ -314,9 +263,9 @@ function fn_Seleccionaregistro(id) {
 }
 
 function fn_eliminarMantenimiento() {
-    var url = baseUrl + "Mantenimiento/EliminarEscenarios";
+    var url = baseUrl + "Mantenimiento/EliminarEnergetico";
     var item = {
-        ID_ESCENARIO: $("#userMantenimiento").data("value")
+        ID_ENERG: $("#userMantenimiento").data("value")
     };
     var mensaje = "";
     var respuesta = MRV.Ajax(url, item, false);
@@ -339,7 +288,7 @@ function exportarMantenimiento() {
         order_orden: $("#orden").val()
     };
 
-    var url = baseUrl + 'Mantenimiento/ExportarMantenimientoEscenarios';
+    var url = baseUrl + 'Mantenimiento/ExportarMantenimientoEnergeticos';
 
     var parametros = {
         Url: url,
@@ -359,3 +308,9 @@ function exportarMantenimiento() {
     jQuery('#frmDescarga').submit();
     jQuery('#frmDescarga').remove();
 }
+
+$(document).ready(function () {
+    fn_modalInicio();
+    fn_actualizaCampana();
+    enLinea();
+});

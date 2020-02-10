@@ -164,12 +164,86 @@
                         <div class="modal-body medidas-modal">
                             <form>
                                 <div class="row" id="ventanaEditar">
-                                    <div class="col-md-12 col-lg-12">
+                                    <div class="col-md-12 col-lg-12">                                        
                                         <div class="form-group">
-                                            <label for="txt-descripcion">Sector</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                                            <label for="cbo-sector">Año</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup7"><i class="fas fa-landmark"></i></span></div>
+                                                <select class="form-control" id="cbo-anio" aria-describedby="inputGroup7" required>
+                                                    <option value="0">-Seleccione un año-</option>
+                                                    <option value="2010">2010</option>
+                                                    <option value="2011">2011</option>
+                                                    <option value="2012">2012</option>
+                                                    <option value="2013">2013</option>
+                                                    <option value="2014">2014</option>
+                                                    <option value="2015">2015</option>
+                                                    <option value="2016">2016</option>
+                                                    <option value="2017">2017</option>
+                                                    <option value="2018">2018</option>
+                                                    <option value="2019">2019</option>
+                                                    <option value="2020">2020</option>
+                                                    <option value="2021">2021</option>
+                                                    <option value="2022">2022</option>
+                                                    <option value="2023">2023</option>
+                                                    <option value="2024">2024</option>
+                                                    <option value="2025">2025</option>
+                                                    <option value="2026">2026</option>
+                                                    <option value="2027">2027</option>
+                                                    <option value="2028">2028</option>
+                                                    <option value="2029">2029</option>
+                                                    <option value="2030">2030</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="cbo-sector">Medida de Mitigación</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup7"><i class="fas fa-landmark"></i></span></div>
+                                                <select class="form-control" id="cbo-medida" aria-describedby="inputGroup7" required>
+                                                    <option value="0">-Seleccione una medida-</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txt-descripcion">BAU Emisiones (tCO<sub>2</sub>/año)</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
-                                                <input class="form-control" type="text" id="txt-descripcion" placeholder="Ingrese el sector" aria-describedby="inputGroup6" required>
+                                                <input class="form-control" type="text" id="txt-bau" placeholder="Ingrese la emisión de la línea base en (tCO2/año)" aria-describedby="inputGroup6" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txt-descripcion">MITIGACIÓN Emisiones (tCO<sub>2</sub>/año)</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
+                                                <input class="form-control" type="text" id="txt-mitigacion" placeholder="Ingrese la emisión de la mitigación en (tCO2/año)" aria-describedby="inputGroup6" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txt-descripcion">Reducción (tCO<sub>2</sub>/año)</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
+                                                <input class="form-control" type="text" id="txt-reduccion" placeholder="Ingrese la reducción en (tCO2/año)" aria-describedby="inputGroup6" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txt-descripcion">Valores (Soft. MRV)</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
+                                                <input class="form-control" type="text" id="txt-soft" placeholder="Ingrese el valor (soft MRV)" aria-describedby="inputGroup6" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txt-descripcion">Ext ante-Exp post</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
+                                                <input class="form-control" type="text" id="txt-ext" placeholder="Ingrese el ext ante-exp post" aria-describedby="inputGroup6" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txt-descripcion">Meta anual</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
+                                                <input class="form-control" type="text" id="txt-meta" placeholder="Ingrese la meta anual" aria-describedby="inputGroup6" required>
                                             </div>
                                         </div>
                                     </div>
