@@ -106,3 +106,15 @@ D:\DGEE\mrv-minem\back-end\Web-CH-G\datos.minem.gob.pe\bin\Debug\Dapper.xml
 D:\DGEE\mrv-minem\back-end\Web-CH-G\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.csprojResolveAssemblyReference.cache
 D:\DGEE\mrv-minem\back-end\Web-CH-G\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.dll
 D:\DGEE\mrv-minem\back-end\Web-CH-G\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.pdb
+E:\Eduardo\mrv-minem\back-end\Web-CH-G\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.dll
+E:\Eduardo\mrv-minem\back-end\Web-CH-G\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.pdb
+E:\Eduardo\mrv-minem\back-end\Web-CH-G\datos.minem.gob.pe\bin\Debug\Dapper.dll
+E:\Eduardo\mrv-minem\back-end\Web-CH-G\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+E:\Eduardo\mrv-minem\back-end\Web-CH-G\datos.minem.gob.pe\bin\Debug\Oracle.DataAccess.dll
+E:\Eduardo\mrv-minem\back-end\Web-CH-G\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.dll
+E:\Eduardo\mrv-minem\back-end\Web-CH-G\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+E:\Eduardo\mrv-minem\back-end\Web-CH-G\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.pdb
+E:\Eduardo\mrv-minem\back-end\Web-CH-G\datos.minem.gob.pe\bin\Debug\Dapper.xml
+E:\Eduardo\mrv-minem\back-end\Web-CH-G\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.csprojResolveAssemblyReference.cache
+E:\Eduardo\mrv-minem\back-end\Web-CH-G\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.dll
+E:\Eduardo\mrv-minem\back-end\Web-CH-G\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.pdb

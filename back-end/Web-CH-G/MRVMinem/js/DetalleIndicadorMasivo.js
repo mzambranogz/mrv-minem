@@ -12,24 +12,26 @@ function fn_crearLinea(fila) {
     tr = tr + '                     </select>';
     tr = tr + '            </div>';
     tr = tr + '         </td>';
+
     tr = tr + '         <td data-encabezado="Columna 02">';
+    tr = tr + '              <div class="form-group m-0">';
+    tr = tr + '                      <input class="form-control form-control-sm"  type="date" placeholder="" id="txt-det-1-' + fila + '" min="2000-01-01" max="2030-12-31">';
+    tr = tr + '              </div>';
+    tr = tr + '         </td>';
+
+    tr = tr + '         <td data-encabezado="Columna 03">';
     tr = tr + '             <div class="form-group m-0">';
     tr = tr + '                     <select class="form-control form-control-sm" id="cbo-det-2-' + fila + '" onchange="fn_calcularIndicadores2(' + fila + ')">';
     tr = tr + '                          <option value="0">Seleccione</option>';
     tr = tr + '                     </select>';
     tr = tr + '            </div>';
     tr = tr + '         </td>';
-    tr = tr + '         <td data-encabezado="Columna 03">';
+    tr = tr + '         <td data-encabezado="Columna 04">';
     tr = tr + '             <div class="form-group m-0">';
     tr = tr + '                     <select class="form-control form-control-sm" id="cbo-det-3-' + fila + '" onchange="fn_calcularIndicadores2(' + fila + ')">';
     tr = tr + '                          <option value="0">Seleccione</option>';
     tr = tr + '                     </select>';
     tr = tr + '            </div>';
-    tr = tr + '         </td>';
-    tr = tr + '         <td data-encabezado="Columna 04">';
-    tr = tr + '              <div class="form-group m-0">';
-    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-1-' + fila + '" onBlur="fn_calcularIndicadores2(' + fila + ')">';
-    tr = tr + '              </div>';
     tr = tr + '         </td>';
     tr = tr + '         <td data-encabezado="Columna 05">';
     tr = tr + '              <div class="form-group m-0">';
@@ -43,17 +45,22 @@ function fn_crearLinea(fila) {
     tr = tr + '         </td>';
     tr = tr + '         <td data-encabezado="Columna 07">';
     tr = tr + '              <div class="form-group m-0">';
-    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-4-' + fila + '" disabled>';
+    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-4-' + fila + '" onBlur="fn_calcularIndicadores2(' + fila + ')">';
     tr = tr + '              </div>';
     tr = tr + '         </td>';
-    tr = tr + '         <td data-encabezado="Columna 07">';
+    tr = tr + '         <td data-encabezado="Columna 08">';
     tr = tr + '              <div class="form-group m-0">';
     tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-5-' + fila + '" disabled>';
     tr = tr + '              </div>';
     tr = tr + '         </td>';
-    tr = tr + '         <td data-encabezado="Subtotal">';
+    tr = tr + '         <td data-encabezado="Columna 09">';
+    tr = tr + '              <div class="form-group m-0">';
+    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-6-' + fila + '" disabled>';
+    tr = tr + '              </div>';
+    tr = tr + '         </td>';
+    tr = tr + '         <td data-encabezado="Columna 10">';
     tr = tr + '               <div class="form-group m-0">';
-    tr = tr + '                       <input class="form-control form-control-sm text-right" type="text" id="txt-det-6-' + fila + '" disabled>';
+    tr = tr + '                       <input class="form-control form-control-sm text-right" type="text" id="txt-det-7-' + fila + '" disabled>';
     tr = tr + '               </div>';
     tr = tr + '         </td>';
     //tr = tr + '         <td class="text-center" data-encabezado="Calcular">';
@@ -83,7 +90,7 @@ function fn_crearLinea(fila) {
 
     tr = tr + '         <td class="text-hide" data-encabezado="ID_INDICADOR" style="display:none;">';
     tr = tr + '               <div class="form-group m-0">';
-    tr = tr + '                       <input class="form-control form-control-sm text-right" type="text" id="txt-det-7-' + fila + '" disabled>';
+    tr = tr + '                       <input class="form-control form-control-sm text-right" type="text" id="txt-det-8-' + fila + '" disabled>';
     tr = tr + '               </div>';
     tr = tr + '         </td>';
 
@@ -485,7 +492,7 @@ function fn_CargarListaTipoVehiculo(datat, j) {
                 }
             }
         }
-        debugger;
+        //debugger;
         fn_CargarListaTipoCombustible(datat, j);
     });
 }
@@ -505,24 +512,35 @@ function fn_CargarListaTipoCombustible(datat, j) {
                 }
             }
         }
-        debugger;
+        //debugger;
         llenarTabla(datat, j);
     });
 }
 
 function llenarTabla(data, j) {
     debugger;
+    var xdate = new Date(parseInt(data[j]["INICIO_OPERACIONES"].substr(6)));
+    var mes = xdate.getMonth() + 1; //obteniendo mes
+    var dia = xdate.getDate(); //obteniendo dia
+    var ano = xdate.getFullYear(); //obteniendo año
+    if (dia < 10)
+        dia = '0' + dia; //agrega cero si el menor de 10
+    if (mes < 10)
+        mes = '0' + mes //agrega cero si el menor de 10
+
     $("#cbo-det-1-" + (j + 1)).val(data[j]["ANNO_BASE"]);
+    //$("#txt-det-1-" + (j + 1)).val(xdate);
+    document.getElementById("txt-det-1-" + (j + 1)).value = ano + "-" + mes + "-" + dia;
     $("#cbo-det-2-" + (j + 1)).val(data[j]["ID_TIPO_VEHICULO_BASE"]);
     $("#cbo-det-3-" + (j + 1)).val(data[j]["ID_TIPO_COMBUSTIBLE_BASE"]);
-    $("#txt-det-1-" + (j + 1)).val(data[j]["KRV_BASE"]);
-    $("#txt-det-2-" + (j + 1)).val(data[j]["CANT_BASE"]);
-    $("#txt-det-3-" + (j + 1)).val(data[j]["F_RENDIMIENTO"]);
+    $("#txt-det-2-" + (j + 1)).val(data[j]["KRV_BASE"]);
+    $("#txt-det-3-" + (j + 1)).val(data[j]["CANT_BASE"]);
+    $("#txt-det-4-" + (j + 1)).val(data[j]["F_RENDIMIENTO"]);
     //$("#tipoFuenteI" + fila).val(data[i]["ID_TIPO_FUENTE_INIMIT"]);
-    $("#txt-det-4-" + (j + 1)).val(data[j]["TOTAL_GEI_BASE"]);
-    $("#txt-det-5-" + (j + 1)).val(data[j]["TOTAL_GEI_INIMIT"]);
-    $("#txt-det-6-" + (j + 1)).val(data[j]["TOTAL_GEI_REDUCIDO"]);
-    $("#txt-det-7-" + (j + 1)).val(data[j]["ID_INDICADOR"]);
+    $("#txt-det-5-" + (j + 1)).val(data[j]["TOTAL_GEI_BASE"]);
+    $("#txt-det-6-" + (j + 1)).val(data[j]["TOTAL_GEI_INIMIT"]);
+    $("#txt-det-7-" + (j + 1)).val(data[j]["TOTAL_GEI_REDUCIDO"]);
+    $("#txt-det-8-" + (j + 1)).val(data[j]["ID_INDICADOR"]);
     $("#detalles-tr-" + (j + 1)).data("value", data[j]["ID_INDICADOR"]);
     $("#cuerpoTablaIndicador").data("total", $("#cuerpoTablaIndicador").data("total") + data[j]["TOTAL_GEI_REDUCIDO"]);
     $("#total-detalle #total").remove();
@@ -549,14 +567,15 @@ function CargarDetalleIndicadorRevision() {
                     tr = tr + '<tr>';
                     tr = tr + '                        <th class="text-center" data-encabezado="Número" scope="row">' + (i + 1) + '</th>';
                     tr = tr + '                        <td class="text-center" data-encabezado="Columna 01">' + data[i]["ANNOB"] + '</td>';
-                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 02">' + data[i]["TIPO_VEHICULO"] + '</td>';
-                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 03">' + data[i]["TIPO_COMBUSTIBLE"] + '</td>';
-                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 04">' + data[i]["KRVB"] + '</td>';
-                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 05">' + data[i]["CANTIDADB"] + '</td>';
-                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 06">' + data[i]["RENDIMIENTO"] + '</td>';
-                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 07">' + data[i]["TOTAL_GEI_BASE"] + '</td>';
-                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 08">' + data[i]["TOTAL_GEI_INIMIT"] + '</td>';
-                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 09">' + data[i]["TOTAL_GEI_REDUCIDO"] + '</td>';
+                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 02">' + data[i]["INICIO_OPERACIONES"] + '</td>';
+                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 03">' + data[i]["TIPO_VEHICULO"] + '</td>';
+                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 04">' + data[i]["TIPO_COMBUSTIBLE"] + '</td>';
+                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 05">' + data[i]["KRVB"] + '</td>';
+                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 06">' + data[i]["CANTIDADB"] + '</td>';
+                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 07">' + data[i]["RENDIMIENTO"] + '</td>';
+                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 08">' + data[i]["TOTAL_GEI_BASE"] + '</td>';
+                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 09">' + data[i]["TOTAL_GEI_INIMIT"] + '</td>';
+                    tr = tr + '                        <td class="text-center" data-encabezado="Columna 10">' + data[i]["TOTAL_GEI_REDUCIDO"] + '</td>';
                     //if (data[i]["ADJUNTO"] != null && data[i]["ADJUNTO"] != "") {
                     //    tr = tr + '                    <td data-encabezado="Columna 10">';
                     //    tr = tr + '                <div class="form-group m-0">';
@@ -601,24 +620,26 @@ function CargarTablaIndicador(datat, j) {
     tr = tr + '                     </select>';
     tr = tr + '            </div>';
     tr = tr + '         </td>';
+
     tr = tr + '         <td data-encabezado="Columna 02">';
+    tr = tr + '              <div class="form-group m-0">';
+    tr = tr + '                      <input class="form-control form-control-sm" type="date" placeholder="" id="txt-det-1-' + (j + 1) + '" min="2000-01-01" max="2030-12-31">';
+    tr = tr + '              </div>';
+    tr = tr + '         </td>';
+
+    tr = tr + '         <td data-encabezado="Columna 03">';
     tr = tr + '             <div class="form-group m-0">';
     tr = tr + '                     <select class="form-control form-control-sm" id="cbo-det-2-' + (j + 1) + '">';
     tr = tr + '                          <option value="0">Seleccione</option>';
     tr = tr + '                     </select>';
     tr = tr + '            </div>';
     tr = tr + '         </td>';
-    tr = tr + '         <td data-encabezado="Columna 03">';
+    tr = tr + '         <td data-encabezado="Columna 04">';
     tr = tr + '             <div class="form-group m-0">';
     tr = tr + '                     <select class="form-control form-control-sm" id="cbo-det-3-' + (j + 1) + '">';
     tr = tr + '                          <option value="0">Seleccione</option>';
     tr = tr + '                     </select>';
     tr = tr + '            </div>';
-    tr = tr + '         </td>';
-    tr = tr + '         <td data-encabezado="Columna 04">';
-    tr = tr + '              <div class="form-group m-0">';
-    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-1-' + (j + 1) + '">';
-    tr = tr + '              </div>';
     tr = tr + '         </td>';
     tr = tr + '         <td data-encabezado="Columna 05">';
     tr = tr + '              <div class="form-group m-0">';
@@ -632,17 +653,22 @@ function CargarTablaIndicador(datat, j) {
     tr = tr + '         </td>';
     tr = tr + '         <td data-encabezado="Columna 07">';
     tr = tr + '              <div class="form-group m-0">';
-    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-4-' + (j + 1) + '" disabled>';
+    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-4-' + (j + 1) + '">';
     tr = tr + '              </div>';
     tr = tr + '         </td>';
-    tr = tr + '         <td data-encabezado="Columna 07">';
+    tr = tr + '         <td data-encabezado="Columna 08">';
     tr = tr + '              <div class="form-group m-0">';
     tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-5-' + (j + 1) + '" disabled>';
     tr = tr + '              </div>';
     tr = tr + '         </td>';
+    tr = tr + '         <td data-encabezado="Columna 09">';
+    tr = tr + '              <div class="form-group m-0">';
+    tr = tr + '                      <input class="form-control form-control-sm" type="text" placeholder="" id="txt-det-6-' + (j + 1) + '" disabled>';
+    tr = tr + '              </div>';
+    tr = tr + '         </td>';
     tr = tr + '         <td data-encabezado="Subtotal">';
     tr = tr + '               <div class="form-group m-0">';
-    tr = tr + '                       <input class="form-control form-control-sm text-right" type="text" id="txt-det-6-' + (j + 1) + '" disabled>';
+    tr = tr + '                       <input class="form-control form-control-sm text-right" type="text" id="txt-det-7-' + (j + 1) + '" disabled>';
     tr = tr + '               </div>';
     tr = tr + '         </td>';
     //tr = tr + '         <td class="text-center" data-encabezado="Sustento">';
@@ -1624,6 +1650,10 @@ function inicio() {
     $("#pieCorrectoAprobacion").hide();
     $("#pieCorrectoAvance").hide();
     $("#pieCorrecto").hide();
+}
+
+function fn_eliminarFile(lastModified) {
+
 }
 
 $(document).ready(function () {

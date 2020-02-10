@@ -257,7 +257,7 @@
                                     </div>
                                     <div class="col-sm-12-col-md-12 col-lg-6">
                                         <div class="form-group">
-                                            <label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="./documentos/plantilla-excel.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>
+                                            <label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="~/documentos/4.1 Plantilla_Electricos_Masivo.xlsm" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup13"><i class="fas fa-file-excel"></i></span></div>
                                                 <input class="form-control cursor-pointer txt-file-control" type="text" id="txt-declaracion" placeholder="Suba su plantilla" aria-describedby="inputGroup13" required>
@@ -281,6 +281,7 @@
                                                     <tr class="bg-primary text-white">
                                                         <th class="text-center" style="background-color: green;" scope="col"><span>N°&nbsp;</span></th>
                                                         <th class="text-center" style="background-color: green;" scope="col"><span>Año&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Año"></i></span></th>
+                                                        <th class="text-center" style="background-color: green;" scope="col"><span>Inicio de Operaciones&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Fecha de inicio de operaciones del vehículo"></i></span></th>
                                                         <th class="text-center" style="background-color: green;" scope="col"><span>Tipo Vehiculo&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Tipo Vehículo"></i></span></th>
                                                         <th class="text-center" style="background-color: orange;" scope="col"><span>Tipo Combustible&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Tipo Combustible"></i></span></th>
                                                         <th class="text-center" style="background-color: green;" scope="col"><span>KRV&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador KRV"></i></span></th>
@@ -539,10 +540,30 @@
     function handleFileSelect(evt) {
         var files = evt.target.files; // FileList object
 
+        debugger;
         // files is a FileList of File objects. List some properties.
         var output = [];
         var extension = "fa-file-word";
         for (var i = 0, f; f = files[i]; i++) {
+
+            if (f.size > 4194304) {
+                $(this).val("");
+                MRV.Alert("Alerta", "Archivo que esta subiendo pesa más de 4 MB", "", "es")
+                return false;
+            }
+
+            switch (f.name.substring(f.name.lastIndexOf('.') + 1).toLowerCase()) {
+                case 'pdf': case 'jpg': case 'jpeg': case 'gif': case 'png': case 'tif': case 'doc': case 'docx': case 'xls': case 'xlsx': case 'ppt': case 'pptx':
+                    //$("#NombreArchivo").val(label);
+                    //return true;
+                    break;
+                default:
+                    $(this).val('');
+                    MRV.Alert('Alerta', "formato de archivo no válido", '', 'es');
+                    return false;
+                    break;
+            }
+
             if (f.type.includes("pdf")) {
                 extension = "fa-file-pdf";
             } else {
@@ -564,7 +585,8 @@
                     }
                 }
             }
-            output.push('<div class="input-group mb-3">', '<div class="input-group-prepend">', '<span class="input-group-text">', '<i class="fas ', extension, '">', '</i>', '</span>', '</div>', '<span class="form-control-plaintext">', decodeURI(f.name), '</span>', '</div>');
+
+            output.push('<div class="input-group mb-3">', '<div class="input-group-prepend">', '<span class="input-group-text">', '<i class="fas ', extension, '">', '</i>', '</span>', '</div>', '<span class="form-control-plaintext">', decodeURI(f.name), '</span>', '<div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="far fa-trash-alt" onclick="fn_eliminarFile(' + f.lastModified + ')"></i></span>', '</div></div>');
         }
         $("#archivos-documentos").append(output.join(''));
         $("#total-documentos").html(files.length);
@@ -600,7 +622,7 @@
                     console.log(response);
                     if (response.length > 0) {
                         for (var i = 0; i < response.length; i++) {
-                            debugger;
+                            //debugger;
                             CargarTablaIndicador(response, i);
                         }
                         $("#cuerpoTablaIndicador").data("row", response.length);
