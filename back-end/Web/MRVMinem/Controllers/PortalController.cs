@@ -186,7 +186,20 @@ namespace MRVMinem.Controllers
             institucion = InstitucionLN.registrarInstitucion(institucion);
             if (institucion.ID_INSTITUCION != 0)
             {
+                string nomArchivoSave = "";
+                string nomOriginal = "";
+                if (fledeclaracion != null)
+                {
+                    nomOriginal = fledeclaracion.FileName;
+                    var content = new byte[fledeclaracion.ContentLength];
+                    fledeclaracion.InputStream.Read(content, 0, fledeclaracion.ContentLength);
+                    double tamanio = (fledeclaracion.ContentLength / 1024);
+                    nomArchivoSave = Guid.NewGuid() + Path.GetExtension(fledeclaracion.FileName).ToString();
+                }                
+
                 entidad.ID_INSTITUCION = institucion.ID_INSTITUCION;
+                entidad.ADJUNTO = nomArchivoSave;
+                entidad.ADJUNTO_BASE = nomOriginal;
                 entidad = UsuarioLN.RegistraUsuario(entidad);
 
                 if (!entidad.OK)
@@ -196,23 +209,27 @@ namespace MRVMinem.Controllers
                 }
                 else
                 {
-                    try
+                    if (fledeclaracion != null)
                     {
-                        string nomArchivoSave = "";
-                        var content = new byte[fledeclaracion.ContentLength];
-                        fledeclaracion.InputStream.Read(content, 0, fledeclaracion.ContentLength);
-                        double tamanio = (fledeclaracion.ContentLength / 1024);
-                        nomArchivoSave = Guid.NewGuid() + Path.GetExtension(fledeclaracion.FileName).ToString();
-                        var carpeta = WebConfigurationManager.AppSettings.Get("DJ");
-                        var ruta = Path.Combine(carpeta, nomArchivoSave);
-                        fledeclaracion.SaveAs(ruta);
-                        itemRespuesta.success = true;
+                        try
+                        {
+                            //string nomArchivoSave = "";
+                            //var content = new byte[fledeclaracion.ContentLength];
+                            //fledeclaracion.InputStream.Read(content, 0, fledeclaracion.ContentLength);
+                            //double tamanio = (fledeclaracion.ContentLength / 1024);
+                            //nomArchivoSave = Guid.NewGuid() + Path.GetExtension(fledeclaracion.FileName).ToString();
+                            var carpeta = WebConfigurationManager.AppSettings.Get("DJ");
+                            var ruta = Path.Combine(carpeta, nomArchivoSave);
+                            fledeclaracion.SaveAs(ruta);
+                            itemRespuesta.success = true;
+                        }
+                        catch (Exception e)
+                        {
+                            itemRespuesta.success = false;
+                            itemRespuesta.extra = e.Message;
+                        }
                     }
-                    catch (Exception e)
-                    {
-                        itemRespuesta.success = false;
-                        itemRespuesta.extra = e.Message;
-                    }
+                    
 
                     EnvioCorreo hilo_correo = new EnvioCorreo(entidad);    //.CreacionUsuario(entidad);
                     //Thread hilo = new Thread(new ThreadStart(hilo_correo.CreacionUsuario));

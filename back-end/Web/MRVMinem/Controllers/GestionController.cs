@@ -121,6 +121,7 @@ namespace MRVMinem.Controllers
             modelo.usuario = UsuarioLN.UsuarioIniciativa(modelo.iniciativa_mit.ID_USUARIO);
             modelo.revision = 1;
             Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
+            Session["nombres_destino"] = modelo.usuario.NOMBRES;
             return View(modelo);
         }
 
@@ -156,6 +157,7 @@ namespace MRVMinem.Controllers
             modelo.usuario = UsuarioLN.UsuarioIniciativa(modelo.iniciativa_mit.ID_USUARIO);
             modelo.revision = 1;
             Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
+            Session["nombres_destino"] = modelo.usuario.NOMBRES;
             return View(modelo);
         }
 
@@ -491,13 +493,17 @@ namespace MRVMinem.Controllers
             if (entidad.OK)
             {
                 //var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
+                entidad.EMAIL_USUARIO_ORIGEN = Convert.ToString(Session["correo"]);
+                entidad.NOMBRES = Convert.ToString(Session["nombres_destino"]);
                 entidad.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
                 entidad.ASUNTO = "Observación Iniciativa - MRVMinem ";
-                entidad.DESCRIPCION = "En la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") se ha detectado algunos datos a corregir, los detalles en la siguiente descripción: <br/>" + entidad.DESCRIPCION + "<br/><br/>";
+                entidad.CABECERA_EMAIL = "<strong>Estimado Usuario: &nbsp;</strong><span>" + entidad.NOMBRES + ", se realizó una observación en su iniciativa.</span>";
+                entidad.DESCRIPCION = "En la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") se ha detectado algunos datos a corregir, los detalles en la siguiente descripción: <br/><br/>" + entidad.DESCRIPCION + "<br/><br/>";
                 EnvioCorreo hilo_correo = new EnvioCorreo(entidad, 1);
-                Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+                Task tarea = Task.Factory.StartNew(() => hilo_correo.enviarMensajeIniciativa());
                 itemRespuesta.extra = entidad.DESCRIPCION;
                 Session["correo_destino"] = "";
+                Session["nombres_destino"] = "";
             }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
@@ -610,14 +616,27 @@ namespace MRVMinem.Controllers
             if (entidad.OK)
             {
                 //var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
+                //IniciativaBE iniciativa = new IniciativaBE();
+                //iniciativa.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
+                //iniciativa.ASUNTO = "Observación Detalle Indicador - MRVMinem ";
+                //iniciativa.DESCRIPCION = "En los detalles indicadores de la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") se ha detectado algunos datos a corregir, los detalles en la siguiente descripción: <br/>" + entidad.DESCRIPCION + "<br/><br/>";
+                //EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
+                //Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+                //itemRespuesta.extra = entidad.DESCRIPCION;
+                //Session["correo_destino"] = "";
+
                 IniciativaBE iniciativa = new IniciativaBE();
+                iniciativa.EMAIL_USUARIO_ORIGEN = Convert.ToString(Session["correo"]);
+                iniciativa.NOMBRES = Convert.ToString(Session["nombres_destino"]);
                 iniciativa.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
                 iniciativa.ASUNTO = "Observación Detalle Indicador - MRVMinem ";
-                iniciativa.DESCRIPCION = "En los detalles indicadores de la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") se ha detectado algunos datos a corregir, los detalles en la siguiente descripción: <br/>" + entidad.DESCRIPCION + "<br/><br/>";
+                iniciativa.CABECERA_EMAIL = "<strong>Estimado Usuario: &nbsp;</strong><span>" + iniciativa.NOMBRES + ", se realizó una observación a su detalle de indicadores.</span>";
+                iniciativa.DESCRIPCION = "En los detalles indicadores de la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") se ha detectado algunos datos a corregir, los detalles en la siguiente descripción: <br/><br/>" + entidad.DESCRIPCION + "<br/><br/>";
                 EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
-                Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+                Task tarea = Task.Factory.StartNew(() => hilo_correo.enviarMensajeIniciativa());
                 itemRespuesta.extra = entidad.DESCRIPCION;
                 Session["correo_destino"] = "";
+                Session["nombres_destino"] = "";
             }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
@@ -1387,105 +1406,43 @@ namespace MRVMinem.Controllers
             return Respuesta(itemRespuesta);
         }
 
-        //EXPORTAR EXCEL
-        public void ExportarToExcelProyectos(IniciativaBE entidad)
+        public JsonResult GetDeclaracionUsuario(UsuarioBE entidad)
         {
-            //ProyectoBE proyecto = new ProyectoBE();
+            ResponseEntity itemRespuesta = new ResponseEntity();
 
-            //proyecto.ID_CLIENTE = entidad.IdCliente;
-            //proyecto.NOMBRE = entidad.Nombre;
-            //proyecto.ID_RESOLUCION = entidad.Resolucion == null ? "-" : entidad.Resolucion;
-            //proyecto.ID_PRIORIDAD = entidad.TipoPrioridad == null ? "-" : entidad.TipoPrioridad;
-            //proyecto.ID_TIPO_RUBRO = entidad.Rubro;
-            //proyecto.ID_SITUACION_PROY = entidad.Situacion;
-            //var dt = ProyectoLN.ListaProyectos(proyecto);
-            int row = 5;
-            try
+            List<UsuarioBE> lista = UsuarioLN.SeleccionarMantenimientoUsuario(entidad);
+            string carpetaTemp = WebConfigurationManager.AppSettings["RutaTemp"];
+            string carpeta = WebConfigurationManager.AppSettings["DJ"];
+            if (lista != null)
             {
-                string cadena_fecha = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
-
-                using (ExcelPackage package = new ExcelPackage())
+                if (System.IO.File.Exists(carpeta + "\\" + lista[0].ADJUNTO))
                 {
-                    var ws1 = package.Workbook.Worksheets.Add("PROYECTOS INVERSION SOCIAL");
-                    using (var rng = ws1.Cells[1, 1, row, 6])
-                    {
-                        rng.Style.Font.Bold = true;
-                        rng.Style.WrapText = true;
-                        rng.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                        rng.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
-                        rng.Style.Font.Size = 14;
-                        rng.Merge = true;
-                        rng.Value = "PROYECTOS DE INVERSIÓN SOCIAL " + cadena_fecha;
-                    }
-                    ws1.View.FreezePanes(2, 1);
-                    row++;
-                    ws1.Cells["A" + row].Value = "N°";
-                    ws1.Cells["A" + row].AutoFitColumns(10);
-                    ws1.Cells["B" + row].Value = "NOMBRE DEL PROYECTO";
-                    ws1.Cells["B" + row].AutoFitColumns(120);
-                    ws1.Cells["C" + row].Value = "RESOLUCIÓN";
-                    ws1.Cells["C" + row].AutoFitColumns(40);
-                    ws1.Cells["D" + row].Value = "TIPO DE PRIORIDAD";
-                    ws1.Cells["D" + row].AutoFitColumns(40);
-                    ws1.Cells["E" + row].Value = "RUBRO";
-                    ws1.Cells["E" + row].AutoFitColumns(40);
-                    ws1.Cells["F" + row].Value = "SITUACIÓN DEL PROYECTO";
-                    ws1.Cells["F" + row].AutoFitColumns(50);
-
-                    //using (var rng = ws1.Cells["A" + row + ":F" + row])
-                    //{
-                    //    rng.Style.Font.Bold = true;
-                    //    rng.Style.WrapText = false;
-                    //    rng.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                    //    rng.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                    //    rng.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                    //    rng.Style.Fill.BackgroundColor.SetColor(Color.FromArgb(66, 139, 202));
-                    //    rng.Style.Font.Color.SetColor(Color.FromArgb(255, 255, 255));
-                    //    rng.Style.Font.Size = 12;
-                    //    rng.Style.Border.Top.Style = ExcelBorderStyle.Thin;
-                    //    rng.Style.Border.Left.Style = ExcelBorderStyle.Thin;
-                    //    rng.Style.Border.Right.Style = ExcelBorderStyle.Thin;
-                    //    rng.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
-                    //    rng.Style.Border.Top.Color.SetColor(Color.FromArgb(221, 221, 221));
-                    //    rng.Style.Border.Left.Color.SetColor(Color.FromArgb(255, 255, 255));
-                    //    rng.Style.Border.Right.Color.SetColor(Color.FromArgb(255, 255, 255));
-                    //    rng.Style.Border.Bottom.Color.SetColor(Color.FromArgb(255, 255, 255));
-                    //}
-                    //ws1.Row(row).Height = 42;
-                    //row++;
-                    //if (dt.Count > 0)
-                    //{
-                    //    var xNum = 0;
-                    //    foreach (ProyectoBE dt_fila in dt)
-                    //    {
-                    //        xNum++;
-                    //        ws1.Cells["A" + row].Value = xNum;
-                    //        ws1.Cells["B" + row].Value = dt_fila.NOMBRE;
-                    //        ws1.Cells["C" + row].Value = dt_fila.RESOLUCION;
-                    //        ws1.Cells["D" + row].Value = dt_fila.TIPO_PRIORIDAD;
-                    //        ws1.Cells["E" + row].Value = dt_fila.DESC_TIPO_RUBRO;
-                    //        ws1.Cells["F" + row].Value = dt_fila.SITUACION_PROYECTO;
-                    //        row++;
-                    //    }
-                    //    row++;
-                    //}
-
-                    string strFileName = "PROYECTOS_INVERSION_" + DateTime.Now.ToString() + ".xlsx";
-                    Response.Clear();
-                    byte[] dataByte = package.GetAsByteArray();
-                    Response.AddHeader("Content-Disposition", "inline;filename=\"" + strFileName + "\"");
-                    Response.AddHeader("Content-Length", dataByte.Length.ToString());
-                    Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-                    Response.BinaryWrite(dataByte);
-                    Response.End();
+                    System.IO.File.Copy(carpeta + "\\" + lista[0].ADJUNTO, carpetaTemp + "\\" + lista[0].ADJUNTO, true);
+                    itemRespuesta.success = true;
                 }
+                itemRespuesta.extra = lista[0].ADJUNTO;
             }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }   
-                     
+
+            return Respuesta(itemRespuesta);
         }
+
+        public JsonResult ConsultaUsuario(UsuarioBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+            string descripcion = entidad.DESCRIPCION;
+            entidad = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
+            entidad.EMAIL_USUARIO_ORIGEN = Convert.ToString(Session["correo"]);
+            entidad.ASUNTO = "MRVMinem - Consulta";
+            entidad.CABECERA_EMAIL = "le enviamos la siguiente consulta:";
+            entidad.DESCRIPCION = descripcion + "<br/><br/>";
+            EnvioCorreo hilo_correo = new EnvioCorreo(entidad);
+            Task tarea = Task.Factory.StartNew(() => hilo_correo.enviarMensaje());
+
+            itemRespuesta.success = true;
+            return Respuesta(itemRespuesta);
+        }
+
+        //EXPORTAR EXCEL
 
         public void ExportarIniciativa(string item)
         {

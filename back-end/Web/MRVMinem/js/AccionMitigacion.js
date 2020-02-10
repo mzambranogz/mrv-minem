@@ -148,7 +148,7 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
 
                     for (var i = 0; i < data.length; i++) {
 
-                        var progreso = '0%;';
+                        var progreso = '0%';
                         if (data[i]["ID_ESTADO"] != 0 || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3)) {
                             if (data[i]["PROGRESO"] == 1 && (data[i]["ID_ESTADO"] == 1 || data[i]["ID_ESTADO"] == 5 || data[i]["ID_ESTADO"] == 2)) {
                                 progreso = '25%';
@@ -302,7 +302,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                     //$("#cuerpoMitigacion").html("");
                     for (var i = 0; i < data.length; i++) {
 
-                        var progreso = '0%;';
+                        var progreso = '0%';
                         if (data[i]["ID_ESTADO"] != 0 || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3)) {
                             if (data[i]["PROGRESO"] == 1 && (data[i]["ID_ESTADO"] == 1 || data[i]["ID_ESTADO"] == 5 || data[i]["ID_ESTADO"] == 2)) {
                                 progreso = '25%';

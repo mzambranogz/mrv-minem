@@ -16,5 +16,7 @@ namespace entidad.minem.gob.pe
         public string DESCRIPCION_ESTADO_USU { get; set; }
         public string NUMERO_CONTACTO { get; set; }
         public int ESTADO_BUSCAR { get; set; }
+        public string EMAIL_USUARIO_ORIGEN { get; set; }
+        public string CABECERA_EMAIL { get; set; }
     }
 }

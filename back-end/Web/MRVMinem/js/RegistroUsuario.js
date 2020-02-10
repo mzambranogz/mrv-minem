@@ -107,7 +107,7 @@ function fn_validar(e) {
     }
 
     if ($("#cbo-sector").val() == 2) {
-        if (!($('#fle-declaracion').val())) {
+        if (!($('#fledeclaracion').val())) {
             arr.push("Debe adjuntar la declaración jurada");
         }
     }    
@@ -388,7 +388,7 @@ $(document).ready(function () {
     });
 });
 
-$(document).on('change', '#fle-declaracion', function () {
+$(document).on('change', '#fledeclaracion', function () {
     var fileInput = this.value;
     var fileName = this.files[0].name;
     var fileSize = this.files[0].size;
@@ -401,5 +401,12 @@ $(document).on('change', '#fle-declaracion', function () {
         $("#txt-declaracion").val("");
         this.value = '';
         //$("#mensajeFile").append('<small style="color: red;" id="msj">*archivo no permitido</small>');
+    }
+});
+
+$(document).on('change', '#cbo-sector', function () {
+    if ($("#cbo-sector").val() == 1) {
+        $("#txt-declaracion").val("");
+        $("#fledeclaracion").val("");
     }
 });

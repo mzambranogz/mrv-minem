@@ -33,5 +33,7 @@ namespace entidad.minem.gob.pe
         public int sector_b { get; set; }
         public int gei_b { get; set; }
         public int energ_b { get; set; }
+        public string EMAIL_USUARIO_ORIGEN { get; set; }
+        public string CABECERA_EMAIL { get; set; }
     }
 }

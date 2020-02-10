@@ -204,6 +204,7 @@ namespace datos.minem.gob.pe
                     p.Add("pFECHA_IMPLE_INICIATIVA", entidad.FECHA_IMPLE_INICIATIVA);
                     p.Add("pFECHA_FIN_INICIATIVA", entidad.FECHA_FIN_INICIATIVA);
                     p.Add("pPRIVACIDAD_INICIATIVA", entidad.PRIVACIDAD_INICIATIVA);
+                    p.Add("pPRIVACIDAD_INVERSION", entidad.PRIVACIDAD_INVERSION);
                     p.Add("pID_ESTADO", entidad.ID_ESTADO);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
@@ -494,6 +495,11 @@ namespace datos.minem.gob.pe
                     p.Add("pID_INICIATIVA_SUSTENTATORIO", entidad.ID_INICIATIVA_SUSTENTATORIO);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<SustentoIniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in Lista)
+                    {
+                        if (string.IsNullOrEmpty(item.ADJUNTO_BASE)) item.ADJUNTO_BASE = "";
+                    }
                 }
             }
             catch (Exception ex)
@@ -1324,6 +1330,9 @@ namespace datos.minem.gob.pe
                     foreach (var item in Lista)
                     {
                         item.FECHA = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
+                        if (item.FECHA == "01/01/0001") item.FECHA = "";
+                        if (string.IsNullOrEmpty(item.NOMBRE_INICIATIVA)) item.NOMBRE_INICIATIVA = "";
+                        if (string.IsNullOrEmpty(item.NOMBRE_MEDMIT)) item.NOMBRE_MEDMIT = "";
                     }
                 }
             }

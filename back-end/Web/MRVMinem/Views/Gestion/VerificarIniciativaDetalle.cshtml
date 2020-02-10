@@ -51,13 +51,13 @@
                 <div class="container py-5">
                     <div class="row">
                         <div class="col-12">
-                            <div class="h5 pb-5 text-primary">Promoción de vehiculos eléctricos a nivel nacional&nbsp;<br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small></div>
+                            <div class="h5 pb-5 text-primary">@Model.medida.NOMBRE_MEDMIT@*Promoción de vehiculos eléctricos a nivel nacional*@&nbsp;<br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12-col-md-12 col-lg-6">
                             <div class="form-group">
-                                <label for="txt-categoria" class="font-weight-bold">Categoría IPSC</label>
+                                <label for="txt-categoria" class="font-weight-bold">Categoría IPCC</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-landmark"></i></span></div>
                                     <input class="form-control-plaintext" type="text" id="txt-categoria" value="@Model.medida.IPSC_MEDMIT" aria-describedby="inputGroup1" readonly>
@@ -624,7 +624,7 @@
                                 <div class="col-sm-12 col-md-6 col-lg-6 text-right">@*<strong>Fecha de Registro: 25/02/2020</strong>*@</div>
                             </div>
                             <div class="row">
-                                <div class="col-sm-12-col-md-12 col-lg-6">
+                                <div class="col-sm-12-col-md-12 col-lg-6" hidden>
                                     <div class="form-group">
                                         <label for="cbo-tipo-observacion">Tipo de observación<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="En caso no posea un nombre, coloque el nombre de la medida de mitigación seguido de un guión y nombre o siglas de la institución."></i></label>
                                         <div class="input-group">
@@ -642,7 +642,7 @@
                             <div class="row">
                                 <div class="col-sm-12-col-md-12 col-lg-12">
                                     <div class="form-group">
-                                        <label for="txa-nombre-iniciativa">Observaciones:<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="En caso no posea un nombre, coloque el nombre de la medida de mitigación seguido de un guión y nombre o siglas de la institución."></i></label>
+                                        <label for="txa-nombre-iniciativa">Observaciones:<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-comment-alt"></i></span></div>
                                             <textarea class="form-control" id="txa-observacion-detalle" aria-describedby="inputGroup4" cols="30" rows="5" required placeholder="Ingrese un nombre para su iniciativa"></textarea>

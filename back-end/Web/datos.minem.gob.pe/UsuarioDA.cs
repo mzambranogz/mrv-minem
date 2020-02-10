@@ -59,6 +59,8 @@ namespace datos.minem.gob.pe
                     p.Add("pID_ROL", entidad.ID_ROL);
                     p.Add("pID_ESTADO_USUARIO", entidad.ID_ESTADO_USUARIO);
                     p.Add("pFLG_TERMINOS", entidad.TERMINOS);
+                    p.Add("pADJUNTO",entidad.ADJUNTO);
+                    p.Add("pADJUNTO_BASE", entidad.ADJUNTO_BASE);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     var CODIGO = db.ExecuteScalar(sp, p, commandType: CommandType.StoredProcedure);
                     entidad.ID_USUARIO = Convert.ToInt32(CODIGO);
