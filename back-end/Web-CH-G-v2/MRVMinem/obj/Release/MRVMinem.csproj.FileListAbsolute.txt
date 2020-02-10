@@ -1,0 +1,360 @@
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\roslyn\csc.exe
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\roslyn\vbc.exe
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\roslyn\VBCSCompiler.exe
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\MRVMinem.dll.config
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\MRVMinem.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\MRVMinem.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\entidad.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\logica.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\Microsoft.ReportViewer.WebForms.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\System.Web.Helpers.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\System.Web.Mvc.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\System.Web.Razor.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\System.Web.Webpages.Deployment.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\System.Web.Webpages.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\System.Web.Webpages.Razor.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\utilitario.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\datos.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\Dapper.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\Oracle.DataAccess.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\Microsoft.SqlServer.Types.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\entidad.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\logica.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\utilitario.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\System.Web.Razor.xml
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\System.Web.Webpages.xml
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\System.Web.Webpages.Deployment.xml
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\System.Web.Webpages.Razor.xml
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\System.Web.Helpers.xml
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\System.Web.Mvc.xml
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\datos.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\Dapper.xml
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\es\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\es\System.Web.Razor.resources.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\es\System.Web.Webpages.resources.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\es\System.Web.Webpages.Deployment.resources.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\es\System.Web.Webpages.Razor.resources.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\es\System.Web.Helpers.resources.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\es\System.Web.Mvc.resources.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\de\Microsoft.SqlServer.Types.resources.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\es\Microsoft.SqlServer.Types.resources.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\fr\Microsoft.SqlServer.Types.resources.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\it\Microsoft.SqlServer.Types.resources.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\ja\Microsoft.SqlServer.Types.resources.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\ko\Microsoft.SqlServer.Types.resources.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\pt\Microsoft.SqlServer.Types.resources.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\ru\Microsoft.SqlServer.Types.resources.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\zh-Hans\Microsoft.SqlServer.Types.resources.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\zh-Hant\Microsoft.SqlServer.Types.resources.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\obj\Release\MRVMinem.csprojResolveAssemblyReference.cache
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\obj\Release\RdlCompile.cache
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\obj\Release\RdlCompile.compiled
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\obj\Release\MRVMinem.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\obj\Release\MRVMinem.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\Reportes\EscenarioRpt.rdlc
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\Archivos\dj\LEEME.txt
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\Archivos\sustentatorios\LEEME.txt
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\Documentos\Manual_Usuario_MRV.pdf
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\MRVMinem\bin\Documentos\modelo-declaracion-jurada.pdf
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\roslyn\csc.exe
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\roslyn\vbc.exe
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\roslyn\VBCSCompiler.exe
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\Archivos\dj\LEEME.txt
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\Archivos\sustentatorios\LEEME.txt
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\Temp\LEEME.txt
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\Documentos\Manual_Usuario_MRV.pdf
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\Documentos\modelo-declaracion-jurada.pdf
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\Reportes\EscenarioRpt.rdlc
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\MRVMinem.dll.config
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\MRVMinem.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\MRVMinem.pdb
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\entidad.minem.gob.pe.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\logica.minem.gob.pe.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\Microsoft.ReportViewer.WebForms.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\System.Web.Helpers.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\System.Web.Mvc.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\System.Web.Razor.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\System.Web.Webpages.Deployment.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\System.Web.Webpages.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\System.Web.Webpages.Razor.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\utilitario.minem.gob.pe.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\datos.minem.gob.pe.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\Dapper.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\Oracle.DataAccess.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\Microsoft.SqlServer.Types.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\entidad.minem.gob.pe.pdb
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\logica.minem.gob.pe.pdb
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\utilitario.minem.gob.pe.pdb
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\System.Web.Razor.xml
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\System.Web.Webpages.xml
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\System.Web.Webpages.Deployment.xml
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\System.Web.Webpages.Razor.xml
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\System.Web.Helpers.xml
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\System.Web.Mvc.xml
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\datos.minem.gob.pe.pdb
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\Dapper.xml
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\es\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\es\System.Web.Razor.resources.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\es\System.Web.Webpages.resources.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\es\System.Web.Webpages.Deployment.resources.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\es\System.Web.Webpages.Razor.resources.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\es\System.Web.Helpers.resources.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\es\System.Web.Mvc.resources.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\de\Microsoft.SqlServer.Types.resources.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\es\Microsoft.SqlServer.Types.resources.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\fr\Microsoft.SqlServer.Types.resources.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\it\Microsoft.SqlServer.Types.resources.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\ja\Microsoft.SqlServer.Types.resources.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\ko\Microsoft.SqlServer.Types.resources.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\pt\Microsoft.SqlServer.Types.resources.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\ru\Microsoft.SqlServer.Types.resources.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\zh-Hans\Microsoft.SqlServer.Types.resources.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\bin\zh-Hant\Microsoft.SqlServer.Types.resources.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\obj\Release\MRVMinem.csprojResolveAssemblyReference.cache
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\obj\Release\RdlCompile.cache
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\obj\Release\RdlCompile.compiled
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\obj\Release\MRVMinem.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\MRVMinem\obj\Release\MRVMinem.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\roslyn\csc.exe
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\roslyn\vbc.exe
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\roslyn\VBCSCompiler.exe
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\Archivos\dj\LEEME.txt
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\Archivos\sustentatorios\LEEME.txt
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\Log\LEEME.txt
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\Temp\LEEME.txt
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\Documentos\Manual_Usuario_MRV.pdf
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\Reportes\EscenarioRpt.rdlc
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\MRVMinem.dll.config
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\MRVMinem.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\MRVMinem.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\entidad.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\EPPlus.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\logica.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\Microsoft.ReportViewer.WebForms.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\System.Web.Helpers.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\System.Web.Mvc.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\System.Web.Razor.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\System.Web.Webpages.Deployment.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\System.Web.Webpages.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\System.Web.Webpages.Razor.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\utilitario.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\datos.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\Dapper.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\Oracle.DataAccess.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\Microsoft.SqlServer.Types.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\entidad.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\logica.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\utilitario.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\System.Web.Razor.xml
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\System.Web.Webpages.xml
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\System.Web.Webpages.Deployment.xml
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\System.Web.Webpages.Razor.xml
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\System.Web.Helpers.xml
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\System.Web.Mvc.xml
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\datos.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\Dapper.xml
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\es\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\es\System.Web.Razor.resources.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\es\System.Web.Webpages.resources.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\es\System.Web.Webpages.Deployment.resources.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\es\System.Web.Webpages.Razor.resources.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\es\System.Web.Helpers.resources.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\es\System.Web.Mvc.resources.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\de\Microsoft.SqlServer.Types.resources.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\es\Microsoft.SqlServer.Types.resources.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\fr\Microsoft.SqlServer.Types.resources.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\it\Microsoft.SqlServer.Types.resources.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\ja\Microsoft.SqlServer.Types.resources.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\ko\Microsoft.SqlServer.Types.resources.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\pt\Microsoft.SqlServer.Types.resources.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\ru\Microsoft.SqlServer.Types.resources.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\zh-Hans\Microsoft.SqlServer.Types.resources.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\zh-Hant\Microsoft.SqlServer.Types.resources.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\obj\Release\MRVMinem.csprojResolveAssemblyReference.cache
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\obj\Release\RdlCompile.cache
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\obj\Release\RdlCompile.compiled
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\obj\Release\MRVMinem.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\obj\Release\MRVMinem.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\MRVMinem\bin\Documentos\modelo-declaracion-jurada.pdf
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\roslyn\csc.exe
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\roslyn\vbc.exe
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\roslyn\VBCSCompiler.exe
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\Archivos\dj\LEEME.txt
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\Archivos\sustentatorios\LEEME.txt
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\Log\LEEME.txt
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\Temp\LEEME.txt
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\Documentos\Manual_Usuario_MRV.pdf
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\Documentos\modelo-declaracion-jurada.pdf
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\Reportes\EscenarioRpt.rdlc
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\MRVMinem.dll.config
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\MRVMinem.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\MRVMinem.pdb
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\entidad.minem.gob.pe.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\EPPlus.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\logica.minem.gob.pe.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\Microsoft.ReportViewer.WebForms.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\System.Web.Helpers.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\System.Web.Mvc.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\System.Web.Razor.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\System.Web.Webpages.Deployment.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\System.Web.Webpages.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\System.Web.Webpages.Razor.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\utilitario.minem.gob.pe.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\datos.minem.gob.pe.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\Dapper.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\Oracle.DataAccess.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\Microsoft.SqlServer.Types.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\entidad.minem.gob.pe.pdb
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\logica.minem.gob.pe.pdb
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\utilitario.minem.gob.pe.pdb
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\System.Web.Razor.xml
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\System.Web.Webpages.xml
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\System.Web.Webpages.Deployment.xml
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\System.Web.Webpages.Razor.xml
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\System.Web.Helpers.xml
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\System.Web.Mvc.xml
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\datos.minem.gob.pe.pdb
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\Dapper.xml
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\es\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\es\System.Web.Razor.resources.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\es\System.Web.Webpages.resources.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\es\System.Web.Webpages.Deployment.resources.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\es\System.Web.Webpages.Razor.resources.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\es\System.Web.Helpers.resources.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\es\System.Web.Mvc.resources.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\de\Microsoft.SqlServer.Types.resources.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\es\Microsoft.SqlServer.Types.resources.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\fr\Microsoft.SqlServer.Types.resources.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\it\Microsoft.SqlServer.Types.resources.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\ja\Microsoft.SqlServer.Types.resources.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\ko\Microsoft.SqlServer.Types.resources.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\pt\Microsoft.SqlServer.Types.resources.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\ru\Microsoft.SqlServer.Types.resources.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\zh-Hans\Microsoft.SqlServer.Types.resources.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\bin\zh-Hant\Microsoft.SqlServer.Types.resources.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\obj\Release\MRVMinem.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\obj\Release\RdlCompile.cache
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\obj\Release\RdlCompile.compiled
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\obj\Release\MRVMinem.dll
+C:\Users\User\Desktop\backend\back-end\Web\MRVMinem\obj\Release\MRVMinem.pdb
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\roslyn\csc.exe
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\roslyn\vbc.exe
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\roslyn\VBCSCompiler.exe
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\Archivos\dj\LEEME.txt
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\Archivos\sustentatorios\LEEME.txt
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\Log\LEEME.txt
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\Temp\LEEME.txt
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\Documentos\Manual_Usuario_MRV.pdf
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\Documentos\modelo-declaracion-jurada.pdf
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\Reportes\EscenarioRpt.rdlc
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\MRVMinem.dll.config
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\MRVMinem.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\MRVMinem.pdb
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\entidad.minem.gob.pe.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\EPPlus.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\logica.minem.gob.pe.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\Microsoft.ReportViewer.WebForms.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\System.Web.Helpers.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\System.Web.Mvc.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\System.Web.Razor.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\System.Web.Webpages.Deployment.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\System.Web.Webpages.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\System.Web.Webpages.Razor.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\utilitario.minem.gob.pe.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\datos.minem.gob.pe.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\Dapper.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\Oracle.DataAccess.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\Microsoft.SqlServer.Types.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\entidad.minem.gob.pe.pdb
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\logica.minem.gob.pe.pdb
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\utilitario.minem.gob.pe.pdb
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\System.Web.Razor.xml
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\System.Web.Webpages.xml
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\System.Web.Webpages.Deployment.xml
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\System.Web.Webpages.Razor.xml
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\System.Web.Helpers.xml
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\System.Web.Mvc.xml
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\datos.minem.gob.pe.pdb
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\Dapper.xml
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\es\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\es\System.Web.Razor.resources.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\es\System.Web.Webpages.resources.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\es\System.Web.Webpages.Deployment.resources.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\es\System.Web.Webpages.Razor.resources.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\es\System.Web.Helpers.resources.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\es\System.Web.Mvc.resources.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\de\Microsoft.SqlServer.Types.resources.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\es\Microsoft.SqlServer.Types.resources.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\fr\Microsoft.SqlServer.Types.resources.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\it\Microsoft.SqlServer.Types.resources.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\ja\Microsoft.SqlServer.Types.resources.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\ko\Microsoft.SqlServer.Types.resources.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\pt\Microsoft.SqlServer.Types.resources.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\ru\Microsoft.SqlServer.Types.resources.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\zh-Hans\Microsoft.SqlServer.Types.resources.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\bin\zh-Hant\Microsoft.SqlServer.Types.resources.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\obj\Release\MRVMinem.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\obj\Release\RdlCompile.cache
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\obj\Release\RdlCompile.compiled
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\obj\Release\MRVMinem.dll
+C:\Users\User\Desktop\INTEGRACION\Web\MRVMinem\obj\Release\MRVMinem.pdb
