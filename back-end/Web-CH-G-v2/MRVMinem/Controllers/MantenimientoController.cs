@@ -11,9 +11,11 @@ using utilitario.minem.gob.pe;
 using System.Drawing;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
+using MRVMinem.Tags;
 
 namespace MRVMinem.Controllers
 {
+    [Autenticado]
     public class MantenimientoController : BaseController
     {
         // GET: Mantenimiento

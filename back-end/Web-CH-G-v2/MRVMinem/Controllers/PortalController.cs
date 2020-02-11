@@ -15,6 +15,7 @@ using System.Net.Mime;
 using MRVMinem.Models;
 using System.IO;
 using System.Web.Configuration;
+using MRVMinem.Helper;
 
 namespace MRVMinem.Controllers
 {
@@ -250,9 +251,7 @@ namespace MRVMinem.Controllers
             itemRespuesta.success = entidad.OK;
             if (entidad.OK)
             {
-                //session.ID_USUARIO = entidad.ID_USUARIO;
-                //Session["Opciones"] = session; 
-                //itemRespuesta.extra = entidad.ID_USUARIO.ToString();
+                SessionHelper.AddUserToSession(entidad.ID_USUARIO.ToString());  //Guaradamos la sesión en la cookie
                 Session["usuario"] = entidad.ID_USUARIO.ToString();
                 Session["socket"] = WebConfigurationManager.AppSettings.Get("Socket");
                 List<RolOpcionesBE> lista = RolOpcionesLN.ListarOpciones(entidad.ID_USUARIO);

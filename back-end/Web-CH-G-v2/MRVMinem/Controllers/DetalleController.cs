@@ -3,6 +3,7 @@ using logica.minem.gob.pe;
 using MRVMinem.Core;
 using MRVMinem.Models;
 using MRVMinem.Repositorio;
+using MRVMinem.Tags;
 using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ using utilitario.minem.gob.pe;
 
 namespace MRVMinem.Controllers
 {
+    [Autenticado]
     public class DetalleController : BaseController
     {
         // GET: Detalle

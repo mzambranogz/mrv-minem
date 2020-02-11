@@ -203,6 +203,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\SessionHelper.cs" />
     <Compile Include="Models\ListaObjeto.cs" />
     <Compile Include="Models\MvEnfoque.cs" />
     <Compile Include="Models\MvEscenario.cs" />
@@ -228,6 +229,7 @@
     </Compile>
     <Compile Include="Repositorio\EnvioCorreo.cs" />
     <Compile Include="Response\ResponseEntity.cs" />
+    <Compile Include="Tags\AutenticadoAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config">
