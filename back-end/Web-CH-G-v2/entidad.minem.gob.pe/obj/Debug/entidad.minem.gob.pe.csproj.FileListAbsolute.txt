@@ -38,3 +38,8 @@ E:\Eduardo\mrv-minem\back-end\Web-CH-G\entidad.minem.gob.pe\bin\Debug\entidad.mi
 E:\Eduardo\mrv-minem\back-end\Web-CH-G\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.csprojResolveAssemblyReference.cache
 E:\Eduardo\mrv-minem\back-end\Web-CH-G\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.dll
 E:\Eduardo\mrv-minem\back-end\Web-CH-G\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.pdb
+E:\Eduardo\mrv-minem\back-end\Web-CH-G-v2\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+E:\Eduardo\mrv-minem\back-end\Web-CH-G-v2\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+E:\Eduardo\mrv-minem\back-end\Web-CH-G-v2\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.csprojResolveAssemblyReference.cache
+E:\Eduardo\mrv-minem\back-end\Web-CH-G-v2\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.dll
+E:\Eduardo\mrv-minem\back-end\Web-CH-G-v2\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.pdb

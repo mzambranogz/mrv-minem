@@ -31,6 +31,10 @@ namespace MRVMinem.Controllers
         }
         public ActionResult AccionMitigacion()
         {
+            if (Session["usuario"] == null)
+            {
+                return RedirectToAction("Login", "Home");
+            }
             ListaObjeto modelo = new ListaObjeto();
             IniciativaBE ini = new IniciativaBE();
             ini.ID_USUARIO = Convert.ToInt32(Session["usuario"]);

@@ -742,245 +742,245 @@ function fn_calcularIndicador(fila) {
 }
 
 
-function fn_procesoDetalleIndicador_2(url, estado) {
-    debugger;
-    indicadores = [];
-    documentos = [];
-    var n = $(".tabla-detalle-indicadores").find("tbody").find("th").length + 1;
-    for (var fila = 1 ; fila < n; fila++) {
-        if ($("#txt-det-6-" + fila).val() != '') {
-            var itx = {
-                ID_INDICADOR: $("#txt-det-8-" + fila).val(),
-                ID_INICIATIVA: $("#Control").data("iniciativa"),
-                INICIO_OPERACIONES: $("#txt-det-1-" + fila).val(),
-                ANNOB: $("#cbo-det-1-" + fila).val(),
-                ID_TIPO_VEHICULOB: $("#cbo-det-2-" + fila).val(),
-                ID_TIPO_COMBUSTIBLEB: $("#cbo-det-3-" + fila).val(),
-                KRVB: $("#txt-det-2-" + fila).val(),
-                CANTIDADB: $("#txt-det-3-" + fila).val(),
-                FACTOR_RENDIMIENTO: $("#txt-det-4-" + fila).val(),
-                TOTAL_GEI_BASE: $("#txt-det-5-" + fila).val(),
-                TOTAL_GEI_INIMIT: $("#txt-det-6-" + fila).val(),
-                TOTAL_GEI_REDUCIDO: $("#txt-det-7-" + fila).val(),
-                ID_TIPO_FUENTEI: $("#cbo-enfoque").val(),
-                ADJUNTO_BASE: $("#fledoc-" + fila).val()
-            }
-            indicadores.push(itx);
-        }
-    }
+//function fn_procesoDetalleIndicador_2(url, estado) {
+//    debugger;
+//    indicadores = [];
+//    documentos = [];
+//    var n = $(".tabla-detalle-indicadores").find("tbody").find("th").length + 1;
+//    for (var fila = 1 ; fila < n; fila++) {
+//        if ($("#txt-det-6-" + fila).val() != '') {
+//            var itx = {
+//                ID_INDICADOR: $("#txt-det-8-" + fila).val(),
+//                ID_INICIATIVA: $("#Control").data("iniciativa"),
+//                INICIO_OPERACIONES: $("#txt-det-1-" + fila).val(),
+//                ANNOB: $("#cbo-det-1-" + fila).val(),
+//                ID_TIPO_VEHICULOB: $("#cbo-det-2-" + fila).val(),
+//                ID_TIPO_COMBUSTIBLEB: $("#cbo-det-3-" + fila).val(),
+//                KRVB: $("#txt-det-2-" + fila).val(),
+//                CANTIDADB: $("#txt-det-3-" + fila).val(),
+//                FACTOR_RENDIMIENTO: $("#txt-det-4-" + fila).val(),
+//                TOTAL_GEI_BASE: $("#txt-det-5-" + fila).val(),
+//                TOTAL_GEI_INIMIT: $("#txt-det-6-" + fila).val(),
+//                TOTAL_GEI_REDUCIDO: $("#txt-det-7-" + fila).val(),
+//                ID_TIPO_FUENTEI: $("#cbo-enfoque").val(),
+//                ADJUNTO_BASE: $("#fledoc-" + fila).val()
+//            }
+//            indicadores.push(itx);
+//        }
+//    }
 
-    var sustentos = document.getElementById("fledocumentos");
-    //for (var sus = 0; sus < sustentos.files.length; sus++) {
-    //    var sux = {
-    //        ID_INICIATIVA: $("#Control").data("iniciativa"),
-    //        ADJUNTO_BASE: sustentos.files[sus].name,
-    //        FLAG_ESTADO: "1"
-    //    }
-    //    documentos.push(sux);
-    //}
-    for (var i = 0, len = storedFiles.length; i < len; i++) {
-        var sux = {
-            ID_INICIATIVA: $("#Control").data("iniciativa"),
-            ADJUNTO_BASE: storedFiles[i].name,
-            FLAG_ESTADO: "1"
-        }
-        documentos.push(sux);
-    }
-
-
+//    var sustentos = document.getElementById("fledocumentos");
+//    //for (var sus = 0; sus < sustentos.files.length; sus++) {
+//    //    var sux = {
+//    //        ID_INICIATIVA: $("#Control").data("iniciativa"),
+//    //        ADJUNTO_BASE: sustentos.files[sus].name,
+//    //        FLAG_ESTADO: "1"
+//    //    }
+//    //    documentos.push(sux);
+//    //}
+//    for (var i = 0, len = storedFiles.length; i < len; i++) {
+//        var sux = {
+//            ID_INICIATIVA: $("#Control").data("iniciativa"),
+//            ADJUNTO_BASE: storedFiles[i].name,
+//            FLAG_ESTADO: "1"
+//        }
+//        documentos.push(sux);
+//    }
 
 
 
 
-    var id_delete = "";
-    if ($("#cuerpoTablaIndicador").data("delete") != "") {
-        id_delete = $("#cuerpoTablaIndicador").data("delete");
-        id_delete = id_delete.substring(0, id_delete.length - 1);
-    }
-
-    var item = {
-        ID_INICIATIVA: $("#Control").data("iniciativa"),
-        ID_USUARIO: $("#Control").data("usuario"),
-        NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
-        ID_INDICADOR_DELETE: id_delete,
-        ID_ESTADO: estado,
-        ListaIndicadores: indicadores,
-        ListaSustentos: documentos
-    };
 
 
-    var data = new FormData();
-    for (var i = 0, len = storedFiles.length; i < len; i++) {
-        data.append('fledocumentos', storedFiles[i]);
-    }
-    data.append('entidad', item);
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", url, true);
-    //xhr.addEventListener("load", function (evt) { UploadComplete(evt); }, false);
-    //xhr.addEventListener("error", function (evt) { UploadFailed(evt); }, false);
-    xhr.onload = function (e) {
-        if (this.status == 200) {
-            debugger;
-            console.log(e.currentTarget.responseText);
-            alert(e.currentTarget.responseText + ' items uploaded.');
-        }
-    }
-    xhr.send(data);
+//    var id_delete = "";
+//    if ($("#cuerpoTablaIndicador").data("delete") != "") {
+//        id_delete = $("#cuerpoTablaIndicador").data("delete");
+//        id_delete = id_delete.substring(0, id_delete.length - 1);
+//    }
 
-    //var options = {
-    //    type: "POST",
-    //    dataType: "json",
-    //    contentType: false,
-    //    url: url,
-    //    processData: false,
-    //    data: ({
-    //        ID_INICIATIVA: $("#Control").data("iniciativa"),
-    //        ID_USUARIO: $("#Control").data("usuario"),
-    //        NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
-    //        ID_INDICADOR_DELETE: id_delete,
-    //        ID_ESTADO: estado,
-    //        ListaIndicadores: indicadores,
-    //        ListaSustentos: documentos
-    //    }),
-    //    xhr: function () {  // Custom XMLHttpRequest
-    //        var myXhr = $.ajaxSettings.xhr();
-    //        if (myXhr.upload) { // Check if upload property exists
-    //            //myXhr.upload.addEventListener('progress', progressHandlingFunction, false); // For handling the progress of the upload
-    //        }
-    //        return myXhr;
-    //    },
-    //    resetForm: false,
-    //    beforeSubmit: function (formData, jqForm, options) {
-    //        return true;
-    //    },
-    //    success: function (response, textStatus, myXhr) {
-    //        if (response.success) {
-    //            if (estado == 0 || estado == 6) {
-    //                $("#mensajeModalAvance #mensajeDangerAvance").remove();
-    //                var msj = '                   <div class="col-sm-12 col-md-12 col-lg-12" id="mensajeWarningAvance">';
-    //                msj = msj + '                       <div class="alert alert-warning d-flex align-items-stretch" role="alert">';
-    //                msj = msj + '                            <div class="alert-wrap mr-3">';
-    //                msj = msj + '                                <div class="sa">';
-    //                msj = msj + '                                    <div class="sa-warning">';
-    //                msj = msj + '                                        <div class="sa-warning-body"></div>';
-    //                msj = msj + '                                        <div class="sa-warning-dot"></div>';
-    //                msj = msj + '                                    </div>';
-    //                msj = msj + '                                </div>';
-    //                msj = msj + '                            </div>';
-    //                msj = msj + '                            <div class="alert-wrap">';
-    //                msj = msj + '                                <h6>Sus avances fueron guardados</h6>';
-    //                msj = msj + '                                <hr>Recuerde, podrá solicitar una revisión una vez complete todos los campos obligatorios.';
-    //                msj = msj + '                            </div>';
-    //                msj = msj + '                        </div>';
-    //                msj = msj + '                    </div>';
-    //                $("#guardar-avance #modalAvanceBoton").hide();
-    //                $("#pieCorrectoAvance").show();
-    //                $('#mensajeModalAvance').append(msj);
-    //            } else if (estado == 1 || estado == 5) {
-    //                $('#mensajeModalRegistrar #mensajeGoodRegistro').remove();
-    //                $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
-    //                var msj = '                       <div class="alert alert-success d-flex align-items-stretch" role="alert" id="mensajeGoodRegistro">';
-    //                msj = msj + '                            <div class="alert-wrap mr-3">';
-    //                msj = msj + '                                <div class="sa">';
-    //                msj = msj + '                                    <div class="sa-success">';
-    //                msj = msj + '                                        <div class="sa-success-tip"></div>';
-    //                msj = msj + '                                        <div class="sa-success-long"></div>';
-    //                msj = msj + '                                        <div class="sa-success-placeholder"></div>';
-    //                msj = msj + '                                        <div class="sa-success-fix"></div>';
-    //                msj = msj + '                                    </div>';
-    //                msj = msj + '                                </div>';
-    //                msj = msj + '                            </div>';
-    //                msj = msj + '                            <div class="alert-wrap">';
-    //                msj = msj + '                                <h6>Bien hecho</h6>';
-    //                msj = msj + '                                <hr><small class="mb-0">Los datos de su detalle de indicadores fueron guardados exitosamente, espere la aprobación del especialista para continuar. En breve le notificaremos el estado de su solicitud de revisión.</small>';
-    //                msj = msj + '                            </div>';
-    //                msj = msj + '                        </div>';
-    //                $("#solicitar-revision #modalRegistrarBoton").hide();
-    //                $("#pieCorrecto").show();
-    //                $('#mensajeModalRegistrar').append(msj);
-    //                $("#Control").data("modal", 1);
-    //                if (response.extra == "1") {
-    //                    if (ws != null) ws.send(response.extra);
-    //                }
-    //            }
-    //        } else {
-    //            if (estado == 0) {
-    //                $("#mensajeModalAvance #mensajeDangerAvance").remove();
-    //                var msj = '                   <div class="col-sm-12 col-md-12 col-lg-12" id="mensajeDangerAvance">';
-    //                msj = msj + '                       <div class="alert alert-danger d-flex align-items-stretch" role="alert">';
-    //                msj = msj + '                            <div class="alert-wrap mr-3">';
-    //                msj = msj + '                                <div class="sa">';
-    //                msj = msj + '                                    <div class="sa-error">';
-    //                msj = msj + '                                       <div class="sa-error-x">';
-    //                msj = msj + '                                           <div class="sa-error-left"></div>';
-    //                msj = msj + '                                           <div class="sa-error-right"></div>';
-    //                msj = msj + '                                       </div>';
-    //                msj = msj + '                                       <div class="sa-error-placeholder"></div>';
-    //                msj = msj + '                                       <div class="sa-error-fix"></div>';
-    //                msj = msj + '                                   </div>';
-    //                msj = msj + '                               </div>';
-    //                msj = msj + '                           </div>';
-    //                msj = msj + '                            <div class="alert-wrap">';
-    //                msj = msj + '                                <h6>Error</h6>';
-    //                msj = msj + '                                <hr>Ocurrio un error durante el proceso de guardado del avance.';
-    //                msj = msj + '                            </div>';
-    //                msj = msj + '                        </div>';
-    //                msj = msj + '                    </div>';
-    //                $('#mensajeModalAvance').append(msj);
-    //            } else {
-    //                $('#mensajeModalRegistrar #mensajeGoodRegistro').remove();
-    //                $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
-    //                var msj = '                       <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="mensajeDangerRegistro">';
-    //                msj = msj + '                            <div class="alert-wrap mr-3">';
-    //                msj = msj + '                                <div class="sa">';
-    //                msj = msj + '                                    <div class="sa-error">';
-    //                msj = msj + '                                       <div class="sa-error-x">';
-    //                msj = msj + '                                           <div class="sa-error-left"></div>';
-    //                msj = msj + '                                           <div class="sa-error-right"></div>';
-    //                msj = msj + '                                       </div>';
-    //                msj = msj + '                                       <div class="sa-error-placeholder"></div>';
-    //                msj = msj + '                                       <div class="sa-error-fix"></div>';
-    //                msj = msj + '                                   </div>';
-    //                msj = msj + '                               </div>';
-    //                msj = msj + '                           </div>';
-    //                msj = msj + '                           <div class="alert-wrap">';
-    //                msj = msj + '                                <h6>Error de registro</h6>';
-    //                msj = msj + '                                <hr><small class="mb-0">Verifique que los datos sean correctamente ingresados, complete todos los campos obligatorios e intente otra vez.</small>';
-    //                msj = msj + '                           </div>';
-    //                msj = msj + '                     </div>';
-    //                $('#mensajeModalRegistrar').append(msj);
-    //            }
-    //        }
-    //    },
-    //    error: function (myXhr, textStatus, errorThrown) {
-    //        console.log(myXhr);
-    //        console.log(textStatus);
-    //        console.log(errorThrown);
-    //    }
-    //};
-
-    //$("#formRegistrar").ajaxForm(options);
-    //$("#formRegistrar").submit();
+//    var item = {
+//        ID_INICIATIVA: $("#Control").data("iniciativa"),
+//        ID_USUARIO: $("#Control").data("usuario"),
+//        NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
+//        ID_INDICADOR_DELETE: id_delete,
+//        ID_ESTADO: estado,
+//        ListaIndicadores: indicadores,
+//        ListaSustentos: documentos
+//    };
 
 
+//    var data = new FormData();
+//    for (var i = 0, len = storedFiles.length; i < len; i++) {
+//        data.append('fledocumentos', storedFiles[i]);
+//    }
+//    data.append('entidad', item);
+//    var xhr = new XMLHttpRequest();
+//    xhr.open("POST", url, true);
+//    //xhr.addEventListener("load", function (evt) { UploadComplete(evt); }, false);
+//    //xhr.addEventListener("error", function (evt) { UploadFailed(evt); }, false);
+//    xhr.onload = function (e) {
+//        if (this.status == 200) {
+//            debugger;
+//            console.log(e.currentTarget.responseText);
+//            alert(e.currentTarget.responseText + ' items uploaded.');
+//        }
+//    }
+//    xhr.send(data);
 
-    $("#solicitar-revision").on("hidden.bs.modal", function () {
-        if ($("#Control").data("modal") == 1) {
-            location.href = baseUrl + "Gestion/AccionMitigacion";
-        } else {
-            $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
-            $("#solicitar-revision #modalRegistrarBoton").show();
-            $("#pieCorrecto").hide();
-        }
-    });
+//    //var options = {
+//    //    type: "POST",
+//    //    dataType: "json",
+//    //    contentType: false,
+//    //    url: url,
+//    //    processData: false,
+//    //    data: ({
+//    //        ID_INICIATIVA: $("#Control").data("iniciativa"),
+//    //        ID_USUARIO: $("#Control").data("usuario"),
+//    //        NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
+//    //        ID_INDICADOR_DELETE: id_delete,
+//    //        ID_ESTADO: estado,
+//    //        ListaIndicadores: indicadores,
+//    //        ListaSustentos: documentos
+//    //    }),
+//    //    xhr: function () {  // Custom XMLHttpRequest
+//    //        var myXhr = $.ajaxSettings.xhr();
+//    //        if (myXhr.upload) { // Check if upload property exists
+//    //            //myXhr.upload.addEventListener('progress', progressHandlingFunction, false); // For handling the progress of the upload
+//    //        }
+//    //        return myXhr;
+//    //    },
+//    //    resetForm: false,
+//    //    beforeSubmit: function (formData, jqForm, options) {
+//    //        return true;
+//    //    },
+//    //    success: function (response, textStatus, myXhr) {
+//    //        if (response.success) {
+//    //            if (estado == 0 || estado == 6) {
+//    //                $("#mensajeModalAvance #mensajeDangerAvance").remove();
+//    //                var msj = '                   <div class="col-sm-12 col-md-12 col-lg-12" id="mensajeWarningAvance">';
+//    //                msj = msj + '                       <div class="alert alert-warning d-flex align-items-stretch" role="alert">';
+//    //                msj = msj + '                            <div class="alert-wrap mr-3">';
+//    //                msj = msj + '                                <div class="sa">';
+//    //                msj = msj + '                                    <div class="sa-warning">';
+//    //                msj = msj + '                                        <div class="sa-warning-body"></div>';
+//    //                msj = msj + '                                        <div class="sa-warning-dot"></div>';
+//    //                msj = msj + '                                    </div>';
+//    //                msj = msj + '                                </div>';
+//    //                msj = msj + '                            </div>';
+//    //                msj = msj + '                            <div class="alert-wrap">';
+//    //                msj = msj + '                                <h6>Sus avances fueron guardados</h6>';
+//    //                msj = msj + '                                <hr>Recuerde, podrá solicitar una revisión una vez complete todos los campos obligatorios.';
+//    //                msj = msj + '                            </div>';
+//    //                msj = msj + '                        </div>';
+//    //                msj = msj + '                    </div>';
+//    //                $("#guardar-avance #modalAvanceBoton").hide();
+//    //                $("#pieCorrectoAvance").show();
+//    //                $('#mensajeModalAvance').append(msj);
+//    //            } else if (estado == 1 || estado == 5) {
+//    //                $('#mensajeModalRegistrar #mensajeGoodRegistro').remove();
+//    //                $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
+//    //                var msj = '                       <div class="alert alert-success d-flex align-items-stretch" role="alert" id="mensajeGoodRegistro">';
+//    //                msj = msj + '                            <div class="alert-wrap mr-3">';
+//    //                msj = msj + '                                <div class="sa">';
+//    //                msj = msj + '                                    <div class="sa-success">';
+//    //                msj = msj + '                                        <div class="sa-success-tip"></div>';
+//    //                msj = msj + '                                        <div class="sa-success-long"></div>';
+//    //                msj = msj + '                                        <div class="sa-success-placeholder"></div>';
+//    //                msj = msj + '                                        <div class="sa-success-fix"></div>';
+//    //                msj = msj + '                                    </div>';
+//    //                msj = msj + '                                </div>';
+//    //                msj = msj + '                            </div>';
+//    //                msj = msj + '                            <div class="alert-wrap">';
+//    //                msj = msj + '                                <h6>Bien hecho</h6>';
+//    //                msj = msj + '                                <hr><small class="mb-0">Los datos de su detalle de indicadores fueron guardados exitosamente, espere la aprobación del especialista para continuar. En breve le notificaremos el estado de su solicitud de revisión.</small>';
+//    //                msj = msj + '                            </div>';
+//    //                msj = msj + '                        </div>';
+//    //                $("#solicitar-revision #modalRegistrarBoton").hide();
+//    //                $("#pieCorrecto").show();
+//    //                $('#mensajeModalRegistrar').append(msj);
+//    //                $("#Control").data("modal", 1);
+//    //                if (response.extra == "1") {
+//    //                    if (ws != null) ws.send(response.extra);
+//    //                }
+//    //            }
+//    //        } else {
+//    //            if (estado == 0) {
+//    //                $("#mensajeModalAvance #mensajeDangerAvance").remove();
+//    //                var msj = '                   <div class="col-sm-12 col-md-12 col-lg-12" id="mensajeDangerAvance">';
+//    //                msj = msj + '                       <div class="alert alert-danger d-flex align-items-stretch" role="alert">';
+//    //                msj = msj + '                            <div class="alert-wrap mr-3">';
+//    //                msj = msj + '                                <div class="sa">';
+//    //                msj = msj + '                                    <div class="sa-error">';
+//    //                msj = msj + '                                       <div class="sa-error-x">';
+//    //                msj = msj + '                                           <div class="sa-error-left"></div>';
+//    //                msj = msj + '                                           <div class="sa-error-right"></div>';
+//    //                msj = msj + '                                       </div>';
+//    //                msj = msj + '                                       <div class="sa-error-placeholder"></div>';
+//    //                msj = msj + '                                       <div class="sa-error-fix"></div>';
+//    //                msj = msj + '                                   </div>';
+//    //                msj = msj + '                               </div>';
+//    //                msj = msj + '                           </div>';
+//    //                msj = msj + '                            <div class="alert-wrap">';
+//    //                msj = msj + '                                <h6>Error</h6>';
+//    //                msj = msj + '                                <hr>Ocurrio un error durante el proceso de guardado del avance.';
+//    //                msj = msj + '                            </div>';
+//    //                msj = msj + '                        </div>';
+//    //                msj = msj + '                    </div>';
+//    //                $('#mensajeModalAvance').append(msj);
+//    //            } else {
+//    //                $('#mensajeModalRegistrar #mensajeGoodRegistro').remove();
+//    //                $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
+//    //                var msj = '                       <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="mensajeDangerRegistro">';
+//    //                msj = msj + '                            <div class="alert-wrap mr-3">';
+//    //                msj = msj + '                                <div class="sa">';
+//    //                msj = msj + '                                    <div class="sa-error">';
+//    //                msj = msj + '                                       <div class="sa-error-x">';
+//    //                msj = msj + '                                           <div class="sa-error-left"></div>';
+//    //                msj = msj + '                                           <div class="sa-error-right"></div>';
+//    //                msj = msj + '                                       </div>';
+//    //                msj = msj + '                                       <div class="sa-error-placeholder"></div>';
+//    //                msj = msj + '                                       <div class="sa-error-fix"></div>';
+//    //                msj = msj + '                                   </div>';
+//    //                msj = msj + '                               </div>';
+//    //                msj = msj + '                           </div>';
+//    //                msj = msj + '                           <div class="alert-wrap">';
+//    //                msj = msj + '                                <h6>Error de registro</h6>';
+//    //                msj = msj + '                                <hr><small class="mb-0">Verifique que los datos sean correctamente ingresados, complete todos los campos obligatorios e intente otra vez.</small>';
+//    //                msj = msj + '                           </div>';
+//    //                msj = msj + '                     </div>';
+//    //                $('#mensajeModalRegistrar').append(msj);
+//    //            }
+//    //        }
+//    //    },
+//    //    error: function (myXhr, textStatus, errorThrown) {
+//    //        console.log(myXhr);
+//    //        console.log(textStatus);
+//    //        console.log(errorThrown);
+//    //    }
+//    //};
 
-    $("#guardar-avance").on("hidden.bs.modal", function () {
-        $("#mensajeModalAvance #mensajeDangerAvance").remove();
-        $("#mensajeModalAvance #mensajeWarningAvance").remove();
-        $("#guardar-avance #modalAvanceBoton").show();
-        $("#pieCorrectoAvance").hide();
-    });
-}
+//    //$("#formRegistrar").ajaxForm(options);
+//    //$("#formRegistrar").submit();
+
+
+
+//    $("#solicitar-revision").on("hidden.bs.modal", function () {
+//        if ($("#Control").data("modal") == 1) {
+//            location.href = baseUrl + "Gestion/AccionMitigacion";
+//        } else {
+//            $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
+//            $("#solicitar-revision #modalRegistrarBoton").show();
+//            $("#pieCorrecto").hide();
+//        }
+//    });
+
+//    $("#guardar-avance").on("hidden.bs.modal", function () {
+//        $("#mensajeModalAvance #mensajeDangerAvance").remove();
+//        $("#mensajeModalAvance #mensajeWarningAvance").remove();
+//        $("#guardar-avance #modalAvanceBoton").show();
+//        $("#pieCorrectoAvance").hide();
+//    });
+//}
 
 function fn_procesoDetalleIndicador(url, estado) {
     indicadores = [];
@@ -1008,14 +1008,29 @@ function fn_procesoDetalleIndicador(url, estado) {
         }
     }
 
-    var sustentos = document.getElementById("fledocumentos");
-    for (var sus = 0; sus < sustentos.files.length; sus++) {
+    //var sustentos = document.getElementById("fledocumentos");
+    //for (var sus = 0; sus < sustentos.files.length; sus++) {
+    //    var sux = {
+    //        ID_INICIATIVA: $("#Control").data("iniciativa"),
+    //        ADJUNTO_BASE: sustentos.files[sus].name,
+    //        FLAG_ESTADO: "1"
+    //    }
+    //    documentos.push(sux);
+    //}
+
+    for (var i = 0, len = storedFiles.length; i < len; i++) {
         var sux = {
             ID_INICIATIVA: $("#Control").data("iniciativa"),
-            ADJUNTO_BASE: sustentos.files[sus].name,
+            ADJUNTO_BASE: storedFiles[i].name,
             FLAG_ESTADO: "1"
         }
         documentos.push(sux);
+    }
+
+
+    var archivos = "";
+    for (var i = 0, len = storedFiles.length; i < len; i++) {
+        archivos += storedFiles[i].name + "|";
     }
 
     var id_delete = "";
@@ -1031,7 +1046,8 @@ function fn_procesoDetalleIndicador(url, estado) {
         ID_INDICADOR_DELETE: id_delete,
         ID_ESTADO: estado,
         ListaIndicadores: indicadores,
-        ListaSustentos: documentos
+        ListaSustentos: documentos,
+        extra: archivos
     };
 
     var options = {
@@ -1190,9 +1206,9 @@ function fn_procesoDetalleIndicador(url, estado) {
 }
 
 function fn_guardarDetalleIndicador() {
-    var url = baseUrl + "Gestion/RegistrarDetalleIndicador2";
-    url = baseUrl + "Detalle/RegistrarDetalleIndicador2";
-    fn_procesoDetalleIndicador_2(url, 1);
+    var url = baseUrl + "Gestion/RegistrarDetalleIndicador";
+    url = baseUrl + "Detalle/RegistrarDetalleIndicador";
+    fn_procesoDetalleIndicador(url, 1);
 }
 
 function fn_guardarAvances() {

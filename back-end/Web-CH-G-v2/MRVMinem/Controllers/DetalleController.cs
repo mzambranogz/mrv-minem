@@ -129,7 +129,7 @@ namespace MRVMinem.Controllers
             //return Respuesta(itemRespuesta);
         }
 
-        public JsonResult RegistrarDetalleIndicador2(HttpPostedFileBase[] fledoc, HttpPostedFileBase[] fledocumentos, IniciativaBE entidad)
+        public JsonResult RegistrarDetalleIndicador(HttpPostedFileBase[] fledoc, HttpPostedFileBase[] fledocumentos, IniciativaBE entidad)
         {
             ResponseEntity itemRespuesta = new ResponseEntity();
             entidad.ID_USUARIO = Convert.ToInt32(Session["usuario"]);
@@ -175,22 +175,26 @@ namespace MRVMinem.Controllers
                         {
                             string archivoOriginal = f.FileName;
                             string nomArchivoSave = "";
-                            nomArchivoSave = Guid.NewGuid() + Path.GetExtension(f.FileName).ToString();
-                            var carpeta = WebConfigurationManager.AppSettings.Get("Sustentatorio");
-                            var ruta = Path.Combine(carpeta, nomArchivoSave);
-                            f.SaveAs(ruta);
 
-
-                            if (entidad.ListaSustentos != null)
+                            if (entidad.extra.Contains(archivoOriginal))
                             {
-                                foreach (SustentoIniciativaBE item in entidad.ListaSustentos)
+                                nomArchivoSave = Guid.NewGuid() + Path.GetExtension(f.FileName).ToString();
+                                var carpeta = WebConfigurationManager.AppSettings.Get("Sustentatorio");
+                                var ruta = Path.Combine(carpeta, nomArchivoSave);
+                                f.SaveAs(ruta);
+
+
+                                if (entidad.ListaSustentos != null)
                                 {
-                                    if (item.ADJUNTO_BASE != null)
+                                    foreach (SustentoIniciativaBE item in entidad.ListaSustentos)
                                     {
-                                        if (item.ADJUNTO_BASE.Contains(archivoOriginal))
+                                        if (item.ADJUNTO_BASE != null)
                                         {
-                                            item.ADJUNTO = nomArchivoSave;
-                                            break;
+                                            if (item.ADJUNTO_BASE.Contains(archivoOriginal))
+                                            {
+                                                item.ADJUNTO = nomArchivoSave;
+                                                break;
+                                            }
                                         }
                                     }
                                 }
