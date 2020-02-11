@@ -173,16 +173,17 @@ END PKG_MRV_ADMIN_SISTEMA;
         p_anno              IN NUMBER
        ) RETURN NUMBER;       
        
+    
+    FUNCTION FN_Base_Hibridos (
+        p_krv               NUMBER, 
+        p_krv_combustible   NUMBER, 
+        p_n                 NUMBER, 
+        p_tv                NUMBER,
+        p_tc                NUMBER,
+        p_anno              NUMBER
+        ) RETURN NUMBER;
        
-    FUNCTION FN_Base_Hibridos (  
-        p_krv               IN NUMBER, 
-        p_n                 IN NUMBER,
-        p_tv                IN NUMBER,
-        p_tc                IN NUMBER,
-        p_anno              IN NUMBER
-       ) RETURN NUMBER;    
        
-
     FUNCTION FN_Iniciativa_Hibridos (
         p_krv               IN NUMBER, 
         p_krv_combustible   IN NUMBER, 
@@ -232,6 +233,22 @@ END PKG_MRV_ADMIN_SISTEMA;
         p_anno                  NUMBER
         )
     RETURN NUMBER;   
+    
+    FUNCTION FN_F22_REGION (
+        p_region number
+    ) RETURN NUMBER;
+
+
+    FUNCTION FN_F22_MES (
+        p_mes number
+    ) RETURN NUMBER;
+    
+    FUNCTION FN_Iniciativa_Elec_Rural (
+        p_n         NUMBER, 
+        p_mes       NUMBER,
+        p_region    NUMBER,
+        p_anno      NUMBER
+    ) RETURN NUMBER;
 
 END PKG_MRV_CALCULO;
 
@@ -433,6 +450,42 @@ END PKG_MRV_CALCULO;
         pID_ESTADO_NOTIFICACION IN NUMBER,
         pID_USUARIO_DESTINO  IN NUMBER
     );
+    
+    PROCEDURE USP_SEL_ENFOQUE_MEDMIT(
+        pID_MEDMIT IN NUMBER,
+        pRefcursor OUT SYS_REFCURSOR
+    );
+    
+    PROCEDURE USP_PRC_CAL_VEH_HIB(  
+        pANNO                   IN NUMBER,
+        pID_TIPO_VEHICULO       IN NUMBER,
+        pID_TIPO_COMBUSTIBLE    IN NUMBER,
+        pKRV                    IN NUMBER,
+        pKRV_COMBUSTIBLE        IN NUMBER,
+        pCANTIDAD               IN NUMBER,
+        pF_REN                  IN NUMBER,
+        pID_TIPO_FUENTE         IN NUMBER,
+        pRefcursor              OUT SYS_REFCURSOR
+  );
+  
+  PROCEDURE USP_PRC_CAL_VEH_CON(  
+        pANNO                   IN NUMBER,
+        pID_TIPO_VEHICULO       IN NUMBER,
+        pID_TIPO_COMBUSTIBLE    IN NUMBER,
+        pCONSUMO_ELECTRICIDAD   IN NUMBER,
+        pID_TIPO_FUENTE         IN NUMBER,
+        pRefcursor              OUT SYS_REFCURSOR
+  );
+  
+  PROCEDURE USP_PRC_CAL_VEH_HIB_CON(  
+        pANNO                   IN NUMBER,
+        pID_TIPO_VEHICULO       IN NUMBER,
+        pID_TIPO_COMBUSTIBLE    IN NUMBER,
+        pCONSUMO_ELECTRICIDAD   IN NUMBER,
+        pCONSUMO_COMBUSTIBLE   IN NUMBER,
+        pID_TIPO_FUENTE         IN NUMBER,
+        pRefcursor              OUT SYS_REFCURSOR
+  );
 
 END PKG_MRV_DETALLE_INDICADORES;
 
@@ -1216,31 +1269,96 @@ END PKG_MRV_INICIATIVA_MITIGACION;
        pID_NAMA IN NUMBER
    );
 
-
    PROCEDURE USP_INS_NAMA(
         pID_NAMA IN NUMBER,
         pDescripcion_nama  in varchar2,
         pRefcursor OUT SYS_REFCURSOR
     );
 
+   PROCEDURE USP_GET_ROL(
+        pIdRol    number,
+        pRefcursor  OUT SYS_REFCURSOR
+   );
+
    PROCEDURE USP_SEL_LISTA_ROL(
         pRefcursor  OUT SYS_REFCURSOR
    );
 
     PROCEDURE USP_SEL_ROL(
-        pID_ROL IN NUMBER,
+        pBuscar     IN VARCHAR2,
+        pRegistros  INTEGER,
+        pPagina     INTEGER,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
    );
 
     PROCEDURE USP_UPD_ROL(
-       pID_ROL IN NUMBER,
+       pIdRol IN NUMBER,
         pDescripcion_rol in varchar2
    );
 
     PROCEDURE USP_DEL_ROL(
-       pID_ROL IN NUMBER
+       pIdRol IN NUMBER
+   );
+   
+    PROCEDURE USP_INS_ROL(
+        pDescripcion_rol in varchar2,
+        pIdRol OUT NUMBER
+    );
+
+
+    PROCEDURE USP_SEL_EXCEL_ROL(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+    
+    
+    
+    PROCEDURE USP_GET_TIPO_VEHICULO(
+        pIdTipo_Vehiculo    number,
+        pRefcursor  OUT SYS_REFCURSOR
    );
 
+   PROCEDURE USP_SEL_LISTA_TIPOVEHICULO(
+        pRefcursor  OUT SYS_REFCURSOR
+   );
+
+    PROCEDURE USP_SEL_TIPO_VEHICULO(
+        pBuscar     IN VARCHAR2,
+        pRegistros  INTEGER,
+        pPagina     INTEGER,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+   );
+
+    PROCEDURE USP_UPD_TIPO_VEHICULO(
+        pIdTipo_Vehiculo IN NUMBER,
+        pDescripcion in varchar2
+   );
+
+    PROCEDURE USP_DEL_TIPOVEHICULO(
+       pIdTipo_Vehiculo IN NUMBER
+   );
+   
+    PROCEDURE USP_INS_TIPO_VEHICULO(
+        pDescripcion in varchar2,
+        pIdTipo_Vehiculo OUT NUMBER
+    );
+
+
+    PROCEDURE USP_SEL_EXCEL_TIPOVEHICULO(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+    
+    
+    
 PROCEDURE USP_SEL_LISTA_MEDMIT(
         pRefcursor  OUT SYS_REFCURSOR
    );
@@ -2305,22 +2423,24 @@ END PKG_MRV_ADMIN_SISTEMA;
     
             
 --------------------------------------------------------------------------
-    -- p_krv : KRV Distancia Recorridad Anualmente por vehiculo promedio
-    -- p_n	: Numero de Vehiculos
-    -- p_tv	: Tipo Vehiculo
-    -- p_tc	: Tipo Combustible
-    -- p_anno	: AÒo
+    -- p_krv	            : KRV Distancia Recorridad Anualmente por vehiculo promedio
+    -- p_krv_combustible	: KRV Distancia Recorridad Anualmente por vehiculo promedio (parte de combustible hibrido)
+    -- p_n	                : Numero de Vehiculos
+    -- p_tv	                : Tipo Vehiculo
+    -- p_tc	                : Tipo Combustible
+    -- p_anno	            : AÒo
 
     -- Ejemplo :
-    -- PKG_MRV_CALCULO.FN_Base_Hibridos (57600,20,1,3,2018);
+    -- PKG_MRV_CALCULO.FN_Base_Hibridos (43200,14400,20,1,3,2018);
     -- Debe salir : 206.14
     --------------------------------------------------------------------------
     FUNCTION FN_Base_Hibridos (
-        p_krv       NUMBER, 
-        p_n         NUMBER, 
-        p_tv        NUMBER,
-        p_tc        NUMBER,
-        p_anno      NUMBER
+        p_krv               NUMBER, 
+        p_krv_combustible   NUMBER, 
+        p_n                 NUMBER, 
+        p_tv                NUMBER,
+        p_tc                NUMBER,
+        p_anno              NUMBER
         )
     RETURN NUMBER
     IS 
@@ -2328,7 +2448,7 @@ END PKG_MRV_ADMIN_SISTEMA;
         p_BAU       NUMBER;
     BEGIN  
         p_BAU:=FN_F_BAU(p_tv,p_tc);
-        resultado:= (p_krv*p_n*p_BAU)/1000000;    
+        resultado:= ((p_krv+p_krv_combustible)*p_n*p_BAU)/1000000;    
         Return (resultado);
     END;    
     
@@ -2542,6 +2662,62 @@ END PKG_MRV_ADMIN_SISTEMA;
         resultado:= (p_consumo/(1-p_PER)*p_CON)+(p_consumo_combustible*p_BAU2*p_BAU/1000000);    
         Return (resultado);
     END;
+    
+    FUNCTION FN_F22_REGION (
+        p_region number
+    ) RETURN NUMBER
+    AS 
+        resultado NUMBER;
+    BEGIN   
+        SELECT FACTOR INTO resultado FROM T_MAE_F22_REGION 
+        WHERE Id_Region=p_region ;
+        Return (resultado);
+    END;
+    
+    FUNCTION FN_F22_MES (
+        p_mes number
+    ) RETURN NUMBER
+    AS 
+        resultado NUMBER;
+    BEGIN   
+        SELECT FACTOR INTO resultado FROM T_MAE_F22_MES 
+        WHERE Id_mes=p_mes ;
+        Return (resultado);
+    END;
+    
+      --------------------------------------------------------------------------
+    -- FUNCION FN_Iniciativa_Elec_Rural que Calcula las Emisiones de GEI reducidas 
+    -- por perido de tiempo (meses pendientes)
+					 
+    --------------------------------------------------------------------------
+    -- p_n	: Numero de Sistemas Fotovoltaicos SFV
+    -- p_mes: Mes de Inicio de la Iniativa
+    -- p_region	: Region del Peru (Costa, Sierra o Selva) 
+    -- p_anno	: AÒo de Inicio de Implementacion de la Iniciativa
+    -- Ejemplo :
+    -- PKG_MRV_CALCULO.FN_Iniciativa_Elec_Rural (750,4,1,2016);
+    -- Debe salir : 42.6
+    --------------------------------------------------------------------------  
+
+    FUNCTION FN_Iniciativa_Elec_Rural (
+        p_n         NUMBER, 
+        p_mes       NUMBER,
+        p_region    NUMBER,
+        p_anno      NUMBER
+        )
+    RETURN NUMBER
+    IS 
+        resultado   NUMBER;
+        p_MES_P     NUMBER;
+        p_REG       NUMBER;
+    BEGIN
+
+        p_MES_P:=(12-FN_F22_MES(p_mes));   
+        p_REG:=FN_F22_REGION(p_region); 
+        resultado:= p_REG*p_n*p_MES_P;
+
+        Return (resultado);
+    END;
 
 END PKG_MRV_CALCULO;
 
@@ -2611,7 +2787,7 @@ END PKG_MRV_CALCULO;
         FROM    T_GEND_INDICADOR IND
         LEFT JOIN   T_MAE_TIPO_VEHICULO TV ON IND.ID_TIPO_VEHICULO_BASE = TV.ID_TIPO_VEHICULO
         LEFT JOIN   T_MAE_TIPO_COMBUSTIBLE TC ON IND.ID_TIPO_COMBUSTIBLE_BASE = TC.ID_TIPO_COMBUSTIBLE
-        WHERE   ID_INICIATIVA = pID_INICIATIVA AND FLG_ESTADO = 1
+        WHERE   ID_INICIATIVA = pID_INICIATIVA AND IND.FLG_ESTADO = 1
         ORDER BY ID_INDICADOR ASC;
     END USP_SEL_LISTA_DET_INDICADOR;
 
@@ -3250,7 +3426,7 @@ END PKG_MRV_CALCULO;
         FROM    T_GEND_INDICADOR DI
         INNER JOIN T_MAE_TIPO_VEHICULO TV ON DI.ID_TIPO_VEHICULO_BASE = TV.ID_TIPO_VEHICULO
         INNER JOIN T_MAE_TIPO_COMBUSTIBLE TC ON DI.ID_TIPO_COMBUSTIBLE_BASE = TC.ID_TIPO_COMBUSTIBLE
-        WHERE DI.ID_INICIATIVA = pID_INICIATIVA AND FLG_ESTADO = 1
+        WHERE DI.ID_INICIATIVA = pID_INICIATIVA AND DI.FLG_ESTADO = 1
         ORDER BY ID_INDICADOR ASC; 
     END USP_SEL_LISTAR_DET_INDIC_REV;
 
@@ -3393,6 +3569,132 @@ END PKG_MRV_CALCULO;
                                                   pIdEstadoNotificacion =>  pID_ESTADO_NOTIFICACION);
 
     END USP_UPD_OBSERVACION_VRF_DET;
+    
+    PROCEDURE USP_SEL_ENFOQUE_MEDMIT(
+        pID_MEDMIT IN NUMBER,
+        pRefcursor OUT SYS_REFCURSOR
+    )AS
+    BEGIN
+        OPEN pRefcursor FOR
+        SELECT  ID_ENFOQUE,
+                DESCRIPCION
+        FROM    T_GENM_ENFOQUE
+        WHERE   ID_MEDMIT = pID_MEDMIT;
+    END USP_SEL_ENFOQUE_MEDMIT;
+    
+    
+    PROCEDURE USP_PRC_CAL_VEH_HIB(  
+        pANNO                IN NUMBER,
+        pID_TIPO_VEHICULO    IN NUMBER,
+        pID_TIPO_COMBUSTIBLE IN NUMBER,
+        pKRV                 IN NUMBER,
+        pKRV_COMBUSTIBLE     IN NUMBER,
+        pCANTIDAD            IN NUMBER,
+        pF_REN               IN NUMBER,
+        pID_TIPO_FUENTE      IN NUMBER,
+        pRefcursor           OUT SYS_REFCURSOR
+    ) IS
+        vRendimiento NUMBER;
+        vTotalB      NUMBER;
+        vTotalI      NUMBER;
+        vTotalR      NUMBER;
+    BEGIN
+        SELECT PKG_MRV_CALCULO.FN_Base_Hibridos(pKRV, pKRV_COMBUSTIBLE, pCANTIDAD, pID_TIPO_VEHICULO, pID_TIPO_COMBUSTIBLE, pANNO) INTO vTotalB FROM DUAL;
+        
+        IF pF_REN = 0 THEN
+            SELECT PKG_MRV_CALCULO.FN_Iniciativa_Hibridos(pKRV,
+                                                          pKRV_COMBUSTIBLE,
+                                                          pCANTIDAD,
+                                                          pID_TIPO_VEHICULO,
+                                                          pID_TIPO_COMBUSTIBLE,
+                                                          pANNO)
+            INTO vTotalI
+            FROM DUAL;
+        ELSE
+            SELECT PKG_MRV_CALCULO.FN_Iniciativa_Hibridos2(pKRV, 
+                                                           pKRV_COMBUSTIBLE,
+                                                           pCANTIDAD, 
+                                                           pID_TIPO_VEHICULO, 
+                                                           pID_TIPO_COMBUSTIBLE, 
+                                                           pF_REN, 
+                                                           pANNO)
+            INTO vTotalI
+            FROM DUAL;
+        END IF;
+        
+          
+        IF pF_REN = 0 THEN
+            SELECT PKG_MRV_CALCULO.FN_F_REN(pID_TIPO_VEHICULO) -- Factor de Rendimiento Simplificado
+            INTO vRendimiento
+            FROM DUAL;
+        ELSE
+            vRendimiento := pF_REN;
+        END IF;
+        
+        
+        vTotalR := vTotalB - vTotalI;
+
+        OPEN pRefcursor FOR
+            SELECT TRUNC(vTotalI, 4) AS TOTAL_GEI_INIMIT,
+                   TRUNC(vTotalR, 4) AS TOTAL_GEI_REDUCIDO,
+                   TRUNC(vTotalB, 4) AS TOTAL_GEI_BASE,
+                   TRUNC(vRendimiento, 4) AS FACTOR_RENDIMIENTO
+              FROM DUAL;
+    END USP_PRC_CAL_VEH_HIB;
+    
+    PROCEDURE USP_PRC_CAL_VEH_CON(  
+        pANNO                   IN NUMBER,
+        pID_TIPO_VEHICULO       IN NUMBER,
+        pID_TIPO_COMBUSTIBLE    IN NUMBER,
+        pCONSUMO_ELECTRICIDAD   IN NUMBER,
+        pID_TIPO_FUENTE         IN NUMBER,
+        pRefcursor              OUT SYS_REFCURSOR
+  )IS
+        vTotalB      NUMBER;
+        vTotalI      NUMBER;
+        vTotalR      NUMBER;
+    BEGIN
+        SELECT PKG_MRV_CALCULO.FN_Base_Electricos_Consu(pCONSUMO_ELECTRICIDAD, pID_TIPO_VEHICULO, pID_TIPO_COMBUSTIBLE, pANNO) INTO vTotalB FROM DUAL;
+
+        SELECT PKG_MRV_CALCULO.FN_Iniciativa_Electricos_Consu(pCONSUMO_ELECTRICIDAD, pID_TIPO_VEHICULO, pANNO) INTO vTotalI FROM DUAL;        
+        
+        vTotalR := vTotalB - vTotalI;
+
+        OPEN pRefcursor FOR
+            SELECT TRUNC(vTotalI, 4) AS TOTAL_GEI_INIMIT,
+                   TRUNC(vTotalR, 4) AS TOTAL_GEI_REDUCIDO,
+                   TRUNC(vTotalB, 4) AS TOTAL_GEI_BASE--,
+                   --TRUNC(vRendimiento, 4) AS FACTOR_RENDIMIENTO
+              FROM DUAL;
+  END USP_PRC_CAL_VEH_CON;
+  
+  
+  PROCEDURE USP_PRC_CAL_VEH_HIB_CON(  
+        pANNO                   IN NUMBER,
+        pID_TIPO_VEHICULO       IN NUMBER,
+        pID_TIPO_COMBUSTIBLE    IN NUMBER,
+        pCONSUMO_ELECTRICIDAD   IN NUMBER,
+        pCONSUMO_COMBUSTIBLE    IN NUMBER,
+        pID_TIPO_FUENTE         IN NUMBER,
+        pRefcursor              OUT SYS_REFCURSOR
+  )IS
+        vTotalB      NUMBER;
+        vTotalI      NUMBER;
+        vTotalR      NUMBER;
+    BEGIN
+        SELECT PKG_MRV_CALCULO.FN_Base_Hibridos_Consu(pCONSUMO_ELECTRICIDAD, pCONSUMO_COMBUSTIBLE,pID_TIPO_VEHICULO, pID_TIPO_COMBUSTIBLE, pANNO) INTO vTotalB FROM DUAL;
+
+        SELECT PKG_MRV_CALCULO.FN_Iniciativa_Hibridos_Consu(pCONSUMO_ELECTRICIDAD, pCONSUMO_COMBUSTIBLE, pID_TIPO_VEHICULO, pID_TIPO_COMBUSTIBLE, pANNO) INTO vTotalI FROM DUAL;        
+        
+        vTotalR := vTotalB - vTotalI;
+
+        OPEN pRefcursor FOR
+            SELECT TRUNC(vTotalI, 4) AS TOTAL_GEI_INIMIT,
+                   TRUNC(vTotalR, 4) AS TOTAL_GEI_REDUCIDO,
+                   TRUNC(vTotalB, 4) AS TOTAL_GEI_BASE--,
+                   --TRUNC(vRendimiento, 4) AS FACTOR_RENDIMIENTO
+              FROM DUAL;
+  END USP_PRC_CAL_VEH_HIB_CON;
 
 END PKG_MRV_DETALLE_INDICADORES;
 
@@ -7910,6 +8212,22 @@ END PKG_MRV_INICIATIVA_MITIGACION;
         SELECT MAX(ID_NAMA) ID_NAMA FROM T_MAE_NAMA;
 
     END USP_INS_NAMA;
+
+
+   PROCEDURE USP_GET_ROL(
+        pIdRol    number,
+        pRefcursor  OUT SYS_REFCURSOR
+   ) AS
+     BEGIN
+             OPEN    pRefcursor FOR
+            SELECT  ID_ROL,
+                    DESCRIPCION_ROL
+            FROM    T_MAE_ROL
+            WHERE   ID_ROL = pIdRol AND
+                    NVL(FLG_ESTADO,1) = 1;
+
+  END USP_GET_ROL;
+
     
 
    PROCEDURE USP_SEL_LISTA_ROL(
@@ -7923,50 +8241,252 @@ END PKG_MRV_INICIATIVA_MITIGACION;
             WHERE   NVL(FLG_ESTADO,1) = 1;
 
   END USP_SEL_LISTA_ROL;
-
-
-  PROCEDURE USP_SEL_ROL(
-        pID_ROL IN NUMBER,
+  
+    PROCEDURE USP_SEL_ROL( 
+        pBuscar     IN VARCHAR2,
+        pRegistros  INTEGER,
+        pPagina     INTEGER,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
    )AS
-     BEGIN
-             OPEN    pRefcursor FOR
-            SELECT  ID_ROL,
-                    DESCRIPCION_ROL
-            FROM    T_MAE_ROL
-            WHERE   ID_ROL = pID_ROL;
+        vPaginas    INTEGER;
+        vTotal      INTEGER;
+        vPagina2    INTEGER := pPagina;
+        vPageIndex  INTEGER := 0;
+        vQuery      VARCHAR2(10000) := '';
+        vSortColumn2 VARCHAR2(1000);
+    BEGIN
+        SELECT  COUNT(1) INTO vTotal
+        FROM    T_MAE_ROL 
+                WHERE FLG_ESTADO = '1' AND
+                (LOWER(TRANSLATE(DESCRIPCION_ROL,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like '%'|| LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) ||'%' );
+
+        vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
+        IF vPagina2 = 0 THEN
+            vPagina2 := 1;
+        END IF;
+        IF vPagina2 > vPaginas THEN
+            vPagina2 := vPaginas;
+        END IF;
+        vPageIndex := vPagina2 - 1;
+        vSortColumn2 := pSortColumn;
+
+        vQuery := 'SELECT *    FROM (
+        SELECT      ID_ROL,
+                    DESCRIPCION_ROL,
+                    ROW_NUMBER() OVER (ORDER BY ' || vSortColumn2 || ' ' || pSortOrder ||') AS ROWNUMBER,'
+                    || vPaginas || ' AS total_paginas,'
+                    || vPagina2 || ' AS pagina,'
+                    || pRegistros || ' AS cantidad_registros,'
+                    || vTotal || ' AS total_registros
+                FROM T_MAE_ROL
+                WHERE FLG_ESTADO = ''1'' AND
+                (LOWER(TRANSLATE(DESCRIPCION_ROL,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' )
+                )
+                WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
+        OPEN pRefcursor FOR vQuery;
 
     END USP_SEL_ROL;
 
 
 
     PROCEDURE USP_UPD_ROL(                  
-        pID_ROL IN NUMBER,
+        pIdRol IN NUMBER,
         pDescripcion_rol in varchar2
    )AS
 
      BEGIN
              UPDATE T_MAE_ROL
              set descripcion_rol = pDescripcion_rol
-             where id_rol = pid_rol;
+             where id_rol = pIdRol;
 
 
     END USP_UPD_ROL;
 
 
      PROCEDURE USP_DEL_ROL(                  
-        pID_ROL IN NUMBER
+        pIdRol IN NUMBER
    )AS
      BEGIN
              UPDATE T_MAE_ROL
              set FLG_ESTADO = 0
-             where id_rol = pid_rol;
+             where ID_ROL = pIdRol;
 
 
     END USP_DEL_ROL;
 
+    PROCEDURE USP_INS_ROL(
+        pDescripcion_rol in varchar2,
+        pIdRol OUT NUMBER
+    )AS
+    BEGIN
+        SELECT NVL(MAX(ID_ROL),0) + 1  INTO pIdRol FROM T_MAE_ROL;
+        
+        INSERT INTO T_MAE_ROL(ID_ROL, DESCRIPCION_ROL, FLG_ESTADO )
+        VALUES (pIdRol, pDescripcion_rol, 1);
+
+    END USP_INS_ROL;
 
 
+    PROCEDURE USP_SEL_EXCEL_ROL(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+        vQuery      VARCHAR2(30000) := '';
+        vSortColumn2 VARCHAR2(1000);
+      BEGIN
+        vSortColumn2 := pSortColumn;
+        vQuery := '
+                        SELECT    ID_ROL,
+                                  DESCRIPCION_ROL
+                        FROM  T_MAE_ROL
+                        WHERE NVL(FLG_ESTADO,1) = 1 AND
+                        (LOWER(TRANSLATE(DESCRIPCION_ROL,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' )
+                        ORDER BY ' || vSortColumn2 || ' ' || pSortOrder || ' ' ;
+		OPEN pRefcursor FOR vQuery;
+
+    END USP_SEL_EXCEL_ROL;
+    
+
+    PROCEDURE USP_GET_TIPO_VEHICULO(
+        pIdTipo_Vehiculo    number,
+        pRefcursor  OUT SYS_REFCURSOR
+   ) AS
+     BEGIN
+             OPEN    pRefcursor FOR
+            SELECT  ID_TIPO_VEHICULO,
+                    DESCRIPCION
+            FROM    T_MAE_TIPO_VEHICULO
+            WHERE   ID_TIPO_VEHICULO = pIdTipo_Vehiculo AND
+                    NVL(FLG_ESTADO,1) = 1;
+
+  END USP_GET_TIPO_VEHICULO;
+
+    
+
+   PROCEDURE USP_SEL_LISTA_TIPOVEHICULO(
+        pRefcursor  OUT SYS_REFCURSOR
+   ) AS
+     BEGIN
+             OPEN    pRefcursor FOR
+            SELECT  ID_TIPO_VEHICULO,
+                    DESCRIPCION
+            FROM    T_MAE_TIPO_VEHICULO
+            WHERE   NVL(FLG_ESTADO,1) = 1;
+
+  END USP_SEL_LISTA_TIPOVEHICULO;
+  
+    PROCEDURE USP_SEL_TIPO_VEHICULO( 
+        pBuscar     IN VARCHAR2,
+        pRegistros  INTEGER,
+        pPagina     INTEGER,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+   )AS
+        vPaginas    INTEGER;
+        vTotal      INTEGER;
+        vPagina2    INTEGER := pPagina;
+        vPageIndex  INTEGER := 0;
+        vQuery      VARCHAR2(10000) := '';
+        vSortColumn2 VARCHAR2(1000);
+    BEGIN
+        SELECT  COUNT(1) INTO vTotal
+        FROM    T_MAE_TIPO_VEHICULO 
+                WHERE FLG_ESTADO = '1' AND
+                (LOWER(TRANSLATE(DESCRIPCION,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like '%'|| LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) ||'%' );
+
+        vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
+        IF vPagina2 = 0 THEN
+            vPagina2 := 1;
+        END IF;
+        IF vPagina2 > vPaginas THEN
+            vPagina2 := vPaginas;
+        END IF;
+        vPageIndex := vPagina2 - 1;
+        vSortColumn2 := pSortColumn;
+
+        vQuery := 'SELECT *    FROM (
+        SELECT      ID_TIPO_VEHICULO,
+                    DESCRIPCION,
+                    ROW_NUMBER() OVER (ORDER BY ' || vSortColumn2 || ' ' || pSortOrder ||') AS ROWNUMBER,'
+                    || vPaginas || ' AS total_paginas,'
+                    || vPagina2 || ' AS pagina,'
+                    || pRegistros || ' AS cantidad_registros,'
+                    || vTotal || ' AS total_registros
+                FROM T_MAE_TIPO_VEHICULO
+                WHERE FLG_ESTADO = ''1'' AND
+                (LOWER(TRANSLATE(DESCRIPCION,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' )
+                )
+                WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
+        OPEN pRefcursor FOR vQuery;
+
+    END USP_SEL_TIPO_VEHICULO;
+
+
+
+    PROCEDURE USP_UPD_TIPO_VEHICULO(                  
+        pIdTipo_Vehiculo  IN NUMBER,
+        pDescripcion  in varchar2
+   )AS
+
+     BEGIN
+             UPDATE T_MAE_TIPO_VEHICULO
+             set descripcion = pDescripcion 
+             where id_tipo_vehiculo = pIdTipo_Vehiculo;
+
+
+    END USP_UPD_TIPO_VEHICULO;
+
+
+     PROCEDURE USP_DEL_TIPOVEHICULO(                  
+        pIdTipo_Vehiculo  IN NUMBER
+   )AS
+     BEGIN
+             UPDATE T_MAE_TIPO_VEHICULO
+             set FLG_ESTADO = 0
+             where ID_TIPO_VEHICULO = pIdTipo_Vehiculo ;
+
+
+    END USP_DEL_TIPOVEHICULO;
+
+    PROCEDURE USP_INS_TIPO_VEHICULO(
+        pDescripcion  in varchar2,
+        pIdTipo_Vehiculo OUT NUMBER
+    )AS
+    BEGIN
+        SELECT NVL(MAX(ID_TIPO_VEHICULO),0) + 1  INTO pIdTipo_Vehiculo  FROM T_MAE_TIPO_VEHICULO;
+        
+        INSERT INTO T_MAE_TIPO_VEHICULO(ID_TIPO_VEHICULO, DESCRIPCION, FLG_ESTADO )
+        VALUES (pIdTipo_Vehiculo , pDescripcion , 1);
+
+    END USP_INS_TIPO_VEHICULO;
+
+
+    PROCEDURE USP_SEL_EXCEL_TIPOVEHICULO(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+        vQuery      VARCHAR2(30000) := '';
+        vSortColumn2 VARCHAR2(1000);
+      BEGIN
+        vSortColumn2 := pSortColumn;
+        vQuery := '
+                        SELECT    ID_TIPO_VEHICULO,
+                                  DESCRIPCION
+                        FROM  T_MAE_TIPO_VEHICULO
+                        WHERE NVL(FLG_ESTADO,1) = 1 AND
+                        (LOWER(TRANSLATE(DESCRIPCION,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' )
+                        ORDER BY ' || vSortColumn2 || ' ' || pSortOrder || ' ' ;
+		OPEN pRefcursor FOR vQuery;
+
+    END USP_SEL_EXCEL_TIPOVEHICULO;
+    
 
 PROCEDURE USP_SEL_LISTA_MEDMIT(
         pRefcursor  OUT SYS_REFCURSOR
