@@ -132,12 +132,16 @@ namespace MRVMinem.Controllers
             inic.ID_INICIATIVA = id;
             modelo.iniciativa_mit = inic;
             modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
-            modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
+            modelo.menor = IndicadorLN.DetalleIndicadorEnfoque(modelo.iniciativa_mit.ID_INICIATIVA);
             modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
+            modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
             modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
             modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
             modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
             modelo.usuario = UsuarioLN.EspecialistaMedida(modelo.iniciativa_mit.ID_MEDMIT);
+            if (modelo.menor == 0) {
+                modelo.menor = getMenorId(modelo.listaEnfoque);
+            }            
             Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
             return View(modelo);
         }
@@ -150,6 +154,7 @@ namespace MRVMinem.Controllers
             modelo.iniciativa_mit = inic;
             modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
             modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
+            modelo.listaEnfoque = EnfoqueLN.listarEnfoqueIniciativa(modelo.iniciativa_mit.ID_INICIATIVA);
             modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
             modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
             modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
@@ -168,12 +173,17 @@ namespace MRVMinem.Controllers
             inic.ID_INICIATIVA = id;
             modelo.iniciativa_mit = inic;
             modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
-            modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
+            modelo.menor = IndicadorLN.DetalleIndicadorEnfoque(modelo.iniciativa_mit.ID_INICIATIVA);
             modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
+            modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
             modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
             modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
             modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
             modelo.usuario = UsuarioLN.EspecialistaMedida(modelo.iniciativa_mit.ID_MEDMIT);
+            if(modelo.menor == 0)
+            {
+                modelo.menor = getMenorId(modelo.listaEnfoque);
+            }
             Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
             return View(modelo);
         }
@@ -1886,6 +1896,32 @@ namespace MRVMinem.Controllers
                 m.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
                 m.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
             }
+        }
+
+        private int getMenorId(List<EnfoqueBE> lista)
+        {
+            var menor = 999999999;
+            foreach(var item in lista)
+            {
+                if(item.ID_ENFOQUE < menor)
+                {
+                    menor = item.ID_ENFOQUE;
+                }
+            }
+            return menor;
+        }
+
+        private int getMenorEnfoqueRegistrado(List<IndicadorBE> lista)
+        {
+            var menor = 999999999;
+            foreach (var item in lista)
+            {
+                if (item.ID_ENFOQUE < menor)
+                {
+                    menor = item.ID_ENFOQUE;
+                }
+            }
+            return menor;
         }
 
     }

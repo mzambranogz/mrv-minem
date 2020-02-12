@@ -163,6 +163,11 @@ namespace logica.minem.gob.pe
         {
             return indicador.ObservacionVerificarDetalleIndicador(entidad);
         }
+
+        public static int DetalleIndicadorEnfoque(int iniciativa)
+        {
+            return indicador.DetalleIndicadorEnfoque(iniciativa);
+        }
     }
     
 }

@@ -50,10 +50,15 @@ namespace datos.minem.gob.pe
                     string sp = sPackage + "USP_SEL_LISTA_DET_INDICADOR";
                     var p = new OracleDynamicParameters();
                     p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_ENFOQUE", entidad.ID_ENFOQUE);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<IndicadorBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
                 }
 
+                foreach (var item in Lista)
+                {
+                    if (item.INICIO_OPERACIONES.ToString("yyyy-MM-dd") != "0001-01-01") item.FECHA = item.INICIO_OPERACIONES.ToString("yyyy-MM-dd");
+                }
             }
             catch (Exception ex)
             {
@@ -71,16 +76,40 @@ namespace datos.minem.gob.pe
             {
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
                 {
-                    string sp = sPackage + "USP_PRC_CALCULAR_INDICADOR2";
+                    int enfoque = entidad.ID_ENFOQUE;
+                    string sp = "";
                     var p = new OracleDynamicParameters();
-                    //p.Add("pID_INDICADOR", entidad.ID_INDICADOR);
-                    //p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
                     p.Add("pANNO", entidad.ANNOB);
                     p.Add("pID_TIPO_VEHICULO", entidad.ID_TIPO_VEHICULOB);
                     p.Add("pID_TIPO_COMBUSTIBLE", entidad.ID_TIPO_COMBUSTIBLEB);
-                    p.Add("pKRV", entidad.KRVB);
-                    p.Add("pCANTIDAD", entidad.CANTIDADB);
-                    p.Add("pF_REN", entidad.FACTOR_RENDIMIENTO);
+                    
+                    if (enfoque == 1 || enfoque == 2)
+                    {
+                        if (enfoque == 1)
+                        {
+                            sp = sPackage + "USP_PRC_CALCULAR_INDICADOR2";
+                        }
+                        else if (enfoque == 2)
+                        {
+                            sp = sPackage + "USP_PRC_CAL_VEH_HIB";
+                            p.Add("pKRV_COMBUSTIBLE", entidad.KRV_COMBUSTIBLE);                            
+                        }
+                        p.Add("pF_REN", entidad.FACTOR_RENDIMIENTO);
+                        p.Add("pKRV", entidad.KRVB);
+                        p.Add("pCANTIDAD", entidad.CANTIDADB);
+                    }                    
+                    else if (enfoque == 3)
+                    {
+                        sp = sPackage + "USP_PRC_CAL_VEH_CON";
+                        p.Add("pCONSUMO_ELECTRICIDAD",entidad.CONSUMO_ELECTRICIDAD);
+                    }
+                    else if (enfoque == 4)
+                    {
+                        sp = sPackage + "USP_PRC_CAL_VEH_HIB_CON";
+                        p.Add("pCONSUMO_ELECTRICIDAD", entidad.CONSUMO_ELECTRICIDAD);
+                        p.Add("pCONSUMO_COMBUSTIBLE", entidad.CONSUMO_COMBUSTIBLE);
+                    }       
+                    
                     p.Add("pID_TIPO_FUENTE", entidad.ID_TIPO_FUENTEI);                                        
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<IndicadorBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
@@ -149,16 +178,22 @@ namespace datos.minem.gob.pe
                     var p = new OracleDynamicParameters();
                     p.Add("pID_INDICADOR", entidad.ID_INDICADOR);
                     p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pFECHA_INICIO", entidad.INICIO_OPERACIONES);
                     p.Add("pANNO", entidad.ANNOB);
                     p.Add("pID_TIPO_VEHICULO", entidad.ID_TIPO_VEHICULOB);
                     p.Add("pID_TIPO_COMBUSTIBLE", entidad.ID_TIPO_COMBUSTIBLEB);
                     p.Add("pKRV", entidad.KRVB);
+                    p.Add("pKRV_COMBUSTIBLE", entidad.KRV_COMBUSTIBLE); // add
+                    p.Add("pCONSUMO_ELECTRICIDAD", entidad.CONSUMO_ELECTRICIDAD); //add
+                    p.Add("pCONSUMO_COMBUSTIBLE", entidad.CONSUMO_COMBUSTIBLE); //add
+                    p.Add("pPLACA", entidad.PLACA);
                     p.Add("pCANTIDAD", entidad.CANTIDADB);
                     p.Add("pF_REN", entidad.FACTOR_RENDIMIENTO);
                     p.Add("pTOTAL_GEI", entidad.TOTAL_GEI_BASE);
                     p.Add("pTOTAL_GEI_INIMIT", entidad.TOTAL_GEI_INIMIT);
                     p.Add("pTOTAL_GEI_REDUCIDO", entidad.TOTAL_GEI_REDUCIDO);
                     p.Add("pID_TIPO_FUENTE", entidad.ID_TIPO_FUENTEI);
+                    p.Add("pID_ENFOQUE", entidad.ID_ENFOQUE);
                     p.Add("pADJUNTO", entidad.ADJUNTO);
                     p.Add("pADJUNTO_BASE", entidad.ADJUNTO_BASE);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
@@ -559,6 +594,11 @@ namespace datos.minem.gob.pe
                     Lista = db.Query<IndicadorBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
                 }
 
+                foreach (var item in Lista)
+                {
+                    if (item.INICIO_OPERACIONES.ToString("dd/MM/yyyy") != "01/01/0001") item.FECHA = item.INICIO_OPERACIONES.ToString("dd/MM/yyyy");
+                }
+
             }
             catch (Exception ex)
             {
@@ -647,6 +687,29 @@ namespace datos.minem.gob.pe
             }
 
             return entidad;
+        }
+
+        public int DetalleIndicadorEnfoque(int iniciativa)
+        {
+            int enfoque = 0;    
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_INDICADOR_ENFOQUE";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", iniciativa);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    var ENFOQUE = db.ExecuteScalar(sp, p, commandType: CommandType.StoredProcedure);
+                    enfoque = Convert.ToInt32(ENFOQUE);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return enfoque;
         }
 
     }

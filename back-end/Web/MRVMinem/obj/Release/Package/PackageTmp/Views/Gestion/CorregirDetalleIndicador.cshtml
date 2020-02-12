@@ -252,8 +252,21 @@
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup20"><i class="fas fa-square-root-alt"></i></span></div>
                                             <select class="form-control" id="cbo-enfoque" aria-describedby="inputGroup20">
                                                 <option value="0">-Seleccione-</option>
-                                                <option selected value="1">Vehículo Eléctrico</option>
-                                                <option value="2">Vehículo Híbrido</option>
+                                                @if (Model.listaEnfoque != null)
+                                                {
+                                                    foreach (var item in Model.listaEnfoque)
+                                                    {
+                                                        if (Model.menor == item.ID_ENFOQUE)
+                                                        {
+                                                            <option selected value="@item.ID_ENFOQUE">@item.DESCRIPCION</option>
+                                                        }
+                                                        else
+                                                        {
+                                                            <option value="@item.ID_ENFOQUE">@item.DESCRIPCION</option>
+                                                        }
+
+                                                    }
+                                                }
                                                 <!--
                                                 <option>Enfoque 03</option>
                                                 <option>Enfoque 04</option>-->
@@ -271,8 +284,8 @@
                                 <div class="col-12 px-0">
                                     <div class="table-responsive tabla-principal tabla-detalle-indicadores">
                                         <table class="table table-hover" id="tablaIndicador" data-fila="0">
-                                            <thead>
-                                                <tr class="bg-primary text-white">
+                                            <thead id="cabeceraTablaIndicador" >
+                                                @*<tr class="bg-primary text-white">
                                                     <th class="text-center" style="background-color: green;" scope="col"><span>N°&nbsp;</span></th>
                                                     <th class="text-center" style="background-color: green;" scope="col"><span>Año&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Año"></i></span></th>
                                                     <th class="text-center" style="background-color: green;" scope="col"><span>Tipo Vehiculo&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Tipo Vehículo"></i></span></th>
@@ -285,29 +298,7 @@
                                                     <th class="text-center" style="background-color: #2271b3;" scope="col"><span>Emisiones GEI Reducidas (tCO<sub>2</sub>eq)</span></th>
                                                     <th class="text-center" scope="col">Más</th>
                                                     <th class="text-hide" scope="col" style="display:none;">Id. Iniciativa</th>
-                                                </tr>
-                                                <!--<tr class="bg-primary text-white">
-                                                  <th class="text-center" scope="col"><span>#&nbsp;</span></th>
-                                                  <th scope="col"><span>Colum_01&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                                  <th scope="col"><span>Colum_02&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                                  <th scope="col"><span>Colum_03&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                                  <th scope="col"><span>Colum_04&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                                  <th scope="col"><span>Colum_05&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                                  <th scope="col"><span>Colum_06&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                                  <th scope="col"><span>Colum_07&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                                  <th scope="col"><span>Colum_08&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                                  <th scope="col"><span>Colum_09&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                                  <th scope="col"><span>Colum_10&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                                  <th scope="col"><span>Colum_11&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                                  <th scope="col"><span>Colum_12&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                                  <th scope="col"><span>Colum_13&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                                  <th scope="col"><span>Colum_14&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                                  <th scope="col"><span>Colum_15&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                                  <th scope="col"><span>Colum_16&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                                  <th scope="col"><span>Sub Total</span></th>
-                                                  <th class="text-center" scope="col"><span>Sustento</span></th>
-                                                  <th class="text-center" scope="col">Más</th>
-                                                </tr>-->
+                                                </tr>*@
                                             </thead>
                                             <tbody id="cuerpoTablaIndicador" data-row="0" data-total="0" data-delete=""> <!-- add id delete-->
                                             </tbody>
@@ -326,7 +317,7 @@
                                                 <tr>
                                                     <th class="text-center" data-encabezado="Número" scope="row">1</th>
                                                     <td data-encabezado="Resumen" id="resumen-detalle">@Model.medida.IPSC_MEDMIT</td>
-                                                    <td data-encabezado="Total" id="total-detalle"><!--<strong>150,000.00</strong>--></td>
+                                                    <td data-encabezado="Total"><strong id="total-detalle">0.00</strong><strong>&nbsp;tCO<sub>2</sub>eq</strong></td>
                                                 </tr>
                                             </tbody>
                                         </table>

@@ -9,22 +9,22 @@
               <Width>3.95521cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>5.80666cm</Width>
+              <Width>3.68999cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.89688cm</Width>
+              <Width>2.28834cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.18792cm</Width>
+              <Width>2.30188cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.08209cm</Width>
+              <Width>2.2748cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.10854cm</Width>
+              <Width>2.1825cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.16146cm</Width>
+              <Width>2.12959cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -108,7 +108,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>GEI PUBLICO</Value>
+                              <Value>GEI publico</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -142,7 +142,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>GEI PRIVADO</Value>
+                              <Value>GEI privado</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -285,6 +285,7 @@
                             <TextRun>
                               <Value>=Fields!NOMBRE_MEDMIT.Value</Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -319,7 +320,7 @@
                             <TextRun>
                               <Value>=Fields!NUMERO_MEDMIT.Value</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>9pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -353,7 +354,7 @@
                             <TextRun>
                               <Value>=Fields!GEI_PUBLICO.Value</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>9pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -387,7 +388,7 @@
                             <TextRun>
                               <Value>=Fields!GEI_PRIVADO.Value</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>9pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -421,7 +422,7 @@
                             <TextRun>
                               <Value>=Fields!GEI_PUBLICO.Value+Fields!GEI_PRIVADO.Value</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>9pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -455,7 +456,7 @@
                             <TextRun>
                               <Value>=Fields!CANT_PUBLICO.Value</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>9pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -489,7 +490,7 @@
                             <TextRun>
                               <Value>=Fields!CANT_PRIVADO.Value</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>9pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -528,6 +529,7 @@
                             <TextRun>
                               <Value>Total</Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -613,6 +615,7 @@
                             <TextRun>
                               <Value>=Sum(Fields!GEI_PUBLICO.Value)</Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -666,6 +669,7 @@
                             <TextRun>
                               <Value>=Sum(Fields!GEI_PRIVADO.Value)</Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -719,6 +723,7 @@
                             <TextRun>
                               <Value>=Sum(Fields!GEI_PRIVADO.Value)+Sum(Fields!GEI_PUBLICO.Value)</Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -772,6 +777,7 @@
                             <TextRun>
                               <Value>=Sum(Fields!CANT_PUBLICO.Value)</Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -825,6 +831,7 @@
                             <TextRun>
                               <Value>=Sum(Fields!CANT_PRIVADO.Value)</Value>
                               <Style>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -896,10 +903,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DtMedMit</DataSetName>
-        <Top>5.10329cm</Top>
-        <Left>5.70015cm</Left>
+        <Top>1.61079cm</Top>
+        <Left>4.43015cm</Left>
         <Height>1.8cm</Height>
-        <Width>25.19876cm</Width>
+        <Width>18.82231cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1210,10 +1217,10 @@
           </Style>
         </ChartNoDataMessage>
         <DataSetName>DtMedMit</DataSetName>
-        <Top>9.52183cm</Top>
-        <Left>5.32787cm</Left>
-        <Height>8.94229cm</Height>
-        <Width>26.62937cm</Width>
+        <Top>5.71183cm</Top>
+        <Left>4.69287cm</Left>
+        <Height>7.14312cm</Height>
+        <Width>19.32687cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -1526,10 +1533,10 @@
           </Style>
         </ChartNoDataMessage>
         <DataSetName>DtMedMit</DataSetName>
-        <Top>21.43186cm</Top>
-        <Left>5.32787cm</Left>
-        <Height>9.57729cm</Height>
-        <Width>26.62937cm</Width>
+        <Top>15.0554cm</Top>
+        <Left>4.43015cm</Left>
+        <Height>5.97896cm</Height>
+        <Width>19.58959cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -1549,7 +1556,7 @@
               <TextRun>
                 <Value>REPORTE DE CANTIDAD EN EL  SECTOR PÚBLICO Y SECTOR PRIVADO</Value>
                 <Style>
-                  <FontSize>12pt</FontSize>
+                  <FontSize>11pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
@@ -1560,10 +1567,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>19.7612cm</Top>
-        <Left>8.30474cm</Left>
-        <Height>0.81167cm</Height>
-        <Width>18.95708cm</Width>
+        <Top>13.7287cm</Top>
+        <Left>5.50016cm</Left>
+        <Height>0.6cm</Height>
+        <Width>16.94562cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -1575,21 +1582,6 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Image Name="MinemLogo">
-        <Source>Embedded</Source>
-        <Value>energiayminas</Value>
-        <Sizing>FitProportional</Sizing>
-        <Top>0.5173cm</Top>
-        <Left>22.38057cm</Left>
-        <Height>1.76417cm</Height>
-        <Width>8.69667cm</Width>
-        <ZIndex>4</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
       <Textbox Name="Textbox3">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -1599,7 +1591,7 @@
               <TextRun>
                 <Value>REPORTE DE GASES DE EFECTO INVERNADERO EN EL SECTOR PÚBLICO Y PRIVADO</Value>
                 <Style>
-                  <FontSize>12pt</FontSize>
+                  <FontSize>11pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
@@ -1608,11 +1600,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>7.98724cm</Top>
-        <Left>10.47433cm</Left>
+        <Top>4.81224cm</Top>
+        <Left>5.42079cm</Left>
         <Height>0.6cm</Height>
-        <Width>18.21562cm</Width>
-        <ZIndex>5</ZIndex>
+        <Width>17.02499cm</Width>
+        <ZIndex>4</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1632,7 +1624,7 @@
               <TextRun>
                 <Value>REPORTE DE GASES DE EFECTO INVERNADERO Y CANTIDADES EN EL SECTOR PÚBLICO Y PRIVADO</Value>
                 <Style>
-                  <FontSize>17pt</FontSize>
+                  <FontSize>11pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
@@ -1641,11 +1633,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>3.6952cm</Top>
-        <Left>3.83329cm</Left>
-        <Height>0.94396cm</Height>
-        <Width>30.53166cm</Width>
-        <ZIndex>6</ZIndex>
+        <Top>0.78148cm</Top>
+        <Left>3.78037cm</Left>
+        <Height>0.65292cm</Height>
+        <Width>19.92187cm</Width>
+        <ZIndex>5</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1656,63 +1648,89 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Image Name="LogoGef">
-        <Source>Embedded</Source>
-        <Value>logogef</Value>
-        <Sizing>FitProportional</Sizing>
-        <Top>0.35814cm</Top>
-        <Left>31.58808cm</Left>
-        <Height>1.92333cm</Height>
-        <Width>1.57938cm</Width>
-        <ZIndex>7</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
-      <Image Name="LogoPnud">
-        <Source>Embedded</Source>
-        <Value>pnud</Value>
-        <Sizing>FitProportional</Sizing>
-        <Top>0.35814cm</Top>
-        <Left>33.84391cm</Left>
-        <Height>1.92333cm</Height>
-        <Width>0.97083cm</Width>
-        <ZIndex>8</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
-      <Image Name="LogoMrvv">
-        <Source>Embedded</Source>
-        <Value>LogoMRVV</Value>
-        <Sizing>FitProportional</Sizing>
-        <Top>1.12543cm</Top>
-        <Left>0.58208cm</Left>
-        <Height>1.15604cm</Height>
-        <Width>6.05083cm</Width>
-        <ZIndex>9</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
     </ReportItems>
-    <Height>12.8125in</Height>
+    <Height>9.20834in</Height>
     <Style />
   </Body>
-  <Width>14.44791in</Width>
+  <Width>10.31076in</Width>
   <Page>
-    <PageHeight>29.7cm</PageHeight>
-    <PageWidth>21cm</PageWidth>
-    <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
+    <PageHeader>
+      <Height>2.54646cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Image Name="LogoMrvv">
+          <Source>Embedded</Source>
+          <Value>LogoMRVV</Value>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.72855cm</Top>
+          <Left>1.27cm</Left>
+          <Height>1.15604cm</Height>
+          <Width>5.12479cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+        <Image Name="MinemLogo">
+          <Source>Embedded</Source>
+          <Value>energiayminas</Value>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.59667cm</Top>
+          <Left>16.26869cm</Left>
+          <Height>1.28792cm</Height>
+          <Width>6.17709cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+        <Image Name="LogoGef">
+          <Source>Embedded</Source>
+          <Value>logogef</Value>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.59667cm</Top>
+          <Left>23.02244cm</Left>
+          <Height>1.44708cm</Height>
+          <Width>0.9973cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+        <Image Name="LogoPnud">
+          <Source>Embedded</Source>
+          <Value>pnud</Value>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.43752cm</Top>
+          <Left>24.87453cm</Left>
+          <Height>1.60624cm</Height>
+          <Width>0.7327cm</Width>
+          <ZIndex>3</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
+    <PageHeight>21cm</PageHeight>
+    <PageWidth>29.7cm</PageWidth>
+    <LeftMargin>1cm</LeftMargin>
+    <RightMargin>1cm</RightMargin>
+    <TopMargin>1cm</TopMargin>
+    <BottomMargin>1cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>
