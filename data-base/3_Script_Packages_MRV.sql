@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - lunes-febrero-10-2020   
+-- Archivo creado  - martes-febrero-11-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_ADMIN_SISTEMA
@@ -290,6 +290,7 @@ END PKG_MRV_CALCULO;
 
   PROCEDURE USP_SEL_LISTA_DET_INDICADOR(
         pID_INICIATIVA IN NUMBER,
+        pID_ENFOQUE    IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
   );
 
@@ -323,15 +324,21 @@ END PKG_MRV_CALCULO;
     pID_INDICADOR        IN NUMBER,
     pID_INICIATIVA       IN NUMBER,
     pANNO                IN NUMBER,
+    pFECHA_INICIO        IN DATE, --add
     pID_TIPO_VEHICULO    IN NUMBER,
     pID_TIPO_COMBUSTIBLE IN NUMBER,
     pKRV                 IN NUMBER,
+    pKRV_COMBUSTIBLE     IN NUMBER, --add
+    pCONSUMO_ELECTRICIDAD IN NUMBER, --add
+    pCONSUMO_COMBUSTIBLE  IN NUMBER, --add
+    pPLACA               IN VARCHAR2, --add
     pCANTIDAD            IN NUMBER,
     pF_REN               IN NUMBER,
     pTOTAL_GEI           IN NUMBER,
     pTOTAL_GEI_INIMIT    IN NUMBER,
     pTOTAL_GEI_REDUCIDO  IN NUMBER,
     pID_TIPO_FUENTE      IN NUMBER,
+    pID_ENFOQUE          IN NUMBER, --add
     pADJUNTO             IN VARCHAR2,
     pADJUNTO_BASE        IN VARCHAR2
     );
@@ -1357,8 +1364,47 @@ END PKG_MRV_INICIATIVA_MITIGACION;
         pRefcursor  OUT SYS_REFCURSOR
     );
     
-    
-    
+   
+    PROCEDURE USP_GET_TIPO_COMBUSTIBLE(
+        pIdTipo_Combustible    number,
+        pRefcursor  OUT SYS_REFCURSOR
+   );
+
+   PROCEDURE USP_SEL_LISTA_TIPOCOMBUSTIBLE(
+        pRefcursor  OUT SYS_REFCURSOR
+   );
+
+    PROCEDURE USP_SEL_TIPO_COMBUSTIBLE(
+        pBuscar     IN VARCHAR2,
+        pRegistros  INTEGER,
+        pPagina     INTEGER,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+   );
+
+    PROCEDURE USP_UPD_TIPO_COMBUSTIBLE(
+        pIdTipo_Combustible IN NUMBER,
+        pDescripcion in varchar2
+   );
+
+    PROCEDURE USP_DEL_TIPOCOMBUSTIBLE(
+       pIdTipo_Combustible IN NUMBER
+   );
+   
+    PROCEDURE USP_INS_TIPO_COMBUSTIBLE(
+        pDescripcion in varchar2,
+        pIdTipo_Combustible OUT NUMBER
+    );
+
+
+    PROCEDURE USP_SEL_EXCEL_TIPOCOMBUSTIBLE(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+  
 PROCEDURE USP_SEL_LISTA_MEDMIT(
         pRefcursor  OUT SYS_REFCURSOR
    );
@@ -2774,20 +2820,26 @@ END PKG_MRV_CALCULO;
 
     PROCEDURE USP_SEL_LISTA_DET_INDICADOR(
         pID_INICIATIVA IN NUMBER,
+        pID_ENFOQUE    IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
     )AS
     BEGIN
         OPEN pRefcursor FOR
-        SELECT  IND.ID_INDICADOR, IND.ANNO_BASE, IND.ID_TIPO_VEHICULO_BASE, IND.ID_TIPO_COMBUSTIBLE_BASE, IND.KRV_BASE, IND.CANT_BASE, IND.TOTAL_GEI_BASE, 
-                IND.ANNO_INIMIT, IND.ID_TIPO_VEHICULO_INIMIT, IND.ID_TIPO_FUENTE_INIMIT, IND.KRV_INIMIT, IND.CANT_INIMIT, IND.TOTAL_GEI_INIMIT, IND.TOTAL_GEI_REDUCIDO,
-                IND.F_RENDIMIENTO, --ECG
+        SELECT  IND.ID_INDICADOR, IND.ANNO_BASE, IND.ID_TIPO_VEHICULO_BASE, IND.ID_TIPO_COMBUSTIBLE_BASE, IND.KRV_BASE, IND.CANT_BASE, 
+                ROUND(IND.TOTAL_GEI_BASE*100)/100 TOTAL_GEI_BASE, 
+                IND.ANNO_INIMIT, IND.ID_TIPO_VEHICULO_INIMIT, IND.ID_TIPO_FUENTE_INIMIT, IND.KRV_INIMIT, IND.CANT_INIMIT, 
+                ROUND(IND.TOTAL_GEI_INIMIT*100)/100 TOTAL_GEI_INIMIT, 
+                ROUND(IND.TOTAL_GEI_REDUCIDO*100)/100 TOTAL_GEI_REDUCIDO,
+                ROUND(IND.F_RENDIMIENTO*100)/100 F_RENDIMIENTO,
+                IND.FECHA_INICIO INICIO_OPERACIONES, --ECG
+                IND.KRV_COMBUSTIBLE, IND.CONSUMO_ELECTRICIDAD, IND.CONSUMO_COMBUSTIBLE, IND.PLACA,
                 IND.ADJUNTO, IND.ADJUNTO_BASE,
                 TV.DESCRIPCION TIPO_VEHICULO,
                 TC.DESCRIPCION TIPO_COMBUSTIBLE
         FROM    T_GEND_INDICADOR IND
         LEFT JOIN   T_MAE_TIPO_VEHICULO TV ON IND.ID_TIPO_VEHICULO_BASE = TV.ID_TIPO_VEHICULO
         LEFT JOIN   T_MAE_TIPO_COMBUSTIBLE TC ON IND.ID_TIPO_COMBUSTIBLE_BASE = TC.ID_TIPO_COMBUSTIBLE
-        WHERE   ID_INICIATIVA = pID_INICIATIVA AND IND.FLG_ESTADO = 1
+        WHERE   IND.ID_INICIATIVA = pID_INICIATIVA AND IND.ID_ENFOQUE = pID_ENFOQUE AND IND.FLG_ESTADO = 1
         ORDER BY ID_INDICADOR ASC;
     END USP_SEL_LISTA_DET_INDICADOR;
 
@@ -2917,15 +2969,21 @@ END PKG_MRV_CALCULO;
     PROCEDURE USP_PRC_INDICADOR(pID_INDICADOR        IN NUMBER,
                                 pID_INICIATIVA       IN NUMBER,
                                 pANNO                IN NUMBER,
+                                pFECHA_INICIO        IN DATE,
                                 pID_TIPO_VEHICULO    IN NUMBER,
                                 pID_TIPO_COMBUSTIBLE IN NUMBER,
                                 pKRV                 IN NUMBER,
+                                pKRV_COMBUSTIBLE     IN NUMBER, --add
+                                pCONSUMO_ELECTRICIDAD IN NUMBER, --add
+                                pCONSUMO_COMBUSTIBLE  IN NUMBER, --add
+                                pPLACA               IN VARCHAR2, --add
                                 pCANTIDAD            IN NUMBER,
                                 pF_REN               IN NUMBER,
                                 pTOTAL_GEI           IN NUMBER,
                                 pTOTAL_GEI_INIMIT    IN NUMBER,
                                 pTOTAL_GEI_REDUCIDO  IN NUMBER,
                                 pID_TIPO_FUENTE      IN NUMBER,
+                                pID_ENFOQUE          IN NUMBER, --add
                                 pADJUNTO             IN VARCHAR2,
                                 pADJUNTO_BASE        IN VARCHAR2) IS
         vIdIndicador NUMBER;
@@ -2938,19 +2996,25 @@ END PKG_MRV_CALCULO;
                 (ID_INDICADOR,
                  ID_INICIATIVA,
                  ANNO_BASE,
+                 FECHA_INICIO,
                  ID_TIPO_VEHICULO_BASE,
                  ID_TIPO_COMBUSTIBLE_BASE,
                  KRV_BASE,
+                 KRV_COMBUSTIBLE,
                  CANT_BASE,
                  TOTAL_GEI_BASE,
                  ANNO_INIMIT,
                  ID_TIPO_VEHICULO_INIMIT,
                  ID_TIPO_FUENTE_INIMIT,
                  KRV_INIMIT,
+                 CONSUMO_ELECTRICIDAD,
+                 CONSUMO_COMBUSTIBLE,
                  CANT_INIMIT,
                  F_RENDIMIENTO,
                  TOTAL_GEI_INIMIT,
                  TOTAL_GEI_REDUCIDO,
+                 PLACA, --add
+                 ID_ENFOQUE, --add
                  FLG_ESTADO, 
                  ADJUNTO,
                  ADJUNTO_BASE)
@@ -2958,19 +3022,25 @@ END PKG_MRV_CALCULO;
                 (vIdIndicador,
                  pID_INICIATIVA,
                  pANNO,
+                 pFECHA_INICIO,
                  pID_TIPO_VEHICULO,
                  pID_TIPO_COMBUSTIBLE,
                  pKRV,
+                 pKRV_COMBUSTIBLE, --add
                  pCANTIDAD,
                  pTOTAL_GEI,
                  pANNO,
                  pID_TIPO_VEHICULO,
                  pID_TIPO_FUENTE,
                  pKRV,
+                 pCONSUMO_ELECTRICIDAD, --add
+                 pCONSUMO_COMBUSTIBLE, --add
                  pCANTIDAD,
                  pF_REN,
                  pTOTAL_GEI_INIMIT,
                  pTOTAL_GEI_REDUCIDO,
+                 pPLACA, --add
+                 pID_ENFOQUE, --add
                  1,
                  pADJUNTO,
                  pADJUNTO_BASE);
@@ -2981,19 +3051,25 @@ END PKG_MRV_CALCULO;
             UPDATE T_GEND_INDICADOR
                SET ID_INICIATIVA            = pID_INICIATIVA,
                    ANNO_BASE                = pANNO,
+                   FECHA_INICIO             = pFECHA_INICIO, --add
                    ID_TIPO_VEHICULO_BASE    = pID_TIPO_VEHICULO,
                    ID_TIPO_COMBUSTIBLE_BASE = pID_TIPO_COMBUSTIBLE,
                    KRV_BASE                 = pKRV,
+                   KRV_COMBUSTIBLE          = pKRV_COMBUSTIBLE, --add
                    CANT_BASE                = pCANTIDAD,
                    TOTAL_GEI_BASE           = pTOTAL_GEI,
                    ANNO_INIMIT              = pANNO,
                    ID_TIPO_VEHICULO_INIMIT  = pID_TIPO_VEHICULO,
                    ID_TIPO_FUENTE_INIMIT    = pID_TIPO_FUENTE,
                    KRV_INIMIT               = pKRV,
+                   CONSUMO_ELECTRICIDAD     = pCONSUMO_ELECTRICIDAD, --add
+                   CONSUMO_COMBUSTIBLE      = pCONSUMO_COMBUSTIBLE, --add
+                   PLACA                    = pPLACA, --add
                    CANT_INIMIT              = pCANTIDAD,
                    F_RENDIMIENTO            = pF_REN,
                    TOTAL_GEI_INIMIT         = pTOTAL_GEI_INIMIT,
                    TOTAL_GEI_REDUCIDO       = pTOTAL_GEI_REDUCIDO,
+                   ID_ENFOQUE               = pID_ENFOQUE, --add
                    ADJUNTO                  = pADJUNTO,
                    ADJUNTO_BASE             = pADJUNTO_BASE
              WHERE ID_INDICADOR = pID_INDICADOR;
@@ -3078,7 +3154,8 @@ END PKG_MRV_CALCULO;
         OPEN pRefcursor FOR
         SELECT  ID_TIPO_VEHICULO,
                 DESCRIPCION
-        FROM    T_MAE_TIPO_VEHICULO;
+        FROM    T_MAE_TIPO_VEHICULO
+        WHERE   FLG_ESTADO = 1;
     END USP_SEL_LISTA_TIPO_VEHICULO;
 
     PROCEDURE USP_SEL_LISTA_TIPO_COMBUSTIBLE(
@@ -3088,7 +3165,8 @@ END PKG_MRV_CALCULO;
         OPEN pRefcursor FOR
         SELECT  ID_TIPO_COMBUSTIBLE,
                 DESCRIPCION
-        FROM    T_MAE_TIPO_COMBUSTIBLE;
+        FROM    T_MAE_TIPO_COMBUSTIBLE
+        WHERE   FLG_ESTADO = 1;
     END USP_SEL_LISTA_TIPO_COMBUSTIBLE;
 
    PROCEDURE USP_SEL_LISTA_TIPO_FUENTE(
@@ -3579,7 +3657,8 @@ END PKG_MRV_CALCULO;
         SELECT  ID_ENFOQUE,
                 DESCRIPCION
         FROM    T_GENM_ENFOQUE
-        WHERE   ID_MEDMIT = pID_MEDMIT;
+        WHERE   ID_MEDMIT = pID_MEDMIT
+        ORDER BY ID_ENFOQUE ASC;
     END USP_SEL_ENFOQUE_MEDMIT;
     
     
@@ -8487,6 +8566,144 @@ END PKG_MRV_INICIATIVA_MITIGACION;
 
     END USP_SEL_EXCEL_TIPOVEHICULO;
     
+    PROCEDURE USP_GET_TIPO_COMBUSTIBLE(
+        pIdTipo_Combustible    number,
+        pRefcursor  OUT SYS_REFCURSOR
+   ) AS
+     BEGIN
+             OPEN    pRefcursor FOR
+            SELECT  ID_TIPO_COMBUSTIBLE,
+                    DESCRIPCION
+            FROM    T_MAE_TIPO_COMBUSTIBLE
+            WHERE   ID_TIPO_COMBUSTIBLE = pIdTipo_Combustible  AND
+                    NVL(FLG_ESTADO,1) = 1;
+
+  END USP_GET_TIPO_COMBUSTIBLE;
+
+    
+
+   PROCEDURE USP_SEL_LISTA_TIPOCOMBUSTIBLE(
+        pRefcursor  OUT SYS_REFCURSOR
+   ) AS
+     BEGIN
+             OPEN    pRefcursor FOR
+            SELECT  ID_TIPO_COMBUSTIBLE,
+                    DESCRIPCION
+            FROM    T_MAE_TIPO_COMBUSTIBLE
+            WHERE   NVL(FLG_ESTADO,1) = 1;
+
+  END USP_SEL_LISTA_TIPOCOMBUSTIBLE;
+  
+    PROCEDURE USP_SEL_TIPO_COMBUSTIBLE( 
+        pBuscar     IN VARCHAR2,
+        pRegistros  INTEGER,
+        pPagina     INTEGER,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+   )AS
+        vPaginas    INTEGER;
+        vTotal      INTEGER;
+        vPagina2    INTEGER := pPagina;
+        vPageIndex  INTEGER := 0;
+        vQuery      VARCHAR2(10000) := '';
+        vSortColumn2 VARCHAR2(1000);
+    BEGIN
+        SELECT  COUNT(1) INTO vTotal
+        FROM    T_MAE_TIPO_COMBUSTIBLE 
+                WHERE FLG_ESTADO = '1' AND
+                (LOWER(TRANSLATE(DESCRIPCION,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like '%'|| LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) ||'%' );
+
+        vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
+        IF vPagina2 = 0 THEN
+            vPagina2 := 1;
+        END IF;
+        IF vPagina2 > vPaginas THEN
+            vPagina2 := vPaginas;
+        END IF;
+        vPageIndex := vPagina2 - 1;
+        vSortColumn2 := pSortColumn;
+
+        vQuery := 'SELECT *    FROM (
+        SELECT      ID_TIPO_COMBUSTIBLE,
+                    DESCRIPCION,
+                    ROW_NUMBER() OVER (ORDER BY ' || vSortColumn2 || ' ' || pSortOrder ||') AS ROWNUMBER,'
+                    || vPaginas || ' AS total_paginas,'
+                    || vPagina2 || ' AS pagina,'
+                    || pRegistros || ' AS cantidad_registros,'
+                    || vTotal || ' AS total_registros
+                FROM T_MAE_TIPO_COMBUSTIBLE
+                WHERE FLG_ESTADO = ''1'' AND
+                (LOWER(TRANSLATE(DESCRIPCION,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' )
+                )
+                WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
+        OPEN pRefcursor FOR vQuery;
+
+    END USP_SEL_TIPO_COMBUSTIBLE;
+
+
+
+    PROCEDURE USP_UPD_TIPO_COMBUSTIBLE(                  
+        pIdTipo_Combustible  IN NUMBER,
+        pDescripcion  in varchar2
+   )AS
+
+     BEGIN
+             UPDATE T_MAE_TIPO_COMBUSTIBLE
+             set descripcion = pDescripcion 
+             where id_tipo_combustible = pIdTipo_Combustible;
+
+
+    END USP_UPD_TIPO_COMBUSTIBLE;
+
+
+     PROCEDURE USP_DEL_TIPOCOMBUSTIBLE(                  
+        pIdTipo_Combustible  IN NUMBER
+   )AS
+     BEGIN
+             UPDATE T_MAE_TIPO_COMBUSTIBLE
+             set FLG_ESTADO = 0
+             where ID_TIPO_COMBUSTIBLE = pIdTipo_Combustible;
+
+
+    END USP_DEL_TIPOCOMBUSTIBLE;
+
+
+
+    PROCEDURE USP_INS_TIPO_COMBUSTIBLE(
+        pDescripcion  in varchar2,
+        pIdTipo_Combustible OUT NUMBER
+    )AS
+    BEGIN
+        SELECT NVL(MAX(ID_TIPO_COMBUSTIBLE),0) + 1  INTO pIdTipo_Combustible  FROM T_MAE_TIPO_COMBUSTIBLE;
+        
+        INSERT INTO T_MAE_TIPO_COMBUSTIBLE(ID_TIPO_COMBUSTIBLE, DESCRIPCION, FLG_ESTADO )
+        VALUES (pIdTipo_Combustible , pDescripcion , 1);
+
+    END USP_INS_TIPO_COMBUSTIBLE;
+
+
+    PROCEDURE USP_SEL_EXCEL_TIPOCOMBUSTIBLE(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+        vQuery      VARCHAR2(30000) := '';
+        vSortColumn2 VARCHAR2(1000);
+      BEGIN
+        vSortColumn2 := pSortColumn;
+        vQuery := '
+                        SELECT    ID_TIPO_COMBUSTIBLE,
+                                  DESCRIPCION
+                        FROM  T_MAE_TIPO_COMBUSTIBLE
+                        WHERE NVL(FLG_ESTADO,1) = 1 AND
+                        (LOWER(TRANSLATE(DESCRIPCION,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' )
+                        ORDER BY ' || vSortColumn2 || ' ' || pSortOrder || ' ' ;
+		OPEN pRefcursor FOR vQuery;
+
+    END USP_SEL_EXCEL_TIPOCOMBUSTIBLE;
+
 
 PROCEDURE USP_SEL_LISTA_MEDMIT(
         pRefcursor  OUT SYS_REFCURSOR
