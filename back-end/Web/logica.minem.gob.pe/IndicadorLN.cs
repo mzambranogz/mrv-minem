@@ -138,6 +138,12 @@ namespace logica.minem.gob.pe
 
         }
 
+        public static IniciativaBE EliminarIndicadoresFile(IniciativaBE entidad) //add 12-02-2020
+        {
+            return indicador.EliminarIndicadoresFile(entidad);
+
+        }
+
         public static IniciativaBE CorregirDetalleIndicador2(IniciativaBE entidad)
         {
             return indicador.CorregirDetalleIndicador2(entidad);

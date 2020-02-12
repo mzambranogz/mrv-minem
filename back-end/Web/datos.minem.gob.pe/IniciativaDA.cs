@@ -1526,6 +1526,30 @@ namespace datos.minem.gob.pe
             return Lista;
         }
 
+
+        public List<SustentoIniciativaBE> ListarArchivosGuardados(IniciativaBE entidad)
+        {
+            List<SustentoIniciativaBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_CARGA_INICIATIVA";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<SustentoIniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
     }
 
 

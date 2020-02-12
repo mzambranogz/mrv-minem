@@ -26,6 +26,7 @@ namespace entidad.minem.gob.pe
         public string ASUNTO { get; set; }
         public int ID_ROL { get; set; }
         public string ID_INDICADOR_DELETE { get; set; }
+        public string ID_INDICADOR_ELIMINAR { get; set; }
         public List<IndicadorBE> ListaIndicadores { get; set; }
         public List<SustentoIniciativaBE> ListaSustentos { get; set; }
         public int medida_b { get; set; }

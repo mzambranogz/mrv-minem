@@ -6,6 +6,9 @@
 @Html.HiddenFor(m => m.iniciativa_mit.ID_INICIATIVA)
 @Html.HiddenFor(m => m.revision)
 
+@{
+    var total_reducido = 0.0;
+}
 
 <div class="container-fluid map-root" id="historia">
     <div class="container">
@@ -247,123 +250,173 @@
                         </div>
                     </div>
                 </div>
-                <div class="dropdown-divider"></div>
-                <div class="container py-5">
+                <div class="container pt-5">
                     <div class="row">
                         <div class="col-12">
-                            <div class="h5 pb-5 text-primary">Detalles de Identificación<br><small class="text-muted">Complete información</small></div>
+                            <div class="h5 pb-5 text-primary">Detalles de Indicadores</div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-12-col-md-12 col-lg-6">
-                            <div class="form-group">
-                                <label for="txt-enfoque" class="font-weight-bold">Enfoque<span class="text-danger font-weight-bold">&nbsp;</span></label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup20"><i class="fas fa-square-root-alt"></i></span></div>
-                                    <input class="form-control-plaintext" id="txt-enfoque" aria-describedby="inputGroup20" value="Vehículo Eléctrico" readonly>
+                </div>
+                @if (Model.listaEnfoque != null)
+                {
+
+                    foreach (var enfoque in Model.listaEnfoque)
+                    {
+                        var j = 0;
+                        var reducido = 0.0;
+                        @*<div class="dropdown-divider"></div>*@
+                        <div class="container py-5">
+                            @*<div class="row">
+                                    <div class="col-12">
+                                        <div class="h5 pb-5 text-primary">Detalles de Identificación<br><small class="text-muted">Complete información</small></div>
+                                    </div>
+                                </div>*@
+                            <div class="row">
+                                <div class="col-sm-12-col-md-12 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="txt-enfoque" class="font-weight-bold">Enfoque</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup20"><i class="fas fa-square-root-alt"></i></span></div>
+                                            <input class="form-control-plaintext" id="txt-enfoque" aria-describedby="inputGroup20" value="@enfoque.ENFOQUE" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12-col-md-12 col-lg-6">&nbsp;</div>
+                            </div>
+                        </div>
+                        <div class="container-fluid">
+                            @*<div class="dropdown-divider"></div>*@
+                            <div class="row">
+                                <div class="col-12 px-0">
+                                    <div class="table-responsive tabla-principal tabla-detalle-indicadores">
+                                        <table class="table table-hover" id="tablaIndicador" data-fila="0">
+                                            <thead>
+                                                <tr class="bg-primary text-white">
+                                                    <th class="text-center" style="background-color: green;" scope="col"><span>N°&nbsp;</span></th>
+                                                    <th class="text-center" style="background-color: green;" scope="col"><span>Año&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Año"></i></span></th>
+                                                    <th class="text-center" style="background-color: green;" scope="col"><span>Inicio de Operaciones&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador fecha inicio de operación"></i></span></th>
+                                                    <th class="text-center" style="background-color: green;" scope="col"><span>Tipo Vehiculo&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Tipo Vehículo"></i></span></th>
+                                                    <th class="text-center" style="background-color: orange;" scope="col"><span>Tipo Combustible&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Tipo Combustible"></i></span></th>
+                                                    @if (enfoque.ID_ENFOQUE == 1 || enfoque.ID_ENFOQUE == 2)
+                                                    {
+                                                        <th class="text-center" style="background-color: green;" scope="col"><span>KRV Eléctrico&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador KRV"></i></span></th>
+                                                        if (enfoque.ID_ENFOQUE == 2)
+                                                        {
+                                                            <th class="text-center" style="background-color: orange;" scope="col"><span>KRV Combustible&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador KRV Combustible"></i></span></th>
+                                                        }
+                                                        <th class="text-center" style="background-color: green;" scope="col"><span>Cantidad&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Cantidad"></i></span></th>
+                                                        <th class="text-center" style="background-color: green;" scope="col"><span>Factor de Rendimiento&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Rendimiento"></i></span></th>
+                                                    }
+                                                    @if (enfoque.ID_ENFOQUE == 3 || enfoque.ID_ENFOQUE == 4)
+                                                    {
+                                                        <th class="text-center" style="background-color: green;" scope="col"><span>Consumo de Electricidad&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Consumo de Electricidad"></i></span></th>
+                                                        if (enfoque.ID_ENFOQUE == 4)
+                                                        {
+                                                            <th class="text-center" style="background-color: orange;" scope="col"><span>Consumo de Combustible&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Consumo de Combustible"></i></span></th>
+                                                        }
+                                                    }
+                                                    <th class="text-center" style="background-color: green;" scope="col"><span>Placa&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Placa del vehículo"></i></span></th>
+                                                    <th class="text-center" style="background-color: orange;" scope="col"><span>Línea Base Emisiones GEI (tCO<sub>2</sub>eq)</span></th>
+                                                    <th class="text-center" style="background-color: green;" scope="col"><span>Iniciativa Mitigación Emisiones GEI (tCO<sub>2</sub>eq)</span></th>
+                                                    <th class="text-center" style="background-color: #2271b3;" scope="col"><span>Emisiones GEI Reducidas (tCO<sub>2</sub>eq)</span></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="cuerpoTablaIndicador" data-row="0" data-total="0">
+
+                                                @foreach (var item in Model.listaIndicador)
+                                                {
+                                                    if (item.ID_ENFOQUE == enfoque.ID_ENFOQUE)
+                                                    {
+                                                        j++;
+                                                        <tr>
+                                                            <th class="text-center" data-encabezado="Número" scope="row">@j</th>
+                                                            <td class="text-center" data-encabezado="Columna 01">@item.ANNOB</td>
+                                                            <td class="text-center" data-encabezado="Columna 01">@item.FECHA</td>
+                                                            <td class="text-center" data-encabezado="Columna 02">@item.TIPO_VEHICULO</td>
+                                                            <td class="text-center" data-encabezado="Columna 03">@item.TIPO_COMBUSTIBLE</td>
+                                                            @if (@item.ID_ENFOQUE == 1 || @item.ID_ENFOQUE == 2)
+                                                            {
+                                                                <td class="text-center" data-encabezado="Columna 04">@item.KRVB</td>
+                                                                if (item.ID_ENFOQUE == 2)
+                                                                {
+                                                                    <td class="text-center" data-encabezado="Columna 04">@item.KRV_COMBUSTIBLE</td>
+                                                                }
+                                                                <td class="text-center" data-encabezado="Columna 05">@item.CANTIDADB</td>
+                                                                <td class="text-center" data-encabezado="Columna 06">@item.RENDIMIENTO</td>
+                                                            }
+                                                            @if (@item.ID_ENFOQUE == 3 || @item.ID_ENFOQUE == 4)
+                                                            {
+                                                                <td class="text-center" data-encabezado="Columna 04">@item.CONSUMO_ELECTRICIDAD</td>
+                                                                if (item.ID_ENFOQUE == 4)
+                                                                {
+                                                                    <td class="text-center" data-encabezado="Columna 04">@item.CONSUMO_COMBUSTIBLE</td>
+                                                                }
+                                                            }
+                                                            <td class="text-center" data-encabezado="Columna 04">@item.PLACA</td>
+                                                            <td class="text-center" data-encabezado="Columna 07">@item.TOTAL_GEI_BASE</td>
+                                                            <td class="text-center" data-encabezado="Columna 08">@item.TOTAL_GEI_INIMIT</td>
+                                                            <td class="text-center" data-encabezado="Columna 09">@item.TOTAL_GEI_REDUCIDO</td>
+                                                        </tr>
+                                                        reducido += Convert.ToDouble(item.TOTAL_GEI_REDUCIDO);
+                                                        total_reducido += Convert.ToDouble(item.TOTAL_GEI_REDUCIDO);
+                                                    }
+
+                                                }
+                                                @{
+                                                    reducido = Math.Round(reducido * 100) / 100;
+                                                    total_reducido = Math.Round(total_reducido * 100) / 100;
+                                                    j = 0;
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12-col-md-12 col-lg-6">&nbsp;</div>
-                    </div>
-                </div>
-                <div class="container-fluid py-4">
-                    @*<div class="h5">Registro de Detalles&nbsp;<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></div>*@
-                    <div class="dropdown-divider"></div>
-                    <div class="row">
-                        <div class="col-12 px-0">
-                            <div class="table-responsive tabla-principal tabla-detalle-indicadores">
-                                <table class="table table-hover" id="tablaIndicador" data-fila="0">
-                                    <thead>
-                                        <tr class="bg-primary text-white">
-                                            <th class="text-center" style="background-color: green;" scope="col"><span>N°&nbsp;</span></th>
-                                            <th class="text-center" style="background-color: green;" scope="col"><span>Año&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Año"></i></span></th>
-                                            <th class="text-center" style="background-color: green;" scope="col"><span>Tipo Vehiculo&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Tipo Vehículo"></i></span></th>
-                                            <th class="text-center" style="background-color: orange;" scope="col"><span>Tipo Combustible&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Tipo Combustible"></i></span></th>
-                                            <th class="text-center" style="background-color: green;" scope="col"><span>KRV&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador KRV"></i></span></th>
-                                            <th class="text-center" style="background-color: green;" scope="col"><span>Cantidad&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Cantidad"></i></span></th>
-                                            <th class="text-center" style="background-color: green;" scope="col"><span>Factor de Rendimiento&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Rendimiento"></i></span></th>
-                                            <th class="text-center" style="background-color: orange;" scope="col"><span>Línea Base Emisiones GEI (tCO<sub>2</sub>eq)</span></th>
-                                            <th class="text-center" style="background-color: green;" scope="col"><span>Iniciativa Mitigación Emisiones GEI (tCO<sub>2</sub>eq)</span></th>
-                                            <th class="text-center" style="background-color: #2271b3;" scope="col"><span>Emisiones GEI Reducidas (tCO<sub>2</sub>eq)</span></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="cuerpoTablaIndicador" data-row="0" data-total="0">
-                                        @{ 
-                                            var total_reducido = 0.0;
-                                        }
-                                        @foreach (var item in Model.listaIndicador)
-                                        {
-                                            var i = 0;
-                                            i++;
-                                            <tr>
-                                                <th class="text-center" data-encabezado="Número" scope="row">@i</th>
-                                                <td class="text-center" data-encabezado="Columna 01">@item.ANNOB</td>
-                                                <td class="text-center" data-encabezado="Columna 02">@item.TIPO_VEHICULO</td>
-                                                <td class="text-center" data-encabezado="Columna 03">@item.TIPO_COMBUSTIBLE</td>
-                                                <td class="text-center" data-encabezado="Columna 04">@item.KRVB</td>
-                                                <td class="text-center" data-encabezado="Columna 05">@item.CANTIDADB</td>
-                                                <td class="text-center" data-encabezado="Columna 06">@item.RENDIMIENTO</td>
-                                                <td class="text-center" data-encabezado="Columna 07">@item.TOTAL_GEI_BASE</td>
-                                                <td class="text-center" data-encabezado="Columna 08">@item.TOTAL_GEI_INIMIT</td>
-                                                <td class="text-center" data-encabezado="Columna 09">@item.TOTAL_GEI_REDUCIDO</td>
-                                            </tr>
-
-                                            total_reducido += Convert.ToDouble(item.TOTAL_GEI_REDUCIDO);
-                                        }
-                                        @{ 
-                                            total_reducido = Math.Round(total_reducido * 100) / 100;
-                                        }
-                                        @*<tr>
-                                                <th class="text-center" data-encabezado="Número" scope="row">1</th>
-                                                <td data-encabezado="Columna 01">Valor 1</td>
-                                                <td data-encabezado="Columna 02">Texto 1</td>
-                                                <td data-encabezado="Columna 03">Valor 1</td>
-                                                <td data-encabezado="Columna 04">Texto 1</td>
-                                                <td data-encabezado="Columna 05">Valor 1</td>
-                                                <td data-encabezado="Columna 06">Texto 1</td>
-                                                <td data-encabezado="Columna 07">Valor 1</td>
-                                                <td data-encabezado="Columna 08">Texto 1</td>
-                                                <td data-encabezado="Columna 09">Valor 1</td>
-                                                <td data-encabezado="Columna 10">Texto 1</td>
-                                                <td data-encabezado="Columna 11">Valor 1</td>
-                                                <td data-encabezado="Columna 12">Texto 1</td>
-                                                <td data-encabezado="Columna 13">Valor 1</td>
-                                                <td data-encabezado="Columna 14">Texto 1</td>
-                                                <td data-encabezado="Columna 15">Valor 1</td>
-                                                <td data-encabezado="Columna 16">Texto 1</td>
-                                                <td data-encabezado="Subtotal">1,500.00</td>
-                                                <td class="text-center" data-encabezado="Sustento">
-                                                    <div class="form-group m-0">
-                                                        <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label>
-                                                        <input class="d-none fil-file-control" type="file" id="fle-doc">
-                                                    </div>
-                                                </td>
-                                            </tr>*@
-                                    </tbody>
-                                </table>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="table-responsive tabla-principal">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr class="bg-primary text-white">
+                                                    <th class="text-center" scope="col" width="2%"><span>N°&nbsp;</span></th>
+                                                    <th scope="col" width="88%"><span>Resumen</span></th>
+                                                    <th scope="col" width="10%"><span>Total</span></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th class="text-center" data-encabezado="Número" scope="row">1</th>
+                                                    <td data-encabezado="Resumen" id="">@enfoque.ENFOQUE</td>
+                                                    <td data-encabezado="Total"><strong>@reducido tCO<sub>2</sub>eq</strong></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                                                        }
+                                                    }
                 <div class="dropdown-divider"></div>
-                <div class="container py-5">
+                <div class="container pt-5">
                     <div class="row">
                         <div class="col-12">
                             <div class="h5 pb-5 text-primary">Resumen@*<br><small class="text-muted">Este es el detalle de su detalle de indicadores</small>*@</div>
                         </div>
                     </div>
                 </div>
-                <div class="container py-4">
+                <div class="container">
                     @*<div class="h5">Registro de Detalles&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></div>*@
-                    <div class="dropdown-divider"></div>
+                    @*<div class="dropdown-divider"></div>*@
                     <div class="row">
-                        <div class="col-12 px-0">
+                        <div class="col-12">
                             <div class="table-responsive tabla-principal">
                                 <table class="table table-hover">
                                     <thead>
                                         <tr class="bg-primary text-white">
-                                            <th class="text-center" scope="col" width="2%"><span>#&nbsp;</span></th>
+                                            <th class="text-center" scope="col" width="2%"><span>N°&nbsp;</span></th>
                                             <th scope="col" width="88%"><span>Resumen</span></th>
                                             <th scope="col" width="10%"><span>Total</span></th>
                                         </tr>

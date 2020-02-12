@@ -554,6 +554,29 @@ namespace datos.minem.gob.pe
             return entidad;
         }
 
+        public IniciativaBE EliminarIndicadoresFile(IniciativaBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_UPD_ELIMINAR_IND_FILE";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_INDICADOR_ELIMINAR", entidad.ID_INDICADOR_ELIMINAR);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+
+            return entidad;
+        }
+
         public IniciativaBE CorregirDetalleIndicador2(IniciativaBE entidad)
         {
             try

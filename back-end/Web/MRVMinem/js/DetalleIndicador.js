@@ -2386,6 +2386,39 @@ function asignar_Datos(data, i, fila, enfoque) {
 
 //==============================================================================================================
 
+//     ARCHIVOS GUARDADOS
+
+//==============================================================================================================
+
+function CargarArchivosGuardados() {
+    var item = {
+        ID_INICIATIVA: $("#Control").data("iniciativa")
+    }
+    $.ajax({
+        url: baseUrl + 'Gestion/ListarArchivosGuardados',
+        type: 'POST',
+        datatype: 'json',
+        data: item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    for (var i = 0; i < data.length; i++) {
+                        //STOCK
+                    }
+                }
+            }
+        }
+    });
+}
+
+//==============================================================================================================
+
+//     FIN ARCHIVOS GUARDADOS
+
+//==============================================================================================================
+
+//==============================================================================================================
+
 //     PROCESO GRABAR DETALLE
 
 //==============================================================================================================
@@ -2493,14 +2526,19 @@ function fn_procesoDetalleIndicador(url, estado) {
         }
     }
 
-    var sustentos = document.getElementById("fledocumentos");
-    for (var sus = 0; sus < sustentos.files.length; sus++) {
+    for (var i = 0, len = storedFiles.length; i < len; i++) {
         var sux = {
             ID_INICIATIVA: $("#Control").data("iniciativa"),
-            ADJUNTO_BASE: sustentos.files[sus].name,
+            ADJUNTO_BASE: storedFiles[i].name,
             FLAG_ESTADO: "1"
         }
         documentos.push(sux);
+    }
+
+
+    var archivos = "";
+    for (var i = 0, len = storedFiles.length; i < len; i++) {
+        archivos += storedFiles[i].name + "|";
     }
 
     var id_delete = "";
@@ -2509,14 +2547,22 @@ function fn_procesoDetalleIndicador(url, estado) {
         id_delete = id_delete.substring(0, id_delete.length - 1);
     }
 
+    var id_eliminar = "";
+    if ($("#total-documentos").data("eliminarfile") != "") {
+        id_eliminar = $("#total-documentos").data("eliminarfile");
+        id_eliminar = id_eliminar.substring(0, id_eliminar.length - 1);
+    }
+
     var item = {
         ID_INICIATIVA: $("#Control").data("iniciativa"),
         ID_USUARIO: $("#Control").data("usuario"),
         NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
         ID_INDICADOR_DELETE: id_delete,
+        ID_INDICADOR_ELIMINAR: id_eliminar,
         ID_ESTADO: estado,
         ListaIndicadores: indicadores,
-        ListaSustentos: documentos
+        ListaSustentos: documentos,
+        extra: archivos
     };
 
     var options = {
@@ -2530,9 +2576,11 @@ function fn_procesoDetalleIndicador(url, estado) {
             ID_USUARIO: $("#Control").data("usuario"),
             NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
             ID_INDICADOR_DELETE: id_delete,
+            ID_INDICADOR_ELIMINAR: id_eliminar,
             ID_ESTADO: estado,
             ListaIndicadores: indicadores,
-            ListaSustentos: documentos
+            ListaSustentos: documentos,
+            extra: archivos
         }),
         xhr: function () {  // Custom XMLHttpRequest
             var myXhr = $.ajaxSettings.xhr();
@@ -2548,6 +2596,7 @@ function fn_procesoDetalleIndicador(url, estado) {
         success: function (response, textStatus, myXhr) {
             if (response.success) {
                 CargarDetalleDatos();
+                CargarArchivosGuardados();
                 if (estado == 0 || estado == 6) {
                     $("#mensajeModalAvance #mensajeDangerAvance").remove();
                     var msj = '                   <div class="col-sm-12 col-md-12 col-lg-12" id="mensajeWarningAvance">';
@@ -2677,22 +2726,26 @@ function fn_procesoDetalleIndicador(url, estado) {
 
 
 function fn_guardarDetalleIndicador() {
-    var url = baseUrl + "Gestion/RegistrarDetalleIndicador2";
+    //var url = baseUrl + "Gestion/RegistrarDetalleIndicador2";
+    var url = baseUrl + "Gestion/RegistrarDetalleIndicador";
     fn_procesoDetalleIndicador(url, 1);
 }
 
 function fn_guardarAvances() {
-    var url = baseUrl + "Gestion/RegistrarDetalleIndicador2";
+    //var url = baseUrl + "Gestion/RegistrarDetalleIndicador2";
+    var url = baseUrl + "Gestion/RegistrarDetalleIndicador";
     fn_procesoDetalleIndicador(url, 0);
 }
 
 function fn_corregirDetalleIndicador() {
-    var url = baseUrl + "Gestion/RegistrarDetalleIndicador2";
+    //var url = baseUrl + "Gestion/RegistrarDetalleIndicador2";
+    var url = baseUrl + "Gestion/RegistrarDetalleIndicador";
     fn_procesoDetalleIndicador(url, 5);
 }
 
 function fn_corregirAvances() {
-    var url = baseUrl + "Gestion/RegistrarDetalleIndicador2";
+    //var url = baseUrl + "Gestion/RegistrarDetalleIndicador2";
+    var url = baseUrl + "Gestion/RegistrarDetalleIndicador";
     fn_procesoDetalleIndicador(url, 6);
 }
 
@@ -2896,6 +2949,44 @@ function fn_restarTotal(num1, num2) {
 
 //==============================================================================================================
 
+//      ELIMINAR FILE
+
+//==============================================================================================================
+
+function fn_eliminarArchivo(id) {
+    debugger;
+    var eliminar = $("#total-documentos").data("eliminarfile") + id + ",";
+    $("#total-documentos").data("eliminarfile", eliminar);
+    var cantidad = $("#total-documentos").data("cantidad") - 1;
+    $("#total-documentos").data("cantidad", cantidad);
+    $("#total-documentos").html($("#total-documentos").data("cantidad") + storedFiles.length);
+    $("#eliminar-"+id).remove();
+}
+
+function removeFile(e) {
+    debugger;
+    var file = e.dataset.file;
+    alert(file);
+    for (var i = 0; i < storedFiles.length; i++) {
+        if (storedFiles[i].name === file) {
+            storedFiles.splice(i, 1);
+            $("#total-documentos").html($("#total-documentos").data("cantidad") + storedFiles.length);
+            break;
+        }
+    }
+    $(e).parent().parent().parent().remove();
+}
+
+$("body").on("click", ".selFile", removeFile);
+
+//==============================================================================================================
+
+//      FIN ELIMINAR FILE
+
+//==============================================================================================================
+
+//==============================================================================================================
+
 
 
 
@@ -2979,50 +3070,3 @@ $(document).ready(function () {
     enLinea();
 
 });
-
-function cargarTablasEnfoque() {
-
-}
-
-
-function fn_construirEnfoque() {
-    var tr = "";
-    tr += '         <div class="container py-5">';
-    tr += '                <div class="row">';
-    tr += '                    <div class="col-12">';
-    tr += '                        <div class="h5 pb-5 text-primary">Detalles de Identificación<br><small class="text-muted">Complete información</small></div>';
-    tr += '                    </div>';
-    tr += '                </div>';
-    tr += '                <div class="row">';
-    tr += '                    <div class="col-sm-12-col-md-12 col-lg-6">';
-    tr += '                        <div class="form-group">';
-    tr += '                            <label for="txt-enfoque" class="font-weight-bold">Enfoque<span class="text-danger font-weight-bold">&nbsp;</span></label>';
-    tr += '                            <div class="input-group">';
-    tr += '                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup20"><i class="fas fa-square-root-alt"></i></span></div>';
-    tr += '                                <input class="form-control-plaintext" id="txt-enfoque" aria-describedby="inputGroup20" value="Vehículo Eléctrico" readonly>';
-    tr += '                            </div>';
-    tr += '                        </div>';
-    tr += '                    </div>';
-    tr += '                    <div class="col-sm-12-col-md-12 col-lg-6">&nbsp;</div>';
-    tr += '                </div>';
-    tr += '            </div>';
-}
-
-function fn_construirTabla() {
-    var tr = "";
-    tr += '         <div class="container-fluid py-4">';
-    tr += '                <div class="dropdown-divider"></div>';
-    tr += '                <div class="row">';
-    tr += '                    <div class="col-12 px-0">';
-    tr += '                        <div class="table-responsive tabla-principal tabla-detalle-indicadores">';
-    tr += '                            <table class="table table-hover" id="tablaIndicador" data-fila="0">';
-    tr += '                                <thead id="cabeceraTablaIndicador">';
-    tr += '                                </thead>';
-    tr += '                                <tbody id="cuerpoTablaIndicador" data-row="0" data-total="0">';
-    tr += '                                </tbody>';
-    tr += '                            </table>';
-    tr += '                        </div>';
-    tr += '                    </div>';
-    tr += '                </div>';
-    tr += '            </div>';
-}

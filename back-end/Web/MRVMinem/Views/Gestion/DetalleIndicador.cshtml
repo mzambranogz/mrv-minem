@@ -417,67 +417,69 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-12-col-md-12 col-lg-6">
-                                        <div class="form-group" id="archivos-documentos">
-                                @{
-                                    var total = 0;
-                                    if (Model.iniciativa_mit.ListaSustentos != null)
-                                    {
-                                        total = Model.iniciativa_mit.ListaSustentos.Count();
-                                    }
-                                }
-                                <label>Archivos adjuntos: <span id="total-documentos">@total</span> en total</label>
-                                @{
-                                    if (Model.iniciativa_mit.ListaSustentos != null)
-                                    {
-                                        var extension = "fa-file-word";
-
-                                        foreach (var item in Model.iniciativa_mit.ListaSustentos)
-                                        {
-                                            if (item.ADJUNTO_BASE.Contains("pdf"))
+                                        <div class="form-group" @*id="archivos-documentos"*@>
+                                        @{
+                                            var total = 0;
+                                            if (Model.iniciativa_mit.ListaSustentos != null)
                                             {
-                                                extension = "fa-file-pdf";
+                                                total = Model.iniciativa_mit.ListaSustentos.Count();
                                             }
-                                            else
+                                        }
+                                        <label>Archivos adjuntos: <span id="total-documentos" data-cantidad="@total" data-eliminarfile="">@total</span> en total</label>
+                                        <div id="archivos-guardados">
+                                        @{
+                                            if (Model.iniciativa_mit.ListaSustentos != null)
                                             {
-                                                if (item.ADJUNTO_BASE.Contains("jpeg") || item.ADJUNTO_BASE.Contains("png") || item.ADJUNTO_BASE.Contains("jpg") || item.ADJUNTO_BASE.Contains("gif"))
+                                                var extension = "fa-file-word";
+
+                                                foreach (var item in Model.iniciativa_mit.ListaSustentos)
                                                 {
-                                                    extension = "fa-file-image";
-                                                }
-                                                else
-                                                {
-                                                    if (item.ADJUNTO_BASE.Contains("xls") || item.ADJUNTO_BASE.Contains("xlsx"))
+                                                    if (item.ADJUNTO_BASE.Contains("pdf"))
                                                     {
-                                                        extension = "fa-file-excel";
+                                                        extension = "fa-file-pdf";
                                                     }
                                                     else
                                                     {
-                                                        if (item.ADJUNTO_BASE.Contains("ppt") || item.ADJUNTO_BASE.Contains("pptx"))
+                                                        if (item.ADJUNTO_BASE.Contains("jpeg") || item.ADJUNTO_BASE.Contains("png") || item.ADJUNTO_BASE.Contains("jpg") || item.ADJUNTO_BASE.Contains("gif"))
                                                         {
-                                                            extension = "fa-file-powerpoint";
+                                                            extension = "fa-file-image";
                                                         }
                                                         else
                                                         {
-                                                            if (item.ADJUNTO_BASE.Contains("doc") || item.ADJUNTO_BASE.Contains("docx"))
+                                                            if (item.ADJUNTO_BASE.Contains("xls") || item.ADJUNTO_BASE.Contains("xlsx"))
                                                             {
-                                                                extension = "fa-file-word";
+                                                                extension = "fa-file-excel";
                                                             }
                                                             else
                                                             {
-                                                                extension = "fa-file";
+                                                                if (item.ADJUNTO_BASE.Contains("ppt") || item.ADJUNTO_BASE.Contains("pptx"))
+                                                                {
+                                                                    extension = "fa-file-powerpoint";
+                                                                }
+                                                                else
+                                                                {
+                                                                    if (item.ADJUNTO_BASE.Contains("doc") || item.ADJUNTO_BASE.Contains("docx"))
+                                                                    {
+                                                                        extension = "fa-file-word";
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        extension = "fa-file";
+                                                                    }
+                                                                }
                                                             }
                                                         }
                                                     }
+
+                                                    <div class="input-group mb-3" id="eliminar-@item.ID_INICIATIVA_SUSTENTATORIO">
+                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="fas @extension"></i></span></div><span class="form-control-plaintext">@item.ADJUNTO_BASE</span>
+                                                        <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="far fa-trash-alt" onclick="fn_eliminarArchivo(@item.ID_INICIATIVA_SUSTENTATORIO)"></i></span></div>
+                                                    </div>
                                                 }
                                             }
-
-                                            <div class="input-group mb-3">
-                                                <div class="input-group-prepend"><span class="input-group-text"><i class="fas @extension"></i></span></div><span class="form-control-plaintext">@item.ADJUNTO_BASE</span>
-                                                <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="fas fa-download" onclick="fn_verfilesutento(@item.ID_INICIATIVA_SUSTENTATORIO)"></i></span></div>
-                                            </div>
                                         }
-                                    }
-                                }
-
+                                        </div>
+                                        <div id="archivos-documentos"></div>
                                 @*<div class="input-group mb-3">
                                 <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-file-pdf"></i></span></div><span class="form-control-plaintext">NombreDeArchivo.pdf</span>
                                 <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="fas fa-download"></i></span></div>
@@ -694,40 +696,72 @@
 <script src="~/js/script.js"></script>
 <script src="~/js/MRV.js"></script>
 <script type="text/javascript">
-    function handleFileSelect(evt) {
-        var files = evt.target.files; // FileList object
+    var storedFiles = [];
 
+    function handleFileSelect(evt) {
+
+        $("#archivos-documentos > div").remove(); // add 12-02-2020
+        storedFiles = []; // add 12-02-2020
+        ////////////////////////77
+
+        var files = evt.target.files; // FileList object
+        var filesArr = Array.prototype.slice.call(files);
+        //debugger;
         // files is a FileList of File objects. List some properties.
         var output = [];
         var extension = "fa-file-word";
         for (var i = 0, f; f = files[i]; i++) {
-            if (f.type.includes("pdf")){
-                extension="fa-file-pdf";
-            }else{
-                if (f.type.includes("image")){
-                    extension="fa-file-image";
-                }else{
-                    if (f.type.includes("sheet")){
-                        extension="fa-file-excel";
-                    }else{
-                        if (f.type.includes("presentation")){
-                            extension="fa-file-powerpoint";
-                        }else{
-                            if (f.type.includes("msword") || f.type.includes("documents")|| f.type.includes("document")){
-                                extension="fa-file-word";
-                            }else{
-                                extension="fa-file";
+
+            if (f.size > 4194304) {
+                $(this).val("");
+                MRV.Alert("Alerta", "Archivo que esta subiendo pesa más de 4 MB", "", "es")
+                storedFiles = [];
+                $("#total-documentos").html($("#total-documentos").data("cantidad"));
+                return false;
+            }
+
+            switch (f.name.substring(f.name.lastIndexOf('.') + 1).toLowerCase()) {
+                case 'pdf': case 'jpg': case 'jpeg': case 'gif': case 'png': case 'tif': case 'doc': case 'docx': case 'xls': case 'xlsx': case 'xlsm': case 'ppt': case 'pptx': case 'txt':
+                    //$("#NombreArchivo").val(label);
+                    //return true;
+                    break;
+                default:
+                    $(this).val('');
+                    MRV.Alert('Alerta', "formato de archivo no válido", '', 'es');
+                    storedFiles = [];  
+                    $("#total-documentos").html($("#total-documentos").data("cantidad"));
+                    return false;
+                    break;
+            }
+
+            if (f.type.includes("pdf")) {
+                extension = "fa-file-pdf";
+            } else {
+                if (f.type.includes("image")) {
+                    extension = "fa-file-image";
+                } else {
+                    if (f.type.includes("sheet")) {
+                        extension = "fa-file-excel";
+                    } else {
+                        if (f.type.includes("presentation")) {
+                            extension = "fa-file-powerpoint";
+                        } else {
+                            if (f.type.includes("msword") || f.type.includes("documents") || f.type.includes("document")) {
+                                extension = "fa-file-word";
+                            } else {
+                                extension = "fa-file";
                             }
                         }
                     }
                 }
             }
-            //output.push('<div class="input-group mb-3">', '<div class="input-group-prepend">','<span class="input-group-text">','<i class="fas ',extension,'">','</i>','</span>','</div>','<span class="form-control-plaintext">',escape(f.name), '</span>', '</div>');
-            output.push('<div class="input-group mb-3">', '<div class="input-group-prepend">', '<span class="input-group-text">', '<i class="fas ', extension, '">', '</i>', '</span>', '</div>', '<span class="form-control-plaintext">', decodeURI(f.name), '</span>', '</div>');
+
+            storedFiles.push(f);
+            output.push('<div class="input-group mb-3" data-file="' + f.name + '">', '<div class="input-group-prepend">', '<span class="input-group-text">', '<i class="fas ', extension, '">', '</i>', '</span>', '</div>', '<span class="form-control-plaintext">', decodeURI(f.name), '</span>', '<div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="far fa-trash-alt selfile" data-file="' + f.name + '" onclick="removeFile(this)"></i></span>', '</div></div>');
         }
         $("#archivos-documentos").append(output.join(''));
-        $("#total-documentos").html(files.length);
-    } 
+        $("#total-documentos").html($("#total-documentos").data("cantidad") + files.length);
+    }
 
     document.getElementById('fledocumentos').addEventListener('change', handleFileSelect, false);
 </script>
