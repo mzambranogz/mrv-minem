@@ -1,11 +1,11 @@
 --------------------------------------------------------
--- Archivo creado  - martes-febrero-11-2020   
+-- Archivo creado  - miércoles-febrero-12-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Sequence SQ_GEND_DETALLE_INICIATIVA
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "MRVMM"."SQ_GEND_DETALLE_INICIATIVA"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 641 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "MRVMM"."SQ_GEND_DETALLE_INICIATIVA"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 681 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence SQ_GEND_ENFOQUE_FACTOR
 --------------------------------------------------------
@@ -30,7 +30,7 @@
 --  DDL for Sequence SQ_GEND_INDICADOR
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "MRVMM"."SQ_GEND_INDICADOR"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 321 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "MRVMM"."SQ_GEND_INDICADOR"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 341 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence SQ_GEND_INDICADOR_ENFOQUE
 --------------------------------------------------------
@@ -55,7 +55,7 @@
 --  DDL for Sequence SQ_GEND_INICIATIVA_SUSTENTA
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "MRVMM"."SQ_GEND_INICIATIVA_SUSTENTA"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 101 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "MRVMM"."SQ_GEND_INICIATIVA_SUSTENTA"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 121 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence SQ_GEND_INICIATIVA_UBICACION
 --------------------------------------------------------
@@ -85,7 +85,7 @@
 --  DDL for Sequence SQ_GENM_NOTIFICACION
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "MRVMM"."SQ_GENM_NOTIFICACION"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 461 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "MRVMM"."SQ_GENM_NOTIFICACION"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 521 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence SQ_GENM_USUARIO
 --------------------------------------------------------
@@ -771,6 +771,49 @@
   BUFFER_POOL DEFAULT)
   TABLESPACE "USERS" ;
 --------------------------------------------------------
+--  DDL for Table T_MAE_FER_MES
+--------------------------------------------------------
+
+  CREATE TABLE "MRVMM"."T_MAE_FER_MES" 
+   (	"ID_MES" NUMBER(*,0), 
+	"NOMBRE" VARCHAR2(50 BYTE), 
+	"FACTOR" NUMBER(18,4)
+   ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table T_MAE_FER_REGION
+--------------------------------------------------------
+
+  CREATE TABLE "MRVMM"."T_MAE_FER_REGION" 
+   (	"ID_REGION" NUMBER(*,0), 
+	"NOMBRE" VARCHAR2(50 BYTE), 
+	"FACTOR" NUMBER(18,4)
+   ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table T_MAE_FGD_FEW
+--------------------------------------------------------
+
+  CREATE TABLE "MRVMM"."T_MAE_FGD_FEW" 
+   (	"ID_F_FEW" NUMBER(*,0), 
+	"ANNO" NUMBER(*,0), 
+	"FACTOR_SE" NUMBER(18,4), 
+	"FACTOR_MH" NUMBER(18,4)
+   ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
 --  DDL for Table T_MAE_F_MIT
 --------------------------------------------------------
 
@@ -816,27 +859,14 @@
   BUFFER_POOL DEFAULT)
   TABLESPACE "USERS" ;
 --------------------------------------------------------
---  DDL for Table T_MAE_F22_MES
+--  DDL for Table T_MAE_FRERC_FEW
 --------------------------------------------------------
 
-  CREATE TABLE "MRVMM"."T_MAE_F22_MES" 
-   (	"ID_MES" NUMBER(*,0), 
-	"NOMBRE" VARCHAR2(50 BYTE), 
-	"FACTOR" NUMBER(18,4)
-   ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
- NOCOMPRESS LOGGING
-  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
-  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
-  BUFFER_POOL DEFAULT)
-  TABLESPACE "USERS" ;
---------------------------------------------------------
---  DDL for Table T_MAE_F22_REGION
---------------------------------------------------------
-
-  CREATE TABLE "MRVMM"."T_MAE_F22_REGION" 
-   (	"ID_REGION" NUMBER(*,0), 
-	"NOMBRE" VARCHAR2(50 BYTE), 
-	"FACTOR" NUMBER(18,4)
+  CREATE TABLE "MRVMM"."T_MAE_FRERC_FEW" 
+   (	"ID_F_FEW" NUMBER(*,0), 
+	"ANNO" NUMBER(*,0), 
+	"FACTOR_SE" NUMBER(18,4), 
+	"FACTOR_MH" NUMBER(18,4)
    ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
  NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645

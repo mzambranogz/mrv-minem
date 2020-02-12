@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - martes-febrero-11-2020   
+-- Archivo creado  - miércoles-febrero-12-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_ADMIN_SISTEMA
@@ -234,12 +234,12 @@ END PKG_MRV_ADMIN_SISTEMA;
         )
     RETURN NUMBER;   
     
-    FUNCTION FN_F22_REGION (
+    FUNCTION FN_FER_REGION (
         p_region number
     ) RETURN NUMBER;
+    
 
-
-    FUNCTION FN_F22_MES (
+    FUNCTION FN_FER_MES (
         p_mes number
     ) RETURN NUMBER;
     
@@ -249,6 +249,26 @@ END PKG_MRV_ADMIN_SISTEMA;
         p_region    NUMBER,
         p_anno      NUMBER
     ) RETURN NUMBER;
+    
+    FUNCTION FN_Iniciativa_Gen_Dist (
+        p_elect     NUMBER, 
+        p_anno      NUMBER
+        )
+    RETURN NUMBER;
+    
+    FUNCTION FN_Iniciativa_RER_Conectado  (
+        p_elect     NUMBER, 
+        p_anno      NUMBER
+        )
+    RETURN NUMBER;
+
+    FUNCTION FN_FGD_FEW (
+        p_anno      NUMBER)
+    RETURN NUMBER;
+    
+    FUNCTION FN_FRERC_FEW (
+        p_anno      NUMBER)
+    RETURN NUMBER;
 
 END PKG_MRV_CALCULO;
 
@@ -492,6 +512,26 @@ END PKG_MRV_CALCULO;
         pCONSUMO_COMBUSTIBLE   IN NUMBER,
         pID_TIPO_FUENTE         IN NUMBER,
         pRefcursor              OUT SYS_REFCURSOR
+  );
+  
+  PROCEDURE USP_SEL_INDICADOR_ENFOQUE(
+        pID_INICIATIVA  IN NUMBER,
+        pRefcursor      OUT SYS_REFCURSOR
+  );
+  
+  PROCEDURE USP_SEL_ENFOQUE_INICIATIVA(
+        pID_INICIATIVA  IN NUMBER,
+        pRefcursor      OUT SYS_REFCURSOR
+  );
+  
+  PROCEDURE USP_UPD_ELIMINAR_IND_FILE(
+        pID_INICIATIVA IN NUMBER,
+        pID_INDICADOR_ELIMINAR IN VARCHAR2        
+    );
+    
+  PROCEDURE USP_SEL_ARCHIVO_GUARDADO(
+        pID_INICIATIVA  IN NUMBER,
+        pRefcursor      OUT SYS_REFCURSOR
   );
 
 END PKG_MRV_DETALLE_INDICADORES;
@@ -2363,6 +2403,28 @@ END PKG_MRV_ADMIN_SISTEMA;
         Return (resultado);
     END;
     
+    FUNCTION FN_FGD_FEW (
+        p_anno number)
+    RETURN NUMBER
+    IS 
+        resultado NUMBER;
+    BEGIN
+        SELECT FACTOR_MH INTO resultado FROM T_MAE_FGD_FEW
+        WHERE  anno=p_anno;
+        Return (resultado);
+    END;
+
+    FUNCTION FN_FRERC_FEW (
+        p_anno number)
+    RETURN NUMBER
+    IS 
+        resultado NUMBER;
+    BEGIN
+        SELECT FACTOR_MH INTO resultado FROM T_MAE_FRERC_FEW
+        WHERE  anno=p_anno;
+        Return (resultado);
+    END;
+    
     --------------------------------------------------------------------------
     -- p_krv : KRV Distancia Recorridad Anualmente por vehiculo promedio
     -- p_n	: Numero de Vehiculos
@@ -2709,24 +2771,24 @@ END PKG_MRV_ADMIN_SISTEMA;
         Return (resultado);
     END;
     
-    FUNCTION FN_F22_REGION (
+    FUNCTION FN_FER_REGION (
         p_region number
     ) RETURN NUMBER
     AS 
         resultado NUMBER;
     BEGIN   
-        SELECT FACTOR INTO resultado FROM T_MAE_F22_REGION 
+        SELECT FACTOR INTO resultado FROM T_MAE_FER_REGION 
         WHERE Id_Region=p_region ;
         Return (resultado);
     END;
     
-    FUNCTION FN_F22_MES (
+    FUNCTION FN_FER_MES (
         p_mes number
     ) RETURN NUMBER
     AS 
         resultado NUMBER;
     BEGIN   
-        SELECT FACTOR INTO resultado FROM T_MAE_F22_MES 
+        SELECT FACTOR INTO resultado FROM T_MAE_FER_MES 
         WHERE Id_mes=p_mes ;
         Return (resultado);
     END;
@@ -2758,12 +2820,78 @@ END PKG_MRV_ADMIN_SISTEMA;
         p_REG       NUMBER;
     BEGIN
 
-        p_MES_P:=(12-FN_F22_MES(p_mes));   
-        p_REG:=FN_F22_REGION(p_region); 
+        p_MES_P:=(12-FN_FER_MES(p_mes));   
+        p_REG:=FN_FER_REGION(p_region); 
         resultado:= p_REG*p_n*p_MES_P;
 
         Return (resultado);
     END;
+    
+    --------------------------------------------------------------------------
+    -- FUNCION FN_Iniciativa_Gen_Dist abarca toda instalación de generación 
+    -- eléctrica que inyecte energía eléctrica a la red eléctrica esté conectada 
+    -- directamente a la Red de Distribución. Las tecnologías consideradas para la 
+    -- generación distribuida corresponden a fuentes renovables como la generación 
+    -- hidroeléctrica (pequeña escala), eólica, fotovoltaica, y biomasa, por lo 
+    -- que las reducciones de emisiones se producirán debido al desplazamiento de 
+    -- la generación eléctrica con combustibles fósiles.
+                    
+    -- p_elect	: Electricidad generada por centrales tipo solar, eólica y mini hidro
+    -- p_anno	: Año de Inicio de Implementacion de la Iniciativa
+    -- Ejemplo :
+    -- PKG_MRV_CALCULO.FN_Iniciativa_Gen_Dist (6247,2018);
+    -- Debe salir : 2.6
+    --------------------------------------------------------------------------  
+
+    FUNCTION FN_Iniciativa_Gen_Dist (
+        p_elect     NUMBER, 
+        p_anno      NUMBER
+        )
+    RETURN NUMBER
+    IS 
+        resultado   NUMBER;
+        p_FEW       NUMBER;
+
+    BEGIN
+
+        p_FEW:=FN_FGD_FEW(p_anno);   
+        resultado:= p_elect/1000*p_FEW;
+        Return (resultado);
+    END;
+    
+    
+    --------------------------------------------------------------------------
+    -- FUNCION FN_Iniciativa_Gen_Dist Aumentar la participación de los Recursos 
+    -- Energéticos de fuentes Renovables (RER) en la matriz energética nacional 
+    -- en un 6.8% en el año 2030, reduciendo la proporción de la energía producida 
+    -- en base a la quema de combustibles fósiles, lo cual generará la reducción 
+    -- de emisiones de gases de efecto invernadero (GEI). Asimismo, la medida 
+    -- incluye la implementación de las centrales hidroeléctricas con una capacidad 
+    -- instalada menor a 20 MW.
+                    
+    -- p_elect	: Electricidad generada por centrales tipo solar, eólica y mini hidro
+    -- p_anno	: Año de Inicio de Implementacion de la Iniciativa
+    -- Ejemplo :
+    -- PKG_MRV_CALCULO.FN_Iniciativa_RER_Conectado (3674,2018);
+    -- Debe salir : 1.59
+    --------------------------------------------------------------------------  
+
+    FUNCTION FN_Iniciativa_RER_Conectado  (
+        p_elect     NUMBER, 
+        p_anno      NUMBER
+        )
+    RETURN NUMBER
+    IS 
+        resultado   NUMBER;
+        p_FEW       NUMBER;
+
+    BEGIN
+
+        p_FEW:=FN_FRERC_FEW(p_anno);   
+        resultado:= p_elect*1000*p_FEW/1000000;
+        Return (resultado);
+    END;
+    
 
 END PKG_MRV_CALCULO;
 
@@ -2835,7 +2963,8 @@ END PKG_MRV_CALCULO;
                 IND.KRV_COMBUSTIBLE, IND.CONSUMO_ELECTRICIDAD, IND.CONSUMO_COMBUSTIBLE, IND.PLACA,
                 IND.ADJUNTO, IND.ADJUNTO_BASE,
                 TV.DESCRIPCION TIPO_VEHICULO,
-                TC.DESCRIPCION TIPO_COMBUSTIBLE
+                TC.DESCRIPCION TIPO_COMBUSTIBLE,
+                IND.ID_ENFOQUE --add 11-02-20
         FROM    T_GEND_INDICADOR IND
         LEFT JOIN   T_MAE_TIPO_VEHICULO TV ON IND.ID_TIPO_VEHICULO_BASE = TV.ID_TIPO_VEHICULO
         LEFT JOIN   T_MAE_TIPO_COMBUSTIBLE TC ON IND.ID_TIPO_COMBUSTIBLE_BASE = TC.ID_TIPO_COMBUSTIBLE
@@ -3319,8 +3448,8 @@ END PKG_MRV_CALCULO;
         vIdMedmit NUMBER;
     BEGIN
         UPDATE  T_GENM_INICIATIVA 
-        SET     ID_ESTADO = 2
-
+        SET     ID_ESTADO = 2,
+                ID_ETAPA = 3
         WHERE   ID_INICIATIVA = pID_INICIATIVA;
 
         SELECT I.ID_MEDMIT INTO vIdMedMit FROM T_GENM_INICIATIVA I WHERE I.ID_INICIATIVA = pID_INICIATIVA;
@@ -3495,6 +3624,12 @@ END PKG_MRV_CALCULO;
                 DI.KRV_BASE KRVB,
                 DI.CANT_BASE CANTIDADB,
                 DI.F_RENDIMIENTO RENDIMIENTO,
+                DI.KRV_COMBUSTIBLE,
+                DI.CONSUMO_ELECTRICIDAD,
+                DI.CONSUMO_COMBUSTIBLE,
+                DI.PLACA,
+                DI.FECHA_INICIO INICIO_OPERACIONES,
+                DI.ID_ENFOQUE,
                 DI.TOTAL_GEI_INIMIT,
                 DI.TOTAL_GEI_BASE,
                 DI.TOTAL_GEI_REDUCIDO,
@@ -3774,6 +3909,51 @@ END PKG_MRV_CALCULO;
                    --TRUNC(vRendimiento, 4) AS FACTOR_RENDIMIENTO
               FROM DUAL;
   END USP_PRC_CAL_VEH_HIB_CON;
+  
+  PROCEDURE USP_SEL_INDICADOR_ENFOQUE(
+        pID_INICIATIVA  IN NUMBER,
+        pRefcursor      OUT SYS_REFCURSOR
+  )AS
+  BEGIN
+        OPEN pRefcursor FOR
+        SELECT NVL(MIN(ID_ENFOQUE),0) ENFOQUE FROM T_GEND_INDICADOR WHERE ID_INICIATIVA = pID_INICIATIVA;
+  END USP_SEL_INDICADOR_ENFOQUE;
+  
+  PROCEDURE USP_SEL_ENFOQUE_INICIATIVA(
+        pID_INICIATIVA  IN NUMBER,
+        pRefcursor      OUT SYS_REFCURSOR
+  )AS
+  BEGIN
+        OPEN pRefcursor FOR
+        SELECT  DISTINCT IND.ID_ENFOQUE,
+                         ENF.DESCRIPCION ENFOQUE
+        FROM        T_GEND_INDICADOR IND
+        LEFT JOIN   T_GENM_ENFOQUE ENF ON IND.ID_ENFOQUE = ENF.ID_ENFOQUE
+        WHERE   IND.ID_INICIATIVA = pID_INICIATIVA;
+  END USP_SEL_ENFOQUE_INICIATIVA;
+  
+  PROCEDURE USP_UPD_ELIMINAR_IND_FILE(
+        pID_INICIATIVA IN NUMBER,
+        pID_INDICADOR_ELIMINAR IN VARCHAR2
+    )IS
+        vSql            VARCHAR2(250);
+    BEGIN 
+        vSql := 'UPDATE T_GEND_INICIATIVA_SUSTENTA SET FLAG_ESTADO = ''0'' WHERE ID_INICIATIVA ='||pID_INICIATIVA||' AND ID_INICIATIVA_SUSTENTATORIO IN ('||pID_INDICADOR_ELIMINAR||')';
+        EXECUTE IMMEDIATE vSql;
+    END USP_UPD_ELIMINAR_IND_FILE;
+    
+    PROCEDURE USP_SEL_ARCHIVO_GUARDADO(
+        pID_INICIATIVA  IN NUMBER,
+        pRefcursor      OUT SYS_REFCURSOR
+  )AS
+  BEGIN
+        OPEN pRefcursor FOR
+        SELECT  ID_INICIATIVA_SUSTENTATORIO,
+                ADJUNTO,
+                ADJUNTO_BASE
+        FROM    T_GEND_INICIATIVA_SUSTENTA
+        WHERE   ID_INICIATIVA = pID_INICIATIVA AND FLAG_ESTADO = '1';
+  END USP_SEL_ARCHIVO_GUARDADO;
 
 END PKG_MRV_DETALLE_INDICADORES;
 
