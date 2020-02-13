@@ -3006,7 +3006,7 @@ function fn_eliminarArchivo(id) {
 function removeFile(e) {
     debugger;
     var file = e.dataset.file;
-    alert(file);
+    //alert(file);
     for (var i = 0; i < storedFiles.length; i++) {
         if (storedFiles[i].name === file) {
             storedFiles.splice(i, 1);
@@ -3017,7 +3017,7 @@ function removeFile(e) {
     $(e).parent().parent().parent().remove();
 }
 
-$("body").on("click", ".selFile", removeFile);
+//$("body").on("click", ".selFile", removeFile());
 
 //==============================================================================================================
 
