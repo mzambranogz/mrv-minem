@@ -2401,10 +2401,45 @@ function CargarArchivosGuardados() {
         data: item,
         success: function (data) {
             if (data != null && data != "") {
+                
                 if (data.length > 0) {
+                    //debugger;   
+                    $("#archivos-documentos").html("");
+                    $("#archivos-guardados").html("");
                     for (var i = 0; i < data.length; i++) {
-                        //STOCK
+
+                        var extension = "fa-file-word";
+
+                                if (data[i]["ADJUNTO"].includes("pdf")) {
+                                    extension = "fa-file-pdf";
+                                } else {
+                                    if (data[i]["ADJUNTO"].includes("jpeg") || data[i]["ADJUNTO"].includes("png") || data[i]["ADJUNTO"].includes("jpg")) {
+                                        extension = "fa-file-image";
+                                    } else {
+                                        if (data[i]["ADJUNTO"].includes("xlsx") || data[i]["ADJUNTO"].includes("xls")) {
+                                            extension = "fa-file-excel";
+                                        } else {
+                                            if (data[i]["ADJUNTO"].includes("pptx") || data[i]["ADJUNTO"].includes("ppt")) {
+                                                extension = "fa-file-powerpoint";
+                                            } else {
+                                                if (data[i]["ADJUNTO"].includes("docx") || data[i]["ADJUNTO"].includes("doc")) {
+                                                    extension = "fa-file-word";
+                                                } else {
+                                                    extension = "fa-file";
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                        var tr = "";
+                        tr += '     <div class="input-group mb-3" id="eliminar-' + data[i]["ID_INICIATIVA_SUSTENTATORIO"] + '">';
+                        tr += '             <div class="input-group-prepend"><span class="input-group-text"><i class="fas ' + extension + '"></i></span></div><span class="form-control-plaintext">' + data[i]["ADJUNTO_BASE"] + '</span>';
+                        tr += '             <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="far fa-trash-alt" onclick="fn_eliminarArchivo(' + data[i]["ID_INICIATIVA_SUSTENTATORIO"] + ')"></i></span></div>';
+                        tr += '    </div>';
+                        $("#archivos-guardados").append(tr);
                     }
+                    $("#total-documentos").data("cantidad", data.length);
                 }
             }
         }
@@ -2526,6 +2561,7 @@ function fn_procesoDetalleIndicador(url, estado) {
         }
     }
 
+    debugger;
     for (var i = 0, len = storedFiles.length; i < len; i++) {
         var sux = {
             ID_INICIATIVA: $("#Control").data("iniciativa"),
@@ -2540,6 +2576,7 @@ function fn_procesoDetalleIndicador(url, estado) {
     for (var i = 0, len = storedFiles.length; i < len; i++) {
         archivos += storedFiles[i].name + "|";
     }
+    if (archivos == "") archivos = "|";
 
     var id_delete = "";
     if ($("#cuerpoTablaIndicador").data("delete") != "") {
@@ -2595,8 +2632,11 @@ function fn_procesoDetalleIndicador(url, estado) {
         },
         success: function (response, textStatus, myXhr) {
             if (response.success) {
-                CargarDetalleDatos();
+                CargarDetalleDatos();                
                 CargarArchivosGuardados();
+                $("#cuerpoTablaIndicador").data("delete", "");
+                $("#total-documentos").data("eliminarfile", "");
+                $("#fledocumentos").val("");
                 if (estado == 0 || estado == 6) {
                     $("#mensajeModalAvance #mensajeDangerAvance").remove();
                     var msj = '                   <div class="col-sm-12 col-md-12 col-lg-12" id="mensajeWarningAvance">';

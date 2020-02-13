@@ -15,6 +15,7 @@ namespace datos.minem.gob.pe
     public class IniciativaDA : BaseDA
     {
         private string sPackage = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_INICIATIVA_MITIGACION.";
+        private string sPackage2 = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_DETALLE_INDICADORES.";
 
         public List<IniciativaBE> ListaIniciativaPublico(IniciativaBE entidad)
         {
@@ -1535,7 +1536,7 @@ namespace datos.minem.gob.pe
             {
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
                 {
-                    string sp = sPackage + "USP_SEL_CARGA_INICIATIVA";
+                    string sp = sPackage2 + "USP_SEL_ARCHIVO_GUARDADO";
                     var p = new OracleDynamicParameters();
                     p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
