@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - miércoles-febrero-12-2020   
+-- Archivo creado  - jueves-febrero-13-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_ADMIN_SISTEMA
@@ -3087,10 +3087,10 @@ END PKG_MRV_CALCULO;
         vTotalR := vTotalB - vTotalI;
 
         OPEN pRefcursor FOR
-            SELECT TRUNC(vTotalI, 4) AS TOTAL_GEI_INIMIT,
-                   TRUNC(vTotalR, 4) AS TOTAL_GEI_REDUCIDO,
-                   TRUNC(vTotalB, 4) AS TOTAL_GEI_BASE,
-                   TRUNC(vRendimiento, 4) AS FACTOR_RENDIMIENTO
+            SELECT TRUNC(vTotalI, 2) AS TOTAL_GEI_INIMIT,
+                   TRUNC(vTotalR, 2) AS TOTAL_GEI_REDUCIDO,
+                   TRUNC(vTotalB, 2) AS TOTAL_GEI_BASE,
+                   TRUNC(vRendimiento, 2) AS FACTOR_RENDIMIENTO
               FROM DUAL;
     END USP_PRC_CALCULAR_INDICADOR2;
 
