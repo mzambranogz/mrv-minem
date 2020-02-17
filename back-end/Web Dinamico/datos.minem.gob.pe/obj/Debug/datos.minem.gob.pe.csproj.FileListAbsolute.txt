@@ -1,0 +1,120 @@
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\datos.minem.gob.pe\bin\Debug\Dapper.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\datos.minem.gob.pe\bin\Debug\Oracle.DataAccess.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\datos.minem.gob.pe\bin\Debug\Dapper.xml
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.pdb
+C:\Users\JK\Desktop\BACKUP 27-01-2020\Web\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.dll
+C:\Users\JK\Desktop\BACKUP 27-01-2020\Web\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.pdb
+C:\Users\JK\Desktop\BACKUP 27-01-2020\Web\datos.minem.gob.pe\bin\Debug\Dapper.dll
+C:\Users\JK\Desktop\BACKUP 27-01-2020\Web\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+C:\Users\JK\Desktop\BACKUP 27-01-2020\Web\datos.minem.gob.pe\bin\Debug\Oracle.DataAccess.dll
+C:\Users\JK\Desktop\BACKUP 27-01-2020\Web\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.dll
+C:\Users\JK\Desktop\BACKUP 27-01-2020\Web\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+C:\Users\JK\Desktop\BACKUP 27-01-2020\Web\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.pdb
+C:\Users\JK\Desktop\BACKUP 27-01-2020\Web\datos.minem.gob.pe\bin\Debug\Dapper.xml
+C:\Users\JK\Desktop\BACKUP 27-01-2020\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\JK\Desktop\BACKUP 27-01-2020\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.dll
+C:\Users\JK\Desktop\BACKUP 27-01-2020\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.pdb
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.pdb
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\datos.minem.gob.pe\bin\Debug\Dapper.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\datos.minem.gob.pe\bin\Debug\Oracle.DataAccess.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.pdb
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\datos.minem.gob.pe\bin\Debug\Dapper.xml
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.dll
+C:\Users\JK\Desktop\BACKUP 28-01-20\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.pdb
+C:\Users\User\Desktop\MRVMINEM PROYECTO\Web\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.dll
+C:\Users\User\Desktop\MRVMINEM PROYECTO\Web\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.pdb
+C:\Users\User\Desktop\MRVMINEM PROYECTO\Web\datos.minem.gob.pe\bin\Debug\Dapper.dll
+C:\Users\User\Desktop\MRVMINEM PROYECTO\Web\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+C:\Users\User\Desktop\MRVMINEM PROYECTO\Web\datos.minem.gob.pe\bin\Debug\Oracle.DataAccess.dll
+C:\Users\User\Desktop\MRVMINEM PROYECTO\Web\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.dll
+C:\Users\User\Desktop\MRVMINEM PROYECTO\Web\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+C:\Users\User\Desktop\MRVMINEM PROYECTO\Web\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.pdb
+C:\Users\User\Desktop\MRVMINEM PROYECTO\Web\datos.minem.gob.pe\bin\Debug\Dapper.xml
+C:\Users\User\Desktop\MRVMINEM PROYECTO\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\MRVMINEM PROYECTO\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.dll
+C:\Users\User\Desktop\MRVMINEM PROYECTO\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.pdb
+C:\Users\User\Desktop\backend\back-end\Web\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.dll
+C:\Users\User\Desktop\backend\back-end\Web\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.pdb
+C:\Users\User\Desktop\backend\back-end\Web\datos.minem.gob.pe\bin\Debug\Dapper.dll
+C:\Users\User\Desktop\backend\back-end\Web\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+C:\Users\User\Desktop\backend\back-end\Web\datos.minem.gob.pe\bin\Debug\Oracle.DataAccess.dll
+C:\Users\User\Desktop\backend\back-end\Web\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.dll
+C:\Users\User\Desktop\backend\back-end\Web\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+C:\Users\User\Desktop\backend\back-end\Web\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.pdb
+C:\Users\User\Desktop\backend\back-end\Web\datos.minem.gob.pe\bin\Debug\Dapper.xml
+C:\Users\User\Desktop\backend\back-end\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\backend\back-end\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.dll
+C:\Users\User\Desktop\backend\back-end\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.pdb
+C:\Users\User\Desktop\INTEGRACION\Web\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.dll
+C:\Users\User\Desktop\INTEGRACION\Web\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.pdb
+C:\Users\User\Desktop\INTEGRACION\Web\datos.minem.gob.pe\bin\Debug\Dapper.dll
+C:\Users\User\Desktop\INTEGRACION\Web\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+C:\Users\User\Desktop\INTEGRACION\Web\datos.minem.gob.pe\bin\Debug\Oracle.DataAccess.dll
+C:\Users\User\Desktop\INTEGRACION\Web\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.dll
+C:\Users\User\Desktop\INTEGRACION\Web\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+C:\Users\User\Desktop\INTEGRACION\Web\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.pdb
+C:\Users\User\Desktop\INTEGRACION\Web\datos.minem.gob.pe\bin\Debug\Dapper.xml
+C:\Users\User\Desktop\INTEGRACION\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\INTEGRACION\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.dll
+C:\Users\User\Desktop\INTEGRACION\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.pdb
+C:\Users\JK\Desktop\PROTECTO MINEM 06-02-2020\Web\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.dll
+C:\Users\JK\Desktop\PROTECTO MINEM 06-02-2020\Web\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.pdb
+C:\Users\JK\Desktop\PROTECTO MINEM 06-02-2020\Web\datos.minem.gob.pe\bin\Debug\Dapper.dll
+C:\Users\JK\Desktop\PROTECTO MINEM 06-02-2020\Web\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+C:\Users\JK\Desktop\PROTECTO MINEM 06-02-2020\Web\datos.minem.gob.pe\bin\Debug\Oracle.DataAccess.dll
+C:\Users\JK\Desktop\PROTECTO MINEM 06-02-2020\Web\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.dll
+C:\Users\JK\Desktop\PROTECTO MINEM 06-02-2020\Web\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+C:\Users\JK\Desktop\PROTECTO MINEM 06-02-2020\Web\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.pdb
+C:\Users\JK\Desktop\PROTECTO MINEM 06-02-2020\Web\datos.minem.gob.pe\bin\Debug\Dapper.xml
+C:\Users\JK\Desktop\PROTECTO MINEM 06-02-2020\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\JK\Desktop\PROTECTO MINEM 06-02-2020\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.dll
+C:\Users\JK\Desktop\PROTECTO MINEM 06-02-2020\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.pdb
+C:\Gitsource\back-end\Web\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.dll
+C:\Gitsource\back-end\Web\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.pdb
+C:\Gitsource\back-end\Web\datos.minem.gob.pe\bin\Debug\Dapper.dll
+C:\Gitsource\back-end\Web\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+C:\Gitsource\back-end\Web\datos.minem.gob.pe\bin\Debug\Oracle.DataAccess.dll
+C:\Gitsource\back-end\Web\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.dll
+C:\Gitsource\back-end\Web\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+C:\Gitsource\back-end\Web\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.pdb
+C:\Gitsource\back-end\Web\datos.minem.gob.pe\bin\Debug\Dapper.xml
+C:\Gitsource\back-end\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Gitsource\back-end\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.dll
+C:\Gitsource\back-end\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\datos.minem.gob.pe\bin\Debug\Dapper.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\datos.minem.gob.pe\bin\Debug\Oracle.DataAccess.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\datos.minem.gob.pe\bin\Debug\Dapper.xml
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.pdb
+C:\Users\JK\Desktop\BACKUP 16-02-20\Web\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.dll
+C:\Users\JK\Desktop\BACKUP 16-02-20\Web\datos.minem.gob.pe\bin\Debug\datos.minem.gob.pe.pdb
+C:\Users\JK\Desktop\BACKUP 16-02-20\Web\datos.minem.gob.pe\bin\Debug\Dapper.dll
+C:\Users\JK\Desktop\BACKUP 16-02-20\Web\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+C:\Users\JK\Desktop\BACKUP 16-02-20\Web\datos.minem.gob.pe\bin\Debug\Oracle.DataAccess.dll
+C:\Users\JK\Desktop\BACKUP 16-02-20\Web\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.dll
+C:\Users\JK\Desktop\BACKUP 16-02-20\Web\datos.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+C:\Users\JK\Desktop\BACKUP 16-02-20\Web\datos.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.pdb
+C:\Users\JK\Desktop\BACKUP 16-02-20\Web\datos.minem.gob.pe\bin\Debug\Dapper.xml
+C:\Users\JK\Desktop\BACKUP 16-02-20\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\JK\Desktop\BACKUP 16-02-20\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.dll
+C:\Users\JK\Desktop\BACKUP 16-02-20\Web\datos.minem.gob.pe\obj\Debug\datos.minem.gob.pe.pdb
