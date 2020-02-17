@@ -283,5 +283,17 @@ namespace MRVMinem.Controllers
 
             return Respuesta(itemRespuesta);
         }
+
+
+        public JsonResult CalcularIndicador(IndicadorBE entidad)
+        {
+            List<IndicadorBE> lista = IndicadorLN.CalcularIndicador(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+
+
     }
 }

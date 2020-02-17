@@ -164,6 +164,7 @@
     <Content Include="js\Login.js" />
     <Content Include="js\MantenimientoEnfoques.js" />
     <Content Include="js\MantenimientoEscenario.js" />
+    <Content Include="js\MantenimientoFactores.js" />
     <Content Include="js\MantenimientoGei.js" />
     <Content Include="js\MantenimientoInstitucion.js" />
     <Content Include="js\MantenimientoMonedas.js" />
@@ -194,6 +195,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DetalleController.cs" />
+    <Compile Include="Controllers\DinamicoController.cs" />
     <Compile Include="Controllers\GestionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MantenimientoController.cs" />
@@ -207,6 +209,7 @@
     <Compile Include="Models\ListaObjeto.cs" />
     <Compile Include="Models\MvEnfoque.cs" />
     <Compile Include="Models\MvEscenario.cs" />
+    <Compile Include="Models\MvFactor.cs" />
     <Compile Include="Models\MvGei.cs" />
     <Compile Include="Models\MvIniciativa.cs" />
     <Compile Include="Models\MvInstitucion.cs" />
@@ -321,6 +324,7 @@
     <Content Include="Views\Mantenimiento\Gei.cshtml" />
     <Content Include="Views\Detalle\DetalleIndicadorMasivo.cshtml" />
     <Content Include="Views\Mantenimiento\Enfoques.cshtml" />
+    <Content Include="Views\Dinamico\MantenimientoFactores.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

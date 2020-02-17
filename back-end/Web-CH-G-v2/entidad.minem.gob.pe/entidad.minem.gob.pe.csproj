@@ -49,8 +49,14 @@
     <Compile Include="EscenarioAuxBE.cs" />
     <Compile Include="EscenarioBE.cs" />
     <Compile Include="EscenarioRptBE.cs" />
+    <Compile Include="FactorAuxBE.cs" />
+    <Compile Include="FactorBE.cs" />
+    <Compile Include="FactorParametroBE.cs" />
+    <Compile Include="FactorParametroDataBE.cs" />
     <Compile Include="GasEfectoInvernaderoBE.cs" />
     <Compile Include="IndicadorBE.cs" />
+    <Compile Include="IndicadorDataBE.cs" />
+    <Compile Include="IndicadorMetaDataBE.cs" />
     <Compile Include="IniciativaAuxBE.cs" />
     <Compile Include="IniciativaBE.cs" />
     <Compile Include="InstitucionAuxBE.cs" />
@@ -59,6 +65,10 @@
     <Compile Include="MonedaBE.cs" />
     <Compile Include="NotificacionAuxBE.cs" />
     <Compile Include="NotificacionBE.cs" />
+    <Compile Include="ParametroAuxBE.cs" />
+    <Compile Include="ParametroBE.cs" />
+    <Compile Include="ParametroDetalleBE.cs" />
+    <Compile Include="ParametroFormulaBE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RolBE.cs" />
     <Compile Include="RolOpcionesBE.cs" />
@@ -66,6 +76,8 @@
     <Compile Include="SessionBE.cs" />
     <Compile Include="SustentoIniciativaBE.cs" />
     <Compile Include="TipoCombustibleBE.cs" />
+    <Compile Include="TipoControlAuxBE.cs" />
+    <Compile Include="TipoControlBE.cs" />
     <Compile Include="TipoFuenteBE.cs" />
     <Compile Include="TipoVehiculoBE.cs" />
     <Compile Include="UbicacionBE.cs" />

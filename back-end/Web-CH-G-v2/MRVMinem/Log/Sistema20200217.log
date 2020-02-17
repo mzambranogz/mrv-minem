@@ -1,0 +1,80 @@
+17/02/2020 04:46:30: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INSTITUCION'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 04:46:30: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INSTITUCION'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 04:46:30: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INSTITUCION'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 04:46:30: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INSTITUCION'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 04:46:30: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INSTITUCION'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 04:46:30: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INSTITUCION'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 04:46:30: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INSTITUCION'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 04:46:30: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INSTITUCION'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 04:46:30: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INSTITUCION'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 04:46:30: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.InstitucionBE] ListaInstitucionPaginado(entidad.minem.gob.pe.InstitucionBE), Línea: 58] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INSTITUCION'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 05:02:51: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INSTITUCION'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 05:02:51: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INSTITUCION'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 05:02:51: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INSTITUCION'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 05:02:51: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INSTITUCION'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 05:02:51: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INSTITUCION'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 05:02:51: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INSTITUCION'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 05:02:51: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INSTITUCION'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 05:02:51: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INSTITUCION'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 05:02:51: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INSTITUCION'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 05:02:51: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.InstitucionBE] ListaInstitucionPaginado(entidad.minem.gob.pe.InstitucionBE), Línea: 58] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INSTITUCION'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
