@@ -74,6 +74,13 @@
                     <div class="input-group">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-search"></i></span></div>
                       <input class="form-control" type="text" id="txt-buscar" placeholder="Ingrese la descripción de su búsqueda" aria-describedby="inputGroup1" required>
+                      <div class="input-group-append">
+                        <div class="btn-group" id="filtro-estado"><a class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1"><i class="fas fa-filter">&nbsp;</i>Filtrar por estados</a>
+                          <div class="dropdown-menu"><a class="dropdown-item" href="#"><i class="fas fa-hourglass">&nbsp;</i>Pendientes</a><a class="dropdown-item" href="#"><i class="fas fa-eye">&nbsp;</i>Observadas</a><a class="dropdown-item" href="#"><i class="fas fa-check">&nbsp;</i>Aprobadas</a><a class="dropdown-item" href="#"><i class="fas fa-check-double">&nbsp;</i>Revisadas</a><a class="dropdown-item" href="#"><i class="fas fa-clipboard-check">&nbsp;</i>Evaluadas</a><a class="dropdown-item" href="#"><i class="fas fa-tasks">&nbsp;</i>Verificadas</a>
+                            <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="fas fa-tachometer-alt">&nbsp;</i>Todas</a>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div class="form-group">
@@ -485,29 +492,52 @@
                           </div>
                         </td>
                       </tr>
-                      <tfoot>
-                        <tr>
-                          <td class="text-left" colspan="3"><strong>Resultado:&nbsp;</strong>1-10 de 750 registros</td>
-                          <td class="text-right text-xs-left" colspan="4"><strong>Registros por página&nbsp;</strong>
-                            <select id="catidad-rgistros">
-                              <option value="10" selected>10</option>
-                              <option value="25">25</option>
-                              <option value="50">50</option>
-                              <option value="100">100</option>
-                            </select>&nbsp;
-                            1 de 75 páginas&nbsp;
-                            <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                              <button class="btn btn-primary" type="button"><i class="fas fa-angle-double-left"></i></button>
-                              <button class="btn btn-primary" type="button"><i class="fas fa-angle-left"></i></button>
-                              <input class="ir-pagina" type="number" value="1" min="1">
-                              <button class="btn btn-primary" type="button"><i class="fas fa-angle-right"></i></button>
-                              <button class="btn btn-primary" type="button"><i class="fas fa-angle-double-right"></i></button>
-                            </div>
-                          </td>
-                        </tr>
-                      </tfoot>
+                      <!--tfoot
+                      tr
+                        td.text-left(colspan="3")
+                          strong Resultado:&nbsp;
+                          | 1-10 de 750 registros
+                        td.text-right.text-xs-left(colspan="4")
+                          strong Registros por página&nbsp;
+                          select#catidad-rgistros
+                            option(value="10", selected) 10
+                            option(value="25") 25
+                            option(value="50") 50
+                            option(value="100") 100
+                          | &nbsp;
+                          | 1 de 75 páginas&nbsp;
+                          .btn-group.btn-group-sm(role="group", aria-label="Basic example")
+                            button(type="button", class="btn btn-primary")
+                              i.fas.fa-angle-double-left
+                            button(type="button", class="btn btn-primary")
+                              i.fas.fa-angle-left
+                            input.ir-pagina(type="number", value="1", min="1")
+                            button(type="button", class="btn btn-primary")
+                              i.fas.fa-angle-right
+                            button(type="button", class="btn btn-primary")
+                              i.fas.fa-angle-double-right
+                      -->
                     </tbody>
                   </table>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 col-lg-6 mt-4"><strong>Resultado:&nbsp;</strong>1-10 de 750 registros</div>
+              <div class="col-sm-12 col-lg-6 text-right mt-4"><strong>Registros por página&nbsp;</strong>
+                <select id="catidad-rgistros">
+                  <option value="10" selected>10</option>
+                  <option value="25">25</option>
+                  <option value="50">50</option>
+                  <option value="100">100</option>
+                </select>&nbsp;
+                1 de 75 páginas&nbsp;
+                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                  <button class="btn btn-primary" type="button"><i class="fas fa-angle-double-left"></i></button>
+                  <button class="btn btn-primary" type="button"><i class="fas fa-angle-left"></i></button>
+                  <input class="ir-pagina" type="number" value="1" min="1">
+                  <button class="btn btn-primary" type="button"><i class="fas fa-angle-right"></i></button>
+                  <button class="btn btn-primary" type="button"><i class="fas fa-angle-double-right"></i></button>
                 </div>
               </div>
             </div>
@@ -549,7 +579,7 @@
                 <ul class="list-unstyled">
                   <li class="py-1"><a class="text-white" href="https://www.gob.pe/minem" target="_blank"><i class="fas fa-landmark mr-2"></i>MINEM</a></li>
                   <li class="py-1"><a class="text-white" href="http://namasenergia.minem.gob.pe/" target="_blank"><i class="fas fa-landmark mr-2"></i>NAMA's</a></li>
-                  <li class="py-1"><a class="text-white" href="#" target="_blank"><i class="fas fa-sitemap mr-2"></i>Mapa del Sitio</a></li>
+                  <li class="py-1"><a class="text-white" href="./mapa-del-ditio.html" target="_blank"><i class="fas fa-sitemap mr-2"></i>Mapa del Sitio</a></li>
                 </ul>
               </div>
               <div class="col-sm-12 col-md-4 d-flex flex-row justify-content-end align-items-end">

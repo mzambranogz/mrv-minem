@@ -82,6 +82,13 @@
                     <div class="input-group">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-search"></i></span></div>
                       <input class="form-control" type="text" id="txt-buscar" placeholder="Ingrese la descripción de su búsqueda" aria-describedby="inputGroup1" required>
+                      <div class="input-group-append">
+                        <div class="btn-group" id="filtro-estado"><a class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1"><i class="fas fa-filter">&nbsp;</i>Filtrar por estados</a>
+                          <div class="dropdown-menu"><a class="dropdown-item" href="#"><i class="fas fa-hourglass">&nbsp;</i>Pendientes</a><a class="dropdown-item" href="#"><i class="fas fa-eye">&nbsp;</i>Observadas</a><a class="dropdown-item" href="#"><i class="fas fa-check">&nbsp;</i>Aprobadas</a><a class="dropdown-item" href="#"><i class="fas fa-check-double">&nbsp;</i>Revisadas</a><a class="dropdown-item" href="#"><i class="fas fa-clipboard-check">&nbsp;</i>Evaluadas</a><a class="dropdown-item" href="#"><i class="fas fa-tasks">&nbsp;</i>Verificadas</a>
+                            <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="fas fa-tachometer-alt">&nbsp;</i>Todas</a>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div class="form-group">
@@ -287,13 +294,7 @@
               <div class="col-xs-12 col sm-12 col-lg-9">
                 <div class="h5">Bandeja de Iniciativas de Mitigación&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Bandeja de iniciativas de mitigación registradas por su institución"></i></div>
               </div>
-              <div class="col-xs-12 col sm-12 col-lg-3 text-lg-right">
-                <div class="btn-group" id="filtro-estado"><a class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1"><i class="fas fa-filter">&nbsp;</i>Filtrar por estados</a>
-                  <div class="dropdown-menu"><a class="dropdown-item" href="#"><i class="fas fa-hourglass">&nbsp;</i>Pendientes</a><a class="dropdown-item" href="#"><i class="fas fa-eye">&nbsp;</i>Observadas</a><a class="dropdown-item" href="#"><i class="fas fa-check">&nbsp;</i>Aprobadas</a><a class="dropdown-item" href="#"><i class="fas fa-check-double">&nbsp;</i>Revisadas</a><a class="dropdown-item" href="#"><i class="fas fa-clipboard-check">&nbsp;</i>Evaluadas</a><a class="dropdown-item" href="#"><i class="fas fa-tasks">&nbsp;</i>Verificadas</a>
-                    <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="fas fa-tachometer-alt">&nbsp;</i>Todas</a>
-                  </div>
-                </div>
-              </div>
+              <div class="col-xs-12 col sm-12 col-lg-3 text-lg-right"></div>
             </div>
             <div class="dropdown-divider"></div>
             <div class="row">
@@ -303,12 +304,15 @@
                     <thead>
                       <tr class="bg-primary text-white">
                         <th class="text-center" scope="col" width="3%"><span>N°&nbsp;<i class="fas fa-sort"></i></span></th>
-                        <th scope="col" width="21%"><span>Nombre de Iniciativa&nbsp;<i class="fas fa-sort"></i></span></th>
+                        <th scope="col" width="19%"><span>Nombre de <br> Iniciativa&nbsp;<i class="fas fa-sort"></i></span></th>
                         <th scope="col" width="10%"><span>Progreso&nbsp;<i class="fas fa-sort"></i></span></th>
-                        <th class="text-center" scope="col" width="13%"><span>Fecha de Inicio&nbsp;<i class="fas fa-sort"></i></span></th>
-                        <th scope="col" width="28%"><span>Medida de Mitigación&nbsp;<i class="fas fa-sort"></i></span></th>
-                        <th scope="col" width="20%"><span>Entidad&nbsp;<i class="fas fa-sort"></i></span></th>
-                        <th class="text-center" scope="col" width="5%">Más</th>
+                        <th class="text-center" scope="col" width="10%"><span>Fecha de <br> Inicio&nbsp;<i class="fas fa-sort"></i></span></th>
+                        <th class="text-center" scope="col" width="10%"><span>Fecha de <br>  Término&nbsp;<i class="fas fa-sort"></i></span></th>
+                        <th scope="col" width="10%"><span>Medida de  <br> Mitigación&nbsp;<i class="fas fa-sort"></i></span></th>
+                        <th scope="col" width="18%"><span>Entidad&nbsp;<i class="fas fa-sort"></i></span></th>
+                        <th scope="col" width="10%"><span>Total <br> reducido&nbsp;<i class="fas fa-sort"></i></span></th>
+                        <th class="text-center" scope="col" width="7%"><span>Estado&nbsp;<i class="fas fa-sort"></i></span></th>
+                        <th class="text-center" scope="col" width="3%">Más</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -321,8 +325,11 @@
                           </div>
                         </td>
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
-                        <td data-encabezado="Medida de Mitigación">Etiquetado de eficiencia energética Nombre Largo</td>
+                        <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
+                        <td class="text-center" data-encabezado="Medida de Mitigación"><span data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
                         <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
+                        <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
+                        <td class="text-center" data-encabezado="Estado">estado</td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
@@ -345,8 +352,11 @@
                           </div>
                         </td>
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
-                        <td data-encabezado="Medida de Mitigación">Etiquetado de eficiencia energética Nombre Largo</td>
+                        <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
+                        <td class="text-center" data-encabezado="Medida de Mitigación"><span data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
                         <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
+                        <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
+                        <td class="text-center" data-encabezado="Estado">estado</td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
@@ -369,8 +379,11 @@
                           </div>
                         </td>
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
-                        <td data-encabezado="Medida de Mitigación">Etiquetado de eficiencia energética Nombre Largo</td>
+                        <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
+                        <td class="text-center" data-encabezado="Medida de Mitigación"><span data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
                         <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
+                        <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
+                        <td class="text-center" data-encabezado="Estado">estado</td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
@@ -393,8 +406,11 @@
                           </div>
                         </td>
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
-                        <td data-encabezado="Medida de Mitigación">Etiquetado de eficiencia energética Nombre Largo</td>
+                        <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
+                        <td class="text-center" data-encabezado="Medida de Mitigación"><span data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
                         <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
+                        <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
+                        <td class="text-center" data-encabezado="Estado">estado</td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
@@ -417,8 +433,11 @@
                           </div>
                         </td>
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
-                        <td data-encabezado="Medida de Mitigación">Etiquetado de eficiencia energética Nombre Largo</td>
+                        <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
+                        <td class="text-center" data-encabezado="Medida de Mitigación"><span data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
                         <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
+                        <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
+                        <td class="text-center" data-encabezado="Estado">estado</td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
@@ -434,15 +453,18 @@
                       </tr>
                       <tr>
                         <th class="text-center" data-encabezado="Número" scope="row">6</th>
-                        <td data-encabezado="Nombre de Iniciativa">Nombre de la Iniciativa</td>
+                        <td data-encabezado="Nombre de Iniciativa">Nombre de la Iniciativa Demasiado Largo</td>
                         <td data-encabezado="Progreso">
                           <div class="progress" style="height: 20px;">
                             <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">75%</div>
                           </div>
                         </td>
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
-                        <td data-encabezado="Medida de Mitigación">Etiquetado de eficiencia energética</td>
-                        <td data-encabezado="Entidad">Entidad Responsable</td>
+                        <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
+                        <td class="text-center" data-encabezado="Medida de Mitigación"><span data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
+                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
+                        <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
+                        <td class="text-center" data-encabezado="Estado">estado</td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-02 dropdown-toggle text-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
@@ -460,15 +482,18 @@
                       </tr>
                       <tr>
                         <th class="text-center" data-encabezado="Número" scope="row">7</th>
-                        <td data-encabezado="Nombre de Iniciativa">Nombre de la Iniciativa</td>
+                        <td data-encabezado="Nombre de Iniciativa">Nombre de la Iniciativa Demasiado Largo</td>
                         <td data-encabezado="Progreso">
                           <div class="progress" style="height: 20px;">
                             <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">75%</div>
                           </div>
                         </td>
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
-                        <td data-encabezado="Medida de Mitigación">Etiquetado de eficiencia energética</td>
-                        <td data-encabezado="Entidad">Entidad Responsable</td>
+                        <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
+                        <td class="text-center" data-encabezado="Medida de Mitigación"><span data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
+                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
+                        <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
+                        <td class="text-center" data-encabezado="Estado">estado</td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-02 dropdown-toggle text-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
@@ -486,15 +511,18 @@
                       </tr>
                       <tr>
                         <th class="text-center" data-encabezado="Número" scope="row">8</th>
-                        <td data-encabezado="Nombre de Iniciativa">Nombre de la Iniciativa</td>
+                        <td data-encabezado="Nombre de Iniciativa">Nombre de la Iniciativa Demasiado Largo</td>
                         <td data-encabezado="Progreso">
                           <div class="progress" style="height: 20px;">
                             <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">75%</div>
                           </div>
                         </td>
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
-                        <td data-encabezado="Medida de Mitigación">Etiquetado de eficiencia energética</td>
-                        <td data-encabezado="Entidad">Entidad Responsable</td>
+                        <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
+                        <td class="text-center" data-encabezado="Medida de Mitigación"><span data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
+                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
+                        <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
+                        <td class="text-center" data-encabezado="Estado">estado</td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-02 dropdown-toggle text-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
@@ -512,15 +540,18 @@
                       </tr>
                       <tr>
                         <th class="text-center" data-encabezado="Número" scope="row">9</th>
-                        <td data-encabezado="Nombre de Iniciativa">Nombre de la Iniciativa</td>
+                        <td data-encabezado="Nombre de Iniciativa">Nombre de la Iniciativa Demasiado Largo</td>
                         <td data-encabezado="Progreso">
                           <div class="progress" style="height: 20px;">
                             <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">75%</div>
                           </div>
                         </td>
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
-                        <td data-encabezado="Medida de Mitigación">Etiquetado de eficiencia energética</td>
-                        <td data-encabezado="Entidad">Entidad Responsable</td>
+                        <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
+                        <td class="text-center" data-encabezado="Medida de Mitigación"><span data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
+                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
+                        <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
+                        <td class="text-center" data-encabezado="Estado">estado</td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-02 dropdown-toggle text-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
@@ -538,15 +569,18 @@
                       </tr>
                       <tr>
                         <th class="text-center" data-encabezado="Número" scope="row">10</th>
-                        <td data-encabezado="Nombre de Iniciativa">Nombre de la Iniciativa</td>
+                        <td data-encabezado="Nombre de Iniciativa">Nombre de la Iniciativa Demasiado Largo</td>
                         <td data-encabezado="Progreso">
                           <div class="progress" style="height: 20px;">
                             <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">75%</div>
                           </div>
                         </td>
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
-                        <td data-encabezado="Medida de Mitigación">Etiquetado de eficiencia energética</td>
-                        <td data-encabezado="Entidad">Entidad Responsable</td>
+                        <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
+                        <td class="text-center" data-encabezado="Medida de Mitigación"><span data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
+                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
+                        <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
+                        <td class="text-center" data-encabezado="Estado">estado</td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-02 dropdown-toggle text-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
@@ -562,29 +596,52 @@
                           </div>
                         </td>
                       </tr>
-                      <tfoot>
-                        <tr>
-                          <td class="text-left" colspan="3"><strong>Resultado:&nbsp;</strong>1-10 de 750 registros</td>
-                          <td class="text-right text-xs-left" colspan="4"><strong>Registros por página&nbsp;</strong>
-                            <select id="catidad-rgistros">
-                              <option value="10" selected>10</option>
-                              <option value="25">25</option>
-                              <option value="50">50</option>
-                              <option value="100">100</option>
-                            </select>&nbsp;
-                            1 de 75 páginas&nbsp;
-                            <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                              <button class="btn btn-primary" type="button"><i class="fas fa-angle-double-left"></i></button>
-                              <button class="btn btn-primary" type="button"><i class="fas fa-angle-left"></i></button>
-                              <input class="ir-pagina" type="number" value="1" min="1">
-                              <button class="btn btn-primary" type="button"><i class="fas fa-angle-right"></i></button>
-                              <button class="btn btn-primary" type="button"><i class="fas fa-angle-double-right"></i></button>
-                            </div>
-                          </td>
-                        </tr>
-                      </tfoot>
+                      <!--tfoot
+                      tr
+                        td.text-left(colspan="3")
+                          strong Resultado:&nbsp;
+                          | 1-10 de 750 registros
+                        td.text-right.text-xs-left(colspan="4")
+                          strong Registros por página&nbsp;
+                          select#catidad-rgistros
+                            option(value="10", selected) 10
+                            option(value="25") 25
+                            option(value="50") 50
+                            option(value="100") 100
+                          | &nbsp;
+                          | 1 de 75 páginas&nbsp;
+                          .btn-group.btn-group-sm(role="group", aria-label="Basic example")
+                            button(type="button", class="btn btn-primary")
+                              i.fas.fa-angle-double-left
+                            button(type="button", class="btn btn-primary")
+                              i.fas.fa-angle-left
+                            input.ir-pagina(type="number", value="1", min="1")
+                            button(type="button", class="btn btn-primary")
+                              i.fas.fa-angle-right
+                            button(type="button", class="btn btn-primary")
+                              i.fas.fa-angle-double-right
+                      -->
                     </tbody>
                   </table>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 col-lg-6 mt-4"><strong>Resultado:&nbsp;</strong>1-10 de 750 registros</div>
+              <div class="col-sm-12 col-lg-6 text-right mt-4"><strong>Registros por página&nbsp;</strong>
+                <select id="catidad-rgistros">
+                  <option value="10" selected>10</option>
+                  <option value="25">25</option>
+                  <option value="50">50</option>
+                  <option value="100">100</option>
+                </select>&nbsp;
+                1 de 75 páginas&nbsp;
+                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                  <button class="btn btn-primary" type="button"><i class="fas fa-angle-double-left"></i></button>
+                  <button class="btn btn-primary" type="button"><i class="fas fa-angle-left"></i></button>
+                  <input class="ir-pagina" type="number" value="1" min="1">
+                  <button class="btn btn-primary" type="button"><i class="fas fa-angle-right"></i></button>
+                  <button class="btn btn-primary" type="button"><i class="fas fa-angle-double-right"></i></button>
                 </div>
               </div>
             </div>
@@ -769,7 +826,7 @@
                 <ul class="list-unstyled">
                   <li class="py-1"><a class="text-white" href="https://www.gob.pe/minem" target="_blank"><i class="fas fa-landmark mr-2"></i>MINEM</a></li>
                   <li class="py-1"><a class="text-white" href="http://namasenergia.minem.gob.pe/" target="_blank"><i class="fas fa-landmark mr-2"></i>NAMA's</a></li>
-                  <li class="py-1"><a class="text-white" href="#" target="_blank"><i class="fas fa-sitemap mr-2"></i>Mapa del Sitio</a></li>
+                  <li class="py-1"><a class="text-white" href="./mapa-del-ditio.html" target="_blank"><i class="fas fa-sitemap mr-2"></i>Mapa del Sitio</a></li>
                 </ul>
               </div>
               <div class="col-sm-12 col-md-4 d-flex flex-row justify-content-end align-items-end">
