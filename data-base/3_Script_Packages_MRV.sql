@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - jueves-febrero-13-2020   
+-- Archivo creado  - lunes-febrero-17-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_ADMIN_SISTEMA
@@ -269,6 +269,47 @@ END PKG_MRV_ADMIN_SISTEMA;
     FUNCTION FN_FRERC_FEW (
         p_anno      NUMBER)
     RETURN NUMBER;
+    
+    FUNCTION FN_FCL_IPCC_PC (
+        p_ipcc number)
+    RETURN NUMBER;
+
+    FUNCTION FN_FCL_IPCC1 (
+        p_ipcc number)
+    RETURN NUMBER;
+
+    FUNCTION FN_FCL_IPCC2 (
+        p_ipcc number)
+    RETURN NUMBER;
+
+    FUNCTION FN_FCL_IPCC3 (
+        p_ipcc number)
+    RETURN NUMBER;
+
+    FUNCTION FN_FCL_BIOMASA (
+        p_anno number,
+        p_region number
+        )
+    RETURN NUMBER;
+
+    FUNCTION FN_FCL_GEI (
+        p_gei number
+        )
+    RETURN NUMBER;
+    
+    FUNCTION FN_FCL_BAU (
+        p_fcl_bau number
+    ) RETURN NUMBER;
+
+
+    FUNCTION FN_FCL_MIT (
+        p_fcl_mit number 
+    ) RETURN NUMBER;
+    
+    FUNCTION FN_FCL_FAM (
+        p_id number)
+    RETURN NUMBER;
+    
 
 END PKG_MRV_CALCULO;
 
@@ -533,6 +574,74 @@ END PKG_MRV_CALCULO;
         pID_INICIATIVA  IN NUMBER,
         pRefcursor      OUT SYS_REFCURSOR
   );
+  
+  
+ --////////////////////////////////////////// DINAMICO INICIO
+ 
+  PROCEDURE USP_SEL_ENFOQUE_PARAMETRO(
+        pID_MEDMIT  IN NUMBER,
+        pRefcursor      OUT SYS_REFCURSOR
+  );
+  
+  PROCEDURE USP_SEL_TIPO_CONTROL(
+        pRefcursor      OUT SYS_REFCURSOR
+  );
+
+  PROCEDURE USP_SEL_DETALLE_PARAMETRO(
+        pID_PARAMETRO   IN NUMBER,
+        pRefcursor      OUT SYS_REFCURSOR
+  );
+  
+  PROCEDURE USP_SEL_PARAMETRO(
+        pRefcursor  OUT SYS_REFCURSOR
+  );
+  
+  PROCEDURE USP_SEL_GRUPO_INICIATIVA(
+        pRefcursor  OUT SYS_REFCURSOR
+  );
+  
+  PROCEDURE USP_SEL_FACTORES(
+        pRefcursor  OUT SYS_REFCURSOR
+  );
+  
+  PROCEDURE USP_SEL_GET_ID_INDICADOR(
+        pID_INICIATIVA IN NUMBER,
+        pID_ENFOQUE IN NUMBER,
+        pID_MEDMIT IN NUMBER,
+        pRefcursor OUT SYS_REFCURSOR
+  );
+  
+  PROCEDURE USP_INS_INDICADOR_DATA(
+        pID_INICIATIVA IN NUMBER,
+        pID_INDICADOR  IN NUMBER,
+        pID_ENFOQUE IN NUMBER,
+        pID_MEDMIT  IN NUMBER,
+        pID_PARAMETRO IN NUMBER,
+        pVALOR IN VARCHAR2
+  );
+  
+  PROCEDURE USP_SEL_GET_INDICADORES(
+        pID_INICIATIVA IN NUMBER,
+        pID_ENFOQUE IN NUMBER,
+        pID_MEDMIT IN NUMBER,
+        pRefcursor OUT SYS_REFCURSOR
+  );
+  
+  PROCEDURE USP_SEL_INDICADOR_PARAMETROS(
+        pID_INICIATIVA IN NUMBER,
+        pID_INDICADOR  IN NUMBER,
+        pID_ENFOQUE IN NUMBER,
+        pID_MEDMIT  IN NUMBER,
+        pRefcursor OUT SYS_REFCURSOR
+  );
+  
+  PROCEDURE USP_SEL_MED_ENFOQUE_PARAM(
+        pID_MEDMIT  IN NUMBER,
+        pID_ENFOQUE IN NUMBER,
+        pRefcursor      OUT SYS_REFCURSOR
+  );
+
+--////////////////////////////////////////// DINAMICO FINAL
 
 END PKG_MRV_DETALLE_INDICADORES;
 
@@ -1822,6 +1931,29 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pRefcursor  OUT SYS_REFCURSOR
     );
 
+    PROCEDURE USP_SEL_LISTA_M_INDICADOR(
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+    
+    --////////////////////////////// DINAMICO INICIO
+    
+    PROCEDURE USP_SEL_M_INDICADOR(
+        pID_MEDMIT  IN NUMBER,
+        pID_ENFOQUE IN NUMBER,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+    
+    PROCEDURE USP_INS_M_INDICADOR(
+        pID_MEDMIT IN NUMBER,
+        pID_ENFOQUE IN NUMBER,
+        pID_TIPO_CONTROL IN NUMBER,
+        pID_PARAMETRO IN NUMBER,
+        pID_GRUPO_INDICADOR IN NUMBER,
+        pID_ORDEN IN NUMBER,
+        pFORMULA VARCHAR2
+    );
+        --////////////////////////////// DINAMICO FINAL
+
 END PKG_MRV_MANTENIMIENTO;
 
 /
@@ -1877,6 +2009,54 @@ end PKG_MRV_NOTIFICACION;
 
 /
 --------------------------------------------------------
+--  DDL for Package PKG_MRV_PARAMETROS
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE "MRVMM"."PKG_MRV_PARAMETROS" is
+
+  -- Author  : CORPORACIÓN ZUÑIGA S.A.C
+  -- Created : 14/02/2020 16:23:45
+  -- Purpose : Gestión de parámetros
+
+	PROCEDURE USP_SEL_PARAMETRO(
+		PI_ID_PARAMETRO NUMBER,
+        PO_CURSOR OUT SYS_REFCURSOR
+	);
+
+    PROCEDURE USP_SEL_DET_PARAMETRO(
+		PI_ID_PARAMETRO NUMBER,
+        PO_CURSOR OUT SYS_REFCURSOR
+	);
+
+    PROCEDURE USP_SEL_FORMULA_PARAMETRO(
+		PI_ID_PARAMETRO NUMBER,
+        PI_ID_ENFOQUE NUMBER,
+        PI_ID_MEDMIT NUMBER,
+        PO_CURSOR OUT SYS_REFCURSOR
+	);
+
+    PROCEDURE USP_SEL_PARAMETRO_INDICADOR(
+      	PI_ID_PARAMETRO NUMBER,
+        PI_ID_ENFOQUE NUMBER,
+        PI_ID_MEDMIT NUMBER,
+        PO_CURSOR OUT SYS_REFCURSOR
+    );
+
+    PROCEDURE USP_SEL_FACTOR_PARAMETRO(
+        PI_ID_FACTOR NUMBER,
+        PO_CURSOR OUT SYS_REFCURSOR
+    );
+
+    PROCEDURE USP_SEL_FACTOR_VALOR(
+        PI_ID_FACTOR NUMBER,
+        PI_SQL_WHERE VARCHAR2,
+        PO_CURSOR OUT SYS_REFCURSOR
+    );
+
+end PKG_MRV_PARAMETROS;
+
+/
+--------------------------------------------------------
 --  DDL for Package PKG_MRV_REPORTES
 --------------------------------------------------------
 
@@ -1889,6 +2069,8 @@ end PKG_MRV_NOTIFICACION;
   
   PROCEDURE SP_SEL_INICIATIVAS_RPT(
         pIdIniciativa   integer,
+        pIdSector integer,
+        pIdMedida integer,
         pCursor out SYS_REFCURSOR
   );
   
@@ -2891,6 +3073,114 @@ END PKG_MRV_ADMIN_SISTEMA;
         resultado:= p_elect*1000*p_FEW/1000000;
         Return (resultado);
     END;
+    
+    FUNCTION FN_FCL_IPCC_PC (
+        p_ipcc number)
+    RETURN NUMBER
+    IS 
+        resultado NUMBER;
+    BEGIN
+        SELECT IPCC_PC INTO resultado FROM T_MAE_FCL_IPCC
+        WHERE  id_ipcc=p_ipcc;
+        Return (resultado);
+    END;
+    
+    
+    FUNCTION FN_FCL_IPCC1 (
+        p_ipcc number)
+    RETURN NUMBER
+    IS 
+        resultado NUMBER;
+    BEGIN
+        SELECT IPCC_FE1 INTO resultado FROM T_MAE_FCL_IPCC
+        WHERE  id_ipcc=p_ipcc;
+        Return (resultado);
+    END;
+    
+    FUNCTION FN_FCL_IPCC2 (
+        p_ipcc number)
+    RETURN NUMBER
+    IS 
+        resultado NUMBER;
+    BEGIN
+        SELECT IPCC_FE2 INTO resultado FROM T_MAE_FCL_IPCC
+        WHERE  id_ipcc=p_ipcc;
+        Return (resultado);
+    END;
+    
+    FUNCTION FN_FCL_IPCC3 (
+        p_ipcc number)
+    RETURN NUMBER
+    IS 
+        resultado NUMBER;
+    BEGIN
+        SELECT IPCC_FE3 INTO resultado FROM T_MAE_FCL_IPCC
+        WHERE  id_ipcc=p_ipcc;
+        Return (resultado);
+    END;
+    
+    FUNCTION FN_FCL_BIOMASA (
+        p_anno number,
+        p_region number
+        )
+    RETURN NUMBER
+    IS 
+        resultado NUMBER;
+    BEGIN
+        SELECT FACTOR INTO resultado FROM T_MAE_FCL_BIOMASA
+        WHERE  anno=p_anno AND id_region=p_region;
+        Return (resultado);
+    END;
+    
+    FUNCTION FN_FCL_GEI (
+        p_gei number
+        )
+    RETURN NUMBER
+    IS 
+        resultado NUMBER;
+    BEGIN
+        SELECT AR5 INTO resultado FROM T_MAE_GEI
+        WHERE  id_gei=p_gei;
+        Return (resultado);
+    END;
+    
+    
+    FUNCTION FN_FCL_BAU (
+        p_fcl_bau number 
+    ) RETURN NUMBER
+    AS 
+        resultado NUMBER;
+    BEGIN   
+        SELECT CONSUMO INTO resultado FROM T_MAE_FCL_BAU 
+        WHERE Id_fcl_bau=p_fcl_bau;
+        Return (resultado);
+    END;
+    
+    FUNCTION FN_FCL_MIT (
+        p_fcl_mit number
+    ) RETURN NUMBER
+    AS 
+        resultado NUMBER;
+    BEGIN   
+        SELECT CONSUMO INTO resultado FROM T_MAE_FCL_MIT
+        WHERE Id_fcl_mit=p_fcl_mit;
+        Return (resultado);
+    END;
+    
+    
+    FUNCTION FN_FCL_FAM (
+        p_id number)
+    RETURN NUMBER
+    IS 
+        resultado NUMBER;
+    BEGIN
+        SELECT PROMEDIO INTO resultado FROM T_MAE_FCL_FAM
+        WHERE  id_fcl_fam=p_id;
+        Return (resultado);
+    END;
+    
+  
+    
     
 
 END PKG_MRV_CALCULO;
@@ -3954,6 +4244,154 @@ END PKG_MRV_CALCULO;
         FROM    T_GEND_INICIATIVA_SUSTENTA
         WHERE   ID_INICIATIVA = pID_INICIATIVA AND FLAG_ESTADO = '1';
   END USP_SEL_ARCHIVO_GUARDADO;
+  
+  --////////////////////////////////////////// DINAMICO INICIO
+  
+  PROCEDURE USP_SEL_ENFOQUE_PARAMETRO(
+        pID_MEDMIT  IN NUMBER,
+        pRefcursor      OUT SYS_REFCURSOR
+  )AS
+  BEGIN
+        OPEN pRefcursor FOR        
+        SELECT  MI.ID_ENFOQUE, MP.NOMBRE_PARAMETRO, MI.ORDEN, MI.ID_GRUPO_INDICADOR, MGI.COLOR_GRUPO, MI.ID_PARAMETRO,
+                MP.ID_TIPO_CONTROL, MP.EDITABLE, MP.ID_TIPO_DATO, MP.VERIFICABLE
+        FROM    T_MAEM_INDICADOR MI
+        LEFT JOIN   T_MAEM_MRV_PARAMETRO MP ON MI.ID_PARAMETRO = MP.ID_PARAMETRO
+        --LEFT JOIN   M_MAED_MRV_PARAMETRO PD ON MP.ID_PARAMETRO = PD.ID_PARAMETRO
+        LEFT JOIN   T_MAMEM_GRUPO_INDICADOR MGI ON MI.ID_GRUPO_INDICADOR = MGI.ID_GRUPO_INDICADOR        
+        WHERE MI.ID_MEDMIT = pID_MEDMIT
+        ORDER BY MI.ID_ENFOQUE ,MI.ORDEN ASC;
+  END USP_SEL_ENFOQUE_PARAMETRO;
+  
+  PROCEDURE USP_SEL_TIPO_CONTROL(
+        pRefcursor      OUT SYS_REFCURSOR
+  )AS
+  BEGIN
+        OPEN pRefcursor FOR
+        SELECT  *
+        FROM    T_MAEM_TIPO_CONTROL;
+  END USP_SEL_TIPO_CONTROL;
+
+  PROCEDURE USP_SEL_DETALLE_PARAMETRO(
+        pID_PARAMETRO   IN NUMBER,
+        pRefcursor      OUT SYS_REFCURSOR
+  )AS
+  BEGIN
+        OPEN pRefcursor FOR
+        SELECT  ID_DETALLE, NOMBRE_DETALLE
+        FROM    T_MAED_MRV_PARAMETRO
+        WHERE   ID_PARAMETRO = pID_PARAMETRO;
+  END USP_SEL_DETALLE_PARAMETRO;
+  
+  PROCEDURE USP_SEL_PARAMETRO(
+        pRefcursor  OUT SYS_REFCURSOR
+  )AS
+  BEGIN
+        OPEN pRefcursor FOR        
+        SELECT  ID_PARAMETRO, ID_TIPO_CONTROL, NOMBRE_PARAMETRO
+        FROM    T_MAEM_MRV_PARAMETRO
+        WHERE   FLG_ESTADO = '1';
+  END USP_SEL_PARAMETRO;
+  
+  
+  PROCEDURE USP_SEL_GRUPO_INICIATIVA(
+        pRefcursor  OUT SYS_REFCURSOR
+  )AS
+  BEGIN
+        OPEN pRefcursor FOR
+        SELECT  *
+        FROM    T_MAMEM_GRUPO_INDICADOR
+        WHERE   FLAG_ESTADO = '1';
+  END USP_SEL_GRUPO_INICIATIVA;
+  
+  PROCEDURE USP_SEL_FACTORES(
+        pRefcursor  OUT SYS_REFCURSOR
+  )AS
+  BEGIN
+        OPEN pRefcursor FOR
+        SELECT  *
+        FROM    T_MAEM_MRV_FACTOR;
+  END USP_SEL_FACTORES;
+  
+  PROCEDURE USP_SEL_GET_ID_INDICADOR(
+        pID_INICIATIVA IN NUMBER,
+        pID_ENFOQUE IN NUMBER,
+        pID_MEDMIT IN NUMBER,
+        pRefcursor OUT SYS_REFCURSOR
+  )AS
+  BEGIN
+        OPEN pRefcursor FOR
+        SELECT  (NVL(MAX(ID_INDICADOR),0) + 1) ID
+        FROM    T_MAEM_INDICADOR_DATA
+        WHERE   ID_INICIATIVA = pID_INICIATIVA AND
+                ID_ENFOQUE = pID_ENFOQUE AND
+                ID_MEDMIT = pID_MEDMIT;
+  END USP_SEL_GET_ID_INDICADOR;
+  
+  PROCEDURE USP_INS_INDICADOR_DATA(
+        pID_INICIATIVA IN NUMBER,
+        pID_INDICADOR  IN NUMBER,
+        pID_ENFOQUE IN NUMBER,
+        pID_MEDMIT  IN NUMBER,
+        pID_PARAMETRO IN NUMBER,
+        pVALOR IN VARCHAR2
+  )AS
+  BEGIN
+        INSERT INTO T_MAEM_INDICADOR_DATA (ID_INICIATIVA, ID_INDICADOR, ID_ENFOQUE, ID_MEDMIT, ID_PARAMETRO, VALOR)
+        VALUES (pID_INICIATIVA, pID_INDICADOR, pID_ENFOQUE, pID_MEDMIT, pID_PARAMETRO, pVALOR);
+  END USP_INS_INDICADOR_DATA;
+  
+  PROCEDURE USP_SEL_GET_INDICADORES(
+        pID_INICIATIVA IN NUMBER,
+        pID_ENFOQUE IN NUMBER,
+        pID_MEDMIT IN NUMBER,
+        pRefcursor OUT SYS_REFCURSOR
+  )AS
+  BEGIN
+        OPEN pRefcursor FOR
+        SELECT  DISTINCT IDA.ID_INDICADOR, IDA.ID_ENFOQUE, IDA.ID_INICIATIVA, IDA.ID_MEDMIT
+        FROM    T_MAEM_INDICADOR_DATA IDA
+        WHERE   ID_INICIATIVA = pID_INICIATIVA AND
+                ID_ENFOQUE = pID_ENFOQUE AND
+                ID_MEDMIT = pID_MEDMIT;
+  END USP_SEL_GET_INDICADORES;
+  
+  PROCEDURE USP_SEL_INDICADOR_PARAMETROS(
+        pID_INICIATIVA IN NUMBER,
+        pID_INDICADOR  IN NUMBER,
+        pID_ENFOQUE IN NUMBER,
+        pID_MEDMIT  IN NUMBER,
+        pRefcursor OUT SYS_REFCURSOR
+  )AS
+  BEGIN
+        OPEN pRefcursor FOR
+        SELECT  IDA.ID_INDICADOR, IDA.ID_ENFOQUE, IDA.ID_INICIATIVA, IDA.ID_MEDMIT, IDA.VALOR,
+                MP.ID_TIPO_CONTROL, MP.ID_TIPO_DATO
+        FROM    T_MAEM_INDICADOR_DATA IDA
+        LEFT JOIN T_MAEM_MRV_PARAMETRO MP ON IDA.ID_PARAMETRO = MP.ID_PARAMETRO
+        WHERE   ID_INICIATIVA = pID_INICIATIVA AND
+                ID_ENFOQUE = pID_ENFOQUE AND
+                ID_INDICADOR = pID_INDICADOR AND
+                ID_MEDMIT = pID_MEDMIT;
+  END USP_SEL_INDICADOR_PARAMETROS;
+  
+  PROCEDURE USP_SEL_MED_ENFOQUE_PARAM(
+        pID_MEDMIT  IN NUMBER,
+        pID_ENFOQUE IN NUMBER,
+        pRefcursor      OUT SYS_REFCURSOR
+  )AS
+  BEGIN
+        OPEN pRefcursor FOR        
+        SELECT  MI.ID_ENFOQUE, MP.NOMBRE_PARAMETRO, MI.ORDEN, MI.ID_GRUPO_INDICADOR, MGI.COLOR_GRUPO, MI.ID_PARAMETRO,
+                MP.ID_TIPO_CONTROL, MP.EDITABLE, MP.ID_TIPO_DATO, MP.VERIFICABLE
+        FROM    T_MAEM_INDICADOR MI
+        LEFT JOIN   T_MAEM_MRV_PARAMETRO MP ON MI.ID_PARAMETRO = MP.ID_PARAMETRO
+        LEFT JOIN   T_MAMEM_GRUPO_INDICADOR MGI ON MI.ID_GRUPO_INDICADOR = MGI.ID_GRUPO_INDICADOR        
+        WHERE MI.ID_MEDMIT = pID_MEDMIT AND MI.ID_ENFOQUE = pID_ENFOQUE
+        ORDER BY MI.ID_ENFOQUE ,MI.ORDEN ASC;
+  END USP_SEL_MED_ENFOQUE_PARAM;
+  
+  --////////////////////////////////////////// DINAMICO FINAL  
 
 END PKG_MRV_DETALLE_INDICADORES;
 
@@ -10340,6 +10778,60 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
 		OPEN pRefcursor FOR vQuery;
 
     END USP_SEL_EXCEL_ESCENARIO;
+    
+    
+ --///////////////////////// DINAMICO INICIO
+    
+    PROCEDURE USP_SEL_LISTA_M_INDICADOR(
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+    BEGIN
+        OPEN pRefcursor FOR
+        SELECT DISTINCT  MI.ID_ENFOQUE, MI.ID_MEDMIT, EF.DESCRIPCION ENFOQUE, MM.NOMBRE_MEDMIT MEDIDA_MIT
+        FROM    T_MAEM_INDICADOR MI
+        LEFT JOIN   T_GENM_ENFOQUE EF ON MI.ID_ENFOQUE = EF.ID_ENFOQUE
+        LEFT JOIN   T_MAE_MEDMIT MM ON MI.ID_MEDMIT = MM.ID_MEDMIT
+        ORDER BY MI.ID_MEDMIT, MI.ID_ENFOQUE ASC;  
+    END USP_SEL_LISTA_M_INDICADOR;
+    
+    PROCEDURE USP_SEL_M_INDICADOR(
+        pID_MEDMIT  IN NUMBER,
+        pID_ENFOQUE IN NUMBER,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+    BEGIN
+        OPEN pRefcursor FOR
+        SELECT  MI.ID_ENFOQUE, MI.ID_MEDMIT, MP.NOMBRE_PARAMETRO, MI.ID_GRUPO_INDICADOR, MGI.COLOR_GRUPO, MI.ID_PARAMETRO, MI.ORDEN, MP.ID_TIPO_CONTROL,
+                (SELECT NVL(FORMULA,'') FROM T_MAEM_FORMULA_PARAMETRO MFP WHERE MFP.ID_MEDMIT = MI.ID_MEDMIT AND MFP.ID_ENFOQUE = MI.ID_ENFOQUE AND MFP.ID_PARAMETRO = MP.ID_PARAMETRO) FORMULA
+        FROM    T_MAEM_INDICADOR MI
+        LEFT JOIN   T_MAEM_MRV_PARAMETRO MP ON MI.ID_PARAMETRO = MP.ID_PARAMETRO
+        LEFT JOIN   T_GENM_ENFOQUE EF ON MI.ID_ENFOQUE = EF.ID_ENFOQUE
+        LEFT JOIN   T_MAE_MEDMIT MM ON MI.ID_MEDMIT = MM.ID_MEDMIT
+        LEFT JOIN   T_MAMEM_GRUPO_INDICADOR MGI ON MI.ID_GRUPO_INDICADOR = MGI.ID_GRUPO_INDICADOR
+        WHERE MI.ID_MEDMIT = pID_MEDMIT AND MI.ID_ENFOQUE = pID_ENFOQUE
+        ORDER BY MI.ID_ENFOQUE ,MI.ORDEN ASC;
+    END USP_SEL_M_INDICADOR;
+    
+    PROCEDURE USP_INS_M_INDICADOR(
+        pID_MEDMIT IN NUMBER,
+        pID_ENFOQUE IN NUMBER,
+        pID_TIPO_CONTROL IN NUMBER,
+        pID_PARAMETRO IN NUMBER,
+        pID_GRUPO_INDICADOR IN NUMBER,
+        pID_ORDEN IN NUMBER,
+        pFORMULA IN VARCHAR2
+    )AS
+    BEGIN
+        
+        INSERT INTO T_MAEM_INDICADOR (ID_ENFOQUE, ID_MEDMIT, ID_PARAMETRO, ID_GRUPO_INDICADOR, ORDEN, FLAG_ESTADO)
+        VALUES (pID_ENFOQUE, pID_MEDMIT, pID_PARAMETRO, pID_GRUPO_INDICADOR, pID_ORDEN, '1');
+        
+    END USP_INS_M_INDICADOR;
+
+
+--/////////////////////////////////////////DINAMICO FINAL
+
+    
 
 END PKG_MRV_MANTENIMIENTO;
 
@@ -10582,6 +11074,112 @@ end PKG_MRV_NOTIFICACION;
 
 /
 --------------------------------------------------------
+--  DDL for Package Body PKG_MRV_PARAMETROS
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE BODY "MRVMM"."PKG_MRV_PARAMETROS" is
+
+	PROCEDURE USP_SEL_PARAMETRO(
+		PI_ID_PARAMETRO NUMBER,
+        PO_CURSOR OUT SYS_REFCURSOR
+	)
+    AS
+    BEGIN
+    	OPEN PO_CURSOR FOR
+        SELECT	*
+        FROM	T_MAEM_MRV_PARAMETRO P 
+        WHERE 	(P.ID_PARAMETRO = PI_ID_PARAMETRO OR PI_ID_PARAMETRO = 0);
+
+    END USP_SEL_PARAMETRO;
+
+    PROCEDURE USP_SEL_DET_PARAMETRO(
+		PI_ID_PARAMETRO NUMBER,
+        PO_CURSOR OUT SYS_REFCURSOR
+	)
+    AS
+    BEGIN
+    	OPEN PO_CURSOR FOR
+        SELECT	*
+        FROM	T_MAED_MRV_PARAMETRO P 
+        WHERE 	(P.ID_PARAMETRO = PI_ID_PARAMETRO OR PI_ID_PARAMETRO = 0);
+
+    END USP_SEL_DET_PARAMETRO;
+
+    PROCEDURE USP_SEL_FORMULA_PARAMETRO(
+		PI_ID_PARAMETRO NUMBER,
+        PI_ID_ENFOQUE NUMBER,
+        PI_ID_MEDMIT NUMBER,
+        PO_CURSOR OUT SYS_REFCURSOR
+	)
+    AS
+    BEGIN
+    	OPEN PO_CURSOR FOR
+        SELECT	*
+        FROM	T_MAEM_FORMULA_PARAMETRO P 
+        WHERE 	(P.ID_PARAMETRO = PI_ID_PARAMETRO OR PI_ID_PARAMETRO = 0)
+        		AND ID_ENFOQUE = PI_ID_ENFOQUE
+                AND ID_MEDMIT = PI_ID_MEDMIT;
+
+    END USP_SEL_FORMULA_PARAMETRO;
+
+    PROCEDURE USP_SEL_PARAMETRO_INDICADOR(
+      	PI_ID_PARAMETRO NUMBER,
+        PI_ID_ENFOQUE NUMBER,
+        PI_ID_MEDMIT NUMBER,
+        PO_CURSOR OUT SYS_REFCURSOR
+    )
+    AS
+    BEGIN
+      	OPEN PO_CURSOR FOR
+        SELECT 	*
+        FROM	T_MAEM_INDICADOR I
+        WHERE	I.ID_ENFOQUE = PI_ID_ENFOQUE
+        		AND I.ID_MEDMIT = PI_ID_MEDMIT
+                AND (I.ID_PARAMETRO = PI_ID_PARAMETRO OR PI_ID_PARAMETRO = 0);
+    END USP_SEL_PARAMETRO_INDICADOR;
+
+    PROCEDURE USP_SEL_FACTOR_PARAMETRO(
+        PI_ID_FACTOR NUMBER,
+        PO_CURSOR OUT SYS_REFCURSOR
+    )
+    AS
+    BEGIN
+        OPEN PO_CURSOR FOR
+        SELECT  FP.*, 
+                (SELECT COUNT(1) 
+                FROM    T_MAEM_MRV_FACTOR_PARAMETRO FP 
+                WHERE   FP.ID_FACTOR = PI_ID_FACTOR 
+                        AND FP.ID_PARAMETRO IS NOT NULL) NUMERO_PARAMETROS
+        FROM    T_MAEM_MRV_FACTOR F,
+                T_MAEM_MRV_FACTOR_PARAMETRO FP
+        WHERE   F.ID_FACTOR = PI_ID_FACTOR 
+                AND F.ID_FACTOR = FP.ID_FACTOR
+                AND FP.ID_PARAMETRO IS NOT NULL
+                AND FP.FLAG_ESTADO = '1'
+        ORDER BY FP.ORDEN;
+
+    END USP_SEL_FACTOR_PARAMETRO;
+
+    PROCEDURE USP_SEL_FACTOR_VALOR(
+        PI_ID_FACTOR NUMBER,
+        PI_SQL_WHERE VARCHAR2,
+        PO_CURSOR OUT SYS_REFCURSOR
+    )
+    AS
+        V_SQL VARCHAR2(4000);
+    BEGIN
+        V_SQL := 'SELECT  *
+                FROM    T_MAEM_FACTOR_DATA F 
+                WHERE   F.ID_FACTOR = ' || TO_CHAR(PI_ID_FACTOR) || ' ';
+        V_SQL := V_SQL || PI_SQL_WHERE;
+
+        OPEN PO_CURSOR FOR V_SQL;
+    END USP_SEL_FACTOR_VALOR;
+
+end PKG_MRV_PARAMETROS;
+
+/
+--------------------------------------------------------
 --  DDL for Package Body PKG_MRV_REPORTES
 --------------------------------------------------------
 
@@ -10623,6 +11221,8 @@ end PKG_MRV_NOTIFICACION;
 
   PROCEDURE SP_SEL_INICIATIVAS_RPT(
         pIdIniciativa   integer,
+        pIdSector integer,
+        pIdMedida integer,
         pCursor out SYS_REFCURSOR
   ) AS
   BEGIN
@@ -10630,6 +11230,7 @@ end PKG_MRV_NOTIFICACION;
         
         SELECT  
                         I.ID_INICIATIVA,
+                        M.NUMERO_MEDMIT || '-' || I.ID_INICIATIVA || '-' || EXTRACT(YEAR FROM I.FECHA_IMPLE_INICIATIVA) INDICE,
                         I.FECHA_IMPLE_INICIATIVA,
                         INS.NOMBRE_INSTITUCION,
                         I.NOMBRE_INICIATIVA,
@@ -10645,6 +11246,8 @@ end PKG_MRV_NOTIFICACION;
         INNER JOIN      T_MAE_MONEDA MON ON I.ID_MONEDA=MON.ID_MONEDA
  
         WHERE           (I.ID_INICIATIVA = pIdIniciativa OR pIdIniciativa =0)
+                        AND (I.ID_MEDMIT = pIdMedida OR pIdMedida = 0)
+                        AND (INS.ID_SECTOR_INSTITUCION = pIdSector OR pIdSector = 0)
         ORDER BY        I.FECHA_IMPLE_INICIATIVA ASC;
         
   END SP_SEL_INICIATIVAS_RPT;
