@@ -111,6 +111,42 @@ namespace logica.minem.gob.pe
             return entidad;
         }
 
+        /*==== add 17-02-20==========*/
+        public static IndicadorDataBE RegistraTodosIndicadoresData(IniciativaBE entidad, List<IndicadorDataBE> lista)
+        {
+            IndicadorDataBE ent = null;
+            //int id_indicador = indicador.getIdIndicador(entidad);
+
+            foreach (var item in lista)
+            {
+                int id_indicador = indicador.getIdIndicador(entidad);
+                foreach (var itemD in item.listaInd)
+                {
+                    if (string.IsNullOrEmpty(item.VALOR)) item.VALOR = "";
+                    itemD.ID_INICIATIVA = entidad.ID_INICIATIVA;
+                    itemD.ID_INDICADOR = id_indicador;
+                    ent = indicador.RegistrarDetalleIndicadorData(itemD);
+                    if (!ent.OK)
+                    {
+                        break;
+                    }
+                }
+            }
+
+            //foreach (IndicadorDataBE item in entidad.ListaIndicadoresData)
+            //{
+            //    if (string.IsNullOrEmpty(item.VALOR)) item.VALOR = "";
+            //    item.ID_INICIATIVA = entidad.ID_INICIATIVA;
+            //    item.ID_INDICADOR = id_indicador;
+            //    ent = indicador.RegistrarDetalleIndicadorData(item);
+            //    if (!ent.OK)
+            //    {
+            //        break;
+            //    }
+            //}
+            return ent;
+        }
+
         public static SustentoIniciativaBE RegistraTodosSustentoIniciativa(List<SustentoIniciativaBE> ListaSustentos)
         {
             SustentoIniciativaBE entidad = null;
@@ -177,6 +213,11 @@ namespace logica.minem.gob.pe
         public static int DetalleIndicadorEnfoque(int iniciativa)
         {
             return indicador.DetalleIndicadorEnfoque(iniciativa);
+        }
+
+        public static List<IndicadorDataBE> ListarDatosIndicadorData(IndicadorDataBE entidad)
+        {
+            return indicador.ListarDatosIndicadorData(entidad);
         }
 
         /* NUEVOS PROCEDIMIENTOS */

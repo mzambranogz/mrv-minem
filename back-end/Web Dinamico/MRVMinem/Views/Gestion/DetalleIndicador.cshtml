@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/_SesionLayout.cshtml";
 }
 @Html.HiddenFor(m => m.iniciativa_mit.ID_INICIATIVA)
+@Html.HiddenFor(m => m.medida.ID_MEDMIT)
 
 <div class="container-fluid map-root" id="historia">
     <div class="container">
@@ -336,8 +337,8 @@
                                                                                         <th class="text-hide" scope="col" style="display:none;">Id. Iniciativa</th>
                                                                                     </tr>*@
                                                                                 </thead>
-                                                                                <tbody @*id="cuerpoTablaIndicador"*@ data-row="0" data-total="0" data-delete="">
-                                                                                    <tr id="detalles-tr-1">
+                                                                                <tbody id="cuerpoTablaIndicador-@item.ID_ENFOQUE" data-row="0" data-total="0" data-delete="">
+                                                                                    <tr id="detalles-tr-@fila">
                                                                                         <th class="text-center" data-encabezado="Número" scope="row">1</th>
                                                                                         @foreach (var itemParam in Model.listaParametro)
                                                                                         {
@@ -352,18 +353,32 @@
                                                                                                             @if (itemParam.VERIFICABLE == 1)
                                                                                                             {
                                                                                                                 lista += 1;
-                                                                                                                <select class="form-control form-control-sm" id="cbo-det-tbl-@total_tabla-@lista-@fila" onchange="fn_calcularValor(this)"  data-validar="0">
-                                                                                                                    <option value="0">Seleccionar</option>
-                                                                                                                    @foreach (var itemDetalle in itemParam.listaDetalle)
-                                                                                                                    {
-                                                                                                                        <option value="@itemDetalle.ID_DETALLE">@itemDetalle.NOMBRE_DETALLE</option>
-                                                                                                                    }
-                                                                                                                </select>
+                                                                                                                if (itemParam.ID_PARAMETRO == 6)
+                                                                                                                {
+                                                                                                                    <select class="form-control form-control-sm" id="cbo-det-tbl-@total_tabla-@lista-@fila" onchange="fn_calcularValor(this)" data-validar="0" data-param="@itemParam.ID_PARAMETRO">
+                                                                                                                        <option value="0">Seleccionar</option>
+                                                                                                                        @foreach (var itemDetalle in itemParam.listaDetalle)
+                                                                                                                        {
+                                                                                                                            <option value="@itemDetalle.NOMBRE_DETALLE">@itemDetalle.NOMBRE_DETALLE</option>
+                                                                                                                        }
+                                                                                                                    </select>
+                                                                                                                }
+                                                                                                                else
+                                                                                                                {
+                                                                                                                    <select class="form-control form-control-sm" id="cbo-det-tbl-@total_tabla-@lista-@fila" onchange="fn_calcularValor(this)" data-validar="0" data-param="@itemParam.ID_PARAMETRO">
+                                                                                                                        <option value="0">Seleccionar</option>
+                                                                                                                        @foreach (var itemDetalle in itemParam.listaDetalle)
+                                                                                                                        {
+                                                                                                                            <option value="@itemDetalle.ID_DETALLE">@itemDetalle.NOMBRE_DETALLE</option>
+                                                                                                                        }
+                                                                                                                    </select>
+                                                                                                                }
+
                                                                                                             }
                                                                                                             else
                                                                                                             {
                                                                                                                 lista += 1;
-                                                                                                                <select class="form-control form-control-sm" id="cbo-det-tbl-@total_tabla-@lista-@fila">
+                                                                                                                <select class="form-control form-control-sm" id="cbo-det-tbl-@total_tabla-@lista-@fila" data-param="@itemParam.ID_PARAMETRO">
                                                                                                                     <option value="">Seleccionar</option>
                                                                                                                     @foreach (var itemDetalle in itemParam.listaDetalle)
                                                                                                                     {
@@ -383,18 +398,18 @@
                                                                                                                 if (itemParam.ID_TIPO_DATO == 1)
                                                                                                                 {
                                                                                                                     fecha += 1;
-                                                                                                                    <input class="form-control form-control-sm text-center" type="date" placeholder="" id="fch-det-tbl-@total_tabla-@fecha-@fila">
+                                                                                                                    <input class="form-control form-control-sm text-center" type="date" placeholder="" id="fch-det-tbl-@total_tabla-@fecha-@fila" data-param="@itemParam.ID_PARAMETRO">
                                                                                                                 }
                                                                                                                 else
                                                                                                                 {
                                                                                                                     texto += 1;
                                                                                                                     if (itemParam.VERIFICABLE == 0)
                                                                                                                     {
-                                                                                                                        <input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-@total_tabla-@texto-@fila">
+                                                                                                                        <input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-@total_tabla-@texto-@fila" data-param="@itemParam.ID_PARAMETRO">
                                                                                                                     }
                                                                                                                     else
                                                                                                                     {
-                                                                                                                        <input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-@total_tabla-@texto-@fila" onBlur="fn_calcularValor(this)" data-validar="0">
+                                                                                                                        <input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-@total_tabla-@texto-@fila" onBlur="fn_calcularValor(this)" data-validar="0" data-param="@itemParam.ID_PARAMETRO">
                                                                                                                     }
 
                                                                                                                 }
@@ -402,7 +417,7 @@
                                                                                                             else
                                                                                                             {
                                                                                                                 texto += 1;
-                                                                                                                <input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-@total_tabla-@texto-@fila" readonly>
+                                                                                                                <input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-@total_tabla-@texto-@fila" data-param="@itemParam.ID_PARAMETRO" readonly>
                                                                                                             }
 
                                                                                                         </div>

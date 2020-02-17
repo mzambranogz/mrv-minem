@@ -246,9 +246,24 @@
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup20"><i class="fas fa-square-root-alt"></i></span></div>
                                                 <select class="form-control" id="cbo-enfoque" aria-describedby="inputGroup20">
-                                                    <option value="0">-Seleccione-</option>
-                                                    <option selected value="1">Vehículo Eléctrico</option>
-                                                    <option value="2">Vehículo Híbrido</option>
+                                                    @*<option value="0">-Seleccione-</option>*@
+                                                    @if (Model.listaEnfoque != null)
+                                                    {
+                                                        foreach (var item in Model.listaEnfoque)
+                                                        {
+                                                            if (Model.menor == item.ID_ENFOQUE)
+                                                            {
+                                                                <option selected value="@item.ID_ENFOQUE">@item.DESCRIPCION</option>
+                                                            }
+                                                            else
+                                                            {
+                                                                <option value="@item.ID_ENFOQUE">@item.DESCRIPCION</option>
+                                                            }
+
+                                                        }
+                                                    }
+                                                    @*<option selected value="1">Vehículo Eléctrico</option>
+                                                    <option value="2">Vehículo Híbrido</option>*@
                                                     @*<option>Enfoque 03</option>
                                                         <option>Enfoque 04</option>*@
                                                 </select>
@@ -257,7 +272,11 @@
                                     </div>
                                     <div class="col-sm-12-col-md-12 col-lg-6">
                                         <div class="form-group">
-                                            <label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="~/documentos/4.1 Plantilla_Electricos_Masivo.xlsm" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>
+
+                                            <div id="ruta-masivo">
+                                                <label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="~/documentos/4.1 Plantilla_Electricos_Masivo.xlsm" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>
+                                            </div>
+                                            
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup13"><i class="fas fa-file-excel"></i></span></div>
                                                 <input class="form-control cursor-pointer txt-file-control" type="text" id="txt-declaracion" placeholder="Suba su plantilla" aria-describedby="inputGroup13" required>
@@ -646,4 +665,5 @@
     document.getElementById('fledocumentos').addEventListener('change', handleFileSelect, false);
     document.getElementById('fledeclaracion').addEventListener('change', fn_CargarExcel, false);
 </script>
-<script src="~/js/DetalleIndicadorMasivo.js"></script>
+@*<script src="~/js/DetalleIndicadorMasivo.js"></script>*@
+<script src="~/js/DetalleIndicador.js"></script>

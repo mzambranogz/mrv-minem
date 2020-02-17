@@ -26,4 +26,7 @@
     if ($("#cbo-tabla-mantenimiento").val() == 9) {
         location.href = baseUrl + "Mantenimiento/Escenarios";
     }
+    if ($("#cbo-tabla-mantenimiento").val() == 10) {
+        location.href = baseUrl + "Mantenimiento/MedidaMitigacionDetalle";
+    }
 }

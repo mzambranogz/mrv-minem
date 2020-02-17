@@ -21,5 +21,10 @@ namespace logica.minem.gob.pe
         {
             return parametroDA.listarParametroControl();
         }
+
+        public static List<ParametroBE> ListarParametroEnfoque(ParametroBE entidad)
+        {
+            return parametroDA.listarParametroEnfoque(entidad);
+        }
     }
 }

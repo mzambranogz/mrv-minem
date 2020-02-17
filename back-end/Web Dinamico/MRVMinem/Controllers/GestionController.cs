@@ -681,10 +681,47 @@ namespace MRVMinem.Controllers
                     }
                 }
 
-                IndicadorBE indicador = null;
-                if (entidad.ListaIndicadores != null)
+                //==========================================================
+
+                List<IndicadorDataBE> listaDataE = new List<IndicadorDataBE>();
+                var valores = entidad.DATA.Split('/');
+
+                for (int i = 0; i < valores.Length; i++)
                 {
-                    indicador = IndicadorLN.RegistraTodosIndicadores(entidad.ListaIndicadores);
+                    var valores_det = valores[i].Split('|');
+                    IndicadorDataBE dataE = new IndicadorDataBE();
+                    List<IndicadorDataBE> listaP = new List<IndicadorDataBE>();
+                    for (int j = 0; j < valores_det.Length; j++)
+                    {
+                        var parametros = valores_det[j].Split(',');                        
+
+                        IndicadorDataBE ind = new IndicadorDataBE();
+                        ind.ID_ENFOQUE = Convert.ToInt32(parametros[0]);
+                        ind.ID_MEDMIT = Convert.ToInt32(parametros[1]);
+                        ind.ID_PARAMETRO = Convert.ToInt32(parametros[2]);
+                        if (Convert.ToString(parametros[3]) == "0")
+                        {
+                           ind.VALOR = "";
+                        }
+                        else
+                        {
+                           ind.VALOR = Convert.ToString(parametros[3]);
+                        }
+                        listaP.Add(ind);                        
+                    }
+                    dataE.listaInd = listaP;
+                    listaDataE.Add(dataE);
+                }
+
+                //============================================================
+
+                //IndicadorBE indicador = null;
+                IndicadorDataBE indicador = null;
+                //if (entidad.ListaIndicadores != null)
+                if (listaDataE != null)
+                {
+                    //indicador = IndicadorLN.RegistraTodosIndicadores(entidad.ListaIndicadores);
+                    indicador = IndicadorLN.RegistraTodosIndicadoresData(entidad, listaDataE);
                     if (!indicador.OK)
                     {
                         itemRespuesta.success = false;
@@ -1625,14 +1662,11 @@ namespace MRVMinem.Controllers
 
         public JsonResult CalcularIndicadorDinamico(string Valor)
         {
-            ResponseEntity itemRespuesta = new ResponseEntity();
-
             List<IndicadorDataBE> listaP = new List<IndicadorDataBE>();
             var valores = Valor.Split('|');
 
             for(int i = 0; i < valores.Length; i++)
             {
-
                 var valores_det = valores[i].Split(',');
 
                 IndicadorDataBE p = new IndicadorDataBE();
@@ -1651,37 +1685,32 @@ namespace MRVMinem.Controllers
                 listaP.Add(p);
             }
 
-            var l = listaP;
+           // var l = listaP;
 
-            IndicadorLN.CalculoIndicador(listaP);
-            //string valor = Valor;
-            //var valores = valor.Split(',');
-            //string formula = "[P4]*[C1000]/[F5]";
-            //int i = 0;
-            //string p = formula.Substring(i,1);
-            //if (p == "[")
-            //{
-            //    var p2 = formula.Substring(i, formula.IndexOf(']') + 1);
-            //    formula = formula.Substring(formula.IndexOf(']') + 1, formula.Length - formula.IndexOf(']') - 1);
-            //}else if (p == "(")
-            //{
-
-            //}else
-            //{
-            //    switch (p)
-            //    {
-            //        case "+": break;
-            //        case "-": break;
-            //    }
-            //}
-
-            itemRespuesta.success = true;
-            return Respuesta(itemRespuesta);
+            listaP = IndicadorLN.CalculoIndicador(listaP);
+            var jsonResult = Json(listaP, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
 
         public JsonResult ListarEnfoqueMedida(EnfoqueBE entidad)
         {
             List<EnfoqueBE> lista = EnfoqueLN.listarEnfoqueMedida(entidad.ID_MEDMIT);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListarCuerpoIndicador(ParametroBE entidad)
+        {
+            List<ParametroBE> lista = ParametroLN.ListarParametroEnfoque(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+        public JsonResult ListarDatosIndicadorData(IndicadorDataBE entidad)
+        {
+            List<IndicadorDataBE> lista = IndicadorLN.ListarDatosIndicadorData(entidad);
             var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;

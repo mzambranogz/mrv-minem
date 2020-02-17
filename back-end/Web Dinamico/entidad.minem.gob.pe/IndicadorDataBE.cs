@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace entidad.minem.gob.pe
 {
-    public class IndicadorDataBE : BaseBE
+    public partial class IndicadorDataBE : BaseBE
     {
         public int ID_INICIATIVA { get; set; }
         public int ID_INDICADOR { get; set; }
@@ -14,5 +14,6 @@ namespace entidad.minem.gob.pe
         public int ID_MEDMIT { get; set; }
         public int ID_PARAMETRO { get; set; }
         public string VALOR { get; set; }
+        public List<IndicadorDataBE> listaInd { get; set; }
     }
 }

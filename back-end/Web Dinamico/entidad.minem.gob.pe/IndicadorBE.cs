@@ -70,6 +70,7 @@ namespace entidad.minem.gob.pe
         public string EMAIL_USUARIO { get; set; }
         public string FECHA { get; set; }
         public string PLACA { get; set; }
+        
 
     }
 }

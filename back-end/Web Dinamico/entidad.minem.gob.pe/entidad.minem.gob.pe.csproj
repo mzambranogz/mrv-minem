@@ -55,6 +55,7 @@
     <Compile Include="GasEfectoInvernaderoBE.cs" />
     <Compile Include="GrupoIndicadorBE.cs" />
     <Compile Include="IndicadorBE.cs" />
+    <Compile Include="IndicadorDataAuxBE.cs" />
     <Compile Include="IndicadorDataBE.cs" />
     <Compile Include="IndicadorMetaDataBE.cs" />
     <Compile Include="IniciativaAuxBE.cs" />

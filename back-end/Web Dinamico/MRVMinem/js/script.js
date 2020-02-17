@@ -7848,7 +7848,15 @@ function() {
 				i = t.parent().parent().parent().parent().parent(),
 				o = t.parent().parent().parent().parent().clone().html(),
 				r = i.find("th").length + 1;
-			i.append("<tr id='detalles-tr-" + r + "'>" + o + "</tr>"), $(".dropdown-menu").removeClass("show"), m(n)
+            i.append("<tr id='detalles-tr-" + r + "'>" + o + "</tr>"), $(".dropdown-menu").removeClass("show"), m(n);
+
+            var campos = $("#enfoque-" + $("#cbo-enfoque").val()).find("tbody").find("#detalles-tr-" + r).find("[data-validar]");
+            campos.each(function (index, value) {
+                $(value).attr({
+                    "data-validar": 0
+                })
+            });
+
 		}), $(document).on("click", ".quitarCampos", function(e) {
 			e.preventDefault();
 			var t = $(this);

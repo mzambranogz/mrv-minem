@@ -2274,6 +2274,8 @@ function validarCampoHC(fila) {
 //==============================================================================================================
 
 function fn_calcular(fila) {
+
+
     var enfoque = $("#cbo-enfoque").val();
     if (enfoque == 1) {
         if (validarCampoE(fila)) {
@@ -2461,107 +2463,138 @@ function CargarArchivosGuardados() {
 function fn_procesoDetalleIndicador(url, estado) {
     indicadores = [];
     documentos = [];
-    var enfoque = $("#cbo-enfoque").val();
-
-    var n = $(".tabla-detalle-indicadores").find("tbody").find("th").length + 1;
-
-    if (enfoque == 1) {
-        for (var fila = 1 ; fila < n; fila++) {
-            if ($("#txt-det-7-" + fila).val() != '') {
-                var itx = {
-                    ID_INDICADOR: $("#txt-det-8-" + fila).val(),
-                    ID_INICIATIVA: $("#Control").data("iniciativa"),
-                    ANNOB: $("#cbo-det-1-" + fila).val(),
-                    INICIO_OPERACIONES: $("#dat-det-1-" + fila).val(),
-                    ID_TIPO_VEHICULOB: $("#cbo-det-2-" + fila).val(),
-                    ID_TIPO_COMBUSTIBLEB: $("#cbo-det-3-" + fila).val(),
-                    KRVB: $("#txt-det-1-" + fila).val(),
-                    CANTIDADB: $("#txt-det-2-" + fila).val(),
-                    FACTOR_RENDIMIENTO: $("#txt-det-3-" + fila).val(),
-                    PLACA: $("#txt-det-4-" + fila).val(),
-                    TOTAL_GEI_BASE: $("#txt-det-5-" + fila).val(),
-                    TOTAL_GEI_INIMIT: $("#txt-det-6-" + fila).val(),
-                    TOTAL_GEI_REDUCIDO: $("#txt-det-7-" + fila).val(),
-                    ID_TIPO_FUENTEI: 1,
-                    ID_ENFOQUE: $("#cbo-enfoque").val(),
-                    ADJUNTO_BASE: $("#fledoc-" + fila).val()
-                }
-                indicadores.push(itx);
-            }
-        }
-    } else if (enfoque == 2) {
-        for (var fila = 1 ; fila < n; fila++) {
-            if ($("#txt-det-8-" + fila).val() != '') {
-                var itx = {
-                    ID_INDICADOR: $("#txt-det-9-" + fila).val(),
-                    ID_INICIATIVA: $("#Control").data("iniciativa"),
-                    ANNOB: $("#cbo-det-1-" + fila).val(),
-                    INICIO_OPERACIONES: $("#dat-det-1-" + fila).val(),
-                    ID_TIPO_VEHICULOB: $("#cbo-det-2-" + fila).val(),
-                    ID_TIPO_COMBUSTIBLEB: $("#cbo-det-3-" + fila).val(),
-                    KRVB: $("#txt-det-1-" + fila).val(),
-                    KRV_COMBUSTIBLE: $("#txt-det-2-" + fila).val(),
-                    CANTIDADB: $("#txt-det-3-" + fila).val(),
-                    FACTOR_RENDIMIENTO: $("#txt-det-4-" + fila).val(),
-                    PLACA: $("#txt-det-5-" + fila).val(),
-                    TOTAL_GEI_BASE: $("#txt-det-6-" + fila).val(),
-                    TOTAL_GEI_INIMIT: $("#txt-det-7-" + fila).val(),
-                    TOTAL_GEI_REDUCIDO: $("#txt-det-8-" + fila).val(),
-                    ID_TIPO_FUENTEI: 2,
-                    ID_ENFOQUE: $("#cbo-enfoque").val(),
-                    ADJUNTO_BASE: $("#fledoc-" + fila).val()
-                }
-                indicadores.push(itx);
-            }
-        }
-    } else if (enfoque == 3) {
-        for (var fila = 1 ; fila < n; fila++) {
-            if ($("#txt-det-5-" + fila).val() != '') {
-                var itx = {
-                    ID_INDICADOR: $("#txt-det-6-" + fila).val(),
-                    ID_INICIATIVA: $("#Control").data("iniciativa"),
-                    ANNOB: $("#cbo-det-1-" + fila).val(),
-                    INICIO_OPERACIONES: $("#dat-det-1-" + fila).val(),
-                    ID_TIPO_VEHICULOB: $("#cbo-det-2-" + fila).val(),
-                    ID_TIPO_COMBUSTIBLEB: $("#cbo-det-3-" + fila).val(),
-                    CONSUMO_ELECTRICIDAD: $("#txt-det-1-" + fila).val(),
-                    PLACA: $("#txt-det-2-" + fila).val(),
-                    TOTAL_GEI_BASE: $("#txt-det-3-" + fila).val(),
-                    TOTAL_GEI_INIMIT: $("#txt-det-4-" + fila).val(),
-                    TOTAL_GEI_REDUCIDO: $("#txt-det-5-" + fila).val(),
-                    //ID_TIPO_FUENTEI: $("#cbo-enfoque").val(),
-                    ID_ENFOQUE: $("#cbo-enfoque").val(),
-                    ADJUNTO_BASE: $("#fledoc-" + fila).val()
-                }
-                indicadores.push(itx);
-            }
-        }
-    } else if (enfoque == 4) {
-        for (var fila = 1 ; fila < n; fila++) {
-            if ($("#txt-det-6-" + fila).val() != '') {
-                var itx = {
-                    ID_INDICADOR: $("#txt-det-7-" + fila).val(),
-                    ID_INICIATIVA: $("#Control").data("iniciativa"),
-                    ANNOB: $("#cbo-det-1-" + fila).val(),
-                    INICIO_OPERACIONES: $("#dat-det-1-" + fila).val(),
-                    ID_TIPO_VEHICULOB: $("#cbo-det-2-" + fila).val(),
-                    ID_TIPO_COMBUSTIBLEB: $("#cbo-det-3-" + fila).val(),
-                    CONSUMO_ELECTRICIDAD: $("#txt-det-1-" + fila).val(),
-                    CONSUMO_COMBUSTIBLE: $("#txt-det-2-" + fila).val(),
-                    PLACA: $("#txt-det-3-" + fila).val(),
-                    TOTAL_GEI_BASE: $("#txt-det-4-" + fila).val(),
-                    TOTAL_GEI_INIMIT: $("#txt-det-5-" + fila).val(),
-                    TOTAL_GEI_REDUCIDO: $("#txt-det-6-" + fila).val(),
-                    //ID_TIPO_FUENTEI: $("#cbo-enfoque").val(),
-                    ID_ENFOQUE: $("#cbo-enfoque").val(),
-                    ADJUNTO_BASE: $("#fledoc-" + fila).val()
-                }
-                indicadores.push(itx);
-            }
-        }
-    }
-
     debugger;
+    var medida = $("#Control").data("mitigacion");
+    var enfoque = $("#cbo-enfoque").val();
+    var parametros = "";
+    var n = $(".tabla-detalle-indicadores-"+ enfoque).find("tbody").find("th").length + 1;
+
+    for (var fila = 1 ; fila < n; fila++) {
+        var enfoque = $("#cbo-enfoque").val();
+        var filas = $("#enfoque-" + enfoque).find("tbody").find("#detalles-tr-" + fila).find("[data-param]");
+        if (fn_validarCampoReg(fila)) {
+            filas.each(function (index, value) {
+                parametros += enfoque + ",";
+                parametros += medida + ",";
+                parametros += $(value).attr("data-param") + ",";
+                parametros += $("#" + $(value).attr("id")).val() + "|";
+                //var itx = {
+                    //ID_FILA: fila,
+                    //ID_ENFOQUE: enfoque,
+                    //ID_MEDMIT: medida,
+                    //ID_PARAMETRO: $(value).attr("data-param"),
+                    //VALOR: $("#" + $(value).attr("id")).val()
+                //};
+                //indicadores.push(itx);
+            });
+            parametros = parametros.substring(0, parametros.length - 1);
+        }
+        parametros += "/";
+            //parametros += enfoque + ",";
+            //parametros += medida + ",";
+            //parametros += $(value).attr("data-param") + ",";
+            //parametros += $("#" + $(value).attr("id")).val() + "|";
+        //});
+        
+    }
+    parametros = parametros.substring(0, parametros.length - 1);
+    //parametros = parametros.substring(0, parametros.length - 1);
+    //if (enfoque == 1) {
+    //    for (var fila = 1 ; fila < n; fila++) {
+    //        if ($("#txt-det-7-" + fila).val() != '') {
+    //            var itx = {
+    //                ID_INDICADOR: $("#txt-det-8-" + fila).val(),
+    //                ID_INICIATIVA: $("#Control").data("iniciativa"),
+    //                ANNOB: $("#cbo-det-1-" + fila).val(),
+    //                INICIO_OPERACIONES: $("#dat-det-1-" + fila).val(),
+    //                ID_TIPO_VEHICULOB: $("#cbo-det-2-" + fila).val(),
+    //                ID_TIPO_COMBUSTIBLEB: $("#cbo-det-3-" + fila).val(),
+    //                KRVB: $("#txt-det-1-" + fila).val(),
+    //                CANTIDADB: $("#txt-det-2-" + fila).val(),
+    //                FACTOR_RENDIMIENTO: $("#txt-det-3-" + fila).val(),
+    //                PLACA: $("#txt-det-4-" + fila).val(),
+    //                TOTAL_GEI_BASE: $("#txt-det-5-" + fila).val(),
+    //                TOTAL_GEI_INIMIT: $("#txt-det-6-" + fila).val(),
+    //                TOTAL_GEI_REDUCIDO: $("#txt-det-7-" + fila).val(),
+    //                ID_TIPO_FUENTEI: 1,
+    //                ID_ENFOQUE: $("#cbo-enfoque").val(),
+    //                ADJUNTO_BASE: $("#fledoc-" + fila).val()
+    //            }
+    //            indicadores.push(itx);
+    //        }
+    //    }
+    //} else if (enfoque == 2) {
+    //    for (var fila = 1 ; fila < n; fila++) {
+    //        if ($("#txt-det-8-" + fila).val() != '') {
+    //            var itx = {
+    //                ID_INDICADOR: $("#txt-det-9-" + fila).val(),
+    //                ID_INICIATIVA: $("#Control").data("iniciativa"),
+    //                ANNOB: $("#cbo-det-1-" + fila).val(),
+    //                INICIO_OPERACIONES: $("#dat-det-1-" + fila).val(),
+    //                ID_TIPO_VEHICULOB: $("#cbo-det-2-" + fila).val(),
+    //                ID_TIPO_COMBUSTIBLEB: $("#cbo-det-3-" + fila).val(),
+    //                KRVB: $("#txt-det-1-" + fila).val(),
+    //                KRV_COMBUSTIBLE: $("#txt-det-2-" + fila).val(),
+    //                CANTIDADB: $("#txt-det-3-" + fila).val(),
+    //                FACTOR_RENDIMIENTO: $("#txt-det-4-" + fila).val(),
+    //                PLACA: $("#txt-det-5-" + fila).val(),
+    //                TOTAL_GEI_BASE: $("#txt-det-6-" + fila).val(),
+    //                TOTAL_GEI_INIMIT: $("#txt-det-7-" + fila).val(),
+    //                TOTAL_GEI_REDUCIDO: $("#txt-det-8-" + fila).val(),
+    //                ID_TIPO_FUENTEI: 2,
+    //                ID_ENFOQUE: $("#cbo-enfoque").val(),
+    //                ADJUNTO_BASE: $("#fledoc-" + fila).val()
+    //            }
+    //            indicadores.push(itx);
+    //        }
+    //    }
+    //} else if (enfoque == 3) {
+    //    for (var fila = 1 ; fila < n; fila++) {
+    //        if ($("#txt-det-5-" + fila).val() != '') {
+    //            var itx = {
+    //                ID_INDICADOR: $("#txt-det-6-" + fila).val(),
+    //                ID_INICIATIVA: $("#Control").data("iniciativa"),
+    //                ANNOB: $("#cbo-det-1-" + fila).val(),
+    //                INICIO_OPERACIONES: $("#dat-det-1-" + fila).val(),
+    //                ID_TIPO_VEHICULOB: $("#cbo-det-2-" + fila).val(),
+    //                ID_TIPO_COMBUSTIBLEB: $("#cbo-det-3-" + fila).val(),
+    //                CONSUMO_ELECTRICIDAD: $("#txt-det-1-" + fila).val(),
+    //                PLACA: $("#txt-det-2-" + fila).val(),
+    //                TOTAL_GEI_BASE: $("#txt-det-3-" + fila).val(),
+    //                TOTAL_GEI_INIMIT: $("#txt-det-4-" + fila).val(),
+    //                TOTAL_GEI_REDUCIDO: $("#txt-det-5-" + fila).val(),
+    //                //ID_TIPO_FUENTEI: $("#cbo-enfoque").val(),
+    //                ID_ENFOQUE: $("#cbo-enfoque").val(),
+    //                ADJUNTO_BASE: $("#fledoc-" + fila).val()
+    //            }
+    //            indicadores.push(itx);
+    //        }
+    //    }
+    //} else if (enfoque == 4) {
+    //    for (var fila = 1 ; fila < n; fila++) {
+    //        if ($("#txt-det-6-" + fila).val() != '') {
+    //            var itx = {
+    //                ID_INDICADOR: $("#txt-det-7-" + fila).val(),
+    //                ID_INICIATIVA: $("#Control").data("iniciativa"),
+    //                ANNOB: $("#cbo-det-1-" + fila).val(),
+    //                INICIO_OPERACIONES: $("#dat-det-1-" + fila).val(),
+    //                ID_TIPO_VEHICULOB: $("#cbo-det-2-" + fila).val(),
+    //                ID_TIPO_COMBUSTIBLEB: $("#cbo-det-3-" + fila).val(),
+    //                CONSUMO_ELECTRICIDAD: $("#txt-det-1-" + fila).val(),
+    //                CONSUMO_COMBUSTIBLE: $("#txt-det-2-" + fila).val(),
+    //                PLACA: $("#txt-det-3-" + fila).val(),
+    //                TOTAL_GEI_BASE: $("#txt-det-4-" + fila).val(),
+    //                TOTAL_GEI_INIMIT: $("#txt-det-5-" + fila).val(),
+    //                TOTAL_GEI_REDUCIDO: $("#txt-det-6-" + fila).val(),
+    //                //ID_TIPO_FUENTEI: $("#cbo-enfoque").val(),
+    //                ID_ENFOQUE: $("#cbo-enfoque").val(),
+    //                ADJUNTO_BASE: $("#fledoc-" + fila).val()
+    //            }
+    //            indicadores.push(itx);
+    //        }
+    //    }
+    //}
+
     for (var i = 0, len = storedFiles.length; i < len; i++) {
         var sux = {
             ID_INICIATIVA: $("#Control").data("iniciativa"),
@@ -2579,7 +2612,7 @@ function fn_procesoDetalleIndicador(url, estado) {
     if (archivos == "") archivos = "|";
 
     var id_delete = "";
-    if ($("#cuerpoTablaIndicador").data("delete") != "") {
+    if ($("#cuerpoTablaIndicador-"+ enfoque).data("delete") != "") {
         id_delete = $("#cuerpoTablaIndicador").data("delete");
         id_delete = id_delete.substring(0, id_delete.length - 1);
     }
@@ -2597,7 +2630,11 @@ function fn_procesoDetalleIndicador(url, estado) {
         ID_INDICADOR_DELETE: id_delete,
         ID_INDICADOR_ELIMINAR: id_eliminar,
         ID_ESTADO: estado,
-        ListaIndicadores: indicadores,
+        ID_ENFOQUE: enfoque,
+        ID_MEDMIT: medida,
+        DATA: parametros,
+        //ListaIndicadores: indicadores,
+        //ListaIndicadoresData: indicadores,
         ListaSustentos: documentos,
         extra: archivos
     };
@@ -2615,7 +2652,11 @@ function fn_procesoDetalleIndicador(url, estado) {
             ID_INDICADOR_DELETE: id_delete,
             ID_INDICADOR_ELIMINAR: id_eliminar,
             ID_ESTADO: estado,
-            ListaIndicadores: indicadores,
+            ID_ENFOQUE: enfoque,
+            ID_MEDMIT: medida,
+            DATA: parametros,
+            //ListaIndicadores: indicadores,
+            //ListaIndicadoresData: indicadores,
             ListaSustentos: documentos,
             extra: archivos
         }),
@@ -2632,7 +2673,8 @@ function fn_procesoDetalleIndicador(url, estado) {
         },
         success: function (response, textStatus, myXhr) {
             if (response.success) {
-                CargarDetalleDatos();                
+                //CargarDetalleDatos();    
+                CargarDatosGuardados();
                 CargarArchivosGuardados();
                 $("#cuerpoTablaIndicador").data("delete", "");
                 $("#total-documentos").data("eliminarfile", "");
@@ -2919,6 +2961,192 @@ function CargarDetalleDatos() {
     });
 }
 
+function CargarCuerpoGuardado(filas, num_tabla) {
+    var medida = $("#Control").data("mitigacion");
+    var enfoque = $("#cbo-enfoque").val();
+    var iniciativa = $("#Control").data("iniciativa");
+    var item = {
+        ID_INICIATIVA: iniciativa,
+        ID_MEDMIT: medida,
+        ID_ENFOQUE: enfoque
+    }
+    $.ajax({
+        async: false,
+        url: baseUrl + 'Gestion/ListarCuerpoIndicador',
+        type: 'POST',
+        datatype: 'json',
+        data: item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    $("#cuerpoTablaIndicador-" + $("#cbo-enfoque").val()).html("");
+                    for (var i = 0; i < filas; i++){
+                        var lista = 0;
+                        var texto = 0;
+                        var fecha = 0;
+                        var tr = "";
+                        tr += '<tr id="detalles-tr-'+ ( i + 1) +'">';
+                        tr += '     <th class="text-center" data-encabezado="Número" scope="row">'+ (i + 1) +'</th>';
+                        for (var j = 0; j < data.length; j++) {
+                            
+                            if (data[j]["ID_TIPO_CONTROL"] == 1){
+                                tr += '<td data-encabezado="Columna 07">';
+                                tr += '     <div class="form-group m-0">';
+                                if(data[j]["VERIFICABLE"] == 1){
+                                    lista++;
+                                    if (data[j]["ID_PARAMETRO"] == 6){
+                                        tr += '<select class="form-control form-control-sm" id="cbo-det-'+ num_tabla +'-'+ lista +'-'+ (i + 1) +'" onchange="fn_calcularValor(this)" data-validar="0" data-param="'+ data[j]["ID_PARAMETRO"] +'">';
+                                        tr += '        <option value="0">Seleccionar</option>';
+                                        var listaD = data[j]["listaDetalle"];
+                                        for (var m = 0; m < listaD.length; m++){
+                                            tr += '<option value="'+ listaD[m]["NOMBRE_DETALLE"] +'">'+ listaD[m]["NOMBRE_DETALLE"] +'</option>';
+                                        }
+                                        tr += '</select>';
+                                    }else{
+                                        tr += '<select class="form-control form-control-sm" id="cbo-det-'+ num_tabla +'-'+ lista +'-'+ (i + 1) +'" onchange="fn_calcularValor(this)" data-validar="0" data-param="'+ data[j]["ID_PARAMETRO"] +'">';
+                                        tr += '        <option value="0">Seleccionar</option>';
+                                        var listaD = data[j]["listaDetalle"];
+                                        for (var m = 0; m < listaD.length; m++){
+                                            tr += '<option value="'+ listaD[m]["ID_DETALLE"] +'">'+ listaD[m]["NOMBRE_DETALLE"] +'</option>';
+                                        }
+                                        tr += '</select>';
+                                    }
+                                }else{
+                                    lista++;
+                                    tr += '<select class="form-control form-control-sm" id="cbo-det-'+ num_tabla +'-'+ lista +'-'+ (i + 1) +'" data-param="'+ data[j]["ID_PARAMETRO"] +'">';
+                                    tr += '        <option value="0">Seleccionar</option>';
+                                    var listaD = data[j]["listaDetalle"];
+                                    for (var m = 0; m < listaD.length; m++){
+                                        tr += '<option value="'+ listaD[m]["ID_DETALLE"] +'">'+ listaD[m]["NOMBRE_DETALLE"] +'</option>';
+                                    }
+                                    tr += '</select>';
+                                }
+                            }else if (data[j]["ID_TIPO_CONTROL"] == 2){
+                                tr += '<td data-encabezado="Columna 02">';
+                                tr += '    <div class="form-group m-0">';
+                                if (data[j]["EDITABLE"] == 1){
+                                    if (data[j]["ID_TIPO_DATO"] == 1){
+                                        fecha++;
+                                        tr += '<input class="form-control form-control-sm text-center" type="date" placeholder="" id="fch-det-'+ num_tabla +'-'+ fecha +'-'+ (i + 1) +'" data-param="'+ data[j]["ID_PARAMETRO"] +'">';
+                                    }else{
+                                        texto++;
+                                        if (data[j]["VERIFICABLE"] == 0){
+                                            tr += '<input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-'+ num_tabla +'-'+ texto +'-'+(i + 1)+'" data-param="'+ data[j]["ID_PARAMETRO"] +'">';
+                                        }else{
+                                            tr += '<input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-'+ num_tabla +'-'+ texto +'-'+(i + 1)+'" onBlur="fn_calcularValor(this)" data-validar="0" data-param="'+ data[j]["ID_PARAMETRO"] +'">';
+                                        }
+                                    }
+                                }else{
+                                    texto++;
+                                    tr += '<input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-'+ num_tabla +'-'+ texto +'-'+(i + 1)+'" data-param="'+ data[j]["ID_PARAMETRO"] +'" readonly>';
+                                }
+                                tr += '    </div>';
+                                tr += '</td>'
+                            }
+                        }
+                        tr += '<td class="text-center text-xs-right" data-encabezado="Acciones">';
+                        tr += '     <div class="btn-group">';
+                        tr += '          <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
+                        tr += '          <div class="dropdown-menu dropdown-menu-right">';
+                        tr += '               <a class="dropdown-item agregarCampos" href="#"><i class="fas fa-plus-circle"></i>&nbsp;Agregar</a>';
+                        tr += '               <a class="dropdown-item quitarCampos" href="#"><i class="fas fa-minus-circle"></i>&nbsp;Eliminar</a>';
+                        tr += '          </div>';
+                        tr += '     </div>';
+                        tr += '</td>';
+                        tr += '</tr>';
+                        $("#cuerpoTablaIndicador-" + $("#cbo-enfoque").val()).append(tr);
+                    }
+
+                    //var total = 0.0;
+                    //for (var i = 0; i < data.length; i++) {
+                    //    debugger;
+                    //    var entidad = data[i]["listaInd"]
+                    //    for (var j = 0; j < entidad.length; j++) {
+                    //        debugger;
+                    //        for (var m = 0; m < entidad.length; m++) {
+                    //            debugger;
+                    //            var a = entidad[m]["VALOR"];
+                    //        }
+                    //    }
+                    //}
+                    //$("#total-detalle").html("");
+                    //$("#total-detalle").append((Math.round(total * 100) / 100));
+                    //$("#cuerpoTablaIndicador").data("total", total);
+                    //$("#cuerpoTablaIndicador").data("row", data.length);
+                }
+            } else {
+                //cargarCuerpoTabla($("#cbo-enfoque").val());
+                //$("#total-detalle").append('<strong id="total">0.00 tCO<sub>2</sub>eq</strong>');
+                //$("#total-detalle2").append('<strong id="total2">0.00 tCO<sub>2</sub>eq</strong>');
+            }
+        }
+    });
+}
+
+function CargarDatosGuardados() {
+    var medida = $("#Control").data("mitigacion");
+    var enfoque = $("#cbo-enfoque").val();
+    var iniciativa = $("#Control").data("iniciativa");
+    var item = {
+        ID_INICIATIVA: iniciativa,
+        ID_MEDMIT: medida,
+        ID_ENFOQUE: enfoque
+    }
+    $.ajax({
+        url: baseUrl + 'Gestion/ListarDatosIndicadorData',
+        type: 'POST',
+        datatype: 'json',
+        data: item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {                    
+                    var order = $("#enfoque-" + $("#cbo-enfoque").val()).data("order");
+                    CargarCuerpoGuardado(data.length, order);
+                    //var total = 0.0;
+                    for (var i = 0; i < data.length; i++) {
+                        var lista = 0;
+                        var texto = 0;
+                        var fecha = 0;
+                        //debugger;
+                        var entidad = data[i]["listaInd"]
+                        for (var j = 0; j < entidad.length; j++) {
+                            //debugger;
+                            for (var m = 0; m < entidad.length; m++) {
+                                debugger;
+                                if (entidad[m]["ID_TIPO_CONTROL"] == 1) {
+                                    lista++;
+                                    debugger;
+                                    $("#cbo-det-" + order + "-" + lista + "-" + (i + 1)).val(entidad[m]["VALOR"]);
+                                } else if (entidad[m]["ID_TIPO_CONTROL"] == 2){
+                                    if (entidad[m]["ID_TIPO_DATO"] == 1){
+                                        fecha++;
+                                        debugger;
+                                        $("#fch-det-" + order + "-" + fecha + "-" + (i + 1)).val(entidad[m]["VALOR"]);
+                                    } else {
+                                        debugger;
+                                        texto++;
+                                        $("#txt-det-" + order + "-" + texto + "-" + (i + 1)).val(entidad[m]["VALOR"]);
+                                    }
+                                }
+                                //var a = entidad[m]["VALOR"];
+                            }
+                        }
+                    }
+                    //$("#total-detalle").html("");
+                    //$("#total-detalle").append((Math.round(total * 100) / 100));
+                    //$("#cuerpoTablaIndicador").data("total", total);
+                    //$("#cuerpoTablaIndicador").data("row", data.length);
+                }
+            } else {
+                //cargarCuerpoTabla($("#cbo-enfoque").val());
+                //$("#total-detalle").append('<strong id="total">0.00 tCO<sub>2</sub>eq</strong>');
+                //$("#total-detalle2").append('<strong id="total2">0.00 tCO<sub>2</sub>eq</strong>');
+            }
+        }
+    });
+
+}
+
 //==============================================================================================================
 
 //      FIN CARGAR DATOS CUERPO
@@ -3006,7 +3234,7 @@ function fn_eliminarArchivo(id) {
 function removeFile(e) {
     debugger;
     var file = e.dataset.file;
-    alert(file);
+    //alert(file);
     for (var i = 0; i < storedFiles.length; i++) {
         if (storedFiles[i].name === file) {
             storedFiles.splice(i, 1);
@@ -3017,7 +3245,7 @@ function removeFile(e) {
     $(e).parent().parent().parent().remove();
 }
 
-$("body").on("click", ".selFile", removeFile);
+//$("body").on("click", ".selFile", removeFile());
 
 //==============================================================================================================
 
@@ -3055,11 +3283,16 @@ $(document).on("change", "#cbo-enfoque", function () {
     CargarDetalleDatos();    
     //cargarCuerpoTabla($("#cbo-enfoque").val());
 
+
+    
+
+
 });
 
 $(document).on("click", ".agregarFila", function (e) {
+    debugger;
     e.preventDefault();
-    cargarCuerpoTabla($("#cbo-enfoque").val());    
+    //cargarCuerpoTabla($("#cbo-enfoque").val());    
 })
 
 //===============================================================================================================
@@ -3074,6 +3307,7 @@ $(document).ready(function () {
         $("#Control").data("iniciativa", $("#identificador").val());
     }
 
+    $("#Control").data("mitigacion", $("#medida_ID_MEDMIT").val());
     //$("#Control").data("iniciativa", $("#identificador").val());
     $("#Control").data("revision", $("#revision").val());
 
@@ -3081,32 +3315,170 @@ $(document).ready(function () {
         //CargarDetalleIndicadorRevision();
         //cargarTablasEnfoque();
     } else {
-        cargarCabeceraTabla($("#cbo-enfoque").val());
-        CargarDetalleDatos();
+        //cargarCabeceraTabla($("#cbo-enfoque").val());
+        //CargarDetalleDatos();
+
         //cargarCuerpoTabla($("#cbo-enfoque").val());
         //CargarDetalleIndicador();
     }
+    debugger;
+    $("#enfoque-" + ($("#cbo-enfoque").val())).removeAttr("hidden");
+    $("#cbo-enfoque").data("select", $("#cbo-enfoque").val());
     CargarDatosIniciativa();
     fn_cargarUbicacion();
     fn_cargarEnergetico();
     fn_cargarGei();
 
-    $(document).on("mouseover", "#cuerpoTablaIndicador tr", function () {
+    $(document).on("mouseover", "#enfoque-" + $("#cbo-enfoque").val() + " tbody tr", function () {
 
         var fila = $(this).find('th:eq(0)').html();
 
         console.log(fila);
-        $("#tablaIndicador").data("fila", fila);
+        $("#enfoque-" + $("#cbo-enfoque").val()).data("fila", fila);
     });
-
-    $(document).on("click", ".agregarCampos", function (e) {
-        e.preventDefault();
-        CargarSoloTablaIndicador();
-
-        
-    })
 
     fn_actualizaCampana();
     enLinea();
 
 });
+
+
+//////////////////////////
+
+
+$("#cbo-enfoque").change(function () {
+    debugger;
+    var enfoque = $("#cbo-enfoque").val();
+    var select = $("#cbo-enfoque").data("select");
+    $("#enfoque-" + select).attr("hidden",true);
+    $("#enfoque-" + ($("#cbo-enfoque").val())).removeAttr("hidden");
+    $("#cbo-enfoque").data("select", $("#cbo-enfoque").val())
+    //if (enfoque == 1) {
+    //    $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="'+ baseUrl +'Documentos/4.1 Plantilla_Electricos_Masivo.xlsm" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+    //} else if (enfoque == 2) {
+    //    $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/4.2 Plantilla_Electricos_Masivo.xlsm" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+    //} else if (enfoque == 3){
+    //}    
+});
+
+
+function fn_calcularValor(e) {
+    console.log("Aqui : " + $(e).attr("data-validar"));
+    //debugger;
+    var dv = $(e).attr("data-validar");
+
+    
+
+    id = e.id;
+    var indice_id = id.substring(0, 3);
+    //debugger;
+    if (indice_id == "cbo") {
+        if ($("#" + id).val() > 0) {
+            $(e).attr({ "data-validar": "1" });
+        } else {
+            $(e).attr({ "data-validar": "0" });
+        }
+    } else if (indice_id == "txt") {
+        if ($("#" + id).val() != "") {
+            $(e).attr({ "data-validar": "1" });
+        } else {
+            $(e).attr({ "data-validar": "0" });
+        }
+    } else if (indice_id == "fch") {
+        if ($("#" + id).val() != "") {
+            $(e).attr({ "data-validar": "1" });
+        } else {
+            $(e).attr({ "data-validar": "0" });
+        }
+    }
+    
+    var valor = 0;
+    var campos = $("#enfoque-" + $("#cbo-enfoque").val()).find("tbody").find("#detalles-tr-"+ $("#enfoque-" + $("#cbo-enfoque").val()).data("fila")).find("[data-validar]");
+    campos.each(function (index, value) {
+        //debugger;
+        console.log(index + " + " + $(value).attr("id") +" + "+ $(value).attr("data-validar"));
+
+        if ($(value).attr("data-validar") == 0) {
+            valor = 1;
+        }
+
+    });
+    //|1,12,14,1
+    if (valor == 0) {
+        debugger;
+        var f = $("#enfoque-" + $("#cbo-enfoque").val()).data("fila");
+        var enfoque = $("#cbo-enfoque").val();
+        var medida = $("#Control").data("mitigacion");
+        var fila = $("#enfoque-" + $("#cbo-enfoque").val()).find("tbody").find("#detalles-tr-" + $("#enfoque-" + $("#cbo-enfoque").val()).data("fila")).find("[data-param]");
+        var parametros = "";
+        fila.each(function (index, value) {
+            parametros += enfoque + ",";
+            parametros += medida + ",";
+            parametros += $(value).attr("data-param") + ",";
+            parametros += $("#" + $(value).attr("id")).val() + "|";            
+        });
+        parametros = parametros.substring(0, parametros.length - 1);
+
+        var item = {//prueba
+            //Valor: '1,12,6,2018|1,12,2,24/01/2015|1,12,1,1|1,12,3,2|1,12,4,57600|1,12,12,20|1,12,13,0|1,12,9,0|1,12,10,0|1,12,11,0|1,12,14,1'
+            Valor: parametros
+        };
+        fn_enviarCalcularValoar(item, f);
+    }
+
+}
+
+function fn_enviarCalcularValoar(item, f) {
+    //var url = baseUrl + 'Gestion/CalcularIndicadorDinamico';
+    //var respuesta = MRV.Ajax(url, item, false);
+    //if (respuesta.success) {
+    //    alert("bien");
+    //}
+
+    $.ajax({
+        url: baseUrl + 'Gestion/CalcularIndicadorDinamico',
+        type: 'POST',
+        datatype: 'json',
+        data: item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    var index = 0;
+                    var total = 0.0;
+                    var fila = $("#enfoque-" + $("#cbo-enfoque").val()).find("tbody").find("#detalles-tr-" + f).find("[data-param]");
+                    fila.each(function (index, value) {
+                        //debugger;
+                        var valor = data[index]["VALOR"];
+                        if (!isNaN(valor)) if (valor - Math.floor(valor) != 0) valor = Math.round(valor*100)/100
+                        $("#" + $(value).attr("id")).val(valor);
+                        index++;
+                    });
+
+                    //$("#total-detalle").html("");
+                    //$("#total-detalle").append((Math.round(total * 100) / 100));
+                    //$("#cuerpoTablaIndicador").data("total", total);
+                    //$("#cuerpoTablaIndicador").data("row", data.length);
+                }
+            } else {
+                debugger;
+                //////cargarCuerpoTabla($("#cbo-enfoque").val());
+            }
+        }
+    });
+}
+
+function fn_validarCampoReg(f) {
+    var campos = $("#enfoque-" + $("#cbo-enfoque").val()).find("tbody").find("#detalles-tr-" + f).find("[data-validar]");
+    campos.each(function (index, value) {
+        //debugger;
+        console.log(index + " + " + $(value).attr("id") + " + " + $(value).attr("data-validar"));
+
+        if ($(value).attr("data-validar") == 0) {
+            return false;
+        }
+
+    });
+    return true;
+}
+
+

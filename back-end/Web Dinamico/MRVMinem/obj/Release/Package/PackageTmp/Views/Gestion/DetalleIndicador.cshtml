@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/_SesionLayout.cshtml";
 }
 @Html.HiddenFor(m => m.iniciativa_mit.ID_INICIATIVA)
+@Html.HiddenFor(m => m.medida.ID_MEDMIT)
 
 <div class="container-fluid map-root" id="historia">
     <div class="container">
@@ -291,46 +292,180 @@
                                 <div class="dropdown-divider"></div>
                                 <div class="row">
                                     <div class="col-12 px-0">
-                                        <div class="table-responsive tabla-principal tabla-detalle-indicadores">
-                                            <table class="table table-hover" id="tablaIndicador" data-fila="0">
-                                                <thead id="cabeceraTablaIndicador" >
-                                                    @*<tr class="bg-primary text-white">
-                                                        <th class="text-center" style="background-color: green;" scope="col"><span>N°&nbsp;</span></th>
-                                                        <th class="text-center" style="background-color: green;" scope="col"><span>Año&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Año"></i></span></th>
-                                                        <th class="text-center" style="background-color: green;" scope="col"><span>Tipo Vehiculo&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Tipo Vehículo"></i></span></th>
-                                                        <th class="text-center" style="background-color: orange;" scope="col"><span>Tipo Combustible&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Tipo Combustible"></i></span></th>
-                                                        <th class="text-center" style="background-color: green;" scope="col"><span>KRV&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador KRV"></i></span></th>
-                                                        <th class="text-center" style="background-color: green;" scope="col"><span>Cantidad&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Cantidad"></i></span></th>
-                                                        <th class="text-center" style="background-color: green;" scope="col"><span>Factor de Rendimiento&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Rendimiento"></i></span></th>
-                                                        <th class="text-center" style="background-color: orange;" scope="col"><span>Línea Base Emisiones GEI (tCO<sub>2</sub>eq)</span></th>
-                                                        <th class="text-center" style="background-color: green;" scope="col"><span>Iniciativa Mitigación Emisiones GEI (tCO<sub>2</sub>eq)</span></th>
-                                                        <th class="text-center" style="background-color: #2271b3;" scope="col"><span>Emisiones GEI Reducidas (tCO<sub>2</sub>eq)</span></th>
-                                                        <th class="text-center" scope="col">Más</th>
-                                                        <th class="text-hide" scope="col" style="display:none;">Id. Iniciativa</th>
-                                                    </tr>*@
-                                                </thead>
-                                                <tbody id="cuerpoTablaIndicador" data-row="0" data-total="0" data-delete=""></tbody> <!-- add id delete-->
-                                            </table>
-                                        </div>
-                                        <div class="table-responsive tabla-principal mt-3">
-                                            <table class="table table-hover">
-                                                <thead>
-                                                    <tr class="bg-primary text-white">
-                                                        <th class="text-center" scope="col" width="2%"><span>N°&nbsp;</span></th>
-                                                        <th scope="col" width="88%"><span>Resumen</span></th>
-                                                        <th scope="col" width="10%"><span>Total</span></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th class="text-center" data-encabezado="Número" scope="row">1</th>
-                                                        <td data-encabezado="Resumen" id="resumen-detalle">@Model.medida.IPSC_MEDMIT</td>
-                                                        <td data-encabezado="Total"><strong id="total-detalle">0.00</strong><strong>&nbsp;tCO<sub>2</sub>eq</strong></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
+                                        @if (Model.listaEnfoque != null)
+                                        {
+                                            var fila = 0;
+                                            var total_tabla = 0;
+                                            foreach (var item in Model.listaEnfoque)
+                                            {
+                                                if (Model.listaParametro != null)
+                                                {
+                                                    var texto = 0;
+                                                    var fecha = 0;
+                                                    var lista = 0;
+
+                                                    total_tabla+=1;
+                                                    fila += 1;
+                                                            <div class="table-responsive tabla-principal tabla-recorrer tabla-detalle-indicadores-@total_tabla" data-order="tbl-@total_tabla" id="enfoque-@item.ID_ENFOQUE" hidden>
+
+                                                                <table class="table table-hover" id="tablaIndicador-@total_tabla" data-fila="0">
+                                                                                <thead @*id="cabeceraTablaIndicador"*@>
+                                                                                    <tr class="bg-primary text-white">
+                                                                                        <th class="text-center" style="background-color: #28A745;" scope="col"><span>N°&nbsp;</span></th>
+                                                                                        @foreach (var itemParam in Model.listaParametro)
+                                                                                        {
+                                                                                            if (item.ID_ENFOQUE == itemParam.ID_ENFOQUE)
+                                                                                            {
+                                                                                                <th class="text-center" style="background-color: @itemParam.COLOR_GRUPO;" scope="col"><span>@itemParam.NOMBRE_PARAMETRO&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador @itemParam.NOMBRE_PARAMETRO"></i></span></th>
+                                                                                            }
+                                                                                        }
+                                                                                        <th class="text-center" style="background-color: #007BFF;" scope="col">Más</th>
+                                                                                    </tr>
+
+                                                                                    @*<tr class="bg-primary text-white">
+                                                                                        <th class="text-center" style="background-color: green;" scope="col"><span>N°&nbsp;</span></th>
+                                                                                        <th class="text-center" style="background-color: green;" scope="col"><span>Año&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Año"></i></span></th>
+                                                                                        <th class="text-center" style="background-color: green;" scope="col"><span>Tipo Vehiculo&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Tipo Vehículo"></i></span></th>
+                                                                                        <th class="text-center" style="background-color: orange;" scope="col"><span>Tipo Combustible&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Tipo Combustible"></i></span></th>
+                                                                                        <th class="text-center" style="background-color: green;" scope="col"><span>KRV&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador KRV"></i></span></th>
+                                                                                        <th class="text-center" style="background-color: green;" scope="col"><span>Cantidad&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Cantidad"></i></span></th>
+                                                                                        <th class="text-center" style="background-color: green;" scope="col"><span>Factor de Rendimiento&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Rendimiento"></i></span></th>
+                                                                                        <th class="text-center" style="background-color: orange;" scope="col"><span>Línea Base Emisiones GEI (tCO<sub>2</sub>eq)</span></th>
+                                                                                        <th class="text-center" style="background-color: green;" scope="col"><span>Iniciativa Mitigación Emisiones GEI (tCO<sub>2</sub>eq)</span></th>
+                                                                                        <th class="text-center" style="background-color: #2271b3;" scope="col"><span>Emisiones GEI Reducidas (tCO<sub>2</sub>eq)</span></th>
+                                                                                        <th class="text-center" scope="col">Más</th>
+                                                                                        <th class="text-hide" scope="col" style="display:none;">Id. Iniciativa</th>
+                                                                                    </tr>*@
+                                                                                </thead>
+                                                                                <tbody id="cuerpoTablaIndicador-@item.ID_ENFOQUE" data-row="0" data-total="0" data-delete="">
+                                                                                    <tr id="detalles-tr-@fila">
+                                                                                        <th class="text-center" data-encabezado="Número" scope="row">1</th>
+                                                                                        @foreach (var itemParam in Model.listaParametro)
+                                                                                        {
+                                                                                            
+                                                                                            if (item.ID_ENFOQUE == itemParam.ID_ENFOQUE)
+                                                                                            {
+
+                                                                                                if (itemParam.ID_TIPO_CONTROL == 1)
+                                                                                                {
+                                                                                                    <td data-encabezado="Columna 07">
+                                                                                                        <div class="form-group m-0">
+                                                                                                            @if (itemParam.VERIFICABLE == 1)
+                                                                                                            {
+                                                                                                                lista += 1;
+                                                                                                                if (itemParam.ID_PARAMETRO == 6)
+                                                                                                                {
+                                                                                                                    <select class="form-control form-control-sm" id="cbo-det-tbl-@total_tabla-@lista-@fila" onchange="fn_calcularValor(this)" data-validar="0" data-param="@itemParam.ID_PARAMETRO">
+                                                                                                                        <option value="0">Seleccionar</option>
+                                                                                                                        @foreach (var itemDetalle in itemParam.listaDetalle)
+                                                                                                                        {
+                                                                                                                            <option value="@itemDetalle.NOMBRE_DETALLE">@itemDetalle.NOMBRE_DETALLE</option>
+                                                                                                                        }
+                                                                                                                    </select>
+                                                                                                                }
+                                                                                                                else
+                                                                                                                {
+                                                                                                                    <select class="form-control form-control-sm" id="cbo-det-tbl-@total_tabla-@lista-@fila" onchange="fn_calcularValor(this)" data-validar="0" data-param="@itemParam.ID_PARAMETRO">
+                                                                                                                        <option value="0">Seleccionar</option>
+                                                                                                                        @foreach (var itemDetalle in itemParam.listaDetalle)
+                                                                                                                        {
+                                                                                                                            <option value="@itemDetalle.ID_DETALLE">@itemDetalle.NOMBRE_DETALLE</option>
+                                                                                                                        }
+                                                                                                                    </select>
+                                                                                                                }
+
+                                                                                                            }
+                                                                                                            else
+                                                                                                            {
+                                                                                                                lista += 1;
+                                                                                                                <select class="form-control form-control-sm" id="cbo-det-tbl-@total_tabla-@lista-@fila" data-param="@itemParam.ID_PARAMETRO">
+                                                                                                                    <option value="">Seleccionar</option>
+                                                                                                                    @foreach (var itemDetalle in itemParam.listaDetalle)
+                                                                                                                    {
+                                                                                                                        <option value="@itemDetalle.ID_DETALLE">@itemDetalle.NOMBRE_DETALLE</option>
+                                                                                                                    }
+                                                                                                                </select>
+                                                                                                            }                                                                                                            
+                                                                                                        </div>
+                                                                                                    </td>
+                                                                                                }
+                                                                                                else if (itemParam.ID_TIPO_CONTROL == 2)
+                                                                                                {
+                                                                                                    <td data-encabezado="Columna 02">
+                                                                                                        <div class="form-group m-0">
+                                                                                                            @if (itemParam.EDITABLE == 1)
+                                                                                                            {
+                                                                                                                if (itemParam.ID_TIPO_DATO == 1)
+                                                                                                                {
+                                                                                                                    fecha += 1;
+                                                                                                                    <input class="form-control form-control-sm text-center" type="date" placeholder="" id="fch-det-tbl-@total_tabla-@fecha-@fila" data-param="@itemParam.ID_PARAMETRO">
+                                                                                                                }
+                                                                                                                else
+                                                                                                                {
+                                                                                                                    texto += 1;
+                                                                                                                    if (itemParam.VERIFICABLE == 0)
+                                                                                                                    {
+                                                                                                                        <input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-@total_tabla-@texto-@fila" data-param="@itemParam.ID_PARAMETRO">
+                                                                                                                    }
+                                                                                                                    else
+                                                                                                                    {
+                                                                                                                        <input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-@total_tabla-@texto-@fila" onBlur="fn_calcularValor(this)" data-validar="0" data-param="@itemParam.ID_PARAMETRO">
+                                                                                                                    }
+
+                                                                                                                }
+                                                                                                            }
+                                                                                                            else
+                                                                                                            {
+                                                                                                                texto += 1;
+                                                                                                                <input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-@total_tabla-@texto-@fila" data-param="@itemParam.ID_PARAMETRO" readonly>
+                                                                                                            }
+
+                                                                                                        </div>
+                                                                                                    </td>
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                        <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                                                                            <div class="btn-group">
+                                                                                                <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                                                    <a class="dropdown-item agregarCampos" href="#">
+                                                                                                        <i class="fas fa-plus-circle"></i>&nbsp;
+                                                                                                        Agregar
+                                                                                                    </a><a class="dropdown-item quitarCampos" href="#">
+                                                                                                        <i class="fas fa-minus-circle"></i>&nbsp;
+                                                                                                        Eliminar
+                                                                                                    </a>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                    </tr>
+
+                                                                            </tbody> <!-- add id delete-->
+                                                                        </table>
+                                                                    </div>
+                                                                    }
+                                                                }
+                                                            }
+                                                            <div class="table-responsive tabla-principal mt-3">
+                                                                <table class="table table-hover">
+                                                                    <thead>
+                                                                        <tr class="bg-primary text-white">
+                                                                            <th class="text-center" scope="col" width="2%"><span>N°&nbsp;</span></th>
+                                                                            <th scope="col" width="88%"><span>Resumen</span></th>
+                                                                            <th scope="col" width="10%"><span>Total</span></th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <th class="text-center" data-encabezado="Número" scope="row">1</th>
+                                                                            <td data-encabezado="Resumen" id="resumen-detalle">@Model.medida.IPSC_MEDMIT</td>
+                                                                            <td data-encabezado="Total"><strong id="total-detalle">0.00</strong><strong>&nbsp;tCO<sub>2</sub>eq</strong></td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
                                 </div>
                             </div>
                             <div class="container py-5">
