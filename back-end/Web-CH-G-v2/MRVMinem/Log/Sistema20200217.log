@@ -78,3 +78,219 @@ PL/SQL: Statement ignored
 PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INSTITUCION'
 ORA-06550: line 1, column 7:
 PL/SQL: Statement ignored
+17/02/2020 12:53:14: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:53:14: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:53:14: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:53:14: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:53:14: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:53:14: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:53:14: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:53:14: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:53:14: [Método: entidad.minem.gob.pe.UsuarioBE ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 223] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:53:24: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:53:24: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:53:24: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:53:24: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:53:24: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:53:24: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:53:24: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:53:24: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:53:24: [Método: entidad.minem.gob.pe.UsuarioBE ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 223] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:53:33: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:53:33: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:53:33: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:53:33: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:53:33: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:53:33: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:53:33: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:53:33: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:53:33: [Método: entidad.minem.gob.pe.UsuarioBE ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 223] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:56:24: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:56:24: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:56:24: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:56:24: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:56:24: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:56:24: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:56:24: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:56:24: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:56:24: [Método: entidad.minem.gob.pe.UsuarioBE ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 223] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_ADMIN_SISTEMA' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:59:07: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean), Línea: 0] - ORA-06550: line 1, column 41:
+PLS-00302: component 'USP_SEL_TIPO_CONTROL' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:59:07: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 41:
+PLS-00302: component 'USP_SEL_TIPO_CONTROL' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:59:07: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 41:
+PLS-00302: component 'USP_SEL_TIPO_CONTROL' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:59:07: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 41:
+PLS-00302: component 'USP_SEL_TIPO_CONTROL' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:59:07: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 41:
+PLS-00302: component 'USP_SEL_TIPO_CONTROL' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:59:07: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 41:
+PLS-00302: component 'USP_SEL_TIPO_CONTROL' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:59:07: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 41:
+PLS-00302: component 'USP_SEL_TIPO_CONTROL' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:59:07: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 41:
+PLS-00302: component 'USP_SEL_TIPO_CONTROL' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:59:07: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.TipoControlBE] listarControl(), Línea: 28] - ORA-06550: line 1, column 41:
+PLS-00302: component 'USP_SEL_TIPO_CONTROL' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:59:07: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean), Línea: 0] - ORA-06550: line 1, column 41:
+PLS-00302: component 'USP_SEL_PARAMETRO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:59:07: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 41:
+PLS-00302: component 'USP_SEL_PARAMETRO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:59:07: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 41:
+PLS-00302: component 'USP_SEL_PARAMETRO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:59:07: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 41:
+PLS-00302: component 'USP_SEL_PARAMETRO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:59:07: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 41:
+PLS-00302: component 'USP_SEL_PARAMETRO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:59:07: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 41:
+PLS-00302: component 'USP_SEL_PARAMETRO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:59:07: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 41:
+PLS-00302: component 'USP_SEL_PARAMETRO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:59:07: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 41:
+PLS-00302: component 'USP_SEL_PARAMETRO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 12:59:07: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.ParametroBE] listarParametroControl(), Línea: 81] - ORA-06550: line 1, column 41:
+PLS-00302: component 'USP_SEL_PARAMETRO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored

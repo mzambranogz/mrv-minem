@@ -42,5 +42,16 @@ namespace MRVMinem.Controllers
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
         }
+
+        public JsonResult RegistraParametrosFactor(FactorBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = FactorLN.RegistraFactor(entidad);
+
+            itemRespuesta.success = entidad.OK;
+            itemRespuesta.extra = entidad.message;
+            return Respuesta(itemRespuesta);
+        }
     }
 }

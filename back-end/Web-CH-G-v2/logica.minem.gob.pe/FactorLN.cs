@@ -32,5 +32,34 @@ namespace logica.minem.gob.pe
         {
             return factorDA.ListaFactorParametro(entidad);
         }
+
+        public static FactorBE RegistraFactor(FactorBE entidad)
+        {
+
+            entidad = factorDA.RegistraFactor(entidad);
+            if (entidad.OK)
+            {
+                if (entidad.ListaFactorParametro != null)
+                {
+                    entidad = factorDA.EliminaParametroFactor(entidad);
+                    if (entidad.OK)
+                    {
+                        foreach (var item in entidad.ListaFactorParametro)
+                        {
+                            FactorParametroBE resultado = factorDA.RegistraParametroFactor(item);
+                            if (!resultado.OK)
+                            {
+                                entidad.OK = resultado.OK;
+                                entidad.message = resultado.message;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return entidad;
+        }
+
     }
 }
