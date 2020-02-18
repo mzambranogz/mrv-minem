@@ -566,9 +566,12 @@ namespace datos.minem.gob.pe
             {
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
                 {
-                    string sp = sPackage + "USP_UPD_ELIMINAR_DETALLE";
+                    //string sp = sPackage + "USP_UPD_ELIMINAR_DETALLE";
+                    string sp = sPackage + "USP_UPD_ELIMINAR_IND_DATA";
                     var p = new OracleDynamicParameters();
                     p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pID_ENFOQUE", entidad.ID_ENFOQUE);
                     p.Add("pID_INDICADOR_DELETE", entidad.ID_INDICADOR_DELETE);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
@@ -841,6 +844,7 @@ namespace datos.minem.gob.pe
                     p.Add("pID_INDICADOR", entidad.ID_INDICADOR);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     listaP = db.Query<IndicadorDataBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                    obj.ID_INDICADOR = entidad.ID_INDICADOR;
                     obj.listaInd = listaP;
                 }
                 entidad.OK = true;

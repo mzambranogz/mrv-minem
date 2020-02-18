@@ -2467,11 +2467,12 @@ function fn_procesoDetalleIndicador(url, estado) {
     var medida = $("#Control").data("mitigacion");
     var enfoque = $("#cbo-enfoque").val();
     var parametros = "";
-    var n = $(".tabla-detalle-indicadores-"+ enfoque).find("tbody").find("th").length + 1;
+    var n = $("#tablaIndicador").find("tbody").find("th").length + 1;
 
     for (var fila = 1 ; fila < n; fila++) {
         var enfoque = $("#cbo-enfoque").val();
-        var filas = $("#enfoque-" + enfoque).find("tbody").find("#detalles-tr-" + fila).find("[data-param]");
+        var ind = $("#cuerpoTablaIndicador #detalles-tr-" + fila).data("ind");
+        var filas = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + fila).find("[data-param]");
         if (fn_validarCampoReg(fila)) {
             filas.each(function (index, value) {
                 parametros += enfoque + ",";
@@ -2488,8 +2489,10 @@ function fn_procesoDetalleIndicador(url, estado) {
                 //indicadores.push(itx);
             });
             parametros = parametros.substring(0, parametros.length - 1);
+            parametros += ";" + ind;
+            parametros += "/";
         }
-        parametros += "/";
+        
             //parametros += enfoque + ",";
             //parametros += medida + ",";
             //parametros += $(value).attr("data-param") + ",";
@@ -2497,6 +2500,7 @@ function fn_procesoDetalleIndicador(url, estado) {
         //});
         
     }
+    debugger;
     parametros = parametros.substring(0, parametros.length - 1);
     //parametros = parametros.substring(0, parametros.length - 1);
     //if (enfoque == 1) {
@@ -2612,7 +2616,7 @@ function fn_procesoDetalleIndicador(url, estado) {
     if (archivos == "") archivos = "|";
 
     var id_delete = "";
-    if ($("#cuerpoTablaIndicador-"+ enfoque).data("delete") != "") {
+    if ($("#cuerpoTablaIndicador").data("delete") != "") {
         id_delete = $("#cuerpoTablaIndicador").data("delete");
         id_delete = id_delete.substring(0, id_delete.length - 1);
     }
@@ -2979,16 +2983,17 @@ function CargarCuerpoGuardado(filas, num_tabla) {
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
-                    $("#cuerpoTablaIndicador-" + $("#cbo-enfoque").val()).html("");
+                    $("#cuerpoTablaIndicador").html("");
                     for (var i = 0; i < filas; i++){
                         var lista = 0;
                         var texto = 0;
                         var fecha = 0;
+                        var indicador = 0;
                         var tr = "";
-                        tr += '<tr id="detalles-tr-'+ ( i + 1) +'">';
+                        tr += '<tr id="detalles-tr-'+ ( i + 1) +'" data-ind="0">';
                         tr += '     <th class="text-center" data-encabezado="Número" scope="row">'+ (i + 1) +'</th>';
                         for (var j = 0; j < data.length; j++) {
-                            
+                            indicador = data[j]["ID_INDICADOR"];
                             if (data[j]["ID_TIPO_CONTROL"] == 1){
                                 tr += '<td data-encabezado="Columna 07">';
                                 tr += '     <div class="form-group m-0">';
@@ -3049,12 +3054,12 @@ function CargarCuerpoGuardado(filas, num_tabla) {
                         tr += '          <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
                         tr += '          <div class="dropdown-menu dropdown-menu-right">';
                         tr += '               <a class="dropdown-item agregarCampos" href="#"><i class="fas fa-plus-circle"></i>&nbsp;Agregar</a>';
-                        tr += '               <a class="dropdown-item quitarCampos" href="#"><i class="fas fa-minus-circle"></i>&nbsp;Eliminar</a>';
+                        tr += '               <a class="dropdown-item quitarCampos" href="#" onclick="fn_eliminarRestarTotal()"><i class="fas fa-minus-circle"></i>&nbsp;Eliminar</a>';
                         tr += '          </div>';
                         tr += '     </div>';
                         tr += '</td>';
                         tr += '</tr>';
-                        $("#cuerpoTablaIndicador-" + $("#cbo-enfoque").val()).append(tr);
+                        $("#cuerpoTablaIndicador").append(tr);
                     }
 
                     //var total = 0.0;
@@ -3100,32 +3105,37 @@ function CargarDatosGuardados() {
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {                    
-                    var order = $("#enfoque-" + $("#cbo-enfoque").val()).data("order");
+                    var order = $("#tablaIndicador").data("order");
                     CargarCuerpoGuardado(data.length, order);
                     //var total = 0.0;
                     for (var i = 0; i < data.length; i++) {
                         var lista = 0;
                         var texto = 0;
                         var fecha = 0;
-                        //debugger;
                         var entidad = data[i]["listaInd"]
+                        $("#cuerpoTablaIndicador #detalles-tr-" + (i + 1)).attr({"data-ind" : data[i]["ID_INDICADOR"]});
                         for (var j = 0; j < entidad.length; j++) {
-                            //debugger;
+                            debugger;                            
                             for (var m = 0; m < entidad.length; m++) {
-                                debugger;
                                 if (entidad[m]["ID_TIPO_CONTROL"] == 1) {
                                     lista++;
-                                    debugger;
                                     $("#cbo-det-" + order + "-" + lista + "-" + (i + 1)).val(entidad[m]["VALOR"]);
+                                    if (entidad[m]["VERIFICABLE"] == 1){
+                                        $("#cbo-det-" + order + "-" + lista + "-" + (i + 1)).attr({ "data-validar": 1 });
+                                    }
                                 } else if (entidad[m]["ID_TIPO_CONTROL"] == 2){
                                     if (entidad[m]["ID_TIPO_DATO"] == 1){
                                         fecha++;
-                                        debugger;
                                         $("#fch-det-" + order + "-" + fecha + "-" + (i + 1)).val(entidad[m]["VALOR"]);
+                                        if (entidad[m]["VERIFICABLE"] == 1) {
+                                            $("#fch-det-" + order + "-" + fecha + "-" + (i + 1)).attr({ "data-validar": 1 });
+                                        }
                                     } else {
-                                        debugger;
                                         texto++;
                                         $("#txt-det-" + order + "-" + texto + "-" + (i + 1)).val(entidad[m]["VALOR"]);
+                                        if (entidad[m]["VERIFICABLE"] == 1) {
+                                            $("#txt-det-" + order + "-" + texto + "-" + (i + 1)).attr({ "data-validar": 1 });
+                                        }
                                     }
                                 }
                                 //var a = entidad[m]["VALOR"];
@@ -3138,6 +3148,7 @@ function CargarDatosGuardados() {
                     //$("#cuerpoTablaIndicador").data("row", data.length);
                 }
             } else {
+                CargarCuerpoGuardado(1, order);
                 //cargarCuerpoTabla($("#cbo-enfoque").val());
                 //$("#total-detalle").append('<strong id="total">0.00 tCO<sub>2</sub>eq</strong>');
                 //$("#total-detalle2").append('<strong id="total2">0.00 tCO<sub>2</sub>eq</strong>');
@@ -3278,12 +3289,12 @@ $(document).on("change", "#cbo-enfoque", function () {
     $("#total-detalle").html("").append(0.00);
     $("#cuerpoTablaIndicador").data("total", 0);
     $("#cuerpoTablaIndicador").data("delete", "");
-    $("#cuerpoTablaIndicador").html("");
-    cargarCabeceraTabla($("#cbo-enfoque").val());
-    CargarDetalleDatos();    
+    //$("#cuerpoTablaIndicador").html("");
+    //cargarCabeceraTabla($("#cbo-enfoque").val());
+    //CargarDetalleDatos();    
     //cargarCuerpoTabla($("#cbo-enfoque").val());
-
-
+    CargarDatosCabecera();
+    CargarDatosGuardados();
     
 
 
@@ -3294,6 +3305,49 @@ $(document).on("click", ".agregarFila", function (e) {
     e.preventDefault();
     //cargarCuerpoTabla($("#cbo-enfoque").val());    
 })
+
+function CargarDatosCabecera() {
+
+    var medida = $("#Control").data("mitigacion");
+    var enfoque = $("#cbo-enfoque").val();
+    $("#cabeceraTablaIndicador").html("");
+    //var iniciativa = $("#Control").data("iniciativa");
+    var item = {
+        //ID_INICIATIVA: iniciativa,
+        ID_MEDMIT: medida,
+        ID_ENFOQUE: enfoque
+    }
+    $.ajax({
+        url: baseUrl + 'Gestion/ListarCabeceraIndicador',
+        type: 'POST',
+        datatype: 'json',
+        data: item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    var tr = "";
+                    tr += '<tr class="bg-primary text-white">';
+                    tr += '     <th class="text-center" style="background-color: #28A745;" scope="col"><span>N°&nbsp;</span></th>';
+                    for (var i = 0; i < data.length; i++) {                        
+                        tr += '     <th class="text-center" style="background-color: '+ data[i]["COLOR_GRUPO"] +';" scope="col"><span>'+ data[i]["NOMBRE_PARAMETRO"] +'&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador '+ data[i]["NOMBRE_PARAMETRO"] +'"></i></span></th>';                                           
+                    }
+                    tr += '     <th class="text-center" style="background-color: #007BFF;" scope="col">Más</th>';
+                    tr += '</tr>';
+                    $("#cabeceraTablaIndicador").append(tr);
+                    //$("#total-detalle").html("");
+                    //$("#total-detalle").append((Math.round(total * 100) / 100));
+                    //$("#cuerpoTablaIndicador").data("total", total);
+                    //$("#cuerpoTablaIndicador").data("row", data.length);
+                }
+            } else {
+                //cargarCuerpoTabla($("#cbo-enfoque").val());
+                //$("#total-detalle").append('<strong id="total">0.00 tCO<sub>2</sub>eq</strong>');
+                //$("#total-detalle2").append('<strong id="total2">0.00 tCO<sub>2</sub>eq</strong>');
+            }
+        }
+    });
+                                                                                    
+}
 
 //===============================================================================================================
 
@@ -3310,11 +3364,15 @@ $(document).ready(function () {
     $("#Control").data("mitigacion", $("#medida_ID_MEDMIT").val());
     //$("#Control").data("iniciativa", $("#identificador").val());
     $("#Control").data("revision", $("#revision").val());
-
+    //$("#cbo-enfoque").val($("#menor").val());
+    //$("#enfoque-" + ($("#cbo-enfoque").val())).removeAttr("hidden");
+    //$("#cbo-enfoque").data("select", $("#cbo-enfoque").val()); //data-select para saber quien fue el anterior
     if ($("#revision").val() == 1) {
         //CargarDetalleIndicadorRevision();
         //cargarTablasEnfoque();
     } else {
+        CargarDatosCabecera();
+        CargarDatosGuardados();
         //cargarCabeceraTabla($("#cbo-enfoque").val());
         //CargarDetalleDatos();
 
@@ -3322,19 +3380,17 @@ $(document).ready(function () {
         //CargarDetalleIndicador();
     }
     debugger;
-    $("#enfoque-" + ($("#cbo-enfoque").val())).removeAttr("hidden");
-    $("#cbo-enfoque").data("select", $("#cbo-enfoque").val());
+    
     CargarDatosIniciativa();
     fn_cargarUbicacion();
     fn_cargarEnergetico();
     fn_cargarGei();
 
-    $(document).on("mouseover", "#enfoque-" + $("#cbo-enfoque").val() + " tbody tr", function () {
-
+    $(document).on("mouseover", "#tablaIndicador tbody tr", function () {
         var fila = $(this).find('th:eq(0)').html();
 
         console.log(fila);
-        $("#enfoque-" + $("#cbo-enfoque").val()).data("fila", fila);
+        $("#tablaIndicador").data("fila", fila);
     });
 
     fn_actualizaCampana();
@@ -3348,17 +3404,19 @@ $(document).ready(function () {
 
 $("#cbo-enfoque").change(function () {
     debugger;
-    var enfoque = $("#cbo-enfoque").val();
-    var select = $("#cbo-enfoque").data("select");
-    $("#enfoque-" + select).attr("hidden",true);
-    $("#enfoque-" + ($("#cbo-enfoque").val())).removeAttr("hidden");
-    $("#cbo-enfoque").data("select", $("#cbo-enfoque").val())
+    //var enfoque = $("#cbo-enfoque").val();
+    //var select = $("#cbo-enfoque").data("select");
+    //$("#enfoque-" + select).attr("hidden",true);
+    //$("#enfoque-" + ($("#cbo-enfoque").val())).removeAttr("hidden");
+    //$("#cbo-enfoque").data("select", $("#cbo-enfoque").val())
     //if (enfoque == 1) {
     //    $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="'+ baseUrl +'Documentos/4.1 Plantilla_Electricos_Masivo.xlsm" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
     //} else if (enfoque == 2) {
     //    $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/4.2 Plantilla_Electricos_Masivo.xlsm" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
     //} else if (enfoque == 3){
     //}    
+    //CargarDatosCabecera();
+    CargarDatosGuardados();
 });
 
 
@@ -3366,12 +3424,13 @@ function fn_calcularValor(e) {
     console.log("Aqui : " + $(e).attr("data-validar"));
     //debugger;
     var dv = $(e).attr("data-validar");
+    var row = $("#tablaIndicador").data("fila");
 
     
 
     id = e.id;
     var indice_id = id.substring(0, 3);
-    //debugger;
+    debugger;
     if (indice_id == "cbo") {
         if ($("#" + id).val() > 0) {
             $(e).attr({ "data-validar": "1" });
@@ -3392,12 +3451,12 @@ function fn_calcularValor(e) {
         }
     }
     
+    debugger;
     var valor = 0;
-    var campos = $("#enfoque-" + $("#cbo-enfoque").val()).find("tbody").find("#detalles-tr-"+ $("#enfoque-" + $("#cbo-enfoque").val()).data("fila")).find("[data-validar]");
+    var campos = $("#tablaIndicador").find("tbody").find("#detalles-tr-"+ row).find("[data-validar]");
     campos.each(function (index, value) {
-        //debugger;
         console.log(index + " + " + $(value).attr("id") +" + "+ $(value).attr("data-validar"));
-
+        debugger;
         if ($(value).attr("data-validar") == 0) {
             valor = 1;
         }
@@ -3406,10 +3465,11 @@ function fn_calcularValor(e) {
     //|1,12,14,1
     if (valor == 0) {
         debugger;
-        var f = $("#enfoque-" + $("#cbo-enfoque").val()).data("fila");
+        //var f = $("#enfoque-" + $("#cbo-enfoque").val()).data("fila");
         var enfoque = $("#cbo-enfoque").val();
         var medida = $("#Control").data("mitigacion");
-        var fila = $("#enfoque-" + $("#cbo-enfoque").val()).find("tbody").find("#detalles-tr-" + $("#enfoque-" + $("#cbo-enfoque").val()).data("fila")).find("[data-param]");
+        //var fila = $("#enfoque-" + $("#cbo-enfoque").val()).find("tbody").find("#detalles-tr-" + $("#enfoque-" + $("#cbo-enfoque").val()).data("fila")).find("[data-param]");
+        var fila = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + row).find("[data-param]");
         var parametros = "";
         fila.each(function (index, value) {
             parametros += enfoque + ",";
@@ -3423,12 +3483,12 @@ function fn_calcularValor(e) {
             //Valor: '1,12,6,2018|1,12,2,24/01/2015|1,12,1,1|1,12,3,2|1,12,4,57600|1,12,12,20|1,12,13,0|1,12,9,0|1,12,10,0|1,12,11,0|1,12,14,1'
             Valor: parametros
         };
-        fn_enviarCalcularValoar(item, f);
+        fn_enviarCalcularValor(item, row);
     }
 
 }
 
-function fn_enviarCalcularValoar(item, f) {
+function fn_enviarCalcularValor(item, f) {
     //var url = baseUrl + 'Gestion/CalcularIndicadorDinamico';
     //var respuesta = MRV.Ajax(url, item, false);
     //if (respuesta.success) {
@@ -3445,7 +3505,8 @@ function fn_enviarCalcularValoar(item, f) {
                 if (data.length > 0) {
                     var index = 0;
                     var total = 0.0;
-                    var fila = $("#enfoque-" + $("#cbo-enfoque").val()).find("tbody").find("#detalles-tr-" + f).find("[data-param]");
+                    //var fila = $("#enfoque-" + $("#cbo-enfoque").val()).find("tbody").find("#detalles-tr-" + f).find("[data-param]");
+                    var fila = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + f).find("[data-param]");
                     fila.each(function (index, value) {
                         //debugger;
                         var valor = data[index]["VALOR"];
@@ -3468,17 +3529,26 @@ function fn_enviarCalcularValoar(item, f) {
 }
 
 function fn_validarCampoReg(f) {
-    var campos = $("#enfoque-" + $("#cbo-enfoque").val()).find("tbody").find("#detalles-tr-" + f).find("[data-validar]");
+    //var campos = $("#enfoque-" + $("#cbo-enfoque").val()).find("tbody").find("#detalles-tr-" + f).find("[data-validar]");
+    var v = true;
+    var campos = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + f).find("[data-validar]");
     campos.each(function (index, value) {
-        //debugger;
         console.log(index + " + " + $(value).attr("id") + " + " + $(value).attr("data-validar"));
 
         if ($(value).attr("data-validar") == 0) {
-            return false;
+            v = false;
         }
 
     });
-    return true;
+    return v;
 }
 
+function fn_eliminarRestarTotal() {
+    debugger;
+
+    var enfoque = $("#cbo-enfoque").val();
+    var fila = $("#tablaIndicador").data("fila");
+    var id_borrar = $("#cuerpoTablaIndicador").data("delete") + $("#tablaIndicador #detalles-tr-" + fila).data("ind") + ",";
+    $("#cuerpoTablaIndicador").data("delete", id_borrar);
+}
 

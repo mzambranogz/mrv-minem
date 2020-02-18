@@ -13,5 +13,6 @@ namespace entidad.minem.gob.pe
         public string TIPO_CONTROL { get; set; }
         public string VALOR { get; set; }
         public int ID_MEDMIT { get; set; }
+        public int ID_INICIATIVA { get; set; }
     }
 }

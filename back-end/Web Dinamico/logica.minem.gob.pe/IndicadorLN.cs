@@ -119,7 +119,16 @@ namespace logica.minem.gob.pe
 
             foreach (var item in lista)
             {
-                int id_indicador = indicador.getIdIndicador(entidad);
+                int id_indicador = 0;
+                if (item.ID_INDICADOR == 0)
+                {
+                    id_indicador = indicador.getIdIndicador(entidad);
+                }
+                else
+                {
+                    id_indicador = item.ID_INDICADOR;
+                }
+                
                 foreach (var itemD in item.listaInd)
                 {
                     if (string.IsNullOrEmpty(item.VALOR)) item.VALOR = "";

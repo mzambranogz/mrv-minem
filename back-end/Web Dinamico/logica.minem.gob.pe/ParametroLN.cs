@@ -26,5 +26,10 @@ namespace logica.minem.gob.pe
         {
             return parametroDA.listarParametroEnfoque(entidad);
         }
+
+        public static List<ParametroBE> ListarCabeceraIndicador(ParametroBE entidad)
+        {
+            return parametroDA.listarCabeceraIndicador(entidad);
+        }
     }
 }

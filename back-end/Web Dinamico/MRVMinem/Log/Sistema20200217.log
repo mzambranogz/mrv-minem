@@ -4552,3 +4552,1750 @@ PL/SQL: Statement ignored
 PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
 ORA-06550: line 1, column 7:
 PL/SQL: Statement ignored
+17/02/2020 03:30:30 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:30:30 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:30:30 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:30:30 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:30:30 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:30:30 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:30:30 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:30:30 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:30:30 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:30:30 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:30:30 p.m.: [Método: entidad.minem.gob.pe.ParametroFormulaBE GetFormulaParametro(entidad.minem.gob.pe.ParametroFormulaBE), Línea: 30] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: entidad.minem.gob.pe.ParametroFormulaBE GetFormulaParametro(entidad.minem.gob.pe.ParametroFormulaBE), Línea: 30] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: entidad.minem.gob.pe.ParametroFormulaBE GetFormulaParametro(entidad.minem.gob.pe.ParametroFormulaBE), Línea: 30] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: entidad.minem.gob.pe.ParametroFormulaBE GetFormulaParametro(entidad.minem.gob.pe.ParametroFormulaBE), Línea: 30] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: entidad.minem.gob.pe.ParametroFormulaBE GetFormulaParametro(entidad.minem.gob.pe.ParametroFormulaBE), Línea: 30] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: entidad.minem.gob.pe.ParametroFormulaBE GetFormulaParametro(entidad.minem.gob.pe.ParametroFormulaBE), Línea: 30] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: entidad.minem.gob.pe.ParametroFormulaBE GetFormulaParametro(entidad.minem.gob.pe.ParametroFormulaBE), Línea: 30] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: entidad.minem.gob.pe.ParametroFormulaBE GetFormulaParametro(entidad.minem.gob.pe.ParametroFormulaBE), Línea: 30] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: entidad.minem.gob.pe.ParametroFormulaBE GetFormulaParametro(entidad.minem.gob.pe.ParametroFormulaBE), Línea: 30] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: entidad.minem.gob.pe.ParametroFormulaBE GetFormulaParametro(entidad.minem.gob.pe.ParametroFormulaBE), Línea: 30] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: entidad.minem.gob.pe.ParametroFormulaBE GetFormulaParametro(entidad.minem.gob.pe.ParametroFormulaBE), Línea: 30] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:03 p.m.: [Método: entidad.minem.gob.pe.ParametroFormulaBE GetFormulaParametro(entidad.minem.gob.pe.ParametroFormulaBE), Línea: 30] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:44 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:44 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:44 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:44 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:44 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:44 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:44 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:44 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:44 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:44 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:44 p.m.: [Método: entidad.minem.gob.pe.ParametroFormulaBE GetFormulaParametro(entidad.minem.gob.pe.ParametroFormulaBE), Línea: 30] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:47 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:47 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:47 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:47 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:47 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:47 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:47 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:47 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:47 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:47 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:47 p.m.: [Método: entidad.minem.gob.pe.ParametroFormulaBE GetFormulaParametro(entidad.minem.gob.pe.ParametroFormulaBE), Línea: 30] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:49 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:49 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:49 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:49 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:49 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:49 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:49 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:49 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:49 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:49 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:49 p.m.: [Método: entidad.minem.gob.pe.ParametroFormulaBE GetFormulaParametro(entidad.minem.gob.pe.ParametroFormulaBE), Línea: 30] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:51 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:51 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:51 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:51 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:51 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:51 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:51 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:51 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:51 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:51 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:51 p.m.: [Método: entidad.minem.gob.pe.ParametroFormulaBE GetFormulaParametro(entidad.minem.gob.pe.ParametroFormulaBE), Línea: 30] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:53 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:53 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:53 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:53 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:53 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:53 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:53 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:53 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:53 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:53 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:53 p.m.: [Método: entidad.minem.gob.pe.ParametroFormulaBE GetFormulaParametro(entidad.minem.gob.pe.ParametroFormulaBE), Línea: 30] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:56 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:56 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:56 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:56 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:56 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:56 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:56 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:56 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:56 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:56 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:56 p.m.: [Método: entidad.minem.gob.pe.ParametroFormulaBE GetFormulaParametro(entidad.minem.gob.pe.ParametroFormulaBE), Línea: 30] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:58 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:58 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:58 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:58 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:58 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:58 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:58 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:58 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:58 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:58 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:31:58 p.m.: [Método: entidad.minem.gob.pe.ParametroFormulaBE GetFormulaParametro(entidad.minem.gob.pe.ParametroFormulaBE), Línea: 30] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:32:08 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:32:08 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:32:08 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:32:08 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:32:08 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:32:08 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:32:08 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:32:08 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:32:08 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:32:08 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:32:08 p.m.: [Método: entidad.minem.gob.pe.ParametroFormulaBE GetFormulaParametro(entidad.minem.gob.pe.ParametroFormulaBE), Línea: 30] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:32:17 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:32:17 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:32:17 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:32:17 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:32:17 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:32:17 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:32:17 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:32:17 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:32:17 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:32:17 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:32:17 p.m.: [Método: entidad.minem.gob.pe.ParametroFormulaBE GetFormulaParametro(entidad.minem.gob.pe.ParametroFormulaBE), Línea: 30] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:34:38 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:34:38 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:34:38 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:34:38 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:34:38 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:34:38 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:34:38 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:34:38 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:34:38 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:34:38 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:34:38 p.m.: [Método: entidad.minem.gob.pe.ParametroFormulaBE GetFormulaParametro(entidad.minem.gob.pe.ParametroFormulaBE), Línea: 30] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:34:56 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:34:56 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:34:56 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:34:56 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:34:56 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:34:56 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:34:56 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:34:56 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:34:56 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:34:56 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:34:56 p.m.: [Método: entidad.minem.gob.pe.ParametroFormulaBE GetFormulaParametro(entidad.minem.gob.pe.ParametroFormulaBE), Línea: 30] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:38:44 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:38:44 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:38:44 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:38:44 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:38:44 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:38:44 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:38:44 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:38:44 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:38:44 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:38:44 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 03:38:44 p.m.: [Método: entidad.minem.gob.pe.ParametroFormulaBE GetFormulaParametro(entidad.minem.gob.pe.ParametroFormulaBE), Línea: 30] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'MRVMM.PKG_MRV_PARAMETROS' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+17/02/2020 08:30:20 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+17/02/2020 08:30:20 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+17/02/2020 08:30:20 p.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+17/02/2020 08:30:20 p.m.: [Método: Void Open(), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+17/02/2020 08:30:20 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+17/02/2020 08:30:20 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+17/02/2020 08:30:20 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+17/02/2020 08:30:20 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+17/02/2020 08:30:20 p.m.: [Método: entidad.minem.gob.pe.UsuarioBE ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 225] - ORA-12170: TNS:Connect timeout occurred
+17/02/2020 08:36:09 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 08:36:09 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 08:36:09 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 08:36:09 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 08:36:09 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 08:36:09 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 08:36:09 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 08:36:09 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 08:36:09 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 08:36:09 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 08:36:09 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SustentoIniciativaBE] ListarArchivosGuardados(entidad.minem.gob.pe.IniciativaBE), Línea: 1543] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 08:38:41 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 08:38:41 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 08:38:41 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 08:38:41 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 08:38:41 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 08:38:41 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 08:38:41 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 08:38:41 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 08:38:41 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 08:38:41 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 08:38:41 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SustentoIniciativaBE] ListarArchivosGuardados(entidad.minem.gob.pe.IniciativaBE), Línea: 1543] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 08:44:00 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 08:44:00 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 08:44:00 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 08:44:00 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 08:44:00 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 08:44:00 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 08:44:00 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 08:44:00 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 08:44:00 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 08:44:00 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 08:44:00 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SustentoIniciativaBE] ListarArchivosGuardados(entidad.minem.gob.pe.IniciativaBE), Línea: 1543] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:08:14 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:08:14 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:08:14 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:08:14 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:08:14 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:08:14 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:08:14 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:08:14 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:08:14 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:08:14 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:08:14 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SustentoIniciativaBE] ListarArchivosGuardados(entidad.minem.gob.pe.IniciativaBE), Línea: 1543] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:18:34 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:18:34 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:18:34 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:18:34 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:18:34 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:18:34 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:18:34 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:18:34 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:18:34 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:18:34 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:18:34 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SustentoIniciativaBE] ListarArchivosGuardados(entidad.minem.gob.pe.IniciativaBE), Línea: 1543] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:26:18 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:26:18 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:26:18 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:26:18 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:26:18 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:26:18 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:26:18 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:26:18 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:26:18 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:26:18 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:26:18 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SustentoIniciativaBE] ListarArchivosGuardados(entidad.minem.gob.pe.IniciativaBE), Línea: 1543] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:30:08 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:30:08 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:30:08 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:30:08 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:30:08 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:30:08 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:30:08 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:30:08 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:30:08 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:30:08 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:30:08 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SustentoIniciativaBE] ListarArchivosGuardados(entidad.minem.gob.pe.IniciativaBE), Línea: 1543] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:32:24 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:32:24 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:32:24 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:32:24 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:32:24 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:32:24 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:32:24 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:32:24 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:32:24 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:32:24 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:32:24 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SustentoIniciativaBE] ListarArchivosGuardados(entidad.minem.gob.pe.IniciativaBE), Línea: 1543] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:37:18 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:37:18 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:37:18 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:37:18 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:37:18 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:37:18 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:37:18 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:37:18 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:37:18 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:37:18 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:37:18 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SustentoIniciativaBE] ListarArchivosGuardados(entidad.minem.gob.pe.IniciativaBE), Línea: 1543] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:39:55 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:39:55 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:39:55 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:39:55 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:39:55 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:39:55 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:39:55 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:39:55 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:39:55 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:39:55 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:39:55 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SustentoIniciativaBE] ListarArchivosGuardados(entidad.minem.gob.pe.IniciativaBE), Línea: 1543] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:46:39 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:46:39 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:46:39 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:46:39 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:46:39 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:46:39 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:46:39 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:46:39 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:46:39 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:46:39 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:46:39 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SustentoIniciativaBE] ListarArchivosGuardados(entidad.minem.gob.pe.IniciativaBE), Línea: 1543] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:49:11 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:49:11 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:49:11 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:49:11 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:49:11 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:49:11 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:49:11 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:49:11 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:49:11 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:49:11 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 09:49:11 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SustentoIniciativaBE] ListarArchivosGuardados(entidad.minem.gob.pe.IniciativaBE), Línea: 1543] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 10:00:23 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 10:00:23 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 10:00:23 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 10:00:23 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 10:00:23 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 10:00:23 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 10:00:23 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 10:00:23 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 10:00:23 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 10:00:23 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 10:00:23 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SustentoIniciativaBE] ListarArchivosGuardados(entidad.minem.gob.pe.IniciativaBE), Línea: 1543] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 10:36:11 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 43:
+PLS-00103: Se ha encontrado el símbolo "(" cuando se esperaba uno de los siguientes:
+
+   <an identifier> <a double-quoted delimited-identifier>
+   current delete exists prior
+El símbolo "<an identifier>" ha sido sustituido por "(" para continuar.
+17/02/2020 10:36:11 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 43:
+PLS-00103: Se ha encontrado el símbolo "(" cuando se esperaba uno de los siguientes:
+
+   <an identifier> <a double-quoted delimited-identifier>
+   current delete exists prior
+El símbolo "<an identifier>" ha sido sustituido por "(" para continuar.
+17/02/2020 10:36:11 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 43:
+PLS-00103: Se ha encontrado el símbolo "(" cuando se esperaba uno de los siguientes:
+
+   <an identifier> <a double-quoted delimited-identifier>
+   current delete exists prior
+El símbolo "<an identifier>" ha sido sustituido por "(" para continuar.
+17/02/2020 10:36:11 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 43:
+PLS-00103: Se ha encontrado el símbolo "(" cuando se esperaba uno de los siguientes:
+
+   <an identifier> <a double-quoted delimited-identifier>
+   current delete exists prior
+El símbolo "<an identifier>" ha sido sustituido por "(" para continuar.
+17/02/2020 10:36:11 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 43:
+PLS-00103: Se ha encontrado el símbolo "(" cuando se esperaba uno de los siguientes:
+
+   <an identifier> <a double-quoted delimited-identifier>
+   current delete exists prior
+El símbolo "<an identifier>" ha sido sustituido por "(" para continuar.
+17/02/2020 10:36:11 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 43:
+PLS-00103: Se ha encontrado el símbolo "(" cuando se esperaba uno de los siguientes:
+
+   <an identifier> <a double-quoted delimited-identifier>
+   current delete exists prior
+El símbolo "<an identifier>" ha sido sustituido por "(" para continuar.
+17/02/2020 10:36:11 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 43:
+PLS-00103: Se ha encontrado el símbolo "(" cuando se esperaba uno de los siguientes:
+
+   <an identifier> <a double-quoted delimited-identifier>
+   current delete exists prior
+El símbolo "<an identifier>" ha sido sustituido por "(" para continuar.
+17/02/2020 10:36:11 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 43:
+PLS-00103: Se ha encontrado el símbolo "(" cuando se esperaba uno de los siguientes:
+
+   <an identifier> <a double-quoted delimited-identifier>
+   current delete exists prior
+El símbolo "<an identifier>" ha sido sustituido por "(" para continuar.
+17/02/2020 10:36:11 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 43:
+PLS-00103: Se ha encontrado el símbolo "(" cuando se esperaba uno de los siguientes:
+
+   <an identifier> <a double-quoted delimited-identifier>
+   current delete exists prior
+El símbolo "<an identifier>" ha sido sustituido por "(" para continuar.
+17/02/2020 10:36:11 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 43:
+PLS-00103: Se ha encontrado el símbolo "(" cuando se esperaba uno de los siguientes:
+
+   <an identifier> <a double-quoted delimited-identifier>
+   current delete exists prior
+El símbolo "<an identifier>" ha sido sustituido por "(" para continuar.
+17/02/2020 10:36:11 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaBusquedaSimplePrivado(entidad.minem.gob.pe.IniciativaBE), Línea: 1329] - ORA-06550: línea 1, columna 43:
+PLS-00103: Se ha encontrado el símbolo "(" cuando se esperaba uno de los siguientes:
+
+   <an identifier> <a double-quoted delimited-identifier>
+   current delete exists prior
+El símbolo "<an identifier>" ha sido sustituido por "(" para continuar.
+17/02/2020 11:50:16 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 11:50:16 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 11:50:16 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 11:50:16 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 11:50:16 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 11:50:16 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 11:50:16 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 11:50:16 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 11:50:16 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 11:50:16 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+17/02/2020 11:50:16 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SustentoIniciativaBE] ListarArchivosGuardados(entidad.minem.gob.pe.IniciativaBE), Línea: 1543] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_GUARDADO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
