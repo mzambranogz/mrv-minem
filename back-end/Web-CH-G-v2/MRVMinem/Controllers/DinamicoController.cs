@@ -16,12 +16,18 @@ namespace MRVMinem.Controllers
     public class DinamicoController : BaseController
     {
         // GET: Dinamico
-        public ActionResult MantenimientoFactores()
+        public ActionResult MantenimientoFactores(FactorBE entidad)
         {
             MvFactor Modelo = new MvFactor();
-            FactorBE entidad = new FactorBE() { ID_FACTOR = 0 };
+            if (entidad.pagina == 0)
+            {
+                entidad.cantidad_registros = 10;
+                entidad.pagina = 1;
+                entidad.order_by = "NOMBRE_FACTOR";
+                entidad.order_orden = "ASC";
+            }
 
-            Modelo.ListaFactores = FactorLN.ListaFactor(entidad);
+            Modelo.ListaFactores = FactorLN.ListaFactorPaginado(entidad);
             Modelo.ListaControl = TipoControlLN.listarTipoControl();
             Modelo.ListaParametro = ParametroLN.ListarParametroControl();
             return View(Modelo);
@@ -30,9 +36,9 @@ namespace MRVMinem.Controllers
         public JsonResult GetFactorParametro(FactorBE entidad)
         {
             List<FactorBE> lista = FactorLN.ListaFactor(entidad);
-            if(lista  != null)
+            if (lista != null)
             {
-                foreach(var item in lista)
+                foreach (var item in lista)
                 {
                     item.ListaFactorParametro = FactorLN.ListaFactorParametro(item);
                 }
@@ -53,5 +59,15 @@ namespace MRVMinem.Controllers
             itemRespuesta.extra = entidad.message;
             return Respuesta(itemRespuesta);
         }
+
+        public JsonResult ListaFactores(FactorBE entidad)
+        {
+            List<FactorBE> lista = FactorLN.ListaFactorPaginado(entidad);
+
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
     }
 }

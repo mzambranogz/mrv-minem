@@ -1,0 +1,248 @@
+18/02/2020 08:56:40: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean), Línea: 0] - ORA-06550: line 1, column 32:
+PLS-00302: component 'USP_DEL_FACTOR_PARAMETRO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 08:56:42: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-06550: line 1, column 32:
+PLS-00302: component 'USP_DEL_FACTOR_PARAMETRO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 08:56:44: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-06550: line 1, column 32:
+PLS-00302: component 'USP_DEL_FACTOR_PARAMETRO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 08:56:45: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-06550: line 1, column 32:
+PLS-00302: component 'USP_DEL_FACTOR_PARAMETRO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 08:56:48: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 32:
+PLS-00302: component 'USP_DEL_FACTOR_PARAMETRO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 08:56:50: [Método: entidad.minem.gob.pe.FactorBE EliminaParametroFactor(entidad.minem.gob.pe.FactorBE), Línea: 152] - ORA-06550: line 1, column 32:
+PLS-00302: component 'USP_DEL_FACTOR_PARAMETRO' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 10:09:51: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean), Línea: 0] - ORA-02291: integrity constraint (MRVMM.FK_FACTOR) violated - parent key not found
+ORA-06512: at "MRVMM.PKG_MRV_PARAMETROS", line 160
+ORA-06512: at line 1
+18/02/2020 10:09:51: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-02291: integrity constraint (MRVMM.FK_FACTOR) violated - parent key not found
+ORA-06512: at "MRVMM.PKG_MRV_PARAMETROS", line 160
+ORA-06512: at line 1
+18/02/2020 10:09:51: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-02291: integrity constraint (MRVMM.FK_FACTOR) violated - parent key not found
+ORA-06512: at "MRVMM.PKG_MRV_PARAMETROS", line 160
+ORA-06512: at line 1
+18/02/2020 10:09:51: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-02291: integrity constraint (MRVMM.FK_FACTOR) violated - parent key not found
+ORA-06512: at "MRVMM.PKG_MRV_PARAMETROS", line 160
+ORA-06512: at line 1
+18/02/2020 10:09:51: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-02291: integrity constraint (MRVMM.FK_FACTOR) violated - parent key not found
+ORA-06512: at "MRVMM.PKG_MRV_PARAMETROS", line 160
+ORA-06512: at line 1
+18/02/2020 10:09:51: [Método: entidad.minem.gob.pe.FactorParametroBE RegistraParametroFactor(entidad.minem.gob.pe.FactorParametroBE), Línea: 128] - ORA-02291: integrity constraint (MRVMM.FK_FACTOR) violated - parent key not found
+ORA-06512: at "MRVMM.PKG_MRV_PARAMETROS", line 160
+ORA-06512: at line 1
+18/02/2020 11:11:34: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean), Línea: 0] - ORA-06550: line 1, column 15:
+PLS-00306: wrong number or types of arguments in call to 'USP_MNT_FACTOR'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 11:11:34: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-06550: line 1, column 15:
+PLS-00306: wrong number or types of arguments in call to 'USP_MNT_FACTOR'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 11:11:34: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-06550: line 1, column 15:
+PLS-00306: wrong number or types of arguments in call to 'USP_MNT_FACTOR'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 11:11:34: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-06550: line 1, column 15:
+PLS-00306: wrong number or types of arguments in call to 'USP_MNT_FACTOR'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 11:11:34: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 15:
+PLS-00306: wrong number or types of arguments in call to 'USP_MNT_FACTOR'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 11:11:34: [Método: entidad.minem.gob.pe.FactorBE RegistraFactor(entidad.minem.gob.pe.FactorBE), Línea: 100] - ORA-06550: line 1, column 15:
+PLS-00306: wrong number or types of arguments in call to 'USP_MNT_FACTOR'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 11:12:05: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean), Línea: 0] - ORA-06550: line 1, column 15:
+PLS-00306: wrong number or types of arguments in call to 'USP_MNT_FACTOR'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 11:12:05: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-06550: line 1, column 15:
+PLS-00306: wrong number or types of arguments in call to 'USP_MNT_FACTOR'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 11:12:05: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-06550: line 1, column 15:
+PLS-00306: wrong number or types of arguments in call to 'USP_MNT_FACTOR'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 11:12:05: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-06550: line 1, column 15:
+PLS-00306: wrong number or types of arguments in call to 'USP_MNT_FACTOR'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 11:12:05: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 15:
+PLS-00306: wrong number or types of arguments in call to 'USP_MNT_FACTOR'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 11:12:05: [Método: entidad.minem.gob.pe.FactorBE RegistraFactor(entidad.minem.gob.pe.FactorBE), Línea: 0] - ORA-06550: line 1, column 15:
+PLS-00306: wrong number or types of arguments in call to 'USP_MNT_FACTOR'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 11:16:10: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean), Línea: 0] - ORA-06502: PL/SQL: numeric or value error: character string buffer too small
+ORA-06512: at line 1
+18/02/2020 11:16:10: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-06502: PL/SQL: numeric or value error: character string buffer too small
+ORA-06512: at line 1
+18/02/2020 11:16:10: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-06502: PL/SQL: numeric or value error: character string buffer too small
+ORA-06512: at line 1
+18/02/2020 11:16:10: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-06502: PL/SQL: numeric or value error: character string buffer too small
+ORA-06512: at line 1
+18/02/2020 11:16:10: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06502: PL/SQL: numeric or value error: character string buffer too small
+ORA-06512: at line 1
+18/02/2020 11:16:10: [Método: entidad.minem.gob.pe.FactorBE RegistraFactor(entidad.minem.gob.pe.FactorBE), Línea: 0] - ORA-06502: PL/SQL: numeric or value error: character string buffer too small
+ORA-06512: at line 1
+18/02/2020 11:17:14: [Método: T Get[T](System.String), Línea: 0] - La conversión especificada no es válida.
+18/02/2020 11:17:14: [Método: entidad.minem.gob.pe.FactorBE RegistraFactor(entidad.minem.gob.pe.FactorBE), Línea: 0] - La conversión especificada no es válida.
+18/02/2020 14:43:30: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:43:30: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:43:30: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:43:30: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:43:30: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:43:30: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:43:30: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:43:30: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:43:30: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.FactorBE] ListaFactorPaginado(entidad.minem.gob.pe.FactorBE), Línea: 105] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:46:15: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:46:15: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:46:15: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:46:15: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:46:15: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:46:15: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:46:15: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:46:15: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:46:15: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.FactorBE] ListaFactorPaginado(entidad.minem.gob.pe.FactorBE), Línea: 105] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:48:52: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:48:52: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:48:52: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:48:52: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:48:52: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:48:52: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:48:52: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:48:52: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:48:52: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.FactorBE] ListaFactorPaginado(entidad.minem.gob.pe.FactorBE), Línea: 105] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:49:48: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:49:48: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:49:48: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:49:48: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:49:48: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:49:48: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:49:48: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:49:48: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+18/02/2020 14:49:48: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.FactorBE] ListaFactorPaginado(entidad.minem.gob.pe.FactorBE), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_FACTOR_PAGINADO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored

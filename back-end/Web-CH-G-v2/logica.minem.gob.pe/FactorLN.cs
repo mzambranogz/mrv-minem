@@ -28,6 +28,23 @@ namespace logica.minem.gob.pe
             return lista;
         }
 
+        public static List<FactorBE> ListaFactorPaginado(FactorBE entidad)
+        {
+            List<FactorBE> lista = factorDA.ListaFactorPaginado(entidad);
+
+            if (lista != null)
+            {
+                foreach (var item in lista)
+                {
+                    FactorBE vEntidad = new FactorBE() { ID_FACTOR = item.ID_FACTOR };
+                    item.ListaFactorParametro = factorDA.ListaFactorParametro(vEntidad);
+                }
+            }
+
+            return lista;
+        }
+
+
         public static List<FactorParametroBE> ListaFactorParametro(FactorBE entidad)
         {
             return factorDA.ListaFactorParametro(entidad);
@@ -46,6 +63,7 @@ namespace logica.minem.gob.pe
                     {
                         foreach (var item in entidad.ListaFactorParametro)
                         {
+                            item.ID_FACTOR = entidad.ID_FACTOR;
                             FactorParametroBE resultado = factorDA.RegistraParametroFactor(item);
                             if (!resultado.OK)
                             {

@@ -9,6 +9,6 @@ namespace entidad.minem.gob.pe
     public partial class FactorBE: BaseBE
     {
         public int ID_FACTOR { get; set; }
-        public String NOMBRE_FACTOR { get; set; }
+        public string NOMBRE_FACTOR { get; set; }
     }
 }
