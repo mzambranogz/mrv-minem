@@ -29,7 +29,11 @@ namespace datos.minem.gob.pe
                     p.Add("pID_PARAMETRO", entidad.Parametro.ID_PARAMETRO);
                     p.Add("pID_GRUPO_INDICADOR", entidad.Parametro.ID_GRUPO_INDICADOR);
                     p.Add("pID_ORDEN", entidad.Parametro.ID_ORDEN);
-                    p.Add("pFORMULA", entidad.Parametro);
+                    p.Add("pFORMULA", entidad.Parametro.FORMULA);
+                    p.Add("pFORMULA_ARMADO", entidad.Parametro.FORMULA_ARMADO);
+                    p.Add("pCOMPORTAMIENTO", entidad.Parametro.COMPORTAMIENTO);
+                    p.Add("pVALOR", entidad.Parametro.VALOR_FORMULA);
+                    p.Add("pINS", entidad.Parametro.INS);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                     entidad.OK = true;
                 }

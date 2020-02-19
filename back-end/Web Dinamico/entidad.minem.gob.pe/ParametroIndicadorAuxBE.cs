@@ -14,7 +14,7 @@ namespace entidad.minem.gob.pe
         public string MEDIDA_MIT { get; set; }
         public string NOMBRE_PARAMETRO { get; set; }
         public string COLOR_GRUPO { get; set; }
-        public string FORMULA { get; set; }
+        public string FORMULA { get; set; }        
         public ParametroBE Parametro { get; set; }
         public List<ParametroBE> ListaParametro { get; set; }
         public List<ParametroIndicadorBE> ListaParametroInd { get; set; }

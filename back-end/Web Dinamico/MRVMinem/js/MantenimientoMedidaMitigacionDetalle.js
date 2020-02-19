@@ -1,4 +1,5 @@
-﻿$(document).ready(function () {
+﻿
+$(document).ready(function () {
     $("#rad-controles-" + $("#radio-control").data("tipocontrol")).prop("checked", true);
     $("#control-cbo-" + $("#radio-control").data("tipocontrol")).removeAttr("hidden");
 });
@@ -49,12 +50,17 @@ function fn_guardarMedidaDetalle() {
     indicadores = [];
     var columnas = $("#columnas-detalle").find(".recorrer");
     var i = 0;
+    var ins = 0;
     columnas.each(function (index, value) {
-        //debugger;
+        debugger;
         i++;
         var formula = "";
+        var formula_armado = "";
         if ($(value).attr("data-enfoque") == 1) {
             formula = $(value).attr("data-resultado");
+            formula_armado = $(value).attr("data-resultadobd");
+            formula_armado = formula_armado.substring(0, formula_armado.length - 1);
+            ins = 1;
         }
         
         var itx = {
@@ -65,7 +71,11 @@ function fn_guardarMedidaDetalle() {
             ID_PARAMETRO: $(value).find(".column-componente").attr("data-cm"),
             ID_GRUPO_INDICADOR: $(value).find(".column-grupo").attr("data-g"),
             ID_ORDEN: i,
-            FORMULA: formula
+            FORMULA: formula,
+            FORMULA_ARMADO: formula_armado,
+            COMPORTAMIENTO: '=',
+            VALOR_FORMULA: 0,
+            INS: ins
         }
         indicadores.push(itx);
 
@@ -77,17 +87,22 @@ function fn_guardarMedidaDetalle() {
         ID_MEDMIT: $("#cbo-medida-mitigacion").val()
     };
 
-    var url = baseUrl + 'Mantenimiento/RegistrarMedidaMitigacionDetalle';
+    var url = "";
+    if ($("#medida-enfoque").data("accion") == 0){
+        url = baseUrl + 'Mantenimiento/RegistrarMedidaMitigacionDetalle';
+    } else if (("#medida-enfoque").data("accion") == 1) {
+        url = baseUrl + 'Mantenimiento/ActualizarMedidaMitigacionDetalle';
+    }
+
     var respuesta = MRV.Ajax(url, item, false);
     if (respuesta.success) {
+        CargarDatosMedidaDetalle();
         alert("bien");
     }
 
 }
 
-$(document).on("change", "#cbo-medida-mitigacion", function () {
-    debugger;
-    var medida = $("#cbo-medida-mitigacion").val();
+function fn_getMedidaEnfoque(medida, enfoque) {
     if (medida > 0) {
         $("#cbo-enfoque-mitigacion").html("");
         $("#cbo-enfoque-mitigacion").append('<option value="0">-Seleccione un enfoque-</option>');
@@ -101,20 +116,32 @@ $(document).on("change", "#cbo-medida-mitigacion", function () {
             data: Item,
             success: function (data) {
                 if (data != null && data != "") {
-                    if (data.length > 0) {    
+                    if (data.length > 0) {
                         for (var i = 0; i < data.length; i++) {
                             $("#cbo-enfoque-mitigacion").append('<option value="' + data[i]["ID_ENFOQUE"] + '">' + data[i]["DESCRIPCION"] + '</option>');
                         }
+                        $("#cbo-enfoque-mitigacion").val(enfoque);
                     }
                 }
             }
         });
-    }    
+    }
+}
+
+$(document).on("change", "#cbo-medida-mitigacion", function () {
+    var medida = $("#cbo-medida-mitigacion").val();
+    fn_getMedidaEnfoque(medida, 0);
 });
 
-function fn_seleccionarMedidaEnfoque(enfoque, medida) {
+//function fn_cambiarAccion() {
+//    $("#medida-mitigacion").data("accion", 0); // 1: EDITAR | 0: REGISTRAR
+//}
 
+function fn_seleccionarMedidaEnfoque(enfoque, medida) {
+    debugger;
+    //$("#medida-mitigacion").data("accion", 1); // 1: EDITAR | 0: REGISTRAR
     $("#cbo-medida-mitigacion").val(medida);
+    fn_getMedidaEnfoque(medida, enfoque);
     $("#columnas-detalle").html("");
     var item = {
         ID_ENFOQUE: enfoque,
@@ -130,7 +157,7 @@ function fn_seleccionarMedidaEnfoque(enfoque, medida) {
             if (data != null && data != "") {
                 if (data.length > 0) {
                     for (var i = 0; i < data.length; i++) {
-                        debugger;
+                        //debugger;
                         var aLetras = new Array('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j');
                         var cLetra = aLetras[Math.floor(Math.random() * aLetras.length)];
                         var control = data[i]["ID_TIPO_CONTROL"];
@@ -155,12 +182,12 @@ function fn_seleccionarMedidaEnfoque(enfoque, medida) {
                                 formula += f[j];
                             }
                         }
-                        debugger;
+                        //debugger;
                         var tr = "";
                         if (data[i]["FORMULA"] == null) {
                             tr += '<div id="' + id_mrv + '" class="list-group-item sortable-item recorrer" style="background-color: ' + color + '; color: white;" data-enfoque="" data-resultado="" draggable="false">';
                         } else {
-                            tr += '<div id="' + id_mrv + '" class="list-group-item sortable-item recorrer enfoque-add sortable-chosen" style="background-color: ' + color + '; color: white;" data-enfoque="1" data-resultado="' + formula + '" draggable="true">';
+                            tr += '<div id="' + id_mrv + '" class="list-group-item sortable-item recorrer enfoque-add sortable-chosen" style="background-color: ' + color + '; color: white;" data-enfoque="1" data-resultado="' + formula + '" data-resultadobd="' + data[i]["FORMULA"] + '" draggable="true">';
                         }
                         tr += '    <i class="fas fa-2x fa-arrows-alt"></i>';
                         tr += '     <small>' + nombre_campo + '</small>';
@@ -188,9 +215,65 @@ function fn_seleccionarMedidaEnfoque(enfoque, medida) {
             }
         }
     });
-    while ($("#cbo-enfoque-mitigacion").val() == 0) {
-        $("#cbo-enfoque-mitigacion").val(enfoque);
-    }
+    //debugger;
+    //while ($("#cbo-enfoque-mitigacion").val() == 0) {
+    //    $("#cbo-enfoque-mitigacion").val(enfoque);
+    //}
 
+}
+
+function CargarDatosMedidaDetalle() {
+    var item = {
+    };
+    $.ajax({
+        url: baseUrl + "Mantenimiento/ListarMedidaMitigacionDetalle",
+        type: 'POST',
+        datatype: 'json',
+        data: item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    $("#medida-enfoque").html("");
+                    for (var i = 0; i < data.length; i++) {                        
+                        var tr = "";
+                        tr += '<tr id="detalles-tr-1">';
+                        tr += '    <th class="text-center" data-encabezado="Número" scope="row">'+(i+1)+'</th>';
+                        tr += '    <td data-encabezado="Medida de mitigación">'+ data[i]["MEDIDA_MIT"] +'</td>';
+                        tr += '    <td class="text-center" data-encabezado="Enfoque">'+ data[i]["ENFOQUE"] +'</td>';
+                        tr += '    <td data-encabezado="Estructura de columnas">';
+                        tr += '          <div class="form-control">';
+                        tr += '          <div class="list-group sortable-list m-0">';
+                        var entidad = data[i]["ListaParametroInd"]
+                        for (var j = 0; j < entidad.length; j++){
+                            if (entidad[j]["FORMULA"] == null){
+                                tr += '     <div class="p-1 text-center" style="background-color: '+entidad[j]["COLOR_GRUPO"]+'; color: white;"><small style="font-weight: bold;">'+entidad[j]["NOMBRE_PARAMETRO"]+'</small></div>';
+                            }else{
+                                tr += '     <div class="p-1 text-center" style="background-color: '+entidad[j]["COLOR_GRUPO"]+'; color: white;"><small style="font-weight: bold;">'+entidad[j]["NOMBRE_PARAMETRO"]+'<i class="fas fa-square-root-alt cursor-pointer m-2 enfoque-columna-detalle" data-toggle="tooltip" data-placement="top" title="Fórmula: '+entidad[j]["FORMULA"]+'"></i></small></div>';
+                            }
+                        }
+                        tr += '             </div>';
+                        tr += '         </div>';
+                        tr += '</td>';                        
+                        tr += '<td class="text-center text-xs-right" data-encabezado="Acciones">';
+                        tr += '         <div class="btn-group">';
+                        tr += '                <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
+                        tr += '                <div class="dropdown-menu dropdown-menu-right">';
+                        tr += '                     <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-medida-de-mitigacion" onclick="fn_seleccionarMedidaEnfoque(@item.ID_ENFOQUE,@item.ID_MEDMIT)"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
+                        tr += '                     <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion" onclick="fn_eliminarMedidaEnfoque(@item.ID_ENFOQUE,@item.ID_MEDMIT)"><i class="fas fa-trash"></i>&nbsp;Eliminar</a>';
+                        tr += '                </div>';
+                        tr += '         </div>';
+                        tr += '</td>';
+                        tr += '</tr>';
+                        $("#medida-enfoque").append(tr);
+                    }
+                }
+            }
+        }
+    });
+
+
+                                                        
+
+                                                
 }
 

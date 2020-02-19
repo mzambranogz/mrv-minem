@@ -49,6 +49,7 @@
     <Compile Include="EscenarioAuxBE.cs" />
     <Compile Include="EscenarioBE.cs" />
     <Compile Include="EscenarioRptBE.cs" />
+    <Compile Include="FactorAuxBE.cs" />
     <Compile Include="FactorBE.cs" />
     <Compile Include="FactorParametroBE.cs" />
     <Compile Include="FactorParametroDataBE.cs" />

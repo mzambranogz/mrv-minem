@@ -173,7 +173,8 @@
     <Content Include="js\MantenimientoTablas.js" />
     <Content Include="js\MantenimientoUbicacion.js" />
     <Content Include="js\MantenimientoUsuario.js" />
-    <Content Include="js\MedidaMitigacionDetalle.js" />
+    <Content Include="js\MantenimientoMedidaMitigacionDetalle.js" />
+    <Content Include="js\MantenimientoMedidaFactorData.js" />
     <Content Include="js\MRV.js" />
     <Content Include="js\Notificacion.js" />
     <Content Include="js\NuevaIniciativaMitigacion.js" />
@@ -361,6 +362,7 @@
     <Content Include="Views\Mantenimiento\Energeticos.cshtml" />
     <Content Include="Views\Detalle\DetalleIndicadorMasivo.cshtml" />
     <Content Include="Views\Mantenimiento\MedidaMitigacionDetalle.cshtml" />
+    <Content Include="Views\Mantenimiento\MedidaFactoresData.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

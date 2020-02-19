@@ -487,6 +487,14 @@ namespace MRVMinem.Controllers
             return View(modelo);
         }
 
+        public JsonResult ListarMedidaMitigacionDetalle()
+        {
+            List<ParametroIndicadorBE> lista = ParametroIndicadorLN.ListarParametroIndicador();
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }        
+
         public JsonResult GetMedidaMitigacionDetalle(ParametroIndicadorBE entidad)
         {
             List<ParametroIndicadorBE> lista = ParametroIndicadorLN.GetMedidaMitigacionDetalle(entidad);
@@ -500,10 +508,78 @@ namespace MRVMinem.Controllers
             ResponseEntity itemRespuesta = new ResponseEntity();
 
             entidad = ParametroIndicadorLN.RegistrarMedidaMitigacionDetalle(entidad);
-            //entidad = EnergeticoLN.EliminarEnergetico(entidad);
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }
+
+        ////////////////////////////////////////////////////
+
+        public ActionResult MedidaFactoresData()
+        {
+            MvParametro modelo = new MvParametro();
+            MedidaMitigacionBE medida = new MedidaMitigacionBE();
+            modelo.listaMedida = MedidaMitigacionLN.ListarMedidaMitigacion(medida);
+            modelo.listaFactor = FactorLN.listarFactores();
+            modelo.listaMedidaFactor = FactorLN.listarMedidaFactor();
+
+            //modelo.listaControl = TipoControlLN.listarTipoControl();
+            //modelo.listaParametro = ParametroLN.ListarParametroControl();
+            //modelo.listaGrupo = GrupoIniciativaLN.listarGrupoIniciativa();
+            
+            
+            //modelo.listaParametroInd = ParametroIndicadorLN.ListarParametroIndicador();
+            //modelo.menor = getMenorControl(modelo.listaControl);
+            return View(modelo);
+        }
+
+        public JsonResult ListaMedidaFactor(FactorBE entidad)
+        {
+            List<FactorBE> lista = FactorLN.listarMedidaFactor();
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult GetMedidaFactor(FactorBE entidad)
+        {
+            List<FactorBE> lista = FactorLN.GetMedidaFactor(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListarCabeceraFactor(FactorParametroBE entidad)
+        {
+            List<FactorParametroBE> lista = FactorLN.ListarCabeceraFactor(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListarCuerpoFactor(FactorParametroBE entidad)
+        {
+            List<FactorParametroBE> lista = FactorLN.ListarCuerpoFactor(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListarDatosFactorData(FactorParametroDataBE entidad)
+        {
+            List<FactorParametroDataBE> lista = FactorLN.ListarDatosFactorData(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult GuardarFactores(FactorBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+            entidad = FactorLN.GuardarFactores(entidad);
+            itemRespuesta.success = entidad.OK;
+            return Respuesta(itemRespuesta);
+        }
+
         /////////// exportar excel
         public void ExportarMantenimientoInstitucion(string item)
         {

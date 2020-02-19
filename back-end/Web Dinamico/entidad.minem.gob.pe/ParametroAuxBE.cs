@@ -14,5 +14,11 @@ namespace entidad.minem.gob.pe
         public string VALOR { get; set; }
         public int ID_MEDMIT { get; set; }
         public int ID_INICIATIVA { get; set; }
+        public string FORMULA { get; set; }
+        public string FORMULA_ARMADO { get; set; }
+        public string COMPORTAMIENTO { get; set; }
+        public decimal VALOR_FORMULA { get; set; }
+        public decimal FACTOR { get; set; }
+        public int INS { get; set; }
     }
 }
