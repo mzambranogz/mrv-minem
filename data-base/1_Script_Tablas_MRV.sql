@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - lunes-febrero-17-2020   
+-- Archivo creado  - martes-febrero-18-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Sequence SQ_GEND_DETALLE_INICIATIVA
@@ -1094,7 +1094,8 @@
 	"ID_ENFOQUE" NUMBER, 
 	"ID_MEDMIT" NUMBER(*,0), 
 	"ID_PARAMETRO" NUMBER, 
-	"VALOR" VARCHAR2(50 BYTE)
+	"VALOR" VARCHAR2(50 BYTE), 
+	"FLAG_ESTADO" VARCHAR2(1 BYTE) DEFAULT '1'
    ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
  NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
