@@ -25,27 +25,8 @@ namespace MRVMinem.Reportes
                 {
                      ReporteMedidaMitigacion();
                 }
+               
                 else if (Request.QueryString["IdReporte"] == "3")
-                {
-                    /*ReporteInstitucion();*/
-                }
-                else if (Request.QueryString["IdReporte"] == "4")
-                {
-                    /*ReporteUbicacionMedidas();*/
-                }
-                else if (Request.QueryString["IdReporte"] == "5")
-                {
-                    /*ReporteEstadoIniciativa();*/
-                }
-                else if (Request.QueryString["IdReporte"] == "6")
-                {
-                    /*ReporteTipoIniciativa();*/
-                }
-                else if (Request.QueryString["IdReporte"] == "7")
-                {
-                    /*ReporteDocumentosMedida();*/
-                }
-                else if (Request.QueryString["IdReporte"] == "8")
                 {
                     ReporteEscenarios();
                 }
