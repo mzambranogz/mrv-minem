@@ -1472,7 +1472,7 @@ function fn_evaluarIniciativaDetalle() {
         msj1 = msj1 + '     <div class="alert-wrap">';
         msj1 = msj1 + '     <h6>Mercado de carbono</h6>';
         msj1 = msj1 + '     <hr><small class="mb-0">';
-        msj1 = msj1 + '         Se ha generado la cadena de bloques para la medida de mitigación&nbsp;<strong>aprobada&nbsp;</strong>';
+        msj1 = msj1 + '         Se ha generado la cadena de bloques para la medida de mitigación&nbsp;<strong>aprobada&nbsp; <br></strong><a class="btn btn-warning px-5 text-center my-3" href="#" data-toggle="modal"><i class="fas fa-download px-1"></i>Descargar certificado</a>';
         msj1 = msj1 + '         <hr>';
         msj1 = msj1 + '         <div class="text-monospace" style="word-break: break-all;">341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb72</div>';
         msj1 = msj1 + '     </small>';
@@ -1560,7 +1560,7 @@ function fn_verificarIniciativaDetalle() {
         msj1 = msj1 + '     <div class="alert-wrap">';
         msj1 = msj1 + '     <h6>Mercado de carbono</h6>';
         msj1 = msj1 + '     <hr><small class="mb-0">';
-        msj1 = msj1 + '         Se ha generado la cadena de bloques para la medida de mitigación&nbsp;<strong>aprobada&nbsp;</strong>';
+        msj1 = msj1 + '         Se ha generado la cadena de bloques para la medida de mitigación&nbsp;<strong>aprobada&nbsp; <br></strong><a class="btn btn-warning px-5 text-center my-3" href="#" data-toggle="modal" data-target="#observar-verificacion"><i class="fas fa-download px-1"></i>Descargar certificado</a>';
         msj1 = msj1 + '         <hr>';
         msj1 = msj1 + '         <div class="text-monospace" style="word-break: break-all;">341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb72</div>';
         msj1 = msj1 + '     </small>';

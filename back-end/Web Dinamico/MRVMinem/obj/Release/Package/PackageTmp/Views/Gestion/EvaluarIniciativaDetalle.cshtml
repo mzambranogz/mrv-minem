@@ -596,7 +596,7 @@
                         <div class="modal-body medidas-modal">
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <h3 class="text-center">¿Confirma aprobar esta evaluación? <br></h3>
+                                    <h3 class="text-center">¿Está seguro de aprobar la inicitiva de mitigación seleccionada? <br></h3>
                                     <p class="text-center">Está de acuerdo en aprobar todos los datos vinculados en de esta iniciativa de mitigación, como de los detalles de indicadores registrados.</p>
                                 </div>
                                 <div class="col-sm-12 col-md-12 col-lg-12" id="modalAprobacion">
@@ -656,8 +656,8 @@
                             </div>*@
                         </div>
                         <div class="modal-footer" id="modalAprobarBoton">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
                             <button class="btn btn-primary" type="button" onclick="fn_evaluarIniciativaDetalle();">Si</button>
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>                            
                         </div>
                         <div class="modal-footer" id="pieCorrectoAprobacion"> <!-- add 04-02-2020 -->
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
@@ -749,7 +749,8 @@
 
                 </div>
                 <div class="modal-footer" id="modalObservacionBoton">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button><a class="btn btn-primary" href="#" onclick="fn_observacionEvaluadorDetalleIndicador();">Enviar<i class="fas fa-paper-plane ml-1"></i></a>
+                    <a class="btn btn-primary" href="#" onclick="fn_observacionEvaluadorDetalleIndicador();">Enviar<i class="fas fa-paper-plane ml-1"></i></a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
                 </div>
                 <div class="modal-footer" id="pieCorrectoObservacion">
                     <!-- add 04-02-2020 -->

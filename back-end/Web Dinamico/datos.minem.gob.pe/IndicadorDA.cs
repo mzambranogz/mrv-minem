@@ -859,5 +859,38 @@ namespace datos.minem.gob.pe
             return obj;
         }
 
+        ///////////////////////////////////////////////////////////////////////////////
+        public List<IndicadorDataBE> ListarDatosTablaDinamica(IndicadorDataBE entidad)
+        {
+            List<IndicadorDataBE> listaDataE = new List<IndicadorDataBE>();
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_GET_INI_ENFOOQUE";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    var lista = db.Query<IndicadorDataBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in lista)
+                    {
+                        listaDataE.Add(ListarIndicadorParametros(item));
+                    }
+
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.extra = ex.Message;
+                entidad.OK = false;
+            }
+
+            return listaDataE;
+        }
+
     }
 }

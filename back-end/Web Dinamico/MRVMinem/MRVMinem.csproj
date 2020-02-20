@@ -166,6 +166,7 @@
     <Content Include="js\MantenimientoEnergeticos.js" />
     <Content Include="js\MantenimientoEnfoques.js" />
     <Content Include="js\MantenimientoEscenario.js" />
+    <Content Include="js\MantenimientoFactores.js" />
     <Content Include="js\MantenimientoGei.js" />
     <Content Include="js\MantenimientoInstitucion.js" />
     <Content Include="js\MantenimientoMonedas.js" />
@@ -207,10 +208,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\SessionHelper.cs" />
     <Compile Include="Models\ListaObjeto.cs" />
     <Compile Include="Models\MvEnergetico.cs" />
     <Compile Include="Models\MvEnfoque.cs" />
     <Compile Include="Models\MvEscenario.cs" />
+    <Compile Include="Models\MvFactor.cs" />
     <Compile Include="Models\MvGei.cs" />
     <Compile Include="Models\MvIniciativa.cs" />
     <Compile Include="Models\MvInstitucion.cs" />
@@ -234,6 +237,7 @@
     </Compile>
     <Compile Include="Repositorio\EnvioCorreo.cs" />
     <Compile Include="Response\ResponseEntity.cs" />
+    <Compile Include="Tags\AutenticadoAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config">
@@ -363,6 +367,7 @@
     <Content Include="Views\Detalle\DetalleIndicadorMasivo.cshtml" />
     <Content Include="Views\Mantenimiento\MedidaMitigacionDetalle.cshtml" />
     <Content Include="Views\Mantenimiento\MedidaFactoresData.cshtml" />
+    <Content Include="Views\Mantenimiento\MantenimientoFactores.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -13,5 +13,6 @@ namespace entidad.minem.gob.pe
         public int ID_TIPO_DATO { get; set; }
         public int ID_PARAMETRO { get; set; }
         public string NOMBRE_DETALLE { get; set; }
+        public int ORDEN { get; set; }
     }
 }

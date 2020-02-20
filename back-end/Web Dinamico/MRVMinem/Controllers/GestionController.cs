@@ -19,11 +19,21 @@ using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using System.Drawing;
 using utilitario.minem.gob.pe;
+using MRVMinem.Tags;
+using MRVMinem.Helper;
 
 namespace MRVMinem.Controllers
 {
+    //[Autenticado]
     public class GestionController : BaseController
     {
+
+        public ActionResult Logout()
+        {
+            SessionHelper.DestroyUserSession();
+            return RedirectToAction("Login", "Home");
+        }
+
         // GET: Gestion
         public ActionResult Index()
         {
@@ -158,8 +168,13 @@ namespace MRVMinem.Controllers
             modelo.iniciativa_mit = inic;
             modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
             modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
-            modelo.listaEnfoque = EnfoqueLN.listarEnfoqueIniciativa(modelo.iniciativa_mit.ID_INICIATIVA);
             modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
+            //modelo.listaEnfoque = EnfoqueLN.listarEnfoqueIniciativa(modelo.iniciativa_mit.ID_INICIATIVA);
+
+            modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
+            modelo.listaParametro = ParametroLN.ListarParametro(modelo.iniciativa_mit.ID_MEDMIT);
+
+            
             modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
             modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
             modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
@@ -1617,6 +1632,10 @@ namespace MRVMinem.Controllers
 
             entidad.ID_USUARIO = Convert.ToInt32(Session["usuario"]);
             entidad = UsuarioLN.ActualizarPrimeraVisita(entidad);
+            if (entidad.OK)
+            {
+                Session["primer_inicio"] = "0";
+            }
             itemRespuesta.success = entidad.OK;
 
             return Respuesta(itemRespuesta);

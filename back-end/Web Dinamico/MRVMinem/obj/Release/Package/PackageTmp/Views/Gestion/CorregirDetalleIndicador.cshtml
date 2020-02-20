@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/_SesionLayout.cshtml";
 }
 @Html.HiddenFor(m => m.iniciativa_mit.ID_INICIATIVA)
+@Html.HiddenFor(m => m.medida.ID_MEDMIT)
 
 <div class="container-fluid map-root" id="historia">
     <div class="container">
@@ -277,13 +278,14 @@
                                 <div class="col-sm-12-col-md-12 col-lg-6">&nbsp;</div>
                             </div>
                         </div>
+
                         <div class="container-fluid py-4">
                             <div class="h5">Resumen de Detalles de Indicadores&nbsp;<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Complete los campos de acuerdo al enfoque seleccionado"></i></div>
                             <div class="dropdown-divider"></div>
                             <div class="row">
                                 <div class="col-12 px-0">
-                                    <div class="table-responsive tabla-principal tabla-detalle-indicadores">
-                                        <table class="table table-hover" id="tablaIndicador" data-fila="0">
+                                    <div class="table-responsive tabla-principal tabla-detalle-indicadores-1" data-order="tbl-1">
+                                        <table class="table table-hover" id="tablaIndicador" data-fila="0" data-order="tbl-1">
                                             <thead id="cabeceraTablaIndicador" >
                                                 @*<tr class="bg-primary text-white">
                                                     <th class="text-center" style="background-color: green;" scope="col"><span>N°&nbsp;</span></th>
@@ -324,7 +326,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                            </div>
+
                         <div class="container py-5">
                             <div class="dropdown-divider my-5"></div>
                             <div class="row">

@@ -13,6 +13,7 @@ namespace entidad.minem.gob.pe
         public string NUMERO_MEDMIT { get; set; }
         public string ID_ELIMINAR_FACTOR { get; set; }
         public List<FactorBE> listaFactor { get; set; }
+        public List<FactorParametroBE> ListaFactorParametro { get; set; }
         public List<FactorParametroDataBE> listaFactorData { get; set; }
         public List<ParametroBE> listaParametro { get; set; }
         public List<ParametroDetalleBE> listaDetalle { get; set; }

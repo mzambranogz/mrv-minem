@@ -25,7 +25,7 @@
                 <div class="container py-4">
                     <div class="row">
                         <div class="col-md-12 col-lg-6 pt-4">
-                            <div class="h4">Detalle de Identificación&nbsp;<br><small class="text-muted">Asigne información importante a su detalle de indicadores, <br>complete todos los campos para una mejor especificación.</small></div>
+                            <div class="h4">Detalle de Indicadores&nbsp;<br><small class="text-muted">Ingrese la información que nos permita conocer y clasificar la iniciativa de mitigacion a reportar.</small></div>
                         </div>
                         <div class="col-md-12 col-lg-6 pt-4">
                             <div class="row">
@@ -41,6 +41,14 @@
                 </div>
                 <div class="container-fluid py-4 px-0 tabs-registro">
                     <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <div class="alert alert-success mt-3 fa-2x">
+                                    <i class="fas fa-tachometer-alt mr-1"></i>
+                                    <div class="h4 d-inline">@Model.medida.NOMBRE_MEDMIT</div>
+                                </div>
+                            </div>
+                        </div>
                         <ul class="nav nav-pills mb-3 d-flex" id="pills-tab" role="tablist">
                             <li class="nav-item flex-fill"><a class="nav-link" id="pills-01-tab" data-toggle="pill" href="#pills-01" role="tab" aria-controls="pills-01" aria-selected="true" order="1">IDENTIFICACIÓN</a></li>
                             <li class="nav-item flex-fill"><a class="nav-link active" id="pills-02-tab" data-toggle="pill" href="#pills-02" role="tab" aria-controls="pills-02" aria-selected="false" order="2">DETALLES</a></li>
@@ -57,7 +65,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="h5 pb-5 text-primary">
-                                            <div class="steps">PASO 1 DE 4 &nbsp;</div>Promoción de vehiculos eléctricos a nivel nacional&nbsp;<br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small>
+                                            <div class="steps">PASO 1 DE 4 &nbsp;</div>@Model.medida.NOMBRE_MEDMIT&nbsp;<br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small>
                                         </div>
                                     </div>
                                 </div>
@@ -90,22 +98,20 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-12">
-                                        <div class="h5 py-5 text-primary">Datos principales
-                                            <div class="steps">PASO 1 DE 4 &nbsp;</div>Promoción de vehiculos eléctricos a nivel nacional&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small>
-                                        </div>
+                                        <div class="h5 py-5 text-primary">Datos principales</div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12-col-md-12 col-lg-12">
                                         <div class="form-group">
-                                            <label for="txa-nombre-iniciativa">Nombre de la iniciativa<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="En caso no posea un nombre, coloque el nombre de la medida de mitigación seguido de un guión y nombre o siglas de la institución."></i></label>
+                                            <label for="txa-nombre-iniciativa">Nombre de la iniciativa</label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-tachometer-alt"></i></span></div>
                                                 <textarea class="form-control-plaintext" id="txa-nombre-iniciativa" aria-describedby="inputGroup4" cols="30" rows="5" readonly placeholder="Ingrese un nombre para su iniciativa">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor officia, sequi hic, vel quia repellat architecto quasi corporis quidem doloribus earum praesentium molestiae illo, iure voluptates autem voluptate inventore! Inventore.</textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="txa-descripcion-medida">Descripción de la medida<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indicar la ubicación, tecnología considerada y cantidades de la misma."></i></label>
+                                            <label for="txa-descripcion-medida">Descripción de la medida</label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-tachometer-alt"></i></span></div>
                                                 <textarea class="form-control-plaintext" id="txa-descripcion-medida" aria-describedby="inputGroup5" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil optio corrupti itaque tempora pariatur nemo ipsam quis porro magnam dolorum a, dolore explicabo eveniet velit natus voluptate aperiam, reprehenderit ipsa!</textarea>
@@ -164,7 +170,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="txa-ubicacion">Ubicación<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                            <label for="txa-ubicacion">Ubicación</label>
                                             <div class="input-group" id="campoUbicacion">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
                                                 @*<textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
@@ -184,14 +190,14 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="txt-monto-inversion">Monto de inversión<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                            <label for="txt-monto-inversion">Monto de inversión<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup11"><i class="fas fa-wallet"></i></span></div>
                                                 <input class="form-control-plaintext" type="text" id="txt-monto-inversion" aria-describedby="inputGroup11" value="100,000.00">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="txt-fecha-inicio">Fecha de Inicio del proyecto<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique el año de inicio del proyecto"></i></label>
+                                            <label for="txt-fecha-inicio">Fecha de Inicio del proyecto</label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup12"><i class="fas fa-calendar-alt"></i></span></div>
                                                 <input class="form-control-plaintext" type="text" id="txt-fecha-inicio" aria-describedby="inputGroup12" value="25/10/2018">
@@ -214,7 +220,7 @@
                                 <div class="row">
                                     <div class="col-sm-12-col-md-12 col-lg-6">
                                         <div class="form-group">
-                                            <label for="mlt-energetico">Energético asociado<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                            <label for="mlt-energetico">Energético asociado</label>
                                             <div class="input-group" id="campoEnerg">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
                                                 @*<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
@@ -226,7 +232,7 @@
                                     </div>
                                     <div class="col-sm-12-col-md-12 col-lg-6">
                                         <div class="form-group">
-                                            <label for="mlt-gei">Gases de efecto invernadero<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                            <label for="mlt-gei">Gases de efecto invernadero<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                             <div class="input-group" id="campoGei">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
                                                 @*<textarea class="form-control-plaintext" id="mlt-gei" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
@@ -290,52 +296,60 @@
                             </div>
 
                             <div class="container-fluid py-4">
-                            <div class="h5">Resumen de Detalles de Indicadores&nbsp;<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Complete los campos de acuerdo al enfoque seleccionado"></i></div>
-                            <div class="dropdown-divider"></div>
-                            <div class="row">
-                                <div class="col-12 px-0">
-                                    <div class="table-responsive tabla-principal tabla-detalle-indicadores-1" data-order="tbl-1">
-                                        <table class="table table-hover" id="tablaIndicador" data-fila="0" data-order="tbl-1">
-                                            <thead id="cabeceraTablaIndicador" >
-                                                @*<tr class="bg-primary text-white">
-                                                    <th class="text-center" style="background-color: green;" scope="col"><span>N°&nbsp;</span></th>
-                                                    <th class="text-center" style="background-color: green;" scope="col"><span>Año&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Año"></i></span></th>
-                                                    <th class="text-center" style="background-color: green;" scope="col"><span>Tipo Vehiculo&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Tipo Vehículo"></i></span></th>
-                                                    <th class="text-center" style="background-color: orange;" scope="col"><span>Tipo Combustible&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Tipo Combustible"></i></span></th>
-                                                    <th class="text-center" style="background-color: green;" scope="col"><span>KRV&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador KRV"></i></span></th>
-                                                    <th class="text-center" style="background-color: green;" scope="col"><span>Cantidad&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Cantidad"></i></span></th>
-                                                    <th class="text-center" style="background-color: green;" scope="col"><span>Factor de Rendimiento&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Rendimiento"></i></span></th>
-                                                    <th class="text-center" style="background-color: orange;" scope="col"><span>Línea Base Emisiones GEI (tCO<sub>2</sub>eq)</span></th>
-                                                    <th class="text-center" style="background-color: green;" scope="col"><span>Iniciativa Mitigación Emisiones GEI (tCO<sub>2</sub>eq)</span></th>
-                                                    <th class="text-center" style="background-color: #2271b3;" scope="col"><span>Emisiones GEI Reducidas (tCO<sub>2</sub>eq)</span></th>
-                                                    <th class="text-center" scope="col">Más</th>
-                                                    <th class="text-hide" scope="col" style="display:none;">Id. Iniciativa</th>
-                                                </tr>*@
-                                            </thead>
-                                            <tbody id="cuerpoTablaIndicador" data-row="0" data-total="0" data-delete=""> <!-- add id delete-->
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="table-responsive tabla-principal mt-3">
-                                        <table class="table table-hover">
-                                            <thead>
-                                                <tr class="bg-primary text-white">
-                                                    <th class="text-center" scope="col" width="2%"><span>N°&nbsp;</span></th>
-                                                    <th scope="col" width="88%"><span>Resumen</span></th>
-                                                    <th scope="col" width="10%"><span>Total</span></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th class="text-center" data-encabezado="Número" scope="row">1</th>
-                                                    <td data-encabezado="Resumen" id="resumen-detalle">@Model.medida.IPSC_MEDMIT</td>
-                                                    <td data-encabezado="Total"><strong id="total-detalle">0.00</strong><strong>&nbsp;tCO<sub>2</sub>eq</strong></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                <div class="h5">Registro de Detalles de Indicadores&nbsp;<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Complete los campos de acuerdo al enfoque seleccionado"></i></div>
+                                <div class="dropdown-divider"></div>
+                                <div class="row">
+                                    <div class="col-12 px-0">
+                                        <div class="table-responsive tabla-principal tabla-detalle-indicadores-1" data-order="tbl-1">
+                                            <table class="table table-hover" id="tablaIndicador" data-fila="0" data-order="tbl-1">
+                                                <thead id="cabeceraTablaIndicador" >
+                                                    @*<tr class="bg-primary text-white">
+                                                        <th class="text-center" style="background-color: green;" scope="col"><span>N°&nbsp;</span></th>
+                                                        <th class="text-center" style="background-color: green;" scope="col"><span>Año&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Año"></i></span></th>
+                                                        <th class="text-center" style="background-color: green;" scope="col"><span>Tipo Vehiculo&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Tipo Vehículo"></i></span></th>
+                                                        <th class="text-center" style="background-color: orange;" scope="col"><span>Tipo Combustible&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Tipo Combustible"></i></span></th>
+                                                        <th class="text-center" style="background-color: green;" scope="col"><span>KRV&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador KRV"></i></span></th>
+                                                        <th class="text-center" style="background-color: green;" scope="col"><span>Cantidad&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Cantidad"></i></span></th>
+                                                        <th class="text-center" style="background-color: green;" scope="col"><span>Factor de Rendimiento&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Rendimiento"></i></span></th>
+                                                        <th class="text-center" style="background-color: orange;" scope="col"><span>Línea Base Emisiones GEI (tCO<sub>2</sub>eq)</span></th>
+                                                        <th class="text-center" style="background-color: green;" scope="col"><span>Iniciativa Mitigación Emisiones GEI (tCO<sub>2</sub>eq)</span></th>
+                                                        <th class="text-center" style="background-color: #2271b3;" scope="col"><span>Emisiones GEI Reducidas (tCO<sub>2</sub>eq)</span></th>
+                                                        <th class="text-center" scope="col">Más</th>
+                                                        <th class="text-hide" scope="col" style="display:none;">Id. Iniciativa</th>
+                                                    </tr>*@
+                                                </thead>
+                                                <tbody id="cuerpoTablaIndicador" data-row="0" data-total="0" data-delete=""> <!-- add id delete-->
+                                                </tbody>
+                                            </table>
+                                        </div>                                    
                                     </div>
                                 </div>
                             </div>
+
+                            
+                            <div class="container py-4">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="table-responsive tabla-principal mt-3">
+                                            <table class="table table-hover">
+                                                <thead>
+                                                    <tr class="bg-primary text-white">
+                                                        <th class="text-center" scope="col" width="2%"><span>N°&nbsp;</span></th>
+                                                        <th scope="col" width="88%"><span>Resumen</span></th>
+                                                        <th scope="col" width="10%"><span>Total</span></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th class="text-center" data-encabezado="Número" scope="row">1</th>
+                                                        <td data-encabezado="Resumen" @*id="resumen-detalle"*@>@Model.medida.IPSC_MEDMIT</td>
+                                                        <td data-encabezado="Total"><strong id="total-detalle">0.00</strong><strong>&nbsp;tCO<sub>2</sub>eq</strong></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="container py-5">
@@ -370,7 +384,7 @@
                                             <table class="table table-hover">
                                                 <thead>
                                                     <tr class="bg-primary text-white">
-                                                        <th class="text-center" scope="col" width="2%"><span>#&nbsp;</span></th>
+                                                        <th class="text-center" scope="col" width="2%"><span>N°&nbsp;</span></th>
                                                         <th scope="col" width="88%"><span>Resumen</span></th>
                                                         <th scope="col" width="10%"><span>Total</span></th>
                                                     </tr>
@@ -378,8 +392,8 @@
                                                 <tbody>
                                                     <tr>
                                                         <th class="text-center" data-encabezado="Número" scope="row">1</th>
-                                                        <td data-encabezado="Resumen" id="resumen-detalle2">@Model.medida.IPSC_MEDMIT</td>
-                                                        <td data-encabezado="Total" id="total-detalle2">@*<strong>0.00</strong>*@</td>
+                                                        <td data-encabezado="Resumen" @*id="resumen-detalle2"*@>@Model.medida.IPSC_MEDMIT</td>
+                                                        <td data-encabezado="Total"><strong id="total-detalle2">0.00</strong><strong>&nbsp;tCO<sub>2</sub>eq</strong></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -403,7 +417,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="h5 pb-5 text-primary">
-                                            <div class="steps">PASO 4 DE 4 &nbsp;</div>Documentos&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione uno o varios archivos a la vez para adjuntarlos como documentos sustentatorios"></i><br><small class="text-muted">Cargue uno o varios documentos sustentatorios</small>
+                                            <div class="steps">PASO 4 DE 4 &nbsp;</div>Documentos&nbsp;<br><small class="text-muted">Cargue uno o varios documentos sustentatorios</small>
                                         </div>
                                     </div>
                                 </div>
@@ -548,8 +562,8 @@
                             <div class="modal-body medidas-modal">
                                 <div class="row">
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <h3 class="text-center">¿Confirma enviar su solicitud a revisión? <br></h3>
-                                        <p class="text-center">Está de acuerdo en enviar todos sus datos para iniciar el proceso de revisión y obtener la aprobación por parte de nuestros especialistas</p>
+                                        <h3 class="text-center">¿Está seguro de enviar su solicitud a revisión? <br></h3>
+                                        <p class="text-center">Confirme si está seguro de enviar todos los datos registrados para iniciar el proceso de revisión y obtener la aprobación por parte de nuestros especialistas.</p>
                                     </div>
                                     <div class="col-sm-12 col-md-12 col-lg-12" id="mensajeModalRegistrar">
                                         <div class="alert alert-warning d-flex align-items-stretch" role="alert">
