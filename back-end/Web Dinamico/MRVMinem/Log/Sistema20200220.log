@@ -403,3 +403,11 @@ PL/SQL: Statement ignored
 20/02/2020 02:32:15 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - OracleCommand.CommandText no es válido
 20/02/2020 02:32:15 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - OracleCommand.CommandText no es válido
 20/02/2020 02:32:15 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorBE] CalcularIndicador(entidad.minem.gob.pe.IndicadorBE), Línea: 115] - OracleCommand.CommandText no es válido
+20/02/2020 18:48:37: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+20/02/2020 18:48:37: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+20/02/2020 18:48:37: [Método: Void Open(), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+20/02/2020 18:48:37: [Método: Boolean MoveNext(), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+20/02/2020 18:48:37: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+20/02/2020 18:48:37: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+20/02/2020 18:48:37: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12170: TNS:Connect timeout occurred
+20/02/2020 18:48:37: [Método: entidad.minem.gob.pe.UsuarioBE ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 225] - ORA-12170: TNS:Connect timeout occurred

@@ -31,8 +31,8 @@ namespace MRVMinem.Tags
             {
                 filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new
                 {
-                    controller = "Inicio",
-                    action = "Index"
+                    controller = "Gestion",
+                    action = "AccionMitigacion"
                 }));
             }
         }

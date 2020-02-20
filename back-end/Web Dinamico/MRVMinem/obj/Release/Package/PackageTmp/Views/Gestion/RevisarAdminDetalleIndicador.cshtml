@@ -296,7 +296,14 @@
                                                     <th class="text-center" style="background-color: #28A745;" scope="col"><span>N°&nbsp;</span></th>
                                                     @foreach (var itemCab in itemD.listaParam)
                                                     {
-                                                        <th class="text-center" style="background-color: @itemCab.COLOR_GRUPO;" scope="col"><span>@itemCab.NOMBRE_PARAMETRO&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador @itemCab.NOMBRE_PARAMETRO"></i></span></th>
+                                                        if (@itemCab.ID_PARAMETRO == 9 || @itemCab.ID_PARAMETRO == 10 || @itemCab.ID_PARAMETRO == 11)
+                                                        {
+                                                            <th class="text-center" style="background-color: @itemCab.COLOR_GRUPO;" scope="col"><span>@itemCab.NOMBRE_PARAMETRO tCO<sub>2</sub>eq&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador @itemCab.NOMBRE_PARAMETRO"></i></span></th>
+                                                        }
+                                                        else
+                                                        {
+                                                            <th class="text-center" style="background-color: @itemCab.COLOR_GRUPO;" scope="col"><span>@itemCab.NOMBRE_PARAMETRO&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador @itemCab.NOMBRE_PARAMETRO"></i></span></th>
+                                                        }
                                                     }
                                                 </tr>
                                             </thead>

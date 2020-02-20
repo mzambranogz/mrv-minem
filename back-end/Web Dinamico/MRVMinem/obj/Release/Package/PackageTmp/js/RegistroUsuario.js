@@ -106,11 +106,11 @@ function fn_validar(e) {
         arr.push("Las contraseñas no coinciden");
     }
 
-    if ($("#cbo-sector").val() == 2) {
-        if (!($('#fledeclaracion').val())) {
-            arr.push("Debe adjuntar la declaración jurada");
-        }
-    }    
+    //if ($("#cbo-sector").val() == 2) {
+    //    if (!($('#fledeclaracion').val())) {
+    //        arr.push("Debe adjuntar la declaración jurada");
+    //    }
+    //}    
 
     if (!($("#chk-terminos-condiciones").prop("checked"))) {
         arr.push("Debe aceptar los términos y condiciones");

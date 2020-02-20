@@ -34,14 +34,9 @@
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-file-invoice"></i></span></div>
                                     <select class="form-control cbo-list" id="cbo-reporte" required>
                                         <option value="0">-Seleccione un Tipo de Reporte-</option>
-                                        <option value="1">Reporte de iniciativa de mitigación por período de tiempo</option>
-                                        <option value="2">Reporte de indicadores por período de tiempo</option>
-                                        <option value="3">Reporte de entidades registradas por período de tiempo</option>
-                                        <option value="4">Reporte de ubicaion de medidas de mitigacion por período de tiempo</option>
-                                        <option value="5">Reporte de estado de iniciativa de mitigación por período de tiempo</option>
-                                        <option value="6">Reporte de tipo de iniciativa de mitigación por período de tiempo</option>
-                                        <option value="7">Reporte de documentos de medidas de mitigación registradas por usuarios</option>
-                                        <option value="8">Reporte de escenarios</option>
+                                        <option value="1">Reporte de iniciativa de mitigación por sector y medida de mitigación</option>
+                                        <option value="2">Reporte de emisiones de GEI reducidas por medidas de mitigación</option>                                     
+                                        <option value="3">Reporte de escenarios</option>
                                     </select>
                                 </div>
                             </div>
@@ -54,12 +49,13 @@
                     <div class="col-md-12 col-lg-6 pt-4">&nbsp;</div>
                 </div>
             </div>
+            <div class="container-fluid my-5" id="mireporte" aria-hidden="true">
+                <iframe id="iframeReporte" src="#" style="width: 100%; height:0px; border:none;"></iframe>
+            </div>
         </div>
     </div>
 </div>
-<div class="container-fluid my-5" id="mireporte" aria-hidden="true">
-    <iframe id="iframeReporte" src="#" style="width: 100%; height:700px"></iframe>
-</div>
+
 
 <script src="~/js/script.js"></script>
 <script src="~/js/MRV.js"></script>
@@ -82,9 +78,21 @@
     }
 
     function GenerarReporte(IdReporte) {
-        var url = '@Url.Content("~/Reportes/frmReportes.aspx")';
-        var url = url + "?IdReporte=" + IdReporte;
-        $("#iframeReporte").attr("src", url);
+        var url = '';
+        console.log(IdReporte);
+        if (IdReporte == 1) {
+            url = '@Url.Content("~/Reportes/ReporteIni.aspx")';
+        } else {
+            url = '@Url.Content("~/Reportes/frmReportes.aspx")';
+            url = url + "?IdReporte=" + IdReporte;
+        }
+        //$("#iframeReporte").attr("src", url);
+        $("#iframeReporte").css({ "height": "0px" });
+        $("#ir-reporte").html("<i class='fas fa-spinner fa-spin px-1'></i> Cargando...");
+        $("#iframeReporte").attr("src", url).on('load', function () {
+            $("#ir-reporte").html("<i class='far fa-hand-point-up px-1'></i> Ir al reporte");
+            $("#iframeReporte").css({ "height": "700px" });
+        });
     }
 </script>
 
