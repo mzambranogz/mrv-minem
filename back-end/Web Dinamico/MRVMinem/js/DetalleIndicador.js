@@ -3310,6 +3310,8 @@ function CargarDatosCabecera() {
         ID_MEDMIT: medida,
         ID_ENFOQUE: enfoque
     }
+    $("#tbl-main-preload").html("<i Class='fas fa-spinner fa-spin px-1'></i> Cargando...");
+    $("#tbl-main").addClass("d-none");
     $.ajax({
         url: baseUrl + 'Gestion/ListarCabeceraIndicador',
         type: 'POST',
