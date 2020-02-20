@@ -22,5 +22,6 @@ namespace MRVMinem.Models
         public List<UsuarioBE> listaUsuario { get; set; }
         public List<EnfoqueBE> listaEnfoque { get; set; }
         public List<ParametroBE> listaParametro { get; set; }
+        public List<IndicadorDataBE> listaIndData { get; set; }
     }
 }

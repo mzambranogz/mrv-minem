@@ -251,7 +251,6 @@ function fn_ObtenerMedidaMitigacion(id) {
 }
 
 function CargarDatosIniciativa() {
-    debugger;
     var Item =
     {
         //ID_INICIATIVA: $("#identificador").val()
@@ -1985,7 +1984,6 @@ function cargarCuerpoElectricoConsumo(data, fila, enfoque, bandera) {
 //==============================================================================================================
 
 function cargarCuerpoHibridoConsumo(data, fila, enfoque, bandera) {
-    debugger;
     var tr = '<tr id="detalles-tr-' + fila + '" data-value="' + fila + '0" >';
     tr = tr + '         <th class="text-center" data-encabezado="Número" scope="row" id="row-' + fila + '">' + fila + '</th>';
     tr = tr + '         <td data-encabezado="Columna 01">';
@@ -2405,7 +2403,6 @@ function CargarArchivosGuardados() {
             if (data != null && data != "") {
                 
                 if (data.length > 0) {
-                    //debugger;   
                     $("#archivos-documentos").html("");
                     $("#archivos-guardados").html("");
                     for (var i = 0; i < data.length; i++) {
@@ -2463,7 +2460,6 @@ function CargarArchivosGuardados() {
 function fn_procesoDetalleIndicador(url, estado) {
     indicadores = [];
     documentos = [];
-    debugger;
     var medida = $("#Control").data("mitigacion");
     var enfoque = $("#cbo-enfoque").val();
     var parametros = "";
@@ -2500,7 +2496,6 @@ function fn_procesoDetalleIndicador(url, estado) {
         //});
         
     }
-    debugger;
     parametros = parametros.substring(0, parametros.length - 1);
     //parametros = parametros.substring(0, parametros.length - 1);
     //if (enfoque == 1) {
@@ -2849,7 +2844,6 @@ function fn_corregirAvances() {
 //==============================================================================================================
 
 function llenarTabla(data, j, enfoque) {
-    debugger;
     if (enfoque == 1) {
         $("#cbo-det-1-" + (j + 1)).val(data[j]["ANNO_BASE"]);
         $("#cbo-det-2-" + (j + 1)).val(data[j]["ID_TIPO_VEHICULO_BASE"]);
@@ -3000,7 +2994,7 @@ function CargarCuerpoGuardado(filas, num_tabla) {
                                 if(data[j]["VERIFICABLE"] == 1){
                                     lista++;
                                     if (data[j]["ID_PARAMETRO"] == 6){
-                                        tr += '<select class="form-control form-control-sm" id="cbo-det-'+ num_tabla +'-'+ lista +'-'+ (i + 1) +'" onchange="fn_calcularValor(this)" data-validar="0" data-param="'+ data[j]["ID_PARAMETRO"] +'">';
+                                        tr += '<select class="form-control form-control-sm" id="cbo-det-tbl-1-'+ lista +'-'+ (i + 1) +'" onchange="fn_calcularValor(this)" data-validar="0" data-param="'+ data[j]["ID_PARAMETRO"] +'">';
                                         tr += '        <option value="0">Seleccionar</option>';
                                         var listaD = data[j]["listaDetalle"];
                                         for (var m = 0; m < listaD.length; m++){
@@ -3008,7 +3002,7 @@ function CargarCuerpoGuardado(filas, num_tabla) {
                                         }
                                         tr += '</select>';
                                     }else{
-                                        tr += '<select class="form-control form-control-sm" id="cbo-det-'+ num_tabla +'-'+ lista +'-'+ (i + 1) +'" onchange="fn_calcularValor(this)" data-validar="0" data-param="'+ data[j]["ID_PARAMETRO"] +'">';
+                                        tr += '<select class="form-control form-control-sm" id="cbo-det-tbl-1-'+ lista +'-'+ (i + 1) +'" onchange="fn_calcularValor(this)" data-validar="0" data-param="'+ data[j]["ID_PARAMETRO"] +'">';
                                         tr += '        <option value="0">Seleccionar</option>';
                                         var listaD = data[j]["listaDetalle"];
                                         for (var m = 0; m < listaD.length; m++){
@@ -3018,7 +3012,7 @@ function CargarCuerpoGuardado(filas, num_tabla) {
                                     }
                                 }else{
                                     lista++;
-                                    tr += '<select class="form-control form-control-sm" id="cbo-det-'+ num_tabla +'-'+ lista +'-'+ (i + 1) +'" data-param="'+ data[j]["ID_PARAMETRO"] +'">';
+                                    tr += '<select class="form-control form-control-sm" id="cbo-det-tbl-1-'+ lista +'-'+ (i + 1) +'" data-param="'+ data[j]["ID_PARAMETRO"] +'">';
                                     tr += '        <option value="0">Seleccionar</option>';
                                     var listaD = data[j]["listaDetalle"];
                                     for (var m = 0; m < listaD.length; m++){
@@ -3032,18 +3026,18 @@ function CargarCuerpoGuardado(filas, num_tabla) {
                                 if (data[j]["EDITABLE"] == 1){
                                     if (data[j]["ID_TIPO_DATO"] == 1){
                                         fecha++;
-                                        tr += '<input class="form-control form-control-sm text-center" type="date" placeholder="" id="fch-det-'+ num_tabla +'-'+ fecha +'-'+ (i + 1) +'" data-param="'+ data[j]["ID_PARAMETRO"] +'">';
+                                        tr += '<input class="form-control form-control-sm text-center" type="date" placeholder="" id="fch-det-tbl-1-'+ fecha +'-'+ (i + 1) +'" data-param="'+ data[j]["ID_PARAMETRO"] +'">';
                                     }else{
                                         texto++;
                                         if (data[j]["VERIFICABLE"] == 0){
-                                            tr += '<input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-'+ num_tabla +'-'+ texto +'-'+(i + 1)+'" data-param="'+ data[j]["ID_PARAMETRO"] +'">';
+                                            tr += '<input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-'+ texto +'-'+(i + 1)+'" data-param="'+ data[j]["ID_PARAMETRO"] +'">';
                                         }else{
-                                            tr += '<input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-'+ num_tabla +'-'+ texto +'-'+(i + 1)+'" onBlur="fn_calcularValor(this)" data-validar="0" data-param="'+ data[j]["ID_PARAMETRO"] +'">';
+                                            tr += '<input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-'+ texto +'-'+(i + 1)+'" onBlur="fn_calcularValor(this)" data-validar="0" data-param="'+ data[j]["ID_PARAMETRO"] +'">';
                                         }
                                     }
                                 }else{
                                     texto++;
-                                    tr += '<input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-'+ num_tabla +'-'+ texto +'-'+(i + 1)+'" data-param="'+ data[j]["ID_PARAMETRO"] +'" readonly>';
+                                    tr += '<input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-'+ texto +'-'+(i + 1)+'" data-param="'+ data[j]["ID_PARAMETRO"] +'" readonly>';
                                 }
                                 tr += '    </div>';
                                 tr += '</td>'
@@ -3107,48 +3101,51 @@ function CargarDatosGuardados() {
                 if (data.length > 0) {                    
                     var order = $("#tablaIndicador").data("order");
                     CargarCuerpoGuardado(data.length, order);
-                    //var total = 0.0;
+                    var total = 0.0;
                     for (var i = 0; i < data.length; i++) {
                         var lista = 0;
                         var texto = 0;
                         var fecha = 0;
                         var entidad = data[i]["listaInd"]
                         $("#cuerpoTablaIndicador #detalles-tr-" + (i + 1)).attr({"data-ind" : data[i]["ID_INDICADOR"]});
-                        for (var j = 0; j < entidad.length; j++) {
-                            debugger;                            
+                        //for (var j = 0; j < entidad.length; j++) {     
                             for (var m = 0; m < entidad.length; m++) {
                                 if (entidad[m]["ID_TIPO_CONTROL"] == 1) {
                                     lista++;
-                                    $("#cbo-det-" + order + "-" + lista + "-" + (i + 1)).val(entidad[m]["VALOR"]);
+                                    $("#cbo-det-tbl-1-" + lista + "-" + (i + 1)).val(entidad[m]["VALOR"]);
                                     if (entidad[m]["VERIFICABLE"] == 1){
-                                        $("#cbo-det-" + order + "-" + lista + "-" + (i + 1)).attr({ "data-validar": 1 });
+                                        $("#cbo-det-tbl-1-" + lista + "-" + (i + 1)).attr({ "data-validar": 1 });
                                     }
                                 } else if (entidad[m]["ID_TIPO_CONTROL"] == 2){
                                     if (entidad[m]["ID_TIPO_DATO"] == 1){
                                         fecha++;
-                                        $("#fch-det-" + order + "-" + fecha + "-" + (i + 1)).val(entidad[m]["VALOR"]);
+                                        $("#fch-det-tbl-1-" + fecha + "-" + (i + 1)).val(entidad[m]["VALOR"]);
                                         if (entidad[m]["VERIFICABLE"] == 1) {
-                                            $("#fch-det-" + order + "-" + fecha + "-" + (i + 1)).attr({ "data-validar": 1 });
+                                            $("#fch-det-tbl-1-" + fecha + "-" + (i + 1)).attr({ "data-validar": 1 });
                                         }
                                     } else {
                                         texto++;
-                                        $("#txt-det-" + order + "-" + texto + "-" + (i + 1)).val(entidad[m]["VALOR"]);
+                                        $("#txt-det-tbl-1-" + texto + "-" + (i + 1)).val(entidad[m]["VALOR"]);
                                         if (entidad[m]["VERIFICABLE"] == 1) {
-                                            $("#txt-det-" + order + "-" + texto + "-" + (i + 1)).attr({ "data-validar": 1 });
-                                        }
+                                            $("#txt-det-tbl-1-" + texto + "-" + (i + 1)).attr({ "data-validar": 1 });
+                                        }                                        
                                     }
+                                }                                
+                                if (entidad[m]["ID_PARAMETRO"] == 11) {
+                                    total += parseFloat(entidad[m]["VALOR"]);
                                 }
-                                //var a = entidad[m]["VALOR"];
                             }
-                        }
+                        //}
                     }
-                    //$("#total-detalle").html("");
-                    //$("#total-detalle").append((Math.round(total * 100) / 100));
-                    //$("#cuerpoTablaIndicador").data("total", total);
+                    $("#total-detalle").html("").append((Math.round(total * 100) / 100));
+                    $("#total-detalle2").html("").append((Math.round(total * 100) / 100));
+                    $("#cuerpoTablaIndicador").data("total", total);
                     //$("#cuerpoTablaIndicador").data("row", data.length);
                 }
             } else {
                 CargarCuerpoGuardado(1, order);
+                $("#total-detalle").html("").append(0.00);
+                $("#total-detalle2").html("").append(0.00);
                 //cargarCuerpoTabla($("#cbo-enfoque").val());
                 //$("#total-detalle").append('<strong id="total">0.00 tCO<sub>2</sub>eq</strong>');
                 //$("#total-detalle2").append('<strong id="total2">0.00 tCO<sub>2</sub>eq</strong>');
@@ -3202,7 +3199,6 @@ function fn_total(row) {
 
 
 function fn_restarTotal(num1, num2) {
-    debugger;
     var row = $(".tabla-detalle-indicadores").find("tbody").find("th").length - 1;
     $("#cuerpoTablaIndicador").data("row", row);
     if ($("#txt-det-"+num1+"-" + $("#tablaIndicador").data("fila")).val() != '') {
@@ -3233,7 +3229,6 @@ function fn_restarTotal(num1, num2) {
 //==============================================================================================================
 
 function fn_eliminarArchivo(id) {
-    debugger;
     var eliminar = $("#total-documentos").data("eliminarfile") + id + ",";
     $("#total-documentos").data("eliminarfile", eliminar);
     var cantidad = $("#total-documentos").data("cantidad") - 1;
@@ -3243,7 +3238,6 @@ function fn_eliminarArchivo(id) {
 }
 
 function removeFile(e) {
-    debugger;
     var file = e.dataset.file;
     //alert(file);
     for (var i = 0; i < storedFiles.length; i++) {
@@ -3301,7 +3295,6 @@ $(document).on("change", "#cbo-enfoque", function () {
 });
 
 $(document).on("click", ".agregarFila", function (e) {
-    debugger;
     e.preventDefault();
     //cargarCuerpoTabla($("#cbo-enfoque").val());    
 })
@@ -3379,7 +3372,6 @@ $(document).ready(function () {
         //cargarCuerpoTabla($("#cbo-enfoque").val());
         //CargarDetalleIndicador();
     }
-    debugger;
     
     CargarDatosIniciativa();
     fn_cargarUbicacion();
@@ -3403,7 +3395,6 @@ $(document).ready(function () {
 
 
 $("#cbo-enfoque").change(function () {
-    debugger;
     //var enfoque = $("#cbo-enfoque").val();
     //var select = $("#cbo-enfoque").data("select");
     //$("#enfoque-" + select).attr("hidden",true);
@@ -3422,7 +3413,6 @@ $("#cbo-enfoque").change(function () {
 
 function fn_calcularValor(e) {
     console.log("Aqui : " + $(e).attr("data-validar"));
-    //debugger;
     var dv = $(e).attr("data-validar");
     var row = $("#tablaIndicador").data("fila");
 
@@ -3430,7 +3420,6 @@ function fn_calcularValor(e) {
 
     id = e.id;
     var indice_id = id.substring(0, 3);
-    debugger;
     if (indice_id == "cbo") {
         if ($("#" + id).val() > 0) {
             $(e).attr({ "data-validar": "1" });
@@ -3451,12 +3440,12 @@ function fn_calcularValor(e) {
         }
     }
     
-    debugger;
+
     var valor = 0;
     var campos = $("#tablaIndicador").find("tbody").find("#detalles-tr-"+ row).find("[data-validar]");
     campos.each(function (index, value) {
         console.log(index + " + " + $(value).attr("id") +" + "+ $(value).attr("data-validar"));
-        debugger;
+
         if ($(value).attr("data-validar") == 0) {
             valor = 1;
         }
@@ -3464,7 +3453,6 @@ function fn_calcularValor(e) {
     });
     //|1,12,14,1
     if (valor == 0) {
-        debugger;
         //var f = $("#enfoque-" + $("#cbo-enfoque").val()).data("fila");
         var enfoque = $("#cbo-enfoque").val();
         var medida = $("#Control").data("mitigacion");
@@ -3504,24 +3492,25 @@ function fn_enviarCalcularValor(item, f) {
             if (data != null && data != "") {
                 if (data.length > 0) {
                     var index = 0;
-                    var total = 0.0;
+                    var total = parseFloat($("#cuerpoTablaIndicador").data("total"));
                     //var fila = $("#enfoque-" + $("#cbo-enfoque").val()).find("tbody").find("#detalles-tr-" + f).find("[data-param]");
                     var fila = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + f).find("[data-param]");
                     fila.each(function (index, value) {
-                        //debugger;
                         var valor = data[index]["VALOR"];
-                        if (!isNaN(valor)) if (valor - Math.floor(valor) != 0) valor = Math.round(valor*100)/100
+                        if (!isNaN(valor)) if (valor - Math.floor(valor) != 0) valor = Math.round(valor * 100) / 100
+                        if (data[index]["ID_PARAMETRO"] == 11) total += valor; 
                         $("#" + $(value).attr("id")).val(valor);
                         index++;
                     });
-
+                    $("#total-detalle").html("").append((Math.round(total * 100) / 100));
+                    $("#total-detalle2").html("").append((Math.round(total * 100) / 100));
+                    $("#cuerpoTablaIndicador").data("total", total);
                     //$("#total-detalle").html("");
                     //$("#total-detalle").append((Math.round(total * 100) / 100));
                     //$("#cuerpoTablaIndicador").data("total", total);
                     //$("#cuerpoTablaIndicador").data("row", data.length);
                 }
             } else {
-                debugger;
                 //////cargarCuerpoTabla($("#cbo-enfoque").val());
             }
         }
@@ -3544,10 +3533,18 @@ function fn_validarCampoReg(f) {
 }
 
 function fn_eliminarRestarTotal() {
-    debugger;
-
-    var enfoque = $("#cbo-enfoque").val();
+    var total = parseFloat($("#cuerpoTablaIndicador").data("total"));
     var fila = $("#tablaIndicador").data("fila");
+    var campos = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + fila).find("[data-param]");
+    campos.each(function (index, value) {
+        if ($(value).attr("data-param") == 11) {
+            var r = $(value).val();
+            total -= parseFloat(r);
+        }
+    });
+    $("#total-detalle").html("").append((Math.round(total * 100) / 100));
+    $("#total-detalle2").html("").append((Math.round(total * 100) / 100));
+    $("#cuerpoTablaIndicador").data("total", total);
     var id_borrar = $("#cuerpoTablaIndicador").data("delete") + $("#tablaIndicador #detalles-tr-" + fila).data("ind") + ",";
     $("#cuerpoTablaIndicador").data("delete", id_borrar);
 }

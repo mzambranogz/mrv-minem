@@ -266,115 +266,91 @@
                         </div>
                     </div>
                 </div>
-                @if (Model.listaEnfoque != null)
-                {
 
-                    foreach (var enfoque in Model.listaEnfoque)
+
+                @if (Model.listaIndData != null)
+                {
+                    foreach (var itemD in Model.listaIndData)
                     {
-                        var j = 0;
-                        var reducido = 0.0;
-                        @*<div class="dropdown-divider"></div>*@
+                        var texto = 0;
+                        var fecha = 0;
+                        var lista = 0;
+                        var total_e = 0.0;
+                        var fila = 1;
+                        total_reducido = 0.0;
                         <div class="container py-5">
-                            @*<div class="row">
-                        <div class="col-12">
-                            <div class="h5 pb-5 text-primary">Detalles de Identificación<br><small class="text-muted">Complete información</small></div>
-                        </div>
-                    </div>*@
                             <div class="row">
                                 <div class="col-sm-12-col-md-12 col-lg-6">
                                     <div class="form-group">
                                         <label for="txt-enfoque" class="font-weight-bold">Enfoque</label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup20"><i class="fas fa-square-root-alt"></i></span></div>
-                                            <input class="form-control-plaintext" id="txt-enfoque" aria-describedby="inputGroup20" value="@enfoque.ENFOQUE" readonly>
+                                            <input class="form-control-plaintext" id="txt-enfoque" aria-describedby="inputGroup20" value="@itemD.DESCRIPCION" readonly>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-12-col-md-12 col-lg-6">&nbsp;</div>
                             </div>
                         </div>
-                        <div class="container-fluid">
-                            @*<div class="dropdown-divider"></div>*@
+                        <div class="container-fluid py-4">
+                            <div class="h5">Resumen de Detalles de Indicadores&nbsp;<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Complete los campos de acuerdo al enfoque seleccionado"></i></div>
+                            <div class="dropdown-divider"></div>
                             <div class="row">
                                 <div class="col-12 px-0">
-                                    <div class="table-responsive tabla-principal tabla-detalle-indicadores">
-                                        <table class="table table-hover" id="tablaIndicador" data-fila="0">
-                                            <thead>
+                                    <div class="table-responsive tabla-principal tabla-recorrer tabla-detalle-indicadores-1" data-order="tbl-1">
+
+                                        <table class="table table-hover" data-fila="0">
+                                            <thead @*id="cabeceraTablaIndicador"*@>
                                                 <tr class="bg-primary text-white">
-                                                    <th class="text-center" style="background-color: green;" scope="col"><span>N°&nbsp;</span></th>
-                                                    <th class="text-center" style="background-color: green;" scope="col"><span>Año&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Año"></i></span></th>
-                                                    <th class="text-center" style="background-color: green;" scope="col"><span>Inicio de Operaciones&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador fecha inicio de operación"></i></span></th>
-                                                    <th class="text-center" style="background-color: green;" scope="col"><span>Tipo Vehiculo&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Tipo Vehículo"></i></span></th>
-                                                    <th class="text-center" style="background-color: orange;" scope="col"><span>Tipo Combustible&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Tipo Combustible"></i></span></th>
-                                                    @if (enfoque.ID_ENFOQUE == 1 || enfoque.ID_ENFOQUE == 2)
+                                                    <th class="text-center" style="background-color: #28A745;" scope="col"><span>N°&nbsp;</span></th>
+                                                    @foreach (var itemCab in itemD.listaParam)
                                                     {
-                                                        <th class="text-center" style="background-color: green;" scope="col"><span>KRV Eléctrico&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador KRV"></i></span></th>
-                                                        if (enfoque.ID_ENFOQUE == 2)
+                                                        if (@itemCab.ID_PARAMETRO == 9 || @itemCab.ID_PARAMETRO == 10 || @itemCab.ID_PARAMETRO == 11)
                                                         {
-                                                            <th class="text-center" style="background-color: orange;" scope="col"><span>KRV Combustible&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador KRV Combustible"></i></span></th>
+                                                            <th class="text-center" style="background-color: @itemCab.COLOR_GRUPO;" scope="col"><span>@itemCab.NOMBRE_PARAMETRO tCO<sub>2</sub>eq&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador @itemCab.NOMBRE_PARAMETRO"></i></span></th>
                                                         }
-                                                        <th class="text-center" style="background-color: green;" scope="col"><span>Cantidad&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Cantidad"></i></span></th>
-                                                        <th class="text-center" style="background-color: green;" scope="col"><span>Factor de Rendimiento&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Rendimiento"></i></span></th>
-                                                    }
-                                                    @if (enfoque.ID_ENFOQUE == 3 || enfoque.ID_ENFOQUE == 4)
-                                                    {
-                                                        <th class="text-center" style="background-color: green;" scope="col"><span>Consumo de Electricidad&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Consumo de Electricidad"></i></span></th>
-                                                        if (enfoque.ID_ENFOQUE == 4)
+                                                        else
                                                         {
-                                                            <th class="text-center" style="background-color: orange;" scope="col"><span>Consumo de Combustible&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Consumo de Combustible"></i></span></th>
+                                                            <th class="text-center" style="background-color: @itemCab.COLOR_GRUPO;" scope="col"><span>@itemCab.NOMBRE_PARAMETRO&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador @itemCab.NOMBRE_PARAMETRO"></i></span></th>
                                                         }
                                                     }
-                                                    <th class="text-center" style="background-color: green;" scope="col"><span>Placa&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Placa del vehículo"></i></span></th>
-                                                    <th class="text-center" style="background-color: orange;" scope="col"><span>Línea Base Emisiones GEI (tCO<sub>2</sub>eq)</span></th>
-                                                    <th class="text-center" style="background-color: green;" scope="col"><span>Iniciativa Mitigación Emisiones GEI (tCO<sub>2</sub>eq)</span></th>
-                                                    <th class="text-center" style="background-color: #2271b3;" scope="col"><span>Emisiones GEI Reducidas (tCO<sub>2</sub>eq)</span></th>
                                                 </tr>
                                             </thead>
-                                            <tbody id="cuerpoTablaIndicador" data-row="0" data-total="0">
-
-                                                @foreach (var item in Model.listaIndicador)
+                                            <tbody id="cuerpoTablaIndicador-1" data-row="0" data-total="0" data-delete="">
+                                                @foreach (var itemDatos in itemD.listaInd)
                                                 {
-                                                    if (item.ID_ENFOQUE == enfoque.ID_ENFOQUE)
-                                                    {
-                                                        j++;
-                                                        <tr>
-                                                            <th class="text-center" data-encabezado="Número" scope="row">@j</th>
-                                                            <td class="text-center" data-encabezado="Columna 01">@item.ANNOB</td>
-                                                            <td class="text-center" data-encabezado="Columna 01">@item.FECHA</td>
-                                                            <td class="text-center" data-encabezado="Columna 02">@item.TIPO_VEHICULO</td>
-                                                            <td class="text-center" data-encabezado="Columna 03">@item.TIPO_COMBUSTIBLE</td>
-                                                            @if (@item.ID_ENFOQUE == 1 || @item.ID_ENFOQUE == 2)
-                                                            {
-                                                                <td class="text-center" data-encabezado="Columna 04">@item.KRVB</td>
-                                                                if (item.ID_ENFOQUE == 2)
-                                                                {
-                                                                    <td class="text-center" data-encabezado="Columna 04">@item.KRV_COMBUSTIBLE</td>
-                                                                }
-                                                                <td class="text-center" data-encabezado="Columna 05">@item.CANTIDADB</td>
-                                                                <td class="text-center" data-encabezado="Columna 06">@item.RENDIMIENTO</td>
-                                                            }
-                                                            @if (@item.ID_ENFOQUE == 3 || @item.ID_ENFOQUE == 4)
-                                                            {
-                                                                <td class="text-center" data-encabezado="Columna 04">@item.CONSUMO_ELECTRICIDAD</td>
-                                                                if (item.ID_ENFOQUE == 4)
-                                                                {
-                                                                    <td class="text-center" data-encabezado="Columna 04">@item.CONSUMO_COMBUSTIBLE</td>
-                                                                }
-                                                            }
-                                                            <td class="text-center" data-encabezado="Columna 04">@item.PLACA</td>
-                                                            <td class="text-center" data-encabezado="Columna 07">@item.TOTAL_GEI_BASE</td>
-                                                            <td class="text-center" data-encabezado="Columna 08">@item.TOTAL_GEI_INIMIT</td>
-                                                            <td class="text-center" data-encabezado="Columna 09">@item.TOTAL_GEI_REDUCIDO</td>
-                                                        </tr>
-                                                        reducido += Convert.ToDouble(item.TOTAL_GEI_REDUCIDO);
-                                                        total_reducido += Convert.ToDouble(item.TOTAL_GEI_REDUCIDO);
-                                                    }
+                                                    <tr id="detalles-tr-1" data-ind="0">
+                                                        <th class="text-center" data-encabezado="Número" scope="row">1</th>
+                                                        @foreach (var itemDet in itemDatos.listaInd)
+                                                        {
+                                                            <td data-encabezado="Columna 04">
+                                                                <div class="form-group m-0">
+                                                                    @if (itemDet.ID_TIPO_CONTROL == 1)
+                                                                    {
+                                                                        if (itemDet.ID_PARAMETRO == 6)
+                                                                        {
+                                                                            <input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-1-1" value="@itemDet.VALOR" readonly>
 
-                                                }
-                                                @{
-                                                    reducido = Math.Round(reducido * 100) / 100;
-                                                    total_reducido = Math.Round(total_reducido * 100) / 100;
-                                                    j = 0;
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            <input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-1-1" value="@itemDet.DESCRIPCION" readonly>
+                                                                        }
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-1-1" value="@itemDet.VALOR" readonly>
+
+                                                                    }
+                                                                </div>
+                                                            </td>
+                                                            if (itemDet.ID_PARAMETRO == 11)
+                                                            {
+                                                                total_e += Convert.ToDouble(itemDet.VALOR);
+                                                                total_reducido += Convert.ToDouble(itemDet.VALOR);
+                                                            }
+                                                        }
+                                                    </tr>
                                                 }
                                             </tbody>
                                         </table>
@@ -382,23 +358,23 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="container">
+                        <div class="container py-4">
                             <div class="row">
                                 <div class="col-12">
-                                    <div class="table-responsive tabla-principal">
+                                    <div class="table-responsive tabla-principal mt-3">
                                         <table class="table table-hover">
                                             <thead>
                                                 <tr class="bg-primary text-white">
                                                     <th class="text-center" scope="col" width="2%"><span>N°&nbsp;</span></th>
-                                                    <th scope="col" width="88%"><span>Resumen</span></th>
+                                                    <th scope="col" width="88%"><span>Resumen Enfoque</span></th>
                                                     <th scope="col" width="10%"><span>Total</span></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
                                                     <th class="text-center" data-encabezado="Número" scope="row">1</th>
-                                                    <td data-encabezado="Resumen" id="">@enfoque.ENFOQUE</td>
-                                                    <td data-encabezado="Total"><strong>@reducido tCO<sub>2</sub>eq</strong></td>
+                                                    <td data-encabezado="Resumen">@itemD.DESCRIPCION</td>
+                                                    <td data-encabezado="Total"><strong id="total-detalle">@total_e</strong><strong>&nbsp;tCO<sub>2</sub>eq</strong></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -406,8 +382,8 @@
                                 </div>
                             </div>
                         </div>
-                                                        }
-                                                    }
+                    }
+                }
 
 
                 <div class="dropdown-divider"></div>

@@ -24,7 +24,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>02/08/2020 04:29:10</publishTime>
     </File>
     <File Include="bin/datos.minem.gob.pe.dll">
-      <publishTime>02/19/2020 21:32:04</publishTime>
+      <publishTime>02/20/2020 12:49:33</publishTime>
     </File>
     <File Include="bin/de/Microsoft.SqlServer.Types.resources.dll">
       <publishTime>02/21/2014 05:26:06</publishTime>
@@ -39,7 +39,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>02/08/2020 04:29:03</publishTime>
     </File>
     <File Include="bin/entidad.minem.gob.pe.dll">
-      <publishTime>02/19/2020 19:19:10</publishTime>
+      <publishTime>02/20/2020 12:42:35</publishTime>
     </File>
     <File Include="bin/EPPlus.dll">
       <publishTime>02/08/2020 04:29:07</publishTime>
@@ -84,7 +84,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>02/08/2020 04:29:03</publishTime>
     </File>
     <File Include="bin/logica.minem.gob.pe.dll">
-      <publishTime>02/19/2020 21:32:04</publishTime>
+      <publishTime>02/20/2020 12:49:33</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>02/08/2020 04:29:10</publishTime>
@@ -99,7 +99,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>02/08/2020 04:29:10</publishTime>
     </File>
     <File Include="bin/MRVMinem.dll">
-      <publishTime>02/19/2020 21:32:10</publishTime>
+      <publishTime>02/20/2020 12:49:38</publishTime>
     </File>
     <File Include="bin/Oracle.DataAccess.dll">
       <publishTime>07/31/2014 22:11:18</publishTime>
@@ -180,7 +180,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>02/08/2020 04:29:04</publishTime>
     </File>
     <File Include="bin/utilitario.minem.gob.pe.dll">
-      <publishTime>02/17/2020 14:52:11</publishTime>
+      <publishTime>02/20/2020 10:56:30</publishTime>
     </File>
     <File Include="bin/zh-Hans/Microsoft.SqlServer.Types.resources.dll">
       <publishTime>02/21/2014 05:27:58</publishTime>
@@ -420,7 +420,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>02/08/2020 04:29:07</publishTime>
     </File>
     <File Include="js/DetalleIndicador.js">
-      <publishTime>02/19/2020 17:48:56</publishTime>
+      <publishTime>02/20/2020 07:01:51</publishTime>
     </File>
     <File Include="js/DetalleIndicadorMasivo.js">
       <publishTime>02/10/2020 12:41:31</publishTime>
@@ -564,7 +564,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>02/08/2020 04:29:04</publishTime>
     </File>
     <File Include="Views/Detalle/DetalleIndicadorMasivo.cshtml">
-      <publishTime>02/12/2020 20:39:31</publishTime>
+      <publishTime>02/20/2020 10:56:18</publishTime>
     </File>
     <File Include="Views/Gestion/AccionMitigacion.cshtml">
       <publishTime>02/19/2020 17:09:48</publishTime>
@@ -573,19 +573,19 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>02/08/2020 04:29:04</publishTime>
     </File>
     <File Include="Views/Gestion/CorregirDetalleIndicador.cshtml">
-      <publishTime>02/18/2020 16:05:21</publishTime>
+      <publishTime>02/20/2020 06:30:42</publishTime>
     </File>
     <File Include="Views/Gestion/CorregirIniciativa.cshtml">
       <publishTime>02/09/2020 17:35:39</publishTime>
     </File>
     <File Include="Views/Gestion/DetalleIndicador.cshtml">
-      <publishTime>02/18/2020 16:02:04</publishTime>
+      <publishTime>02/20/2020 06:27:32</publishTime>
     </File>
     <File Include="Views/Gestion/DetalleNotificacion.cshtml">
       <publishTime>02/08/2020 04:29:04</publishTime>
     </File>
     <File Include="Views/Gestion/EvaluarIniciativaDetalle.cshtml">
-      <publishTime>02/19/2020 17:40:57</publishTime>
+      <publishTime>02/20/2020 12:17:40</publishTime>
     </File>
     <File Include="Views/Gestion/Index.cshtml">
       <publishTime>02/08/2020 04:29:04</publishTime>
@@ -606,10 +606,10 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>02/08/2020 04:29:04</publishTime>
     </File>
     <File Include="Views/Gestion/RevisarAdminDetalleIndicador.cshtml">
-      <publishTime>02/19/2020 17:35:50</publishTime>
+      <publishTime>02/20/2020 12:12:56</publishTime>
     </File>
     <File Include="Views/Gestion/RevisarDetalleIndicador.cshtml">
-      <publishTime>02/19/2020 17:34:55</publishTime>
+      <publishTime>02/20/2020 12:34:48</publishTime>
     </File>
     <File Include="Views/Gestion/RevisarIniciativa.cshtml">
       <publishTime>02/19/2020 17:33:07</publishTime>
@@ -621,7 +621,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>02/08/2020 04:29:04</publishTime>
     </File>
     <File Include="Views/Gestion/VerificarIniciativaDetalle.cshtml">
-      <publishTime>02/19/2020 17:42:03</publishTime>
+      <publishTime>02/20/2020 12:18:05</publishTime>
     </File>
     <File Include="Views/Gestion/VerMasIniciativa.cshtml">
       <publishTime>02/09/2020 17:42:04</publishTime>
@@ -705,13 +705,13 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>02/10/2020 12:09:46</publishTime>
     </File>
     <File Include="Views/Shared/_SesionLayout.cshtml">
-      <publishTime>02/19/2020 16:25:31</publishTime>
+      <publishTime>02/20/2020 12:44:56</publishTime>
     </File>
     <File Include="Views/web.config">
       <publishTime>02/08/2020 04:29:04</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>02/19/2020 19:20:27</publishTime>
+      <publishTime>02/20/2020 12:42:44</publishTime>
     </File>
   </ItemGroup>
 </Project>

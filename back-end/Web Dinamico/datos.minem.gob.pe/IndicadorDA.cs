@@ -68,6 +68,62 @@ namespace datos.minem.gob.pe
             return Lista;
         }
 
+        //public List<IndicadorBE> CalcularIndicador(IndicadorBE entidad)
+        //{
+        //    List<IndicadorBE> Lista = null;
+
+        //    try
+        //    {
+        //        using (IDbConnection db = new OracleConnection(CadenaConexion))
+        //        {
+        //            int enfoque = entidad.ID_ENFOQUE;
+        //            string sp = "";
+        //            var p = new OracleDynamicParameters();
+        //            p.Add("pANNO", entidad.ANNOB);
+        //            p.Add("pID_TIPO_VEHICULO", entidad.ID_TIPO_VEHICULOB);
+        //            p.Add("pID_TIPO_COMBUSTIBLE", entidad.ID_TIPO_COMBUSTIBLEB);
+
+        //            if (enfoque == 1 || enfoque == 2)
+        //            {
+        //                if (enfoque == 1)
+        //                {
+        //                    sp = sPackage + "USP_PRC_CALCULAR_INDICADOR2";
+        //                }
+        //                else if (enfoque == 2)
+        //                {
+        //                    sp = sPackage + "USP_PRC_CAL_VEH_HIB";
+        //                    p.Add("pKRV_COMBUSTIBLE", entidad.KRV_COMBUSTIBLE);                            
+        //                }
+        //                p.Add("pF_REN", entidad.FACTOR_RENDIMIENTO);
+        //                p.Add("pKRV", entidad.KRVB);
+        //                p.Add("pCANTIDAD", entidad.CANTIDADB);
+        //            }                    
+        //            else if (enfoque == 3)
+        //            {
+        //                sp = sPackage + "USP_PRC_CAL_VEH_CON";
+        //                p.Add("pCONSUMO_ELECTRICIDAD",entidad.CONSUMO_ELECTRICIDAD);
+        //            }
+        //            else if (enfoque == 4)
+        //            {
+        //                sp = sPackage + "USP_PRC_CAL_VEH_HIB_CON";
+        //                p.Add("pCONSUMO_ELECTRICIDAD", entidad.CONSUMO_ELECTRICIDAD);
+        //                p.Add("pCONSUMO_COMBUSTIBLE", entidad.CONSUMO_COMBUSTIBLE);
+        //            }       
+
+        //            p.Add("pID_TIPO_FUENTE", entidad.ID_TIPO_FUENTEI);                                        
+        //            p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+        //            Lista = db.Query<IndicadorBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+        //        }
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Log.Error(ex);
+        //    }
+
+        //    return Lista;
+        //}
+
         public List<IndicadorBE> CalcularIndicador(IndicadorBE entidad)
         {
             List<IndicadorBE> Lista = null;
@@ -76,41 +132,15 @@ namespace datos.minem.gob.pe
             {
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
                 {
-                    int enfoque = entidad.ID_ENFOQUE;
-                    string sp = "";
+                    string sp = sPackage + "USP_PRC_CALCULAR_INDICADOR2";
                     var p = new OracleDynamicParameters();
                     p.Add("pANNO", entidad.ANNOB);
                     p.Add("pID_TIPO_VEHICULO", entidad.ID_TIPO_VEHICULOB);
                     p.Add("pID_TIPO_COMBUSTIBLE", entidad.ID_TIPO_COMBUSTIBLEB);
-                    
-                    if (enfoque == 1 || enfoque == 2)
-                    {
-                        if (enfoque == 1)
-                        {
-                            sp = sPackage + "USP_PRC_CALCULAR_INDICADOR2";
-                        }
-                        else if (enfoque == 2)
-                        {
-                            sp = sPackage + "USP_PRC_CAL_VEH_HIB";
-                            p.Add("pKRV_COMBUSTIBLE", entidad.KRV_COMBUSTIBLE);                            
-                        }
-                        p.Add("pF_REN", entidad.FACTOR_RENDIMIENTO);
-                        p.Add("pKRV", entidad.KRVB);
-                        p.Add("pCANTIDAD", entidad.CANTIDADB);
-                    }                    
-                    else if (enfoque == 3)
-                    {
-                        sp = sPackage + "USP_PRC_CAL_VEH_CON";
-                        p.Add("pCONSUMO_ELECTRICIDAD",entidad.CONSUMO_ELECTRICIDAD);
-                    }
-                    else if (enfoque == 4)
-                    {
-                        sp = sPackage + "USP_PRC_CAL_VEH_HIB_CON";
-                        p.Add("pCONSUMO_ELECTRICIDAD", entidad.CONSUMO_ELECTRICIDAD);
-                        p.Add("pCONSUMO_COMBUSTIBLE", entidad.CONSUMO_COMBUSTIBLE);
-                    }       
-                    
-                    p.Add("pID_TIPO_FUENTE", entidad.ID_TIPO_FUENTEI);                                        
+                    p.Add("pKRV", entidad.KRVB);
+                    p.Add("pCANTIDAD", entidad.CANTIDADB);
+                    p.Add("pF_REN", entidad.FACTOR_RENDIMIENTO);
+                    p.Add("pID_TIPO_FUENTE", entidad.ID_TIPO_FUENTEI);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<IndicadorBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
                 }
@@ -123,6 +153,8 @@ namespace datos.minem.gob.pe
 
             return Lista;
         }
+
+        /////////////// TEMPORAL CALCULAR INDICADOR
 
         public IndicadorBE EliminarIndicador(IndicadorBE entidad)
         {
@@ -872,13 +904,13 @@ namespace datos.minem.gob.pe
                     p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
                     p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
-                    var lista = db.Query<IndicadorDataBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                    listaDataE = db.Query<IndicadorDataBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
 
-                    foreach (var item in lista)
+                    foreach (var item in listaDataE)
                     {
-                        listaDataE.Add(ListarIndicadorParametros(item));
+                        item.listaInd = ListarDatosDinamico(item);
+                        item.listaParam = listarDetalleCabeceraDinamico(item);
                     }
-
                 }
                 entidad.OK = true;
             }
@@ -890,6 +922,90 @@ namespace datos.minem.gob.pe
             }
 
             return listaDataE;
+        }
+
+        public List<IndicadorDataBE> ListarDatosDinamico(IndicadorDataBE entidad)
+        {
+            List<IndicadorDataBE> listaP = new List<IndicadorDataBE>();
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_GET_DATOS";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_ENFOQUE", entidad.ID_ENFOQUE);
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    listaP = db.Query<IndicadorDataBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+
+                foreach (var item in listaP)
+                {
+                    item.listaInd = ListarDetalleDatosDinamico(item);
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.extra = ex.Message;
+                entidad.OK = false;
+            }
+
+            return listaP;
+        }
+
+        public List<IndicadorDataBE> ListarDetalleDatosDinamico(IndicadorDataBE entidad)
+        {
+            List<IndicadorDataBE> listaP = new List<IndicadorDataBE>();
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_GET_DET_DATOS";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_ENFOQUE", entidad.ID_ENFOQUE);
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pID_INDICADOR", entidad.ID_INDICADOR);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    listaP = db.Query<IndicadorDataBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.extra = ex.Message;
+                entidad.OK = false;
+            }
+
+            return listaP;
+        }
+
+        public List<ParametroBE> listarDetalleCabeceraDinamico(IndicadorDataBE entidad)
+        {
+            List<ParametroBE> Lista = null;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_GET_CABECERA";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pID_ENFOQUE", entidad.ID_ENFOQUE);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<ParametroBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
         }
 
     }

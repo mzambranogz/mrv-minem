@@ -229,6 +229,11 @@ namespace logica.minem.gob.pe
             return indicador.ListarDatosIndicadorData(entidad);
         }
 
+        public static List<IndicadorDataBE> ListarDatosTablaDinamica(IndicadorDataBE entidad)
+        {
+            return indicador.ListarDatosTablaDinamica(entidad);
+        }
+
         /* NUEVOS PROCEDIMIENTOS */
         public static List<IndicadorDataBE> CalculoIndicador(List<IndicadorDataBE> listaEntidad)
         {
@@ -450,7 +455,10 @@ namespace logica.minem.gob.pe
                                 List<FactorParametroDataBE> lFactorDataBE = new FactorDA().ListaFactorParametroData(Fentidad, SQL);
                                 if (lFactorDataBE != null)
                                 {
-                                    lde_importecida = lFactorDataBE[0].FACTOR;
+                                    if (lFactorDataBE.Count > 0)
+                                        lde_importecida = lFactorDataBE[0].FACTOR;
+                                    else
+                                        lde_importecida = 0;
                                 }
                             }
                             else
@@ -484,7 +492,10 @@ namespace logica.minem.gob.pe
                             List<FactorParametroDataBE> lFactorDataBE = new FactorDA().ListaFactorParametroData(Fentidad, SQL);
                             if (lFactorDataBE != null)
                             {
-                                lde_importecida = lFactorDataBE[0].FACTOR;
+                                if (lFactorDataBE.Count > 0)
+                                    lde_importecida = lFactorDataBE[0].FACTOR;
+                                else
+                                    lde_importecida = 0;
                             }
                         }
                         else

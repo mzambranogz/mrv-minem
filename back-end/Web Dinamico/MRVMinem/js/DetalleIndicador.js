@@ -3321,8 +3321,12 @@ function CargarDatosCabecera() {
                     var tr = "";
                     tr += '<tr class="bg-primary text-white">';
                     tr += '     <th class="text-center" style="background-color: #28A745;" scope="col"><span>N°&nbsp;</span></th>';
-                    for (var i = 0; i < data.length; i++) {                        
-                        tr += '     <th class="text-center" style="background-color: '+ data[i]["COLOR_GRUPO"] +';" scope="col"><span>'+ data[i]["NOMBRE_PARAMETRO"] +'&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador '+ data[i]["NOMBRE_PARAMETRO"] +'"></i></span></th>';                                           
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i]["ID_PARAMETRO"] == 9 || data[i]["ID_PARAMETRO"] == 10 || data[i]["ID_PARAMETRO"] == 11) {
+                            tr += '     <th class="text-center" style="background-color: ' + data[i]["COLOR_GRUPO"] + ';" scope="col"><span>' + data[i]["NOMBRE_PARAMETRO"] + ' tCO<sub>2</sub>eq&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador ' + data[i]["NOMBRE_PARAMETRO"] + '"></i></span></th>';
+                        }else{
+                            tr += '     <th class="text-center" style="background-color: ' + data[i]["COLOR_GRUPO"] + ';" scope="col"><span>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador ' + data[i]["NOMBRE_PARAMETRO"] + '"></i></span></th>';
+                        }                        
                     }
                     tr += '     <th class="text-center" style="background-color: #007BFF;" scope="col">Más</th>';
                     tr += '</tr>';
