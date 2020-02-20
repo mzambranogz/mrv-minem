@@ -53,6 +53,8 @@ namespace datos.minem.gob.pe
                     string sp = sPackage + "SP_SEL_INICIATIVAS_RPT";
                     var p = new OracleDynamicParameters();
                     p.Add("pIdIniciativa", entidad.ID_INICIATIVA);
+                    p.Add("pIdSector", entidad.ID_SECTOR_INSTITUCION);
+                    p.Add("pIdMedida", entidad.ID_MEDMIT);
                     p.Add("pCursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<IniciativaRptBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
                 }

@@ -189,6 +189,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Reportes\frmReportes.aspx" />
+    <Content Include="Reportes\ReporteIni.aspx" />
     <Content Include="Temp\LEEME.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -224,16 +225,39 @@
     <Compile Include="Models\MvUbicacion.cs" />
     <Compile Include="Models\MvUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reportes\DsEscenario.Designer.cs" />
-    <Compile Include="Reportes\DsIniciativa.Designer.cs" />
-    <Compile Include="Reportes\DsInstitucion.Designer.cs" />
-    <Compile Include="Reportes\DsMedMit.Designer.cs" />
+    <Compile Include="Reportes\DsEscenario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsEscenario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\DsIniciativa.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsIniciativa.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\DsInstitucion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsInstitucion.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\DsMedMit.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsMedMit.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\frmReportes.aspx.cs">
       <DependentUpon>frmReportes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Reportes\frmReportes.aspx.designer.cs">
       <DependentUpon>frmReportes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\ReporteIni.aspx.cs">
+      <DependentUpon>ReporteIni.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reportes\ReporteIni.aspx.designer.cs">
+      <DependentUpon>ReporteIni.aspx</DependentUpon>
     </Compile>
     <Compile Include="Repositorio\EnvioCorreo.cs" />
     <Compile Include="Response\ResponseEntity.cs" />
@@ -319,12 +343,17 @@
     <Content Include="Views\Mantenimiento\Monedas.cshtml" />
     <Content Include="Views\Mantenimiento\Gei.cshtml" />
     <Content Include="Views\Mantenimiento\Enfoques.cshtml" />
+    <Content Include="Views\Mantenimiento\Energeticos.cshtml" />
+    <Content Include="Views\Detalle\DetalleIndicadorMasivo.cshtml" />
+    <Content Include="Views\Mantenimiento\MedidaMitigacionDetalle.cshtml" />
+    <Content Include="Views\Mantenimiento\MedidaFactoresData.cshtml" />
+    <Content Include="Views\Mantenimiento\MantenimientoFactores.cshtml" />
     <Content Include="Reportes\DsEscenario.xsc">
       <DependentUpon>DsEscenario.xsd</DependentUpon>
     </Content>
     <None Include="Reportes\DsEscenario.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DsEscenario1.Designer.cs</LastGenOutput>
+      <LastGenOutput>DsEscenario.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <Content Include="Reportes\DsEscenario.xss">
@@ -335,7 +364,7 @@
     </Content>
     <None Include="Reportes\DsIniciativa.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DsIniciativa1.Designer.cs</LastGenOutput>
+      <LastGenOutput>DsIniciativa.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <Content Include="Reportes\DsIniciativa.xss">
@@ -346,7 +375,7 @@
     </Content>
     <None Include="Reportes\DsInstitucion.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DsInstitucion1.Designer.cs</LastGenOutput>
+      <LastGenOutput>DsInstitucion.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <Content Include="Reportes\DsInstitucion.xss">
@@ -357,17 +386,12 @@
     </Content>
     <None Include="Reportes\DsMedMit.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DsMedMit1.Designer.cs</LastGenOutput>
+      <LastGenOutput>DsMedMit.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <Content Include="Reportes\DsMedMit.xss">
       <DependentUpon>DsMedMit.xsd</DependentUpon>
     </Content>
-    <Content Include="Views\Mantenimiento\Energeticos.cshtml" />
-    <Content Include="Views\Detalle\DetalleIndicadorMasivo.cshtml" />
-    <Content Include="Views\Mantenimiento\MedidaMitigacionDetalle.cshtml" />
-    <Content Include="Views\Mantenimiento\MedidaFactoresData.cshtml" />
-    <Content Include="Views\Mantenimiento\MantenimientoFactores.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -394,18 +418,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Reportes\EscenarioRpt.rdlc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\rptIniciativa.rdlc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\rptInstitucion.rdlc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\rptMedMit.rdlc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\EscenarioRpt.rdlc" />
+    <EmbeddedResource Include="Reportes\rptIniciativa.rdlc" />
+    <EmbeddedResource Include="Reportes\rptInstitucion.rdlc" />
+    <EmbeddedResource Include="Reportes\rptMedMit.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

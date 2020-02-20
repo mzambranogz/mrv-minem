@@ -35,7 +35,7 @@
                                     <select class="form-control cbo-list" id="cbo-reporte" required>
                                         <option value="0">-Seleccione un Tipo de Reporte-</option>
                                         <option value="1">Reporte de iniciativa de mitigación por período de tiempo</option>
-                                        <option value="2">Reporte de indicadores por período de tiempo</option>
+                                        <option value="2">Reporte de emisiones de GEI reducidas por medidas de mitigación</option>
                                         <option value="3">Reporte de entidades registradas por período de tiempo</option>
                                         <option value="4">Reporte de ubicaion de medidas de mitigacion por período de tiempo</option>
                                         <option value="5">Reporte de estado de iniciativa de mitigación por período de tiempo</option>
@@ -54,12 +54,13 @@
                     <div class="col-md-12 col-lg-6 pt-4">&nbsp;</div>
                 </div>
             </div>
+            <div class="container-fluid my-5" id="mireporte" aria-hidden="true">
+                <iframe id="iframeReporte" src="#" style="width: 100%; height:700px"></iframe>
+            </div>
         </div>
     </div>
 </div>
-<div class="container-fluid my-5" id="mireporte" aria-hidden="true">
-    <iframe id="iframeReporte" src="#" style="width: 100%; height:700px"></iframe>
-</div>
+
 
 <script src="~/js/script.js"></script>
 <script src="~/js/MRV.js"></script>

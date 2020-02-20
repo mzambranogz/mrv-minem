@@ -897,7 +897,7 @@
                   <FontSize>8pt</FontSize>
                 </Style>
                 <ChartAxisTitle>
-                  <Caption>tCO2</Caption>
+                  <Caption>tCO2eq</Caption>
                   <Style>
                     <FontSize>8pt</FontSize>
                     <FontWeight>Bold</FontWeight>
@@ -991,7 +991,7 @@
         </ChartLegends>
         <ChartTitles>
           <ChartTitle Name="Default">
-            <Caption>Escenarios por medida de lámparas en el sector público</Caption>
+            <Caption>Escenarios por medida: Lámparas en el sector público</Caption>
             <Style>
               <BackgroundGradientType>None</BackgroundGradientType>
               <FontWeight>Bold</FontWeight>
@@ -1038,7 +1038,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>REPORTE DE ESCENARIO POR MEDIDA DE LÁMPARAS EN EL SECTOR PÚBLICO</Value>
+                <Value>REPORTE DE ESCENARIOS POR MEDIDA: LÁMPARAS EN EL SECTOR PÚBLICO</Value>
                 <Style>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Bold</FontWeight>

@@ -21,7 +21,7 @@
               <Width>3.21787cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.42043cm</Width>
+              <Width>1.73793cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.97712cm</Width>
@@ -179,7 +179,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Nombre de medida</Value>
+                              <Value>Medida de mitigación</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -213,7 +213,20 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>GEI Total</Value>
+                              <Value>Emisiones de GEI reducidas</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>(tCO2eq)</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -282,7 +295,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Descripción</Value>
+                              <Value>Moneda</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -314,14 +327,14 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="ID_INICIATIVA">
+                    <Textbox Name="INDICE">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!ID_INICIATIVA.Value</Value>
+                              <Value>=Fields!INDICE.Value</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
                               </Style>
@@ -332,7 +345,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>ID_INICIATIVA</rd:DefaultName>
+                      <rd:DefaultName>INDICE</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -612,7 +625,7 @@
         <Top>2.45744cm</Top>
         <Left>4.45954cm</Left>
         <Height>1.2cm</Height>
-        <Width>18.89745cm</Width>
+        <Width>19.21495cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -641,9 +654,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
         <Top>0.81703cm</Top>
-        <Left>8.1878cm</Left>
+        <Left>8.8228cm</Left>
         <Height>0.78521cm</Height>
-        <Width>10.83437cm</Width>
+        <Width>10.33166cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -799,10 +812,14 @@
           <DataField>DESCRIPCION</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="INDICE">
+          <DataField>INDICE</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DsIniciativa</rd:DataSetName>
-        <rd:SchemaPath>C:\Gitsource\back-end\Web\MRVMinem\Reportes\DsIniciativa.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\Dell\Desktop\Original del git 3\Web- reportes 4\MRVMinem\Reportes\DsIniciativa.xsd</rd:SchemaPath>
         <rd:TableName>DtIniciativa</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />

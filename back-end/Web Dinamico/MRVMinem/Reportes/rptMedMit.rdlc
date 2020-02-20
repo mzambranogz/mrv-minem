@@ -108,7 +108,8 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>GEI publico</Value>
+                              <Value>GEI reducido por el sector público
+(tCO2e)</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -142,7 +143,20 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>GEI privado</Value>
+                              <Value>GEI reducido por el sector privado</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>(tCO2e)</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -176,7 +190,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Emisiones de GEI</Value>
+                              <Value>Emisiones de GEI reducidas</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -210,7 +224,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Cantidad Publico</Value>
+                              <Value>Iniciativas del sector público</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -244,7 +258,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Cantidad Privado</Value>
+                              <Value>Iniciativas del sector privado</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -903,7 +917,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DtMedMit</DataSetName>
-        <Top>1.61079cm</Top>
+        <Top>0.97579cm</Top>
         <Left>4.43015cm</Left>
         <Height>1.8cm</Height>
         <Width>18.82231cm</Width>
@@ -970,6 +984,9 @@
                   <Style />
                 </ChartDataLabel>
               </ChartEmptyPoints>
+              <ChartItemInLegend>
+                <LegendText>Sector Público</LegendText>
+              </ChartItemInLegend>
               <ValueAxisName>Primary</ValueAxisName>
               <CategoryAxisName>Primary</CategoryAxisName>
               <ChartSmartLabel>
@@ -1004,6 +1021,9 @@
                   <Style />
                 </ChartDataLabel>
               </ChartEmptyPoints>
+              <ChartItemInLegend>
+                <LegendText>Sector Privado</LegendText>
+              </ChartItemInLegend>
               <ValueAxisName>Primary</ValueAxisName>
               <CategoryAxisName>Primary</CategoryAxisName>
               <ChartSmartLabel>
@@ -1099,7 +1119,7 @@
                   <FontSize>8pt</FontSize>
                 </Style>
                 <ChartAxisTitle>
-                  <Caption>Nivel de gases de efecto invernadero</Caption>
+                  <Caption>tCO2eqq</Caption>
                   <Style>
                     <FontSize>8pt</FontSize>
                   </Style>
@@ -1191,7 +1211,7 @@
         </ChartLegends>
         <ChartTitles>
           <ChartTitle Name="Default">
-            <Caption>Gases de efecto invernadero - Sector público y privado</Caption>
+            <Caption>Emisiones de GEI reducidas del sector público y privado</Caption>
             <Style>
               <BackgroundGradientType>None</BackgroundGradientType>
               <FontWeight>Bold</FontWeight>
@@ -1217,9 +1237,9 @@
           </Style>
         </ChartNoDataMessage>
         <DataSetName>DtMedMit</DataSetName>
-        <Top>5.71183cm</Top>
+        <Top>4.44183cm</Top>
         <Left>4.69287cm</Left>
-        <Height>7.14312cm</Height>
+        <Height>6.90499cm</Height>
         <Width>19.32687cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
@@ -1288,6 +1308,9 @@
                   <Style />
                 </ChartDataLabel>
               </ChartEmptyPoints>
+              <ChartItemInLegend>
+                <LegendText>Iniciativas Sector Publico</LegendText>
+              </ChartItemInLegend>
               <ValueAxisName>Primary</ValueAxisName>
               <CategoryAxisName>Primary</CategoryAxisName>
               <ChartSmartLabel>
@@ -1322,6 +1345,9 @@
                   <Style />
                 </ChartDataLabel>
               </ChartEmptyPoints>
+              <ChartItemInLegend>
+                <LegendText>Iniciativas Sector Privado</LegendText>
+              </ChartItemInLegend>
               <ValueAxisName>Primary</ValueAxisName>
               <CategoryAxisName>Primary</CategoryAxisName>
               <ChartSmartLabel>
@@ -1415,7 +1441,7 @@
                   <FontSize>8pt</FontSize>
                 </Style>
                 <ChartAxisTitle>
-                  <Caption>Nivel de Cantidad</Caption>
+                  <Caption>Nivel de Iniciativas</Caption>
                   <Style>
                     <FontSize>8pt</FontSize>
                   </Style>
@@ -1507,7 +1533,7 @@
         </ChartLegends>
         <ChartTitles>
           <ChartTitle Name="Default">
-            <Caption>Cantidad en el sector público y sector privado</Caption>
+            <Caption>Iniciativas en el sector público y sector privado</Caption>
             <Style>
               <BackgroundGradientType>None</BackgroundGradientType>
               <FontWeight>Bold</FontWeight>
@@ -1533,9 +1559,9 @@
           </Style>
         </ChartNoDataMessage>
         <DataSetName>DtMedMit</DataSetName>
-        <Top>15.0554cm</Top>
+        <Top>13.1504cm</Top>
         <Left>4.43015cm</Left>
-        <Height>5.97896cm</Height>
+        <Height>5.87313cm</Height>
         <Width>19.58959cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
@@ -1554,7 +1580,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>REPORTE DE CANTIDAD EN EL  SECTOR PÚBLICO Y SECTOR PRIVADO</Value>
+                <Value>REPORTE DE INICIATIVAS EN SECTOR PÚBLICO Y SECTOR PRIVADO</Value>
                 <Style>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -1567,7 +1593,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>13.7287cm</Top>
+        <Top>12.1412cm</Top>
         <Left>5.50016cm</Left>
         <Height>0.6cm</Height>
         <Width>16.94562cm</Width>
@@ -1589,7 +1615,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>REPORTE DE GASES DE EFECTO INVERNADERO EN EL SECTOR PÚBLICO Y PRIVADO</Value>
+                <Value>REPORTE DE EMISIONES DE GEI REDUCIDAS POR MEDIDAS DE MITIGACIÓN</Value>
                 <Style>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -1600,10 +1626,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>4.81224cm</Top>
-        <Left>5.42079cm</Left>
-        <Height>0.6cm</Height>
-        <Width>17.02499cm</Width>
+        <Top>3.54224cm</Top>
+        <Left>6.92892cm</Left>
+        <Height>0.52917cm</Height>
+        <Width>15.06707cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -1622,7 +1648,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>REPORTE DE GASES DE EFECTO INVERNADERO Y CANTIDADES EN EL SECTOR PÚBLICO Y PRIVADO</Value>
+                <Value>REPORTE DE EMISIONES DE GEI REDUCIDAS POR MEDIDAS DE MITIGACIÓN</Value>
                 <Style>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -1633,10 +1659,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>0.78148cm</Top>
-        <Left>3.78037cm</Left>
-        <Height>0.65292cm</Height>
-        <Width>19.92187cm</Width>
+        <Top>0.08792cm</Top>
+        <Left>6.53204cm</Left>
+        <Height>0.6cm</Height>
+        <Width>15.06707cm</Width>
         <ZIndex>5</ZIndex>
         <Style>
           <Border>
@@ -1649,13 +1675,13 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>9.20834in</Height>
+    <Height>9.35417in</Height>
     <Style />
   </Body>
   <Width>10.31076in</Width>
   <Page>
     <PageHeader>
-      <Height>2.54646cm</Height>
+      <Height>3.02189cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1730,7 +1756,7 @@
     <LeftMargin>1cm</LeftMargin>
     <RightMargin>1cm</RightMargin>
     <TopMargin>1cm</TopMargin>
-    <BottomMargin>1cm</BottomMargin>
+    <BottomMargin>2cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>

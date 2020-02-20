@@ -25,6 +25,11 @@ namespace entidad.minem.gob.pe
         public string DESCRIPCION { get; set; }
         public string FECHA { get; set; }
 
+        public string INDICE { get; set; }
+
+        public int ID_MEDMIT { get; set; }
+        public int ID_SECTOR_INSTITUCION { get; set; }
+
 
     }
 }

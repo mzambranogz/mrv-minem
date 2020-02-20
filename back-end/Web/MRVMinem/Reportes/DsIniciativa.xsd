@@ -12,7 +12,7 @@
   <xs:element name="DsIniciativa" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DsIniciativa" msprop:Generator_UserDSName="DsIniciativa">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DtIniciativa" msprop:Generator_TableClassName="DtIniciativaDataTable" msprop:Generator_TableVarName="tableDtIniciativa" msprop:Generator_TablePropName="DtIniciativa" msprop:Generator_RowDeletingName="DtIniciativaRowDeleting" msprop:Generator_RowChangingName="DtIniciativaRowChanging" msprop:Generator_RowEvHandlerName="DtIniciativaRowChangeEventHandler" msprop:Generator_RowDeletedName="DtIniciativaRowDeleted" msprop:Generator_UserTableName="DtIniciativa" msprop:Generator_RowChangedName="DtIniciativaRowChanged" msprop:Generator_RowEvArgName="DtIniciativaRowChangeEvent" msprop:Generator_RowClassName="DtIniciativaRow">
+        <xs:element name="DtIniciativa" msprop:Generator_TableClassName="DtIniciativaDataTable" msprop:Generator_TableVarName="tableDtIniciativa" msprop:Generator_RowChangedName="DtIniciativaRowChanged" msprop:Generator_TablePropName="DtIniciativa" msprop:Generator_RowDeletingName="DtIniciativaRowDeleting" msprop:Generator_RowChangingName="DtIniciativaRowChanging" msprop:Generator_RowEvHandlerName="DtIniciativaRowChangeEventHandler" msprop:Generator_RowDeletedName="DtIniciativaRowDeleted" msprop:Generator_RowClassName="DtIniciativaRow" msprop:Generator_UserTableName="DtIniciativa" msprop:Generator_RowEvArgName="DtIniciativaRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID_INICIATIVA" msprop:Generator_ColumnVarNameInTable="columnID_INICIATIVA" msprop:Generator_ColumnPropNameInRow="ID_INICIATIVA" msprop:Generator_ColumnPropNameInTable="ID_INICIATIVAColumn" msprop:Generator_UserColumnName="ID_INICIATIVA" type="xs:int" minOccurs="0" />
@@ -23,6 +23,7 @@
               <xs:element name="GEI_TOTAL" msprop:Generator_ColumnVarNameInTable="columnGEI_TOTAL" msprop:Generator_ColumnPropNameInRow="GEI_TOTAL" msprop:Generator_ColumnPropNameInTable="GEI_TOTALColumn" msprop:Generator_UserColumnName="GEI_TOTAL" type="xs:decimal" minOccurs="0" />
               <xs:element name="INVERSION_INICIATIVA" msprop:Generator_ColumnVarNameInTable="columnINVERSION_INICIATIVA" msprop:Generator_ColumnPropNameInRow="INVERSION_INICIATIVA" msprop:Generator_ColumnPropNameInTable="INVERSION_INICIATIVAColumn" msprop:Generator_UserColumnName="INVERSION_INICIATIVA" type="xs:decimal" minOccurs="0" />
               <xs:element name="DESCRIPCION" msprop:Generator_ColumnVarNameInTable="columnDESCRIPCION" msprop:Generator_ColumnPropNameInRow="DESCRIPCION" msprop:Generator_ColumnPropNameInTable="DESCRIPCIONColumn" msprop:Generator_UserColumnName="DESCRIPCION" type="xs:string" minOccurs="0" />
+              <xs:element name="INDICE" msprop:Generator_ColumnVarNameInTable="columnINDICE" msprop:Generator_ColumnPropNameInRow="INDICE" msprop:Generator_ColumnPropNameInTable="INDICEColumn" msprop:Generator_UserColumnName="INDICE" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

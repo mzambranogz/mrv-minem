@@ -19,31 +19,31 @@ namespace MRVMinem.Reportes
             {
                 if (Request.QueryString["IdReporte"] == "1")
                 {
-                    ReporteMedidaMitigacion();
+                     ReporteIniciativa();
                 }
                 else if (Request.QueryString["IdReporte"] == "2")
                 {
-                    ReporteIniciativa();
+                     ReporteMedidaMitigacion();
                 }
                 else if (Request.QueryString["IdReporte"] == "3")
                 {
-                    ReporteInstitucion();
+                    /*ReporteInstitucion();*/
                 }
                 else if (Request.QueryString["IdReporte"] == "4")
                 {
-                    ReporteUbicacionMedidas();
+                    /*ReporteUbicacionMedidas();*/
                 }
                 else if (Request.QueryString["IdReporte"] == "5")
                 {
-                    ReporteEstadoIniciativa();
+                    /*ReporteEstadoIniciativa();*/
                 }
                 else if (Request.QueryString["IdReporte"] == "6")
                 {
-                    ReporteTipoIniciativa();
+                    /*ReporteTipoIniciativa();*/
                 }
                 else if (Request.QueryString["IdReporte"] == "7")
                 {
-                    ReporteDocumentosMedida();
+                    /*ReporteDocumentosMedida();*/
                 }
                 else if (Request.QueryString["IdReporte"] == "8")
                 {
@@ -111,7 +111,7 @@ namespace MRVMinem.Reportes
 
         }
 
-        private void ReporteInstitucion()
+        /*private void ReporteInstitucion()
         {
             string rutatarget = ConfigurationManager.AppSettings["RutaReportes"].ToString();
             InstitucionRptBE entidad = new InstitucionRptBE() { ID_INICIATIVA = 0 };
@@ -126,7 +126,7 @@ namespace MRVMinem.Reportes
             rvReporte.LocalReport.DataSources.Add(dataSource);
             rvReporte.ServerReport.Refresh();
 
-        }
+        }*/
 
         private void ReporteUbicacionMedidas()
         {

@@ -295,6 +295,8 @@ namespace MRVMinem.Reportes {
             
             private global::System.Data.DataColumn columnDESCRIPCION;
             
+            private global::System.Data.DataColumn columnINDICE;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DtIniciativaDataTable() {
@@ -394,6 +396,14 @@ namespace MRVMinem.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn INDICEColumn {
+                get {
+                    return this.columnINDICE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -429,7 +439,7 @@ namespace MRVMinem.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DtIniciativaRow AddDtIniciativaRow(int ID_INICIATIVA, string NOMBRE_INSTITUCION, string NOMBRE_INICIATIVA, string NOMBRE_MEDMIT, string FECHA, decimal GEI_TOTAL, decimal INVERSION_INICIATIVA, string DESCRIPCION) {
+            public DtIniciativaRow AddDtIniciativaRow(int ID_INICIATIVA, string NOMBRE_INSTITUCION, string NOMBRE_INICIATIVA, string NOMBRE_MEDMIT, string FECHA, decimal GEI_TOTAL, decimal INVERSION_INICIATIVA, string DESCRIPCION, string INDICE) {
                 DtIniciativaRow rowDtIniciativaRow = ((DtIniciativaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID_INICIATIVA,
@@ -439,7 +449,8 @@ namespace MRVMinem.Reportes {
                         FECHA,
                         GEI_TOTAL,
                         INVERSION_INICIATIVA,
-                        DESCRIPCION};
+                        DESCRIPCION,
+                        INDICE};
                 rowDtIniciativaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDtIniciativaRow);
                 return rowDtIniciativaRow;
@@ -470,6 +481,7 @@ namespace MRVMinem.Reportes {
                 this.columnGEI_TOTAL = base.Columns["GEI_TOTAL"];
                 this.columnINVERSION_INICIATIVA = base.Columns["INVERSION_INICIATIVA"];
                 this.columnDESCRIPCION = base.Columns["DESCRIPCION"];
+                this.columnINDICE = base.Columns["INDICE"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -491,6 +503,8 @@ namespace MRVMinem.Reportes {
                 base.Columns.Add(this.columnINVERSION_INICIATIVA);
                 this.columnDESCRIPCION = new global::System.Data.DataColumn("DESCRIPCION", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDESCRIPCION);
+                this.columnINDICE = new global::System.Data.DataColumn("INDICE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnINDICE);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -763,6 +777,22 @@ namespace MRVMinem.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string INDICE {
+                get {
+                    try {
+                        return ((string)(this[this.tableDtIniciativa.INDICEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'INDICE\' de la tabla \'DtIniciativa\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDtIniciativa.INDICEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsID_INICIATIVANull() {
                 return this.IsNull(this.tableDtIniciativa.ID_INICIATIVAColumn);
             }
@@ -855,6 +885,18 @@ namespace MRVMinem.Reportes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetDESCRIPCIONNull() {
                 this[this.tableDtIniciativa.DESCRIPCIONColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsINDICENull() {
+                return this.IsNull(this.tableDtIniciativa.INDICEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetINDICENull() {
+                this[this.tableDtIniciativa.INDICEColumn] = global::System.Convert.DBNull;
             }
         }
         
