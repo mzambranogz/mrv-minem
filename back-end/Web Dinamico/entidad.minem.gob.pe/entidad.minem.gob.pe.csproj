@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnnoBE.cs" />
     <Compile Include="BaseBE.cs" />
     <Compile Include="BusquedaAvanzadaBE.cs" />
     <Compile Include="BusquedaSimpleBE.cs" />

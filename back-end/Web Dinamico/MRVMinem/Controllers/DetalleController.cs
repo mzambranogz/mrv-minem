@@ -14,7 +14,7 @@ using System.Web.Mvc;
 
 namespace MRVMinem.Controllers
 {
-    [Autenticado]
+    //[Autenticado]
     public class DetalleController : BaseController
     {
         // GET: Detalle

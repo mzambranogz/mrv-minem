@@ -739,8 +739,8 @@
                 ID_USUARIO: $("#Control").data("usuario"),
                 NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
                 ID_TIPO_FUENTEI: $("#cbo-enfoque").val(),
-                ID_ENFOQUE: 1,
-                ID_MEDMIT: 12
+                ID_ENFOQUE: $("#cbo-enfoque").val(),
+                ID_MEDMIT: $("#Control").data("mitigacion")
             }),
             xhr: function () {  // Custom XMLHttpRequest
                 var myXhr = $.ajaxSettings.xhr();

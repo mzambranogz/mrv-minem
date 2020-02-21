@@ -15,7 +15,7 @@ using MRVMinem.Tags;
 
 namespace MRVMinem.Controllers
 {
-    [Autenticado]
+    //[Autenticado]
     public class MantenimientoController : BaseController
     {
         // GET: Mantenimiento

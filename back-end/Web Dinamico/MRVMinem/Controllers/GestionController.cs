@@ -24,7 +24,7 @@ using MRVMinem.Helper;
 
 namespace MRVMinem.Controllers
 {
-    [Autenticado]
+    //[Autenticado]
     public class GestionController : BaseController
     {
 

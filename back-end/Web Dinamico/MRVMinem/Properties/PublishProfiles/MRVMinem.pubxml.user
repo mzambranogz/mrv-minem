@@ -24,7 +24,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>02/20/2020 17:18:47</publishTime>
     </File>
     <File Include="bin/datos.minem.gob.pe.dll">
-      <publishTime>02/21/2020 12:11:07</publishTime>
+      <publishTime>02/21/2020 12:43:14</publishTime>
     </File>
     <File Include="bin/de/Microsoft.SqlServer.Types.resources.dll">
       <publishTime>02/21/2014 05:26:06</publishTime>
@@ -93,7 +93,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>02/20/2020 17:18:37</publishTime>
     </File>
     <File Include="bin/logica.minem.gob.pe.dll">
-      <publishTime>02/21/2020 12:11:08</publishTime>
+      <publishTime>02/21/2020 12:43:17</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>02/20/2020 17:18:49</publishTime>
@@ -108,7 +108,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>02/20/2020 17:18:50</publishTime>
     </File>
     <File Include="bin/MRVMinem.dll">
-      <publishTime>02/21/2020 12:11:13</publishTime>
+      <publishTime>02/21/2020 12:43:22</publishTime>
     </File>
     <File Include="bin/Oracle.DataAccess.dll">
       <publishTime>07/31/2014 22:11:18</publishTime>
@@ -585,7 +585,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>02/20/2020 17:18:37</publishTime>
     </File>
     <File Include="Views/Detalle/DetalleIndicadorMasivo.cshtml">
-      <publishTime>02/21/2020 09:00:31</publishTime>
+      <publishTime>02/21/2020 12:25:53</publishTime>
     </File>
     <File Include="Views/Gestion/AccionMitigacion.cshtml">
       <publishTime>02/21/2020 09:50:03</publishTime>
