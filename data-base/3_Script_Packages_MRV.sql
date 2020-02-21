@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - jueves-febrero-20-2020   
+-- Archivo creado  - viernes-febrero-21-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_ADMIN_SISTEMA
@@ -682,6 +682,13 @@ END PKG_MRV_CALCULO;
         pID_INDICADOR  IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
     );
+    
+    PROCEDURE USP_SEL_PARAMETRO_EXCEL(
+        pID_ENFOQUE IN NUMBER,
+        pID_MEDMIT IN NUMBER,
+        pRefcursor OUT SYS_REFCURSOR
+    );
+    
 
 --////////////////////////////////////////// DINAMICO FINAL
 
@@ -4622,6 +4629,7 @@ END PKG_MRV_CALCULO;
                     WHEN 1 THEN (SELECT DD.NOMBRE_DETALLE FROM T_MAED_MRV_PARAMETRO DD WHERE DD.ID_DETALLE = IDA.VALOR AND DD.ID_PARAMETRO = IDA.ID_PARAMETRO)
                     ELSE ''
                 END DESCRIPCION,
+                (SELECT MMI.ID_GRUPO_INDICADOR FROM T_MAEM_INDICADOR MMI WHERE MMI.ID_PARAMETRO = IDA.ID_PARAMETRO AND MMI.ID_ENFOQUE = pID_ENFOQUE AND MMI.ID_MEDMIT = pID_MEDMIT) ID_COLOR_INDICADOR,
                 (SELECT ORDEN FROM T_MAEM_INDICADOR TMI WHERE TMI.ID_MEDMIT = pID_MEDMIT AND TMI.ID_ENFOQUE = pID_ENFOQUE AND TMI.ID_PARAMETRO = IDA.ID_PARAMETRO) ORDEN
         FROM    T_MAEM_INDICADOR_DATA IDA
         LEFT JOIN T_MAEM_MRV_PARAMETRO MP ON IDA.ID_PARAMETRO = MP.ID_PARAMETRO
@@ -4632,6 +4640,19 @@ END PKG_MRV_CALCULO;
                 FLAG_ESTADO = '1'
         ORDER BY ORDEN ASC;
   END USP_SEL_GET_DET_DATOS;
+  
+  PROCEDURE USP_SEL_PARAMETRO_EXCEL(
+        pID_ENFOQUE IN NUMBER,
+        pID_MEDMIT IN NUMBER,
+        pRefcursor OUT SYS_REFCURSOR
+    )AS
+    BEGIN
+        OPEN pRefcursor FOR
+        SELECT  ID_PARAMETRO
+        FROM    T_MAEM_INDICADOR
+        WHERE   ID_ENFOQUE = pID_ENFOQUE AND ID_MEDMIT = pID_MEDMIT
+        ORDER BY ORDEN ASC;
+    END USP_SEL_PARAMETRO_EXCEL;
   
   --////////////////////////////////////////// DINAMICO FINAL  
 
