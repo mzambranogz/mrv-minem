@@ -40,11 +40,121 @@ namespace MRVMinem.Controllers
             return View(modelo);
         }
 
-        public JsonResult ProcesarExcel(HttpPostedFileBase fledeclaracion, IndicadorBE entidad)
+        //public JsonResult ProcesarExcel(HttpPostedFileBase fledeclaracion, IndicadorBE entidad)
+        public JsonResult ProcesarExcel(HttpPostedFileBase fledeclaracion, ParametroBE entidad)
         {
-            List<IndicadorBE> listaIndicadores = new List<IndicadorBE>();
+            //List<IndicadorBE> listaIndicadores = new List<IndicadorBE>();
+            //ResponseEntity itemRespuesta = new ResponseEntity();
+            //List<string> excelData = new List<string>();
+            //int pagina = 0;
+            //if (fledeclaracion != null)
+            //{
+            //    //load the uploaded file into the memorystream
+            //    byte[] archivo = new byte[fledeclaracion.ContentLength];
+            //    fledeclaracion.InputStream.Read(archivo, 0, fledeclaracion.ContentLength - 1);
+            //    using (MemoryStream stream = new MemoryStream(archivo))
+            //    using (ExcelPackage excelPackage = new ExcelPackage(stream))
+            //    {
+            //        //loop all worksheets
+            //        foreach (ExcelWorksheet worksheet in excelPackage.Workbook.Worksheets)
+            //        {
+            //            pagina++;
+            //            //loop all rows
+            //            if (pagina < 2)
+            //            {
+            //                for (int i = worksheet.Dimension.Start.Row; i <= worksheet.Dimension.End.Row; i++)
+            //                {
+            //                    IndicadorBE item = new IndicadorBE();
+            //                    if (i > 1)
+            //                    {
+            //                        //loop all columns in a row
+            //                        if (worksheet.Cells[i, 1].Value != null && worksheet.Cells[i, 2].Value != null && worksheet.Cells[i, 3].Value != null && worksheet.Cells[i, 4].Value != null && worksheet.Cells[i, 5].Value != null && worksheet.Cells[i, 6].Value != null && worksheet.Cells[i, 7].Value != null && worksheet.Cells[i, 8].Value != null)
+            //                        {
+            //                            for (int j = worksheet.Dimension.Start.Column; j <= worksheet.Dimension.End.Column; j++)
+            //                            {
+            //                                //add the cell data to the List
+            //                                if (worksheet.Cells[i, j].Value != null)
+            //                                {
+            //                                    excelData.Add(worksheet.Cells[i, j].Value.ToString());
+            //                                    switch (j)
+            //                                    {
+            //                                        case 1:
+            //                                            item.ANNOB = int.Parse(worksheet.Cells[i, j].Value.ToString());
+            //                                            item.ANNO_BASE = item.ANNOB;
+            //                                            break;
+            //                                        case 2:
+            //                                            item.INICIO_OPERACIONES = DateTime.FromOADate(long.Parse(worksheet.Cells[i, j].Value.ToString()));
+            //                                            break;
+            //                                        case 3:
+            //                                            item.ID_TIPO_VEHICULOB = int.Parse(worksheet.Cells[i, j].Value.ToString());
+            //                                            item.ID_TIPO_VEHICULO_BASE = item.ID_TIPO_VEHICULOB;
+            //                                            break;
+            //                                        case 4:
+            //                                            break;
+            //                                        case 5:
+            //                                            item.ID_TIPO_COMBUSTIBLEB = int.Parse(worksheet.Cells[i, j].Value.ToString());
+            //                                            item.ID_TIPO_COMBUSTIBLE_BASE = item.ID_TIPO_COMBUSTIBLEB;
+            //                                            break;
+            //                                        case 6:
+            //                                            break;
+            //                                        case 7:
+            //                                            item.KRVB = int.Parse(worksheet.Cells[i, j].Value.ToString());
+            //                                            item.KRV_BASE = item.KRVB;
+            //                                            break;
+            //                                        case 8:
+            //                                            item.CANTIDADB = int.Parse(worksheet.Cells[i, j].Value.ToString());
+            //                                            item.CANT_BASE = item.CANTIDADB;
+            //                                            break;
+            //                                        case 9:
+            //                                            item.FACTOR_RENDIMIENTO = double.Parse(worksheet.Cells[i, j].Value.ToString());
+            //                                            item.F_RENDIMIENTO = item.FACTOR_RENDIMIENTO;
+            //                                            break;
+            //                                    }
+            //                                }
+            //                            }
+            //                            item.ID_TIPO_FUENTEI = entidad.ID_TIPO_FUENTEI;
+            //                            IndicadorBE Calculado = IndicadorLN.CalcularIndicador(item)[0];
+            //                            item.TOTAL_GEI_INIMIT = Calculado.TOTAL_GEI_INIMIT;
+            //                            item.TOTAL_GEI_REDUCIDO = Calculado.TOTAL_GEI_REDUCIDO;
+            //                            item.TOTAL_GEI_BASE = Calculado.TOTAL_GEI_BASE;
+            //                            item.F_RENDIMIENTO = Calculado.FACTOR_RENDIMIENTO;
+            //                            listaIndicadores.Add(item);
+            //                        }
+            //                    }
+            //                }
+            //            }
+            //        }
+            //    }
+            //}
+
+            //var jsonResult = Json(listaIndicadores, JsonRequestBehavior.AllowGet);
+            //jsonResult.MaxJsonLength = int.MaxValue;
+            //return jsonResult;
+
+            List<IndicadorDataBE> listaData = new List<IndicadorDataBE>();
+            
+            
+            List<ParametroBE> listaParametro = new List<ParametroBE>(); //add
+            List<ParametroBE> listaTemp = new List<ParametroBE>(); //add
+            ParametroBE entTemp = new ParametroBE();
             ResponseEntity itemRespuesta = new ResponseEntity();
             List<string> excelData = new List<string>();
+
+            listaTemp = ParametroLN.ListarParametroCabeceraExcel(entidad);
+            foreach (var item in listaTemp)
+            {
+                item.AGREGAR = 1;
+                listaParametro.Add(item);
+                if (item.ID_TIPO_CONTROL == 1)
+                {
+                    if (item.ID_PARAMETRO != 6)
+                    {                        
+                        entTemp.AGREGAR = 0;
+                        listaParametro.Add(entTemp);
+                    }
+                }
+            }
+
             int pagina = 0;
             if (fledeclaracion != null)
             {
@@ -58,67 +168,76 @@ namespace MRVMinem.Controllers
                     foreach (ExcelWorksheet worksheet in excelPackage.Workbook.Worksheets)
                     {
                         pagina++;
+                        var cant_column = worksheet.Dimension.End.Column;
+                        var ultimos = listaParametro.Count - cant_column;
                         //loop all rows
                         if (pagina < 2)
                         {
                             for (int i = worksheet.Dimension.Start.Row; i <= worksheet.Dimension.End.Row; i++)
                             {
-                                IndicadorBE item = new IndicadorBE();
+                                IndicadorDataBE itemData = new IndicadorDataBE();
+                                List<IndicadorDataBE> listaIndicadores = new List<IndicadorDataBE>();
                                 if (i > 1)
                                 {
-                                    //loop all columns in a row
-                                    if (worksheet.Cells[i, 1].Value != null && worksheet.Cells[i, 2].Value != null && worksheet.Cells[i, 3].Value != null && worksheet.Cells[i, 4].Value != null && worksheet.Cells[i, 5].Value != null && worksheet.Cells[i, 6].Value != null && worksheet.Cells[i, 7].Value != null && worksheet.Cells[i, 8].Value != null)
+                                    //loop all columns in a row                                    
+                                    var validar = 0;
+                                    for(int n = 0; n < cant_column; n++)
+                                    {
+                                        if (worksheet.Cells[i, (n+1)].Value == null)
+                                        {
+                                            validar = 1;
+                                            break;
+                                        }
+                                    }
+
+                                    if (validar == 0)
                                     {
                                         for (int j = worksheet.Dimension.Start.Column; j <= worksheet.Dimension.End.Column; j++)
                                         {
                                             //add the cell data to the List
                                             if (worksheet.Cells[i, j].Value != null)
                                             {
+                                                IndicadorDataBE item = new IndicadorDataBE();
                                                 excelData.Add(worksheet.Cells[i, j].Value.ToString());
-                                                switch (j)
+                                                item.ID_ENFOQUE = entidad.ID_ENFOQUE;
+                                                item.ID_MEDMIT = entidad.ID_MEDMIT;
+                                                item.ID_PARAMETRO = listaParametro[(j-1)].ID_PARAMETRO;
+                                                if (listaParametro[(j - 1)].ID_TIPO_DATO == 1)
                                                 {
-                                                    case 1:
-                                                        item.ANNOB = int.Parse(worksheet.Cells[i, j].Value.ToString());
-                                                        item.ANNO_BASE = item.ANNOB;
-                                                        break;
-                                                    case 2:
-                                                        item.INICIO_OPERACIONES = DateTime.FromOADate(long.Parse(worksheet.Cells[i, j].Value.ToString()));
-                                                        break;
-                                                    case 3:
-                                                        item.ID_TIPO_VEHICULOB = int.Parse(worksheet.Cells[i, j].Value.ToString());
-                                                        item.ID_TIPO_VEHICULO_BASE = item.ID_TIPO_VEHICULOB;
-                                                        break;
-                                                    case 4:
-                                                        break;
-                                                    case 5:
-                                                        item.ID_TIPO_COMBUSTIBLEB = int.Parse(worksheet.Cells[i, j].Value.ToString());
-                                                        item.ID_TIPO_COMBUSTIBLE_BASE = item.ID_TIPO_COMBUSTIBLEB;
-                                                        break;
-                                                    case 6:
-                                                        break;
-                                                    case 7:
-                                                        item.KRVB = int.Parse(worksheet.Cells[i, j].Value.ToString());
-                                                        item.KRV_BASE = item.KRVB;
-                                                        break;
-                                                    case 8:
-                                                        item.CANTIDADB = int.Parse(worksheet.Cells[i, j].Value.ToString());
-                                                        item.CANT_BASE = item.CANTIDADB;
-                                                        break;
-                                                    case 9:
-                                                        item.FACTOR_RENDIMIENTO = double.Parse(worksheet.Cells[i, j].Value.ToString());
-                                                        item.F_RENDIMIENTO = item.FACTOR_RENDIMIENTO;
-                                                        break;
-                                                }
+                                                    var fec = Convert.ToString(DateTime.FromOADate(long.Parse(worksheet.Cells[i, j].Value.ToString())));
+                                                    item.VALOR = Convert.ToDateTime(fec).ToString("yyyy-MM-dd");
+                                                    //item.VALOR = Convert.ToString(DateTime.FromOADate(long.Parse(worksheet.Cells[i, j].Value.ToString())));
+                                                    //item.VALOR = item.VALOR.Substring(0, 10);
+                                                    //item.VALOR = "2018-11-12";
+                                                }                                                    
+                                                else
+                                                    item.VALOR = worksheet.Cells[i, j].Value.ToString();
+
+                                                if (listaParametro[(j - 1)].AGREGAR == 1)
+                                                    listaIndicadores.Add(item);
+                                            }
+                                            else
+                                            {
+                                                IndicadorDataBE item = new IndicadorDataBE();
+                                                excelData.Add(worksheet.Cells[i, j].Value.ToString());
+                                                item.ID_ENFOQUE = entidad.ID_ENFOQUE;
+                                                item.ID_MEDMIT = entidad.ID_MEDMIT;
+                                                item.ID_PARAMETRO = listaParametro[(j - 1)].ID_PARAMETRO;
+                                                item.VALOR = "";
                                             }
                                         }
-                                        item.ID_TIPO_FUENTEI = entidad.ID_TIPO_FUENTEI;
-                                        IndicadorBE Calculado = IndicadorLN.CalcularIndicador(item)[0];
-                                        item.TOTAL_GEI_INIMIT = Calculado.TOTAL_GEI_INIMIT;
-                                        item.TOTAL_GEI_REDUCIDO = Calculado.TOTAL_GEI_REDUCIDO;
-                                        item.TOTAL_GEI_BASE = Calculado.TOTAL_GEI_BASE;
-                                        item.F_RENDIMIENTO = Calculado.FACTOR_RENDIMIENTO;
-                                        listaIndicadores.Add(item);
-                                    }
+                                        for (int m = cant_column; m < listaParametro.Count; m++)
+                                        {
+                                            IndicadorDataBE item = new IndicadorDataBE();
+                                            item.ID_ENFOQUE = entidad.ID_ENFOQUE;
+                                            item.ID_MEDMIT = entidad.ID_MEDMIT;
+                                            item.ID_PARAMETRO = listaParametro[m].ID_PARAMETRO;
+                                            item.VALOR = "";
+                                            listaIndicadores.Add(item);
+                                        }
+                                        itemData.listaInd = IndicadorLN.CalculoIndicador(listaIndicadores);
+                                        listaData.Add(itemData);
+                                    }     
                                 }
                             }
                         }
@@ -126,7 +245,7 @@ namespace MRVMinem.Controllers
                 }
             }
 
-            var jsonResult = Json(listaIndicadores, JsonRequestBehavior.AllowGet);
+            var jsonResult = Json(listaData, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
 

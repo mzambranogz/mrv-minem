@@ -154,5 +154,10 @@ namespace logica.minem.gob.pe
         {
             return usuarioDA.ActualizarPrimeraVisita(entidad);
         }
+
+        public static UsuarioBE DeshabilitarUsuario(UsuarioBE entidad)
+        {
+            return usuarioDA.DeshabilitarUsuario(entidad);
+        }
     }
 }

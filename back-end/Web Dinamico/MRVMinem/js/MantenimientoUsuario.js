@@ -791,5 +791,22 @@ $("#modal-consulta").on("hidden.bs.modal", function () {
     $("#txa-consulta-usuario").val("");
 });
 
+function guardarIdUsuario(id) {
+    $("#cuerpoMantenimientoUsuario").data("deshabilitar", id);
+}
+
+function deshabilitarUsuario() {
+    var item = {
+        ID_USUARIO: $("#cuerpoMantenimientoUsuario").data("deshabilitar")
+    }
+    var url = baseUrl + 'Gestion/DeshabilitarUsuario';
+    var respuesta = MRV.Ajax(url, item, false);
+    if (respuesta.success) {
+        $('#modal-confirmacion').modal('hide');
+    } else {
+
+    }
+}
+
 
 

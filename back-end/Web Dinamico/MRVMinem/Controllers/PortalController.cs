@@ -58,11 +58,18 @@ namespace MRVMinem.Controllers
         {
             ListaObjeto modelo = new ListaObjeto();
             IniciativaBE inic = new IniciativaBE();
+            IndicadorDataBE ida = new IndicadorDataBE();
             inic.ID_INICIATIVA = ini;
+            ida.ID_INICIATIVA = ini;
             modelo.iniciativa_mit = inic;
             modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
-            modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
+            //modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
             modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
+
+            modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
+            ida.ID_MEDMIT = modelo.iniciativa_mit.ID_MEDMIT;
+            modelo.listaIndData = IndicadorLN.ListarDatosTablaDinamica(ida);
+
             modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
             modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
             modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);

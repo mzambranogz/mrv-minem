@@ -352,11 +352,18 @@ namespace MRVMinem.Controllers
             //modelo.detalle = 1;
             ListaObjeto modelo = new ListaObjeto();
             IniciativaBE inic = new IniciativaBE();
+            IndicadorDataBE ida = new IndicadorDataBE();
             inic.ID_INICIATIVA = ini;
+            ida.ID_INICIATIVA = ini;
             modelo.iniciativa_mit = inic;
             modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
-            modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
+            //modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
             modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
+
+            modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
+            ida.ID_MEDMIT = modelo.iniciativa_mit.ID_MEDMIT;
+            modelo.listaIndData = IndicadorLN.ListarDatosTablaDinamica(ida);
+
             modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
             modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
             modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
@@ -1773,6 +1780,14 @@ namespace MRVMinem.Controllers
             return jsonResult;
         }
 
+        public JsonResult DeshabilitarUsuario(UsuarioBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = UsuarioLN.DeshabilitarUsuario(entidad);
+            itemRespuesta.success = entidad.OK;
+            return Respuesta(itemRespuesta);
+        }
         //EXPORTAR EXCEL
 
         public void ExportarIniciativa(string item)
@@ -2065,7 +2080,13 @@ namespace MRVMinem.Controllers
 
         public void ExportarToExcelDetalleIndicador(IndicadorBE entidad)
         {
-            var lista = IndicadorLN.ListarDetalleIndicador(entidad);
+            IndicadorDataBE ida = new IndicadorDataBE();
+            ida.ID_INICIATIVA = entidad.ID_INICIATIVA;
+            ida.ID_MEDMIT = entidad.ID_MEDMIT;
+            //var lista = IndicadorLN.ListarDetalleIndicador(entidad);
+            var lista = IndicadorLN.ListarDatosTablaDinamica(ida);
+            int tam = lista[0].listaParam.Count;
+
             int row = 2;
             try
             {
@@ -2074,7 +2095,7 @@ namespace MRVMinem.Controllers
                 using (ExcelPackage package = new ExcelPackage())
                 {
                     var ws1 = package.Workbook.Worksheets.Add("DETALLE INDICADORES");
-                    using (var m = ws1.Cells[1, 1, row, 10])
+                    using (var m = ws1.Cells[1, 1, row, tam])
                     {
                         m.Style.Font.Bold = true;
                         m.Style.WrapText = true;
@@ -2084,89 +2105,173 @@ namespace MRVMinem.Controllers
                         m.Merge = true;
                         m.Value = "DETALLE INDICADORES " + cadena_fecha;
                     }
-                    ws1.View.FreezePanes(2, 1);
-                    row++;
-                    ws1.Cells["A" + row].Value = "N°";
-                    ws1.Cells["A" + row].AutoFitColumns(5);
-                    ws1.Cells["B" + row].Value = "AÑO";
-                    ws1.Cells["B" + row].AutoFitColumns(10);
-                    ws1.Cells["C" + row].Value = "TIPO VEHÍCULO";
-                    ws1.Cells["C" + row].AutoFitColumns(25);
-                    ws1.Cells["D" + row].Value = "TIPO COMBUSTIBLE";
-                    ws1.Cells["D" + row].AutoFitColumns(25);
-                    ws1.Cells["E" + row].Value = "KRV";
-                    ws1.Cells["E" + row].AutoFitColumns(15);
-                    ws1.Cells["F" + row].Value = "CANTIDAD";
-                    ws1.Cells["F" + row].AutoFitColumns(15);
-                    ws1.Cells["G" + row].Value = "FACTOR RENDIMIENTO";
-                    ws1.Cells["G" + row].AutoFitColumns(25);
-                    ws1.Cells["H" + row].Value = "LÍNEA BASE EMISIONES GEI (tCO2eq)";
-                    ws1.Cells["H" + row].AutoFitColumns(40);
-                    ws1.Cells["I" + row].Value = "INICIATIVA M. EMISIONES GEI (tCO2eq)";
-                    ws1.Cells["I" + row].AutoFitColumns(40);
-                    ws1.Cells["J" + row].Value = "EMISIONES GEI REDUCIDAS (tCO2eq)";
-                    ws1.Cells["J" + row].AutoFitColumns(40);
+                    ws1.View.FreezePanes(3, 1);
 
-                    //using (var m = ws1.Cells["A" + row + ":I" + row])
-                    //{
-                    //    m.Style.Font.Bold = true;
-                    //    m.Style.WrapText = false;
-                    //    m.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                    //    m.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                    //    m.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                    //    m.Style.Fill.BackgroundColor.SetColor(Color.FromArgb(66, 139, 202));
-                    //    m.Style.Font.Color.SetColor(Color.FromArgb(255, 255, 255));
-                    //    m.Style.Font.Size = 12;
-                    //    m.Style.Border.Top.Style = ExcelBorderStyle.Thin;
-                    //    m.Style.Border.Left.Style = ExcelBorderStyle.Thin;
-                    //    m.Style.Border.Right.Style = ExcelBorderStyle.Thin;
-                    //    m.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
-                    //    m.Style.Border.Top.Color.SetColor(Color.FromArgb(221, 221, 221));
-                    //    m.Style.Border.Left.Color.SetColor(Color.FromArgb(255, 255, 255));
-                    //    m.Style.Border.Right.Color.SetColor(Color.FromArgb(255, 255, 255));
-                    //    m.Style.Border.Bottom.Color.SetColor(Color.FromArgb(255, 255, 255));
-                    //}
-                    FormatoCelda(ws1, "A", row, 40, 167, 69, 255, 255, 255); //V
-                    FormatoCelda(ws1, "B", row, 40, 167, 69, 255, 255, 255); //V
-                    FormatoCelda(ws1, "C", row, 40, 167, 69, 255, 255, 255); //V
-                    FormatoCelda(ws1, "D", row, 255, 193, 7, 52, 58, 64); //N
-                    FormatoCelda(ws1, "E", row, 40, 167, 69, 255, 255, 255); //V
-                    FormatoCelda(ws1, "F", row, 40, 167, 69, 255, 255, 255); //V
-                    FormatoCelda(ws1, "G", row, 40, 167, 69, 255, 255, 255); //V
-                    FormatoCelda(ws1, "H", row, 255, 193, 7, 52, 58, 64); //N
-                    FormatoCelda(ws1, "I", row, 40, 167, 69, 255, 255, 255); //V
-                    FormatoCelda(ws1, "J", row, 0, 123, 255, 255, 255, 255); //A
-                    ws1.Row(row).Height = 42;
-                    var total = 0.0;
-                    row++;
-                    if (lista.Count > 0)
+                    
+
+                    foreach (var item in lista)
                     {
-                        var xNum = 0;
-                        foreach (IndicadorBE dt_fila in lista)
+                        row++;
+                        ws1.Cells["B" + row].Value = item.DESCRIPCION;
+
+                        row++;
+                        int j = 1;
+                        ws1.Cells["A" + row].Value = "N°";
+                        ws1.Cells["A" + row].AutoFitColumns(5);
+                        foreach (var itemD in item.listaParam)
                         {
-                            xNum++;
-                            ws1.Cells["A" + row].Value = xNum;
-                            ws1.Cells["B" + row].Value = dt_fila.ANNO_BASE;
-                            ws1.Cells["C" + row].Value = dt_fila.TIPO_VEHICULO;
-                            ws1.Cells["D" + row].Value = dt_fila.TIPO_COMBUSTIBLE;
-                            ws1.Cells["E" + row].Value = dt_fila.KRV_BASE;
-                            ws1.Cells["F" + row].Value = dt_fila.CANT_BASE;
-                            ws1.Cells["G" + row].Value = dt_fila.F_RENDIMIENTO;
-                            ws1.Cells["H" + row].Value = dt_fila.TOTAL_GEI_BASE;
-                            ws1.Cells["I" + row].Value = dt_fila.TOTAL_GEI_INIMIT;
-                            ws1.Cells["J" + row].Value = dt_fila.TOTAL_GEI_REDUCIDO;
-                            total += Double.Parse(dt_fila.TOTAL_GEI_REDUCIDO.ToString());
-                            formatoDetalle(ws1, "A", "J", row);
-                            row++;
+                            j++;
+                            string L = obtenerLetra(j);
+                            ws1.Cells[L + row].Value = itemD.NOMBRE_PARAMETRO;
+                            ws1.Cells[L + row].AutoFitColumns(35);
+                        }
+
+                        j = 1;
+                        FormatoCelda(ws1, "A", row, 40, 167, 69, 255, 255, 255); //V
+                        foreach (var itemD in item.listaParam)
+                        {
+                            j++;
+                            string L = obtenerLetra(j);
+                            if (itemD.ID_GRUPO_INDICADOR == 1)
+                            {
+                                FormatoCelda(ws1, L, row, 40, 167, 69, 255, 255, 255); //V                                
+                            }
+                            else if (itemD.ID_GRUPO_INDICADOR == 2)
+                            {
+                                FormatoCelda(ws1, L, row, 255, 193, 7, 52, 58, 64); //N
+                            }
+                            else if (itemD.ID_GRUPO_INDICADOR == 3)
+                            {
+                                FormatoCelda(ws1, L, row, 0, 123, 255, 255, 255, 255); //A
+                            }
+
+                        }
+
+                        ws1.Row(row).Height = 42;
+                        //var total = 0.0;
+                        row++;
+                        var xNum = 0;
+                        foreach (var itemI in item.listaInd)
+                        {
+                            j = 1;                            
+                            if (itemI.listaInd.Count > 0)
+                            {
+                                xNum++;
+                                ws1.Cells["A" + row].Value = xNum;
+                                foreach (var itemDet in itemI.listaInd)
+                                {
+                                    j++;
+                                    string L = obtenerLetra(j);
+                                    if (itemDet.ID_TIPO_CONTROL == 1)
+                                    {
+                                        if (itemDet.ID_PARAMETRO != 6)
+                                        {
+                                            ws1.Cells[L + row].Value = itemDet.DESCRIPCION;
+                                        }
+                                        else
+                                        {
+                                            ws1.Cells[L + row].Value = itemDet.VALOR;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        ws1.Cells[L + row].Value = itemDet.VALOR;
+                                    }                                    
+                                }
+                                formatoDetalle(ws1, "A", obtenerLetra(j), row);
+                                row++;
+                            }
                         }
                         row++;
+                        row++;
+                        
+
+                        //if (lista.Count > 0)
+                        //{
+                        //    var xNum = 0;
+                        //    foreach (IndicadorBE dt_fila in lista)
+                        //    {
+                        //        xNum++;
+                        //        ws1.Cells["A" + row].Value = xNum;
+                                
+                        //        ws1.Cells["C" + row].Value = dt_fila.TIPO_VEHICULO;
+                        //        ws1.Cells["D" + row].Value = dt_fila.TIPO_COMBUSTIBLE;
+                        //        ws1.Cells["E" + row].Value = dt_fila.KRV_BASE;
+                        //        ws1.Cells["F" + row].Value = dt_fila.CANT_BASE;
+                        //        ws1.Cells["G" + row].Value = dt_fila.F_RENDIMIENTO;
+                        //        ws1.Cells["H" + row].Value = dt_fila.TOTAL_GEI_BASE;
+                        //        ws1.Cells["I" + row].Value = dt_fila.TOTAL_GEI_INIMIT;
+                        //        ws1.Cells["J" + row].Value = dt_fila.TOTAL_GEI_REDUCIDO;
+                        //        total += Double.Parse(dt_fila.TOTAL_GEI_REDUCIDO.ToString());
+                        //        formatoDetalle(ws1, "A", "J", row);
+                        //        row++;
+                        //    }
+                        //    row++;
+                        //}
+
                     }
 
-                    row++;
-                    ws1.Cells["I" + row].Value = "TOTAL (tCO2eq)";
-                    ws1.Cells["J" + row].Value = total;
-                    formatoDetalle(ws1, "I", "J", row);
-                    ws1.Cells["I" + row].Style.Font.Bold = true;
+
+                    //ws1.Cells["C" + row].Value = "TIPO VEHÍCULO";
+                    //ws1.Cells["C" + row].AutoFitColumns(25);
+                    //ws1.Cells["D" + row].Value = "TIPO COMBUSTIBLE";
+                    //ws1.Cells["D" + row].AutoFitColumns(25);
+                    //ws1.Cells["E" + row].Value = "KRV";
+                    //ws1.Cells["E" + row].AutoFitColumns(15);
+                    //ws1.Cells["F" + row].Value = "CANTIDAD";
+                    //ws1.Cells["F" + row].AutoFitColumns(15);
+                    //ws1.Cells["G" + row].Value = "FACTOR RENDIMIENTO";
+                    //ws1.Cells["G" + row].AutoFitColumns(25);
+                    //ws1.Cells["H" + row].Value = "LÍNEA BASE EMISIONES GEI (tCO2eq)";
+                    //ws1.Cells["H" + row].AutoFitColumns(40);
+                    //ws1.Cells["I" + row].Value = "INICIATIVA M. EMISIONES GEI (tCO2eq)";
+                    //ws1.Cells["I" + row].AutoFitColumns(40);
+                    //ws1.Cells["J" + row].Value = "EMISIONES GEI REDUCIDAS (tCO2eq)";
+                    //ws1.Cells["J" + row].AutoFitColumns(40);                    
+
+                    //FormatoCelda(ws1, "A", row, 40, 167, 69, 255, 255, 255); //V
+                    //FormatoCelda(ws1, "B", row, 40, 167, 69, 255, 255, 255); //V
+                    //FormatoCelda(ws1, "C", row, 40, 167, 69, 255, 255, 255); //V
+                    //FormatoCelda(ws1, "D", row, 255, 193, 7, 52, 58, 64); //N
+                    //FormatoCelda(ws1, "E", row, 40, 167, 69, 255, 255, 255); //V
+                    //FormatoCelda(ws1, "F", row, 40, 167, 69, 255, 255, 255); //V
+                    //FormatoCelda(ws1, "G", row, 40, 167, 69, 255, 255, 255); //V
+                    //FormatoCelda(ws1, "H", row, 255, 193, 7, 52, 58, 64); //N
+                    //FormatoCelda(ws1, "I", row, 40, 167, 69, 255, 255, 255); //V
+                    //FormatoCelda(ws1, "J", row, 0, 123, 255, 255, 255, 255); //A
+
+
+                    //ws1.Row(row).Height = 42;
+                    //var total = 0.0;
+                    //row++;
+                    //if (lista.Count > 0)
+                    //{
+                    //    var xNum = 0;
+                    //    foreach (IndicadorBE dt_fila in lista)
+                    //    {
+                    //        xNum++;
+                    //        ws1.Cells["A" + row].Value = xNum;
+                    //        ws1.Cells["B" + row].Value = dt_fila.ANNO_BASE;
+                    //        ws1.Cells["C" + row].Value = dt_fila.TIPO_VEHICULO;
+                    //        ws1.Cells["D" + row].Value = dt_fila.TIPO_COMBUSTIBLE;
+                    //        ws1.Cells["E" + row].Value = dt_fila.KRV_BASE;
+                    //        ws1.Cells["F" + row].Value = dt_fila.CANT_BASE;
+                    //        ws1.Cells["G" + row].Value = dt_fila.F_RENDIMIENTO;
+                    //        ws1.Cells["H" + row].Value = dt_fila.TOTAL_GEI_BASE;
+                    //        ws1.Cells["I" + row].Value = dt_fila.TOTAL_GEI_INIMIT;
+                    //        ws1.Cells["J" + row].Value = dt_fila.TOTAL_GEI_REDUCIDO;
+                    //        total += Double.Parse(dt_fila.TOTAL_GEI_REDUCIDO.ToString());
+                    //        formatoDetalle(ws1, "A", "J", row);
+                    //        row++;
+                    //    }
+                    //    row++;
+                    //}
+
+                    //row++;
+                    //ws1.Cells["I" + row].Value = "TOTAL (tCO2eq)";
+                    //ws1.Cells["J" + row].Value = total;
+                    //formatoDetalle(ws1, "I", "J", row);
+                    //ws1.Cells["I" + row].Style.Font.Bold = true;
 
                     string strFileName = "DETALLE_INDICADORES_" + DateTime.Now.ToString() + ".xlsx";
                     Response.Clear();
@@ -2243,6 +2348,38 @@ namespace MRVMinem.Controllers
                 }
             }
             return menor;
+        }
+
+        private string obtenerLetra (int num)
+        {
+            string letra = "";
+            if (num == 1) letra = "A";
+            if (num == 2) letra = "B";
+            if (num == 3) letra = "C";
+            if (num == 4) letra = "D";
+            if (num == 5) letra = "E";
+            if (num == 6) letra = "F";
+            if (num == 7) letra = "G";
+            if (num == 8) letra = "H";
+            if (num == 9) letra = "I";
+            if (num == 10) letra = "J";
+            if (num == 11) letra = "K";
+            if (num == 12) letra = "L";
+            if (num == 13) letra = "M";
+            if (num == 14) letra = "N";
+            if (num == 15) letra = "O";
+            if (num == 16) letra = "P";
+            if (num == 17) letra = "Q";
+            if (num == 18) letra = "R";
+            if (num == 19) letra = "S";
+            if (num == 20) letra = "T";
+            if (num == 21) letra = "U";
+            if (num == 22) letra = "V";
+            if (num == 23) letra = "W";
+            if (num == 24) letra = "X";
+            if (num == 25) letra = "Y";
+            if (num == 26) letra = "Z";
+            return letra;
         }
 
     }

@@ -305,6 +305,15 @@
     <Content Include="Documentos\4.1 Plantilla_Electricos_Masivo.xlsm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Documentos\4.1 Plantilla_Electricos_Consumo_Masivo.xlsm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Documentos\4.1 Plantilla_Electricos_Hibrido_Consumo_Masivo.xlsm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Documentos\4.1 Plantilla_Electricos_Hibrido_Masivo.xlsm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\PublishProfiles\MRVMinem.pubxml" />
     <Content Include="Views\Gestion\AccionMitigacion.cshtml" />
     <Content Include="Views\Shared\_SesionLayout.cshtml" />

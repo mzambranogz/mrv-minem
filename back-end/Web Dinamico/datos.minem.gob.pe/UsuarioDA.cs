@@ -614,5 +614,26 @@ namespace datos.minem.gob.pe
             return entidad;
         }
 
+        public UsuarioBE DeshabilitarUsuario(UsuarioBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_UPD_DESHABILITAR_USUARIO";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                    entidad.OK = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+            return entidad;
+        }
+
     }
 }

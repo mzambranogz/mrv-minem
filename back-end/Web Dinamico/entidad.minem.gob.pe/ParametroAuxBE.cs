@@ -20,5 +20,6 @@ namespace entidad.minem.gob.pe
         public decimal VALOR_FORMULA { get; set; }
         public decimal FACTOR { get; set; }
         public int INS { get; set; }
+        public int AGREGAR { get; set; }
     }
 }

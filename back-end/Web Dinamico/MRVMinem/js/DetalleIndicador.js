@@ -1636,7 +1636,8 @@ function fn_verfilesutento(idIniciativaSustento) {
 
 function exportarDetalle() {
     var item = {
-        ID_INICIATIVA: $("#Control").data("iniciativa")
+        ID_INICIATIVA: $("#Control").data("iniciativa"),
+        ID_MEDMIT: $("#Control").data("mitigacion")
     };
 
     var url = baseUrl + 'Gestion/ExportarDetalleIndicador';
@@ -2959,7 +2960,7 @@ function CargarDetalleDatos() {
     });
 }
 
-function CargarCuerpoGuardado(filas, num_tabla) {
+function CargarCuerpoGuardado(filas) {
     var medida = $("#Control").data("mitigacion");
     var enfoque = $("#cbo-enfoque").val();
     var iniciativa = $("#Control").data("iniciativa");
@@ -3100,7 +3101,7 @@ function CargarDatosGuardados() {
             if (data != null && data != "") {
                 if (data.length > 0) {                    
                     var order = $("#tablaIndicador").data("order");
-                    CargarCuerpoGuardado(data.length, order);
+                    CargarCuerpoGuardado(data.length);
                     var total = 0.0;
                     for (var i = 0; i < data.length; i++) {
                         var lista = 0;
@@ -3143,7 +3144,7 @@ function CargarDatosGuardados() {
                     //$("#cuerpoTablaIndicador").data("row", data.length);
                 }
             } else {
-                CargarCuerpoGuardado(1, order);
+                CargarCuerpoGuardado(1);
                 $("#total-detalle").html("").append(0.00);
                 $("#total-detalle2").html("").append(0.00);
                 //cargarCuerpoTabla($("#cbo-enfoque").val());
@@ -3310,8 +3311,8 @@ function CargarDatosCabecera() {
         ID_MEDMIT: medida,
         ID_ENFOQUE: enfoque
     }
-    $("#tbl-main-preload").html("<i Class='fas fa-spinner fa-spin px-1'></i> Cargando...");
-    $("#tbl-main").addClass("d-none");
+    //$("#tbl-main-preload").html("<i Class='fas fa-spinner fa-spin px-1'></i> Cargando...");
+    //$("#tbl-main").addClass("d-none");
     $.ajax({
         url: baseUrl + 'Gestion/ListarCabeceraIndicador',
         type: 'POST',
@@ -3372,6 +3373,9 @@ $(document).ready(function () {
     } else {
         CargarDatosCabecera();
         CargarDatosGuardados();
+
+
+
         //cargarCabeceraTabla($("#cbo-enfoque").val());
         //CargarDetalleDatos();
 
