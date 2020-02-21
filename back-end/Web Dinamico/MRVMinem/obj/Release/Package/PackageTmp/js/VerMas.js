@@ -197,7 +197,15 @@ function fn_verfilesutento(idIniciativaSustento) {
     }
 }
 
+function formatoMiles(n) { //add20
+    var m = n * 1;
+    return m.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+}
+
 $(document).ready(function () {
+    var monto = $("#txt-monto-inversion").val();
+    $("#txt-monto-inversion").val(formatoMiles(monto)); //add20
+
     //$("#Control").data("iniciativa", $("#iniciativa").val());
     if ($("#iniciativa_mit_ID_INICIATIVA").val() > 0) {
         $("#Control").data("iniciativa", $("#iniciativa_mit_ID_INICIATIVA").val());

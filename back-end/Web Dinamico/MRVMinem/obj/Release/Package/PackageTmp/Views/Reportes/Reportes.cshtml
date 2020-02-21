@@ -64,6 +64,8 @@
         fn_actualizaCampana();
         enLinea();
         $("#mireporte").hide();
+        $(".quitar-active").removeClass("nav-active");
+        $("#reporte-mrv").addClass("nav-active");
     });
 
     function fn_ejecutaReporte(){
@@ -94,6 +96,8 @@
             $("#iframeReporte").css({ "height": "700px" });
         });
     }
+
+
 </script>
 
 

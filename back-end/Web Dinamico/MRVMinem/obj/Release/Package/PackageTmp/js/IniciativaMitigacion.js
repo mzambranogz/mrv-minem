@@ -130,7 +130,8 @@ function fn_cargarIniciativa() {
                         $("#txt-direccion").val(data[i]["DIRECCION"]);
                         $("#txt-sector-institucion").val(data[i]["SECTOR"]);
                         if (data[i]["INVERSION_INICIATIVA"] != 0) {
-                            $("#txt-monto-inversion").val(data[i]["INVERSION_INICIATIVA"]);
+                            $("#txt-monto-inversion").val(formatoMiles(data[i]["INVERSION_INICIATIVA"])); //add20
+                            //$("#txt-monto-inversion").val(data[i]["INVERSION_INICIATIVA"]);
                         }
                          
                         if ($("#Control").data("revision") == 0) {
@@ -881,3 +882,7 @@ $("#txt-monto-inversion").on({
         });
     }
 });
+
+function formatoMiles(n) { //add20
+    return n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+}
