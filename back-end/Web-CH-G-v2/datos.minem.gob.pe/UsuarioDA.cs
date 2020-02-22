@@ -59,6 +59,8 @@ namespace datos.minem.gob.pe
                     p.Add("pID_ROL", entidad.ID_ROL);
                     p.Add("pID_ESTADO_USUARIO", entidad.ID_ESTADO_USUARIO);
                     p.Add("pFLG_TERMINOS", entidad.TERMINOS);
+                    p.Add("pADJUNTO",entidad.ADJUNTO);
+                    p.Add("pADJUNTO_BASE", entidad.ADJUNTO_BASE);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     var CODIGO = db.ExecuteScalar(sp, p, commandType: CommandType.StoredProcedure);
                     entidad.ID_USUARIO = Convert.ToInt32(CODIGO);
@@ -588,6 +590,49 @@ namespace datos.minem.gob.pe
             }
 
             return Lista;
+        }
+
+        public UsuarioBE ActualizarPrimeraVisita(UsuarioBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_UPD_PRIMERA_VISTA";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                    entidad.OK = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+
+            return entidad;
+        }
+
+        public UsuarioBE DeshabilitarUsuario(UsuarioBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_UPD_DESHABILITAR_USUARIO";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                    entidad.OK = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+            return entidad;
         }
 
     }

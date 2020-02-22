@@ -454,5 +454,10 @@ namespace logica.minem.gob.pe
             return iniciativaDA.ListaExcelAvanzado(entidad);
         }
 
+        public static List<SustentoIniciativaBE> ListarArchivosGuardados(IniciativaBE entidad)
+        {
+            return iniciativaDA.ListarArchivosGuardados(entidad);
+        }
+
     }
 }

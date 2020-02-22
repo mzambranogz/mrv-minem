@@ -1,10 +1,10 @@
-﻿using datos.minem.gob.pe;
-using entidad.minem.gob.pe;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using entidad.minem.gob.pe;
+using datos.minem.gob.pe;
 
 namespace logica.minem.gob.pe
 {
@@ -12,13 +12,57 @@ namespace logica.minem.gob.pe
     {
         public static FactorDA factorDA = new FactorDA();
 
+        public static List<FactorBE> listarFactores()
+        {
+            return factorDA.listarFactores();
+        }
+
+        public static List<FactorBE> listarMedidaFactor()
+        {
+            return factorDA.ListaMedidaFactor();
+        }
+
+        public static List<FactorBE> GetMedidaFactor(FactorBE entidad)
+        {
+            return factorDA.ListaMedidaFactores(entidad);
+        }
+
+        public static List<FactorParametroBE> ListarCabeceraFactor(FactorParametroBE entidad)
+        {
+            return factorDA.listarCabeceraFactor(entidad);
+        }
+
+        public static List<FactorParametroBE> ListarCuerpoFactor(FactorParametroBE entidad)
+        {
+            return factorDA.listarCuerpoFactor(entidad);
+        }
+
+        public static List<FactorParametroDataBE> ListarDatosFactorData(FactorParametroDataBE entidad)
+        {
+            return factorDA.ListarDatosFactorData(entidad);
+        }
+
+        public static FactorBE GuardarFactores(FactorBE entidad)
+        {
+            FactorBE e = new FactorBE();
+            foreach (var item in entidad.listaFactorData)
+            {
+                e = factorDA.GuardarFactores(item);
+            }
+
+            if (!string.IsNullOrEmpty(entidad.ID_ELIMINAR_FACTOR))
+                e = factorDA.EliminarFactores(entidad);
+            return e;
+        }
+
+        //////////////////////////////////////////////////
         public static List<FactorBE> ListaFactor(FactorBE entidad)
         {
             List<FactorBE> lista = factorDA.ListaFactor(entidad);
 
             if (lista != null)
             {
-                foreach(var item in lista)
+                foreach (var item in lista)
                 {
                     FactorBE vEntidad = new FactorBE() { ID_FACTOR = item.ID_FACTOR };
                     item.ListaFactorParametro = factorDA.ListaFactorParametro(vEntidad);
@@ -78,6 +122,5 @@ namespace logica.minem.gob.pe
 
             return entidad;
         }
-
     }
 }

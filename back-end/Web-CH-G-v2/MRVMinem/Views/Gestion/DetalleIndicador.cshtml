@@ -4,6 +4,8 @@
     Layout = "~/Views/Shared/_SesionLayout.cshtml";
 }
 @Html.HiddenFor(m => m.iniciativa_mit.ID_INICIATIVA)
+@Html.HiddenFor(m => m.medida.ID_MEDMIT)
+@Html.HiddenFor(m => m.menor)
 
 <div class="container-fluid map-root" id="historia">
     <div class="container">
@@ -23,13 +25,13 @@
                 <div class="container py-4">
                     <div class="row">
                         <div class="col-md-12 col-lg-6 pt-4">
-                            <div class="h4">Detalle de Identificación&nbsp;<br><small class="text-muted">Asigne información importante a su detalle de indicadores, <br>complete todos los campos para una mejor especificación.</small></div>
+                            <div class="h4">Detalle de Indicadores&nbsp;<br><small class="text-muted">Ingrese la información que nos permita conocer y clasificar la iniciativa de mitigacion a reportar.</small></div>
                         </div>
                         <div class="col-md-12 col-lg-6 pt-4">
                             <div class="row">
                                 <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
                                 <div class="col-sm-12 col-md-6 col-lg-6">
-                                    <span data-toggle="modal" data-target="#tipo-ingreso-detalle"><a class="cambiar-medida" href="#" data-toggle="tooltip" data-placement="top" title="No te preocupes, que podrás cambiar el tipo de carga de datos en cualquier momento"><i class="fas fa-sync px-1"></i>Cambiar de tipo</a></span>
+                                    @*<span data-toggle="modal" data-target="#tipo-ingreso-detalle"><a class="cambiar-medida" href="#" data-toggle="tooltip" data-placement="top" title="No te preocupes, que podrás cambiar el tipo de carga de datos en cualquier momento"><i class="fas fa-sync px-1"></i>Cambiar de tipo</a></span>*@
                                     <span data-toggle="modal" data-target="#solicitar-revision"><a class="solicitar-revision" href="#" data-toggle="tooltip" data-placement="top" title="Una vez complete todos los campos solicite una revisión para el detalle de sus indicadores"><i class="fas fa-paper-plane px-1"></i>Solicitar revisión</a></span>
                                     <span data-toggle="modal" data-target="#guardar-avance"><a class="guardar-avances" href="#" data-toggle="tooltip" data-placement="top" title="¿No tiene toda la información de su inicitiva?, guarde sus avances y retómelo después"><i class="fas fa-save px-1"></i>Guardar avances</a></span>
                                 </div>
@@ -39,6 +41,14 @@
                 </div>
                 <div class="container-fluid py-4 px-0 tabs-registro">
                     <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <div class="alert alert-success mt-3 fa-2x">
+                                    <i class="fas fa-tachometer-alt mr-1"></i>
+                                    <div class="h4 d-inline">@Model.medida.NOMBRE_MEDMIT</div>
+                                </div>
+                            </div>
+                        </div>
                         <ul class="nav nav-pills mb-3 d-flex" id="pills-tab" role="tablist">
                             <li class="nav-item flex-fill"><a class="nav-link" id="pills-01-tab" data-toggle="pill" href="#pills-01" role="tab" aria-controls="pills-01" aria-selected="true" order="1">IDENTIFICACIÓN</a></li>
                             <li class="nav-item flex-fill"><a class="nav-link active" id="pills-02-tab" data-toggle="pill" href="#pills-02" role="tab" aria-controls="pills-02" aria-selected="false" order="2">DETALLES</a></li>
@@ -55,14 +65,14 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="h5 pb-5 text-primary">
-                                            <div class="steps">PASO 1 DE 4 &nbsp;</div>Promoción de vehiculos eléctricos a nivel nacional&nbsp;<br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small>
+                                            <div class="steps">PASO 1 DE 4 &nbsp;</div>@Model.medida.NOMBRE_MEDMIT&nbsp;<br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12-col-md-12 col-lg-6">
                                         <div class="form-group">
-                                            <label for="txt-categoria">Categoría IPSC</label>
+                                            <label for="txt-categoria">Categoría IPCC</label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-landmark"></i></span></div>
                                                 <input class="form-control-plaintext" type="text" id="txt-categoria" value="Energía - Combustión móvil" aria-describedby="inputGroup1" readonly>
@@ -88,22 +98,20 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-12">
-                                        <div class="h5 py-5 text-primary">Datos principales
-                                            <div class="steps">PASO 1 DE 4 &nbsp;</div>Promoción de vehiculos eléctricos a nivel nacional&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i><br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small>
-                                        </div>
+                                        <div class="h5 py-5 text-primary">Datos principales</div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12-col-md-12 col-lg-12">
                                         <div class="form-group">
-                                            <label for="txa-nombre-iniciativa">Nombre de la iniciativa<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="En caso no posea un nombre, coloque el nombre de la medida de mitigación seguido de un guión y nombre o siglas de la institución."></i></label>
+                                            <label for="txa-nombre-iniciativa">Nombre de la iniciativa</label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-tachometer-alt"></i></span></div>
                                                 <textarea class="form-control-plaintext" id="txa-nombre-iniciativa" aria-describedby="inputGroup4" cols="30" rows="5" readonly placeholder="Ingrese un nombre para su iniciativa">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor officia, sequi hic, vel quia repellat architecto quasi corporis quidem doloribus earum praesentium molestiae illo, iure voluptates autem voluptate inventore! Inventore.</textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="txa-descripcion-medida">Descripción de la medida<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indicar la ubicación, tecnología considerada y cantidades de la misma."></i></label>
+                                            <label for="txa-descripcion-medida">Descripción de la medida</label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-tachometer-alt"></i></span></div>
                                                 <textarea class="form-control-plaintext" id="txa-descripcion-medida" aria-describedby="inputGroup5" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil optio corrupti itaque tempora pariatur nemo ipsam quis porro magnam dolorum a, dolore explicabo eveniet velit natus voluptate aperiam, reprehenderit ipsa!</textarea>
@@ -162,7 +170,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="txa-ubicacion">Ubicación<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                            <label for="txa-ubicacion">Ubicación</label>
                                             <div class="input-group" id="campoUbicacion">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
                                                 @*<textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
@@ -182,14 +190,14 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="txt-monto-inversion">Monto de inversión<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                            <label for="txt-monto-inversion">Monto de inversión<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup11"><i class="fas fa-wallet"></i></span></div>
                                                 <input class="form-control-plaintext" type="text" id="txt-monto-inversion" aria-describedby="inputGroup11" value="100,000.00">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="txt-fecha-inicio">Fecha de Inicio del proyecto<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique el año de inicio del proyecto"></i></label>
+                                            <label for="txt-fecha-inicio">Fecha de Inicio del proyecto</label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup12"><i class="fas fa-calendar-alt"></i></span></div>
                                                 <input class="form-control-plaintext" type="text" id="txt-fecha-inicio" aria-describedby="inputGroup12" value="25/10/2018">
@@ -212,7 +220,7 @@
                                 <div class="row">
                                     <div class="col-sm-12-col-md-12 col-lg-6">
                                         <div class="form-group">
-                                            <label for="mlt-energetico">Energético asociado<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                            <label for="mlt-energetico">Energético asociado</label>
                                             <div class="input-group" id="campoEnerg">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
                                                 @*<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
@@ -224,7 +232,7 @@
                                     </div>
                                     <div class="col-sm-12-col-md-12 col-lg-6">
                                         <div class="form-group">
-                                            <label for="mlt-gei">Gases de efecto invernadero<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></label>
+                                            <label for="mlt-gei">Gases de efecto invernadero<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                             <div class="input-group" id="campoGei">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
                                                 @*<textarea class="form-control-plaintext" id="mlt-gei" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
@@ -259,8 +267,24 @@
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup20"><i class="fas fa-square-root-alt"></i></span></div>
                                                 <select class="form-control" id="cbo-enfoque" aria-describedby="inputGroup20">
                                                     <option value="0">-Seleccione-</option>
-                                                    <option selected value="1">Vehículo Eléctrico</option>
-                                                    <option value="2">Vehículo Híbrido</option>
+                                                    @if (Model.listaEnfoque != null)
+                                                    {
+                                                        foreach (var item in Model.listaEnfoque)
+                                                        {
+                                                            if (Model.menor == item.ID_ENFOQUE)
+                                                            {
+                                                                <option selected value="@item.ID_ENFOQUE">@item.DESCRIPCION</option>
+                                                            }
+                                                            else
+                                                            {
+                                                                <option value="@item.ID_ENFOQUE">@item.DESCRIPCION</option>
+                                                            }
+
+                                                        }
+                                                    }
+
+                                                    @*<option selected value="1">Vehículo Eléctrico</option>
+                                                    <option value="2">Vehículo Híbrido</option>*@
                                                     @*<option>Enfoque 03</option>
                                                         <option>Enfoque 04</option>*@
                                                 </select>
@@ -270,15 +294,17 @@
                                     <div class="col-sm-12-col-md-12 col-lg-6">&nbsp;</div>
                                 </div>
                             </div>
+
                             <div class="container-fluid py-4">
-                                <div class="h5">Resumen de Detalles de Indicadores&nbsp;<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Complete los campos de acuerdo al enfoque seleccionado"></i></div>
+                                <div class="h5">Registro de Detalles de Indicadores&nbsp;<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Complete los campos de acuerdo al enfoque seleccionado"></i></div>
                                 <div class="dropdown-divider"></div>
                                 <div class="row">
                                     <div class="col-12 px-0">
-                                        <div class="table-responsive tabla-principal tabla-detalle-indicadores">
-                                            <table class="table table-hover" id="tablaIndicador" data-fila="0">
-                                                <thead>
-                                                    <tr class="bg-primary text-white">
+                                        @*<div id="tbl-main-preload"><i Class="fas fa-spinner fa-spin px-1"></i> Cargando...</div>*@
+                                        <div id="tbl-main" class="table-responsive tabla-principal tabla-detalle-indicadores-1" data-order="tbl-1">
+                                            <table class="table table-hover" id="tablaIndicador" data-fila="0" data-order="tbl-1">
+                                                <thead id="cabeceraTablaIndicador" >
+                                                    @*<tr class="bg-primary text-white">
                                                         <th class="text-center" style="background-color: green;" scope="col"><span>N°&nbsp;</span></th>
                                                         <th class="text-center" style="background-color: green;" scope="col"><span>Año&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Año"></i></span></th>
                                                         <th class="text-center" style="background-color: green;" scope="col"><span>Tipo Vehiculo&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Tipo Vehículo"></i></span></th>
@@ -289,25 +315,22 @@
                                                         <th class="text-center" style="background-color: orange;" scope="col"><span>Línea Base Emisiones GEI (tCO<sub>2</sub>eq)</span></th>
                                                         <th class="text-center" style="background-color: green;" scope="col"><span>Iniciativa Mitigación Emisiones GEI (tCO<sub>2</sub>eq)</span></th>
                                                         <th class="text-center" style="background-color: #2271b3;" scope="col"><span>Emisiones GEI Reducidas (tCO<sub>2</sub>eq)</span></th>
-                                                        @*<th class="text-center" scope="col"><span>#&nbsp;</span></th>
-                                                        <th scope="col"><span>Año&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                                        <th scope="col"><span>Tipo Vehiculo&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                                        <th scope="col"><span>Tipo Combustible&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                                        <th scope="col"><span>KRV&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                                        <th scope="col"><span>Cantidad&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                                        <th scope="col"><span>Factor de Rendimiento&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                                                        <th scope="col"><span>Línea Base Emisiones GEI (tCO<sub>2</sub>eq)</span></th>
-                                                        <th scope="col"><span>Iniciativa Mitigación Emisiones GEI (tCO<sub>2</sub>eq)</span></th>
-                                                        <th scope="col"><span>Emisiones GEI Reducidas (tCO<sub>2</sub>eq)</span></th>*@
-                                                        @*<th class="text-center" scope="col"><span>Calcular</span></th>*@
-                                                        @*<th class="text-center" scope="col"><span>Sustento</span></th>*@
                                                         <th class="text-center" scope="col">Más</th>
                                                         <th class="text-hide" scope="col" style="display:none;">Id. Iniciativa</th>
-                                                    </tr>
+                                                    </tr>*@
                                                 </thead>
-                                                <tbody id="cuerpoTablaIndicador" data-row="0" data-total="0" data-delete=""></tbody> <!-- add id delete-->
+                                                <tbody id="cuerpoTablaIndicador" data-row="0" data-total="0" data-delete=""> <!-- add id delete-->
+                                                </tbody>
                                             </table>
-                                        </div>
+                                        </div>                                    
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                            <div class="container py-4">
+                                <div class="row">
+                                    <div class="col-12">
                                         <div class="table-responsive tabla-principal mt-3">
                                             <table class="table table-hover">
                                                 <thead>
@@ -320,8 +343,8 @@
                                                 <tbody>
                                                     <tr>
                                                         <th class="text-center" data-encabezado="Número" scope="row">1</th>
-                                                        <td data-encabezado="Resumen" id="resumen-detalle">@Model.medida.IPSC_MEDMIT</td>
-                                                        <td data-encabezado="Total" id="total-detalle">@*<strong>0.00</strong>*@</td>
+                                                        <td data-encabezado="Resumen" @*id="resumen-detalle"*@>@Model.medida.IPSC_MEDMIT</td>
+                                                        <td data-encabezado="Total"><strong id="total-detalle">0.00</strong><strong>&nbsp;tCO<sub>2</sub>eq</strong></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -329,6 +352,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="container py-5">
                                 <div class="dropdown-divider my-5"></div>
                                 <div class="row">
@@ -361,7 +385,7 @@
                                             <table class="table table-hover">
                                                 <thead>
                                                     <tr class="bg-primary text-white">
-                                                        <th class="text-center" scope="col" width="2%"><span>#&nbsp;</span></th>
+                                                        <th class="text-center" scope="col" width="2%"><span>N°&nbsp;</span></th>
                                                         <th scope="col" width="88%"><span>Resumen</span></th>
                                                         <th scope="col" width="10%"><span>Total</span></th>
                                                     </tr>
@@ -369,8 +393,8 @@
                                                 <tbody>
                                                     <tr>
                                                         <th class="text-center" data-encabezado="Número" scope="row">1</th>
-                                                        <td data-encabezado="Resumen" id="resumen-detalle2">@Model.medida.IPSC_MEDMIT</td>
-                                                        <td data-encabezado="Total" id="total-detalle2">@*<strong>0.00</strong>*@</td>
+                                                        <td data-encabezado="Resumen" @*id="resumen-detalle2"*@>@Model.medida.IPSC_MEDMIT</td>
+                                                        <td data-encabezado="Total"><strong id="total-detalle2">0.00</strong><strong>&nbsp;tCO<sub>2</sub>eq</strong></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -394,7 +418,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="h5 pb-5 text-primary">
-                                            <div class="steps">PASO 4 DE 4 &nbsp;</div>Documentos&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione uno o varios archivos a la vez para adjuntarlos como documentos sustentatorios"></i><br><small class="text-muted">Cargue uno o varios documentos sustentatorios</small>
+                                            <div class="steps">PASO 4 DE 4 &nbsp;</div>Documentos&nbsp;<br><small class="text-muted">Cargue uno o varios documentos sustentatorios</small>
                                         </div>
                                     </div>
                                 </div>
@@ -413,25 +437,86 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-12-col-md-12 col-lg-6">
-                                        <div class="form-group" id="archivos-documentos">
-                                            <label>Archivos adjuntos: <span id="total-documentos">0</span> en total</label>
-                                            @*<div class="input-group mb-3">
-                                                    <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-file-pdf"></i></span></div><span class="form-control-plaintext">NombreDeArchivo.pdf</span>
-                                                    <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="fas fa-trash"></i></span></div>
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-file-word"></i></span></div><span class="form-control-plaintext">NombreDeArchivo.docx</span>
-                                                    <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="fas fa-trash"></i></span></div>
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend"><span class="input-group-text"><i class="far fa-file-image"></i></span></div><span class="form-control-plaintext">NombreDeArchivo.jpg</span>
-                                                    <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="fas fa-trash"></i></span></div>
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-file-image"></i></span></div><span class="form-control-plaintext">NombreDeArchivo.png</span>
-                                                    <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="fas fa-trash"></i></span></div>
-                                                </div>*@
+                                        <div class="form-group" @*id="archivos-documentos"*@>
+                                        @{
+                                            var total = 0;
+                                            if (Model.iniciativa_mit.ListaSustentos != null)
+                                            {
+                                                total = Model.iniciativa_mit.ListaSustentos.Count();
+                                            }
+                                        }
+                                        <label>Archivos adjuntos: <span id="total-documentos" data-cantidad="@total" data-eliminarfile="">@total</span> en total</label>
+                                        <div id="archivos-guardados">
+                                        @{
+                                            if (Model.iniciativa_mit.ListaSustentos != null)
+                                            {
+                                                var extension = "fa-file-word";
+
+                                                foreach (var item in Model.iniciativa_mit.ListaSustentos)
+                                                {
+                                                    if (item.ADJUNTO_BASE.Contains("pdf"))
+                                                    {
+                                                        extension = "fa-file-pdf";
+                                                    }
+                                                    else
+                                                    {
+                                                        if (item.ADJUNTO_BASE.Contains("jpeg") || item.ADJUNTO_BASE.Contains("png") || item.ADJUNTO_BASE.Contains("jpg") || item.ADJUNTO_BASE.Contains("gif"))
+                                                        {
+                                                            extension = "fa-file-image";
+                                                        }
+                                                        else
+                                                        {
+                                                            if (item.ADJUNTO_BASE.Contains("xls") || item.ADJUNTO_BASE.Contains("xlsx"))
+                                                            {
+                                                                extension = "fa-file-excel";
+                                                            }
+                                                            else
+                                                            {
+                                                                if (item.ADJUNTO_BASE.Contains("ppt") || item.ADJUNTO_BASE.Contains("pptx"))
+                                                                {
+                                                                    extension = "fa-file-powerpoint";
+                                                                }
+                                                                else
+                                                                {
+                                                                    if (item.ADJUNTO_BASE.Contains("doc") || item.ADJUNTO_BASE.Contains("docx"))
+                                                                    {
+                                                                        extension = "fa-file-word";
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        extension = "fa-file";
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+
+                                                    <div class="input-group mb-3" id="eliminar-@item.ID_INICIATIVA_SUSTENTATORIO">
+                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="fas @extension"></i></span></div><span class="form-control-plaintext">@item.ADJUNTO_BASE</span>
+                                                        <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="far fa-trash-alt" onclick="fn_eliminarArchivo(@item.ID_INICIATIVA_SUSTENTATORIO)"></i></span></div>
+                                                    </div>
+                                                }
+                                            }
+                                        }
                                         </div>
+                                        <div id="archivos-documentos"></div>
+                                @*<div class="input-group mb-3">
+                                <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-file-pdf"></i></span></div><span class="form-control-plaintext">NombreDeArchivo.pdf</span>
+                                <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="fas fa-download"></i></span></div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-file-word"></i></span></div><span class="form-control-plaintext">NombreDeArchivo.docx</span>
+                                <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="fas fa-download"></i></span></div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend"><span class="input-group-text"><i class="far fa-file-image"></i></span></div><span class="form-control-plaintext">NombreDeArchivo.jpg</span>
+                                <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="fas fa-download"></i></span></div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-file-image"></i></span></div><span class="form-control-plaintext">NombreDeArchivo.png</span>
+                                <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="fas fa-download"></i></span></div>
+                            </div>*@
+                            </div>
                                     </div>
                                 </div>
                                 <div class="dropdown-divider my-5"></div>
@@ -459,8 +544,8 @@
                                 <div class="row">
                                     <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
                                         <div class="row">
-                                            <div class="col-sm-12 col-md-6 col-lg-6 pb-5 text-center"><a class="d-inline-block" href="./registro-de-detalles-de-indicadores-manual.html" data-toggle="tooltip" data-placement="top" title="Registro manual de detalle de indicadores"><img src="~/images/01_registro_manual.svg"></a></div>
-                                            <div class="col-sm-12 col-md-6 col-lg-6 pb-5 text-center"><a class="d-inline-block" href="./registro-de-detalles-de-indicadores-masivo.html" data-toggle="tooltip" data-placement="top" title="Registro a través de archivo excel"><img src="~/images/02_registro_masivo.svg"></a></div>
+                                            <div class="col-sm-12 col-md-6 col-lg-6 pb-5 text-center"><a class="d-inline-block" href="#" data-toggle="tooltip" data-placement="top" title="Registro manual de detalle de indicadores"><img src="~/images/01_registro_manual.svg"></a></div>
+                                            <div class="col-sm-12 col-md-6 col-lg-6 pb-5 text-center"><a class="d-inline-block" href="#" data-toggle="tooltip" data-placement="top" title="Registro a través de archivo excel"><img src="~/images/02_registro_masivo.svg"></a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -478,8 +563,8 @@
                             <div class="modal-body medidas-modal">
                                 <div class="row">
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <h3 class="text-center">¿Confirma enviar su solicitud a revisión? <br></h3>
-                                        <p class="text-center">Está de acuerdo en enviar todos sus datos para iniciar el proceso de revisión y obtener la aprobación por parte de nuestros especialistas</p>
+                                        <h3 class="text-center">¿Está seguro de enviar su solicitud a revisión? <br></h3>
+                                        <p class="text-center">Confirme si está seguro de enviar todos los datos registrados para iniciar el proceso de revisión y obtener la aprobación por parte de nuestros especialistas.</p>
                                     </div>
                                     <div class="col-sm-12 col-md-12 col-lg-12" id="mensajeModalRegistrar">
                                         <div class="alert alert-warning d-flex align-items-stretch" role="alert">
@@ -597,6 +682,31 @@
                         </div>
                     </div>
                 </div>
+                <div class="modal fade" id="registrar-placas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Registrar placas</h5>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="modal-body medidas-modal">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <h3 class="text-center">Agregue sus placas <br></h3>
+                                        <p class="text-center">Digite cada una de las placas de sus vehículos y presione enter para continuar agregando la siguiente.</p>
+                                    </div>
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <input type="text" value="ABC-123,DEF-456,GHI-789,JKL-012,MNO-345" data-role="tagsinput">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <!--button(type="button", class="btn btn-secondary", data-dismiss="modal") Cerrar-->
+                                <button class="btn btn-primary btn-afirmar-placas" type="button">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </form>
@@ -606,40 +716,72 @@
 <script src="~/js/script.js"></script>
 <script src="~/js/MRV.js"></script>
 <script type="text/javascript">
-    function handleFileSelect(evt) {
-        var files = evt.target.files; // FileList object
+    var storedFiles = [];
 
+    function handleFileSelect(evt) {
+
+        $("#archivos-documentos > div").remove(); // add 12-02-2020
+        storedFiles = []; // add 12-02-2020
+        ////////////////////////77
+
+        var files = evt.target.files; // FileList object
+        var filesArr = Array.prototype.slice.call(files);
+        //debugger;
         // files is a FileList of File objects. List some properties.
         var output = [];
         var extension = "fa-file-word";
         for (var i = 0, f; f = files[i]; i++) {
-            if (f.type.includes("pdf")){
-                extension="fa-file-pdf";
-            }else{
-                if (f.type.includes("image")){
-                    extension="fa-file-image";
-                }else{
-                    if (f.type.includes("sheet")){
-                        extension="fa-file-excel";
-                    }else{
-                        if (f.type.includes("presentation")){
-                            extension="fa-file-powerpoint";
-                        }else{
-                            if (f.type.includes("msword") || f.type.includes("documents")|| f.type.includes("document")){
-                                extension="fa-file-word";
-                            }else{
-                                extension="fa-file";
+
+            if (f.size > 4194304) {
+                $(this).val("");
+                MRV.Alert("Alerta", "Archivo que esta subiendo pesa más de 4 MB", "", "es")
+                storedFiles = [];
+                $("#total-documentos").html($("#total-documentos").data("cantidad"));
+                return false;
+            }
+
+            switch (f.name.substring(f.name.lastIndexOf('.') + 1).toLowerCase()) {
+                case 'pdf': case 'jpg': case 'jpeg': case 'gif': case 'png': case 'tif': case 'doc': case 'docx': case 'xls': case 'xlsx': case 'xlsm': case 'ppt': case 'pptx': case 'txt':
+                    //$("#NombreArchivo").val(label);
+                    //return true;
+                    break;
+                default:
+                    $(this).val('');
+                    MRV.Alert('Alerta', "formato de archivo no válido", '', 'es');
+                    storedFiles = [];  
+                    $("#total-documentos").html($("#total-documentos").data("cantidad"));
+                    return false;
+                    break;
+            }
+
+            if (f.type.includes("pdf")) {
+                extension = "fa-file-pdf";
+            } else {
+                if (f.type.includes("image")) {
+                    extension = "fa-file-image";
+                } else {
+                    if (f.type.includes("sheet")) {
+                        extension = "fa-file-excel";
+                    } else {
+                        if (f.type.includes("presentation")) {
+                            extension = "fa-file-powerpoint";
+                        } else {
+                            if (f.type.includes("msword") || f.type.includes("documents") || f.type.includes("document")) {
+                                extension = "fa-file-word";
+                            } else {
+                                extension = "fa-file";
                             }
                         }
                     }
                 }
             }
-            //output.push('<div class="input-group mb-3">', '<div class="input-group-prepend">','<span class="input-group-text">','<i class="fas ',extension,'">','</i>','</span>','</div>','<span class="form-control-plaintext">',escape(f.name), '</span>', '</div>');
-            output.push('<div class="input-group mb-3">', '<div class="input-group-prepend">', '<span class="input-group-text">', '<i class="fas ', extension, '">', '</i>', '</span>', '</div>', '<span class="form-control-plaintext">', decodeURI(f.name), '</span>', '</div>');
+
+            storedFiles.push(f);
+            output.push('<div class="input-group mb-3" data-file="' + f.name + '">', '<div class="input-group-prepend">', '<span class="input-group-text">', '<i class="fas ', extension, '">', '</i>', '</span>', '</div>', '<span class="form-control-plaintext">', decodeURI(f.name), '</span>', '<div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="far fa-trash-alt selfile" data-file="' + f.name + '" onclick="removeFile(this)"></i></span>', '</div></div>');
         }
         $("#archivos-documentos").append(output.join(''));
-        $("#total-documentos").html(files.length);
-    } 
+        $("#total-documentos").html($("#total-documentos").data("cantidad") + files.length);
+    }
 
     document.getElementById('fledocumentos').addEventListener('change', handleFileSelect, false);
 </script>

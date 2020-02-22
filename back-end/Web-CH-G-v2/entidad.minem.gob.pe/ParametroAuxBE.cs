@@ -8,12 +8,18 @@ namespace entidad.minem.gob.pe
 {
     public partial class ParametroBE
     {
-        public int ID_ENFOQUE { get; set; }
-        public int ID_ORDEN { get; set; }
-        public int VERIFICABLE { get; set; }
-        public int ID_GRUPO_INDICADOR { get; set; }
-        public string COLOR_GRUPO { get; set; }
-        public List<ParametroDetalleBE> listaDetalle { get; set; }
+        public string COLOR { get; set; }
+        public int ID_TIPO_CONTROL { get; set; }
+        public string TIPO_CONTROL { get; set; }
+        public string VALOR { get; set; }
+        public int ID_MEDMIT { get; set; }
+        public int ID_INICIATIVA { get; set; }
         public string FORMULA { get; set; }
+        public string FORMULA_ARMADO { get; set; }
+        public string COMPORTAMIENTO { get; set; }
+        public decimal VALOR_FORMULA { get; set; }
+        public decimal FACTOR { get; set; }
+        public int INS { get; set; }
+        public int AGREGAR { get; set; }
     }
 }

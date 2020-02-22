@@ -254,6 +254,44 @@ function fn_seleccionarMantenimientoUsuario(id) {
                         } else if (data[i]["ID_ESTADO_USUARIO"] == 2) {
                             $("#rad-02").prop("checked", true);
                         }
+                        $("#archivo-declaracion #seccion-file").remove();
+                        if (data[i]["ADJUNTO_BASE"] != null) {
+                            //for (var sus = 0; sus < data[i]["ListaSustentos"].length; sus++) {
+
+                                var output = [];
+                                var extension = "fa-file-word";
+
+                                if (data[i]["ADJUNTO_BASE"].includes("pdf")) {
+                                    extension = "fa-file-pdf";
+                                } else {
+                                    if (data[i]["ADJUNTO_BASE"].includes("jpeg") || data[i]["ADJUNTO_BASE"].includes("png") || data[i]["ADJUNTO_BASE"].includes("jpg")) {
+                                        extension = "fa-file-image";
+                                    } else {
+                                        if (data[i]["ADJUNTO_BASE"].includes("xlsx") || data[i]["ADJUNTO_BASE"].includes("xls")) {
+                                            extension = "fa-file-excel";
+                                        } else {
+                                            if (data[i]["ADJUNTO_BASE"].includes("pptx") || data[i]["ADJUNTO_BASE"].includes("ppt")) {
+                                                extension = "fa-file-powerpoint";
+                                            } else {
+                                                if (data[i]["ADJUNTO_BASE"].includes("docx") || data[i]["ADJUNTO_BASE"].includes("doc")) {
+                                                    extension = "fa-file-word";
+                                                } else {
+                                                    extension = "fa-file";
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                //$("#archivo-declaracion #seccion-file").remove();                                
+                                //output.push('<div id="seccion-file">', '<label for="txt-declaracion">Declaración jurada</label>', '<div class="input-group mb-3">', '<div class="input-group-prepend">', '<span class="input-group-text">', '<i class="fas ', extension, '">', '</i>', '</span>', '</div>', '<span class="form-control-plaintext">', decodeURI(data[i]["ADJUNTO_BASE"]), '</span>', '<div class="form-group m-0">', '<label class="btn btn-secondary btn-sm m-0" onclick="fn_verfileDeclaracion(', data[i]["ID_USUARIO"], ')"><i class="fas fa-download"></i>Ver</label>', '</div>', '</div>', '</div>');
+                                output.push('<div id="seccion-file">', '<label for="txt-declaracion">Declaración jurada</label>', '<div class="input-group">', '<div class="input-group-prepend">', '<span class="input-group-text" id="inputGroup13">', '<i class="fas ', extension, '">', '</i>', '</span>', '</div>','<input class="form-control cursor-pointer txt-file-control" type="text" id="txt-declaracion" placeholder="Suba su declaración jurada" aria-describedby="inputGroup13" value="', decodeURI(data[i]["ADJUNTO_BASE"]), '" readonly>', '<div class="input-group-append">', '<label class="input-group-text cursor-pointer" onclick="fn_verfileDeclaracion(', data[i]["ID_USUARIO"], ')"><i class="fas fa-download"></i></label>', '</div>','</div>', '</div>');
+                                
+                                $("#archivo-declaracion").append(output.join(''));
+
+                            //}
+                            //$("#total-documentos").html(data[i]["ListaSustentos"].length);
+                        }
+
                         Number(data[i]["ID_ROL"]) == 2 ? $(".medidas-especialista").show() : $(".medidas-especialista").hide()
                         if (Number(data[i]["ID_ROL"]) == 2) {
                             //$.ajax({
@@ -478,6 +516,7 @@ function fn_cargarRol(id) {
 function fn_cargarDatosUserMantenimiento(id) {
     $("#validarUsuario").data("guardar", 0);/*add*/
     $("#cabeceraRegistrarMantenimientoUsuario").hide();
+    $("#btn-modal-consultar").show();
     fn_seleccionarMantenimientoUsuario(id);
 }
 
@@ -536,6 +575,8 @@ function regUsuario() {
     fn_limpiarCampo();
     $("#validarUsuario").data("guardar", 1);
     $("#cabeceraEditarMantenimientoUsuario").hide();
+    $("#btn-modal-consultar").hide();
+    $("#archivo-declaracion #seccion-file").remove();
 }
 
 //////////////////////////////////////EXPORTAR
@@ -635,7 +676,137 @@ function fn_buscar() {
     //});
 }
 
+function fn_verfileDeclaracion(id_usuario) {
+    var item = {
+        ID_USUARIO: id_usuario
+    };
+    var url = baseUrl + 'Gestion/GetDeclaracionUsuario';
+    var respuesta = MRV.Ajax(url, item, false);
+    if (respuesta.success) {
+        var urlMostrar = baseUrl + "Temp/" + respuesta.extra;
+        window.open(urlMostrar, "_blank");
+    }
+}
 
+function fn_validarCampoConsulta() {
+    var arr = [];
+
+    if ($("#txa-consulta-usuario").val().trim() === "") {
+        arr.push("Ingrese la consulta");
+    }
+    
+    if (arr.length > 0) {               
+        var error = '';
+        $.each(arr, function (ind, elem) {
+            error = error + '<small class="mb-0">' + elem + '</small><br/>';
+        });
+        var msj = '                      <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="campoConsulta">';
+        msj = msj + '                           <div class="alert-wrap mr-3">';
+        msj = msj + '                                <div class="sa">';
+        msj = msj + '                                    <div class="sa-error">';
+        msj = msj + '                                        <div class="sa-error-x">';
+        msj = msj + '                                            <div class="sa-error-left"></div>';
+        msj = msj + '                                            <div class="sa-error-right"></div>';
+        msj = msj + '                                        </div>';
+        msj = msj + '                                        <div class="sa-error-placeholder"></div>';
+        msj = msj + '                                        <div class="sa-error-fix"></div>';
+        msj = msj + '                                    </div>';
+        msj = msj + '                                </div>';
+        msj = msj + '                            </div>';
+        msj = msj + '                            <div class="alert-wrap">';
+        msj = msj + '                                <h6>Campos obligatorios</h6>';
+        msj = msj + '                                <hr><small class="mb-0">Complete todos los campos obligatorios e intente otra vez.</small>';
+        msj = msj + '                            </div>';
+        msj = msj + '                        </div>';
+        $("#consultaUsuario").append(msj);
+        return false;
+    }
+    return true;
+}
+
+
+function enviarConsulta() {
+    debugger;
+    $("#campoConsulta").remove();
+    $("#CorrectoConsulta").remove();
+    $("#ErrorConsulta").remove(); 
+    if (!fn_validarCampoConsulta()) {
+        return false;
+    }
+
+    var item = {
+        ID_USUARIO: $("#userMantenimiento").data("value"),
+        DESCRIPCION: $("#txa-consulta-usuario").val()
+    };
+    var url = baseUrl + 'Gestion/ConsultaUsuario';
+    var respuesta = MRV.Ajax(url, item, false);
+    if (respuesta.success) {
+        var msj  =  '                           <div class="alert alert-success d-flex align-items-stretch" role="alert" id="CorrectoConsulta">';
+        msj = msj + '                               <div class="alert-wrap mr-3">';
+        msj = msj + '                                    <div class="sa">';
+        msj = msj + '                                        <div class="sa-success">';
+        msj = msj + '                                            <div class="sa-success-tip"></div>';
+        msj = msj + '                                            <div class="sa-success-long"></div>';
+        msj = msj + '                                            <div class="sa-success-placeholder"></div>';
+        msj = msj + '                                            <div class="sa-success-fix"></div>';
+        msj = msj + '                                        </div>';
+        msj = msj + '                                    </div>';
+        msj = msj + '                                </div>';
+        msj = msj + '                                <div class="alert-wrap">';
+        msj = msj + '                                    <h6>Bien hecho</h6';
+        msj = msj + '                                    <hr><small class="mb-0">Se envió la consulta correctamente.</small>';
+        msj = msj + '                                </div>';
+        msj = msj + '                            </div>';
+        $("#modal-consulta #btnConsulta").hide();
+        $("#consultaUsuario").append(msj);
+    } else {
+        $("#modalRevision #modalErrorRevision").remove();
+        var msj = '                           <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="ErrorConsulta">';
+        msj = msj + '                               <div class="alert-wrap mr-3">';
+        msj = msj + '                                    <div class="sa">';
+        msj = msj + '                                        <div class="sa-error">';
+        msj = msj + '                                            <div class="sa-error-x">';
+        msj = msj + '                                                <div class="sa-error-left"></div>';
+        msj = msj + '                                                <div class="sa-error-right"></div>';
+        msj = msj + '                                            </div>';
+        msj = msj + '                                            <div class="sa-error-placeholder"></div>';
+        msj = msj + '                                            <div class="sa-error-fix"></div>';
+        msj = msj + '                                        </div>';
+        msj = msj + '                                    </div>';
+        msj = msj + '                                </div>';
+        msj = msj + '                                <div class="alert-wrap">';
+        msj = msj + '                                    <h6>Error de registro</h6>';
+        msj = msj + '                                    <hr><small class="mb-0">Su consulta no fue enviada, intentelo nuevamente.</small>';
+        msj = msj + '                                </div>';
+        msj = msj + '                            </div>';
+        $("#consultaUsuario").append(msj);
+    }
+}
+
+$("#modal-consulta").on("hidden.bs.modal", function () {
+    $("#campoConsulta").remove();
+    $("#CorrectoConsulta").remove();
+    $("#ErrorConsulta").remove();
+    $("#modal-consulta #btnConsulta").show();
+    $("#txa-consulta-usuario").val("");
+});
+
+function guardarIdUsuario(id) {
+    $("#cuerpoMantenimientoUsuario").data("deshabilitar", id);
+}
+
+function deshabilitarUsuario() {
+    var item = {
+        ID_USUARIO: $("#cuerpoMantenimientoUsuario").data("deshabilitar")
+    }
+    var url = baseUrl + 'Gestion/DeshabilitarUsuario';
+    var respuesta = MRV.Ajax(url, item, false);
+    if (respuesta.success) {
+        $('#modal-confirmacion').modal('hide');
+    } else {
+
+    }
+}
 
 
 

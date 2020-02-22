@@ -14,7 +14,8 @@ namespace datos.minem.gob.pe
 {
     public class TipoControlDA : BaseDA
     {
-        private string sPackage = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_DETALLE_INDICADORES.";
+        private string sPackage2 = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_DETALLE_INDICADORES.";
+        private string sPackage = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_MANTENIMIENTO.";
         public List<TipoControlBE> listarControl()
         {
             List<TipoControlBE> Lista = null;
@@ -22,7 +23,7 @@ namespace datos.minem.gob.pe
             {
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
                 {
-                    string sp = sPackage + "USP_SEL_TIPO_CONTROL";
+                    string sp = sPackage2 + "USP_SEL_TIPO_CONTROL";
                     var p = new OracleDynamicParameters();
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<TipoControlBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();

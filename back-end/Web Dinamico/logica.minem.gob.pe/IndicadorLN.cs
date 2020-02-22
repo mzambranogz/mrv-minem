@@ -270,7 +270,7 @@ namespace logica.minem.gob.pe
                             string lstrFormula = formulaBE.FORMULA.Trim();
 
                             ll_ancho = lstrFormula.Trim().Length;
-                            for (ll_x = 0; ll_x < ll_ancho - 1; ll_x++)
+                            for (ll_x = 0; ll_x < ll_ancho; ll_x++)
                             {
                                 lc_dato = lstrFormula.Substring(ll_x, 1);
                                 switch (lc_dato)

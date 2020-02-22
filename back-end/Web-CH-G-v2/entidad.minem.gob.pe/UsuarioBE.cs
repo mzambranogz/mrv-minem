@@ -20,6 +20,8 @@ namespace entidad.minem.gob.pe
         public int ID_INSTITUCION { get; set; }
         public int ID_ESTADO_USUARIO { get; set; }
         public int ID_ESTADO_ANTERIOR { get; set; }
+        public string ADJUNTO { get; set; }
+        public string ADJUNTO_BASE { get; set; }
         public string SECTOR { get; set; }
         public string RUC { get; set; }
         public string USUARIO { get; set; }
@@ -33,5 +35,6 @@ namespace entidad.minem.gob.pe
         public string ESTADO { get; set; }
         public string NUEVO_PASSWORD_USUARIO { get; set; }
         public string ICONO_ESTADO { get; set; }
+        public string PRIMER_INICIO { get; set; }
     }
 }

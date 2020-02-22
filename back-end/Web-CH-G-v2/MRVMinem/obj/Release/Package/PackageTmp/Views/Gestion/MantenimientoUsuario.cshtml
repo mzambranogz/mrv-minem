@@ -86,7 +86,7 @@
                                         <th class="text-center" scope="col">Acciones</th>
                                     </tr>
                                 </thead>
-                                <tbody id="cuerpoMantenimientoUsuario">
+                                <tbody id="cuerpoMantenimientoUsuario" data-deshabilitar="0">
                                 @*<tbody>*@
 
                                     @foreach (var item in Model.listaUsuario)
@@ -119,7 +119,7 @@
                                                         <a class="dropdown-item" href="#" onclick="fn_cargarDatosUserMantenimiento(@item.ID_USUARIO);" data-toggle="modal" data-target="#modal-usuario">
                                                             <i class="fas fa-check"></i>&nbsp;
                                                             Verificar
-                                                        </a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion">
+                                                        </a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion" onclick="guardarIdUsuario(@item.ID_USUARIO);">
                                                             <i class="fas fa-times-circle"></i>&nbsp;
                                                             Deshabilitar
                                                         </a>
@@ -134,7 +134,7 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <td class="text-left" colspan="3"><strong>Resultado:&nbsp;</strong><span id="resultado">1-10</span> de <span id="total-registros">@total_reg</span> registros</td>
+                                        <td class="text-left" colspan="3"><strong>Resultado:&nbsp;</strong><span id="resultado">0-0</span> de <span id="total-registros">@total_reg</span> registros</td>
                                         <td class="text-right text-xs-left" colspan="5">
                                             <strong>Registros por página&nbsp;</strong>
                                             <select id="cantidad-registros" onchange="fn_CargaUsuarios()">
@@ -160,6 +160,73 @@
                     </div>
                 </div>
             </div>
+
+            <div class="modal fade" id="modal-consulta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Enviar consulta <br><small class="text-muted">Complete los siguientes campos para enviar su consulta</small><small class="text-danger d-block"><strong>(*)&nbsp;</strong>Campos obligatorios</small></h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body medidas-modal">
+                            <div class="row">
+                                <div class="col-sm-12-col-md-12 col-lg-12">
+                                    <div class="form-group">
+                                        <label for="txa-nombre-iniciativa">Descripción de la consulta<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span></label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-tachometer-alt"></i></span></div>
+                                            <textarea class="form-control" id="txa-consulta-usuario" aria-describedby="inputGroup4" cols="30" rows="3" required placeholder="Ingrese una descripción"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-12" id="consultaUsuario">
+                                    @*<div class="alert alert-danger d-flex align-items-stretch" role="alert">
+                                        <div class="alert-wrap mr-3">
+                                            <div class="sa">
+                                                <div class="sa-error">
+                                                    <div class="sa-error-x">
+                                                        <div class="sa-error-left"></div>
+                                                        <div class="sa-error-right"></div>
+                                                    </div>
+                                                    <div class="sa-error-placeholder"></div>
+                                                    <div class="sa-error-fix"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="alert-wrap">
+                                            <h6>Error al enviar consulta</h6>
+                                            <hr><small class="mb-0">Complete todos los campos obligatorios e intente otra vez.</small>
+                                        </div>
+                                    </div>
+                                    <div class="alert alert-success d-flex align-items-stretch" role="alert">
+                                        <div class="alert-wrap mr-3">
+                                            <div class="sa">
+                                                <div class="sa-success">
+                                                    <div class="sa-success-tip"></div>
+                                                    <div class="sa-success-long"></div>
+                                                    <div class="sa-success-placeholder"></div>
+                                                    <div class="sa-success-fix"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="alert-wrap">
+                                            <h6>Bien hecho</h6>
+                                            <hr><small class="mb-0">Enviamos la consulta correctamente.</small>
+                                        </div>
+                                    </div>*@
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary" type="button" id="btnConsulta" onclick="enviarConsulta()">Enviar</button>
+                            <button class="btn btn-secondary" type="button" @*data-dismiss="modal"*@ id="btn-modal-usuario">Cerrar</button>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="modal fade" id="modal-usuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                     <div class="modal-content">
@@ -213,6 +280,77 @@
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-mobile-alt"></i></span></div>
                                                 <input class="form-control" type="text" id="txt-celular" placeholder="Ingrese su celular" aria-describedby="inputGroup5" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group" id="archivo-declaracion">
+                                            @*<label for="txt-declaracion">Declaración jurada</label>*@
+                                            @*<div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup13"><i class="fas fa-file-pdf"></i></span></div>
+                                                <input class="form-control cursor-pointer txt-file-control" type="text" id="txt-declaracion" placeholder="Suba su declaración jurada" aria-describedby="inputGroup13" value="nombre_de_archivo.pdf" readonly>
+                                                <div class="input-group-append">
+                                                    <label class="input-group-text cursor-pointer"><i class="fas fa-download"></i></label>
+                                                </div>
+                                            </div>*@
+                                        </div>
+
+                                        
+
+                                    </div>
+
+                                    <div class="col-md-12 col-lg-6">
+                                        <div class="form-group">
+                                            <label for="txt-institucion">Institución</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
+                                                <input class="form-control" type="text" id="txt-institucion" placeholder="Ingrese su institución" aria-describedby="inputGroup6" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txt-ruc">RUC</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup7"><i class="fas fa-landmark"></i></span></div>
+                                                <input class="form-control" type="text" id="txt-ruc" placeholder="Ingrese su RUC" aria-describedby="inputGroup7" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txt-direccion">Domicilio legal</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup8"><i class="fas fa-landmark"></i></span></div>
+                                                <input class="form-control" type="text" id="txt-direccion" placeholder="Ingrese su dirección" aria-describedby="inputGroup8" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="cbo-sector">Sector</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
+                                                <select class="form-control" id="cbo-sector" aria-describedby="inputGroup9" required>
+                                                    <option value="0">-Seleccione un sector-</option>
+                                                    <!--<option>Sector 01</option>
+                                                    <option>Sector 02</option>
+                                                    <option>Sector 03</option>-->
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txt-pswd">Contraseña</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup2"><i class="fas fa-key"></i></span></div>
+                                                <input class="form-control" type="password" id="txt-pswd" placeholder="Ingresar contraseña" aria-describedby="inputGroup2" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="cbo-perfil">Perfil</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="fas fa-user-tie"></i></span></div>
+                                                <select class="form-control" id="cbo-perfil" aria-describedby="inputGroup10" required>
+                                                    <option value="0">-Seleccione un perfil de usuario-</option>
+                                                    <!--<option class="badge-actor-02 font-weight-bold">Usuario Administrado</option>
+                                                    <option class="badge-actor-03 font-weight-bold">Especialista</option>
+                                                    <option class="badge-actor-04 font-weight-bold">Evaluador MINAM</option>
+                                                    <option class="badge-actor-05 font-weight-bold">Verificado Externo</option>
+                                                    <option class="badge-actor-06 font-weight-bold">Administrador MINEM</option>-->
+                                                </select>
                                             </div>
                                         </div>
 
@@ -321,64 +459,6 @@
                                             </div>
                                         </div>
 
-                                    </div>
-
-                                    <div class="col-md-12 col-lg-6">
-                                        <div class="form-group">
-                                            <label for="txt-institucion">Institución</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
-                                                <input class="form-control" type="text" id="txt-institucion" placeholder="Ingrese su institución" aria-describedby="inputGroup6" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="txt-ruc">RUC</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup7"><i class="fas fa-landmark"></i></span></div>
-                                                <input class="form-control" type="text" id="txt-ruc" placeholder="Ingrese su RUC" aria-describedby="inputGroup7" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="txt-direccion">Dirección</label>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup8"><i class="fas fa-landmark"></i></span></div>
-                                                <input class="form-control" type="text" id="txt-direccion" placeholder="Ingrese su dirección" aria-describedby="inputGroup8" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="cbo-sector">Sector</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
-                                                <select class="form-control" id="cbo-sector" aria-describedby="inputGroup9" required>
-                                                    <option value="0">-Seleccione un sector-</option>
-                                                    <!--<option>Sector 01</option>
-                                                    <option>Sector 02</option>
-                                                    <option>Sector 03</option>-->
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="txt-pswd">Contraseña</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup2"><i class="fas fa-key"></i></span></div>
-                                                <input class="form-control" type="password" id="txt-pswd" placeholder="Ingresar contraseña" aria-describedby="inputGroup2" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="cbo-perfil">Perfil</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="fas fa-user-tie"></i></span></div>
-                                                <select class="form-control" id="cbo-perfil" aria-describedby="inputGroup10" required>
-                                                    <option value="0">-Seleccione un perfil de usuario-</option>
-                                                    <!--<option class="badge-actor-02 font-weight-bold">Usuario Administrado</option>
-                                                    <option class="badge-actor-03 font-weight-bold">Especialista</option>
-                                                    <option class="badge-actor-04 font-weight-bold">Evaluador MINAM</option>
-                                                    <option class="badge-actor-05 font-weight-bold">Verificado Externo</option>
-                                                    <option class="badge-actor-06 font-weight-bold">Administrador MINEM</option>-->
-                                                </select>
-                                            </div>
-                                        </div>
-
                                         <div class="form-group">
                                             <label for="mlt-gei">Estado<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span></label>
                                             <div class="input-group">
@@ -432,6 +512,7 @@
                         <div class="modal-footer" id="pieMantenimientoUsuario">
                             <div id="userMantenimiento"></div>
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                            <button class="btn btn-warning" type="button" id="btn-modal-consultar">Consultar</button>
                             <button class="btn btn-primary" type="button" onclick="fn_editarMantenimiento();">Guardar</button>
                         </div>
                         <div class="modal-footer" id="pieCorrecto"> <!-- add 03-02-2020 -->
@@ -448,11 +529,11 @@
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         </div>
                         <div class="modal-body medidas-modal">
-                            <p>¿ Desea eliminar este registro ?</p>
+                            <p>¿ Desea deshabilitar este registro ?</p>
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
-                            <button class="btn btn-primary" type="button">Si</button>
+                            <button class="btn btn-primary" onclick="deshabilitarUsuario()" type="button">Si</button>
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>                            
                         </div>
                     </div>
                 </div>

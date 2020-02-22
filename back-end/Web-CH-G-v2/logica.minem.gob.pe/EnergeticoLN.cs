@@ -20,5 +20,37 @@ namespace logica.minem.gob.pe
         {
             return energ.ListarENERGProyecto(entidad);
         }
+
+        public static List<EnergeticoBE> ListarEnergeticoPaginado(EnergeticoBE entidad)
+        {
+            if (string.IsNullOrEmpty(entidad.buscar)) entidad.buscar = "";
+            return energ.ListarEnergeticoPaginado(entidad);
+        }
+
+        public static List<EnergeticoBE> ListarEnergeticoExcel(EnergeticoBE entidad)
+        {
+            if (string.IsNullOrEmpty(entidad.buscar)) entidad.buscar = "";
+            return energ.ListarEnergeticoExcel(entidad);
+        }
+
+        public static EnergeticoBE GetEnergeticoPorId(EnergeticoBE entidad)
+        {
+            return energ.GetEnergeticoPorId(entidad);
+        }
+
+        public static EnergeticoBE RegistrarEnergetico(EnergeticoBE entidad)
+        {
+            return energ.RegistrarEnergetico(entidad);
+        }
+
+        public static EnergeticoBE ActualizarEnergetico(EnergeticoBE entidad)
+        {
+            return energ.ActualizarEnergetico(entidad);
+        }
+
+        public static EnergeticoBE EliminarEnergetico(EnergeticoBE entidad)
+        {
+            return energ.EliminarEnergetico(entidad);
+        }
     }
 }

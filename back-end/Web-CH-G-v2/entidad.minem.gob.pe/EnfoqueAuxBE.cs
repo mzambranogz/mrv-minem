@@ -9,5 +9,6 @@ namespace entidad.minem.gob.pe
     public partial class EnfoqueBE
     {
         public string DESCRIPCION_MEDMIT { get; set; } 
+        public string ENFOQUE { get; set; }
     }
 }

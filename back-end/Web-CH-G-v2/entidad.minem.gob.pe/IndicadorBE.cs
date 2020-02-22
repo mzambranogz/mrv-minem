@@ -35,6 +35,7 @@ namespace entidad.minem.gob.pe
         public int ID_TIPO_VEHICULOI { get; set; }
         public int ID_TIPO_FUENTEI { get; set; }
         public int KRVI { get; set; }
+        public int KRV_COMBUSTIBLE { get; set; }
         public int CANTIDADI { get; set; }
         public int TOTALI { get; set; }
         public int TOTALR { get; set; }
@@ -44,7 +45,8 @@ namespace entidad.minem.gob.pe
         public string ADJUNTO { get; set; }
         public string ADJUNTO_BASE { get; set; }
         public DateTime INICIO_OPERACIONES { get; set; }
-
+        public decimal CONSUMO_ELECTRICIDAD { get; set; }
+        public decimal CONSUMO_COMBUSTIBLE { get; set; }
 
         public int ANNO_BASE { get; set; }
         public int ID_TIPO_VEHICULO_BASE { get; set; }
@@ -66,5 +68,12 @@ namespace entidad.minem.gob.pe
         public double RENDIMIENTO { get; set; }
         public string NOMBRE_INICIATIVA { get; set; }
         public string EMAIL_USUARIO { get; set; }
+        public string FECHA { get; set; }
+        public string PLACA { get; set; }
+        public int ID_SECTOR_INST { get; set; }
+        public List<IniciativaBE> listaGei { get; set; }
+        //public List<IndicadorBE> listaAnnoSec { get; set; }
+        //public List<IndicadorBE> listaCant { get; set; }
+
     }
 }

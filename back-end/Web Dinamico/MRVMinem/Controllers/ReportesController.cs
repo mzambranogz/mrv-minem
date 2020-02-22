@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace MRVMinem.Controllers
 {
-    //[Autenticado]
+    [Autenticado]
     public class ReportesController : BaseController
     {
         // GET: Reportes

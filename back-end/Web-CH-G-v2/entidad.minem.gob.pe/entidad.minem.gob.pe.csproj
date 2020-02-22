@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnnoBE.cs" />
     <Compile Include="BaseBE.cs" />
     <Compile Include="BusquedaAvanzadaBE.cs" />
     <Compile Include="BusquedaSimpleBE.cs" />
@@ -54,14 +55,19 @@
     <Compile Include="FactorParametroBE.cs" />
     <Compile Include="FactorParametroDataBE.cs" />
     <Compile Include="GasEfectoInvernaderoBE.cs" />
+    <Compile Include="GrupoIndicadorBE.cs" />
     <Compile Include="IndicadorBE.cs" />
+    <Compile Include="IndicadorDataAuxBE.cs" />
     <Compile Include="IndicadorDataBE.cs" />
     <Compile Include="IndicadorMetaDataBE.cs" />
     <Compile Include="IniciativaAuxBE.cs" />
     <Compile Include="IniciativaBE.cs" />
+    <Compile Include="IniciativaRptBE.cs" />
     <Compile Include="InstitucionAuxBE.cs" />
     <Compile Include="InstitucionBE.cs" />
+    <Compile Include="InstitucionRptBE.cs" />
     <Compile Include="MedidaMitigacionBE.cs" />
+    <Compile Include="MedMitRptBE.cs" />
     <Compile Include="MonedaBE.cs" />
     <Compile Include="NotificacionAuxBE.cs" />
     <Compile Include="NotificacionBE.cs" />
@@ -69,6 +75,8 @@
     <Compile Include="ParametroBE.cs" />
     <Compile Include="ParametroDetalleBE.cs" />
     <Compile Include="ParametroFormulaBE.cs" />
+    <Compile Include="ParametroIndicadorAuxBE.cs" />
+    <Compile Include="ParametroIndicadorBE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RolBE.cs" />
     <Compile Include="RolOpcionesBE.cs" />

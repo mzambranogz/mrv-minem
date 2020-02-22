@@ -67,7 +67,7 @@ function fn_EditarFactorParametro(Idfactor) {
     };
 
     $.ajax({
-        url: baseUrl + "Dinamico/GetFactorParametro",
+        url: baseUrl + "Mantenimiento/GetFactorParametro",
         type: 'POST',
         datatype: 'json',
         data: item,
@@ -135,7 +135,7 @@ function fn_validarAddParametros() {
     }
     else {
         for (var i = 0; i < objetos.length; i++) {
-            if (objetos[i].dataset.value == $("#cbo-parametros-" + $("#radio-control").data("tipocontrol")).val()) {
+            if (objetos[i].dataset.value == $('input:radio[name=rad-controles]:checked').val() + "|" + $("#cbo-parametros-" + $("#radio-control").data("tipocontrol")).val()) {
                 $("#divError").show();
                 $("#msgError").html("Parámetro ya fue ingresado previamente, verifique antes de continuar");
                 return false;
@@ -188,7 +188,7 @@ function fn_guardarFactor() {
             ListaFactorParametro: parametros
         }
 
-        var url = baseUrl + 'Dinamico/RegistraParametrosFactor';
+        var url = baseUrl + 'Mantenimiento/RegistraParametrosFactor';
         var respuesta = MRV.Ajax(url, item, false);
         if (respuesta.success) {
             $("#divError").hide();
@@ -199,7 +199,7 @@ function fn_guardarFactor() {
 }
 
 function fn_dirigir() {
-    location.href = baseUrl + "Dinamico/MantenimientoFactores";
+    location.href = baseUrl + "Mantenimiento/MantenimientoFactores";
 }
 
 
@@ -241,7 +241,7 @@ function fn_CargarFactores() {
     };
 
     $.ajax({
-        url: baseUrl + "Dinamico/ListaFactores",
+        url: baseUrl + "Mantenimiento/ListaFactores",
         type: 'POST',
         datatype: 'json',
         data: Item,

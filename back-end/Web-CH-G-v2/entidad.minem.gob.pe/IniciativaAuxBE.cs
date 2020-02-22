@@ -26,12 +26,20 @@ namespace entidad.minem.gob.pe
         public string ASUNTO { get; set; }
         public int ID_ROL { get; set; }
         public string ID_INDICADOR_DELETE { get; set; }
+        public string ID_INDICADOR_ELIMINAR { get; set; }
         public List<IndicadorBE> ListaIndicadores { get; set; }
+        public List<IndicadorDataBE>ListaIndicadoresData { get; set; }
         public List<SustentoIniciativaBE> ListaSustentos { get; set; }
         public int medida_b { get; set; }
         public int anio_b { get; set; }
         public int sector_b { get; set; }
         public int gei_b { get; set; }
         public int energ_b { get; set; }
+        public string EMAIL_USUARIO_ORIGEN { get; set; }
+        public string CABECERA_EMAIL { get; set; }
+        public int ID_ENFOQUE { get; set; }
+        public string DATA { get; set; }
+        public int ID_SECTOR_INST { get; set; }
+        public decimal TOTAL_GEI { get; set; }
     }
 }

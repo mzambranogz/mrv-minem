@@ -153,6 +153,7 @@
     <Content Include="images\logo_pnud.jpg" />
     <Content Include="images\logo_pnud.png" />
     <Content Include="images\logo_pnud.svg" />
+    <Content Include="images\password-level-47px.png" />
     <Content Include="images\_fonfo_footer.png" />
     <Content Include="js\AccionMitigacion.js" />
     <Content Include="js\CambiarClave.js" />
@@ -162,6 +163,7 @@
     <Content Include="js\IniciativaMitigacion.js" />
     <Content Include="js\jquery.form.js" />
     <Content Include="js\Login.js" />
+    <Content Include="js\MantenimientoEnergeticos.js" />
     <Content Include="js\MantenimientoEnfoques.js" />
     <Content Include="js\MantenimientoEscenario.js" />
     <Content Include="js\MantenimientoFactores.js" />
@@ -172,12 +174,15 @@
     <Content Include="js\MantenimientoTablas.js" />
     <Content Include="js\MantenimientoUbicacion.js" />
     <Content Include="js\MantenimientoUsuario.js" />
+    <Content Include="js\MantenimientoMedidaMitigacionDetalle.js" />
+    <Content Include="js\MantenimientoMedidaFactorData.js" />
     <Content Include="js\MRV.js" />
     <Content Include="js\Notificacion.js" />
     <Content Include="js\NuevaIniciativaMitigacion.js" />
     <Content Include="js\Opciones.js" />
     <Content Include="js\Recuperar.js" />
     <Content Include="js\RegistroUsuario.js" />
+    <Content Include="js\Resultados.js" />
     <Content Include="js\script.js" />
     <Content Include="js\Seguimiento.js" />
     <Content Include="js\VerMas.js" />
@@ -185,6 +190,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Reportes\frmReportes.aspx" />
+    <Content Include="Reportes\ReporteIni.aspx" />
     <Content Include="Temp\LEEME.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -195,7 +201,6 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DetalleController.cs" />
-    <Compile Include="Controllers\DinamicoController.cs" />
     <Compile Include="Controllers\GestionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MantenimientoController.cs" />
@@ -207,6 +212,7 @@
     </Compile>
     <Compile Include="Helper\SessionHelper.cs" />
     <Compile Include="Models\ListaObjeto.cs" />
+    <Compile Include="Models\MvEnergetico.cs" />
     <Compile Include="Models\MvEnfoque.cs" />
     <Compile Include="Models\MvEscenario.cs" />
     <Compile Include="Models\MvFactor.cs" />
@@ -214,14 +220,31 @@
     <Compile Include="Models\MvIniciativa.cs" />
     <Compile Include="Models\MvInstitucion.cs" />
     <Compile Include="Models\MvMoneda.cs" />
+    <Compile Include="Models\MvParametro.cs" />
     <Compile Include="Models\MvSector.cs" />
     <Compile Include="Models\MvSesion.cs" />
     <Compile Include="Models\MvUbicacion.cs" />
+    <Compile Include="Models\MvUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reportes\DsEscenario.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DsEscenario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\DsIniciativa.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsIniciativa.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\DsInstitucion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsInstitucion.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\DsMedMit.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsMedMit.xsd</DependentUpon>
     </Compile>
     <Compile Include="Reportes\frmReportes.aspx.cs">
       <DependentUpon>frmReportes.aspx</DependentUpon>
@@ -229,6 +252,13 @@
     </Compile>
     <Compile Include="Reportes\frmReportes.aspx.designer.cs">
       <DependentUpon>frmReportes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\ReporteIni.aspx.cs">
+      <DependentUpon>ReporteIni.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reportes\ReporteIni.aspx.designer.cs">
+      <DependentUpon>ReporteIni.aspx</DependentUpon>
     </Compile>
     <Compile Include="Repositorio\EnvioCorreo.cs" />
     <Compile Include="Response\ResponseEntity.cs" />
@@ -255,9 +285,6 @@
     <Content Include="Log\Sistema20200127.log" />
     <Content Include="Log\Sistema20200128.log" />
     <Content Include="Log\Sistema20200129.log" />
-    <Content Include="images\favicon\manifest.json" />
-    <Content Include="images\favicon\site.webmanifest" />
-    <Content Include="images\favicon\_manifest.json" />
     <Content Include="fonts\fa-brands-400.eot" />
     <Content Include="fonts\fa-brands-400.ttf" />
     <Content Include="fonts\fa-brands-400.woff" />
@@ -273,7 +300,21 @@
     <Content Include="Documentos\modelo-declaracion-jurada.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Documentos\4.1 Plantilla_Electricos_Masivo.xlsm" />
+    <Content Include="images\favicon\manifest.json" />
+    <Content Include="images\favicon\site.webmanifest" />
+    <Content Include="images\favicon\_manifest.json" />
+    <Content Include="Documentos\4.1 Plantilla_Electricos_Masivo.xlsm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Documentos\4.1 Plantilla_Electricos_Consumo_Masivo.xlsm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Documentos\4.1 Plantilla_Electricos_Hibrido_Consumo_Masivo.xlsm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Documentos\4.1 Plantilla_Electricos_Hibrido_Masivo.xlsm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\PublishProfiles\MRVMinem.pubxml" />
     <Content Include="Views\Gestion\AccionMitigacion.cshtml" />
     <Content Include="Views\Shared\_SesionLayout.cshtml" />
@@ -298,17 +339,6 @@
     <Content Include="Views\Portal\VerMasIniciativaDetalle.cshtml" />
     <Content Include="Views\Reportes\Reportes.cshtml" />
     <Content Include="Views\Gestion\DetalleNotificacion.cshtml" />
-    <Content Include="Reportes\DsEscenario.xsc">
-      <DependentUpon>DsEscenario.xsd</DependentUpon>
-    </Content>
-    <None Include="Reportes\DsEscenario.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DsEscenario.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Reportes\DsEscenario.xss">
-      <DependentUpon>DsEscenario.xsd</DependentUpon>
-    </Content>
     <Content Include="Views\Portal\ReestablecerClave.cshtml" />
     <Content Include="Views\Portal\Resultados.cshtml" />
     <Content Include="Views\Portal\TerminosCondiciones.cshtml" />
@@ -322,9 +352,56 @@
     <Content Include="Views\Mantenimiento\Ubicaciones.cshtml" />
     <Content Include="Views\Mantenimiento\Monedas.cshtml" />
     <Content Include="Views\Mantenimiento\Gei.cshtml" />
-    <Content Include="Views\Detalle\DetalleIndicadorMasivo.cshtml" />
     <Content Include="Views\Mantenimiento\Enfoques.cshtml" />
-    <Content Include="Views\Dinamico\MantenimientoFactores.cshtml" />
+    <Content Include="Views\Mantenimiento\Energeticos.cshtml" />
+    <Content Include="Views\Detalle\DetalleIndicadorMasivo.cshtml" />
+    <Content Include="Views\Mantenimiento\MedidaMitigacionDetalle.cshtml" />
+    <Content Include="Views\Mantenimiento\MedidaFactoresData.cshtml" />
+    <Content Include="Views\Mantenimiento\MantenimientoFactores.cshtml" />
+    <Content Include="Reportes\DsEscenario.xsc">
+      <DependentUpon>DsEscenario.xsd</DependentUpon>
+    </Content>
+    <None Include="Reportes\DsEscenario.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsEscenario.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Reportes\DsEscenario.xss">
+      <DependentUpon>DsEscenario.xsd</DependentUpon>
+    </Content>
+    <Content Include="Reportes\DsIniciativa.xsc">
+      <DependentUpon>DsIniciativa.xsd</DependentUpon>
+    </Content>
+    <None Include="Reportes\DsIniciativa.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsIniciativa.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Reportes\DsIniciativa.xss">
+      <DependentUpon>DsIniciativa.xsd</DependentUpon>
+    </Content>
+    <Content Include="Reportes\DsInstitucion.xsc">
+      <DependentUpon>DsInstitucion.xsd</DependentUpon>
+    </Content>
+    <None Include="Reportes\DsInstitucion.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsInstitucion.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Reportes\DsInstitucion.xss">
+      <DependentUpon>DsInstitucion.xsd</DependentUpon>
+    </Content>
+    <Content Include="Reportes\DsMedMit.xsc">
+      <DependentUpon>DsMedMit.xsd</DependentUpon>
+    </Content>
+    <None Include="Reportes\DsMedMit.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsMedMit.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Reportes\DsMedMit.xss">
+      <DependentUpon>DsMedMit.xsd</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -351,9 +428,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Reportes\EscenarioRpt.rdlc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\EscenarioRpt.rdlc" />
+    <EmbeddedResource Include="Reportes\rptIniciativa.rdlc" />
+    <EmbeddedResource Include="Reportes\rptInstitucion.rdlc" />
+    <EmbeddedResource Include="Reportes\rptMedMit.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

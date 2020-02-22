@@ -16,6 +16,7 @@ namespace datos.minem.gob.pe
     public class EnfoqueDA : BaseDA
     {
         public string sPackage = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_MANTENIMIENTO.";
+        public string sPackage2 = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_DETALLE_INDICADORES.";
 
         public List<EnfoqueBE> ListarEnfoquePaginado(EnfoqueBE entidad)
         {
@@ -161,6 +162,50 @@ namespace datos.minem.gob.pe
             }
 
             return entidad;
+        }
+
+        public List<EnfoqueBE> listarEnfoqueMedida(int medida)
+        {
+            List<EnfoqueBE> Lista = null;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage2 + "USP_SEL_ENFOQUE_MEDMIT";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_MEDMIT", medida);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<EnfoqueBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+        public List<EnfoqueBE> listarEnfoqueIniciativa(int iniciativa)
+        {
+            List<EnfoqueBE> Lista = null;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage2 + "USP_SEL_ENFOQUE_INICIATIVA";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", iniciativa);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<EnfoqueBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
         }
     }
 }

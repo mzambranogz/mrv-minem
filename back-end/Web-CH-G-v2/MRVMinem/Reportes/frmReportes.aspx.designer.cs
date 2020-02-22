@@ -31,7 +31,7 @@ namespace MRVMinem.Reportes {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// Control rvReporte.
+        /// Control rvReporte1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.

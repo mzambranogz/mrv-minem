@@ -27,6 +27,7 @@ namespace MRVMinem.Controllers
     [Autenticado]
     public class GestionController : BaseController
     {
+
         public ActionResult Logout()
         {
             SessionHelper.DestroyUserSession();
@@ -41,32 +42,40 @@ namespace MRVMinem.Controllers
         public ActionResult AccionMitigacion()
         {
             ListaObjeto modelo = new ListaObjeto();
-            IniciativaBE ini = new IniciativaBE();
-            ini.ID_USUARIO = Convert.ToInt32(Session["usuario"]);
-            ini.pagina = 1;
-            ini.cantidad_registros = 10;
-            ini.order_by = "ID_INICIATIVA";
-            ini.order_orden = "ASC";
-            if (Convert.ToInt32(Session["rol"]) == 1)
+            UsuarioBE usu = new UsuarioBE();
+            if (Convert.ToString(Session["rol"]) == "1")
             {
-                modelo.listaIni = IniciativaLN.ListaIniciativaUsuario(ini);
+                usu.ID_USUARIO = Convert.ToInt32(Session["usuario"]);
+                usu.NOMBRES_USUARIO = Convert.ToString(Session["nombres"]);
+                usu.APELLIDOS_USUARIO = Convert.ToString(Session["apellidos"]);
+                usu.PRIMER_INICIO = Convert.ToString(Session["primer_inicio"]);
             }
-            else if (Convert.ToInt32(Session["rol"]) == 2)
+            else
             {
-                modelo.listaIni = IniciativaLN.ListaIniciativaEspecialista(ini);
+                usu.PRIMER_INICIO = "0";
             }
-            else if (Convert.ToInt32(Session["rol"]) == 3)
-            {
-                modelo.listaIni = IniciativaLN.ListaIniciativaGeneral(ini);
-            }
-            else if (Convert.ToInt32(Session["rol"]) == 4)
-            {
-                modelo.listaIni = IniciativaLN.ListaIniciativaEvaluar(ini);
-            }
-            else if (Convert.ToInt32(Session["rol"]) == 5)
-            {
-                modelo.listaIni = IniciativaLN.ListaIniciativaVerificar(ini);
-            }
+            
+            modelo.usuario = usu;
+            //if (Convert.ToInt32(Session["rol"]) == 1)
+            //{
+            //    modelo.listaIni = IniciativaLN.ListaIniciativaUsuario(ini);
+            //}
+            //else if (Convert.ToInt32(Session["rol"]) == 2)
+            //{
+            //    modelo.listaIni = IniciativaLN.ListaIniciativaEspecialista(ini);
+            //}
+            //else if (Convert.ToInt32(Session["rol"]) == 3)
+            //{
+            //    modelo.listaIni = IniciativaLN.ListaIniciativaGeneral(ini);
+            //}
+            //else if (Convert.ToInt32(Session["rol"]) == 4)
+            //{
+            //    modelo.listaIni = IniciativaLN.ListaIniciativaEvaluar(ini);
+            //}
+            //else if (Convert.ToInt32(Session["rol"]) == 5)
+            //{
+            //    modelo.listaIni = IniciativaLN.ListaIniciativaVerificar(ini);
+            //}
             return View(modelo);
         }
         public ActionResult Sesion()
@@ -76,9 +85,28 @@ namespace MRVMinem.Controllers
 
         public ActionResult IniciativaMitigacion(int id, int ini)
         {
-            MvSesion modelo = new MvSesion();
-            modelo.identificador = id;
-            modelo.iniciativa = ini;
+            //MvSesion modelo = new MvSesion();
+            //modelo.identificador = id;
+            //modelo.iniciativa = ini;
+            ListaObjeto modelo = new ListaObjeto();
+            IniciativaBE inic = new IniciativaBE();
+            inic.ID_INICIATIVA = ini;
+            inic.ID_MEDMIT = id;
+            modelo.iniciativa_mit = inic;
+            if (ini > 0){
+                                
+            }
+            else if (id > 0)
+            {
+                modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
+            }
+            //inic.ID_INICIATIVA = ini;
+            //modelo.iniciativa_mit = inic;
+            //modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
+            //modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
+            //modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
+            //modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
+            //modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
             return View(modelo);
         }
 
@@ -103,6 +131,7 @@ namespace MRVMinem.Controllers
             modelo.usuario = UsuarioLN.UsuarioIniciativa(modelo.iniciativa_mit.ID_USUARIO);
             modelo.revision = 1;
             Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
+            Session["nombres_destino"] = modelo.usuario.NOMBRES;
             return View(modelo);
         }
 
@@ -113,13 +142,21 @@ namespace MRVMinem.Controllers
             inic.ID_INICIATIVA = id;
             modelo.iniciativa_mit = inic;
             modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
-            modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
+            modelo.menor = IndicadorLN.DetalleIndicadorEnfoque(modelo.iniciativa_mit.ID_INICIATIVA);
             modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
+            modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
+
+           modelo.listaParametro = ParametroLN.ListarParametro(modelo.iniciativa_mit.ID_MEDMIT);
+
             modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
             modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
             modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
             modelo.usuario = UsuarioLN.EspecialistaMedida(modelo.iniciativa_mit.ID_MEDMIT);
+            if (modelo.menor == 0) {
+                modelo.menor = getMenorId(modelo.listaEnfoque);
+            }            
             Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
+
             return View(modelo);
         }
 
@@ -127,17 +164,27 @@ namespace MRVMinem.Controllers
         {
             ListaObjeto modelo = new ListaObjeto();
             IniciativaBE inic = new IniciativaBE();
+            IndicadorDataBE ida = new IndicadorDataBE();
             inic.ID_INICIATIVA = id;
+            ida.ID_INICIATIVA = id;
             modelo.iniciativa_mit = inic;
             modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
-            modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
+            //modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
             modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
+            //modelo.listaEnfoque = EnfoqueLN.listarEnfoqueIniciativa(modelo.iniciativa_mit.ID_INICIATIVA);
+            ida.ID_MEDMIT = modelo.iniciativa_mit.ID_MEDMIT;
+            modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
+
+            modelo.listaIndData = IndicadorLN.ListarDatosTablaDinamica(ida);
+
+            //modelo.listaParametro = ParametroLN.ListarParametro(modelo.iniciativa_mit.ID_MEDMIT);            
             modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
             modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
             modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
             modelo.usuario = UsuarioLN.UsuarioIniciativa(modelo.iniciativa_mit.ID_USUARIO);
             modelo.revision = 1;
             Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
+            Session["nombres_destino"] = modelo.usuario.NOMBRES;
             return View(modelo);
         }
 
@@ -148,12 +195,17 @@ namespace MRVMinem.Controllers
             inic.ID_INICIATIVA = id;
             modelo.iniciativa_mit = inic;
             modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
-            modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
+            modelo.menor = IndicadorLN.DetalleIndicadorEnfoque(modelo.iniciativa_mit.ID_INICIATIVA);
             modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
+            modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
             modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
             modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
             modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
             modelo.usuario = UsuarioLN.EspecialistaMedida(modelo.iniciativa_mit.ID_MEDMIT);
+            if(modelo.menor == 0)
+            {
+                modelo.menor = getMenorId(modelo.listaEnfoque);
+            }
             Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
             return View(modelo);
         }
@@ -163,11 +215,19 @@ namespace MRVMinem.Controllers
             //MvSesion modelo = new MvSesion();
             ListaObjeto modelo = new ListaObjeto();
             IniciativaBE inic = new IniciativaBE();
+            IndicadorDataBE ida = new IndicadorDataBE();
             inic.ID_INICIATIVA = id;
-            modelo.iniciativa_mit = inic;            
+            ida.ID_INICIATIVA = id;
+            modelo.iniciativa_mit = inic;
             modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
-            modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
+            //modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
+            //modelo.listaEnfoque = EnfoqueLN.listarEnfoqueIniciativa(modelo.iniciativa_mit.ID_INICIATIVA);
             modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
+
+            modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
+            ida.ID_MEDMIT = modelo.iniciativa_mit.ID_MEDMIT;
+            modelo.listaIndData = IndicadorLN.ListarDatosTablaDinamica(ida);
+
             modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
             modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
             modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
@@ -182,11 +242,19 @@ namespace MRVMinem.Controllers
         {
             ListaObjeto modelo = new ListaObjeto();
             IniciativaBE inic = new IniciativaBE();
+            IndicadorDataBE ida = new IndicadorDataBE();
             inic.ID_INICIATIVA = id;
+            ida.ID_INICIATIVA = id;
             modelo.iniciativa_mit = inic;
             modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
-            modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
+            //modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
+            //modelo.listaEnfoque = EnfoqueLN.listarEnfoqueIniciativa(modelo.iniciativa_mit.ID_INICIATIVA);
             modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
+
+            modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
+            ida.ID_MEDMIT = modelo.iniciativa_mit.ID_MEDMIT;
+            modelo.listaIndData = IndicadorLN.ListarDatosTablaDinamica(ida);
+
             modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
             modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
             modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
@@ -201,11 +269,19 @@ namespace MRVMinem.Controllers
         {
             ListaObjeto modelo = new ListaObjeto();
             IniciativaBE inic = new IniciativaBE();
+            IndicadorDataBE ida = new IndicadorDataBE();
             inic.ID_INICIATIVA = id;
+            ida.ID_INICIATIVA = id;
             modelo.iniciativa_mit = inic;
             modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
-            modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
+            //modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
+            //modelo.listaEnfoque = EnfoqueLN.listarEnfoqueIniciativa(modelo.iniciativa_mit.ID_INICIATIVA);
             modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
+
+            modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
+            ida.ID_MEDMIT = modelo.iniciativa_mit.ID_MEDMIT;
+            modelo.listaIndData = IndicadorLN.ListarDatosTablaDinamica(ida);
+
             modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
             modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
             modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
@@ -276,11 +352,18 @@ namespace MRVMinem.Controllers
             //modelo.detalle = 1;
             ListaObjeto modelo = new ListaObjeto();
             IniciativaBE inic = new IniciativaBE();
+            IndicadorDataBE ida = new IndicadorDataBE();
             inic.ID_INICIATIVA = ini;
+            ida.ID_INICIATIVA = ini;
             modelo.iniciativa_mit = inic;
             modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
-            modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
+            //modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
             modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
+
+            modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
+            ida.ID_MEDMIT = modelo.iniciativa_mit.ID_MEDMIT;
+            modelo.listaIndData = IndicadorLN.ListarDatosTablaDinamica(ida);
+
             modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
             modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
             modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
@@ -473,13 +556,17 @@ namespace MRVMinem.Controllers
             if (entidad.OK)
             {
                 //var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
+                entidad.EMAIL_USUARIO_ORIGEN = Convert.ToString(Session["correo"]);
+                entidad.NOMBRES = Convert.ToString(Session["nombres_destino"]);
                 entidad.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
                 entidad.ASUNTO = "Observación Iniciativa - MRVMinem ";
-                entidad.DESCRIPCION = "En la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") se ha detectado algunos datos a corregir, los detalles en la siguiente descripción: <br/>" + entidad.DESCRIPCION + "<br/><br/>";
+                entidad.CABECERA_EMAIL = "<strong>Estimado Usuario: &nbsp;</strong><span>" + entidad.NOMBRES + ", se realizó una observación en su iniciativa.</span>";
+                entidad.DESCRIPCION = "En la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") se ha detectado algunos datos a corregir, los detalles en la siguiente descripción: <br/><br/>" + entidad.DESCRIPCION + "<br/><br/>";
                 EnvioCorreo hilo_correo = new EnvioCorreo(entidad, 1);
-                Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+                Task tarea = Task.Factory.StartNew(() => hilo_correo.enviarMensajeIniciativa());
                 itemRespuesta.extra = entidad.DESCRIPCION;
                 Session["correo_destino"] = "";
+                Session["nombres_destino"] = "";
             }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
@@ -547,22 +634,221 @@ namespace MRVMinem.Controllers
             return jsonResult;
         }
 
-        public JsonResult RegistrarDetalleIndicador(IndicadorBE entidad)
+        //public JsonResult RegistrarDetalleIndicador(IndicadorBE entidad)
+        //{
+        //    ResponseEntity itemRespuesta = new ResponseEntity();
+
+        //    //entidad = IndicadorLN.RegistrarDetalleIndicador(entidad);
+        //    if (entidad.ID_ESTADO == 1)
+        //    {
+        //        var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
+        //        IniciativaBE iniciativa = new IniciativaBE();
+        //        iniciativa.EMAIL_USUARIO = WebConfigurationManager.AppSettings.Get("UsermailEsp");
+        //        iniciativa.ASUNTO = "Registro Detalle Indicador - Entidad " + usuario.INSTITUCION;
+        //        iniciativa.DESCRIPCION = "El usuario de la entidad " + usuario.INSTITUCION + " ha registrado el/los detalle(s) de la Iniciativa (" + entidad.NOMBRE_INICIATIVA + "), en espera de su revisión.<br/><br/>";
+        //        EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 2);
+        //        Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+        //    }
+        //    itemRespuesta.success = entidad.OK;
+        //    return Respuesta(itemRespuesta);
+        //}
+
+        public JsonResult RegistrarDetalleIndicador(HttpPostedFileBase[] fledoc, HttpPostedFileBase[] fledocumentos, IniciativaBE entidad)
         {
             ResponseEntity itemRespuesta = new ResponseEntity();
-
-            //entidad = IndicadorLN.RegistrarDetalleIndicador(entidad);
-            if (entidad.ID_ESTADO == 1)
+            entidad.ID_USUARIO = Convert.ToInt32(Session["usuario"]);
+            try
             {
-                var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
-                IniciativaBE iniciativa = new IniciativaBE();
-                iniciativa.EMAIL_USUARIO = WebConfigurationManager.AppSettings.Get("UsermailEsp");
-                iniciativa.ASUNTO = "Registro Detalle Indicador - Entidad " + usuario.INSTITUCION;
-                iniciativa.DESCRIPCION = "El usuario de la entidad " + usuario.INSTITUCION + " ha registrado el/los detalle(s) de la Iniciativa (" + entidad.NOMBRE_INICIATIVA + "), en espera de su revisión.<br/><br/>";
-                EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 2);
-                Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+                if (fledoc != null)
+                {
+                    foreach (var f in fledoc)
+                    {
+                        if (f != null)
+                        {
+                            string archivoOriginal = f.FileName;
+                            string nomArchivoSave = "";
+                            nomArchivoSave = Guid.NewGuid() + Path.GetExtension(f.FileName).ToString();
+                            var carpeta = WebConfigurationManager.AppSettings.Get("Sustentatorio");
+                            var ruta = Path.Combine(carpeta, nomArchivoSave);
+                            f.SaveAs(ruta);
+
+
+                            if (entidad.ListaIndicadores != null)
+                            {
+                                foreach (IndicadorBE item in entidad.ListaIndicadores)
+                                {
+                                    if (item.ADJUNTO_BASE != null)
+                                    {
+                                        if (item.ADJUNTO_BASE.Contains(archivoOriginal))
+                                        {
+                                            item.ADJUNTO = nomArchivoSave;
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if (fledocumentos != null)
+                {
+                    foreach (var f in fledocumentos)
+                    {
+                        if (f != null)
+                        {
+                            string archivoOriginal = f.FileName;
+                            string nomArchivoSave = "";
+
+                            if (entidad.extra.Contains(archivoOriginal))
+                            {
+                                nomArchivoSave = Guid.NewGuid() + Path.GetExtension(f.FileName).ToString();
+                                var carpeta = WebConfigurationManager.AppSettings.Get("Sustentatorio");
+                                var ruta = Path.Combine(carpeta, nomArchivoSave);
+                                f.SaveAs(ruta);
+
+
+                                if (entidad.ListaSustentos != null)
+                                {
+                                    foreach (SustentoIniciativaBE item in entidad.ListaSustentos)
+                                    {
+                                        if (item.ADJUNTO_BASE != null)
+                                        {
+                                            if (item.ADJUNTO_BASE.Contains(archivoOriginal))
+                                            {
+                                                item.ADJUNTO = nomArchivoSave;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                //==========================================================
+                List<IndicadorDataBE> listaDataE = new List<IndicadorDataBE>();
+                if (!string.IsNullOrEmpty(entidad.DATA))
+                {                    
+                    var valores = entidad.DATA.Split('/');
+
+                    for (int i = 0; i < valores.Length; i++)
+                    {
+                        var indic = valores[i].Split(';');
+                        var valores_det = indic[0].Split('|');
+                        IndicadorDataBE dataE = new IndicadorDataBE();
+                        List<IndicadorDataBE> listaP = new List<IndicadorDataBE>();
+                        for (int j = 0; j < valores_det.Length; j++)
+                        {
+                            var parametros = valores_det[j].Split(',');
+
+                            IndicadorDataBE ind = new IndicadorDataBE();
+                            ind.ID_ENFOQUE = Convert.ToInt32(parametros[0]);
+                            ind.ID_MEDMIT = Convert.ToInt32(parametros[1]);
+                            ind.ID_PARAMETRO = Convert.ToInt32(parametros[2]);
+                            if (Convert.ToString(parametros[3]) == "0")
+                            {
+                                ind.VALOR = "";
+                            }
+                            else
+                            {
+                                ind.VALOR = Convert.ToString(parametros[3]);
+                            }
+                            listaP.Add(ind);
+                        }
+                        if (string.IsNullOrEmpty(indic[1])) indic[1] = "0";
+                        dataE.ID_INDICADOR = Convert.ToInt32(indic[1]);
+                        dataE.listaInd = listaP;
+                        listaDataE.Add(dataE);
+                    }
+                }
+                
+
+                //============================================================
+
+                //IndicadorBE indicador = null;
+                IndicadorDataBE indicador = null;
+                //if (entidad.ListaIndicadores != null)
+                if (listaDataE != null && listaDataE.Count > 0)
+                {
+                    //indicador = IndicadorLN.RegistraTodosIndicadores(entidad.ListaIndicadores);
+                    indicador = IndicadorLN.RegistraTodosIndicadoresData(entidad, listaDataE);
+                    if (!indicador.OK)
+                    {
+                        itemRespuesta.success = false;
+                        itemRespuesta.message = "Ocurrio un problema durante el registro de indicadores.";
+                        itemRespuesta.extra = indicador.extra;
+                        return Respuesta(itemRespuesta);
+                    }
+                }
+
+                IniciativaBE iniciativaM = null;
+                if (!string.IsNullOrEmpty(entidad.ID_INDICADOR_DELETE))
+                    iniciativaM = IndicadorLN.EliminarIndicadores(entidad);
+
+                if (!string.IsNullOrEmpty(entidad.ID_INDICADOR_ELIMINAR))
+                    iniciativaM = IndicadorLN.EliminarIndicadoresFile(entidad);
+
+                SustentoIniciativaBE sustento = null;
+                if (entidad.ListaSustentos != null)
+                {
+                    sustento = IndicadorLN.RegistraTodosSustentoIniciativa(entidad.ListaSustentos);
+                    if (!sustento.OK)
+                    {
+                        itemRespuesta.success = false;
+                        itemRespuesta.message = "Ocurrio un problema durante el registro del sustento.";
+                        itemRespuesta.extra = indicador.extra;
+                        return Respuesta(itemRespuesta);
+                    }
+                }
+
+                if (entidad.ID_ESTADO == 1) //add 30-01-20
+                {
+                    entidad = IndicadorLN.RegistrarEnvioDetalle(entidad);
+                }
+                else if (entidad.ID_ESTADO == 5) //add 30-01-20
+                {
+                    entidad = IndicadorLN.CorregirDetalleIndicador2(entidad);
+                }
+                else if (entidad.ID_ESTADO == 0 || entidad.ID_ESTADO == 6) //add 30-01-20
+                {
+                    entidad = IndicadorLN.RegistrarAvanceDetalleIndicador(entidad);
+                }
+
+
+                if (entidad.ID_ESTADO == 1)
+                {
+                    var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
+                    IniciativaBE iniciativa = new IniciativaBE();
+                    iniciativa.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
+                    iniciativa.ASUNTO = "Registro Detalle Indicador - Entidad " + usuario.INSTITUCION;
+                    iniciativa.DESCRIPCION = "El usuario de la entidad " + usuario.INSTITUCION + " ha registrado el/los detalle(s) de la Iniciativa (" + entidad.NOMBRE_INICIATIVA + "), en espera de su revisión.<br/><br/>";
+                    EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 2);
+                    Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+                }
+                else if (entidad.ID_ESTADO == 5)
+                {
+                    var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
+                    IniciativaBE iniciativa = new IniciativaBE();
+                    iniciativa.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
+                    iniciativa.ASUNTO = "Observación subsanada de Detalle Indicador - Entidad " + usuario.INSTITUCION;
+                    iniciativa.DESCRIPCION = "El usuario de la entidad " + usuario.INSTITUCION + " ha subsanado la(s) observación(es) de el/los detalle(s) de indicador(es) de la Iniciativa (" + entidad.NOMBRE_INICIATIVA + "), en espera de su revisión.<br/><br/>";
+                    EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
+                    Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+                }
+                Session["correo_destino"] = "";
+                itemRespuesta.success = entidad.OK;
+                itemRespuesta.extra = entidad.ID_ESTADO.ToString();
             }
-            itemRespuesta.success = entidad.OK;
+            catch (Exception ex)
+            {
+                itemRespuesta.success = false;
+                itemRespuesta.message = "Ocurrio un problema durante el registro.";
+                itemRespuesta.extra = ex.Message;
+                Log.Error(ex);
+            }
+
             return Respuesta(itemRespuesta);
         }
 
@@ -592,14 +878,27 @@ namespace MRVMinem.Controllers
             if (entidad.OK)
             {
                 //var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
+                //IniciativaBE iniciativa = new IniciativaBE();
+                //iniciativa.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
+                //iniciativa.ASUNTO = "Observación Detalle Indicador - MRVMinem ";
+                //iniciativa.DESCRIPCION = "En los detalles indicadores de la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") se ha detectado algunos datos a corregir, los detalles en la siguiente descripción: <br/>" + entidad.DESCRIPCION + "<br/><br/>";
+                //EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
+                //Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+                //itemRespuesta.extra = entidad.DESCRIPCION;
+                //Session["correo_destino"] = "";
+
                 IniciativaBE iniciativa = new IniciativaBE();
+                iniciativa.EMAIL_USUARIO_ORIGEN = Convert.ToString(Session["correo"]);
+                iniciativa.NOMBRES = Convert.ToString(Session["nombres_destino"]);
                 iniciativa.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
                 iniciativa.ASUNTO = "Observación Detalle Indicador - MRVMinem ";
-                iniciativa.DESCRIPCION = "En los detalles indicadores de la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") se ha detectado algunos datos a corregir, los detalles en la siguiente descripción: <br/>" + entidad.DESCRIPCION + "<br/><br/>";
+                iniciativa.CABECERA_EMAIL = "<strong>Estimado Usuario: &nbsp;</strong><span>" + iniciativa.NOMBRES + ", se realizó una observación a su detalle de indicadores.</span>";
+                iniciativa.DESCRIPCION = "En los detalles indicadores de la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") se ha detectado algunos datos a corregir, los detalles en la siguiente descripción: <br/><br/>" + entidad.DESCRIPCION + "<br/><br/>";
                 EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
-                Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+                Task tarea = Task.Factory.StartNew(() => hilo_correo.enviarMensajeIniciativa());
                 itemRespuesta.extra = entidad.DESCRIPCION;
                 Session["correo_destino"] = "";
+                Session["nombres_destino"] = "";
             }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
@@ -1358,105 +1657,154 @@ namespace MRVMinem.Controllers
             return jsonResult;
         }
 
-        //EXPORTAR EXCEL
-        public void ExportarToExcelProyectos(IniciativaBE entidad)
+        public JsonResult ActualizarPrimeraVisita(UsuarioBE entidad)
         {
-            //ProyectoBE proyecto = new ProyectoBE();
+            ResponseEntity itemRespuesta = new ResponseEntity();
 
-            //proyecto.ID_CLIENTE = entidad.IdCliente;
-            //proyecto.NOMBRE = entidad.Nombre;
-            //proyecto.ID_RESOLUCION = entidad.Resolucion == null ? "-" : entidad.Resolucion;
-            //proyecto.ID_PRIORIDAD = entidad.TipoPrioridad == null ? "-" : entidad.TipoPrioridad;
-            //proyecto.ID_TIPO_RUBRO = entidad.Rubro;
-            //proyecto.ID_SITUACION_PROY = entidad.Situacion;
-            //var dt = ProyectoLN.ListaProyectos(proyecto);
-            int row = 5;
+            entidad.ID_USUARIO = Convert.ToInt32(Session["usuario"]);
+            entidad = UsuarioLN.ActualizarPrimeraVisita(entidad);
+            if (entidad.OK)
+            {
+                Session["primer_inicio"] = "0";
+            }
+            itemRespuesta.success = entidad.OK;
+
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult GetDeclaracionUsuario(UsuarioBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            List<UsuarioBE> lista = UsuarioLN.SeleccionarMantenimientoUsuario(entidad);
+            string carpetaTemp = WebConfigurationManager.AppSettings["RutaTemp"];
+            string carpeta = WebConfigurationManager.AppSettings["DJ"];
+            if (lista != null)
+            {
+                if (System.IO.File.Exists(carpeta + "\\" + lista[0].ADJUNTO))
+                {
+                    System.IO.File.Copy(carpeta + "\\" + lista[0].ADJUNTO, carpetaTemp + "\\" + lista[0].ADJUNTO, true);
+                    itemRespuesta.success = true;
+                }
+                itemRespuesta.extra = lista[0].ADJUNTO;
+            }
+
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult ConsultaUsuario(UsuarioBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+            string descripcion = entidad.DESCRIPCION;
+            entidad = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
+            entidad.EMAIL_USUARIO_ORIGEN = Convert.ToString(Session["correo"]);
+            entidad.ASUNTO = "MRVMinem - Consulta";
+            entidad.CABECERA_EMAIL = "le enviamos la siguiente consulta:";
+            entidad.DESCRIPCION = descripcion + "<br/><br/>";
+            EnvioCorreo hilo_correo = new EnvioCorreo(entidad);
+            Task tarea = Task.Factory.StartNew(() => hilo_correo.enviarMensaje());
+
+            itemRespuesta.success = true;
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult ListarArchivosGuardados(IniciativaBE entidad)
+        {
+            List<SustentoIniciativaBE> lista = IniciativaLN.ListarArchivosGuardados(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult CalcularIndicadorDinamico(string Valor)
+        {
+            List<IndicadorDataBE> listaP = new List<IndicadorDataBE>();
+
             try
             {
-                string cadena_fecha = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+                var valores = Valor.Split('|');
 
-                using (ExcelPackage package = new ExcelPackage())
+                for (int i = 0; i < valores.Length; i++)
                 {
-                    var ws1 = package.Workbook.Worksheets.Add("PROYECTOS INVERSION SOCIAL");
-                    using (var rng = ws1.Cells[1, 1, row, 6])
+                    var valores_det = valores[i].Split(',');
+
+                    IndicadorDataBE p = new IndicadorDataBE();
+                    p.ID_ENFOQUE = Convert.ToInt32(valores_det[0]);
+                    p.ID_MEDMIT = Convert.ToInt32(valores_det[1]);
+                    p.ID_PARAMETRO = Convert.ToInt32(valores_det[2]);
+                    if (Convert.ToString(valores_det[3]) == "0")
                     {
-                        rng.Style.Font.Bold = true;
-                        rng.Style.WrapText = true;
-                        rng.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                        rng.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
-                        rng.Style.Font.Size = 14;
-                        rng.Merge = true;
-                        rng.Value = "PROYECTOS DE INVERSIÓN SOCIAL " + cadena_fecha;
+                        p.VALOR = "";
                     }
-                    ws1.View.FreezePanes(2, 1);
-                    row++;
-                    ws1.Cells["A" + row].Value = "N°";
-                    ws1.Cells["A" + row].AutoFitColumns(10);
-                    ws1.Cells["B" + row].Value = "NOMBRE DEL PROYECTO";
-                    ws1.Cells["B" + row].AutoFitColumns(120);
-                    ws1.Cells["C" + row].Value = "RESOLUCIÓN";
-                    ws1.Cells["C" + row].AutoFitColumns(40);
-                    ws1.Cells["D" + row].Value = "TIPO DE PRIORIDAD";
-                    ws1.Cells["D" + row].AutoFitColumns(40);
-                    ws1.Cells["E" + row].Value = "RUBRO";
-                    ws1.Cells["E" + row].AutoFitColumns(40);
-                    ws1.Cells["F" + row].Value = "SITUACIÓN DEL PROYECTO";
-                    ws1.Cells["F" + row].AutoFitColumns(50);
+                    else
+                    {
+                        p.VALOR = Convert.ToString(valores_det[3]);
+                    }
 
-                    //using (var rng = ws1.Cells["A" + row + ":F" + row])
-                    //{
-                    //    rng.Style.Font.Bold = true;
-                    //    rng.Style.WrapText = false;
-                    //    rng.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                    //    rng.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                    //    rng.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                    //    rng.Style.Fill.BackgroundColor.SetColor(Color.FromArgb(66, 139, 202));
-                    //    rng.Style.Font.Color.SetColor(Color.FromArgb(255, 255, 255));
-                    //    rng.Style.Font.Size = 12;
-                    //    rng.Style.Border.Top.Style = ExcelBorderStyle.Thin;
-                    //    rng.Style.Border.Left.Style = ExcelBorderStyle.Thin;
-                    //    rng.Style.Border.Right.Style = ExcelBorderStyle.Thin;
-                    //    rng.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
-                    //    rng.Style.Border.Top.Color.SetColor(Color.FromArgb(221, 221, 221));
-                    //    rng.Style.Border.Left.Color.SetColor(Color.FromArgb(255, 255, 255));
-                    //    rng.Style.Border.Right.Color.SetColor(Color.FromArgb(255, 255, 255));
-                    //    rng.Style.Border.Bottom.Color.SetColor(Color.FromArgb(255, 255, 255));
-                    //}
-                    //ws1.Row(row).Height = 42;
-                    //row++;
-                    //if (dt.Count > 0)
-                    //{
-                    //    var xNum = 0;
-                    //    foreach (ProyectoBE dt_fila in dt)
-                    //    {
-                    //        xNum++;
-                    //        ws1.Cells["A" + row].Value = xNum;
-                    //        ws1.Cells["B" + row].Value = dt_fila.NOMBRE;
-                    //        ws1.Cells["C" + row].Value = dt_fila.RESOLUCION;
-                    //        ws1.Cells["D" + row].Value = dt_fila.TIPO_PRIORIDAD;
-                    //        ws1.Cells["E" + row].Value = dt_fila.DESC_TIPO_RUBRO;
-                    //        ws1.Cells["F" + row].Value = dt_fila.SITUACION_PROYECTO;
-                    //        row++;
-                    //    }
-                    //    row++;
-                    //}
-
-                    string strFileName = "PROYECTOS_INVERSION_" + DateTime.Now.ToString() + ".xlsx";
-                    Response.Clear();
-                    byte[] dataByte = package.GetAsByteArray();
-                    Response.AddHeader("Content-Disposition", "inline;filename=\"" + strFileName + "\"");
-                    Response.AddHeader("Content-Length", dataByte.Length.ToString());
-                    Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-                    Response.BinaryWrite(dataByte);
-                    Response.End();
+                    listaP.Add(p);
                 }
+
+                listaP = IndicadorLN.CalculoIndicador(listaP);
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
-            }   
-                     
+                Log.Error(ex);
+            }
+            
+            var jsonResult = Json(listaP, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
+
+        public JsonResult ListarEnfoqueMedida(EnfoqueBE entidad)
+        {
+            List<EnfoqueBE> lista = EnfoqueLN.listarEnfoqueMedida(entidad.ID_MEDMIT);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListarCabeceraIndicador(ParametroBE entidad)
+        {
+            List<ParametroBE> lista = ParametroLN.ListarCabeceraIndicador(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListarCuerpoIndicador(ParametroBE entidad)
+        {
+            List<ParametroBE> lista = ParametroLN.ListarParametroEnfoque(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+        public JsonResult ListarDatosIndicadorData(IndicadorDataBE entidad)
+        {
+            List<IndicadorDataBE> lista = IndicadorLN.ListarDatosIndicadorData(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult DeshabilitarUsuario(UsuarioBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = UsuarioLN.DeshabilitarUsuario(entidad);
+            itemRespuesta.success = entidad.OK;
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult DashboardResultado(IndicadorBE entidad)
+        {
+            List<IndicadorBE> lista = IndicadorLN.DashboardResultado(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        //EXPORTAR EXCEL
 
         public void ExportarIniciativa(string item)
         {
@@ -1748,7 +2096,13 @@ namespace MRVMinem.Controllers
 
         public void ExportarToExcelDetalleIndicador(IndicadorBE entidad)
         {
-            var lista = IndicadorLN.ListarDetalleIndicador(entidad);
+            IndicadorDataBE ida = new IndicadorDataBE();
+            ida.ID_INICIATIVA = entidad.ID_INICIATIVA;
+            ida.ID_MEDMIT = entidad.ID_MEDMIT;
+            //var lista = IndicadorLN.ListarDetalleIndicador(entidad);
+            var lista = IndicadorLN.ListarDatosTablaDinamica(ida);
+            int tam = lista[0].listaParam.Count;
+
             int row = 2;
             try
             {
@@ -1757,7 +2111,7 @@ namespace MRVMinem.Controllers
                 using (ExcelPackage package = new ExcelPackage())
                 {
                     var ws1 = package.Workbook.Worksheets.Add("DETALLE INDICADORES");
-                    using (var m = ws1.Cells[1, 1, row, 10])
+                    using (var m = ws1.Cells[1, 1, row, tam])
                     {
                         m.Style.Font.Bold = true;
                         m.Style.WrapText = true;
@@ -1767,89 +2121,173 @@ namespace MRVMinem.Controllers
                         m.Merge = true;
                         m.Value = "DETALLE INDICADORES " + cadena_fecha;
                     }
-                    ws1.View.FreezePanes(2, 1);
-                    row++;
-                    ws1.Cells["A" + row].Value = "N°";
-                    ws1.Cells["A" + row].AutoFitColumns(5);
-                    ws1.Cells["B" + row].Value = "AÑO";
-                    ws1.Cells["B" + row].AutoFitColumns(10);
-                    ws1.Cells["C" + row].Value = "TIPO VEHÍCULO";
-                    ws1.Cells["C" + row].AutoFitColumns(25);
-                    ws1.Cells["D" + row].Value = "TIPO COMBUSTIBLE";
-                    ws1.Cells["D" + row].AutoFitColumns(25);
-                    ws1.Cells["E" + row].Value = "KRV";
-                    ws1.Cells["E" + row].AutoFitColumns(15);
-                    ws1.Cells["F" + row].Value = "CANTIDAD";
-                    ws1.Cells["F" + row].AutoFitColumns(15);
-                    ws1.Cells["G" + row].Value = "FACTOR RENDIMIENTO";
-                    ws1.Cells["G" + row].AutoFitColumns(25);
-                    ws1.Cells["H" + row].Value = "LÍNEA BASE EMISIONES GEI (tCO2eq)";
-                    ws1.Cells["H" + row].AutoFitColumns(40);
-                    ws1.Cells["I" + row].Value = "INICIATIVA M. EMISIONES GEI (tCO2eq)";
-                    ws1.Cells["I" + row].AutoFitColumns(40);
-                    ws1.Cells["J" + row].Value = "EMISIONES GEI REDUCIDAS (tCO2eq)";
-                    ws1.Cells["J" + row].AutoFitColumns(40);
+                    ws1.View.FreezePanes(3, 1);
 
-                    //using (var m = ws1.Cells["A" + row + ":I" + row])
-                    //{
-                    //    m.Style.Font.Bold = true;
-                    //    m.Style.WrapText = false;
-                    //    m.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                    //    m.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                    //    m.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                    //    m.Style.Fill.BackgroundColor.SetColor(Color.FromArgb(66, 139, 202));
-                    //    m.Style.Font.Color.SetColor(Color.FromArgb(255, 255, 255));
-                    //    m.Style.Font.Size = 12;
-                    //    m.Style.Border.Top.Style = ExcelBorderStyle.Thin;
-                    //    m.Style.Border.Left.Style = ExcelBorderStyle.Thin;
-                    //    m.Style.Border.Right.Style = ExcelBorderStyle.Thin;
-                    //    m.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
-                    //    m.Style.Border.Top.Color.SetColor(Color.FromArgb(221, 221, 221));
-                    //    m.Style.Border.Left.Color.SetColor(Color.FromArgb(255, 255, 255));
-                    //    m.Style.Border.Right.Color.SetColor(Color.FromArgb(255, 255, 255));
-                    //    m.Style.Border.Bottom.Color.SetColor(Color.FromArgb(255, 255, 255));
-                    //}
-                    FormatoCelda(ws1, "A", row, 40, 167, 69, 255, 255, 255); //V
-                    FormatoCelda(ws1, "B", row, 40, 167, 69, 255, 255, 255); //V
-                    FormatoCelda(ws1, "C", row, 40, 167, 69, 255, 255, 255); //V
-                    FormatoCelda(ws1, "D", row, 255, 193, 7, 52, 58, 64); //N
-                    FormatoCelda(ws1, "E", row, 40, 167, 69, 255, 255, 255); //V
-                    FormatoCelda(ws1, "F", row, 40, 167, 69, 255, 255, 255); //V
-                    FormatoCelda(ws1, "G", row, 40, 167, 69, 255, 255, 255); //V
-                    FormatoCelda(ws1, "H", row, 255, 193, 7, 52, 58, 64); //N
-                    FormatoCelda(ws1, "I", row, 40, 167, 69, 255, 255, 255); //V
-                    FormatoCelda(ws1, "J", row, 0, 123, 255, 255, 255, 255); //A
-                    ws1.Row(row).Height = 42;
-                    var total = 0.0;
-                    row++;
-                    if (lista.Count > 0)
+                    
+
+                    foreach (var item in lista)
                     {
-                        var xNum = 0;
-                        foreach (IndicadorBE dt_fila in lista)
+                        row++;
+                        ws1.Cells["B" + row].Value = item.DESCRIPCION;
+
+                        row++;
+                        int j = 1;
+                        ws1.Cells["A" + row].Value = "N°";
+                        ws1.Cells["A" + row].AutoFitColumns(5);
+                        foreach (var itemD in item.listaParam)
                         {
-                            xNum++;
-                            ws1.Cells["A" + row].Value = xNum;
-                            ws1.Cells["B" + row].Value = dt_fila.ANNO_BASE;
-                            ws1.Cells["C" + row].Value = dt_fila.TIPO_VEHICULO;
-                            ws1.Cells["D" + row].Value = dt_fila.TIPO_COMBUSTIBLE;
-                            ws1.Cells["E" + row].Value = dt_fila.KRV_BASE;
-                            ws1.Cells["F" + row].Value = dt_fila.CANT_BASE;
-                            ws1.Cells["G" + row].Value = dt_fila.F_RENDIMIENTO;
-                            ws1.Cells["H" + row].Value = dt_fila.TOTAL_GEI_BASE;
-                            ws1.Cells["I" + row].Value = dt_fila.TOTAL_GEI_INIMIT;
-                            ws1.Cells["J" + row].Value = dt_fila.TOTAL_GEI_REDUCIDO;
-                            total += Double.Parse(dt_fila.TOTAL_GEI_REDUCIDO.ToString());
-                            formatoDetalle(ws1, "A", "J", row);
-                            row++;
+                            j++;
+                            string L = obtenerLetra(j);
+                            ws1.Cells[L + row].Value = itemD.NOMBRE_PARAMETRO;
+                            ws1.Cells[L + row].AutoFitColumns(35);
+                        }
+
+                        j = 1;
+                        FormatoCelda(ws1, "A", row, 40, 167, 69, 255, 255, 255); //V
+                        foreach (var itemD in item.listaParam)
+                        {
+                            j++;
+                            string L = obtenerLetra(j);
+                            if (itemD.ID_GRUPO_INDICADOR == 1)
+                            {
+                                FormatoCelda(ws1, L, row, 40, 167, 69, 255, 255, 255); //V                                
+                            }
+                            else if (itemD.ID_GRUPO_INDICADOR == 2)
+                            {
+                                FormatoCelda(ws1, L, row, 255, 193, 7, 52, 58, 64); //N
+                            }
+                            else if (itemD.ID_GRUPO_INDICADOR == 3)
+                            {
+                                FormatoCelda(ws1, L, row, 0, 123, 255, 255, 255, 255); //A
+                            }
+
+                        }
+
+                        ws1.Row(row).Height = 42;
+                        //var total = 0.0;
+                        row++;
+                        var xNum = 0;
+                        foreach (var itemI in item.listaInd)
+                        {
+                            j = 1;                            
+                            if (itemI.listaInd.Count > 0)
+                            {
+                                xNum++;
+                                ws1.Cells["A" + row].Value = xNum;
+                                foreach (var itemDet in itemI.listaInd)
+                                {
+                                    j++;
+                                    string L = obtenerLetra(j);
+                                    if (itemDet.ID_TIPO_CONTROL == 1)
+                                    {
+                                        if (itemDet.ID_PARAMETRO != 6)
+                                        {
+                                            ws1.Cells[L + row].Value = itemDet.DESCRIPCION;
+                                        }
+                                        else
+                                        {
+                                            ws1.Cells[L + row].Value = itemDet.VALOR;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        ws1.Cells[L + row].Value = itemDet.VALOR;
+                                    }                                    
+                                }
+                                formatoDetalle(ws1, "A", obtenerLetra(j), row);
+                                row++;
+                            }
                         }
                         row++;
+                        row++;
+                        
+
+                        //if (lista.Count > 0)
+                        //{
+                        //    var xNum = 0;
+                        //    foreach (IndicadorBE dt_fila in lista)
+                        //    {
+                        //        xNum++;
+                        //        ws1.Cells["A" + row].Value = xNum;
+                                
+                        //        ws1.Cells["C" + row].Value = dt_fila.TIPO_VEHICULO;
+                        //        ws1.Cells["D" + row].Value = dt_fila.TIPO_COMBUSTIBLE;
+                        //        ws1.Cells["E" + row].Value = dt_fila.KRV_BASE;
+                        //        ws1.Cells["F" + row].Value = dt_fila.CANT_BASE;
+                        //        ws1.Cells["G" + row].Value = dt_fila.F_RENDIMIENTO;
+                        //        ws1.Cells["H" + row].Value = dt_fila.TOTAL_GEI_BASE;
+                        //        ws1.Cells["I" + row].Value = dt_fila.TOTAL_GEI_INIMIT;
+                        //        ws1.Cells["J" + row].Value = dt_fila.TOTAL_GEI_REDUCIDO;
+                        //        total += Double.Parse(dt_fila.TOTAL_GEI_REDUCIDO.ToString());
+                        //        formatoDetalle(ws1, "A", "J", row);
+                        //        row++;
+                        //    }
+                        //    row++;
+                        //}
+
                     }
 
-                    row++;
-                    ws1.Cells["I" + row].Value = "TOTAL (tCO2eq)";
-                    ws1.Cells["J" + row].Value = total;
-                    formatoDetalle(ws1, "I", "J", row);
-                    ws1.Cells["I" + row].Style.Font.Bold = true;
+
+                    //ws1.Cells["C" + row].Value = "TIPO VEHÍCULO";
+                    //ws1.Cells["C" + row].AutoFitColumns(25);
+                    //ws1.Cells["D" + row].Value = "TIPO COMBUSTIBLE";
+                    //ws1.Cells["D" + row].AutoFitColumns(25);
+                    //ws1.Cells["E" + row].Value = "KRV";
+                    //ws1.Cells["E" + row].AutoFitColumns(15);
+                    //ws1.Cells["F" + row].Value = "CANTIDAD";
+                    //ws1.Cells["F" + row].AutoFitColumns(15);
+                    //ws1.Cells["G" + row].Value = "FACTOR RENDIMIENTO";
+                    //ws1.Cells["G" + row].AutoFitColumns(25);
+                    //ws1.Cells["H" + row].Value = "LÍNEA BASE EMISIONES GEI (tCO2eq)";
+                    //ws1.Cells["H" + row].AutoFitColumns(40);
+                    //ws1.Cells["I" + row].Value = "INICIATIVA M. EMISIONES GEI (tCO2eq)";
+                    //ws1.Cells["I" + row].AutoFitColumns(40);
+                    //ws1.Cells["J" + row].Value = "EMISIONES GEI REDUCIDAS (tCO2eq)";
+                    //ws1.Cells["J" + row].AutoFitColumns(40);                    
+
+                    //FormatoCelda(ws1, "A", row, 40, 167, 69, 255, 255, 255); //V
+                    //FormatoCelda(ws1, "B", row, 40, 167, 69, 255, 255, 255); //V
+                    //FormatoCelda(ws1, "C", row, 40, 167, 69, 255, 255, 255); //V
+                    //FormatoCelda(ws1, "D", row, 255, 193, 7, 52, 58, 64); //N
+                    //FormatoCelda(ws1, "E", row, 40, 167, 69, 255, 255, 255); //V
+                    //FormatoCelda(ws1, "F", row, 40, 167, 69, 255, 255, 255); //V
+                    //FormatoCelda(ws1, "G", row, 40, 167, 69, 255, 255, 255); //V
+                    //FormatoCelda(ws1, "H", row, 255, 193, 7, 52, 58, 64); //N
+                    //FormatoCelda(ws1, "I", row, 40, 167, 69, 255, 255, 255); //V
+                    //FormatoCelda(ws1, "J", row, 0, 123, 255, 255, 255, 255); //A
+
+
+                    //ws1.Row(row).Height = 42;
+                    //var total = 0.0;
+                    //row++;
+                    //if (lista.Count > 0)
+                    //{
+                    //    var xNum = 0;
+                    //    foreach (IndicadorBE dt_fila in lista)
+                    //    {
+                    //        xNum++;
+                    //        ws1.Cells["A" + row].Value = xNum;
+                    //        ws1.Cells["B" + row].Value = dt_fila.ANNO_BASE;
+                    //        ws1.Cells["C" + row].Value = dt_fila.TIPO_VEHICULO;
+                    //        ws1.Cells["D" + row].Value = dt_fila.TIPO_COMBUSTIBLE;
+                    //        ws1.Cells["E" + row].Value = dt_fila.KRV_BASE;
+                    //        ws1.Cells["F" + row].Value = dt_fila.CANT_BASE;
+                    //        ws1.Cells["G" + row].Value = dt_fila.F_RENDIMIENTO;
+                    //        ws1.Cells["H" + row].Value = dt_fila.TOTAL_GEI_BASE;
+                    //        ws1.Cells["I" + row].Value = dt_fila.TOTAL_GEI_INIMIT;
+                    //        ws1.Cells["J" + row].Value = dt_fila.TOTAL_GEI_REDUCIDO;
+                    //        total += Double.Parse(dt_fila.TOTAL_GEI_REDUCIDO.ToString());
+                    //        formatoDetalle(ws1, "A", "J", row);
+                    //        row++;
+                    //    }
+                    //    row++;
+                    //}
+
+                    //row++;
+                    //ws1.Cells["I" + row].Value = "TOTAL (tCO2eq)";
+                    //ws1.Cells["J" + row].Value = total;
+                    //formatoDetalle(ws1, "I", "J", row);
+                    //ws1.Cells["I" + row].Style.Font.Bold = true;
 
                     string strFileName = "DETALLE_INDICADORES_" + DateTime.Now.ToString() + ".xlsx";
                     Response.Clear();
@@ -1900,6 +2338,64 @@ namespace MRVMinem.Controllers
                 m.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
                 m.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
             }
+        }
+
+        private int getMenorId(List<EnfoqueBE> lista)
+        {
+            var menor = 999999999;
+            foreach(var item in lista)
+            {
+                if(item.ID_ENFOQUE < menor)
+                {
+                    menor = item.ID_ENFOQUE;
+                }
+            }
+            return menor;
+        }
+
+        private int getMenorEnfoqueRegistrado(List<IndicadorBE> lista)
+        {
+            var menor = 999999999;
+            foreach (var item in lista)
+            {
+                if (item.ID_ENFOQUE < menor)
+                {
+                    menor = item.ID_ENFOQUE;
+                }
+            }
+            return menor;
+        }
+
+        private string obtenerLetra (int num)
+        {
+            string letra = "";
+            if (num == 1) letra = "A";
+            if (num == 2) letra = "B";
+            if (num == 3) letra = "C";
+            if (num == 4) letra = "D";
+            if (num == 5) letra = "E";
+            if (num == 6) letra = "F";
+            if (num == 7) letra = "G";
+            if (num == 8) letra = "H";
+            if (num == 9) letra = "I";
+            if (num == 10) letra = "J";
+            if (num == 11) letra = "K";
+            if (num == 12) letra = "L";
+            if (num == 13) letra = "M";
+            if (num == 14) letra = "N";
+            if (num == 15) letra = "O";
+            if (num == 16) letra = "P";
+            if (num == 17) letra = "Q";
+            if (num == 18) letra = "R";
+            if (num == 19) letra = "S";
+            if (num == 20) letra = "T";
+            if (num == 21) letra = "U";
+            if (num == 22) letra = "V";
+            if (num == 23) letra = "W";
+            if (num == 24) letra = "X";
+            if (num == 25) letra = "Y";
+            if (num == 26) letra = "Z";
+            return letra;
         }
 
     }

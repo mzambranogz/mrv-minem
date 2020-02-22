@@ -14,7 +14,14 @@ namespace logica.minem.gob.pe
 
         public static List<EscenarioBE> ListaEscenariosPaginado(EscenarioBE entidad)
         {
+            if (string.IsNullOrEmpty(entidad.buscar)) entidad.buscar = "";
             return escenarioDA.ListaEscenariosPaginado(entidad);
+        }
+
+        public static List<EscenarioBE> ListarEscenarioExcel(EscenarioBE entidad)
+        {
+            if (string.IsNullOrEmpty(entidad.buscar)) entidad.buscar = "";
+            return escenarioDA.ListarEscenarioExcel(entidad);
         }
 
         public static EscenarioBE GetEscenarioPorId(EscenarioBE entidad)
@@ -22,14 +29,14 @@ namespace logica.minem.gob.pe
             return escenarioDA.GetEscenarioPorId(entidad);
         }
 
-        public static EscenarioBE RegistrarSector(EscenarioBE entidad)
+        public static EscenarioBE RegistrarEscenario(EscenarioBE entidad)
         {
-            return escenarioDA.RegistrarSector(entidad);
+            return escenarioDA.RegistrarEscenario(entidad);
         }
 
-        public static EscenarioBE ActualizarSector(EscenarioBE entidad)
+        public static EscenarioBE ActualizarEscenario(EscenarioBE entidad)
         {
-            return escenarioDA.ActualizarSector(entidad);
+            return escenarioDA.ActualizarEscenario(entidad);
         }
 
         public static EscenarioBE EliminarEscenario(EscenarioBE entidad)

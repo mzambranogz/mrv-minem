@@ -149,5 +149,15 @@ namespace logica.minem.gob.pe
             if (string.IsNullOrEmpty(entidad.buscar)) entidad.buscar = "";
             return usuarioDA.BuscarMantenimientoUsuario(entidad);
         }
+
+        public static UsuarioBE ActualizarPrimeraVisita(UsuarioBE entidad)
+        {
+            return usuarioDA.ActualizarPrimeraVisita(entidad);
+        }
+
+        public static UsuarioBE DeshabilitarUsuario(UsuarioBE entidad)
+        {
+            return usuarioDA.DeshabilitarUsuario(entidad);
+        }
     }
 }

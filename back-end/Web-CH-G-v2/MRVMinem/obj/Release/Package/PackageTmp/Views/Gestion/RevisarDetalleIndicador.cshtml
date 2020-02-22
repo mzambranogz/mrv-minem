@@ -6,6 +6,10 @@
 @Html.HiddenFor(m => m.iniciativa_mit.ID_INICIATIVA)
 @Html.HiddenFor(m => m.revision)
 
+@{
+    var total_reducido = 0.0;
+}
+
 <div class="container-fluid map-root" id="historia">
     <div class="container">
         <nav aria-label="breadcrumb">
@@ -48,13 +52,13 @@
                 <div class="container py-5">
                     <div class="row">
                         <div class="col-12">
-                            <div class="h5 pb-5 text-primary">Promoción de vehiculos eléctricos a nivel nacional&nbsp;<br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small></div>
+                            <div class="h5 pb-5 text-primary">@Model.medida.NOMBRE_MEDMIT@*Promoción de vehiculos eléctricos a nivel nacional*@&nbsp;<br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12-col-md-12 col-lg-6">
                             <div class="form-group">
-                                <label for="txt-categoria" class="font-weight-bold">Categoría IPSC</label>
+                                <label for="txt-categoria" class="font-weight-bold">Categoría IPCC</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-landmark"></i></span></div>
                                     <input class="form-control-plaintext" type="text" id="txt-categoria" value="@Model.medida.IPSC_MEDMIT" aria-describedby="inputGroup1" readonly>
@@ -157,8 +161,8 @@
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
                                     <textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="8" readonly placeholder="Ingrese una descripción para su iniciativa">
                                         @*Lima&nbsp;
-                                Arequipa&nbsp;
-                                Tacna*@
+                                    Arequipa&nbsp;
+                                    Tacna*@
                                         @foreach (var item in Model.listaUbicacion)
                                         {
                                             @item.DESCRIPCION <text>&nbsp;</text>
@@ -211,7 +215,7 @@
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
                                     <textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
                                         @*Combustibles fósiles&nbsp;
-                                Electricidad&nbsp;*@
+                                    Electricidad&nbsp;*@
                                         @foreach (var item in Model.listaEnergetico)
                                         {
                                             @item.DESCRIPCION <text>&nbsp;</text>
@@ -227,8 +231,8 @@
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
                                     <textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
                                         @*CO2
-                                y&nbsp;
-                                CH 2*@
+                                    y&nbsp;
+                                    CH 2*@
                                         @foreach (var item in Model.listaGei)
                                         {
                                             @item.DESCRIPCION <text>&nbsp;</text>
@@ -239,124 +243,160 @@
                         </div>
                     </div>
                 </div>
-                <div class="dropdown-divider"></div>
-                <div class="container py-5">
+                <div class="container pt-5">
                     <div class="row">
                         <div class="col-12">
-                            <div class="h5 pb-5 text-primary">Detalles de Identificación<br><small class="text-muted">Complete información</small></div>
+                            <div class="h5 pb-5 text-primary">Detalles de Indicadores</div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-12-col-md-12 col-lg-6">
-                            <div class="form-group">
-                                <label for="txt-enfoque" class="font-weight-bold">Enfoque<span class="text-danger font-weight-bold">&nbsp;</span></label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup20"><i class="fas fa-square-root-alt"></i></span></div>
-                                    <input class="form-control-plaintext" id="txt-enfoque" aria-describedby="inputGroup20" value="Vehículo Eléctrico" readonly>
+                </div>
+
+
+
+
+
+                @if (Model.listaIndData != null)
+                {
+                    foreach (var itemD in Model.listaIndData)
+                    {
+                        var texto = 0;
+                        var fecha = 0;
+                        var lista = 0;
+                        var total_e = 0.0;
+                        var fila = 0;
+                        total_reducido = 0.0;
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-12-col-md-12 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="txt-enfoque" class="font-weight-bold">Enfoque</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup20"><i class="fas fa-square-root-alt"></i></span></div>
+                                            <input class="form-control-plaintext" id="txt-enfoque" aria-describedby="inputGroup20" value="@itemD.DESCRIPCION" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12-col-md-12 col-lg-6">&nbsp;</div>
+                            </div>
+                        </div>
+                        <div class="container-fluid py-4">
+                            <div class="h5">Resumen de Detalles de Indicadores&nbsp;<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Complete los campos de acuerdo al enfoque seleccionado"></i></div>
+                            <div class="dropdown-divider"></div>
+                            <div class="row">
+                                <div class="col-12 px-0">
+                                    <div class="table-responsive tabla-principal tabla-recorrer tabla-detalle-indicadores-1" data-order="tbl-1">
+
+                                        <table class="table table-hover" data-fila="0">
+                                            <thead @*id="cabeceraTablaIndicador"*@>
+                                                <tr class="bg-primary text-white">
+                                                    <th class="text-center" style="background-color: #28A745;" scope="col"><span>N°&nbsp;</span></th>
+                                                    @foreach (var itemCab in itemD.listaParam)
+                                                    {
+                                                        if (@itemCab.ID_PARAMETRO == 9 || @itemCab.ID_PARAMETRO == 10 || @itemCab.ID_PARAMETRO == 11)
+                                                        {
+                                                            <th class="text-center" style="background-color: @itemCab.COLOR_GRUPO;" scope="col"><span>@itemCab.NOMBRE_PARAMETRO tCO<sub>2</sub>eq&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador @itemCab.NOMBRE_PARAMETRO"></i></span></th>
+                                                        }
+                                                        else
+                                                        {
+                                                            <th class="text-center" style="background-color: @itemCab.COLOR_GRUPO;" scope="col"><span>@itemCab.NOMBRE_PARAMETRO&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador @itemCab.NOMBRE_PARAMETRO"></i></span></th>
+                                                        }
+                                                    }
+                                                </tr>
+                                            </thead>
+                                            <tbody id="cuerpoTablaIndicador-1" data-row="0" data-total="0" data-delete="">
+                                                @foreach (var itemDatos in itemD.listaInd)
+                                                {
+                                                    fila += 1;
+                                                    <tr id="detalles-tr-1" data-ind="0">
+                                                        <th class="text-center" data-encabezado="Número" scope="row">@fila</th>
+                                                        @foreach (var itemDet in itemDatos.listaInd)
+                                                        {
+                                                            <td data-encabezado="Columna 04">
+                                                                <div class="form-group m-0">
+                                                                    @if (itemDet.ID_TIPO_CONTROL == 1)
+                                                                    {
+                                                                        if (itemDet.ID_PARAMETRO == 6)
+                                                                        {
+                                                                            <input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-1-1" value="@itemDet.VALOR" readonly>
+
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            <input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-1-1" value="@itemDet.DESCRIPCION" readonly>
+                                                                        }
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-1-1" value="@itemDet.VALOR" readonly>
+
+                                                                    }
+                                                                </div>
+                                                            </td>
+                                                            if (itemDet.ID_PARAMETRO == 11)
+                                                            {
+                                                                total_e += Convert.ToDouble(itemDet.VALOR);
+                                                                total_reducido += Convert.ToDouble(itemDet.VALOR);
+                                                            }
+                                                        }
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12-col-md-12 col-lg-6">&nbsp;</div>
-                    </div>
-                </div>
-                <div class="container-fluid py-4">
-                    @*<div class="h5">Registro de Detalles&nbsp;<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></div>*@
-                    <div class="dropdown-divider"></div>
-                    <div class="row">
-                        <div class="col-12 px-0">
-                            <div class="table-responsive tabla-principal tabla-detalle-indicadores">
-                                <table class="table table-hover" id="tablaIndicador" data-fila="0">
-                                    <thead>
-                                        <tr class="bg-primary text-white">
-                                            <th class="text-center" style="background-color: green;" scope="col"><span>N°&nbsp;</span></th>
-                                            <th class="text-center" style="background-color: green;" scope="col"><span>Año&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Año"></i></span></th>
-                                            <th class="text-center" style="background-color: green;" scope="col"><span>Tipo Vehiculo&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Tipo Vehículo"></i></span></th>
-                                            <th class="text-center" style="background-color: orange;" scope="col"><span>Tipo Combustible&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Tipo Combustible"></i></span></th>
-                                            <th class="text-center" style="background-color: green;" scope="col"><span>KRV&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador KRV"></i></span></th>
-                                            <th class="text-center" style="background-color: green;" scope="col"><span>Cantidad&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Cantidad"></i></span></th>
-                                            <th class="text-center" style="background-color: green;" scope="col"><span>Factor de Rendimiento&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Rendimiento"></i></span></th>
-                                            <th class="text-center" style="background-color: orange;" scope="col"><span>Línea Base Emisiones GEI (tCO<sub>2</sub>eq)</span></th>
-                                            <th class="text-center" style="background-color: green;" scope="col"><span>Iniciativa Mitigación Emisiones GEI (tCO<sub>2</sub>eq)</span></th>
-                                            <th class="text-center" style="background-color: #2271b3;" scope="col"><span>Emisiones GEI Reducidas (tCO<sub>2</sub>eq)</span></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="cuerpoTablaIndicador" data-row="0" data-total="0">
-                                        @{
-                                            var total_reducido = 0.0;
-                                        }
-                                        @foreach (var item in Model.listaIndicador)
-                                        {
-                                            var i = 0;
-                                            i++;
-                                            <tr>
-                                                <th class="text-center" data-encabezado="Número" scope="row">@i</th>
-                                                <td class="text-center" data-encabezado="Columna 01">@item.ANNOB</td>
-                                                <td class="text-center" data-encabezado="Columna 02">@item.TIPO_VEHICULO</td>
-                                                <td class="text-center" data-encabezado="Columna 03">@item.TIPO_COMBUSTIBLE</td>
-                                                <td class="text-center" data-encabezado="Columna 04">@item.KRVB</td>
-                                                <td class="text-center" data-encabezado="Columna 05">@item.CANTIDADB</td>
-                                                <td class="text-center" data-encabezado="Columna 06">@item.RENDIMIENTO</td>
-                                                <td class="text-center" data-encabezado="Columna 07">@item.TOTAL_GEI_BASE</td>
-                                                <td class="text-center" data-encabezado="Columna 08">@item.TOTAL_GEI_INIMIT</td>
-                                                <td class="text-center" data-encabezado="Columna 09">@item.TOTAL_GEI_REDUCIDO</td>
-                                            </tr>
-
-                                            total_reducido += Convert.ToDouble(item.TOTAL_GEI_REDUCIDO);
-                                        }
-                                        @{
-                                            total_reducido = Math.Round(total_reducido * 100) / 100;
-                                        }
-                                        @*<tr>
-                                    <th class="text-center" data-encabezado="Número" scope="row">1</th>
-                                    <td data-encabezado="Columna 01">Valor 1</td>
-                                    <td data-encabezado="Columna 02">Texto 1</td>
-                                    <td data-encabezado="Columna 03">Valor 1</td>
-                                    <td data-encabezado="Columna 04">Texto 1</td>
-                                    <td data-encabezado="Columna 05">Valor 1</td>
-                                    <td data-encabezado="Columna 06">Texto 1</td>
-                                    <td data-encabezado="Columna 07">Valor 1</td>
-                                    <td data-encabezado="Columna 08">Texto 1</td>
-                                    <td data-encabezado="Columna 09">Valor 1</td>
-                                    <td data-encabezado="Columna 10">Texto 1</td>
-                                    <td data-encabezado="Columna 11">Valor 1</td>
-                                    <td data-encabezado="Columna 12">Texto 1</td>
-                                    <td data-encabezado="Columna 13">Valor 1</td>
-                                    <td data-encabezado="Columna 14">Texto 1</td>
-                                    <td data-encabezado="Columna 15">Valor 1</td>
-                                    <td data-encabezado="Columna 16">Texto 1</td>
-                                    <td data-encabezado="Subtotal">1,500.00</td>
-                                    <td class="text-center" data-encabezado="Sustento">
-                                        <div class="form-group m-0">
-                                            <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-download mr-1"></i>Descargar</label>
-                                            <input class="d-none fil-file-control" type="file" id="fle-doc">
-                                        </div>
-                                    </td>
-                                </tr>*@
-                                    </tbody>
-                                </table>
+                        <div class="container py-4">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="table-responsive tabla-principal mt-3">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr class="bg-primary text-white">
+                                                    <th class="text-center" scope="col" width="2%"><span>N°&nbsp;</span></th>
+                                                    <th scope="col" width="88%"><span>Resumen Enfoque</span></th>
+                                                    <th scope="col" width="10%"><span>Total</span></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th class="text-center" data-encabezado="Número" scope="row">1</th>
+                                                    <td data-encabezado="Resumen">@itemD.DESCRIPCION</td>
+                                                    <td data-encabezado="Total"><strong id="total-detalle">@total_e</strong><strong>&nbsp;tCO<sub>2</sub>eq</strong></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    }
+                }
+
+
+
+
+
+
                 <div class="dropdown-divider"></div>
-                <div class="container py-5">
+                <div class="container pt-5">
                     <div class="row">
                         <div class="col-12">
                             <div class="h5 pb-5 text-primary">Resumen@*<br><small class="text-muted">Este es el detalle de su detalle de indicadores</small>*@</div>
                         </div>
                     </div>
                 </div>
-                <div class="container py-4">
+                <div class="container">
                     @*<div class="h5">Registro de Detalles&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></div>*@
-                    <div class="dropdown-divider"></div>
+                    @*<div class="dropdown-divider"></div>*@
                     <div class="row">
-                        <div class="col-12 px-0">
+                        <div class="col-12">
                             <div class="table-responsive tabla-principal">
                                 <table class="table table-hover">
                                     <thead>
                                         <tr class="bg-primary text-white">
-                                            <th class="text-center" scope="col" width="2%"><span>#&nbsp;</span></th>
-                                            <th scope="col" width="88%"><span>Resumen</span></th>
+                                            <th class="text-center" scope="col" width="2%"><span>N°&nbsp;</span></th>
+                                            <th scope="col" width="88%"><span>Resumen Total</span></th>
                                             <th scope="col" width="10%"><span>Total</span></th>
                                         </tr>
                                     </thead>
@@ -524,7 +564,7 @@
                         <div class="modal-body medidas-modal">
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <h3 class="text-center">¿Confirma aprobar la solicitud de revisión? <br></h3>
+                                    <h3 class="text-center">¿Está seguro de aprobar la inicitiva de mitigación seleccionada? <br></h3>
                                     <p class="text-center">Está de acuerdo en aprobar todos los datos vinculados en de esta iniciativa de mitigación, como de los detalles de indicadores registrados.</p>
                                 </div>
                                 <div class="col-sm-12 col-md-12 col-lg-12" id="modalAprobacion">
@@ -566,8 +606,8 @@
                             </div>
                         </div>
                         <div class="modal-footer" id="modalAprobarBoton">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
                             <button class="btn btn-primary" type="button" onclick="fn_revisarDetalleIndicador();">Si</button>
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>                            
                         </div>
                         <div class="modal-footer" id="pieCorrectoAprobacion"> <!-- add 04-02-2020 -->
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
@@ -591,7 +631,7 @@
                                 <div class="col-sm-12 col-md-6 col-lg-6 text-right">@*<strong>Fecha de Registro: 15/01/2020</strong>*@</div>
                             </div>
                             <div class="row">
-                                <div class="col-sm-12-col-md-12 col-lg-6">
+                                <div class="col-sm-12-col-md-12 col-lg-6" hidden>
                                     <div class="form-group">
                                         <label for="cbo-tipo-observacion">Tipo de observación<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="En caso no posea un nombre, coloque el nombre de la medida de mitigación seguido de un guión y nombre o siglas de la institución."></i></label>
                                         <div class="input-group">
@@ -609,7 +649,7 @@
                             <div class="row">
                                 <div class="col-sm-12-col-md-12 col-lg-12">
                                     <div class="form-group">
-                                        <label for="txa-nombre-iniciativa">Observaciones:<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="En caso no posea un nombre, coloque el nombre de la medida de mitigación seguido de un guión y nombre o siglas de la institución."></i></label>
+                                        <label for="txa-nombre-iniciativa">Observaciones:<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-comment-alt"></i></span></div>
                                             <textarea class="form-control" id="txa-observacion-detalle" aria-describedby="inputGroup4" cols="30" rows="5" required placeholder="Ingrese un nombre para su iniciativa"></textarea>
@@ -657,8 +697,8 @@
                             </div>
                         </div>
                         <div class="modal-footer" id="modalObservacionBoton">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
                             <a class="btn btn-primary" href="#" onclick="fn_observacionDetalleIndicador();">Enviar<i class="fas fa-paper-plane ml-1"></i></a>
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>                            
                         </div>
                         <div class="modal-footer" id="pieCorrectoObservacion"> <!-- add 04-02-2020 -->
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>

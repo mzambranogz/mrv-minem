@@ -15,6 +15,7 @@ namespace datos.minem.gob.pe
     public class IniciativaDA : BaseDA
     {
         private string sPackage = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_INICIATIVA_MITIGACION.";
+        private string sPackage2 = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_DETALLE_INDICADORES.";
 
         public List<IniciativaBE> ListaIniciativaPublico(IniciativaBE entidad)
         {
@@ -204,6 +205,7 @@ namespace datos.minem.gob.pe
                     p.Add("pFECHA_IMPLE_INICIATIVA", entidad.FECHA_IMPLE_INICIATIVA);
                     p.Add("pFECHA_FIN_INICIATIVA", entidad.FECHA_FIN_INICIATIVA);
                     p.Add("pPRIVACIDAD_INICIATIVA", entidad.PRIVACIDAD_INICIATIVA);
+                    p.Add("pPRIVACIDAD_INVERSION", entidad.PRIVACIDAD_INVERSION);
                     p.Add("pID_ESTADO", entidad.ID_ESTADO);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
@@ -494,6 +496,11 @@ namespace datos.minem.gob.pe
                     p.Add("pID_INICIATIVA_SUSTENTATORIO", entidad.ID_INICIATIVA_SUSTENTATORIO);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<SustentoIniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in Lista)
+                    {
+                        if (string.IsNullOrEmpty(item.ADJUNTO_BASE)) item.ADJUNTO_BASE = "";
+                    }
                 }
             }
             catch (Exception ex)
@@ -1324,6 +1331,9 @@ namespace datos.minem.gob.pe
                     foreach (var item in Lista)
                     {
                         item.FECHA = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
+                        if (item.FECHA == "01/01/0001") item.FECHA = "";
+                        if (string.IsNullOrEmpty(item.NOMBRE_INICIATIVA)) item.NOMBRE_INICIATIVA = "";
+                        if (string.IsNullOrEmpty(item.NOMBRE_MEDMIT)) item.NOMBRE_MEDMIT = "";
                     }
                 }
             }
@@ -1507,6 +1517,30 @@ namespace datos.minem.gob.pe
                     {
                         item.FECHA = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
                     }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+
+        public List<SustentoIniciativaBE> ListarArchivosGuardados(IniciativaBE entidad)
+        {
+            List<SustentoIniciativaBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage2 + "USP_SEL_ARCHIVO_GUARDADO";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<SustentoIniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
                 }
             }
             catch (Exception ex)

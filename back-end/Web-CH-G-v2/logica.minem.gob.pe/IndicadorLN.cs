@@ -111,6 +111,51 @@ namespace logica.minem.gob.pe
             return entidad;
         }
 
+        /*==== add 17-02-20==========*/
+        public static IndicadorDataBE RegistraTodosIndicadoresData(IniciativaBE entidad, List<IndicadorDataBE> lista)
+        {
+            IndicadorDataBE ent = null;
+            //int id_indicador = indicador.getIdIndicador(entidad);
+
+            foreach (var item in lista)
+            {
+                int id_indicador = 0;
+                if (item.ID_INDICADOR == 0)
+                {
+                    id_indicador = indicador.getIdIndicador(entidad);
+                }
+                else
+                {
+                    id_indicador = item.ID_INDICADOR;
+                }
+                
+                foreach (var itemD in item.listaInd)
+                {
+                    if (string.IsNullOrEmpty(item.VALOR)) item.VALOR = "";
+                    itemD.ID_INICIATIVA = entidad.ID_INICIATIVA;
+                    itemD.ID_INDICADOR = id_indicador;
+                    ent = indicador.RegistrarDetalleIndicadorData(itemD);
+                    if (!ent.OK)
+                    {
+                        break;
+                    }
+                }
+            }
+
+            //foreach (IndicadorDataBE item in entidad.ListaIndicadoresData)
+            //{
+            //    if (string.IsNullOrEmpty(item.VALOR)) item.VALOR = "";
+            //    item.ID_INICIATIVA = entidad.ID_INICIATIVA;
+            //    item.ID_INDICADOR = id_indicador;
+            //    ent = indicador.RegistrarDetalleIndicadorData(item);
+            //    if (!ent.OK)
+            //    {
+            //        break;
+            //    }
+            //}
+            return ent;
+        }
+
         public static SustentoIniciativaBE RegistraTodosSustentoIniciativa(List<SustentoIniciativaBE> ListaSustentos)
         {
             SustentoIniciativaBE entidad = null;
@@ -142,6 +187,12 @@ namespace logica.minem.gob.pe
 
         }
 
+        public static IniciativaBE EliminarIndicadoresFile(IniciativaBE entidad) //add 12-02-2020
+        {
+            return indicador.EliminarIndicadoresFile(entidad);
+
+        }
+
         public static IniciativaBE CorregirDetalleIndicador2(IniciativaBE entidad)
         {
             return indicador.CorregirDetalleIndicador2(entidad);
@@ -168,6 +219,25 @@ namespace logica.minem.gob.pe
             return indicador.ObservacionVerificarDetalleIndicador(entidad);
         }
 
+        public static int DetalleIndicadorEnfoque(int iniciativa)
+        {
+            return indicador.DetalleIndicadorEnfoque(iniciativa);
+        }
+
+        public static List<IndicadorDataBE> ListarDatosIndicadorData(IndicadorDataBE entidad)
+        {
+            return indicador.ListarDatosIndicadorData(entidad);
+        }
+
+        public static List<IndicadorDataBE> ListarDatosTablaDinamica(IndicadorDataBE entidad)
+        {
+            return indicador.ListarDatosTablaDinamica(entidad);
+        }
+
+        public static List<IndicadorBE> DashboardResultado(IndicadorBE entidad)
+        {
+            return indicador.DashboardResultado(entidad);
+        }
 
         /* NUEVOS PROCEDIMIENTOS */
         public static List<IndicadorDataBE> CalculoIndicador(List<IndicadorDataBE> listaEntidad)
@@ -200,7 +270,7 @@ namespace logica.minem.gob.pe
                             string lstrFormula = formulaBE.FORMULA.Trim();
 
                             ll_ancho = lstrFormula.Trim().Length;
-                            for (ll_x = 0; ll_x < ll_ancho - 1; ll_x++)
+                            for (ll_x = 0; ll_x < ll_ancho; ll_x++)
                             {
                                 lc_dato = lstrFormula.Substring(ll_x, 1);
                                 switch (lc_dato)
@@ -351,7 +421,10 @@ namespace logica.minem.gob.pe
                                     List<FactorParametroDataBE> lFactorDataBE = new FactorDA().ListaFactorParametroData(Fentidad, SQL);
                                     if (lFactorDataBE != null)
                                     {
-                                        lde_importecida = lFactorDataBE[0].FACTOR;
+                                        if (lFactorDataBE.Count > 0)
+                                            lde_importecida = lFactorDataBE[0].FACTOR;
+                                        else
+                                            lde_importecida = 0;
                                     }
                                 }
                                 else
@@ -361,6 +434,7 @@ namespace logica.minem.gob.pe
                                 ls_subformula = lde_importecida.ToString();
                                 itemF.VALOR = ls_subformula;
                             }
+                            ls_subformula = lde_importecida.ToString();
                         }
                         else
                         {
@@ -386,7 +460,10 @@ namespace logica.minem.gob.pe
                                 List<FactorParametroDataBE> lFactorDataBE = new FactorDA().ListaFactorParametroData(Fentidad, SQL);
                                 if (lFactorDataBE != null)
                                 {
-                                    lde_importecida = lFactorDataBE[0].FACTOR;
+                                    if (lFactorDataBE.Count > 0)
+                                        lde_importecida = lFactorDataBE[0].FACTOR;
+                                    else
+                                        lde_importecida = 0;
                                 }
                             }
                             else
@@ -420,7 +497,10 @@ namespace logica.minem.gob.pe
                             List<FactorParametroDataBE> lFactorDataBE = new FactorDA().ListaFactorParametroData(Fentidad, SQL);
                             if (lFactorDataBE != null)
                             {
-                                lde_importecida = lFactorDataBE[0].FACTOR;
+                                if (lFactorDataBE.Count > 0)
+                                    lde_importecida = lFactorDataBE[0].FACTOR;
+                                else
+                                    lde_importecida = 0;
                             }
                         }
                         else
@@ -437,7 +517,6 @@ namespace logica.minem.gob.pe
 
             return ls_subformula;
         }
-
     }
-
+    
 }

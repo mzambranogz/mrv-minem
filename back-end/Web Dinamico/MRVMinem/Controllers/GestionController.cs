@@ -24,7 +24,7 @@ using MRVMinem.Helper;
 
 namespace MRVMinem.Controllers
 {
-    //[Autenticado]
+    [Autenticado]
     public class GestionController : BaseController
     {
 
@@ -1719,31 +1719,38 @@ namespace MRVMinem.Controllers
         public JsonResult CalcularIndicadorDinamico(string Valor)
         {
             List<IndicadorDataBE> listaP = new List<IndicadorDataBE>();
-            var valores = Valor.Split('|');
 
-            for(int i = 0; i < valores.Length; i++)
+            try
             {
-                var valores_det = valores[i].Split(',');
+                var valores = Valor.Split('|');
 
-                IndicadorDataBE p = new IndicadorDataBE();
-                p.ID_ENFOQUE = Convert.ToInt32(valores_det[0]);
-                p.ID_MEDMIT = Convert.ToInt32(valores_det[1]);
-                p.ID_PARAMETRO = Convert.ToInt32(valores_det[2]);
-                if (Convert.ToString(valores_det[3]) == "0")
+                for (int i = 0; i < valores.Length; i++)
                 {
-                    p.VALOR = "";
+                    var valores_det = valores[i].Split(',');
+
+                    IndicadorDataBE p = new IndicadorDataBE();
+                    p.ID_ENFOQUE = Convert.ToInt32(valores_det[0]);
+                    p.ID_MEDMIT = Convert.ToInt32(valores_det[1]);
+                    p.ID_PARAMETRO = Convert.ToInt32(valores_det[2]);
+                    if (Convert.ToString(valores_det[3]) == "0")
+                    {
+                        p.VALOR = "";
+                    }
+                    else
+                    {
+                        p.VALOR = Convert.ToString(valores_det[3]);
+                    }
+
+                    listaP.Add(p);
                 }
-                else
-                {
-                    p.VALOR = Convert.ToString(valores_det[3]);
-                }
-                
-                listaP.Add(p);
+
+                listaP = IndicadorLN.CalculoIndicador(listaP);
             }
-
-           // var l = listaP;
-
-            listaP = IndicadorLN.CalculoIndicador(listaP);
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+            
             var jsonResult = Json(listaP, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;

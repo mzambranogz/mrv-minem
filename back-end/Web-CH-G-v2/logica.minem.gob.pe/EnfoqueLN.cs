@@ -43,5 +43,16 @@ namespace logica.minem.gob.pe
         {
             return Enfoque.EliminarEnfoque(entidad);
         }
+
+        public static List<EnfoqueBE> listarEnfoqueMedida(int medida)
+        {
+            return Enfoque.listarEnfoqueMedida(medida);
+        }
+
+        public static List<EnfoqueBE> listarEnfoqueIniciativa(int iniciativa)
+        {
+            return Enfoque.listarEnfoqueIniciativa(iniciativa);
+        }
     }
+
 }

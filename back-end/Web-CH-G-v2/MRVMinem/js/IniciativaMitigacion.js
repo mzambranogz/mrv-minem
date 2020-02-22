@@ -130,7 +130,8 @@ function fn_cargarIniciativa() {
                         $("#txt-direccion").val(data[i]["DIRECCION"]);
                         $("#txt-sector-institucion").val(data[i]["SECTOR"]);
                         if (data[i]["INVERSION_INICIATIVA"] != 0) {
-                            $("#txt-monto-inversion").val(data[i]["INVERSION_INICIATIVA"]);
+                            $("#txt-monto-inversion").val(formatoMiles(data[i]["INVERSION_INICIATIVA"])); //add20
+                            //$("#txt-monto-inversion").val(data[i]["INVERSION_INICIATIVA"]);
                         }
                          
                         if ($("#Control").data("revision") == 0) {
@@ -177,6 +178,9 @@ function validarCheck(id, sid) {
 
 function validarCampo() {
 
+    if ($("#cbo-medida-mitigacion-seleccionada").val() == 0) {
+        return false;
+    }
     if ($("#txa-nombre-iniciativa").val().trim() === ""){
         return false;
     }
@@ -266,7 +270,7 @@ function fn_procesoIniciativa(url, estado) {
         }
     }
     ubicacion = ubicacion.substring(0, ubicacion.length - 1);
-
+    debugger;
     var item = {
         ID_INICIATIVA: $("#Control").data("iniciativa"), //
         ID_MEDMIT: $("#Control").data("mitigacion"),
@@ -480,6 +484,11 @@ function fn_ObtenerMedidaMitigacion(id) {
 }
 
 $("#cbo-medida-mitigacion-seleccionada").change(function () {
+    $("#txt-categoria").val("");
+    $("#txa-objetivo").val("");
+    $("#txa-descripcion").val("");
+    $("#nombreMedida span").remove();
+    $("#Control").data("mitigacion", 0);
     var Item = {
         ID_MEDMIT: $("#cbo-medida-mitigacion-seleccionada").val()
     };
@@ -492,7 +501,7 @@ $("#cbo-medida-mitigacion-seleccionada").change(function () {
             if (data != null && data != "") {
                 if (data.length > 0) {
                     for (var i = 0; i < data.length; i++) {
-                        $("#nombreMedida span").remove();
+                        //$("#nombreMedida span").remove();
                         $("#txt-categoria").val(data[i]["IPSC_MEDMIT"]);
                         $("#txa-objetivo").val(data[i]["OBJETIVO_MEDMIT"]);
                         $("#txa-descripcion").val(data[i]["DESCRIPCION_MEDMIT"]);
@@ -850,3 +859,30 @@ $(document).ready(function () {
     $("#Control").data("revision", $("#revision").val());
     fn_ListarMedidaMitigacion();
 });
+
+//$(document).on("change", "#cbo-medida-mitigacion-seleccionada", function () {
+
+//    if ($("#cbo-medida-mitigacion-seleccionada").val() == 0) {
+//        $("#txt-categoria").val("");
+//        $("#txa-objetivo").val("");
+//        $("#txa-descripcion").val("");
+//    }
+
+//});
+
+$("#txt-monto-inversion").on({
+    "focus": function (event) {
+        $(event.target).select();
+    },
+    "keyup": function (event) {
+        $(event.target).val(function (index, value) {
+            return value.replace(/\D/g, "")
+                        .replace(/([0-9])([0-9]{2})$/, '$1.$2')
+                        .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ",");
+        });
+    }
+});
+
+function formatoMiles(n) { //add20
+    return n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+}

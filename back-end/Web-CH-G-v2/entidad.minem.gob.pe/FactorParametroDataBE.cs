@@ -9,7 +9,7 @@ namespace entidad.minem.gob.pe
     public class FactorParametroDataBE : FactorBE
     {
         public int ID_DETALLE { get; set; }
-        public string ID_PARAMETRO { get; set; }    //---->CAMBIO
+        public string ID_PARAMETRO { get; set; }
         public string VALOR { get; set; }
         public decimal FACTOR { get; set; }
     }

@@ -41,7 +41,7 @@
                         <div class="col-sm-12 col-md-4 col-lg-2 pb-5">
                             <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".4s">
                                 <img class="img-thumbnail border-0 p-0" src="~/images/ico_nama_amarillo_01.svg">
-                                <div class="nombre-medida bg-nama-amarilla cursor-pointer" data-toggle="modal" data-target="#modal-resultados"><small class="text-white">Transformación del mercado de iluminación del sector residencial <br><i class="fas fa-chart-pie"></i>&nbsp;<strong>ver resultados</strong></small></div>
+                                <div class="nombre-medida bg-nama-amarilla cursor-pointer" data-toggle="modal" data-target="#modal-resultados" onclick="CargarDashboardMedida(12);"><small class="text-white">Transformación del mercado de iluminación del sector residencial <br><i class="fas fa-chart-pie"></i>&nbsp;<strong>ver resultados</strong></small></div>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-4 col-lg-2 pb-5">
@@ -267,27 +267,40 @@
         </div>
     </div>
 </div>
+
+<script src="~/js/script.js"></script>
+<script src="~/js/MRV.js"></script>
+<script src="~/js/Resultados.js"></script>
 <script>
+
+    $(document).ready(function () {
+        $(".quitar-active").removeClass("nav-active");
+        $("#resultado-mrv").addClass("nav-active");
+    });
+
       google.charts.load('current', {'packages':['corechart']});
 
-      google.charts.setOnLoadCallback(drawPieChart);
-      function drawPieChart() {
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Topping');
-        data.addColumn('number', 'Slices');
-        data.addRows([
-          ['Mushrooms', 3],
-          ['Onions', 1],
-          ['Olives', 1],
-          ['Zucchini', 1],
-          ['Pepperoni', 2]
-        ]);
-        var options = {'title':'How Much Pizza I Ate Last Night',
-          'width':400,
-          'height':300};
-        var chart = new google.visualization.PieChart(document.getElementById('pie-chart'));
-        chart.draw(data, options);
-      }
+      //google.charts.setOnLoadCallback(drawPieChart);
+      //function drawPieChart() {
+      //  var data = new google.visualization.DataTable();
+      //  data.addColumn('string', 'Topping');
+      //  data.addColumn('number', 'Slices');
+      //  data.addRows([
+      //    ['Mushrooms', 3],
+      //    ['Onions', 1],
+      //    ['Olives', 1],
+      //    ['Zucchini', 1],
+      //    ['Pepperoni', 2]
+      //  ]);
+      //  data.addRows([
+      //      ['jose',2]
+      //  ]);
+      //  var options = {'title':'How Much Pizza I Ate Last Night',
+      //    'width':400,
+      //    'height':300};
+      //  var chart = new google.visualization.PieChart(document.getElementById('pie-chart'));
+      //  chart.draw(data, options);
+      //}
 
       google.charts.setOnLoadCallback(drawBarChart);
       function drawBarChart() {

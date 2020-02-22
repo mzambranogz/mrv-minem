@@ -9,6 +9,7 @@ namespace MRVMinem.Models
     public class ListaObjeto
     {
         public int revision { get; set; }
+        public int menor { get; set; }
         public IniciativaBE iniciativa_mit { get; set; }
         public List<IniciativaBE> listaIni { get; set; }
         public MedidaMitigacionBE medida { get; set; }
@@ -19,5 +20,8 @@ namespace MRVMinem.Models
         public List<EnergeticoBE> listaEnergetico { get; set; }
         public List<GasEfectoInvernaderoBE> listaGei { get; set; }
         public List<UsuarioBE> listaUsuario { get; set; }
+        public List<EnfoqueBE> listaEnfoque { get; set; }
+        public List<ParametroBE> listaParametro { get; set; }
+        public List<IndicadorDataBE> listaIndData { get; set; }
     }
 }

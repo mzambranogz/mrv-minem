@@ -31,10 +31,10 @@ namespace MRVMinem.Helper
         public static void AddUserToSession(string id)
         {
             bool persist = true;
-            var cookie = FormsAuthentication.GetAuthCookie("usuario", persist);
+            var cookie = FormsAuthentication.GetAuthCookie("MRVminem", persist);
 
             cookie.Name = FormsAuthentication.FormsCookieName;
-            cookie.Expires = DateTime.Now.AddMonths(3);
+            cookie.Expires = DateTime.Now.AddDays(1); //.AddMonths(3);
 
             var ticket = FormsAuthentication.Decrypt(cookie.Value);
             var newTicket = new FormsAuthenticationTicket(ticket.Version, ticket.Name, ticket.IssueDate, ticket.Expiration, ticket.IsPersistent, id);

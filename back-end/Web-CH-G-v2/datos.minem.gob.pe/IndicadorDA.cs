@@ -15,6 +15,7 @@ namespace datos.minem.gob.pe
     public class IndicadorDA : BaseDA
     {
         public string sPackage = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_DETALLE_INDICADORES.";
+        public string sPackage2 = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_REPORTES.";
         public List<IndicadorBE> ListarTablaIndicador(IndicadorBE entidad)
         {
             List<IndicadorBE> Lista = null;
@@ -50,10 +51,15 @@ namespace datos.minem.gob.pe
                     string sp = sPackage + "USP_SEL_LISTA_DET_INDICADOR";
                     var p = new OracleDynamicParameters();
                     p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_ENFOQUE", entidad.ID_ENFOQUE);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<IndicadorBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
                 }
 
+                foreach (var item in Lista)
+                {
+                    if (item.INICIO_OPERACIONES.ToString("yyyy-MM-dd") != "0001-01-01") item.FECHA = item.INICIO_OPERACIONES.ToString("yyyy-MM-dd");
+                }
             }
             catch (Exception ex)
             {
@@ -62,6 +68,62 @@ namespace datos.minem.gob.pe
 
             return Lista;
         }
+
+        //public List<IndicadorBE> CalcularIndicador(IndicadorBE entidad)
+        //{
+        //    List<IndicadorBE> Lista = null;
+
+        //    try
+        //    {
+        //        using (IDbConnection db = new OracleConnection(CadenaConexion))
+        //        {
+        //            int enfoque = entidad.ID_ENFOQUE;
+        //            string sp = "";
+        //            var p = new OracleDynamicParameters();
+        //            p.Add("pANNO", entidad.ANNOB);
+        //            p.Add("pID_TIPO_VEHICULO", entidad.ID_TIPO_VEHICULOB);
+        //            p.Add("pID_TIPO_COMBUSTIBLE", entidad.ID_TIPO_COMBUSTIBLEB);
+
+        //            if (enfoque == 1 || enfoque == 2)
+        //            {
+        //                if (enfoque == 1)
+        //                {
+        //                    sp = sPackage + "USP_PRC_CALCULAR_INDICADOR2";
+        //                }
+        //                else if (enfoque == 2)
+        //                {
+        //                    sp = sPackage + "USP_PRC_CAL_VEH_HIB";
+        //                    p.Add("pKRV_COMBUSTIBLE", entidad.KRV_COMBUSTIBLE);                            
+        //                }
+        //                p.Add("pF_REN", entidad.FACTOR_RENDIMIENTO);
+        //                p.Add("pKRV", entidad.KRVB);
+        //                p.Add("pCANTIDAD", entidad.CANTIDADB);
+        //            }                    
+        //            else if (enfoque == 3)
+        //            {
+        //                sp = sPackage + "USP_PRC_CAL_VEH_CON";
+        //                p.Add("pCONSUMO_ELECTRICIDAD",entidad.CONSUMO_ELECTRICIDAD);
+        //            }
+        //            else if (enfoque == 4)
+        //            {
+        //                sp = sPackage + "USP_PRC_CAL_VEH_HIB_CON";
+        //                p.Add("pCONSUMO_ELECTRICIDAD", entidad.CONSUMO_ELECTRICIDAD);
+        //                p.Add("pCONSUMO_COMBUSTIBLE", entidad.CONSUMO_COMBUSTIBLE);
+        //            }       
+
+        //            p.Add("pID_TIPO_FUENTE", entidad.ID_TIPO_FUENTEI);                                        
+        //            p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+        //            Lista = db.Query<IndicadorBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+        //        }
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Log.Error(ex);
+        //    }
+
+        //    return Lista;
+        //}
 
         public List<IndicadorBE> CalcularIndicador(IndicadorBE entidad)
         {
@@ -92,6 +154,8 @@ namespace datos.minem.gob.pe
 
             return Lista;
         }
+
+        /////////////// TEMPORAL CALCULAR INDICADOR
 
         public IndicadorBE EliminarIndicador(IndicadorBE entidad)
         {
@@ -147,18 +211,53 @@ namespace datos.minem.gob.pe
                     var p = new OracleDynamicParameters();
                     p.Add("pID_INDICADOR", entidad.ID_INDICADOR);
                     p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pFECHA_INICIO", entidad.INICIO_OPERACIONES);
                     p.Add("pANNO", entidad.ANNOB);
                     p.Add("pID_TIPO_VEHICULO", entidad.ID_TIPO_VEHICULOB);
                     p.Add("pID_TIPO_COMBUSTIBLE", entidad.ID_TIPO_COMBUSTIBLEB);
                     p.Add("pKRV", entidad.KRVB);
+                    p.Add("pKRV_COMBUSTIBLE", entidad.KRV_COMBUSTIBLE); // add
+                    p.Add("pCONSUMO_ELECTRICIDAD", entidad.CONSUMO_ELECTRICIDAD); //add
+                    p.Add("pCONSUMO_COMBUSTIBLE", entidad.CONSUMO_COMBUSTIBLE); //add
+                    p.Add("pPLACA", entidad.PLACA);
                     p.Add("pCANTIDAD", entidad.CANTIDADB);
                     p.Add("pF_REN", entidad.FACTOR_RENDIMIENTO);
                     p.Add("pTOTAL_GEI", entidad.TOTAL_GEI_BASE);
                     p.Add("pTOTAL_GEI_INIMIT", entidad.TOTAL_GEI_INIMIT);
                     p.Add("pTOTAL_GEI_REDUCIDO", entidad.TOTAL_GEI_REDUCIDO);
                     p.Add("pID_TIPO_FUENTE", entidad.ID_TIPO_FUENTEI);
+                    p.Add("pID_ENFOQUE", entidad.ID_ENFOQUE);
                     p.Add("pADJUNTO", entidad.ADJUNTO);
                     p.Add("pADJUNTO_BASE", entidad.ADJUNTO_BASE);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.extra = ex.Message;
+                entidad.OK = false;
+            }
+
+            return entidad;
+        }
+
+        /*=============== add 16-02-20 ================*/
+        public IndicadorDataBE RegistrarDetalleIndicadorData(IndicadorDataBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_INS_INDICADOR_DATA";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_INDICADOR", entidad.ID_INDICADOR);
+                    p.Add("pID_ENFOQUE", entidad.ID_ENFOQUE);
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pID_PARAMETRO", entidad.ID_PARAMETRO);
+                    p.Add("pVALOR", entidad.VALOR);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
                 entidad.OK = true;
@@ -500,10 +599,36 @@ namespace datos.minem.gob.pe
             {
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
                 {
-                    string sp = sPackage + "USP_UPD_ELIMINAR_DETALLE";
+                    //string sp = sPackage + "USP_UPD_ELIMINAR_DETALLE";
+                    string sp = sPackage + "USP_UPD_ELIMINAR_IND_DATA";
                     var p = new OracleDynamicParameters();
                     p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pID_ENFOQUE", entidad.ID_ENFOQUE);
                     p.Add("pID_INDICADOR_DELETE", entidad.ID_INDICADOR_DELETE);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+
+            return entidad;
+        }
+
+        public IniciativaBE EliminarIndicadoresFile(IniciativaBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_UPD_ELIMINAR_IND_FILE";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_INDICADOR_ELIMINAR", entidad.ID_INDICADOR_ELIMINAR);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
                 entidad.OK = true;
@@ -555,6 +680,11 @@ namespace datos.minem.gob.pe
                     p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<IndicadorBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+
+                foreach (var item in Lista)
+                {
+                    if (item.INICIO_OPERACIONES.ToString("dd/MM/yyyy") != "01/01/0001") item.FECHA = item.INICIO_OPERACIONES.ToString("dd/MM/yyyy");
                 }
 
             }
@@ -646,6 +776,423 @@ namespace datos.minem.gob.pe
 
             return entidad;
         }
+
+        public int DetalleIndicadorEnfoque(int iniciativa)
+        {
+            int enfoque = 0;    
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_INDICADOR_ENFOQUE";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", iniciativa);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    var ENFOQUE = db.ExecuteScalar(sp, p, commandType: CommandType.StoredProcedure);
+                    enfoque = Convert.ToInt32(ENFOQUE);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return enfoque;
+        }
+
+        public int getIdIndicador(IniciativaBE entidad)
+        {
+            int id = 0;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_GET_ID_INDICADOR";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_ENFOQUE", entidad.ID_ENFOQUE);
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    var ID = db.ExecuteScalar(sp, p, commandType: CommandType.StoredProcedure);
+                    id = Convert.ToInt32(ID);
+                }
+                entidad.OK = true;                
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.extra = ex.Message;
+                entidad.OK = false;
+            }
+
+            return id;
+        }
+
+        public List<IndicadorDataBE> ListarDatosIndicadorData(IndicadorDataBE entidad)
+        {
+            List<IndicadorDataBE> listaDataE = new List<IndicadorDataBE>();
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_GET_INDICADORES";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_ENFOQUE", entidad.ID_ENFOQUE);
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    var lista = db.Query<IndicadorDataBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in lista)
+                    {
+                        listaDataE.Add(ListarIndicadorParametros(item));
+                    }
+
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.extra = ex.Message;
+                entidad.OK = false;
+            }
+
+            return listaDataE;
+        }
+
+        public IndicadorDataBE ListarIndicadorParametros(IndicadorDataBE entidad)
+        {
+            IndicadorDataBE obj = new IndicadorDataBE();
+            List<IndicadorDataBE> listaP = new List<IndicadorDataBE>();
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_INDICADOR_PARAMETROS";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_ENFOQUE", entidad.ID_ENFOQUE);
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pID_INDICADOR", entidad.ID_INDICADOR);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    listaP = db.Query<IndicadorDataBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                    obj.ID_INDICADOR = entidad.ID_INDICADOR;
+                    obj.listaInd = listaP;
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.extra = ex.Message;
+                entidad.OK = false;
+            }
+
+            return obj;
+        }
+
+        ///////////////////////////////////////////////////////////////////////////////
+        public List<IndicadorDataBE> ListarDatosTablaDinamica(IndicadorDataBE entidad)
+        {
+            List<IndicadorDataBE> listaDataE = new List<IndicadorDataBE>();
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_GET_INI_ENFOOQUE";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    listaDataE = db.Query<IndicadorDataBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in listaDataE)
+                    {
+                        item.listaInd = ListarDatosDinamico(item);
+                        item.listaParam = listarDetalleCabeceraDinamico(item);
+                    }
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.extra = ex.Message;
+                entidad.OK = false;
+            }
+
+            return listaDataE;
+        }
+
+        public List<IndicadorDataBE> ListarDatosDinamico(IndicadorDataBE entidad)
+        {
+            List<IndicadorDataBE> listaP = new List<IndicadorDataBE>();
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_GET_DATOS";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_ENFOQUE", entidad.ID_ENFOQUE);
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    listaP = db.Query<IndicadorDataBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+
+                foreach (var item in listaP)
+                {
+                    item.listaInd = ListarDetalleDatosDinamico(item);
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.extra = ex.Message;
+                entidad.OK = false;
+            }
+
+            return listaP;
+        }
+
+        public List<IndicadorDataBE> ListarDetalleDatosDinamico(IndicadorDataBE entidad)
+        {
+            List<IndicadorDataBE> listaP = new List<IndicadorDataBE>();
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_GET_DET_DATOS";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_ENFOQUE", entidad.ID_ENFOQUE);
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pID_INDICADOR", entidad.ID_INDICADOR);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    listaP = db.Query<IndicadorDataBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.extra = ex.Message;
+                entidad.OK = false;
+            }
+
+            return listaP;
+        }
+
+        public List<ParametroBE> listarDetalleCabeceraDinamico(IndicadorDataBE entidad)
+        {
+            List<ParametroBE> Lista = null;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_GET_CABECERA";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pID_ENFOQUE", entidad.ID_ENFOQUE);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<ParametroBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+        public List<IndicadorBE> DashboardResultado(IndicadorBE entidad)
+        {
+            List<IndicadorBE> listaD = new List<IndicadorBE>();            
+            try
+            {
+                IndicadorBE indicador = new IndicadorBE();
+
+                var listaSector = ListarSectorDash();
+                var listaAnno = ListarAnnoDash();
+
+                List<IniciativaBE> listaGei = new List<IniciativaBE>();                
+                foreach (var item in listaSector)
+                {                    
+                    IniciativaBE ind = new IniciativaBE();
+                    ind.DESCRIPCION = item.DESCRIPCION;
+                    ind.ID_SECTOR_INST = item.ID_SECTOR_INST;
+                    ind.ID_MEDMIT = entidad.ID_MEDMIT;
+                    ind.TOTAL_GEI = ListarDatosSectorMedida(ind);
+                    listaGei.Add(ind);  
+                }
+                indicador.listaGei = listaGei;
+
+                //List<IndicadorBE> listaAnnoSec = new List<IndicadorBE>();
+                //foreach (var item in listaSector)
+                //{
+                //    List<IndicadorBE> lista = new List<IndicadorBE>();
+                //    IndicadorBE ind = new IndicadorBE();
+                //    foreach (var itemA in listaAnno)
+                //    {
+                //        IndicadorBE indA = new IndicadorBE();
+                //        indA.ID_MEDMIT = entidad.ID_MEDMIT;
+                //        indA.ID_SECTOR_INST = item.ID_SECTOR_INST;
+                //        indA.ANNOI = itemA.DESCRIPCION;
+                //        indA.TOTAL_GEI_REDUCIDO = ListarDatosSectorAnno(indA);
+                //        lista.Add(indA);
+                //    }
+                //    ind.listaGei = listaAnnoSec;
+                //    listaAnnoSec.Add(ind);
+                //}
+                //indicador.listaAnnoSec = listaAnnoSec;
+
+                //List<IndicadorBE> listaCant = new List<IndicadorBE>();
+                //foreach (var item in listaSector)
+                //{
+                //    IndicadorBE ind = new IndicadorBE();
+                //    ind.ID_SECTOR_INST = item.ID_SECTOR_INST;
+                //    entidad = ListarDatosSectorInicaitiva(ind);
+                //    listaCant.Add(ind);
+                //}
+                //indicador.listaCant = listaCant;
+
+                listaD.Add(indicador);
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return listaD;
+        }
+
+        public List<SectorInstitucionBE> ListarSectorDash()
+        {
+            List<SectorInstitucionBE> Lista = null;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage2 + "USP_SEL_SECTORES";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<SectorInstitucionBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+        public List<AnnoBE> ListarAnnoDash()
+        {
+            List<AnnoBE> Lista = null;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage2 + "USP_SEL_ANNO";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pANNO", DateTime.Now.Year);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<AnnoBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+        public decimal ListarDatosSectorMedida(IniciativaBE entidad)
+        {
+            decimal total = 0;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage2 + "USP_SEL_MED_SECTOR";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pID_SECTOR_INST", entidad.ID_SECTOR_INST);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    var GEI_TOTAL = db.ExecuteScalar(sp, p, commandType: CommandType.StoredProcedure);
+                    total = Convert.ToDecimal(GEI_TOTAL);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return total;
+        }
+
+        public decimal ListarDatosSectorAnno(IndicadorBE entidad)
+        {
+            decimal total = 0;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage2 + "USP_SEL_INI_MED_ANNO_SEC";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pID_SECTOR_INST", entidad.ID_SECTOR_INST);
+                    p.Add("pANNO", entidad.ANNOI);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    var GEI_TOTAL = db.ExecuteScalar(sp, p, commandType: CommandType.StoredProcedure);
+                    total = Convert.ToDecimal(GEI_TOTAL);
+                    entidad.TOTAL_GEI_REDUCIDO = total;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return total;
+        }
+
+        public IndicadorBE ListarDatosSectorInicaitiva(IndicadorBE entidad)
+        {
+            int cantidad = 0;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage2 + "USP_SEL_INI_SECTOR";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_SECTOR_INST", entidad.ID_SECTOR_INST);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    var INI = db.ExecuteScalar(sp, p, commandType: CommandType.StoredProcedure);
+                    cantidad = Convert.ToInt32(INI);
+                    entidad.CANTIDADI = cantidad;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return entidad;
+        }
+
 
     }
 }

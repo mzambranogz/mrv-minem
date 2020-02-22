@@ -152,7 +152,7 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
 
                     for (var i = 0; i < data.length; i++) {
 
-                        var progreso = '0%;';
+                        var progreso = '0%';
                         if (data[i]["ID_ESTADO"] != 0 || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3)) {
                             if (data[i]["PROGRESO"] == 1 && (data[i]["ID_ESTADO"] == 1 || data[i]["ID_ESTADO"] == 5 || data[i]["ID_ESTADO"] == 2)) {
                                 progreso = '25%';
@@ -306,7 +306,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                     //$("#cuerpoMitigacion").html("");
                     for (var i = 0; i < data.length; i++) {
 
-                        var progreso = '0%;';
+                        var progreso = '0%';
                         if (data[i]["ID_ESTADO"] != 0 || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3)) {
                             if (data[i]["PROGRESO"] == 1 && (data[i]["ID_ESTADO"] == 1 || data[i]["ID_ESTADO"] == 5 || data[i]["ID_ESTADO"] == 2)) {
                                 progreso = '25%';
@@ -1369,7 +1369,6 @@ function exportarIniciativa() {
 
 
 $(document).ready(function () {
-    debugger;
     CargarOpcionesCuerpo();
     CargarMedidaMitigacion();
     CargarSector();
@@ -1436,4 +1435,16 @@ $(document).ready(function () {
         fn_CargaIniciativas();
     });
 
+});
+
+
+$("#modal-bienbenida").on("hidden.bs.modal", function () {
+    url = baseUrl + "Gestion/ActualizarPrimeraVisita"
+    var item = {
+    };
+    var mensaje = "";
+    var respuesta = MRV.Ajax(url, item, false);
+    if (respuesta.success) {
+    } else {
+    }
 });

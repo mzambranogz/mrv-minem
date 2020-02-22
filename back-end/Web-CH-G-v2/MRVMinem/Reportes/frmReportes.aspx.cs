@@ -19,33 +19,14 @@ namespace MRVMinem.Reportes
             {
                 if (Request.QueryString["IdReporte"] == "1")
                 {
-                    ReporteIniciativaPeriodo();
+                     ReporteIniciativa();
                 }
                 else if (Request.QueryString["IdReporte"] == "2")
                 {
-                    ReporteIndicadoresPeriodo();
+                     ReporteMedidaMitigacion();
                 }
+               
                 else if (Request.QueryString["IdReporte"] == "3")
-                {
-                    ReporteEntidadesRegistradas();
-                }
-                else if (Request.QueryString["IdReporte"] == "4")
-                {
-                    ReporteUbicacionMedidas();
-                }
-                else if (Request.QueryString["IdReporte"] == "5")
-                {
-                    ReporteEstadoIniciativa();
-                }
-                else if (Request.QueryString["IdReporte"] == "6")
-                {
-                    ReporteTipoIniciativa();
-                }
-                else if (Request.QueryString["IdReporte"] == "7")
-                {
-                    ReporteDocumentosMedida();
-                }
-                else if (Request.QueryString["IdReporte"] == "8")
                 {
                     ReporteEscenarios();
                 }
@@ -78,20 +59,55 @@ namespace MRVMinem.Reportes
         //}
 
 
-        private void ReporteIniciativaPeriodo()
+        private void ReporteMedidaMitigacion()
         {
+            string rutatarget = ConfigurationManager.AppSettings["RutaReportes"].ToString();
+            MedMitRptBE entidad = new MedMitRptBE() { ID_MEDMIT = 0 };
+
+            ConfigurarReporte();
+            rvReporte.LocalReport.ReportPath = string.Format("{0}\\rptMedMit.rdlc", rutatarget);
+            List<MedMitRptBE> lbeReporte = ReporteLN.ListaMedMitRpt(entidad);
+
+            ReportDataSource dataSource = new ReportDataSource("DtMedMit", lbeReporte);
+
+            rvReporte.LocalReport.DataSources.Clear();
+            rvReporte.LocalReport.DataSources.Add(dataSource);
+            rvReporte.ServerReport.Refresh();
+        }
+
+        private void ReporteIniciativa()
+        {
+            string rutatarget = ConfigurationManager.AppSettings["RutaReportes"].ToString();
+            IniciativaRptBE entidad = new IniciativaRptBE() { ID_INICIATIVA = 0 };
+
+            ConfigurarReporte();
+            rvReporte.LocalReport.ReportPath = string.Format("{0}\\rptIniciativa.rdlc", rutatarget);
+            List<IniciativaRptBE> lbeReporte = ReporteLN.ListaIniciativaRpt(entidad);
+
+            ReportDataSource dataSource = new ReportDataSource("DtIniciativa", lbeReporte);
+
+            rvReporte.LocalReport.DataSources.Clear();
+            rvReporte.LocalReport.DataSources.Add(dataSource);
+            rvReporte.ServerReport.Refresh();
 
         }
 
-        private void ReporteIndicadoresPeriodo()
+        /*private void ReporteInstitucion()
         {
+            string rutatarget = ConfigurationManager.AppSettings["RutaReportes"].ToString();
+            InstitucionRptBE entidad = new InstitucionRptBE() { ID_INICIATIVA = 0 };
 
-        }
+            ConfigurarReporte();
+            rvReporte.LocalReport.ReportPath = string.Format("{0}\\rptInstitucion.rdlc", rutatarget);
+            List<InstitucionRptBE> lbeReporte = ReporteLN.ListaInstitucionRpt(entidad);
 
-        private void ReporteEntidadesRegistradas()
-        {
+            ReportDataSource dataSource = new ReportDataSource("DtInstitucion", lbeReporte);
 
-        }
+            rvReporte.LocalReport.DataSources.Clear();
+            rvReporte.LocalReport.DataSources.Add(dataSource);
+            rvReporte.ServerReport.Refresh();
+
+        }*/
 
         private void ReporteUbicacionMedidas()
         {

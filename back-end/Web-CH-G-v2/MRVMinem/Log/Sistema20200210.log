@@ -1,12 +1,1363 @@
-10/02/2020 17:55:27: [Método: Void WinIOError(Int32, System.String), Línea: 0] - El dispositivo no está listo.
-
-10/02/2020 17:55:27: [Método: Void Init(System.String, System.IO.FileMode, System.IO.FileAccess, Int32, Boolean, System.IO.FileShare, Int32, System.IO.FileOptions, SECURITY_ATTRIBUTES, System.String, Boolean, Boolean, Boolean), Línea: 0] - El dispositivo no está listo.
-
-10/02/2020 17:55:27: [Método: Void .ctor(System.String, System.IO.FileMode, System.IO.FileAccess, System.IO.FileShare, Int32, System.IO.FileOptions, System.String, Boolean), Línea: 0] - El dispositivo no está listo.
-
-10/02/2020 17:55:27: [Método: Void .ctor(System.String, System.IO.FileMode), Línea: 0] - El dispositivo no está listo.
-
-10/02/2020 17:55:27: [Método: Void SaveAs(System.String), Línea: 0] - El dispositivo no está listo.
-
-10/02/2020 17:55:27: [Método: System.Web.Mvc.JsonResult RegistrarDetalleIndicador2(System.Web.HttpPostedFileBase[], System.Web.HttpPostedFileBase[], entidad.minem.gob.pe.IniciativaBE), Línea: 181] - El dispositivo no está listo.
-
+10/02/2020 01:04:00 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:04:00 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:04:00 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:04:00 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:04:00 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:04:00 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:04:00 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:04:00 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:04:00 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:04:00 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:04:00 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.EscenarioBE] ListaEscenariosPaginado(entidad.minem.gob.pe.EscenarioBE), Línea: 36] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:07:32 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:07:32 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:07:32 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:07:32 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:07:32 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:07:32 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:07:32 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:07:32 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:07:32 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:07:32 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:07:32 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.EscenarioBE] ListaEscenariosPaginado(entidad.minem.gob.pe.EscenarioBE), Línea: 36] - ORA-00904: "I"."META_ANUAL": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_MANTENIMIENTO", línea 968
+ORA-06512: en línea 1
+10/02/2020 01:51:32 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_DEL_ESCENARIO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+10/02/2020 01:51:32 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_DEL_ESCENARIO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+10/02/2020 01:51:32 a.m.: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_DEL_ESCENARIO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+10/02/2020 01:51:32 a.m.: [Método: Int32 ExecuteNonQuery(Oracle.DataAccess.Client.OracleConnection, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 255] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_DEL_ESCENARIO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+10/02/2020 01:51:32 a.m.: [Método: Int32 ExecuteNonQuery(System.String, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 178] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_DEL_ESCENARIO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+10/02/2020 01:51:32 a.m.: [Método: entidad.minem.gob.pe.EscenarioBE EliminarEscenario(entidad.minem.gob.pe.EscenarioBE), Línea: 140] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_DEL_ESCENARIO' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+10/02/2020 01:59:02 a.m.: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+10/02/2020 01:59:02 a.m.: [Método: Int32 ParseInt32(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+10/02/2020 01:59:02 a.m.: [Método: Int32 Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+10/02/2020 01:59:02 a.m.: [Método: entidad.minem.gob.pe.EscenarioBE RegistrarEscenario(entidad.minem.gob.pe.EscenarioBE), Línea: 87] - La cadena de entrada no tiene el formato correcto.
+10/02/2020 02:02:01 a.m.: [Método: Oracle.DataAccess.Client.OracleParameter Add(Oracle.DataAccess.Client.OracleParameter), Línea: 0] - El objeto OracleParameter ya está en una recopilación
+10/02/2020 02:02:01 a.m.: [Método: Void AttachParameters(Oracle.DataAccess.Client.OracleCommand, Oracle.DataAccess.Client.OracleParameter[]), Línea: 60] - El objeto OracleParameter ya está en una recopilación
+10/02/2020 02:02:01 a.m.: [Método: Void PrepareCommand(Oracle.DataAccess.Client.OracleCommand, Oracle.DataAccess.Client.OracleConnection, Oracle.DataAccess.Client.OracleTransaction, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 128] - El objeto OracleParameter ya está en una recopilación
+10/02/2020 02:02:01 a.m.: [Método: Int32 ExecuteNonQuery(Oracle.DataAccess.Client.OracleConnection, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 252] - El objeto OracleParameter ya está en una recopilación
+10/02/2020 02:02:01 a.m.: [Método: Int32 ExecuteNonQuery(System.String, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 178] - El objeto OracleParameter ya está en una recopilación
+10/02/2020 02:02:01 a.m.: [Método: entidad.minem.gob.pe.EscenarioBE RegistrarEscenario(entidad.minem.gob.pe.EscenarioBE), Línea: 86] - El objeto OracleParameter ya está en una recopilación
+10/02/2020 02:50:25 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 02:50:25 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 02:50:25 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 02:50:25 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 02:50:25 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 02:50:25 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 02:50:25 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 02:50:25 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 02:50:25 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 02:50:25 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 02:50:25 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.EnfoqueBE] listarEnfoqueMedida(Int32), Línea: 177] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:55 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:55 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:55 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:55 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:55 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:55 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:55 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:55 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:55 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:55 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:55 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.EnfoqueBE] listarEnfoqueMedida(Int32), Línea: 177] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:56 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:56 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:56 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:56 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:56 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:56 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:56 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:56 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:56 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:56 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:56 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.EnfoqueBE] listarEnfoqueMedida(Int32), Línea: 177] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:56 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:56 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:56 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:56 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:56 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:56 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:56 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:56 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:56 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:56 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:56 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.EnfoqueBE] listarEnfoqueMedida(Int32), Línea: 177] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:57 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:57 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:57 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:57 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:57 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:57 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:57 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:57 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:57 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:57 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:00:57 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.EnfoqueBE] listarEnfoqueMedida(Int32), Línea: 177] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:50:47 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:50:47 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:50:47 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:50:47 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:50:47 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:50:47 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:50:47 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:50:47 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:50:47 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:50:47 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:50:47 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.EnfoqueBE] listarEnfoqueMedida(Int32), Línea: 177] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:53:58 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:53:58 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:53:58 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:53:58 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:53:58 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:53:58 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:53:58 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:53:58 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:53:58 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:53:58 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:53:58 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.EnfoqueBE] listarEnfoqueMedida(Int32), Línea: 0] - ORA-06550: line 1, column 35:
+PLS-00302: component 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:55:45 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:55:45 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:55:45 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:55:45 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:55:45 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:55:45 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:55:45 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:55:45 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:55:45 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:55:45 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 03:55:45 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.EnfoqueBE] listarEnfoqueMedida(Int32), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00201: identifier 'USP_SEL_ENFOQUE_MEDMIT' must be declared
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+10/02/2020 05:04:28 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:04:28 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:04:28 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:04:28 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:04:28 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:04:28 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:04:28 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:04:28 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:04:28 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:04:28 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:04:28 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorBE] ListarDetalleIndicadorDatos(entidad.minem.gob.pe.IniciativaBE), Línea: 559] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:07:15 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:07:15 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:07:15 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:07:15 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:07:15 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:07:15 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:07:15 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:07:15 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:07:15 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:07:15 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:07:15 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorBE] ListarDetalleIndicadorDatos(entidad.minem.gob.pe.IniciativaBE), Línea: 559] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:09:46 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:09:46 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:09:46 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:09:46 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:09:46 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:09:46 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:09:46 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:09:46 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:09:46 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:09:46 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:09:46 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorBE] ListarDetalleIndicadorDatos(entidad.minem.gob.pe.IniciativaBE), Línea: 559] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:13:53 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:13:53 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:13:53 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:13:53 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:13:53 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:13:53 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:13:53 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:13:53 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:13:53 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:13:53 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:13:53 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorBE] ListarDetalleIndicadorDatos(entidad.minem.gob.pe.IniciativaBE), Línea: 559] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:16:51 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:16:51 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:16:51 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:16:51 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:16:51 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:16:51 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:16:51 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:16:51 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:16:51 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:16:51 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:16:51 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorBE] ListarDetalleIndicadorDatos(entidad.minem.gob.pe.IniciativaBE), Línea: 559] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:24:30 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:24:30 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:24:30 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:24:30 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:24:30 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:24:30 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:24:30 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:24:30 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:24:30 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:24:30 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:24:30 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorBE] ListarDetalleIndicadorDatos(entidad.minem.gob.pe.IniciativaBE), Línea: 559] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:25:48 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:25:48 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:25:48 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:25:48 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:25:48 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:25:48 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:25:48 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:25:48 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:25:48 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:25:48 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:25:48 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorBE] ListarDetalleIndicadorDatos(entidad.minem.gob.pe.IniciativaBE), Línea: 559] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:25:50 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:25:50 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:25:50 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:25:50 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:25:50 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:25:50 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:25:50 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:25:50 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:25:50 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:25:50 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:25:50 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorBE] ListarDetalleIndicadorDatos(entidad.minem.gob.pe.IniciativaBE), Línea: 559] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:25:53 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:25:53 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:25:53 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:25:53 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:25:53 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:25:53 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:25:53 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:25:53 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:25:53 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:25:53 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:25:53 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorBE] ListarDetalleIndicadorDatos(entidad.minem.gob.pe.IniciativaBE), Línea: 559] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 05:26:08 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 20584
+Session ID: 307 Serial number: 31756
+10/02/2020 05:26:08 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 20584
+Session ID: 307 Serial number: 31756
+10/02/2020 05:26:08 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 20584
+Session ID: 307 Serial number: 31756
+10/02/2020 05:26:08 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 20584
+Session ID: 307 Serial number: 31756
+10/02/2020 05:26:08 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 20584
+Session ID: 307 Serial number: 31756
+10/02/2020 05:26:08 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 20584
+Session ID: 307 Serial number: 31756
+10/02/2020 05:26:08 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 20584
+Session ID: 307 Serial number: 31756
+10/02/2020 05:26:08 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 20584
+Session ID: 307 Serial number: 31756
+10/02/2020 05:26:08 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 20584
+Session ID: 307 Serial number: 31756
+10/02/2020 05:26:08 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 20584
+Session ID: 307 Serial number: 31756
+10/02/2020 05:26:08 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.TipoVehiculoBE] ListarTipoVehiculo(entidad.minem.gob.pe.TipoVehiculoBE), Línea: 29] - ORA-03135: connection lost contact
+Process ID: 20584
+Session ID: 307 Serial number: 31756
+10/02/2020 05:26:11 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+10/02/2020 05:26:11 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12541: TNS:no listener
+10/02/2020 05:26:11 p.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12541: TNS:no listener
+10/02/2020 05:26:11 p.m.: [Método: Void Open(), Línea: 0] - ORA-12541: TNS:no listener
+10/02/2020 05:26:11 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-12541: TNS:no listener
+10/02/2020 05:26:11 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12541: TNS:no listener
+10/02/2020 05:26:11 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12541: TNS:no listener
+10/02/2020 05:26:11 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12541: TNS:no listener
+10/02/2020 05:26:11 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.TipoVehiculoBE] ListarTipoVehiculo(entidad.minem.gob.pe.TipoVehiculoBE), Línea: 29] - ORA-12541: TNS:no listener
+10/02/2020 05:26:16 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 4992
+Session ID: 363 Serial number: 30733
+10/02/2020 05:26:16 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 4992
+Session ID: 363 Serial number: 30733
+10/02/2020 05:26:16 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 4992
+Session ID: 363 Serial number: 30733
+10/02/2020 05:26:16 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 4992
+Session ID: 363 Serial number: 30733
+10/02/2020 05:26:16 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 4992
+Session ID: 363 Serial number: 30733
+10/02/2020 05:26:16 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 4992
+Session ID: 363 Serial number: 30733
+10/02/2020 05:26:16 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 4992
+Session ID: 363 Serial number: 30733
+10/02/2020 05:26:16 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 4992
+Session ID: 363 Serial number: 30733
+10/02/2020 05:26:16 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 4992
+Session ID: 363 Serial number: 30733
+10/02/2020 05:26:16 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 4992
+Session ID: 363 Serial number: 30733
+10/02/2020 05:26:16 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.TipoVehiculoBE] ListarTipoVehiculo(entidad.minem.gob.pe.TipoVehiculoBE), Línea: 29] - ORA-03135: connection lost contact
+Process ID: 4992
+Session ID: 363 Serial number: 30733
+10/02/2020 05:26:16 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-03114: not connected to ORACLE
+10/02/2020 05:26:16 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-03114: not connected to ORACLE
+10/02/2020 05:26:16 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-03114: not connected to ORACLE
+10/02/2020 05:26:16 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-03114: not connected to ORACLE
+10/02/2020 05:26:16 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-03114: not connected to ORACLE
+10/02/2020 05:26:16 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-03114: not connected to ORACLE
+10/02/2020 05:26:16 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-03114: not connected to ORACLE
+10/02/2020 05:26:16 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-03114: not connected to ORACLE
+10/02/2020 05:26:16 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-03114: not connected to ORACLE
+10/02/2020 05:26:16 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-03114: not connected to ORACLE
+10/02/2020 05:26:16 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.TipoCombustibleBE] ListarTipoCombustible(entidad.minem.gob.pe.TipoCombustibleBE), Línea: 29] - ORA-03114: not connected to ORACLE
+10/02/2020 05:26:18 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 1344
+Session ID: 186 Serial number: 32099
+10/02/2020 05:26:18 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 1344
+Session ID: 186 Serial number: 32099
+10/02/2020 05:26:18 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 1344
+Session ID: 186 Serial number: 32099
+10/02/2020 05:26:18 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 1344
+Session ID: 186 Serial number: 32099
+10/02/2020 05:26:18 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 1344
+Session ID: 186 Serial number: 32099
+10/02/2020 05:26:18 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 1344
+Session ID: 186 Serial number: 32099
+10/02/2020 05:26:18 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 1344
+Session ID: 186 Serial number: 32099
+10/02/2020 05:26:18 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 1344
+Session ID: 186 Serial number: 32099
+10/02/2020 05:26:18 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 1344
+Session ID: 186 Serial number: 32099
+10/02/2020 05:26:18 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 1344
+Session ID: 186 Serial number: 32099
+10/02/2020 05:26:18 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.TipoCombustibleBE] ListarTipoCombustible(entidad.minem.gob.pe.TipoCombustibleBE), Línea: 29] - ORA-03135: connection lost contact
+Process ID: 1344
+Session ID: 186 Serial number: 32099
+10/02/2020 05:26:18 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 18676
+Session ID: 128 Serial number: 61193
+10/02/2020 05:26:18 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 18676
+Session ID: 128 Serial number: 61193
+10/02/2020 05:26:18 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 18676
+Session ID: 128 Serial number: 61193
+10/02/2020 05:26:18 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 18676
+Session ID: 128 Serial number: 61193
+10/02/2020 05:26:18 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 18676
+Session ID: 128 Serial number: 61193
+10/02/2020 05:26:18 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 18676
+Session ID: 128 Serial number: 61193
+10/02/2020 05:26:18 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 18676
+Session ID: 128 Serial number: 61193
+10/02/2020 05:26:18 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 18676
+Session ID: 128 Serial number: 61193
+10/02/2020 05:26:18 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 18676
+Session ID: 128 Serial number: 61193
+10/02/2020 05:26:18 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-03135: connection lost contact
+Process ID: 18676
+Session ID: 128 Serial number: 61193
+10/02/2020 05:26:18 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.TipoVehiculoBE] ListarTipoVehiculo(entidad.minem.gob.pe.TipoVehiculoBE), Línea: 29] - ORA-03135: connection lost contact
+Process ID: 18676
+Session ID: 128 Serial number: 61193
+10/02/2020 06:05:53 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:05:53 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:05:53 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:05:53 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:05:53 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:05:53 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:05:53 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:05:53 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:05:53 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:05:53 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:05:53 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorBE] ListarDetalleIndicadorDatos(entidad.minem.gob.pe.IniciativaBE), Línea: 559] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:06:12 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:06:12 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:06:12 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:06:12 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:06:12 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:06:12 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:06:12 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:06:12 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:06:12 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:06:12 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:06:12 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorBE] ListarDetalleIndicadorDatos(entidad.minem.gob.pe.IniciativaBE), Línea: 559] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:07:11 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:07:11 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:07:11 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:07:11 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:07:11 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:07:11 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:07:11 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:07:11 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:07:11 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:07:11 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:07:11 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorBE] ListarDetalleIndicadorDatos(entidad.minem.gob.pe.IniciativaBE), Línea: 559] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:07:17 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:07:17 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:07:17 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:07:17 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:07:17 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:07:17 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:07:17 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:07:17 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:07:17 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:07:17 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:07:17 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorBE] ListarDetalleIndicadorDatos(entidad.minem.gob.pe.IniciativaBE), Línea: 559] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:07:18 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:07:18 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:07:18 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:07:18 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:07:18 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:07:18 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:07:18 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:07:18 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:07:18 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:07:18 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 06:07:18 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorBE] ListarDetalleIndicadorDatos(entidad.minem.gob.pe.IniciativaBE), Línea: 559] - ORA-00918: column ambiguously defined
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 685
+ORA-06512: at line 1
+10/02/2020 07:08:50 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:08:50 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:08:50 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:08:50 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:08:50 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:08:50 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:08:50 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:08:50 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:08:50 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:08:50 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:08:50 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SustentoIniciativaBE] ListaSustentoIniciativa(entidad.minem.gob.pe.SustentoIniciativaBE), Línea: 497] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:08:50 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:08:50 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:08:50 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:08:50 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:08:50 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:08:50 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:08:50 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:08:50 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:08:50 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:08:50 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:08:50 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorBE] ListarDetalleIndicadorDatos(entidad.minem.gob.pe.IniciativaBE), Línea: 568] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:08:50 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:08:50 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:08:50 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:08:50 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:08:50 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:08:50 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:08:50 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:08:50 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:08:50 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:08:50 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:08:50 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.EnfoqueBE] listarEnfoqueMedida(Int32), Línea: 178] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:34 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:34 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:34 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:34 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:34 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:34 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:34 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:34 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:34 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:34 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:34 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.TipoVehiculoBE] ListarTipoVehiculo(entidad.minem.gob.pe.TipoVehiculoBE), Línea: 29] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:35 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:35 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:35 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:35 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:35 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:35 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:35 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:35 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:35 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:35 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:35 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SustentoIniciativaBE] ListaSustentoIniciativa(entidad.minem.gob.pe.SustentoIniciativaBE), Línea: 497] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:35 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:35 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:35 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:35 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:35 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:35 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:35 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:35 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:35 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:35 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:35 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.TipoCombustibleBE] ListarTipoCombustible(entidad.minem.gob.pe.TipoCombustibleBE), Línea: 29] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:38 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:38 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:38 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:38 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:38 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:38 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:38 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:38 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:38 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:38 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:38 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SustentoIniciativaBE] ListaSustentoIniciativa(entidad.minem.gob.pe.SustentoIniciativaBE), Línea: 497] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:38 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:38 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:38 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:38 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:38 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:38 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:38 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:38 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:38 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:38 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:10:38 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorBE] ListarDetalleIndicadorDatos(entidad.minem.gob.pe.IniciativaBE), Línea: 568] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:15:56 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:15:56 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:15:56 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:15:56 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:15:56 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:15:56 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:15:56 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:15:56 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:15:56 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:15:56 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1
+10/02/2020 07:15:56 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.EnfoqueBE] listarEnfoqueMedida(Int32), Línea: 178] - ORA-04063: package body "MRVMM.PKG_MRV_DETALLE_INDICADORES" has errors
+ORA-06508: PL/SQL: could not find program unit being called: "MRVMM.PKG_MRV_DETALLE_INDICADORES"
+ORA-06512: at line 1

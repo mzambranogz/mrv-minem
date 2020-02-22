@@ -19,7 +19,14 @@ namespace logica.minem.gob.pe
 
         public static List<SectorInstitucionBE> ListarSectorPaginado(SectorInstitucionBE entidad)
         {
+            if (string.IsNullOrEmpty(entidad.buscar)) entidad.buscar = "";
             return sectorInstitucionDA.ListarSectorPaginado(entidad);
+        }
+
+        public static List<SectorInstitucionBE> ListarSectorExcel(SectorInstitucionBE entidad)
+        {
+            if (string.IsNullOrEmpty(entidad.buscar)) entidad.buscar = "";
+            return sectorInstitucionDA.ListarSectorExcel(entidad);
         }
 
         public static SectorInstitucionBE GetSectorPorId(SectorInstitucionBE entidad)
