@@ -182,6 +182,7 @@
     <Content Include="js\Opciones.js" />
     <Content Include="js\Recuperar.js" />
     <Content Include="js\RegistroUsuario.js" />
+    <Content Include="js\Resultados.js" />
     <Content Include="js\script.js" />
     <Content Include="js\Seguimiento.js" />
     <Content Include="js\VerMas.js" />

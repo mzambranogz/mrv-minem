@@ -39,5 +39,7 @@ namespace entidad.minem.gob.pe
         public string CABECERA_EMAIL { get; set; }
         public int ID_ENFOQUE { get; set; }
         public string DATA { get; set; }
+        public int ID_SECTOR_INST { get; set; }
+        public decimal TOTAL_GEI { get; set; }
     }
 }

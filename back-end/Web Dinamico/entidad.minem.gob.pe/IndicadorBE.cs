@@ -70,7 +70,10 @@ namespace entidad.minem.gob.pe
         public string EMAIL_USUARIO { get; set; }
         public string FECHA { get; set; }
         public string PLACA { get; set; }
-        
+        public int ID_SECTOR_INST { get; set; }
+        public List<IniciativaBE> listaGei { get; set; }
+        //public List<IndicadorBE> listaAnnoSec { get; set; }
+        //public List<IndicadorBE> listaCant { get; set; }
 
     }
 }

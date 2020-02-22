@@ -1788,6 +1788,15 @@ namespace MRVMinem.Controllers
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }
+
+        public JsonResult DashboardResultado(IndicadorBE entidad)
+        {
+            List<IndicadorBE> lista = IndicadorLN.DashboardResultado(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
         //EXPORTAR EXCEL
 
         public void ExportarIniciativa(string item)

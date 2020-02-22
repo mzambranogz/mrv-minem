@@ -234,6 +234,11 @@ namespace logica.minem.gob.pe
             return indicador.ListarDatosTablaDinamica(entidad);
         }
 
+        public static List<IndicadorBE> DashboardResultado(IndicadorBE entidad)
+        {
+            return indicador.DashboardResultado(entidad);
+        }
+
         /* NUEVOS PROCEDIMIENTOS */
         public static List<IndicadorDataBE> CalculoIndicador(List<IndicadorDataBE> listaEntidad)
         {
