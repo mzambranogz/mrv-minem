@@ -2,6 +2,116 @@
 -- Archivo creado  - viernes-febrero-21-2020   
 --------------------------------------------------------
 --------------------------------------------------------
+--  DDL for Package PKG_MRV_ADMIN_SISTEMA
+--------------------------------------------------------
+
+  CREATE OR REPLACE PACKAGE "MRVMM"."PKG_MRV_ADMIN_SISTEMA" AS 
+
+  
+  PROCEDURE USP_SEL_VERIFICAR_EMAIL(
+    pEMAIL_USUARIO  IN VARCHAR2,
+    pVerificar          OUT NUMBER
+  );
+
+  PROCEDURE USP_SEL_VERIFICAR_ESTADO(
+    pID_USUARIO         IN NUMBER,
+    pVerificar          OUT NUMBER
+  );
+
+  PROCEDURE USP_INS_USUARIO(
+
+        pNOMBRES_USUARIO    IN VARCHAR2,
+        pAPELLIDOS_USUARIO  IN VARCHAR2,
+        pID_INSTITUCION     IN INTEGER,
+        pPASSWORD_USUARIO   IN VARCHAR2,
+        pEMAIL_USUARIO      IN VARCHAR2,
+        pTELEFONO_USUARIO   IN VARCHAR2,
+        pANEXO_USUARIO      IN VARCHAR2,
+        pCELULAR_USUARIO    IN VARCHAR2,
+        pID_ROL             IN NUMBER, --ADD
+        pID_ESTADO_USUARIO  IN NUMBER, --ADD
+        pFLG_TERMINOS       IN VARCHAR2,
+        pADJUNTO            IN VARCHAR2,
+        pADJUNTO_BASE       IN VARCHAR2,
+        pRefcursor          OUT SYS_REFCURSOR
+    );
+
+
+   PROCEDURE USP_SEL_SECTOR_INST(
+        pRefcursor  OUT SYS_REFCURSOR
+   );
+
+   PROCEDURE USP_SEL_INSTITUCION(
+        pRefcursor  OUT SYS_REFCURSOR
+   );
+
+   PROCEDURE USP_INS_INSTITUCION(
+
+            pID_SECTOR_INSTITUCION  IN INTEGER,
+            pRUC_INSTITUCION        IN VARCHAR2,
+            pNOMBRE_INSTITUCION     IN VARCHAR2,
+            pDIRECCION_INSTITUCION  IN VARCHAR2,
+            pIdInstitucion          OUT NUMBER
+    );
+
+
+    PROCEDURE USP_SEL_PASSWORD(
+            pUsuarioLogin       IN  VARCHAR2,
+            pRefcursor         OUT  SYS_REFCURSOR
+    );
+
+    PROCEDURE USP_SEL_USUARIO_ROL(
+        pID_USUARIO          IN NUMBER,
+        pRefcursor           OUT SYS_REFCURSOR
+    );
+
+    PROCEDURE USP_SEL_CLAVE(
+        pID_USUARIO        IN  NUMBER,
+        pRefcursor         OUT  SYS_REFCURSOR
+    );
+
+    PROCEDURE USP_UPD_CAMBIAR_CLAVE(
+        pID_USUARIO        IN  NUMBER,
+        pNUEVO_PASSWORD    IN  VARCHAR2
+    );
+
+    PROCEDURE USP_UPD_OBTENER_USUARIO(
+        pEMAIL_USUARIO       IN VARCHAR2,
+        pRefcursor           OUT SYS_REFCURSOR
+    );
+
+    PROCEDURE USP_UPD_OBTENER_USUARIO_ID(
+        pID_USUARIO       IN NUMBER,
+        pRefcursor           OUT SYS_REFCURSOR
+    );
+
+    --01.02.20
+    PROCEDURE USP_SEL_ESPECIALISTA_MEDMIT(
+        pID_MEDMIT  IN NUMBER,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+
+    PROCEDURE USP_SEL_USUARIO_ADMIN(
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+
+    PROCEDURE USP_SEL_USUARIO_EVA(
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+
+    PROCEDURE USP_SEL_USUARIO_INICIATIVA(
+        pID_USUARIO IN NUMBER,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+    
+    PROCEDURE USP_UPD_PRIMERA_VISTA(
+        pID_USUARIO IN NUMBER
+    );
+
+END PKG_MRV_ADMIN_SISTEMA;
+
+/
+--------------------------------------------------------
 --  DDL for Package PKG_MRV_CALCULO
 --------------------------------------------------------
 
@@ -1318,24 +1428,85 @@ END PKG_MRV_INICIATIVA_MITIGACION;
 
 /
 --------------------------------------------------------
---  DDL for Package PKG_MRV_ADMIN_SISTEMA
+--  DDL for Package Body PKG_MRV_ADMIN_SISTEMA
 --------------------------------------------------------
 
-  CREATE OR REPLACE PACKAGE "MRVMM"."PKG_MRV_ADMIN_SISTEMA" AS 
+  CREATE OR REPLACE PACKAGE BODY "MRVMM"."PKG_MRV_ADMIN_SISTEMA" AS
 
-  
-  PROCEDURE USP_SEL_VERIFICAR_EMAIL(
-    pEMAIL_USUARIO  IN VARCHAR2,
-    pVerificar          OUT NUMBER
-  );
+    --Author: GRUPO ZUÑIGA
+    --Created: 26/12/2019
+    --Purpuse: Gestionar elementos relacionados al Modulo Administracion Sistema 
 
-  PROCEDURE USP_SEL_VERIFICAR_ESTADO(
-    pID_USUARIO         IN NUMBER,
-    pVerificar          OUT NUMBER
-  );
+    /*
+    Nombre: USP_SEL_SECTOR_INST
+    Funcion: Selecciona todos los sectores establecidos
+    Parametros: 
+    */
 
-  PROCEDURE USP_INS_USUARIO(
+    PROCEDURE USP_SEL_VERIFICAR_EMAIL(
+        pEMAIL_USUARIO  IN VARCHAR2,
+        pVerificar          OUT NUMBER
+    )IS
+        vVerificar  NUMBER;
+    BEGIN
+        SELECT COUNT(*) INTO vVerificar 
+        FROM T_GENM_USUARIO
+        WHERE EMAIL_USUARIO = pEMAIL_USUARIO;
+        pVerificar := vVerificar;
+    END USP_SEL_VERIFICAR_EMAIL;
 
+    PROCEDURE USP_SEL_VERIFICAR_ESTADO(
+        pID_USUARIO         IN NUMBER,
+        pVerificar          OUT NUMBER
+    )IS
+        vVerificar  NUMBER;
+    BEGIN
+        SELECT COUNT(*) INTO vVerificar 
+        FROM T_GENM_USUARIO
+        WHERE ID_ESTADO_USUARIO IN (0,2) AND ID_USUARIO = pID_USUARIO;
+        pVerificar := vVerificar;
+    END USP_SEL_VERIFICAR_ESTADO;
+
+    PROCEDURE USP_SEL_SECTOR_INST(
+            pRefcursor OUT SYS_REFCURSOR
+    ) AS
+    BEGIN
+            OPEN    pRefcursor FOR
+            SELECT  ID_SECTOR_INST,
+                    DESCRIPCION
+            FROM    T_MAE_SECTOR_INST;
+    END USP_SEL_SECTOR_INST;
+
+    /*
+    Nombre: USP_INS_INSTITUCION
+    Funcion: Registra una institucicion o entidad a partir del registro 
+             del usuario y retorna el id de la Institucion.
+    Parametros: pInsTipo - Id del Sector
+                pInsRuc - Ruc de la Institucion
+                pInsNombre - Nombre de la Institucion
+                pInsDireccion - Direccion de la Institucion
+    */
+    PROCEDURE USP_INS_INSTITUCION(
+
+            pID_SECTOR_INSTITUCION  IN INTEGER,
+            pRUC_INSTITUCION        IN VARCHAR2,
+            pNOMBRE_INSTITUCION     IN VARCHAR2,
+            pDIRECCION_INSTITUCION  IN VARCHAR2,
+            pIdInstitucion          OUT NUMBER
+    ) IS
+    	vIdInstitucion NUMBER;
+    BEGIN       
+            SELECT SQ_GENM_INSTITUCION.NEXTVAL INTO vIdInstitucion FROM DUAL;
+
+            INSERT INTO T_GENM_INSTITUCION (ID_INSTITUCION, ID_SECTOR_INSTITUCION, RUC_INSTITUCION, NOMBRE_INSTITUCION, DIRECCION_INSTITUCION, FLAG_ESTADO)
+            VALUES (vIdInstitucion, pID_SECTOR_INSTITUCION, pRUC_INSTITUCION, pNOMBRE_INSTITUCION, pDIRECCION_INSTITUCION, '1');  
+
+            --SELECT nvl(MAX(ID_INSTITUCION),0) INTO vIdInstitucion FROM T_GENM_INSTITUCION; 
+            pIdInstitucion := vIdInstitucion;
+
+    END USP_INS_INSTITUCION;
+
+  PROCEDURE USP_INS_USUARIO(  
         pNOMBRES_USUARIO    IN VARCHAR2,
         pAPELLIDOS_USUARIO  IN VARCHAR2,
         pID_INSTITUCION     IN INTEGER,
@@ -1350,79 +1521,223 @@ END PKG_MRV_INICIATIVA_MITIGACION;
         pADJUNTO            IN VARCHAR2,
         pADJUNTO_BASE       IN VARCHAR2,
         pRefcursor          OUT SYS_REFCURSOR
-    );
+    ) IS
+        vIdUsuario  NUMBER;
+  BEGIN  
+        SELECT SQ_GENM_USUARIO.NEXTVAL INTO vIdUsuario FROM DUAL;
 
+        INSERT INTO T_GENM_USUARIO (ID_USUARIO, NOMBRES_USUARIO, APELLIDOS_USUARIO, ID_INSTITUCION, PASSWORD_USUARIO,EMAIL_USUARIO, 
+                    ID_ESTADO_USUARIO, TELEFONO_USUARIO, ANEXO_USUARIO, CELULAR_USUARIO, FLG_ESTADO, ID_TERMINOS, FLG_TERMINOS, ADJUNTO, ADJUNTO_BASE)
+        VALUES     (vIdUsuario, pNOMBRES_USUARIO, pAPELLIDOS_USUARIO, pID_INSTITUCION, pPASSWORD_USUARIO,pEMAIL_USUARIO, 
+                    pID_ESTADO_USUARIO, pTELEFONO_USUARIO, pANEXO_USUARIO, pCELULAR_USUARIO, 1, 1, pFLG_TERMINOS, pADJUNTO, pADJUNTO_BASE);
 
-   PROCEDURE USP_SEL_SECTOR_INST(
-        pRefcursor  OUT SYS_REFCURSOR
-   );
+        --SELECT nvl(MAX(ID_USUARIO),0) INTO vIdUsuario FROM T_GENM_USUARIO;
 
-   PROCEDURE USP_SEL_INSTITUCION(
-        pRefcursor  OUT SYS_REFCURSOR
-   );
+        INSERT INTO T_MAE_USUARIO_ROL (ID_USUARIO, ID_ROL, FLG_ESTADO, DES_COMENTARIO) 
+        VALUES (vIdUsuario, pID_ROL, 1, '');
 
-   PROCEDURE USP_INS_INSTITUCION(
+        IF pID_ROL = 1 THEN
+            UPDATE  T_GENM_USUARIO
+            SET     PRIMER_INICIO = 1
+            WHERE   ID_USUARIO = vIdUsuario;
+        ELSE
+            UPDATE  T_GENM_USUARIO
+            SET     PRIMER_INICIO = 0
+            WHERE   ID_USUARIO = vIdUsuario;
+        END IF;
 
-            pID_SECTOR_INSTITUCION  IN INTEGER,
-            pRUC_INSTITUCION        IN VARCHAR2,
-            pNOMBRE_INSTITUCION     IN VARCHAR2,
-            pDIRECCION_INSTITUCION  IN VARCHAR2,
-            pIdInstitucion          OUT NUMBER
-    );
+        OPEN pRefcursor FOR
+        SELECT vIdUsuario CODIGO FROM DUAL;
 
+  END USP_INS_USUARIO;
+
+    PROCEDURE USP_SEL_INSTITUCION(
+        pRefcursor OUT SYS_REFCURSOR
+      ) AS
+      BEGIN
+            OPEN pRefcursor FOR
+            SELECT  ID_INSTITUCION,
+                    ID_SECTOR_INSTITUCION,
+                    RUC_INSTITUCION,
+                    NOMBRE_INSTITUCION,
+                    DIRECCION_INSTITUCION
+            FROM    T_GENM_INSTITUCION;
+      END USP_SEL_INSTITUCION;
 
     PROCEDURE USP_SEL_PASSWORD(
-            pUsuarioLogin       IN  VARCHAR2,
-            pRefcursor         OUT  SYS_REFCURSOR
-    );
+        pUsuarioLogin       IN VARCHAR2,
+        pRefcursor         OUT SYS_REFCURSOR
+    ) AS
+    BEGIN
+
+        OPEN pRefcursor FOR
+        SELECT PASSWORD_USUARIO, ID_USUARIO FROM T_GENM_USUARIO
+        WHERE LOWER(EMAIL_USUARIO) = LOWER(pUsuarioLogin);
+
+    END USP_SEL_PASSWORD; 
+   
 
     PROCEDURE USP_SEL_USUARIO_ROL(
         pID_USUARIO          IN NUMBER,
         pRefcursor           OUT SYS_REFCURSOR
-    );
+    )AS
+    BEGIN 
+        OPEN pRefcursor FOR
+        SELECT  DISTINCT    OP.ID_OPCION,
+                            TRIM(TRIM(U.NOMBRES_USUARIO) || ' ' || TRIM(U.APELLIDOS_USUARIO)) AS NOMBRES,
+                            R.ID_ROL,
+                            INS.NOMBRE_INSTITUCION INSTITUCION,
+                            SEC.DESCRIPCION SECTOR,
+                            U.EMAIL_USUARIO CORREO,
+                            INS.DIRECCION_INSTITUCION DIRECCION,
+                            NVL(U.PRIMER_INICIO,1) PRIMER_INICIO
+        FROM        T_MAE_USUARIO_ROL UR
+        INNER JOIN  T_MAE_ROL R ON UR.ID_ROL = R.ID_ROL
+        LEFT JOIN   T_GENM_USUARIO U ON UR.ID_USUARIO = U.ID_USUARIO
+        INNER JOIN  T_MAE_OPCION_ROL OROL ON R.ID_ROL = OROL.ID_ROL
+        INNER JOIN  T_MAE_OPCION OP ON OROL.ID_OPCION = OP.ID_OPCION
+        LEFT JOIN T_GENM_INSTITUCION INS ON U.ID_INSTITUCION = INS.ID_INSTITUCION
+        LEFT JOIN T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
+        WHERE       U.ID_USUARIO = pID_USUARIO AND OP.FLG_ESTADO = 1;
+    END USP_SEL_USUARIO_ROL;
 
     PROCEDURE USP_SEL_CLAVE(
         pID_USUARIO        IN  NUMBER,
         pRefcursor         OUT  SYS_REFCURSOR
-    );
+    )AS
+    BEGIN
+        OPEN pRefcursor FOR 
+        SELECT  PASSWORD_USUARIO
+        FROM    T_GENM_USUARIO
+        WHERE   ID_USUARIO = pID_USUARIO;
+    END USP_SEL_CLAVE;
 
     PROCEDURE USP_UPD_CAMBIAR_CLAVE(
         pID_USUARIO        IN  NUMBER,
         pNUEVO_PASSWORD    IN  VARCHAR2
-    );
+    )AS
+    BEGIN
+        UPDATE  T_GENM_USUARIO
+        SET     PASSWORD_USUARIO = pNUEVO_PASSWORD
+        WHERE   ID_USUARIO = pID_USUARIO;
+    END USP_UPD_CAMBIAR_CLAVE;
 
     PROCEDURE USP_UPD_OBTENER_USUARIO(
         pEMAIL_USUARIO       IN VARCHAR2,
         pRefcursor           OUT SYS_REFCURSOR
-    );
+    )AS
+    BEGIN
+        OPEN pRefcursor FOR
+        SELECT  ID_USUARIO,
+                TRIM(NOMBRES_USUARIO) || ' ' ||TRIM(APELLIDOS_USUARIO) NOMBRES,
+                EMAIL_USUARIO
+        FROM    T_GENM_USUARIO
+        WHERE   EMAIL_USUARIO = pEMAIL_USUARIO;
+    END USP_UPD_OBTENER_USUARIO;
 
     PROCEDURE USP_UPD_OBTENER_USUARIO_ID(
         pID_USUARIO       IN NUMBER,
         pRefcursor           OUT SYS_REFCURSOR
-    );
+    )AS
+    BEGIN
+        OPEN pRefcursor FOR
+        SELECT  TRIM(U.NOMBRES_USUARIO) || ' ' || TRIM(U.APELLIDOS_USUARIO) NOMBRES,
+                U.EMAIL_USUARIO,
+                INS.NOMBRE_INSTITUCION INSTITUCION,
+                INS.DIRECCION_INSTITUCION DIRECCION,
+                SEC.DESCRIPCION SECTOR
+        FROM    T_GENM_USUARIO U 
+        LEFT JOIN T_GENM_INSTITUCION INS ON U.ID_INSTITUCION = INS.ID_INSTITUCION
+        LEFT JOIN T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
+        WHERE   ID_USUARIO = pID_USUARIO;
+    END USP_UPD_OBTENER_USUARIO_ID;
 
     --01.02.20
     PROCEDURE USP_SEL_ESPECIALISTA_MEDMIT(
         pID_MEDMIT  IN NUMBER,
         pRefcursor  OUT SYS_REFCURSOR
-    );
+    )AS
+    BEGIN
+        OPEN pRefcursor FOR 
+        SELECT U.ID_USUARIO,
+               TRIM(USU.NOMBRES_USUARIO) || ' ' || TRIM(USU.APELLIDOS_USUARIO) NOMBRES,
+               R.ID_ROL,
+               R.DESCRIPCION_ROL ROL,
+               USU.EMAIL_USUARIO,
+               '03' COLOR
+        FROM  T_MAE_USUARIO_MEDMIT U
+        LEFT JOIN T_GENM_USUARIO USU ON U.ID_USUARIO = USU.ID_USUARIO
+        LEFT JOIN T_MAE_USUARIO_ROL UR ON USU.ID_USUARIO = UR.ID_USUARIO
+        LEFT JOIN T_MAE_ROL R ON UR.ID_ROL = R.ID_ROL
+        WHERE U.ID_MEDMIT = pID_MEDMIT AND R.ID_ROL = 2 AND U.FLG_ESTADO = 1;
+    END USP_SEL_ESPECIALISTA_MEDMIT;
 
     PROCEDURE USP_SEL_USUARIO_ADMIN(
         pRefcursor  OUT SYS_REFCURSOR
-    );
+    )AS
+    BEGIN
+        OPEN pRefcursor FOR 
+        SELECT * FROM(
+        SELECT USU.ID_USUARIO,
+               TRIM(USU.NOMBRES_USUARIO) || ' ' || TRIM(USU.APELLIDOS_USUARIO) NOMBRES,
+               R.ID_ROL,
+               R.DESCRIPCION_ROL ROL,
+               USU.EMAIL_USUARIO,
+               '06' COLOR
+        FROM  T_GENM_USUARIO USU
+        LEFT JOIN T_MAE_USUARIO_ROL UR ON USU.ID_USUARIO = UR.ID_USUARIO
+        LEFT JOIN T_MAE_ROL R ON UR.ID_ROL = R.ID_ROL
+        WHERE R.ID_ROL = 3
+        ORDER BY USU.ID_USUARIO ASC)
+        WHERE ROWNUM = 1;
+    END USP_SEL_USUARIO_ADMIN;
 
     PROCEDURE USP_SEL_USUARIO_EVA(
         pRefcursor  OUT SYS_REFCURSOR
-    );
+    )AS
+    BEGIN
+        OPEN pRefcursor FOR 
+        SELECT * FROM(
+        SELECT USU.ID_USUARIO,
+               TRIM(USU.NOMBRES_USUARIO) || ' ' || TRIM(USU.APELLIDOS_USUARIO) NOMBRES,
+               R.ID_ROL,
+               R.DESCRIPCION_ROL ROL,
+               USU.EMAIL_USUARIO,
+               '04' COLOR
+        FROM  T_GENM_USUARIO USU
+        LEFT JOIN T_MAE_USUARIO_ROL UR ON USU.ID_USUARIO = UR.ID_USUARIO
+        LEFT JOIN T_MAE_ROL R ON UR.ID_ROL = R.ID_ROL
+        WHERE R.ID_ROL = 4
+        ORDER BY USU.ID_USUARIO ASC)
+        WHERE ROWNUM = 1;
+    END USP_SEL_USUARIO_EVA;
 
     PROCEDURE USP_SEL_USUARIO_INICIATIVA(
         pID_USUARIO IN NUMBER,
         pRefcursor  OUT SYS_REFCURSOR
-    );
+    )AS
+    BEGIN
+        OPEN pRefcursor FOR 
+        SELECT USU.ID_USUARIO,
+               TRIM(USU.NOMBRES_USUARIO) || ' ' || TRIM(USU.APELLIDOS_USUARIO) NOMBRES,
+               R.ID_ROL,
+               R.DESCRIPCION_ROL ROL,
+               USU.EMAIL_USUARIO,
+               '02' COLOR
+        FROM  T_GENM_USUARIO USU
+        LEFT JOIN T_MAE_USUARIO_ROL UR ON USU.ID_USUARIO = UR.ID_USUARIO
+        LEFT JOIN T_MAE_ROL R ON UR.ID_ROL = R.ID_ROL
+        WHERE USU.ID_USUARIO = pID_USUARIO;
+    END USP_SEL_USUARIO_INICIATIVA;
     
     PROCEDURE USP_UPD_PRIMERA_VISTA(
         pID_USUARIO IN NUMBER
-    );
+    )AS
+    BEGIN
+        UPDATE  T_GENM_USUARIO
+        SET     PRIMER_INICIO = 0
+        WHERE   ID_USUARIO = pID_USUARIO;
+    END USP_UPD_PRIMERA_VISTA;
 
 END PKG_MRV_ADMIN_SISTEMA;
 
@@ -7751,320 +8066,5 @@ END PKG_MRV_DETALLE_INDICADORES;
       END USP_SEL_EXCEL_AVA_PRI_TODO;
 
 END PKG_MRV_INICIATIVA_MITIGACION;
-
-/
---------------------------------------------------------
---  DDL for Package Body PKG_MRV_ADMIN_SISTEMA
---------------------------------------------------------
-
-  CREATE OR REPLACE PACKAGE BODY "MRVMM"."PKG_MRV_ADMIN_SISTEMA" AS
-
-    --Author: GRUPO ZUÑIGA
-    --Created: 26/12/2019
-    --Purpuse: Gestionar elementos relacionados al Modulo Administracion Sistema 
-
-    /*
-    Nombre: USP_SEL_SECTOR_INST
-    Funcion: Selecciona todos los sectores establecidos
-    Parametros: 
-    */
-
-    PROCEDURE USP_SEL_VERIFICAR_EMAIL(
-        pEMAIL_USUARIO  IN VARCHAR2,
-        pVerificar          OUT NUMBER
-    )IS
-        vVerificar  NUMBER;
-    BEGIN
-        SELECT COUNT(*) INTO vVerificar 
-        FROM T_GENM_USUARIO
-        WHERE EMAIL_USUARIO = pEMAIL_USUARIO;
-        pVerificar := vVerificar;
-    END USP_SEL_VERIFICAR_EMAIL;
-
-    PROCEDURE USP_SEL_VERIFICAR_ESTADO(
-        pID_USUARIO         IN NUMBER,
-        pVerificar          OUT NUMBER
-    )IS
-        vVerificar  NUMBER;
-    BEGIN
-        SELECT COUNT(*) INTO vVerificar 
-        FROM T_GENM_USUARIO
-        WHERE ID_ESTADO_USUARIO IN (0,2) AND ID_USUARIO = pID_USUARIO;
-        pVerificar := vVerificar;
-    END USP_SEL_VERIFICAR_ESTADO;
-
-    PROCEDURE USP_SEL_SECTOR_INST(
-            pRefcursor OUT SYS_REFCURSOR
-    ) AS
-    BEGIN
-            OPEN    pRefcursor FOR
-            SELECT  ID_SECTOR_INST,
-                    DESCRIPCION
-            FROM    T_MAE_SECTOR_INST;
-    END USP_SEL_SECTOR_INST;
-
-    /*
-    Nombre: USP_INS_INSTITUCION
-    Funcion: Registra una institucicion o entidad a partir del registro 
-             del usuario y retorna el id de la Institucion.
-    Parametros: pInsTipo - Id del Sector
-                pInsRuc - Ruc de la Institucion
-                pInsNombre - Nombre de la Institucion
-                pInsDireccion - Direccion de la Institucion
-    */
-    PROCEDURE USP_INS_INSTITUCION(
-
-            pID_SECTOR_INSTITUCION  IN INTEGER,
-            pRUC_INSTITUCION        IN VARCHAR2,
-            pNOMBRE_INSTITUCION     IN VARCHAR2,
-            pDIRECCION_INSTITUCION  IN VARCHAR2,
-            pIdInstitucion          OUT NUMBER
-    ) IS
-    	vIdInstitucion NUMBER;
-    BEGIN       
-            SELECT SQ_GENM_INSTITUCION.NEXTVAL INTO vIdInstitucion FROM DUAL;
-
-            INSERT INTO T_GENM_INSTITUCION (ID_INSTITUCION, ID_SECTOR_INSTITUCION, RUC_INSTITUCION, NOMBRE_INSTITUCION, DIRECCION_INSTITUCION, FLAG_ESTADO)
-            VALUES (vIdInstitucion, pID_SECTOR_INSTITUCION, pRUC_INSTITUCION, pNOMBRE_INSTITUCION, pDIRECCION_INSTITUCION, '1');  
-
-            --SELECT nvl(MAX(ID_INSTITUCION),0) INTO vIdInstitucion FROM T_GENM_INSTITUCION; 
-            pIdInstitucion := vIdInstitucion;
-
-    END USP_INS_INSTITUCION;
-
-  PROCEDURE USP_INS_USUARIO(  
-        pNOMBRES_USUARIO    IN VARCHAR2,
-        pAPELLIDOS_USUARIO  IN VARCHAR2,
-        pID_INSTITUCION     IN INTEGER,
-        pPASSWORD_USUARIO   IN VARCHAR2,
-        pEMAIL_USUARIO      IN VARCHAR2,
-        pTELEFONO_USUARIO   IN VARCHAR2,
-        pANEXO_USUARIO      IN VARCHAR2,
-        pCELULAR_USUARIO    IN VARCHAR2,
-        pID_ROL             IN NUMBER, --ADD
-        pID_ESTADO_USUARIO  IN NUMBER, --ADD
-        pFLG_TERMINOS       IN VARCHAR2,
-        pADJUNTO            IN VARCHAR2,
-        pADJUNTO_BASE       IN VARCHAR2,
-        pRefcursor          OUT SYS_REFCURSOR
-    ) IS
-        vIdUsuario  NUMBER;
-  BEGIN  
-        SELECT SQ_GENM_USUARIO.NEXTVAL INTO vIdUsuario FROM DUAL;
-
-        INSERT INTO T_GENM_USUARIO (ID_USUARIO, NOMBRES_USUARIO, APELLIDOS_USUARIO, ID_INSTITUCION, PASSWORD_USUARIO,EMAIL_USUARIO, 
-                    ID_ESTADO_USUARIO, TELEFONO_USUARIO, ANEXO_USUARIO, CELULAR_USUARIO, FLG_ESTADO, ID_TERMINOS, FLG_TERMINOS, ADJUNTO, ADJUNTO_BASE)
-        VALUES     (vIdUsuario, pNOMBRES_USUARIO, pAPELLIDOS_USUARIO, pID_INSTITUCION, pPASSWORD_USUARIO,pEMAIL_USUARIO, 
-                    pID_ESTADO_USUARIO, pTELEFONO_USUARIO, pANEXO_USUARIO, pCELULAR_USUARIO, 1, 1, pFLG_TERMINOS, pADJUNTO, pADJUNTO_BASE);
-
-        --SELECT nvl(MAX(ID_USUARIO),0) INTO vIdUsuario FROM T_GENM_USUARIO;
-
-        INSERT INTO T_MAE_USUARIO_ROL (ID_USUARIO, ID_ROL, FLG_ESTADO, DES_COMENTARIO) 
-        VALUES (vIdUsuario, pID_ROL, 1, '');
-
-        IF pID_ROL = 1 THEN
-            UPDATE  T_GENM_USUARIO
-            SET     PRIMER_INICIO = 1
-            WHERE   ID_USUARIO = vIdUsuario;
-        ELSE
-            UPDATE  T_GENM_USUARIO
-            SET     PRIMER_INICIO = 0
-            WHERE   ID_USUARIO = vIdUsuario;
-        END IF;
-
-        OPEN pRefcursor FOR
-        SELECT vIdUsuario CODIGO FROM DUAL;
-
-  END USP_INS_USUARIO;
-
-    PROCEDURE USP_SEL_INSTITUCION(
-        pRefcursor OUT SYS_REFCURSOR
-      ) AS
-      BEGIN
-            OPEN pRefcursor FOR
-            SELECT  ID_INSTITUCION,
-                    ID_SECTOR_INSTITUCION,
-                    RUC_INSTITUCION,
-                    NOMBRE_INSTITUCION,
-                    DIRECCION_INSTITUCION
-            FROM    T_GENM_INSTITUCION;
-      END USP_SEL_INSTITUCION;
-
-    PROCEDURE USP_SEL_PASSWORD(
-        pUsuarioLogin       IN VARCHAR2,
-        pRefcursor         OUT SYS_REFCURSOR
-    ) AS
-    BEGIN
-
-        OPEN pRefcursor FOR
-        SELECT PASSWORD_USUARIO, ID_USUARIO FROM T_GENM_USUARIO
-        WHERE LOWER(EMAIL_USUARIO) = LOWER(pUsuarioLogin);
-
-    END USP_SEL_PASSWORD; 
-   
-
-    PROCEDURE USP_SEL_USUARIO_ROL(
-        pID_USUARIO          IN NUMBER,
-        pRefcursor           OUT SYS_REFCURSOR
-    )AS
-    BEGIN 
-        OPEN pRefcursor FOR
-        SELECT  DISTINCT    OP.ID_OPCION,
-                            TRIM(TRIM(U.NOMBRES_USUARIO) || ' ' || TRIM(U.APELLIDOS_USUARIO)) AS NOMBRES,
-                            R.ID_ROL,
-                            INS.NOMBRE_INSTITUCION INSTITUCION,
-                            SEC.DESCRIPCION SECTOR,
-                            U.EMAIL_USUARIO CORREO,
-                            INS.DIRECCION_INSTITUCION DIRECCION,
-                            NVL(U.PRIMER_INICIO,1) PRIMER_INICIO
-        FROM        T_MAE_USUARIO_ROL UR
-        INNER JOIN  T_MAE_ROL R ON UR.ID_ROL = R.ID_ROL
-        LEFT JOIN   T_GENM_USUARIO U ON UR.ID_USUARIO = U.ID_USUARIO
-        INNER JOIN  T_MAE_OPCION_ROL OROL ON R.ID_ROL = OROL.ID_ROL
-        INNER JOIN  T_MAE_OPCION OP ON OROL.ID_OPCION = OP.ID_OPCION
-        LEFT JOIN T_GENM_INSTITUCION INS ON U.ID_INSTITUCION = INS.ID_INSTITUCION
-        LEFT JOIN T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
-        WHERE       U.ID_USUARIO = pID_USUARIO AND OP.FLG_ESTADO = 1;
-    END USP_SEL_USUARIO_ROL;
-
-    PROCEDURE USP_SEL_CLAVE(
-        pID_USUARIO        IN  NUMBER,
-        pRefcursor         OUT  SYS_REFCURSOR
-    )AS
-    BEGIN
-        OPEN pRefcursor FOR 
-        SELECT  PASSWORD_USUARIO
-        FROM    T_GENM_USUARIO
-        WHERE   ID_USUARIO = pID_USUARIO;
-    END USP_SEL_CLAVE;
-
-    PROCEDURE USP_UPD_CAMBIAR_CLAVE(
-        pID_USUARIO        IN  NUMBER,
-        pNUEVO_PASSWORD    IN  VARCHAR2
-    )AS
-    BEGIN
-        UPDATE  T_GENM_USUARIO
-        SET     PASSWORD_USUARIO = pNUEVO_PASSWORD
-        WHERE   ID_USUARIO = pID_USUARIO;
-    END USP_UPD_CAMBIAR_CLAVE;
-
-    PROCEDURE USP_UPD_OBTENER_USUARIO(
-        pEMAIL_USUARIO       IN VARCHAR2,
-        pRefcursor           OUT SYS_REFCURSOR
-    )AS
-    BEGIN
-        OPEN pRefcursor FOR
-        SELECT  ID_USUARIO,
-                TRIM(NOMBRES_USUARIO) || ' ' ||TRIM(APELLIDOS_USUARIO) NOMBRES,
-                EMAIL_USUARIO
-        FROM    T_GENM_USUARIO
-        WHERE   EMAIL_USUARIO = pEMAIL_USUARIO;
-    END USP_UPD_OBTENER_USUARIO;
-
-    PROCEDURE USP_UPD_OBTENER_USUARIO_ID(
-        pID_USUARIO       IN NUMBER,
-        pRefcursor           OUT SYS_REFCURSOR
-    )AS
-    BEGIN
-        OPEN pRefcursor FOR
-        SELECT  TRIM(U.NOMBRES_USUARIO) || ' ' || TRIM(U.APELLIDOS_USUARIO) NOMBRES,
-                U.EMAIL_USUARIO,
-                INS.NOMBRE_INSTITUCION INSTITUCION,
-                INS.DIRECCION_INSTITUCION DIRECCION,
-                SEC.DESCRIPCION SECTOR
-        FROM    T_GENM_USUARIO U 
-        LEFT JOIN T_GENM_INSTITUCION INS ON U.ID_INSTITUCION = INS.ID_INSTITUCION
-        LEFT JOIN T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
-        WHERE   ID_USUARIO = pID_USUARIO;
-    END USP_UPD_OBTENER_USUARIO_ID;
-
-    --01.02.20
-    PROCEDURE USP_SEL_ESPECIALISTA_MEDMIT(
-        pID_MEDMIT  IN NUMBER,
-        pRefcursor  OUT SYS_REFCURSOR
-    )AS
-    BEGIN
-        OPEN pRefcursor FOR 
-        SELECT U.ID_USUARIO,
-               TRIM(USU.NOMBRES_USUARIO) || ' ' || TRIM(USU.APELLIDOS_USUARIO) NOMBRES,
-               R.ID_ROL,
-               R.DESCRIPCION_ROL ROL,
-               USU.EMAIL_USUARIO,
-               '03' COLOR
-        FROM  T_MAE_USUARIO_MEDMIT U
-        LEFT JOIN T_GENM_USUARIO USU ON U.ID_USUARIO = USU.ID_USUARIO
-        LEFT JOIN T_MAE_USUARIO_ROL UR ON USU.ID_USUARIO = UR.ID_USUARIO
-        LEFT JOIN T_MAE_ROL R ON UR.ID_ROL = R.ID_ROL
-        WHERE U.ID_MEDMIT = pID_MEDMIT AND R.ID_ROL = 2 AND U.FLG_ESTADO = 1;
-    END USP_SEL_ESPECIALISTA_MEDMIT;
-
-    PROCEDURE USP_SEL_USUARIO_ADMIN(
-        pRefcursor  OUT SYS_REFCURSOR
-    )AS
-    BEGIN
-        OPEN pRefcursor FOR 
-        SELECT * FROM(
-        SELECT USU.ID_USUARIO,
-               TRIM(USU.NOMBRES_USUARIO) || ' ' || TRIM(USU.APELLIDOS_USUARIO) NOMBRES,
-               R.ID_ROL,
-               R.DESCRIPCION_ROL ROL,
-               USU.EMAIL_USUARIO,
-               '06' COLOR
-        FROM  T_GENM_USUARIO USU
-        LEFT JOIN T_MAE_USUARIO_ROL UR ON USU.ID_USUARIO = UR.ID_USUARIO
-        LEFT JOIN T_MAE_ROL R ON UR.ID_ROL = R.ID_ROL
-        WHERE R.ID_ROL = 3
-        ORDER BY USU.ID_USUARIO ASC)
-        WHERE ROWNUM = 1;
-    END USP_SEL_USUARIO_ADMIN;
-
-    PROCEDURE USP_SEL_USUARIO_EVA(
-        pRefcursor  OUT SYS_REFCURSOR
-    )AS
-    BEGIN
-        OPEN pRefcursor FOR 
-        SELECT * FROM(
-        SELECT USU.ID_USUARIO,
-               TRIM(USU.NOMBRES_USUARIO) || ' ' || TRIM(USU.APELLIDOS_USUARIO) NOMBRES,
-               R.ID_ROL,
-               R.DESCRIPCION_ROL ROL,
-               USU.EMAIL_USUARIO,
-               '04' COLOR
-        FROM  T_GENM_USUARIO USU
-        LEFT JOIN T_MAE_USUARIO_ROL UR ON USU.ID_USUARIO = UR.ID_USUARIO
-        LEFT JOIN T_MAE_ROL R ON UR.ID_ROL = R.ID_ROL
-        WHERE R.ID_ROL = 4
-        ORDER BY USU.ID_USUARIO ASC)
-        WHERE ROWNUM = 1;
-    END USP_SEL_USUARIO_EVA;
-
-    PROCEDURE USP_SEL_USUARIO_INICIATIVA(
-        pID_USUARIO IN NUMBER,
-        pRefcursor  OUT SYS_REFCURSOR
-    )AS
-    BEGIN
-        OPEN pRefcursor FOR 
-        SELECT USU.ID_USUARIO,
-               TRIM(USU.NOMBRES_USUARIO) || ' ' || TRIM(USU.APELLIDOS_USUARIO) NOMBRES,
-               R.ID_ROL,
-               R.DESCRIPCION_ROL ROL,
-               USU.EMAIL_USUARIO,
-               '02' COLOR
-        FROM  T_GENM_USUARIO USU
-        LEFT JOIN T_MAE_USUARIO_ROL UR ON USU.ID_USUARIO = UR.ID_USUARIO
-        LEFT JOIN T_MAE_ROL R ON UR.ID_ROL = R.ID_ROL
-        WHERE USU.ID_USUARIO = pID_USUARIO;
-    END USP_SEL_USUARIO_INICIATIVA;
-    
-    PROCEDURE USP_UPD_PRIMERA_VISTA(
-        pID_USUARIO IN NUMBER
-    )AS
-    BEGIN
-        UPDATE  T_GENM_USUARIO
-        SET     PRIMER_INICIO = 0
-        WHERE   ID_USUARIO = pID_USUARIO;
-    END USP_UPD_PRIMERA_VISTA;
-
-END PKG_MRV_ADMIN_SISTEMA;
 
 /
