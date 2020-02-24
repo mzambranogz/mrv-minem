@@ -1,0 +1,242 @@
+24/02/2020 01:08:29 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 43:
+PLS-00103: Se ha encontrado el símbolo "(" cuando se esperaba uno de los siguientes:
+
+   <an identifier> <a double-quoted delimited-identifier>
+   current delete exists prior
+El símbolo "<an identifier>" ha sido sustituido por "(" para continuar.
+24/02/2020 01:08:29 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 43:
+PLS-00103: Se ha encontrado el símbolo "(" cuando se esperaba uno de los siguientes:
+
+   <an identifier> <a double-quoted delimited-identifier>
+   current delete exists prior
+El símbolo "<an identifier>" ha sido sustituido por "(" para continuar.
+24/02/2020 01:08:29 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 43:
+PLS-00103: Se ha encontrado el símbolo "(" cuando se esperaba uno de los siguientes:
+
+   <an identifier> <a double-quoted delimited-identifier>
+   current delete exists prior
+El símbolo "<an identifier>" ha sido sustituido por "(" para continuar.
+24/02/2020 01:08:29 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 43:
+PLS-00103: Se ha encontrado el símbolo "(" cuando se esperaba uno de los siguientes:
+
+   <an identifier> <a double-quoted delimited-identifier>
+   current delete exists prior
+El símbolo "<an identifier>" ha sido sustituido por "(" para continuar.
+24/02/2020 01:08:29 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 43:
+PLS-00103: Se ha encontrado el símbolo "(" cuando se esperaba uno de los siguientes:
+
+   <an identifier> <a double-quoted delimited-identifier>
+   current delete exists prior
+El símbolo "<an identifier>" ha sido sustituido por "(" para continuar.
+24/02/2020 01:08:29 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 43:
+PLS-00103: Se ha encontrado el símbolo "(" cuando se esperaba uno de los siguientes:
+
+   <an identifier> <a double-quoted delimited-identifier>
+   current delete exists prior
+El símbolo "<an identifier>" ha sido sustituido por "(" para continuar.
+24/02/2020 01:08:29 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 43:
+PLS-00103: Se ha encontrado el símbolo "(" cuando se esperaba uno de los siguientes:
+
+   <an identifier> <a double-quoted delimited-identifier>
+   current delete exists prior
+El símbolo "<an identifier>" ha sido sustituido por "(" para continuar.
+24/02/2020 01:08:29 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 43:
+PLS-00103: Se ha encontrado el símbolo "(" cuando se esperaba uno de los siguientes:
+
+   <an identifier> <a double-quoted delimited-identifier>
+   current delete exists prior
+El símbolo "<an identifier>" ha sido sustituido por "(" para continuar.
+24/02/2020 01:08:29 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 43:
+PLS-00103: Se ha encontrado el símbolo "(" cuando se esperaba uno de los siguientes:
+
+   <an identifier> <a double-quoted delimited-identifier>
+   current delete exists prior
+El símbolo "<an identifier>" ha sido sustituido por "(" para continuar.
+24/02/2020 01:08:29 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 43:
+PLS-00103: Se ha encontrado el símbolo "(" cuando se esperaba uno de los siguientes:
+
+   <an identifier> <a double-quoted delimited-identifier>
+   current delete exists prior
+El símbolo "<an identifier>" ha sido sustituido por "(" para continuar.
+24/02/2020 01:08:29 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaBusquedaAvanzadoPrivado(entidad.minem.gob.pe.IniciativaBE), Línea: 0] - ORA-06550: línea 1, columna 43:
+PLS-00103: Se ha encontrado el símbolo "(" cuando se esperaba uno de los siguientes:
+
+   <an identifier> <a double-quoted delimited-identifier>
+   current delete exists prior
+El símbolo "<an identifier>" ha sido sustituido por "(" para continuar.
+24/02/2020 01:52:51 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00904: "INI"."TOTAL_GEI": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 4487
+ORA-06512: en línea 1
+24/02/2020 01:52:51 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00904: "INI"."TOTAL_GEI": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 4487
+ORA-06512: en línea 1
+24/02/2020 01:52:51 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00904: "INI"."TOTAL_GEI": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 4487
+ORA-06512: en línea 1
+24/02/2020 01:52:51 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00904: "INI"."TOTAL_GEI": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 4487
+ORA-06512: en línea 1
+24/02/2020 01:52:51 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00904: "INI"."TOTAL_GEI": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 4487
+ORA-06512: en línea 1
+24/02/2020 01:52:51 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00904: "INI"."TOTAL_GEI": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 4487
+ORA-06512: en línea 1
+24/02/2020 01:52:51 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-00904: "INI"."TOTAL_GEI": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 4487
+ORA-06512: en línea 1
+24/02/2020 01:52:51 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00904: "INI"."TOTAL_GEI": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 4487
+ORA-06512: en línea 1
+24/02/2020 01:52:51 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00904: "INI"."TOTAL_GEI": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 4487
+ORA-06512: en línea 1
+24/02/2020 01:52:51 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00904: "INI"."TOTAL_GEI": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 4487
+ORA-06512: en línea 1
+24/02/2020 01:52:51 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaBusquedaAvanzadoPrivado(entidad.minem.gob.pe.IniciativaBE), Línea: 1553] - ORA-00904: "INI"."TOTAL_GEI": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 4487
+ORA-06512: en línea 1
+24/02/2020 01:54:21 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00904: "INI"."TOTAL_GEI": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 4487
+ORA-06512: en línea 1
+24/02/2020 01:54:21 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00904: "INI"."TOTAL_GEI": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 4487
+ORA-06512: en línea 1
+24/02/2020 01:54:21 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00904: "INI"."TOTAL_GEI": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 4487
+ORA-06512: en línea 1
+24/02/2020 01:54:21 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00904: "INI"."TOTAL_GEI": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 4487
+ORA-06512: en línea 1
+24/02/2020 01:54:21 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00904: "INI"."TOTAL_GEI": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 4487
+ORA-06512: en línea 1
+24/02/2020 01:54:21 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00904: "INI"."TOTAL_GEI": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 4487
+ORA-06512: en línea 1
+24/02/2020 01:54:21 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-00904: "INI"."TOTAL_GEI": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 4487
+ORA-06512: en línea 1
+24/02/2020 01:54:21 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00904: "INI"."TOTAL_GEI": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 4487
+ORA-06512: en línea 1
+24/02/2020 01:54:21 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00904: "INI"."TOTAL_GEI": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 4487
+ORA-06512: en línea 1
+24/02/2020 01:54:21 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00904: "INI"."TOTAL_GEI": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 4487
+ORA-06512: en línea 1
+24/02/2020 01:54:21 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaBusquedaAvanzadoPrivado(entidad.minem.gob.pe.IniciativaBE), Línea: 1553] - ORA-00904: "INI"."TOTAL_GEI": identificador no válido
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 4487
+ORA-06512: en línea 1
+24/02/2020 11:07:57 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:07:57 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:07:57 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:07:57 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:07:57 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:07:57 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:07:57 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:07:57 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:07:57 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:07:57 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:07:57 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaBusquedaSimplePrivado(entidad.minem.gob.pe.IniciativaBE), Línea: 1350] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:08:11 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:08:11 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:08:11 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:08:11 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:08:11 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:08:11 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:08:11 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:08:11 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:08:11 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:08:11 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:08:11 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaBusquedaSimplePrivado(entidad.minem.gob.pe.IniciativaBE), Línea: 1350] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:08:22 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:08:22 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:08:22 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:08:22 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:08:22 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:08:22 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:08:22 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:08:22 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:08:22 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:08:22 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:08:22 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaBusquedaSimplePrivado(entidad.minem.gob.pe.IniciativaBE), Línea: 1350] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:08:27 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:08:27 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:08:27 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:08:27 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:08:27 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:08:27 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:08:27 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:08:27 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:08:27 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:08:27 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:08:27 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaBusquedaSimplePrivado(entidad.minem.gob.pe.IniciativaBE), Línea: 1350] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:09:40 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:09:40 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:09:40 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:09:40 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:09:40 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:09:40 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:09:40 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:09:40 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:09:40 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:09:40 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
+24/02/2020 11:09:40 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaBusquedaSimplePrivado(entidad.minem.gob.pe.IniciativaBE), Línea: 0] - ORA-06550: line 1, column 43:
+PLS-00114: identifier 'USP_SEL_BUSQUEDA_SIMPLEUSP_SEL' too long
