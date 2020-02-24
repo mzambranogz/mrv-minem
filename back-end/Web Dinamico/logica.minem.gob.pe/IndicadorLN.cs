@@ -128,7 +128,7 @@ namespace logica.minem.gob.pe
                 {
                     id_indicador = item.ID_INDICADOR;
                 }
-                
+
                 foreach (var itemD in item.listaInd)
                 {
                     if (string.IsNullOrEmpty(item.VALOR)) item.VALOR = "";
@@ -512,11 +512,60 @@ namespace logica.minem.gob.pe
                     }
 
                     break;
+
+                case "V":
+                    ls_cida = istrOperando.Substring(1);
+                    VariableBE Ventidad = new VariableBE() { ID_VARIABLE = int.Parse(ls_cida) };
+                    List<VariableBE> lVariable = new VariableDA().ListaVariabes(Ventidad);
+
+                    switch (ls_cida)
+                    {
+                        case "1": //Dias de funcionamiento desde la fecha de instalación
+
+                            if (lVariable != null)
+                            {
+                                foreach (VariableBE vItem in lVariable)
+                                {
+                                    IndicadorDataBE vIndicador = listaEntidad.Find(A => A.ID_PARAMETRO.Equals(vItem.ID_PARAMETRO));
+                                    if (vIndicador != null)
+                                    {
+                                        DateTime fechaInicial = DateTime.ParseExact(vIndicador.VALOR, "dd/MM/yyyy", CultureInfo.GetCultureInfo("es-PE"));
+                                        DateTime fechaFinal = new DateTime(fechaInicial.Year, 12, 31);
+                                        TimeSpan diferencia = fechaFinal - fechaInicial;
+                                        lde_importecida = diferencia.Days;
+                                    }
+                                    else
+                                    {
+                                        lde_importecida = 0;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                lde_importecida = 0;
+                            }
+                            break;
+                        case "2":   //Sumatoria de reducciones GEI para periodos pasados al campo año del registro
+                            if (lVariable != null)
+                            {
+                                foreach(VariableBE vItem in lVariable)
+                                {
+                                    IndicadorDataBE vIndicador = listaEntidad.Find(A => A.ID_PARAMETRO.Equals(vItem.ID_PARAMETRO));
+
+                                    lde_importecida = new VariableDA().SumatoriaGeiReducido(int.Parse(vIndicador.VALOR), listaEntidad[0].ID_INICIATIVA);
+                                }
+                            }
+
+                            break;
+                    }
+                    ls_subformula = lde_importecida.ToString();
+
+                    break;
             }
 
 
             return ls_subformula;
         }
     }
-    
+
 }

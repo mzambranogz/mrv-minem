@@ -1014,3 +1014,6 @@ C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico\MRVMinem\obj\Debug\RdlCompile.compiled
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico\MRVMinem\obj\Debug\MRVMinem.dll
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico\MRVMinem\obj\Debug\MRVMinem.pdb
+D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\4.1 Plantilla_Electricos_Consumo_Masivo.xlsm
+D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\4.1 Plantilla_Electricos_Hibrido_Consumo_Masivo.xlsm
+D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\4.1 Plantilla_Electricos_Hibrido_Masivo.xlsm

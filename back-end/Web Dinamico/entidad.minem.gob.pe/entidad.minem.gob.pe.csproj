@@ -93,6 +93,7 @@
     <Compile Include="UsuarioAuxBE.cs" />
     <Compile Include="UsuarioBE.cs" />
     <Compile Include="UsuarioMedMitBE.cs" />
+    <Compile Include="VariableBE.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
