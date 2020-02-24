@@ -82,6 +82,7 @@
     <Compile Include="TipoVehiculoDA.cs" />
     <Compile Include="UbicacionDA.cs" />
     <Compile Include="UsuarioDA.cs" />
+    <Compile Include="VariableDA.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\entidad.minem.gob.pe\entidad.minem.gob.pe.csproj">
