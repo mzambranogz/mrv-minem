@@ -50,7 +50,7 @@
                         tr = tr + '         <div class="dropdown-menu dropdown-menu-right">';
                         tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_cargarDatosUserMantenimiento(' + data[i]["ID_USUARIO"] + ');" data-toggle="modal" data-target="#modal-usuario">';
                         tr = tr + '                 <i class="fas fa-check"></i>&nbsp;Verificar';
-                        tr = tr + '             </a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion">';
+                        tr = tr + '             </a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion" onclick="guardarIdUsuario(' + data[i]["ID_USUARIO"] + ');">';
                         tr = tr + '                 <i class="fas fa-times-circle"></i>&nbsp;Deshabilitar';
                         tr = tr + '             </a>';
                         tr = tr + '         </div>';
@@ -420,15 +420,49 @@ function fn_validarCampo() {
 }
 
 function fn_editarMantenimiento() {
-     
-    $("#seccionMensaje #errorRegistro").remove();
-    if ($("#validarUsuario").data("guardar") == 1){
-        if (!fn_validarCampo()) {
-            return false;
-        }
-    }
-    
 
+    $("#seccionMensaje #errorRegistro").remove();
+    if (!fn_validarCampo()) {
+        return false;
+    }
+    if ($("#validarUsuario").data("guardar") == 1) {
+        $("#seccionMensaje #errorRegistro").remove();
+        item = {
+            EMAIL_USUARIO: $("#txt-user").val()
+        };
+        var url = baseUrl + "Portal/VerificarEmail";
+        var respuesta = MRV.Ajax(url, item, false);
+        if (respuesta.success) {
+            fn_guardarUsuarioMantenimiento();
+        } else {
+            var msj = '                      <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="errorRegistro">';
+            msj = msj + '                           <div class="alert-wrap mr-3">';
+            msj = msj + '                                <div class="sa">';
+            msj = msj + '                                    <div class="sa-error">';
+            msj = msj + '                                        <div class="sa-error-x">';
+            msj = msj + '                                            <div class="sa-error-left"></div>';
+            msj = msj + '                                            <div class="sa-error-right"></div>';
+            msj = msj + '                                        </div>';
+            msj = msj + '                                        <div class="sa-error-placeholder"></div>';
+            msj = msj + '                                        <div class="sa-error-fix"></div>';
+            msj = msj + '                                    </div>';
+            msj = msj + '                                </div>';
+            msj = msj + '                            </div>';
+            msj = msj + '                            <div class="alert-wrap">';
+            msj = msj + '                                <h6>Error de registro</h6>';
+            msj = msj + '                                <hr><small class="mb-0">El correo ingresado ya existe, utilice un correo válido para su registro.</small>';
+            msj = msj + '                            </div>';
+            msj = msj + '                        </div>';
+            $("#seccionMensaje").append(msj);
+        }
+    } else {
+        fn_guardarUsuarioMantenimiento();
+    }
+}
+
+function fn_guardarUsuarioMantenimiento() {   
+
+    $("#seccionMensaje #errorRegistro").remove();
     var estado = 0;
     //alert("entre");
     for (var i = 0; i < 2 ; i++) {
@@ -517,6 +551,7 @@ function fn_cargarDatosUserMantenimiento(id) {
     $("#validarUsuario").data("guardar", 0);/*add*/
     $("#cabeceraRegistrarMantenimientoUsuario").hide();
     $("#btn-modal-consultar").show();
+    $("#txt-user").attr("disabled", true);
     fn_seleccionarMantenimientoUsuario(id);
 }
 
@@ -573,6 +608,7 @@ function fn_cargaMedidaMitigacion(id) {
 function regUsuario() {
     fn_cargaMedidaMitigacion(0);
     fn_limpiarCampo();
+    $("#txt-user").attr("disabled", false);
     $("#validarUsuario").data("guardar", 1);
     $("#cabeceraEditarMantenimientoUsuario").hide();
     $("#btn-modal-consultar").hide();
@@ -619,61 +655,8 @@ function exportarMantenimientoUsuario(){
 }
 
 function fn_buscar() {
-    //$("#buscar-usuarios").data("buscar",1);
     $("#buscar-usuarios").data("campo", $("#txt-buscar").val());
-
     fn_CargaUsuarios();
-    //$("#buscar-estado").data("value",1);
-    //var Item = {
-    //    Buscar: $("#txt-buscar").val()
-    //};
-    //$.ajax({
-    //    url: baseUrl + "Gestion/BuscarMantenimientoUsuario",
-    //    type: 'POST',
-    //    datatype: 'json',
-    //    data: Item,
-    //    success: function (data) {
-    //        $("#cuerpoMantenimientoUsuario").html("");
-    //        if (data != null && data != "") {
-    //            if (data.length > 0) {
-    //                //$("#cuerpoMantenimientoUsuario").html("");
-    //                for (var i = 0; i < data.length; i++) {
-    //                    var tr = '<tr>';
-    //                    tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + (1 + i) + '</th>';
-    //                    tr = tr + '<td data-encabezado="Nombre y Apellido">' + data[i]["NOMBRES"] + '</td>';
-    //                    tr = tr + '<td data-encabezado="Email">' + data[i]["CORREO"] + '</td>';
-    //                    tr = tr + '<td data-encabezado="Istitución">' + data[i]["INSTITUCION"] + '</td>';
-    //                    if (data[i]["TELEFONO_USUARIO"] == null) {
-    //                        tr = tr + '<td data-encabezado="Dirección">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + ' - ' + data[i]["CELULAR_USUARIO"] + '</td>';
-    //                    } else if (data[i]["CELULAR_USUARIO"] == null) {
-    //                        tr = tr + '<td data-encabezado="Dirección">' + data[i]["TELEFONO_USUARIO"] + ' -  </td>';
-    //                    } else{
-    //                        tr = tr + '<td data-encabezado="Dirección">' + data[i]["TELEFONO_USUARIO"] + ' - ' + data[i]["CELULAR_USUARIO"] + '</td>';
-    //                    }
-    //                    tr = tr + '<td data-encabezado="Perfil">';
-    //                    tr = tr + '     <span class="badge badge-actor-' + data[i]["COLOR"] + '">' + data[i]["ROL"] + '</span>';
-    //                    tr = tr + '</td>';
-    //                    tr = tr + '<td data-encabezado="Estado">';
-    //                    tr = tr + '     <span class="badge badge-actor-' + data[i]["COLOR_ESTADO"] + '"><i class="fas fa-question-circle mr-1"></i>' + data[i]["ESTADO"] + '</span>';
-    //                    tr = tr + '</td>';
-    //                    tr = tr + '<td class="text-center text-xs-right" data-encabezado="Acciones">';
-    //                    tr = tr + '     <div class="btn-group">';
-    //                    tr = tr + '         <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
-    //                    tr = tr + '         <div class="dropdown-menu dropdown-menu-right">';
-    //                    tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_cargarDatosUserMantenimiento(' + data[i]["ID_USUARIO"] + ');" data-toggle="modal" data-target="#modal-usuario">';
-    //                    tr = tr + '                 <i class="fas fa-edit"></i>&nbsp;Verificar';
-    //                    tr = tr + '             </a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion">';
-    //                    tr = tr + '                 <i class="fas fa-trash"></i>&nbsp;Deshabilitar';
-    //                    tr = tr + '             </a>';
-    //                    tr = tr + '         </div>';
-    //                    tr = tr + "     </div></td>";
-    //                    tr = tr + '</tr>';
-    //                    $("#cuerpoMantenimientoUsuario").append(tr);
-    //                }
-    //            }
-    //        }
-    //    }
-    //});
 }
 
 function fn_verfileDeclaracion(id_usuario) {
@@ -802,11 +785,22 @@ function deshabilitarUsuario() {
     var url = baseUrl + 'Gestion/DeshabilitarUsuario';
     var respuesta = MRV.Ajax(url, item, false);
     if (respuesta.success) {
+        fn_CargaUsuarios();
         $('#modal-confirmacion').modal('hide');
     } else {
-
+        alert("Ocurrió un problema, no se deshabilitó al usuario");
     }
 }
+
+
+$(function () {
+    $(".validar").keydown(function (event) {
+        //alert(event.keyCode);
+        if ((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105) && event.keyCode !== 190 && event.keyCode !== 110 && event.keyCode !== 8 && event.keyCode !== 9) {
+            return false;
+        }
+    });
+});
 
 
 

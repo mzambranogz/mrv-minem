@@ -461,5 +461,13 @@ namespace MRVMinem.Controllers
             }
         }
 
+        public JsonResult DashboardResultado(IndicadorBE entidad)
+        {
+            List<IndicadorBE> lista = IndicadorLN.DashboardResultado(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
     }
 }

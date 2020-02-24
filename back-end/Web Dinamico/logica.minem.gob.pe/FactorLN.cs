@@ -55,6 +55,28 @@ namespace logica.minem.gob.pe
             return e;
         }
 
+        public static FactorBE GuardarMedidaFactor(FactorBE entidad)
+        {
+            FactorBE e = new FactorBE();
+            foreach (var item in entidad.listaFactor)
+            {
+                e = factorDA.GuardarMedidaFactor(item);
+                if (!e.OK) break;
+            }
+
+            if (e.OK)
+            {
+                if (!string.IsNullOrEmpty(entidad.ID_ELIMINAR_FACTOR))
+                    e = factorDA.EliminarMedidaFactor(entidad);                
+            }
+            return e;
+        }
+
+        public static FactorBE ValidarMedidaFactor(FactorBE entidad)
+        {
+            return factorDA.ValidarMedidaFactor(entidad);
+        }
+
         //////////////////////////////////////////////////
         public static List<FactorBE> ListaFactor(FactorBE entidad)
         {

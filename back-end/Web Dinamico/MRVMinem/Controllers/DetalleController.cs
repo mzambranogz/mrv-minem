@@ -209,6 +209,10 @@ namespace MRVMinem.Controllers
                                                     //item.VALOR = Convert.ToString(DateTime.FromOADate(long.Parse(worksheet.Cells[i, j].Value.ToString())));
                                                     //item.VALOR = item.VALOR.Substring(0, 10);
                                                     //item.VALOR = "2018-11-12";
+
+                                                    //ALTERNO
+                                                    //string p = worksheet.Cells[i, j].Value.ToString();
+                                                    //item.VALOR = Convert.ToDateTime(p).ToString("yyyy-MM-dd");
                                                 }                                                    
                                                 else
                                                     item.VALOR = worksheet.Cells[i, j].Value.ToString();

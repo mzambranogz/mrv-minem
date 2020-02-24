@@ -1265,66 +1265,87 @@ namespace datos.minem.gob.pe
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
                 {
                     string sp = sPackage;
-
+                    var p = new OracleDynamicParameters();
+                    sp += "USP_SEL_BUSQUEDA_SIMPLE";
                     if (entidad.ID_ESTADO == 1)
                     {
                         if (entidad.ID_ROL == 1)
                         {
-                            sp += "USP_SEL_BUSQUEDA_SPL_PRI_USU";
+                            //sp += "USP_SEL_BUSQUEDA_SPL_PRI_USU";
+                            entidad.CONDICION = "(INI.ID_USUARIO = "+ entidad.ID_USUARIO +")";
                         }
                         else if (entidad.ID_ROL == 2)
                         {
                             sp += "USP_SEL_BUSQUEDA_SPL_PRI_ESP";
+                            //entidad.CONDICION = "(INI.ID_ESTADO IN (1,5) AND INI.ID_ETAPA IN (1,3) OR (INI.ID_ESTADO = 2 AND INI.ID_ETAPA = 4))";
+                            entidad.CONDICION = "(INI.ID_ESTADO IN (1,5) AND INI.ID_ETAPA IN (1,3)";
                         }
                         else if (entidad.ID_ROL == 3)
                         {
-                            sp += "USP_SEL_BUSQUEDA_SPL_PRI_ADM";
+                            //sp += "USP_SEL_BUSQUEDA_SPL_PRI_ADM";
+                            //entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 4) OR (INI.ID_ESTADO IN (2) AND INI.ID_ETAPA IN (5,8))";
+                            entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 4)";
                         }
                         else if (entidad.ID_ROL == 4)
                         {
-                            sp += "USP_SEL_BUSQUEDA_SPL_PRI_EVA";
+                            //sp += "USP_SEL_BUSQUEDA_SPL_PRI_EVA";
+                            //entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 5) OR (INI.ID_ESTADO = 2 AND INI.ID_ETAPA = 6)";
+                            entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 5)";
                         }
                         else if (entidad.ID_ROL == 5)
                         {
-                            sp += "USP_SEL_BUSQUEDA_SPL_PRI_VRF";
+                            //sp += "USP_SEL_BUSQUEDA_SPL_PRI_VRF";
+                            entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA IN (6,8))";
                         }
+                        entidad.ESTADO_BANDEJA = "Pendiente";
                     }
                     else if (entidad.ID_ESTADO == 2)
                     {
-                        sp += "USP_SEL_BUSQUEDA_SPL_PRI_OBSE";
+                        //sp += "USP_SEL_BUSQUEDA_SPL_PRI_OBSE";                        
+                        entidad.CONDICION = "(INI.ID_ESTADO = 2)";
+                        entidad.ESTADO_BANDEJA = "Observado";
                     }
                     else if (entidad.ID_ESTADO == 3)
                     {
-                        sp += "USP_SEL_BUSQUEDA_SPL_PRI_APRO";
+                        //sp += "USP_SEL_BUSQUEDA_SPL_PRI_APRO";                        
+                        entidad.CONDICION = "(INI.ID_ESTADO = 3 AND INI.ID_ETAPA IN (2,4))";
+                        entidad.ESTADO_BANDEJA = "Aprobado";
                     }
                     else if (entidad.ID_ESTADO == 4)
                     {
-                        sp += "USP_SEL_BUSQUEDA_SPL_PRI_REVI";
+                        //sp += "USP_SEL_BUSQUEDA_SPL_PRI_REVI";
+                        entidad.CONDICION = "(INI.ID_ESTADO = 3 AND INI.ID_ETAPA IN (5,8))";
+                        entidad.ESTADO_BANDEJA = "Revisado";
                     }
                     else if (entidad.ID_ESTADO == 5)
                     {
-                        sp += "USP_SEL_BUSQUEDA_SPL_PRI_EVAL";
+                        //sp += "USP_SEL_BUSQUEDA_SPL_PRI_EVAL";
+                        entidad.CONDICION = "(INI.ID_ESTADO = 3 AND INI.ID_ETAPA = 6)";
+                        entidad.ESTADO_BANDEJA = "Evaluado";
                     }
                     else if (entidad.ID_ESTADO == 6)
                     {
-                        sp += "USP_SEL_BUSQUEDA_SPL_PRI_VRFI";
+                        //sp += "USP_SEL_BUSQUEDA_SPL_PRI_VRFI";
+                        entidad.CONDICION = "(INI.ID_ESTADO = 3 AND INI.ID_ETAPA = 7)";
+                        entidad.ESTADO_BANDEJA = "Verificado";
                     }
                     else if (entidad.ID_ESTADO == 7)
                     {
-                        sp += "USP_SEL_BUSQUEDA_SPL_PRI_TODO";
+                        //sp += "USP_SEL_BUSQUEDA_SPL_PRI_TODO";
+                        entidad.CONDICION = "NOT (INI.ID_ESTADO = 0 AND INI.ID_ETAPA = 1)";
+                        entidad.ESTADO_BANDEJA = "Todo";
                     }
-
-
-                    var p = new OracleDynamicParameters();
-                    if (entidad.ID_ROL == 1)
-                    {
-                        p.Add("pID_USUARIO", entidad.ID_USUARIO);
-                    }
+                    
+                    //if (entidad.ID_ROL == 1)
+                    //{
+                    //    p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    //}
                     p.Add("pBuscar", entidad.buscar);
                     p.Add("pRegistros", entidad.cantidad_registros);
                     p.Add("pPagina", entidad.pagina);
                     p.Add("pSortColumn", entidad.order_by);
                     p.Add("pSortOrder", entidad.order_orden);
+                    p.Add("pCondicion", entidad.CONDICION);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
 
@@ -1332,8 +1353,11 @@ namespace datos.minem.gob.pe
                     {
                         item.FECHA = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
                         if (item.FECHA == "01/01/0001") item.FECHA = "";
+                        item.FECHA_FIN = item.FECHA_FIN_INICIATIVA.ToString("dd/MM/yyyy");
+                        if (item.FECHA_FIN == "01/01/0001") item.FECHA_FIN = "";
                         if (string.IsNullOrEmpty(item.NOMBRE_INICIATIVA)) item.NOMBRE_INICIATIVA = "";
                         if (string.IsNullOrEmpty(item.NOMBRE_MEDMIT)) item.NOMBRE_MEDMIT = "";
+                        item.ESTADO_BANDEJA = entidad.ESTADO_BANDEJA;
                     }
                 }
             }
@@ -1445,62 +1469,84 @@ namespace datos.minem.gob.pe
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
                 {
                     string sp = sPackage;
+                    var p = new OracleDynamicParameters();
+                    sp += "USP_SEL_BUSQUEDA_AVANZADA";
 
                     if (entidad.ID_ESTADO == 1)
                     {
                         if (entidad.ID_ROL == 1)
                         {
-                            sp += "USP_SEL_BUSQUEDA_AVA_PRI_USU";
+                            //sp += "USP_SEL_BUSQUEDA_AVA_PRI_USU";
+                            entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ")";
                         }
                         else if (entidad.ID_ROL == 2)
                         {
-                            sp += "USP_SEL_BUSQUEDA_AVA_PRI_ESP";
+                            //sp += "USP_SEL_BUSQUEDA_AVA_PRI_ESP";
+                            //entidad.CONDICION = "(INI.ID_ESTADO IN (1,5) AND INI.ID_ETAPA IN (1,3) OR (INI.ID_ESTADO = 2 AND INI.ID_ETAPA = 4))";
+                            entidad.CONDICION = "(INI.ID_ESTADO IN (1,5) AND INI.ID_ETAPA IN (1,3)";
                         }
                         else if (entidad.ID_ROL == 3)
                         {
-                            sp += "USP_SEL_BUSQUEDA_AVA_PRI_ADM";
+                            //sp += "USP_SEL_BUSQUEDA_AVA_PRI_ADM";
+                            //entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 4) OR (INI.ID_ESTADO IN (2) AND INI.ID_ETAPA IN (5,8))";
+                            entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 4)";
                         }
                         else if (entidad.ID_ROL == 4)
                         {
-                            sp += "USP_SEL_BUSQUEDA_AVA_PRI_EVA";
+                            //sp += "USP_SEL_BUSQUEDA_AVA_PRI_EVA";
+                            //entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 5) OR (INI.ID_ESTADO = 2 AND INI.ID_ETAPA = 6)";
+                            entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 5)";
                         }
                         else if (entidad.ID_ROL == 5)
                         {
-                            sp += "USP_SEL_BUSQUEDA_AVA_PRI_VRF";
+                            //sp += "USP_SEL_BUSQUEDA_AVA_PRI_VRF";
+                            entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA IN (6,8))";
                         }
+                        entidad.ESTADO_BANDEJA = "Pendiente";
                     }
                     else if (entidad.ID_ESTADO == 2)
                     {
-                        sp += "USP_SEL_BUSQUEDA_AVA_PRI_OBSE";
+                        //sp += "USP_SEL_BUSQUEDA_AVA_PRI_OBSE";
+                        entidad.CONDICION = "(INI.ID_ESTADO = 2)";
+                        entidad.ESTADO_BANDEJA = "Observado";
                     }
                     else if (entidad.ID_ESTADO == 3)
                     {
-                        sp += "USP_SEL_BUSQUEDA_AVA_PRI_APRO";
+                        //sp += "USP_SEL_BUSQUEDA_AVA_PRI_APRO";
+                        entidad.CONDICION = "(INI.ID_ESTADO = 3 AND INI.ID_ETAPA IN (2,4))";
+                        entidad.ESTADO_BANDEJA = "Aprobado";
                     }
                     else if (entidad.ID_ESTADO == 4)
                     {
-                        sp += "USP_SEL_BUSQUEDA_AVA_PRI_REVI";
+                        //sp += "USP_SEL_BUSQUEDA_AVA_PRI_REVI";
+                        entidad.CONDICION = "(INI.ID_ESTADO = 3 AND INI.ID_ETAPA IN (5,8))";
+                        entidad.ESTADO_BANDEJA = "Revisado";
                     }
                     else if (entidad.ID_ESTADO == 5)
                     {
-                        sp += "USP_SEL_BUSQUEDA_AVA_PRI_EVAL";
+                        //sp += "USP_SEL_BUSQUEDA_AVA_PRI_EVAL";
+                        entidad.CONDICION = "(INI.ID_ESTADO = 3 AND INI.ID_ETAPA = 6)";
+                        entidad.ESTADO_BANDEJA = "Evaluado";
                     }
                     else if (entidad.ID_ESTADO == 6)
                     {
-                        sp += "USP_SEL_BUSQUEDA_AVA_PRI_VRFI";
+                        //sp += "USP_SEL_BUSQUEDA_AVA_PRI_VRFI";
+                        entidad.CONDICION = "(INI.ID_ESTADO = 3 AND INI.ID_ETAPA = 7)";
+                        entidad.ESTADO_BANDEJA = "Verificado";
                     }
                     else if (entidad.ID_ESTADO == 7)
                     {
-                        sp += "USP_SEL_BUSQUEDA_AVA_PRI_TODO";
-                    }
+                        //sp += "USP_SEL_BUSQUEDA_AVA_PRI_TODO";
+                        entidad.CONDICION = "NOT (INI.ID_ESTADO = 0 AND INI.ID_ETAPA = 1)";
+                        entidad.ESTADO_BANDEJA = "Todo";
 
-                    
+                    }                    
 
-                    var p = new OracleDynamicParameters();
-                    if (entidad.ID_ROL == 1)
-                    {
-                        p.Add("pID_USUARIO", entidad.ID_USUARIO);
-                    }
+                    //var p = new OracleDynamicParameters();
+                    //if (entidad.ID_ROL == 1)
+                    //{
+                    //    p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    //}
                     p.Add("pMedida", entidad.medida_b);
                     p.Add("pAnio", entidad.anio_b);
                     p.Add("pSector", entidad.sector_b);
@@ -1508,14 +1554,21 @@ namespace datos.minem.gob.pe
                     p.Add("pEnerg", entidad.energ_b);
                     p.Add("pRegistros", entidad.cantidad_registros);
                     p.Add("pPagina", entidad.pagina);
-                    p.Add("pSortColumn", entidad.order_by);
+                    p.Add("pSortColumn", entidad.order_by);                    
                     p.Add("pSortOrder", entidad.order_orden);
+                    p.Add("pCondicion", entidad.CONDICION);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
 
                     foreach (var item in Lista)
                     {
                         item.FECHA = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
+                        if (item.FECHA == "01/01/0001") item.FECHA = "";
+                        item.FECHA_FIN = item.FECHA_FIN_INICIATIVA.ToString("dd/MM/yyyy");
+                        if (item.FECHA_FIN == "01/01/0001") item.FECHA_FIN = "";
+                        if (string.IsNullOrEmpty(item.NOMBRE_INICIATIVA)) item.NOMBRE_INICIATIVA = "";
+                        if (string.IsNullOrEmpty(item.NOMBRE_MEDMIT)) item.NOMBRE_MEDMIT = "";
+                        item.ESTADO_BANDEJA = entidad.ESTADO_BANDEJA;
                     }
                 }
             }

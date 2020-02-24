@@ -71,9 +71,12 @@ namespace entidad.minem.gob.pe
         public string FECHA { get; set; }
         public string PLACA { get; set; }
         public int ID_SECTOR_INST { get; set; }
+        public int TOTAL_INSTITUCION { get; set; }
+        public int TOTAL_REGION { get; set; }
+        public string NOMBRE_MEDMIT { get; set; }
         public List<IniciativaBE> listaGei { get; set; }
-        //public List<IndicadorBE> listaAnnoSec { get; set; }
-        //public List<IndicadorBE> listaCant { get; set; }
+        public List<IniciativaBE> listaAnnoSec { get; set; }
+        public List<IniciativaBE> listaCant { get; set; }
 
     }
 }

@@ -16,6 +16,7 @@ namespace datos.minem.gob.pe
     {
         public string sPackage = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_DETALLE_INDICADORES.";
         public string sPackage2 = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_REPORTES.";
+        public string sPackage3 = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_INICIATIVA_MITIGACION.";
         public List<IndicadorBE> ListarTablaIndicador(IndicadorBE entidad)
         {
             List<IndicadorBE> Lista = null;
@@ -1019,46 +1020,90 @@ namespace datos.minem.gob.pe
                 var listaSector = ListarSectorDash();
                 var listaAnno = ListarAnnoDash();
 
-                List<IniciativaBE> listaGei = new List<IniciativaBE>();                
+                IndicadorBE Datos = ListarDatosMedida(entidad.ID_MEDMIT);
+                indicador.TOTAL_INSTITUCION = Datos.TOTAL_INSTITUCION;
+                indicador.TOTAL_REGION = Datos.TOTAL_REGION;
+                indicador.TOTAL_GEI_REDUCIDO = Datos.TOTAL_GEI_REDUCIDO;
+                indicador.NOMBRE_MEDMIT = ListarIdMedida(entidad.ID_MEDMIT).NOMBRE_MEDMIT;
+
+                List<IniciativaBE> listaGeiMedida = ListarDatosSectorMedida(entidad.ID_MEDMIT);
+                List<IniciativaBE> listaGeiS = new List<IniciativaBE>();
                 foreach (var item in listaSector)
-                {                    
-                    IniciativaBE ind = new IniciativaBE();
-                    ind.DESCRIPCION = item.DESCRIPCION;
-                    ind.ID_SECTOR_INST = item.ID_SECTOR_INST;
-                    ind.ID_MEDMIT = entidad.ID_MEDMIT;
-                    ind.TOTAL_GEI = ListarDatosSectorMedida(ind);
-                    listaGei.Add(ind);  
+                {
+                    IniciativaBE indE = new IniciativaBE();
+                    indE.DESCRIPCION = item.DESCRIPCION;
+                    indE.TOTAL_GEI = 0;
+                    listaGeiS.Add(indE);
                 }
-                indicador.listaGei = listaGei;
 
-                //List<IndicadorBE> listaAnnoSec = new List<IndicadorBE>();
-                //foreach (var item in listaSector)
-                //{
-                //    List<IndicadorBE> lista = new List<IndicadorBE>();
-                //    IndicadorBE ind = new IndicadorBE();
-                //    foreach (var itemA in listaAnno)
-                //    {
-                //        IndicadorBE indA = new IndicadorBE();
-                //        indA.ID_MEDMIT = entidad.ID_MEDMIT;
-                //        indA.ID_SECTOR_INST = item.ID_SECTOR_INST;
-                //        indA.ANNOI = itemA.DESCRIPCION;
-                //        indA.TOTAL_GEI_REDUCIDO = ListarDatosSectorAnno(indA);
-                //        lista.Add(indA);
-                //    }
-                //    ind.listaGei = listaAnnoSec;
-                //    listaAnnoSec.Add(ind);
-                //}
-                //indicador.listaAnnoSec = listaAnnoSec;
+                foreach (var item in listaGeiS)
+                {
+                    foreach (var itemG in listaGeiMedida)
+                    {
+                        if (item.DESCRIPCION == itemG.DESCRIPCION)
+                        {
+                            item.TOTAL_GEI = itemG.TOTAL_GEI;
+                        }
+                    }
+                }
+                indicador.listaGei = listaGeiS;
 
-                //List<IndicadorBE> listaCant = new List<IndicadorBE>();
-                //foreach (var item in listaSector)
-                //{
-                //    IndicadorBE ind = new IndicadorBE();
-                //    ind.ID_SECTOR_INST = item.ID_SECTOR_INST;
-                //    entidad = ListarDatosSectorInicaitiva(ind);
-                //    listaCant.Add(ind);
-                //}
-                //indicador.listaCant = listaCant;
+                List<IniciativaBE> listaAnnoSec = new List<IniciativaBE>();
+                List<IniciativaBE> listaS = new List<IniciativaBE>();                
+                listaS = ListarDatosAnnoGei(entidad.ID_MEDMIT, DateTime.Now.Year);
+                foreach (var itemA in listaAnno)
+                {
+                    List<IniciativaBE> listaA = new List<IniciativaBE>();
+                    IniciativaBE indE = new IniciativaBE();
+                    foreach (var item in listaSector)
+                    {
+                        IniciativaBE indA = new IniciativaBE();
+                        indA.ANNO = itemA.DESCRIPCION;
+                        indA.ID_SECTOR_INST = item.ID_SECTOR_INST;
+                        indA.SECTOR = item.DESCRIPCION;
+                        indA.TOTAL_GEI = 0;
+                        listaA.Add(indA);
+                    }
+                    indE.listaGeiAnno = listaA;
+                    listaAnnoSec.Add(indE);      
+                }
+
+                foreach (var item in listaS)
+                {
+                    foreach (var itemA in listaAnnoSec)
+                    {
+                        foreach (var itemAD in itemA.listaGeiAnno)
+                        {
+                            if (item.ANNO == itemAD.ANNO && item.ID_SECTOR_INST == itemAD.ID_SECTOR_INST)
+                            {
+                                itemAD.TOTAL_GEI = item.TOTAL_GEI;
+                            }
+                        }                        
+                    }
+                }
+                indicador.listaAnnoSec = listaAnnoSec;
+
+                List<IniciativaBE> listaCant = new List<IniciativaBE>();
+                List<IniciativaBE> listaC = ListarDatosSectorIniciativa(entidad.ID_MEDMIT);
+                foreach (var item in listaSector)
+                {
+                    IniciativaBE indE = new IniciativaBE();
+                    indE.DESCRIPCION = item.DESCRIPCION;
+                    indE.CANTIDAD = 0;
+                    listaCant.Add(indE);
+                }
+
+                foreach (var item in listaCant)
+                {
+                    foreach (var itemG in listaC)
+                    {
+                        if (item.DESCRIPCION == itemG.DESCRIPCION)
+                        {
+                            item.CANTIDAD = itemG.CANTIDAD;
+                        }
+                    }
+                }
+                indicador.listaCant = listaCant;
 
                 listaD.Add(indicador);
 
@@ -1116,20 +1161,22 @@ namespace datos.minem.gob.pe
             return Lista;
         }
 
-        public decimal ListarDatosSectorMedida(IniciativaBE entidad)
+        public List<IniciativaBE> ListarDatosSectorMedida(int medida)
         {
-            decimal total = 0;
+            //decimal total = 0;
+            List<IniciativaBE> lista = new List<IniciativaBE>();
             try
             {
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
                 {
                     string sp = sPackage2 + "USP_SEL_MED_SECTOR";
                     var p = new OracleDynamicParameters();
-                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
-                    p.Add("pID_SECTOR_INST", entidad.ID_SECTOR_INST);
+                    p.Add("pID_MEDMIT", medida);
+                    //p.Add("pID_SECTOR_INST", entidad.ID_SECTOR_INST);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
-                    var GEI_TOTAL = db.ExecuteScalar(sp, p, commandType: CommandType.StoredProcedure);
-                    total = Convert.ToDecimal(GEI_TOTAL);
+                    lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                    //var GEI_TOTAL = db.ExecuteScalar(sp, p, commandType: CommandType.StoredProcedure);
+                    //total = Convert.ToDecimal(GEI_TOTAL);
                 }
 
             }
@@ -1138,10 +1185,10 @@ namespace datos.minem.gob.pe
                 Log.Error(ex);
             }
 
-            return total;
+            return lista;
         }
 
-        public decimal ListarDatosSectorAnno(IndicadorBE entidad)
+        public decimal ListarDatosSectorAnno(IniciativaBE entidad)
         {
             decimal total = 0;
             try
@@ -1152,11 +1199,11 @@ namespace datos.minem.gob.pe
                     var p = new OracleDynamicParameters();
                     p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
                     p.Add("pID_SECTOR_INST", entidad.ID_SECTOR_INST);
-                    p.Add("pANNO", entidad.ANNOI);
+                    p.Add("pANNO", entidad.ANNO);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     var GEI_TOTAL = db.ExecuteScalar(sp, p, commandType: CommandType.StoredProcedure);
                     total = Convert.ToDecimal(GEI_TOTAL);
-                    entidad.TOTAL_GEI_REDUCIDO = total;
+                    entidad.TOTAL_GEI = total;
                 }
 
             }
@@ -1168,20 +1215,161 @@ namespace datos.minem.gob.pe
             return total;
         }
 
-        public IndicadorBE ListarDatosSectorInicaitiva(IndicadorBE entidad)
+        public List<IniciativaBE> ListarDatosSectorIniciativa(int medida)
         {
-            int cantidad = 0;
+            List<IniciativaBE> lista = new List<IniciativaBE>();
             try
             {
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
                 {
                     string sp = sPackage2 + "USP_SEL_INI_SECTOR";
                     var p = new OracleDynamicParameters();
-                    p.Add("pID_SECTOR_INST", entidad.ID_SECTOR_INST);
+                    //p.Add("pID_SECTOR_INST", entidad.ID_SECTOR_INST);
+                    p.Add("pID_MEDMIT", medida);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
-                    var INI = db.ExecuteScalar(sp, p, commandType: CommandType.StoredProcedure);
-                    cantidad = Convert.ToInt32(INI);
-                    entidad.CANTIDADI = cantidad;
+                    lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return lista;
+        }
+
+        public int TotalInstitucion(IndicadorBE entidad)
+        {
+            int cantidad = 0;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage2 + "USP_SEL_CANT_INSTITUCION_MED";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    var TOTAL_INSTITUCION = db.ExecuteScalar(sp, p, commandType: CommandType.StoredProcedure);
+                    cantidad = Convert.ToInt32(TOTAL_INSTITUCION);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return cantidad;
+        }
+
+        public int TotalRegion(IndicadorBE entidad)
+        {
+            int cantidad = 0;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage2 + "USP_SEL_CANT_REGION_MED";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    var TOTAL_REGION = db.ExecuteScalar(sp, p, commandType: CommandType.StoredProcedure);
+                    cantidad = Convert.ToInt32(TOTAL_REGION);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return cantidad;
+        }
+
+        public decimal TotalGei(IndicadorBE entidad)
+        {
+            decimal cantidad = 0;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage2 + "USP_SEL_TOTAL_GEI_MED";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    var TOTAL = db.ExecuteScalar(sp, p, commandType: CommandType.StoredProcedure);
+                    cantidad = Convert.ToDecimal(TOTAL);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return cantidad;
+        }
+
+        public List<IniciativaBE> ListarDatosAnnoGei(int medida, int anno)
+        {
+            List<IniciativaBE> lista = new List<IniciativaBE>();
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage2 + "USP_SEL_INI_MED_ANNO";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_MEDMIT", medida);
+                    p.Add("pANNO", anno);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return lista;
+        }
+
+        public IndicadorBE ListarDatosMedida(int medida)
+        {
+            IndicadorBE entidad = new IndicadorBE();
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage2 + "USP_SEL_TOTALES_MED";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_MEDMIT", medida);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    entidad = db.Query<IndicadorBE>(sp, p, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return entidad;
+        }
+
+        public IniciativaBE ListarIdMedida(int medida)
+        {
+            IniciativaBE entidad = new IniciativaBE();
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage3 + "USP_SEL_MEDIDA_MITIGACION";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_MEDMIT", medida);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    entidad = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).FirstOrDefault();
                 }
 
             }

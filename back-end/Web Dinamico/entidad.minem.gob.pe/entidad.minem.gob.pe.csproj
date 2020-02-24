@@ -78,6 +78,7 @@
     <Compile Include="ParametroIndicadorAuxBE.cs" />
     <Compile Include="ParametroIndicadorBE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resultado.cs" />
     <Compile Include="RolBE.cs" />
     <Compile Include="RolOpcionesBE.cs" />
     <Compile Include="SectorInstitucionBE.cs" />

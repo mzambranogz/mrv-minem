@@ -323,20 +323,24 @@
         data.addColumn('timeofday', 'Time of Day');
         data.addColumn('number', 'Motivation Level');
         data.addColumn('number', 'Energy Level');
-      
+
         data.addRows([
-          [{v: [8, 0, 0], f: '8 am'}, 1, .25],
-          [{v: [9, 0, 0], f: '9 am'}, 2, .5],
-          [{v: [10, 0, 0], f:'10 am'}, 3, 1],
-          [{v: [11, 0, 0], f: '11 am'}, 4, 2.25],
-          [{v: [12, 0, 0], f: '12 pm'}, 5, 2.25],
-          [{v: [13, 0, 0], f: '1 pm'}, 6, 3],
-          [{v: [14, 0, 0], f: '2 pm'}, 7, 4],
-          [{v: [15, 0, 0], f: '3 pm'}, 8, 5.25],
-          [{v: [16, 0, 0], f: '4 pm'}, 9, 7.5],
-          [{v: [17, 0, 0], f: '5 pm'}, 10, 10],
+          [{v: [8, 0, 0], f: '2010'}, 1, .25],
+          [{v: [9, 0, 0], f: '2011'}, 2, .5],
+          [{v: [10, 0, 0], f:'2012'}, 3, 1],
+          [{v: [11, 0, 0], f: '2013'}, 4, 2.25],
+          [{v: [12, 0, 0], f: '2014'}, 5, 2.25],
+          [{v: [13, 0, 0], f: '2015'}, 6, 3],
+          [{v: [14, 0, 0], f: '2016'}, 7, 4],
+          [{v: [15, 0, 0], f: '2017'}, 8, 5.25],
+          [{v: [16, 0, 0], f: '2018'}, 9, 7.5],
+          [{v: [17, 0, 0], f: '2019'}, 10, 10],          
+          [{v: [14, 0, 0], f: '2016'}, 7, 4],
+          [{v: [15, 0, 0], f: '2017'}, 8, 5.25],
+          [{v: [16, 0, 0], f: '2018'}, 9, 7.5],
+          [{v: [17, 0, 0], f: '2019'}, 10, 10],
         ]);
-      
+
         var options = {
           title: 'Motivation and Energy Level Throughout the Day',
           trendlines: {
@@ -345,7 +349,7 @@
           },
           hAxis: {
             title: 'Time of Day',
-            format: 'h:mm a',
+            format: ' ',
             viewWindow: {
               min: [7, 30, 0],
               max: [17, 30, 0]
@@ -357,7 +361,7 @@
           'width':400,
           'height':300
         };
-      
+
         var chart = new google.visualization.ColumnChart(document.getElementById('bar-chart'));
         chart.draw(data, options);
       }
@@ -387,15 +391,23 @@
       
       google.charts.setOnLoadCallback(drawColumnChart);
       function drawColumnChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['City', '2010 Population',],
-          ['New York City, NY', 8175000],
-          ['Los Angeles, CA', 3792000],
-          ['Chicago, IL', 2695000],
-          ['Houston, TX', 2099000],
+
+
+        /*var  a = ([
+
+              ['Sectores', ' Iniciativa',],
           ['Philadelphia, PA', 1526000],
-          ['Peru, LI', 13260000]
-        ]);
+          ['Peru, LI', 13260000]  
+          ]);
+
+*/
+
+        var a = [];
+        a.push(['Sectores', ' Iniciativa',]);
+        a.push(['Philadelphia, PA', 1526000]);
+        a.push(['Peru, LI', 13260000]);
+        var data = google.visualization.arrayToDataTable(a);
+        
       
         var options = {
           title: 'Population of Largest U.S. Cities',

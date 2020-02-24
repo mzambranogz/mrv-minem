@@ -1,6 +1,8 @@
 ﻿
 function fn_seleccionarMedidaFactor(medida) {
     $("#cbo-medida-mitigacion").val(medida);
+    $("#cbo-medida-mitigacion").attr("disabled", true);
+    $("#TablaMedidaFactor").data("guardar", 0);
     var item = {
         ID_MEDMIT: medida
     };
@@ -16,14 +18,14 @@ function fn_seleccionarMedidaFactor(medida) {
                     $("#filas-factor").html("");
                     for (var i = 0; i < data.length; i++) {
                         var tr = "";
-                        tr += '<div class="btn btn-secondary btn-sw w-100 d-flex flex-row align-items-center justify-content-between my-2">';
+                        tr += '<div class="btn btn-secondary btn-sw w-100 d-flex flex-row align-items-center justify-content-between my-2 factor-div">';
                         tr += '     <small class="badge badge-info">';
                         tr += '         <i class="fas fa-list"></i>'+ data[i]["NOMBRE_FACTOR"];
                         tr += '     </small>';
                         tr += '         <input class="hidden-control field-ctrol" type="hidden" value="' + data[i]["NOMBRE_FACTOR"] + '">';
-                        tr += '         <input class="hidden-control field-ctrol" type="hidden" value="' + data[i]["ID_FACTOR"] + '">';
+                        tr += '         <input class="hidden-control field-ctrol valor" type="hidden" data-delete="1" value="' + data[i]["ID_FACTOR"] + '">';
                         tr += '     <div class="opciones">';
-                        tr += '         <i class="fas fa-minus-circle cursor-pointer m-2 delete-columna-detalle" data-toggle="tooltip"  data-placement="top" title="" data-original-title="Eliminar"></i>';
+                        tr += '         <i class="fas fa-minus-circle cursor-pointer m-2 delete-columna-detalle" data-toggle="tooltip"  onclick="eliminarFactor(' + data[i]["ID_FACTOR"] + ');"  data-placement="top" title="" data-original-title="Eliminar"></i>';
                         tr += '     </div>';
                         tr += '</div>';
                         $("#filas-factor").append(tr);
@@ -253,7 +255,7 @@ function fn_guardarFactor() {
         }        
 
     }
-    debugger;
+
     var id_delete = "";
     if ($("#cuerpoTablaFactor").data("delete") != "") {
         id_delete = $("#cuerpoTablaFactor").data("delete");
@@ -284,4 +286,229 @@ function fn_eliminarFactor() {
     var fila = $("#tablaFactor").data("fila");
     var id_borrar = $("#cuerpoTablaFactor").data("delete") + $("#tablaFactor #detalles-tr-" + fila).data("ind") + ",";
     $("#cuerpoTablaFactor").data("delete", id_borrar);
+}
+
+function limpiar() {
+    $("#cbo-medida-mitigacion").attr("disabled", false);
+    $("#filas-factor").html("");
+    $("#cbo-medida-mitigacion").val(0);
+    $("#cbo-factores").val(0);
+    $("#TablaMedidaFactor").data("guardar", 1);
+}
+
+function validarFactor() {
+    var v = true;
+    var factor = $("#cbo-factores").val();
+    var componentes = $("#filas-factor").find(".factor-div");
+    componentes.each(function (index, value) {
+        if ($(value).find(".valor").val() == factor) {
+            v = false;
+        }
+    })
+
+    if(v){
+        agregarFactor();
+    } else {
+        $("#cbo-factores").val(0);
+    }
+}
+
+function agregarFactor() {
+    var reponer = 0;
+    var valor = $("#cbo-factores").val();
+    var factor = $("#cbo-factores option:selected").text();
+    var id = $("#factores-id").data("eliminar");
+    if (id != "") {
+        id = id.substring(0, id.length - 1);
+        var arr = id.split(',');
+
+        var factor_id = "";
+        debugger;
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] != valor) {
+                debugger;
+                factor_id += arr[i] + ",";
+            } else {
+                reponer = 1
+            }
+        }
+        $("#factores-id").data("eliminar", factor_id);
+    }
+
+    var tr = "";
+    tr += '<div class="btn btn-secondary btn-sw w-100 d-flex flex-row align-items-center justify-content-between my-2 factor-div">';
+    tr += '     <small class="badge badge-info">';
+    tr += '         <i class="fas fa-list"></i>' + factor;
+    tr += '     </small>';
+    tr += '         <input class="hidden-control field-ctrol" type="hidden" value="' + factor + '">';
+    if (reponer == 1) {
+        tr += '         <input class="hidden-control field-ctrol valor" data-delete="1" type="hidden" value="' + valor + '">';
+    } else {
+        tr += '         <input class="hidden-control field-ctrol valor" data-delete="0" type="hidden" value="' + valor + '">';
+    }    
+    tr += '     <div class="opciones">';
+    tr += '         <i class="fas fa-minus-circle cursor-pointer m-2 delete-columna-detalle" data-toggle="tooltip"  onclick="eliminarFactor(' + valor + ');"  data-placement="top" title="" data-original-title="Eliminar"></i>';
+    tr += '     </div>';
+    tr += '</div>';
+    $("#filas-factor").append(tr);  
+}
+
+function eliminarFactor(id) {
+    var v = true;
+    var componentes = $("#filas-factor").find(".factor-div");
+    componentes.each(function (index, value) {
+        if ($(value).find(".valor").val() == id) {
+            if ($(value).find(".valor").attr("data-delete") == 0) {
+                v = false;
+            }    
+        }
+    });
+
+    if (v) {
+        var del = $("#factores-id").data("eliminar") + id + ",";
+        $("#factores-id").data("eliminar", del);  
+    }    
+}
+
+function validarCamposObligatorios() {
+    debugger;
+    if ($("#cbo-medida-mitigacion").val() == 0) {
+        return false
+    } else if ($("#filas-factor").html() == "") {
+        return false
+    }
+    return true
+}
+
+function guardarDatosMedidaFactor() {
+    var medida_factor = [];
+    var i = 0;
+    var medida = $("#cbo-medida-mitigacion").val();
+    var componentes = $("#filas-factor").find(".factor-div");
+    componentes.each(function (index, value) {
+        i++;
+        var indx = {
+            ID_MEDMIT: medida,
+            ID_FACTOR: $(value).find(".valor").val(),
+            ORDEN: i
+        };
+        medida_factor.push(indx);
+    });
+
+    var id_delete = "";
+    if ($("#factores-id").data("eliminar") != "") {
+        id_delete = $("#factores-id").data("eliminar");
+        id_delete = id_delete.substring(0, id_delete.length - 1);
+    }
+
+    var item = {
+        ID_MEDMIT: medida,
+        listaFactor: medida_factor,
+        ID_ELIMINAR_FACTOR: id_delete
+    }
+
+    var url = baseUrl + 'Mantenimiento/GuardarMedidaFactor';
+    var respuesta = MRV.Ajax(url, item, false);
+    if (respuesta.success) {
+        $("#botones-guardar").attr("hidden", true);
+        $("#mensajeCorrecto").attr("hidden", true);
+        $("#mensajeError").attr("hidden", true);
+        $("#mensajeValidar").attr("hidden", true);
+        cargarTablaMedidaFactor();        
+        $("#mensajeCorrecto").removeAttr("hidden");
+        $("#botones-cerrar").removeAttr("hidden");
+    } else {
+        $("#mensajeCorrecto").attr("hidden", true);
+        $("#mensajeError").attr("hidden", true);
+        $("#mensajeValidar").attr("hidden", true);
+        $("#mensajeError").removeAttr("hidden");
+    }
+}
+
+function guardarMedidaFactor() {
+
+    if (!validarCamposObligatorios()) {
+        $("#mensajeCorrecto").attr("hidden", true);
+        $("#mensajeError").attr("hidden", true);
+        $("#mensajeValidar").attr("hidden", true);
+        $("#mensajeError").removeAttr("hidden");
+        return false;
+    }
+    if ($("#TablaMedidaFactor").data("guardar") == 1) {
+        var item = {
+            ID_MEDMIT: $("#cbo-medida-mitigacion").val()
+        };
+        var url = baseUrl + 'Mantenimiento/ValidarMedidaFactor';
+        var respuesta = MRV.Ajax(url, item, false);
+        if (respuesta.success) {
+            guardarDatosMedidaFactor();
+        } else {
+            $("#mensajeCorrecto").attr("hidden", true);
+            $("#mensajeError").attr("hidden", true);
+            $("#mensajeValidar").attr("hidden", true);
+            $("#mensajeValidar").removeAttr("hidden");
+        }
+    } else {
+        guardarDatosMedidaFactor();
+    }
+}
+
+$("#modal-medida-de-mitigacion").on("hidden.bs.modal", function () {
+    $("#mensajeValidar").attr("hidden", true);
+    $("#mensajeCorrecto").attr("hidden", true);
+    $("#mensajeError").attr("hidden", true);
+    $("#botones-cerrar").attr("hidden", true);
+    $("#botones-guardar").removeAttr("hidden");
+});
+
+function cargarTablaMedidaFactor() {
+    var item = {
+    };
+    $.ajax({
+        async: false,
+        url: baseUrl + 'Mantenimiento/ListarTablaMedidaFactor',
+        type: 'POST',
+        datatype: 'json',
+        data: item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {                    
+                    $("#cuerpoMedidaFactor").html("");
+                    for (var i = 0; i < data.length; i++) {
+                        var entidad = data[i]["listaFactor"];
+                        debugger;
+                        if (entidad.length > 0) {
+                            var tr = "";
+                            tr += '    <tr id="detalles-tr-' + (i + 1) + '">';
+                            tr += '        <th class="text-center" data-encabezado="Número" scope="row">' + (i + 1) + '</th>';
+                            tr += '        <td data-encabezado="Medida de mitigación">' + data[i]["NOMBRE_MEDMIT"] + '</td>';
+                            tr += '        <td class="text-center" data-encabezado="Codificación">' + data[i]["NUMERO_MEDMIT"] + '</td>';
+                            tr += '        <td data-encabezado="Factor(es)">';
+                            tr += '            <div class="form-control">';
+                            tr += '                <div class="list-group sortable-list m-0">';
+                            for (var j = 0; j < entidad.length; j++) {                                
+                                tr += '                        <div class="p-1 text-center border-right">';
+                                tr += '                    <div class="h6 span badge badge-info w-100 p-3">' + entidad[j]["NOMBRE_FACTOR"] + '<br><span data-toggle="tooltip" data-placement="top" title="Editar valores del factor ' + entidad[j]["NOMBRE_FACTOR"] + '"><a class="text-white" href="#" onclick="CargarTabla(' + entidad[j]["ID_FACTOR"] + ')" data-toggle="modal" data-target="#modal-valores"><i class="fas fa fa-edit p-1"></i></a></span></div>';
+                                tr += '                </div>';
+                            }
+                            tr += '                </div>';
+                            tr += '            </div>';
+                            tr += '        </td>';
+                            tr += '        <td class="text-center text-xs-right" data-encabezado="Acciones">';
+                            tr += '            <div class="btn-group">';
+                            tr += '                <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
+                            tr += '                <div class="dropdown-menu dropdown-menu-right">';
+                            tr += '                    <a class="dropdown-item" href="#" onclick="fn_seleccionarMedidaFactor(' + data[i]["ID_MEDMIT"] + ')" data-toggle="modal" data-target="#modal-medida-de-mitigacion"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
+                            tr += '                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion"><i class="fas fa-trash"></i>&nbsp;Eliminar</a>';
+                            tr += '                </div>';
+                            tr += '            </div>';
+                            tr += '        </td>';
+                            tr += '    </tr>';
+                            $("#cuerpoMedidaFactor").append(tr);
+                        }                        
+                    }
+                }
+            }
+        }
+    });
 }

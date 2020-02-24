@@ -41,5 +41,12 @@ namespace entidad.minem.gob.pe
         public string DATA { get; set; }
         public int ID_SECTOR_INST { get; set; }
         public decimal TOTAL_GEI { get; set; }
+        public int ANNO { get; set; }
+        public int CANTIDAD { get; set; }
+        public int TOTAL_INSTITUCION { get; set; }
+        public int TOTAL_REGION { get; set; }
+        public string CONDICION { get; set; }
+        public string ESTADO_BANDEJA { get; set; }
+        public List<IniciativaBE> listaGeiAnno { get; set; }
     }
 }

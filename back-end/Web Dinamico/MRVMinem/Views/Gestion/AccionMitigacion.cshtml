@@ -49,6 +49,26 @@
                             <div class="input-group"><div id="buscar-iniciativa" data-campo=""></div><!-- add id + data campo-->
                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-search"></i></span></div>
                                 <input class="form-control" type="text" id="txt-buscar" placeholder="Ingrese la descripción de su búsqueda" aria-describedby="inputGroup1" required>
+                                <div class="input-group-append" id="seccionFiltro"> <!-- add id-->
+                                    @if (Convert.ToInt32(Session["rol"]) != 1)
+                                    {
+                                        <div class="btn-group">
+                                            <a class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1"><i class="fas fa-filter">&nbsp;</i>Filtrar por estados</a>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(1, $(this));"><i class="fas fa-hourglass">&nbsp;</i>Pendientes</a>
+                                                <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(2, $(this));"><i class="fas fa-eye">&nbsp;</i>Observadas</a>
+                                                <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(3, $(this));"><i class="fas fa-check">&nbsp;</i>Aprobados</a>
+                                                <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(4, $(this));"><i class="fas fa-check-double">&nbsp;</i>Revisadas</a>
+                                                <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(5, $(this));"><i class="fas fa-clipboard-check">&nbsp;</i>Evaluadas</a>
+                                                <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(6, $(this));"><i class="fas fa-tasks">&nbsp;</i>Verificadas</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(7, $(this));"><i class="fas fa-tachometer-alt">&nbsp;</i>Todas</a>
+                                            </div>
+                                        </div>
+                                    }
+
+                                </div>
+                                <!--     -->
                             </div>
                         </div>
                         <div class="form-group">
@@ -266,8 +286,8 @@
                     <div class="col-xs-12 col sm-12 col-lg-9">
                         <div class="h5">Bandeja de Iniciativas de Mitigación&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Bandeja de iniciativas de mitigación registradas por su institución"></i></div>
                     </div>
-                    <div class="col-xs-12 col sm-12 col-lg-3 text-lg-right" id="seccionFiltro"> <!-- add id-->
-                    @if (Convert.ToInt32(Session["rol"]) != 1)
+                    @*<div class="col-xs-12 col sm-12 col-lg-3 text-lg-right" id="seccionFiltro">*@ <!-- add id-->
+                    @*@if (Convert.ToInt32(Session["rol"]) != 1)
                     {
                         <div class="btn-group">
                             <a class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1"><i class="fas fa-filter">&nbsp;</i>Filtrar por estados</a>
@@ -282,8 +302,15 @@
                                 <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(7, $(this));"><i class="fas fa-tachometer-alt">&nbsp;</i>Todas</a>
                             </div>
                         </div>
-                    }
+                    }*@
                         
+                    @*</div>*@
+                    <div class="col-xs-12 col sm-12 col-lg-3 text-lg-right">
+                        <div class="btn-group" id="filtro-conversion">
+                            <a class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1"><i class="fas fa-filter">&nbsp;</i>Convertir unidades</a><div class="dropdown-menu">
+                            <a class="dropdown-item" @*href="#"*@ onclick="convertirATonelada();"><i class="fas fa-exchange-alt">&nbsp;</i><strong>ktCO2eq &nbsp;</strong>a &nbsp;<strong>tCO2eq</strong></a>
+                            <a class="dropdown-item" @*href="#"*@ onclick="convertirAKiloTonelada();"><i class="fas fa-exchange-alt">&nbsp;</i><strong>tCO2eq &nbsp;</strong>a &nbsp;<strong>ktCO2eq</strong></a></div>
+                        </div>
                     </div>
                 </div>
                 <div class="dropdown-divider"></div>
@@ -293,17 +320,20 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr class="bg-primary text-white">
-                                        <th class="text-center" scope="col"><span class="miColumna">N°&nbsp;<i class="fas fa-sort-up" style="color: lightgray" id="ID_INICIATIVA"></i></span></th>
-                                        <th scope="col"><span class="miColumna">Nombre de Iniciativa&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NOMBRE_INICIATIVA"></i></span></th>
-                                        <th scope="col"><span class="miColumna">Progreso&nbsp;<i class="fas fa-sort" style="color: lightgray" id="PROGRESO"></i></span></th>
-                                        <th class="text-center" scope="col"><span class="miColumna">Fecha de Inicio&nbsp;<i class="fas fa-sort" style="color: lightgray" id="FECHA"></i></span></th>
-                                        <th scope="col"><span class="miColumna">Medida de Mitigación&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NOMBRE_MEDMIT"></i></span></th>
-                                        <th scope="col"><span class="miColumna">Entidad&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NOMBRE_INSTITUCION"></i></span></th>
+                                        <th class="text-center" scope="col"><span class="miColumna" width="3%">N°&nbsp;<i class="fas fa-sort-up" style="color: lightgray" id="ID_INICIATIVA"></i></span></th>
+                                        <th scope="col" width="19%"><span class="miColumna">Nombre de <br> Iniciativa&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NOMBRE_INICIATIVA"></i></span></th>
+                                        <th scope="col" width="10%"><span class="miColumna">Progreso&nbsp;<i class="fas fa-sort" style="color: lightgray" id="PROGRESO"></i></span></th>
+                                        <th class="text-center" scope="col" width="10%"><span>Fecha de <br> Inicio&nbsp;<i class="fas fa-sort" style="color: lightgray" id="FECHA"></i></span></th>
+                                        <th class="text-center" scope="col" width="10%"><span>Fecha de <br>  Término&nbsp;<i class="fas fa-sort"></i></span></th>
+                                        <th scope="col" width="10%"><span class="miColumna">Medida de  <br> Mitigación&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NOMBRE_MEDMIT"></i></span></th>
+                                        <th scope="col" width="10%"><span class="miColumna">Entidad&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NOMBRE_INSTITUCION"></i></span></th>
+                                        <th scope="col" width="10%"><span>Total <br> reducido&nbsp;<i class="fas fa-sort"></i></span></th>
+                                        <th class="text-center" scope="col" width="7%"><span>Estado&nbsp;<i class="fas fa-sort"></i></span></th>
                                         <th class="text-center" scope="col">Más</th>
                                     </tr>
                                 </thead>
 
-                                <tbody id="cuerpoMitigacion">
+                                <tbody id="cuerpoMitigacion" data-convertir="0">
 
                                     @*@foreach (var item in Model.listaIni)
                                     {
@@ -318,9 +348,9 @@
                                     }*@
 
                                 </tbody>
-                                <tfoot>
+                                @*<tfoot>
                                     <tr>
-                                        <td class="text-left" colspan="3"><strong>Resultado:&nbsp;</strong><span id="resultado">0-0</span> de <span id="total-registros">0</span> registros</td>
+                                        <td class="text-left" colspan="3"><strong>Resultado:&nbsp;</strong><span id="resultado">0 - 0</span> de <span id="total-registros">0</span> registros</td>
                                         <td class="text-right text-xs-left" colspan="4">
                                             <strong>Registros por página&nbsp;</strong>
                                             <select id="cantidad-registros" onchange="fn_CargaIniciativas()">
@@ -339,18 +369,37 @@
                                             </div>
                                         </td>
                                     </tr>
-                                </tfoot>
-
-
-
-
-
-
-
+                                </tfoot>*@
                             </table>
                         </div>
                     </div>
                 </div>
+
+
+                <div class="row">
+                    <div class="col-sm-12 col-lg-6 mt-4">
+                        <strong>Resultado:&nbsp;</strong><span id="resultado">0 - 0</span> de <span id="total-registros">0</span> registros
+                    </div>
+                    <div class="col-sm-12 col-lg-6 text-right mt-4">
+                        <strong>Registros por página&nbsp;</strong>
+                        <select id="cantidad-registros" onchange="fn_CargaIniciativas()">
+                            <option value="10" selected>10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>&nbsp;
+                        <span id="pagina-actual">1</span> de <span id="total-paginas">1</span> páginas&nbsp;
+                        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                            <button class="btn btn-primary" id="primera-pagina" type="button" onclick="fn_avance_grilla(1)"><i class="fas fa-angle-double-left"></i></button>
+                            <button class="btn btn-primary" id="anterior-pagina" type="button" onclick="fn_avance_grilla(2)"><i class="fas fa-angle-left"></i></button>
+                            <input class="ir-pagina" id="pagina" type="number" value="1" min="1" onchange="fn_CargaIniciativas()">
+                            <button class="btn btn-primary" id="siguiente-pagina" type="button" onclick="fn_avance_grilla(3)"><i class="fas fa-angle-right"></i></button>
+                            <button class="btn btn-primary" id="ultima-pagina" type="button" onclick="fn_avance_grilla(4)"><i class="fas fa-angle-double-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
             <div class="modal fade" id="medidas-mitigacion-listado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -390,13 +439,11 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <!--<div class="row">
+                            <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-12">
                                     <div class="alert alert-warning">No te preocupes, que podrás cambiar la medida de mitigacion en cualquier momento.</div>
                                 </div>
-                            </div>-->
-
+                            </div>
                         </div>
 
 

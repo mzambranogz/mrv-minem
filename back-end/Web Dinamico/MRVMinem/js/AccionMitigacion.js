@@ -140,6 +140,7 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
         data: Item,
         success: function (data) {
             if (data != null && data != "") {
+                debugger;
                 if (data.length > 0) {
 
                     $("#cuerpoMitigacion").html("");
@@ -190,8 +191,11 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
                         tr = tr + '                 <div class="progress-bar progress-bar-striped" role="progressbar" style="width: ' + progreso + ';" aria-valuenow="' + progreso.substring(0, progreso.length - 1) + '" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="' + tooltip + '">' + progreso + '</div>';
                         tr = tr + '</div></td>';
                         tr = tr + '<td class="text-center">' + data[i]["FECHA"].toString() + '</td>';
+                        tr = tr + '<td class="text-center">' + data[i]["FECHA_FIN"] + '</td>';
                         tr = tr + '<td>' + data[i]["NOMBRE_MEDMIT"] + '</td>';
                         tr = tr + '<td>' + data[i]["NOMBRE_INSTITUCION"] + '</td>';
+                        tr = tr + '<td data-encabezado="Total reducido" class="text-center convertir">' + Math.round(data[i]["TOTAL_GEI"] * 100) / 100 + '</td>';
+                        tr = tr + '<td class="text-center" data-encabezado="Estado">' + data[i]["ESTADO_BANDEJA"] + '</td>';
                         tr = tr + '<td class="text-center text-xs-right" data-encabezado="Acciones">';
                         tr = tr + '     <div class="btn-group">';
                         tr = tr + '         <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
@@ -227,8 +231,14 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
                         $("#pagina").val(total_paginas);
                     }
                 }
+            } else {
+                $("#resultado").html("0 - 0");
+                $("#total-registros").html(0);
+                $("#pagina-actual").html(1);
+                $("#total-paginas").html(1);
+                $("#pagina").val(1);
             }
-        }
+        } 
     });
 }
 
@@ -344,8 +354,11 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                         tr = tr + '                 <div class="progress-bar progress-bar-striped" role="progressbar" style="width: ' + progreso + ';" aria-valuenow="' + progreso.substring(0, progreso.length - 1) + '" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="' + tooltip + '">' + progreso + '</div>';
                         tr = tr + '</div></td>';
                         tr = tr + '<td class="text-center">' + data[i]["FECHA"].toString() + '</td>';
+                        tr = tr + '<td class="text-center">' + data[i]["FECHA_FIN"] + '</td>';
                         tr = tr + '<td>' + data[i]["NOMBRE_MEDMIT"] + '</td>';
                         tr = tr + '<td>' + data[i]["NOMBRE_INSTITUCION"] + '</td>';
+                        tr = tr + '<td data-encabezado="Total reducido" class="text-center convertir"><span>' + Math.round(data[i]["TOTAL_GEI"] * 100) / 100 + '</span>&nbsp;<small>tCO2eq<small></td>';
+                        tr = tr + '<td class="text-center" data-encabezado="Estado">' + data[i]["ESTADO_BANDEJA"] + '</td>';
                         tr = tr + '<td class="text-center text-xs-right" data-encabezado="Acciones">';
 
                         tr = tr + '     <div class="btn-group">';
@@ -418,6 +431,12 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                     }
 
                 }
+            } else {
+                $("#resultado").html("0 - 0");
+                $("#total-registros").html(0);
+                $("#pagina-actual").html(1);
+                $("#total-paginas").html(1);
+                $("#pagina").val(1);
             }
             $('[data-toggle="tooltip"]').tooltip();
         }
@@ -1319,52 +1338,55 @@ function exportarIniciativa() {
     //    ID_ESTADO: $("#estadoIniciativa").data("estado")
     //};
 
-    if ($("#buscar").data("numero") == 0) {
+    if ($("#cuerpoMitigacion").html() != "") {
 
-        var item = {
-            buscar: $("#buscar-iniciativa").data("campo"),
-            order_by: $("#columna").val(),
-            order_orden: $("#orden").val(),
-            ID_USUARIO: $("#Control").data("usuario"),
-            ID_ESTADO: $("#estadoIniciativa").data("estado"),
-            METODO: $("#buscar").data("numero")
+        if ($("#buscar").data("numero") == 0) {
+
+            var item = {
+                buscar: $("#buscar-iniciativa").data("campo"),
+                order_by: $("#columna").val(),
+                order_orden: $("#orden").val(),
+                ID_USUARIO: $("#Control").data("usuario"),
+                ID_ESTADO: $("#estadoIniciativa").data("estado"),
+                METODO: $("#buscar").data("numero")
             }
+        }
+        else {
+
+            var item = {
+                medida_b: $("#cbo-medida-mitigacion").val(),
+                anio_b: $("#txt-fecha-inicio").val(),
+                sector_b: $("#cbo-sector").val(),
+                gei_b: $("#cbo-energetico-base").val(),
+                energ_b: $("#cbo-energetico-proyecto").val(),
+                order_by: $("#columna").val(),
+                order_orden: $("#orden").val(),
+                ID_USUARIO: $("#Control").data("usuario"),
+                ID_ESTADO: $("#estadoIniciativa").data("estado"),
+                METODO: $("#buscar").data("numero")
+            }
+        }
+        var url = baseUrl + 'Gestion/ExportarIniciativa';
+
+        var parametros = {
+            Url: url,
+            Item: JSON.stringify(item)
+        };
+
+        var frm = '<form id = "frmDescarga" name = "frmDescarga" method = "POST" target = "_blank" action = "' + url + '"></form>';
+        var hdn = '<input type = "hidden" id = "url" name = "url" />';
+        var hdnFormato = '<input type = "hidden" id = "formato" name = "formato" />';
+        var hdnItem = '<input type = "hidden" id = "item" name = "item" />';
+        jQuery('#divExportar').append(frm)
+        jQuery(hdn).appendTo(jQuery('#frmDescarga'));
+        jQuery(hdnFormato).appendTo(jQuery('#frmDescarga'));
+        jQuery(hdnItem).appendTo(jQuery('#frmDescarga'));
+        jQuery('#frmDescarga #url').val(parametros.Url);
+        jQuery('#frmDescarga #item').val(parametros.Item);
+        jQuery('#frmDescarga').submit();
+        jQuery('#frmDescarga').remove();
+
     }
-    else
-    {
-
-        var item = {
-            medida_b: $("#cbo-medida-mitigacion").val(),
-            anio_b: $("#txt-fecha-inicio").val(),
-            sector_b: $("#cbo-sector").val(),
-            gei_b: $("#cbo-energetico-base").val(),
-            energ_b: $("#cbo-energetico-proyecto").val(),
-            order_by: $("#columna").val(),
-            order_orden: $("#orden").val(),
-            ID_USUARIO: $("#Control").data("usuario"),
-            ID_ESTADO: $("#estadoIniciativa").data("estado"),
-            METODO: $("#buscar").data("numero")
-            }
-     }
-    var url = baseUrl + 'Gestion/ExportarIniciativa';
-
-    var parametros = {
-        Url: url,
-        Item: JSON.stringify(item)
-    };
-
-    var frm = '<form id = "frmDescarga" name = "frmDescarga" method = "POST" target = "_blank" action = "' + url + '"></form>';
-    var hdn = '<input type = "hidden" id = "url" name = "url" />';
-    var hdnFormato = '<input type = "hidden" id = "formato" name = "formato" />';
-    var hdnItem = '<input type = "hidden" id = "item" name = "item" />';
-    jQuery('#divExportar').append(frm)
-    jQuery(hdn).appendTo(jQuery('#frmDescarga'));
-    jQuery(hdnFormato).appendTo(jQuery('#frmDescarga'));
-    jQuery(hdnItem).appendTo(jQuery('#frmDescarga'));
-    jQuery('#frmDescarga #url').val(parametros.Url);
-    jQuery('#frmDescarga #item').val(parametros.Item);
-    jQuery('#frmDescarga').submit();
-    jQuery('#frmDescarga').remove();
 }
 
 
@@ -1448,3 +1470,30 @@ $("#modal-bienbenida").on("hidden.bs.modal", function () {
     } else {
     }
 });
+
+function convertirATonelada() {
+    if ($("#cuerpoMitigacion").data("convertir") == 1) { // 1: kilot, 0:t
+        campos = $("#cuerpoMitigacion").find("tr");
+        campos.each(function (index, value) {
+            debugger;
+            var valor = $(value).find(".convertir").find("span").html();
+            valor = valor * 1000;
+            $(value).find(".convertir").find("span").html(valor);
+            $(value).find(".convertir").find("small").html("tCO2eq");
+        });
+        $("#cuerpoMitigacion").data("convertir", 0);
+    }
+}
+
+function convertirAKiloTonelada() {
+    if ($("#cuerpoMitigacion").data("convertir") == 0) {
+        campos = $("#cuerpoMitigacion").find("tr");
+        campos.each(function (index, value) {
+            var valor = $(value).find(".convertir").find("span").html();
+            valor = valor/1000;
+            $(value).find(".convertir").find("span").html(valor);
+            $(value).find(".convertir").find("small").html("ktCO2eq");
+        });
+        $("#cuerpoMitigacion").data("convertir", 1);
+    }
+}

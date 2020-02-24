@@ -514,7 +514,7 @@ namespace MRVMinem.Controllers
             return Respuesta(itemRespuesta);
         }
 
-        ////////////////////////////////////////////////////
+        //////////////////////////////////////////////////// MANTENIMIENTO MEDIDA FACTORES
 
         public ActionResult MedidaFactoresData()
         {
@@ -532,6 +532,14 @@ namespace MRVMinem.Controllers
             //modelo.listaParametroInd = ParametroIndicadorLN.ListarParametroIndicador();
             //modelo.menor = getMenorControl(modelo.listaControl);
             return View(modelo);
+        }
+
+        public JsonResult ListarTablaMedidaFactor()
+        {
+            List<FactorBE> listaMedidaFctor = FactorLN.listarMedidaFactor();
+            var jsonResult = Json(listaMedidaFctor, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
 
         public JsonResult ListaMedidaFactor(FactorBE entidad)
@@ -579,6 +587,30 @@ namespace MRVMinem.Controllers
             ResponseEntity itemRespuesta = new ResponseEntity();
             entidad = FactorLN.GuardarFactores(entidad);
             itemRespuesta.success = entidad.OK;
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult GuardarMedidaFactor(FactorBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+            entidad = FactorLN.GuardarMedidaFactor(entidad);
+            itemRespuesta.success = entidad.OK;
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult ValidarMedidaFactor(FactorBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+            entidad = FactorLN.ValidarMedidaFactor(entidad);
+            if (entidad.VALIDAR > 0)
+            {
+                itemRespuesta.success = false;
+            }
+            else
+            {
+                itemRespuesta.success = true;
+            }
+            
             return Respuesta(itemRespuesta);
         }
         ////////////////////////////////////////// MANTENIMIENTO FACTORES

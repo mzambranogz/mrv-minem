@@ -462,5 +462,76 @@ namespace datos.minem.gob.pe
             return entidad;
         }
 
+        //===========================================================================
+        public FactorBE GuardarMedidaFactor(FactorBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage3 + "USP_PRC_MEDIDA_FACTOR";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_FACTOR", entidad.ID_FACTOR);
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pORDEN", entidad.ORDEN);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                    entidad.OK = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+
+            return entidad;
+        }
+
+        public FactorBE EliminarMedidaFactor(FactorBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage3 + "USP_UPD_ELIMINAR_MED_FACTOR";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pID_ELIMINAR_FACTOR", entidad.ID_ELIMINAR_FACTOR);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                    entidad.OK = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+
+            return entidad;
+        }
+
+        public FactorBE ValidarMedidaFactor(FactorBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage3 + "USP_UPD_VALIDAR_MED_FACTOR";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    entidad = db.Query<FactorBE>(sp, p, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                    entidad.OK = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+
+            return entidad;
+        }
+
     }
 }
