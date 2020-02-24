@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - viernes-febrero-21-2020   
+-- Archivo creado  - lunes-febrero-24-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_ADMIN_SISTEMA
@@ -105,6 +105,11 @@
     );
     
     PROCEDURE USP_UPD_PRIMERA_VISTA(
+        pID_USUARIO IN NUMBER
+    );
+    
+    --=======================23-02-2020
+    PROCEDURE USP_UPD_DESHABILITAR_USUARIO(
         pID_USUARIO IN NUMBER
     );
 
@@ -1423,6 +1428,31 @@ END PKG_MRV_DETALLE_INDICADORES;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
+    
+    --=============================================23-02-2020
+    PROCEDURE USP_SEL_BUSQUEDA_SIMPLE(
+        pBuscar IN VARCHAR2,
+        pRegistros  INTEGER,
+      	pPagina     INTEGER,
+      	pSortColumn IN VARCHAR2,
+      	pSortOrder  IN VARCHAR2,
+        pCondicion  IN VARCHAR2,
+        pRefcursor OUT SYS_REFCURSOR
+        );
+        
+    PROCEDURE USP_SEL_BUSQUEDA_AVANZADA(
+        pMedida IN VARCHAR2,
+        pAnio  INTEGER,
+        pSector  INTEGER,
+        pGei  INTEGER,
+        pEnerg  INTEGER,
+        pRegistros  INTEGER,
+      	pPagina     INTEGER,
+      	pSortColumn IN VARCHAR2,
+      	pSortOrder  IN VARCHAR2,
+        pCondicion  IN VARCHAR2,
+        pRefcursor OUT SYS_REFCURSOR
+    );
 
 END PKG_MRV_INICIATIVA_MITIGACION;
 
@@ -1738,6 +1768,16 @@ END PKG_MRV_INICIATIVA_MITIGACION;
         SET     PRIMER_INICIO = 0
         WHERE   ID_USUARIO = pID_USUARIO;
     END USP_UPD_PRIMERA_VISTA;
+    
+    --=======================23-02-2020
+    PROCEDURE USP_UPD_DESHABILITAR_USUARIO(
+        pID_USUARIO IN NUMBER
+    )AS
+    BEGIN
+        UPDATE  T_GENM_USUARIO
+        SET     ID_ESTADO_USUARIO = 2
+        WHERE   ID_USUARIO = pID_USUARIO;
+    END USP_UPD_DESHABILITAR_USUARIO;
 
 END PKG_MRV_ADMIN_SISTEMA;
 
@@ -8064,6 +8104,199 @@ END PKG_MRV_DETALLE_INDICADORES;
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_EXCEL_AVA_PRI_TODO;
+      
+      --==============================================23-02-2020
+      PROCEDURE USP_SEL_BUSQUEDA_SIMPLE(
+        pBuscar IN VARCHAR2,
+        pRegistros  INTEGER,
+      	pPagina     INTEGER,
+      	pSortColumn IN VARCHAR2,
+      	pSortOrder  IN VARCHAR2,
+        pCondicion  IN VARCHAR2,
+        pRefcursor OUT SYS_REFCURSOR
+    )AS
+    	vPaginas    INTEGER;
+        vTotal      INTEGER;
+        vPagina2    INTEGER := pPagina;
+        vPageIndex  INTEGER := 0;
+        vQuery_cont VARCHAR2(10000) := '';
+        vQuery      VARCHAR2(10000) := '';
+        vSortColumn2 VARCHAR2(1000);
+    BEGIN    
+    
+        vQuery_cont := 'SELECT  COUNT(1) 
+                        FROM T_GENM_INICIATIVA INI
+                        LEFT JOIN T_MAE_ETAPA ET ON INI.ID_ETAPA = ET.ID_ETAPA
+                        LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
+                        LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
+                        LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
+                        WHERE '|| pCondicion ||' AND
+                              (LOWER(TRANSLATE(INI.NOMBRE_INICIATIVA,''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) ||''%'' OR
+                               LOWER(TRANSLATE(MD.NOMBRE_MEDMIT,''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) like''%''|| LOWER(TRANSLATE('''||pBuscar||''',''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) ||''%'' OR 
+                               LOWER(TRANSLATE(INST.NOMBRE_INSTITUCION,''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''ÁÉÍÓÚáéíóú'',''AEIOUaeiou''))||''%'' )';
+        EXECUTE IMMEDIATE vQuery_cont INTO vTotal;
+      	/*SELECT  COUNT(1) INTO vTotal
+        FROM T_GENM_INICIATIVA INI
+        LEFT JOIN T_MAE_ETAPA ET ON INI.ID_ETAPA = ET.ID_ETAPA
+        LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
+        LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
+        LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
+        WHERE (INI.ID_ESTADO = 3 AND INI.ID_ETAPA IN (2,4)) AND
+              (LOWER(TRANSLATE(INI.NOMBRE_INICIATIVA,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) like '%'|| LOWER(TRANSLATE(pBuscar,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) ||'%' OR
+               LOWER(TRANSLATE(MD.NOMBRE_MEDMIT,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) like'%'|| LOWER(TRANSLATE(pBuscar,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) ||'%' OR 
+               LOWER(TRANSLATE(INST.NOMBRE_INSTITUCION,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) like '%'||LOWER(TRANSLATE(pBuscar,'ÁÉÍÓÚáéíóú','AEIOUaeiou'))||'%' );*/
+
+        vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
+        IF vPagina2 = 0 THEN
+            vPagina2 := 1;
+        END IF;
+        IF vPagina2 > vPaginas THEN
+            vPagina2 := vPaginas;
+        END IF;
+
+        vPageIndex := vPagina2 - 1;
+        IF pSortColumn = 'FECHA' THEN
+            vSortColumn2 := 'FECHA_IMPLE_INICIATIVA';
+        ELSIF pSortColumn = 'PROGRESO' THEN
+          	vSortColumn2 := 'INI.ID_ETAPA';
+        ELSE
+        	vSortColumn2 := pSortColumn;
+        END IF;
+
+        vQuery := 'SELECT *    FROM (
+                        SELECT  INI.ID_INICIATIVA,
+                                INI.NOMBRE_INICIATIVA,
+                                ET.DESCRIPCION,
+                                INI.FECHA_IMPLE_INICIATIVA,
+                                INI.FECHA_FIN_INICIATIVA,
+                                INI.GEI_TOTAL TOTAL_GEI,
+                                MD.NOMBRE_MEDMIT,
+                                NVL(INST.NOMBRE_INSTITUCION,''-'') NOMBRE_INSTITUCION,
+                                INI.ID_ESTADO,
+                                INI.ID_ETAPA PROGRESO,
+                                ROW_NUMBER() OVER (ORDER BY ' || vSortColumn2 || ' ' || pSortOrder ||') AS ROWNUMBER,'
+                                || vPaginas || ' AS total_paginas,'
+                                || vPagina2 || ' AS pagina,'
+                                || pRegistros || ' AS cantidad_registros,'
+                                || vTotal || ' AS total_registros
+                        FROM T_GENM_INICIATIVA INI
+                        LEFT JOIN T_MAE_ETAPA ET ON INI.ID_ETAPA = ET.ID_ETAPA
+                        LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
+                        LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
+                        LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
+                        WHERE '|| pCondicion ||' AND
+                              (LOWER(TRANSLATE(INI.NOMBRE_INICIATIVA,''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) ||''%'' OR
+                               LOWER(TRANSLATE(MD.NOMBRE_MEDMIT,''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) like''%''|| LOWER(TRANSLATE('''||pBuscar||''',''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) ||''%'' OR 
+                               LOWER(TRANSLATE(INST.NOMBRE_INSTITUCION,''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''ÁÉÍÓÚáéíóú'',''AEIOUaeiou''))||''%'' )
+					)
+                    WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
+--(INI.ID_ESTADO = 3 AND INI.ID_ETAPA IN (2,4))
+        OPEN pRefcursor FOR vQuery;
+      
+      END USP_SEL_BUSQUEDA_SIMPLE;
+      
+      PROCEDURE USP_SEL_BUSQUEDA_AVANZADA(
+        pMedida IN VARCHAR2,
+        pAnio  INTEGER,
+        pSector  INTEGER,
+        pGei  INTEGER,
+        pEnerg  INTEGER,
+        pRegistros  INTEGER,
+      	pPagina     INTEGER,
+      	pSortColumn IN VARCHAR2,
+      	pSortOrder  IN VARCHAR2,
+        pCondicion  IN VARCHAR2,
+        pRefcursor OUT SYS_REFCURSOR
+    )AS
+    	vPaginas    INTEGER;
+        vTotal      INTEGER;
+        vPagina2    INTEGER := pPagina;
+        vPageIndex  INTEGER := 0;
+        vQuery_cont VARCHAR2(10000) := '';
+        vQuery      VARCHAR2(10000) := '';
+        vSortColumn2 VARCHAR2(1000);
+    BEGIN    
+    
+        vQuery_cont := 'SELECT  COUNT(1) 
+                        FROM T_GENM_INICIATIVA INI
+                        LEFT JOIN T_MAE_ETAPA ET ON INI.ID_ETAPA = ET.ID_ETAPA
+                        LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
+                        LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
+                        LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
+                        WHERE '|| pCondicion ||' AND
+                        (MD.ID_MEDMIT = '||pMedida||' OR ' ||pMedida|| ' = 0 ) AND 
+                        (EXTRACT(YEAR FROM INI.FECHA_IMPLE_INICIATIVA)='||pAnio||' OR  '||pAnio||'= 0) AND
+                        (INST.ID_SECTOR_INSTITUCION = '||pSector||' OR '||pSector||' = 0) AND
+                        ((SELECT COUNT(1) FROM T_GEND_INICIATIVA_GEI DI WHERE DI.ID_INICIATIVA = INI.ID_INICIATIVA AND DI.ID_GEI = ' ||pGei||' AND DI.FLAG_ESTADO = 1) = 1 OR ' ||pGei||' = 0)	AND
+                        ((SELECT COUNT(1) FROM T_GEND_INICIATIVA_ENERG EI WHERE EI.ID_INICIATIVA = INI.ID_INICIATIVA AND EI.ID_ENERG = ' ||pEnerg||' AND EI.FLAG_ESTADO = 1) = 1 OR ' ||pEnerg||' = 0)';
+        EXECUTE IMMEDIATE vQuery_cont INTO vTotal;
+        
+      	/*SELECT COUNT(1) INTO vTotal
+        FROM T_GENM_INICIATIVA INI
+        LEFT JOIN T_MAE_ETAPA ET ON INI.ID_ETAPA = ET.ID_ETAPA
+        LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
+        LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
+        LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
+        WHERE (INI.ID_ESTADO IN (1,5) AND INI.ID_ETAPA IN (1,3) OR (INI.ID_ESTADO = 2 AND INI.ID_ETAPA = 4)) AND
+              (MD.ID_MEDMIT = pMedida OR pMedida = 0 ) AND 
+              (EXTRACT(YEAR FROM INI.FECHA_IMPLE_INICIATIVA)=pAnio OR  pAnio= 0) AND
+              (INST.ID_SECTOR_INSTITUCION = pSector OR pSector = 0) AND
+              ((SELECT COUNT(1) FROM T_GEND_INICIATIVA_GEI DI WHERE DI.ID_INICIATIVA = INI.ID_INICIATIVA AND DI.ID_GEI = pGei AND DI.FLAG_ESTADO = 1) = 1 OR pGei = 0)	AND
+              ((SELECT COUNT(1) FROM T_GEND_INICIATIVA_ENERG EI WHERE EI.ID_INICIATIVA = INI.ID_INICIATIVA AND EI.ID_ENERG = pEnerg AND EI.FLAG_ESTADO = 1) = 1 OR pEnerg = 0) ;*/
+
+        vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
+        IF vPagina2 = 0 THEN
+            vPagina2 := 1;
+        END IF;
+        IF vPagina2 > vPaginas THEN
+            vPagina2 := vPaginas;
+        END IF;
+
+        vPageIndex := vPagina2 - 1;
+        IF pSortColumn = 'FECHA' THEN
+            vSortColumn2 := 'FECHA_IMPLE_INICIATIVA';
+        ELSIF pSortColumn = 'PROGRESO' THEN
+          	vSortColumn2 := 'INI.ID_ETAPA';
+        ELSIF pSortColumn = 'ID_INICIATIVA' THEN
+          	vSortColumn2 := 'INI.ID_INICIATIVA';
+        ELSE
+        	vSortColumn2 := pSortColumn;
+        END IF;
+
+        vQuery := 'SELECT  *  FROM (
+                        SELECT  INI.ID_INICIATIVA,
+                                INI.NOMBRE_INICIATIVA,
+                                ET.DESCRIPCION,
+                                INI.FECHA_IMPLE_INICIATIVA,
+                                INI.FECHA_FIN_INICIATIVA,
+                                INI.GEI_TOTAL TOTAL_GEI,
+                                MD.NOMBRE_MEDMIT,
+                                NVL(INST.NOMBRE_INSTITUCION,''-'') NOMBRE_INSTITUCION,
+                                INI.ID_ESTADO,
+                                INI.ID_ETAPA PROGRESO,
+                                ROW_NUMBER() OVER (ORDER BY ' || vSortColumn2 || ' ' || pSortOrder ||') AS ROWNUMBER,'
+                                || vPaginas || ' AS total_paginas,'
+                                || vPagina2 || ' AS pagina,'
+                                || pRegistros || ' AS cantidad_registros,'
+                                || vTotal || ' AS total_registros
+                        FROM T_GENM_INICIATIVA INI
+                        LEFT JOIN T_MAE_ETAPA ET ON INI.ID_ETAPA = ET.ID_ETAPA
+                        LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
+                        LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
+                        LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
+                        WHERE '|| pCondicion ||' AND
+                        (MD.ID_MEDMIT = '||pMedida||' OR ' ||pMedida|| ' = 0 ) AND 
+                        (EXTRACT(YEAR FROM INI.FECHA_IMPLE_INICIATIVA)='||pAnio||' OR  '||pAnio||'= 0) AND
+                        (INST.ID_SECTOR_INSTITUCION = '||pSector||' OR '||pSector||' = 0) AND
+                        ((SELECT COUNT(1) FROM T_GEND_INICIATIVA_GEI DI WHERE DI.ID_INICIATIVA = INI.ID_INICIATIVA AND DI.ID_GEI = ' ||pGei||' AND DI.FLAG_ESTADO = 1) = 1 OR ' ||pGei||' = 0)	AND
+                        ((SELECT COUNT(1) FROM T_GEND_INICIATIVA_ENERG EI WHERE EI.ID_INICIATIVA = INI.ID_INICIATIVA AND EI.ID_ENERG = ' ||pEnerg||' AND EI.FLAG_ESTADO = 1) = 1 OR ' ||pEnerg||' = 0)
+
+                    )
+                    WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
+
+        OPEN pRefcursor FOR vQuery;
+
+      END USP_SEL_BUSQUEDA_AVANZADA;
 
 END PKG_MRV_INICIATIVA_MITIGACION;
 
