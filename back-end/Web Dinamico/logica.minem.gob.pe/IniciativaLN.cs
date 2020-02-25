@@ -459,5 +459,22 @@ namespace logica.minem.gob.pe
             return iniciativaDA.ListarArchivosGuardados(entidad);
         }
 
+        //////////////////////////////7
+        public static List<IniciativaBE> ListaBusquedaSimplePublico(IniciativaBE entidad)
+        {
+            if (string.IsNullOrEmpty(entidad.buscar)) entidad.buscar = "";
+            return iniciativaDA.ListaBusquedaSimplePublico(entidad);
+        }
+
+        public static List<IniciativaBE> ListaBusquedaAvanzadaPublico(IniciativaBE entidad)
+        {
+            return iniciativaDA.ListaBusquedaAvanzadaPublico(entidad);
+        }
+
+        public static List<IniciativaBE> ValidarDetalleIndicador(IniciativaBE entidad)
+        {
+            return iniciativaDA.ValidarDetalleIndicador(entidad);
+        }
+
     }
 }

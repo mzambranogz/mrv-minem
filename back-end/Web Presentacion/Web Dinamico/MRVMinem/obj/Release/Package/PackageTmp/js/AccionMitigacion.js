@@ -191,11 +191,11 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
                         tr = tr + '                 <div class="progress-bar progress-bar-striped" role="progressbar" style="width: ' + progreso + ';" aria-valuenow="' + progreso.substring(0, progreso.length - 1) + '" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="' + tooltip + '">' + progreso + '</div>';
                         tr = tr + '</div></td>';
                         tr = tr + '<td class="text-center">' + data[i]["FECHA"].toString() + '</td>';
-                        tr = tr + '<td class="text-center">' + data[i]["FECHA_FIN"] + '</td>';
+                        tr = tr + '<td class="text-center"></td>';
                         tr = tr + '<td>' + data[i]["NOMBRE_MEDMIT"] + '</td>';
                         tr = tr + '<td>' + data[i]["NOMBRE_INSTITUCION"] + '</td>';
-                        tr = tr + '<td data-encabezado="Total reducido" class="text-center convertir">' + Math.round(data[i]["TOTAL_GEI"] * 100) / 100 + '</td>';
-                        tr = tr + '<td class="text-center" data-encabezado="Estado">' + data[i]["ESTADO_BANDEJA"] + '</td>';
+                        tr = tr + '<td data-encabezado="Total reducido" class="text-center convertir">0</td>';
+                        tr = tr + '<td class="text-center" data-encabezado="Estado"></td>';
                         tr = tr + '<td class="text-center text-xs-right" data-encabezado="Acciones">';
                         tr = tr + '     <div class="btn-group">';
                         tr = tr + '         <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';

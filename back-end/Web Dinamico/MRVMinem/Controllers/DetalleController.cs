@@ -168,16 +168,17 @@ namespace MRVMinem.Controllers
                     foreach (ExcelWorksheet worksheet in excelPackage.Workbook.Worksheets)
                     {
                         pagina++;
+                        pagina++;
                         var cant_column = worksheet.Dimension.End.Column;
                         var ultimos = listaParametro.Count - cant_column;
                         //loop all rows
-                        if (pagina < 2)
+                        if (pagina < 3)
                         {
                             for (int i = worksheet.Dimension.Start.Row; i <= worksheet.Dimension.End.Row; i++)
                             {
                                 IndicadorDataBE itemData = new IndicadorDataBE();
                                 List<IndicadorDataBE> listaIndicadores = new List<IndicadorDataBE>();
-                                if (i > 1)
+                                if (i > 2)
                                 {
                                     //loop all columns in a row                                    
                                     var validar = 0;

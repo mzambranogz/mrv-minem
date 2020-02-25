@@ -53,7 +53,7 @@ namespace logica.minem.gob.pe
                 entidad.OK = usuarioDA.VerificarEstadoUsuario(entidad);
                 if (!entidad.OK)
                 {
-                    entidad.extra = "El usuario aún no ha sido aprobado";
+                    entidad.extra = "Usuario y/o Password incorrecto";
                 }
             }
             else

@@ -27,7 +27,7 @@ function fn_CargaIniciativas() {
         } else if ($("#estadoIniciativa").data("estado") == 7) {
             CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaTodo");
         }
-        
+
     } else {
         CargarListarIniciativaMitigacionPublico(baseUrl + "Portal/ListaIniciativasPublico");
     }
@@ -58,11 +58,11 @@ function CargarOpcionesCuerpo() {
 
 function fn_revisarIniciativa(ini) {
     //location.href = baseUrl + "Gestion/RevisarIniciativa?id=" + 0 + "&ini=" + ini;
-    location.href = baseUrl + "Gestion/RevisarIniciativa/" + Math.round(Math.random()*100) + "/" + ini;
+    location.href = baseUrl + "Gestion/RevisarIniciativa/" + Math.round(Math.random() * 100) + "/" + ini;
 }
 
 function fn_mostrarCorregirIniciativa(ini) {
-    location.href = baseUrl + "Gestion/CorregirIniciativa/" + Math.round(Math.random() * 100) + "/"+ ini;
+    location.href = baseUrl + "Gestion/CorregirIniciativa/" + Math.round(Math.random() * 100) + "/" + ini;
 }
 
 function fn_revisarDetalle(id) {
@@ -71,7 +71,7 @@ function fn_revisarDetalle(id) {
 }
 
 function fn_revisarDetalleAdmin(id) {
-    location.href = baseUrl + "Gestion/RevisarAdminDetalleIndicador/" + id + "/"+Math.round(Math.random()*100);    
+    location.href = baseUrl + "Gestion/RevisarAdminDetalleIndicador/" + id + "/" + Math.round(Math.random() * 100);
 }
 
 function fn_evaluarIniciativaDetalle(id) {
@@ -127,22 +127,49 @@ function fn_verMasPrivadoIniciativaDetalleP(ini) {
 }
 
 function CargarListarIniciativaMitigacionPublico(vUrl) {
-    var Item = {
-        cantidad_registros: $("#cantidad-registros").val(),
-        pagina: $("#pagina").val(),
-        order_by: $("#columna").val(),
-        order_orden: $("#orden").val()
+    //var Item = {
+    //    cantidad_registros: $("#cantidad-registros").val(),
+    //    pagina: $("#pagina").val(),
+    //    order_by: $("#columna").val(),
+    //    order_orden: $("#orden").val()
+    //};
+    var nurl = baseUrl;
+    if ($("#buscar").data("numero") == 0) {
+
+        var Item = {
+            buscar: $("#buscar-iniciativa").data("campo"),
+            cantidad_registros: $("#cantidad-registros").val(),
+            pagina: $("#pagina").val(),
+            order_by: $("#columna").val(),
+            order_orden: $("#orden").val()
+        }
+        nurl = nurl + "Portal/ListaBusquedaSimplePublico";
+    } else {
+
+        var Item = {
+            medida_b: $("#cbo-medida-mitigacion").val(),
+            anio_b: $("#txt-fecha-inicio").val(),
+            sector_b: $("#cbo-sector").val(),
+            gei_b: $("#cbo-energetico-base").val(),
+            energ_b: $("#cbo-energetico-proyecto").val(),
+            cantidad_registros: $("#cantidad-registros").val(),
+            pagina: $("#pagina").val(),
+            order_by: $("#columna").val(),
+            order_orden: $("#orden").val()
+        }
+        nurl = nurl + "Portal/ListaBusquedaAvanzadaPublico";
     };
+
     $.ajax({
-        url: vUrl,
+        url: nurl,
         type: 'POST',
         datatype: 'json',
         data: Item,
         success: function (data) {
+            $("#cuerpoMitigacion").html("");
             if (data != null && data != "") {
                 if (data.length > 0) {
-
-                    $("#cuerpoMitigacion").html("");
+                    //$("#cuerpoMitigacion").html("");
                     var resultado = "";
                     var inicio = 0;
                     var fin = 0;
@@ -190,8 +217,15 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
                         tr = tr + '                 <div class="progress-bar progress-bar-striped" role="progressbar" style="width: ' + progreso + ';" aria-valuenow="' + progreso.substring(0, progreso.length - 1) + '" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="' + tooltip + '">' + progreso + '</div>';
                         tr = tr + '</div></td>';
                         tr = tr + '<td class="text-center">' + data[i]["FECHA"].toString() + '</td>';
-                        tr = tr + '<td>' + data[i]["NOMBRE_MEDMIT"] + '</td>';
+                        tr = tr + '<td class="text-center">' + data[i]["FECHA_FIN"] + '</td>';
+                        tr = tr + '<td class="text-center"><span data-toggle="tooltip" data-placement="top" title="' + data[i]["NOMBRE_MEDMIT"] + '">' + data[i]["NUMERO_MEDMIT"] + '</span></td>';
                         tr = tr + '<td>' + data[i]["NOMBRE_INSTITUCION"] + '</td>';
+                        if ($("#cuerpoMitigacion").data("convertir") == 1) {
+                            tr = tr + '<td data-encabezado="Total reducido" class="text-center convertir"><span>' + (Math.round(data[i]["TOTAL_GEI"] * 100) / 100) / 1000 + '</span>&nbsp;<small>ktCO2eq<small></td>';
+                        } else if ($("#cuerpoMitigacion").data("convertir") == 0) {
+                            tr = tr + '<td data-encabezado="Total reducido" class="text-center convertir"><span>' + Math.round(data[i]["TOTAL_GEI"] * 100) / 100 + '</span>&nbsp;<small>tCO2eq<small></td>';
+                        }
+                        tr = tr + '<td class="text-center" data-encabezado="Estado">' + data[i]["ESTADO_BANDEJA"] + '</td>';
                         tr = tr + '<td class="text-center text-xs-right" data-encabezado="Acciones">';
                         tr = tr + '     <div class="btn-group">';
                         tr = tr + '         <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
@@ -227,7 +261,14 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
                         $("#pagina").val(total_paginas);
                     }
                 }
+            } else {
+                $("#resultado").html("0 - 0");
+                $("#total-registros").html(0);
+                $("#pagina-actual").html(1);
+                $("#total-paginas").html(1);
+                $("#pagina").val(1);
             }
+            $('[data-toggle="tooltip"]').tooltip();
         }
     });
 }
@@ -301,7 +342,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
         data: Item,
         success: function (data) {
             $("#cuerpoMitigacion").html("");
-            if (data != null && data != "") {                
+            if (data != null && data != "") {
                 if (data.length > 0) {
                     //$("#cuerpoMitigacion").html("");
                     for (var i = 0; i < data.length; i++) {
@@ -314,7 +355,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                                 progreso = '50%';
                             } else if (data[i]["PROGRESO"] == 3 && (data[i]["ID_ESTADO"] == 1 || data[i]["ID_ESTADO"] == 5 || data[i]["ID_ESTADO"] == 2 || data[i]["ID_ESTADO"] == 6)) {
                                 progreso = '75%';
-                            } else if (data[i]["PROGRESO"] == 4  || data[i]["PROGRESO"] == 5 || data[i]["PROGRESO"] == 6 || data[i]["PROGRESO"] == 7 || data[i]["PROGRESO"] == 8) {
+                            } else if (data[i]["PROGRESO"] == 4 || data[i]["PROGRESO"] == 5 || data[i]["PROGRESO"] == 6 || data[i]["PROGRESO"] == 7 || data[i]["PROGRESO"] == 8) {
                                 progreso = '100%';
                             }
                         }
@@ -344,8 +385,16 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                         tr = tr + '                 <div class="progress-bar progress-bar-striped" role="progressbar" style="width: ' + progreso + ';" aria-valuenow="' + progreso.substring(0, progreso.length - 1) + '" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="' + tooltip + '">' + progreso + '</div>';
                         tr = tr + '</div></td>';
                         tr = tr + '<td class="text-center">' + data[i]["FECHA"].toString() + '</td>';
-                        tr = tr + '<td>' + data[i]["NOMBRE_MEDMIT"] + '</td>';
+                        tr = tr + '<td class="text-center">' + data[i]["FECHA_FIN"] + '</td>';
+                        tr = tr + '<td class="text-center"><span data-toggle="tooltip" data-placement="top" title="' + data[i]["NOMBRE_MEDMIT"] + '">' + data[i]["NUMERO_MEDMIT"] + '</span></td>';
                         tr = tr + '<td>' + data[i]["NOMBRE_INSTITUCION"] + '</td>';
+                        if ($("#cuerpoMitigacion").data("convertir") == 1) {
+                            tr = tr + '<td data-encabezado="Total reducido" class="text-center convertir"><span>' + (Math.round(data[i]["TOTAL_GEI"] * 100) / 100)/1000 + '</span>&nbsp;<small>ktCO2eq<small></td>';
+                        } else if ($("#cuerpoMitigacion").data("convertir") == 0) {
+                            tr = tr + '<td data-encabezado="Total reducido" class="text-center convertir"><span>' + Math.round(data[i]["TOTAL_GEI"] * 100) / 100 + '</span>&nbsp;<small>tCO2eq<small></td>';
+                        }
+                        //tr = tr + '<td data-encabezado="Total reducido" class="text-center convertir"><span>' + Math.round(data[i]["TOTAL_GEI"] * 100) / 100 + '</span>&nbsp;<small>tCO2eq<small></td>';
+                        tr = tr + '<td class="text-center" data-encabezado="Estado">' + data[i]["ESTADO_BANDEJA"] + '</td>';
                         tr = tr + '<td class="text-center text-xs-right" data-encabezado="Acciones">';
 
                         tr = tr + '     <div class="btn-group">';
@@ -418,6 +467,12 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                     }
 
                 }
+            } else {
+                $("#resultado").html("0 - 0");
+                $("#total-registros").html(0);
+                $("#pagina-actual").html(1);
+                $("#total-paginas").html(1);
+                $("#pagina").val(1);
             }
             $('[data-toggle="tooltip"]').tooltip();
         }
@@ -497,7 +552,7 @@ function CargarMedidaMitigacion() {
     });
 }
 
-
+//===========================================================================================
 function valor() {
     if ($("#buscar").data("numero") == 0) {
         $("#buscar").data("numero", 1);
@@ -507,7 +562,7 @@ function valor() {
         //alert("soy 1");
     }
 }
-
+//================================================================================================0
 
 
 function CargarSector() {
@@ -579,11 +634,15 @@ function CargarEnergeticoProyecto() {
 //Funciones Busqueda Publico
 //Validación Del boton desplegable
 function fn_busqueda_Publico() {
+    //if ($("#buscar").data("numero") == 0) {
+    //    fn_buscarPublicoSimple();
+    //} else {
+    //    fn_buscarPublicoAvanzado();
+    //}
     if ($("#buscar").data("numero") == 0) {
-        fn_buscarPublicoSimple();
-    } else {
-        fn_buscarPublicoAvanzado();
+        $("#buscar-iniciativa").data("campo", $("#txt-buscar").val());
     }
+    fn_CargaIniciativas();
 }
 
 function fn_buscarPublicoSimple() {
@@ -974,7 +1033,6 @@ function fn_buscarPrivadoSimpleVerVis() {
         datatype: 'json',
         data: item,
         success: function (data) {
-            debugger;
             if (data != null && data != "") {
                 if (data.length > 0) {
 
@@ -1060,7 +1118,6 @@ function fn_buscarPrivadoAvanzadoUsuario(item, vurl) {
         datatype: 'json',
         data: item,
         success: function (data) {
-            debugger;
             if (data != null && data != "") {
                 if (data.length > 0) {
                     tablaMitigacionPrivado(data);
@@ -1194,7 +1251,6 @@ function tablaMitigacionPrivado(data) {
 }
 
 function fn_filtrarEstado(opc, t) {
-    //debugger;
     var $t = t;
     var $e = $t.html();
     var $a = $t.parent().prev();
@@ -1227,7 +1283,6 @@ function fn_buscar(item, vurl) {
         datatype: 'json',
         data: item,
         success: function (data) {
-            debugger;
             if (data != null && data != "") {
                 if (data.length > 0) {
                     tablaMitigacionEstado(data);
@@ -1239,75 +1294,75 @@ function fn_buscar(item, vurl) {
 
 function tablaMitigacionEstado(data) {
 
-        $("#cuerpoMitigacion").html("");
-        var resultado = "";
-        var inicio = 0;
-        var fin = 0;
-        var total_registros = 0;
-        var pagina = 0;
-        var total_paginas = 0;
+    $("#cuerpoMitigacion").html("");
+    var resultado = "";
+    var inicio = 0;
+    var fin = 0;
+    var total_registros = 0;
+    var pagina = 0;
+    var total_paginas = 0;
 
-        for (var i = 0; i < data.length; i++) {
+    for (var i = 0; i < data.length; i++) {
 
-            var progreso = '0%;';
-            if (data[i]["ID_ESTADO"] != 0 || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3) || (data[i]["ID_ESTADO"] == 2 && data[i]["PROGRESO"] == 1)) {
-                if (data[i]["PROGRESO"] == 1) {
-                    progreso = '25%';
-                } else if (data[i]["PROGRESO"] == 2 || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3)) {
-                    progreso = '50%';
-                } else if (data[i]["PROGRESO"] == 3 && data[i]["ID_ESTADO"] != 0) {
-                    progreso = '75%';
-                } else if (data[i]["PROGRESO"] == 4 || data[i]["PROGRESO"] == 5 || data[i]["PROGRESO"] == 6 || data[i]["PROGRESO"] == 7) {
-                    progreso = '100%';
-                }
+        var progreso = '0%;';
+        if (data[i]["ID_ESTADO"] != 0 || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3) || (data[i]["ID_ESTADO"] == 2 && data[i]["PROGRESO"] == 1)) {
+            if (data[i]["PROGRESO"] == 1) {
+                progreso = '25%';
+            } else if (data[i]["PROGRESO"] == 2 || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3)) {
+                progreso = '50%';
+            } else if (data[i]["PROGRESO"] == 3 && data[i]["ID_ESTADO"] != 0) {
+                progreso = '75%';
+            } else if (data[i]["PROGRESO"] == 4 || data[i]["PROGRESO"] == 5 || data[i]["PROGRESO"] == 6 || data[i]["PROGRESO"] == 7) {
+                progreso = '100%';
             }
-
-            var tr = '<tr>';
-            //tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + (1 + i) + '</th>';
-            //tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + data[i]["RowNumber"] + '</th>';
-            tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + data[i]["ID_INICIATIVA"] + '</th>';
-            tr = tr + '<td data-encabezado="Nombre de Iniciativa">' + data[i]["NOMBRE_INICIATIVA"] + '</td>';
-            tr = tr + '<td data-encabezado="Progreso">';
-            tr = tr + '         <div class="progress" style="height: 20px;">';
-            tr = tr + '                 <div class="progress-bar progress-bar-striped" role="progressbar" style="width: ' + progreso + ';" aria-valuenow="' + progreso.substring(0, progreso.length - 1) + '" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">' + progreso + '</div>';
-            tr = tr + '</div></td>';
-            tr = tr + '<td class="text-center">' + data[i]["FECHA"].toString() + '</td>';
-            tr = tr + '<td>' + data[i]["NOMBRE_MEDMIT"] + '</td>';
-            tr = tr + '<td>' + data[i]["NOMBRE_INSTITUCION"] + '</td>';
-            tr = tr + '<td class="text-center text-xs-right" data-encabezado="Acciones">';
-            tr = tr + '     <div class="btn-group">';
-            tr = tr + '         <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
-            tr = tr + '         <div class="dropdown-menu dropdown-menu-right">';
-            if (data[i]["PROGRESO"] == 1 || data[i]["PROGRESO"] == 2) {
-                tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_verMasPrivadoIniciativaP(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-plus-circle"></i>&nbsp;Ver más</a>';
-            } else if (data[i]["PROGRESO"] >= 3) {
-                tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_verMasPrivadoIniciativaDetalleP(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-plus-circle"></i>&nbsp;Ver más</a>';
-            }
-            tr = tr + '         </div>';
-            tr = tr + '     </div>';
-            tr = tr + '</td>';
-            tr = tr + '</tr>';
-            $("#cuerpoMitigacion").append(tr);
-
-            pagina = Number(data[i]["pagina"]);
-            total_paginas = Number(data[i]["total_paginas"]);
-            total_registros = Number(data[i]["total_registros"]);
-            inicio = (Number(data[i]["cantidad_registros"]) * pagina) - Number(data[i]["cantidad_registros"]) + 1;
-            fin = Number(data[i]["cantidad_registros"]) * pagina;
-            if (pagina == total_paginas) {
-                if (fin > total_registros)
-                    fin = total_registros
-            }
-            resultado = inicio + " de " + fin;
         }
 
-        $("#resultado").html(resultado);
-        $("#total-registros").html(total_registros);
-        $("#pagina-actual").html(pagina);
-        $("#total-paginas").html(total_paginas);
-        if (Number($("#pagina").val()) > total_paginas) {
-            $("#pagina").val(total_paginas);
+        var tr = '<tr>';
+        //tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + (1 + i) + '</th>';
+        //tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + data[i]["RowNumber"] + '</th>';
+        tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + data[i]["ID_INICIATIVA"] + '</th>';
+        tr = tr + '<td data-encabezado="Nombre de Iniciativa">' + data[i]["NOMBRE_INICIATIVA"] + '</td>';
+        tr = tr + '<td data-encabezado="Progreso">';
+        tr = tr + '         <div class="progress" style="height: 20px;">';
+        tr = tr + '                 <div class="progress-bar progress-bar-striped" role="progressbar" style="width: ' + progreso + ';" aria-valuenow="' + progreso.substring(0, progreso.length - 1) + '" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">' + progreso + '</div>';
+        tr = tr + '</div></td>';
+        tr = tr + '<td class="text-center">' + data[i]["FECHA"].toString() + '</td>';
+        tr = tr + '<td>' + data[i]["NOMBRE_MEDMIT"] + '</td>';
+        tr = tr + '<td>' + data[i]["NOMBRE_INSTITUCION"] + '</td>';
+        tr = tr + '<td class="text-center text-xs-right" data-encabezado="Acciones">';
+        tr = tr + '     <div class="btn-group">';
+        tr = tr + '         <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
+        tr = tr + '         <div class="dropdown-menu dropdown-menu-right">';
+        if (data[i]["PROGRESO"] == 1 || data[i]["PROGRESO"] == 2) {
+            tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_verMasPrivadoIniciativaP(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-plus-circle"></i>&nbsp;Ver más</a>';
+        } else if (data[i]["PROGRESO"] >= 3) {
+            tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_verMasPrivadoIniciativaDetalleP(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-plus-circle"></i>&nbsp;Ver más</a>';
         }
+        tr = tr + '         </div>';
+        tr = tr + '     </div>';
+        tr = tr + '</td>';
+        tr = tr + '</tr>';
+        $("#cuerpoMitigacion").append(tr);
+
+        pagina = Number(data[i]["pagina"]);
+        total_paginas = Number(data[i]["total_paginas"]);
+        total_registros = Number(data[i]["total_registros"]);
+        inicio = (Number(data[i]["cantidad_registros"]) * pagina) - Number(data[i]["cantidad_registros"]) + 1;
+        fin = Number(data[i]["cantidad_registros"]) * pagina;
+        if (pagina == total_paginas) {
+            if (fin > total_registros)
+                fin = total_registros
+        }
+        resultado = inicio + " de " + fin;
+    }
+
+    $("#resultado").html(resultado);
+    $("#total-registros").html(total_registros);
+    $("#pagina-actual").html(pagina);
+    $("#total-paginas").html(total_paginas);
+    if (Number($("#pagina").val()) > total_paginas) {
+        $("#pagina").val(total_paginas);
+    }
 }
 
 //////EXPORTAR
@@ -1319,52 +1374,55 @@ function exportarIniciativa() {
     //    ID_ESTADO: $("#estadoIniciativa").data("estado")
     //};
 
-    if ($("#buscar").data("numero") == 0) {
+    if ($("#cuerpoMitigacion").html() != "") {
 
-        var item = {
-            buscar: $("#buscar-iniciativa").data("campo"),
-            order_by: $("#columna").val(),
-            order_orden: $("#orden").val(),
-            ID_USUARIO: $("#Control").data("usuario"),
-            ID_ESTADO: $("#estadoIniciativa").data("estado"),
-            METODO: $("#buscar").data("numero")
+        if ($("#buscar").data("numero") == 0) {
+
+            var item = {
+                buscar: $("#buscar-iniciativa").data("campo"),
+                order_by: $("#columna").val(),
+                order_orden: $("#orden").val(),
+                ID_USUARIO: $("#Control").data("usuario"),
+                ID_ESTADO: $("#estadoIniciativa").data("estado"),
+                METODO: $("#buscar").data("numero")
             }
+        }
+        else {
+
+            var item = {
+                medida_b: $("#cbo-medida-mitigacion").val(),
+                anio_b: $("#txt-fecha-inicio").val(),
+                sector_b: $("#cbo-sector").val(),
+                gei_b: $("#cbo-energetico-base").val(),
+                energ_b: $("#cbo-energetico-proyecto").val(),
+                order_by: $("#columna").val(),
+                order_orden: $("#orden").val(),
+                ID_USUARIO: $("#Control").data("usuario"),
+                ID_ESTADO: $("#estadoIniciativa").data("estado"),
+                METODO: $("#buscar").data("numero")
+            }
+        }
+        var url = baseUrl + 'Gestion/ExportarIniciativa';
+
+        var parametros = {
+            Url: url,
+            Item: JSON.stringify(item)
+        };
+
+        var frm = '<form id = "frmDescarga" name = "frmDescarga" method = "POST" target = "_blank" action = "' + url + '"></form>';
+        var hdn = '<input type = "hidden" id = "url" name = "url" />';
+        var hdnFormato = '<input type = "hidden" id = "formato" name = "formato" />';
+        var hdnItem = '<input type = "hidden" id = "item" name = "item" />';
+        jQuery('#divExportar').append(frm)
+        jQuery(hdn).appendTo(jQuery('#frmDescarga'));
+        jQuery(hdnFormato).appendTo(jQuery('#frmDescarga'));
+        jQuery(hdnItem).appendTo(jQuery('#frmDescarga'));
+        jQuery('#frmDescarga #url').val(parametros.Url);
+        jQuery('#frmDescarga #item').val(parametros.Item);
+        jQuery('#frmDescarga').submit();
+        jQuery('#frmDescarga').remove();
+
     }
-    else
-    {
-
-        var item = {
-            medida_b: $("#cbo-medida-mitigacion").val(),
-            anio_b: $("#txt-fecha-inicio").val(),
-            sector_b: $("#cbo-sector").val(),
-            gei_b: $("#cbo-energetico-base").val(),
-            energ_b: $("#cbo-energetico-proyecto").val(),
-            order_by: $("#columna").val(),
-            order_orden: $("#orden").val(),
-            ID_USUARIO: $("#Control").data("usuario"),
-            ID_ESTADO: $("#estadoIniciativa").data("estado"),
-            METODO: $("#buscar").data("numero")
-            }
-     }
-    var url = baseUrl + 'Gestion/ExportarIniciativa';
-
-    var parametros = {
-        Url: url,
-        Item: JSON.stringify(item)
-    };
-
-    var frm = '<form id = "frmDescarga" name = "frmDescarga" method = "POST" target = "_blank" action = "' + url + '"></form>';
-    var hdn = '<input type = "hidden" id = "url" name = "url" />';
-    var hdnFormato = '<input type = "hidden" id = "formato" name = "formato" />';
-    var hdnItem = '<input type = "hidden" id = "item" name = "item" />';
-    jQuery('#divExportar').append(frm)
-    jQuery(hdn).appendTo(jQuery('#frmDescarga'));
-    jQuery(hdnFormato).appendTo(jQuery('#frmDescarga'));
-    jQuery(hdnItem).appendTo(jQuery('#frmDescarga'));
-    jQuery('#frmDescarga #url').val(parametros.Url);
-    jQuery('#frmDescarga #item').val(parametros.Item);
-    jQuery('#frmDescarga').submit();
-    jQuery('#frmDescarga').remove();
 }
 
 
@@ -1397,7 +1455,6 @@ $(document).ready(function () {
     */
 
     $(".miColumna").click(function (event) {
-        debugger;
         var id = "";
         if (event.target.nodeName == "SPAN") {
             id = event.target.firstElementChild.id;
@@ -1448,3 +1505,29 @@ $("#modal-bienbenida").on("hidden.bs.modal", function () {
     } else {
     }
 });
+
+function convertirATonelada() {
+    if ($("#cuerpoMitigacion").data("convertir") == 1) { // 1: kilot, 0:t
+        campos = $("#cuerpoMitigacion").find("tr");
+        campos.each(function (index, value) {
+            var valor = $(value).find(".convertir").find("span").html();
+            valor = valor * 1000;
+            $(value).find(".convertir").find("span").html(valor);
+            $(value).find(".convertir").find("small").html("tCO2eq");
+        });
+        $("#cuerpoMitigacion").data("convertir", 0);
+    }
+}
+
+function convertirAKiloTonelada() {
+    if ($("#cuerpoMitigacion").data("convertir") == 0) {
+        campos = $("#cuerpoMitigacion").find("tr");
+        campos.each(function (index, value) {
+            var valor = $(value).find(".convertir").find("span").html();
+            valor = valor / 1000;
+            $(value).find(".convertir").find("span").html(valor);
+            $(value).find(".convertir").find("small").html("ktCO2eq");
+        });
+        $("#cuerpoMitigacion").data("convertir", 1);
+    }
+}

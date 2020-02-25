@@ -270,6 +270,9 @@ function fn_procesoIniciativa(url, estado) {
         }
     }
     ubicacion = ubicacion.substring(0, ubicacion.length - 1);
+
+    var monto_inversion = $("#txt-monto-inversion").val();
+    monto_inversion = monto_inversion.replace(',', '');
     debugger;
     var item = {
         ID_INICIATIVA: $("#Control").data("iniciativa"), //
@@ -279,7 +282,7 @@ function fn_procesoIniciativa(url, estado) {
         DESC_INICIATIVA: $("#txa-descripcion-medida").val(),
         PRIVACIDAD_INICIATIVA: privacidad,
         PRIVACIDAD_INVERSION: privacidad_monto,
-        INVERSION_INICIATIVA: $("#txt-monto-inversion").val(),
+        INVERSION_INICIATIVA: monto_inversion,
         ID_MONEDA: $("#cbo-moneda").val(),
         FECHA_IMPLE_INICIATIVA: $("#txt-fecha-inicio").val(),
         FECHA_FIN_INICIATIVA: $("#txt-fecha-fin").val(),

@@ -6,14 +6,20 @@
 }
 
 
-
+@{
+    var fila = 0;
+    var total_reg = 0;
+    var total_pag = 0;
+    var inicio_reg = 0;
+    var fin_reg = 0;
+}
 
 <div class="container-fluid map-root" id="historia">
     <div class="container">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
-                <li class="breadcrumb-item"><a href="./mantenimiento-de-tablas.html">Mantenimiento de Tablas</a></li>
+                <li class="breadcrumb-item"><a href="@Url.Action("Index", "Gestion")">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="@Url.Action("MantenimientoTablas","Gestion")">Mantenimiento de Tablas</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Mantenimiento de Detalle y Enfoque por Medida de Mitigación</li>
             </ol>
         </nav>
@@ -83,8 +89,9 @@
                                     {
                                         foreach (var item in Model.listaParametroInd)
                                         {
+                                            fila += 1;
                                             <tr id="detalles-tr-1">
-                                                <th class="text-center" data-encabezado="Número" scope="row">1</th>
+                                                <th class="text-center" data-encabezado="Número" scope="row">@fila</th>
                                                 <td data-encabezado="Medida de mitigación">@item.MEDIDA_MIT</td>
                                                 <td class="text-center" data-encabezado="Enfoque">@item.ENFOQUE</td>
                                                 <td data-encabezado="Estructura de columnas">
@@ -139,7 +146,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-12 col-lg-6 mt-4"><strong>Resultado:&nbsp;</strong>1-10 de 750 registros</div>
+                    <div class="col-sm-12 col-lg-6 mt-4"><strong>Resultado:&nbsp;</strong>1 de 10 de 10 registros</div>
                     <div class="col-sm-12 col-lg-6 text-right mt-4">
                         <strong>Registros por página&nbsp;</strong>
                         <select id="catidad-rgistros">
@@ -148,7 +155,7 @@
                             <option value="50">50</option>
                             <option value="100">100</option>
                         </select>&nbsp;
-                        1 de 75 páginas&nbsp;
+                        1 de 1 páginas&nbsp;
                         <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
                             <button class="btn btn-primary" type="button"><i class="fas fa-angle-double-left"></i></button>
                             <button class="btn btn-primary" type="button"><i class="fas fa-angle-left"></i></button>
@@ -544,8 +551,8 @@
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
                             <button class="btn btn-primary" type="button" onclick="fn_guardarMedidaDetalle();">Guardar</button>
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>                            
                         </div>
                     </div>
                 </div>
@@ -561,8 +568,8 @@
                             <p>¿ Desea eliminar este registro ?</p>
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
                             <button class="btn btn-primary" type="button">Si</button>
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>                            
                         </div>
                     </div>
                 </div>

@@ -8,6 +8,8 @@
     var i = 0;
     var total_reg = 0;
     var total_pag = 0;
+    var inicio_reg = 0;
+    var fin_reg = 0;
 }
 
 <div class="flecha-top"><i class="fas fa-angle-double-right fa-2x text-dark btn-slider-bottom"></i></div>
@@ -132,9 +134,24 @@
                                     }
 
                                 </tbody>
+                                @{ 
+                                    if (total_reg == 0)
+                                    {
+                                        inicio_reg = 0;
+                                        fin_reg = 0;
+                                    }else if (total_reg <= 10)
+                                    {
+                                        inicio_reg = 1;
+                                        fin_reg = total_reg;
+                                    }else if (total_reg > 10)
+                                    {
+                                        inicio_reg = 1;
+                                        fin_reg = 10;
+                                    }
+                                }
                                 <tfoot>
                                     <tr>
-                                        <td class="text-left" colspan="3"><strong>Resultado:&nbsp;</strong><span id="resultado">0-0</span> de <span id="total-registros">@total_reg</span> registros</td>
+                                        <td class="text-left" colspan="3"><strong>Resultado:&nbsp;</strong><span id="resultado">@inicio_reg de @fin_reg</span> de <span id="total-registros">@total_reg</span> registros</td>
                                         <td class="text-right text-xs-left" colspan="5">
                                             <strong>Registros por página&nbsp;</strong>
                                             <select id="cantidad-registros" onchange="fn_CargaUsuarios()">
@@ -310,7 +327,7 @@
                                             <label for="txt-ruc">RUC</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup7"><i class="fas fa-landmark"></i></span></div>
-                                                <input class="form-control" type="text" id="txt-ruc" placeholder="Ingrese su RUC" aria-describedby="inputGroup7" required>
+                                                <input class="form-control validar" type="text" id="txt-ruc" placeholder="Ingrese su RUC" aria-describedby="inputGroup7" maxlength="11" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -511,9 +528,10 @@
                         </div>
                         <div class="modal-footer" id="pieMantenimientoUsuario">
                             <div id="userMantenimiento"></div>
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                            <button class="btn btn-primary" type="button" onclick="fn_editarMantenimiento();">Guardar</button>                            
                             <button class="btn btn-warning" type="button" id="btn-modal-consultar">Consultar</button>
-                            <button class="btn btn-primary" type="button" onclick="fn_editarMantenimiento();">Guardar</button>
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                            
                         </div>
                         <div class="modal-footer" id="pieCorrecto"> <!-- add 03-02-2020 -->
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
@@ -542,7 +560,7 @@
     </div>
 </div>
 @Html.Hidden("columna", "ID_USUARIO")
-@Html.Hidden("orden", "ASC")
+@Html.Hidden("orden", "DESC")
 
 <script src="~/js/script.js"></script>
 <script src="~/js/MRV.js"></script>

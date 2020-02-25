@@ -25,5 +25,6 @@ namespace entidad.minem.gob.pe
         public string GEI { get; set; }
         public string UBICACION { get; set; }
         public int METODO { get; set; }
+        public int ID_TIPO_INGRESO { get; set; }
     }
 }

@@ -100,6 +100,11 @@ namespace MRVMinem.Controllers
             return View();
         }
 
+        public ActionResult MapaSitio()
+        {
+            return View();
+        }
+
         public JsonResult ListaSectorInstitucion(SectorInstitucionBE entidad)
         {
             List<SectorInstitucionBE> lista = SectorInstitucionLN.ListaSectorInstitucion(entidad);
@@ -371,6 +376,23 @@ namespace MRVMinem.Controllers
         public JsonResult BusquedaAvanzada(BusquedaAvanzadaBE entidad)
         {
             List<IniciativaBE> lista = BusquedaAvanzaLN.BusquedaAvanzada(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        /////////////////////////////////////////////////////////////////////7
+        public JsonResult ListaBusquedaSimplePublico(IniciativaBE entidad)
+        {
+            List<IniciativaBE> lista = IniciativaLN.ListaBusquedaSimplePublico(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListaBusquedaAvanzadaPublico(IniciativaBE entidad)
+        {
+            List<IniciativaBE> lista = IniciativaLN.ListaBusquedaAvanzadaPublico(entidad);
             var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;

@@ -47,6 +47,8 @@ namespace entidad.minem.gob.pe
         public int TOTAL_REGION { get; set; }
         public string CONDICION { get; set; }
         public string ESTADO_BANDEJA { get; set; }
+        public string NUMERO_MEDMIT { get; set; }
+        public int ID_INDICADOR { get; set; }
         public List<IniciativaBE> listaGeiAnno { get; set; }
     }
 }

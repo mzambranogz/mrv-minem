@@ -303,16 +303,40 @@
     <Content Include="images\favicon\manifest.json" />
     <Content Include="images\favicon\site.webmanifest" />
     <Content Include="images\favicon\_manifest.json" />
-    <Content Include="Documentos\4.1 Plantilla_Electricos_Masivo.xlsm">
+    <Content Include="Documentos\1.2 Plantilla_Eficiencia_energetica_en_el_sector_industrial_Motor.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Documentos\4.1 Plantilla_Electricos_Consumo_Masivo.xlsm">
+    <Content Include="Documentos\1.3 Plantilla_Eficiencia_energetica_comercial.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Documentos\4.1 Plantilla_Electricos_Hibrido_Consumo_Masivo.xlsm">
+    <Content Include="Documentos\1.5 Plantilla_Iluminacion_residencial.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Documentos\4.1 Plantilla_Electricos_Hibrido_Masivo.xlsm">
+    <Content Include="Documentos\1.6 Plantilla_Reemplazo_de_lamparas_de_sector_publico.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Documentos\1.7 Plantilla_Lamparas_de_alumbrado_publico.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Documentos\2.2 Plantilla_Electrificacion_rural.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Documentos\3.1 Plantilla_RER_Conectado.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Documentos\3.2 Plantilla_Generacion_Distribuida.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Documentos\4.1 Plantilla_Vehiculos_electricos_Consumo.xlsm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Documentos\4.1 Plantilla_Vehiculos_electricos_Recorrido.xlsm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Documentos\4.1 Plantilla_Vehiculos_hibridos_consumo.xlsm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Documentos\4.1 Plantilla_Vehiculos_hibridos_Recorrido.xlsm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Properties\PublishProfiles\MRVMinem.pubxml" />
@@ -402,6 +426,8 @@
     <Content Include="Reportes\DsMedMit.xss">
       <DependentUpon>DsMedMit.xsd</DependentUpon>
     </Content>
+    <Content Include="Views\Portal\MapaSitio.cshtml" />
+    <Content Include="Views\Gestion\MapaSitio.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

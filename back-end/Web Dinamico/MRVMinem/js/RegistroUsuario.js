@@ -42,7 +42,8 @@ function fn_verificarEmail() {
         msj = msj + '                            </div>';
         msj = msj + '                            <div class="alert-wrap">';
         msj = msj + '                                <h6>Error de registro</h6>';
-        msj = msj + '                                <hr><small class="mb-0">El correo ingresado ya existe, utilice un correo válido para su registro.</small>';
+        //msj = msj + '                                <hr><small class="mb-0">El correo ingresado ya existe, utilice un correo válido para su registro.</small>';
+        msj = msj + '                                <hr><small class="mb-0">Ocurrio un problema durante el registro.</small>';
         msj = msj + '                            </div>';
         msj = msj + '                        </div>';
         $("#seccionMensaje").append(msj);

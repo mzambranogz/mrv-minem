@@ -380,6 +380,10 @@ namespace MRVMinem.Controllers
         {
             return View();
         }
+        public ActionResult MapaSitio()
+        {
+            return View();
+        }
 
         public JsonResult ListaIniciativasEspecialista(IniciativaBE entidad)
         {
@@ -1794,7 +1798,17 @@ namespace MRVMinem.Controllers
             entidad = UsuarioLN.DeshabilitarUsuario(entidad);
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
-        }              
+        }
+
+        public JsonResult ValidarDetalleIndicador(IniciativaBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            List<IniciativaBE> lista = IniciativaLN.ValidarDetalleIndicador(entidad);
+            itemRespuesta.success = entidad.OK;
+            itemRespuesta.extra = Convert.ToString(lista.Count());
+            return Respuesta(itemRespuesta);
+        }
 
         //EXPORTAR EXCEL
 

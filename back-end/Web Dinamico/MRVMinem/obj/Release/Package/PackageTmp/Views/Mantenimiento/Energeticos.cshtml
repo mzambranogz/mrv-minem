@@ -9,6 +9,8 @@
     var i = 0;
     var total_reg = 0;
     var total_pag = 0;
+    var inicio_reg = 0;
+    var fin_reg = 0;
 }
 
 <div class="flecha-top"><i class="fas fa-angle-double-right fa-2x text-dark btn-slider-bottom"></i></div>
@@ -18,7 +20,7 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="@Url.Action("Index","Gestion")">Inicio</a></li>
                 <li class="breadcrumb-item"><a href="@Url.Action("MantenimientoTablas","Gestion")">Mantenimiento de Tablas</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Mantenimiento de Sectores</li>
+                <li class="breadcrumb-item active" aria-current="page">Mantenimiento de Energéticos</li>
             </ol>
         </nav>
     </div>
@@ -31,7 +33,7 @@
                     <div class="col-md-12 col-lg-6 pt-4">
                         <div class="h4">
                             Mantenimiento de Energéticos&nbsp;
-                            <br><small class="text-muted">Utilice la búsqueda para encontrar el sector indicado para el mantenimiento</small>
+                            <br><small class="text-muted">Utilice la búsqueda para encontrar el energético indicado para el mantenimiento</small>
                         </div>
                     </div>
                     <div class="col-md-12 col-lg-6 pt-4">
@@ -111,12 +113,29 @@
                                     }
                                 </tbody>
                             </table>
+                            @{
+                                if (total_reg == 0)
+                                {
+                                    inicio_reg = 0;
+                                    fin_reg = 0;
+                                }
+                                else if (total_reg <= 10)
+                                {
+                                    inicio_reg = 1;
+                                    fin_reg = total_reg;
+                                }
+                                else if (total_reg > 10)
+                                {
+                                    inicio_reg = 1;
+                                    fin_reg = 10;
+                                }
+                            }
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-12 col-lg-6 mt-4">
-                        <strong>Resultado:&nbsp;</strong><span id="resultado">1-10</span> de <span id="total-registros">@total_reg</span> registros
+                        <strong>Resultado:&nbsp;</strong><span id="resultado">@inicio_reg de @fin_reg</span> de <span id="total-registros">@total_reg</span> registros
                     </div>
                     <div class="col-sm-12 col-lg-6 text-right mt-4">
                         <strong>Registros por página&nbsp;</strong>
@@ -186,8 +205,8 @@
                             </div>
                             <div class="modal-footer" id="pieMantenimientoUsuario">
                                 <div id="userMantenimiento"></div>
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
                                 <button class="btn btn-primary" type="button" onclick="fn_editarMantenimiento();">Guardar</button>
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>                                
                             </div>
                             <div class="modal-footer" id="pieCorrecto">
                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
@@ -207,8 +226,8 @@
                                 <p>¿ Desea eliminar este registro ?</p>
                             </div>
                             <div class="modal-footer">
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
                                 <button class="btn btn-primary" type="button" onclick="fn_eliminarMantenimiento()">Si</button>
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>                                
                             </div>
                         </div>
                     </div>

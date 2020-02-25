@@ -151,7 +151,7 @@
                                 }
                                 <tfoot>
                                     <tr>
-                                        <td class="text-left" colspan="3"><strong>Resultado:&nbsp;</strong><span id="resultado">@inicio_reg - @fin_reg</span> de <span id="total-registros">@total_reg</span> registros</td>
+                                        <td class="text-left" colspan="3"><strong>Resultado:&nbsp;</strong><span id="resultado">@inicio_reg de @fin_reg</span> de <span id="total-registros">@total_reg</span> registros</td>
                                         <td class="text-right text-xs-left" colspan="5">
                                             <strong>Registros por página&nbsp;</strong>
                                             <select id="cantidad-registros" onchange="fn_CargaUsuarios()">
@@ -528,9 +528,10 @@
                         </div>
                         <div class="modal-footer" id="pieMantenimientoUsuario">
                             <div id="userMantenimiento"></div>
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                            <button class="btn btn-primary" type="button" onclick="fn_editarMantenimiento();">Guardar</button>                            
                             <button class="btn btn-warning" type="button" id="btn-modal-consultar">Consultar</button>
-                            <button class="btn btn-primary" type="button" onclick="fn_editarMantenimiento();">Guardar</button>
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                            
                         </div>
                         <div class="modal-footer" id="pieCorrecto"> <!-- add 03-02-2020 -->
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>

@@ -71,11 +71,13 @@
                                 <!--     -->
                             </div>
                         </div>
+
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-12 text-right">
+
                                     <div class="row">
-                                        <div class="col-12"><div id="buscar" data-numero="0"></div>
+                                        <div class="col-12"><div id="buscar" data-numero="0"></div><!--id buscar -->
                                             <div class="titulo-avanzado" data-toggle="collapse" href="#busqueda-avanzada" aria-expanded="false" aria-controls="busqueda-avanzada" onclick="valor();"><span>Búsqueda avanzada&nbsp;<i class="fas fa-sort"></i></span></div>
                                             <div class="collapse" id="busqueda-avanzada">
                                                 <div class="card card-body">
@@ -265,9 +267,11 @@
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="col-sm-12 col-md-6 col-lg-6">
                                 <button class="btn btn-success w-100 mb-2" onclick="exportarIniciativa();"><i class="fas fa-file-download px-1"></i>Descargar Excel</button><div id="divExportar"></div> <!-- add metodo exportar y div creado con su id -->
@@ -284,7 +288,7 @@
             <div class="container-fluid py-4">
                 <div class="row" id="estadoIniciativa" data-estado="1"> <!--add id data -->
                     <div class="col-xs-12 col sm-12 col-lg-9">
-                        <div class="h5">Bandeja de Iniciativas de Mitigación&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Bandeja de iniciativas de mitigación registradas por su institución"></i></div>
+                        <div class="h5">Bandeja de Iniciativas de Mitigación&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Bandeja de iniciativas de mitigación registradas"></i></div>
                     </div>
                     @*<div class="col-xs-12 col sm-12 col-lg-3 text-lg-right" id="seccionFiltro">*@ <!-- add id-->
                     @*@if (Convert.ToInt32(Session["rol"]) != 1)
@@ -323,12 +327,12 @@
                                         <th class="text-center" scope="col"><span class="miColumna" width="3%">N°&nbsp;<i class="fas fa-sort-up" style="color: lightgray" id="ID_INICIATIVA"></i></span></th>
                                         <th scope="col" width="19%"><span class="miColumna">Nombre de <br> Iniciativa&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NOMBRE_INICIATIVA"></i></span></th>
                                         <th scope="col" width="10%"><span class="miColumna">Progreso&nbsp;<i class="fas fa-sort" style="color: lightgray" id="PROGRESO"></i></span></th>
-                                        <th class="text-center" scope="col" width="10%"><span>Fecha de <br> Inicio&nbsp;<i class="fas fa-sort" style="color: lightgray" id="FECHA"></i></span></th>
-                                        <th class="text-center" scope="col" width="10%"><span>Fecha de <br>  Término&nbsp;<i class="fas fa-sort"></i></span></th>
-                                        <th scope="col" width="10%"><span class="miColumna">Medida de  <br> Mitigación&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NOMBRE_MEDMIT"></i></span></th>
+                                        <th class="text-center" scope="col" width="10%"><span class="miColumna">Fecha de <br> Inicio&nbsp;<i class="fas fa-sort" style="color: lightgray" id="FECHA"></i></span></th>
+                                        <th class="text-center" scope="col" width="10%"><span class="miColumna">Fecha de <br>  Término&nbsp;<i class="fas fa-sort" style="color: lightgray" id="FECHA_FIN_INICIATIVA"></i></span></th>
+                                        <th scope="col" width="10%"><span class="miColumna">Medida de  <br> Mitigación&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NUMERO_MEDMIT"></i></span></th>
                                         <th scope="col" width="10%"><span class="miColumna">Entidad&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NOMBRE_INSTITUCION"></i></span></th>
-                                        <th scope="col" width="10%"><span>Total <br> reducido&nbsp;<i class="fas fa-sort"></i></span></th>
-                                        <th class="text-center" scope="col" width="7%"><span>Estado&nbsp;<i class="fas fa-sort"></i></span></th>
+                                        <th scope="col" width="10%"><span class="miColumna">Total <br> reducido&nbsp;<i class="fas fa-sort" style="color: lightgray" id="GEI_TOTAL"></i></span></th>
+                                        <th class="text-center" scope="col" width="7%"><span class="miColumna">Estado&nbsp;<i class="fas fa-sort" style="color: lightgray" id="ID_ESTADO"></i></span></th>
                                         <th class="text-center" scope="col">Más</th>
                                     </tr>
                                 </thead>
@@ -593,4 +597,5 @@
         }
     }*@
 </script>
+
 <script src="~/js/AccionMitigacion.js"></script>
