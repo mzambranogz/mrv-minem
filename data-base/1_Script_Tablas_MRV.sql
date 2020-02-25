@@ -1,11 +1,11 @@
 --------------------------------------------------------
--- Archivo creado  - lunes-febrero-24-2020   
+-- Archivo creado  - martes-febrero-25-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Sequence SQ_GEND_DETALLE_INICIATIVA
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "MRVMM"."SQ_GEND_DETALLE_INICIATIVA"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 941 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "MRVMM"."SQ_GEND_DETALLE_INICIATIVA"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 961 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence SQ_GEND_ENFOQUE_FACTOR
 --------------------------------------------------------
@@ -60,7 +60,7 @@
 --  DDL for Sequence SQ_GEND_INICIATIVA_UBICACION
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "MRVMM"."SQ_GEND_INICIATIVA_UBICACION"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 601 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "MRVMM"."SQ_GEND_INICIATIVA_UBICACION"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 621 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence SQ_GEND_VARIANTE_ATRIBUTO
 --------------------------------------------------------
@@ -85,7 +85,7 @@
 --  DDL for Sequence SQ_GENM_NOTIFICACION
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "MRVMM"."SQ_GENM_NOTIFICACION"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 681 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "MRVMM"."SQ_GENM_NOTIFICACION"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 701 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence SQ_GENM_USUARIO
 --------------------------------------------------------
