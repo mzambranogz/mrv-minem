@@ -71,7 +71,13 @@
               <div class="col-md-12 col-lg-6 pt-4">
                 <div class="row">
                   <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
-                  <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#tipo-ingreso-detalle"><a class="cambiar-medida" href="#" data-toggle="tooltip" data-placement="top" title="No te preocupes, que podrás cambiar la medida de mitigacion en cualquier momento"><i class="fas fa-sync px-1"></i>Cambiar de tipo</a></span><span data-toggle="modal" data-target="#solicitar-revision"><a class="solicitar-revision" href="#" data-toggle="tooltip" data-placement="top" title="Una vez complete todos los campos solicite una revisión para su iniciativa de mitigación"><i class="fas fa-paper-plane px-1"></i>Solicitar revisión</a></span><span data-toggle="modal" data-target="#guardar-avance"><a class="guardar-avances" href="#" data-toggle="tooltip" data-placement="top" title="¿No tiene toda la información de su inicitiva?, guarde sus avances y retómelo después"><i class="fas fa-save px-1"></i>Guardar avances</a></span></div>
+                  <div class="col-sm-12 col-md-6 col-lg-6">
+                    <!--span(data-toggle="modal", data-target="#tipo-ingreso-detalle")
+                    a.cambiar-medida(href="#", data-toggle="tooltip", data-placement="top", title="No te preocupes, que podrás cambiar la medida de mitigacion en cualquier momento")
+                      i.fas.fa-sync.px-1
+                      | Cambiar de tipo
+                    --><span data-toggle="modal" data-target="#solicitar-revision"><a class="solicitar-revision" href="#" data-toggle="tooltip" data-placement="top" title="Una vez complete todos los campos solicite una revisión para su iniciativa de mitigación"><i class="fas fa-paper-plane px-1"></i>Solicitar revisión</a></span><span data-toggle="modal" data-target="#guardar-avance"><a class="guardar-avances" href="#" data-toggle="tooltip" data-placement="top" title="¿No tiene toda la información de su inicitiva?, guarde sus avances y retómelo después"><i class="fas fa-save px-1"></i>Guardar avances</a></span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -317,25 +323,24 @@ CH 2</textarea>
                         <table class="table table-hover">
                           <thead>
                             <tr class="bg-primary text-white">
-                              <th class="text-center" scope="col"><span>N°&nbsp;</span></th>
-                              <th scope="col"><span>Lista&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                              <th scope="col"><span>Texto&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                              <th scope="col"><span>Placas&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Ingrese sus placas"></i></span></th>
-                              <th scope="col"><span>Fecha&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                              <th scope="col"><span>Colum_05&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                              <th scope="col"><span>Colum_06&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                              <th scope="col"><span>Colum_07&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                              <th scope="col"><span>Colum_08&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                              <th scope="col"><span>Colum_09&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                              <th scope="col"><span>Colum_10&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                              <th scope="col"><span>Colum_11&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                              <th scope="col"><span>Colum_12&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                              <th scope="col"><span>Colum_13&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                              <th scope="col"><span>Colum_14&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                              <th scope="col"><span>Colum_15&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                              <th scope="col"><span>Colum_16&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
-                              <th scope="col"><span>Sub Total</span></th>
-                              <th class="text-center" scope="col"><span>Sustento</span></th>
+                              <th class="text-center" scope="col"><span>N°</span></th>
+                              <th class="text-center grupo-columna-01" scope="col"><span>AÑO</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-02" scope="col"><span>POTENCIA BASE (W)</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-03" scope="col"><span>POTENCIA INICIATIVA (W)</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-01" scope="col"><span>CANTIDAD</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-02" scope="col"><span>MES</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-03" scope="col"><span>EMISIONES GEI REDUCIDAS tCOeq</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-01" scope="col"><span>AÑO</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-02" scope="col"><span>POTENCIA BASE (W)</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-03" scope="col"><span>POTENCIA INICIATIVA (W)</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-01" scope="col"><span>CANTIDAD</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-02" scope="col"><span>MES</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-03" scope="col"><span>EMISIONES GEI REDUCIDAS tCOeq</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-01" scope="col"><span>Sub Total</span><small>Seleccione este campo para su registro</small></th>
+                              <!--th.text-center.grupo-columna-02(scope="col")
+                              span Sustento
+                              small Seleccione este campo para su registro
+                              -->
                               <th class="text-center" scope="col">Más</th>
                             </tr>
                           </thead>
@@ -364,7 +369,7 @@ CH 2</textarea>
                               </td>
                               <td data-encabezado="Fecha">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm" type="date" placeholder="Texto aquí" id="txt-columna4-1">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna4-1">
                                 </div>
                               </td>
                               <td data-encabezado="Columna 05">
@@ -427,51 +432,904 @@ CH 2</textarea>
                                   <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna12-1">
                                 </div>
                               </td>
-                              <td data-encabezado="Columna 13">
-                                <div class="form-group m-0">
-                                  <select class="form-control form-control-sm" id="cbo-columna13-1">
-                                    <option value="">Seleccionar</option>
-                                    <option value="1">Valor 1</option>
-                                    <option value="2">Valor 2</option>
-                                    <option value="3">Valor 3</option>
-                                  </select>
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 14">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna14-1">
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 15">
-                                <div class="form-group m-0">
-                                  <select class="form-control form-control-sm" id="cbo-columna15-1">
-                                    <option value="">Seleccionar</option>
-                                    <option value="1">Valor 1</option>
-                                    <option value="2">Valor 2</option>
-                                    <option value="3">Valor 3</option>
-                                  </select>
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 16">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna16-1">
-                                </div>
-                              </td>
                               <td data-encabezado="Subtotal">
                                 <div class="form-group m-0">
                                   <input class="form-control form-control-sm text-right" type="text" value="2701" id="txt-subtotal-2">
                                 </div>
                               </td>
-                              <td class="text-center" data-encabezado="Sustento">
-                                <div class="form-group m-0">
-                                  <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-upload mr-1"></i>Cargar</label>
-                                  <input class="d-none" type="file" id="fle-doc">
-                                </div>
-                              </td>
+                              <!--td.text-center(data-encabezado="Sustento")
+                              .form-group.m-0
+                                label.btn.btn-secondary.btn-sm.m-0(for="fle-doc")
+                                  i.fas.fa-upload.mr-1
+                                  | Cargar
+                                input.d-none(type="file", id="fle-doc")
+                              
+                              -->
                               <td class="text-center text-xs-right" data-encabezado="Acciones">
                                 <div class="btn-group">
                                   <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                                  <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item agregarCampos" href="#"><i class="fas fa-plus-circle"></i>&nbsp;
+                                  <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item agregarCampos" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;
+                                      Verificar</a><a class="dropdown-item agregarCampos" href="#"><i class="fas fa-plus-circle"></i>&nbsp;
+                                      Agregar</a><a class="dropdown-item quitarCampos" href="#"><i class="fas fa-minus-circle"></i>&nbsp;
+                                      Eliminar</a></div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr id="detalles-tr-2">
+                              <th class="text-center" data-encabezado="Número" scope="row">2</th>
+                              <td data-encabezado="Lista">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna1-2">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Texto">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna2-2" data-validar="1">
+                                </div>
+                              </td>
+                              <td data-encabezado="Placas">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm txt-placas" type="text" placeholder="Texto aquí" id="txt-columna3-2" value="5" data-validar="0">
+                                </div>
+                              </td>
+                              <td data-encabezado="Fecha">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna4-2">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 05">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna5-2">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 06">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna6-2">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 07">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna7-2">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 08">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna8-2">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 09">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna9-2">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 10">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna10-2">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 11">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna11-2">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 12">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna12-2">
+                                </div>
+                              </td>
+                              <td data-encabezado="Subtotal">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" value="2702" id="txt-subtotal-3">
+                                </div>
+                              </td>
+                              <!--td.text-center(data-encabezado="Sustento")
+                              .form-group.m-0
+                                label.btn.btn-secondary.btn-sm.m-0(for="fle-doc")
+                                  i.fas.fa-upload.mr-1
+                                  | Cargar
+                                input.d-none(type="file", id="fle-doc")
+                              
+                              -->
+                              <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                <div class="btn-group">
+                                  <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                  <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item agregarCampos" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;
+                                      Verificar</a><a class="dropdown-item agregarCampos" href="#"><i class="fas fa-plus-circle"></i>&nbsp;
+                                      Agregar</a><a class="dropdown-item quitarCampos" href="#"><i class="fas fa-minus-circle"></i>&nbsp;
+                                      Eliminar</a></div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr id="detalles-tr-3">
+                              <th class="text-center" data-encabezado="Número" scope="row">3</th>
+                              <td data-encabezado="Lista">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna1-3">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Texto">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna2-3" data-validar="1">
+                                </div>
+                              </td>
+                              <td data-encabezado="Placas">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm txt-placas" type="text" placeholder="Texto aquí" id="txt-columna3-3" value="5" data-validar="0">
+                                </div>
+                              </td>
+                              <td data-encabezado="Fecha">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna4-3">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 05">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna5-3">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 06">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna6-3">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 07">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna7-3">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 08">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna8-3">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 09">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna9-3">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 10">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna10-3">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 11">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna11-3">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 12">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna12-3">
+                                </div>
+                              </td>
+                              <td data-encabezado="Subtotal">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" value="2703" id="txt-subtotal-4">
+                                </div>
+                              </td>
+                              <!--td.text-center(data-encabezado="Sustento")
+                              .form-group.m-0
+                                label.btn.btn-secondary.btn-sm.m-0(for="fle-doc")
+                                  i.fas.fa-upload.mr-1
+                                  | Cargar
+                                input.d-none(type="file", id="fle-doc")
+                              
+                              -->
+                              <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                <div class="btn-group">
+                                  <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                  <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item agregarCampos" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;
+                                      Verificar</a><a class="dropdown-item agregarCampos" href="#"><i class="fas fa-plus-circle"></i>&nbsp;
+                                      Agregar</a><a class="dropdown-item quitarCampos" href="#"><i class="fas fa-minus-circle"></i>&nbsp;
+                                      Eliminar</a></div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr id="detalles-tr-4">
+                              <th class="text-center" data-encabezado="Número" scope="row">4</th>
+                              <td data-encabezado="Lista">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna1-4">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Texto">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna2-4" data-validar="1">
+                                </div>
+                              </td>
+                              <td data-encabezado="Placas">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm txt-placas" type="text" placeholder="Texto aquí" id="txt-columna3-4" value="5" data-validar="0">
+                                </div>
+                              </td>
+                              <td data-encabezado="Fecha">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna4-4">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 05">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna5-4">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 06">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna6-4">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 07">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna7-4">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 08">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna8-4">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 09">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna9-4">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 10">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna10-4">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 11">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna11-4">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 12">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna12-4">
+                                </div>
+                              </td>
+                              <td data-encabezado="Subtotal">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" value="2704" id="txt-subtotal-5">
+                                </div>
+                              </td>
+                              <!--td.text-center(data-encabezado="Sustento")
+                              .form-group.m-0
+                                label.btn.btn-secondary.btn-sm.m-0(for="fle-doc")
+                                  i.fas.fa-upload.mr-1
+                                  | Cargar
+                                input.d-none(type="file", id="fle-doc")
+                              
+                              -->
+                              <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                <div class="btn-group">
+                                  <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                  <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item agregarCampos" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;
+                                      Verificar</a><a class="dropdown-item agregarCampos" href="#"><i class="fas fa-plus-circle"></i>&nbsp;
+                                      Agregar</a><a class="dropdown-item quitarCampos" href="#"><i class="fas fa-minus-circle"></i>&nbsp;
+                                      Eliminar</a></div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr id="detalles-tr-5">
+                              <th class="text-center" data-encabezado="Número" scope="row">5</th>
+                              <td data-encabezado="Lista">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna1-5">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Texto">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna2-5" data-validar="1">
+                                </div>
+                              </td>
+                              <td data-encabezado="Placas">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm txt-placas" type="text" placeholder="Texto aquí" id="txt-columna3-5" value="5" data-validar="0">
+                                </div>
+                              </td>
+                              <td data-encabezado="Fecha">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna4-5">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 05">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna5-5">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 06">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna6-5">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 07">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna7-5">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 08">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna8-5">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 09">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna9-5">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 10">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna10-5">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 11">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna11-5">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 12">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna12-5">
+                                </div>
+                              </td>
+                              <td data-encabezado="Subtotal">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" value="2705" id="txt-subtotal-6">
+                                </div>
+                              </td>
+                              <!--td.text-center(data-encabezado="Sustento")
+                              .form-group.m-0
+                                label.btn.btn-secondary.btn-sm.m-0(for="fle-doc")
+                                  i.fas.fa-upload.mr-1
+                                  | Cargar
+                                input.d-none(type="file", id="fle-doc")
+                              
+                              -->
+                              <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                <div class="btn-group">
+                                  <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                  <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item agregarCampos" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;
+                                      Verificar</a><a class="dropdown-item agregarCampos" href="#"><i class="fas fa-plus-circle"></i>&nbsp;
+                                      Agregar</a><a class="dropdown-item quitarCampos" href="#"><i class="fas fa-minus-circle"></i>&nbsp;
+                                      Eliminar</a></div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr id="detalles-tr-6">
+                              <th class="text-center" data-encabezado="Número" scope="row">6</th>
+                              <td data-encabezado="Lista">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna1-6">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Texto">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna2-6" data-validar="1">
+                                </div>
+                              </td>
+                              <td data-encabezado="Placas">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm txt-placas" type="text" placeholder="Texto aquí" id="txt-columna3-6" value="5" data-validar="0">
+                                </div>
+                              </td>
+                              <td data-encabezado="Fecha">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna4-6">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 05">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna5-6">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 06">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna6-6">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 07">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna7-6">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 08">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna8-6">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 09">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna9-6">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 10">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna10-6">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 11">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna11-6">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 12">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna12-6">
+                                </div>
+                              </td>
+                              <td data-encabezado="Subtotal">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" value="2706" id="txt-subtotal-7">
+                                </div>
+                              </td>
+                              <!--td.text-center(data-encabezado="Sustento")
+                              .form-group.m-0
+                                label.btn.btn-secondary.btn-sm.m-0(for="fle-doc")
+                                  i.fas.fa-upload.mr-1
+                                  | Cargar
+                                input.d-none(type="file", id="fle-doc")
+                              
+                              -->
+                              <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                <div class="btn-group">
+                                  <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                  <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item agregarCampos" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;
+                                      Verificar</a><a class="dropdown-item agregarCampos" href="#"><i class="fas fa-plus-circle"></i>&nbsp;
+                                      Agregar</a><a class="dropdown-item quitarCampos" href="#"><i class="fas fa-minus-circle"></i>&nbsp;
+                                      Eliminar</a></div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr id="detalles-tr-7">
+                              <th class="text-center" data-encabezado="Número" scope="row">7</th>
+                              <td data-encabezado="Lista">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna1-7">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Texto">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna2-7" data-validar="1">
+                                </div>
+                              </td>
+                              <td data-encabezado="Placas">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm txt-placas" type="text" placeholder="Texto aquí" id="txt-columna3-7" value="5" data-validar="0">
+                                </div>
+                              </td>
+                              <td data-encabezado="Fecha">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna4-7">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 05">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna5-7">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 06">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna6-7">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 07">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna7-7">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 08">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna8-7">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 09">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna9-7">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 10">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna10-7">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 11">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna11-7">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 12">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna12-7">
+                                </div>
+                              </td>
+                              <td data-encabezado="Subtotal">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" value="2707" id="txt-subtotal-8">
+                                </div>
+                              </td>
+                              <!--td.text-center(data-encabezado="Sustento")
+                              .form-group.m-0
+                                label.btn.btn-secondary.btn-sm.m-0(for="fle-doc")
+                                  i.fas.fa-upload.mr-1
+                                  | Cargar
+                                input.d-none(type="file", id="fle-doc")
+                              
+                              -->
+                              <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                <div class="btn-group">
+                                  <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                  <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item agregarCampos" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;
+                                      Verificar</a><a class="dropdown-item agregarCampos" href="#"><i class="fas fa-plus-circle"></i>&nbsp;
+                                      Agregar</a><a class="dropdown-item quitarCampos" href="#"><i class="fas fa-minus-circle"></i>&nbsp;
+                                      Eliminar</a></div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr id="detalles-tr-8">
+                              <th class="text-center" data-encabezado="Número" scope="row">8</th>
+                              <td data-encabezado="Lista">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna1-8">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Texto">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna2-8" data-validar="1">
+                                </div>
+                              </td>
+                              <td data-encabezado="Placas">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm txt-placas" type="text" placeholder="Texto aquí" id="txt-columna3-8" value="5" data-validar="0">
+                                </div>
+                              </td>
+                              <td data-encabezado="Fecha">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna4-8">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 05">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna5-8">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 06">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna6-8">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 07">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna7-8">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 08">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna8-8">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 09">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna9-8">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 10">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna10-8">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 11">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna11-8">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 12">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna12-8">
+                                </div>
+                              </td>
+                              <td data-encabezado="Subtotal">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" value="2708" id="txt-subtotal-9">
+                                </div>
+                              </td>
+                              <!--td.text-center(data-encabezado="Sustento")
+                              .form-group.m-0
+                                label.btn.btn-secondary.btn-sm.m-0(for="fle-doc")
+                                  i.fas.fa-upload.mr-1
+                                  | Cargar
+                                input.d-none(type="file", id="fle-doc")
+                              
+                              -->
+                              <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                <div class="btn-group">
+                                  <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                  <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item agregarCampos" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;
+                                      Verificar</a><a class="dropdown-item agregarCampos" href="#"><i class="fas fa-plus-circle"></i>&nbsp;
+                                      Agregar</a><a class="dropdown-item quitarCampos" href="#"><i class="fas fa-minus-circle"></i>&nbsp;
+                                      Eliminar</a></div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr id="detalles-tr-9">
+                              <th class="text-center" data-encabezado="Número" scope="row">9</th>
+                              <td data-encabezado="Lista">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna1-9">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Texto">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna2-9" data-validar="1">
+                                </div>
+                              </td>
+                              <td data-encabezado="Placas">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm txt-placas" type="text" placeholder="Texto aquí" id="txt-columna3-9" value="5" data-validar="0">
+                                </div>
+                              </td>
+                              <td data-encabezado="Fecha">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna4-9">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 05">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna5-9">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 06">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna6-9">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 07">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna7-9">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 08">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna8-9">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 09">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna9-9">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 10">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna10-9">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 11">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm" id="cbo-columna11-9">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 12">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna12-9">
+                                </div>
+                              </td>
+                              <td data-encabezado="Subtotal">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" value="2709" id="txt-subtotal-10">
+                                </div>
+                              </td>
+                              <!--td.text-center(data-encabezado="Sustento")
+                              .form-group.m-0
+                                label.btn.btn-secondary.btn-sm.m-0(for="fle-doc")
+                                  i.fas.fa-upload.mr-1
+                                  | Cargar
+                                input.d-none(type="file", id="fle-doc")
+                              
+                              -->
+                              <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                <div class="btn-group">
+                                  <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                  <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item agregarCampos" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;
+                                      Verificar</a><a class="dropdown-item agregarCampos" href="#"><i class="fas fa-plus-circle"></i>&nbsp;
                                       Agregar</a><a class="dropdown-item quitarCampos" href="#"><i class="fas fa-minus-circle"></i>&nbsp;
                                       Eliminar</a></div>
                                 </div>
@@ -765,31 +1623,46 @@ CH 2</textarea>
               </div>
             </div>
           </div>
-          <div class="modal fade" id="registrar-placas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="modal-verificacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Registrar placas</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Verificación de Composición</h5>
                   <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
-                <div class="modal-body medidas-modal">
+                <div class="modal-body">
                   <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-12">
-                      <h3 class="text-center">Agregue sus placas <br></h3>
-                      <p class="text-center">Digite cada una de las placas de sus vehículos y presione enter para continuar agregando la siguiente.</p>
-                    </div>
-                    <div class="col-sm-12 col-md-12 col-lg-12">
-                      <input type="text" value="ABC-123,DEF-456,GHI-789,JKL-012,MNO-345" data-role="tagsinput">
-                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12"><img class="img-fluid" src="./images/formula.jpg"><strong>
+                        <div class="badge badge-info">Factores: F1 <br></div></strong><strong>
+                        <div class="badge badge-primary">Parámetros: P2 <br></div></strong><strong>
+                        <div class="badge badge-warning">Resultado: 62.25 ktCOeq</div></strong></div>
+                    <div class="col-sm-12 col-md-12 col-lg-12"></div>
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <!--button(type="button", class="btn btn-secondary", data-dismiss="modal") Cerrar-->
-                  <button class="btn btn-primary btn-afirmar-placas" type="button">Guardar</button>
+                  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
                 </div>
               </div>
             </div>
           </div>
+          <!--.modal.fade(id="registrar-placas", tabindex="-1", role="dialog", aria-labelledby="exampleModalLabel", aria-hidden="true")
+          .modal-dialog.modal-lg.modal-dialog-centered(role="document")
+            .modal-content
+              .modal-header
+                h5.modal-title(id="exampleModalLabel") Registrar placas
+                button.close(type="button", data-dismiss="modal", aria-label="Close")
+                  span(aria-hidden="true") &times;
+              .modal-body.medidas-modal
+                .row
+                  .col-sm-12.col-md-12.col-lg-12
+                    h3.text-center Agregue sus placas <br>
+                    p.text-center Digite cada una de las placas de sus vehículos y presione enter para continuar agregando la siguiente.
+                  .col-sm-12.col-md-12.col-lg-12
+                    input(type="text", value="ABC-123,DEF-456,GHI-789,JKL-012,MNO-345" data-role="tagsinput")
+              .modal-footer
+                //button(type="button", class="btn btn-secondary", data-dismiss="modal") Cerrar
+                button(type="button", class="btn btn-primary btn-afirmar-placas") Guardar
+          -->
         </div>
       </div>
     </div>
@@ -807,8 +1680,12 @@ CH 2</textarea>
                 </ul>
               </div>
               <div class="col-sm-12 col-md-4 text-white">
-                <div class="lead font-weight-bold">Tecnología</div>
-                <div class="navbar flex-md-row justify-content-start p-0 pt-1"><img src="./images/logo-blockchain-blanco.png" height="81"></div>
+                <div class="lead font-weight-bold">Enlaces</div>
+                <ul class="list-unstyled">
+                  <li class="py-1"><a class="text-white" href="https://www.gob.pe/minem" target="_blank"><i class="fas fa-landmark mr-2"></i>MINEM</a></li>
+                  <li class="py-1"><a class="text-white" href="http://namasenergia.minem.gob.pe/" target="_blank"><i class="fas fa-landmark mr-2"></i>NAMA's</a></li>
+                  <li class="py-1"><a class="text-white" href="./mapa-del-ditio.html" target="_blank"><i class="fas fa-sitemap mr-2"></i>Mapa del Sitio</a></li>
+                </ul>
               </div>
               <div class="col-sm-12 col-md-4 text-white"></div>
             </div>
@@ -823,12 +1700,11 @@ CH 2</textarea>
                 </ul>
               </div>
               <div class="col-sm-12 col-md-4 text-white">
-                <div class="lead font-weight-bold">Enlaces</div>
-                <ul class="list-unstyled">
-                  <li class="py-1"><a class="text-white" href="https://www.gob.pe/minem" target="_blank"><i class="fas fa-landmark mr-2"></i>MINEM</a></li>
-                  <li class="py-1"><a class="text-white" href="http://namasenergia.minem.gob.pe/" target="_blank"><i class="fas fa-landmark mr-2"></i>NAMA's</a></li>
-                  <li class="py-1"><a class="text-white" href="./mapa-del-ditio.html" target="_blank"><i class="fas fa-sitemap mr-2"></i>Mapa del Sitio</a></li>
-                </ul>
+                <div class="lead font-weight-bold">Tecnología</div>
+                <div class="navbar flex-md-row justify-content-start p-0 pt-1">
+                  <p>Este sitio web está <br> implementado con <br> tecnología Blockchain</p>
+                  <!--img(src="./images/logo-blockchain-blanco.png", height="81")-->
+                </div>
               </div>
               <div class="col-sm-12 col-md-4 d-flex flex-row justify-content-end align-items-end">
                 <div class="navbar p-0"><a class="nav-link p-0" href="http://namasenergia.minem.gob.pe/" target="_blank"><img src="./images/logo-nama-blanco.png" height="70"></a></div>
