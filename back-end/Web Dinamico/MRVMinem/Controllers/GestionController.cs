@@ -569,17 +569,26 @@ namespace MRVMinem.Controllers
             if (entidad.OK)
             {
                 //var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
-                entidad.EMAIL_USUARIO_ORIGEN = Convert.ToString(Session["correo"]);
-                entidad.NOMBRES = Convert.ToString(Session["nombres_destino"]);
-                entidad.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
+                IniciativaBE iniciativa = new IniciativaBE();
+                iniciativa.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
                 entidad.ASUNTO = "Observación Iniciativa - MRVMinem ";
-                entidad.CABECERA_EMAIL = "<strong>Estimado Usuario: &nbsp;</strong><span>" + entidad.NOMBRES + ", se realizó una observación en su iniciativa.</span>";
                 entidad.DESCRIPCION = "En la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") se ha detectado algunos datos a corregir, los detalles en la siguiente descripción: <br/><br/>" + entidad.DESCRIPCION + "<br/><br/>";
-                EnvioCorreo hilo_correo = new EnvioCorreo(entidad, 1);
-                Task tarea = Task.Factory.StartNew(() => hilo_correo.enviarMensajeIniciativa());
+                EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
+                Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
                 itemRespuesta.extra = entidad.DESCRIPCION;
                 Session["correo_destino"] = "";
-                Session["nombres_destino"] = "";
+                                
+                //entidad.EMAIL_USUARIO_ORIGEN = Convert.ToString(Session["correo"]);
+                //entidad.NOMBRES = Convert.ToString(Session["nombres_destino"]);
+                //entidad.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
+                //entidad.ASUNTO = "Observación Iniciativa - MRVMinem ";
+                //entidad.CABECERA_EMAIL = "<strong>Estimado Usuario: &nbsp;</strong><span>" + entidad.NOMBRES + ", se realizó una observación en su iniciativa.</span>";
+                //entidad.DESCRIPCION = "En la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") se ha detectado algunos datos a corregir, los detalles en la siguiente descripción: <br/><br/>" + entidad.DESCRIPCION + "<br/><br/>";
+                //EnvioCorreo hilo_correo = new EnvioCorreo(entidad, 1);
+                //Task tarea = Task.Factory.StartNew(() => hilo_correo.enviarMensajeIniciativa());
+                //itemRespuesta.extra = entidad.DESCRIPCION;
+                //Session["correo_destino"] = "";
+                //Session["nombres_destino"] = "";
             }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
@@ -891,27 +900,27 @@ namespace MRVMinem.Controllers
             if (entidad.OK)
             {
                 //var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
-                //IniciativaBE iniciativa = new IniciativaBE();
-                //iniciativa.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
-                //iniciativa.ASUNTO = "Observación Detalle Indicador - MRVMinem ";
-                //iniciativa.DESCRIPCION = "En los detalles indicadores de la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") se ha detectado algunos datos a corregir, los detalles en la siguiente descripción: <br/>" + entidad.DESCRIPCION + "<br/><br/>";
-                //EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
-                //Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
-                //itemRespuesta.extra = entidad.DESCRIPCION;
-                //Session["correo_destino"] = "";
-
                 IniciativaBE iniciativa = new IniciativaBE();
-                iniciativa.EMAIL_USUARIO_ORIGEN = Convert.ToString(Session["correo"]);
-                iniciativa.NOMBRES = Convert.ToString(Session["nombres_destino"]);
                 iniciativa.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
                 iniciativa.ASUNTO = "Observación Detalle Indicador - MRVMinem ";
-                iniciativa.CABECERA_EMAIL = "<strong>Estimado Usuario: &nbsp;</strong><span>" + iniciativa.NOMBRES + ", se realizó una observación a su detalle de indicadores.</span>";
-                iniciativa.DESCRIPCION = "En los detalles indicadores de la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") se ha detectado algunos datos a corregir, los detalles en la siguiente descripción: <br/><br/>" + entidad.DESCRIPCION + "<br/><br/>";
+                iniciativa.DESCRIPCION = "En los detalles indicadores de la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") se ha detectado algunos datos a corregir, los detalles en la siguiente descripción: <br/>" + entidad.DESCRIPCION + "<br/><br/>";
                 EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
-                Task tarea = Task.Factory.StartNew(() => hilo_correo.enviarMensajeIniciativa());
+                Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
                 itemRespuesta.extra = entidad.DESCRIPCION;
                 Session["correo_destino"] = "";
-                Session["nombres_destino"] = "";
+
+                //IniciativaBE iniciativa = new IniciativaBE();
+                //iniciativa.EMAIL_USUARIO_ORIGEN = Convert.ToString(Session["correo"]);
+                //iniciativa.NOMBRES = Convert.ToString(Session["nombres_destino"]);
+                //iniciativa.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
+                //iniciativa.ASUNTO = "Observación Detalle Indicador - MRVMinem ";
+                //iniciativa.CABECERA_EMAIL = "<strong>Estimado Usuario: &nbsp;</strong><span>" + iniciativa.NOMBRES + ", se realizó una observación a su detalle de indicadores.</span>";
+                //iniciativa.DESCRIPCION = "En los detalles indicadores de la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") se ha detectado algunos datos a corregir, los detalles en la siguiente descripción: <br/><br/>" + entidad.DESCRIPCION + "<br/><br/>";
+                //EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
+                //Task tarea = Task.Factory.StartNew(() => hilo_correo.enviarMensajeIniciativa());
+                //itemRespuesta.extra = entidad.DESCRIPCION;
+                //Session["correo_destino"] = "";
+                //Session["nombres_destino"] = "";
             }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);

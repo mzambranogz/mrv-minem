@@ -53,7 +53,7 @@
                                     @if (Convert.ToInt32(Session["rol"]) != 1)
                                     {
                                         <div class="btn-group">
-                                            <a class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1"><i class="fas fa-filter">&nbsp;</i>Filtrar por estados</a>
+                                            <a class="btn btn-teal dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1"><i class="fas fa-filter">&nbsp;</i>Filtrar por estados</a>
                                             <div class="dropdown-menu">
                                                 <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(1, $(this));"><i class="fas fa-hourglass">&nbsp;</i>Pendientes</a>
                                                 <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(2, $(this));"><i class="fas fa-eye">&nbsp;</i>Observadas</a>
@@ -311,7 +311,7 @@
                     @*</div>*@
                     <div class="col-xs-12 col sm-12 col-lg-3 text-lg-right">
                         <div class="btn-group" id="filtro-conversion">
-                            <a class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1"><i class="fas fa-filter">&nbsp;</i>Convertir unidades</a><div class="dropdown-menu">
+                            <a class="btn btn-purple dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1"><i class="fas fa-filter">&nbsp;</i>Convertir unidades</a><div class="dropdown-menu">
                             <a class="dropdown-item" @*href="#"*@ onclick="convertirATonelada();"><i class="fas fa-exchange-alt">&nbsp;</i><strong>ktCO2eq &nbsp;</strong>a &nbsp;<strong>tCO2eq</strong></a>
                             <a class="dropdown-item" @*href="#"*@ onclick="convertirAKiloTonelada();"><i class="fas fa-exchange-alt">&nbsp;</i><strong>tCO2eq &nbsp;</strong>a &nbsp;<strong>ktCO2eq</strong></a></div>
                         </div>

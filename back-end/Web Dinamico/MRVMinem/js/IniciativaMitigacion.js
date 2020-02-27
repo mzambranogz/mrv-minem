@@ -202,9 +202,9 @@ function validarCampo() {
     if (!validarCheck("#listaEnerg", "#E")) {
         return false;
     }
-    if (!validarCheck("#listaGei", "#G")){
-        return false;
-    }
+    //if (!validarCheck("#listaGei", "#G")){
+    //    return false;
+    //}
     return true;
 }
 
@@ -256,12 +256,12 @@ function fn_procesoIniciativa(url, estado) {
     energetico = energetico.substring(0, energetico.length - 1);
 
     var gei = "";
-    for (var i = 0; i < $("#listaGei").data("cantidad") ; i++) {
-        if ($('#G' + (i + 1)).prop('checked')) {
-            gei = gei + $('#G' + (i + 1)).data("value") + "," + "1/";
-        }
-    }
-    gei = gei.substring(0, gei.length - 1);
+    //for (var i = 0; i < $("#listaGei").data("cantidad") ; i++) {
+    //    if ($('#G' + (i + 1)).prop('checked')) {
+    //        gei = gei + $('#G' + (i + 1)).data("value") + "," + "1/";
+    //    }
+    //}
+    //gei = gei.substring(0, gei.length - 1);
 
     var ubicacion = "";
     for (var i = 0; i < $("#listaUbicacion").data("cantidad") ; i++) {
