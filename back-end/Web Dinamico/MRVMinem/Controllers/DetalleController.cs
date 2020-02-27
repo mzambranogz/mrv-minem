@@ -257,6 +257,15 @@ namespace MRVMinem.Controllers
             //return Respuesta(itemRespuesta);
         }
 
+        public JsonResult ListarCodIndicadores(IniciativaBE entidad)
+        {
+            List<IniciativaBE> lista = IniciativaLN.ListarCodIndicadores(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+
         private int getMenorId(List<EnfoqueBE> lista)
         {
             var menor = 999999999;

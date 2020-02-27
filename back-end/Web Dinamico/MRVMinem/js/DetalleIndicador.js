@@ -276,7 +276,8 @@ function CargarDatosIniciativa() {
                         $("#txt-direccion").val(data[i]["DIRECCION"]);
                         $("#txt-sector-institucion").val(data[i]["SECTOR"]);
                         if (data[i]["INVERSION_INICIATIVA"] != 0) {
-                            $("#txt-monto-inversion").val(data[i]["INVERSION_INICIATIVA"]);
+                            //$("#txt-monto-inversion").val(data[i]["INVERSION_INICIATIVA"]);
+                            $("#txt-monto-inversion").val(formatoMiles(data[i]["INVERSION_INICIATIVA"])); //add20
                         }
                         if ($("#Control").data("revision") == 0) {
                             $("#cbo-moneda").val(data[i]["ID_MONEDA"]);
@@ -2404,6 +2405,7 @@ function CargarArchivosGuardados() {
             if (data != null && data != "") {
                 
                 if (data.length > 0) {
+                    $("#total-documentos").data("cantidad", data.length);
                     $("#archivos-documentos").html("");
                     $("#archivos-guardados").html("");
                     for (var i = 0; i < data.length; i++) {
@@ -2439,7 +2441,7 @@ function CargarArchivosGuardados() {
                         tr += '    </div>';
                         $("#archivos-guardados").append(tr);
                     }
-                    $("#total-documentos").data("cantidad", data.length);
+                    //$("#total-documentos").data("cantidad", data.length);
                 }
             }
         }
@@ -2633,6 +2635,7 @@ function fn_procesoDetalleIndicador(url, estado) {
         ID_ENFOQUE: enfoque,
         ID_MEDMIT: medida,
         DATA: parametros,
+        ID_TIPO_INGRESO: 1,
         //ListaIndicadores: indicadores,
         //ListaIndicadoresData: indicadores,
         ListaSustentos: documentos,
@@ -2655,6 +2658,7 @@ function fn_procesoDetalleIndicador(url, estado) {
             ID_ENFOQUE: enfoque,
             ID_MEDMIT: medida,
             DATA: parametros,
+            ID_TIPO_INGRESO: 1,
             //ListaIndicadores: indicadores,
             //ListaIndicadoresData: indicadores,
             ListaSustentos: documentos,
@@ -2788,17 +2792,9 @@ function fn_procesoDetalleIndicador(url, estado) {
 
 
 
-    $("#solicitar-revision").on("hidden.bs.modal", function () {
-        if ($("#Control").data("modal") == 1) {
-            location.href = baseUrl + "Gestion/AccionMitigacion";
-        } else {
-            $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
-            $("#solicitar-revision #modalRegistrarBoton").show();
-            $("#pieCorrecto").hide();
-        }
-    });
+    
 
-    $("#guardar-avance").on("hidden.bs.modal", function () {
+    $("#guardar-avance").on("hidden.bs.modal", function () {        
         $("#mensajeModalAvance #mensajeDangerAvance").remove();
         $("#mensajeModalAvance #mensajeWarningAvance").remove();
         $("#guardar-avance #modalAvanceBoton").show();
@@ -2806,10 +2802,23 @@ function fn_procesoDetalleIndicador(url, estado) {
     });
 }
 
+$("#solicitar-revision").on("hidden.bs.modal", function () {
+    $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
+    if ($("#Control").data("modal") == 1) {
+        location.href = baseUrl + "Gestion/AccionMitigacion";
+    } else {
+        $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
+        $("#solicitar-revision #modalRegistrarBoton").show();
+        $("#pieCorrecto").hide();
+    }
+});
+
 
 function fn_guardarDetalleIndicador() {
+    debugger;
     //var url = baseUrl + "Gestion/RegistrarDetalleIndicador2";
     var url = baseUrl + "Gestion/RegistrarDetalleIndicador";
+    //fn_validarArchivo(url, 1);    
     fn_procesoDetalleIndicador(url, 1);
 }
 
@@ -2820,8 +2829,10 @@ function fn_guardarAvances() {
 }
 
 function fn_corregirDetalleIndicador() {
+    debugger;
     //var url = baseUrl + "Gestion/RegistrarDetalleIndicador2";
     var url = baseUrl + "Gestion/RegistrarDetalleIndicador";
+    //fn_validarArchivo(url, 5);
     fn_procesoDetalleIndicador(url, 5);
 }
 
@@ -3048,6 +3059,7 @@ function CargarCuerpoGuardado(filas) {
                         tr += '     <div class="btn-group">';
                         tr += '          <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
                         tr += '          <div class="dropdown-menu dropdown-menu-right">';
+                        tr += '               <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;Verificar</a>';
                         tr += '               <a class="dropdown-item agregarCampos" href="#"><i class="fas fa-plus-circle"></i>&nbsp;Agregar</a>';
                         tr += '               <a class="dropdown-item quitarCampos" href="#" onclick="fn_eliminarRestarTotal()"><i class="fas fa-minus-circle"></i>&nbsp;Eliminar</a>';
                         tr += '          </div>';
@@ -3323,15 +3335,37 @@ function CargarDatosCabecera() {
                 if (data.length > 0) {
                     var tr = "";
                     tr += '<tr class="bg-primary text-white">';
-                    tr += '     <th class="text-center" style="background-color: #28A745;" scope="col"><span>N°&nbsp;</span></th>';
+                    tr += '     <th class="text-center" scope="col"><span>N°</span></th>';
                     for (var i = 0; i < data.length; i++) {
-                        if (data[i]["ID_PARAMETRO"] == 9 || data[i]["ID_PARAMETRO"] == 10 || data[i]["ID_PARAMETRO"] == 11) {
-                            tr += '     <th class="text-center" style="background-color: ' + data[i]["COLOR_GRUPO"] + ';" scope="col"><span>' + data[i]["NOMBRE_PARAMETRO"] + ' tCO<sub>2</sub>eq&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador ' + data[i]["NOMBRE_PARAMETRO"] + '"></i></span></th>';
-                        }else{
-                            tr += '     <th class="text-center" style="background-color: ' + data[i]["COLOR_GRUPO"] + ';" scope="col"><span>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador ' + data[i]["NOMBRE_PARAMETRO"] + '"></i></span></th>';
-                        }                        
+                        var columna = "0" + data[i]["ID_GRUPO_INDICADOR"];
+                        debugger;
+                        var descripcion = "";
+                        if (data[i]["COMBINACION_UNIDAD"] == "" || data[i]["COMBINACION_UNIDAD"] == null) {
+                            if (data[i]["PREFIJO"] != null) {
+                                descripcion += data[i]["PREFIJO"];
+                            }
+                            if (data[i]["UNIDAD"] != null){
+                                descripcion += data[i]["UNIDAD"];
+                            }
+                            if (data[i]["DESCRIPCION_UNIDAD"] != null) {
+                                descripcion += data[i]["DESCRIPCION_UNIDAD"];
+                            }
+                            if (descripcion == 0) {
+                                descripcion = "";
+                            }else{
+                                descripcion = "(" + descripcion + ")";
+                            }
+                        } else {
+                            descripcion = "(" + data[i]["COMBINACION_UNIDAD"] + ")";
+                        }
+
+                        //if (data[i]["ID_PARAMETRO"] == 9 || data[i]["ID_PARAMETRO"] == 10 || data[i]["ID_PARAMETRO"] == 11) {
+                        //    tr += '     <th class="text-center grupo-columna-'+ columna +'" scope="col"><span>' + data[i]["NOMBRE_PARAMETRO"] + ' tCOeq</span><small>Seleccione este campo para su registro</small></th>';
+                        //}else{
+                        tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col"><span>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>'+descripcion+'</span><small>'+ data[i]["DESCRIPCION_PARAMETRO"] +'</small></th>';
+                        //}                        
                     }
-                    tr += '     <th class="text-center" style="background-color: #007BFF;" scope="col">Más</th>';
+                    tr += '     <th class="text-center" scope="col">Más</th>';
                     tr += '</tr>';
                     $("#cabeceraTablaIndicador").append(tr);
                     //$("#total-detalle").html("");
@@ -3348,6 +3382,7 @@ function CargarDatosCabecera() {
     });
                                                                                     
 }
+
 
 //===============================================================================================================
 
@@ -3373,7 +3408,6 @@ $(document).ready(function () {
     } else {
         CargarDatosCabecera();
         CargarDatosGuardados();
-
 
 
         //cargarCabeceraTabla($("#cbo-enfoque").val());
@@ -3559,3 +3593,142 @@ function fn_eliminarRestarTotal() {
     $("#cuerpoTablaIndicador").data("delete", id_borrar);
 }
 
+function fn_mensajeCompletar() {
+    $('#mensajeModalRegistrar #mensajeGoodRegistro').remove();
+    $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
+    var msj = '                       <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="mensajeDangerRegistro">';
+    msj = msj + '                            <div class="alert-wrap mr-3">';
+    msj = msj + '                                <div class="sa">';
+    msj = msj + '                                    <div class="sa-error">';
+    msj = msj + '                                       <div class="sa-error-x">';
+    msj = msj + '                                           <div class="sa-error-left"></div>';
+    msj = msj + '                                           <div class="sa-error-right"></div>';
+    msj = msj + '                                       </div>';
+    msj = msj + '                                       <div class="sa-error-placeholder"></div>';
+    msj = msj + '                                       <div class="sa-error-fix"></div>';
+    msj = msj + '                                   </div>';
+    msj = msj + '                               </div>';
+    msj = msj + '                           </div>';
+    msj = msj + '                           <div class="alert-wrap">';
+    msj = msj + '                                <h6>Error de registro</h6>';
+    msj = msj + '                                <hr><small class="mb-0">Verifique que los datos sean correctamente ingresados, complete todos los campos obligatorios e intente otra vez.</small>';
+    msj = msj + '                           </div>';
+    msj = msj + '                     </div>';
+    $('#mensajeModalRegistrar').append(msj);
+}
+
+function fn_validarArchivo(url, estado) {
+    var url = baseUrl + "Gestion/ValidarDetalleArchivo";
+    var item = {
+        ID_INICIATIVA: $("#Control").data("iniciativa")
+    }
+    var respuesta = MRV.Ajax(url, item, false);
+    if (respuesta.success) {
+        debugger;
+        var cantidad_file = parseInt(respuesta.extra);
+        if (cantidad_file > 0) {
+            if ($("#total-documentos").data("eliminarfile") == "") {
+                //fn_validarCampo(url, estado);
+            } else {
+                var id_eliminar = $("#total-documentos").data("eliminarfile");
+                id_eliminar = id_eliminar.substring(0, id_eliminar.length - 1);
+                var cant_eliminar = id_eliminar.split(',');
+                var cantidad_elim = cant_eliminar.length;
+                if (cantidad_file > cantidad_elim) {
+                    //fn_validarCampo(url, estado);
+                } else {
+                    if (parseInt($("#total-documentos").html()) > 0) {
+                        //fn_validarCampo(url, estado);
+                    } else {
+                        fn_mensajeCompletar();
+                    }
+                }
+            }
+        } else {
+            if (parseInt($("#total-documentos").html()) > 0) {
+                //fn_validarCampo(url, estado);
+            } else {
+                fn_mensajeCompletar();
+            }
+        }
+    }
+}
+
+function fn_validarCampo(url, estado) {
+    var url = baseUrl + "Gestion/ValidarDetalleIndicador";
+    var item = {
+        ID_INICIATIVA: $("#Control").data("iniciativa")
+    }
+    var respuesta = MRV.Ajax(url, item, false);
+    if (respuesta.success) {
+        var cantidad_bd = parseInt(respuesta.extra);
+        if (cantidad_bd > 0) {
+            if ($("#cuerpoTablaIndicador").data("delete") == "") {
+                fn_procesoDetalleIndicador(url, estado);
+            } else {
+                var id_delete = $("#cuerpoTablaIndicador").data("delete");
+                id_delete = id_delete.substring(0, id_delete.length - 1);
+                var cant_delete = id_delete.split(',');
+                var cantidad_del = cant_delete.length;
+                if (cantidad_bd > cantidad_del) {
+                    fn_procesoDetalleIndicador(url, estado);
+                } else {
+                    if ($("#tablaIndicador").find("tbody").find("th").length > 0) {
+                        var validar = 0;
+                        var campos = $("#tablaIndicador").find("tbody").find("tr");
+                        campos.each(function (index, value) {
+                            var fila = $(value).find("td");
+                            fila.each(function (i, value) {
+                                if ($(value).find("div").find("input").attr("data-param") == "11") {
+                                    if ($(value).find("div").find("[data-param]").val() != "") {
+                                        validar = 1;
+                                    }
+
+                                }
+                            });
+
+                        });
+                        if (validar == 1) {
+                            fn_procesoDetalleIndicador(url, estado);
+                        } else {
+                            fn_mensajeCompletar();
+                        }
+                    } else {
+                        fn_mensajeCompletar();
+                    }
+                }
+            }
+        } else {
+            if ($("#tablaIndicador").find("tbody").find("th").length > 0) {
+                var validar = 0;
+                var campos = $("#tablaIndicador").find("tbody").find("tr");
+                campos.each(function (index, value) {
+                    var fila = $(value).find("td");
+                    fila.each(function (i, value) {
+                        if ($(value).find("div").find("input").attr("data-param") == "11") {
+                            if ($(value).find("div").find("[data-param]").val() != "") {
+                                validar = 1;
+                            }
+                            
+                        }
+                    });
+                    
+                });
+                if (validar == 1) {
+                    fn_procesoDetalleIndicador(url, estado);
+                } else {
+                    fn_mensajeCompletar();
+                }
+            } else {
+                fn_mensajeCompletar();
+            }
+        }
+    } else {
+
+    }
+
+}
+
+function formatoMiles(n) { //add20
+    return n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+}

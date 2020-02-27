@@ -167,9 +167,9 @@ function CargarDatosIniciativa() {
                             $("#txt-monto-inversion").val(data[i]["INVERSION_INICIATIVA"]);
                         }
                         $("#txt-moneda").val(data[i]["MONEDA"]);
-                        if (data[i]["FECHA"].toString() != "01/01/0001") {
-                            $("#txt-fecha-inicio").val(data[i]["FECHA"].toString());
-                        }
+                        //if (data[i]["FECHA"].toString() != "01/01/0001") {
+                        //    $("#txt-fecha-inicio").val(data[i]["FECHA"].toString());
+                        //}
                         //if (data[i]["PRIVACIDAD_INICIATIVA"] == 1) {
                         //    $("#chk-publicar").prop("checked", true);
                         //}
@@ -215,7 +215,7 @@ $(document).ready(function () {
     if ($("#detalle").val() == 1) {
         CargarDetalleIndicadorVerMas();
     }
-    CargarDatosIniciativa();
+    //CargarDatosIniciativa();
     fn_cargarUbicacion();
     fn_cargarEnergetico();
     fn_cargarGei();

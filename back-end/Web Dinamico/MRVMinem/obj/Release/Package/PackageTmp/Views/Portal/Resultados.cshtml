@@ -1,9 +1,15 @@
-﻿@{
+﻿@model MRVMinem.Models.MvAnno
+
+@{
     ViewBag.Title = "Resultados";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@{ 
 
+    int cantidad = Model.listaAnno.Count;
+    int index = 0;
+}
 <div class="container-fluid banner d-flex flex-row justify-content-center align-items-center" id="carousel">
     <div class="banners-degradado">
         <div class="banner-1 banner-mostrado" data-titulo="" data-descripcion="Para medir el impacto de los esfuerzos de &lt;strong&gt;mitigación del cambio climático&lt;/strong&gt; se  requiere recopilar datos específicos y cálculos matemáticos.&lt;br&gt;El &lt;strong&gt;sistema MRV&lt;/strong&gt; permite cuantificar y reportar las emisiones de GEI reducidas según cada &lt;strong&gt;medida de mitigación del sector energía&lt;/strong&gt;, así como  los avances del alcance de nuestro compromiso como país."></div>
@@ -39,134 +45,286 @@
                 <div class="container-fluid" id="medidas-mitigacion">
                     <div class="row">
                         <div class="col-sm-12 col-md-4 col-lg-2 pb-5">
-                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".4s">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".4s" onclick="CargarDashboardMedida(5)">
                                 <img class="img-thumbnail border-0 p-0" src="~/images/ico_nama_amarillo_01.svg">
-                                <div class="nombre-medida bg-nama-amarilla cursor-pointer" data-toggle="modal" data-target="#modal-resultados" onclick="CargarDashboardMedida(12);"><small class="text-white">Transformación del mercado de iluminación del sector residencial <br><i class="fas fa-chart-pie"></i>&nbsp;<strong>ver resultados</strong></small></div>
+                                <div class="nombre-medida bg-nama-amarilla cursor-pointer" data-toggle="modal" data-target="#modal-resultados"><small class="text-white">Transformación del mercado de Iluminación en el Sector Residencial - ISR<br><i class="fas fa-chart-pie"></i>&nbsp;<strong>ver resultados</strong></small></div>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-4 col-lg-2 pb-5">
-                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".5s">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".5s" onclick="CargarDashboardMedida(7)">
                                 <img class="img-thumbnail border-0 p-0" src="~/images/ico_nama_amarillo_02.svg">
-                                <div class="nombre-medida bg-nama-amarilla cursor-pointer" data-toggle="modal" data-target="#modal-resultados" onclick="CargarDashboardMedida(7);"><small class="text-white">Reemplazo de lámparas de alumbrado público por lámparas LED <br><i class="fas fa-chart-pie"></i>&nbsp;<strong>ver resultados</strong></small></div>
+                                <div class="nombre-medida bg-nama-amarilla cursor-pointer" data-toggle="modal" data-target="#modal-resultados"><small class="text-white">Lámparas de alumbrado público - LAP <br><i class="fas fa-chart-pie"></i>&nbsp;<strong>ver resultados</strong></small></div>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-4 col-lg-2 pb-5">
-                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".6s">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".6s" onclick="CargarDashboardMedida(1)">
                                 <img class="img-thumbnail border-0 p-0" src="~/images/ico_nama_amarillo_03.svg">
-                                <div class="nombre-medida bg-nama-amarilla cursor-pointer" data-toggle="modal" data-target="#modal-resultados" onclick="CargarDashboardMedida(5);"><small class="text-white">Etiquetado de eficiencia energética <br><i class="fas fa-chart-pie"></i>&nbsp;<strong>ver resultados</strong></small></div>
+                                <div class="nombre-medida bg-nama-amarilla cursor-pointer" data-toggle="modal" data-target="#modal-resultados"><small class="text-white">Etiquetado de Eficiencia Energética - EEE <br><i class="fas fa-chart-pie"></i>&nbsp;<strong>ver resultados</strong></small></div>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-4 col-lg-2 pb-5">
-                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".7s">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".7s" onclick="CargarDashboardMedida(4)">
                                 <img class="img-thumbnail border-0 p-0" src="~/images/ico_nama_amarillo_04.svg">
-                                <div class="nombre-medida bg-nama-amarilla cursor-pointer" data-toggle="modal" data-target="#modal-resultados"><small class="text-white">Auditorías energéticas sector público <br><i class="fas fa-chart-pie"></i>&nbsp;<strong>ver resultados</strong></small></div>
+                                <div class="nombre-medida bg-nama-amarilla cursor-pointer" data-toggle="modal" data-target="#modal-resultados"><small class="text-white">Auditorías energéticas en el sector público - AESP <br><i class="fas fa-chart-pie"></i>&nbsp;<strong>ver resultados</strong></small></div>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-4 col-lg-2 pb-5">
-                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".8s">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".8s" onclick="CargarDashboardMedida(6)">
                                 <img class="img-thumbnail border-0 p-0" src="~/images/ico_nama_amarillo_05.svg">
-                                <div class="nombre-medida bg-nama-amarilla cursor-pointer" data-toggle="modal" data-target="#modal-resultados"><small class="text-white">Reemplazo de lámparas por lámparas LED en el sector público <br><i class="fas fa-chart-pie"></i>&nbsp;<strong>ver resultados</strong></small></div>
+                                <div class="nombre-medida bg-nama-amarilla cursor-pointer" data-toggle="modal" data-target="#modal-resultados"><small class="text-white">Reemplazo de lámparas en sector público - LSP <br><i class="fas fa-chart-pie"></i>&nbsp;<strong>ver resultados</strong></small></div>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-4 col-lg-2 pb-5">
-                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".9s">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".9s" onclick="CargarDashboardMedida(2)">
                                 <img class="img-thumbnail border-0 p-0" src="~/images/ico_nama_amarillo_06.svg">
-                                <div class="nombre-medida bg-nama-amarilla cursor-pointer" data-toggle="modal" data-target="#modal-resultados"><small class="text-white">Eficiencia energética en el sector industrial <br><i class="fas fa-chart-pie"></i>&nbsp;<strong>ver resultados</strong></small></div>
+                                <div class="nombre-medida bg-nama-amarilla cursor-pointer" data-toggle="modal" data-target="#modal-resultados"><small class="text-white">Eficiencia Energética en el sector industrial - EESI <br><i class="fas fa-chart-pie"></i>&nbsp;<strong>ver resultados</strong></small></div>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-4 col-lg-2 pb-5">
-                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".4s">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".4s" onclick="CargarDashboardMedida(3)">
                                 <img class="img-thumbnail border-0 p-0" src="~/images/ico_nama_amarillo_07.svg">
-                                <div class="nombre-medida bg-nama-amarilla cursor-pointer" data-toggle="modal" data-target="#modal-resultados"><small class="text-white">Reemplazo lámparas en el sector comercial <br><i class="fas fa-chart-pie"></i>&nbsp;<strong>ver resultados</strong></small></div>
+                                <div class="nombre-medida bg-nama-amarilla cursor-pointer" data-toggle="modal" data-target="#modal-resultados"><small class="text-white">Eficiencia energética en el sector comercial - EESC <br><i class="fas fa-chart-pie"></i>&nbsp;<strong>ver resultados</strong></small></div>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-4 col-lg-2 pb-5">
-                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".5s">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".5s" onclick="CargarDashboardMedida(12)">
                                 <img class="img-thumbnail border-0 p-0" src="~/images/ico_nama_azul_01.svg">
-                                <div class="nombre-medida bg-nama-azul cursor-pointer" data-toggle="modal" data-target="#modal-resultados"><small class="text-white">Promoción de vehículos eléctricos a nivel nacional <br><i class="fas fa-chart-pie"></i>&nbsp;<strong>ver resultados</strong></small></div>
+                                <div class="nombre-medida bg-nama-azul cursor-pointer" data-toggle="modal" data-target="#modal-resultados"><small class="text-white">Promoción de vehículos eléctricos - PVE <br><i class="fas fa-chart-pie"></i>&nbsp;<strong>ver resultados</strong></small></div>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-4 col-lg-2 pb-5">
-                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".6s">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".6s" onclick="CargarDashboardMedida(9)">
                                 <img class="img-thumbnail border-0 p-0" src="~/images/ico_nama_rojo_01.svg">
-                                <div class="nombre-medida bg-nama-roja cursor-pointer" data-toggle="modal" data-target="#modal-resultados"><small class="text-white">Suministro de electricidad con energía renovable en áreas no conectadas <br><i class="fas fa-chart-pie"></i>&nbsp;<strong>ver resultados</strong></small></div>
+                                <div class="nombre-medida bg-nama-roja cursor-pointer" data-toggle="modal" data-target="#modal-resultados"><small class="text-white">Electrificación rural - ER <br><i class="fas fa-chart-pie"></i>&nbsp;<strong>ver resultados</strong></small></div>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-4 col-lg-2 pb-5">
-                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".7s">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".7s" onclick="CargarDashboardMedida(8)">
                                 <img class="img-thumbnail border-0 p-0" src="~/images/ico_nama_rojo_02.svg">
-                                <div class="nombre-medida bg-nama-roja cursor-pointer" data-toggle="modal" data-target="#modal-resultados"><small class="text-white">Cocción limpia <br><i class="fas fa-chart-pie"></i>&nbsp;<strong>ver resultados</strong></small></div>
+                                <div class="nombre-medida bg-nama-roja cursor-pointer" data-toggle="modal" data-target="#modal-resultados"><small class="text-white">CCocción limpia - CL <br><i class="fas fa-chart-pie"></i>&nbsp;<strong>ver resultados</strong></small></div>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-4 col-lg-2 pb-5">
-                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".8s">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".8s" onclick="CargarDashboardMedida(10)">
                                 <img class="img-thumbnail border-0 p-0" src="~/images/ico_nama_verde_01.svg">
-                                <div class="nombre-medida bg-nama-verde cursor-pointer" data-toggle="modal" data-target="#modal-resultados"><small class="text-white">Combinación de energías renovables <br><i class="fas fa-chart-pie"></i>&nbsp;<strong>ver resultados</strong></small></div>
+                                <div class="nombre-medida bg-nama-verde cursor-pointer" data-toggle="modal" data-target="#modal-resultados"><small class="text-white">RER conectado - RERC <br><i class="fas fa-chart-pie"></i>&nbsp;<strong>ver resultados</strong></small></div>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-4 col-lg-2 pb-5">
-                            <div class="medida-mitigacion pt-0 pb-0 wow bounceInUp" data-wow-delay=".9s">
+                            <div class="medida-mitigacion pt-0 pb-0 wow bounceInUp" data-wow-delay=".9s" onclick="CargarDashboardMedida(11)">
                                 <img class="img-thumbnail border-0 p-0" src="~/images/ico_nama_verde_02.svg">
-                                <div class="nombre-medida bg-nama-verde cursor-pointer" data-toggle="modal" data-target="#modal-resultados"><small class="text-white">Generación distribuida <br><i class="fas fa-chart-pie"></i>&nbsp;<strong>ver resultados</strong></small></div>
+                                <div class="nombre-medida bg-nama-verde cursor-pointer" data-toggle="modal" data-target="#modal-resultados"><small class="text-white">Generación distribuida - GD <br><i class="fas fa-chart-pie"></i>&nbsp;<strong>ver resultados</strong></small></div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="container-fluid px-0 py-2">
                     <div class="container p-0">
-                        <div class="lead font-weight-bold mb-4 text-center wow bounceInUp" data-wow-delay=".10s"><span>Al año 2020 se han logrado reducir 5000 toneladas de CO<sub>2</sub>e</span></div>
+                        <div class="lead font-weight-bold mb-4 text-center wow bounceInUp" data-wow-delay=".10s">
+                            <span>
+                                Al año
+                                <select class="anioPeriodo" id="cboAnioPeriodo">
+                                @foreach (var item in Model.listaAnno)
+                                {
+                                    if (index == 0)
+                                    {
+                                        <option value="@item.DESCRIPCION" selected>@item.DESCRIPCION</option>
+                                        index = 1;
+                                    }
+                                    else
+                                    {
+                                        <option value="@item.DESCRIPCION">@item.DESCRIPCION</option>
+                                    }
+                                }
+                                    
+                                    
+                                    @*<option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2012">2012</option>
+                                    <option value="2011">2011</option>
+                                    <option value="2010">2010</option>*@
+                                </select>se han logrado reducir&nbsp;<strong class="text-primary" id="cantidadReducido">5000</strong>&nbsp;toneladas de CO<sub>2</sub>eq
+                            </span>
+                        </div>
                     </div>
                 </div>
                 <div class="container-fluid" id="medidas-mitigacion">
                     <div class="row">
-                        <div class="col-sm-12 col-md-6 col-lg-6 pb-5">
-                            <div class="logros wow bounceInUp" data-wow-delay=".11s">
+                        <div class="col-sm-12 col-md-6 col-lg-4 pb-5">
+                            <div class="logros d-flex wow bounceInUp" data-wow-delay=".11s">
                                 <div class="row">
-                                    <div class="col-sm-12 col-md-12 col-lg-5 flex-fill d-flex flex-column justify-content-center bg-light">
-                                        <h2 class="text-center text-dark">50</h2><small class="text-center">ktCO<sub>2</sub>e</small>
+                                    <div class="col-sm-12 col-md-12 col-lg-5 flex-fill d-flex flex-column justify-content-center bg-light pr-0">
+                                        <div class="logro-img"><img class="border-0 p-0" src="~/images/ico_nama_amarillo_01.svg"></div>
+                                        <h2 class="text-center text-dark" id="medida-valor-5">@*50*@</h2><small class="text-center">tCO<sub>2</sub>eq</small>
                                     </div>
                                     <div class="col-sm-12 col-md-12 col-lg-7 flex-fill bg-white py-3">
-                                        <div class="h6">de Emisiones reducidas al ambiente</div>
-                                        <p>por la medida de eficiencia energética en el sector público</p>
+                                        <div class="h5">Emisiones de GEI reducidas al ambiente</div>
+                                        <p>por la medida de&nbsp;<strong id="medida-5">@*nombre de la medida de mitigación*@</strong></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-6 col-lg-6 pb-5">
-                            <div class="logros wow bounceInUp" data-wow-delay=".11s">
+
+                        <div class="col-sm-12 col-md-6 col-lg-4 pb-5">
+                            <div class="logros d-flex wow bounceInUp" data-wow-delay=".11s">
                                 <div class="row">
-                                    <div class="col-sm-12 col-md-12 col-lg-5 flex-fill d-flex flex-column justify-content-center bg-light">
-                                        <h2 class="text-center text-dark">11</h2><small class="text-center">ktCO<sub>2</sub>e</small>
+                                    <div class="col-sm-12 col-md-12 col-lg-5 flex-fill d-flex flex-column justify-content-center bg-light pr-0">
+                                        <div class="logro-img"><img class="border-0 p-0" src="~/images/ico_nama_amarillo_02.svg"></div>
+                                        <h2 class="text-center text-dark" id="medida-valor-7">@*11*@</h2><small class="text-center">tCO<sub>2</sub>eq</small>
                                     </div>
                                     <div class="col-sm-12 col-md-12 col-lg-7 flex-fill bg-white py-3">
-                                        <div class="h6">de Emisiones reducidas al ambiente</div>
-                                        <p>por la medida de suministro de electricidad con RER en áreas no conectadas a la red</p>
+                                        <div class="h5">Emisiones de GEI reducidas al ambiente</div>
+                                        <p>por la medida de&nbsp;<strong id="medida-7">@*nombre de la medida de mitigación*@</strong></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-6 col-lg-6 pb-5">
-                            <div class="logros wow bounceInUp" data-wow-delay=".11s">
+
+                        <div class="col-sm-12 col-md-6 col-lg-4 pb-5">
+                            <div class="logros d-flex wow bounceInUp" data-wow-delay=".11s">
                                 <div class="row">
-                                    <div class="col-sm-12 col-md-12 col-lg-5 flex-fill d-flex flex-column justify-content-center bg-light">
-                                        <h2 class="text-center text-dark">300</h2><small class="text-center">ktCO<sub>2</sub>e</small>
+                                    <div class="col-sm-12 col-md-12 col-lg-5 flex-fill d-flex flex-column justify-content-center bg-light pr-0">
+                                        <div class="logro-img"><img class="border-0 p-0" src="~/images/ico_nama_amarillo_03.svg"></div>
+                                        <h2 class="text-center text-dark" id="medida-valor-1">@*300*@</h2><small class="text-center">tCO<sub>2</sub>eq</small>
                                     </div>
                                     <div class="col-sm-12 col-md-12 col-lg-7 flex-fill bg-white py-3">
-                                        <div class="h6">de Emisiones reducidas al ambiente</div>
-                                        <p>por la medida de etiquetado de eficiencia energética</p>
+                                        <div class="h5">Emisiones de GEI reducidas al ambiente</div>
+                                        <p>por la medida de&nbsp;<strong id="medida-1">@*nombre de la medida de mitigación*@</strong></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-6 col-lg-6 pb-5">
-                            <div class="logros wow bounceInUp" data-wow-delay=".11s">
+
+                        <div class="col-sm-12 col-md-6 col-lg-4 pb-5">
+                            <div class="logros d-flex wow bounceInUp" data-wow-delay=".11s">
                                 <div class="row">
-                                    <div class="col-sm-12 col-md-12 col-lg-5 flex-fill d-flex flex-column justify-content-center bg-light">
-                                        <h2 class="text-center text-dark">500</h2><small class="text-center">ktCO<sub>2</sub>e</small>
+                                    <div class="col-sm-12 col-md-12 col-lg-5 flex-fill d-flex flex-column justify-content-center bg-light pr-0">
+                                        <div class="logro-img"><img class="border-0 p-0" src="~/images/ico_nama_amarillo_04.svg"></div>
+                                        <h2 class="text-center text-dark" id="medida-valor-4">@*500*@</h2><small class="text-center">tCO<sub>2</sub>eq</small>
                                     </div>
                                     <div class="col-sm-12 col-md-12 col-lg-7 flex-fill bg-white py-3">
-                                        <div class="h6">de Emisiones reducidas al ambiente</div>
-                                        <p>por la medida de iluminación eficiente</p>
+                                        <div class="h5">Emisiones de GEI reducidas al ambiente</div>
+                                        <p>por la medida de&nbsp;<strong id="medida-4">@*nombre de la medida de mitigación*@</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-4 pb-5">
+                            <div class="logros d-flex wow bounceInUp" data-wow-delay=".11s">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-5 flex-fill d-flex flex-column justify-content-center bg-light pr-0">
+                                        <div class="logro-img"><img class="border-0 p-0" src="~/images/ico_nama_amarillo_05.svg"></div>
+                                        <h2 class="text-center text-dark" id="medida-valor-6">@*50*@</h2><small class="text-center">tCO<sub>2</sub>eq</small>
+                                    </div>
+                                    <div class="col-sm-12 col-md-12 col-lg-7 flex-fill bg-white py-3">
+                                        <div class="h5">Emisiones de GEI reducidas al ambiente</div>
+                                        <p>por la medida de&nbsp;<strong id="medida-6">@*nombre de la medida de mitigación*@</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-4 pb-5">
+                            <div class="logros d-flex wow bounceInUp" data-wow-delay=".11s">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-5 flex-fill d-flex flex-column justify-content-center bg-light pr-0">
+                                        <div class="logro-img"><img class="border-0 p-0" src="~/images/ico_nama_amarillo_06.svg"></div>
+                                        <h2 class="text-center text-dark" id="medida-valor-2">@*11*@</h2><small class="text-center">tCO<sub>2</sub>eq</small>
+                                    </div>
+                                    <div class="col-sm-12 col-md-12 col-lg-7 flex-fill bg-white py-3">
+                                        <div class="h5">Emisiones de GEI reducidas al ambiente</div>
+                                        <p>por la medida de&nbsp;<strong id="medida-2">@*nombre de la medida de mitigación*@</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-4 pb-5">
+                            <div class="logros d-flex wow bounceInUp" data-wow-delay=".11s">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-5 flex-fill d-flex flex-column justify-content-center bg-light pr-0">
+                                        <div class="logro-img"><img class="border-0 p-0" src="~/images/ico_nama_amarillo_07.svg"></div>
+                                        <h2 class="text-center text-dark" id="medida-valor-3">@*300*@</h2><small class="text-center">tCO<sub>2</sub>eq</small>
+                                    </div>
+                                    <div class="col-sm-12 col-md-12 col-lg-7 flex-fill bg-white py-3">
+                                        <div class="h5">Emisiones de GEI reducidas al ambiente</div>
+                                        <p>por la medida de&nbsp;<strong id="medida-3">@*nombre de la medida de mitigación*@</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-4 pb-5">
+                            <div class="logros d-flex wow bounceInUp" data-wow-delay=".11s">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-5 flex-fill d-flex flex-column justify-content-center bg-light pr-0">
+                                        <div class="logro-img"><img class="border-0 p-0" src="~/images/ico_nama_azul_01.svg"></div>
+                                        <h2 class="text-center text-dark" id="medida-valor-12">@*500*@</h2><small class="text-center">tCO<sub>2</sub>eq</small>
+                                    </div>
+                                    <div class="col-sm-12 col-md-12 col-lg-7 flex-fill bg-white py-3">
+                                        <div class="h5">Emisiones de GEI reducidas al ambiente</div>
+                                        <p>por la medida de&nbsp;<strong id="medida-12">@*nombre de la medida de mitigación*@</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-4 pb-5">
+                            <div class="logros d-flex wow bounceInUp" data-wow-delay=".11s">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-5 flex-fill d-flex flex-column justify-content-center bg-light pr-0">
+                                        <div class="logro-img"><img class="border-0 p-0" src="~/images/ico_nama_rojo_01.svg"></div>
+                                        <h2 class="text-center text-dark" id="medida-valor-9">@*50*@</h2><small class="text-center">tCO<sub>2</sub>eq</small>
+                                    </div>
+                                    <div class="col-sm-12 col-md-12 col-lg-7 flex-fill bg-white py-3">
+                                        <div class="h5">Emisiones de GEI reducidas al ambiente</div>
+                                        <p>por la medida de&nbsp;<strong id="medida-9">@*nombre de la medida de mitigación*@</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-4 pb-5">
+                            <div class="logros d-flex wow bounceInUp" data-wow-delay=".11s">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-5 flex-fill d-flex flex-column justify-content-center bg-light pr-0">
+                                        <div class="logro-img"><img class="border-0 p-0" src="~/images/ico_nama_rojo_02.svg"></div>
+                                        <h2 class="text-center text-dark" id="medida-valor-8">@*11*@</h2><small class="text-center">tCO<sub>2</sub>eq</small>
+                                    </div>
+                                    <div class="col-sm-12 col-md-12 col-lg-7 flex-fill bg-white py-3">
+                                        <div class="h5">Emisiones de GEI reducidas al ambiente</div>
+                                        <p>por la medida de&nbsp;<strong id="medida-8">@*nombre de la medida de mitigación*@</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-4 pb-5">
+                            <div class="logros d-flex wow bounceInUp" data-wow-delay=".11s">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-5 flex-fill d-flex flex-column justify-content-center bg-light pr-0">
+                                        <div class="logro-img"><img class="border-0 p-0" src="~/images/ico_nama_verde_01.svg"></div>
+                                        <h2 class="text-center text-dark" id="medida-valor-10">@*300*@</h2><small class="text-center">tCO<sub>2</sub>eq</small>
+                                    </div>
+                                    <div class="col-sm-12 col-md-12 col-lg-7 flex-fill bg-white py-3">
+                                        <div class="h5">Emisiones de GEI reducidas al ambiente</div>
+                                        <p>por la medida de&nbsp;<strong id="medida-10">@*nombre de la medida de mitigación*@</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-4 pb-5">
+                            <div class="logros d-flex wow bounceInUp" data-wow-delay=".11s">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-5 flex-fill d-flex flex-column justify-content-center bg-light pr-0">
+                                        <div class="logro-img"><img class="border-0 p-0" src="~/images/ico_nama_verde_02.svg"></div>
+                                        <h2 class="text-center text-dark" id="medida-valor-11">@*500*@</h2><small class="text-center">tCO<sub>2</sub>eq</small>
+                                    </div>
+                                    <div class="col-sm-12 col-md-12 col-lg-7 flex-fill bg-white py-3">
+                                        <div class="h5">Emisiones de GEI reducidas al ambiente</div>
+                                        <p>por la medida de&nbsp;<strong id="medida-11">@*nombre de la medida de mitigación*@</strong></p>
                                     </div>
                                 </div>
                             </div>
@@ -183,7 +341,7 @@
 <div class="container-fluid" id="reportes-resultados">
     <div class="row">
         <div class="col-sm-12 col-md-6 col-lg-4 p-0 o-h">
-            <div class="bg-reportes"><a class="enlace-reportes d-flex flex-row justify-content-center align-items-center" href="#"><i class="fas fa-file-invoice px-1 mr-2"></i>Reportes</a></div>
+            <div class="bg-reportes"><a class="enlace-reportes d-flex flex-row justify-content-center align-items-center" href="@Url.Action("ReportesVisitante", "Reportes")"><i class="fas fa-file-invoice px-1 mr-2"></i>Reportes</a></div>
         </div>
         <div class="col-sm-12 col-md-6 col-lg-4 p-0 o-h">
             <div class="bg-acciones-resultados"><a class="enlace-acciones-resultados d-flex flex-row justify-content-center align-items-center" href="@Url.Action("Resultados","Portal")"><i class="fas fa-chart-pie px-1 mr-2"></i>Resultados</a></div>
@@ -197,69 +355,76 @@
     <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Mensaje de Usuario</h5>
+                <h5 class="modal-title" id="exampleModalLabel">@*Mensaje de Usuario*@</h5>
+                <h3 class="text-center" id="nombre-medida">@*Nombre de la Medida de Mitigación Seleccionada*@</h3>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body medidas-modal">
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <h3 class="text-center" id="nombre-medida">@*Nombre de la Medida de Mitigación Seleccionada*@</h3>
+                        <h3 class="text-center" @*id="nombre-medida"*@>@*Nombre de la Medida de Mitigación Seleccionada*@</h3>
                         <p class="text-center"> @*Al año 2020 se han logrado reducir 5000 toneladas de CO<sub>2</sub>eq*@</p>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="row">
+
                             <div class="col-sm-12 col-md-12 col-lg-4 pb-5">
-                                <div class="logros">
+                                <div class="logros d-flex">
                                     <div class="row">
-                                        <div class="col-sm-12 col-md-12 col-lg-5 flex-fill d-flex flex-column justify-content-center bg-light">
-                                            <h2 class="text-center text-dark" id="total-institucion">@*1450*@</h2><small class="text-center">Instituciones</small>
-                                        </div>
-                                        <div class="col-sm-12 col-md-12 col-lg-7 flex-fill bg-white py-3">
-                                            <div class="h6">Registradas contribuyendo a la causa</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-12 col-lg-4 pb-5">
-                                <div class="logros">
-                                    <div class="row">
-                                        <div class="col-sm-12 col-md-12 col-lg-5 flex-fill d-flex flex-column justify-content-center bg-light">
+                                        <div class="col-sm-12 col-md-12 col-lg-5 flex-fill d-flex flex-column justify-content-center bg-light pr-0">
                                             <h2 class="text-center text-dark" id="total-region">@*23*@</h2><small class="text-center">Regiones</small>
                                         </div>
                                         <div class="col-sm-12 col-md-12 col-lg-7 flex-fill bg-white py-3">
-                                            <div class="h6">Involucradas con la mejora continua</div>
+                                            <div class="h5">Registradas contribuyendo a la causa</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="col-sm-12 col-md-12 col-lg-4 pb-5">
-                                <div class="logros">
+                                <div class="logros d-flex">
                                     <div class="row">
-                                        <div class="col-sm-12 col-md-12 col-lg-5 flex-fill d-flex flex-column justify-content-center bg-light">
+                                        <div class="col-sm-12 col-md-12 col-lg-5 flex-fill d-flex flex-column justify-content-center bg-light pr-0">
                                             <h2 class="text-center text-dark" id="total-gei">@*54*@</h2><small class="text-center">Toneladas</small>
                                         </div>
                                         <div class="col-sm-12 col-md-12 col-lg-7 flex-fill bg-white py-3">
-                                            <div class="h6">de CO<sub>2</sub>eq reducidas con esta medida</div>
+                                            <div class="h5">De CO2eq reducidas</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="col-sm-12 col-md-12 col-lg-4 pb-5" id="institucion-mostrar" hidden>
+                                <div class="logros d-flex">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12 col-lg-5 flex-fill d-flex flex-column justify-content-center bg-light pr-0">
+                                            <h2 class="text-center text-dark" id="total-institucion">@*1450*@</h2><small class="text-center">Instituciones</small>
+                                        </div>
+                                        <div class="col-sm-12 col-md-12 col-lg-7 flex-fill bg-white py-3">
+                                            <div class="h5">Trabajando en conjunto para el cambio</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-6 pb-5">
-                                <div class="logros chart" id="pie-chart"></div>
-                            </div>
-                            <div class="col-sm-12 col-md-12 col-lg-6 pb-5">
                                 <div class="logros chart" id="bar-chart"></div>
                             </div>
-                            <div class="col-sm-12 col-md-12 col-lg-6 pb-5">
-                                <div class="logros chart" id="line-chart"></div>
-                            </div>
-                            <div class="col-sm-12 col-md-12 col-lg-6 pb-5">
+                            <div class="col-sm-12 col-md-12 col-lg-6 pb-5" id="dash-1" hidden>
+                                <div class="logros chart" id="pie-chart"></div>
+                            </div>     
+                            <div class="col-sm-12 col-md-12 col-lg-6 pb-5" id="dash-2" hidden>
                                 <div class="logros chart" id="column-chart"></div>
-                            </div>
+                            </div>                       
+                            @*<div class="col-sm-12 col-md-12 col-lg-6 pb-5">
+                                <div class="logros chart" id="line-chart"></div>
+                            </div>*@
+                            
                         </div>
                     </div>
                 </div>

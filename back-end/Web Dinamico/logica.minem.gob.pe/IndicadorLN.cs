@@ -239,6 +239,11 @@ namespace logica.minem.gob.pe
             return indicador.DashboardResultado(entidad);
         }
 
+        public static List<IniciativaBE> MostrarGeiporAnio(IniciativaBE entidad)
+        {
+            return indicador.MostrarGeiporAnio(entidad);
+        }
+
         /* NUEVOS PROCEDIMIENTOS */
         public static List<IndicadorDataBE> CalculoIndicador(List<IndicadorDataBE> listaEntidad)
         {

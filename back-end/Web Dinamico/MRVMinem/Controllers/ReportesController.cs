@@ -8,11 +8,16 @@ using System.Web.Mvc;
 
 namespace MRVMinem.Controllers
 {
-    [Autenticado]
+    //[Autenticado]
     public class ReportesController : BaseController
     {
         // GET: Reportes
         public ActionResult Reportes()
+        {
+            return View();
+        }
+
+        public ActionResult ReportesVisitante()
         {
             return View();
         }

@@ -18,9 +18,9 @@
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <link rel="stylesheet" href="~/css/style.css">
-    <script src="~/js/script.js"></script>
+    @*<script src="~/js/script.js"></script>*@
     @*<script src="~/js/jquery.form.js"></script>*@
-    <script src="~/js/MRV.js"></script>
+    @*<script src="~/js/MRV.js"></script>*@
     <script type="text/javascript">
         var baseUrl = '@Url.Content("~")';
 
@@ -50,7 +50,7 @@
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item"><a class="nav-link nav-active px-2 quitar-active" id="home-mrv" href="@Url.Action("Index", "Home")"><i class="fas fa-house-damage"></i><span class="d-none d-xs-block d-sm-block d-lg-none pl-1 mostrar-inicio">Inicio</span></a></li>
                         <li class="nav-item"><a class="nav-link px-2 quitar-active" id="mitigacion-mrv" href="@Url.Action("AccionMitigacion", "Portal")"><i class="fas fa-solar-panel pr-1"></i>Iniciativas de Mitigación</a></li>
-                        <li class="nav-item"><a class="nav-link px-2 quitar-active" id="reporte-mrv" href="javascript:void(0);"><i class="fas fa-file-invoice pr-1"></i>Reportes</a></li>
+                        <li class="nav-item"><a class="nav-link px-2 quitar-active" id="reporte-mrv" href="@Url.Action("ReportesVisitante", "Reportes")"><i class="fas fa-file-invoice pr-1"></i>Reportes</a></li>
                         <li class="nav-item"><a class="nav-link px-2 quitar-active" id="resultado-mrv" href="@Url.Action("Resultados","Portal")"><i class="fas fa-chart-pie pr-1"></i>Resultados</a></li>
                     </ul><a class="btn btn-outline-primary border-0 btn-md px-2 mr-2" href="@Url.Action("login", "Home")" role="button"><i class="fas fa-sign-in-alt pr-1"></i>Ingresar</a><a class="btn btn-outline-success border-0 btn-md px-2" href="@Url.Action("registro", "Home")" role="button"><i class="fas fa-paper-plane pr-1"></i>Registrarse</a>
                 </div>

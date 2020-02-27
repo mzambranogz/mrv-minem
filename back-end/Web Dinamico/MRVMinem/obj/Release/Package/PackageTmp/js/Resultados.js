@@ -1,5 +1,14 @@
 ﻿function CargarDashboardMedida(id) {
-    debugger;
+    if (id != 10 && id != 9 && id != 5 && id != 1) {
+        //$("#total-institucion").html(data[i]["TOTAL_INSTITUCION"]);
+        $("#institucion-mostrar").removeAttr("hidden");
+        $("#dash-1").removeAttr("hidden");
+        $("#dash-2").removeAttr("hidden");
+    } else {
+        $("#institucion-mostrar").attr("hidden", true);
+        $("#dash-1").attr("hidden", true);
+        $("#dash-2").attr("hidden", true);
+    }
     var item = {
         ID_MEDMIT: id
     }
@@ -22,8 +31,10 @@
                     datat.addColumn('number', 'Slices');
                     debugger;
                     for (var i = 0; i < data.length; i++) {
-
-                        $("#total-institucion").html(data[i]["TOTAL_INSTITUCION"]);
+                        if (id != 10 && id != 9 && id != 5 && id != 1) {
+                            $("#total-institucion").html(data[i]["TOTAL_INSTITUCION"]);
+                            //$("#institucion-mostrar").removeAttr("hidden");
+                        }
                         $("#total-region").html(data[i]["TOTAL_REGION"]);
                         $("#total-gei").html(data[i]["TOTAL_GEI_REDUCIDO"]);
                         $("#nombre-medida").html(data[i]["NOMBRE_MEDMIT"]);
@@ -182,3 +193,41 @@ function drawColumnChart(data) {
 
     chart.draw(data, options);
 }
+
+$(document).on("change", "#cboAnioPeriodo", function () {
+    var anno = $("#cboAnioPeriodo").val();
+    calcularTotalGei(anno);
+});
+
+function calcularTotalGei(anno) {
+    var item = {
+        ANNO: anno
+    }
+    $.ajax({
+        url: baseUrl + 'Portal/MostrarGeiporAnio',
+        type: 'POST',
+        datatype: 'json',
+        data: item,
+        success: function (data) {
+            if (data != null && data != "") {
+                var total = 0.0;
+                if (data.length > 0) {
+                    for (var i = 0; i < data.length; i++) {
+                        var total_med = Math.round(parseFloat(data[i]["TOTAL_GEI"]) * 100) / 100;
+                        $("#medida-" + data[i]["ID_MEDMIT"]).html(data[i]["NOMBRE_MEDMIT"]);
+                        $("#medida-valor-" + data[i]["ID_MEDMIT"]).html(total_med);
+                        total += total_med;
+                    }
+                    $("#cantidadReducido").html(Math.round(total * 100) / 100);
+                }
+            } else {
+            }
+        }
+    });
+}
+
+$(document).ready(function () {
+    debugger;
+    var anno = (new Date).getFullYear();
+    calcularTotalGei(anno);
+});

@@ -331,7 +331,7 @@
                                                         <th class="text-hide" scope="col" style="display:none;">Id. Iniciativa</th>
                                                     </tr>*@
                                                 </thead>
-                                                <tbody id="cuerpoTablaIndicador" data-row="0" data-total="0" data-delete=""></tbody> <!-- add id delete-->
+                                                <tbody id="cuerpoTablaIndicador" data-row="0" data-total="0" data-delete="", data-flag="0"></tbody> <!-- add id delete-->
                                             </table>
                                         </div>                                        
                                     </div>
@@ -543,6 +543,35 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="modal fade" id="modal-verificacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Verificación de Composición</h5>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <img class="img-fluid" src="~/images/formula.jpg"><strong>
+                                            <div class="badge badge-info">Factores: F1 <br></div>
+                                        </strong><strong>
+                                            <div class="badge badge-primary">Parámetros: P2 <br></div>
+                                        </strong><strong>
+                                            <div class="badge badge-warning">Resultado: 62.25 ktCOeq</div>
+                                        </strong>
+                                    </div>
+                                    <div class="col-sm-12 col-md-12 col-lg-12"></div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="modal fade" id="tipo-ingreso-detalle" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal modal-dialog-centered" role="document">
                         <div class="modal-content">
@@ -760,8 +789,9 @@
                         //for (var i = 0; i < response.length; i++) {
                             //debugger;
                             //CargarTablaIndicador(response, i);
-                            debugger;
-                            CargarDatosExcel(response);
+                        debugger;
+                        $("#cuerpoTablaIndicador").data("flag", 1);
+                        CargarDatosExcel(response);
                         //}
                         //$("#cuerpoTablaIndicador").data("row", response.length);
                     }

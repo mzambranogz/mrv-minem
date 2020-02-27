@@ -126,6 +126,7 @@
     <Content Include="images\favicon\safari-pinned-tab.svg" />
     <Content Include="images\fondo_12_medidas.png" />
     <Content Include="images\fondo_footer.png" />
+    <Content Include="images\formula.jpg" />
     <Content Include="images\ico_nama_amarillo_01.svg" />
     <Content Include="images\ico_nama_amarillo_02.svg" />
     <Content Include="images\ico_nama_amarillo_03.svg" />
@@ -212,6 +213,7 @@
     </Compile>
     <Compile Include="Helper\SessionHelper.cs" />
     <Compile Include="Models\ListaObjeto.cs" />
+    <Compile Include="Models\MvAnno.cs" />
     <Compile Include="Models\MvEnergetico.cs" />
     <Compile Include="Models\MvEnfoque.cs" />
     <Compile Include="Models\MvEscenario.cs" />
@@ -428,6 +430,8 @@
     </Content>
     <Content Include="Views\Portal\MapaSitio.cshtml" />
     <Content Include="Views\Gestion\MapaSitio.cshtml" />
+    <Content Include="Views\Reportes\ReportesVisitante.cshtml" />
+    <Content Include="Views\Gestion\Resultados.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -314,18 +314,31 @@
                                         <table class="table table-hover" data-fila="0">
                                             <thead @*id="cabeceraTablaIndicador"*@>
                                                 <tr class="bg-primary text-white">
-                                                    <th class="text-center" style="background-color: #28A745;" scope="col"><span>N°&nbsp;</span></th>
+                                                    <th class="text-center" scope="col"><span>N°</span></th>
                                                     @foreach (var itemCab in itemD.listaParam)
                                                     {
-                                                        if (@itemCab.ID_PARAMETRO == 9 || @itemCab.ID_PARAMETRO == 10 || @itemCab.ID_PARAMETRO == 11)
+                                                        var columna = "0" + itemCab.ID_GRUPO_INDICADOR;
+                                                        var descripcion = "";
+                                                        if (string.IsNullOrEmpty(itemCab.COMBINACION_UNIDAD))
                                                         {
-                                                            <th class="text-center" style="background-color: @itemCab.COLOR_GRUPO;" scope="col"><span>@itemCab.NOMBRE_PARAMETRO tCO<sub>2</sub>eq&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador @itemCab.NOMBRE_PARAMETRO"></i></span></th>
+                                                            descripcion = itemCab.PREFIJO + itemCab.UNIDAD + itemCab.DESCRIPCION_UNIDAD;
+                                                            if (string.IsNullOrEmpty(descripcion))
+                                                            {
+                                                                descripcion = "";
+                                                            }
+                                                            else
+                                                            {
+                                                                descripcion = "(" + descripcion + ")";
+                                                            }
                                                         }
                                                         else
                                                         {
-                                                            <th class="text-center" style="background-color: @itemCab.COLOR_GRUPO;" scope="col"><span>@itemCab.NOMBRE_PARAMETRO&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador @itemCab.NOMBRE_PARAMETRO"></i></span></th>
+                                                            descripcion = "(" + itemCab.COMBINACION_UNIDAD + ")";
                                                         }
+                                                        <th class="text-center grupo-columna-@columna" scope="col"><span>@itemCab.NOMBRE_PARAMETRO&nbsp;</span><span>@descripcion</span><small>@itemCab.DESCRIPCION_PARAMETRO</small></th>
+
                                                     }
+                                                    <th class="text-center" scope="col">Más</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="cuerpoTablaIndicador-1" data-row="0" data-total="0" data-delete="">
@@ -363,6 +376,14 @@
                                                                 total_reducido += Convert.ToDouble(itemDet.VALOR);
                                                             }
                                                         }
+                                                        <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                                            <div class="btn-group">
+                                                                <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;Verificar</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
                                                     </tr>
                                                 }
                                             </tbody>
@@ -575,6 +596,33 @@
                 </div>
             </div>
 
+            <div class="modal fade" id="modal-verificacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Verificación de Composición</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <img class="img-fluid" src="~/images/formula.jpg"><strong>
+                                        <div class="badge badge-info">Factores: F1 <br></div>
+                                    </strong><strong>
+                                        <div class="badge badge-primary">Parámetros: P2 <br></div>
+                                    </strong><strong>
+                                        <div class="badge badge-warning">Resultado: 62.25 ktCOeq</div>
+                                    </strong>
+                                </div>
+                                <div class="col-sm-12 col-md-12 col-lg-12"></div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="modal fade" id="aprobar-verificacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">

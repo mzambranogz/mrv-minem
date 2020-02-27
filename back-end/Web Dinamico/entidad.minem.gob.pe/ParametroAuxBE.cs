@@ -21,5 +21,10 @@ namespace entidad.minem.gob.pe
         public decimal FACTOR { get; set; }
         public int INS { get; set; }
         public int AGREGAR { get; set; }
+        public string DESCRIPCION_PARAMETRO { get; set; }
+        public string DESCRIPCION_UNIDAD { get; set; }
+        public string UNIDAD { get; set; }
+        public string PREFIJO { get; set; }
+        public string COMBINACION_UNIDAD { get; set; }
     }
 }

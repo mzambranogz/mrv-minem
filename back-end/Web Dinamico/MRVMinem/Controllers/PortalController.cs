@@ -87,7 +87,10 @@ namespace MRVMinem.Controllers
 
         public ActionResult Resultados()
         {
-            return View();
+            MvAnno model = new MvAnno();
+            var anno = DateTime.Now.Year;
+            model.listaAnno = AnnoLN.ListaAnno(anno);
+            return View(model);
         }
 
         public ActionResult TerminosCondiciones()
@@ -486,6 +489,14 @@ namespace MRVMinem.Controllers
         public JsonResult DashboardResultado(IndicadorBE entidad)
         {
             List<IndicadorBE> lista = IndicadorLN.DashboardResultado(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult MostrarGeiporAnio(IniciativaBE entidad)
+        {
+            List<IniciativaBE> lista = IndicadorLN.MostrarGeiporAnio(entidad);
             var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;

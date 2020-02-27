@@ -17,6 +17,7 @@ namespace datos.minem.gob.pe
         public string sPackage = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_DETALLE_INDICADORES.";
         public string sPackage2 = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_REPORTES.";
         public string sPackage3 = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_INICIATIVA_MITIGACION.";
+        public string sPackage4 = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_MANTENIMIENTO.";
         public List<IndicadorBE> ListarTablaIndicador(IndicadorBE entidad)
         {
             List<IndicadorBE> Lista = null;
@@ -307,6 +308,7 @@ namespace datos.minem.gob.pe
                     p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
                     p.Add("pID_USUARIO", entidad.ID_USUARIO);
                     p.Add("pID_ESTADO", entidad.ID_ESTADO);
+                    p.Add("pID_TIPO_INGRESO", entidad.ID_TIPO_INGRESO);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
                 entidad.OK = true;
@@ -581,6 +583,7 @@ namespace datos.minem.gob.pe
                     var p = new OracleDynamicParameters();
                     p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
                     p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    p.Add("pID_TIPO_INGRESO", entidad.ID_TIPO_INGRESO);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
                 entidad.OK = true;
@@ -1379,6 +1382,64 @@ namespace datos.minem.gob.pe
             }
 
             return entidad;
+        }
+
+        public List<IniciativaBE> MostrarGeiporAnio(IniciativaBE medida)
+        {
+            List<IniciativaBE> lista = new List<IniciativaBE>();
+            List<IniciativaBE> listaMed = new List<IniciativaBE>();
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage2 + "USP_SEL_MOSTRAR_GEI_MED";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pANNO", medida.ANNO);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+
+                listaMed = ListaMedidaMitigacion();
+                foreach(var item in listaMed)
+                {
+                    foreach(var itemD in lista)
+                    {
+                        if (itemD.ID_MEDMIT == item.ID_MEDMIT)
+                        {
+                            item.TOTAL_GEI = itemD.TOTAL_GEI;
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return listaMed;
+        }
+
+        public List<IniciativaBE> ListaMedidaMitigacion()
+        {
+            List<IniciativaBE> lista = new List<IniciativaBE>();
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage4 + "USP_SEL_LISTA_MEDMIT";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return lista;
         }
 
 

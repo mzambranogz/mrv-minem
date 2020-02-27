@@ -385,6 +385,15 @@ namespace MRVMinem.Controllers
             return View();
         }
 
+        public ActionResult Resultados()
+        {
+            MvAnno model = new MvAnno();
+            var anno = DateTime.Now.Year;
+            model.listaAnno = AnnoLN.ListaAnno(anno);
+            return View(model);
+        }
+        ////////////////////////////////////////////////////////7
+
         public JsonResult ListaIniciativasEspecialista(IniciativaBE entidad)
         {
             List<IniciativaBE> lista = IniciativaLN.ListaIniciativaEspecialista(entidad);
@@ -1805,11 +1814,21 @@ namespace MRVMinem.Controllers
             ResponseEntity itemRespuesta = new ResponseEntity();
 
             List<IniciativaBE> lista = IniciativaLN.ValidarDetalleIndicador(entidad);
-            itemRespuesta.success = entidad.OK;
+            itemRespuesta.success = true;
             itemRespuesta.extra = Convert.ToString(lista.Count());
             return Respuesta(itemRespuesta);
         }
 
+        public JsonResult ValidarDetalleArchivo(IniciativaBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            IniciativaBE ent = IniciativaLN.ValidarDetalleArchivo(entidad);
+            itemRespuesta.success = true;
+            itemRespuesta.extra = Convert.ToString(ent.CANTIDAD);
+            return Respuesta(itemRespuesta);
+        }
+        
         //EXPORTAR EXCEL
 
         public void ExportarIniciativa(string item)

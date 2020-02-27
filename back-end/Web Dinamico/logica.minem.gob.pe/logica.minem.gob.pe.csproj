@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnnoLN.cs" />
     <Compile Include="BusquedaAvanzadaLN.cs" />
     <Compile Include="BusquedaSimpleLN.cs" />
     <Compile Include="EnergeticoLN.cs" />

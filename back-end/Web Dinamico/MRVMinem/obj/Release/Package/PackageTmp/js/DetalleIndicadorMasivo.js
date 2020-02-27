@@ -942,14 +942,81 @@ function fn_calcularIndicador(fila) {
 //    });
 //}
 
-function fn_validarCampo() {
+function fn_mensajeCompletar() {
+    $('#mensajeModalRegistrar #mensajeGoodRegistro').remove();
+    $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
+    var msj = '                       <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="mensajeDangerRegistro">';
+    msj = msj + '                            <div class="alert-wrap mr-3">';
+    msj = msj + '                                <div class="sa">';
+    msj = msj + '                                    <div class="sa-error">';
+    msj = msj + '                                       <div class="sa-error-x">';
+    msj = msj + '                                           <div class="sa-error-left"></div>';
+    msj = msj + '                                           <div class="sa-error-right"></div>';
+    msj = msj + '                                       </div>';
+    msj = msj + '                                       <div class="sa-error-placeholder"></div>';
+    msj = msj + '                                       <div class="sa-error-fix"></div>';
+    msj = msj + '                                   </div>';
+    msj = msj + '                               </div>';
+    msj = msj + '                           </div>';
+    msj = msj + '                           <div class="alert-wrap">';
+    msj = msj + '                                <h6>Error de registro</h6>';
+    msj = msj + '                                <hr><small class="mb-0">Verifique que los datos sean correctamente ingresados, complete todos los campos obligatorios e intente otra vez.</small>';
+    msj = msj + '                           </div>';
+    msj = msj + '                     </div>';
+    $('#mensajeModalRegistrar').append(msj);
+}
+
+function fn_validarCampo(url, estado) {
     var url = baseUrl + "Gestion/ValidarDetalleIndicador";
     var item = {
         ID_INICIATIVA: $("#Control").data("iniciativa")
     }
     var respuesta = MRV.Ajax(url, item, false);
     if (respuesta.success) {
+        debugger;
+        var cantidad_bd = parseInt(respuesta.extra);
+        if (cantidad_bd > 0) {
+            if ($("#cuerpoTablaIndicador").data("delete") == "") {
+                //fn_procesoDetalleIndicador(url, estado);
+            } else {
+                var id_delete = $("#cuerpoTablaIndicador").data("delete");
+                var cant_delete = id_delete.split(',');
+                var cantidad_del = cant_delete.length;
+                if (cantidad_bd > cantidad_del) {
+                    //fn_procesoDetalleIndicador(url, estado);
+                } else {
+                    if ($("#tablaIndicador").find("tbody").find("th") > 0) {
+                        var validar = 0;
+                        var campos = $("#tablaIndicador").find("tbody").find("tr");
+                        campos.each(function (index, value) {
+                            debugger;
+                            //console.log(index + " + " + $(value).attr("id") + " + " + $(value).attr("data-validar"));
+                            if ($(value).find("td").find("[data-param]").val() != ""){
+                                validar = 1;
+                            }
+                            //if ($(value).attr("data-validar") == 0) {
+                            //    v = false;
+                            //}
 
+                        });
+
+                        if (validar == 1) {
+                            //fn_procesoDetalleIndicador(url, estado);
+                        } else {
+                            fn_mensajeCompletar();
+                        }                        
+                    } else {
+                        fn_mensajeCompletar();
+                    }
+                }
+            }            
+        } else {
+            if ($("#tablaIndicador").find("tbody").find("th") > 0) {
+                //fn_procesoDetalleIndicador(url, estado);
+            } else {
+                fn_mensajeCompletar();
+            }
+        }
     } else {
 
     }
@@ -958,11 +1025,8 @@ function fn_validarCampo() {
 
 function fn_guardarDetalleIndicador() {
     var url = baseUrl + "Gestion/RegistrarDetalleIndicador";
-    if ($("#tablaIndicador").find("tbody").find("th") == 0) {
-        
-    } else {
-        fn_procesoDetalleIndicador(url, 1);
-    }    
+    fn_procesoDetalleIndicador(url, 1);
+    //fn_validarCampo(url, 1);      
 }
 
 function fn_guardarAvances() {
@@ -973,6 +1037,7 @@ function fn_guardarAvances() {
 function fn_corregirDetalleIndicador() {
     var url = baseUrl + "Gestion/RegistrarDetalleIndicador";
     fn_procesoDetalleIndicador(url, 5);
+    //fn_validarCampo(url, 5);
 }
 
 function fn_corregirAvances() {
@@ -1698,15 +1763,37 @@ function CargarDatosCabecera() {
                 if (data.length > 0) {
                     var tr = "";
                     tr += '<tr class="bg-primary text-white">';
-                    tr += '     <th class="text-center" style="background-color: #28A745;" scope="col"><span>N°&nbsp;</span></th>';
+                    tr += '     <th class="text-center" scope="col"><span>N°</span></th>';
                     for (var i = 0; i < data.length; i++) {
-                        if (data[i]["ID_PARAMETRO"] == 9 || data[i]["ID_PARAMETRO"] == 10 || data[i]["ID_PARAMETRO"] == 11) {
-                            tr += '     <th class="text-center" style="background-color: ' + data[i]["COLOR_GRUPO"] + ';" scope="col"><span>' + data[i]["NOMBRE_PARAMETRO"] + ' tCO<sub>2</sub>eq&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador ' + data[i]["NOMBRE_PARAMETRO"] + '"></i></span></th>';
+                        var columna = "0" + data[i]["ID_GRUPO_INDICADOR"];
+                        debugger;
+                        var descripcion = "";
+                        if (data[i]["COMBINACION_UNIDAD"] == "" || data[i]["COMBINACION_UNIDAD"] == null) {
+                            if (data[i]["PREFIJO"] != null) {
+                                descripcion += data[i]["PREFIJO"];
+                            }
+                            if (data[i]["UNIDAD"] != null) {
+                                descripcion += data[i]["UNIDAD"];
+                            }
+                            if (data[i]["DESCRIPCION_UNIDAD"] != null) {
+                                descripcion += data[i]["DESCRIPCION_UNIDAD"];
+                            }
+                            if (descripcion == 0) {
+                                descripcion = "";
+                            } else {
+                                descripcion = "(" + descripcion + ")";
+                            }
                         } else {
-                            tr += '     <th class="text-center" style="background-color: ' + data[i]["COLOR_GRUPO"] + ';" scope="col"><span>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador ' + data[i]["NOMBRE_PARAMETRO"] + '"></i></span></th>';
+                            descripcion = "(" + data[i]["COMBINACION_UNIDAD"] + ")";
                         }
+
+                        //if (data[i]["ID_PARAMETRO"] == 9 || data[i]["ID_PARAMETRO"] == 10 || data[i]["ID_PARAMETRO"] == 11) {
+                        //    tr += '     <th class="text-center grupo-columna-'+ columna +'" scope="col"><span>' + data[i]["NOMBRE_PARAMETRO"] + ' tCOeq</span><small>Seleccione este campo para su registro</small></th>';
+                        //}else{
+                        tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col"><span>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span><small>' + data[i]["DESCRIPCION_PARAMETRO"] + '</small></th>';
+                        //}                        
                     }
-                    tr += '     <th class="text-center" style="background-color: #007BFF;" scope="col">Más</th>';
+                    tr += '     <th class="text-center" scope="col">Más</th>';
                     tr += '</tr>';
                     $("#cabeceraTablaIndicador").append(tr);
                     //$("#total-detalle").html("");
@@ -1743,7 +1830,7 @@ function CargarCuerpoGuardado(filas) {
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
-                    $("#cuerpoTablaIndicador").html("");
+                    $("#cuerpoTablaIndicador").html("");                    
                     for (var i = 0; i < filas; i++) {
                         var lista = 0;
                         var texto = 0;
@@ -1813,8 +1900,9 @@ function CargarCuerpoGuardado(filas) {
                         tr += '     <div class="btn-group">';
                         tr += '          <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
                         tr += '          <div class="dropdown-menu dropdown-menu-right">';
+                        tr += '               <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;Verificar</a>';
                         //tr += '               <a class="dropdown-item agregarCampos" href="#"><i class="fas fa-plus-circle"></i>&nbsp;Agregar</a>';
-                        tr += '               <a class="dropdown-item quitarCampos" href="#" onclick="fn_eliminarRestarTotal()"><i class="fas fa-minus-circle"></i>&nbsp;Eliminar</a>';
+                        //tr += '               <a class="dropdown-item quitarCampos" href="#" onclick="fn_eliminarRestarTotal()"><i class="fas fa-minus-circle"></i>&nbsp;Eliminar</a>';
                         tr += '          </div>';
                         tr += '     </div>';
                         tr += '</td>';
@@ -1857,8 +1945,37 @@ function CargarDatosExcel(data) {
 
 }
 
+//===============================================================
 
+//==============================================================================================================
 
+function GuardarIdDetalle() {
+    var item = {
+        ID_INICIATIVA: $("#Control").data("iniciativa"),
+        ID_MEDMIT: $("#Control").data("mitigacion"),
+        ID_ENFOQUE: $("#cbo-enfoque").val()
+    }
+    $.ajax({
+        url: baseUrl + 'Detalle/ListarCodIndicadores',
+        type: 'POST',
+        datatype: 'json',
+        data: item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    var id_eliminar = "";
+                    debugger;
+                    for (var i = 0; i < data.length; i++) {
+                        id_eliminar += data[i]["ID_INDICADOR"] + ",";
+                    }
+                    $("#cuerpoTablaIndicador").data("delete", id_eliminar);
+                }
+            }
+        }
+   });
+}
+
+//=================================================================
 
 $(document).ready(function () {
 
@@ -1879,7 +1996,9 @@ $(document).ready(function () {
     } else {
         //CargarDetalleIndicador();
         CargarDatosCabecera();
-        //CargarCuerpoGuardado(1);
+        CargarDatosGuardados();
+
+        GuardarIdDetalle();
     }
 
     asignarRuta($("#cbo-enfoque").val());
@@ -1938,6 +2057,7 @@ $(document).on("change", "#cbo-enfoque", function () {
         $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.2 Plantilla_Eficiencia_energetica_en_el_sector_industrial_Motor.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
     }
     $('[data-toggle="tooltip"]').tooltip();
+    $("#cuerpoTablaIndicador").html("");
     CargarDatosCabecera();
     CargarDatosGuardados();
 });
@@ -2036,7 +2156,6 @@ function fn_procesoDetalleIndicador(url, estado) {
         var filas = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + fila).find("[data-param]");
         if (fn_validarCampoReg(fila)) {
             filas.each(function (index, value) {
-                debugger;
                 parametros += enfoque + ",";
                 parametros += medida + ",";
                 parametros += $(value).attr("data-param") + ",";
@@ -2050,7 +2169,7 @@ function fn_procesoDetalleIndicador(url, estado) {
 
     }
     parametros = parametros.substring(0, parametros.length - 1);
-
+    debugger;
     for (var i = 0, len = storedFiles.length; i < len; i++) {
         var sux = {
             ID_INICIATIVA: $("#Control").data("iniciativa"),
@@ -2066,14 +2185,20 @@ function fn_procesoDetalleIndicador(url, estado) {
         archivos += storedFiles[i].name + "|";
     }
     if (archivos == "") archivos = "|";
-
+    debugger;
     var id_delete = "";
-    if ($("#cuerpoTablaIndicador").data("delete") != "") {
+    if ($("#cuerpoTablaIndicador").data("flag") == 1) {
         id_delete = $("#cuerpoTablaIndicador").data("delete");
         id_delete = id_delete.substring(0, id_delete.length - 1);
     }
 
-    var id_eliminar = "";
+    //var id_delete = "";
+    //if ($("#cuerpoTablaIndicador").data("delete") != "") {
+    //    id_delete = $("#cuerpoTablaIndicador").data("delete");
+    //    id_delete = id_delete.substring(0, id_delete.length - 1);
+    //}
+
+    var id_eliminar = "";    
     if ($("#total-documentos").data("eliminarfile") != "") {
         id_eliminar = $("#total-documentos").data("eliminarfile");
         id_eliminar = id_eliminar.substring(0, id_eliminar.length - 1);
@@ -2089,6 +2214,7 @@ function fn_procesoDetalleIndicador(url, estado) {
         ID_ENFOQUE: enfoque,
         ID_MEDMIT: medida,
         DATA: parametros,
+        ID_TIPO_INGRESO: 2,
         //ListaIndicadores: indicadores,
         //ListaIndicadoresData: indicadores,
         ListaSustentos: documentos,
@@ -2133,7 +2259,9 @@ function fn_procesoDetalleIndicador(url, estado) {
                 //CargarDetalleDatos();    
                 CargarDatosGuardados();
                 CargarArchivosGuardados();
-                $("#cuerpoTablaIndicador").data("delete", "");
+                GuardarIdDetalle();//
+                $("#cuerpoTablaIndicador").data("flag", 0);//
+                $("#cuerpoTablaIndicador").data("delete", ""); 
                 $("#total-documentos").data("eliminarfile", "");
                 $("#fledocumentos").val("");
                 if (estado == 0 || estado == 6) {
@@ -2325,7 +2453,7 @@ function CargarDatosGuardados() {
                     //$("#cuerpoTablaIndicador").data("row", data.length);
                 }
             } else {
-                CargarCuerpoGuardado(1);
+                //CargarCuerpoGuardado(1);
                 $("#total-detalle").html("").append(0.00);
                 $("#total-detalle2").html("").append(0.00);
                 //cargarCuerpoTabla($("#cbo-enfoque").val());

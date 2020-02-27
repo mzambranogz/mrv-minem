@@ -1692,6 +1692,51 @@ namespace datos.minem.gob.pe
             return Lista;
         }
 
+        public IniciativaBE ValidarDetalleArchivo(IniciativaBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage2 + "USP_SEL_VALIDAR_ARCHIVO";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    entidad = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return entidad;
+        }
+
+        public List<IniciativaBE> ListarCodIndicador(IniciativaBE entidad)
+        {
+            List<IniciativaBE> lista = new List<IniciativaBE>();
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage2 + "USP_SEL_LISTA_COD_INDICADOR";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pID_ENFOQUE", entidad.ID_ENFOQUE);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return lista;
+        }
+
     }
 
 }

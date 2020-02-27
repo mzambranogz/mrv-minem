@@ -352,9 +352,13 @@ function validarEstado() {
 function fn_validarCampo() {
     var arr = [];
     var clave = $("#txt-pswd").val();
-    if (!(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test($("#txt-user").val()))) {
-        arr.push("Debe ingresar un correo electrónico válido");
-    }
+
+    if ($("#validarUsuario").data("guardar") == 1) {
+        if (!(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test($("#txt-user").val()))) {
+            arr.push("Debe ingresar un correo electrónico válido");
+        }
+    }    
+    
     if ($("#txt-nombre").val().trim() === "") {
         arr.push("Debe ingresar el/los nombre(s) ");
     }
