@@ -1,0 +1,487 @@
+﻿@model MRVMinem.Models.MvParametro
+
+@{
+    ViewBag.Title = "Medida Mitigacion Detalle";
+    Layout = "~/Views/Shared/_SesionLayout.cshtml";
+}
+
+
+@{
+    var fila = 0;
+    var total_reg = 0;
+    var total_pag = 0;
+    var inicio_reg = 0;
+    var fin_reg = 0;
+}
+
+<div class="container-fluid map-root" id="historia">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="@Url.Action("Index", "Gestion")">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="@Url.Action("MantenimientoTablas","Gestion")">Mantenimiento de Tablas</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Mantenimiento de Detalle y Enfoque por Medida de Mitigación</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="container-fluid my-4" id="cuerpo">
+    <div class="row m-0">
+        <div class="col-12 cuerpo-interior">
+            <div class="container py-4">
+                <div class="row">
+                    <div class="col-md-12 col-lg-6 pt-4">
+                        <div class="h4">
+                            Mantenimiento de Detalle y Enfoque por Medida de Mitigación&nbsp;
+                            <!--i.fas.fa-question-circle.ayuda-tooltip(data-toggle="tooltip", data-placement="right", title="Texto de ayuda que describe el funcionamiento general del módulo [...]")--><br><small class="text-muted">Utilice la búsqueda para encontrar el registro indicado para el mantenimiento</small>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-6 pt-4">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
+                            <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#modal-medida-de-mitigacion"><a class="agregar-iniciativa" href="#" @*onclick="fn_cambiarAccion();"*@ data-toggle="tooltip" data-placement="top" title="Empiece a componer la estructura de columnas para sus detalles de idicadores y los enfoques correpsondientes por cada medida de mitigación."><i class="fas fa-plus px-1"></i>Agregar composición</a></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-lg-6 pt-4">
+                        <form>
+                            <div class="form-group">
+                                <label for="txt-buscar">Buscar&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Utilice la búsqueda ingresando una descripción para ubicar sus registros"></i></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-search"></i></span></div>
+                                    <input class="form-control" type="text" id="txt-buscar" placeholder="Ingrese la descripción de su búsqueda" aria-describedby="inputGroup1" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <button class="btn btn-success w-100 mb-2"><i class="fas fa-file-download px-1"></i>Descargar Excel</button>
+                                </div>
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <button class="btn btn-info w-100 mb-2" type="submit"><i class="fas fa-search px-1"></i>Buscar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-12 col-lg-6 pt-4">
+                        <!--&nbsp;-->
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid py-4">
+                <div class="h5">Bandeja de Detalle y Enfoque por Medida de Mitigación&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></div>
+                <div class="dropdown-divider"></div>
+                <div class="row">
+                    <div class="col-12 px-0">
+                        <div class="table-responsive tabla-principal tabla-detalle-indicadores">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr class="bg-primary text-white">
+                                        <th class="text-center" scope="col" width="5%"><span>N°&nbsp;</span></th>
+                                        <th scope="col" width="20%"><span>Medida de Mitigación &nbsp;<i class="fas fa-sort"></i></span></th>
+                                        <th class="text-center" scope="col" width="10%"><span>Enfoque &nbsp;<i class="fas fa-sort"></i></span></th>
+                                        <th scope="col" width="60%"><span>Estructura de columnas &nbsp;<i class="fas fa-sort"></i></span></th>
+                                        <th class="text-center" scope="col" width="5%">Más</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="medida-enfoque" data-accion="0">
+                                    <!-- add id data -->
+                                    @if (Model.listaParametroInd != null)
+                                    {
+                                        foreach (var item in Model.listaParametroInd)
+                                        {
+                                            fila += 1;
+                                            <tr id="detalles-tr-1">
+                                                <th class="text-center" data-encabezado="Número" scope="row">@fila</th>
+                                                <td data-encabezado="Medida de mitigación">@item.MEDIDA_MIT</td>
+                                                <td class="text-center" data-encabezado="Enfoque">@item.ENFOQUE</td>
+                                                <td data-encabezado="Estructura de columnas">
+                                                    <div class="form-control">
+                                                        <div class="list-group sortable-list m-0">
+                                                            @foreach (var itemD in item.ListaParametroInd)
+                                                            {
+                                                                if (string.IsNullOrEmpty(itemD.FORMULA))
+                                                                {
+                                                                    <div class="p-1 text-center" style="background-color: @itemD.COLOR_GRUPO; color: white;"><small style="font-weight: bold;">@itemD.NOMBRE_PARAMETRO</small></div>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <div class="p-1 text-center" style="background-color: @itemD.COLOR_GRUPO; color: white;"><small style="font-weight: bold;">@itemD.NOMBRE_PARAMETRO<i class="fas fa-square-root-alt cursor-pointer m-2 enfoque-columna-detalle" data-toggle="tooltip" data-placement="top" title="Fórmula: @itemD.FORMULA"></i></small></div>
+                                                                }
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                                    <div class="btn-group">
+                                                        <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                                        <div class="dropdown-menu dropdown-menu-right">
+                                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-medida-de-mitigacion" onclick="fn_seleccionarMedidaEnfoque(@item.ID_ENFOQUE,@item.ID_MEDMIT)">
+                                                                <i class="fas fa-edit"></i>&nbsp;
+                                                                Editar
+                                                            </a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion" onclick="fn_eliminarMedidaEnfoque(@item.ID_ENFOQUE,@item.ID_MEDMIT)">
+                                                                <i class="fas fa-trash"></i>&nbsp;
+                                                                Eliminar
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+
+                                </tbody>
+
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-lg-6 mt-4"><strong>Resultado:&nbsp;</strong>1 de 10 de 10 registros</div>
+                    <div class="col-sm-12 col-lg-6 text-right mt-4">
+                        <strong>Registros por página&nbsp;</strong>
+                        <select id="catidad-rgistros">
+                            <option value="10" selected>10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>&nbsp;
+                        1 de 1 páginas&nbsp;
+                        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                            <button class="btn btn-primary" type="button"><i class="fas fa-angle-double-left"></i></button>
+                            <button class="btn btn-primary" type="button"><i class="fas fa-angle-left"></i></button>
+                            <input class="ir-pagina" type="number" value="1" min="1">
+                            <button class="btn btn-primary" type="button"><i class="fas fa-angle-right"></i></button>
+                            <button class="btn btn-primary" type="button"><i class="fas fa-angle-double-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modal-medida-de-mitigacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Registro de Detalle y Enfoque por Medida de Mitigación <br><small class="text-muted">Complete los siguientes campos para componer los detalles y enfoques de su  medida de mitigación</small><small class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</small></h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body medidas-modal">
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-6">
+                                        <div class="form-group">
+                                            <label for="cbo-medida-mitigacion">Medida de mitigación<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione una medida de mitigación"></i></label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="fas fa-tachometer-alt"></i></span></div>
+                                                <select class="form-control" id="cbo-medida-mitigacion" aria-describedby="inputGroup10" required>
+                                                    <
+                                                    <option value="0">-Seleccione una medida de mitigación-</option>
+                                                    @if (Model.listaMedida != null)
+                                                    {
+                                                        foreach (var item in Model.listaMedida)
+                                                        {
+                                                            <option value="@item.ID_MEDMIT">@item.NOMBRE_MEDMIT</option>
+                                                        }
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="cbo-enfoque-mitigacion">Enfoque asociado<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione uno de varios enfoques asociado a su medida de mitigación"></i></label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="fas fa-square-root-alt"></i></span></div>
+                                                <select class="form-control" id="cbo-enfoque-mitigacion" aria-describedby="inputGroup10" data-enfoque="0" required>
+                                                    <option value="0">-Seleccione un enfoque-</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-lg-6">
+
+
+                                        <div class="form-group">
+                                            <label for="mlt-gei">Controles<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="En caso no posea un nombre, coloque el nombre de la medida de mitigación seguido de un guión y nombre o siglas de la institución."></i></label>
+                                            <div class="input-group" id="radio-control" data-tipocontrol="@Model.menor">
+                                                <!-- add id data -->
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-wrench"></i></span></div>
+                                                <div class="form-control" style="height:75px; overflow-y: auto;">
+                                                    @if (Model.listaControl != null)
+                                                    {
+                                                        foreach (var item in Model.listaControl)
+                                                        {
+                                                            <div class="col-auto my-1">
+                                                                <div class="custom-control custom-radio mr-sm-2">
+                                                                    <input class="custom-control-input" type="radio" name="rad-controles" id="rad-controles-@item.ID_TIPO_CONTROL" value="@item.ID_TIPO_CONTROL" onclick="fn_listarCombo(this)">
+                                                                    <label class="custom-control-label badge" for="rad-controles-@item.ID_TIPO_CONTROL">@item.TIPO_CONTROL</label>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row">
+                                            @if (Model.listaParametro != null)
+                                            {
+
+                                                foreach (var itemC in Model.listaControl)
+                                                {
+                                                    <div class="col-md-12 col-lg-6" id="control-cbo-@itemC.ID_TIPO_CONTROL" hidden>
+                                                        <!-- add id -->
+                                                        <div class="form-group">
+                                                            <label for="cbo-campo">Campo asignado<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="En caso no posea un nombre, coloque el nombre de la medida de mitigación seguido de un guión y nombre o siglas de la institución."></i></label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="fas fa-list"></i></span></div>
+                                                                <select class="form-control" id="cbo-@itemC.ID_TIPO_CONTROL" aria-describedby="inputGroup10" required>
+                                                                    @foreach (var item in Model.listaParametro)
+                                                                    {
+                                                                        if (itemC.ID_TIPO_CONTROL == item.ID_TIPO_CONTROL)
+                                                                        {
+
+                                                                            <option value="@item.ID_PARAMETRO">@item.NOMBRE_PARAMETRO</option>
+                                                                        }
+                                                                    }
+                                                                </select>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                            }
+                                            <div class="col-md-12 col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="cbo-grupo">Grupo de indicador<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="En caso no posea un nombre, coloque el nombre de la medida de mitigación seguido de un guión y nombre o siglas de la institución."></i></label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="fas fa-list"></i></span></div>
+                                                        <select class="form-control" id="cbo-grupo" aria-describedby="inputGroup10" required>
+                                                            @if (Model.listaGrupo != null)
+                                                            {
+                                                                var i = 0;
+                                                                foreach (var item in Model.listaGrupo)
+                                                                {
+                                                                    i++;
+                                                                    var color = "0" + (i);
+                                                                    <option class="grupo-columna-@color" style="background-color: @item.COLOR_GRUPO;" data-color="@item.COLOR_GRUPO" value="@item.ID_GRUPO_INDICADOR">@item.GRUPO_INDICADOR</option>
+                                                                }
+                                                            }
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-lg-6">&nbsp;</div>
+                                            <div class="col-md-12 col-lg-6"><a class="btn btn-success w-100" id="add-columna-detalle-1" href="#" data-toggle="tooltip" data-placement="left" title="Agregar columna, control y caracteristicas"><i class="fas fa-plus px-1"></i>Agregar columna</a></div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-12 col-lg-12">
+                                        <div class="form-group">
+                                            <label for="mlt-gei">Composición de columnas de los detalles de indicadores<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Aquí se mostrará como se componen las columnas de las tablas de los detalles de indicadores, estas pueden ser arrastradas o movidas hasta determinar el orden correcto"></i></label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-columns"></i></span></div>
+                                                <div class="form-control" style="height:130px; overflow-x: auto; overflow-y: auto;">
+                                                    <div class="list-group col sortable-list" id="columnas-detalle"></div>
+                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-lg-12 composicion d-none">
+                                        <div class="jumbotron">
+                                            <h5>Composición del enfoque</h5>
+                                            <hr class="my-4">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="cbo-factores">Factores<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione un factor para utilizarlo en la composición de su enfoque"></i></label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend"><span class="input-group-text font-weight-bold bg-info text-white">F</span></div>
+                                                            <select class="form-control" id="cbo-factores" required>
+                                                                <option value="0" selected>[ - Seleccione - ]</option>
+                                                                @if (Model.listaFactor != null)
+                                                                {
+                                                                    foreach (var item in Model.listaFactor)
+                                                                    {
+                                                                        var valor = "F" + @item.ID_FACTOR;
+                                                                        <option value="@valor">@item.NOMBRE_FACTOR</option>
+                                                                    }
+                                                                }
+                                                            </select>
+                                                        </div>
+                                                    </div><a class="btn btn-success w-100" id="add-factor" href="#" data-value="[0]"><i class="fas fa-plus px-1"></i>Agregar</a>
+                                                </div>
+                                                <div class="col-sm-12 col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="cbo-parametros">Parámetros<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione un parámetros para utilizarlo en la composición de su enfoque"></i></label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend"><span class="input-group-text font-weight-bold bg-primary text-white">P</span></div>
+                                                            <select class="form-control" id="cbo-parametros" required>
+                                                                <option value="0" selected>[ - Seleccione - ]</option>
+                                                                @if (Model.listaParametro != null)
+                                                                {
+                                                                    foreach (var item in Model.listaParametro)
+                                                                    {
+                                                                        var valor = "P" + @item.ID_PARAMETRO;
+                                                                        <option value="@valor">@item.NOMBRE_PARAMETRO</option>
+                                                                    }
+                                                                }
+
+                                                                @*<option value="P1">Parámetro 1</option>
+                                                                    <option value="P2">Parámetro 2</option>
+                                                                    <option value="P3">Parámetro 3</option>
+                                                                    <option value="P4">Parámetro 4</option>*@
+                                                            </select>
+                                                        </div>
+                                                    </div><a class="btn btn-success w-100" id="add-parametro" href="#" data-value="[0]"><i class="fas fa-plus px-1"></i>Agregar</a>
+                                                </div>
+                                                <div class="col-sm-12 col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="txt-constante">Constante<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese un valor constante para utilizarlo en la composición de su enfoque"></i></label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend"><span class="input-group-text font-weight-bold bg-warning text-dark">C</span></div>
+                                                            <input class="form-control" type="number" id="txt-constante" placeholder="Ingrese una constante">
+                                                        </div>
+                                                    </div><a class="btn btn-success w-100" id="add-constante" href="#" data-value="[C0]"><i class="fas fa-plus px-1"></i>Agregar</a>
+                                                </div>
+                                                <div class="col-sm-12 col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="cbo-campo">Operadores<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione un operador para utilizarlo en la composición de su enfoque"></i></label>
+                                                        <div class="input-group">
+                                                            <div class="btn-group mr-2" role="group" aria-label="First group"><a class="gpo-operador btn btn-secondary font-weight-bold" href="#" data-value="+">+</a><a class="gpo-operador btn btn-secondary font-weight-bold" href="#" data-value="-">-</a><a class="gpo-operador btn btn-secondary font-weight-bold" href="#" data-value="*">*</a><a class="gpo-operador btn btn-secondary font-weight-bold" href="#" data-value="/">/</a><a class="gpo-operador btn btn-secondary font-weight-bold" href="#" data-value="(">(</a><a class="gpo-operador btn btn-secondary font-weight-bold" href="#" data-value=")">)</a></div>
+                                                        </div>
+                                                    </div><a class="btn btn-success w-100" id="add-operador" href="#" data-value="0"><i class="fas fa-plus px-1"></i>Agregar</a>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="cbo-variables">Variables<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione una variable para utilizarlo en la composición de su enfoque"></i></label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend"><span class="input-group-text font-weight-bold bg-success text-white">V</span></div>
+                                                            <select class="form-control" id="cbo-variables" required>
+                                                                <option value="0" selected>[ - Seleccione - ]</option>
+                                                                @if (Model.listaVariable != null)
+                                                                {
+                                                                    foreach (var item in Model.listaVariable)
+                                                                    {
+                                                                        var valor = "V" + @item.ID_VARIABLE;
+                                                                        <option value="@valor">@item.NOMBRE</option>
+                                                                    }
+                                                                }
+                                                            </select>
+                                                        </div>
+                                                    </div><a class="btn btn-success w-100" id="add-variable" href="#" data-value="[0]"><i class="fas fa-plus px-1"></i>Agregar</a>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="form-group mt-3">
+                                                        <label for="mlt-gei">Composición del enfoque<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Aquí se mostrará de forma dinámica su enfoque preliminar, el cual podrá arrastar y/o mover hasta determinar el formato correcto"></i></label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-square-root-alt"></i></span></div>
+                                                            <div class="form-control" style="height:130px; overflow-x: auto; overflow-y: hidden;">
+                                                                <div class="list-group col sortable-list" id="columnas-enfoque"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="txa-enfoque">Resultado<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Este es el resultado final de su enfoque en texto plano"></i></label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-square-root-alt"></i></span></div>
+                                                            <textarea class="form-control field-enfoque" id="txa-enfoque" aria-describedby="inputGroup4" cols="30" rows="5" required placeholder="Resultado de su enfoque"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr class="my-4">
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-3">&nbsp;</div>
+                                                <div class="col-sm-12 col-md-3">&nbsp;</div>
+                                                <div class="col-sm-12 col-md-3"><a class="btn btn-secondary w-100" id="cancelar-enfoque" href="#"><i class="fas fa-times-circle px-1"></i>Cancelar</a></div>
+                                                <div class="col-sm-12 col-md-3"><a class="btn btn-success w-100" id="guardar-enfoque" href="#" data-toggle="tooltip" data-placement="left" title="Guardar enfoque en el control seleccionado"><i class="fas fa-save px-1"></i>Guardar enfoque</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <div id="mensajeError" hidden>
+                                            <div class="alert alert-danger d-flex align-items-stretch" role="alert">
+                                                <div class="alert-wrap mr-3">
+                                                    <div class="sa">
+                                                        <div class="sa-error">
+                                                            <div class="sa-error-x">
+                                                                <div class="sa-error-left"></div>
+                                                                <div class="sa-error-right"></div>
+                                                            </div>
+                                                            <div class="sa-error-placeholder"></div>
+                                                            <div class="sa-error-fix"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="alert-wrap">
+                                                    <h6>Error de registro</h6>
+                                                    <hr><small class="mb-0">Verifique que los datos sean correctamente ingresados, complete todos los campos obligatorios e intente otra vez.</small>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div id="mensajeCorrecto" hidden>
+                                            <div class="alert alert-success d-flex align-items-stretch" role="alert">
+                                                <div class="alert-wrap mr-3">
+                                                    <div class="sa">
+                                                        <div class="sa-success">
+                                                            <div class="sa-success-tip"></div>
+                                                            <div class="sa-success-long"></div>
+                                                            <div class="sa-success-placeholder"></div>
+                                                            <div class="sa-success-fix"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="alert-wrap">
+                                                    <h6>Bien hecho</h6>
+                                                    <hr><small class="mb-0">Los datos ingresados fueron guardados exitosamente, verifique su bandeja para comprobarlo. Utilice el buscador para encontrar su nuevo registro.</small>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary" type="button" onclick="fn_guardarMedidaDetalle();">Guardar</button>
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modal-confirmacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Confirmar acción</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body medidas-modal">
+                            <p>¿ Desea eliminar este registro ?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary" type="button">Si</button>
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="~/js/script.js"></script>
+<script src="~/js/MRV.js"></script>
+<script src="~/js/MantenimientoMedidaMitigacionDetalle.js"></script>
+
