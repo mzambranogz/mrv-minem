@@ -1,11 +1,11 @@
 --------------------------------------------------------
--- Archivo creado  - miércoles-febrero-26-2020   
+-- Archivo creado  - jueves-febrero-27-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Sequence SQ_GEND_DETALLE_INICIATIVA
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "MRVMM"."SQ_GEND_DETALLE_INICIATIVA"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1021 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "MRVMM"."SQ_GEND_DETALLE_INICIATIVA"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1061 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence SQ_GEND_ENFOQUE_FACTOR
 --------------------------------------------------------
@@ -45,7 +45,7 @@
 --  DDL for Sequence SQ_GEND_INICIATIVA_ENERG
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "MRVMM"."SQ_GEND_INICIATIVA_ENERG"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 421 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "MRVMM"."SQ_GEND_INICIATIVA_ENERG"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 441 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence SQ_GEND_INICIATIVA_GEI
 --------------------------------------------------------
@@ -85,7 +85,7 @@
 --  DDL for Sequence SQ_GENM_NOTIFICACION
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "MRVMM"."SQ_GENM_NOTIFICACION"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 741 CACHE 20 NOORDER  NOCYCLE ;
+   CREATE SEQUENCE  "MRVMM"."SQ_GENM_NOTIFICACION"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 761 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Sequence SQ_GENM_USUARIO
 --------------------------------------------------------
@@ -101,6 +101,11 @@
 --------------------------------------------------------
 
    CREATE SEQUENCE  "MRVMM"."SQ_MAE_FAQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
+--------------------------------------------------------
+--  DDL for Sequence SQ_MAEM_LG_FACTOR_DATA
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "MRVMM"."SQ_MAEM_LG_FACTOR_DATA"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
 --------------------------------------------------------
 --  DDL for Table T_GEND_ARCHIVO
 --------------------------------------------------------
@@ -515,7 +520,7 @@
 	"DESC_INICIATIVA" VARCHAR2(2000 BYTE), 
 	"ID_ESTADO" NUMBER(*,0), 
 	"PRIVACIDAD_INICIATIVA" CHAR(1 BYTE), 
-	"INVERSION_INICIATIVA" NUMBER(10,2), 
+	"INVERSION_INICIATIVA" NUMBER(18,2), 
 	"ID_MONEDA" NUMBER(*,0), 
 	"FECHA_CREA_INICIATIVA" DATE, 
 	"FECHA_IMPLE_INICIATIVA" DATE, 
@@ -824,7 +829,13 @@
 	"ID_PARAMETRO" VARCHAR2(50 BYTE), 
 	"VALOR" VARCHAR2(50 BYTE), 
 	"FACTOR" NUMBER(18,4), 
-	"FLAG_ESTADO" VARCHAR2(1 BYTE) DEFAULT '1'
+	"FLAG_ESTADO" VARCHAR2(1 BYTE) DEFAULT '1', 
+	"FEC_REGISTRO" DATE, 
+	"USU_REGISRO" VARCHAR2(50 BYTE), 
+	"IP_REGISTRO" VARCHAR2(20 BYTE), 
+	"FEC_MODIFICA" DATE, 
+	"USU_MODIFICA" VARCHAR2(50 BYTE), 
+	"IP_MODIFICA" VARCHAR2(20 BYTE)
    ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
  NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
@@ -901,6 +912,19 @@
   BUFFER_POOL DEFAULT)
   TABLESPACE "USERS" ;
 --------------------------------------------------------
+--  DDL for Table T_MAEM_MRV_BLOCKCHAIN
+--------------------------------------------------------
+
+  CREATE TABLE "MRVMM"."T_MAEM_MRV_BLOCKCHAIN" 
+   (	"ID_INICIATIVA" NUMBER, 
+	"ID_CORRELATIVO" NUMBER(*,0), 
+	"ID_ETAPA" NUMBER(*,0), 
+	"VALOR_HASH" VARCHAR2(1500 BYTE), 
+	"FEC_REGISTRO" DATE DEFAULT SYSDATE
+   ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
 --  DDL for Table T_MAEM_MRV_FACTOR
 --------------------------------------------------------
 
@@ -926,6 +950,29 @@
 	"ID_PARAMETRO" NUMBER, 
 	"ORDEN" NUMBER, 
 	"FLAG_ESTADO" VARCHAR2(1 BYTE) DEFAULT '1'
+   ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table T_MAEM_MRV_LG_FACTOR_DATA
+--------------------------------------------------------
+
+  CREATE TABLE "MRVMM"."T_MAEM_MRV_LG_FACTOR_DATA" 
+   (	"ID_LG_FACTOR" NUMBER(*,0), 
+	"FECHA_LOG" DATE DEFAULT SYSDATE, 
+	"ACCION" VARCHAR2(1 BYTE), 
+	"ID_FACTOR" NUMBER, 
+	"ID_DETALE" NUMBER, 
+	"ID_PARAMETRO" VARCHAR2(50 BYTE), 
+	"VALOR" VARCHAR2(50 BYTE), 
+	"FACTOR" NUMBER(18,4), 
+	"FLG_ESTADO" VARCHAR2(1 BYTE), 
+	"DETALLE" VARCHAR2(150 BYTE), 
+	"USUARIO" VARCHAR2(20 BYTE), 
+	"IP" VARCHAR2(20 BYTE)
    ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
  NOCOMPRESS LOGGING
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
@@ -1470,6 +1517,13 @@
   BUFFER_POOL DEFAULT)
   TABLESPACE "USERS" ;
 --------------------------------------------------------
+--  DDL for Index PK_BLOCKCHAIN
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "MRVMM"."PK_BLOCKCHAIN" ON "MRVMM"."T_MAEM_MRV_BLOCKCHAIN" ("ID_INICIATIVA", "ID_CORRELATIVO") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
 --  DDL for Index PK_ENFOQUE
 --------------------------------------------------------
 
@@ -1550,6 +1604,16 @@
   BUFFER_POOL DEFAULT)
   TABLESPACE "USERS" ;
 --------------------------------------------------------
+--  DDL for Index PK_LG_FACTOR_DATA
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "MRVMM"."PK_LG_FACTOR_DATA" ON "MRVMM"."T_MAEM_MRV_LG_FACTOR_DATA" ("ID_LG_FACTOR") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
 --  DDL for Index PK_MEDIDA_FACTOR
 --------------------------------------------------------
 
@@ -1584,7 +1648,7 @@
 --------------------------------------------------------
 
   CREATE UNIQUE INDEX "MRVMM"."PK_PREFIJO" ON "MRVMM"."T_MAEM_PREFIJO" ("ID_PREFIJO") 
-  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
   BUFFER_POOL DEFAULT)
@@ -1624,7 +1688,7 @@
 --------------------------------------------------------
 
   CREATE UNIQUE INDEX "MRVMM"."PK_UNIDAD_MEDIDA" ON "MRVMM"."T_MAEM_UNIDAD_MEDIDA" ("ID_UNIDAD_MEDIDA") 
-  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
   BUFFER_POOL DEFAULT)
@@ -1874,6 +1938,127 @@
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
   BUFFER_POOL DEFAULT)
   TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Trigger TRG_LG_AUDITORIA
+--------------------------------------------------------
+
+  CREATE OR REPLACE TRIGGER "MRVMM"."TRG_LG_AUDITORIA" 
+    before insert or update or delete on T_MAEM_FACTOR_DATA
+    for each row
+declare
+    V_ID NUMBER;
+begin
+    IF UPDATING THEN
+        SELECT SQ_MAEM_LG_FACTOR_DATA.NEXTVAL INTO V_ID FROM DUAL;
+        INSERT INTO T_MAEM_MRV_LG_FACTOR_DATA
+            (ID_LG_FACTOR,
+             ACCION,
+             ID_FACTOR,
+             ID_DETALE,
+             ID_PARAMETRO,
+             VALOR,
+             FACTOR,
+             FLG_ESTADO,
+             DETALLE,
+             USUARIO,
+             IP)
+        VALUES
+            (V_ID,
+             'U',
+             :OLD.ID_FACTOR,
+             :OLD.ID_DETALLE,
+             :OLD.ID_PARAMETRO,
+             :OLD.VALOR,
+             :OLD.FACTOR,
+             :OLD.FLAG_ESTADO,
+             'ANTES DE ACTUALIZAR',
+             NVL(:OLD.USU_MODIFICA,USER),
+             :OLD.IP_MODIFICA);
+             
+        SELECT SQ_MAEM_LG_FACTOR_DATA.NEXTVAL INTO V_ID FROM DUAL;
+        INSERT INTO T_MAEM_MRV_LG_FACTOR_DATA
+            (ID_LG_FACTOR,
+             ACCION,
+             ID_FACTOR,
+             ID_DETALE,
+             ID_PARAMETRO,
+             VALOR,
+             FACTOR,
+             FLG_ESTADO,
+             DETALLE,
+             USUARIO,
+             IP)
+        VALUES
+            (V_ID,
+             'U',
+             :NEW.ID_FACTOR,
+             :NEW.ID_DETALLE,
+             :NEW.ID_PARAMETRO,
+             :NEW.VALOR,
+             :NEW.FACTOR,
+             :NEW.FLAG_ESTADO,
+             'DESPUES DE ACTUALIZAR',
+             NVL(:NEW.USU_MODIFICA,USER),
+             :NEW.IP_MODIFICA);
+    END IF;
+    IF INSERTING THEN
+        SELECT SQ_MAEM_LG_FACTOR_DATA.NEXTVAL INTO V_ID FROM DUAL;
+        INSERT INTO T_MAEM_MRV_LG_FACTOR_DATA
+            (ID_LG_FACTOR,
+             ACCION,
+             ID_FACTOR,
+             ID_DETALE,
+             ID_PARAMETRO,
+             VALOR,
+             FACTOR,
+             FLG_ESTADO,
+             DETALLE,
+             USUARIO,
+             IP)
+        VALUES
+            (V_ID,
+             'I',
+             :NEW.ID_FACTOR,
+             :NEW.ID_DETALLE,
+             :NEW.ID_PARAMETRO,
+             :NEW.VALOR,
+             :NEW.FACTOR,
+             :NEW.FLAG_ESTADO,
+             'REGISTRO DE DATOS',
+             :NEW.USU_MODIFICA,
+             :NEW.IP_MODIFICA);
+    END IF;
+    IF DELETING THEN
+        SELECT SQ_MAEM_LG_FACTOR_DATA.NEXTVAL INTO V_ID FROM DUAL;
+        INSERT INTO T_MAEM_MRV_LG_FACTOR_DATA
+            (ID_LG_FACTOR,
+             ACCION,
+             ID_FACTOR,
+             ID_DETALE,
+             ID_PARAMETRO,
+             VALOR,
+             FACTOR,
+             FLG_ESTADO,
+             DETALLE,
+             USUARIO,
+             IP)
+        VALUES
+            (V_ID,
+             'U',
+             :OLD.ID_FACTOR,
+             :OLD.ID_DETALLE,
+             :OLD.ID_PARAMETRO,
+             :OLD.VALOR,
+             :OLD.FACTOR,
+             :OLD.FLAG_ESTADO,
+             'ANTES DE ELIMINAR',
+             NVL(:OLD.USU_MODIFICA,USER),
+             :OLD.IP_MODIFICA);
+    END IF;
+end TRG_LG_AUDITORIA;
+
+/
+ALTER TRIGGER "MRVMM"."TRG_LG_AUDITORIA" ENABLE;
 --------------------------------------------------------
 --  Constraints for Table T_GEND_INICIATIVA_ENERG
 --------------------------------------------------------
@@ -2151,6 +2336,13 @@
   ALTER TABLE "MRVMM"."T_MAEM_MEDIDA_FACTOR" MODIFY ("ID_FACTOR" NOT NULL ENABLE);
   ALTER TABLE "MRVMM"."T_MAEM_MEDIDA_FACTOR" MODIFY ("ID_MEDMIT" NOT NULL ENABLE);
 --------------------------------------------------------
+--  Constraints for Table T_MAEM_MRV_BLOCKCHAIN
+--------------------------------------------------------
+
+  ALTER TABLE "MRVMM"."T_MAEM_MRV_BLOCKCHAIN" ADD CONSTRAINT "PK_BLOCKCHAIN" PRIMARY KEY ("ID_INICIATIVA", "ID_CORRELATIVO")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
 --  Constraints for Table T_MAEM_MRV_FACTOR
 --------------------------------------------------------
 
@@ -2176,6 +2368,17 @@
   ALTER TABLE "MRVMM"."T_MAEM_MRV_FACTOR_PARAMETRO" MODIFY ("ID_TIPO_CONTROL" NOT NULL ENABLE);
   ALTER TABLE "MRVMM"."T_MAEM_MRV_FACTOR_PARAMETRO" MODIFY ("ID_DETALLE" NOT NULL ENABLE);
   ALTER TABLE "MRVMM"."T_MAEM_MRV_FACTOR_PARAMETRO" MODIFY ("ID_FACTOR" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table T_MAEM_MRV_LG_FACTOR_DATA
+--------------------------------------------------------
+
+  ALTER TABLE "MRVMM"."T_MAEM_MRV_LG_FACTOR_DATA" ADD CONSTRAINT "PK_LG_FACTOR_DATA" PRIMARY KEY ("ID_LG_FACTOR")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "MRVMM"."T_MAEM_MRV_LG_FACTOR_DATA" MODIFY ("ID_LG_FACTOR" NOT NULL ENABLE);
 --------------------------------------------------------
 --  Constraints for Table T_MAEM_MRV_PARAMETRO
 --------------------------------------------------------
@@ -2214,7 +2417,7 @@
 --------------------------------------------------------
 
   ALTER TABLE "MRVMM"."T_MAEM_PREFIJO" ADD CONSTRAINT "PK_PREFIJO" PRIMARY KEY ("ID_PREFIJO")
-  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
   BUFFER_POOL DEFAULT)
@@ -2250,7 +2453,7 @@
 --------------------------------------------------------
 
   ALTER TABLE "MRVMM"."T_MAEM_UNIDAD_MEDIDA" ADD CONSTRAINT "PK_UNIDAD_MEDIDA" PRIMARY KEY ("ID_UNIDAD_MEDIDA")
-  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
   BUFFER_POOL DEFAULT)
