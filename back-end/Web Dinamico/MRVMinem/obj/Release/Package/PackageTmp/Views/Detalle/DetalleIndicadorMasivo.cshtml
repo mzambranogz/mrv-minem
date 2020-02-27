@@ -756,6 +756,8 @@
     }
 
     function fn_CargarExcel(evt) {
+        $("#cuerpoTablaIndicador").empty();
+        $("#fledeclaracion").next().find("label").empty().html('<i class="fas fa-spinner fa-spin px-1"></i> Cargando...');
         var url = baseUrl + 'Detalle/ProcesarExcel';
         var options = {
             type: "POST",

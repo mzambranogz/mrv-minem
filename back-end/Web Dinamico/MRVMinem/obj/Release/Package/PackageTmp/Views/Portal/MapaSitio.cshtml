@@ -36,11 +36,12 @@
                             <span><a style="color:#000; text-decoration:none;" data-toggle="collapse" href="#Web" aria-expanded="true" aria-controls="Web"><i class="collapsed"><i class="fas fa-folder"></i></i><i class="expanded"><i class="far fa-folder-open"></i></i>&nbsp; Web MRV</a></span>
                             <div class="collapse show" id="Web">
                                 <ul>
-                                    <li><span><i class="far fa-file"></i><a href="@Url.Action("Index","Portal")">&nbsp; Inicio</a></span></li>
+                                    <li><span><i class="far fa-file"></i><a href="@Url.Action("Index","Home")">&nbsp; Inicio</a></span></li>
                                     <li><span><i class="far fa-file"></i><a href="@Url.Action("AccionMitigacion","Portal")">&nbsp; Iniciativas de Mitigación</a></span></li>
-                                    <li>
+                                    <li><span><i class="far fa-file"></i><a href="@Url.Action("ReportesVisitante","Reportes")">&nbsp; Reportes</a></span></li>
+                                    @*<li>
                                         <span><a style="color:#000; text-decoration:none;" data-toggle="collapse" href="@Url.Action("Reportes","Reportes")" aria-expanded="true" aria-controls="page1"><i class="collapsed"><i class="fas fa-folder"></i></i><i class="expanded"><i class="far fa-folder-open"></i></i>&nbsp; Reportes</a></span>
-                                        @*<ul>
+                                        <ul>
                                             <div class="collapse show" id="page1">
                                                 <li><span><i class="far fa-file"></i><a href="#!">&nbsp; Reporte de escenarios</a></span></li>
                                                 <li><span><i class="far fa-file"></i><a href="#!">&nbsp; Reporte general de medidas de mitigación</a></span></li>
@@ -48,8 +49,8 @@
                                                 <li><span><i class="far fa-file"></i><a href="#!">&nbsp; Reporte de emisiones de GEI reducidas según medidas de mitigación por períodos</a></span></li>
                                                 <li><span><i class="far fa-file"></i><a href="#!">&nbsp; Reporte de iniciativas de mitigación por período</a></span></li>
                                             </div>
-                                        </ul>*@
-                                    </li>
+                                        </ul>
+                                    </li>*@
                                     <li><span><i class="far fa-file"></i><a href="@Url.Action("Resultados","Portal")">&nbsp; Resultados</a></span></li>
                                     <li><span><i class="far fa-file"></i><a href="@Url.Action("login","Home")">&nbsp; Ingresar</a></span></li>
                                     <li><span><i class="far fa-file"></i><a href="@Url.Action("registro","Home")">&nbsp; Registrarse</a></span></li>

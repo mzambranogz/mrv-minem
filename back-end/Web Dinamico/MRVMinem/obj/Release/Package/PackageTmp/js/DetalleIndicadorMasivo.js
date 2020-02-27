@@ -1942,7 +1942,7 @@ function CargarDatosExcel(data) {
         $("#cuerpoTablaIndicador").data("total", total);
 
     }
-
+    $("#fledeclaracion").next().find("label").empty().html('<i class="fas fa-upload mr-1"></i> Subir plantilla');
 }
 
 //===============================================================
