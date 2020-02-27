@@ -1,0 +1,35 @@
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\utilitario.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\utilitario.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\utilitario.minem.gob.pe\obj\Debug\utilitario.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\utilitario.minem.gob.pe\obj\Debug\utilitario.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\utilitario.minem.gob.pe\obj\Debug\utilitario.minem.gob.pe.pdb
+C:\Gitsource\back-end\Web\utilitario.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.dll
+C:\Gitsource\back-end\Web\utilitario.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.pdb
+C:\Gitsource\back-end\Web\utilitario.minem.gob.pe\obj\Debug\utilitario.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Gitsource\back-end\Web\utilitario.minem.gob.pe\obj\Debug\utilitario.minem.gob.pe.dll
+C:\Gitsource\back-end\Web\utilitario.minem.gob.pe\obj\Debug\utilitario.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\utilitario.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\utilitario.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\utilitario.minem.gob.pe\obj\Debug\utilitario.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\utilitario.minem.gob.pe\obj\Debug\utilitario.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\utilitario.minem.gob.pe\obj\Debug\utilitario.minem.gob.pe.pdb
+C:\Gitsource\back-end\Web Dinamico\utilitario.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.dll
+C:\Gitsource\back-end\Web Dinamico\utilitario.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.pdb
+C:\Gitsource\back-end\Web Dinamico\utilitario.minem.gob.pe\obj\Debug\utilitario.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Gitsource\back-end\Web Dinamico\utilitario.minem.gob.pe\obj\Debug\utilitario.minem.gob.pe.dll
+C:\Gitsource\back-end\Web Dinamico\utilitario.minem.gob.pe\obj\Debug\utilitario.minem.gob.pe.pdb
+D:\DGEE\mrv-minem\back-end\Web Dinamico\utilitario.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.dll
+D:\DGEE\mrv-minem\back-end\Web Dinamico\utilitario.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.pdb
+D:\DGEE\mrv-minem\back-end\Web Dinamico\utilitario.minem.gob.pe\obj\Debug\utilitario.minem.gob.pe.csprojResolveAssemblyReference.cache
+D:\DGEE\mrv-minem\back-end\Web Dinamico\utilitario.minem.gob.pe\obj\Debug\utilitario.minem.gob.pe.dll
+D:\DGEE\mrv-minem\back-end\Web Dinamico\utilitario.minem.gob.pe\obj\Debug\utilitario.minem.gob.pe.pdb
+E:\Eduardo\mrv-minem\back-end\Web-CH-G-v2\utilitario.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.dll
+E:\Eduardo\mrv-minem\back-end\Web-CH-G-v2\utilitario.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.pdb
+E:\Eduardo\mrv-minem\back-end\Web-CH-G-v2\utilitario.minem.gob.pe\obj\Debug\utilitario.minem.gob.pe.csprojResolveAssemblyReference.cache
+E:\Eduardo\mrv-minem\back-end\Web-CH-G-v2\utilitario.minem.gob.pe\obj\Debug\utilitario.minem.gob.pe.dll
+E:\Eduardo\mrv-minem\back-end\Web-CH-G-v2\utilitario.minem.gob.pe\obj\Debug\utilitario.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico\utilitario.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico\utilitario.minem.gob.pe\bin\Debug\utilitario.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico\utilitario.minem.gob.pe\obj\Debug\utilitario.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico\utilitario.minem.gob.pe\obj\Debug\utilitario.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico\utilitario.minem.gob.pe\obj\Debug\utilitario.minem.gob.pe.pdb

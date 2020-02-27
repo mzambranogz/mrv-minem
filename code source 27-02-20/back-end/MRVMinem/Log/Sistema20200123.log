@@ -1,0 +1,222 @@
+23/01/2020 07:10:12 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12514: TNS:listener does not currently know of service requested in connect descriptor
+23/01/2020 07:10:12 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12514: TNS:listener does not currently know of service requested in connect descriptor
+23/01/2020 07:10:12 p.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12514: TNS:listener does not currently know of service requested in connect descriptor
+23/01/2020 07:10:12 p.m.: [Método: Void Open(), Línea: 0] - ORA-12514: TNS:listener does not currently know of service requested in connect descriptor
+23/01/2020 07:10:12 p.m.: [Método: Int32 ExecuteNonQuery(System.String, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 175] - ORA-12514: TNS:listener does not currently know of service requested in connect descriptor
+23/01/2020 07:10:12 p.m.: [Método: Int32 VerificarEmail(entidad.minem.gob.pe.UsuarioBE), Línea: 31] - ORA-12514: TNS:listener does not currently know of service requested in connect descriptor
+23/01/2020 07:10:42 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12514: TNS:listener does not currently know of service requested in connect descriptor
+23/01/2020 07:10:42 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12514: TNS:listener does not currently know of service requested in connect descriptor
+23/01/2020 07:10:42 p.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12514: TNS:listener does not currently know of service requested in connect descriptor
+23/01/2020 07:10:42 p.m.: [Método: Void Open(), Línea: 0] - ORA-12514: TNS:listener does not currently know of service requested in connect descriptor
+23/01/2020 07:10:42 p.m.: [Método: Int32 ExecuteNonQuery(System.String, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 175] - ORA-12514: TNS:listener does not currently know of service requested in connect descriptor
+23/01/2020 07:10:42 p.m.: [Método: Int32 VerificarEmail(entidad.minem.gob.pe.UsuarioBE), Línea: 31] - ORA-12514: TNS:listener does not currently know of service requested in connect descriptor
+23/01/2020 07:10:57 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12514: TNS:listener does not currently know of service requested in connect descriptor
+23/01/2020 07:10:57 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12514: TNS:listener does not currently know of service requested in connect descriptor
+23/01/2020 07:10:57 p.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12514: TNS:listener does not currently know of service requested in connect descriptor
+23/01/2020 07:10:57 p.m.: [Método: Void Open(), Línea: 0] - ORA-12514: TNS:listener does not currently know of service requested in connect descriptor
+23/01/2020 07:10:57 p.m.: [Método: Int32 ExecuteNonQuery(System.String, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 175] - ORA-12514: TNS:listener does not currently know of service requested in connect descriptor
+23/01/2020 07:10:57 p.m.: [Método: Int32 VerificarEmail(entidad.minem.gob.pe.UsuarioBE), Línea: 31] - ORA-12514: TNS:listener does not currently know of service requested in connect descriptor
+23/01/2020 07:11:16 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12514: TNS:listener does not currently know of service requested in connect descriptor
+23/01/2020 07:11:16 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12514: TNS:listener does not currently know of service requested in connect descriptor
+23/01/2020 07:11:16 p.m.: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12514: TNS:listener does not currently know of service requested in connect descriptor
+23/01/2020 07:11:16 p.m.: [Método: Void Open(), Línea: 0] - ORA-12514: TNS:listener does not currently know of service requested in connect descriptor
+23/01/2020 07:11:16 p.m.: [Método: Int32 ExecuteNonQuery(System.String, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 175] - ORA-12514: TNS:listener does not currently know of service requested in connect descriptor
+23/01/2020 07:11:16 p.m.: [Método: Int32 VerificarEmail(entidad.minem.gob.pe.UsuarioBE), Línea: 31] - ORA-12514: TNS:listener does not currently know of service requested in connect descriptor
+23/01/2020 07:34:18 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+23/01/2020 07:34:18 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+23/01/2020 07:34:18 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+23/01/2020 07:34:18 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+23/01/2020 07:34:18 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+23/01/2020 07:34:18 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+23/01/2020 07:34:18 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+23/01/2020 07:34:18 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+23/01/2020 07:34:18 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+23/01/2020 07:34:18 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+23/01/2020 07:34:18 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaIniciativaUsuario(entidad.minem.gob.pe.IniciativaBE), Línea: 128] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+23/01/2020 07:36:07 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+23/01/2020 07:36:07 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+23/01/2020 07:36:07 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+23/01/2020 07:36:07 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+23/01/2020 07:36:07 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+23/01/2020 07:36:07 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+23/01/2020 07:36:07 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+23/01/2020 07:36:07 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+23/01/2020 07:36:07 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+23/01/2020 07:36:07 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+23/01/2020 07:36:07 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaIniciativaUsuario(entidad.minem.gob.pe.IniciativaBE), Línea: 128] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_USUARIO'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+23/01/2020 07:36:44 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_ESPEC'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+23/01/2020 07:36:44 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_ESPEC'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+23/01/2020 07:36:44 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_ESPEC'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+23/01/2020 07:36:44 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_ESPEC'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+23/01/2020 07:36:44 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_ESPEC'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+23/01/2020 07:36:44 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_ESPEC'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+23/01/2020 07:36:44 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_ESPEC'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+23/01/2020 07:36:44 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_ESPEC'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+23/01/2020 07:36:44 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_ESPEC'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+23/01/2020 07:36:44 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_ESPEC'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+23/01/2020 07:36:44 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaIniciativaEspecialista(entidad.minem.gob.pe.IniciativaBE), Línea: 65] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_SEL_INICIATIVAS_ESPEC'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+23/01/2020 07:47:55 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 418
+ORA-06512: at line 1
+23/01/2020 07:47:55 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 418
+ORA-06512: at line 1
+23/01/2020 07:47:55 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 418
+ORA-06512: at line 1
+23/01/2020 07:47:55 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 418
+ORA-06512: at line 1
+23/01/2020 07:47:55 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 418
+ORA-06512: at line 1
+23/01/2020 07:47:55 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 418
+ORA-06512: at line 1
+23/01/2020 07:47:55 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 418
+ORA-06512: at line 1
+23/01/2020 07:47:55 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 418
+ORA-06512: at line 1
+23/01/2020 07:47:55 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 418
+ORA-06512: at line 1
+23/01/2020 07:47:55 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 418
+ORA-06512: at line 1
+23/01/2020 07:47:55 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaIniciativaEspecialista(entidad.minem.gob.pe.IniciativaBE), Línea: 65] - ORA-01476: divisor is equal to zero
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 418
+ORA-06512: at line 1
+23/01/2020 07:48:46 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 746
+ORA-06512: at line 1
+23/01/2020 07:48:46 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 746
+ORA-06512: at line 1
+23/01/2020 07:48:46 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 746
+ORA-06512: at line 1
+23/01/2020 07:48:46 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 746
+ORA-06512: at line 1
+23/01/2020 07:48:46 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 746
+ORA-06512: at line 1
+23/01/2020 07:48:46 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 746
+ORA-06512: at line 1
+23/01/2020 07:48:46 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 746
+ORA-06512: at line 1
+23/01/2020 07:48:46 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 746
+ORA-06512: at line 1
+23/01/2020 07:48:46 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 746
+ORA-06512: at line 1
+23/01/2020 07:48:46 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-01476: divisor is equal to zero
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 746
+ORA-06512: at line 1
+23/01/2020 07:48:46 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaIniciativaUsuario(entidad.minem.gob.pe.IniciativaBE), Línea: 128] - ORA-01476: divisor is equal to zero
+ORA-06512: at "USERMRV.PKG_MRV_INICIATIVA_MITIGACION", line 746
+ORA-06512: at line 1
