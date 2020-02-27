@@ -71,6 +71,7 @@
     <Compile Include="TipoVehiculoLN.cs" />
     <Compile Include="UbicacionLN.cs" />
     <Compile Include="UsuarioLN.cs" />
+    <Compile Include="VariableLN.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\datos.minem.gob.pe\datos.minem.gob.pe.csproj">

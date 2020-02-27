@@ -15,6 +15,7 @@ namespace MRVMinem.Models
         public List<FactorBE> listaFactor { get; set; }
         public List<ParametroIndicadorBE> listaParametroInd { get; set; }
         public List<FactorBE> listaMedidaFactor { get; set; }
+        public List<VariableBE> listaVariable { get; set; }
         public int menor { get; set; }
 
     }

@@ -16,7 +16,7 @@ namespace datos.minem.gob.pe
     {
         public string sPackage = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_VARIABLES.";
 
-        public List<VariableBE> ListaVariabes(VariableBE entidad)
+        public List<VariableBE> ListaVariables(VariableBE entidad)
         {
             List<VariableBE> lista = null;
 

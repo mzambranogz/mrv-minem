@@ -33,3 +33,8 @@ D:\DGEE\mrv-minem\back-end\Web Dinamico\entidad.minem.gob.pe\bin\Release\entidad
 D:\DGEE\mrv-minem\back-end\Web Dinamico\entidad.minem.gob.pe\obj\Release\entidad.minem.gob.pe.csprojResolveAssemblyReference.cache
 D:\DGEE\mrv-minem\back-end\Web Dinamico\entidad.minem.gob.pe\obj\Release\entidad.minem.gob.pe.dll
 D:\DGEE\mrv-minem\back-end\Web Dinamico\entidad.minem.gob.pe\obj\Release\entidad.minem.gob.pe.pdb
+C:\Users\User\Desktop\backend\back-end\Web Dinamico\entidad.minem.gob.pe\bin\Release\entidad.minem.gob.pe.dll
+C:\Users\User\Desktop\backend\back-end\Web Dinamico\entidad.minem.gob.pe\bin\Release\entidad.minem.gob.pe.pdb
+C:\Users\User\Desktop\backend\back-end\Web Dinamico\entidad.minem.gob.pe\obj\Release\entidad.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\backend\back-end\Web Dinamico\entidad.minem.gob.pe\obj\Release\entidad.minem.gob.pe.dll
+C:\Users\User\Desktop\backend\back-end\Web Dinamico\entidad.minem.gob.pe\obj\Release\entidad.minem.gob.pe.pdb

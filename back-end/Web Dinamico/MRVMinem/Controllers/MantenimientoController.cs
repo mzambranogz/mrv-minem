@@ -485,6 +485,7 @@ namespace MRVMinem.Controllers
             modelo.listaMedida = MedidaMitigacionLN.ListarMedidaMitigacion(medida);
             modelo.listaFactor = FactorLN.listarFactores();
             modelo.listaParametroInd = ParametroIndicadorLN.ListarParametroIndicador();
+            modelo.listaVariable = VariableLN.ListaVariables(new VariableBE() { ID_VARIABLE = 0 });
             modelo.menor = getMenorControl(modelo.listaControl);
             return View(modelo);
         }
@@ -495,7 +496,7 @@ namespace MRVMinem.Controllers
             var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
-        }        
+        }
 
         public JsonResult GetMedidaMitigacionDetalle(ParametroIndicadorBE entidad)
         {
@@ -527,8 +528,8 @@ namespace MRVMinem.Controllers
             //modelo.listaControl = TipoControlLN.listarTipoControl();
             //modelo.listaParametro = ParametroLN.ListarParametroControl();
             //modelo.listaGrupo = GrupoIniciativaLN.listarGrupoIniciativa();
-            
-            
+
+
             //modelo.listaParametroInd = ParametroIndicadorLN.ListarParametroIndicador();
             //modelo.menor = getMenorControl(modelo.listaControl);
             return View(modelo);
@@ -610,7 +611,7 @@ namespace MRVMinem.Controllers
             {
                 itemRespuesta.success = true;
             }
-            
+
             return Respuesta(itemRespuesta);
         }
         ////////////////////////////////////////// MANTENIMIENTO FACTORES
@@ -744,7 +745,7 @@ namespace MRVMinem.Controllers
                             ws1.Cells["A" + row].Value = dt_fila.ID_INSTITUCION;
                             ws1.Cells["B" + row].Value = dt_fila.NOMBRE_INSTITUCION;
                             ws1.Cells["C" + row].Value = dt_fila.RUC_INSTITUCION;
-                            ws1.Cells["D" + row].Value = dt_fila.DIRECCION_INSTITUCION;                            
+                            ws1.Cells["D" + row].Value = dt_fila.DIRECCION_INSTITUCION;
                             ws1.Cells["E" + row].Value = dt_fila.SECTOR_INSTITUCION;
                             formatoDetalle(ws1, "A", "E", row);
                             row++;

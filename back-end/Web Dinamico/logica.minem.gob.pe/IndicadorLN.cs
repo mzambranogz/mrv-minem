@@ -521,7 +521,7 @@ namespace logica.minem.gob.pe
                 case "V":
                     ls_cida = istrOperando.Substring(1);
                     VariableBE Ventidad = new VariableBE() { ID_VARIABLE = int.Parse(ls_cida) };
-                    List<VariableBE> lVariable = new VariableDA().ListaVariabes(Ventidad);
+                    List<VariableBE> lVariable = new VariableDA().ListaVariables(Ventidad);
 
                     switch (ls_cida)
                     {
@@ -534,7 +534,7 @@ namespace logica.minem.gob.pe
                                     IndicadorDataBE vIndicador = listaEntidad.Find(A => A.ID_PARAMETRO.Equals(vItem.ID_PARAMETRO));
                                     if (vIndicador != null)
                                     {
-                                        DateTime fechaInicial = DateTime.ParseExact(vIndicador.VALOR, "dd/MM/yyyy", CultureInfo.GetCultureInfo("es-PE"));
+                                        DateTime fechaInicial = DateTime.ParseExact(vIndicador.VALOR, "yyyy-MM-dd", CultureInfo.GetCultureInfo("es-PE"));
                                         DateTime fechaFinal = new DateTime(fechaInicial.Year, 12, 31);
                                         TimeSpan diferencia = fechaFinal - fechaInicial;
                                         lde_importecida = diferencia.Days;
