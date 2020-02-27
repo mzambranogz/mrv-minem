@@ -425,7 +425,7 @@
             </div>
           </div>
           <div class="modal fade" id="modal-medida-de-mitigacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+            <div class="modal-dialog modal-fluid modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">Registro de Detalle y Enfoque por Medida de Mitigación <br><small class="text-muted">Complete los siguientes campos para componer los detalles y enfoques de su  medida de mitigación</small><small class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</small></h5>
@@ -594,7 +594,8 @@
                           <h5>Composición del enfoque</h5>
                           <hr class="my-4">
                           <div class="row">
-                            <div class="col-sm-12 col-md-3">
+                            <div class="col-sm-12 col-md-1"></div>
+                            <div class="col-sm-12 col-md-2">
                               <div class="form-group">
                                 <label for="cbo-factores">Factores<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione un factor para utilizarlo en la composición de su enfoque"></i></label>
                                 <div class="input-group">
@@ -609,7 +610,7 @@
                                 </div>
                               </div><a class="btn btn-success w-100" id="add-factor" href="#" data-value="[0]"><i class="fas fa-plus px-1"></i>Agregar</a>
                             </div>
-                            <div class="col-sm-12 col-md-3">
+                            <div class="col-sm-12 col-md-2">
                               <div class="form-group">
                                 <label for="cbo-parametros">Parámetros<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione un parámetros para utilizarlo en la composición de su enfoque"></i></label>
                                 <div class="input-group">
@@ -624,7 +625,22 @@
                                 </div>
                               </div><a class="btn btn-success w-100" id="add-parametro" href="#" data-value="[0]"><i class="fas fa-plus px-1"></i>Agregar</a>
                             </div>
-                            <div class="col-sm-12 col-md-3">
+                            <div class="col-sm-12 col-md-2">
+                              <div class="form-group">
+                                <label for="cbo-variables">Variables<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione una variable para utilizarlo en la composición de su enfoque"></i></label>
+                                <div class="input-group">
+                                  <div class="input-group-prepend"><span class="input-group-text font-weight-bold bg-success text-white">V</span></div>
+                                  <select class="form-control" id="cbo-variables" required>
+                                    <option value="0" selected>[ - Seleccione - ]</option>
+                                    <option value="V1">Variable 1</option>
+                                    <option value="V2">Variable 2</option>
+                                    <option value="V3">Variable 3</option>
+                                    <option value="V4">Variable 4</option>
+                                  </select>
+                                </div>
+                              </div><a class="btn btn-success w-100" id="add-variable" href="#" data-value="[0]"><i class="fas fa-plus px-1"></i>Agregar</a>
+                            </div>
+                            <div class="col-sm-12 col-md-2">
                               <div class="form-group">
                                 <label for="txt-constante">Constante<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese un valor constante para utilizarlo en la composición de su enfoque"></i></label>
                                 <div class="input-group">
@@ -633,7 +649,7 @@
                                 </div>
                               </div><a class="btn btn-success w-100" id="add-constante" href="#" data-value="[C0]"><i class="fas fa-plus px-1"></i>Agregar</a>
                             </div>
-                            <div class="col-sm-12 col-md-3">
+                            <div class="col-sm-12 col-md-2">
                               <div class="form-group">
                                 <label for="cbo-campo">Operadores<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione un operador para utilizarlo en la composición de su enfoque"></i></label>
                                 <div class="input-group">
@@ -641,6 +657,7 @@
                                 </div>
                               </div><a class="btn btn-success w-100" id="add-operador" href="#" data-value="0"><i class="fas fa-plus px-1"></i>Agregar</a>
                             </div>
+                            <div class="col-sm-12 col-md-1"></div>
                           </div>
                           <div class="row">
                             <div class="col-12">
