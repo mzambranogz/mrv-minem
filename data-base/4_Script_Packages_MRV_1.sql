@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - jueves-febrero-27-2020   
+-- Archivo creado  - viernes-febrero-28-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_ADMIN_SISTEMA
@@ -1946,6 +1946,36 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pRefcursor      OUT SYS_REFCURSOR
   );
         --////////////////////////////// DINAMICO FINAL
+  --============== 27-02-2020
+  PROCEDURE USP_SEL_LISTA_IPCC(
+        pRefcursor  OUT SYS_REFCURSOR
+   );
+  
+  PROCEDURE USP_SEL_LISTA_MEDMIT_MANT(
+        pBuscar     VARCHAR2,
+        pRegistros  INTEGER,
+        pPagina     INTEGER,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+    
+  PROCEDURE USP_INS_MEDMIT(
+        pID_MEDMIT    IN VARCHAR2,
+        pNOMBRE_MEDMIT  IN VARCHAR2,
+        pNUMERO_MEDMIT     IN VARCHAR2,
+        pDESCRIPCION_MEDMIT IN VARCHAR2,
+        pID_NAMA  IN NUMBER,
+        pOBJETIVO_MEDMIT  IN VARCHAR2,
+        pID_IPCC  IN NUMBER,
+        pADJUNTO  IN VARCHAR2,
+        pADJUNTO_BASE  IN VARCHAR2
+  );
+  
+  PROCEDURE USP_SEL_GET_MEDMIT(
+        pID_MEDMIT    IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+  );
 
 END PKG_MRV_MANTENIMIENTO;
 
@@ -10710,6 +10740,134 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
   END USP_SEL_LISTA_ANNO_ACTUAL;
 
 --/////////////////////////////////////////DINAMICO FINAL
+
+  --//////////////////////////////// 27-02-20
+  PROCEDURE USP_SEL_LISTA_IPCC(
+        pRefcursor  OUT SYS_REFCURSOR
+   ) AS
+     BEGIN
+             OPEN    pRefcursor FOR
+            SELECT  ID_IPCC,
+                    IPCC
+            FROM    T_MAE_IPCC
+            WHERE   NVL(FLAG_ESTADO,1) = 1;
+  END USP_SEL_LISTA_IPCC;
+  
+  PROCEDURE USP_SEL_LISTA_MEDMIT_MANT(
+        pBuscar     VARCHAR2,
+        pRegistros  INTEGER,
+        pPagina     INTEGER,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    )
+    AS
+        vPaginas    INTEGER;
+        vTotal      INTEGER;
+        vPagina2    INTEGER := pPagina;
+        vPageIndex  INTEGER := 0;
+        vQuery      VARCHAR2(10000) := '';
+        vSortColumn2 VARCHAR2(1000);
+    BEGIN
+        SELECT  COUNT(1) INTO vTotal
+        FROM    T_MAE_MEDMIT M
+                LEFT JOIN   T_MAE_NAMA NA ON M.ID_NAMA = NA.ID_NAMA
+                LEFT JOIN   T_MAE_IPCC ICC ON M.ID_IPCC = ICC.ID_IPCC
+                WHERE M.FLAG_ESTADO = '1' AND
+                (LOWER(TRANSLATE(M.NUMERO_MEDMIT,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like '%'|| LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) ||'%'
+                OR LOWER(TRANSLATE(M.NOMBRE_MEDMIT,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like '%'||LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou'))||'%' 
+                OR LOWER(TRANSLATE(M.DESCRIPCION_MEDMIT,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like '%'||LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou'))||'%'
+                OR LOWER(TRANSLATE(M.OBJETIVO_MEDMIT,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like '%'||LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou'))||'%'
+                OR LOWER(TRANSLATE(ICC.IPCC,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like '%'||LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou'))||'%' );
+
+        vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
+        IF vPagina2 = 0 THEN
+            vPagina2 := 1;
+        END IF;
+        IF vPagina2 > vPaginas THEN
+            vPagina2 := vPaginas;
+        END IF;
+        vPageIndex := vPagina2 - 1;
+        vSortColumn2 := pSortColumn;
+
+        vQuery := 'SELECT *    FROM (
+        SELECT      M.ID_MEDMIT,
+                    M.NUMERO_MEDMIT,
+                    M.NOMBRE_MEDMIT,
+                    M.DESCRIPCION_MEDMIT,
+                    M.OBJETIVO_MEDMIT,
+                    ICC.IPCC IPSC_MEDMIT,
+                    ROW_NUMBER() OVER (ORDER BY ' || vSortColumn2 || ' ' || pSortOrder ||') AS ROWNUMBER,'
+                    || vPaginas || ' AS total_paginas,'
+                    || vPagina2 || ' AS pagina,'
+                    || pRegistros || ' AS cantidad_registros,'
+                    || vTotal || ' AS total_registros
+                FROM T_MAE_MEDMIT M
+                LEFT JOIN   T_MAE_NAMA NA ON M.ID_NAMA = NA.ID_NAMA
+                LEFT JOIN   T_MAE_IPCC ICC ON M.ID_IPCC = ICC.ID_IPCC
+                WHERE M.FLAG_ESTADO = ''1'' AND
+                (LOWER(TRANSLATE(M.NUMERO_MEDMIT,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' 
+                OR LOWER(TRANSLATE(M.NOMBRE_MEDMIT,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou''))||''%'' 
+                OR LOWER(TRANSLATE(M.DESCRIPCION_MEDMIT,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou''))||''%''
+                OR LOWER(TRANSLATE(M.OBJETIVO_MEDMIT,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou''))||''%''
+                OR LOWER(TRANSLATE(ICC.IPCC,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou''))||''%'' )
+                )
+                WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
+        OPEN pRefcursor FOR vQuery;
+    END USP_SEL_LISTA_MEDMIT_MANT;
+    
+    PROCEDURE USP_INS_MEDMIT(
+        pID_MEDMIT    IN VARCHAR2,
+        pNOMBRE_MEDMIT  IN VARCHAR2,
+        pNUMERO_MEDMIT     IN VARCHAR2,
+        pDESCRIPCION_MEDMIT IN VARCHAR2,
+        pID_NAMA  IN NUMBER,
+        pOBJETIVO_MEDMIT  IN VARCHAR2,
+        pID_IPCC  IN NUMBER,
+        pADJUNTO  IN VARCHAR2,
+        pADJUNTO_BASE  IN VARCHAR2
+  )IS
+        vIdMedmit NUMBER;
+  BEGIN
+        IF pID_MEDMIT = 0 THEN
+            SELECT SQ_GENM_MEDMIT.NEXTVAL INTO vIdMedmit FROM DUAL;
+            --SELECT NVL(MAX(ID_MEDMIT),0)+1 INTO vIdMedmit FROM T_MAE_MEDMIT;
+            INSERT INTO T_MAE_MEDMIT (ID_MEDMIT, NOMBRE_MEDMIT, NUMERO_MEDMIT, DESCRIPCION_MEDMIT, ID_NAMA, OBJETIVO_MEDMIT, ID_IPCC, ADJUNTO, ADJUNTO_BASE, FLAG_ESTADO)
+            VALUES (vIdMedmit, pNOMBRE_MEDMIT, pNUMERO_MEDMIT, pDESCRIPCION_MEDMIT, pID_NAMA, pOBJETIVO_MEDMIT, pID_IPCC, pADJUNTO, pADJUNTO_BASE, '1');
+        ELSE
+            UPDATE  T_MAE_MEDMIT
+            SET     NOMBRE_MEDMIT = pNOMBRE_MEDMIT,
+                    NUMERO_MEDMIT = pNUMERO_MEDMIT,
+                    DESCRIPCION_MEDMIT = pDESCRIPCION_MEDMIT,
+                    ID_NAMA = pID_NAMA,
+                    OBJETIVO_MEDMIT = pOBJETIVO_MEDMIT,
+                    ID_IPCC = pID_IPCC
+            WHERE   ID_MEDMIT = pID_MEDMIT;
+            
+            IF pADJUNTO = '' THEN
+                SELECT '0' INTO vIdMedmit FROM DUAL;
+            ELSE
+                UPDATE  T_MAE_MEDMIT
+                SET     ADJUNTO = pADJUNTO,
+                        ADJUNTO_BASE = pADJUNTO_BASE
+                WHERE   ID_MEDMIT = pID_MEDMIT;
+            END IF;
+        END IF;
+  END USP_INS_MEDMIT;
+  
+  PROCEDURE USP_SEL_GET_MEDMIT(
+        pID_MEDMIT    IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+  )AS
+  BEGIN
+        OPEN pRefcursor FOR
+        SELECT  M.NOMBRE_MEDMIT, M.NUMERO_MEDMIT, M.DESCRIPCION_MEDMIT, M.ID_NAMA, M.ID_IPCC, M.OBJETIVO_MEDMIT, M.ID_MEDMIT,
+                NA.DESCRIPCION_NAMA, ICC.IPCC, M.ADJUNTO, M.ADJUNTO_BASE
+        FROM    T_MAE_MEDMIT M
+        LEFT JOIN T_MAE_NAMA NA ON M.ID_NAMA = NA.ID_NAMA
+        LEFT JOIN T_MAE_IPCC ICC ON M.ID_IPCC = ICC.ID_IPCC
+        WHERE M.ID_MEDMIT = pID_MEDMIT;
+  END USP_SEL_GET_MEDMIT;
 
     
 

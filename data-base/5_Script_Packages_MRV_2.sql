@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - jueves-febrero-27-2020   
+-- Archivo creado  - viernes-febrero-28-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_NOTIFICACION
@@ -832,7 +832,7 @@ end PKG_MRV_PARAMETROS;
         pIdMedMit   integer,
         pCursor out SYS_REFCURSOR
   ) AS
-  BEGIN
+  BEGIN 
         open pCursor for
         SELECT  ID_ESCENARIO, 
                 E.ID_MEDMIT, 
