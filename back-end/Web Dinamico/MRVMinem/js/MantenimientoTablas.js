@@ -35,4 +35,7 @@
     if ($("#cbo-tabla-mantenimiento").val() == 12) {
         location.href = baseUrl + "Mantenimiento/MantenimientoFactores";
     }
+    if ($("#cbo-tabla-mantenimiento").val() == 13) {
+        location.href = baseUrl + "Mantenimiento/MedidaMitigacion";
+    }
 }

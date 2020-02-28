@@ -167,7 +167,7 @@
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
                                     <textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="8" readonly placeholder="Ingrese una descripción para su iniciativa">
-                                            @*Lima&nbsp;
+                                        @*Lima&nbsp;
                                             Arequipa&nbsp;
                                             Tacna*@
                                         @foreach (var item in Model.listaUbicacion)
@@ -217,46 +217,41 @@
                             }
                         </div>
                     </div>
-                    <div class="row">
+                    @*<div class="row">
                         <div class="col-12">
                             <div class="h5 py-5 text-primary">Indicadores</div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12-col-md-12 col-lg-6">
-                            <div class="form-group">
-                                <label for="mlt-energetico" class="font-weight-bold">Energético asociado<span class="text-danger font-weight-bold">&nbsp;</span></label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
-                                    <textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
-                                            @*Combustibles fósiles&nbsp;
-                                            Electricidad&nbsp;*@
-                                        @foreach (var item in Model.listaEnergetico)
-                                        {
-                                            @item.DESCRIPCION <text>&nbsp;</text>
-                                        }
-                                    </textarea>
+                    </div>*@
+                    @*<div class="row">
+                            <div class="col-sm-12-col-md-12 col-lg-6">
+                                <div class="form-group">
+                                    <label for="mlt-energetico" class="font-weight-bold">Energético asociado<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
+                                        <textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
+                                            @foreach (var item in Model.listaEnergetico)
+                                            {
+                                                @item.DESCRIPCION <text>&nbsp;</text>
+                                            }
+                                        </textarea>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-sm-12-col-md-12 col-lg-6">
-                            <div class="form-group">
-                                <label for="mlt-gei" class="font-weight-bold">Gases de efecto invernadero<span class="text-danger font-weight-bold">&nbsp;</span></label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
-                                    <textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
-                                            @*CO2
-                                            y&nbsp;
-                                            CH 2*@
-                                        @foreach (var item in Model.listaGei)
-                                        {
-                                            @item.DESCRIPCION <text>&nbsp;</text>
-                                        }
-                                    </textarea>
+                            <div class="col-sm-12-col-md-12 col-lg-6">
+                                <div class="form-group">
+                                    <label for="mlt-gei" class="font-weight-bold">Gases de efecto invernadero<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
+                                        <textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
+                                            @foreach (var item in Model.listaGei)
+                                            {
+                                                @item.DESCRIPCION <text>&nbsp;</text>
+                                            }
+                                        </textarea>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </div>*@
                 </div>
                 <div class="container pt-5">
                     <div class="row">
@@ -554,7 +549,7 @@
                                 else
                                 {
                                     <input class="custom-control-input" type="checkbox" id="chk-publicar-monto-inversion" disabled>
-                                }                                
+                                }
                                 <label class="custom-control-label" for="chk-publicar-monto-inversion">Hacer público "Monto de inversión"</label>
                             </div>
                         </div>
@@ -675,9 +670,10 @@
                         </div>
                         <div class="modal-footer" id="modalAprobarBoton">
                             <button class="btn btn-primary" type="button" onclick="fn_revisarAdminDetalleIndicador();">Si</button>
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>                            
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
                         </div>
-                        <div class="modal-footer" id="pieCorrectoAprobacion"> <!-- add 04-02-2020 -->
+                        <div class="modal-footer" id="pieCorrectoAprobacion">
+                            <!-- add 04-02-2020 -->
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
                         </div>
                     </div>
@@ -766,9 +762,10 @@
                         </div>
                         <div class="modal-footer" id="modalObservacionBoton">
                             <a class="btn btn-primary" href="#" onclick="fn_observacionAdminDetalleIndicador();">Enviar<i class="fas fa-paper-plane ml-1"></i></a>
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>                            
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
                         </div>
-                        <div class="modal-footer" id="pieCorrectoObservacion"> <!-- add 04-02-2020 -->
+                        <div class="modal-footer" id="pieCorrectoObservacion">
+                            <!-- add 04-02-2020 -->
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
                         </div>
                     </div>

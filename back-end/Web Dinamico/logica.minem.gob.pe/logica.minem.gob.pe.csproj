@@ -55,8 +55,10 @@
     <Compile Include="IndicadorLN.cs" />
     <Compile Include="IniciativaLN.cs" />
     <Compile Include="InstitucionLN.cs" />
+    <Compile Include="IPCCLN.cs" />
     <Compile Include="MedidaMitigacionLN.cs" />
     <Compile Include="MonedaLN.cs" />
+    <Compile Include="NamaLN.cs" />
     <Compile Include="NotificacionLN.cs" />
     <Compile Include="ParametroIndicadorLN.cs" />
     <Compile Include="ParametroLN.cs" />

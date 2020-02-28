@@ -1433,6 +1433,14 @@ function exportarIniciativa() {
     }
 }
 
+function CorreoAdmin() {
+    var url = baseUrl + "Gestion/CorreoAdministrador";
+    var item = {};
+    var respuesta = MRV.Ajax(url, item, false);
+    if (respuesta.success) {
+        $("#correo-admin").html(respuesta.extra);
+    }
+}
 
 $(document).ready(function () {
     CargarOpcionesCuerpo();
@@ -1441,6 +1449,7 @@ $(document).ready(function () {
     CargarEnergeticoLineaBase();
     CargarEnergeticoProyecto();
     if ($("#Control").data("usuario") > 0) {
+        CorreoAdmin();
         if ($("#Control").data("rol") == 2) {
             CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaIniciativasEspecialista");
         } else if ($("#Control").data("rol") == 3) {

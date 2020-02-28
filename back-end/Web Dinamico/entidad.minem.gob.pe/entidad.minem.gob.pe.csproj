@@ -44,6 +44,8 @@
     <Compile Include="BaseBE.cs" />
     <Compile Include="BusquedaAvanzadaBE.cs" />
     <Compile Include="BusquedaSimpleBE.cs" />
+    <Compile Include="IPCCBE.cs" />
+    <Compile Include="NamaBE.cs" />
     <Compile Include="EnergeticoBE.cs" />
     <Compile Include="EnfoqueBE.cs" />
     <Compile Include="EnfoqueAuxBE.cs" />
@@ -66,6 +68,7 @@
     <Compile Include="InstitucionAuxBE.cs" />
     <Compile Include="InstitucionBE.cs" />
     <Compile Include="InstitucionRptBE.cs" />
+    <Compile Include="MedidaMitigacionAuxBE.cs" />
     <Compile Include="MedidaMitigacionBE.cs" />
     <Compile Include="MedMitRptBE.cs" />
     <Compile Include="MonedaBE.cs" />

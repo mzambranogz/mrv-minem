@@ -196,12 +196,18 @@ function validarCampo() {
     if ($("#txt-fecha-inicio").val() == ""){
         return false;
     }
+    debugger;
+    if ($("#txt-fecha-fin").val() != "") {
+        if ($("#txt-fecha-inicio").val() > $("#txt-fecha-fin").val()) {
+            return false;
+        }
+    }
     if (!validarCheck("#listaUbicacion", "#U")) {
         return false;
     }
-    if (!validarCheck("#listaEnerg", "#E")) {
-        return false;
-    }
+    //if (!validarCheck("#listaEnerg", "#E")) {
+    //    return false;
+    //}
     //if (!validarCheck("#listaGei", "#G")){
     //    return false;
     //}
@@ -209,7 +215,7 @@ function validarCampo() {
 }
 
 function fn_procesoIniciativa(url, estado) {
-     
+
     if (estado == 1 || estado == 5) {
         if (!validarCampo()) {
             $('#mensajeModalRegistrar #mensajeGoodRegistro').remove();
@@ -229,174 +235,180 @@ function fn_procesoIniciativa(url, estado) {
             msj = msj + '                           </div>';
             msj = msj + '                           <div class="alert-wrap">';
             msj = msj + '                                <h6>Error de registro</h6>';
-            msj = msj + '                                <hr><small class="mb-0">Por favor, completar los campos obligatorios (*).</small>';
-            msj = msj + '                           </div>';
-            msj = msj + '                     </div>';
-            $('#mensajeModalRegistrar').append(msj);
-            return false;
+            if ($("#txt-fecha-fin").val() != "") {
+                if ($("#txt-fecha-inicio").val() > $("#txt-fecha-fin").val())
+                    msj = msj + '                                <hr><small class="mb-0">Por favor, verificar la fecha inicio y fin del proyecto.</small>';
+                else
+                    msj = msj + '                                <hr><small class="mb-0">Por favor, completar los campos obligatorios.</small>';
+                msj = msj + '                           </div>';
+                msj = msj + '                     </div>';
+                $('#mensajeModalRegistrar').append(msj);
+                return false;
+            }
         }
-    }
-    var terminos = $("#chk-publicar").prop("checked");
-    var inversion = $("#chk-publicar-monto-inversion").prop("checked");
-    var privacidad = '0';
-    var privacidad_monto = '0';
-    if (terminos) {
-        privacidad = '1'; //0 - PRIVADO : 1 - PUBLICO
-    }
-    if (inversion){
-        privacidad_monto = '1'; //0 - PRIVADO : 1 - PUBLICO
-    }
-
-    var energetico = "";
-    for (var i = 0; i < $("#listaEnerg").data("cantidad") ; i++) {
-        if ($('#E' + (i + 1)).prop('checked')) {
-            energetico = energetico + $('#E' + (i + 1)).data("value") + "," + "1/";
+        var terminos = $("#chk-publicar").prop("checked");
+        var inversion = $("#chk-publicar-monto-inversion").prop("checked");
+        var privacidad = '0';
+        var privacidad_monto = '0';
+        if (terminos) {
+            privacidad = '1'; //0 - PRIVADO : 1 - PUBLICO
         }
-    }
-    energetico = energetico.substring(0, energetico.length - 1);
-
-    var gei = "";
-    //for (var i = 0; i < $("#listaGei").data("cantidad") ; i++) {
-    //    if ($('#G' + (i + 1)).prop('checked')) {
-    //        gei = gei + $('#G' + (i + 1)).data("value") + "," + "1/";
-    //    }
-    //}
-    //gei = gei.substring(0, gei.length - 1);
-
-    var ubicacion = "";
-    for (var i = 0; i < $("#listaUbicacion").data("cantidad") ; i++) {
-        if ($('#U' + (i + 1)).prop('checked')) {
-            ubicacion = ubicacion + $('#U' + (i + 1)).data("value") + "," + "1/";
+        if (inversion) {
+            privacidad_monto = '1'; //0 - PRIVADO : 1 - PUBLICO
         }
-    }
-    ubicacion = ubicacion.substring(0, ubicacion.length - 1);
 
-    var monto_inversion = $("#txt-monto-inversion").val();
-    monto_inversion = monto_inversion.replace(',', '');
-    debugger;
-    var item = {
-        ID_INICIATIVA: $("#Control").data("iniciativa"), //
-        ID_MEDMIT: $("#Control").data("mitigacion"),
-        ID_USUARIO: $("#Control").data("usuario"),
-        NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
-        DESC_INICIATIVA: $("#txa-descripcion-medida").val(),
-        PRIVACIDAD_INICIATIVA: privacidad,
-        PRIVACIDAD_INVERSION: privacidad_monto,
-        INVERSION_INICIATIVA: monto_inversion,
-        ID_MONEDA: $("#cbo-moneda").val(),
-        FECHA_IMPLE_INICIATIVA: $("#txt-fecha-inicio").val(),
-        FECHA_FIN_INICIATIVA: $("#txt-fecha-fin").val(),
-        ID_ESTADO: estado,
-        ENERGETICO: energetico,
-        GEI: gei,
-        UBICACION: ubicacion
-    };
-    var mensaje = "";
-    var respuesta = MRV.Ajax(url, item, false);
-    if (respuesta.success) {
-        if (estado == 0) {
-            $("#mensajeModalAvance #mensajeDangerAvance").remove();
-            var msj =   '                   <div class="col-sm-12 col-md-12 col-lg-12" id="mensajeWarningAvance">';
-            msj = msj + '                       <div class="alert alert-warning d-flex align-items-stretch" role="alert">';
-            msj = msj + '                            <div class="alert-wrap mr-3">';
-            msj = msj + '                                <div class="sa">';
-            msj = msj + '                                    <div class="sa-warning">';
-            msj = msj + '                                        <div class="sa-warning-body"></div>';
-            msj = msj + '                                        <div class="sa-warning-dot"></div>';
-            msj = msj + '                                    </div>';
-            msj = msj + '                                </div>';
-            msj = msj + '                            </div>';
-            msj = msj + '                            <div class="alert-wrap">';
-            msj = msj + '                                <h6>Sus avances fueron guardados</h6>';
-            msj = msj + '                                <hr>Recuerde, podrá solicitar una revisión una vez complete todos los campos obligatorios.';
-            msj = msj + '                            </div>';
-            msj = msj + '                        </div>';
-            msj = msj + '                    </div>';
-            $("#guardar-avance #modalAvanceBoton").hide();
-            $("#pieCorrectoAvance").show();
-            $('#mensajeModalAvance').append(msj);
+        var energetico = "";
+        //for (var i = 0; i < $("#listaEnerg").data("cantidad") ; i++) {
+        //    if ($('#E' + (i + 1)).prop('checked')) {
+        //        energetico = energetico + $('#E' + (i + 1)).data("value") + "," + "1/";
+        //    }
+        //}
+        //energetico = energetico.substring(0, energetico.length - 1);
+
+        var gei = "";
+        //for (var i = 0; i < $("#listaGei").data("cantidad") ; i++) {
+        //    if ($('#G' + (i + 1)).prop('checked')) {
+        //        gei = gei + $('#G' + (i + 1)).data("value") + "," + "1/";
+        //    }
+        //}
+        //gei = gei.substring(0, gei.length - 1);
+
+        var ubicacion = "";
+        for (var i = 0; i < $("#listaUbicacion").data("cantidad") ; i++) {
+            if ($('#U' + (i + 1)).prop('checked')) {
+                ubicacion = ubicacion + $('#U' + (i + 1)).data("value") + "," + "1/";
+            }
+        }
+        ubicacion = ubicacion.substring(0, ubicacion.length - 1);
+        debugger;
+        var monto_inversion = $("#txt-monto-inversion").val();
+        monto_inversion = String(monto_inversion);
+        monto_inversion = monto_inversion.replace(/,/gi, '');
+
+        var item = {
+            ID_INICIATIVA: $("#Control").data("iniciativa"), //
+            ID_MEDMIT: $("#Control").data("mitigacion"),
+            ID_USUARIO: $("#Control").data("usuario"),
+            NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
+            DESC_INICIATIVA: $("#txa-descripcion-medida").val(),
+            PRIVACIDAD_INICIATIVA: privacidad,
+            PRIVACIDAD_INVERSION: privacidad_monto,
+            INVERSION_INICIATIVA: monto_inversion,
+            ID_MONEDA: $("#cbo-moneda").val(),
+            FECHA_IMPLE_INICIATIVA: $("#txt-fecha-inicio").val(),
+            FECHA_FIN_INICIATIVA: $("#txt-fecha-fin").val(),
+            ID_ESTADO: estado,
+            ENERGETICO: energetico,
+            GEI: gei,
+            UBICACION: ubicacion
+        };
+        var mensaje = "";
+        var respuesta = MRV.Ajax(url, item, false);
+        if (respuesta.success) {
+            if (estado == 0) {
+                $("#mensajeModalAvance #mensajeDangerAvance").remove();
+                var msj = '                   <div class="col-sm-12 col-md-12 col-lg-12" id="mensajeWarningAvance">';
+                msj = msj + '                       <div class="alert alert-warning d-flex align-items-stretch" role="alert">';
+                msj = msj + '                            <div class="alert-wrap mr-3">';
+                msj = msj + '                                <div class="sa">';
+                msj = msj + '                                    <div class="sa-warning">';
+                msj = msj + '                                        <div class="sa-warning-body"></div>';
+                msj = msj + '                                        <div class="sa-warning-dot"></div>';
+                msj = msj + '                                    </div>';
+                msj = msj + '                                </div>';
+                msj = msj + '                            </div>';
+                msj = msj + '                            <div class="alert-wrap">';
+                msj = msj + '                                <h6>Sus avances fueron guardados</h6>';
+                msj = msj + '                                <hr>Recuerde, podrá solicitar una revisión una vez complete todos los campos obligatorios.';
+                msj = msj + '                            </div>';
+                msj = msj + '                        </div>';
+                msj = msj + '                    </div>';
+                $("#guardar-avance #modalAvanceBoton").hide();
+                $("#pieCorrectoAvance").show();
+                $('#mensajeModalAvance').append(msj);
+            } else {
+                $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
+                var msj = '                       <div class="alert alert-success d-flex align-items-stretch" role="alert" id="mensajeGoodRegistro">';
+                msj = msj + '                            <div class="alert-wrap mr-3">';
+                msj = msj + '                                <div class="sa">';
+                msj = msj + '                                    <div class="sa-success">';
+                msj = msj + '                                        <div class="sa-success-tip"></div>';
+                msj = msj + '                                        <div class="sa-success-long"></div>';
+                msj = msj + '                                        <div class="sa-success-placeholder"></div>';
+                msj = msj + '                                        <div class="sa-success-fix"></div>';
+                msj = msj + '                                    </div>';
+                msj = msj + '                                </div>';
+                msj = msj + '                            </div>';
+                msj = msj + '                            <div class="alert-wrap">';
+                msj = msj + '                                <h6>Bien hecho</h6>';
+                msj = msj + '                                <hr><small class="mb-0">Los datos de su iniciativa fueron guardados exitosamente, espere la aprobación del especialista para continuar con el registro de detalle de indicadores. En breve le notificaremos el estado de su solicitud de revisión.</small>';
+                msj = msj + '                            </div>';
+                msj = msj + '                        </div>';
+                $("#solicitar-revision #modalRegistrarBoton").hide();
+                $("#pieCorrecto").show();
+                $('#mensajeModalRegistrar').append(msj);
+                $("#Control").data("modal", 1);
+                //if (respuesta.extra == "1") {
+                if (ws != null) ws.send(respuesta.extra);
+                //}
+            }
         } else {
-            $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
-            var msj = '                       <div class="alert alert-success d-flex align-items-stretch" role="alert" id="mensajeGoodRegistro">';
-            msj = msj + '                            <div class="alert-wrap mr-3">';
-            msj = msj + '                                <div class="sa">';
-            msj = msj + '                                    <div class="sa-success">';
-            msj = msj + '                                        <div class="sa-success-tip"></div>';
-            msj = msj + '                                        <div class="sa-success-long"></div>';
-            msj = msj + '                                        <div class="sa-success-placeholder"></div>';
-            msj = msj + '                                        <div class="sa-success-fix"></div>';
-            msj = msj + '                                    </div>';
-            msj = msj + '                                </div>';
-            msj = msj + '                            </div>';
-            msj = msj + '                            <div class="alert-wrap">';
-            msj = msj + '                                <h6>Bien hecho</h6>';
-            msj = msj + '                                <hr><small class="mb-0">Los datos de su iniciativa fueron guardados exitosamente, espere la aprobación del especialista para continuar con el registro de detalle de indicadores. En breve le notificaremos el estado de su solicitud de revisión.</small>';
-            msj = msj + '                            </div>';
-            msj = msj + '                        </div>';
-            $("#solicitar-revision #modalRegistrarBoton").hide();
-            $("#pieCorrecto").show();
-            $('#mensajeModalRegistrar').append(msj);
-            $("#Control").data("modal", 1);
-            //if (respuesta.extra == "1") {
-            if (ws != null) ws.send(respuesta.extra);
-            //}
+            if (estado == 0) {
+                $("#mensajeModalAvance #mensajeWarningAvance").remove();
+                $("#mensajeModalAvance #mensajeDangerAvance").remove();
+                var msj = '                   <div class="col-sm-12 col-md-12 col-lg-12" id="mensajeDangerAvance">';
+                msj = msj + '                       <div class="alert alert-danger d-flex align-items-stretch" role="alert">';
+                msj = msj + '                            <div class="alert-wrap mr-3">';
+                msj = msj + '                                <div class="sa">';
+                msj = msj + '                                    <div class="sa-error">';
+                msj = msj + '                                       <div class="sa-error-x">';
+                msj = msj + '                                           <div class="sa-error-left"></div>';
+                msj = msj + '                                           <div class="sa-error-right"></div>';
+                msj = msj + '                                       </div>';
+                msj = msj + '                                       <div class="sa-error-placeholder"></div>';
+                msj = msj + '                                       <div class="sa-error-fix"></div>';
+                msj = msj + '                                   </div>';
+                msj = msj + '                               </div>';
+                msj = msj + '                           </div>';
+                msj = msj + '                            <div class="alert-wrap">';
+                msj = msj + '                                <h6>Error</h6>';
+                msj = msj + '                                <hr>Ocurrio un error durante el proceso de guardado del avance de la Iniciativa.';
+                msj = msj + '                            </div>';
+                msj = msj + '                        </div>';
+                msj = msj + '                    </div>';
+                $('#mensajeModalAvance').append(msj);
+            } else {
+                $('#mensajeModalRegistrar #mensajeGoodRegistro').remove();
+                $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
+                var msj = '                       <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="mensajeDangerRegistro">';
+                msj = msj + '                            <div class="alert-wrap mr-3">';
+                msj = msj + '                                <div class="sa">';
+                msj = msj + '                                    <div class="sa-error">';
+                msj = msj + '                                       <div class="sa-error-x">';
+                msj = msj + '                                           <div class="sa-error-left"></div>';
+                msj = msj + '                                           <div class="sa-error-right"></div>';
+                msj = msj + '                                       </div>';
+                msj = msj + '                                       <div class="sa-error-placeholder"></div>';
+                msj = msj + '                                       <div class="sa-error-fix"></div>';
+                msj = msj + '                                   </div>';
+                msj = msj + '                               </div>';
+                msj = msj + '                           </div>';
+                msj = msj + '                           <div class="alert-wrap">';
+                msj = msj + '                                <h6>Error de registro</h6>';
+                msj = msj + '                                <hr><small class="mb-0">Verifique que los datos sean correctamente ingresados, complete todos los campos obligatorios e intente otra vez.</small>';
+                msj = msj + '                           </div>';
+                msj = msj + '                     </div>';
+                $('#mensajeModalRegistrar').append(msj);
+            }
         }
-    } else {
-        if (estado == 0) {
-            $("#mensajeModalAvance #mensajeWarningAvance").remove();
-            $("#mensajeModalAvance #mensajeDangerAvance").remove();
-            var msj = '                   <div class="col-sm-12 col-md-12 col-lg-12" id="mensajeDangerAvance">';
-            msj = msj + '                       <div class="alert alert-danger d-flex align-items-stretch" role="alert">';
-            msj = msj + '                            <div class="alert-wrap mr-3">';
-            msj = msj + '                                <div class="sa">';
-            msj = msj + '                                    <div class="sa-error">';
-            msj = msj + '                                       <div class="sa-error-x">';
-            msj = msj + '                                           <div class="sa-error-left"></div>';
-            msj = msj + '                                           <div class="sa-error-right"></div>';
-            msj = msj + '                                       </div>';
-            msj = msj + '                                       <div class="sa-error-placeholder"></div>';
-            msj = msj + '                                       <div class="sa-error-fix"></div>';
-            msj = msj + '                                   </div>';
-            msj = msj + '                               </div>';
-            msj = msj + '                           </div>';
-            msj = msj + '                            <div class="alert-wrap">';
-            msj = msj + '                                <h6>Error</h6>';
-            msj = msj + '                                <hr>Ocurrio un error durante el proceso de guardado del avance de la Iniciativa.';
-            msj = msj + '                            </div>';
-            msj = msj + '                        </div>';
-            msj = msj + '                    </div>';
-            $('#mensajeModalAvance').append(msj);
-        } else {
-            $('#mensajeModalRegistrar #mensajeGoodRegistro').remove();
-            $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
-            var msj = '                       <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="mensajeDangerRegistro">';
-            msj = msj + '                            <div class="alert-wrap mr-3">';
-            msj = msj + '                                <div class="sa">';
-            msj = msj + '                                    <div class="sa-error">';
-            msj = msj + '                                       <div class="sa-error-x">';
-            msj = msj + '                                           <div class="sa-error-left"></div>';
-            msj = msj + '                                           <div class="sa-error-right"></div>';
-            msj = msj + '                                       </div>';
-            msj = msj + '                                       <div class="sa-error-placeholder"></div>';
-            msj = msj + '                                       <div class="sa-error-fix"></div>';
-            msj = msj + '                                   </div>';
-            msj = msj + '                               </div>';
-            msj = msj + '                           </div>';
-            msj = msj + '                           <div class="alert-wrap">';
-            msj = msj + '                                <h6>Error de registro</h6>';
-            msj = msj + '                                <hr><small class="mb-0">Verifique que los datos sean correctamente ingresados, complete todos los campos obligatorios e intente otra vez.</small>';
-            msj = msj + '                           </div>';
-            msj = msj + '                     </div>';
-            $('#mensajeModalRegistrar').append(msj);
-        }
-    }
 
-    $("#guardar-avance").on("hidden.bs.modal", function () {
+        $("#guardar-avance").on("hidden.bs.modal", function () {
             $("#mensajeModalAvance #mensajeWarningAvance").remove();
             $("#mensajeModalAvance #mensajeDangerAvance").remove();
             $("#guardar-avance #modalAvanceBoton").show();
             $("#pieCorrectoAvance").hide();
-    });
+        });
+    }
 }
 
 $("#solicitar-revision").on("hidden.bs.modal", function () {

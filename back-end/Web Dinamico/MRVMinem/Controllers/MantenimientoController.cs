@@ -12,6 +12,8 @@ using System.Drawing;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using MRVMinem.Tags;
+using System.IO;
+using System.Web.Configuration;
 
 namespace MRVMinem.Controllers
 {
@@ -664,6 +666,107 @@ namespace MRVMinem.Controllers
         {
             List<FactorBE> lista = FactorLN.ListaFactorPaginado(entidad);
 
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        /////////////////////////////////////  MANTENIMIENTO MEDIDA MITIGACION
+
+        public ActionResult MedidaMitigacion(MedidaMitigacionBE entidad)
+        {
+            MvMedidaMitigacion modelo = new MvMedidaMitigacion();
+            if (entidad.pagina == 0)
+            {
+                entidad = new MedidaMitigacionBE() { cantidad_registros = 10, order_by = "ID_MEDMIT", order_orden = "ASC", pagina = 1, buscar = "" };
+            }
+            modelo.listaMedida = MedidaMitigacionLN.ListaMedidaMitigacionMantenimiento(entidad);
+            return View(modelo);
+        }
+
+        public JsonResult ListarPaginadoMedidaMitigacion(MedidaMitigacionBE entidad)
+        {
+            List<MedidaMitigacionBE> lista = MedidaMitigacionLN.ListaMedidaMitigacionMantenimiento(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListaNamaControl(NamaBE entidad)
+        {
+            List<NamaBE> lista = NamaLN.ListaNamaControl(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListaIPCCControl(IPCCBE entidad)
+        {
+            List<IPCCBE> lista = IPCCLN.ListaIPCCControl(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult RegistrarMantenimientoMedida(HttpPostedFileBase fledocumentos, FormCollection forms)
+        {
+            MedidaMitigacionBE entidad = new MedidaMitigacionBE();
+
+            entidad.ID_MEDMIT = int.Parse(Request.Form["ID_MEDMIT"].ToString());
+            entidad.NOMBRE_MEDMIT = Request.Form["NOMBRE_MEDMIT"].ToString();
+            entidad.NUMERO_MEDMIT = Request.Form["NUMERO_MEDMIT"].ToString();
+            entidad.DESCRIPCION_MEDMIT = Request.Form["DESCRIPCION_MEDMIT"].ToString();
+            entidad.ID_NAMA = int.Parse(Request.Form["ID_NAMA"].ToString());
+            entidad.OBJETIVO_MEDMIT = Request.Form["OBJETIVO_MEDMIT"].ToString();
+            entidad.ID_IPCC = int.Parse(Request.Form["ID_IPCC"].ToString());
+
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            string nomArchivoSave = "";
+            string nomOriginal = "";
+            if (fledocumentos != null)
+            {
+                nomOriginal = fledocumentos.FileName;
+                var content = new byte[fledocumentos.ContentLength];
+                fledocumentos.InputStream.Read(content, 0, fledocumentos.ContentLength);
+                double tamanio = (fledocumentos.ContentLength / 1024);
+                nomArchivoSave = Guid.NewGuid() + Path.GetExtension(fledocumentos.FileName).ToString();
+            }
+            entidad.ADJUNTO = nomArchivoSave;
+            entidad.ADJUNTO_BASE = nomOriginal;
+            entidad = MedidaMitigacionLN.GuardarMedidaMitigacion(entidad);
+
+           if (!entidad.OK)
+           {
+                itemRespuesta.success = false;
+                itemRespuesta.extra = entidad.extra;
+           }
+           else
+           {
+                if (fledocumentos != null)
+                {
+                    try
+                    {
+                        var carpeta = WebConfigurationManager.AppSettings.Get("IMG");
+                        var ruta = Path.Combine(carpeta, nomArchivoSave);
+                        fledocumentos.SaveAs(ruta);
+                        itemRespuesta.success = true;
+                    }
+                    catch (Exception e)
+                    {
+                        itemRespuesta.success = false;
+                        itemRespuesta.extra = e.Message;
+                    }
+                }
+                itemRespuesta.success = true;
+                
+            }
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult BuscarMedidaMitigacion(MedidaMitigacionBE entidad)
+        {
+            List<MedidaMitigacionBE> lista = MedidaMitigacionLN.BuscarMedidaMitigacion(entidad);
             var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;

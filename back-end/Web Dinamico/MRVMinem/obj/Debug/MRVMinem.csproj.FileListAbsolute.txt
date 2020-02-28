@@ -1013,7 +1013,6 @@ C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back
 D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\4.1 Plantilla_Electricos_Consumo_Masivo.xlsm
 D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\4.1 Plantilla_Electricos_Hibrido_Consumo_Masivo.xlsm
 D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\4.1 Plantilla_Electricos_Hibrido_Masivo.xlsm
-C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico\MRVMinem\bin\Documentos\1.2 Plantilla_Eficiencia_energetica_en_el_sector_industrial_Motor.xlsx
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico\MRVMinem\bin\Documentos\1.3 Plantilla_Eficiencia_energetica_comercial.xlsx
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico\MRVMinem\bin\Documentos\1.5 Plantilla_Iluminacion_residencial.xlsx
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico\MRVMinem\bin\Documentos\1.6 Plantilla_Reemplazo_de_lamparas_de_sector_publico.xlsx
@@ -1109,3 +1108,8 @@ C:\Users\User\Desktop\backend\back-end\Web Dinamico\MRVMinem\obj\Debug\RdlCompil
 C:\Users\User\Desktop\backend\back-end\Web Dinamico\MRVMinem\obj\Debug\RdlCompile.compiled
 C:\Users\User\Desktop\backend\back-end\Web Dinamico\MRVMinem\obj\Debug\MRVMinem.dll
 C:\Users\User\Desktop\backend\back-end\Web Dinamico\MRVMinem\obj\Debug\MRVMinem.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico\MRVMinem\bin\images\medida_mitigacion\LEEME.txt
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico\MRVMinem\bin\Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_etiquetado_congeladoras.xlsx
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico\MRVMinem\bin\Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_etiquetado_refrigeradoras.xlsx
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico\MRVMinem\bin\Documentos\1.2 Plantilla_Eficiencia_energetica_sector_industrial_Motor.xlsx
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico\MRVMinem\bin\Documentos\2.1 Plantilla Coccion limpia_vales_fise.xlsx

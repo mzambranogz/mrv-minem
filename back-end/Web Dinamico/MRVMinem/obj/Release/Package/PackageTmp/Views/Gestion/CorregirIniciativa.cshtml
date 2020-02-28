@@ -51,7 +51,7 @@
                         <li class="nav-item flex-fill"><a class="nav-link active" id="pills-01-tab" data-toggle="pill" href="#pills-01" role="tab" aria-controls="pills-01" aria-selected="true" order="1">IDENTIFICACIÓN</a></li>
                         <li class="nav-item flex-fill"><a class="nav-link" id="pills-02-tab" data-toggle="pill" href="#pills-02" role="tab" aria-controls="pills-02" aria-selected="false" order="2">DATOS PRINCIPALES</a></li>
                         <li class="nav-item flex-fill"><a class="nav-link" id="pills-03-tab" data-toggle="pill" href="#pills-03" role="tab" aria-controls="pills-03" aria-selected="false" order="3">DATOS GENERALES</a></li>
-                        <li class="nav-item flex-fill"><a class="nav-link" id="pills-04-tab" data-toggle="pill" href="#pills-04" role="tab" aria-controls="pills-04" aria-selected="false" order="4">INDICADORES</a></li>
+                        @*<li class="nav-item flex-fill"><a class="nav-link" id="pills-04-tab" data-toggle="pill" href="#pills-04" role="tab" aria-controls="pills-04" aria-selected="false" order="4">INDICADORES</a></li>*@
                     </ul>
                     <div class="progress" style="height: 20px;">
                         <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
@@ -63,7 +63,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="h5 pb-5 text-primary">
-                                        <div class="steps">PASO 1 DE 4 &nbsp;</div>Identifique la Medida de Mitigación de su Iniciativa&nbsp;<br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. De no estar acorde a la medida de mitigación que se indica, coloqué la medida correcta.</small>
+                                        <div class="steps">PASO 1 DE 3 &nbsp;</div>Identifique la Medida de Mitigación de su Iniciativa&nbsp;<br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. De no estar acorde a la medida de mitigación que se indica, coloqué la medida correcta.</small>
                                     </div>
                                 </div>
                             </div>
@@ -136,7 +136,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="h5 pb-5 text-primary">
-                                        <div class="steps">PASO 2 DE 4 &nbsp;</div>Datos principales<br><small class="text-muted">Complete información</small>
+                                        <div class="steps">PASO 2 DE 3 &nbsp;</div>Datos principales<br><small class="text-muted">Complete información</small>
                                     </div>
                                 </div>
                             </div>
@@ -146,14 +146,14 @@
                                         <label for="txa-nombre-iniciativa">Nombre de la iniciativa<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="En caso no posea un nombre, coloque el nombre de la medida de mitigación seguido de un guión y nombre o siglas de la institución."></i></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-tachometer-alt"></i></span></div>
-                                            <textarea class="form-control" id="txa-nombre-iniciativa" aria-describedby="inputGroup4" cols="30" rows="2" required placeholder="Ingrese un nombre para su iniciativa" maxlength="300"></textarea>
+                                            <textarea class="form-control" id="txa-nombre-iniciativa" aria-describedby="inputGroup4" cols="30" rows="2" maxlength="250" required placeholder="Ingrese un nombre para su iniciativa" maxlength="300"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="txa-descripcion-medida">Descripción de la medida<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indicar la ubicación, tecnología considerada y cantidades de la misma."></i></label>
+                                        <label for="txa-descripcion-medida">Descripción de la iniciativa<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indicar la ubicación, tecnología considerada y cantidades de la misma."></i></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-tachometer-alt"></i></span></div>
-                                            <textarea class="form-control" id="txa-descripcion-medida" aria-describedby="inputGroup5" cols="30" rows="2" required placeholder="Ingrese una descripción para su iniciativa" maxlength="300"></textarea>
+                                            <textarea class="form-control" id="txa-descripcion-medida" aria-describedby="inputGroup5" cols="30" rows="4" maxlength="500" required placeholder="Ingrese una descripción para su iniciativa" maxlength="300"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -211,7 +211,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="h5 pb-5 text-primary">
-                                        <div class="steps">PASO 3 DE 4 &nbsp;</div>Datos generales<br><small class="text-muted">Complete información</small>
+                                        <div class="steps">PASO 3 DE 3 &nbsp;</div>Datos generales<br><small class="text-muted">Complete información</small>
                                     </div>
                                 </div>
                             </div>
@@ -443,14 +443,17 @@
                                 <div class="col-sm-12 col-md-12 col-lg-6"><span class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</span></div>
                                 <div class="col-sm-12 col-md-12 col-lg-6 text-right">
                                     <div class="row justify-content-end">
-                                        <div class="col-lg-6"><a class="btn btn-dark px-5 w-100 nav-tab text-center mb-3" href="#" dest="2"><i class="fas fa-arrow-left pr-1"></i>Anterior</a></div>
-                                        <div class="col-lg-6"><a class="btn btn-success px-5 w-100 nav-tab text-center" href="#" dest="4">Siguiente<i class="fas fa-arrow-right pl-1"></i></a></div>
+                                        @*<div class="col-lg-6"><a class="btn btn-dark px-5 w-100 nav-tab text-center mb-3" href="#" dest="2"><i class="fas fa-arrow-left pr-1"></i>Anterior</a></div>
+                                        <div class="col-lg-6"><a class="btn btn-success px-5 w-100 nav-tab text-center" href="#" dest="4">Siguiente<i class="fas fa-arrow-right pl-1"></i></a></div>*@
+                                        <div class="col-lg-6"><a class="btn btn-dark px-5 w-100 nav-tab text-center mb-3" href="#" dest="2"><i class="fas fa-arrow-left px-1"></i>Anterior</a></div>
+                                        <div class="col-lg-6"><a class="btn btn-primary px-5 w-100 nav-tab text-center" href="#" data-toggle="modal" data-target="#solicitar-revision">Enviar<i class="fas fa-paper-plane px-1"></i></a></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="pills-04" role="tabpanel" aria-labelledby="pills-04-tab">
+
+                    @*<div class="tab-pane fade" id="pills-04" role="tabpanel" aria-labelledby="pills-04-tab">
                         <div class="container py-5">
                             <div class="row">
                                 <div class="col-12">
@@ -466,7 +469,7 @@
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
                                             <div class="form-control" style="height:90px; overflow-y: auto;" id="listaEnerg">
-                                                <!--<div class="col-auto my-1">
+                                                <div class="col-auto my-1">
                                                   <div class="custom-control custom-checkbox mr-sm-2">
                                                     <input class="custom-control-input" type="checkbox" id="chk-energetico-01">
                                                     <label class="custom-control-label" for="chk-energetico-01">Combustibles fósiles&nbsp;</label>
@@ -477,19 +480,19 @@
                                                     <input class="custom-control-input" type="checkbox" id="chk-energetico-02">
                                                     <label class="custom-control-label" for="chk-energetico-02">Electricidad&nbsp;</label>
                                                   </div>
-                                                </div>-->
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                @*<div class="col-sm-12-col-md-12 col-lg-6">
+                                <div class="col-sm-12-col-md-12 col-lg-6">
                                     <div class="form-group">
                                         <label for="mlt-gei">Gases de efecto invernadero<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione uno o varios GEI de acuerdo a la medida de mitigación seleccionada"></i></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
-                                            <div class="form-control" style="height:90px; overflow-y: auto;" id="listaGei">*@
+                                            <div class="form-control" style="height:90px; overflow-y: auto;" id="listaGei">
 
-                                                <!--<div class="col-auto my-1">
+                                                <div class="col-auto my-1">
                                                   <div class="custom-control custom-checkbox mr-sm-2">
                                                     <input class="custom-control-input" type="checkbox" id="chk-gei-01">
                                                     <label class="custom-control-label" for="chk-gei-01">CO<sub>2</sub></label>
@@ -502,12 +505,12 @@
                                                       CH<sub>2</sub>
                                                     </label>
                                                   </div>
-                                                </div>-->
+                                                </div>
 
-                                            @*</div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>*@
+                                </div>
                             </div>
                             <div class="dropdown-divider my-5"></div>
                             <div class="row">
@@ -520,7 +523,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>*@
+
                 </div>
             </div>
             <div class="modal fade" id="medidas-mitigacion-listado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

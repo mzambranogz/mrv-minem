@@ -688,7 +688,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DsEscenario</DataSetName>
-        <Top>2.53683cm</Top>
+        <Top>5.07683cm</Top>
         <Left>0.63182cm</Left>
         <Height>2.4cm</Height>
         <Width>4.89958cm</Width>
@@ -991,7 +991,7 @@
         </ChartLegends>
         <ChartTitles>
           <ChartTitle Name="Default">
-            <Caption>Escenarios por medida: Lámparas en el sector público</Caption>
+            <Caption>Escenarios por medida de lámparas en el sector público</Caption>
             <Style>
               <BackgroundGradientType>None</BackgroundGradientType>
               <FontWeight>Bold</FontWeight>
@@ -1017,7 +1017,7 @@
           </Style>
         </ChartNoDataMessage>
         <DataSetName>DsEscenario</DataSetName>
-        <Top>5.82146cm</Top>
+        <Top>8.36146cm</Top>
         <Left>4.80188cm</Left>
         <Height>6.66687cm</Height>
         <Width>16.66751cm</Width>
@@ -1038,7 +1038,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>REPORTE DE ESCENARIOS POR MEDIDA: LÁMPARAS EN EL SECTOR PÚBLICO</Value>
+                <Value>REPORTE DE ESCENARIOS POR MEDIDA DE LÁMPARAS EN EL SECTOR PÚBLICO</Value>
                 <Style>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -1051,7 +1051,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>1.08162cm</Top>
+        <Top>3.62162cm</Top>
         <Left>4.96063cm</Left>
         <Height>0.78521cm</Height>
         <Width>16.50876cm</Width>
@@ -1066,8 +1066,128 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="Textbox3">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Leyenda</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox3</rd:DefaultName>
+        <Top>0.31433cm</Top>
+        <Left>3.69286cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Line Name="Line1">
+        <Top>0.91433cm</Top>
+        <Left>3.69286cm</Left>
+        <Height>0cm</Height>
+        <Width>3.04271cm</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Line>
+      <Textbox Name="Textbox5">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>BAU emisiones: </Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>Muestra las emisiones en toneladas de CO2 (dióxido de carbono) por año, antes de la implementación.</Value>
+                <Style>
+                  <FontWeight>Normal</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox5</rd:DefaultName>
+        <Top>1.09071cm</Top>
+        <Left>3.35703cm</Left>
+        <Height>0.6cm</Height>
+        <Width>20.54653cm</Width>
+        <ZIndex>5</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox6">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>BAU Mitigación : </Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>Muestra las emisiones en toneladas de CO2 (dióxido de carbono) por año, antes de la implementación.</Value>
+                <Style>
+                  <FontWeight>Normal</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox6</rd:DefaultName>
+        <Top>1.8671cm</Top>
+        <Left>3.35703cm</Left>
+        <Height>0.6cm</Height>
+        <Width>20.54653cm</Width>
+        <ZIndex>6</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>5.125in</Height>
+    <Height>5.91667in</Height>
     <Style />
   </Body>
   <Width>10.15043in</Width>

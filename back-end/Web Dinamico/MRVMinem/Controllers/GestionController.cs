@@ -1837,7 +1837,16 @@ namespace MRVMinem.Controllers
             itemRespuesta.extra = Convert.ToString(ent.CANTIDAD);
             return Respuesta(itemRespuesta);
         }
-        
+                
+        public JsonResult CorreoAdministrador(UsuarioBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = UsuarioLN.UsuarioAdministrador();
+            itemRespuesta.success = true;
+            itemRespuesta.extra = Convert.ToString(entidad.EMAIL_USUARIO);
+            return Respuesta(itemRespuesta);
+        }
         //EXPORTAR EXCEL
 
         public void ExportarIniciativa(string item)

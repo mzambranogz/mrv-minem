@@ -3043,13 +3043,18 @@ function CargarCuerpoGuardado(filas) {
                                         texto++;
                                         if (data[j]["VERIFICABLE"] == 0){
                                             tr += '<input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-'+ texto +'-'+(i + 1)+'" data-param="'+ data[j]["ID_PARAMETRO"] +'">';
-                                        }else{
-                                            tr += '<input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-'+ texto +'-'+(i + 1)+'" onBlur="fn_calcularValor(this)" data-validar="0" data-param="'+ data[j]["ID_PARAMETRO"] +'">';
+                                        } else {
+                                            tr += '<input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" onBlur="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '">';                                          
                                         }
                                     }
                                 }else{
                                     texto++;
-                                    tr += '<input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-'+ texto +'-'+(i + 1)+'" data-param="'+ data[j]["ID_PARAMETRO"] +'" readonly>';
+                                    if (data[j]["ID_PARAMETRO"] == 11) {
+                                        tr += '<input class="form-control form-control-sm text-center campo-total" type="text" placeholder="" id="txt-det-tbl-1-'+ texto +'-'+(i + 1)+'" data-param="'+ data[j]["ID_PARAMETRO"] +'" readonly>';
+                                    }else{
+                                        tr += '<input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-'+ texto +'-'+(i + 1)+'" data-param="'+ data[j]["ID_PARAMETRO"] +'" readonly>';
+                                    }
+                                    
                                 }
                                 tr += '    </div>';
                                 tr += '</td>'
@@ -3338,7 +3343,6 @@ function CargarDatosCabecera() {
                     tr += '     <th class="text-center" scope="col"><span>N°</span></th>';
                     for (var i = 0; i < data.length; i++) {
                         var columna = "0" + data[i]["ID_GRUPO_INDICADOR"];
-                        debugger;
                         var descripcion = "";
                         if (data[i]["COMBINACION_UNIDAD"] == "" || data[i]["COMBINACION_UNIDAD"] == null) {
                             if (data[i]["PREFIJO"] != null) {
@@ -3536,23 +3540,25 @@ function fn_enviarCalcularValor(item, f) {
             if (data != null && data != "") {
                 if (data.length > 0) {
                     var index = 0;
-                    var total = parseFloat($("#cuerpoTablaIndicador").data("total"));
+                    var total = 0;
                     //var fila = $("#enfoque-" + $("#cbo-enfoque").val()).find("tbody").find("#detalles-tr-" + f).find("[data-param]");
                     var fila = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + f).find("[data-param]");
                     fila.each(function (index, value) {
                         var valor = data[index]["VALOR"];
                         if (!isNaN(valor)) if (valor - Math.floor(valor) != 0) valor = Math.round(valor * 100) / 100
-                        if (data[index]["ID_PARAMETRO"] == 11) total += valor; 
                         $("#" + $(value).attr("id")).val(valor);
                         index++;
                     });
+
+
+                    var fila_total = $("#tablaIndicador").find("tbody").find("tr");
+                    fila_total.each(function (index, value) {
+                        total += parseFloat($(".campo-total").val());
+                    });
+
                     $("#total-detalle").html("").append((Math.round(total * 100) / 100));
                     $("#total-detalle2").html("").append((Math.round(total * 100) / 100));
                     $("#cuerpoTablaIndicador").data("total", total);
-                    //$("#total-detalle").html("");
-                    //$("#total-detalle").append((Math.round(total * 100) / 100));
-                    //$("#cuerpoTablaIndicador").data("total", total);
-                    //$("#cuerpoTablaIndicador").data("row", data.length);
                 }
             } else {
                 //////cargarCuerpoTabla($("#cbo-enfoque").val());

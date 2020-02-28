@@ -161,7 +161,7 @@ namespace MRVMinem.Repositorio
             sb.Append("                 <td style=\"padding: 5px;\"></td>");
             sb.Append("             </tr>");
             sb.Append("         </table>");
-            sb.Append("     </div><span> Procederemos a valdiar dicha información, en breve le confirmaremos nuestra respuesta.</span>");
+            sb.Append("     </div><span> Procederemos a validar dicha información, en breve le confirmaremos nuestra respuesta.</span>");
             sb.Append("     <div style=\"border-left:1px solid #ededed;margin-top:50px;\">");
             sb.Append("         <table style=\"font-family: Roboto; font-size:12px;\" >");
             //sb.Append("             <tr>");

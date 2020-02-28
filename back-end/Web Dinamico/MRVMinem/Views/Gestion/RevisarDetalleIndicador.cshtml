@@ -210,7 +210,7 @@
                             }
                         </div>
                     </div>
-                    <div class="row">
+                    @*<div class="row">
                         <div class="col-12">
                             <div class="h5 py-5 text-primary">Indicadores</div>
                         </div>
@@ -222,8 +222,6 @@
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
                                     <textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
-                                        @*Combustibles fósiles&nbsp;
-                                    Electricidad&nbsp;*@
                                         @foreach (var item in Model.listaEnergetico)
                                         {
                                             @item.DESCRIPCION <text>&nbsp;</text>
@@ -238,9 +236,6 @@
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
                                     <textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
-                                        @*CO2
-                                    y&nbsp;
-                                    CH 2*@
                                         @foreach (var item in Model.listaGei)
                                         {
                                             @item.DESCRIPCION <text>&nbsp;</text>
@@ -249,7 +244,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>*@
                 </div>
                 <div class="container pt-5">
                     <div class="row">

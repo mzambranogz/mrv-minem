@@ -66,8 +66,10 @@
     <Compile Include="IndicadorFormulaDA.cs" />
     <Compile Include="IniciativaDA.cs" />
     <Compile Include="InstitucionDA.cs" />
+    <Compile Include="IPCCDA.cs" />
     <Compile Include="MedidaMitigacionDA.cs" />
     <Compile Include="MonedaDA.cs" />
+    <Compile Include="NamaDA.cs" />
     <Compile Include="NotificacionDA.cs" />
     <Compile Include="OracleDynamicParameters.cs" />
     <Compile Include="ParametroDA.cs" />

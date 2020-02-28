@@ -353,11 +353,10 @@ function fn_validarCampo() {
     var arr = [];
     var clave = $("#txt-pswd").val();
 
-    if ($("#validarUsuario").data("guardar") == 1) {
-        if (!(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test($("#txt-user").val()))) {
-            arr.push("Debe ingresar un correo electrónico válido");
-        }
-    }    
+    
+    if (!(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test($("#txt-user").val()))) {
+        arr.push("Debe ingresar un correo electrónico válido");
+    }  
     
     if ($("#txt-nombre").val().trim() === "") {
         arr.push("Debe ingresar el/los nombre(s) ");
@@ -377,12 +376,16 @@ function fn_validarCampo() {
     if ($("#cbo-sector").val() == 0) {
         arr.push("Debe seleccionar un Sector");
     }
-    if (!(/[a-zñ]/.test(clave) && /[A-ZÑ]/.test(clave) && /[0-9]/.test(clave))) {
-        arr.push("La contraseña debe contener minuscula(s), mayúscula(s), número(s) y caracter(es) especial(es)");
+
+    if ($("#validarUsuario").data("guardar") == 1) {
+        if (!(/[a-zñ]/.test(clave) && /[A-ZÑ]/.test(clave) && /[0-9]/.test(clave))) {
+            arr.push("La contraseña debe contener minuscula(s), mayúscula(s), número(s) y caracter(es) especial(es)");
+        }
+        if (clave.length < 6) {
+            arr.push("La contraseña debe contener 6 o más caracteres");
+        }
     }
-    if (clave.length < 6) {
-        arr.push("La contraseña debe contener 6 o más caracteres");
-    }
+    
     if ($("#cbo-perfil").val() == 0) {
         arr.push("Debe seleccionar un Perfil");
     }

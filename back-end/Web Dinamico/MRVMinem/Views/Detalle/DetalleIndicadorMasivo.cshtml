@@ -756,6 +756,9 @@
     }
 
     function fn_CargarExcel(evt) {
+        $("#txt-declaracion").prop("disabled", true);
+        $("#fledeclaracion").prop("disbled", true);
+        $("#cbo-enfoque").prop("disabled", true);
         $("#cuerpoTablaIndicador").empty();
         $("#fledeclaracion").next().find("label").empty().html('<i class="fas fa-spinner fa-spin px-1"></i> Cargando...');
         var url = baseUrl + 'Detalle/ProcesarExcel';
@@ -791,14 +794,20 @@
                         //for (var i = 0; i < response.length; i++) {
                             //debugger;
                             //CargarTablaIndicador(response, i);
-                        debugger;
+                        $("#txt-declaracion").prop("disabled", false);
+                        $("#fledeclaracion").prop("disbled", false);
+                        $("#cbo-enfoque").prop("disabled", false);
+                        $("#fledeclaracion").val("");
+                        $("#txt-declaracion").val("");
                         $("#cuerpoTablaIndicador").data("flag", 1);
                         CargarDatosExcel(response);
                         //}
                         //$("#cuerpoTablaIndicador").data("row", response.length);
                     }
-                } else {                    
-                    alert(response);
+                } else {
+                    $("#fledeclaracion").val("");
+                    $("#txt-declaracion").val("");
+                    //alert(response);
                 }
             },
             error: function (myXhr, textStatus, errorThrown) {
