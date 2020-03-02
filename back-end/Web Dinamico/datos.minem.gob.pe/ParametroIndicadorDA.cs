@@ -47,7 +47,7 @@ namespace datos.minem.gob.pe
             return entidad;
         }
 
-        public List<ParametroIndicadorBE> ListarParametroIndicador()
+        public List<ParametroIndicadorBE> ListarParametroIndicador(EnfoqueBE entidad)
         {
             List<ParametroIndicadorBE> Lista = null;
             try
@@ -56,6 +56,11 @@ namespace datos.minem.gob.pe
                 {
                     string sp = sPackage + "USP_SEL_LISTA_M_INDICADOR";
                     var p = new OracleDynamicParameters();
+                    p.Add("pBuscar", entidad.buscar);
+                    p.Add("pRegistros", entidad.cantidad_registros);
+                    p.Add("pPagina", entidad.pagina);
+                    p.Add("pSortColumn", entidad.order_by);
+                    p.Add("pSortOrder", entidad.order_orden);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<ParametroIndicadorBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
                 }
@@ -96,6 +101,60 @@ namespace datos.minem.gob.pe
 
             return Lista;
 
+        }
+
+        public ParametroIndicadorBE EliminarMedidaMitigacionDetalle(ParametroIndicadorBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_UPD_M_INDICADOR_DEL";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pID_ENFOQUE", entidad.ID_ENFOQUE);
+                    p.Add("pID_ACTIVO", entidad.ID_ACTIVO);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                    entidad.OK = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+
+            return entidad;
+        }
+
+        public List<ParametroIndicadorBE> ListarMedidaEnfoqueExcel(EnfoqueBE entidad)
+        {
+            List<ParametroIndicadorBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_EXCEL_MED_ENF";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pBuscar", entidad.buscar);
+                    p.Add("pSortColumn", entidad.order_by);
+                    p.Add("pSortOrder", entidad.order_orden);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<ParametroIndicadorBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in Lista)
+                    {
+                        item.ListaParametroInd = getParametroIndicador(item);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
         }
     }
 }

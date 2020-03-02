@@ -533,5 +533,163 @@ namespace datos.minem.gob.pe
             return entidad;
         }
 
+        ////////////////////////////////////////
+        public List<FactorBE> ListaEnfoqueFactor(FactorBE entidad)
+        {
+            List<FactorBE> lista = null;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    //string sp = sPackage3 + "USP_SEL_ALL_MEDMIT";
+                    string sp = sPackage3 + "USP_SEL_LISTA_ENFOQUE";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pBuscar", entidad.buscar);
+                    p.Add("pRegistros", entidad.cantidad_registros);
+                    p.Add("pPagina", entidad.pagina);
+                    p.Add("pSortColumn", entidad.order_by);
+                    p.Add("pSortOrder", entidad.order_orden);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    lista = db.Query<FactorBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in lista)
+                    {
+                        item.listaFactor = ListaEnfoqueFactores(item);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return lista;
+        }
+
+        public List<FactorBE> ListaEnfoqueFactores(FactorBE entidad)
+        {
+            List<FactorBE> lista = null;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage3 + "USP_SEL_LISTA_ENFOQUE_FACTOR";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_ENFOQUE", entidad.ID_ENFOQUE);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    lista = db.Query<FactorBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return lista;
+        }
+
+        public FactorBE ValidarEnfoqueFactor(FactorBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage3 + "USP_UPD_VALIDAR_ENF_FACTOR";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_ENFOQUE", entidad.ID_ENFOQUE);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    entidad = db.Query<FactorBE>(sp, p, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                    entidad.OK = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+
+            return entidad;
+        }
+
+        public FactorBE GuardarEnfoqueFactor(FactorBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    //string sp = sPackage3 + "USP_PRC_MEDIDA_FACTOR";
+                    string sp = sPackage3 + "USP_PRC_ENFOQUE_FACTOR";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_FACTOR", entidad.ID_FACTOR);
+                    p.Add("pID_ENFOQUE", entidad.ID_ENFOQUE);
+                    p.Add("pORDEN", entidad.ORDEN);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                    entidad.OK = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+
+            return entidad;
+        }
+
+        public FactorBE EliminarEnfoqueFactor(FactorBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage3 + "USP_UPD_ELIMINAR_ENF_FACTOR";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_ENFOQUE", entidad.ID_MEDMIT);
+                    p.Add("pID_ELIMINAR_FACTOR", entidad.ID_ELIMINAR_FACTOR);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                    entidad.OK = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+
+            return entidad;
+        }
+
+        public List<FactorBE> ListarEnfoqueFactorExcel(FactorBE entidad)
+        {
+            List<FactorBE> lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage3 + "USP_SEL_EXCEL_ENF_FAC";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pBuscar", entidad.buscar);
+                    p.Add("pSortColumn", entidad.order_by);
+                    p.Add("pSortOrder", entidad.order_orden);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    lista = db.Query<FactorBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in lista)
+                    {
+                        item.listaFactor = ListaEnfoqueFactores(item);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return lista;
+        }
+
     }
 }

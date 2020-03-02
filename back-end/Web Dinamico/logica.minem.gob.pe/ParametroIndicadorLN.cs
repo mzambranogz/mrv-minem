@@ -22,12 +22,23 @@ namespace logica.minem.gob.pe
                 ctrl.ID_MEDMIT = entidad.ID_MEDMIT;
                 ctrl = paramind.RegistrarMedidaMitigacionDetalle(ctrl);
             }
+
+            if (!string.IsNullOrEmpty(entidad.ID_ACTIVO))
+                paramind.EliminarMedidaMitigacionDetalle(entidad);
+
             return ctrl;
         }
 
-        public static List<ParametroIndicadorBE> ListarParametroIndicador()
+        public static List<ParametroIndicadorBE> ListarParametroIndicador(EnfoqueBE entidad)
         {
-            return paramind.ListarParametroIndicador();
+            if (string.IsNullOrEmpty(entidad.buscar)) entidad.buscar = "";
+            return paramind.ListarParametroIndicador(entidad);
+        }
+
+        public static List<ParametroIndicadorBE> ListarMedidaEnfoqueExcel(EnfoqueBE entidad)
+        {
+            if (string.IsNullOrEmpty(entidad.buscar)) entidad.buscar = "";
+            return paramind.ListarMedidaEnfoqueExcel(entidad);
         }
 
         public static List<ParametroIndicadorBE> GetMedidaMitigacionDetalle(ParametroIndicadorBE entidad)

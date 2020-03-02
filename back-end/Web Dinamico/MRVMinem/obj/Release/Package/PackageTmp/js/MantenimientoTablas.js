@@ -30,7 +30,8 @@
         location.href = baseUrl + "Mantenimiento/MedidaMitigacionDetalle";
     }
     if ($("#cbo-tabla-mantenimiento").val() == 11) {
-        location.href = baseUrl + "Mantenimiento/MedidaFactoresData";
+        //location.href = baseUrl + "Mantenimiento/MedidaFactoresData";
+        location.href = baseUrl + "Mantenimiento/EnfoqueFactor";
     }
     if ($("#cbo-tabla-mantenimiento").val() == 12) {
         location.href = baseUrl + "Mantenimiento/MantenimientoFactores";

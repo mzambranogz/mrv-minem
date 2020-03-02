@@ -14,6 +14,8 @@ namespace entidad.minem.gob.pe
         public string ID_ELIMINAR_FACTOR { get; set; }
         public int ORDEN { get; set; }
         public int VALIDAR { get; set; }
+        public int ID_ENFOQUE { get; set; }
+        public string DESCRIPCION { get; set; }
         public List<FactorBE> listaFactor { get; set; }
         public List<FactorParametroBE> ListaFactorParametro { get; set; }
         public List<FactorParametroDataBE> listaFactorData { get; set; }

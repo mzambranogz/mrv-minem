@@ -48,5 +48,16 @@ namespace logica.minem.gob.pe
         {
             return medidaMitigacion.BuscarMedidaMitigacion(entidad);
         }
+
+        public static List<MedidaMitigacionBE> ListarMedidaMitigacionExcel(MedidaMitigacionBE entidad)
+        {
+            if (string.IsNullOrEmpty(entidad.buscar)) entidad.buscar = "";
+            return medidaMitigacion.ListaMedidaMitigacionExcel(entidad);
+        }
+
+        public static MedidaMitigacionBE EliminarMedidaMitigacion(MedidaMitigacionBE entidad)
+        {
+            return medidaMitigacion.EliminarMedidaMitigacion(entidad);
+        }
     }
 }

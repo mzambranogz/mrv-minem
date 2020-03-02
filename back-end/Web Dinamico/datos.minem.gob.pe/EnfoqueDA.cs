@@ -207,5 +207,53 @@ namespace datos.minem.gob.pe
 
             return Lista;
         }
+
+        public EnfoqueBE ValidarMedidaEnfoque(EnfoqueBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_UPD_VALIDAR_MED_ENFOQUE";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pID_ENFOQUE", entidad.ID_ENFOQUE);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    entidad = db.Query<EnfoqueBE>(sp, p, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                    entidad.OK = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+
+            return entidad;
+        }
+
+        ////////////////////////////////////////////////
+        public List<EnfoqueBE> ListarEnfoque()
+        {
+            List<EnfoqueBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_LISTA_ENFOQUE_F";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<EnfoqueBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
     }
 }

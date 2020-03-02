@@ -10,5 +10,6 @@ namespace entidad.minem.gob.pe
     {
         public string DESCRIPCION_MEDMIT { get; set; } 
         public string ENFOQUE { get; set; }
+        public int VALIDAR { get; set; }
     }
 }

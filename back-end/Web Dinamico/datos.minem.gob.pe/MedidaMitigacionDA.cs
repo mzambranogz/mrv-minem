@@ -208,5 +208,52 @@ namespace datos.minem.gob.pe
             return Lista;
         }
 
+        public List<MedidaMitigacionBE> ListaMedidaMitigacionExcel(MedidaMitigacionBE entidad)
+        {
+            List<MedidaMitigacionBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage2 + "USP_SEL_EXCEL_MEDIDAMIT";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pBuscar", entidad.buscar);
+                    p.Add("pSortColumn", entidad.order_by);
+                    p.Add("pSortOrder", entidad.order_orden);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<MedidaMitigacionBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
+        public MedidaMitigacionBE EliminarMedidaMitigacion(MedidaMitigacionBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage2 + "USP_DEL_MEDMIT";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                entidad.extra = ex.Message;
+                Log.Error(ex);
+            }
+
+            return entidad;
+        }
+
     }
 }

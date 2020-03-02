@@ -144,5 +144,44 @@ namespace logica.minem.gob.pe
 
             return entidad;
         }
+        /////////////////////////////////////////////////////////77
+        public static List<FactorBE> listarEnfoqueFactor(FactorBE entidad)
+        {
+            if (string.IsNullOrEmpty(entidad.buscar)) entidad.buscar = "";
+            return factorDA.ListaEnfoqueFactor(entidad);
+        }
+
+        public static List<FactorBE> GetEnfoqueFactor(FactorBE entidad)
+        {
+            return factorDA.ListaEnfoqueFactores(entidad);
+        }
+
+        public static FactorBE ValidarEnfoqueFactor(FactorBE entidad)
+        {
+            return factorDA.ValidarEnfoqueFactor(entidad);
+        }
+
+        public static FactorBE GuardarEnfoqueFactor(FactorBE entidad)
+        {
+            FactorBE e = new FactorBE();
+            foreach (var item in entidad.listaFactor)
+            {
+                e = factorDA.GuardarEnfoqueFactor(item);
+                if (!e.OK) break;
+            }
+
+            if (e.OK)
+            {
+                if (!string.IsNullOrEmpty(entidad.ID_ELIMINAR_FACTOR))
+                    e = factorDA.EliminarEnfoqueFactor(entidad);
+            }
+            return e;
+        }
+
+        public static List<FactorBE> ListarEnfoqueFactorExcel(FactorBE entidad)
+        {
+            if (string.IsNullOrEmpty(entidad.buscar)) entidad.buscar = "";
+            return factorDA.ListarEnfoqueFactorExcel(entidad);
+        }
     }
 }

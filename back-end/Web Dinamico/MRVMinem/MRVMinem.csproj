@@ -168,6 +168,7 @@
     <Content Include="js\jquery.form.js" />
     <Content Include="js\Login.js" />
     <Content Include="js\MantenimientoEnergeticos.js" />
+    <Content Include="js\MantenimientoEnfoqueFactor.js" />
     <Content Include="js\MantenimientoEnfoques.js" />
     <Content Include="js\MantenimientoEscenario.js" />
     <Content Include="js\MantenimientoFactores.js" />
@@ -447,6 +448,7 @@
     <Content Include="Views\Reportes\ReportesVisitante.cshtml" />
     <Content Include="Views\Gestion\Resultados.cshtml" />
     <Content Include="Views\Mantenimiento\MedidaMitigacion.cshtml" />
+    <Content Include="Views\Mantenimiento\EnfoqueFactor.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

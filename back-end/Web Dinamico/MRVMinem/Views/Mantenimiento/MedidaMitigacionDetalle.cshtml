@@ -39,13 +39,13 @@
                     <div class="col-md-12 col-lg-6 pt-4">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
-                            <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#modal-medida-de-mitigacion"><a class="agregar-iniciativa" href="#" @*onclick="fn_cambiarAccion();"*@ data-toggle="tooltip" data-placement="top" title="Empiece a componer la estructura de columnas para sus detalles de idicadores y los enfoques correpsondientes por cada medida de mitigación."><i class="fas fa-plus px-1"></i>Agregar composición</a></span></div>
+                            <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#modal-medida-de-mitigacion"><a class="agregar-iniciativa" href="#" onclick="fn_cambiarAccion();" data-toggle="tooltip" data-placement="top" title="Empiece a componer la estructura de columnas para sus detalles de idicadores y los enfoques correpsondientes por cada medida de mitigación."><i class="fas fa-plus px-1"></i>Agregar composición</a></span></div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12 col-lg-6 pt-4">
-                        <form>
+                        <div>
                             <div class="form-group">
                                 <label for="txt-buscar">Buscar&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Utilice la búsqueda ingresando una descripción para ubicar sus registros"></i></label>
                                 <div class="input-group">
@@ -55,13 +55,13 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-12 col-md-6 col-lg-6">
-                                    <button class="btn btn-success w-100 mb-2"><i class="fas fa-file-download px-1"></i>Descargar Excel</button>
+                                    <button class="btn btn-success w-100 mb-2" onclick="exportarMantenimiento();"><i class="fas fa-file-download px-1"></i>Descargar Excel</button><div id="divExportar"></div>
                                 </div>
-                                <div class="col-sm-12 col-md-6 col-lg-6">
-                                    <button class="btn btn-info w-100 mb-2" type="submit"><i class="fas fa-search px-1"></i>Buscar</button>
+                                <div class="col-sm-12 col-md-6 col-lg-6" id="buscar-usuarios" data-buscar="0" data-campo="">
+                                    <button class="btn btn-info w-100 mb-2" @*type="submit"*@ onclick="fn_buscar();"><i class="fas fa-search px-1"></i>Buscar</button>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
                     <div class="col-md-12 col-lg-6 pt-4">
                         <!--&nbsp;-->
@@ -77,10 +77,10 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr class="bg-primary text-white">
-                                        <th class="text-center" scope="col" width="5%"><span>N°&nbsp;</span></th>
-                                        <th scope="col" width="20%"><span>Medida de Mitigación &nbsp;<i class="fas fa-sort"></i></span></th>
-                                        <th class="text-center" scope="col" width="10%"><span>Enfoque &nbsp;<i class="fas fa-sort"></i></span></th>
-                                        <th scope="col" width="60%"><span>Estructura de columnas &nbsp;<i class="fas fa-sort"></i></span></th>
+                                        <th class="text-center" scope="col" width="5%"><span class="miColumna">N°&nbsp;<i class="fas fa-sort" style="color: lightgray" id="ID_ENFOQUE"></i></span></th>
+                                        <th scope="col" width="20%"><span class="miColumna">Medida de Mitigación &nbsp;<i class="fas fa-sort" style="color: lightgray" id="NOMBRE_MEDMIT"></i></span></th>
+                                        <th class="text-center" scope="col" width="10%"><span class="miColumna">Enfoque &nbsp;<i class="fas fa-sort" style="color: lightgray" id="DESCRIPCION"></i></span></th>
+                                        <th scope="col" width="60%"><span >Estructura de columnas &nbsp;</span></th>
                                         <th class="text-center" scope="col" width="5%">Más</th>
                                     </tr>
                                 </thead>
@@ -91,7 +91,7 @@
                                         {
                                             fila += 1;
                                             <tr id="detalles-tr-1">
-                                                <th class="text-center" data-encabezado="Número" scope="row">@fila</th>
+                                                <th class="text-center" data-encabezado="Número" scope="row">@item.ID_ENFOQUE</th>
                                                 <td data-encabezado="Medida de mitigación">@item.MEDIDA_MIT</td>
                                                 <td class="text-center" data-encabezado="Enfoque">@item.ENFOQUE</td>
                                                 <td data-encabezado="Estructura de columnas">
@@ -99,13 +99,14 @@
                                                         <div class="list-group sortable-list m-0">
                                                             @foreach (var itemD in item.ListaParametroInd)
                                                             {
+                                                                var color = "0"+ itemD.ID_GRUPO_INDICADOR;
                                                                 if (string.IsNullOrEmpty(itemD.FORMULA))
                                                                 {
-                                                                    <div class="p-1 text-center" style="background-color: @itemD.COLOR_GRUPO; color: white;"><small style="font-weight: bold;">@itemD.NOMBRE_PARAMETRO</small></div>
+                                                                    <div class="grupo-columna-@color p-1 text-center" @*style="background-color: @itemD.COLOR_GRUPO; color: white;"*@><small style="font-weight: bold;">@itemD.NOMBRE_PARAMETRO</small></div>
                                                                 }
                                                                 else
                                                                 {
-                                                                    <div class="p-1 text-center" style="background-color: @itemD.COLOR_GRUPO; color: white;"><small style="font-weight: bold;">@itemD.NOMBRE_PARAMETRO<i class="fas fa-square-root-alt cursor-pointer m-2 enfoque-columna-detalle" data-toggle="tooltip" data-placement="top" title="Fórmula: @itemD.FORMULA"></i></small></div>
+                                                                    <div class="grupo-columna-@color p-1 text-center" @*style="background-color: @itemD.COLOR_GRUPO; color: white;"*@><small style="font-weight: bold;">@itemD.NOMBRE_PARAMETRO<i class="fas fa-square-root-alt cursor-pointer m-2 enfoque-columna-detalle" data-toggle="tooltip" data-placement="top" title="Fórmula: @itemD.FORMULA"></i></small></div>
                                                                 }
                                                             }
                                                             @*<div class="grupo-columna-01 p-1 text-center"><small>Lista de equipos<i class="fas fa-square-root-alt cursor-pointer m-2 enfoque-columna-detalle" data-toggle="tooltip" data-placement="top" title="Enfoque: [P1]+[C1500]/[F12]*([P3]-[F1])"></i></small></div>
@@ -127,14 +128,16 @@
                                                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-medida-de-mitigacion" onclick="fn_seleccionarMedidaEnfoque(@item.ID_ENFOQUE,@item.ID_MEDMIT)">
                                                                 <i class="fas fa-edit"></i>&nbsp;
                                                                 Editar
-                                                            </a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion" onclick="fn_eliminarMedidaEnfoque(@item.ID_ENFOQUE,@item.ID_MEDMIT)">
+                                                            </a>@*<a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion" onclick="fn_eliminarMedidaEnfoque(@item.ID_ENFOQUE,@item.ID_MEDMIT)">
                                                                 <i class="fas fa-trash"></i>&nbsp;
                                                                 Eliminar
-                                                            </a>
+                                                            </a>*@
                                                         </div>
                                                     </div>
                                                 </td>
                                             </tr>
+                                            total_reg = @item.total_registros;
+                                            total_pag = @item.total_paginas;
                                         }
                                     }
                                     
@@ -142,32 +145,54 @@
 
 
                             </table>
+                            @{
+                                if (total_reg == 0)
+                                {
+                                    inicio_reg = 0;
+                                    fin_reg = 0;
+                                }
+                                else if (total_reg <= 10)
+                                {
+                                    inicio_reg = 1;
+                                    fin_reg = total_reg;
+                                }
+                                else if (total_reg > 10)
+                                {
+                                    inicio_reg = 1;
+                                    fin_reg = 10;
+                                }
+                            }
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-12 col-lg-6 mt-4"><strong>Resultado:&nbsp;</strong>1 de 10 de 10 registros</div>
+                    <div class="col-sm-12 col-lg-6 mt-4">
+                        <strong>Resultado:&nbsp;</strong><span id="resultado">@inicio_reg - @fin_reg</span> de <span id="total-registros">@total_reg</span> registros
+                    </div>
                     <div class="col-sm-12 col-lg-6 text-right mt-4">
                         <strong>Registros por página&nbsp;</strong>
-                        <select id="catidad-rgistros">
+                        <select id="cantidad-registros" onchange="fn_CargaDatos()">
                             <option value="10" selected>10</option>
                             <option value="25">25</option>
                             <option value="50">50</option>
                             <option value="100">100</option>
                         </select>&nbsp;
-                        1 de 1 páginas&nbsp;
+                        <span id="pagina-actual">1</span> de <span id="total-paginas">@total_pag</span> páginas&nbsp;
                         <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                            <button class="btn btn-primary" type="button"><i class="fas fa-angle-double-left"></i></button>
-                            <button class="btn btn-primary" type="button"><i class="fas fa-angle-left"></i></button>
-                            <input class="ir-pagina" type="number" value="1" min="1">
-                            <button class="btn btn-primary" type="button"><i class="fas fa-angle-right"></i></button>
-                            <button class="btn btn-primary" type="button"><i class="fas fa-angle-double-right"></i></button>
+                            <button class="btn btn-primary" id="primera-pagina" type="button" onclick="fn_avance_grilla(1)"><i class="fas fa-angle-double-left"></i></button>
+                            <button class="btn btn-primary" id="anterior-pagina" type="button" onclick="fn_avance_grilla(2)"><i class="fas fa-angle-left"></i></button>
+                            <input class="ir-pagina" id="pagina" type="number" value="1" min="1" onchange="fn_CargaDatos()">
+                            <button class="btn btn-primary" id="siguiente-pagina" type="button" onclick="fn_avance_grilla(3)"><i class="fas fa-angle-right"></i></button>
+                            <button class="btn btn-primary" id="ultima-pagina" type="button" onclick="fn_avance_grilla(4)"><i class="fas fa-angle-double-right"></i></button>
                         </div>
                     </div>
                 </div>
             </div>
+
+
+
             <div class="modal fade" id="modal-medida-de-mitigacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                <div class="modal-dialog modal-fluid modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Registro de Detalle y Enfoque por Medida de Mitigación <br><small class="text-muted">Complete los siguientes campos para componer los detalles y enfoques de su  medida de mitigación</small><small class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</small></h5>
@@ -215,7 +240,7 @@
 
 
                                         <div class="form-group">
-                                            <label for="mlt-gei">Controles<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="En caso no posea un nombre, coloque el nombre de la medida de mitigación seguido de un guión y nombre o siglas de la institución."></i></label>
+                                            <label for="mlt-gei">Controles<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione uno de los controles asociados para componer las columnas de su detalle de indicadores."></i></label>
                                             <div class="input-group" id="radio-control" data-tipocontrol="@Model.menor">
                                                 <!-- add id data -->
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-wrench"></i></span></div>
@@ -258,7 +283,7 @@
                                                     <div class="col-md-12 col-lg-6" id="control-cbo-@itemC.ID_TIPO_CONTROL" hidden>
                                                         <!-- add id -->
                                                         <div class="form-group">
-                                                            <label for="cbo-campo">Campo asignado<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="En caso no posea un nombre, coloque el nombre de la medida de mitigación seguido de un guión y nombre o siglas de la institución."></i></label>
+                                                            <label for="cbo-campo">Campo asignado<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione un campo según el control seleccionado anterioremente."></i></label>
                                                             <div class="input-group">
                                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="fas fa-list"></i></span></div>
                                                                 <select class="form-control" id="cbo-@itemC.ID_TIPO_CONTROL" aria-describedby="inputGroup10" required>
@@ -300,7 +325,7 @@
                                                 </div>*@
                                             <div class="col-md-12 col-lg-6">
                                                 <div class="form-group">
-                                                    <label for="cbo-grupo">Grupo de indicador<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="En caso no posea un nombre, coloque el nombre de la medida de mitigación seguido de un guión y nombre o siglas de la institución."></i></label>
+                                                    <label for="cbo-grupo">Grupo de indicador<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione o asigne un grupo indicador para identificar la columna en los detalles de indicadores."></i></label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="fas fa-list"></i></span></div>
                                                         <select class="form-control" id="cbo-grupo" aria-describedby="inputGroup10" required>
@@ -311,7 +336,7 @@
                                                                 {
                                                                     i++;
                                                                     var color = "0" + (i);
-                                                                    <option class="grupo-columna-@color" style="background-color: @item.COLOR_GRUPO;" data-color="@item.COLOR_GRUPO" value="@item.ID_GRUPO_INDICADOR">@item.GRUPO_INDICADOR</option>
+                                                                    <option class="grupo-columna-@color" @*style="background-color: @item.COLOR_GRUPO;"*@ data-color="@item.COLOR_GRUPO" value="@item.ID_GRUPO_INDICADOR">@item.GRUPO_INDICADOR</option>
                                                                 }
                                                             }
                                                             @*<option class="grupo-columna-01">Grupo iniciativa</option>
@@ -407,7 +432,8 @@
                                             <h5>Composición del enfoque</h5>
                                             <hr class="my-4">
                                             <div class="row">
-                                                <div class="col-sm-12 col-md-3">
+                                                <div class="col-sm-12 col-md-1"></div>
+                                                <div class="col-sm-12 col-md-2">
                                                     <div class="form-group">
                                                         <label for="cbo-factores">Factores<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione un factor para utilizarlo en la composición de su enfoque"></i></label>
                                                         <div class="input-group">
@@ -419,7 +445,7 @@
                                                                     foreach (var item in Model.listaFactor)
                                                                     {
                                                                         var valor = "F" + @item.ID_FACTOR;
-                                                                        <option value="@valor">@item.NOMBRE_FACTOR</option>
+                                                                        <option value="@valor">[@valor]&nbsp;@item.NOMBRE_FACTOR</option>
                                                                     }
                                                                 }
                                                                 @*<option value="0" selected>[ - Seleccione - ]</option>
@@ -431,7 +457,7 @@
                                                         </div>
                                                     </div><a class="btn btn-success w-100" id="add-factor" href="#" data-value="[0]"><i class="fas fa-plus px-1"></i>Agregar</a>
                                                 </div>
-                                                <div class="col-sm-12 col-md-3">
+                                                <div class="col-sm-12 col-md-2">
                                                     <div class="form-group">
                                                         <label for="cbo-parametros">Parámetros<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione un parámetros para utilizarlo en la composición de su enfoque"></i></label>
                                                         <div class="input-group">
@@ -443,7 +469,7 @@
                                                                     foreach (var item in Model.listaParametro)
                                                                     {
                                                                         var valor = "P" + @item.ID_PARAMETRO;
-                                                                        <option value="@valor">@item.NOMBRE_PARAMETRO</option>
+                                                                        <option value="@valor">[@valor]&nbsp;@item.NOMBRE_PARAMETRO</option>
                                                                     }
                                                                 }
 
@@ -455,26 +481,7 @@
                                                         </div>
                                                     </div><a class="btn btn-success w-100" id="add-parametro" href="#" data-value="[0]"><i class="fas fa-plus px-1"></i>Agregar</a>
                                                 </div>
-                                                <div class="col-sm-12 col-md-3">
-                                                    <div class="form-group">
-                                                        <label for="txt-constante">Constante<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese un valor constante para utilizarlo en la composición de su enfoque"></i></label>
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend"><span class="input-group-text font-weight-bold bg-warning text-dark">C</span></div>
-                                                            <input class="form-control" type="number" id="txt-constante" placeholder="Ingrese una constante">
-                                                        </div>
-                                                    </div><a class="btn btn-success w-100" id="add-constante" href="#" data-value="[C0]"><i class="fas fa-plus px-1"></i>Agregar</a>
-                                                </div>
-                                                <div class="col-sm-12 col-md-3">
-                                                    <div class="form-group">
-                                                        <label for="cbo-campo">Operadores<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione un operador para utilizarlo en la composición de su enfoque"></i></label>
-                                                        <div class="input-group">
-                                                            <div class="btn-group mr-2" role="group" aria-label="First group"><a class="gpo-operador btn btn-secondary font-weight-bold" href="#" data-value="+">+</a><a class="gpo-operador btn btn-secondary font-weight-bold" href="#" data-value="-">-</a><a class="gpo-operador btn btn-secondary font-weight-bold" href="#" data-value="*">*</a><a class="gpo-operador btn btn-secondary font-weight-bold" href="#" data-value="/">/</a><a class="gpo-operador btn btn-secondary font-weight-bold" href="#" data-value="(">(</a><a class="gpo-operador btn btn-secondary font-weight-bold" href="#" data-value=")">)</a></div>
-                                                        </div>
-                                                    </div><a class="btn btn-success w-100" id="add-operador" href="#" data-value="0"><i class="fas fa-plus px-1"></i>Agregar</a>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-12 col-md-3">
+                                                <div class="col-sm-12 col-md-2">
                                                     <div class="form-group">
                                                         <label for="cbo-variables">Variables<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione una variable para utilizarlo en la composición de su enfoque"></i></label>
                                                         <div class="input-group">
@@ -486,14 +493,34 @@
                                                                     foreach (var item in Model.listaVariable)
                                                                     {
                                                                         var valor = "V" + @item.ID_VARIABLE;
-                                                                        <option value="@valor">@item.NOMBRE</option>
+                                                                        <option value="@valor">[@valor]&nbsp;@item.NOMBRE</option>
                                                                     }
                                                                 }
                                                             </select>
                                                         </div>
                                                     </div><a class="btn btn-success w-100" id="add-variable" href="#" data-value="[0]"><i class="fas fa-plus px-1"></i>Agregar</a>
                                                 </div>
+                                                <div class="col-sm-12 col-md-2">
+                                                    <div class="form-group">
+                                                        <label for="txt-constante">Constante<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese un valor constante para utilizarlo en la composición de su enfoque"></i></label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend"><span class="input-group-text font-weight-bold bg-warning text-dark">C</span></div>
+                                                            <input class="form-control" type="number" id="txt-constante" placeholder="Ingrese una constante">
+                                                        </div>
+                                                    </div><a class="btn btn-success w-100" id="add-constante" href="#" data-value="[C0]"><i class="fas fa-plus px-1"></i>Agregar</a>
+                                                </div>
+                                                <div class="col-sm-12 col-md-2">
+                                                    <div class="form-group">
+                                                        <label for="cbo-campo">Operadores<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione un operador para utilizarlo en la composición de su enfoque"></i></label>
+                                                        <div class="input-group">
+                                                            <div class="btn-group mr-2" role="group" aria-label="First group"><a class="gpo-operador btn btn-secondary font-weight-bold" href="#" data-value="+">+</a><a class="gpo-operador btn btn-secondary font-weight-bold" href="#" data-value="-">-</a><a class="gpo-operador btn btn-secondary font-weight-bold" href="#" data-value="*">*</a><a class="gpo-operador btn btn-secondary font-weight-bold" href="#" data-value="/">/</a><a class="gpo-operador btn btn-secondary font-weight-bold" href="#" data-value="(">(</a><a class="gpo-operador btn btn-secondary font-weight-bold" href="#" data-value=")">)</a></div>
+                                                        </div>
+                                                    </div><a class="btn btn-success w-100" id="add-operador" href="#" data-value="0"><i class="fas fa-plus px-1"></i>Agregar</a>
+                                                </div>
                                             </div>
+                                            <div class="col-sm-12 col-md-1"></div>
+                                            @*<div class="row">                                                
+                                            </div>*@
                                             <div class="row">
                                                 <div class="col-12">
                                                     <div class="form-group mt-3">
@@ -542,11 +569,52 @@
                                                 </div>
                                                 <div class="alert-wrap">
                                                     <h6>Error de registro</h6>
+                                                    <hr><small class="mb-0">Ocurrió un problema durante el guardado de los datos, por favor intente nuevamente.</small>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="mensajeCompletar" hidden>
+                                            <div class="alert alert-danger d-flex align-items-stretch" role="alert">
+                                                <div class="alert-wrap mr-3">
+                                                    <div class="sa">
+                                                        <div class="sa-error">
+                                                            <div class="sa-error-x">
+                                                                <div class="sa-error-left"></div>
+                                                                <div class="sa-error-right"></div>
+                                                            </div>
+                                                            <div class="sa-error-placeholder"></div>
+                                                            <div class="sa-error-fix"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="alert-wrap">
+                                                    <h6>Error de registro</h6>
                                                     <hr><small class="mb-0">Verifique que los datos sean correctamente ingresados, complete todos los campos obligatorios e intente otra vez.</small>
                                                 </div>
                                             </div>
                                         </div>
 
+                                        <div id="mensajeValidar" hidden>
+                                            <div class="alert alert-danger d-flex align-items-stretch" role="alert">
+                                                <div class="alert-wrap mr-3">
+                                                    <div class="sa">
+                                                        <div class="sa-error">
+                                                            <div class="sa-error-x">
+                                                                <div class="sa-error-left"></div>
+                                                                <div class="sa-error-right"></div>
+                                                            </div>
+                                                            <div class="sa-error-placeholder"></div>
+                                                            <div class="sa-error-fix"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="alert-wrap">
+                                                    <h6>Error de registro</h6>
+                                                    <hr><small class="mb-0">El enfoque seleccionado ya tiene registrado un grupo de parámetros, por favor intente nuevamente.</small>
+                                                </div>
+                                            </div>
+                                        </div>
 
                                         <div id="mensajeCorrecto" hidden>
                                             <div class="alert alert-success d-flex align-items-stretch" role="alert">
@@ -572,9 +640,14 @@
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-primary" type="button" onclick="fn_guardarMedidaDetalle();">Guardar</button>
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>                            
-                        </div>
+                            <div id="botones-guardar">
+                                <button class="btn btn-primary" type="button" onclick="fn_guardarMedidaDetalle();" id="btn-guardar">Guardar</button>
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal" id="btn-cancelar">Cancelar</button>  
+                            </div>
+                            <div id="botones-cerrar" hidden>
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
+                            </div>                    
+                        </div>                        
                     </div>
                 </div>
             </div>
@@ -599,7 +672,8 @@
     </div>
 </div>
 
-
+@Html.Hidden("columna", "ID_ENFOQUE")
+@Html.Hidden("orden", "ASC")
 
 <script src="~/js/script.js"></script>
 <script src="~/js/MRV.js"></script>

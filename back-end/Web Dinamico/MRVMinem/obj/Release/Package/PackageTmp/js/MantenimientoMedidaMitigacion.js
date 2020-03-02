@@ -167,6 +167,7 @@ function fn_limpiarCampo() {
     $("#txa-objetivo-medida").val("");
     $("#fle-documentos").val("");
     $("#cbo-ipcc").val(0);
+    $("#txt-documentos").val("");
     $("#title-nuevo").hide();
     $("#title-edit").hide();
 }
@@ -174,12 +175,14 @@ function fn_limpiarCampo() {
 function regMantenimiento() {
     fn_limpiarCampo();
     $("#validarUsuario").data("guardar", 1);
+    $("#userMantenimiento").data("value", 0);
     fn_modalInicio();
     $("#title-nuevo").show()
 }
 
 function fn_cargarDatosMantenimiento(id) {
     fn_modalInicio();
+    fn_limpiarCampo();
     $("#validarUsuario").data("guardar", 0)
     $("#title-nuevo").hide()
     $("#title-edit").show();
@@ -341,3 +344,51 @@ function fn_editarMantenimiento() {
     $("#frm-medida").ajaxForm(options);
     $("#frm-medida").submit();
 }
+
+function exportarMantenimiento() {
+    var item = {
+        buscar: $("#buscar-usuarios").data("campo"),
+        order_by: $("#columna").val(),
+        order_orden: $("#orden").val()
+    };
+
+    var url = baseUrl + 'Mantenimiento/ExportarMantenimientoMedidaMitigacion';
+
+    var parametros = {
+        Url: url,
+        Item: JSON.stringify(item)
+    };
+
+    var frm = '<form id = "frmDescarga" name = "frmDescarga" method = "POST" target = "_blank" action = "' + url + '"></form>';
+    var hdn = '<input type = "hidden" id = "url" name = "url" />';
+    var hdnFormato = '<input type = "hidden" id = "formato" name = "formato" />';
+    var hdnItem = '<input type = "hidden" id = "item" name = "item" />';
+    jQuery('#divExportar').append(frm)
+    jQuery(hdn).appendTo(jQuery('#frmDescarga'));
+    jQuery(hdnFormato).appendTo(jQuery('#frmDescarga'));
+    jQuery(hdnItem).appendTo(jQuery('#frmDescarga'));
+    jQuery('#frmDescarga #url').val(parametros.Url);
+    jQuery('#frmDescarga #item').val(parametros.Item);
+    jQuery('#frmDescarga').submit();
+    jQuery('#frmDescarga').remove();
+}
+
+function fn_Seleccionaregistro(id) {
+    $("#userMantenimiento").data("value", id);
+}
+
+function fn_eliminarMantenimiento() {
+    var url = baseUrl + "Mantenimiento/EliminarMedidaMitigacion";
+    var item = {
+        ID_MEDMIT: $("#userMantenimiento").data("value")
+    };
+    var mensaje = "";
+    var respuesta = MRV.Ajax(url, item, false);
+    if (respuesta.success) {
+        fn_CargaDatos();
+    } else {
+    }
+    $("#modal-confirmacion").modal('hide');
+
+}
+

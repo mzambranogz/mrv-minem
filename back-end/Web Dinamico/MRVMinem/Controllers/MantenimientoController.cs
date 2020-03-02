@@ -477,8 +477,12 @@ namespace MRVMinem.Controllers
         }
 
 
-        public ActionResult MedidaMitigacionDetalle()
+        public ActionResult MedidaMitigacionDetalle(EnfoqueBE entidad)
         {
+            if (entidad.pagina == 0)
+            {
+                entidad = new EnfoqueBE() { cantidad_registros = 10, order_by = "ID_ENFOQUE", order_orden = "ASC", pagina = 1, buscar = "" };
+            }
             MvParametro modelo = new MvParametro();
             MedidaMitigacionBE medida = new MedidaMitigacionBE();
             modelo.listaControl = TipoControlLN.listarTipoControl();
@@ -486,15 +490,15 @@ namespace MRVMinem.Controllers
             modelo.listaGrupo = GrupoIniciativaLN.listarGrupoIniciativa();
             modelo.listaMedida = MedidaMitigacionLN.ListarMedidaMitigacion(medida);
             modelo.listaFactor = FactorLN.listarFactores();
-            modelo.listaParametroInd = ParametroIndicadorLN.ListarParametroIndicador();
+            modelo.listaParametroInd = ParametroIndicadorLN.ListarParametroIndicador(entidad);
             modelo.listaVariable = VariableLN.ListaVariables(new VariableBE() { ID_VARIABLE = 0 });
             modelo.menor = getMenorControl(modelo.listaControl);
             return View(modelo);
         }
 
-        public JsonResult ListarMedidaMitigacionDetalle()
+        public JsonResult ListarMedidaMitigacionDetalle(EnfoqueBE entidad)
         {
-            List<ParametroIndicadorBE> lista = ParametroIndicadorLN.ListarParametroIndicador();
+            List<ParametroIndicadorBE> lista = ParametroIndicadorLN.ListarParametroIndicador(entidad);
             var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
@@ -514,6 +518,22 @@ namespace MRVMinem.Controllers
 
             entidad = ParametroIndicadorLN.RegistrarMedidaMitigacionDetalle(entidad);
             itemRespuesta.success = entidad.OK;
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult ValidarMedidaEnfoque(EnfoqueBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+            entidad = EnfoqueLN.ValidarMedidaEnfoque(entidad);
+            if (entidad.VALIDAR > 0)
+            {
+                itemRespuesta.success = false;
+            }
+            else
+            {
+                itemRespuesta.success = true;
+            }
+
             return Respuesta(itemRespuesta);
         }
 
@@ -616,6 +636,102 @@ namespace MRVMinem.Controllers
 
             return Respuesta(itemRespuesta);
         }
+
+        //////////////////////////////////////////////////// MANTENIMIENTO ENFOQUE FACTORES
+
+        public ActionResult EnfoqueFactor(FactorBE entidad)
+        {
+            if (entidad.pagina == 0)
+            {
+                entidad = new FactorBE() { cantidad_registros = 10, order_by = "ID_ENFOQUE", order_orden = "ASC", pagina = 1, buscar = "" };
+            }
+            MvParametro modelo = new MvParametro();
+            modelo.listaEnfoque = EnfoqueLN.ListarEnfoque();
+            modelo.listaFactor = FactorLN.listarFactores();
+            modelo.listaEnfoqueFactor = FactorLN.listarEnfoqueFactor(entidad);
+            return View(modelo);
+        }
+
+        public JsonResult ListarTablaEnfoqueFactor(FactorBE entidad)
+        {
+            List<FactorBE> listaEnfoqueFctor = FactorLN.listarEnfoqueFactor(entidad);
+            var jsonResult = Json(listaEnfoqueFctor, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        //public JsonResult ListaMedidaFactor(FactorBE entidad)
+        //{
+        //    List<FactorBE> lista = FactorLN.listarMedidaFactor();
+        //    var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+        //    jsonResult.MaxJsonLength = int.MaxValue;
+        //    return jsonResult;
+        //}
+
+        public JsonResult GetEnfoqueFactor(FactorBE entidad)
+        {
+            List<FactorBE> lista = FactorLN.GetEnfoqueFactor(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        //public JsonResult ListarCabeceraFactor(FactorParametroBE entidad)
+        //{
+        //    List<FactorParametroBE> lista = FactorLN.ListarCabeceraFactor(entidad);
+        //    var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+        //    jsonResult.MaxJsonLength = int.MaxValue;
+        //    return jsonResult;
+        //}
+
+        //public JsonResult ListarCuerpoFactor(FactorParametroBE entidad)
+        //{
+        //    List<FactorParametroBE> lista = FactorLN.ListarCuerpoFactor(entidad);
+        //    var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+        //    jsonResult.MaxJsonLength = int.MaxValue;
+        //    return jsonResult;
+        //}
+
+        //public JsonResult ListarDatosFactorData(FactorParametroDataBE entidad)
+        //{
+        //    List<FactorParametroDataBE> lista = FactorLN.ListarDatosFactorData(entidad);
+        //    var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+        //    jsonResult.MaxJsonLength = int.MaxValue;
+        //    return jsonResult;
+        //}
+
+        //public JsonResult GuardarFactores(FactorBE entidad)
+        //{
+        //    ResponseEntity itemRespuesta = new ResponseEntity();
+        //    entidad = FactorLN.GuardarFactores(entidad);
+        //    itemRespuesta.success = entidad.OK;
+        //    return Respuesta(itemRespuesta);
+        //}
+
+        public JsonResult GuardarEnfoqueFactor(FactorBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+            entidad = FactorLN.GuardarEnfoqueFactor(entidad);
+            itemRespuesta.success = entidad.OK;
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult ValidarEnfoqueFactor(FactorBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+            entidad = FactorLN.ValidarEnfoqueFactor(entidad);
+            if (entidad.VALIDAR > 0)
+            {
+                itemRespuesta.success = false;
+            }
+            else
+            {
+                itemRespuesta.success = true;
+            }
+
+            return Respuesta(itemRespuesta);
+        }
+
         ////////////////////////////////////////// MANTENIMIENTO FACTORES
 
         public ActionResult MantenimientoFactores(FactorBE entidad)
@@ -731,6 +847,9 @@ namespace MRVMinem.Controllers
                 fledocumentos.InputStream.Read(content, 0, fledocumentos.ContentLength);
                 double tamanio = (fledocumentos.ContentLength / 1024);
                 nomArchivoSave = Guid.NewGuid() + Path.GetExtension(fledocumentos.FileName).ToString();
+            }else
+            {
+                nomArchivoSave = "nul";
             }
             entidad.ADJUNTO = nomArchivoSave;
             entidad.ADJUNTO_BASE = nomOriginal;
@@ -772,7 +891,338 @@ namespace MRVMinem.Controllers
             return jsonResult;
         }
 
+        public JsonResult EliminarMedidaMitigacion(MedidaMitigacionBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = MedidaMitigacionLN.EliminarMedidaMitigacion(entidad);
+            itemRespuesta.success = entidad.OK;
+            itemRespuesta.extra = entidad.extra;
+            return Respuesta(itemRespuesta);
+        }
+
         /////////// exportar excel
+
+        //================================================================== MANTENIMIENTO ENFOQUE FACTOR
+
+        public void ExportarMantenimientoEnfoqueFactor(string item)
+        {
+            try
+            {
+                if (item != null)
+                {
+                    var entidad = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<FactorBE>(item);
+                    ExportarToExcelMantenimientoEnfoqueFactor(entidad);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+        }
+
+        public void ExportarToExcelMantenimientoEnfoqueFactor(FactorBE entidad)
+        {
+            List<FactorBE> lista = null;
+            lista = FactorLN.ListarEnfoqueFactorExcel(entidad);
+            var limite = getMayorControlF(lista);
+            limite += 3;
+
+            int row = 2;
+            try
+            {
+                string cadena_fecha = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+
+                using (ExcelPackage package = new ExcelPackage())
+                {
+                    var ws1 = package.Workbook.Worksheets.Add("LISTA ENFOQUE FACTOR");
+                    using (var m = ws1.Cells[1, 1, row, limite])
+                    {
+                        m.Style.Font.Bold = true;
+                        m.Style.WrapText = true;
+                        m.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        m.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        m.Style.Font.Size = 10;
+                        m.Merge = true;
+                        m.Value = "ENFOQUE FACTOR " + cadena_fecha;
+                    }
+                    ws1.View.FreezePanes(4, 1);
+                    row++;
+                    ws1.Cells["A" + row].Value = "N°";
+                    ws1.Cells["A" + row].AutoFitColumns(5);
+                    ws1.Cells["B" + row].Value = "ENFOQUE";
+                    ws1.Cells["B" + row].AutoFitColumns(50);
+                    ws1.Cells["C" + row].Value = "MEDIDA MITIGACIÓN";
+                    ws1.Cells["C" + row].AutoFitColumns(70);                    
+                    ws1.Cells["D" + row].Value = "FACTOR(ES)";
+                    ws1.Cells["D" + row].AutoFitColumns(30);
+
+                    for (var i = 4; i < limite; i++)
+                    {
+                        ws1.Cells[obtenerLetra(i + 1) + row].Value = "";
+                        ws1.Cells[obtenerLetra(i + 1) + row].AutoFitColumns(40);
+                        FormatoCelda(ws1, obtenerLetra(i + 1), row, 0, 123, 255, 255, 255, 255);
+                    }
+
+                    FormatoCelda(ws1, "A", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "B", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "C", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "D", row, 0, 123, 255, 255, 255, 255);
+                    ws1.Row(row).Height = 42;
+                    row++;
+                    if (lista.Count > 0)
+                    {
+
+                        foreach (FactorBE dt_fila in lista)
+                        {
+                            var xNum = 4;
+                            ws1.Cells["A" + row].Value = dt_fila.ID_ENFOQUE;
+                            ws1.Cells["B" + row].Value = dt_fila.DESCRIPCION;
+                            ws1.Cells["C" + row].Value = dt_fila.NOMBRE_MEDMIT;
+                            foreach (var item in dt_fila.listaFactor)
+                            {
+                                ws1.Cells[obtenerLetra(xNum) + row].Value = item.NOMBRE_FACTOR;
+                                FormatoCelda(ws1, obtenerLetra(xNum), row, 91, 192, 222, 255, 255, 255);
+                                xNum++;
+                            }
+
+                            formatoDetalle(ws1, "A", obtenerLetra(xNum), row);
+                            row++;
+                        }
+                        row++;
+                    }
+
+                    string strFileName = "ENFOQUE_FACTOR_" + DateTime.Now.ToString() + ".xlsx";
+                    Response.Clear();
+                    byte[] dataByte = package.GetAsByteArray();
+                    Response.AddHeader("Content-Disposition", "inline;filename=\"" + strFileName + "\"");
+                    Response.AddHeader("Content-Length", dataByte.Length.ToString());
+                    Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                    Response.BinaryWrite(dataByte);
+                    Response.End();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        //=================================================================== MANTENIMIENTO MEDIDA ENFOQUE
+        public void ExportarMantenimientoMedidaEnfoque(string item)
+        {
+            try
+            {
+                if (item != null)
+                {
+                    var entidad = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<EnfoqueBE>(item);
+                    ExportarToExcelMantenimientoMedidaEnfoque(entidad);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+        }
+
+        public void ExportarToExcelMantenimientoMedidaEnfoque(EnfoqueBE entidad)
+        {
+            List<ParametroIndicadorBE> lista = null;
+            lista = ParametroIndicadorLN.ListarMedidaEnfoqueExcel(entidad);
+            var limite = getMayorControl(lista);
+            limite += 3;
+
+            int row = 2;
+            try
+            {
+                string cadena_fecha = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+
+                using (ExcelPackage package = new ExcelPackage())
+                {
+                    var ws1 = package.Workbook.Worksheets.Add("MEDIDA ENFOQUE");
+                    using (var m = ws1.Cells[1, 1, row, limite])
+                    {
+                        m.Style.Font.Bold = true;
+                        m.Style.WrapText = true;
+                        m.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        m.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        m.Style.Font.Size = 10;
+                        m.Merge = true;
+                        m.Value = "MEDIDA ENFOQUE " + cadena_fecha;
+                    }
+                    ws1.View.FreezePanes(4, 1);
+                    row++;
+                    ws1.Cells["A" + row].Value = "N°";
+                    ws1.Cells["A" + row].AutoFitColumns(5);
+                    ws1.Cells["B" + row].Value = "MEDIDA MITIGACIÓN";
+                    ws1.Cells["B" + row].AutoFitColumns(70);
+                    ws1.Cells["C" + row].Value = "ENFOQUE";
+                    ws1.Cells["C" + row].AutoFitColumns(40);
+                    ws1.Cells["D" + row].Value = "ESTRUCTURA";
+                    ws1.Cells["D" + row].AutoFitColumns(40);
+
+                    for (var i = 4; i < limite; i++)
+                    {
+                        ws1.Cells[obtenerLetra(i+1) + row].Value = "";
+                        ws1.Cells[obtenerLetra(i + 1) + row].AutoFitColumns(40);
+                        FormatoCelda(ws1, obtenerLetra(i+1), row, 0, 123, 255, 255, 255, 255);
+                    }
+
+                    FormatoCelda(ws1, "A", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "B", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "C", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "D", row, 0, 123, 255, 255, 255, 255);
+                    ws1.Row(row).Height = 42;
+                    row++;
+                    if (lista.Count > 0)
+                    {
+                        
+                        foreach (ParametroIndicadorBE dt_fila in lista)
+                        {
+                            var xNum = 4;
+                            ws1.Cells["A" + row].Value = dt_fila.ID_ENFOQUE;
+                            ws1.Cells["B" + row].Value = dt_fila.MEDIDA_MIT;
+                            ws1.Cells["C" + row].Value = dt_fila.ENFOQUE;
+                            foreach (var item in dt_fila.ListaParametroInd)
+                            {
+                                ws1.Cells[obtenerLetra(xNum) + row].Value = item.NOMBRE_PARAMETRO;
+                                if (item.ID_GRUPO_INDICADOR == 1)
+                                {
+                                    FormatoCelda(ws1, obtenerLetra(xNum), row, 40, 167, 69, 255, 255, 255);
+                                }
+                                else if (item.ID_GRUPO_INDICADOR == 2)
+                                {
+                                    FormatoCelda(ws1, obtenerLetra(xNum), row, 255, 193, 7, 52, 58, 64);
+                                }
+                                else if (item.ID_GRUPO_INDICADOR == 3)
+                                {
+                                    FormatoCelda(ws1, obtenerLetra(xNum), row, 0, 123, 255, 255, 255, 255);
+                                }
+                                xNum++;
+                            }
+
+                            formatoDetalle(ws1, "A", obtenerLetra(xNum), row);
+                            row++;
+                        }
+                        row++;
+                    }
+
+                    string strFileName = "MEDIDA_ENFOQUE_" + DateTime.Now.ToString() + ".xlsx";
+                    Response.Clear();
+                    byte[] dataByte = package.GetAsByteArray();
+                    Response.AddHeader("Content-Disposition", "inline;filename=\"" + strFileName + "\"");
+                    Response.AddHeader("Content-Length", dataByte.Length.ToString());
+                    Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                    Response.BinaryWrite(dataByte);
+                    Response.End();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        //============================= EXCEL MEDIDA MITIGACION
+
+        public void ExportarMantenimientoMedidaMitigacion(string item)
+        {
+            try
+            {
+                if (item != null)
+                {
+                    var entidad = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<MedidaMitigacionBE>(item);
+                    ExportarToExcelMantenimientoMedidaMitigacion(entidad);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+        }
+
+        public void ExportarToExcelMantenimientoMedidaMitigacion(MedidaMitigacionBE entidad)
+        {
+            List<MedidaMitigacionBE> lista = null;
+            lista = MedidaMitigacionLN.ListarMedidaMitigacionExcel(entidad);
+
+            int row = 2;
+            try
+            {
+                string cadena_fecha = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+
+                using (ExcelPackage package = new ExcelPackage())
+                {
+                    var ws1 = package.Workbook.Worksheets.Add("LISTA MEDIDA MITIGACION");
+                    using (var m = ws1.Cells[1, 1, row, 6])
+                    {
+                        m.Style.Font.Bold = true;
+                        m.Style.WrapText = true;
+                        m.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        m.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        m.Style.Font.Size = 10;
+                        m.Merge = true;
+                        m.Value = "LISTA MEDIDA MITIGACION " + cadena_fecha;
+                    }
+                    ws1.View.FreezePanes(4, 1);
+                    row++;
+                    ws1.Cells["A" + row].Value = "N°";
+                    ws1.Cells["A" + row].AutoFitColumns(5);
+                    ws1.Cells["B" + row].Value = "NOMBRE DE LA MEDIDA DE MITIGACIÓN";
+                    ws1.Cells["B" + row].AutoFitColumns(70);
+                    ws1.Cells["C" + row].Value = "DESCRIPCIÓN CORTA";
+                    ws1.Cells["C" + row].AutoFitColumns(15);
+                    ws1.Cells["D" + row].Value = "DESCRIPCIÓN LARGA";
+                    ws1.Cells["D" + row].AutoFitColumns(100);
+                    ws1.Cells["E" + row].Value = "OBJETIVO";
+                    ws1.Cells["E" + row].AutoFitColumns(100);
+                    ws1.Cells["F" + row].Value = "IPCC";
+                    ws1.Cells["F" + row].AutoFitColumns(40);
+
+                    FormatoCelda(ws1, "A", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "B", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "C", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "D", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "E", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "F", row, 0, 123, 255, 255, 255, 255);
+                    ws1.Row(row).Height = 42;
+                    row++;
+                    if (lista.Count > 0)
+                    {
+                        var xNum = 0;
+                        foreach (MedidaMitigacionBE dt_fila in lista)
+                        {
+                            xNum++;
+                            ws1.Cells["A" + row].Value = dt_fila.ID_MEDMIT;
+                            ws1.Cells["B" + row].Value = dt_fila.NOMBRE_MEDMIT;
+                            ws1.Cells["C" + row].Value = dt_fila.NUMERO_MEDMIT;
+                            ws1.Cells["D" + row].Value = dt_fila.DESCRIPCION_MEDMIT;
+                            ws1.Cells["E" + row].Value = dt_fila.OBJETIVO_MEDMIT;
+                            ws1.Cells["F" + row].Value = dt_fila.IPSC_MEDMIT;
+                            formatoDetalle(ws1, "A", "F", row);
+                            row++;
+                        }
+                        row++;
+                    }
+
+                    string strFileName = "LISTA_MEDIDA_MITIGACION_" + DateTime.Now.ToString() + ".xlsx";
+                    Response.Clear();
+                    byte[] dataByte = package.GetAsByteArray();
+                    Response.AddHeader("Content-Disposition", "inline;filename=\"" + strFileName + "\"");
+                    Response.AddHeader("Content-Length", dataByte.Length.ToString());
+                    Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                    Response.BinaryWrite(dataByte);
+                    Response.End();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+
+
+        //=========================================================
         public void ExportarMantenimientoInstitucion(string item)
         {
             try
@@ -1559,6 +2009,64 @@ namespace MRVMinem.Controllers
                 }
             }
             return menor;
+        }
+
+        private int getMayorControlF(List<FactorBE> lista)
+        {
+            var mayor = -1;
+            foreach (var item in lista)
+            {
+                if (item.listaFactor.Count > mayor)
+                {
+                    mayor = item.listaFactor.Count;
+                }
+            }
+            return mayor;
+        }
+
+        private int getMayorControl(List<ParametroIndicadorBE> lista)
+        {
+            var mayor = -1;
+            foreach (var item in lista)
+            {
+                if (item.ListaParametroInd.Count > mayor)
+                {
+                    mayor = item.ListaParametroInd.Count;
+                }
+            }
+            return mayor;
+        }
+
+        private string obtenerLetra(int num)
+        {
+            string letra = "";
+            if (num == 1) letra = "A";
+            if (num == 2) letra = "B";
+            if (num == 3) letra = "C";
+            if (num == 4) letra = "D";
+            if (num == 5) letra = "E";
+            if (num == 6) letra = "F";
+            if (num == 7) letra = "G";
+            if (num == 8) letra = "H";
+            if (num == 9) letra = "I";
+            if (num == 10) letra = "J";
+            if (num == 11) letra = "K";
+            if (num == 12) letra = "L";
+            if (num == 13) letra = "M";
+            if (num == 14) letra = "N";
+            if (num == 15) letra = "O";
+            if (num == 16) letra = "P";
+            if (num == 17) letra = "Q";
+            if (num == 18) letra = "R";
+            if (num == 19) letra = "S";
+            if (num == 20) letra = "T";
+            if (num == 21) letra = "U";
+            if (num == 22) letra = "V";
+            if (num == 23) letra = "W";
+            if (num == 24) letra = "X";
+            if (num == 25) letra = "Y";
+            if (num == 26) letra = "Z";
+            return letra;
         }
 
     }
