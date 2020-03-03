@@ -966,66 +966,67 @@ function fn_mensajeCompletar() {
     $('#mensajeModalRegistrar').append(msj);
 }
 
-function fn_validarCampo(url, estado) {
-    var url = baseUrl + "Gestion/ValidarDetalleIndicador";
-    var item = {
-        ID_INICIATIVA: $("#Control").data("iniciativa")
-    }
-    var respuesta = MRV.Ajax(url, item, false);
-    if (respuesta.success) {
-        debugger;
-        var cantidad_bd = parseInt(respuesta.extra);
-        if (cantidad_bd > 0) {
-            if ($("#cuerpoTablaIndicador").data("delete") == "") {
-                //fn_procesoDetalleIndicador(url, estado);
-            } else {
-                var id_delete = $("#cuerpoTablaIndicador").data("delete");
-                var cant_delete = id_delete.split(',');
-                var cantidad_del = cant_delete.length;
-                if (cantidad_bd > cantidad_del) {
-                    //fn_procesoDetalleIndicador(url, estado);
-                } else {
-                    if ($("#tablaIndicador").find("tbody").find("th") > 0) {
-                        var validar = 0;
-                        var campos = $("#tablaIndicador").find("tbody").find("tr");
-                        campos.each(function (index, value) {
-                            debugger;
-                            //console.log(index + " + " + $(value).attr("id") + " + " + $(value).attr("data-validar"));
-                            if ($(value).find("td").find("[data-param]").val() != ""){
-                                validar = 1;
-                            }
-                            //if ($(value).attr("data-validar") == 0) {
-                            //    v = false;
-                            //}
+//function fn_validarCampo(url, estado) {
+//    var url = baseUrl + "Gestion/ValidarDetalleIndicador";
+//    var item = {
+//        ID_INICIATIVA: $("#Control").data("iniciativa")
+//    }
+//    var respuesta = MRV.Ajax(url, item, false);
+//    if (respuesta.success) {
+//        debugger;
+//        var cantidad_bd = parseInt(respuesta.extra);
+//        if (cantidad_bd > 0) {
+//            if ($("#cuerpoTablaIndicador").data("delete") == "") {
+//                fn_procesoDetalleIndicador(url, estado);
+//            } else {
+//                var id_delete = $("#cuerpoTablaIndicador").data("delete");
+//                var cant_delete = id_delete.split(',');
+//                var cantidad_del = cant_delete.length;
+//                if (cantidad_bd > cantidad_del) {
+//                    fn_procesoDetalleIndicador(url, estado);
+//                } else {
+//                    if ($("#tablaIndicador").find("tbody").find("th") > 0) {
+//                        var validar = 0;
+//                        var campos = $("#tablaIndicador").find("tbody").find("tr");
+//                        campos.each(function (index, value) {
+//                            debugger;
+//                            console.log(index + " + " + $(value).attr("id") + " + " + $(value).attr("data-validar"));
+//                            if ($(value).find("td").find("[data-param]").val() != ""){
+//                                validar = 1;
+//                            }
+//                            if ($(value).attr("data-validar") == 0) {
+//                                v = false;
+//                            }
 
-                        });
+//                        });
 
-                        if (validar == 1) {
-                            //fn_procesoDetalleIndicador(url, estado);
-                        } else {
-                            fn_mensajeCompletar();
-                        }                        
-                    } else {
-                        fn_mensajeCompletar();
-                    }
-                }
-            }            
-        } else {
-            if ($("#tablaIndicador").find("tbody").find("th") > 0) {
-                //fn_procesoDetalleIndicador(url, estado);
-            } else {
-                fn_mensajeCompletar();
-            }
-        }
-    } else {
+//                        if (validar == 1) {
+//                            fn_procesoDetalleIndicador(url, estado);
+//                        } else {
+//                            fn_mensajeCompletar();
+//                        }                        
+//                    } else {
+//                        fn_mensajeCompletar();
+//                    }
+//                }
+//            }            
+//        } else {
+//            if ($("#tablaIndicador").find("tbody").find("th") > 0) {
+//                fn_procesoDetalleIndicador(url, estado);
+//            } else {
+//                fn_mensajeCompletar();
+//            }
+//        }
+//    } else {
 
-    }
+//    }
 
-}
+//}
 
 function fn_guardarDetalleIndicador() {
     var url = baseUrl + "Gestion/RegistrarDetalleIndicador";
-    fn_procesoDetalleIndicador(url, 1);
+    fn_validarArchivo(url, 1);
+    //fn_procesoDetalleIndicador(url, 1);
     //fn_validarCampo(url, 1);      
 }
 
@@ -1036,7 +1037,8 @@ function fn_guardarAvances() {
 
 function fn_corregirDetalleIndicador() {
     var url = baseUrl + "Gestion/RegistrarDetalleIndicador";
-    fn_procesoDetalleIndicador(url, 5);
+    fn_validarArchivo(url, 5);
+    //fn_procesoDetalleIndicador(url, 5);
     //fn_validarCampo(url, 5);
 }
 
@@ -2377,25 +2379,25 @@ function fn_procesoDetalleIndicador(url, estado) {
     $("#formRegistrar").ajaxForm(options);
     $("#formRegistrar").submit();
 
-
-
-    $("#solicitar-revision").on("hidden.bs.modal", function () {
-        if ($("#Control").data("modal") == 1) {
-            location.href = baseUrl + "Gestion/AccionMitigacion";
-        } else {
-            $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
-            $("#solicitar-revision #modalRegistrarBoton").show();
-            $("#pieCorrecto").hide();
-        }
-    });
-
-    $("#guardar-avance").on("hidden.bs.modal", function () {
-        $("#mensajeModalAvance #mensajeDangerAvance").remove();
-        $("#mensajeModalAvance #mensajeWarningAvance").remove();
-        $("#guardar-avance #modalAvanceBoton").show();
-        $("#pieCorrectoAvance").hide();
-    });
 }
+
+$("#solicitar-revision").on("hidden.bs.modal", function () {
+    $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
+    if ($("#Control").data("modal") == 1) {
+        location.href = baseUrl + "Gestion/AccionMitigacion";
+    } else {
+        $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
+        $("#solicitar-revision #modalRegistrarBoton").show();
+        $("#pieCorrecto").hide();
+    }
+});
+
+$("#guardar-avance").on("hidden.bs.modal", function () {
+    $("#mensajeModalAvance #mensajeDangerAvance").remove();
+    $("#mensajeModalAvance #mensajeWarningAvance").remove();
+    $("#guardar-avance #modalAvanceBoton").show();
+    $("#pieCorrectoAvance").hide();
+});
 
 
 function CargarDatosGuardados() {
@@ -2522,4 +2524,117 @@ function asignarRuta(enfoque) {
         $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.1 Plantilla_Etiquetado_de_eficiencia_etiquetado_congeladoras.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
     }
     $('[data-toggle="tooltip"]').tooltip();
+}
+
+
+function fn_validarArchivo(url, estado) {
+    var vurl = baseUrl + "Gestion/ValidarDetalleArchivo";
+    var item = {
+        ID_INICIATIVA: $("#Control").data("iniciativa")
+    }
+    var respuesta = MRV.Ajax(vurl, item, false);
+    if (respuesta.success) {
+        var cantidad_file = parseInt(respuesta.extra);
+        if (cantidad_file > 0) {
+            if ($("#total-documentos").data("eliminarfile") == "") {
+                fn_validarCampo(url, estado);
+            } else {
+                var id_eliminar = $("#total-documentos").data("eliminarfile");
+                id_eliminar = id_eliminar.substring(0, id_eliminar.length - 1);
+                var cant_eliminar = id_eliminar.split(',');
+                var cantidad_elim = cant_eliminar.length;
+                if (cantidad_file > cantidad_elim) {
+                    fn_validarCampo(url, estado);
+                } else {
+                    if (($("#total-documentos").data("cantidad") + storedFiles.length) > 0) {
+                        fn_validarCampo(url, estado);
+                    } else {
+                        fn_mensajeCompletar();
+                    }
+                }
+            }
+        } else {
+            if (($("#total-documentos").data("cantidad") + storedFiles.length) > 0) {
+                fn_validarCampo(url, estado);
+            } else {
+                fn_mensajeCompletar();
+            }
+        }
+    }
+}
+
+function fn_validarCampo(url, estado) {
+    var vurl = baseUrl + "Gestion/ValidarDetalleIndicador";
+    var item = {
+        ID_INICIATIVA: $("#Control").data("iniciativa")
+    }
+    var respuesta = MRV.Ajax(vurl, item, false);
+    if (respuesta.success) {
+        debugger;
+        var cantidad_bd = parseInt(respuesta.extra);
+        if (cantidad_bd > 0) {
+            if ($("#cuerpoTablaIndicador").data("delete") == "") {
+                fn_procesoDetalleIndicador(url, estado);
+            } else {
+                var id_delete = $("#cuerpoTablaIndicador").data("delete");
+                id_delete = id_delete.substring(0, id_delete.length - 1);
+                var cant_delete = id_delete.split(',');
+                var cantidad_del = cant_delete.length;
+                if (cantidad_bd > cantidad_del) {
+                    fn_procesoDetalleIndicador(url, estado);
+                } else {
+                    if ($("#tablaIndicador").find("tbody").find("th").length > 0) {
+                        var validar = 0;
+                        var campos = $("#tablaIndicador").find("tbody").find("tr");
+                        campos.each(function (index, value) {
+                            var fila = $(value).find("td");
+                            fila.each(function (i, value) {
+                                if ($(value).find("div").find("input").attr("data-param") == "11") {
+                                    if ($(value).find("div").find("[data-param]").val() != "") {
+                                        validar = 1;
+                                    }
+
+                                }
+                            });
+
+                        });
+                        if (validar == 1) {
+                            fn_procesoDetalleIndicador(url, estado);
+                        } else {
+                            fn_mensajeCompletar();
+                        }
+                    } else {
+                        fn_mensajeCompletar();
+                    }
+                }
+            }
+        } else {
+            if ($("#tablaIndicador").find("tbody").find("th").length > 0) {
+                var validar = 0;
+                var campos = $("#tablaIndicador").find("tbody").find("tr");
+                campos.each(function (index, value) {
+                    var fila = $(value).find("td");
+                    fila.each(function (i, value) {
+                        if ($(value).find("div").find("input").attr("data-param") == "11") {
+                            if ($(value).find("div").find("[data-param]").val() != "") {
+                                validar = 1;
+                            }
+
+                        }
+                    });
+
+                });
+                if (validar == 1) {
+                    fn_procesoDetalleIndicador(url, estado);
+                } else {
+                    fn_mensajeCompletar();
+                }
+            } else {
+                fn_mensajeCompletar();
+            }
+        }
+    } else {
+
+    }
+
 }

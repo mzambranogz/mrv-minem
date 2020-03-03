@@ -1381,8 +1381,12 @@ function exportarIniciativa() {
     //    ID_ROL: $("#Control").data("rol"),
     //    ID_ESTADO: $("#estadoIniciativa").data("estado")
     //};
-
     if ($("#cuerpoMitigacion").html() != "") {
+
+        var anno = 0;
+        if ($("#txt-fecha-inicio").val() != "") {
+            anno = $("#txt-fecha-inicio").val();
+        }
 
         if ($("#buscar").data("numero") == 0) {
 
@@ -1399,10 +1403,10 @@ function exportarIniciativa() {
 
             var item = {
                 medida_b: $("#cbo-medida-mitigacion").val(),
-                anio_b: $("#txt-fecha-inicio").val(),
+                anio_b: anno,
                 sector_b: $("#cbo-sector").val(),
-                gei_b: $("#cbo-energetico-base").val(),
-                energ_b: $("#cbo-energetico-proyecto").val(),
+                //gei_b: $("#cbo-energetico-base").val(),
+                //energ_b: $("#cbo-energetico-proyecto").val(),
                 order_by: $("#columna").val(),
                 order_orden: $("#orden").val(),
                 ID_USUARIO: $("#Control").data("usuario"),

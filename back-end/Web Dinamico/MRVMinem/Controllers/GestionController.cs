@@ -182,6 +182,7 @@ namespace MRVMinem.Controllers
             modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
             modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
             modelo.usuario = UsuarioLN.UsuarioIniciativa(modelo.iniciativa_mit.ID_USUARIO);
+            modelo.id_enfoques = concatenarIdEnfoque(modelo.listaIndData); //add 2-3-20
             modelo.revision = 1;
             Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
             Session["nombres_destino"] = modelo.usuario.NOMBRES;
@@ -1847,6 +1848,23 @@ namespace MRVMinem.Controllers
             itemRespuesta.extra = Convert.ToString(entidad.EMAIL_USUARIO);
             return Respuesta(itemRespuesta);
         }
+
+        public JsonResult ListarEnfoqueFactorVerificar(FactorBE entidad)
+        {
+            List<FactorBE> lista = FactorLN.ListarEnfoqueFactorVerificar(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+
+        public JsonResult ListarFormulasVerificar(FactorBE entidad)
+        {
+            List<FactorBE> lista = FactorLN.ListarFormulaVerificar(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
         //EXPORTAR EXCEL
 
         public void ExportarIniciativa(string item)
@@ -1876,57 +1894,7 @@ namespace MRVMinem.Controllers
             {
                 lista = IniciativaLN.ListaExcelAvanzado(entidad);
             }
-
-
-            //if (entidad.ID_ESTADO == 1)
-            //{
-            //    if (entidad.ID_ROL == 1)
-            //    {
-            //        lista = IniciativaLN.ListaExcelIniciativaUsuario(entidad);
-            //    }
-            //    else if (entidad.ID_ROL == 2)
-            //    {
-            //        lista = IniciativaLN.ListaExcelIniciativaEspecialista(entidad);
-            //    }
-            //    else if (entidad.ID_ROL == 3)
-            //    {
-            //        lista = IniciativaLN.ListaExcelIniciativaAdministrador(entidad);
-            //    }
-            //    else if (entidad.ID_ROL == 4)
-            //    {
-            //        lista = IniciativaLN.ListaExcelIniciativaEvaluador(entidad);
-            //    }
-            //    else if (entidad.ID_ROL == 5)
-            //    {
-            //        lista = IniciativaLN.ListaExcelIniciativaVerificador(entidad);
-            //    }
-            //}
-            //else if (entidad.ID_ESTADO == 2)
-            //{
-            //    lista = IniciativaLN.ListaExcelIniciativaObservado(entidad);
-            //}
-            //else if (entidad.ID_ESTADO == 3)
-            //{
-            //    lista = IniciativaLN.ListaExcelIniciativaAprobado(entidad);
-            //}
-            //else if (entidad.ID_ESTADO == 4)
-            //{
-            //    lista = IniciativaLN.ListaExcelIniciativaRevisado(entidad);
-            //}
-            //else if (entidad.ID_ESTADO == 5)
-            //{
-            //    lista = IniciativaLN.ListaExcelIniciativaEvaluado(entidad);
-            //}
-            //else if (entidad.ID_ESTADO == 6)
-            //{
-            //    lista = IniciativaLN.ListaExcelIniciativaVerificado(entidad);
-            //}
-            //else if (entidad.ID_ESTADO == 7)
-            //{
-            //    lista = IniciativaLN.ListaExcelIniciativaTodo(entidad);
-            //}
-
-            //var lista = IniciativaLN.ListaObservado(entidad);
+            
             int row = 2;
             try
             {
@@ -1935,7 +1903,7 @@ namespace MRVMinem.Controllers
                 using (ExcelPackage package = new ExcelPackage())
                 {
                     var ws1 = package.Workbook.Worksheets.Add("INICIATIVA MITIGACIÓN");
-                    using (var m = ws1.Cells[1, 1, row, 6])
+                    using (var m = ws1.Cells[1, 1, row, 9])
                     {
                         m.Style.Font.Bold = true;
                         m.Style.WrapText = true;
@@ -1955,10 +1923,16 @@ namespace MRVMinem.Controllers
                     ws1.Cells["C" + row].AutoFitColumns(15);
                     ws1.Cells["D" + row].Value = "FECHA DE INICIO";
                     ws1.Cells["D" + row].AutoFitColumns(20);
-                    ws1.Cells["E" + row].Value = "MEDIDA DE MITIGACIÓN";
-                    ws1.Cells["E" + row].AutoFitColumns(60);
-                    ws1.Cells["F" + row].Value = "ENTIDAD";
-                    ws1.Cells["F" + row].AutoFitColumns(35);
+                    ws1.Cells["E" + row].Value = "FECHA DE TÉRMINO";
+                    ws1.Cells["E" + row].AutoFitColumns(20);
+                    ws1.Cells["F" + row].Value = "MEDIDA DE MITIGACIÓN";
+                    ws1.Cells["F" + row].AutoFitColumns(60);
+                    ws1.Cells["G" + row].Value = "ENTIDAD";
+                    ws1.Cells["G" + row].AutoFitColumns(35);
+                    ws1.Cells["H" + row].Value = "TOTAL REDUCIDO";
+                    ws1.Cells["H" + row].AutoFitColumns(30);
+                    ws1.Cells["I" + row].Value = "ESTADO";
+                    ws1.Cells["I" + row].AutoFitColumns(25);
 
                     FormatoCelda(ws1, "A", row, 0, 123, 255, 255, 255, 255);
                     FormatoCelda(ws1, "B", row, 0, 123, 255, 255, 255, 255);
@@ -1966,6 +1940,9 @@ namespace MRVMinem.Controllers
                     FormatoCelda(ws1, "D", row, 0, 123, 255, 255, 255, 255);
                     FormatoCelda(ws1, "E", row, 0, 123, 255, 255, 255, 255);
                     FormatoCelda(ws1, "F", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "G", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "H", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "I", row, 0, 123, 255, 255, 255, 255);
                     ws1.Row(row).Height = 42;
                     row++;
                     if (lista.Count > 0)
@@ -1979,8 +1956,11 @@ namespace MRVMinem.Controllers
                             ws1.Cells["B" + row].Value = dt_fila.NOMBRE_INICIATIVA;
                             ws1.Cells["C" + row].Value = Convert.ToString(dt_fila.PROGRESO * 25) + "%";
                             ws1.Cells["D" + row].Value = dt_fila.FECHA;
-                            ws1.Cells["E" + row].Value = dt_fila.NOMBRE_MEDMIT;
-                            ws1.Cells["F" + row].Value = dt_fila.NOMBRE_INSTITUCION;
+                            ws1.Cells["E" + row].Value = dt_fila.FECHA_FIN;
+                            ws1.Cells["F" + row].Value = dt_fila.NOMBRE_MEDMIT;
+                            ws1.Cells["G" + row].Value = dt_fila.NOMBRE_INSTITUCION;
+                            ws1.Cells["H" + row].Value = dt_fila.TOTAL_GEI;
+                            ws1.Cells["I" + row].Value = dt_fila.ESTADO_BANDEJA;
                             formatoDetalle(ws1, "A", "F", row);
                             row++;
                         }
@@ -2439,6 +2419,21 @@ namespace MRVMinem.Controllers
             if (num == 25) letra = "Y";
             if (num == 26) letra = "Z";
             return letra;
+        }
+
+        public string concatenarIdEnfoque(List<IndicadorDataBE> lista)
+        {
+            string id_enfoques = "";
+            if (lista.Count > 0)
+            {
+                foreach (var item in lista)
+                {
+                    id_enfoques += item.ID_ENFOQUE + ",";
+                }
+                id_enfoques = id_enfoques.Substring(0, id_enfoques.Length -1);
+            }            
+
+            return id_enfoques;
         }
 
     }

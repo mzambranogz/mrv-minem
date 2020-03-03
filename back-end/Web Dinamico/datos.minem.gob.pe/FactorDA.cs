@@ -691,5 +691,29 @@ namespace datos.minem.gob.pe
             return lista;
         }
 
+        public List<FactorBE> ListarFomulasVerificar(FactorBE entidad)
+        {
+            List<FactorBE> lista = null;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage3 + "USP_SEL_LISTA_FORMULA_VERIF";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_ENFOQUE", entidad.ID_ENFOQUE);
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    lista = db.Query<FactorBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return lista;
+        }
+
     }
 }

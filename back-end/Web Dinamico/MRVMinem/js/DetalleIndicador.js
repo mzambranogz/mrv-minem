@@ -2790,16 +2790,6 @@ function fn_procesoDetalleIndicador(url, estado) {
     $("#formRegistrar").ajaxForm(options);
     $("#formRegistrar").submit();
 
-
-
-    
-
-    $("#guardar-avance").on("hidden.bs.modal", function () {        
-        $("#mensajeModalAvance #mensajeDangerAvance").remove();
-        $("#mensajeModalAvance #mensajeWarningAvance").remove();
-        $("#guardar-avance #modalAvanceBoton").show();
-        $("#pieCorrectoAvance").hide();
-    });
 }
 
 $("#solicitar-revision").on("hidden.bs.modal", function () {
@@ -2813,13 +2803,19 @@ $("#solicitar-revision").on("hidden.bs.modal", function () {
     }
 });
 
+$("#guardar-avance").on("hidden.bs.modal", function () {
+    $("#mensajeModalAvance #mensajeDangerAvance").remove();
+    $("#mensajeModalAvance #mensajeWarningAvance").remove();
+    $("#guardar-avance #modalAvanceBoton").show();
+    $("#pieCorrectoAvance").hide();
+});
 
 function fn_guardarDetalleIndicador() {
     debugger;
     //var url = baseUrl + "Gestion/RegistrarDetalleIndicador2";
     var url = baseUrl + "Gestion/RegistrarDetalleIndicador";
-    //fn_validarArchivo(url, 1);    
-    fn_procesoDetalleIndicador(url, 1);
+    fn_validarArchivo(url, 1);    
+    //fn_procesoDetalleIndicador(url, 1);
 }
 
 function fn_guardarAvances() {
@@ -2832,8 +2828,8 @@ function fn_corregirDetalleIndicador() {
     debugger;
     //var url = baseUrl + "Gestion/RegistrarDetalleIndicador2";
     var url = baseUrl + "Gestion/RegistrarDetalleIndicador";
-    //fn_validarArchivo(url, 5);
-    fn_procesoDetalleIndicador(url, 5);
+    fn_validarArchivo(url, 5);
+    //fn_procesoDetalleIndicador(url, 5);
 }
 
 function fn_corregirAvances() {
@@ -3418,6 +3414,32 @@ function CargarDatosCabecera() {
                                                                                     
 }
 
+//======================================================================================== 
+
+// ARMAR VERIFICAR
+
+function armarVerificar(enfoque) {
+
+    var verificar = "";
+    verificar += '<div class="ocultar-verificar" id="contenido-' + enfoque + '" hidden>';
+    verificar += '<div class="row">';
+    verificar += '  <div class="col-12 px-0">';
+    verificar += '     <div class="table-responsive tabla-principal tabla-recorrer tabla-detalle-indicadores-1" data-order="tbl-1">';
+    verificar += '          <table class="table table-hover" data-fila="0">';
+    verificar += '                 <thead id="cabeceraTablaVerificar-' + enfoque + '"></thead>';
+    verificar += '                 <tbody id="cuerpoTablaVerificar-' + enfoque + '"></tbody>';
+    verificar += '          </table>';
+    verificar += '      </div>';
+    verificar += '   </div>';
+    verificar += '</div>';
+    verificar += '<div class="row" id="paramVerificar-' + enfoque + '">';
+    verificar += '</div>';
+    verificar += '<div class="row" id="tablasFactor-' + enfoque + '">';
+    verificar += '</div>';
+
+    $("#contenido-verificar").append(verificar);
+    CargarDatosCabeceraVerificar(enfoque);
+}
 
 //===============================================================================================================
 
@@ -3437,13 +3459,23 @@ $(document).ready(function () {
     //$("#cbo-enfoque").val($("#menor").val());
     //$("#enfoque-" + ($("#cbo-enfoque").val())).removeAttr("hidden");
     //$("#cbo-enfoque").data("select", $("#cbo-enfoque").val()); //data-select para saber quien fue el anterior
+    debugger;
     if ($("#revision").val() == 1) {
         //CargarDetalleIndicadorRevision();
         //cargarTablasEnfoque();
+        var id_enfoques = $("#id_enfoques").val();
+        var arr = id_enfoques.split(',');
+        for (var i = 0; i < arr.length; i++){
+            armarVerificar(arr[i]);
+        }
+        
+        
     } else {
         CargarDatosCabecera();
         CargarDatosGuardados();
 
+        CargarDatosIniciativa();
+        fn_cargarUbicacion();
 
         //cargarCabeceraTabla($("#cbo-enfoque").val());
         //CargarDetalleDatos();
@@ -3452,10 +3484,10 @@ $(document).ready(function () {
         //CargarDetalleIndicador();
     }
     
-    CargarDatosIniciativa();
-    fn_cargarUbicacion();
-    fn_cargarEnergetico();
-    fn_cargarGei();
+    //CargarDatosIniciativa();
+    //fn_cargarUbicacion();
+    //fn_cargarEnergetico();
+    //fn_cargarGei();
 
     $(document).on("mouseover", "#tablaIndicador tbody tr", function () {
         var fila = $(this).find('th:eq(0)').html();
@@ -3635,24 +3667,26 @@ function fn_validarCampoReg(f) {
 }
 
 function fn_eliminarRestarTotal() {
-    var total = parseFloat($("#cuerpoTablaIndicador").data("total"));
-    var fila = $("#tablaIndicador").data("fila");
-    var campos = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + fila).find("[data-param]");
-    campos.each(function (index, value) {
-        if ($(value).attr("data-param") == 11) {
-            var r = $(value).val();
-            if (r != "")
-                total -= parseFloat(r);
+    if ($("#tablaIndicador").find("tbody").find("tr") > 1) {
+        var total = parseFloat($("#cuerpoTablaIndicador").data("total"));
+        var fila = $("#tablaIndicador").data("fila");
+        var campos = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + fila).find("[data-param]");
+        campos.each(function (index, value) {
+            if ($(value).attr("data-param") == 11) {
+                var r = $(value).val();
+                if (r != "")
+                    total -= parseFloat(r);
+            }
+        });
+        $("#total-detalle").html("").append((Math.round(total * 100) / 100));
+        $("#total-detalle2").html("").append((Math.round(total * 100) / 100));
+        $("#cuerpoTablaIndicador").data("total", total);
+        //debugger;
+        if ($("#tablaIndicador #detalles-tr-" + fila).data("ind") > 0) {
+            var id_borrar = $("#cuerpoTablaIndicador").data("delete") + $("#tablaIndicador #detalles-tr-" + fila).data("ind") + ",";
+            $("#cuerpoTablaIndicador").data("delete", id_borrar);
         }
-    });
-    $("#total-detalle").html("").append((Math.round(total * 100) / 100));
-    $("#total-detalle2").html("").append((Math.round(total * 100) / 100));
-    $("#cuerpoTablaIndicador").data("total", total);
-    debugger;
-    if ($("#tablaIndicador #detalles-tr-" + fila).data("ind") > 0) {
-        var id_borrar = $("#cuerpoTablaIndicador").data("delete") + $("#tablaIndicador #detalles-tr-" + fila).data("ind") + ",";
-        $("#cuerpoTablaIndicador").data("delete", id_borrar);
-    }    
+    }       
 }
 
 function fn_mensajeCompletar() {
@@ -3680,35 +3714,34 @@ function fn_mensajeCompletar() {
 }
 
 function fn_validarArchivo(url, estado) {
-    var url = baseUrl + "Gestion/ValidarDetalleArchivo";
+    var vurl = baseUrl + "Gestion/ValidarDetalleArchivo";
     var item = {
         ID_INICIATIVA: $("#Control").data("iniciativa")
     }
-    var respuesta = MRV.Ajax(url, item, false);
+    var respuesta = MRV.Ajax(vurl, item, false);
     if (respuesta.success) {
-        debugger;
         var cantidad_file = parseInt(respuesta.extra);
         if (cantidad_file > 0) {
             if ($("#total-documentos").data("eliminarfile") == "") {
-                //fn_validarCampo(url, estado);
+                fn_validarCampo(url, estado);
             } else {
                 var id_eliminar = $("#total-documentos").data("eliminarfile");
                 id_eliminar = id_eliminar.substring(0, id_eliminar.length - 1);
                 var cant_eliminar = id_eliminar.split(',');
                 var cantidad_elim = cant_eliminar.length;
                 if (cantidad_file > cantidad_elim) {
-                    //fn_validarCampo(url, estado);
+                    fn_validarCampo(url, estado);
                 } else {
-                    if (parseInt($("#total-documentos").html()) > 0) {
-                        //fn_validarCampo(url, estado);
+                    if (($("#total-documentos").data("cantidad") + storedFiles.length) > 0) {
+                        fn_validarCampo(url, estado);
                     } else {
                         fn_mensajeCompletar();
                     }
                 }
             }
         } else {
-            if (parseInt($("#total-documentos").html()) > 0) {
-                //fn_validarCampo(url, estado);
+            if (($("#total-documentos").data("cantidad") + storedFiles.length) > 0) {
+                fn_validarCampo(url, estado);
             } else {
                 fn_mensajeCompletar();
             }
@@ -3717,12 +3750,13 @@ function fn_validarArchivo(url, estado) {
 }
 
 function fn_validarCampo(url, estado) {
-    var url = baseUrl + "Gestion/ValidarDetalleIndicador";
+    var vurl = baseUrl + "Gestion/ValidarDetalleIndicador";
     var item = {
         ID_INICIATIVA: $("#Control").data("iniciativa")
     }
-    var respuesta = MRV.Ajax(url, item, false);
+    var respuesta = MRV.Ajax(vurl, item, false);
     if (respuesta.success) {
+        debugger;
         var cantidad_bd = parseInt(respuesta.extra);
         if (cantidad_bd > 0) {
             if ($("#cuerpoTablaIndicador").data("delete") == "") {
@@ -3793,4 +3827,317 @@ function fn_validarCampo(url, estado) {
 
 function formatoMiles(n) { //add20
     return n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+}
+
+
+
+//============================================== REVISAR
+
+function CargarDatosCabeceraVerificar(enfoque) {
+
+    //var medida = $("#Control").data("mitigacion");
+    //$("#cabeceraTablaIndicador").html("");
+    var item = {
+        ID_MEDMIT: $("#iniciativa_mit_ID_MEDMIT").val(),
+        ID_ENFOQUE: enfoque
+    }
+    $.ajax({
+        url: baseUrl + 'Gestion/ListarCabeceraIndicador',
+        type: 'POST',
+        datatype: 'json',
+        data: item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    var parametros = "<div class='col-sm-4 col-md-4 col-lg-4'><div><h5>PARÁMETROS:</h5></div><div><ul style='list-style:none'>"
+                    var tr = "";
+                    tr += '<tr class="bg-primary text-white">';
+                    tr += '     <th class="text-center" scope="col"><span>N°</span></th>';
+                    for (var i = 0; i < data.length; i++) {
+                        var columna = "0" + data[i]["ID_GRUPO_INDICADOR"];
+                        var descripcion = "";
+                        if (data[i]["COMBINACION_UNIDAD"] == "" || data[i]["COMBINACION_UNIDAD"] == null) {
+                            if (data[i]["PREFIJO"] != null) {
+                                descripcion += data[i]["PREFIJO"];
+                            }
+                            if (data[i]["UNIDAD"] != null) {
+                                descripcion += data[i]["UNIDAD"];
+                            }
+                            if (data[i]["DESCRIPCION_UNIDAD"] != null) {
+                                descripcion += data[i]["DESCRIPCION_UNIDAD"];
+                            }
+                            if (descripcion == 0) {
+                                descripcion = "";
+                            } else {
+                                descripcion = "(" + descripcion + ")";
+                            }
+                        } else {
+                            descripcion = "(" + data[i]["COMBINACION_UNIDAD"] + ")";
+                        }
+                        var param = "<div>[P" + data[i]["ID_PARAMETRO"] + "]</div>" + "<div><small> " + data[i]["NOMBRE_PARAMETRO"] + "</small></div>";
+                        var param_li = "<span>[P" + data[i]["ID_PARAMETRO"] + "]</span>" + "<span><small> " + data[i]["NOMBRE_PARAMETRO"] + "</small></span>";
+                        parametros += "<li>"+ param_li +"</li>"
+                        tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col">' + param + '<div>' + descripcion + '</div></th>';                       
+                    }
+                    tr += '     <th class="text-center" scope="col">Más</th>';
+                    tr += '</tr>';
+                    parametros += "</ul></div></div>";
+                    $("#cabeceraTablaVerificar-" + enfoque).append(tr);
+                    $("#paramVerificar-"+ enfoque).append(parametros);
+                    factoresVerificar(enfoque);
+                }
+            }
+        }
+    });
+
+}
+
+
+function factoresVerificar(enfoque) {
+    var item = {
+        ID_ENFOQUE: enfoque
+    }
+    $.ajax({
+        url: baseUrl + 'Gestion/ListarEnfoqueFactorVerificar',
+        type: 'POST',
+        datatype: 'json',
+        data: item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    var factores = "<div class='col-sm-4 col-md-4 col-lg-4'><div><h5>FACTORES:</h5></div><div><ul style='list-style:none'>";
+                    for (var i = 0; i < data.length; i++) {
+                        var factor = "<span>[F" + data[i]["ID_FACTOR"] + "]</span>&nbsp;<span><small>" + data[i]["NOMBRE_FACTOR"] + "</small></span>";
+                        factores += "<li>" + factor + "</li>"
+                        $("#tablasFactor-"+ enfoque).append('<div class="col-sm-4 col-md-4 col-lg-4"><h5>' + data[i]["NOMBRE_FACTOR"] + '</h5><table><thead id="tablaCabeceraFactor-' + (i + 1) + '-' + enfoque + '"></thead><tbody id="cuerpoTablaFactor-' + (i + 1) + '-' + enfoque + '"></tbody></table></div>');
+                        CargarCabeceraDatos(data[i]["ID_FACTOR"], (i + 1), enfoque);
+                        CargarDatosGuardadosVerificar(data[i]["ID_FACTOR"], (i + 1), enfoque)
+                    }
+                    factores += "</ul></div></div>";
+                    $("#paramVerificar-"+ enfoque).append(factores);
+                    //debugger;
+                    FormulaVerificar(enfoque);
+                }
+            }
+        }
+    });
+}
+
+
+function FormulaVerificar(enfoque) {
+    var item = {
+        ID_MEDMIT: $("#iniciativa_mit_ID_MEDMIT").val(),
+        ID_ENFOQUE: enfoque
+    }
+    $.ajax({
+        url: baseUrl + 'Gestion/ListarFormulasVerificar',
+        type: 'POST',
+        datatype: 'json',
+        data: item,
+        //async: false,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    var formulas = "<div class='col-sm-4 col-md-4 col-lg-4'><div><h5>FÓRMULAS:</h5></div><div><ul style='list-style:none'>";
+                    for (var i = 0; i < data.length; i++) {
+                        var formula = "<div><span>[P" + data[i]["ID_PARAMETRO"] + "]</span>&nbsp;<span><small>" + data[i]["NOMBRE_PARAMETRO"] + "</small></span>:</div><div><span><small>" + data[i]["FORMULA"] + "</small></span></div>";
+                        formulas += "<li>" + formula + "</li>";
+                    }
+                    formulas += "</ul></div></div>";
+                    $("#paramVerificar-" + enfoque).append(formulas);
+                }
+            }
+        }
+    });
+}
+
+
+function CargarCabeceraDatos(factor, index, enfoque) {
+    //$("#tablaCabeceraFactor").data("idfactor", factor);
+    var item = {
+        ID_FACTOR: factor
+    }
+    $.ajax({
+        url: baseUrl + 'Mantenimiento/ListarCabeceraFactor',
+        type: 'POST',
+        datatype: 'json',
+        data: item,
+        //async: false,
+        success: function (data) {
+            if (data != null && data != "") {
+                //$("#tablaCabeceraFactor-"+index).html("");
+                if (data.length > 0) {
+                    var tr = "";
+                    tr += '<tr class="bg-primary text-white">';
+                    tr += '     <th class="text-center" scope="col"><span>N°&nbsp;</span></th>';
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i]["ID_PARAMETRO"] == 0)
+                            tr += '     <th class="text-center grupo-columna-03" scope="col"><span><span>' + data[i]["NOMBRE_DETALLE"] + '</span><span></th>';
+                        else
+                            tr += '     <th class="text-center grupo-columna-03" scope="col"><div>[P' + data[i]["ID_PARAMETRO"] + ']</div><div><small>' + data[i]["NOMBRE_DETALLE"] + '</small></div></th>';
+                    }
+                    //tr += '     <th class="text-center" style="background-color: #007BFF;" scope="col">Más</th>';
+                    tr += '</tr>';
+                    $("#tablaCabeceraFactor-" + index + "-"+ enfoque).append(tr);
+                }
+            } else {
+            }
+        }
+    });
+}
+
+function CargarCuerpoGuardadoVerificar(filas, factor, index, enfoque) {
+    var item = {
+        ID_FACTOR: factor
+    }
+    $.ajax({
+        //async: false,
+        url: baseUrl + 'Mantenimiento/ListarCuerpoFactor',
+        type: 'POST',
+        datatype: 'json',
+        data: item,
+        async: false,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    //$("#cuerpoTablaFactor").html("");
+                    for (var i = 0; i < filas; i++) {
+                        var lista = 0;
+                        var texto = 0;
+                        var fecha = 0;
+                        //var indicador = 0;
+                        var tr = "";
+                        tr += '<tr id="detalles-tr-' + (i + 1) + '-' + index + '-' + enfoque + '" data-ind="0">';
+                        tr += '     <th class="text-center" data-encabezado="Número" scope="row">' + (i + 1) + '</th>';
+                        for (var j = 0; j < data.length; j++) {
+                            //indicador = data[j]["ID_INDICADOR"];
+                            if (data[j]["ID_TIPO_CONTROL"] == 1) {
+                                tr += '<td data-encabezado="Columna 07">';
+                                tr += '     <div class="form-group m-0">';
+                                lista++;
+                                if (data[j]["ID_PARAMETRO"] == 6) {
+                                    tr += '<select class="form-control form-control-sm" id="cbo-det-tbl-1-' + lista + '-' + (i + 1) + '-' + index + '-' + factor +'-' + enfoque + '" data-param="' + data[j]["ID_PARAMETRO"] + '" disabled>';
+                                    tr += '        <option value="0">Seleccionar</option>';
+                                    var listaD = data[j]["listaDetalle"];
+                                    for (var m = 0; m < listaD.length; m++) {
+                                        tr += '<option value="' + listaD[m]["NOMBRE_DETALLE"] + '"><small>' + listaD[m]["NOMBRE_DETALLE"] + '</small></option>';
+                                    }
+                                    tr += '</select>';
+                                } else {
+                                    tr += '<select class="form-control form-control-sm" id="cbo-det-tbl-1-' + lista + '-' + (i + 1) + '-' + index + '-' + factor + '-' + enfoque + '" data-param="' + data[j]["ID_PARAMETRO"] + '" disabled>';
+                                    tr += '        <option value="0">Seleccionar</option>';
+                                    var listaD = data[j]["listaDetalle"];
+                                    for (var m = 0; m < listaD.length; m++) {
+                                        tr += '<option value="' + listaD[m]["ID_DETALLE"] + '"><small>' + listaD[m]["NOMBRE_DETALLE"] + '</small></option>';
+                                    }
+                                    tr += '</select>';
+                                }
+                            } else if (data[j]["ID_TIPO_CONTROL"] == 2) {
+                                tr += '<td data-encabezado="Columna 02">';
+                                tr += '    <div class="form-group m-0">';
+                                if (data[j]["ID_TIPO_DATO"] == 1) {
+                                    fecha++;
+                                    tr += '<input class="form-control form-control-sm text-center" type="date" placeholder="" id="fch-det-tbl-1-' + fecha + '-' + (i + 1) + '-' + index + '-' + factor + '-' + enfoque + '" data-param="' + data[j]["ID_PARAMETRO"] + '" disabled>';
+                                } else {
+                                    texto++;
+                                    tr += '<input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '-' + index + '-' + factor + '-' + enfoque + '" data-param="' + data[j]["ID_PARAMETRO"] + '" disabled>';
+                                }
+                                tr += '    </div>';
+                                tr += '</td>'
+                            }
+                        }
+                        //tr += '<td class="text-center text-xs-right" data-encabezado="Acciones">';
+                        //tr += '     <div class="btn-group">';
+                        //tr += '          <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
+                        //tr += '          <div class="dropdown-menu dropdown-menu-right">';
+                        //tr += '               <a class="dropdown-item agregarCampos" href="#"><i class="fas fa-plus-circle"></i>&nbsp;Agregar</a>';
+                        //tr += '               <a class="dropdown-item quitarCampos" href="#" onclick="fn_eliminarFactor()"><i class="fas fa-minus-circle"></i>&nbsp;Eliminar</a>';
+                        //tr += '          </div>';
+                        //tr += '     </div>';
+                        //tr += '</td>';
+                        tr += '</tr>';
+                        $("#cuerpoTablaFactor-" + index + "-" + enfoque).append(tr);
+                    }
+                }
+            } else {
+                //cargarCuerpoTabla($("#cbo-enfoque").val());
+                //$("#total-detalle").append('<strong id="total">0.00 tCO<sub>2</sub>eq</strong>');
+                //$("#total-detalle2").append('<strong id="total2">0.00 tCO<sub>2</sub>eq</strong>');
+            }
+        }
+    });
+}
+
+function CargarDatosGuardadosVerificar(factor, index, enfoque) {
+    var item = {
+        ID_FACTOR: factor
+    }
+    $.ajax({
+        url: baseUrl + 'Mantenimiento/ListarDatosFactorData',
+        type: 'POST',
+        datatype: 'json',
+        data: item,
+        //async: false,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    //debugger;
+                    CargarCuerpoGuardadoVerificar(data.length, factor, index, enfoque);
+                    for (var i = 0; i < data.length; i++) {
+                        var lista = 0;
+                        var texto = 0;
+                        var fecha = 0;
+                        var entidad = data[i]["listaParametro"]
+                        $("#cuerpoTablaFactor-" + index + "-" + enfoque + " #detalles-tr-" + (i + 1) + "-" + factor + "-" + index).attr({ "data-ind": data[i]["ID_DETALLE"] });
+                        for (var m = 0; m < entidad.length; m++) {
+                            if (entidad[m]["ID_TIPO_CONTROL"] == 1) {
+                                lista++;
+                                $("#cbo-det-tbl-1-" + lista + "-" + (i + 1) + "-" + index + "-" + factor + "-" + enfoque).val(entidad[m]["VALOR"]);
+                            } else if (entidad[m]["ID_TIPO_CONTROL"] == 2) {
+                                if (entidad[m]["ID_TIPO_DATO"] == 1) {
+                                    fecha++;
+                                    $("#fch-det-tbl-1-" + fecha + "-" + (i + 1) + "-" + index + "-" + factor + "-" + enfoque).val(entidad[m]["VALOR"]);
+                                } else {
+                                    texto++;
+                                    $("#txt-det-tbl-1-" + texto + "-" + (i + 1) + "-" + index + "-" + factor + "-" + enfoque).val(entidad[m]["VALOR"]);
+                                }
+                            }
+                        }
+                        //}
+                        texto++;
+                        $("#txt-det-tbl-1-" + texto + "-" + (i + 1) + "-" + index + "-" + factor + "-" + enfoque).val(data[i]["FACTOR"]);
+                    }
+                }
+            } else {
+                CargarCuerpoGuardadoVerificar(1, factor, index, enfoque);
+            }
+        }
+    });
+
+}
+
+function cargarVerificar(enfoque, tabla, fila) {
+    //fila_valor = fila_valor.substring(0, fila_valor.length - 1);
+    //var arr = fila_valor.splice('|');
+    var i = 0;
+    var row = '<tr id="detalles-tr-p-1" data-ind="0"><th class="text-center" data-encabezado="Número" scope="row">1</th>';
+
+    var campo = $("#cuerpoTablaIndicador-" + tabla).find("#detalles-tr-" + fila);
+    campo.each(function (index, value) {
+        debugger;
+        var valor = $(value).find(".valor");
+        valor.each(function (index, value) {
+            //debugger;
+            i += 1;
+            row += '<td data-encabezado="Columna 04"><div class="form-group m-0"><input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-p-' + i + '" value="' + $(value).val() + '" readonly></div></td>';
+            //var a = $(value).val();
+        });
+    });    
+    //for (var i = 0; i < fila_valor.length; i++){
+    //    row += '<td data-encabezado="Columna 04"><div class="form-group m-0"><input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-p-'+ (i + 1) +'" value="' + fila_valor[i] + '" readonly></div></td>';
+    //}
+    row += '</tr>';
+    $("#cuerpoTablaVerificar-" + enfoque).html("").append(row);
+    $(".ocultar-verificar").attr("hidden", true);
+    $("#contenido-" + enfoque).removeAttr("hidden");
 }

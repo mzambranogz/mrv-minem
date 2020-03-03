@@ -183,5 +183,15 @@ namespace logica.minem.gob.pe
             if (string.IsNullOrEmpty(entidad.buscar)) entidad.buscar = "";
             return factorDA.ListarEnfoqueFactorExcel(entidad);
         }
+
+        public static List<FactorBE> ListarEnfoqueFactorVerificar(FactorBE entidad)
+        {
+            return factorDA.ListaEnfoqueFactores(entidad);
+        }
+
+        public static List<FactorBE> ListarFormulaVerificar(FactorBE entidad)
+        {
+            return factorDA.ListarFomulasVerificar(entidad);
+        }
     }
 }

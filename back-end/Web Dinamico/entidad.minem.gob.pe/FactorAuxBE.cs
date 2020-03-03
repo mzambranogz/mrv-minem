@@ -16,6 +16,9 @@ namespace entidad.minem.gob.pe
         public int VALIDAR { get; set; }
         public int ID_ENFOQUE { get; set; }
         public string DESCRIPCION { get; set; }
+        public int ID_PARAMETRO { get; set; }
+        public string NOMBRE_PARAMETRO { get; set; }
+        public string FORMULA { get; set; }
         public List<FactorBE> listaFactor { get; set; }
         public List<FactorParametroBE> ListaFactorParametro { get; set; }
         public List<FactorParametroDataBE> listaFactorData { get; set; }

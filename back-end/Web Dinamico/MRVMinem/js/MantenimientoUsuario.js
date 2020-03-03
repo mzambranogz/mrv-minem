@@ -160,6 +160,9 @@ function fn_modalInicio() {
     $("#mensajeRegistroMantenimientoUsuario").show();
     $("#pieMantenimientoUsuario").show();
     $("#pieCorrecto").hide();
+
+    $("#mensajeCorrecto").attr("hidden", true);
+    $("#mensajeError").attr("hidden", true);
 }
 
 function CargarTablaMantenimiento() {
@@ -525,11 +528,16 @@ function fn_guardarUsuarioMantenimiento() {
         $("#mensajeRegistroMantenimientoUsuario").hide();
         $("#correctoMantenimientoUsuario").show();
         $("#pieCorrecto").show();
+
+        $("#mensajeCorrecto").removeAttr("hidden");
+
     } else {
         $("#ventanaEditar").show();
         $("#correctoMantenimientoUsuario").hide();
         $("#errorRegistrarMantenimientoUsuario").hide();
         $("#errorEditarMantenimientoUsuario").show();
+
+        $("#mensajeError").removeAttr("hidden");
     }
 }
 

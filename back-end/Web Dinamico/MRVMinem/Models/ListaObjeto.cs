@@ -15,6 +15,7 @@ namespace MRVMinem.Models
         public MedidaMitigacionBE medida { get; set; }
         public UsuarioBE usuario { get; set; }
         public int detalle { get; set; }
+        public string id_enfoques { get; set; }
         public List<IndicadorBE> listaIndicador { get; set; }
         public List<UbicacionBE> listaUbicacion { get; set; }
         public List<EnergeticoBE> listaEnergetico { get; set; }
