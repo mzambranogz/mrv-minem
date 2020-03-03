@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - viernes-febrero-28-2020   
+-- Archivo creado  - martes-marzo-03-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_ADMIN_SISTEMA
@@ -1292,6 +1292,18 @@ END PKG_MRV_DETALLE_INDICADORES;
         pCondicion  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
+    
+    PROCEDURE USP_SEL_BUSQ_AVANZ_EXCEL(
+        pMedida IN VARCHAR2,
+        pAnio  INTEGER,
+        pSector  INTEGER,
+        pGei  INTEGER,
+        pEnerg  INTEGER,
+      	pSortColumn IN VARCHAR2,
+      	pSortOrder  IN VARCHAR2,
+        pCondicion  IN VARCHAR2,
+        pRefcursor OUT SYS_REFCURSOR
+    );
 
 END PKG_MRV_INICIATIVA_MITIGACION;
 
@@ -1854,6 +1866,11 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
     
     --////////////////////////////// DINAMICO INICIO
     PROCEDURE USP_SEL_LISTA_M_INDICADOR(
+        pBuscar     VARCHAR2,
+        pRegistros  INTEGER,
+        pPagina     INTEGER,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
     );
     
@@ -1976,6 +1993,81 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pID_MEDMIT    IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
   );
+  
+  --======================== 29-02-2020
+  PROCEDURE USP_SEL_LISTA_ENFOQUE(
+        pBuscar     VARCHAR2,
+        pRegistros  INTEGER,
+        pPagina     INTEGER,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+    
+  PROCEDURE USP_SEL_LISTA_ENFOQUE_FACTOR(
+        pID_ENFOQUE IN NUMBER,
+        pRefcursor OUT SYS_REFCURSOR
+   );
+   
+   PROCEDURE USP_UPD_VALIDAR_ENF_FACTOR(
+        pID_ENFOQUE IN NUMBER,
+        pRefcursor      OUT SYS_REFCURSOR
+  );
+  
+  PROCEDURE USP_PRC_ENFOQUE_FACTOR(
+        pID_FACTOR IN NUMBER,
+        pID_ENFOQUE IN NUMBER,
+        pORDEN IN NUMBER
+  );
+  
+  PROCEDURE USP_UPD_ELIMINAR_ENF_FACTOR(
+        pID_ENFOQUE IN NUMBER,
+        pID_ELIMINAR_FACTOR IN VARCHAR2
+  );
+  
+  --==========================================================
+  PROCEDURE USP_UPD_M_INDICADOR_DEL(
+        pID_MEDMIT IN NUMBER,
+        pID_ENFOQUE IN NUMBER,
+        pID_ACTIVO IN VARCHAR2
+  );
+  
+  PROCEDURE USP_UPD_VALIDAR_MED_ENFOQUE(
+        pID_MEDMIT IN NUMBER,
+        pID_ENFOQUE IN NUMBER,
+        pRefcursor      OUT SYS_REFCURSOR
+  );
+  
+  PROCEDURE USP_SEL_EXCEL_MED_ENF(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+    
+    PROCEDURE USP_SEL_EXCEL_MEDIDAMIT(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+
+    PROCEDURE USP_SEL_LISTA_ENFOQUE_F(
+        pRefcursor OUT SYS_REFCURSOR
+    );
+    
+    PROCEDURE USP_SEL_EXCEL_ENF_FAC(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+    
+    PROCEDURE USP_SEL_LISTA_FORMULA_VERIF(
+        pID_ENFOQUE IN NUMBER,
+        pID_MEDMIT IN NUMBER,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
 
 END PKG_MRV_MANTENIMIENTO;
 
@@ -2794,10 +2886,21 @@ END PKG_MRV_ADMIN_SISTEMA;
         vIdUsuario NUMBER;
         vIdDetalle NUMBER;
         vEntidad   VARCHAR2(100);
+        vGeiTotal   NUMBER;
     BEGIN
         UPDATE T_GENM_INICIATIVA
            SET ID_ESTADO = 3, ID_ETAPA = 4
          WHERE ID_INICIATIVA = pID_INICIATIVA;
+         
+         --AGREGAR GEI TOTAL REDUCIDO =================================
+        SELECT SUM(TO_NUMBER(valor,'999999.99')) INTO vGeiTotal
+        FROM T_MAEM_INDICADOR_DATA 
+        WHERE ID_INICIATIVA = pID_INICIATIVA AND ID_PARAMETRO = 11 AND FLAG_ESTADO = '1';
+        
+        UPDATE  T_GENM_INICIATIVA
+        SET     GEI_TOTAL = vGeiTotal
+        WHERE   ID_INICIATIVA = pID_INICIATIVA;
+        --================================================================================
 
         SELECT SQ_GEND_DETALLE_INICIATIVA.NEXTVAL INTO vIdDetalle FROM DUAL;
 
@@ -3433,7 +3536,8 @@ END PKG_MRV_ADMIN_SISTEMA;
   BEGIN
         OPEN pRefcursor FOR
         SELECT  *
-        FROM    T_MAEM_MRV_FACTOR;
+        FROM    T_MAEM_MRV_FACTOR
+        ORDER BY ID_FACTOR ASC; --ADD 29-02-2020
   END USP_SEL_FACTORES;
   
   --//// 17-02-20
@@ -8401,6 +8505,66 @@ END PKG_MRV_DETALLE_INDICADORES;
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_BUSQUEDA_AVANZADA_PUB;
+      
+      
+      PROCEDURE USP_SEL_BUSQ_AVANZ_EXCEL(
+        pMedida IN VARCHAR2,
+        pAnio  INTEGER,
+        pSector  INTEGER,
+        pGei  INTEGER,
+        pEnerg  INTEGER,
+      	pSortColumn IN VARCHAR2,
+      	pSortOrder  IN VARCHAR2,
+        pCondicion  IN VARCHAR2,
+        pRefcursor OUT SYS_REFCURSOR
+    )AS
+        vQuery      VARCHAR2(10000) := '';
+        vSortColumn2 VARCHAR2(1000);
+    BEGIN   
+    
+        IF pSortColumn = 'FECHA' THEN
+            vSortColumn2 := 'FECHA_IMPLE_INICIATIVA';
+        ELSIF pSortColumn = 'PROGRESO' THEN
+          	vSortColumn2 := 'INI.ID_ETAPA';
+        ELSIF pSortColumn = 'ID_INICIATIVA' THEN
+          	vSortColumn2 := 'INI.ID_INICIATIVA';
+        ELSIF pSortColumn = 'GEI_TOTAL' THEN
+          	vSortColumn2 := 'INI.GEI_TOTAL';
+        ELSIF pSortColumn = 'ID_ESTADO' THEN
+          	vSortColumn2 := 'EI.ID_ESTADO';
+        ELSE
+        	vSortColumn2 := pSortColumn;
+        END IF;
+
+        vQuery := '
+                        SELECT  INI.ID_INICIATIVA,
+                                INI.NOMBRE_INICIATIVA,
+                                ET.DESCRIPCION,
+                                INI.FECHA_IMPLE_INICIATIVA,
+                                INI.FECHA_FIN_INICIATIVA,
+                                INI.ID_TIPO_INGRESO,
+                                NVL(INI.GEI_TOTAL,0) TOTAL_GEI,
+                                MD.NOMBRE_MEDMIT,
+                                MD.NUMERO_MEDMIT,
+                                NVL(INST.NOMBRE_INSTITUCION,''-'') NOMBRE_INSTITUCION,
+                                INI.ID_ESTADO,
+                                EI.DESCRIPCION ESTADO_BANDEJA,
+                                INI.ID_ETAPA PROGRESO
+                        FROM T_GENM_INICIATIVA INI
+                        LEFT JOIN T_MAE_ETAPA ET ON INI.ID_ETAPA = ET.ID_ETAPA
+                        LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
+                        LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
+                        LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
+                        LEFT JOIN T_MAE_ESTADO EI ON INI.ID_ESTADO = EI.ID_ESTADO
+                        WHERE '|| pCondicion ||' AND
+                        (MD.ID_MEDMIT = '||pMedida||' OR ' ||pMedida|| ' = 0 ) AND 
+                        (EXTRACT(YEAR FROM INI.FECHA_IMPLE_INICIATIVA)='||pAnio||' OR  '||pAnio||'= 0) AND
+                        (INST.ID_SECTOR_INSTITUCION = '||pSector||' OR '||pSector||' = 0)
+                        ORDER BY ' || vSortColumn2 || ' ' || pSortOrder || ' ' ;
+
+        OPEN pRefcursor FOR vQuery;
+
+      END USP_SEL_BUSQ_AVANZ_EXCEL;
 
 END PKG_MRV_INICIATIVA_MITIGACION;
 
@@ -10490,15 +10654,67 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
  --///////////////////////// DINAMICO INICIO
     
     PROCEDURE USP_SEL_LISTA_M_INDICADOR(
+        pBuscar     VARCHAR2,
+        pRegistros  INTEGER,
+        pPagina     INTEGER,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
-    )AS
-    BEGIN
-        OPEN pRefcursor FOR
-        SELECT DISTINCT  MI.ID_ENFOQUE, MI.ID_MEDMIT, EF.DESCRIPCION ENFOQUE, MM.NOMBRE_MEDMIT MEDIDA_MIT
+   )AS
+        vPaginas    INTEGER;
+        vTotal      INTEGER;
+        vPagina2    INTEGER := pPagina;
+        vPageIndex  INTEGER := 0;
+        vQuery      VARCHAR2(10000) := '';
+        vSortColumn2 VARCHAR2(1000);
+    BEGIN 
+        SELECT  COUNT(DISTINCT MI.ID_ENFOQUE) INTO vTotal
         FROM    T_MAEM_INDICADOR MI
         LEFT JOIN   T_GENM_ENFOQUE EF ON MI.ID_ENFOQUE = EF.ID_ENFOQUE
         LEFT JOIN   T_MAE_MEDMIT MM ON MI.ID_MEDMIT = MM.ID_MEDMIT
-        ORDER BY MI.ID_MEDMIT, MI.ID_ENFOQUE ASC;  
+        WHERE
+                (LOWER(TRANSLATE(MM.NOMBRE_MEDMIT,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like '%'|| LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) ||'%' 
+                OR LOWER(TRANSLATE(EF.DESCRIPCION,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like '%'||LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou'))||'%' );
+
+        vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
+        IF vPagina2 = 0 THEN
+            vPagina2 := 1;
+        END IF;
+        IF vPagina2 > vPaginas THEN
+            vPagina2 := vPaginas;
+        END IF;
+        vPageIndex := vPagina2 - 1;
+        
+        IF pSortColumn = 'ID_ENFOQUE' THEN
+            vSortColumn2 := 'MI.ID_ENFOQUE';
+        ELSIF pSortColumn = 'DESCRIPCION' THEN
+          	vSortColumn2 := 'EF.DESCRIPCION';
+        ELSIF pSortColumn = 'NOMBRE_MEDMIT' THEN
+          	vSortColumn2 := 'MM.NOMBRE_MEDMIT';
+        ELSE
+            vSortColumn2 := pSortColumn;
+        END IF;
+
+        vQuery := 'SELECT * FROM (
+        SELECT      MI.ID_ENFOQUE, 
+                    MI.ID_MEDMIT,
+                    EF.DESCRIPCION ENFOQUE, 
+                    MM.NOMBRE_MEDMIT MEDIDA_MIT,
+                    ROW_NUMBER() OVER (ORDER BY ' || vSortColumn2 || ' ' || pSortOrder ||') AS ROWNUMBER,'
+                    || vPaginas || ' AS total_paginas,'
+                    || vPagina2 || ' AS pagina,'
+                    || pRegistros || ' AS cantidad_registros,'
+                    || vTotal || ' AS total_registros
+                FROM    T_MAEM_INDICADOR MI
+                LEFT JOIN   T_GENM_ENFOQUE EF ON MI.ID_ENFOQUE = EF.ID_ENFOQUE
+                LEFT JOIN   T_MAE_MEDMIT MM ON MI.ID_MEDMIT = MM.ID_MEDMIT
+                WHERE
+                (LOWER(TRANSLATE(MM.NOMBRE_MEDMIT,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' 
+                OR LOWER(TRANSLATE(EF.DESCRIPCION,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou''))||''%'' )
+                GROUP BY MI.ID_ENFOQUE, MI.ID_MEDMIT, EF.DESCRIPCION, MM.NOMBRE_MEDMIT)
+                WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
+        OPEN pRefcursor FOR vQuery;
+
     END USP_SEL_LISTA_M_INDICADOR;
     
     PROCEDURE USP_SEL_M_INDICADOR(
@@ -10515,7 +10731,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
         LEFT JOIN   T_GENM_ENFOQUE EF ON MI.ID_ENFOQUE = EF.ID_ENFOQUE
         LEFT JOIN   T_MAE_MEDMIT MM ON MI.ID_MEDMIT = MM.ID_MEDMIT
         LEFT JOIN   T_MAMEM_GRUPO_INDICADOR MGI ON MI.ID_GRUPO_INDICADOR = MGI.ID_GRUPO_INDICADOR
-        WHERE MI.ID_MEDMIT = pID_MEDMIT AND MI.ID_ENFOQUE = pID_ENFOQUE
+        WHERE MI.ID_MEDMIT = pID_MEDMIT AND MI.ID_ENFOQUE = pID_ENFOQUE AND MI.FLAG_ESTADO = '1'
         ORDER BY MI.ID_ENFOQUE ,MI.ORDEN ASC;
     END USP_SEL_M_INDICADOR;
     
@@ -10540,7 +10756,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
         
         IF vContador > 0 THEN
             UPDATE  T_MAEM_INDICADOR
-            SET     ID_GRUPO_INDICADOR = pID_GRUPO_INDICADOR, ORDEN = pID_ORDEN
+            SET     ID_GRUPO_INDICADOR = pID_GRUPO_INDICADOR, ORDEN = pID_ORDEN, FLAG_ESTADO = '1'
             WHERE ID_MEDMIT = pID_MEDMIT AND ID_ENFOQUE = pID_ENFOQUE AND ID_PARAMETRO = pID_PARAMETRO;
         ELSE
             INSERT INTO T_MAEM_INDICADOR (ID_ENFOQUE, ID_MEDMIT, ID_PARAMETRO, ID_GRUPO_INDICADOR, ORDEN, FLAG_ESTADO)
@@ -10559,7 +10775,15 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
                 INSERT INTO T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO, ID_ENFOQUE, ID_MEDMIT, COMPORTAMIENTO, VALOR, FORMULA, FORMULA_ARMADO, FLAG_ACTIVO)
             VALUES (pID_PARAMETRO, pID_ENFOQUE, pID_MEDMIT, pCOMPORTAMIENTO, pVALOR, pFORMULA, pFORMULA_ARMADO, '1');
             END IF;
+        ELSE
+            SELECT COUNT(1) INTO vContador_F FROM T_MAEM_FORMULA_PARAMETRO 
+            WHERE ID_MEDMIT = pID_MEDMIT AND ID_ENFOQUE = pID_ENFOQUE AND ID_PARAMETRO = pID_PARAMETRO;
             
+            IF vContador_F > 0 THEN
+                UPDATE T_MAEM_FORMULA_PARAMETRO
+                SET    FORMULA = '', FORMULA_ARMADO = ''
+                WHERE ID_MEDMIT = pID_MEDMIT AND ID_ENFOQUE = pID_ENFOQUE AND ID_PARAMETRO = pID_PARAMETRO;
+            END IF;
         END IF;
         
     END USP_INS_M_INDICADOR;
@@ -10593,7 +10817,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
   )AS
   BEGIN
         OPEN pRefcursor FOR        
-        SELECT  NOMBRE_DETALLE
+        SELECT  NOMBRE_DETALLE, ID_PARAMETRO
         FROM    T_MAEM_MRV_FACTOR_PARAMETRO     
         WHERE ID_FACTOR = pID_FACTOR
         ORDER BY ORDEN ASC;
@@ -10844,7 +11068,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
                     ID_IPCC = pID_IPCC
             WHERE   ID_MEDMIT = pID_MEDMIT;
             
-            IF pADJUNTO = '' THEN
+            IF pADJUNTO = 'nul' THEN
                 SELECT '0' INTO vIdMedmit FROM DUAL;
             ELSE
                 UPDATE  T_MAE_MEDMIT
@@ -10869,7 +11093,276 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
         WHERE M.ID_MEDMIT = pID_MEDMIT;
   END USP_SEL_GET_MEDMIT;
 
+  --================================================================================= 29-02-20
+  PROCEDURE USP_SEL_LISTA_ENFOQUE(
+        pBuscar     VARCHAR2,
+        pRegistros  INTEGER,
+        pPagina     INTEGER,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+   )AS
+        vPaginas    INTEGER;
+        vTotal      INTEGER;
+        vPagina2    INTEGER := pPagina;
+        vPageIndex  INTEGER := 0;
+        vQuery      VARCHAR2(10000) := '';
+        vSortColumn2 VARCHAR2(1000);
+    BEGIN 
+        SELECT  COUNT(DISTINCT E.ID_ENFOQUE) INTO vTotal
+        FROM    T_GENM_ENFOQUE E
+        LEFT JOIN T_MAE_MEDMIT M ON E.ID_MEDMIT = M.ID_MEDMIT     
+        INNER JOIN  T_MAEM_ENFOQUE_FACTOR EF ON E.ID_ENFOQUE = EF.ID_ENFOQUE
+        WHERE
+                (LOWER(TRANSLATE(M.NOMBRE_MEDMIT,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like '%'|| LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) ||'%' 
+                OR LOWER(TRANSLATE(E.DESCRIPCION,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like '%'||LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou'))||'%' );
+
+        vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
+        IF vPagina2 = 0 THEN
+            vPagina2 := 1;
+        END IF;  
+        IF vPagina2 > vPaginas THEN
+            vPagina2 := vPaginas;
+        END IF;
+        vPageIndex := vPagina2 - 1;
+        
+        IF pSortColumn = 'ID_ENFOQUE' THEN
+            vSortColumn2 := 'E.ID_ENFOQUE';
+        ELSIF pSortColumn = 'DESCRIPCION' THEN
+          	vSortColumn2 := 'E.DESCRIPCION';
+        ELSIF pSortColumn = 'NOMBRE_MEDMIT' THEN
+          	vSortColumn2 := 'M.NOMBRE_MEDMIT';
+        ELSE
+            vSortColumn2 := pSortColumn;
+        END IF;
+
+        vQuery := 'SELECT * FROM (
+        SELECT      E.ID_ENFOQUE,
+                    E.DESCRIPCION,
+                    M.NOMBRE_MEDMIT,
+                    ROW_NUMBER() OVER (ORDER BY ' || vSortColumn2 || ' ' || pSortOrder ||') AS ROWNUMBER,'
+                    || vPaginas || ' AS total_paginas,'
+                    || vPagina2 || ' AS pagina,'
+                    || pRegistros || ' AS cantidad_registros,'
+                    || vTotal || ' AS total_registros
+                FROM    T_GENM_ENFOQUE E
+                LEFT JOIN T_MAE_MEDMIT M ON E.ID_MEDMIT = M.ID_MEDMIT 
+                INNER JOIN  T_MAEM_ENFOQUE_FACTOR EF ON E.ID_ENFOQUE = EF.ID_ENFOQUE
+                WHERE
+                (LOWER(TRANSLATE(M.NOMBRE_MEDMIT,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' 
+                OR LOWER(TRANSLATE(E.DESCRIPCION,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou''))||''%'' )
+                GROUP BY E.ID_ENFOQUE, E.DESCRIPCION, M.NOMBRE_MEDMIT
+                )
+                WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
+        OPEN pRefcursor FOR vQuery;
+
+    END USP_SEL_LISTA_ENFOQUE;
+  
+  /*PROCEDURE USP_SEL_LISTA_ENFOQUE(
+        pRefcursor OUT SYS_REFCURSOR
+    ) AS
+  BEGIN
+
+    OPEN pRefcursor FOR
+    SELECT  E.ID_ENFOQUE,
+            E.DESCRIPCION,
+            M.NOMBRE_MEDMIT
+    FROM    T_GENM_ENFOQUE E
+    LEFT JOIN T_MAE_MEDMIT M ON E.ID_MEDMIT = M.ID_MEDMIT 
+    ORDER BY E.ID_ENFOQUE ASC;
+  END USP_SEL_LISTA_ENFOQUE;*/
+  
+  PROCEDURE USP_SEL_LISTA_ENFOQUE_FACTOR(
+        pID_ENFOQUE IN NUMBER,
+        pRefcursor OUT SYS_REFCURSOR
+    )AS
+    BEGIN
+        OPEN pRefcursor FOR
+        SELECT  F.ID_FACTOR, F.NOMBRE_FACTOR
+        FROM T_MAEM_ENFOQUE_FACTOR MF
+        LEFT JOIN T_MAEM_MRV_FACTOR F ON MF.ID_FACTOR = F.ID_FACTOR 
+        WHERE ID_ENFOQUE = pID_ENFOQUE AND MF.FLAG_ESTADO = '1'
+        ORDER BY MF.ORDEN ASC;
+    END USP_SEL_LISTA_ENFOQUE_FACTOR;
     
+    PROCEDURE USP_UPD_VALIDAR_ENF_FACTOR(
+        pID_ENFOQUE IN NUMBER,
+        pRefcursor      OUT SYS_REFCURSOR
+  )IS
+    vValidar NUMBER;
+  BEGIN
+    SELECT COUNT(1) INTO vValidar FROM T_MAEM_ENFOQUE_FACTOR
+    WHERE ID_ENFOQUE = pID_ENFOQUE AND FLAG_ESTADO = '1';
+    
+    OPEN pRefcursor FOR
+    SELECT vValidar VALIDAR FROM DUAL;
+  END USP_UPD_VALIDAR_ENF_FACTOR;
+  
+  PROCEDURE USP_PRC_ENFOQUE_FACTOR(
+        pID_FACTOR IN NUMBER,
+        pID_ENFOQUE IN NUMBER,
+        pORDEN IN NUMBER
+  )IS
+    vIdContador NUMBER;
+  BEGIN
+    SELECT COUNT(1) INTO vIdContador FROM T_MAEM_ENFOQUE_FACTOR WHERE ID_ENFOQUE = pID_ENFOQUE AND ID_FACTOR = pID_FACTOR;
+    IF vIdContador = 0 THEN
+        INSERT INTO T_MAEM_ENFOQUE_FACTOR (ID_ENFOQUE, ID_FACTOR, ORDEN, FLAG_ESTADO)
+        VALUES (pID_ENFOQUE, pID_FACTOR, pORDEN, '1');
+    ELSE
+        UPDATE  T_MAEM_ENFOQUE_FACTOR
+        SET     ORDEN = pORDEN,
+                FLAG_ESTADO = '1'
+        WHERE   ID_ENFOQUE = pID_ENFOQUE AND ID_FACTOR = pID_FACTOR;
+    END IF;
+        
+  END USP_PRC_ENFOQUE_FACTOR;
+  
+  PROCEDURE USP_UPD_ELIMINAR_ENF_FACTOR(
+        pID_ENFOQUE IN NUMBER,
+        pID_ELIMINAR_FACTOR IN VARCHAR2
+  )IS
+        vSql            VARCHAR2(250);
+    BEGIN 
+        vSql := 'UPDATE T_MAEM_ENFOQUE_FACTOR SET FLAG_ESTADO = 0 WHERE ID_ENFOQUE ='||pID_ENFOQUE||' AND ID_FACTOR IN ('||pID_ELIMINAR_FACTOR||')';
+        EXECUTE IMMEDIATE vSql;
+    END USP_UPD_ELIMINAR_ENF_FACTOR;
+
+    --==============================================
+    PROCEDURE USP_UPD_M_INDICADOR_DEL(
+        pID_MEDMIT IN NUMBER,
+        pID_ENFOQUE IN NUMBER,
+        pID_ACTIVO IN VARCHAR2
+    )IS
+        vSql            VARCHAR2(250);
+    BEGIN 
+        vSql := 'UPDATE T_MAEM_INDICADOR SET FLAG_ESTADO = 0 WHERE ID_ENFOQUE ='||pID_ENFOQUE||'AND ID_MEDMIT = '|| pID_MEDMIT ||'  AND ID_PARAMETRO NOT IN ('||pID_ACTIVO||')';
+        EXECUTE IMMEDIATE vSql; 
+    END USP_UPD_M_INDICADOR_DEL;
+    
+    PROCEDURE USP_UPD_VALIDAR_MED_ENFOQUE(
+        pID_MEDMIT IN NUMBER,
+        pID_ENFOQUE IN NUMBER,
+        pRefcursor      OUT SYS_REFCURSOR
+  )IS
+    vValidar NUMBER;
+  BEGIN
+    SELECT COUNT(1) INTO vValidar FROM T_MAEM_INDICADOR
+    WHERE ID_MEDMIT = pID_MEDMIT AND ID_ENFOQUE = pID_ENFOQUE;
+    
+    OPEN pRefcursor FOR
+    SELECT vValidar VALIDAR FROM DUAL;
+  END USP_UPD_VALIDAR_MED_ENFOQUE;
+  
+  PROCEDURE USP_SEL_EXCEL_MED_ENF(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+        vQuery      VARCHAR2(30000) := '';
+        vSortColumn2 VARCHAR2(1000);
+      BEGIN
+        vSortColumn2 := pSortColumn;
+        vQuery := '
+                        SELECT      MI.ID_ENFOQUE, 
+                                    MI.ID_MEDMIT,
+                                    EF.DESCRIPCION ENFOQUE, 
+                                    MM.NOMBRE_MEDMIT MEDIDA_MIT
+                        FROM    T_MAEM_INDICADOR MI
+                        LEFT JOIN   T_GENM_ENFOQUE EF ON MI.ID_ENFOQUE = EF.ID_ENFOQUE
+                        LEFT JOIN   T_MAE_MEDMIT MM ON MI.ID_MEDMIT = MM.ID_MEDMIT
+                        WHERE
+                        (LOWER(TRANSLATE(MM.NOMBRE_MEDMIT,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' 
+                        OR LOWER(TRANSLATE(EF.DESCRIPCION,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou''))||''%'' )
+                        GROUP BY MI.ID_ENFOQUE, MI.ID_MEDMIT, EF.DESCRIPCION, MM.NOMBRE_MEDMIT
+                        ORDER BY ' || vSortColumn2 || ' ' || pSortOrder || ' ' ;
+
+		OPEN pRefcursor FOR vQuery;
+
+    END USP_SEL_EXCEL_MED_ENF;
+    
+    PROCEDURE USP_SEL_EXCEL_MEDIDAMIT(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+        vQuery      VARCHAR2(30000) := '';
+        vSortColumn2 VARCHAR2(1000);
+      BEGIN
+        vSortColumn2 := pSortColumn;
+        vQuery := '
+        SELECT      M.ID_MEDMIT,
+                    M.NUMERO_MEDMIT,
+                    M.NOMBRE_MEDMIT,
+                    M.DESCRIPCION_MEDMIT,
+                    M.OBJETIVO_MEDMIT,
+                    ICC.IPCC IPSC_MEDMIT
+                FROM T_MAE_MEDMIT M
+                LEFT JOIN   T_MAE_NAMA NA ON M.ID_NAMA = NA.ID_NAMA
+                LEFT JOIN   T_MAE_IPCC ICC ON M.ID_IPCC = ICC.ID_IPCC
+                WHERE M.FLAG_ESTADO = ''1'' AND
+                (LOWER(TRANSLATE(M.NUMERO_MEDMIT,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' 
+                OR LOWER(TRANSLATE(M.NOMBRE_MEDMIT,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou''))||''%'' 
+                OR LOWER(TRANSLATE(M.DESCRIPCION_MEDMIT,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou''))||''%''
+                OR LOWER(TRANSLATE(M.OBJETIVO_MEDMIT,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou''))||''%''
+                OR LOWER(TRANSLATE(ICC.IPCC,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou''))||''%'' )
+                        ORDER BY ' || vSortColumn2 || ' ' || pSortOrder || ' ' ;
+		OPEN pRefcursor FOR vQuery;
+
+    END USP_SEL_EXCEL_MEDIDAMIT;
+    
+    PROCEDURE USP_SEL_LISTA_ENFOQUE_F(
+        pRefcursor OUT SYS_REFCURSOR
+    )AS
+    BEGIN
+        OPEN pRefcursor FOR
+        SELECT  E.ID_ENFOQUE,
+                E.DESCRIPCION
+        FROM    T_GENM_ENFOQUE E
+        LEFT JOIN T_MAE_MEDMIT M ON E.ID_MEDMIT = M.ID_MEDMIT         
+        ORDER BY E.ID_ENFOQUE ASC;
+    END USP_SEL_LISTA_ENFOQUE_F;
+    
+    PROCEDURE USP_SEL_EXCEL_ENF_FAC(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+        vQuery      VARCHAR2(30000) := '';
+        vSortColumn2 VARCHAR2(1000);
+      BEGIN
+        vSortColumn2 := pSortColumn;
+        vQuery := '
+        SELECT      E.ID_ENFOQUE,
+                    E.DESCRIPCION,
+                    M.NOMBRE_MEDMIT
+                FROM    T_GENM_ENFOQUE E
+                LEFT JOIN T_MAE_MEDMIT M ON E.ID_MEDMIT = M.ID_MEDMIT 
+                INNER JOIN  T_MAEM_ENFOQUE_FACTOR EF ON E.ID_ENFOQUE = EF.ID_ENFOQUE
+                WHERE
+                (LOWER(TRANSLATE(M.NOMBRE_MEDMIT,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' 
+                OR LOWER(TRANSLATE(E.DESCRIPCION,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou''))||''%'' )
+                GROUP BY E.ID_ENFOQUE, E.DESCRIPCION, M.NOMBRE_MEDMIT
+                ORDER BY ' || vSortColumn2 || ' ' || pSortOrder || ' ' ;
+		OPEN pRefcursor FOR vQuery; 
+
+    END USP_SEL_EXCEL_ENF_FAC;
+    
+    PROCEDURE USP_SEL_LISTA_FORMULA_VERIF(
+        pID_ENFOQUE IN NUMBER,
+        pID_MEDMIT IN NUMBER,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+    BEGIN
+        OPEN pRefcursor FOR
+        SELECT  FP.ID_PARAMETRO, MP.NOMBRE_PARAMETRO, FP.FORMULA
+        FROM    T_MAEM_FORMULA_PARAMETRO FP
+        INNER JOIN  T_MAEM_MRV_PARAMETRO MP ON FP.ID_PARAMETRO = MP.ID_PARAMETRO
+        WHERE   FP.ID_ENFOQUE = pID_ENFOQUE AND FP.ID_MEDMIT = pID_MEDMIT;
+    END USP_SEL_LISTA_FORMULA_VERIF;
 
 END PKG_MRV_MANTENIMIENTO;
 
