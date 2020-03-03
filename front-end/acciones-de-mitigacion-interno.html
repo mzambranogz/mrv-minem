@@ -121,6 +121,17 @@
                                             </div>
                                           </div>
                                         </div>
+                                        <div class="row">
+                                          <div class="col-sm-12">
+                                            <div class="form-group">
+                                              <label for="txa-descripcion-medida">Descripción de la medida<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indicar la ubicación, tecnología considerada y cantidades de la misma."></i></label>
+                                              <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-tachometer-alt"></i></span></div>
+                                                <textarea class="form-control" id="txa-descripcion-medida" aria-describedby="inputGroup5" cols="30" rows="4" required placeholder="Ingrese una descripción para su iniciativa"></textarea>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
                                         <!--.row
                                         .col-sm-12
                                           .form-group
@@ -135,10 +146,21 @@
                                         <div class="row">
                                           <div class="col-sm-12">
                                             <div class="form-group">
-                                              <label for="txt-fecha-inicio">Año de Inicio del proyecto&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique el año de inicio del proyecto"></i></label>
+                                              <label for="txt-fecha-inicio">Fecha de ejecución del proyecto&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique la fecha de ejecución del proyecto"></i></label>
                                               <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-calendar-alt"></i></span></div>
-                                                <input class="form-control" type="number" id="txt-fecha-inicio" placeholder="Ingrese nombre de la iniciativa" aria-describedby="inputGroup4" min="2000" max="2030">
+                                                <input class="form-control" type="date" id="txt-fecha-inicio" placeholder="Ingrese fecha de ejecución de la iniciativa" aria-describedby="inputGroup4" min="2010-01-01" max="2030-12-01">
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-sm-12">
+                                            <div class="form-group">
+                                              <label for="txt-fecha-fin">Fecha de finalización del proyecto&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique la fecha de finalización del proyecto"></i></label>
+                                              <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-calendar-alt"></i></span></div>
+                                                <input class="form-control" type="date" id="txt-fecha-fin" placeholder="Ingrese fecha de ejecución de la iniciativa" aria-describedby="inputGroup4" min="2010-01-01" max="2030-12-01">
                                               </div>
                                             </div>
                                           </div>
@@ -657,43 +679,67 @@
       <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Seleccione una Medida de Mitigación <br><small class="text-muted">Para iniciar con el registro de su identificación</small></h5>
+            <h5 class="modal-title" id="exampleModalLabel">Seleccione su medida de mitigación <br><small class="text-muted">en la que usted crea que corresponda la iniciativa a registrar</small></h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           </div>
           <div class="modal-body medidas-modal">
             <div class="row">
-              <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
+              <div class="col-12">
                 <div class="row">
-                  <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Transformación del mercado de iluminación del sector residencial"><img src="./images/ico_nama_amarillo_01.svg"></a></div>
-                  <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Reemplazo de lámparas de alumbrado público por lámparas LED"><img src="./images/ico_nama_amarillo_02.svg"></a></div>
-                  <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Etiquetado de eficiencia energética"><img src="./images/ico_nama_amarillo_03.svg"></a></div>
-                  <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Auditorías energéticas sector público"><img src="./images/ico_nama_amarillo_04.svg"></a></div>
+                  <div class="col-sm-12 col-md-4 col-lg-3 pb-1 text-center">
+                    <div class="bg-nama-amarilla rounded py-3"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Transformación del mercado de iluminación del sector residencial"><img src="./images/ico_nama_amarillo_01.svg"></a></div><small class="font-weight-bold">Transformación del mercado de iluminación del sector residencial</small>
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-3 pb-1 text-center">
+                    <div class="bg-nama-amarilla rounded py-3"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Reemplazo de lámparas de alumbrado público por lámparas LED"><img src="./images/ico_nama_amarillo_02.svg"></a></div><small class="font-weight-bold">Reemplazo de lámparas de alumbrado público por lámparas LED</small>
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-3 pb-1 text-center">
+                    <div class="bg-nama-amarilla rounded py-3"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Etiquetado de eficiencia energética"><img src="./images/ico_nama_amarillo_03.svg"></a></div><small class="font-weight-bold">Etiquetado de eficiencia energética</small>
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-3 pb-1 text-center">
+                    <div class="bg-nama-amarilla rounded py-3"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Auditorías energéticas sector público"><img src="./images/ico_nama_amarillo_04.svg"></a></div><small class="font-weight-bold">Auditorías energéticas sector público</small>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="row">
-              <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
+              <div class="col-12">
                 <div class="row">
-                  <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Reemplazo de lámparas por lámparas LED en el sector público"><img src="./images/ico_nama_amarillo_05.svg"></a></div>
-                  <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Eficiencia energética en el sector industrial"><img src="./images/ico_nama_amarillo_06.svg"></a></div>
-                  <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Reemplazo lámparas en el sector comercial"><img src="./images/ico_nama_amarillo_07.svg"></a></div>
-                  <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Promoción de vehículos eléctricos a nivel nacional"><img src="./images/ico_nama_azul_01.svg"></a></div>
+                  <div class="col-sm-12 col-md-4 col-lg-3 pb-1 text-center">
+                    <div class="bg-nama-amarilla rounded py-3"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Reemplazo de lámparas por lámparas LED en el sector público"><img src="./images/ico_nama_amarillo_05.svg"></a></div><small class="font-weight-bold">Reemplazo de lámparas por lámparas LED en el sector público</small>
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-3 pb-1 text-center">
+                    <div class="bg-nama-amarilla rounded py-3"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Eficiencia energética en el sector industrial"><img src="./images/ico_nama_amarillo_06.svg"></a></div><small class="font-weight-bold">Eficiencia energética en el sector industrial</small>
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-3 pb-1 text-center">
+                    <div class="bg-nama-amarilla rounded py-3"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Reemplazo lámparas en el sector comercial"><img src="./images/ico_nama_amarillo_07.svg"></a></div><small class="font-weight-bold">Reemplazo lámparas en el sector comercial</small>
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-3 pb-1 text-center">
+                    <div class="bg-nama-azul rounded py-3"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Promoción de vehículos eléctricos a nivel nacional"><img src="./images/ico_nama_azul_01.svg"></a></div><small class="font-weight-bold">Promoción de vehículos eléctricos a nivel nacional</small>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="row">
-              <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
+              <div class="col-12">
                 <div class="row">
-                  <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Suministro de electricidad con energía renovable en áreas no conectadas"><img src="./images/ico_nama_rojo_01.svg"></a></div>
-                  <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Cocción limpia"><img src="./images/ico_nama_rojo_02.svg"></a></div>
-                  <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Combinación de energías renovables"><img src="./images/ico_nama_verde_01.svg"></a></div>
-                  <div class="col-sm-12 col-md-4 col-lg-3 pb-5 text-center"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Generación distribuida"><img src="./images/ico_nama_verde_02.svg"></a></div>
+                  <div class="col-sm-12 col-md-4 col-lg-3 pb-1 text-center">
+                    <div class="bg-nama-roja rounded py-3"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Suministro de electricidad con energía renovable en áreas no conectadas"><img src="./images/ico_nama_rojo_01.svg"></a></div><small class="font-weight-bold">Suministro de electricidad con energía renovable en áreas no conectadas</small>
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-3 pb-1 text-center">
+                    <div class="bg-nama-roja rounded py-3"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Cocción limpia"><img src="./images/ico_nama_rojo_02.svg"></a></div><small class="font-weight-bold">Cocción limpia</small>
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-3 pb-1 text-center">
+                    <div class="bg-nama-verde rounded py-3"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Combinación de energías renovables"><img src="./images/ico_nama_verde_01.svg"></a></div><small class="font-weight-bold">Combinación de energías renovables</small>
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-3 pb-1 text-center">
+                    <div class="bg-nama-verde rounded py-3"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Generación distribuida"><img src="./images/ico_nama_verde_02.svg"></a></div><small class="font-weight-bold">Generación distribuida</small>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-sm-12 col-md-12 col-lg-12">
-                <div class="alert alert-warning">No te preocupes, que podrás cambiar la medida de mitigacion en cualquier momento.</div>
+                <div class="alert alert-warning">No te preocupes, que podrás cambiar la medida de mitigacion en cualquier momento. <br> Si no encuentra la medida de mitigación que está buscando comuníquese con el administrador del sistema al siguientete correo electrónico:&nbsp;<strong>carlos.galdos@minem.gob.pe</strong></div>
               </div>
             </div>
           </div>
@@ -711,8 +757,8 @@
             <div class="row">
               <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
                 <div class="row">
-                  <div class="col-sm-12 col-md-6 col-lg-6 pb-5 text-center"><a class="d-inline-block" href="./registro-de-detalles-de-indicadores-manual.html" data-toggle="tooltip" data-placement="top" title="Registro manual de detalle de indicadores"><img src="./images/01_registro_manual.svg"></a></div>
-                  <div class="col-sm-12 col-md-6 col-lg-6 pb-5 text-center"><a class="d-inline-block" href="./registro-de-detalles-de-indicadores-masivo.html" data-toggle="tooltip" data-placement="top" title="Registro a través de archivo excel"><img src="./images/02_registro_masivo.svg"></a></div>
+                  <div class="col-sm-12 col-md-6 col-lg-6 pb-5 text-center"><a class="d-inline-block" href="./registro-de-detalles-de-indicadores-manual.html" data-toggle="tooltip" data-placement="top" title="Registro manual de detalle de indicadores"><img src="./images/01_registro_manual.svg"></a><small class="font-weight-bold">Registro manual de detalle de indicadores</small></div>
+                  <div class="col-sm-12 col-md-6 col-lg-6 pb-5 text-center"><a class="d-inline-block" href="./registro-de-detalles-de-indicadores-masivo.html" data-toggle="tooltip" data-placement="top" title="Registro a través de archivo excel"><img src="./images/02_registro_masivo.svg"></a><small class="font-weight-bold">Registro a través de archivo excel</small></div>
                 </div>
               </div>
             </div>
@@ -772,8 +818,8 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
-            <button class="btn btn-primary" type="button">Si</button>
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">No, cancelar</button>
+            <button class="btn btn-primary" type="button">Si, grabar</button>
           </div>
         </div>
       </div>
@@ -781,15 +827,16 @@
     <div class="modal fade" id="modal-bienbenida" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-md modal-dialog-centered" role="document">
         <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Bienvenido a:</h5>
+          <div class="modal-header"><img src="./images/logo_mrv_new_negro.svg" width="36%">
+            <!--h5.modal-title(id="exampleModalLabel") Bienvenido a:-->
             <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           </div>
-          <div class="modal-body"><img src="./images/logo_mrv_new_negro.svg" width="36%">
-            <div class="h1 text-primary text-center p-0 m-0 my-2">Bienvenido</div><img class="img-fluid" src="./images/001.jpg">
+          <div class="modal-body">
+            <!--img(src="./images/logo_mrv_new_negro.svg", width="36%")-->
+            <div class="h1 text-primary text-center p-0 m-0 mb-2">Bienvenido</div><img class="img-fluid" src="./images/001.jpg">
             <div class="row">
               <div class="col-sm-12 col-md-12 col-lg-12">
-                <div class="alert alert-success mt-3 text-justify">Estimado&nbsp;<strong>Nombre y Apellido&nbsp;</strong>, te invitamos a enviarnos tus&nbsp;<strong>Iniciativas de Mitigación &nbsp;</strong>haciendo click en el botón&nbsp;<i class="fas fa-plus mr-1"></i><strong>Agregar iniciativa</strong></div>
+                <div class="alert alert-success mt-3 text-justify">Estimado(a)&nbsp;<strong>Nombre y Apellido</strong>, te invitamos a enviarnos tus&nbsp;<strong>Iniciativas de Mitigación &nbsp;</strong>haciendo click en el botón&nbsp;<i class="fas fa-plus mr-1"></i><strong>Agregar iniciativa</strong></div>
               </div>
             </div>
           </div>
@@ -814,7 +861,7 @@
                 <div class="lead font-weight-bold">Enlaces</div>
                 <ul class="list-unstyled">
                   <li class="py-1"><a class="text-white" href="https://www.gob.pe/minem" target="_blank"><i class="fas fa-landmark mr-2"></i>MINEM</a></li>
-                  <li class="py-1"><a class="text-white" href="http://namasenergia.minem.gob.pe/" target="_blank"><i class="fas fa-landmark mr-2"></i>NAMA's</a></li>
+                  <li class="py-1"><a class="text-white" href="http://namasenergia.minem.gob.pe/" target="_blank"><i class="fas fa-landmark mr-2"></i>Página Web de NAMA</a></li>
                   <li class="py-1"><a class="text-white" href="./mapa-del-ditio.html" target="_blank"><i class="fas fa-sitemap mr-2"></i>Mapa del Sitio</a></li>
                 </ul>
               </div>
@@ -833,8 +880,10 @@
               <div class="col-sm-12 col-md-4 text-white">
                 <div class="lead font-weight-bold">Tecnología</div>
                 <div class="navbar flex-md-row justify-content-start p-0 pt-1">
-                  <p>Este sitio web está <br> implementado con <br> tecnología Blockchain</p>
-                  <!--img(src="./images/logo-blockchain-blanco.png", height="81")-->
+                  <ul class="list-unstyled mr-0">
+                    <li class="py-1">Este sitio web está <br> implementado con <br> tecnología Blockchain</li>
+                    <li class="py-1"><a class="nav-link p-0" href="https://es.wikipedia.org/wiki/Cadena_de_bloques" target="_blank"><img src="./images/logo-blockchain-blanco.png" height="40"></a></li>
+                  </ul>
                 </div>
               </div>
               <div class="col-sm-12 col-md-4 d-flex flex-row justify-content-end align-items-end">

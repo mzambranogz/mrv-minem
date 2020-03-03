@@ -74,8 +74,8 @@
             </p>
           </div>
           <div class="col-md-6 col-lg-12 p-4 bg-light rounded-bottom">
-            <div class="h5"><small class="text-muted text-j-d">Cada institución, pública o privada, puede implementar en la medida de sus posibilidades cualquiera de las medidas de mitigación anteriormente señaladas, y hacer que las mismas aporten a las Contribuciones Nacionalmente Determinadas. Para ello deberán asegurar mediante una <b>declaración jurada</b> que las emisiones de <b>GEI</b> reducidas no serán comercializadas. En esta primera etapa, se contemplan solo 12 medidas de mitigación, las mismas que han sido trabajadas por el Proyecto  Acciones Nacionales Apropiadas de Mitigación (<b>NAMA</b>) en los sectores de generación de energía y su uso final en el Perú.</small></div>
-            <form class="pt-4" id="formRegistrar" action="./acciones-de-mitigacion.html">
+            <div class="h5"><small class="text-muted text-j-d">Cada institución, pública o privada, puede implementar en la medida de sus posibilidades cualquiera de las medidas de mitigación anteriormente señaladas, y hacer que las mismas aporten a las Contribuciones Nacionalmente Determinadas. Para ello deberán asegurar mediante una <b>declaración jurada</b> que las emisiones de <b>GEI</b> reducidas no serán comercializadas. Las medidas de mitigación que se incluyen han sido trabajadas por el Proyecto Acciones Nacionales Apropiadas de Mitigación (<b>NAMA</b>) en los sectores de generación de energía y su uso final en el Perú.</small></div>
+            <form class="pt-4" id="formRegistrar" action="./acciones-de-mitigacion.html" autocomplete="off">
               <div class="row">
                 <div class="col-md-12 col-lg-6">
                   <div class="form-group">
@@ -99,28 +99,29 @@
                       <input class="form-control" type="text" id="txt-apellido" placeholder="Ingrese su apellidos" aria-describedby="inputGroup4" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{8,54}" maxlength="54" required>
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label for="mlt-com">Seleccione teléfono o celular<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span></label>
-                    <div class="input-group">
-                      <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-headset"></i></span></div>
-                      <div class="form-control" style="height:74px; overflow-y: auto;">
-                        <div class="col-auto my-1">
-                          <div class="custom-control custom-radio mr-sm-2">
-                            <input class="custom-control-input" type="radio" name="rad-comunicacion" value="tel" id="rad-01" checked>
-                            <label class="custom-control-label" for="rad-01"><i class="fas fa-phone-alt mr-1"></i>Teléfono</label>
-                          </div>
-                        </div>
-                        <div class="col-auto my-1">
-                          <div class="custom-control custom-radio mr-sm-2">
-                            <input class="custom-control-input" type="radio" name="rad-comunicacion" value="cel" id="rad-02">
-                            <label class="custom-control-label" for="rad-02"><i class="fas fa-mobile-alt mr-1"></i>Celular</label>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <!--.form-group
+                  label(for="mlt-com") Seleccione teléfono o celular
+                    span.text-danger.font-weight-bold &nbsp;(*)&nbsp;
+                  .input-group
+                    .input-group-prepend
+                      span.input-group-text#inputGroup9
+                        i.fas.fa-headset
+                    .form-control(style="height:74px; overflow-y: auto;")
+                      .col-auto.my-1
+                        .custom-control.custom-radio.mr-sm-2
+                          input.custom-control-input(type="radio", name="rad-comunicacion", value="tel", id="rad-01", checked)
+                          label.custom-control-label(for="rad-01")
+                            i.fas.fa-phone-alt.mr-1
+                            | Teléfono
+                      .col-auto.my-1
+                        .custom-control.custom-radio.mr-sm-2
+                          input.custom-control-input(type="radio", name="rad-comunicacion", value="cel", id="rad-02")
+                          label.custom-control-label(for="rad-02")
+                            i.fas.fa-mobile-alt.mr-1
+                            | Celular
+                  -->
                   <div class="form-group tel">
-                    <label for="txt-telefono">Teléfono</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                    <label for="txt-telefono">Teléfono fijo</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
                     <div class="input-group">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup11"><i class="fas fa-phone-alt"></i></span></div>
                       <input class="form-control" type="tel" id="txt-telefono" placeholder="Ingrese su teléfono" aria-describedby="inputGroup11" pattern="[0-9]{6,10}" maxlength="10" required>
@@ -133,8 +134,8 @@
                       <input class="form-control" type="tel" id="txt-anexo" placeholder="Ingrese su anexo" aria-describedby="inputGroup12" pattern="[0-9]{4,5}" maxlength="5" required>
                     </div>
                   </div>
-                  <div class="form-group cel d-none">
-                    <label for="txt-celular">Celular</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                  <div class="form-group cel">
+                    <label for="txt-celular">Teléfono móvil</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
                     <div class="input-group">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-mobile-alt"></i></span></div>
                       <input class="form-control" type="text" id="txt-celular" placeholder="Ingrese su celular" aria-describedby="inputGroup5" pattern="[0-9]{9,12}" maxlength="12" required>
@@ -155,7 +156,7 @@
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup7"><i class="fas fa-landmark"></i></span>
                         <!--span.input-group-text.bg-white.pr-0.font-weight-bold 20 .pl-0.border-left-0-->
                       </div>
-                      <input class="form-control" type="text" id="txt-ruc" placeholder="20######### complete su RUC" aria-describedby="inputGroup7" pattern="[0-9]{11}" maxlength="11" required>
+                      <input class="form-control" type="text" id="txt-ruc" placeholder="Ingrese su número de RUC" aria-describedby="inputGroup7" pattern="[0-9]{11}" maxlength="11" required>
                     </div>
                   </div>
                   <div class="form-group">
@@ -413,7 +414,7 @@
                 <div class="lead font-weight-bold">Enlaces</div>
                 <ul class="list-unstyled">
                   <li class="py-1"><a class="text-white" href="https://www.gob.pe/minem" target="_blank"><i class="fas fa-landmark mr-2"></i>MINEM</a></li>
-                  <li class="py-1"><a class="text-white" href="http://namasenergia.minem.gob.pe/" target="_blank"><i class="fas fa-landmark mr-2"></i>NAMA's</a></li>
+                  <li class="py-1"><a class="text-white" href="http://namasenergia.minem.gob.pe/" target="_blank"><i class="fas fa-landmark mr-2"></i>Página Web de NAMA</a></li>
                   <li class="py-1"><a class="text-white" href="./mapa-del-ditio.html" target="_blank"><i class="fas fa-sitemap mr-2"></i>Mapa del Sitio</a></li>
                 </ul>
               </div>
@@ -432,8 +433,10 @@
               <div class="col-sm-12 col-md-4 text-white">
                 <div class="lead font-weight-bold">Tecnología</div>
                 <div class="navbar flex-md-row justify-content-start p-0 pt-1">
-                  <p>Este sitio web está <br> implementado con <br> tecnología Blockchain</p>
-                  <!--img(src="./images/logo-blockchain-blanco.png", height="81")-->
+                  <ul class="list-unstyled mr-0">
+                    <li class="py-1">Este sitio web está <br> implementado con <br> tecnología Blockchain</li>
+                    <li class="py-1"><a class="nav-link p-0" href="https://es.wikipedia.org/wiki/Cadena_de_bloques" target="_blank"><img src="./images/logo-blockchain-blanco.png" height="40"></a></li>
+                  </ul>
                 </div>
               </div>
               <div class="col-sm-12 col-md-4 d-flex flex-row justify-content-end align-items-end">

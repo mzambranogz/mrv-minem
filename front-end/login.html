@@ -76,7 +76,7 @@
           </div>
           <div class="col-md-6 col-lg-4 p-4 bg-light rounded-right">
             <div class="h4">Ingresar <br><small class="text-muted">Accede con tu cuenta</small></div>
-            <form class="pt-4" id="frmLogin" action="./acciones-de-mitigacion-interno.html">
+            <form class="pt-4" id="frmLogin" action="./acciones-de-mitigacion-interno.html"  autocomplete="off">
               <div class="form-group">
                 <label for="txt-user">Correo electrónico</label>
                 <div class="input-group">
@@ -94,12 +94,11 @@
                   </div>
                 </div>
               </div>
-              <div class="form-group">
-                <div class="custom-control custom-checkbox">
-                  <input class="custom-control-input" type="checkbox" id="chk-recd">
-                  <label class="custom-control-label" for="chk-recd">Recordar email</label>
-                </div>
-              </div>
+              <!--.form-group
+              .custom-control.custom-checkbox
+                input.custom-control-input(type="checkbox", id="chk-recd")
+                label.custom-control-label(for="chk-recd") Recordar email
+              -->
               <div class="form-group">
                 <div class="g-recaptcha" data-sitekey="6Ldqw8sUAAAAAM2nmHyMhCNd3HtkOJyWc8nsh7DR"></div>
               </div>
@@ -158,7 +157,7 @@
                 <div class="lead font-weight-bold">Enlaces</div>
                 <ul class="list-unstyled">
                   <li class="py-1"><a class="text-white" href="https://www.gob.pe/minem" target="_blank"><i class="fas fa-landmark mr-2"></i>MINEM</a></li>
-                  <li class="py-1"><a class="text-white" href="http://namasenergia.minem.gob.pe/" target="_blank"><i class="fas fa-landmark mr-2"></i>NAMA's</a></li>
+                  <li class="py-1"><a class="text-white" href="http://namasenergia.minem.gob.pe/" target="_blank"><i class="fas fa-landmark mr-2"></i>Página Web de NAMA</a></li>
                   <li class="py-1"><a class="text-white" href="./mapa-del-ditio.html" target="_blank"><i class="fas fa-sitemap mr-2"></i>Mapa del Sitio</a></li>
                 </ul>
               </div>
@@ -177,8 +176,10 @@
               <div class="col-sm-12 col-md-4 text-white">
                 <div class="lead font-weight-bold">Tecnología</div>
                 <div class="navbar flex-md-row justify-content-start p-0 pt-1">
-                  <p>Este sitio web está <br> implementado con <br> tecnología Blockchain</p>
-                  <!--img(src="./images/logo-blockchain-blanco.png", height="81")-->
+                  <ul class="list-unstyled mr-0">
+                    <li class="py-1">Este sitio web está <br> implementado con <br> tecnología Blockchain</li>
+                    <li class="py-1"><a class="nav-link p-0" href="https://es.wikipedia.org/wiki/Cadena_de_bloques" target="_blank"><img src="./images/logo-blockchain-blanco.png" height="40"></a></li>
+                  </ul>
                 </div>
               </div>
               <div class="col-sm-12 col-md-4 d-flex flex-row justify-content-end align-items-end">

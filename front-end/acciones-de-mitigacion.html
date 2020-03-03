@@ -113,6 +113,17 @@
                                             </div>
                                           </div>
                                         </div>
+                                        <div class="row">
+                                          <div class="col-sm-12">
+                                            <div class="form-group">
+                                              <label for="txa-descripcion-medida">Descripción de la medida<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indicar la ubicación, tecnología considerada y cantidades de la misma."></i></label>
+                                              <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-tachometer-alt"></i></span></div>
+                                                <textarea class="form-control" id="txa-descripcion-medida" aria-describedby="inputGroup5" cols="30" rows="4" required placeholder="Ingrese una descripción para su iniciativa"></textarea>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
                                         <!--.row
                                         .col-sm-12
                                           .form-group
@@ -127,10 +138,21 @@
                                         <div class="row">
                                           <div class="col-sm-12">
                                             <div class="form-group">
-                                              <label for="txt-fecha-inicio">Año de Inicio del proyecto&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique el año de inicio del proyecto"></i></label>
+                                              <label for="txt-fecha-inicio">Fecha de ejecución del proyecto&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique la fecha de ejecución del proyecto"></i></label>
                                               <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-calendar-alt"></i></span></div>
-                                                <input class="form-control" type="number" id="txt-fecha-inicio" placeholder="Ingrese nombre de la iniciativa" aria-describedby="inputGroup4" min="2000" max="2030">
+                                                <input class="form-control" type="date" id="txt-fecha-inicio" placeholder="Ingrese fecha de ejecución de la iniciativa" aria-describedby="inputGroup4" min="2010-01-01" max="2030-12-01">
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-sm-12">
+                                            <div class="form-group">
+                                              <label for="txt-fecha-fin">Fecha de finalización del proyecto&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique la fecha de finalización del proyecto"></i></label>
+                                              <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-calendar-alt"></i></span></div>
+                                                <input class="form-control" type="date" id="txt-fecha-fin" placeholder="Ingrese fecha de ejecución de la iniciativa" aria-describedby="inputGroup4" min="2010-01-01" max="2030-12-01">
                                               </div>
                                             </div>
                                           </div>
@@ -604,7 +626,7 @@
                 <div class="lead font-weight-bold">Enlaces</div>
                 <ul class="list-unstyled">
                   <li class="py-1"><a class="text-white" href="https://www.gob.pe/minem" target="_blank"><i class="fas fa-landmark mr-2"></i>MINEM</a></li>
-                  <li class="py-1"><a class="text-white" href="http://namasenergia.minem.gob.pe/" target="_blank"><i class="fas fa-landmark mr-2"></i>NAMA's</a></li>
+                  <li class="py-1"><a class="text-white" href="http://namasenergia.minem.gob.pe/" target="_blank"><i class="fas fa-landmark mr-2"></i>Página Web de NAMA</a></li>
                   <li class="py-1"><a class="text-white" href="./mapa-del-ditio.html" target="_blank"><i class="fas fa-sitemap mr-2"></i>Mapa del Sitio</a></li>
                 </ul>
               </div>
@@ -623,8 +645,10 @@
               <div class="col-sm-12 col-md-4 text-white">
                 <div class="lead font-weight-bold">Tecnología</div>
                 <div class="navbar flex-md-row justify-content-start p-0 pt-1">
-                  <p>Este sitio web está <br> implementado con <br> tecnología Blockchain</p>
-                  <!--img(src="./images/logo-blockchain-blanco.png", height="81")-->
+                  <ul class="list-unstyled mr-0">
+                    <li class="py-1">Este sitio web está <br> implementado con <br> tecnología Blockchain</li>
+                    <li class="py-1"><a class="nav-link p-0" href="https://es.wikipedia.org/wiki/Cadena_de_bloques" target="_blank"><img src="./images/logo-blockchain-blanco.png" height="40"></a></li>
+                  </ul>
                 </div>
               </div>
               <div class="col-sm-12 col-md-4 d-flex flex-row justify-content-end align-items-end">
