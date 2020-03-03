@@ -3463,11 +3463,13 @@ $(document).ready(function () {
     if ($("#revision").val() == 1) {
         //CargarDetalleIndicadorRevision();
         //cargarTablasEnfoque();
-        var id_enfoques = $("#id_enfoques").val();
-        var arr = id_enfoques.split(',');
-        for (var i = 0; i < arr.length; i++){
-            armarVerificar(arr[i]);
-        }
+
+        //===== VERIFICAR MODAL
+        //var id_enfoques = $("#id_enfoques").val();
+        //var arr = id_enfoques.split(',');
+        //for (var i = 0; i < arr.length; i++){
+        //    armarVerificar(arr[i]);
+        //}
         
         
     } else {

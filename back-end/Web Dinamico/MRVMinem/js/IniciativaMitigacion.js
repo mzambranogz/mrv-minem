@@ -859,8 +859,17 @@ function inicio() {
     $("#pieCorrecto").hide();
 }
 
+function CorreoAdmin() {
+    var url = baseUrl + "Gestion/CorreoAdministrador";
+    var item = {};
+    var respuesta = MRV.Ajax(url, item, false);
+    if (respuesta.success) {
+        $("#correo-admin").html(respuesta.extra);
+    }
+}
+
 $(document).ready(function () {
-    inicio();
+    inicio();    
     if ($("#iniciativa_mit_ID_INICIATIVA").val() > 0) {
         $("#Control").data("iniciativa", $("#iniciativa_mit_ID_INICIATIVA").val());
     } else {
@@ -873,6 +882,7 @@ $(document).ready(function () {
     }    
     $("#Control").data("revision", $("#revision").val());
     fn_ListarMedidaMitigacion();
+    CorreoAdmin();
 });
 
 //$(document).on("change", "#cbo-medida-mitigacion-seleccionada", function () {
@@ -901,3 +911,5 @@ $("#txt-monto-inversion").on({
 function formatoMiles(n) { //add20
     return n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
 }
+
+

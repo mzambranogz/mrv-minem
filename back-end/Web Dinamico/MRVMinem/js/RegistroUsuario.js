@@ -72,17 +72,17 @@ function fn_validar(e) {
         arr.push("Ingrese su(s) apellido(s)");
     }
 
-    if ($("#rad-01").prop("checked")) {
+    //if ($("#rad-01").prop("checked")) {
         if ($("#txt-telefono").val().trim() === "") {
             arr.push("Ingrese un teléfono");
         }
-    }
+    //}
 
-    if ($("#rad-02").prop("checked")) {
+    //if ($("#rad-02").prop("checked")) {
         if ($("#txt-celular").val().trim() === "") {
             arr.push("Ingrese un celular");
         }
-    }
+    //}
 
     if ($("#txt-institucion").val().trim() === "") {
         arr.push("Ingrese el nombre de la Institución");

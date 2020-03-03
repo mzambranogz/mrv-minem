@@ -39,7 +39,7 @@
             </div>
             <div class="col-md-6 col-lg-4 p-4 bg-light rounded-right">
                 <div class="h4">Ingresar <br><small class="text-muted">Accede con tu cuenta</small></div>
-                <form class="pt-4" id="frmLogin" @*action="./acciones-de-mitigacion-interno.html"*@>
+                <form class="pt-4" id="frmLogin" @*action="./acciones-de-mitigacion-interno.html"*@ autocomplete="off">
                     <div class="form-group">
                         <label for="txt-user">Correo electrónico</label>
                         <div class="input-group">
@@ -57,12 +57,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
+                    @*<div class="form-group">
                         <div class="custom-control custom-checkbox">
                             <input class="custom-control-input" type="checkbox" id="chk-recd">
                             <label class="custom-control-label" for="chk-recd">Recordar email</label>
                         </div>
-                    </div>
+                    </div>*@
                     <div class="form-group">
                         <div class="g-recaptcha" data-sitekey="6Ldqw8sUAAAAAM2nmHyMhCNd3HtkOJyWc8nsh7DR"></div>
                     </div>
