@@ -1,0 +1,544 @@
+﻿@model MRVMinem.Models.ListaObjeto
+@{
+    ViewBag.Title = "Ver Mas Iniciativa y Detalle";
+    Layout = "~/Views/Shared/_SesionLayout.cshtml";
+}
+@Html.HiddenFor(m => m.iniciativa_mit.ID_INICIATIVA)
+
+@{
+    var total_reducido = 0.0;
+}
+
+<div class="container-fluid map-root" id="historia">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="@Url.Action("Index","Gestion")">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="@Url.Action("AccionMitigacion","Gestion")">Listado de Iniciativas de Mitigación</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Ver más sobre la Iniciativa de Mitigación y Detalles de Indicadores</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+
+<div class="container-fluid my-4" id="cuerpo">
+    <div class="row m-0">
+        <div class="col-12 cuerpo-interior">
+            <div class="container py-4">
+                <div class="row">
+                    <div class="col-md-12 col-lg-6 pt-4">
+                        <div class="h4">Ver más sobre la Iniciativa de Mitigación y Detalles de Indicadores&nbsp;</div>
+                    </div>
+                    <div class="col-md-12 col-lg-6 pt-4">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
+                            <div class="col-sm-12 col-md-6 col-lg-6"><a class="volver-atras" href="#" onclick="fn_regresarListaIniciativa();"><i class="fas fa-hand-point-left px-1"></i>Volver atrás</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid py-4 px-0 bg-white">
+                <div class="container py-5">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="h5 pb-5 text-primary">@Model.medida.NOMBRE_MEDMIT&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label class="font-weight-bold" for="txt-categoria">Categoría IPCC</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-landmark"></i></span></div>
+                                    <input class="form-control-plaintext" type="text" id="txt-categoria" value="@Model.medida.IPSC_MEDMIT" aria-describedby="inputGroup1" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="font-weight-bold" for="txa-objetivo">Objetivo</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup2"><i class="fas fa-landmark"></i></span></div>
+                                    <textarea class="form-control-plaintext" id="txa-objetivo" aria-describedby="inputGroup2" cols="30" rows="5" readonly>@Model.medida.OBJETIVO_MEDMIT</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label class="font-weight-bold" for="txa-descripcion">Descripción</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup3"><i class="fas fa-landmark"></i></span></div>
+                                    <textarea class="form-control-plaintext" id="txa-descripcion" aria-describedby="inputGroup3" cols="30" rows="8" readonly>@Model.medida.DESCRIPCION_MEDMIT</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="h5 py-5 text-primary">Datos principales</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12-col-md-12 col-lg-12">
+                            <div class="form-group">
+                                <label class="font-weight-bold" for="txa-nombre-iniciativa">Nombre de la iniciativa<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-tachometer-alt"></i></span></div>
+                                    <textarea class="form-control-plaintext" id="txa-nombre-iniciativa" aria-describedby="inputGroup4" cols="30" rows="5" readonly placeholder="Ingrese un nombre para su iniciativa">@Model.iniciativa_mit.NOMBRE_INICIATIVA</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="font-weight-bold" for="txa-descripcion-medida">Descripción de la medida<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-tachometer-alt"></i></span></div>
+                                    <textarea class="form-control-plaintext" id="txa-descripcion-medida" aria-describedby="inputGroup5" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">@Model.iniciativa_mit.DESC_INICIATIVA</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label class="font-weight-bold" for="txa-nombre-responsable">Responsable del registro</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
+                                    <input class="form-control-plaintext" id="txt-nombre-responsable" aria-describedby="inputGroup6" value="@Model.iniciativa_mit.NOMBRES" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label class="font-weight-bold" for="txt-nombre-institucion">Nombre de la institución</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup7"><i class="fas fa-landmark"></i></span></div>
+                                    <input class="form-control-plaintext" id="txt-nombre-institucion" aria-describedby="inputGroup7" value="@Model.iniciativa_mit.INSTITUCION" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label class="font-weight-bold" for="txt-correo-electronico">Correo electrónico</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup8"><i class="fas fa-landmark"></i></span></div>
+                                    <input class="form-control-plaintext" id="txt-correo-electronico" aria-describedby="inputGroup8" value="@Model.iniciativa_mit.CORREO" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label class="font-weight-bold" for="txt-direccion">Dirección</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
+                                    <input class="form-control-plaintext" id="txt-direccion" aria-describedby="inputGroup9" value="@Model.iniciativa_mit.DIRECCION" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="h5 py-5 text-primary">Datos generales</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label class="font-weight-bold" for="txt-sector-insi¿titucion">Sector de la institución</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
+                                    <input class="form-control-plaintext" id="txt-sector-institucion" aria-describedby="inputGroup9" value="@Model.iniciativa_mit.SECTOR" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="font-weight-bold" for="txa-ubicacion">Ubicación<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
+                                    <textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="8" readonly placeholder="Ingrese una descripción para su iniciativa">
+                                        @*Lima&nbsp;
+                                            Arequipa&nbsp;
+                                            Tacna*@
+                                        @foreach (var item in Model.listaUbicacion)
+                                        {
+                                            @item.DESCRIPCION <text>&nbsp;</text>
+                                        }
+                                    </textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label class="font-weight-bold" for="txt-moneda">Moneda<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="far fa-money-bill-alt"></i></span></div>
+                                    <input class="form-control-plaintext" type="text" id="txt-moneda" aria-describedby="inputGroup10" value="@Model.iniciativa_mit.MONEDA" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="font-weight-bold" for="txt-monto-inversion">Monto de inversión<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup11"><i class="fas fa-wallet"></i></span></div>
+                                    <input class="form-control-plaintext" type="text" id="txt-monto-inversion" aria-describedby="inputGroup11" value="@Model.iniciativa_mit.INVERSION_INICIATIVA" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="font-weight-bold" for="txt-fecha-inicio">Fecha de Inicio del proyecto<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup12"><i class="fas fa-calendar-alt"></i></span></div>
+                                    <input class="form-control-plaintext" type="text" id="txt-fecha-inicio" aria-describedby="inputGroup12" value="@Model.iniciativa_mit.FECHA" readonly>
+                                </div>
+                            </div>
+                            @if (Model.iniciativa_mit.FECHA_FIN == "01/01/0001")
+                            {
+                                @*<input class="form-control-plaintext" type="text" id="txt-fecha-fin" aria-describedby="inputGroup12" value="" readonly>*@
+                            }
+                            else
+                            {
+                                <div class="form-group">
+                                    <label class="font-weight-bold" for="txt-fecha-fin">Fecha de Fin del proyecto<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend"><span class="input-group-text" id="inputGroup12"><i class="fas fa-calendar-alt"></i></span></div>
+                                        <input class="form-control-plaintext" type="text" id="txt-fecha-fin" aria-describedby="inputGroup12" value="@Model.iniciativa_mit.FECHA_FIN" readonly>
+
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    @*<div class="row">
+                        <div class="col-12">
+                            <div class="h5 py-5 text-primary">Indicadores</div>
+                        </div>
+                    </div>*@
+                    @*<div class="row">
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label class="font-weight-bold" for="mlt-energetico">Energético asociado<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
+                                    <textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
+                                        @foreach (var item in Model.listaEnergetico)
+                                        {
+                                            @item.DESCRIPCION <text>&nbsp;</text>
+                                        }
+                                    </textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label class="font-weight-bold" for="mlt-gei">Gases de efecto invernadero<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
+                                    <textarea class="form-control-plaintext" id="mlt-gei" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
+                                        @foreach (var item in Model.listaGei)
+                                        {
+                                            @item.DESCRIPCION <text>&nbsp;</text>
+                                        }
+                                    </textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
+                </div>
+
+
+
+
+
+                @if (Model.listaIndData != null)
+                {
+                    foreach (var itemD in Model.listaIndData)
+                    {
+                        var texto = 0;
+                        var fecha = 0;
+                        var lista = 0;
+                        var total_e = 0.0;
+                        var fila = 0;
+                        total_reducido = 0.0;
+                        <div class="container pt-5">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="h5 pb-5 text-primary">Detalles de Indicadores</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12-col-md-12 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="txt-enfoque" class="font-weight-bold">Enfoque</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup20"><i class="fas fa-square-root-alt"></i></span></div>
+                                            <input class="form-control-plaintext" id="txt-enfoque" aria-describedby="inputGroup20" value="@itemD.DESCRIPCION" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12-col-md-12 col-lg-6">&nbsp;</div>
+                            </div>
+                        </div>
+                        <div class="container-fluid py-4">
+                            @*<div class="h5">Resumen de Detalles de Indicadores&nbsp;<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Complete los campos de acuerdo al enfoque seleccionado"></i></div>*@
+                            <div class="dropdown-divider"></div>
+                            <div class="row">
+                                <div class="col-12 px-0">
+                                    <div class="table-responsive tabla-principal tabla-recorrer tabla-detalle-indicadores-1" data-order="tbl-1">
+
+                                        <table class="table table-hover" data-fila="0">
+                                            <thead @*id="cabeceraTablaIndicador"*@>
+                                                <tr class="bg-primary text-white">
+                                                    <th class="text-center" scope="col"><span>N°</span></th>
+                                                    @foreach (var itemCab in itemD.listaParam)
+                                                    {
+                                                        var columna = "0" + itemCab.ID_GRUPO_INDICADOR;
+                                                        var descripcion = "";
+                                                        if (string.IsNullOrEmpty(itemCab.COMBINACION_UNIDAD))
+                                                        {
+                                                            descripcion = itemCab.PREFIJO + itemCab.UNIDAD + itemCab.DESCRIPCION_UNIDAD;
+                                                            if (string.IsNullOrEmpty(descripcion))
+                                                            {
+                                                                descripcion = "";
+                                                            }
+                                                            else
+                                                            {
+                                                                descripcion = "(" + descripcion + ")";
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            descripcion = "(" + itemCab.COMBINACION_UNIDAD + ")";
+                                                        }
+                                                        <th class="text-center grupo-columna-@columna" scope="col"><span>@itemCab.NOMBRE_PARAMETRO&nbsp;</span><span>@descripcion</span><small>@itemCab.DESCRIPCION_PARAMETRO</small></th>
+
+                                                    }
+                                                    <th class="text-center" scope="col">Más</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="cuerpoTablaIndicador-1" data-row="0" data-total="0" data-delete="">
+                                                @foreach (var itemDatos in itemD.listaInd)
+                                                {
+                                                    fila += 1;
+                                                    <tr id="detalles-tr-1" data-ind="0">
+                                                        <th class="text-center" data-encabezado="Número" scope="row">@fila</th>
+                                                        @foreach (var itemDet in itemDatos.listaInd)
+                                                        {
+                                                            <td data-encabezado="Columna 04">
+                                                                <div class="form-group m-0">
+                                                                    @if (itemDet.ID_TIPO_CONTROL == 1)
+                                                                    {
+                                                                        if (itemDet.ID_PARAMETRO == 6)
+                                                                        {
+                                                                            <input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-1-1" value="@itemDet.VALOR" readonly>
+
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            <input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-1-1" value="@itemDet.DESCRIPCION" readonly>
+                                                                        }
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-1-1" value="@itemDet.VALOR" readonly>
+
+                                                                    }
+                                                                </div>
+                                                            </td>
+                                                            if (itemDet.ID_PARAMETRO == 11)
+                                                            {
+                                                                total_e += Convert.ToDouble(itemDet.VALOR);
+                                                                //total_reducido += Convert.ToDouble(itemDet.VALOR);
+                                                            }
+                                                        }
+                                                        <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                                            <div class="btn-group">
+                                                                <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;Verificar</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container py-4">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="table-responsive tabla-principal mt-3">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr class="bg-primary text-white">
+                                                    <th class="text-center" scope="col" width="2%"><span>N°&nbsp;</span></th>
+                                                    <th scope="col" width="88%"><span>Resumen Enfoque</span></th>
+                                                    <th scope="col" width="10%"><span>Total</span></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th class="text-center" data-encabezado="Número" scope="row">1</th>
+                                                    <td data-encabezado="Resumen">@itemD.DESCRIPCION</td>
+                                                    <td data-encabezado="Total"><strong id="total-detalle">@total_e</strong><strong>&nbsp;tCO<sub>2</sub>eq</strong></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        total_reducido = total_reducido + total_e;
+                    }
+                }
+
+
+
+
+
+                <div class="dropdown-divider"></div>
+                <div class="container pt-5">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="h5 pb-5 text-primary">Resumen</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="table-responsive tabla-principal">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr class="bg-primary text-white">
+                                            <th class="text-center" scope="col" width="2%"><span>N°&nbsp;</span></th>
+                                            <th scope="col" width="88%"><span>Resumen</span></th>
+                                            <th scope="col" width="10%"><span>Total</span></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th class="text-center" data-encabezado="Número" scope="row">1</th>
+                                            <td data-encabezado="Resumen">@Model.medida.NOMBRE_MEDMIT</td>
+                                            <td data-encabezado="Total"><strong>@total_reducido</strong><strong>&nbsp;tCO<sub>2</sub>eq</strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown-divider"></div>
+                <div class="container py-5">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="h5 pb-5 text-primary">Documentos&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group" id="archivos-documentos">
+                                @{
+                                    var total = 0;
+                                    if (Model.iniciativa_mit.ListaSustentos != null)
+                                    {
+                                        total = Model.iniciativa_mit.ListaSustentos.Count();
+                                    }
+                                }
+                                <label class="font-weight-bold">Archivos adjuntos: <span id="total-documentos">@total</span> en total</label>
+                                @{
+                                    if (Model.iniciativa_mit.ListaSustentos != null)
+                                    {
+                                        var extension = "fa-file-word";
+
+                                        foreach (var item in Model.iniciativa_mit.ListaSustentos)
+                                        {
+                                            if (item.ADJUNTO_BASE.Contains("pdf"))
+                                            {
+                                                extension = "fa-file-pdf";
+                                            }
+                                            else
+                                            {
+                                                if (item.ADJUNTO_BASE.Contains("jpeg") || item.ADJUNTO_BASE.Contains("png") || item.ADJUNTO_BASE.Contains("jpg") || item.ADJUNTO_BASE.Contains("gif"))
+                                                {
+                                                    extension = "fa-file-image";
+                                                }
+                                                else
+                                                {
+                                                    if (item.ADJUNTO_BASE.Contains("xls") || item.ADJUNTO_BASE.Contains("xlsx"))
+                                                    {
+                                                        extension = "fa-file-excel";
+                                                    }
+                                                    else
+                                                    {
+                                                        if (item.ADJUNTO_BASE.Contains("ppt") || item.ADJUNTO_BASE.Contains("pptx"))
+                                                        {
+                                                            extension = "fa-file-powerpoint";
+                                                        }
+                                                        else
+                                                        {
+                                                            if (item.ADJUNTO_BASE.Contains("doc") || item.ADJUNTO_BASE.Contains("docx"))
+                                                            {
+                                                                extension = "fa-file-word";
+                                                            }
+                                                            else
+                                                            {
+                                                                extension = "fa-file";
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend"><span class="input-group-text"><i class="fas @extension"></i></span></div><span class="form-control-plaintext">@item.ADJUNTO_BASE</span>
+                                                <div class="input-group-append"><span class="input-group-text cursor-pointer" onclick="fn_verfilesutento(@item.ID_INICIATIVA_SUSTENTATORIO)"><i class="fas fa-download"></i></span></div>
+                                            </div>
+                                        }
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="col-sm-12-col-md-12 col-lg-6">&nbsp;</div>
+                    </div>
+                    <div class="dropdown-divider my-5"></div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-6">&nbsp;</div>
+                        <div class="col-sm-12 col-md-12 col-lg-6 text-right">
+                            <div class="row justify-content-end">
+                                <div class="col-lg-6">&nbsp;</div>
+                                <div class="col-lg-6"><a class="btn btn-dark px-5 w-100 text-center mb-3" href="#" onclick="fn_regresarListaIniciativa();"><i class="fas fa-hand-point-left pr-1"></i>Volver atrás</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-verificacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Verificación de Composición</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <img class="img-fluid" src="~/images/formula.jpg"><strong>
+                            <div class="badge badge-info">Factores: F1 <br></div>
+                        </strong><strong>
+                            <div class="badge badge-primary">Parámetros: P2 <br></div>
+                        </strong><strong>
+                            <div class="badge badge-warning">Resultado: 62.25 ktCOeq</div>
+                        </strong>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/script.js"></script>
+<script src="~/js/MRV.js"></script>
+<script src="~/js/VerMas.js"></script>
