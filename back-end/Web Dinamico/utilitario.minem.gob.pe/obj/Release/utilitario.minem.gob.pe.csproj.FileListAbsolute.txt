@@ -1,0 +1,25 @@
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\utilitario.minem.gob.pe\bin\Release\utilitario.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\utilitario.minem.gob.pe\bin\Release\utilitario.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\utilitario.minem.gob.pe\obj\Release\utilitario.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\utilitario.minem.gob.pe\obj\Release\utilitario.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\utilitario.minem.gob.pe\obj\Release\utilitario.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\utilitario.minem.gob.pe\bin\Release\utilitario.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\utilitario.minem.gob.pe\bin\Release\utilitario.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\utilitario.minem.gob.pe\obj\Release\utilitario.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\utilitario.minem.gob.pe\obj\Release\utilitario.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\utilitario.minem.gob.pe\obj\Release\utilitario.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico\utilitario.minem.gob.pe\bin\Release\utilitario.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico\utilitario.minem.gob.pe\bin\Release\utilitario.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico\utilitario.minem.gob.pe\obj\Release\utilitario.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico\utilitario.minem.gob.pe\obj\Release\utilitario.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico\utilitario.minem.gob.pe\obj\Release\utilitario.minem.gob.pe.pdb
+D:\DGEE\mrv-minem\back-end\Web Dinamico\utilitario.minem.gob.pe\bin\Release\utilitario.minem.gob.pe.dll
+D:\DGEE\mrv-minem\back-end\Web Dinamico\utilitario.minem.gob.pe\bin\Release\utilitario.minem.gob.pe.pdb
+D:\DGEE\mrv-minem\back-end\Web Dinamico\utilitario.minem.gob.pe\obj\Release\utilitario.minem.gob.pe.csprojResolveAssemblyReference.cache
+D:\DGEE\mrv-minem\back-end\Web Dinamico\utilitario.minem.gob.pe\obj\Release\utilitario.minem.gob.pe.dll
+D:\DGEE\mrv-minem\back-end\Web Dinamico\utilitario.minem.gob.pe\obj\Release\utilitario.minem.gob.pe.pdb
+C:\Users\User\Desktop\backend\back-end\Web Dinamico\utilitario.minem.gob.pe\bin\Release\utilitario.minem.gob.pe.dll
+C:\Users\User\Desktop\backend\back-end\Web Dinamico\utilitario.minem.gob.pe\bin\Release\utilitario.minem.gob.pe.pdb
+C:\Users\User\Desktop\backend\back-end\Web Dinamico\utilitario.minem.gob.pe\obj\Release\utilitario.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\backend\back-end\Web Dinamico\utilitario.minem.gob.pe\obj\Release\utilitario.minem.gob.pe.dll
+C:\Users\User\Desktop\backend\back-end\Web Dinamico\utilitario.minem.gob.pe\obj\Release\utilitario.minem.gob.pe.pdb

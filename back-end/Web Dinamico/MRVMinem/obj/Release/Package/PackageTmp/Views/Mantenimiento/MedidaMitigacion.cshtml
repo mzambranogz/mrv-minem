@@ -1,0 +1,359 @@
+﻿@model MRVMinem.Models.MvMedidaMitigacion
+@{
+    ViewBag.Title = "Iniciativa Mitigacion";
+    Layout = "~/Views/Shared/_SesionLayout.cshtml";
+}
+
+@{
+    var i = 0;
+    var total_reg = 0;
+    var total_pag = 0;
+    var inicio_reg = 0;
+    var fin_reg = 0;
+}
+
+<div class="container-fluid map-root" id="historia">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="@Url.Action("Index","Gestion")">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="@Url.Action("MantenimientoTablas","Gestion")">Mantenimiento de Tablas</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Mantenimiento de Medidas de Mitigación</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="container-fluid my-4" id="cuerpo">
+    <div class="row m-0">
+        <div class="col-12 cuerpo-interior">
+            <div class="container py-4">
+                <div class="row">
+                    <div class="col-md-12 col-lg-6 pt-4">
+                        <div class="h4">
+                            Mantenimiento de Medidas de Mitigación&nbsp;
+                            <!--i.fas.fa-question-circle.ayuda-tooltip(data-toggle="tooltip", data-placement="right", title="Texto de ayuda que describe el funcionamiento general del módulo [...]")--><br><small class="text-muted">Utilice la búsqueda para encontrar al usuario indicado para el mantenimiento</small>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-6 pt-4">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
+                            <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#modal-medida-de-mitigacion"><a class="agregar-iniciativa" href="#" id="validarUsuario" onclick="regMantenimiento();" data-guardar="0"><i class="fas fa-plus px-1"></i>Agregar medida</a></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-lg-6 pt-4">
+                        <div>
+                            <div class="form-group">
+                                <label for="txt-buscar">Buscar&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Utilice la búsqueda ingresando una descripción para ubicar sus registros"></i></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-search"></i></span></div>
+                                    <input class="form-control" type="text" id="txt-buscar" placeholder="Ingrese la descripción de su búsqueda" aria-describedby="inputGroup1" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <button class="btn btn-success w-100 mb-2" onclick="exportarMantenimiento();"><i class="fas fa-file-download px-1"></i>Descargar Excel</button><div id="divExportar"></div>
+                                </div>
+                                <div class="col-sm-12 col-md-6 col-lg-6" id="buscar-usuarios" data-buscar="0" data-campo="">
+                                    <button class="btn btn-info w-100 mb-2" onclick="fn_buscar();"><i class="fas fa-search px-1"></i>Buscar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-6 pt-4">
+                        <!--&nbsp;-->
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid py-4">
+                <div class="h5">Bandeja de Medidas de Mitigación&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></div>
+                <div class="dropdown-divider"></div>
+                <div class="row">
+                    <div class="col-12 px-0">
+                        <div class="table-responsive tabla-principal tabla-detalle-indicadores">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr class="bg-primary text-white">
+                                        <th class="text-center" scope="col" width="5%"><span class="miColumna">N°&nbsp;<i class="fas fa-sort" style="color: lightgray" id="ID_MEDMIT"></i></span></th>
+                                        <th scope="col" width="24%"><span class="miColumna">Nombre de la medida<br>de mitigación&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NOMBRE_MEDMIT"></i></span></th>
+                                        <th scope="col" width="5%"><span class="miColumna">Descripción<br>corta&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NUMERO_MEDMIT"></i></span></th>
+                                        <th scope="col" width="28%"><span class="miColumna">Descripción<br>larga&nbsp;<i class="fas fa-sort" style="color: lightgray" id="DESCRIPCION_MEDMIT"></i></span></th>
+                                        <th scope="col" width="28%"><span class="miColumna">Objetivo&nbsp;<i class="fas fa-sort" style="color: lightgray" id="OBJETIVO_MEDMIT"></i></span></th>
+                                        <th scope="col" width="5%"><span class="miColumna">IPCC&nbsp;<i class="fas fa-sort" style="color: lightgray" id="IPCC"></i></span></th>
+                                        <th class="text-center" scope="col" width="5%">Más</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cuerpoMantenimiento">
+                                    @if (Model.listaMedida != null)
+                                    {
+                                        i += 1;
+                                        foreach (var item in Model.listaMedida)
+                                        {
+                                            <tr id="detalles-tr-@i">
+                                                <th class="text-center" data-encabezado="Número" scope="row">@item.ID_MEDMIT</th>
+                                                <td data-encabezado="Medida de mitigación">@item.NOMBRE_MEDMIT</td>
+                                                <td class="text-center" data-encabezado="Descripción corta">@item.NUMERO_MEDMIT</td>
+                                                <td data-encabezado="Descripción larga">@item.DESCRIPCION_MEDMIT</td>
+                                                <td data-encabezado="Objetivo">@item.OBJETIVO_MEDMIT</td>
+                                                <td data-encabezado="IPCC">@item.IPSC_MEDMIT</td>
+                                                <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                                    <div class="btn-group">
+                                                        <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                                        <div class="dropdown-menu dropdown-menu-right">
+                                                            <a class="dropdown-item" href="#" onclick="fn_cargarDatosMantenimiento(@item.ID_MEDMIT)" data-toggle="modal" data-target="#modal-medida-de-mitigacion">
+                                                                <i class="fas fa-edit"></i>&nbsp;
+                                                                Editar
+                                                            </a><a class="dropdown-item" href="#" onclick="fn_Seleccionaregistro(@item.ID_MEDMIT)" data-toggle="modal" data-target="#modal-confirmacion">
+                                                                <i class="fas fa-trash"></i>&nbsp;
+                                                                Eliminar
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            total_reg = @item.total_registros;
+                                            total_pag = @item.total_paginas;
+                                        }
+                                    }                                    
+                                </tbody>
+                            </table>
+                            @{
+                                if (total_reg == 0)
+                                {
+                                    inicio_reg = 0;
+                                    fin_reg = 0;
+                                }
+                                else if (total_reg <= 10)
+                                {
+                                    inicio_reg = 1;
+                                    fin_reg = total_reg;
+                                }
+                                else if (total_reg > 10)
+                                {
+                                    inicio_reg = 1;
+                                    fin_reg = 10;
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-lg-6 mt-4">
+                        <strong>Resultado:&nbsp;</strong><span id="resultado">@inicio_reg de @fin_reg</span> de <span id="total-registros">@total_reg</span> registros
+                    </div>
+                    <div class="col-sm-12 col-lg-6 text-right mt-4">
+                        <strong>Registros por página&nbsp;</strong>
+                        <select id="cantidad-registros" onchange="fn_CargaDatos()">
+                            <option value="10" selected>10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>&nbsp;
+                        <span id="pagina-actual">1</span> de <span id="total-paginas">@total_pag</span> páginas&nbsp;
+                        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                            <button class="btn btn-primary" id="primera-pagina" type="button" onclick="fn_avance_grilla(1)"><i class="fas fa-angle-double-left"></i></button>
+                            <button class="btn btn-primary" id="anterior-pagina" type="button" onclick="fn_avance_grilla(2)"><i class="fas fa-angle-left"></i></button>
+                            <input class="ir-pagina" id="pagina" type="number" value="1" min="1" onchange="fn_CargaDatos()">
+                            <button class="btn btn-primary" id="siguiente-pagina" type="button" onclick="fn_avance_grilla(3)"><i class="fas fa-angle-right"></i></button>
+                            <button class="btn btn-primary" id="ultima-pagina" type="button" onclick="fn_avance_grilla(4)"><i class="fas fa-angle-double-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modal-medida-de-mitigacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">                            
+                            <h5 class="modal-title" id="title-edit">Modificación de una Medida de Mitigación <br><small class="text-muted">Complete los siguientes campos para actualizar una Medida de Mitigación s</small><small class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</small></h5>
+                            <h5 class="modal-title" id="title-nuevo">Registro de Nueva Medida de Mitigación <br><small class="text-muted">Complete los siguientes campos para registrar una nueva medida de mitigación</small><small class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</small></h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body medidas-modal">
+                            <form id="frm-medida">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="txa-nombre-iniciativa">Nombre de la medida de mitigación<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span></label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-tachometer-alt"></i></span></div>
+                                                <textarea class="form-control" id="txa-nombre-medida" cols="30" rows="2" required placeholder="Ingrese un nombre para su iniciativa"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-6">
+                                        <div class="form-group">
+                                            <label for="txt-abreviatura">Abreviatura</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-tachometer-alt"></i></span></div>
+                                                <input class="form-control" id="txt-abreviatura" placeholder="Ingrese una abreviatura">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-lg-6">
+                                        <div class="form-group">
+                                            <label for="cbo-nama">NAMA correspondiente<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span></label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-leaf"></i></span></div>
+                                                <select class="form-control" id="cbo-nama">
+                                                    <option value="0">-Seleccione-</option>
+                                                    @*<option>RER CONECTADO</option>
+                                                    <option>EFICIENCIA ENERGÉTICA</option>
+                                                    <option>ACCESO UNIVERSAL A LA ENERGÍA SOSTENIBLE</option>
+                                                    <option>TRANSPORTE TERRESTE ELÉCTRICO</option>*@
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-6">
+                                        <div class="form-group">
+                                            <label for="txa-descripcion-iniciativa">Descripción<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span></label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-tachometer-alt"></i></span></div>
+                                                <textarea class="form-control" id="txa-descripcion-medida" cols="30" rows="2" required placeholder="Ingrese un descripción para su iniciativa"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-lg-6">
+                                        <div class="form-group">
+                                            <label for="txa-objetivo-iniciativa">Objetivo<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span></label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-tachometer-alt"></i></span></div>
+                                                <textarea class="form-control" id="txa-objetivo-medida" cols="30" rows="2" required placeholder="Ingrese un objetivo para su iniciativa"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-6">
+                                        <div class="form-group">
+                                            <label for="txt-documentos">Adjuntar imagen (PNG, JPG, SVG)<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span></label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup13"><i class="fas fa-file"></i></span></div>
+                                                <input class="form-control cursor-pointer txt-file-control" type="text" id="txt-documentos" placeholder="Suba su documentos" aria-describedby="inputGroup13" required>
+                                                <input class="d-none fil-file-control" type="file" id="fle-documentos" name="fledocumentos" accept="image/*">
+                                                <div class="input-group-append" data-toggle="tooltip" data-placement="top" title="Seleccione una imagen para su medida de mitigación">
+                                                    <label class="input-group-text cursor-pointer" for="txt-documentos"><i class="fas fa-upload mr-1"></i>Subir archivo</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-lg-6">
+                                        <div class="form-group">
+                                            <label for="cbo-ipcc">Categoría IPCC<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span></label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-tachometer-alt"></i></span></div>
+                                                <select class="form-control" id="cbo-ipcc">
+                                                    <option value="0">-Seleccione-</option>
+                                                    @*<option>Energía - Combustión móvil</option>
+                                                    <option>Energía - Combustión estacionaria</option>*@
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-12" id="seccionMensaje">
+                                        <div class="alert alert-danger" role="alert" id="errorRegistrarMantenimientoUsuario">
+                                            <h4><i class="fas fa-exclamation-triangle"></i>&nbsp;Error de registro</h4>
+                                            <p>Ocurrió un error al tratar de registrar su información, vuélvalo a intentar nuevamente.</p>
+                                            <hr>
+                                            <p class="mb-0">Verifique los datos ingresados e intente otra vez.</p>
+                                        </div>
+                                        <div class="alert alert-danger" role="alert" id="errorEditarMantenimientoUsuario">
+                                            <h4><i class="fas fa-exclamation-triangle"></i>&nbsp;Error de actualización</h4>
+                                            <p>Ocurrió un error al tratar de actualizar su información, vuélvalo a intentar nuevamente.</p>
+                                            <hr>
+                                            <p class="mb-0">Verifique los datos ingresados e intente otra vez.</p>
+                                        </div>
+                                        <div class="alert alert-success" role="alert" id="correctoMantenimientoUsuario">
+                                            <h4><i class="fas fa-check"></i>&nbsp;Bien hecho</h4>
+                                            <p>Los datos ingresados fueron guardados exitosamente, verifique su bandeja para comprobarlo.</p>
+                                            <hr>
+                                            <p class="mb-0" id="mensajeRegistroMantenimientoUsuario">Utilice el buscador para encontrar su nuevo registro.</p>
+                                        </div>
+                                        @*<div id="mensajeError" hidden>
+                                            <div class="alert alert-danger d-flex align-items-stretch" role="alert">
+                                                <div class="alert-wrap mr-3">
+                                                    <div class="sa">
+                                                        <div class="sa-error">
+                                                            <div class="sa-error-x">
+                                                                <div class="sa-error-left"></div>
+                                                                <div class="sa-error-right"></div>
+                                                            </div>
+                                                            <div class="sa-error-placeholder"></div>
+                                                            <div class="sa-error-fix"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="alert-wrap">
+                                                    <h6>Error de registro</h6>
+                                                    <hr><small class="mb-0">Verifique que los datos sean correctamente ingresados, complete todos los campos obligatorios e intente otra vez.</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="mensajeCorrecto" hidden>
+                                            <div class="alert alert-success d-flex align-items-stretch" role="alert">
+                                                <div class="alert-wrap mr-3">
+                                                    <div class="sa">
+                                                        <div class="sa-success">
+                                                            <div class="sa-success-tip"></div>
+                                                            <div class="sa-success-long"></div>
+                                                            <div class="sa-success-placeholder"></div>
+                                                            <div class="sa-success-fix"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="alert-wrap">
+                                                    <h6>Bien hecho</h6>
+                                                    <hr><small class="mb-0">Los datos ingresados fueron guardados exitosamente, verifique su bandeja para comprobarlo. Utilice el buscador para encontrar su nuevo registro.</small>
+                                                </div>
+                                            </div>
+                                        </div>*@
+                                        
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer" id="pieMantenimientoUsuario">
+                            <div id="userMantenimiento" data-value="0"></div>
+                            <button class="btn btn-primary" type="button" onclick="fn_editarMantenimiento()">Guardar</button>
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                        </div>
+                        <div class="modal-footer" id="pieCorrecto">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modal-confirmacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Confirmar acción</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body medidas-modal">
+                            <p>¿ Desea eliminar este registro ?</p>
+                        </div>
+                        <div class="modal-footer">                            
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
+                            <button class="btn btn-primary" type="button" onclick="fn_eliminarMantenimiento()">Si</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Hidden("columna", "ID_MEDMIT")
+@Html.Hidden("orden", "ASC")
+
+<script src="~/js/script.js"></script>
+<script src="~/js/MRV.js"></script>
+<script src="~/js/MantenimientoMedidaMitigacion.js"></script>

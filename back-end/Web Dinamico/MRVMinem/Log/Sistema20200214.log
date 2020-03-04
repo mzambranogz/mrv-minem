@@ -1,0 +1,252 @@
+14/02/2020 03:03:33 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:33 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:33 p.m.: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:33 p.m.: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:33 p.m.: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:33 p.m.: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:33 p.m.: [Método: entidad.minem.gob.pe.TipoControlBE RegistrarMedidaMitigacionDetalle(entidad.minem.gob.pe.TipoControlBE), Línea: 54] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: entidad.minem.gob.pe.TipoControlBE RegistrarMedidaMitigacionDetalle(entidad.minem.gob.pe.TipoControlBE), Línea: 54] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: entidad.minem.gob.pe.TipoControlBE RegistrarMedidaMitigacionDetalle(entidad.minem.gob.pe.TipoControlBE), Línea: 54] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: entidad.minem.gob.pe.TipoControlBE RegistrarMedidaMitigacionDetalle(entidad.minem.gob.pe.TipoControlBE), Línea: 54] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: entidad.minem.gob.pe.TipoControlBE RegistrarMedidaMitigacionDetalle(entidad.minem.gob.pe.TipoControlBE), Línea: 54] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: entidad.minem.gob.pe.TipoControlBE RegistrarMedidaMitigacionDetalle(entidad.minem.gob.pe.TipoControlBE), Línea: 54] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: entidad.minem.gob.pe.TipoControlBE RegistrarMedidaMitigacionDetalle(entidad.minem.gob.pe.TipoControlBE), Línea: 54] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: entidad.minem.gob.pe.TipoControlBE RegistrarMedidaMitigacionDetalle(entidad.minem.gob.pe.TipoControlBE), Línea: 54] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+14/02/2020 03:03:42 p.m.: [Método: entidad.minem.gob.pe.TipoControlBE RegistrarMedidaMitigacionDetalle(entidad.minem.gob.pe.TipoControlBE), Línea: 54] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_M_INDICADOR' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
