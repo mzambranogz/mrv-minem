@@ -328,8 +328,8 @@ namespace MRVMinem.Controllers
             usu.buscar = "";
             usu.cantidad_registros = 10;
             usu.pagina = 1;
-            usu.order_by = "ID_USUARIO";
-            usu.order_orden = "DESC";
+            usu.order_by = "ID_ESTADO_USUARIO";
+            usu.order_orden = "ASC";
             modelo.listaUsuario = UsuarioLN.BuscarMantenimientoUsuario(usu);
             return View(modelo);
         }
@@ -575,8 +575,8 @@ namespace MRVMinem.Controllers
                 //var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
                 IniciativaBE iniciativa = new IniciativaBE();
                 iniciativa.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
-                entidad.ASUNTO = "Observación Iniciativa - MRVMinem ";
-                entidad.DESCRIPCION = "En la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") se ha detectado algunos datos a corregir, los detalles en la siguiente descripción: <br/><br/>" + entidad.DESCRIPCION + "<br/><br/>";
+                iniciativa.ASUNTO = "Observación Iniciativa - MRVMinem";
+                iniciativa.DESCRIPCION = "En la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") se ha detectado algunos datos a corregir, los detalles en la siguiente descripción: <br/><br/>" + entidad.DESCRIPCION + "<br/><br/>Por favor responder a este correo " + Convert.ToString(Session["correo"]) + "<br/><br/>";
                 EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
                 itemRespuesta.extra = entidad.DESCRIPCION;
@@ -907,7 +907,7 @@ namespace MRVMinem.Controllers
                 IniciativaBE iniciativa = new IniciativaBE();
                 iniciativa.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
                 iniciativa.ASUNTO = "Observación Detalle Indicador - MRVMinem ";
-                iniciativa.DESCRIPCION = "En los detalles indicadores de la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") se ha detectado algunos datos a corregir, los detalles en la siguiente descripción: <br/>" + entidad.DESCRIPCION + "<br/><br/>";
+                iniciativa.DESCRIPCION = "En los detalles indicadores de la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") se ha detectado algunos datos a corregir, los detalles en la siguiente descripción: <br/><br/>" + entidad.DESCRIPCION + "<br/><br/>Por favor responder a este correo " + Convert.ToString(Session["correo"]) + "<br/><br/>";
                 EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
                 itemRespuesta.extra = entidad.DESCRIPCION;

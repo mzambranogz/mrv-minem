@@ -1795,7 +1795,7 @@ function CargarDatosCabecera() {
                         tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col" data-toggle="tooltip" data-placement="top" title="Texto descriptivo de ayuda"><span>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span><small>' + data[i]["DESCRIPCION_PARAMETRO"] + '</small></th>';
                         //}                        
                     }
-                    tr += '     <th class="text-center" scope="col">Más</th>';
+                    //tr += '     <th class="text-center" scope="col">Más</th>';
                     tr += '</tr>';
                     $("#cabeceraTablaIndicador").append(tr);
                     $("[data-toggle='tooltip']").tooltip();
@@ -1891,16 +1891,16 @@ function CargarCuerpoGuardado(filas) {
                                 tr += '</td>'
                             }
                         }
-                        tr += '<td class="text-center text-xs-right" data-encabezado="Acciones">';
-                        tr += '     <div class="btn-group">';
-                        tr += '          <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
-                        tr += '          <div class="dropdown-menu dropdown-menu-right">';
-                        tr += '               <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;Verificar</a>';
+                        //tr += '<td class="text-center text-xs-right" data-encabezado="Acciones">';
+                        //tr += '     <div class="btn-group">';
+                        //tr += '          <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
+                        //tr += '          <div class="dropdown-menu dropdown-menu-right">';
+                        //tr += '               <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;Verificar</a>';
                         //tr += '               <a class="dropdown-item agregarCampos" href="#"><i class="fas fa-plus-circle"></i>&nbsp;Agregar</a>';
                         //tr += '               <a class="dropdown-item quitarCampos" href="#" onclick="fn_eliminarRestarTotal()"><i class="fas fa-minus-circle"></i>&nbsp;Eliminar</a>';
-                        tr += '          </div>';
-                        tr += '     </div>';
-                        tr += '</td>';
+                        //tr += '          </div>';
+                        //tr += '     </div>';
+                        //tr += '</td>';
                         tr += '</tr>';
                         $("#cuerpoTablaIndicador").append(tr);
                     }

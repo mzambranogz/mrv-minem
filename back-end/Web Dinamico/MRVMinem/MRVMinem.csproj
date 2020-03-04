@@ -158,6 +158,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="images\password-level-47px.png" />
+    <Content Include="images\sello.png" />
+    <Content Include="images\sello.svg" />
     <Content Include="images\_fonfo_footer.png" />
     <Content Include="js\AccionMitigacion.js" />
     <Content Include="js\CambiarClave.js" />
