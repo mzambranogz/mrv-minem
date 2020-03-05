@@ -91,6 +91,7 @@
     <Compile Include="TipoControlAuxBE.cs" />
     <Compile Include="TipoControlBE.cs" />
     <Compile Include="TipoFuenteBE.cs" />
+    <Compile Include="TipoIniciativaBE.cs" />
     <Compile Include="TipoVehiculoBE.cs" />
     <Compile Include="UbicacionBE.cs" />
     <Compile Include="UsuarioAuxBE.cs" />

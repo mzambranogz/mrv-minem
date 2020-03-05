@@ -452,6 +452,7 @@ namespace logica.minem.gob.pe
 
         public static List<IniciativaBE> ListaExcelAvanzado(IniciativaBE entidad)
         {
+            if (string.IsNullOrEmpty(entidad.NOMBRE_INICIATIVA)) entidad.NOMBRE_INICIATIVA = "";
             return iniciativaDA.ListaExcelAvanzado(entidad);
         }
 

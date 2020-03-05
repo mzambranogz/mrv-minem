@@ -29,7 +29,40 @@
                     <div class="col-md-12 col-lg-6 pt-4">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
-                            <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#aprobar-revision"><a class="aprobar-revision" href="#" data-toggle="tooltip" data-placement="top" title="Dar por aprobado esta iniciativa de mitigación"><i class="fas fa-check px-1"></i>Aprobar revisión</a></span><span data-toggle="modal" data-target="#observar-revision"><a class="observar-revision" href="#" data-toggle="tooltip" data-placement="top" title="¿Encontró alguna observación? utilice esta opción para solicitar una corrección"><i class="fas fa-eye px-1"></i>Observar revisión</a></span></div>
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <span data-toggle="modal" data-target="#aprobar-revision"><a class="aprobar-revision" href="#" data-toggle="tooltip" data-placement="top" title="Dar por aprobado esta iniciativa de mitigación"><i class="fas fa-check px-1"></i>Aprobar revisión</a></span>
+                                <span data-toggle="modal" data-target="#observar-revision"><a class="observar-revision" href="#" data-toggle="tooltip" data-placement="top" title="¿Encontró alguna observación? utilice esta opción para solicitar una corrección"><i class="fas fa-eye px-1"></i>Observar revisión</a></span>
+                                <div class="btn-group btn-group-lg w-100 mb-3">
+                                    <a class="btn btn-success dropdown-toggle w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0"><i class="fas fa-download pr-1"></i>Descargar</a>
+                                    <div class="dropdown-menu dropdown-menu-right w-100">
+                                        <a class="dropdown-item" href="#" onclick="exportarDetalle();"><i class="fas fa-file-excel pr-1"></i>Formato excel</a><div id="divExportar"></div> <!-- add metodo exportar y div creado con su id -->
+                                        @*<a class="dropdown-item" href="#"><i class="fas fa-file-pdf pr-1"></i>Formato pdf</a>*@
+                                    </div>
+                                </div>
+                                <div class="btn-group btn-group-lg w-100">
+                                    @if (Model.iniciativa_mit.ID_TIPO_INICIATIVA == 0)
+                                    {
+                                        <a class="btn btn-purple dropdown-toggle w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0" id="tipo-iniciativa" data-tipo="0"><i class="fas fa-list pr-1"></i>Tipo de iniciativa</a>
+                                    }
+                                    else
+                                    {
+                                        <a class="btn btn-purple dropdown-toggle w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0" id="tipo-iniciativa" data-tipo="@Model.iniciativa_mit.ID_TIPO_INICIATIVA"><i class="fas fa-list pr-1"></i>@Model.iniciativa_mit.TIPO_INICIATIVA</a>
+                                    }
+
+                                    <div class="dropdown-menu dropdown-menu-right w-100">
+                                        @if (Model.listaTipoIniciativa != null)
+                                        {
+                                            foreach (var item in Model.listaTipoIniciativa)
+                                            {
+                                                <a class="dropdown-item" href="javascript:void(0);" onclick="fn_cambiarTipoIniciativa(@item.ID_TIPO_INICIATIVA, '@item.TIPO_INICIATIVA')"><i class="fas fa-list pr-1"></i>@item.TIPO_INICIATIVA</a>
+                                            }
+                                        }
+
+                                        @*<a class="dropdown-item" href="#"><i class="fas fa-list pr-1"></i>PNUD</a>*@
+                                        @*<a class="dropdown-item" href="#"><i class="fas fa-list pr-1"></i>Otros</a>*@
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

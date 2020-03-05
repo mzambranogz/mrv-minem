@@ -82,6 +82,7 @@
     <Compile Include="TipoCombustibleDA.cs" />
     <Compile Include="TipoControlDA.cs" />
     <Compile Include="TipoFuenteDA.cs" />
+    <Compile Include="TipoIniciativaDA.cs" />
     <Compile Include="TipoVehiculoDA.cs" />
     <Compile Include="UbicacionDA.cs" />
     <Compile Include="UsuarioDA.cs" />

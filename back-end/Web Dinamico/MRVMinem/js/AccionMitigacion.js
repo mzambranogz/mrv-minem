@@ -1386,10 +1386,10 @@ function exportarIniciativa() {
     //};
     if ($("#cuerpoMitigacion").html() != "") {
 
-        var anno = 0;
-        if ($("#txt-fecha-inicio").val() != "") {
-            anno = $("#txt-fecha-inicio").val();
-        }
+        //var anno = 0;
+        //if ($("#txt-fecha-inicio").val() != "") {
+        //    anno = $("#txt-fecha-inicio").val();
+        //}
 
         if ($("#buscar").data("numero") == 0) {
 
@@ -1406,10 +1406,13 @@ function exportarIniciativa() {
 
             var item = {
                 medida_b: $("#cbo-medida-mitigacion").val(),
-                anio_b: anno,
+                //anio_b: anno,
                 sector_b: $("#cbo-sector").val(),
                 //gei_b: $("#cbo-energetico-base").val(),
                 //energ_b: $("#cbo-energetico-proyecto").val(),
+                FECHA_IMPLE_INICIATIVA: $("#txt-fecha-inicio").val(),
+                FECHA_FIN_INICIATIVA: $("#txt-fecha-fin").val(),
+                NOMBRE_INICIATIVA: $("#txa-descripcion-iniciativa").val(),
                 order_by: $("#columna").val(),
                 order_orden: $("#orden").val(),
                 ID_USUARIO: $("#Control").data("usuario"),

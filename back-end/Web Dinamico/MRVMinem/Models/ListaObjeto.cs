@@ -24,5 +24,6 @@ namespace MRVMinem.Models
         public List<EnfoqueBE> listaEnfoque { get; set; }
         public List<ParametroBE> listaParametro { get; set; }
         public List<IndicadorDataBE> listaIndData { get; set; }
+        public List<TipoIniciativaBE> listaTipoIniciativa { get; set; }
     }
 }

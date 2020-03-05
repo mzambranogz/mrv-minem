@@ -1119,3 +1119,5 @@ C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico\MRVMinem\bin\Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_ Calentadores_ agua_instantaneo.xlsx
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico\MRVMinem\bin\Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_Motores Electricos.xlsx
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico\MRVMinem\bin\Documentos\1.2 Plantilla_Eficiencia_energetica_ industrial_caldera.xlsx
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico\MRVMinem\bin\Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_Lavadoras.xlsx
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico\MRVMinem\bin\Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_Secadora.xlsx

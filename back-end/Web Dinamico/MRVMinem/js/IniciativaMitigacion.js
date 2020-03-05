@@ -700,7 +700,8 @@ function fn_revisarIniciativaMitigacion() {
         ID_INICIATIVA: $("#Control").data("iniciativa"),
         ID_USUARIO: $("#Control").data("usuario"),
         EMAIL_USUARIO: $("#txt-correo-electronico").val(),
-        NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val()
+        NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
+        ID_TIPO_INICIATIVA: $("#tipo-iniciativa").data("tipo")
     }
     url = baseUrl + "Gestion/AprobarIniciativaMitigacion";
     var respuesta = MRV.Ajax(url, item, false);
@@ -910,6 +911,11 @@ $("#txt-monto-inversion").on({
 
 function formatoMiles(n) { //add20
     return n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+}
+
+function fn_cambiarTipoIniciativa(id, tipoIniciativa) {
+    $("#tipo-iniciativa").html("").append('<i class="fas fa-list pr-1"></i>' + tipoIniciativa);
+    $("#tipo-iniciativa").data("tipo", id);
 }
 
 

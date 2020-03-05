@@ -1094,7 +1094,8 @@ function fn_revisarDetalleIndicador() {
         ID_INICIATIVA: $("#Control").data("iniciativa"),
         ID_USUARIO: $("#Control").data("usuario"),
         EMAIL_USUARIO: $("#txt-correo-electronico").val(),
-        NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val()
+        NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
+        ID_TIPO_INICIATIVA: $("#tipo-iniciativa").data("tipo")
     }
     url = baseUrl + "Gestion/AprobarDetalleIndicador";
     var respuesta = MRV.Ajax(url, item, false);
@@ -1234,7 +1235,8 @@ function fn_revisarAdminDetalleIndicador() {
         ID_INICIATIVA: $("#Control").data("iniciativa"),
         //ID_USUARIO: $("#Control").data("usuario"),
         NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
-        ESTADO_ACTOR: $("#estado-actor").data("estado")
+        ESTADO_ACTOR: $("#estado-actor").data("estado"),
+        ID_TIPO_INICIATIVA: $("#tipo-iniciativa").data("tipo")
     }
     url = baseUrl + "Gestion/AprobarAdminIniciativaDetalleIndicador";
     var respuesta = MRV.Ajax(url, item, false);
@@ -3839,7 +3841,7 @@ function CargarDatosCabeceraVerificar(enfoque) {
     //var medida = $("#Control").data("mitigacion");
     //$("#cabeceraTablaIndicador").html("");
     var item = {
-        ID_MEDMIT: $("#iniciativa_mit_ID_MEDMIT").val(),
+        ID_MEDMIT: $("#medida_ID_MEDMIT").val(),
         ID_ENFOQUE: enfoque
     }
     $.ajax({
@@ -3927,7 +3929,7 @@ function factoresVerificar(enfoque) {
 
 function FormulaVerificar(enfoque) {
     var item = {
-        ID_MEDMIT: $("#iniciativa_mit_ID_MEDMIT").val(),
+        ID_MEDMIT: $("#medida_ID_MEDMIT").val(),
         ID_ENFOQUE: enfoque
     }
     $.ajax({
@@ -4141,4 +4143,9 @@ function cargarVerificar(enfoque, tabla, fila) {
     $("#cuerpoTablaVerificar-" + enfoque).html("").append(row);
     $(".ocultar-verificar").attr("hidden", true);
     $("#contenido-" + enfoque).removeAttr("hidden");
+}
+
+function fn_cambiarTipoIniciativa(id, tipoIniciativa) {
+    $("#tipo-iniciativa").html("").append('<i class="fas fa-list pr-1"></i>' + tipoIniciativa);
+    $("#tipo-iniciativa").data("tipo", id);
 }

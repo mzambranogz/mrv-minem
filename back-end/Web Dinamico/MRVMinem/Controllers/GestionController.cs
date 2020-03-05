@@ -129,6 +129,7 @@ namespace MRVMinem.Controllers
             modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
             modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
             modelo.usuario = UsuarioLN.UsuarioIniciativa(modelo.iniciativa_mit.ID_USUARIO);
+            modelo.listaTipoIniciativa = TipoIniciativaLN.listarTipoIniciativa();
             modelo.revision = 1;
             Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
             Session["nombres_destino"] = modelo.usuario.NOMBRES;
@@ -183,6 +184,7 @@ namespace MRVMinem.Controllers
             modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
             modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
             modelo.usuario = UsuarioLN.UsuarioIniciativa(modelo.iniciativa_mit.ID_USUARIO);
+            modelo.listaTipoIniciativa = TipoIniciativaLN.listarTipoIniciativa();
             modelo.id_enfoques = concatenarIdEnfoque(modelo.listaIndData); //add 2-3-20
             modelo.revision = 1;
             Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
@@ -235,7 +237,8 @@ namespace MRVMinem.Controllers
             modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
             modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
             modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
-            modelo.usuario = UsuarioLN.EspecialistaMedida(modelo.iniciativa_mit.ID_MEDMIT);            
+            modelo.usuario = UsuarioLN.EspecialistaMedida(modelo.iniciativa_mit.ID_MEDMIT);
+            modelo.listaTipoIniciativa = TipoIniciativaLN.listarTipoIniciativa();
             modelo.revision = 1;
             Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
             Session["id_medida"] = modelo.medida.ID_MEDMIT;
@@ -1868,6 +1871,15 @@ namespace MRVMinem.Controllers
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
         }
+
+        //public JsonResult ListarTipoIniciativa()
+        //{
+        //    List<TipoIniciativaBE> lista = TipoIniciativaLN.listarTipoIniciativa();
+        //    var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+        //    jsonResult.MaxJsonLength = int.MaxValue;
+        //    return jsonResult;
+        //}
+
         //EXPORTAR EXCEL
 
         public void ExportarIniciativa(string item)

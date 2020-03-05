@@ -49,6 +49,7 @@ namespace entidad.minem.gob.pe
         public string ESTADO_BANDEJA { get; set; }
         public string NUMERO_MEDMIT { get; set; }
         public int ID_INDICADOR { get; set; }
+        public string TIPO_INICIATIVA { get; set; }
         public List<IniciativaBE> listaGeiAnno { get; set; }
     }
 }

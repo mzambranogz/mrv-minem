@@ -70,6 +70,7 @@
     <Compile Include="TipoCombustibleLN.cs" />
     <Compile Include="TipoControlLN.cs" />
     <Compile Include="TipoFuenteLN.cs" />
+    <Compile Include="TipoIniciativaLN.cs" />
     <Compile Include="TipoVehiculoLN.cs" />
     <Compile Include="UbicacionLN.cs" />
     <Compile Include="UsuarioLN.cs" />

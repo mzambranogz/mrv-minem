@@ -5,6 +5,7 @@
 }
 @Html.HiddenFor(m => m.iniciativa_mit.ID_INICIATIVA)
 @Html.HiddenFor(m => m.revision)
+@Html.HiddenFor(m => m.medida.ID_MEDMIT)
 
 @{
     var total_reducido = 0.0;
@@ -263,7 +264,7 @@
                 <div class="container pt-5">
                     <div class="row">
                         <div class="col-12">
-                            <div class="h5 pb-5 text-primary">Detalles de Indicadores</div>
+                            <div class="h5 pb-5 text-primary">Detalle de la iniciativa de mitigación</div>
                         </div>
                     </div>
                 </div>

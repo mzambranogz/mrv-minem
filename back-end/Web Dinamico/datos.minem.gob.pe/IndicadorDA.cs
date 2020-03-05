@@ -356,6 +356,7 @@ namespace datos.minem.gob.pe
                     var p = new OracleDynamicParameters();
                     p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
                     p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    p.Add("pID_TIPO_INICIATIVA", entidad.ID_TIPO_INICIATIVA);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
                 entidad.OK = true;
@@ -458,6 +459,7 @@ namespace datos.minem.gob.pe
                     p.Add("pID_USUARIO", entidad.ID_USUARIO);
                     p.Add("pID_ETAPA", entidad.ESTADO_ACTOR); //estado 5: Evaluador | estado 6: Verificador -> ETAPAS
                     p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pID_TIPO_INICIATIVA", entidad.ID_TIPO_INICIATIVA);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
                 entidad.OK = true;
