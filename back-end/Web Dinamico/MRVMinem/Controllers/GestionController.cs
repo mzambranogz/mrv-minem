@@ -54,7 +54,7 @@ namespace MRVMinem.Controllers
             {
                 usu.PRIMER_INICIO = "0";
             }
-            
+
             modelo.usuario = usu;
             //if (Convert.ToInt32(Session["rol"]) == 1)
             //{
@@ -93,8 +93,9 @@ namespace MRVMinem.Controllers
             inic.ID_INICIATIVA = ini;
             inic.ID_MEDMIT = id;
             modelo.iniciativa_mit = inic;
-            if (ini > 0){
-                                
+            if (ini > 0)
+            {
+
             }
             else if (id > 0)
             {
@@ -147,16 +148,17 @@ namespace MRVMinem.Controllers
             modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
             modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
 
-           modelo.listaParametro = ParametroLN.ListarParametro(modelo.iniciativa_mit.ID_MEDMIT);
+            modelo.listaParametro = ParametroLN.ListarParametro(modelo.iniciativa_mit.ID_MEDMIT);
 
             modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
             modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
             modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
             modelo.usuario = UsuarioLN.EspecialistaMedida(modelo.iniciativa_mit.ID_MEDMIT);
             modelo.revision = 0;
-            if (modelo.menor == 0) {
+            if (modelo.menor == 0)
+            {
                 modelo.menor = getMenorId(modelo.listaEnfoque);
-            }            
+            }
             Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
 
             return View(modelo);
@@ -584,7 +586,7 @@ namespace MRVMinem.Controllers
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
                 itemRespuesta.extra = entidad.DESCRIPCION;
                 Session["correo_destino"] = "";
-                                
+
                 //entidad.EMAIL_USUARIO_ORIGEN = Convert.ToString(Session["correo"]);
                 //entidad.NOMBRES = Convert.ToString(Session["nombres_destino"]);
                 //entidad.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
@@ -759,7 +761,7 @@ namespace MRVMinem.Controllers
                 //==========================================================
                 List<IndicadorDataBE> listaDataE = new List<IndicadorDataBE>();
                 if (!string.IsNullOrEmpty(entidad.DATA))
-                {                    
+                {
                     var valores = entidad.DATA.Split('/');
 
                     for (int i = 0; i < valores.Length; i++)
@@ -792,7 +794,7 @@ namespace MRVMinem.Controllers
                         listaDataE.Add(dataE);
                     }
                 }
-                
+
 
                 //============================================================
 
@@ -1018,7 +1020,7 @@ namespace MRVMinem.Controllers
                 IniciativaBE iniciativa = new IniciativaBE();
                 iniciativa.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
                 iniciativa.ASUNTO = "Aprobación Iniciativa y Detalle Indicador - MRVMinem ";
-                iniciativa.DESCRIPCION = "Los detalles de indicadores y la iniciativa ("+entidad.NOMBRE_INICIATIVA+") fueron revisados y aprobadas por el Administrador MINEM<br/><br/>";
+                iniciativa.DESCRIPCION = "Los detalles de indicadores y la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") fueron revisados y aprobadas por el Administrador MINEM<br/><br/>";
                 EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
                 Session["correo_destino"] = "";
@@ -1069,6 +1071,14 @@ namespace MRVMinem.Controllers
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
                 Session["correo_destino"] = "";
                 Session["usuario_destino"] = 0;
+
+                BlockChainBE block = new BlockChainBE() { ID_INICIATIVA = entidad.ID_INICIATIVA, ID_USUARIO = entidad.ID_USUARIO, IP_PC = Request.UserHostAddress.ToString().Trim() };
+                block = BlockChainLN.GeneraBlockChain(block);
+                if (block.OK)
+                {
+                    itemRespuesta.extra = block.ID_BLOCKCHAIN.ToString();
+                    itemRespuesta.extra2 = block.HASH;
+                }
             }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
@@ -1123,8 +1133,28 @@ namespace MRVMinem.Controllers
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
                 Session["correo_destino"] = "";
                 Session["usuario_destino"] = 0;
+
+                BlockChainBE block = new BlockChainBE() { ID_INICIATIVA = entidad.ID_INICIATIVA, ID_USUARIO = entidad.ID_USUARIO, IP_PC = Request.UserHostAddress.ToString().Trim() };
+                block = BlockChainLN.GeneraBlockChain(block);
+                if (block.OK)
+                {
+                    itemRespuesta.extra = block.ID_BLOCKCHAIN.ToString();
+                    itemRespuesta.extra2 = block.HASH;
+                }
             }
             itemRespuesta.success = entidad.OK;
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult DescargarBlockChain(BlockChainBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+            string nombreArchivo = Guid.NewGuid() + ".pdf";
+            string nombrePDF = nombrePDF = WebConfigurationManager.AppSettings["RutaTemp"] + "\\" + nombreArchivo;
+            itemRespuesta.success = new ReporteRepositorio().GenerarPDFBlockChain(entidad.ID_BLOCKCHAIN, nombrePDF);
+            if (itemRespuesta.success)
+                itemRespuesta.extra = nombreArchivo;
+
             return Respuesta(itemRespuesta);
         }
 
@@ -1184,7 +1214,7 @@ namespace MRVMinem.Controllers
             {
                 entidad = UsuarioLN.EditarUsuario(entidad);
             }
-            
+
             if (entidad.OK)
             {
                 if (entidad.ESTADO == "1")
@@ -1212,9 +1242,9 @@ namespace MRVMinem.Controllers
                         perfil = "Verificador";
                     }
 
-                    if (entidad.ID_ESTADO_USUARIO == 1) 
+                    if (entidad.ID_ESTADO_USUARIO == 1)
                     {
-                        estado = " Además, tiene los permisos para acceder al sistema"; 
+                        estado = " Además, tiene los permisos para acceder al sistema";
                     }
                     entidad.ASUNTO = "Registro - MRVMinem ";
                     entidad.DESCRIPCION = entidad.NOMBRES_USUARIO + " " + entidad.APELLIDOS_USUARIO + " ha sido registrado por el Administrador MINEM con el perfil " + perfil + "." + estado + "<br/><br/>";
@@ -1229,8 +1259,8 @@ namespace MRVMinem.Controllers
                         Task tarea = Task.Factory.StartNew(() => hilo_correo.AprobacionUsuario());
                     }
                 }
-            }           
-            
+            }
+
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }
@@ -1779,7 +1809,7 @@ namespace MRVMinem.Controllers
             {
                 Log.Error(ex);
             }
-            
+
             var jsonResult = Json(listaP, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
@@ -1844,7 +1874,7 @@ namespace MRVMinem.Controllers
             itemRespuesta.extra = Convert.ToString(ent.CANTIDAD);
             return Respuesta(itemRespuesta);
         }
-                
+
         public JsonResult CorreoAdministrador(UsuarioBE entidad)
         {
             ResponseEntity itemRespuesta = new ResponseEntity();
@@ -1905,11 +1935,12 @@ namespace MRVMinem.Controllers
             if (entidad.METODO == 0)
             {
                 lista = IniciativaLN.ListaExcelSimple(entidad);
-            }else
+            }
+            else
             {
                 lista = IniciativaLN.ListaExcelAvanzado(entidad);
             }
-            
+
             int row = 2;
             try
             {
@@ -2019,13 +2050,13 @@ namespace MRVMinem.Controllers
             List<UsuarioBE> lista = null;
             //if (string.IsNullOrEmpty(entidad.DESCRIPCION))
             //{
-                lista = UsuarioLN.ListaMantenimientoUsuario(entidad);
+            lista = UsuarioLN.ListaMantenimientoUsuario(entidad);
             //}
             //else
             //{
             //    lista = UsuarioLN.BuscarMantenimientoUsuario(entidad);
             //}
-            
+
             int row = 2;
             try
             {
@@ -2082,8 +2113,9 @@ namespace MRVMinem.Controllers
                             ws1.Cells["D" + row].Value = dt_fila.INSTITUCION;
                             if (string.IsNullOrEmpty(dt_fila.TELEFONO_USUARIO))
                             {
-                                ws1.Cells["E" + row].Value = "                    - "+dt_fila.CELULAR_USUARIO;
-                            } else if (string.IsNullOrEmpty(dt_fila.CELULAR_USUARIO))
+                                ws1.Cells["E" + row].Value = "                    - " + dt_fila.CELULAR_USUARIO;
+                            }
+                            else if (string.IsNullOrEmpty(dt_fila.CELULAR_USUARIO))
                             {
                                 ws1.Cells["E" + row].Value = dt_fila.TELEFONO_USUARIO + " -                    ";
                             }
@@ -2161,7 +2193,7 @@ namespace MRVMinem.Controllers
                     }
                     ws1.View.FreezePanes(3, 1);
 
-                    
+
 
                     foreach (var item in lista)
                     {
@@ -2207,7 +2239,7 @@ namespace MRVMinem.Controllers
                         var xNum = 0;
                         foreach (var itemI in item.listaInd)
                         {
-                            j = 1;                            
+                            j = 1;
                             if (itemI.listaInd.Count > 0)
                             {
                                 xNum++;
@@ -2230,7 +2262,7 @@ namespace MRVMinem.Controllers
                                     else
                                     {
                                         ws1.Cells[L + row].Value = itemDet.VALOR;
-                                    }                                    
+                                    }
                                 }
                                 formatoDetalle(ws1, "A", obtenerLetra(j), row);
                                 row++;
@@ -2238,7 +2270,7 @@ namespace MRVMinem.Controllers
                         }
                         row++;
                         row++;
-                        
+
 
                         //if (lista.Count > 0)
                         //{
@@ -2247,7 +2279,7 @@ namespace MRVMinem.Controllers
                         //    {
                         //        xNum++;
                         //        ws1.Cells["A" + row].Value = xNum;
-                                
+
                         //        ws1.Cells["C" + row].Value = dt_fila.TIPO_VEHICULO;
                         //        ws1.Cells["D" + row].Value = dt_fila.TIPO_COMBUSTIBLE;
                         //        ws1.Cells["E" + row].Value = dt_fila.KRV_BASE;
@@ -2381,9 +2413,9 @@ namespace MRVMinem.Controllers
         private int getMenorId(List<EnfoqueBE> lista)
         {
             var menor = 999999999;
-            foreach(var item in lista)
+            foreach (var item in lista)
             {
-                if(item.ID_ENFOQUE < menor)
+                if (item.ID_ENFOQUE < menor)
                 {
                     menor = item.ID_ENFOQUE;
                 }
@@ -2404,7 +2436,7 @@ namespace MRVMinem.Controllers
             return menor;
         }
 
-        private string obtenerLetra (int num)
+        private string obtenerLetra(int num)
         {
             string letra = "";
             if (num == 1) letra = "A";
@@ -2445,8 +2477,8 @@ namespace MRVMinem.Controllers
                 {
                     id_enfoques += item.ID_ENFOQUE + ",";
                 }
-                id_enfoques = id_enfoques.Substring(0, id_enfoques.Length -1);
-            }            
+                id_enfoques = id_enfoques.Substring(0, id_enfoques.Length - 1);
+            }
 
             return id_enfoques;
         }

@@ -197,6 +197,7 @@
     <Content Include="Log\LEEME.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Reportes\BlockChain.xml" />
     <Content Include="Reportes\frmReportes.aspx" />
     <Content Include="Reportes\ReporteIni.aspx" />
     <Content Include="Temp\CAMBIOS-BD-05032020.sql" />
@@ -237,6 +238,11 @@
     <Compile Include="Models\MvUbicacion.cs" />
     <Compile Include="Models\MvUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes\DsBlockChain.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsBlockChain.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\DsEscenario.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -272,6 +278,7 @@
       <DependentUpon>ReporteIni.aspx</DependentUpon>
     </Compile>
     <Compile Include="Repositorio\EnvioCorreo.cs" />
+    <Compile Include="Repositorio\ReporteRepositorio.cs" />
     <Compile Include="Response\ResponseEntity.cs" />
     <Compile Include="Tags\AutenticadoAttribute.cs" />
   </ItemGroup>
@@ -432,6 +439,17 @@
     <Content Include="Reportes\DsEscenario.xsc">
       <DependentUpon>DsEscenario.xsd</DependentUpon>
     </Content>
+    <Content Include="Reportes\DsBlockChain.xsc">
+      <DependentUpon>DsBlockChain.xsd</DependentUpon>
+    </Content>
+    <None Include="Reportes\DsBlockChain.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsBlockChain.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reportes\DsBlockChain.xss">
+      <DependentUpon>DsBlockChain.xsd</DependentUpon>
+    </Content>
     <None Include="Reportes\DsEscenario.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DsEscenario.Designer.cs</LastGenOutput>
@@ -508,6 +526,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reportes\EscenarioRpt.rdlc" />
+    <EmbeddedResource Include="Reportes\rptBlockChain.rdlc" />
     <EmbeddedResource Include="Reportes\rptIniciativa.rdlc" />
     <EmbeddedResource Include="Reportes\rptInstitucion.rdlc" />
     <EmbeddedResource Include="Reportes\rptMedMit.rdlc" />

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema id="PapeletaPersonal" targetNamespace="http://tempuri.org/DataSet2.xsd" xmlns:mstns="http://tempuri.org/DataSet2.xsd" xmlns="http://tempuri.org/DataSet2.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="PapeletaPersonal">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ID_BLOCKCHAIN" type="xs:float"/>
+        <xs:element name="ID_INICIATIVA" type="xs:float"/>
+        <xs:element name="HASH" type="xs:string"/>
+        <xs:element name="ID_MEDMIT" type="xs:float"/>
+        <xs:element name="NOMBRE_MEDMIT" type="xs:string"/>
+        <xs:element name="ID_USUARIO" type="xs:float"/>
+        <xs:element name="NOMBRE_INICIATIVA" type="xs:string"/>
+        <xs:element name="INVERSION_INICIATIVA" type="xs:double"/>
+        <xs:element name="ID_MONEDA" type="xs:float"/>
+        <xs:element name="FECHA_CREA_INICIATIVA" type="xs:dateTime"/>
+        <xs:element name="FECHA_IMPLE_INICIATIVA" type="xs:dateTime"/>
+        <xs:element name="FECHA_FIN_INICIATIVA" type="xs:dateTime"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

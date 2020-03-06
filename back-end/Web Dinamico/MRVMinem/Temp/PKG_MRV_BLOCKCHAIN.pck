@@ -11,6 +11,11 @@ create or replace package PKG_MRV_BLOCKCHAIN is
         PO_CURSOR OUT SYS_REFCURSOR
     );
     
+    PROCEDURE USP_SEL_BLOCKCHAIN(
+		PI_ID_BLOCKCHAIN NUMBER,
+        PO_CURSOR OUT SYS_REFCURSOR
+    );
+    
 end PKG_MRV_BLOCKCHAIN;
 /
 create or replace package body PKG_MRV_BLOCKCHAIN is
@@ -83,5 +88,33 @@ create or replace package body PKG_MRV_BLOCKCHAIN is
                 AND I.ID_MEDMIT = M.ID_MEDMIT;
     END USP_PRC_BLOCK_CHAIN;
     
+    PROCEDURE USP_SEL_BLOCKCHAIN(
+		PI_ID_BLOCKCHAIN NUMBER,
+        PO_CURSOR OUT SYS_REFCURSOR
+    )
+    AS
+    BEGIN
+      	OPEN PO_CURSOR FOR
+        SELECT  B.ID_BLOCKCHAIN,
+                B.ID_INICIATIVA,
+                B.HASH,
+                B.USUARIO_REGISTRO,
+                B.FECHA_REGISTRO,
+                B.IP_REGISTRO,
+                I.ID_MEDMIT,
+                M.NOMBRE_MEDMIT,
+                I.ID_USUARIO, 
+                I.NOMBRE_INICIATIVA, 
+                I.INVERSION_INICIATIVA, 
+                I.ID_MONEDA, 
+                I.FECHA_CREA_INICIATIVA, 
+                I.FECHA_IMPLE_INICIATIVA, 
+                I.FECHA_FIN_INICIATIVA
+        FROM    T_GENM_BLOCKCHAIN B,
+                T_GENM_INICIATIVA I,
+                T_MAE_MEDMIT M
+        WHERE   ID_BLOCKCHAIN = PI_ID_BLOCKCHAIN;
+    	
+    END USP_SEL_BLOCKCHAIN;
 end PKG_MRV_BLOCKCHAIN;
 /

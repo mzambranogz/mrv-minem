@@ -24,18 +24,43 @@ namespace datos.minem.gob.pe
                 {
                     string sp = sPackage + "USP_PRC_BLOCK_CHAIN";
                     var p = new OracleDynamicParameters();
-                    p.Add("PI_ID_INICIATIVA", entidad.buscar);
-                    p.Add("PI_USUARIO", entidad.cantidad_registros);
-                    p.Add("PI_IP", entidad.pagina);
+                    p.Add("PI_ID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("PI_USUARIO", entidad.ID_USUARIO);
+                    p.Add("PI_IP", entidad.IP_PC);
                     p.Add("PO_CURSOR", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     entidad = db.Query<BlockChainBE>(sp, p, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                    entidad.OK = true;
                 }
             }
             catch (Exception ex)
             {
                 Log.Error(ex);
+                entidad.OK = false;
             }
             return entidad;
+        }
+
+        public List<BlockChainBE> ListaBlockChain(BlockChainBE entidad)
+        {
+            List<BlockChainBE> lista = null;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_BLOCKCHAIN";
+                    var p = new OracleDynamicParameters();
+                    p.Add("PI_ID_BLOCKCHAIN", entidad.ID_BLOCKCHAIN);
+                    p.Add("PO_CURSOR", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    lista = db.Query<BlockChainBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                    entidad.OK = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+            return lista;
         }
     }
 }
