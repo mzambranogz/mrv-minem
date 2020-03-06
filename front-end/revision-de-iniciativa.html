@@ -14,7 +14,8 @@
     <link rel="shortcut icon" href="images/favicon/favicon.ico">
     <meta name="msapplication-config" content="images/favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!--script(src="https://www.google.com/recaptcha/api.js", async, defer)-->
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcKud4UAAAAAIWfqQyeI8l83jWB4WlvDkpWMWKC"></script>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <link rel="stylesheet" href="./css/style.css">
   </head>
@@ -236,25 +237,75 @@ Tacna</textarea>
                   <div class="h5 py-5 text-primary">Indicadores</div>
                 </div>
               </div>
+              <!--.row
+              .col-sm-12-col-md-12.col-lg-6
+                .form-group
+                  label.font-weight-bold(for="mlt-energetico") Energético asociado
+                    span.text-danger.font-weight-bold &nbsp;
+                  .input-group
+                    .input-group-prepend
+                      span.input-group-text#inputGroup9
+                        i.fas.fa-bolt
+                    textarea.form-control-plaintext(id="mlt-energetico", aria-describedby="inputGroup9", cols="30", rows="5", readonly, placeholder="Ingrese una descripción para su iniciativa")
+                      | Combustibles fósiles&nbsp;
+                      | Electricidad&nbsp;
+              .col-sm-12-col-md-12.col-lg-6
+                .form-group
+                  label.font-weight-bold(for="mlt-gei") Gases de efecto invernadero
+                    span.text-danger.font-weight-bold &nbsp;
+                  .input-group
+                    .input-group-prepend
+                      span.input-group-text#inputGroup9
+                        i.fas.fa-bolt
+                    textarea.form-control-plaintext(id="mlt-energetico", aria-describedby="inputGroup9", cols="30", rows="5", readonly, placeholder="Ingrese una descripción para su iniciativa")
+                      | CO2
+                      | y&nbsp;
+                      | CH 2
+              -->
               <div class="row">
                 <div class="col-sm-12-col-md-12 col-lg-6">
                   <div class="form-group">
-                    <label class="font-weight-bold" for="mlt-energetico">Energético asociado<span class="text-danger font-weight-bold">&nbsp;</span></label>
-                    <div class="input-group">
+                    <label for="mlt-energetico">Energético asociado<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione uno o varios energéticos asociados de acuerdo a la medida de mitigación seleccionada"></i></label>
+                    <div class="input-group resaltado">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
-                      <textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">Combustibles fósiles&nbsp;
-Electricidad&nbsp;</textarea>
+                      <div class="form-control" style="height:90px; overflow-y: auto;">
+                        <div class="col-auto my-1">
+                          <div class="custom-control custom-checkbox mr-sm-2">
+                            <input class="custom-control-input" type="checkbox" id="chk-energetico-01">
+                            <label class="custom-control-label" for="chk-energetico-01">Combustibles fósiles&nbsp;</label>
+                          </div>
+                        </div>
+                        <div class="col-auto my-1">
+                          <div class="custom-control custom-checkbox mr-sm-2">
+                            <input class="custom-control-input" type="checkbox" id="chk-energetico-02">
+                            <label class="custom-control-label" for="chk-energetico-02">Electricidad&nbsp;</label>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
                 <div class="col-sm-12-col-md-12 col-lg-6">
                   <div class="form-group">
-                    <label class="font-weight-bold" for="mlt-gei">Gases de efecto invernadero<span class="text-danger font-weight-bold">&nbsp;</span></label>
-                    <div class="input-group">
+                    <label for="mlt-gei">Gases de efecto invernadero<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione uno o varios GEI de acuerdo a la medida de mitigación seleccionada"></i></label>
+                    <div class="input-group resaltado">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
-                      <textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">CO2
-y&nbsp;
-CH 2</textarea>
+                      <div class="form-control" style="height:90px; overflow-y: auto;">
+                        <div class="col-auto my-1">
+                          <div class="custom-control custom-checkbox mr-sm-2">
+                            <input class="custom-control-input" type="checkbox" id="chk-gei-01">
+                            <label class="custom-control-label" for="chk-gei-01">CO<sub>2</sub></label>
+                          </div>
+                        </div>
+                        <div class="col-auto my-1">
+                          <div class="custom-control custom-checkbox mr-sm-2">
+                            <input class="custom-control-input" type="checkbox" id="chk-gei-02">
+                            <label class="custom-control-label" for="chk-gei-02">CO<sub>2</sub>&nbsp;y&nbsp;
+                              CH<sub>2</sub>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -441,7 +492,7 @@ CH 2</textarea>
               <div class="col-sm-12 col-md-4 text-white">
                 <div class="lead font-weight-bold">Enlaces</div>
                 <ul class="list-unstyled">
-                  <li class="py-1"><a class="text-white" href="https://www.gob.pe/minem" target="_blank"><i class="fas fa-landmark mr-2"></i>MINEM</a></li>
+                  <li class="py-1"><a class="text-white" href="https://www.gob.pe/minem" target="_blank"><i class="fas fa-landmark mr-2"></i>Página Web de MINEM</a></li>
                   <li class="py-1"><a class="text-white" href="http://namasenergia.minem.gob.pe/" target="_blank"><i class="fas fa-landmark mr-2"></i>Página Web de NAMA</a></li>
                   <li class="py-1"><a class="text-white" href="./mapa-del-ditio.html" target="_blank"><i class="fas fa-sitemap mr-2"></i>Mapa del Sitio</a></li>
                 </ul>

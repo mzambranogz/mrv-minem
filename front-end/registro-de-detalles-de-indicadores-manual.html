@@ -14,7 +14,8 @@
     <link rel="shortcut icon" href="images/favicon/favicon.ico">
     <meta name="msapplication-config" content="images/favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!--script(src="https://www.google.com/recaptcha/api.js", async, defer)-->
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcKud4UAAAAAIWfqQyeI8l83jWB4WlvDkpWMWKC"></script>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <link rel="stylesheet" href="./css/style.css">
   </head>
@@ -328,19 +329,19 @@ Tacna</textarea>
                         <table class="table table-hover" id="cuerpoTablaIndicador">
                           <thead>
                             <tr class="bg-primary text-white">
-                              <th class="text-center" scope="col"><span>N°</span></th>
-                              <th class="text-center grupo-columna-01" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>AÑO</span><small>Seleccione este campo para su registro</small></th>
-                              <th class="text-center grupo-columna-02" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>POTENCIA BASE (W)</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-03" scope="col"><span>N°</span></th>
+                              <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>AÑO</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>POTENCIA BASE (W)</span><small>Seleccione este campo para su registro</small></th>
                               <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>POTENCIA INICIATIVA (W)</span><small>Seleccione este campo para su registro</small></th>
-                              <th class="text-center grupo-columna-01" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>CANTIDAD</span><small>Seleccione este campo para su registro</small></th>
-                              <th class="text-center grupo-columna-02" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>MES</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>CANTIDAD</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>MES</span><small>Seleccione este campo para su registro</small></th>
                               <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>EMISIONES GEI REDUCIDAS tCOeq</span><small>Seleccione este campo para su registro</small></th>
-                              <th class="text-center grupo-columna-01" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>AÑO</span><small>Seleccione este campo para su registro</small></th>
-                              <th class="text-center grupo-columna-02" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>POTENCIA BASE (W)</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>AÑO</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>POTENCIA BASE (W)</span><small>Seleccione este campo para su registro</small></th>
                               <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>POTENCIA INICIATIVA (W)</span><small>Seleccione este campo para su registro</small></th>
-                              <th class="text-center grupo-columna-01" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>Sub Total</span><small>Seleccione este campo para su registro</small></th>
-                              <th class="text-center grupo-columna-02" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>Sustento</span><small>Seleccione este campo para su registro</small></th>
-                              <th class="text-center" scope="col">Más</th>
+                              <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>Sub Total</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>Sustento</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center" scope="col"><span>Más<br></span><a class="btn btn-warning btn-sm m-0 agregarCampos" href="#" title="Agregar fila" download><i class="fas fa-plus-circle"></i></a></th>
                             </tr>
                           </thead>
                           <tbody>
@@ -365,7 +366,7 @@ Tacna</textarea>
                               </td>
                               <td data-encabezado="Placas">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm require-data" type="date" id="txt-columna3-1" data-validar="0" min="" max="">
+                                  <input class="form-control form-control-sm require-data" type="date" id="txt-columna3-1" data-validar="0" data-param="32" min="" max="">
                                 </div>
                               </td>
                               <td data-encabezado="Fecha">
@@ -419,19 +420,24 @@ Tacna</textarea>
                                 </div>
                               </td>
                               <td class="text-center" data-encabezado="Sustento">
-                                <div class="form-group m-0">
-                                  <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-upload mr-1"></i>Cargar</label>
+                                <label class="btn btn-secondary btn-sm m-0" for="fle-doc" title="Cargar archivo"><i class="fas fa-upload"></i>
                                   <input class="d-none" type="file" id="fle-doc">
-                                </div>
+                                </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>
                               </td>
-                              <td class="text-center text-xs-right" data-encabezado="Acciones">
-                                <div class="btn-group">
-                                  <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                                  <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item agregarCampos" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;
-                                      Verificar</a><a class="dropdown-item agregarCampos" href="#"><i class="fas fa-plus-circle"></i>&nbsp;
-                                      Agregar</a><a class="dropdown-item quitarCampos" href="#"><i class="fas fa-minus-circle"></i>&nbsp;
-                                      Eliminar</a></div>
-                                </div>
+                              <td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCampos" href="#" title="Quitar fila"><i class="fas fa-minus-circle"></i></a>
+                                <!--.btn-group
+                                .acciones.fase-01.dropdown-toggle(data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+                                  i.fas.fa-ellipsis-h
+                                .dropdown-menu.dropdown-menu-right
+                                  a.dropdown-item.agregarCampos(href="#")
+                                    i.fas.fa-plus-circle
+                                    | &nbsp;
+                                    | Agregar
+                                  a.dropdown-item.quitarCampos(href="#")
+                                    i.fas.fa-minus-circle
+                                    | &nbsp;
+                                    | Eliminar
+                                -->
                               </td>
                             </tr>
                             <tr id="detalles-tr-2">
@@ -455,7 +461,7 @@ Tacna</textarea>
                               </td>
                               <td data-encabezado="Placas">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm require-data" type="date" id="txt-columna3-2" data-validar="0" min="" max="">
+                                  <input class="form-control form-control-sm require-data" type="date" id="txt-columna3-2" data-validar="0" data-param="32" min="" max="">
                                 </div>
                               </td>
                               <td data-encabezado="Fecha">
@@ -509,19 +515,24 @@ Tacna</textarea>
                                 </div>
                               </td>
                               <td class="text-center" data-encabezado="Sustento">
-                                <div class="form-group m-0">
-                                  <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-upload mr-1"></i>Cargar</label>
+                                <label class="btn btn-secondary btn-sm m-0" for="fle-doc" title="Cargar archivo"><i class="fas fa-upload"></i>
                                   <input class="d-none" type="file" id="fle-doc">
-                                </div>
+                                </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>
                               </td>
-                              <td class="text-center text-xs-right" data-encabezado="Acciones">
-                                <div class="btn-group">
-                                  <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                                  <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item agregarCampos" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;
-                                      Verificar</a><a class="dropdown-item agregarCampos" href="#"><i class="fas fa-plus-circle"></i>&nbsp;
-                                      Agregar</a><a class="dropdown-item quitarCampos" href="#"><i class="fas fa-minus-circle"></i>&nbsp;
-                                      Eliminar</a></div>
-                                </div>
+                              <td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCampos" href="#" title="Quitar fila"><i class="fas fa-minus-circle"></i></a>
+                                <!--.btn-group
+                                .acciones.fase-01.dropdown-toggle(data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+                                  i.fas.fa-ellipsis-h
+                                .dropdown-menu.dropdown-menu-right
+                                  a.dropdown-item.agregarCampos(href="#")
+                                    i.fas.fa-plus-circle
+                                    | &nbsp;
+                                    | Agregar
+                                  a.dropdown-item.quitarCampos(href="#")
+                                    i.fas.fa-minus-circle
+                                    | &nbsp;
+                                    | Eliminar
+                                -->
                               </td>
                             </tr>
                             <tr id="detalles-tr-3">
@@ -545,7 +556,7 @@ Tacna</textarea>
                               </td>
                               <td data-encabezado="Placas">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm require-data" type="date" id="txt-columna3-3" data-validar="0" min="" max="">
+                                  <input class="form-control form-control-sm require-data" type="date" id="txt-columna3-3" data-validar="0" data-param="32" min="" max="">
                                 </div>
                               </td>
                               <td data-encabezado="Fecha">
@@ -599,19 +610,24 @@ Tacna</textarea>
                                 </div>
                               </td>
                               <td class="text-center" data-encabezado="Sustento">
-                                <div class="form-group m-0">
-                                  <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-upload mr-1"></i>Cargar</label>
+                                <label class="btn btn-secondary btn-sm m-0" for="fle-doc" title="Cargar archivo"><i class="fas fa-upload"></i>
                                   <input class="d-none" type="file" id="fle-doc">
-                                </div>
+                                </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>
                               </td>
-                              <td class="text-center text-xs-right" data-encabezado="Acciones">
-                                <div class="btn-group">
-                                  <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                                  <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item agregarCampos" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;
-                                      Verificar</a><a class="dropdown-item agregarCampos" href="#"><i class="fas fa-plus-circle"></i>&nbsp;
-                                      Agregar</a><a class="dropdown-item quitarCampos" href="#"><i class="fas fa-minus-circle"></i>&nbsp;
-                                      Eliminar</a></div>
-                                </div>
+                              <td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCampos" href="#" title="Quitar fila"><i class="fas fa-minus-circle"></i></a>
+                                <!--.btn-group
+                                .acciones.fase-01.dropdown-toggle(data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+                                  i.fas.fa-ellipsis-h
+                                .dropdown-menu.dropdown-menu-right
+                                  a.dropdown-item.agregarCampos(href="#")
+                                    i.fas.fa-plus-circle
+                                    | &nbsp;
+                                    | Agregar
+                                  a.dropdown-item.quitarCampos(href="#")
+                                    i.fas.fa-minus-circle
+                                    | &nbsp;
+                                    | Eliminar
+                                -->
                               </td>
                             </tr>
                             <tr id="detalles-tr-4">
@@ -635,7 +651,7 @@ Tacna</textarea>
                               </td>
                               <td data-encabezado="Placas">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm require-data" type="date" id="txt-columna3-4" data-validar="0" min="" max="">
+                                  <input class="form-control form-control-sm require-data" type="date" id="txt-columna3-4" data-validar="0" data-param="32" min="" max="">
                                 </div>
                               </td>
                               <td data-encabezado="Fecha">
@@ -689,19 +705,24 @@ Tacna</textarea>
                                 </div>
                               </td>
                               <td class="text-center" data-encabezado="Sustento">
-                                <div class="form-group m-0">
-                                  <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-upload mr-1"></i>Cargar</label>
+                                <label class="btn btn-secondary btn-sm m-0" for="fle-doc" title="Cargar archivo"><i class="fas fa-upload"></i>
                                   <input class="d-none" type="file" id="fle-doc">
-                                </div>
+                                </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>
                               </td>
-                              <td class="text-center text-xs-right" data-encabezado="Acciones">
-                                <div class="btn-group">
-                                  <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                                  <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item agregarCampos" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;
-                                      Verificar</a><a class="dropdown-item agregarCampos" href="#"><i class="fas fa-plus-circle"></i>&nbsp;
-                                      Agregar</a><a class="dropdown-item quitarCampos" href="#"><i class="fas fa-minus-circle"></i>&nbsp;
-                                      Eliminar</a></div>
-                                </div>
+                              <td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCampos" href="#" title="Quitar fila"><i class="fas fa-minus-circle"></i></a>
+                                <!--.btn-group
+                                .acciones.fase-01.dropdown-toggle(data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+                                  i.fas.fa-ellipsis-h
+                                .dropdown-menu.dropdown-menu-right
+                                  a.dropdown-item.agregarCampos(href="#")
+                                    i.fas.fa-plus-circle
+                                    | &nbsp;
+                                    | Agregar
+                                  a.dropdown-item.quitarCampos(href="#")
+                                    i.fas.fa-minus-circle
+                                    | &nbsp;
+                                    | Eliminar
+                                -->
                               </td>
                             </tr>
                             <tr id="detalles-tr-5">
@@ -725,7 +746,7 @@ Tacna</textarea>
                               </td>
                               <td data-encabezado="Placas">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm require-data" type="date" id="txt-columna3-5" data-validar="0" min="" max="">
+                                  <input class="form-control form-control-sm require-data" type="date" id="txt-columna3-5" data-validar="0" data-param="32" min="" max="">
                                 </div>
                               </td>
                               <td data-encabezado="Fecha">
@@ -779,19 +800,24 @@ Tacna</textarea>
                                 </div>
                               </td>
                               <td class="text-center" data-encabezado="Sustento">
-                                <div class="form-group m-0">
-                                  <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-upload mr-1"></i>Cargar</label>
+                                <label class="btn btn-secondary btn-sm m-0" for="fle-doc" title="Cargar archivo"><i class="fas fa-upload"></i>
                                   <input class="d-none" type="file" id="fle-doc">
-                                </div>
+                                </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>
                               </td>
-                              <td class="text-center text-xs-right" data-encabezado="Acciones">
-                                <div class="btn-group">
-                                  <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                                  <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item agregarCampos" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;
-                                      Verificar</a><a class="dropdown-item agregarCampos" href="#"><i class="fas fa-plus-circle"></i>&nbsp;
-                                      Agregar</a><a class="dropdown-item quitarCampos" href="#"><i class="fas fa-minus-circle"></i>&nbsp;
-                                      Eliminar</a></div>
-                                </div>
+                              <td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCampos" href="#" title="Quitar fila"><i class="fas fa-minus-circle"></i></a>
+                                <!--.btn-group
+                                .acciones.fase-01.dropdown-toggle(data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+                                  i.fas.fa-ellipsis-h
+                                .dropdown-menu.dropdown-menu-right
+                                  a.dropdown-item.agregarCampos(href="#")
+                                    i.fas.fa-plus-circle
+                                    | &nbsp;
+                                    | Agregar
+                                  a.dropdown-item.quitarCampos(href="#")
+                                    i.fas.fa-minus-circle
+                                    | &nbsp;
+                                    | Eliminar
+                                -->
                               </td>
                             </tr>
                             <tr id="detalles-tr-6">
@@ -815,7 +841,7 @@ Tacna</textarea>
                               </td>
                               <td data-encabezado="Placas">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm require-data" type="date" id="txt-columna3-6" data-validar="0" min="" max="">
+                                  <input class="form-control form-control-sm require-data" type="date" id="txt-columna3-6" data-validar="0" data-param="32" min="" max="">
                                 </div>
                               </td>
                               <td data-encabezado="Fecha">
@@ -869,19 +895,24 @@ Tacna</textarea>
                                 </div>
                               </td>
                               <td class="text-center" data-encabezado="Sustento">
-                                <div class="form-group m-0">
-                                  <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-upload mr-1"></i>Cargar</label>
+                                <label class="btn btn-secondary btn-sm m-0" for="fle-doc" title="Cargar archivo"><i class="fas fa-upload"></i>
                                   <input class="d-none" type="file" id="fle-doc">
-                                </div>
+                                </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>
                               </td>
-                              <td class="text-center text-xs-right" data-encabezado="Acciones">
-                                <div class="btn-group">
-                                  <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                                  <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item agregarCampos" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;
-                                      Verificar</a><a class="dropdown-item agregarCampos" href="#"><i class="fas fa-plus-circle"></i>&nbsp;
-                                      Agregar</a><a class="dropdown-item quitarCampos" href="#"><i class="fas fa-minus-circle"></i>&nbsp;
-                                      Eliminar</a></div>
-                                </div>
+                              <td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCampos" href="#" title="Quitar fila"><i class="fas fa-minus-circle"></i></a>
+                                <!--.btn-group
+                                .acciones.fase-01.dropdown-toggle(data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+                                  i.fas.fa-ellipsis-h
+                                .dropdown-menu.dropdown-menu-right
+                                  a.dropdown-item.agregarCampos(href="#")
+                                    i.fas.fa-plus-circle
+                                    | &nbsp;
+                                    | Agregar
+                                  a.dropdown-item.quitarCampos(href="#")
+                                    i.fas.fa-minus-circle
+                                    | &nbsp;
+                                    | Eliminar
+                                -->
                               </td>
                             </tr>
                             <tr id="detalles-tr-7">
@@ -905,7 +936,7 @@ Tacna</textarea>
                               </td>
                               <td data-encabezado="Placas">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm require-data" type="date" id="txt-columna3-7" data-validar="0" min="" max="">
+                                  <input class="form-control form-control-sm require-data" type="date" id="txt-columna3-7" data-validar="0" data-param="32" min="" max="">
                                 </div>
                               </td>
                               <td data-encabezado="Fecha">
@@ -959,19 +990,24 @@ Tacna</textarea>
                                 </div>
                               </td>
                               <td class="text-center" data-encabezado="Sustento">
-                                <div class="form-group m-0">
-                                  <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-upload mr-1"></i>Cargar</label>
+                                <label class="btn btn-secondary btn-sm m-0" for="fle-doc" title="Cargar archivo"><i class="fas fa-upload"></i>
                                   <input class="d-none" type="file" id="fle-doc">
-                                </div>
+                                </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>
                               </td>
-                              <td class="text-center text-xs-right" data-encabezado="Acciones">
-                                <div class="btn-group">
-                                  <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                                  <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item agregarCampos" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;
-                                      Verificar</a><a class="dropdown-item agregarCampos" href="#"><i class="fas fa-plus-circle"></i>&nbsp;
-                                      Agregar</a><a class="dropdown-item quitarCampos" href="#"><i class="fas fa-minus-circle"></i>&nbsp;
-                                      Eliminar</a></div>
-                                </div>
+                              <td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCampos" href="#" title="Quitar fila"><i class="fas fa-minus-circle"></i></a>
+                                <!--.btn-group
+                                .acciones.fase-01.dropdown-toggle(data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+                                  i.fas.fa-ellipsis-h
+                                .dropdown-menu.dropdown-menu-right
+                                  a.dropdown-item.agregarCampos(href="#")
+                                    i.fas.fa-plus-circle
+                                    | &nbsp;
+                                    | Agregar
+                                  a.dropdown-item.quitarCampos(href="#")
+                                    i.fas.fa-minus-circle
+                                    | &nbsp;
+                                    | Eliminar
+                                -->
                               </td>
                             </tr>
                             <tr id="detalles-tr-8">
@@ -995,7 +1031,7 @@ Tacna</textarea>
                               </td>
                               <td data-encabezado="Placas">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm require-data" type="date" id="txt-columna3-8" data-validar="0" min="" max="">
+                                  <input class="form-control form-control-sm require-data" type="date" id="txt-columna3-8" data-validar="0" data-param="32" min="" max="">
                                 </div>
                               </td>
                               <td data-encabezado="Fecha">
@@ -1049,19 +1085,24 @@ Tacna</textarea>
                                 </div>
                               </td>
                               <td class="text-center" data-encabezado="Sustento">
-                                <div class="form-group m-0">
-                                  <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-upload mr-1"></i>Cargar</label>
+                                <label class="btn btn-secondary btn-sm m-0" for="fle-doc" title="Cargar archivo"><i class="fas fa-upload"></i>
                                   <input class="d-none" type="file" id="fle-doc">
-                                </div>
+                                </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>
                               </td>
-                              <td class="text-center text-xs-right" data-encabezado="Acciones">
-                                <div class="btn-group">
-                                  <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                                  <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item agregarCampos" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;
-                                      Verificar</a><a class="dropdown-item agregarCampos" href="#"><i class="fas fa-plus-circle"></i>&nbsp;
-                                      Agregar</a><a class="dropdown-item quitarCampos" href="#"><i class="fas fa-minus-circle"></i>&nbsp;
-                                      Eliminar</a></div>
-                                </div>
+                              <td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCampos" href="#" title="Quitar fila"><i class="fas fa-minus-circle"></i></a>
+                                <!--.btn-group
+                                .acciones.fase-01.dropdown-toggle(data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+                                  i.fas.fa-ellipsis-h
+                                .dropdown-menu.dropdown-menu-right
+                                  a.dropdown-item.agregarCampos(href="#")
+                                    i.fas.fa-plus-circle
+                                    | &nbsp;
+                                    | Agregar
+                                  a.dropdown-item.quitarCampos(href="#")
+                                    i.fas.fa-minus-circle
+                                    | &nbsp;
+                                    | Eliminar
+                                -->
                               </td>
                             </tr>
                             <tr id="detalles-tr-9">
@@ -1085,7 +1126,7 @@ Tacna</textarea>
                               </td>
                               <td data-encabezado="Placas">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm require-data" type="date" id="txt-columna3-9" data-validar="0" min="" max="">
+                                  <input class="form-control form-control-sm require-data" type="date" id="txt-columna3-9" data-validar="0" data-param="32" min="" max="">
                                 </div>
                               </td>
                               <td data-encabezado="Fecha">
@@ -1139,19 +1180,214 @@ Tacna</textarea>
                                 </div>
                               </td>
                               <td class="text-center" data-encabezado="Sustento">
-                                <div class="form-group m-0">
-                                  <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-upload mr-1"></i>Cargar</label>
+                                <label class="btn btn-secondary btn-sm m-0" for="fle-doc" title="Cargar archivo"><i class="fas fa-upload"></i>
                                   <input class="d-none" type="file" id="fle-doc">
+                                </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>
+                              </td>
+                              <td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCampos" href="#" title="Quitar fila"><i class="fas fa-minus-circle"></i></a>
+                                <!--.btn-group
+                                .acciones.fase-01.dropdown-toggle(data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+                                  i.fas.fa-ellipsis-h
+                                .dropdown-menu.dropdown-menu-right
+                                  a.dropdown-item.agregarCampos(href="#")
+                                    i.fas.fa-plus-circle
+                                    | &nbsp;
+                                    | Agregar
+                                  a.dropdown-item.quitarCampos(href="#")
+                                    i.fas.fa-minus-circle
+                                    | &nbsp;
+                                    | Eliminar
+                                -->
+                              </td>
+                            </tr>
+                            <tr id="detalles-tr-10">
+                              <th class="text-center" data-encabezado="Número" scope="row">10</th>
+                              <td data-encabezado="Lista">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm require-data" id="cbo-columna1-10" data-afectar="txt-columna3-10">
+                                    <option value="">Seleccionar</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2022">2022</option>
+                                  </select>
                                 </div>
                               </td>
-                              <td class="text-center text-xs-right" data-encabezado="Acciones">
-                                <div class="btn-group">
-                                  <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                                  <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item agregarCampos" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;
-                                      Verificar</a><a class="dropdown-item agregarCampos" href="#"><i class="fas fa-plus-circle"></i>&nbsp;
-                                      Agregar</a><a class="dropdown-item quitarCampos" href="#"><i class="fas fa-minus-circle"></i>&nbsp;
-                                      Eliminar</a></div>
+                              <td data-encabezado="Texto">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm require-data" type="text" placeholder="Texto aquí" id="txt-columna2-10" data-validar="1">
                                 </div>
+                              </td>
+                              <td data-encabezado="Placas">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm require-data" type="date" id="txt-columna3-10" data-validar="0" data-param="32" min="" max="">
+                                </div>
+                              </td>
+                              <td data-encabezado="Fecha">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm require-data" type="text" placeholder="Texto aquí" id="txt-columna4-10">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 05">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm require-data" id="cbo-columna5-10">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 06">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm require-data" type="text" placeholder="Texto aquí" id="txt-columna6-10">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 07">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm require-data" id="cbo-columna7-10">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 08">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm require-data" type="text" placeholder="Texto aquí" id="txt-columna8-10">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 09">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm require-data" id="cbo-columna9-10">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Subtotal">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" value="27010" id="txt-subtotal-11" readonly>
+                                </div>
+                              </td>
+                              <td class="text-center" data-encabezado="Sustento">
+                                <label class="btn btn-secondary btn-sm m-0" for="fle-doc" title="Cargar archivo"><i class="fas fa-upload"></i>
+                                  <input class="d-none" type="file" id="fle-doc">
+                                </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>
+                              </td>
+                              <td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCampos" href="#" title="Quitar fila"><i class="fas fa-minus-circle"></i></a>
+                                <!--.btn-group
+                                .acciones.fase-01.dropdown-toggle(data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+                                  i.fas.fa-ellipsis-h
+                                .dropdown-menu.dropdown-menu-right
+                                  a.dropdown-item.agregarCampos(href="#")
+                                    i.fas.fa-plus-circle
+                                    | &nbsp;
+                                    | Agregar
+                                  a.dropdown-item.quitarCampos(href="#")
+                                    i.fas.fa-minus-circle
+                                    | &nbsp;
+                                    | Eliminar
+                                -->
+                              </td>
+                            </tr>
+                            <tr id="detalles-tr-11">
+                              <th class="text-center" data-encabezado="Número" scope="row">11</th>
+                              <td data-encabezado="Lista">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm require-data" id="cbo-columna1-11" data-afectar="txt-columna3-11">
+                                    <option value="">Seleccionar</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2022">2022</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Texto">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm require-data" type="text" placeholder="Texto aquí" id="txt-columna2-11" data-validar="1">
+                                </div>
+                              </td>
+                              <td data-encabezado="Placas">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm require-data" type="date" id="txt-columna3-11" data-validar="0" data-param="32" min="" max="">
+                                </div>
+                              </td>
+                              <td data-encabezado="Fecha">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm require-data" type="text" placeholder="Texto aquí" id="txt-columna4-11">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 05">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm require-data" id="cbo-columna5-11">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 06">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm require-data" type="text" placeholder="Texto aquí" id="txt-columna6-11">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 07">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm require-data" id="cbo-columna7-11">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 08">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm require-data" type="text" placeholder="Texto aquí" id="txt-columna8-11">
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 09">
+                                <div class="form-group m-0">
+                                  <select class="form-control form-control-sm require-data" id="cbo-columna9-11">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Valor 1</option>
+                                    <option value="2">Valor 2</option>
+                                    <option value="3">Valor 3</option>
+                                  </select>
+                                </div>
+                              </td>
+                              <td data-encabezado="Subtotal">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" value="27011" id="txt-subtotal-12" readonly>
+                                </div>
+                              </td>
+                              <td class="text-center" data-encabezado="Sustento">
+                                <label class="btn btn-secondary btn-sm m-0" for="fle-doc" title="Cargar archivo"><i class="fas fa-upload"></i>
+                                  <input class="d-none" type="file" id="fle-doc">
+                                </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>
+                              </td>
+                              <td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCampos" href="#" title="Quitar fila"><i class="fas fa-minus-circle"></i></a>
+                                <!--.btn-group
+                                .acciones.fase-01.dropdown-toggle(data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+                                  i.fas.fa-ellipsis-h
+                                .dropdown-menu.dropdown-menu-right
+                                  a.dropdown-item.agregarCampos(href="#")
+                                    i.fas.fa-plus-circle
+                                    | &nbsp;
+                                    | Agregar
+                                  a.dropdown-item.quitarCampos(href="#")
+                                    i.fas.fa-minus-circle
+                                    | &nbsp;
+                                    | Eliminar
+                                -->
                               </td>
                             </tr>
                           </tbody>
@@ -1187,11 +1423,6 @@ Tacna</textarea>
                         </table>
                       </div>
                     </div>
-                  </div>
-                </div>
-                <div class="container py-4">
-                  <div class="row">
-                    <div class="col-12 text-center"><a href="#" target="_blank"><img src="./images/sello.svg" width="180" data-toggle="tooltip" data-placement="top" title="Ir a la web del sello"></a></div>
                   </div>
                 </div>
                 <div class="container py-4">
@@ -1233,6 +1464,7 @@ Tacna</textarea>
                   </div>
                 </div>
                 <div class="container py-5">
+                  <div class="alert alert-info" role="alert"><i class="fas fa-info-circle">&nbsp;</i>Una vez aprobado su iniciativa podrá postular al sistema del <b>Sello Energía Sostenible</b></div>
                   <div class="dropdown-divider my-5"></div>
                   <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-6"><span class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Todos los campos son obligatorios</span></div>
@@ -1468,7 +1700,7 @@ Tacna</textarea>
                         </div>
                         <div class="alert-wrap">
                           <h6>Felicitaciones</h6>
-                          <hr><small class="mb-0">Usted a completado el envío de detalle de su iniciativa de mitigación que será verificada por uno de nuestros especialistas. También, le recordamos que puede ingresar a nuestra plataforma del <b>Sello de Energía Sostenible</b></small>
+                          <hr><a class="float-right" href="#" target="_blank"><img src="./images/sello_new.svg" width="120" data-toggle="tooltip" data-placement="top" title="Ir a la web del sello"></a><small class="mb-0">Usted ha completado el envío de detalle de su iniciativa de mitigación que será verificada por uno de nuestros especialistas. También, le recordamos que puede ingresar a nuestra plataforma del <b>Sello de Energía Sostenible</b></small>
                         </div>
                       </div>
                     </div>
@@ -1578,7 +1810,7 @@ Tacna</textarea>
               <div class="col-sm-12 col-md-4 text-white">
                 <div class="lead font-weight-bold">Enlaces</div>
                 <ul class="list-unstyled">
-                  <li class="py-1"><a class="text-white" href="https://www.gob.pe/minem" target="_blank"><i class="fas fa-landmark mr-2"></i>MINEM</a></li>
+                  <li class="py-1"><a class="text-white" href="https://www.gob.pe/minem" target="_blank"><i class="fas fa-landmark mr-2"></i>Página Web de MINEM</a></li>
                   <li class="py-1"><a class="text-white" href="http://namasenergia.minem.gob.pe/" target="_blank"><i class="fas fa-landmark mr-2"></i>Página Web de NAMA</a></li>
                   <li class="py-1"><a class="text-white" href="./mapa-del-ditio.html" target="_blank"><i class="fas fa-sitemap mr-2"></i>Mapa del Sitio</a></li>
                 </ul>

@@ -14,7 +14,8 @@
     <link rel="shortcut icon" href="images/favicon/favicon.ico">
     <meta name="msapplication-config" content="images/favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!--script(src="https://www.google.com/recaptcha/api.js", async, defer)-->
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcKud4UAAAAAIWfqQyeI8l83jWB4WlvDkpWMWKC"></script>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <link rel="stylesheet" href="./css/style.css">
   </head>
@@ -339,22 +340,22 @@ CH 2</textarea>
                         <table class="table table-hover">
                           <thead>
                             <tr class="bg-primary text-white">
-                              <th class="text-center" scope="col"><span>N°</span></th>
-                              <th class="text-center grupo-columna-01" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>AÑO</span><small>Seleccione este campo para su registro</small></th>
-                              <th class="text-center grupo-columna-02" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>POTENCIA BASE (W)</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-03" scope="col"><span>N°</span></th>
+                              <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>AÑO</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>POTENCIA BASE (W)</span><small>Seleccione este campo para su registro</small></th>
                               <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>POTENCIA INICIATIVA (W)</span><small>Seleccione este campo para su registro</small></th>
-                              <th class="text-center grupo-columna-01" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>CANTIDAD</span><small>Seleccione este campo para su registro</small></th>
-                              <th class="text-center grupo-columna-02" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>MES</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>CANTIDAD</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>MES</span><small>Seleccione este campo para su registro</small></th>
                               <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>EMISIONES GEI REDUCIDAS tCOeq</span><small>Seleccione este campo para su registro</small></th>
-                              <th class="text-center grupo-columna-01" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>AÑO</span><small>Seleccione este campo para su registro</small></th>
-                              <th class="text-center grupo-columna-02" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>POTENCIA BASE (W)</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>AÑO</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>POTENCIA BASE (W)</span><small>Seleccione este campo para su registro</small></th>
                               <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>POTENCIA INICIATIVA (W)</span><small>Seleccione este campo para su registro</small></th>
-                              <th class="text-center grupo-columna-01" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>CANTIDAD</span><small>Seleccione este campo para su registro</small></th>
-                              <th class="text-center grupo-columna-02" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>MES</span><small>Seleccione este campo para su registro</small></th>
-                              <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>EMISIONES GEI REDUCIDAS tCOeq</span><small>Seleccione este campo para su registro</small></th>
-                              <th class="text-center grupo-columna-01" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>Sub Total</span><small>Seleccione este campo para su registro</small></th>
-                              <th class="text-center grupo-columna-02" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>Sustento</span><small>Seleccione este campo para su registro</small></th>
-                              <th class="text-center" scope="col">Más</th>
+                              <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>Sub Total</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>Sustento</span><small>Seleccione este campo para su registro</small></th>
+                              <!--th.text-center(scope="col")span Más<br>
+                              a.btn.btn-warning.btn-sm.m-0.agregarCampos(href="#", title="Agregar fila", download)
+                                i.fas.fa-plus-circle
+                              -->
                             </tr>
                           </thead>
                           <tbody>
@@ -362,166 +363,81 @@ CH 2</textarea>
                               <th class="text-center" data-encabezado="Número" scope="row">1</th>
                               <td data-encabezado="Lista">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-1" value="2018" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Texto">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna2-1" value="50" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Placas">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna3-1" value="50" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Fecha">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna4-1" value="50" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 05">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-left" type="text" placeholder="Texto aquí" id="txt-columna5-1" value="Abril" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 06">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm error-data" type="text" placeholder="Texto aquí" id="txt-columna6-1" readonly value="valor */-+xyz">
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 07">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna7-1" value="50" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 08">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna8-1" value="50" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 09">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna9-1" value="50" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 10">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna10-1" value="50" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 11">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-left" type="text" placeholder="Texto aquí" id="txt-columna11-1" value="Marzo" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 12">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna12-1" value="50" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Subtotal">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" value="2701" id="txt-subtotal-2" readonly>
-                                </div>
-                              </td>
-                              <td class="text-center" data-encabezado="Sustento">
-                                <div class="form-group m-0">
-                                  <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-upload mr-1"></i>Cargar</label>
-                                  <input class="d-none" type="file" id="fle-doc">
-                                </div>
-                              </td>
-                              <td class="text-center text-xs-right" data-encabezado="Acciones">
-                                <div class="btn-group">
-                                  <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                                  <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item agregarCampos" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;
-                                      Verificar</a></div>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr id="detalles-tr-2">
-                              <th class="text-center" data-encabezado="Número" scope="row">2</th>
-                              <td data-encabezado="Lista">
-                                <div class="form-group m-0">
                                   <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-2" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Texto">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna2-2" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-2" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Placas">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna3-2" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-2" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Fecha">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna4-2" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-2" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Columna 05">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-left" type="text" placeholder="Texto aquí" id="txt-columna5-2" value="Abril" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-2" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Columna 06">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm error-data" type="text" placeholder="Texto aquí" id="txt-columna6-2" readonly value="valor */-+xyz">
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 07">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna7-2" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-2" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Columna 08">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna8-2" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-2" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Columna 09">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna9-2" value="50" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 10">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna10-2" value="50" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 11">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-left" type="text" placeholder="Texto aquí" id="txt-columna11-2" value="Marzo" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 12">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna12-2" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-2" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Subtotal">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" value="2702" id="txt-subtotal-3" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-2" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td data-encabezado="Subtotal">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-2" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td class="text-center" data-encabezado="Sustento">
-                                <div class="form-group m-0">
-                                  <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-upload mr-1"></i>Cargar</label>
+                                <label class="btn btn-secondary btn-sm m-0" for="fle-doc" title="Cargar archivo"><i class="fas fa-upload"></i>
                                   <input class="d-none" type="file" id="fle-doc">
-                                </div>
+                                </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>
                               </td>
-                              <td class="text-center text-xs-right" data-encabezado="Acciones">
-                                <div class="btn-group">
-                                  <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                                  <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item agregarCampos" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;
-                                      Verificar</a></div>
-                                </div>
-                              </td>
+                              <!--td.text-center(data-encabezado="Acciones", width="5%")
+                              a.btn.btn-info.btn-sm.m-0.quitarCampos(href="#", title="Quitar fila")
+                                i.fas.fa-minus-circle
+                              
+                              -->
+                              <!--.btn-group
+                              .acciones.fase-01.dropdown-toggle(data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+                                i.fas.fa-ellipsis-h
+                              .dropdown-menu.dropdown-menu-right
+                                a.dropdown-item.agregarCampos(href="#")
+                                  i.fas.fa-plus-circle
+                                  | &nbsp;
+                                  | Agregar
+                                a.dropdown-item.quitarCampos(href="#")
+                                  i.fas.fa-minus-circle
+                                  | &nbsp;
+                                  | Eliminar
+                              
+                              -->
                             </tr>
-                            <tr id="detalles-tr-3">
-                              <th class="text-center" data-encabezado="Número" scope="row">3</th>
+                            <tr id="detalles-tr-2">
+                              <th class="text-center" data-encabezado="Número" scope="row">2</th>
                               <td data-encabezado="Lista">
                                 <div class="form-group m-0">
                                   <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-3" value="2018" data-validar="0" readonly>
@@ -529,80 +445,76 @@ CH 2</textarea>
                               </td>
                               <td data-encabezado="Texto">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna2-3" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-3" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Placas">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna3-3" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-3" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Fecha">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna4-3" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-3" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Columna 05">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-left" type="text" placeholder="Texto aquí" id="txt-columna5-3" value="Abril" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-3" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Columna 06">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm error-data" type="text" placeholder="Texto aquí" id="txt-columna6-3" readonly value="valor */-+xyz">
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 07">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna7-3" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-3" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Columna 08">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna8-3" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-3" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Columna 09">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna9-3" value="50" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 10">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna10-3" value="50" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 11">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-left" type="text" placeholder="Texto aquí" id="txt-columna11-3" value="Marzo" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 12">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna12-3" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-3" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Subtotal">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" value="2703" id="txt-subtotal-4" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-3" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td data-encabezado="Subtotal">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-3" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td class="text-center" data-encabezado="Sustento">
-                                <div class="form-group m-0">
-                                  <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-upload mr-1"></i>Cargar</label>
+                                <label class="btn btn-secondary btn-sm m-0" for="fle-doc" title="Cargar archivo"><i class="fas fa-upload"></i>
                                   <input class="d-none" type="file" id="fle-doc">
-                                </div>
+                                </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>
                               </td>
-                              <td class="text-center text-xs-right" data-encabezado="Acciones">
-                                <div class="btn-group">
-                                  <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                                  <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item agregarCampos" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;
-                                      Verificar</a></div>
-                                </div>
-                              </td>
+                              <!--td.text-center(data-encabezado="Acciones", width="5%")
+                              a.btn.btn-info.btn-sm.m-0.quitarCampos(href="#", title="Quitar fila")
+                                i.fas.fa-minus-circle
+                              
+                              -->
+                              <!--.btn-group
+                              .acciones.fase-01.dropdown-toggle(data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+                                i.fas.fa-ellipsis-h
+                              .dropdown-menu.dropdown-menu-right
+                                a.dropdown-item.agregarCampos(href="#")
+                                  i.fas.fa-plus-circle
+                                  | &nbsp;
+                                  | Agregar
+                                a.dropdown-item.quitarCampos(href="#")
+                                  i.fas.fa-minus-circle
+                                  | &nbsp;
+                                  | Eliminar
+                              
+                              -->
                             </tr>
-                            <tr id="detalles-tr-4">
-                              <th class="text-center" data-encabezado="Número" scope="row">4</th>
+                            <tr class="error-data" id="detalles-tr-3">
+                              <th class="text-center" data-encabezado="Número" scope="row">3</th>
                               <td data-encabezado="Lista">
                                 <div class="form-group m-0">
                                   <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-4" value="2018" data-validar="0" readonly>
@@ -610,80 +522,61 @@ CH 2</textarea>
                               </td>
                               <td data-encabezado="Texto">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna2-4" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-4" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Placas">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna3-4" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-4" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Fecha">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna4-4" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-4" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Columna 05">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-left" type="text" placeholder="Texto aquí" id="txt-columna5-4" value="Abril" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-4" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Columna 06">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm error-data" type="text" placeholder="Texto aquí" id="txt-columna6-4" readonly value="valor */-+xyz">
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 07">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna7-4" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-4" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Columna 08">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna8-4" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-4" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Columna 09">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna9-4" value="50" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 10">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna10-4" value="50" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 11">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-left" type="text" placeholder="Texto aquí" id="txt-columna11-4" value="Marzo" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 12">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna12-4" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-4" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Subtotal">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" value="2704" id="txt-subtotal-5" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-4" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td data-encabezado="Subtotal">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-4" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td class="text-center" data-encabezado="Sustento">
-                                <div class="form-group m-0">
-                                  <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-upload mr-1"></i>Cargar</label>
+                                <label class="btn btn-secondary btn-sm m-0" for="fle-doc" title="Cargar archivo"><i class="fas fa-upload"></i>
                                   <input class="d-none" type="file" id="fle-doc">
-                                </div>
+                                </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>
                               </td>
-                              <td class="text-center text-xs-right" data-encabezado="Acciones">
-                                <div class="btn-group">
-                                  <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                                  <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item agregarCampos" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;
-                                      Verificar</a></div>
-                                </div>
-                              </td>
+                              <!--td.text-center(data-encabezado="Acciones", width="5%")
+                              a.btn.btn-info.btn-sm.m-0.quitarCampos(href="#", title="Quitar fila")
+                                i.fas.fa-minus-circle
+                              -->
                             </tr>
-                            <tr id="detalles-tr-5">
-                              <th class="text-center" data-encabezado="Número" scope="row">5</th>
+                            <tr id="detalles-tr-4">
+                              <th class="text-center" data-encabezado="Número" scope="row">4</th>
                               <td data-encabezado="Lista">
                                 <div class="form-group m-0">
                                   <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-5" value="2018" data-validar="0" readonly>
@@ -691,80 +584,76 @@ CH 2</textarea>
                               </td>
                               <td data-encabezado="Texto">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna2-5" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-5" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Placas">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna3-5" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-5" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Fecha">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna4-5" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-5" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Columna 05">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-left" type="text" placeholder="Texto aquí" id="txt-columna5-5" value="Abril" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-5" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Columna 06">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm error-data" type="text" placeholder="Texto aquí" id="txt-columna6-5" readonly value="valor */-+xyz">
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 07">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna7-5" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-5" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Columna 08">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna8-5" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-5" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Columna 09">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna9-5" value="50" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 10">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna10-5" value="50" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 11">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-left" type="text" placeholder="Texto aquí" id="txt-columna11-5" value="Marzo" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 12">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna12-5" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-5" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Subtotal">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" value="2705" id="txt-subtotal-6" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-5" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td data-encabezado="Subtotal">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-5" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td class="text-center" data-encabezado="Sustento">
-                                <div class="form-group m-0">
-                                  <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-upload mr-1"></i>Cargar</label>
+                                <label class="btn btn-secondary btn-sm m-0" for="fle-doc" title="Cargar archivo"><i class="fas fa-upload"></i>
                                   <input class="d-none" type="file" id="fle-doc">
-                                </div>
+                                </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>
                               </td>
-                              <td class="text-center text-xs-right" data-encabezado="Acciones">
-                                <div class="btn-group">
-                                  <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                                  <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item agregarCampos" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;
-                                      Verificar</a></div>
-                                </div>
-                              </td>
+                              <!--td.text-center(data-encabezado="Acciones", width="5%")
+                              a.btn.btn-info.btn-sm.m-0.quitarCampos(href="#", title="Quitar fila")
+                                i.fas.fa-minus-circle
+                              
+                              -->
+                              <!--.btn-group
+                              .acciones.fase-01.dropdown-toggle(data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+                                i.fas.fa-ellipsis-h
+                              .dropdown-menu.dropdown-menu-right
+                                a.dropdown-item.agregarCampos(href="#")
+                                  i.fas.fa-plus-circle
+                                  | &nbsp;
+                                  | Agregar
+                                a.dropdown-item.quitarCampos(href="#")
+                                  i.fas.fa-minus-circle
+                                  | &nbsp;
+                                  | Eliminar
+                              
+                              -->
                             </tr>
-                            <tr id="detalles-tr-6">
-                              <th class="text-center" data-encabezado="Número" scope="row">6</th>
+                            <tr id="detalles-tr-5">
+                              <th class="text-center" data-encabezado="Número" scope="row">5</th>
                               <td data-encabezado="Lista">
                                 <div class="form-group m-0">
                                   <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-6" value="2018" data-validar="0" readonly>
@@ -772,80 +661,76 @@ CH 2</textarea>
                               </td>
                               <td data-encabezado="Texto">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna2-6" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-6" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Placas">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna3-6" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-6" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Fecha">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna4-6" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-6" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Columna 05">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-left" type="text" placeholder="Texto aquí" id="txt-columna5-6" value="Abril" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-6" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Columna 06">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm error-data" type="text" placeholder="Texto aquí" id="txt-columna6-6" readonly value="valor */-+xyz">
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 07">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna7-6" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-6" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Columna 08">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna8-6" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-6" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Columna 09">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna9-6" value="50" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 10">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna10-6" value="50" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 11">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-left" type="text" placeholder="Texto aquí" id="txt-columna11-6" value="Marzo" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 12">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna12-6" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-6" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Subtotal">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" value="2706" id="txt-subtotal-7" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-6" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td data-encabezado="Subtotal">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-6" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td class="text-center" data-encabezado="Sustento">
-                                <div class="form-group m-0">
-                                  <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-upload mr-1"></i>Cargar</label>
+                                <label class="btn btn-secondary btn-sm m-0" for="fle-doc" title="Cargar archivo"><i class="fas fa-upload"></i>
                                   <input class="d-none" type="file" id="fle-doc">
-                                </div>
+                                </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>
                               </td>
-                              <td class="text-center text-xs-right" data-encabezado="Acciones">
-                                <div class="btn-group">
-                                  <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                                  <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item agregarCampos" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;
-                                      Verificar</a></div>
-                                </div>
-                              </td>
+                              <!--td.text-center(data-encabezado="Acciones", width="5%")
+                              a.btn.btn-info.btn-sm.m-0.quitarCampos(href="#", title="Quitar fila")
+                                i.fas.fa-minus-circle
+                              
+                              -->
+                              <!--.btn-group
+                              .acciones.fase-01.dropdown-toggle(data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+                                i.fas.fa-ellipsis-h
+                              .dropdown-menu.dropdown-menu-right
+                                a.dropdown-item.agregarCampos(href="#")
+                                  i.fas.fa-plus-circle
+                                  | &nbsp;
+                                  | Agregar
+                                a.dropdown-item.quitarCampos(href="#")
+                                  i.fas.fa-minus-circle
+                                  | &nbsp;
+                                  | Eliminar
+                              
+                              -->
                             </tr>
-                            <tr id="detalles-tr-7">
-                              <th class="text-center" data-encabezado="Número" scope="row">7</th>
+                            <tr class="error-data" id="detalles-tr-6">
+                              <th class="text-center" data-encabezado="Número" scope="row">6</th>
                               <td data-encabezado="Lista">
                                 <div class="form-group m-0">
                                   <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-7" value="2018" data-validar="0" readonly>
@@ -853,80 +738,61 @@ CH 2</textarea>
                               </td>
                               <td data-encabezado="Texto">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna2-7" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-7" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Placas">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna3-7" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-7" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Fecha">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna4-7" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-7" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Columna 05">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-left" type="text" placeholder="Texto aquí" id="txt-columna5-7" value="Abril" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-7" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Columna 06">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm error-data" type="text" placeholder="Texto aquí" id="txt-columna6-7" readonly value="valor */-+xyz">
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 07">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna7-7" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-7" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Columna 08">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna8-7" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-7" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Columna 09">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna9-7" value="50" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 10">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna10-7" value="50" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 11">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-left" type="text" placeholder="Texto aquí" id="txt-columna11-7" value="Marzo" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 12">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna12-7" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-7" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Subtotal">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" value="2707" id="txt-subtotal-8" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-7" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td data-encabezado="Subtotal">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-7" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td class="text-center" data-encabezado="Sustento">
-                                <div class="form-group m-0">
-                                  <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-upload mr-1"></i>Cargar</label>
+                                <label class="btn btn-secondary btn-sm m-0" for="fle-doc" title="Cargar archivo"><i class="fas fa-upload"></i>
                                   <input class="d-none" type="file" id="fle-doc">
-                                </div>
+                                </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>
                               </td>
-                              <td class="text-center text-xs-right" data-encabezado="Acciones">
-                                <div class="btn-group">
-                                  <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                                  <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item agregarCampos" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;
-                                      Verificar</a></div>
-                                </div>
-                              </td>
+                              <!--td.text-center(data-encabezado="Acciones", width="5%")
+                              a.btn.btn-info.btn-sm.m-0.quitarCampos(href="#", title="Quitar fila")
+                                i.fas.fa-minus-circle
+                              -->
                             </tr>
-                            <tr id="detalles-tr-8">
-                              <th class="text-center" data-encabezado="Número" scope="row">8</th>
+                            <tr id="detalles-tr-7">
+                              <th class="text-center" data-encabezado="Número" scope="row">7</th>
                               <td data-encabezado="Lista">
                                 <div class="form-group m-0">
                                   <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-8" value="2018" data-validar="0" readonly>
@@ -934,80 +800,76 @@ CH 2</textarea>
                               </td>
                               <td data-encabezado="Texto">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna2-8" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-8" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Placas">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna3-8" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-8" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Fecha">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna4-8" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-8" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Columna 05">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-left" type="text" placeholder="Texto aquí" id="txt-columna5-8" value="Abril" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-8" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Columna 06">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm error-data" type="text" placeholder="Texto aquí" id="txt-columna6-8" readonly value="valor */-+xyz">
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 07">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna7-8" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-8" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Columna 08">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna8-8" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-8" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Columna 09">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna9-8" value="50" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 10">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna10-8" value="50" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 11">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-left" type="text" placeholder="Texto aquí" id="txt-columna11-8" value="Marzo" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 12">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna12-8" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-8" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Subtotal">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" value="2708" id="txt-subtotal-9" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-8" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td data-encabezado="Subtotal">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-8" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td class="text-center" data-encabezado="Sustento">
-                                <div class="form-group m-0">
-                                  <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-upload mr-1"></i>Cargar</label>
+                                <label class="btn btn-secondary btn-sm m-0" for="fle-doc" title="Cargar archivo"><i class="fas fa-upload"></i>
                                   <input class="d-none" type="file" id="fle-doc">
-                                </div>
+                                </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>
                               </td>
-                              <td class="text-center text-xs-right" data-encabezado="Acciones">
-                                <div class="btn-group">
-                                  <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                                  <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item agregarCampos" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;
-                                      Verificar</a></div>
-                                </div>
-                              </td>
+                              <!--td.text-center(data-encabezado="Acciones", width="5%")
+                              a.btn.btn-info.btn-sm.m-0.quitarCampos(href="#", title="Quitar fila")
+                                i.fas.fa-minus-circle
+                              
+                              -->
+                              <!--.btn-group
+                              .acciones.fase-01.dropdown-toggle(data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+                                i.fas.fa-ellipsis-h
+                              .dropdown-menu.dropdown-menu-right
+                                a.dropdown-item.agregarCampos(href="#")
+                                  i.fas.fa-plus-circle
+                                  | &nbsp;
+                                  | Agregar
+                                a.dropdown-item.quitarCampos(href="#")
+                                  i.fas.fa-minus-circle
+                                  | &nbsp;
+                                  | Eliminar
+                              
+                              -->
                             </tr>
-                            <tr id="detalles-tr-9">
-                              <th class="text-center" data-encabezado="Número" scope="row">9</th>
+                            <tr id="detalles-tr-8">
+                              <th class="text-center" data-encabezado="Número" scope="row">8</th>
                               <td data-encabezado="Lista">
                                 <div class="form-group m-0">
                                   <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-9" value="2018" data-validar="0" readonly>
@@ -1015,77 +877,289 @@ CH 2</textarea>
                               </td>
                               <td data-encabezado="Texto">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna2-9" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-9" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Placas">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna3-9" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-9" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Fecha">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna4-9" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-9" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Columna 05">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-left" type="text" placeholder="Texto aquí" id="txt-columna5-9" value="Abril" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-9" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Columna 06">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm error-data" type="text" placeholder="Texto aquí" id="txt-columna6-9" readonly value="valor */-+xyz">
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 07">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna7-9" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-9" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Columna 08">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna8-9" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-9" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Columna 09">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna9-9" value="50" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 10">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna10-9" value="50" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 11">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-left" type="text" placeholder="Texto aquí" id="txt-columna11-9" value="Marzo" data-validar="0" readonly>
-                                </div>
-                              </td>
-                              <td data-encabezado="Columna 12">
-                                <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna12-9" value="50" data-validar="0" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-9" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td data-encabezado="Subtotal">
                                 <div class="form-group m-0">
-                                  <input class="form-control form-control-sm text-right" type="text" value="2709" id="txt-subtotal-10" readonly>
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-9" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td data-encabezado="Subtotal">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-9" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
                               <td class="text-center" data-encabezado="Sustento">
-                                <div class="form-group m-0">
-                                  <label class="btn btn-secondary btn-sm m-0" for="fle-doc"><i class="fas fa-upload mr-1"></i>Cargar</label>
+                                <label class="btn btn-secondary btn-sm m-0" for="fle-doc" title="Cargar archivo"><i class="fas fa-upload"></i>
                                   <input class="d-none" type="file" id="fle-doc">
+                                </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>
+                              </td>
+                              <!--td.text-center(data-encabezado="Acciones", width="5%")
+                              a.btn.btn-info.btn-sm.m-0.quitarCampos(href="#", title="Quitar fila")
+                                i.fas.fa-minus-circle
+                              
+                              -->
+                              <!--.btn-group
+                              .acciones.fase-01.dropdown-toggle(data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+                                i.fas.fa-ellipsis-h
+                              .dropdown-menu.dropdown-menu-right
+                                a.dropdown-item.agregarCampos(href="#")
+                                  i.fas.fa-plus-circle
+                                  | &nbsp;
+                                  | Agregar
+                                a.dropdown-item.quitarCampos(href="#")
+                                  i.fas.fa-minus-circle
+                                  | &nbsp;
+                                  | Eliminar
+                              
+                              -->
+                            </tr>
+                            <tr class="error-data" id="detalles-tr-9">
+                              <th class="text-center" data-encabezado="Número" scope="row">9</th>
+                              <td data-encabezado="Lista">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-10" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
-                              <td class="text-center text-xs-right" data-encabezado="Acciones">
-                                <div class="btn-group">
-                                  <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                                  <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item agregarCampos" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;
-                                      Verificar</a></div>
+                              <td data-encabezado="Texto">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-10" value="2018" data-validar="0" readonly>
                                 </div>
                               </td>
+                              <td data-encabezado="Placas">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-10" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td data-encabezado="Fecha">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-10" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 05">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-10" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 06">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-10" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 08">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-10" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 09">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-10" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td data-encabezado="Subtotal">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-10" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td data-encabezado="Subtotal">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-10" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td class="text-center" data-encabezado="Sustento">
+                                <label class="btn btn-secondary btn-sm m-0" for="fle-doc" title="Cargar archivo"><i class="fas fa-upload"></i>
+                                  <input class="d-none" type="file" id="fle-doc">
+                                </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>
+                              </td>
+                              <!--td.text-center(data-encabezado="Acciones", width="5%")
+                              a.btn.btn-info.btn-sm.m-0.quitarCampos(href="#", title="Quitar fila")
+                                i.fas.fa-minus-circle
+                              -->
+                            </tr>
+                            <tr id="detalles-tr-10">
+                              <th class="text-center" data-encabezado="Número" scope="row">10</th>
+                              <td data-encabezado="Lista">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-11" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td data-encabezado="Texto">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-11" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td data-encabezado="Placas">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-11" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td data-encabezado="Fecha">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-11" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 05">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-11" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 06">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-11" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 08">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-11" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 09">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-11" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td data-encabezado="Subtotal">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-11" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td data-encabezado="Subtotal">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-11" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td class="text-center" data-encabezado="Sustento">
+                                <label class="btn btn-secondary btn-sm m-0" for="fle-doc" title="Cargar archivo"><i class="fas fa-upload"></i>
+                                  <input class="d-none" type="file" id="fle-doc">
+                                </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>
+                              </td>
+                              <!--td.text-center(data-encabezado="Acciones", width="5%")
+                              a.btn.btn-info.btn-sm.m-0.quitarCampos(href="#", title="Quitar fila")
+                                i.fas.fa-minus-circle
+                              
+                              -->
+                              <!--.btn-group
+                              .acciones.fase-01.dropdown-toggle(data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+                                i.fas.fa-ellipsis-h
+                              .dropdown-menu.dropdown-menu-right
+                                a.dropdown-item.agregarCampos(href="#")
+                                  i.fas.fa-plus-circle
+                                  | &nbsp;
+                                  | Agregar
+                                a.dropdown-item.quitarCampos(href="#")
+                                  i.fas.fa-minus-circle
+                                  | &nbsp;
+                                  | Eliminar
+                              
+                              -->
+                            </tr>
+                            <tr id="detalles-tr-11">
+                              <th class="text-center" data-encabezado="Número" scope="row">11</th>
+                              <td data-encabezado="Lista">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-12" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td data-encabezado="Texto">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-12" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td data-encabezado="Placas">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-12" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td data-encabezado="Fecha">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-12" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 05">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-12" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 06">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-12" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 08">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-12" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td data-encabezado="Columna 09">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-12" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td data-encabezado="Subtotal">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-12" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td data-encabezado="Subtotal">
+                                <div class="form-group m-0">
+                                  <input class="form-control form-control-sm text-right" type="text" placeholder="Texto aquí" id="txt-columna1-12" value="2018" data-validar="0" readonly>
+                                </div>
+                              </td>
+                              <td class="text-center" data-encabezado="Sustento">
+                                <label class="btn btn-secondary btn-sm m-0" for="fle-doc" title="Cargar archivo"><i class="fas fa-upload"></i>
+                                  <input class="d-none" type="file" id="fle-doc">
+                                </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>
+                              </td>
+                              <!--td.text-center(data-encabezado="Acciones", width="5%")
+                              a.btn.btn-info.btn-sm.m-0.quitarCampos(href="#", title="Quitar fila")
+                                i.fas.fa-minus-circle
+                              
+                              -->
+                              <!--.btn-group
+                              .acciones.fase-01.dropdown-toggle(data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
+                                i.fas.fa-ellipsis-h
+                              .dropdown-menu.dropdown-menu-right
+                                a.dropdown-item.agregarCampos(href="#")
+                                  i.fas.fa-plus-circle
+                                  | &nbsp;
+                                  | Agregar
+                                a.dropdown-item.quitarCampos(href="#")
+                                  i.fas.fa-minus-circle
+                                  | &nbsp;
+                                  | Eliminar
+                              
+                              -->
                             </tr>
                           </tbody>
                         </table>
@@ -1115,11 +1189,6 @@ CH 2</textarea>
                         </table>
                       </div>
                     </div>
-                  </div>
-                </div>
-                <div class="container py-4">
-                  <div class="row">
-                    <div class="col-12 text-center"><a href="#" target="_blank"><img src="./images/sello.svg" width="180" data-toggle="tooltip" data-placement="top" title="Ir a la web del sello"></a></div>
                   </div>
                 </div>
                 <div class="container py-4">
@@ -1161,6 +1230,7 @@ CH 2</textarea>
                   </div>
                 </div>
                 <div class="container py-5">
+                  <div class="alert alert-info" role="alert"><i class="fas fa-info-circle">&nbsp;</i>Una vez aprobado su iniciativa podrá postular al sistema del <b>Sello Energía Sostenible</b></div>
                   <div class="dropdown-divider my-5"></div>
                   <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-6"><span class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Todos los campos son obligatorios</span></div>
@@ -1395,8 +1465,8 @@ CH 2</textarea>
                           </div>
                         </div>
                         <div class="alert-wrap">
-                          <h6>Bien hecho</h6>
-                          <hr><small class="mb-0">Los datos de su detalle de iniciativa de mitigación fueron guardados exitosamente, espere la aprobación del especialista para continuar confirmar su registro. En breve le notificaremos el estado de su solicitud de revisión.</small>
+                          <h6>Felicitaciones</h6>
+                          <hr><a class="float-right" href="#" target="_blank"><img src="./images/sello_new.svg" width="120" data-toggle="tooltip" data-placement="top" title="Ir a la web del sello"></a><small class="mb-0">Usted ha completado el envío de detalle de su iniciativa de mitigación que será verificada por uno de nuestros especialistas. También, le recordamos que puede ingresar a nuestra plataforma del <b>Sello de Energía Sostenible</b></small>
                         </div>
                       </div>
                     </div>
@@ -1506,7 +1576,7 @@ CH 2</textarea>
               <div class="col-sm-12 col-md-4 text-white">
                 <div class="lead font-weight-bold">Enlaces</div>
                 <ul class="list-unstyled">
-                  <li class="py-1"><a class="text-white" href="https://www.gob.pe/minem" target="_blank"><i class="fas fa-landmark mr-2"></i>MINEM</a></li>
+                  <li class="py-1"><a class="text-white" href="https://www.gob.pe/minem" target="_blank"><i class="fas fa-landmark mr-2"></i>Página Web de MINEM</a></li>
                   <li class="py-1"><a class="text-white" href="http://namasenergia.minem.gob.pe/" target="_blank"><i class="fas fa-landmark mr-2"></i>Página Web de NAMA</a></li>
                   <li class="py-1"><a class="text-white" href="./mapa-del-ditio.html" target="_blank"><i class="fas fa-sitemap mr-2"></i>Mapa del Sitio</a></li>
                 </ul>
