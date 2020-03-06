@@ -199,6 +199,7 @@
     </Content>
     <Content Include="Reportes\frmReportes.aspx" />
     <Content Include="Reportes\ReporteIni.aspx" />
+    <Content Include="Temp\CAMBIOS-BD-05032020.sql" />
     <Content Include="Temp\LEEME.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -478,6 +479,8 @@
     <Content Include="Views\Gestion\Resultados.cshtml" />
     <Content Include="Views\Mantenimiento\MedidaMitigacion.cshtml" />
     <Content Include="Views\Mantenimiento\EnfoqueFactor.cshtml" />
+    <Content Include="Temp\PKG_MRV_BLOCKCHAIN.pck" />
+    <Content Include="Temp\SHA256.pck" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

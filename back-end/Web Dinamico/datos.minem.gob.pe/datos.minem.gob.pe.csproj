@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="AnnoDA.cs" />
     <Compile Include="BaseDA.cs" />
+    <Compile Include="BlockChainDA.cs" />
     <Compile Include="BusquedaAvanzadaDA.cs" />
     <Compile Include="BusquedaSimpleDA.cs" />
     <Compile Include="DataBaseHelpers\OracleHelper.cs" />
