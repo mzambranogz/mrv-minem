@@ -1,0 +1,63 @@
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end-temp\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.pdb
+C:\Users\JK\Desktop\BACKUP 27-01-2020\Web\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+C:\Users\JK\Desktop\BACKUP 27-01-2020\Web\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+C:\Users\JK\Desktop\BACKUP 27-01-2020\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\JK\Desktop\BACKUP 27-01-2020\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.dll
+C:\Users\JK\Desktop\BACKUP 27-01-2020\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.pdb
+C:\Users\User\Desktop\backend\back-end\Web\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+C:\Users\User\Desktop\backend\back-end\Web\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+C:\Users\User\Desktop\backend\back-end\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.dll
+C:\Users\User\Desktop\backend\back-end\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.pdb
+C:\Users\User\Desktop\backend\back-end\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\INTEGRACION\Web\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+C:\Users\User\Desktop\INTEGRACION\Web\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+C:\Users\User\Desktop\INTEGRACION\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\INTEGRACION\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.dll
+C:\Users\User\Desktop\INTEGRACION\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.pdb
+C:\Users\JK\Desktop\PROTECTO MINEM 06-02-2020\Web\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+C:\Users\JK\Desktop\PROTECTO MINEM 06-02-2020\Web\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+C:\Users\JK\Desktop\PROTECTO MINEM 06-02-2020\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\JK\Desktop\PROTECTO MINEM 06-02-2020\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.dll
+C:\Users\JK\Desktop\PROTECTO MINEM 06-02-2020\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.pdb
+C:\Gitsource\back-end\Web\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+C:\Gitsource\back-end\Web\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+C:\Gitsource\back-end\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Gitsource\back-end\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.dll
+C:\Gitsource\back-end\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.pdb
+C:\Users\JK\Desktop\BACKUP 16-02-20\Web\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+C:\Users\JK\Desktop\BACKUP 16-02-20\Web\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+C:\Users\JK\Desktop\BACKUP 16-02-20\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\JK\Desktop\BACKUP 16-02-20\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.dll
+C:\Users\JK\Desktop\BACKUP 16-02-20\Web\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.pdb
+C:\Gitsource\back-end\Web Dinamico\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+C:\Gitsource\back-end\Web Dinamico\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+C:\Gitsource\back-end\Web Dinamico\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Gitsource\back-end\Web Dinamico\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.dll
+C:\Gitsource\back-end\Web Dinamico\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.pdb
+D:\DGEE\mrv-minem\back-end\Web Dinamico\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+D:\DGEE\mrv-minem\back-end\Web Dinamico\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+D:\DGEE\mrv-minem\back-end\Web Dinamico\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.csprojResolveAssemblyReference.cache
+D:\DGEE\mrv-minem\back-end\Web Dinamico\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.dll
+D:\DGEE\mrv-minem\back-end\Web Dinamico\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.pdb
+E:\Eduardo\mrv-minem\back-end\Web-CH-G-v2\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+E:\Eduardo\mrv-minem\back-end\Web-CH-G-v2\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+E:\Eduardo\mrv-minem\back-end\Web-CH-G-v2\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.dll
+E:\Eduardo\mrv-minem\back-end\Web-CH-G-v2\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.pdb
+C:\Users\User\Desktop\backend\back-end\Web Dinamico\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+C:\Users\User\Desktop\backend\back-end\Web Dinamico\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+C:\Users\User\Desktop\backend\back-end\Web Dinamico\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\backend\back-end\Web Dinamico\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.dll
+C:\Users\User\Desktop\backend\back-end\Web Dinamico\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico\entidad.minem.gob.pe\bin\Debug\entidad.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico\entidad.minem.gob.pe\obj\Debug\entidad.minem.gob.pe.pdb

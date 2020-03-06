@@ -1,0 +1,814 @@
+﻿@model MRVMinem.Models.ListaObjeto
+@{
+    ViewBag.Title = "DetalleIndicadorMasivo";
+    Layout = "~/Views/Shared/_SesionLayout.cshtml";
+}
+}
+
+@Html.HiddenFor(m => m.iniciativa_mit.ID_INICIATIVA)
+@Html.HiddenFor(m => m.medida.ID_MEDMIT)
+
+<div class="container-fluid map-root" id="historia">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="@Url.Action("Index","Gestion")">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="@Url.Action("AccionMitigacion","Gestion")">Listado de Iniciativas de Mitigación</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Registro de Detalles de Indicadores</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="container-fluid my-4" id="cuerpo">
+    <form id="formRegistrar" enctype="multipart/form-data" method="post">
+        <!-- ADD form -->
+        <div class="row m-0">
+            <div class="col-12 cuerpo-interior">
+                <div class="container py-4">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-6 pt-4">
+                            <div class="h4">Detalle de Indicadores&nbsp;<br><small class="text-muted">Ingrese la información que nos permita conocer y clasificar la iniciativa de mitigacion a reportar.</small></div>
+                        </div>
+                        <div class="col-md-12 col-lg-6 pt-4">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    @*<span data-toggle="modal" data-target="#tipo-ingreso-detalle"><a class="cambiar-medida" href="#" data-toggle="tooltip" data-placement="top" title="No te preocupes, que podrás cambiar el tipo de carga de datos en cualquier momento"><i class="fas fa-sync px-1"></i>Cambiar de tipo</a></span>*@
+                                    <span data-toggle="modal" data-target="#solicitar-revision"><a class="solicitar-revision" href="#" data-toggle="tooltip" data-placement="top" title="Una vez complete todos los campos solicite una revisión para el detalle de sus indicadores"><i class="fas fa-paper-plane px-1"></i>Solicitar revisión</a></span>
+                                    <span data-toggle="modal" data-target="#guardar-avance"><a class="guardar-avances" href="#" data-toggle="tooltip" data-placement="top" title="¿No tiene toda la información de su inicitiva?, guarde sus avances y retómelo después"><i class="fas fa-save px-1"></i>Guardar avances</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid py-4 px-0 tabs-registro">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <div class="alert alert-success mt-3 fa-2x">
+                                    <i class="fas fa-tachometer-alt mr-1"></i>
+                                    <div class="h4 d-inline">@Model.medida.NOMBRE_MEDMIT</div>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="nav nav-pills mb-3 d-flex" id="pills-tab" role="tablist">
+                            <li class="nav-item flex-fill"><a class="nav-link" id="pills-01-tab" data-toggle="pill" href="#pills-01" role="tab" aria-controls="pills-01" aria-selected="true" order="1">IDENTIFICACIÓN</a></li>
+                            <li class="nav-item flex-fill"><a class="nav-link active" id="pills-02-tab" data-toggle="pill" href="#pills-02" role="tab" aria-controls="pills-02" aria-selected="false" order="2">DETALLES</a></li>
+                            @*<li class="nav-item flex-fill"><a class="nav-link" id="pills-03-tab" data-toggle="pill" href="#pills-03" role="tab" aria-controls="pills-03" aria-selected="false" order="3">RESUMEN</a></li>
+                            <li class="nav-item flex-fill"><a class="nav-link" id="pills-04-tab" data-toggle="pill" href="#pills-04" role="tab" aria-controls="pills-04" aria-selected="false" order="4">DOCUMENTOS</a></li>*@
+                        </ul>
+                        <div class="progress" style="height: 20px;">
+                            <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 50%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">50%</div>
+                        </div>
+                    </div>
+                    <div class="tab-content bg-white" id="pills-tabContent">
+                        <div class="tab-pane fade" id="pills-01" role="tabpanel" aria-labelledby="pills-01-tab">
+                            <div class="container py-5">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="h5 pb-5 text-primary">
+                                            <div class="steps">PASO 1 DE 2 &nbsp;</div>@Model.medida.NOMBRE_MEDMIT&nbsp;<br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12-col-md-12 col-lg-6">
+                                        <div class="form-group">
+                                            <label for="txt-categoria">Categoría IPCC</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-landmark"></i></span></div>
+                                                <input class="form-control-plaintext" type="text" id="txt-categoria" value="Energía - Combustión móvil" aria-describedby="inputGroup1" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txa-objetivo">Objetivo</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup2"><i class="fas fa-landmark"></i></span></div>
+                                                <textarea class="form-control-plaintext" id="txa-objetivo" aria-describedby="inputGroup2" cols="30" rows="5" readonly>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus porro quibusdam, repellat ipsa consequatur magni, vitae earum iure deleniti quod ad. Autem amet fugit, deleniti repellat veritatis aperiam minus nam!</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12-col-md-12 col-lg-6">
+                                        <div class="form-group">
+                                            <label for="txa-descripcion">Descripción</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup3"><i class="fas fa-landmark"></i></span></div>
+                                                <textarea class="form-control-plaintext" id="txa-descripcion" aria-describedby="inputGroup3" cols="30" rows="8" readonly>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus porro quibusdam, repellat ipsa consequatur magni, vitae earum iure deleniti quod ad. Autem amet fugit, deleniti repellat veritatis aperiam minus nam !Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus porro quibusdam, repellat ipsa consequatur magni, vitae earum iure deleniti quod ad. Autem amet fugit, deleniti repellat veritatis aperiam minus nam!</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="h5 py-5 text-primary">
+                                            Datos principales
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12-col-md-12 col-lg-12">
+                                        <div class="form-group">
+                                            <label for="txa-nombre-iniciativa">Nombre de la iniciativa<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-tachometer-alt"></i></span></div>
+                                                <textarea class="form-control-plaintext" id="txa-nombre-iniciativa" aria-describedby="inputGroup4" cols="30" rows="5" readonly placeholder="Ingrese un nombre para su iniciativa">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor officia, sequi hic, vel quia repellat architecto quasi corporis quidem doloribus earum praesentium molestiae illo, iure voluptates autem voluptate inventore! Inventore.</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txa-descripcion-medida">Descripción de la medida<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-tachometer-alt"></i></span></div>
+                                                <textarea class="form-control-plaintext" id="txa-descripcion-medida" aria-describedby="inputGroup5" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil optio corrupti itaque tempora pariatur nemo ipsam quis porro magnam dolorum a, dolore explicabo eveniet velit natus voluptate aperiam, reprehenderit ipsa!</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12-col-md-12 col-lg-6">
+                                        <div class="form-group">
+                                            <label for="txt-nombre-responsable">Responsable del registro</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
+                                                <input class="form-control-plaintext" id="txt-nombre-responsable" aria-describedby="inputGroup6" value="Ricardo Sanchez" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12-col-md-12 col-lg-6">
+                                        <div class="form-group">
+                                            <label for="txt-nombre-institucion">Nombre de la institución</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup7"><i class="fas fa-landmark"></i></span></div>
+                                                <input class="form-control-plaintext" id="txt-nombre-institucion" aria-describedby="inputGroup7" value="COORPORACION ENERGIA ASOCIADOS SAC" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12-col-md-12 col-lg-6">
+                                        <div class="form-group">
+                                            <label for="txt-correo-electronico">Correo electrónico</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup8"><i class="fas fa-landmark"></i></span></div>
+                                                <input class="form-control-plaintext" id="txt-correo-electronico" aria-describedby="inputGroup8" value="rsanchez@coorpenerasosac.com" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12-col-md-12 col-lg-6">
+                                        <div class="form-group">
+                                            <label for="txt-direccion">Dirección</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
+                                                <input class="form-control-plaintext" id="txt-direccion" aria-describedby="inputGroup9" value="Av. Los Heros Nro 1457 - SJL" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="h5 py-5 text-primary">Datos generales</div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12-col-md-12 col-lg-6">
+                                        <div class="form-group">
+                                            <label for="txt-sector-insi¿titucion">Sector de la institución</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
+                                                <input class="form-control-plaintext" id="txt-sector-institucion" aria-describedby="inputGroup9" value="MINERÍA" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txa-ubicacion">Ubicación<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                            <div class="input-group" id="campoUbicacion">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12-col-md-12 col-lg-6">
+                                        <div class="form-group">
+                                            <label for="txt-moneda">Moneda<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="far fa-money-bill-alt"></i></span></div>
+                                                <input class="form-control-plaintext" type="text" id="txt-moneda" aria-describedby="inputGroup10" value="Soles" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txt-monto-inversion">Monto de inversión<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup11"><i class="fas fa-wallet"></i></span></div>
+                                                <input class="form-control-plaintext" type="text" id="txt-monto-inversion" aria-describedby="inputGroup11" value="100,000.00">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txt-fecha-inicio">Fecha de ejecución del proyecto<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup12"><i class="fas fa-calendar-alt"></i></span></div>
+                                                <input class="form-control-plaintext" type="text" id="txt-fecha-inicio" aria-describedby="inputGroup12" value="25/10/2018">
+                                            </div>
+                                        </div>
+                                        @if (Model.iniciativa_mit.FECHA_FIN == "01/01/0001")
+                                        {
+                                            @*<input class="form-control-plaintext" type="text" id="txt-fecha-fin" aria-describedby="inputGroup12" value="" readonly>*@
+                                        }
+                                        else
+                                        {
+                                            <div class="form-group">
+                                                <label class="font-weight-bold" for="txt-fecha-fin">Fecha de finalización del proyecto<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup12"><i class="fas fa-calendar-alt"></i></span></div>
+                                                    <input class="form-control-plaintext" type="text" id="txt-fecha-fin" aria-describedby="inputGroup12" value="@Model.iniciativa_mit.FECHA_FIN" readonly>
+
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                                @*<div class="row">
+                                    <div class="col-12">
+                                        <div class="h5 py-5 text-primary">Indicadores</div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12-col-md-12 col-lg-6">
+                                        <div class="form-group">
+                                            <label for="mlt-energetico">Energético asociado<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                            <div class="input-group" id="campoEnerg">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12-col-md-12 col-lg-6">
+                                        <div class="form-group">
+                                            <label for="mlt-gei">Gases de efecto invernadero<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                            <div class="input-group" id="campoGei">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>*@
+                                <div class="dropdown-divider my-5"></div>
+                                <div class="row justify-content-end">
+                                    <div class="col-lg-3"><a class="btn btn-success px-5 w-100 nav-tab text-center" href="#" dest="2">Siguiente<i class="fas fa-arrow-right pl-1"></i></a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade show active" id="pills-02" role="tabpanel" aria-labelledby="pills-02-tab">
+                            <div class="container py-5">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="h5 pb-5 text-primary">
+                                            <div class="steps">PASO 2 DE 2 &nbsp;</div>Detalles de Identificación<br><small class="text-muted">Complete información</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12-col-md-12 col-lg-6">
+                                        <div class="form-group">
+                                            <label for="cbo-enfoque">Enfoque<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione un enfoque ligado a su medida de mitigación"></i></label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup20"><i class="fas fa-square-root-alt"></i></span></div>
+                                                <select class="form-control" id="cbo-enfoque" aria-describedby="inputGroup20">
+                                                    @*<option value="0">-Seleccione-</option>*@
+                                                    @if (Model.listaEnfoque != null)
+                                                    {
+                                                        foreach (var item in Model.listaEnfoque)
+                                                        {
+                                                            if (Model.menor == item.ID_ENFOQUE)
+                                                            {
+                                                                <option selected value="@item.ID_ENFOQUE">@item.DESCRIPCION</option>
+                                                            }
+                                                            else
+                                                            {
+                                                                <option value="@item.ID_ENFOQUE">@item.DESCRIPCION</option>
+                                                            }
+
+                                                        }
+                                                    }
+                                                    @*<option selected value="1">Vehículo Eléctrico</option>
+                                                    <option value="2">Vehículo Híbrido</option>*@
+                                                    @*<option>Enfoque 03</option>
+                                                        <option>Enfoque 04</option>*@
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12-col-md-12 col-lg-6">
+                                        <div class="form-group">
+
+                                            <div id="ruta-masivo">
+                                                <label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="~/documentos/4.1 Plantilla_Electricos_Masivo.xlsm" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>
+                                            </div>
+                                            
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup13"><i class="fas fa-file-excel"></i></span></div>
+                                                <input class="form-control cursor-pointer txt-file-control" type="text" id="txt-declaracion" placeholder="Suba su plantilla" aria-describedby="inputGroup13" required>
+                                                <input class="d-none fil-file-control" type="file" id="fledeclaracion" name="fledeclaracion" accept=".xls,.xlsx,.xlsm">
+                                                <div class="input-group-append" data-toggle="tooltip" data-placement="top" title="Suba la plantilla de excel completa con los datos requeridos para completar sus detalles de indicadores">
+                                                    <label class="input-group-text cursor-pointer" for="txt-declaracion"><i class="fas fa-upload mr-1"></i>Subir plantilla</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-fluid py-4">
+                                <div class="h5">Registro de Detalles de Iniciativa de Mitigación&nbsp;<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Complete los campos de acuerdo al enfoque seleccionado"></i></div>
+                                <div class="dropdown-divider"></div>
+                                <div class="row">
+                                    <div class="col-12 px-0">
+                                        <div class="table-responsive tabla-principal tabla-detalle-indicadores-1">
+                                            <table class="table table-hover" id="tablaIndicador" data-fila="0">
+                                                <thead id="cabeceraTablaIndicador">
+                                                    @*<tr class="bg-primary text-white">
+                                                        <th class="text-center" style="background-color: green;" scope="col"><span>N°&nbsp;</span></th>
+                                                        <th class="text-center" style="background-color: green;" scope="col"><span>Año&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Año"></i></span></th>
+                                                        <th class="text-center" style="background-color: green;" scope="col"><span>Inicio de Operaciones&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Fecha de inicio de operaciones del vehículo"></i></span></th>
+                                                        <th class="text-center" style="background-color: green;" scope="col"><span>Tipo Vehiculo&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Tipo Vehículo"></i></span></th>
+                                                        <th class="text-center" style="background-color: orange;" scope="col"><span>Tipo Combustible&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Tipo Combustible"></i></span></th>
+                                                        <th class="text-center" style="background-color: green;" scope="col"><span>KRV&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador KRV"></i></span></th>
+                                                        <th class="text-center" style="background-color: green;" scope="col"><span>Cantidad&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Cantidad"></i></span></th>
+                                                        <th class="text-center" style="background-color: green;" scope="col"><span>Factor de Rendimiento&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Rendimiento"></i></span></th>
+                                                        <th class="text-center" style="background-color: orange;" scope="col"><span>Línea Base Emisiones GEI (tCO<sub>2</sub>eq)</span></th>
+                                                        <th class="text-center" style="background-color: green;" scope="col"><span>Iniciativa Mitigación Emisiones GEI (tCO<sub>2</sub>eq)</span></th>
+                                                        <th class="text-center" style="background-color: #2271b3;" scope="col"><span>Emisiones GEI Reducidas (tCO<sub>2</sub>eq)</span></th>
+                                                        <th class="text-center" scope="col">Más</th>
+                                                        <th class="text-hide" scope="col" style="display:none;">Id. Iniciativa</th>
+                                                    </tr>*@
+                                                </thead>
+                                                <tbody id="cuerpoTablaIndicador" data-row="0" data-total="0" data-delete="", data-flag="0"></tbody> <!-- add id delete-->
+                                            </table>
+                                        </div>                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="container py-4">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="table-responsive tabla-principal mt-3">
+                                            <table class="table table-hover">
+                                                <thead>
+                                                    <tr class="bg-primary text-white">
+                                                        <th class="text-center" scope="col" width="2%"><span>N°&nbsp;</span></th>
+                                                        <th scope="col" width="88%"><span>Resumen</span></th>
+                                                        <th scope="col" width="10%"><span>Total</span></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th class="text-center" data-encabezado="Número" scope="row">1</th>
+                                                        <td data-encabezado="Resumen" @*id="resumen-detalle"*@>@Model.medida.IPSC_MEDMIT</td>
+                                                        <td data-encabezado="Total"><strong id="total-detalle">0.00</strong><strong>&nbsp;tCO<sub>2</sub>eq</strong></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--         -->
+
+                            <div class="container py-4">
+                                <div class="row">
+                                    <div class="col-12 text-center"><a href="#" target="_blank"><img src="~/images/sello.svg" width="180" data-toggle="tooltip" data-placement="top" title="Ir a la web del sello"></a></div>
+                                </div>
+                            </div>
+
+                            <!--         -->
+
+                            <div class="container py-5">
+                                @*<div class="row">
+                                    <div class="col-12">
+                                        <div class="h5 pb-5 text-primary">
+                                            <div class="steps">PASO 4 DE 4 &nbsp;</div>Documentos&nbsp;<br><small class="text-muted">Cargue uno o varios documentos sustentatorios</small>
+                                        </div>
+                                    </div>
+                                </div>*@
+                                <div class="row">
+                                    <div class="col-sm-12-col-md-12 col-lg-6">
+                                        <div class="form-group">
+                                            <label for="txt-documentos">Adjuntar documento (PDF, DOC, JPG, PNG)<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span></label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup13"><i class="fas fa-file"></i></span></div>
+                                                <input class="form-control cursor-pointer txt-file-control" type="text" id="txt-documentos" placeholder="Suba su documentos" aria-describedby="inputGroup13" required>
+                                                <input class="d-none fil-file-control" type="file" id="fledocumentos" name="fledocumentos" multiple="multiple">
+                                                <div class="input-group-append">
+                                                    <label class="input-group-text cursor-pointer" for="txt-documentos"><i class="fas fa-upload mr-1"></i>Subir archivo</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12-col-md-12 col-lg-6">
+                                        <div class="form-group" @*id="archivos-documentos"*@>
+                                        @{
+                                            var total = 0;
+                                            if (Model.iniciativa_mit.ListaSustentos != null)
+                                            {
+                                                total = Model.iniciativa_mit.ListaSustentos.Count();
+                                            }
+                                        }
+                                        <label>Archivos adjuntos: <span id="total-documentos" data-cantidad="@total" data-eliminarfile="">@total</span> en total</label>
+                                        <div id="archivos-guardados">
+                                        @{
+                                            if (Model.iniciativa_mit.ListaSustentos != null)
+                                            {
+                                                var extension = "fa-file-word";
+
+                                                foreach (var item in Model.iniciativa_mit.ListaSustentos)
+                                                {
+                                                    if (item.ADJUNTO_BASE.Contains("pdf"))
+                                                    {
+                                                        extension = "fa-file-pdf";
+                                                    }
+                                                    else
+                                                    {
+                                                        if (item.ADJUNTO_BASE.Contains("jpeg") || item.ADJUNTO_BASE.Contains("png") || item.ADJUNTO_BASE.Contains("jpg") || item.ADJUNTO_BASE.Contains("gif"))
+                                                        {
+                                                            extension = "fa-file-image";
+                                                        }
+                                                        else
+                                                        {
+                                                            if (item.ADJUNTO_BASE.Contains("xls") || item.ADJUNTO_BASE.Contains("xlsx"))
+                                                            {
+                                                                extension = "fa-file-excel";
+                                                            }
+                                                            else
+                                                            {
+                                                                if (item.ADJUNTO_BASE.Contains("ppt") || item.ADJUNTO_BASE.Contains("pptx"))
+                                                                {
+                                                                    extension = "fa-file-powerpoint";
+                                                                }
+                                                                else
+                                                                {
+                                                                    if (item.ADJUNTO_BASE.Contains("doc") || item.ADJUNTO_BASE.Contains("docx"))
+                                                                    {
+                                                                        extension = "fa-file-word";
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        extension = "fa-file";
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+
+                                                    <div class="input-group mb-3" id="eliminar-@item.ID_INICIATIVA_SUSTENTATORIO">
+                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="fas @extension"></i></span></div><span class="form-control-plaintext">@item.ADJUNTO_BASE</span>
+                                                        <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="far fa-trash-alt" onclick="fn_eliminarArchivo(@item.ID_INICIATIVA_SUSTENTATORIO)"></i></span></div>
+                                                    </div>
+                                                }
+                                            }
+                                        }
+                                        </div>
+                                        <div id="archivos-documentos"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dropdown-divider my-5"></div>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-6"><span class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Todos los campos son obligatorios</span></div>
+                                    <div class="col-sm-12 col-md-12 col-lg-6 text-right">
+                                        <div class="row justify-content-end">
+                                            <div class="col-lg-6"><a class="btn btn-dark px-5 w-100 nav-tab text-center mb-3" href="#" dest="1"><i class="fas fa-arrow-left pr-1"></i>Anterior</a></div>
+                                            <div class="col-lg-6"><a class="btn btn-primary px-5 w-100 nav-tab text-center" href="#" data-toggle="modal" data-target="#solicitar-revision">Enviar<i class="fas fa-paper-plane px-1"></i></a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        @*<div class="tab-pane fade" id="pills-03" role="tabpanel" aria-labelledby="pills-03-tab">
+                            <div class="container py-5">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="h5 pb-5 text-primary">
+                                            <div class="steps">PASO 3 DE 4 &nbsp;</div>Resumen<br><small class="text-muted">Este es el detalle de su detalle de indicadores</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container py-4">
+                                <div class="h5">Resumen de Detalles de Indicadores&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Mostramos el resumen total calculado en el detalle de indicadores"></i></div>
+                                <div class="dropdown-divider"></div>
+                                <div class="row">
+                                    <div class="col-12 px-0">
+                                        <div class="table-responsive tabla-principal">
+                                            <table class="table table-hover">
+                                                <thead>
+                                                    <tr class="bg-primary text-white">
+                                                        <th class="text-center" scope="col" width="2%"><span>#&nbsp;</span></th>
+                                                        <th scope="col" width="88%"><span>Resumen</span></th>
+                                                        <th scope="col" width="10%"><span>Total</span></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th class="text-center" data-encabezado="Número" scope="row">1</th>
+                                                        <td data-encabezado="Resumen" id="resumen-detalle2">@Model.medida.IPSC_MEDMIT</td>
+                                                        <td data-encabezado="Total"><strong id="total-detalle2">0.00</strong><strong>&nbsp;tCO<sub>2</sub>eq</strong></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dropdown-divider my-5"></div>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-6">&nbsp;</div>
+                                    <div class="col-sm-12 col-md-12 col-lg-6 text-right">
+                                        <div class="row justify-content-end">
+                                            <div class="col-lg-6"><a class="btn btn-dark px-5 w-100 nav-tab text-center mb-3" href="#" dest="2"><i class="fas fa-arrow-left pr-1"></i>Anterior</a></div>
+                                            <div class="col-lg-6"><a class="btn btn-success px-5 w-100 nav-tab text-center" href="#" dest="4">Siguiente<i class="fas fa-arrow-right pl-1"></i></a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>*@
+                        @*<div class="tab-pane fade" id="pills-04" role="tabpanel" aria-labelledby="pills-04-tab">*@
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="modal-verificacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Verificación de Composición</h5>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <img class="img-fluid" src="~/images/formula.jpg"><strong>
+                                            <div class="badge badge-info">Factores: F1 <br></div>
+                                        </strong><strong>
+                                            <div class="badge badge-primary">Parámetros: P2 <br></div>
+                                        </strong><strong>
+                                            <div class="badge badge-warning">Resultado: 62.25 ktCOeq</div>
+                                        </strong>
+                                    </div>
+                                    <div class="col-sm-12 col-md-12 col-lg-12"></div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="tipo-ingreso-detalle" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Seleccione un Tipo de Registro <br><small class="text-muted">Para iniciar con el registro de detalle de sus indicadores</small></h5>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="modal-body medidas-modal">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-6 col-lg-6 pb-5 text-center"><a class="d-inline-block" href="#" data-toggle="tooltip" data-placement="top" title="Registro manual de detalle de indicadores"><img src="~/images/01_registro_manual.svg"></a></div>
+                                            <div class="col-sm-12 col-md-6 col-lg-6 pb-5 text-center"><a class="d-inline-block" href="#" data-toggle="tooltip" data-placement="top" title="Registro a través de archivo excel"><img src="~/images/02_registro_masivo.svg"></a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="solicitar-revision" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Mensaje de Usuario</h5>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="modal-body medidas-modal">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <h3 class="text-center">¿Confirma enviar su solicitud a revisión? <br></h3>
+                                        <p class="text-center">Está de acuerdo en enviar todos sus datos para iniciar el proceso de revisión y obtener la aprobación por parte de nuestros especialistas</p>
+                                    </div>
+                                    <div class="col-sm-12 col-md-12 col-lg-12" id="mensajeModalRegistrar">
+                                        <div class="alert alert-warning d-flex align-items-stretch" role="alert">
+                                            <div class="alert-wrap mr-3">
+                                                <div class="sa">
+                                                    <div class="sa-warning">
+                                                        <div class="sa-warning-body"></div>
+                                                        <div class="sa-warning-dot"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="alert-wrap">
+                                                <h6>Publicar datos</h6>
+                                                <hr>
+                                                <div class="custom-control custom-checkbox d-inline-block">
+                                                    <input class="custom-control-input" type="checkbox" id="chk-publicar">
+                                                    <label class="custom-control-label" for="chk-publicar">Hacer públicos los datos registrados en esta iniciativa.</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="modal-footer" id="modalRegistrarBoton">
+                                <button class="btn btn-primary" type="button" onclick="fn_guardarDetalleIndicador();">Si, grabar</button>
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">No, cancelar</button>                              
+                            </div>
+                            <div class="modal-footer" id="pieCorrecto">
+                                <!-- add 04-02-2020 -->
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="modal fade" id="guardar-avance" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Mensaje de Usuario</h5>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="modal-body medidas-modal" id="mensajeModalAvance">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <h3 class="text-center">¿Desea guardar su avance? <br></h3>
+                                        <p class="text-center">Los datos ingresados serán almacenados temporalmente y podrán ser regularizados al editar su iniciativa.</p>
+                                    </div>
+                                    @*<div class="col-sm-12 col-md-12 col-lg-12">
+                                <div class="alert alert-warning d-flex align-items-stretch" role="alert">
+                                    <div class="alert-wrap mr-3">
+                                        <div class="sa">
+                                            <div class="sa-warning">
+                                                <div class="sa-warning-body"></div>
+                                                <div class="sa-warning-dot"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="alert-wrap">
+                                        <h6>Sus avances fueron guardados</h6>
+                                        <hr>Recuerde, podrá solicitar una revisión una vez complete todos los campos obligatorios.
+                                    </div>
+                                </div>
+                            </div>*@
+                                </div>
+                            </div>
+                            <div class="modal-footer" id="modalAvanceBoton">
+                                <button class="btn btn-primary" type="button" onclick="fn_guardarAvances();">Si, grabar</button>
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">No, cancelar</button>                                
+                            </div>
+                            <div class="modal-footer" id="pieCorrectoAvance">
+                                <!-- add 04-02-2020 -->
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="~/js/script.js"></script>
+<script src="~/js/MRV.js"></script>
+<script type="text/javascript">
+
+    var storedFiles = [];
+    function handleFileSelect(evt) {
+
+        $("#archivos-documentos > div").remove(); // add 12-02-2020
+        storedFiles = []; // add 12-02-2020
+        ////////////////////////77
+
+        var files = evt.target.files; // FileList object
+        var filesArr = Array.prototype.slice.call(files);
+        //debugger;
+        // files is a FileList of File objects. List some properties.
+        var output = [];
+        var extension = "fa-file-word";
+        for (var i = 0, f; f = files[i]; i++) {
+
+            if (f.size > 4194304) {
+                $(this).val("");
+                MRV.Alert("Alerta", "Archivo que esta subiendo pesa más de 4 MB", "", "es")
+                storedFiles = [];
+                $("#total-documentos").html($("#total-documentos").data("cantidad"));
+                return false;
+            }
+
+            switch (f.name.substring(f.name.lastIndexOf('.') + 1).toLowerCase()) {
+                case 'pdf': case 'jpg': case 'jpeg': case 'gif': case 'png': case 'tif': case 'doc': case 'docx': case 'xls': case 'xlsx': case 'xlsm': case 'ppt': case 'pptx': case 'txt':
+                    //$("#NombreArchivo").val(label);
+                    //return true;
+                    break;
+                default:
+                    $(this).val('');
+                    MRV.Alert('Alerta', "formato de archivo no válido", '', 'es');
+                    storedFiles = [];
+                    $("#total-documentos").html($("#total-documentos").data("cantidad"));
+                    return false;
+                    break;
+            }
+
+            if (f.type.includes("pdf")) {
+                extension = "fa-file-pdf";
+            } else {
+                if (f.type.includes("image")) {
+                    extension = "fa-file-image";
+                } else {
+                    if (f.type.includes("sheet")) {
+                        extension = "fa-file-excel";
+                    } else {
+                        if (f.type.includes("presentation")) {
+                            extension = "fa-file-powerpoint";
+                        } else {
+                            if (f.type.includes("msword") || f.type.includes("documents") || f.type.includes("document")) {
+                                extension = "fa-file-word";
+                            } else {
+                                extension = "fa-file";
+                            }
+                        }
+                    }
+                }
+            }
+
+            storedFiles.push(f);
+            output.push('<div class="input-group mb-3" data-file="' + f.name + '">', '<div class="input-group-prepend">', '<span class="input-group-text">', '<i class="fas ', extension, '">', '</i>', '</span>', '</div>', '<span class="form-control-plaintext">', decodeURI(f.name), '</span>', '<div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="far fa-trash-alt selfile" data-file="' + f.name + '" onclick="removeFile(this)"></i></span>', '</div></div>');
+        }
+        $("#archivos-documentos").append(output.join(''));
+        $("#total-documentos").html($("#total-documentos").data("cantidad") + files.length);
+    }
+
+    function fn_CargarExcel(evt) {
+        $("#txt-declaracion").prop("disabled", true);
+        $("#fledeclaracion").prop("disbled", true);
+        $("#cbo-enfoque").prop("disabled", true);
+        $("#cuerpoTablaIndicador").empty();
+        $("#fledeclaracion").next().find("label").empty().html('<i class="fas fa-spinner fa-spin px-1"></i> Cargando...');
+        var url = baseUrl + 'Detalle/ProcesarExcel';
+        var options = {
+            type: "POST",
+            dataType: "json",
+            contentType: false,
+            url: url,
+            processData: false,
+            data: ({
+                ID_INICIATIVA: $("#Control").data("iniciativa"),
+                ID_USUARIO: $("#Control").data("usuario"),
+                NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
+                ID_TIPO_FUENTEI: $("#cbo-enfoque").val(),
+                ID_ENFOQUE: $("#cbo-enfoque").val(),
+                ID_MEDMIT: $("#Control").data("mitigacion")
+            }),
+            xhr: function () {  // Custom XMLHttpRequest
+                var myXhr = $.ajaxSettings.xhr();
+                if (myXhr.upload) { // Check if upload property exists
+                    //myXhr.upload.addEventListener('progress', progressHandlingFunction, false); // For handling the progress of the upload
+                }
+                return myXhr;
+            },
+            resetForm: false,
+            beforeSubmit: function (formData, jqForm, options) {
+                return true;
+            },
+            success: function (response, textStatus, myXhr) {
+                if (response != null && response != "") {
+                    console.log(response);
+                    if (response.length > 0) {
+                        //for (var i = 0; i < response.length; i++) {
+                            //debugger;
+                            //CargarTablaIndicador(response, i);
+                        $("#txt-declaracion").prop("disabled", false);
+                        $("#fledeclaracion").prop("disbled", false);
+                        $("#cbo-enfoque").prop("disabled", false);
+                        $("#fledeclaracion").val("");
+                        $("#txt-declaracion").val("");
+                        $("#cuerpoTablaIndicador").data("flag", 1);
+                        CargarDatosExcel(response);
+                        //}
+                        //$("#cuerpoTablaIndicador").data("row", response.length);
+                    }
+                } else {
+                    $("#fledeclaracion").val("");
+                    $("#txt-declaracion").val("");
+                    //alert(response);
+                }
+            },
+            error: function (myXhr, textStatus, errorThrown) {
+                console.log(myXhr);
+                console.log(textStatus);
+                console.log(errorThrown);
+            }
+        };
+
+        $("#formRegistrar").ajaxForm(options);
+        $("#formRegistrar").submit();
+
+    }
+
+    document.getElementById('fledocumentos').addEventListener('change', handleFileSelect, false);
+    document.getElementById('fledeclaracion').addEventListener('change', fn_CargarExcel, false);
+</script>
+@*<script src="~/js/DetalleIndicadorMasivo.js"></script>*@
+<script src="~/js/DetalleIndicadorMasivo.js"></script>
