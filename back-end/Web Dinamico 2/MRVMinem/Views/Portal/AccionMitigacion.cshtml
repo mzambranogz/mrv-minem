@@ -40,7 +40,7 @@
                                     <div class="btn-group">
                                         <a class="btn btn-teal dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1"><i class="fas fa-filter">&nbsp;</i>Filtrar por estados</a>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(1, $(this));"><i class="fas fa-hourglass">&nbsp;</i>Pendientes</a>
+                                            @*<a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(1, $(this));"><i class="fas fa-hourglass">&nbsp;</i>Pendientes</a>*@
                                             <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(2, $(this));"><i class="fas fa-eye">&nbsp;</i>Observadas</a>
                                             <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(3, $(this));"><i class="fas fa-check">&nbsp;</i>Aprobados</a>
                                             <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(4, $(this));"><i class="fas fa-check-double">&nbsp;</i>Revisadas</a>
@@ -285,7 +285,7 @@
                         <div class="row">
 
                             <div class="col-sm-12 col-md-6 col-lg-6">
-                                @*<button class="btn btn-success w-100 mb-2"><i class="fas fa-file-download px-1"></i>Descargar Excel</button>*@
+                                <button class="btn btn-success w-100 mb-2" onclick="exportarIniciativa();"><i class="fas fa-file-download px-1"></i>Descargar Excel</button><div id="divExportar"></div> <!-- add metodo exportar y div creado con su id -->
                             </div>
                             <div class="col-sm-12 col-md-6 col-lg-6">
                                 <button class="btn btn-success w-100 mb-2" @*type="submit"*@ onclick="fn_busqueda_Publico();"><i class="fas fa-search px-1"></i>Buscar</button>
@@ -299,7 +299,7 @@
                 </div>
             </div>
             <div class="container-fluid py-4">
-                <div class="row" id="estadoIniciativa" data-estado="1">
+                <div class="row" id="estadoIniciativa" data-estado="7">
                     <!--add id data -->
                     <div class="col-xs-12 col sm-12 col-lg-9">
                         <div class="h5">Bandeja de Acciones de Mitigación&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Bandeja de todas las iniciativas de mitigación públicas"></i></div>
@@ -388,7 +388,7 @@
     </div>
 </div>
 
-@Html.Hidden("columna", "FECHA");
+@Html.Hidden("columna", "ID_INICIATIVA");
 @Html.Hidden("orden", "ASC");
 
 

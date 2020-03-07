@@ -66,12 +66,23 @@ function fn_mostrarSeguimiento() {
                         tr = tr + '</div>';
                         //$("#seguimiento").append(tr);
                     }
+
+                    if (data[i]["ID_ETAPA"] == 1 && data[i]["ID_ESTADO"] == 6) {
+                        tr = tr + '<div class="timeline">';
+                        tr = tr + '<div class="timeline-icon"><i class="fas fa-save"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
+                        tr = tr + '<div class="timeline-content">';
+                        tr = tr + '<h5 class="title">SOLICITUD DE REVISIÓN OBSERVADA SUBSANADA SIN ENVIAR <br><small class="text-muted">INICIATIVA DE MITIGACIÓN</small></h5>';
+                        tr = tr + '<p class="description"><span>' + data[i]["EMAIL_USUARIO"] + '<br></span><span class="badge badge-actor-02">Administrado</span></p>';
+                        tr = tr + '</div>';
+                        tr = tr + '</div>';
+                        //$("#seguimiento").append(tr);
+                    }
             
                     if (data[i]["ID_ETAPA"] == 1 && data[i]["ID_ESTADO"] == 5) {
                         tr = tr + '<div class="timeline">';
                         tr = tr + '<div class="timeline-icon"><i class="fas fa-clock"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
                         tr = tr + '<div class="timeline-content">';
-                        tr = tr + '<h5 class="title">SOLICITUD DE REVISIÓN OBSERVADA SUBSANADA <br><small class="text-muted">INICIATIVA DE MITIGACIÓN</small></h5>';
+                        tr = tr + '<h5 class="title">SOLICITUD DE REVISIÓN OBSERVADA SUBSANADA ENVIADA<br><small class="text-muted">INICIATIVA DE MITIGACIÓN</small></h5>';
                         tr = tr + '<p class="description"><span class="text-link">' + data[i]["EMAIL_USUARIO"] + '<br></span><span class="badge badge-actor-02">Administrado</span></p>';
                         tr = tr + '</div>';
                         tr = tr + '</div>';
@@ -90,7 +101,7 @@ function fn_mostrarSeguimiento() {
                     }
                     
 
-                    if ((data[i]["ID_ETAPA"] == 3 && data[i]["ID_ESTADO"] == 0) || (data[i]["ID_ETAPA"] == 3 && data[i]["ID_ESTADO"] == 6)) {
+                    if (data[i]["ID_ETAPA"] == 3 && data[i]["ID_ESTADO"] == 0) {
                         tr = tr + '<div class="timeline">';
                         tr = tr + '<div class="timeline-icon"><i class="fas fa-save"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
                         tr = tr + '<div class="timeline-content">';
@@ -133,13 +144,24 @@ function fn_mostrarSeguimiento() {
                         tr = tr + '</div>';
                         tr = tr + '</div>';
                         //$("#seguimiento").append(tr);
-                    } 
+                    }
+
+                    if (data[i]["ID_ETAPA"] == 3 && data[i]["ID_ESTADO"] == 6) {
+                        tr = tr + '<div class="timeline">';
+                        tr = tr + '<div class="timeline-icon"><i class="fas fa-save"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
+                        tr = tr + '<div class="timeline-content">';
+                        tr = tr + '<h5 class="title">SOLICITUD DE REVISIÓN OBSERVADA SUBSANADA SIN ENVIAR <br><small class="text-muted">DETALLE DE INDICADORES</small></h5>';
+                        tr = tr + '<p class="description"><span>' + data[i]["EMAIL_USUARIO"] + '<br></span><span class="badge badge-actor-02">Administrado</span></p>';
+                        tr = tr + '</div>';
+                        tr = tr + '</div>';
+                        //$("#seguimiento").append(tr);
+                    }
                     
                     if (data[i]["ID_ETAPA"] == 3 && data[i]["ID_ESTADO"] == 5) {
                         tr = tr + '<div class="timeline">';
                         tr = tr + '<div class="timeline-icon"><i class="fas fa-clock"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
                         tr = tr + '<div class="timeline-content">';
-                        tr = tr + '<h5 class="title">SOLICITUD DE REVISIÓN OBSERVADA SUBSANADA <br><small class="text-muted">DETALLE DE INDICADORES</small></h5>';
+                        tr = tr + '<h5 class="title">SOLICITUD DE REVISIÓN OBSERVADA SUBSANADA ENVIADA<br><small class="text-muted">DETALLE DE INDICADORES</small></h5>';
                         tr = tr + '<p class="description"><span class="text-link">' + data[i]["EMAIL_USUARIO"] + '<br></span><span class="badge badge-actor-02">Administrado</span></p>';
                         tr = tr + '</div>';
                         tr = tr + '</div>';

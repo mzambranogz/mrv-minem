@@ -306,7 +306,7 @@
                             </div>
 
                             <div class="container-fluid py-4">
-                                <div class="h5">Registro de Detalles de Iniciativa de Mitigación&nbsp;<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Complete los campos de acuerdo al enfoque seleccionado"></i></div>
+                                <div class="h5">Registro de Detalles de Iniciativa de Mitigación&nbsp;<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Complete los campos de acuerdo al enfoque seleccionado"></i></div>
                                 <div class="dropdown-divider"></div>
                                 <div class="row">
                                     <div class="col-12 px-0">
@@ -371,15 +371,15 @@
 
                             <!--         -->
 
-                            <div class="container py-4">
+                            @*<div class="container py-4">
                                 <div class="row">
                                     <div class="col-12 text-center"><a href="#" target="_blank"><img src="~/images/sello.svg" width="180" data-toggle="tooltip" data-placement="top" title="Ir a la web del sello"></a></div>
                                 </div>
-                            </div>
+                            </div>*@
 
                             <!--         -->
 
-                            <div class="container py-5">
+                            <div class="container py-4">
                                 <div class="row">
                                     <div class="col-sm-12-col-md-12 col-lg-6">
                                         <div class="form-group">
@@ -461,6 +461,11 @@
                                         </div>
                                     </div>
                                 </div>
+
+                            </div>
+
+                            <div class="container py-5">
+                                <div class="alert alert-info" role="alert"><i class="fas fa-info-circle">&nbsp;</i>Una vez aprobado su iniciativa podrá postular al sistema del <b>Sello Energía Sostenible</b></div>
                                 <div class="dropdown-divider my-5"></div>
                                 <div class="row">
                                     <div class="col-sm-12 col-md-12 col-lg-6"><span class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Todos los campos son obligatorios</span></div>
@@ -472,8 +477,6 @@
                                     </div>
                                 </div>
                             </div>
-
-
 
                             @*<div class="tab-pane fade" id="pills-03" role="tabpanel" aria-labelledby="pills-03-tab">
                                     <div class="container py-5">
@@ -619,6 +622,29 @@
                                                     <hr><small class="mb-0">Los datos de su detalle de indicadores fueron guardados exitosamente, espere la aprobación del especialista para continuar confirmar su registro. En breve le notificaremos el estado de su solicitud de revisión.</small>
                                                 </div>
                                             </div>*@
+
+                                        <div id="mensajeSuccess" hidden>
+
+                                            <div class="alert alert-success d-flex align-items-stretch" role="alert">
+                                                <div class="alert-wrap mr-3">
+                                                    <div class="sa">
+                                                        <div class="sa-success">
+                                                            <div class="sa-success-tip"></div>
+                                                            <div class="sa-success-long"></div>
+                                                            <div class="sa-success-placeholder"></div>
+                                                            <div class="sa-success-fix"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="alert-wrap">
+                                                    <h6>Felicitaciones</h6>
+                                                    <hr>
+                                                    <a class="float-right" href="#" target="_blank"><img src="~/images/sello_new.svg" width="120" data-toggle="tooltip" data-placement="top" title="Ir a la web del sello"></a>
+                                                    <small class="mb-0">Usted ha completado el envío de detalle de su iniciativa de mitigación que será verificada por uno de nuestros especialistas. También, le recordamos que puede ingresar a nuestra plataforma del <b>Sello de Energía Sostenible</b></small>
+                                                </div>
+                                            </div>
+
+                                        </div>
 
                                     </div>
                                 </div>

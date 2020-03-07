@@ -48,7 +48,7 @@ function fn_cargarGei() {
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
-                    if ($("#Control").data("revision") == 0) {
+                    //if ($("#Control").data("revision") == 0) {
                         for (var j = 0; j < data.length; j++) {
                             for (var i = 0; i < $("#listaGei").data("cantidad") ; i++) {
                                 if ($('#G' + (i + 1)).data("value") == data[j]["ID_GEI"]) {
@@ -56,14 +56,14 @@ function fn_cargarGei() {
                                 }
                             }
                         }
-                    } else {
-                        var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">';
-                        for (var j = 0; j < data.length; j++) {
-                            msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
-                        }
-                        msj = msj + ' </textarea>';
-                        $("#campoGei").append(msj);
-                    }                    
+                    //} else {
+                    //    var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">';
+                    //    for (var j = 0; j < data.length; j++) {
+                    //        msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
+                    //    }
+                    //    msj = msj + ' </textarea>';
+                    //    $("#campoGei").append(msj);
+                    //}                    
                 }
             }
         }
@@ -83,7 +83,7 @@ function fn_cargarEnergetico() {
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
-                    if ($("#Control").data("revision") == 0) {
+                    //if ($("#Control").data("revision") == 0) {
                         for (var j = 0; j < data.length; j++) {
                             for (var i = 0; i < $("#listaEnerg").data("cantidad") ; i++) {
                                 if ($('#E' + (i + 1)).data("value") == data[j]["ID_ENERG"]) {
@@ -91,14 +91,14 @@ function fn_cargarEnergetico() {
                                 }
                             }
                         }
-                    } else {
-                        var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">';
-                        for (var j = 0; j < data.length; j++) {
-                            msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
-                        }
-                        msj = msj + ' </textarea>';
-                        $("#campoEnerg").append(msj);
-                    }                    
+                    //} else {
+                    //    var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">';
+                    //    for (var j = 0; j < data.length; j++) {
+                    //        msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
+                    //    }
+                    //    msj = msj + ' </textarea>';
+                    //    $("#campoEnerg").append(msj);
+                    //}                    
                 }
             }
         }
@@ -702,18 +702,75 @@ function fn_cambiarIniciativaMitigacion(id) {
     $('#medidas-mitigacion-listado').modal('hide')
 }
 
+function validarCampoRevision() {
+    if (!validarCheck("#listaEnerg", "#E")) {
+        return false;
+    }
+    if (!validarCheck("#listaGei", "#G")){
+        return false;
+    }
+    return true;
+}
+
 function fn_revisarIniciativaMitigacion() {
+    //debugger;
+    if (!validarCampoRevision()) {
+        $('#modalAprobacion #modalErrorAprobacion').remove();
+        $('#modalAprobacion #mensajeDangerRegistro').remove();
+        var msj = '                       <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="mensajeDangerRegistro">';
+        msj = msj + '                            <div class="alert-wrap mr-3">';
+        msj = msj + '                                <div class="sa">';
+        msj = msj + '                                    <div class="sa-error">';
+        msj = msj + '                                       <div class="sa-error-x">';
+        msj = msj + '                                           <div class="sa-error-left"></div>';
+        msj = msj + '                                           <div class="sa-error-right"></div>';
+        msj = msj + '                                       </div>';
+        msj = msj + '                                       <div class="sa-error-placeholder"></div>';
+        msj = msj + '                                       <div class="sa-error-fix"></div>';
+        msj = msj + '                                   </div>';
+        msj = msj + '                               </div>';
+        msj = msj + '                           </div>';
+        msj = msj + '                           <div class="alert-wrap">';
+        msj = msj + '                                <h6>Error de registro</h6>';
+        msj = msj + '                                <hr><small class="mb-0">Por favor, completar los campos obligatorios.</small>';
+        msj = msj + '                           </div>';
+        msj = msj + '                     </div>';
+        $("#modalAprobacion").append(msj);
+        return false;
+    }
+
+    ///================================= add
+    var energetico = "";
+    for (var i = 0; i < $("#listaEnerg").data("cantidad") ; i++) {
+        if ($('#E' + (i + 1)).prop('checked')) {
+            energetico = energetico + $('#E' + (i + 1)).data("value") + "," + "1/";
+        }
+    }
+    energetico = energetico.substring(0, energetico.length - 1);
+
+    var gei = "";
+    for (var i = 0; i < $("#listaGei").data("cantidad") ; i++) {
+        if ($('#G' + (i + 1)).prop('checked')) {
+            gei = gei + $('#G' + (i + 1)).data("value") + "," + "1/";
+        }
+    }
+    gei = gei.substring(0, gei.length - 1);
+    ///=====================================
+
     var item = {
         ID_INICIATIVA: $("#Control").data("iniciativa"),
         ID_USUARIO: $("#Control").data("usuario"),
         EMAIL_USUARIO: $("#txt-correo-electronico").val(),
         NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
-        ID_TIPO_INICIATIVA: $("#tipo-iniciativa").data("tipo")
+        ID_TIPO_INICIATIVA: $("#tipo-iniciativa").data("tipo"),
+        ENERGETICO: energetico, //add
+        GEI: gei //add
     }
     url = baseUrl + "Gestion/AprobarIniciativaMitigacion";
     var respuesta = MRV.Ajax(url, item, false);
     if (respuesta.success) {
         $("#modalAprobacion #modalErrorAprobacion").remove();
+        $('#modalAprobacion #mensajeDangerRegistro').remove();
         var msj = '                           <div class="alert alert-success d-flex align-items-stretch" role="alert" id="modalCorrectoAprobacion">';
         msj = msj + '                               <div class="alert-wrap mr-3">';
         msj = msj + '                                    <div class="sa">';
@@ -737,6 +794,7 @@ function fn_revisarIniciativaMitigacion() {
         //if (ws != null) ws.send(respuesta.extra);
     } else {
         $("#modalAprobacion #modalErrorAprobacion").remove();
+        $('#modalAprobacion #mensajeDangerRegistro').remove();
         var msj = '                           <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="modalErrorAprobacion">';
         msj = msj + '                               <div class="alert-wrap mr-3">';
         msj = msj + '                                    <div class="sa">';
@@ -758,17 +816,19 @@ function fn_revisarIniciativaMitigacion() {
         $("#modalAprobacion").append(msj);
     }
 
-    $("#aprobar-revision").on("hidden.bs.modal", function () {
-        if ($("#Control").data("modal") == 1) {
-            location.href = baseUrl + "Gestion/AccionMitigacion";
-        } else {
-            $("#modalAprobacion #modalCorrectoAprobacion").remove();
-            $("#modalAprobacion #modalErrorAprobacion").remove();
-            $("#aprobar-revision #modalAprobarBoton").show();
-            $("#pieCorrectoAprobacion").hide();
-        }
-    });
 }
+
+$("#aprobar-revision").on("hidden.bs.modal", function () {
+    if ($("#Control").data("modal") == 1) {
+        location.href = baseUrl + "Gestion/AccionMitigacion";
+    } else {
+        $("#modalAprobacion #modalCorrectoAprobacion").remove();
+        $("#modalAprobacion #modalErrorAprobacion").remove();
+        $('#modalAprobacion #mensajeDangerRegistro').remove();
+        $("#aprobar-revision #modalAprobarBoton").show();
+        $("#pieCorrectoAprobacion").hide();
+    }
+});
 
 function fn_observacionIniciativaMitigacion() {
     url = baseUrl + "Gestion/ObservacionIniciativaMitigacion"

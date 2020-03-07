@@ -149,7 +149,8 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
             cantidad_registros: $("#cantidad-registros").val(),
             pagina: $("#pagina").val(),
             order_by: $("#columna").val(),
-            order_orden: $("#orden").val()
+            order_orden: $("#orden").val(),
+            ID_ESTADO: $("#estadoIniciativa").data("estado")
         }
         nurl = nurl + "Portal/ListaBusquedaSimplePublico";
     } else {
@@ -166,7 +167,8 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
             cantidad_registros: $("#cantidad-registros").val(),
             pagina: $("#pagina").val(),
             order_by: $("#columna").val(),
-            order_orden: $("#orden").val()
+            order_orden: $("#orden").val(),
+            ID_ESTADO: $("#estadoIniciativa").data("estado")
         }
         nurl = nurl + "Portal/ListaBusquedaAvanzadaPublico";
     };
@@ -1424,7 +1426,7 @@ function exportarIniciativa() {
                 METODO: $("#buscar").data("numero")
             }
         }
-        var url = baseUrl + 'Gestion/ExportarIniciativa';
+        var url = baseUrl + 'Portal/ExportarIniciativa';
 
         var parametros = {
             Url: url,

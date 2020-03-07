@@ -160,6 +160,8 @@
     <Content Include="images\password-level-47px.png" />
     <Content Include="images\sello.png" />
     <Content Include="images\sello.svg" />
+    <Content Include="images\sello_blanco.png" />
+    <Content Include="images\sello_new.svg" />
     <Content Include="images\_fonfo_footer.png" />
     <Content Include="js\AccionMitigacion.js" />
     <Content Include="js\CambiarClave.js" />
@@ -197,6 +199,7 @@
     <Content Include="Log\LEEME.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Reportes\BlockChain.xml" />
     <Content Include="Reportes\frmReportes.aspx" />
     <Content Include="Reportes\ReporteIni.aspx" />
     <Content Include="Temp\LEEME.txt">
@@ -236,6 +239,11 @@
     <Compile Include="Models\MvUbicacion.cs" />
     <Compile Include="Models\MvUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes\DsBlockChain.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsBlockChain.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\DsEscenario.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -271,6 +279,7 @@
       <DependentUpon>ReporteIni.aspx</DependentUpon>
     </Compile>
     <Compile Include="Repositorio\EnvioCorreo.cs" />
+    <Compile Include="Repositorio\ReporteRepositorio.cs" />
     <Compile Include="Response\ResponseEntity.cs" />
     <Compile Include="Tags\AutenticadoAttribute.cs" />
   </ItemGroup>
@@ -431,6 +440,17 @@
     <Content Include="Reportes\DsEscenario.xsc">
       <DependentUpon>DsEscenario.xsd</DependentUpon>
     </Content>
+    <Content Include="Reportes\DsBlockChain.xsc">
+      <DependentUpon>DsBlockChain.xsd</DependentUpon>
+    </Content>
+    <None Include="Reportes\DsBlockChain.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsBlockChain.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Reportes\DsBlockChain.xss">
+      <DependentUpon>DsBlockChain.xsd</DependentUpon>
+    </Content>
     <None Include="Reportes\DsEscenario.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DsEscenario.Designer.cs</LastGenOutput>
@@ -505,6 +525,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reportes\EscenarioRpt.rdlc" />
+    <EmbeddedResource Include="Reportes\rptBlockChain.rdlc" />
     <EmbeddedResource Include="Reportes\rptIniciativa.rdlc" />
     <EmbeddedResource Include="Reportes\rptInstitucion.rdlc" />
     <EmbeddedResource Include="Reportes\rptMedMit.rdlc" />

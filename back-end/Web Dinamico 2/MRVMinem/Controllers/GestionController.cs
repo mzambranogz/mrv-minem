@@ -126,8 +126,10 @@ namespace MRVMinem.Controllers
             modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
             modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
             modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
-            modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
-            modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
+            //modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
+            modelo.listaEnergetico = EnergeticoLN.ListarENERG(new EnergeticoBE());
+            //modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
+            modelo.listaGei = GasEfectoInvernaderoLN.ListarGEI(new GasEfectoInvernaderoBE());
             modelo.usuario = UsuarioLN.UsuarioIniciativa(modelo.iniciativa_mit.ID_USUARIO);
             modelo.listaTipoIniciativa = TipoIniciativaLN.listarTipoIniciativa();
             modelo.revision = 1;
@@ -878,6 +880,7 @@ namespace MRVMinem.Controllers
                 Log.Error(ex);
             }
 
+            //itemRespuesta.success = true;
             return Respuesta(itemRespuesta);
         }
 
@@ -1069,6 +1072,14 @@ namespace MRVMinem.Controllers
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
                 Session["correo_destino"] = "";
                 Session["usuario_destino"] = 0;
+
+                BlockChainBE block = new BlockChainBE() { ID_INICIATIVA = entidad.ID_INICIATIVA, ID_USUARIO = entidad.ID_USUARIO, IP_PC = Request.UserHostAddress.ToString().Trim() };
+                block = BlockChainLN.GeneraBlockChain(block);
+                if (block.OK)
+                {
+                    itemRespuesta.extra = block.ID_BLOCKCHAIN.ToString();
+                    itemRespuesta.extra2 = block.HASH;
+                }
             }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
@@ -1123,8 +1134,28 @@ namespace MRVMinem.Controllers
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
                 Session["correo_destino"] = "";
                 Session["usuario_destino"] = 0;
+
+                BlockChainBE block = new BlockChainBE() { ID_INICIATIVA = entidad.ID_INICIATIVA, ID_USUARIO = entidad.ID_USUARIO, IP_PC = Request.UserHostAddress.ToString().Trim() };
+                block = BlockChainLN.GeneraBlockChain(block);
+                if (block.OK)
+                {
+                    itemRespuesta.extra = block.ID_BLOCKCHAIN.ToString();
+                    itemRespuesta.extra2 = block.HASH;
+                }
             }
             itemRespuesta.success = entidad.OK;
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult DescargarBlockChain(BlockChainBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+            string nombreArchivo = Guid.NewGuid() + ".pdf";
+            string nombrePDF = nombrePDF = WebConfigurationManager.AppSettings["RutaTemp"] + "\\" + nombreArchivo;
+            itemRespuesta.success = new ReporteRepositorio().GenerarPDFBlockChain(entidad.ID_BLOCKCHAIN, nombrePDF);
+            if (itemRespuesta.success)
+                itemRespuesta.extra = nombreArchivo;
+
             return Respuesta(itemRespuesta);
         }
 
@@ -1881,125 +1912,6 @@ namespace MRVMinem.Controllers
         //}
 
         //EXPORTAR EXCEL
-
-        public void ExportarIniciativa(string item)
-        {
-            try
-            {
-                if (item != null)
-                {
-                    var entidad = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<IniciativaBE>(item);
-                    entidad.ID_ROL = Convert.ToInt32(Session["rol"]);
-                    ExportarToExcelIniciativaMitigacion(entidad);
-                }
-            }
-            catch (Exception ex)
-            {
-                Log.Error(ex);
-            }
-        }
-
-        public void ExportarToExcelIniciativaMitigacion(IniciativaBE entidad)
-        {
-            List<IniciativaBE> lista = new List<IniciativaBE>();
-            if (entidad.METODO == 0)
-            {
-                lista = IniciativaLN.ListaExcelSimple(entidad);
-            }else
-            {
-                lista = IniciativaLN.ListaExcelAvanzado(entidad);
-            }
-            
-            int row = 2;
-            try
-            {
-                string cadena_fecha = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
-
-                using (ExcelPackage package = new ExcelPackage())
-                {
-                    var ws1 = package.Workbook.Worksheets.Add("INICIATIVA MITIGACIÓN");
-                    using (var m = ws1.Cells[1, 1, row, 9])
-                    {
-                        m.Style.Font.Bold = true;
-                        m.Style.WrapText = true;
-                        m.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                        m.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
-                        m.Style.Font.Size = 14;
-                        m.Merge = true;
-                        m.Value = "INICIATIVA MITIGACIÓN " + cadena_fecha;
-                    }
-                    ws1.View.FreezePanes(2, 1);
-                    row++;
-                    ws1.Cells["A" + row].Value = "N°";
-                    ws1.Cells["A" + row].AutoFitColumns(5);
-                    ws1.Cells["B" + row].Value = "NOMBRE DE INICIATIVA";
-                    ws1.Cells["B" + row].AutoFitColumns(60);
-                    ws1.Cells["C" + row].Value = "PROGRESO";
-                    ws1.Cells["C" + row].AutoFitColumns(15);
-                    ws1.Cells["D" + row].Value = "FECHA DE INICIO";
-                    ws1.Cells["D" + row].AutoFitColumns(20);
-                    ws1.Cells["E" + row].Value = "FECHA DE TÉRMINO";
-                    ws1.Cells["E" + row].AutoFitColumns(20);
-                    ws1.Cells["F" + row].Value = "MEDIDA DE MITIGACIÓN";
-                    ws1.Cells["F" + row].AutoFitColumns(60);
-                    ws1.Cells["G" + row].Value = "ENTIDAD";
-                    ws1.Cells["G" + row].AutoFitColumns(35);
-                    ws1.Cells["H" + row].Value = "TOTAL REDUCIDO";
-                    ws1.Cells["H" + row].AutoFitColumns(30);
-                    ws1.Cells["I" + row].Value = "ESTADO";
-                    ws1.Cells["I" + row].AutoFitColumns(25);
-
-                    FormatoCelda(ws1, "A", row, 0, 123, 255, 255, 255, 255);
-                    FormatoCelda(ws1, "B", row, 0, 123, 255, 255, 255, 255);
-                    FormatoCelda(ws1, "C", row, 0, 123, 255, 255, 255, 255);
-                    FormatoCelda(ws1, "D", row, 0, 123, 255, 255, 255, 255);
-                    FormatoCelda(ws1, "E", row, 0, 123, 255, 255, 255, 255);
-                    FormatoCelda(ws1, "F", row, 0, 123, 255, 255, 255, 255);
-                    FormatoCelda(ws1, "G", row, 0, 123, 255, 255, 255, 255);
-                    FormatoCelda(ws1, "H", row, 0, 123, 255, 255, 255, 255);
-                    FormatoCelda(ws1, "I", row, 0, 123, 255, 255, 255, 255);
-                    ws1.Row(row).Height = 42;
-                    row++;
-                    if (lista.Count > 0)
-                    {
-                        var xNum = 0;
-                        foreach (IniciativaBE dt_fila in lista)
-                        {
-                            xNum++;
-                            //ws1.Cells["A" + row].Value = xNum;
-                            ws1.Cells["A" + row].Value = dt_fila.ID_INICIATIVA;
-                            ws1.Cells["B" + row].Value = dt_fila.NOMBRE_INICIATIVA;
-                            int prog = 0;
-                            if (dt_fila.PROGRESO > 4) { prog = 4; }
-                            else prog = dt_fila.PROGRESO;
-                            ws1.Cells["C" + row].Value = Convert.ToString(prog * 25) + "%";
-                            ws1.Cells["D" + row].Value = dt_fila.FECHA;
-                            ws1.Cells["E" + row].Value = dt_fila.FECHA_FIN;
-                            ws1.Cells["F" + row].Value = dt_fila.NOMBRE_MEDMIT;
-                            ws1.Cells["G" + row].Value = dt_fila.NOMBRE_INSTITUCION;
-                            ws1.Cells["H" + row].Value = dt_fila.TOTAL_GEI;
-                            ws1.Cells["I" + row].Value = dt_fila.ESTADO_BANDEJA;
-                            formatoDetalle(ws1, "A", "F", row);
-                            row++;
-                        }
-                        row++;
-                    }
-
-                    string strFileName = "LISTA_INICIATIVA_MITIGACION_" + DateTime.Now.ToString() + ".xlsx";
-                    Response.Clear();
-                    byte[] dataByte = package.GetAsByteArray();
-                    Response.AddHeader("Content-Disposition", "inline;filename=\"" + strFileName + "\"");
-                    Response.AddHeader("Content-Length", dataByte.Length.ToString());
-                    Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-                    Response.BinaryWrite(dataByte);
-                    Response.End();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
 
         public void ExportarMantenimientoUsuario(string item)
         {

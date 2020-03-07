@@ -58,7 +58,8 @@ namespace logica.minem.gob.pe
 
         public static IndicadorBE AprobarDetalleIndicador(IndicadorBE entidad)
         {
-            return indicador.AprobarDetalleIndicador(entidad);
+            entidad = indicador.AprobarDetalleIndicador(entidad);            
+            return procesoGeiEnergetico(entidad);
         }
 
         public static List<IndicadorBE> ListarDetalleIndicadorRevision(IndicadorBE entidad)
@@ -83,7 +84,8 @@ namespace logica.minem.gob.pe
 
         public static IndicadorBE AprobarAdminIniciativaDetalleIndicador(IndicadorBE entidad)
         {
-            return indicador.AprobarAdminIniciativaDetalleIndicador(entidad);
+            entidad = indicador.AprobarAdminIniciativaDetalleIndicador(entidad);
+            return procesoGeiEnergetico(entidad);
         }
 
         public static IndicadorBE EvaluarIniciativaDetalleIndicador(IndicadorBE entidad)
@@ -244,6 +246,84 @@ namespace logica.minem.gob.pe
             return indicador.MostrarGeiporAnio(entidad);
         }
 
+        public static IndicadorBE procesoGeiEnergetico(IndicadorBE entidad)
+        {
+            IniciativaBE ent = new IniciativaBE();
+            bool verificar = true;
+            //entidad = iniciativaDA.AprobarIniciativaMitigacion(entidad);
+            if (entidad.OK)
+            {
+                string id_energ = "";
+                if (string.IsNullOrEmpty(entidad.ENERGETICO))
+                {
+                    id_energ = "0,";
+                    ent.OK = true;
+                }
+                else
+                {
+                    var energetico = entidad.ENERGETICO.Split('/');
+                    for (int i = 0; i < energetico.Count(); i++)
+                    {
+                        ent = IniciativaLN.ProcesoIniciativaEnergetico(energetico[i], entidad.ID_INICIATIVA);
+                        id_energ = id_energ + ent.ENERGETICO + ',';
+                        if (!ent.OK)
+                        {
+                            i = energetico.Count();
+                            ent.OK = false;
+                        }
+                    }
+                }
+
+
+                if (ent.OK)
+                {
+                    id_energ = id_energ.Substring(0, id_energ.Length - 1);
+                    IniciativaLN.ActualizarIniciativaEnergetico(id_energ, entidad.ID_INICIATIVA);
+                }
+                else
+                {
+                    verificar = false;
+                }
+            }
+
+
+            if (entidad.OK)
+            {
+                string id_gei = "";
+                if (string.IsNullOrEmpty(entidad.GEI))
+                {
+                    id_gei = "0,";
+                    ent.OK = true;
+                }
+                else
+                {
+                    var gei = entidad.GEI.Split('/');
+                    for (int i = 0; i < gei.Count(); i++)
+                    {
+                        ent = IniciativaLN.ProcesoIniciativaGei(gei[i], entidad.ID_INICIATIVA);
+                        id_gei = id_gei + ent.GEI + ',';
+                        if (!ent.OK)
+                        {
+                            i = gei.Count();
+                            ent.OK = false;
+                        }
+                    }
+                }
+
+                if (ent.OK)
+                {
+                    id_gei = id_gei.Substring(0, id_gei.Length - 1);
+                    IniciativaLN.ActualizarIniciativaGei(id_gei, entidad.ID_INICIATIVA);
+                }
+                else
+                {
+                    verificar = false;
+                }
+
+            }
+            return entidad;
+        }
+
         /* NUEVOS PROCEDIMIENTOS */
         public static List<IndicadorDataBE> CalculoIndicador(List<IndicadorDataBE> listaEntidad)
         {
@@ -356,8 +436,6 @@ namespace logica.minem.gob.pe
 
             return dblResultado;
         }
-
-
 
         private static string VerificaOperando(string istrOperando, List<IndicadorDataBE> listaEntidad)
         {

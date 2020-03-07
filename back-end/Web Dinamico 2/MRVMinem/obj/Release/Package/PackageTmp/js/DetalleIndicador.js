@@ -1017,6 +1017,26 @@ function fn_calcularIndicador(fila) {
 //    var url = baseUrl + "Gestion/RegistrarDetalleIndicador2";
 //    fn_procesoDetalleIndicador(url, 6);
 //}
+
+function validarCheck(id, sid) {
+    for (var i = 0; i < $(id).data("cantidad") ; i++) {
+        if ($(sid + (i + 1)).prop('checked')) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function validarCampoRevision() {
+    if (!validarCheck("#listaEnerg", "#E")) {
+        return false;
+    }
+    if (!validarCheck("#listaGei", "#G")) {
+        return false;
+    }
+    return true;
+}
+
 //===============================================
 function fn_observacionDetalleIndicador() {
     url = baseUrl + "Gestion/ObservacionDetalleIndicador";
@@ -1090,12 +1110,58 @@ function fn_observacionDetalleIndicador() {
 }
 
 function fn_revisarDetalleIndicador() {
+
+    if (!validarCampoRevision()) {
+        $('#modalAprobacion #modalErrorAprobacion').remove();
+        $('#modalAprobacion #mensajeDangerRegistro').remove();
+        var msj = '                       <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="mensajeDangerRegistro">';
+        msj = msj + '                            <div class="alert-wrap mr-3">';
+        msj = msj + '                                <div class="sa">';
+        msj = msj + '                                    <div class="sa-error">';
+        msj = msj + '                                       <div class="sa-error-x">';
+        msj = msj + '                                           <div class="sa-error-left"></div>';
+        msj = msj + '                                           <div class="sa-error-right"></div>';
+        msj = msj + '                                       </div>';
+        msj = msj + '                                       <div class="sa-error-placeholder"></div>';
+        msj = msj + '                                       <div class="sa-error-fix"></div>';
+        msj = msj + '                                   </div>';
+        msj = msj + '                               </div>';
+        msj = msj + '                           </div>';
+        msj = msj + '                           <div class="alert-wrap">';
+        msj = msj + '                                <h6>Error de registro</h6>';
+        msj = msj + '                                <hr><small class="mb-0">Por favor, completar los campos obligatorios.</small>';
+        msj = msj + '                           </div>';
+        msj = msj + '                     </div>';
+        $("#modalAprobacion").append(msj);
+        return false;
+    }
+
+    ///================================= add
+    var energetico = "";
+    for (var i = 0; i < $("#listaEnerg").data("cantidad") ; i++) {
+        if ($('#E' + (i + 1)).prop('checked')) {
+            energetico = energetico + $('#E' + (i + 1)).data("value") + "," + "1/";
+        }
+    }
+    energetico = energetico.substring(0, energetico.length - 1);
+
+    var gei = "";
+    for (var i = 0; i < $("#listaGei").data("cantidad") ; i++) {
+        if ($('#G' + (i + 1)).prop('checked')) {
+            gei = gei + $('#G' + (i + 1)).data("value") + "," + "1/";
+        }
+    }
+    gei = gei.substring(0, gei.length - 1);
+    ///=====================================
+
     var item = {
         ID_INICIATIVA: $("#Control").data("iniciativa"),
         ID_USUARIO: $("#Control").data("usuario"),
         EMAIL_USUARIO: $("#txt-correo-electronico").val(),
         NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
-        ID_TIPO_INICIATIVA: $("#tipo-iniciativa").data("tipo")
+        ID_TIPO_INICIATIVA: $("#tipo-iniciativa").data("tipo"),
+        ENERGETICO: energetico, //add
+        GEI: gei //add
     }
     url = baseUrl + "Gestion/AprobarDetalleIndicador";
     var respuesta = MRV.Ajax(url, item, false);
@@ -1231,18 +1297,65 @@ function fn_observacionAdminDetalleIndicador() {
 }
 
 function fn_revisarAdminDetalleIndicador() {
+
+    if (!validarCampoRevision()) {
+        $('#modalAprobacion #modalErrorAprobacion').remove();
+        $('#modalAprobacion #mensajeDangerRegistro').remove();
+        var msj = '                       <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="mensajeDangerRegistro">';
+        msj = msj + '                            <div class="alert-wrap mr-3">';
+        msj = msj + '                                <div class="sa">';
+        msj = msj + '                                    <div class="sa-error">';
+        msj = msj + '                                       <div class="sa-error-x">';
+        msj = msj + '                                           <div class="sa-error-left"></div>';
+        msj = msj + '                                           <div class="sa-error-right"></div>';
+        msj = msj + '                                       </div>';
+        msj = msj + '                                       <div class="sa-error-placeholder"></div>';
+        msj = msj + '                                       <div class="sa-error-fix"></div>';
+        msj = msj + '                                   </div>';
+        msj = msj + '                               </div>';
+        msj = msj + '                           </div>';
+        msj = msj + '                           <div class="alert-wrap">';
+        msj = msj + '                                <h6>Error de registro</h6>';
+        msj = msj + '                                <hr><small class="mb-0">Por favor, completar los campos obligatorios.</small>';
+        msj = msj + '                           </div>';
+        msj = msj + '                     </div>';
+        $("#modalAprobacion").append(msj);
+        return false;
+    }
+
+    ///================================= add
+    var energetico = "";
+    for (var i = 0; i < $("#listaEnerg").data("cantidad") ; i++) {
+        if ($('#E' + (i + 1)).prop('checked')) {
+            energetico = energetico + $('#E' + (i + 1)).data("value") + "," + "1/";
+        }
+    }
+    energetico = energetico.substring(0, energetico.length - 1);
+
+    var gei = "";
+    for (var i = 0; i < $("#listaGei").data("cantidad") ; i++) {
+        if ($('#G' + (i + 1)).prop('checked')) {
+            gei = gei + $('#G' + (i + 1)).data("value") + "," + "1/";
+        }
+    }
+    gei = gei.substring(0, gei.length - 1);
+    ///=====================================
+
     var item = {
         ID_INICIATIVA: $("#Control").data("iniciativa"),
         //ID_USUARIO: $("#Control").data("usuario"),
         NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
         ESTADO_ACTOR: $("#estado-actor").data("estado"),
-        ID_TIPO_INICIATIVA: $("#tipo-iniciativa").data("tipo")
+        ID_TIPO_INICIATIVA: $("#tipo-iniciativa").data("tipo"),
+        ENERGETICO: energetico, //add
+        GEI: gei //add
     }
     url = baseUrl + "Gestion/AprobarAdminIniciativaDetalleIndicador";
     var respuesta = MRV.Ajax(url, item, false);
     if (respuesta.success) {
         $("#modalAprobacion #modalCorrectoAprobacion").remove();
         $("#modalAprobacion #modalErrorAprobacion").remove();
+        $('#modalAprobacion #mensajeDangerRegistro').remove();
         $("#aprobar-revision #modalAprobarBoton").remove();
         var msj = '                           <div class="alert alert-success d-flex align-items-stretch" role="alert" id="modalCorrectoAprobacion">';
         msj = msj + '                               <div class="alert-wrap mr-3">';
@@ -1264,6 +1377,7 @@ function fn_revisarAdminDetalleIndicador() {
         $("#pieCorrectoAprobacion").show();
         $("#Control").data("modal", 1);
     } else {
+        $('#modalAprobacion #mensajeDangerRegistro').remove();
         $("#modalAprobacion #modalErrorAprobacion").remove();
         var msj = '                           <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="modalErrorAprobacion">';
         msj = msj + '                               <div class="alert-wrap mr-3">';
@@ -1286,15 +1400,17 @@ function fn_revisarAdminDetalleIndicador() {
         $("#modalAprobacion").append(msj);
     }
 
-    $("#aprobar-revision").on("hidden.bs.modal", function () {
-        if ($("#Control").data("modal") == 1) {
-            location.href = baseUrl + "Gestion/AccionMitigacion";
-        } else {
-            $("#modalAprobacion #modalErrorAprobacion").remove();
-            $("#pieCorrectoAprobacion").hide();
-        }
-    });
 }
+
+$("#aprobar-revision").on("hidden.bs.modal", function () {
+    if ($("#Control").data("modal") == 1) {
+        location.href = baseUrl + "Gestion/AccionMitigacion";
+    } else {
+        $("#modalAprobacion #modalErrorAprobacion").remove();
+        $('#modalAprobacion #mensajeDangerRegistro').remove();
+        $("#pieCorrectoAprobacion").hide();
+    }
+});
 
 function fn_observacionEvaluadorDetalleIndicador() {
     url = baseUrl + "Gestion/ObservacionEvaluarDetalleIndicador";
@@ -1479,9 +1595,9 @@ function fn_evaluarIniciativaDetalle() {
         msj1 = msj1 + '     <div class="alert-wrap">';
         msj1 = msj1 + '     <h6>Mercado de carbono</h6>';
         msj1 = msj1 + '     <hr><small class="mb-0">';
-        msj1 = msj1 + '         Se ha generado la cadena de bloques para la medida de mitigación&nbsp;<strong>aprobada&nbsp; <br></strong><a class="btn btn-warning px-5 text-center my-3" href="#" data-toggle="modal"><i class="fas fa-download px-1"></i>Descargar certificado</a>';
+        msj1 = msj1 + '         Se ha generado la cadena de bloques para la medida de mitigación&nbsp;<strong>aprobada&nbsp; <br></strong><a class="btn btn-warning px-5 text-center my-3" href="#" onclick="fn_descargarCertificado(' + respuesta.extra + ');" data-toggle="modal"><i class="fas fa-download px-1"></i>Descargar certificado</a>';
         msj1 = msj1 + '         <hr>';
-        msj1 = msj1 + '         <div class="text-monospace" style="word-break: break-all;">341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb72</div>';
+        msj1 = msj1 + '         <div class="text-monospace" style="word-break: break-all;">' + respuesta.extra2 + '</div>';
         msj1 = msj1 + '     </small>';
         msj1 = msj1 + '     </div>';
         msj1 = msj1 + '</div>';
@@ -1567,9 +1683,9 @@ function fn_verificarIniciativaDetalle() {
         msj1 = msj1 + '     <div class="alert-wrap">';
         msj1 = msj1 + '     <h6>Mercado de carbono</h6>';
         msj1 = msj1 + '     <hr><small class="mb-0">';
-        msj1 = msj1 + '         Se ha generado la cadena de bloques para la medida de mitigación&nbsp;<strong>aprobada&nbsp; <br></strong><a class="btn btn-warning px-5 text-center my-3" href="#" data-toggle="modal" data-target="#observar-verificacion"><i class="fas fa-download px-1"></i>Descargar certificado</a>';
+        msj1 = msj1 + '         Se ha generado la cadena de bloques para la medida de mitigación&nbsp;<strong>aprobada&nbsp; <br></strong><a class="btn btn-warning px-5 text-center my-3" href="#" onclick="fn_descargarCertificado(' + respuesta.extra + ');" data-toggle="modal" data-target="#observar-verificacion"><i class="fas fa-download px-1"></i>Descargar certificado</a>';
         msj1 = msj1 + '         <hr>';
-        msj1 = msj1 + '         <div class="text-monospace" style="word-break: break-all;">341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb72</div>';
+        msj1 = msj1 + '         <div class="text-monospace" style="word-break: break-all;">' + respuesta.extra2 + '</div>';
         msj1 = msj1 + '     </small>';
         msj1 = msj1 + '     </div>';
         msj1 = msj1 + '</div>';
@@ -1612,6 +1728,19 @@ function fn_verificarIniciativaDetalle() {
             $("#pieCorrectoAprobacion").hide();
         }
     });
+}
+
+function fn_descargarCertificado(idBlock) {
+    var item = {
+        ID_BLOCKCHAIN: idBlock
+    };
+    var url = baseUrl + "Gestion/DescargarBlockChain";
+    var respuesta = MRV.Ajax(url, item, false);
+
+    if (respuesta.success) {
+        var urlMostrar = baseUrl + "Temp/" + respuesta.extra;
+        window.open(urlMostrar, "_blank");
+    }
 }
 
 function fn_verfileindicaor(idIndicador) {
@@ -1707,6 +1836,7 @@ function inicio() {
     $("#pieCorrectoAprobacion").hide();
     $("#pieCorrectoAvance").hide();
     $("#pieCorrecto").hide();
+    $("#mensajeGoodRegistro").hide();
 }
 
 //==============================================================================================================
@@ -2714,25 +2844,28 @@ function fn_procesoDetalleIndicador(url, estado) {
                 } else if (estado == 1 || estado == 5) {
                     $('#mensajeModalRegistrar #mensajeGoodRegistro').remove();
                     $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
-                    var msj = '                       <div class="alert alert-success d-flex align-items-stretch" role="alert" id="mensajeGoodRegistro">';
-                    msj = msj + '                            <div class="alert-wrap mr-3">';
-                    msj = msj + '                                <div class="sa">';
-                    msj = msj + '                                    <div class="sa-success">';
-                    msj = msj + '                                        <div class="sa-success-tip"></div>';
-                    msj = msj + '                                        <div class="sa-success-long"></div>';
-                    msj = msj + '                                        <div class="sa-success-placeholder"></div>';
-                    msj = msj + '                                        <div class="sa-success-fix"></div>';
-                    msj = msj + '                                    </div>';
-                    msj = msj + '                                </div>';
-                    msj = msj + '                            </div>';
-                    msj = msj + '                            <div class="alert-wrap">';
-                    msj = msj + '                                <h6>Felicitaciones</h6>';
-                    msj = msj + '                                <hr><small class="mb-0">Usted a completado el envío de detalle de su iniciativa de mitigación que será verificada por uno de nuestros especialistas. También, le recordamos que puede ingresar a nuestra plataforma del <b>Sello de Energía Sostenible</b></small>';
-                    msj = msj + '                            </div>';
-                    msj = msj + '                        </div>';
+                    //var msj = '                       <div class="alert alert-success d-flex align-items-stretch" role="alert" id="mensajeGoodRegistro">';
+                    //msj = msj + '                            <div class="alert-wrap mr-3">';
+                    //msj = msj + '                                <div class="sa">';
+                    //msj = msj + '                                    <div class="sa-success">';
+                    //msj = msj + '                                        <div class="sa-success-tip"></div>';
+                    //msj = msj + '                                        <div class="sa-success-long"></div>';
+                    //msj = msj + '                                        <div class="sa-success-placeholder"></div>';
+                    //msj = msj + '                                        <div class="sa-success-fix"></div>';
+                    //msj = msj + '                                    </div>';
+                    //msj = msj + '                                </div>';
+                    //msj = msj + '                            </div>';
+                    //msj = msj + '                            <div class="alert-wrap">';
+                    //msj = msj + '                                <h6>Felicitaciones</h6>';
+                    //msj = msj + '                                <hr><a class="float-right" href="#" target="_blank"><img src="./images/sello_new.svg" width="120" data-toggle="tooltip" data-placement="top" title="Ir a la web del sello"></a>';
+                    //msj = msj + '                                <small class="mb-0">Usted a completado el envío de detalle de su iniciativa de mitigación que será verificada por uno de nuestros especialistas. También, le recordamos que puede ingresar a nuestra plataforma del <b>Sello de Energía Sostenible</b></small>';
+                    //msj = msj + '                            </div>';
+                    //msj = msj + '                        </div>';
                     $("#solicitar-revision #modalRegistrarBoton").hide();
                     $("#pieCorrecto").show();
-                    $('#mensajeModalRegistrar').append(msj);
+                    debugger;
+                    $("#mensajeSuccess").removeAttr("hidden");
+                    //$('#mensajeModalRegistrar').append(msj);
                     $("#Control").data("modal", 1);
                     if (response.extra == "1") {
                         if (ws != null) ws.send(response.extra);
@@ -3441,8 +3574,124 @@ function armarVerificar(enfoque) {
     $("#contenido-verificar").append(verificar);
     CargarDatosCabeceraVerificar(enfoque);
 }
+//===================================================================================
+function fn_cargarGei() {
+    var Item =
+    {
+        ID_INICIATIVA: $("#Control").data("iniciativa")
+    };
+    $.ajax({
+        url: baseUrl + "Gestion/CargarSeleccionGei",
+        type: 'POST',
+        datatype: 'json',
+        data: Item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    for (var j = 0; j < data.length; j++) {
+                        for (var i = 0; i < $("#listaGei").data("cantidad") ; i++) {
+                            if ($('#G' + (i + 1)).data("value") == data[j]["ID_GEI"]) {
+                                $('#G' + (i + 1)).prop('checked', true);
+                            }
+                        }
+                    }                 
+                }
+            }
+        }
+    });
+}
+
+function fn_cargarEnergetico() {
+    var Item =
+    {
+        ID_INICIATIVA: $("#Control").data("iniciativa")
+    };
+    $.ajax({
+        url: baseUrl + "Gestion/CargarSeleccionEnergetico",
+        type: 'POST',
+        datatype: 'json',
+        data: Item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    for (var j = 0; j < data.length; j++) {
+                        for (var i = 0; i < $("#listaEnerg").data("cantidad") ; i++) {
+                            if ($('#E' + (i + 1)).data("value") == data[j]["ID_ENERG"]) {
+                                $('#E' + (i + 1)).prop('checked', true);
+                            }
+                        }
+                    }                  
+                }
+            }
+        }
+    });
+}
+
+function fn_cargarIndicadores() {
+    fn_cargarGei();
+    fn_cargarEnergetico();
+}
+
+function fn_ListarENERG() {
+    var Item = {};
+    $.ajax({
+        url: baseUrl + "Gestion/ListarENERG",
+        type: 'POST',
+        datatype: 'json',
+        data: Item
+    }).done(function (data) {
+        if (data != null && data != "") {
+            if (data.length > 0) {
+                for (var i = 0; i < data.length; i++) {
+                    var check = '<div class="col-auto my-1">';
+                    check = check + '<div class="custom-control custom-checkbox mr-sm-2">';
+                    check = check + '    <input class="custom-control-input" type="checkbox" id="E' + (i + 1) + '" data-value="' + data[i]["ID_ENERG"] + '" >';
+                    check = check + '    <label class="custom-control-label" for="E' + (i + 1) + '">' + data[i]["DESCRIPCION"] + '</label>';
+                    check = check + '</div>';
+                    check = check + '</div>';
+                    $("#listaEnerg").append(check);
+                }
+                $("#listaEnerg").data("cantidad", data.length);
+            }
+        }
+        fn_cargarIndicadores();
+    });
+}
+
+function fn_ListarGEI() {
+    var Item = {};
+    $.ajax({
+        url: baseUrl + "Gestion/ListarGEI",
+        type: 'POST',
+        datatype: 'json',
+        data: Item
+    })
+    .done(function (data) {
+        if (data != null && data != "") {
+            if (data.length > 0) {
+                for (var i = 0; i < data.length; i++) {
+                    var check = '<div class="col-auto my-1">';
+                    check = check + '<div class="custom-control custom-checkbox mr-sm-2">';
+                    check = check + '    <input class="custom-control-input" type="checkbox" id="G' + (i + 1) + '" data-value="' + data[i]["ID_GEI"] + '" >';
+                    check = check + '    <label class="custom-control-label" for="G' + (i + 1) + '">' + data[i]["DESCRIPCION"] + '</label>';
+                    check = check + '</div>';
+                    check = check + '</div>';
+                    $("#listaGei").append(check);
+                }
+                $("#listaGei").data("cantidad", data.length);
+            }
+        }
+        fn_ListarENERG();
+    });
+}
+
 
 //===============================================================================================================
+
+function formatoMiles(n) { //add20
+    var m = n * 1;
+    return m.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+}
 
 $(document).ready(function () {
 
@@ -3462,6 +3711,10 @@ $(document).ready(function () {
     //$("#cbo-enfoque").data("select", $("#cbo-enfoque").val()); //data-select para saber quien fue el anterior
     debugger;
     if ($("#revision").val() == 1) {
+
+
+
+        fn_ListarGEI();
         //CargarDetalleIndicadorRevision();
         //cargarTablasEnfoque();
 
@@ -3479,6 +3732,8 @@ $(document).ready(function () {
 
         CargarDatosIniciativa();
         fn_cargarUbicacion();
+        fn_cargarEnergetico();
+        fn_cargarGei();
 
         //cargarCabeceraTabla($("#cbo-enfoque").val());
         //CargarDetalleDatos();
@@ -3486,6 +3741,9 @@ $(document).ready(function () {
         //cargarCuerpoTabla($("#cbo-enfoque").val());
         //CargarDetalleIndicador();
     }
+
+    var monto = $("#txt-monto-inversion").val();
+    $("#txt-monto-inversion").val(formatoMiles(monto)); //add20
     
     //CargarDatosIniciativa();
     //fn_cargarUbicacion();
@@ -3827,11 +4085,6 @@ function fn_validarCampo(url, estado) {
     }
 
 }
-
-function formatoMiles(n) { //add20
-    return n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
-}
-
 
 
 //============================================== REVISAR
