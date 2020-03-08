@@ -2863,7 +2863,6 @@ function fn_procesoDetalleIndicador(url, estado) {
                     //msj = msj + '                        </div>';
                     $("#solicitar-revision #modalRegistrarBoton").hide();
                     $("#pieCorrecto").show();
-                    debugger;
                     $("#mensajeSuccess").removeAttr("hidden");
                     //$('#mensajeModalRegistrar').append(msj);
                     $("#Control").data("modal", 1);

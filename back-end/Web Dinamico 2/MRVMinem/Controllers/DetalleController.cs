@@ -40,6 +40,30 @@ namespace MRVMinem.Controllers
             return View(modelo);
         }
 
+        public ActionResult CorregirDetalleIndicadorMasivo(int id, int ini)
+        {
+            ListaObjeto modelo = new ListaObjeto();
+            IniciativaBE inic = new IniciativaBE();
+            inic.ID_INICIATIVA = id;
+            modelo.iniciativa_mit = inic;
+            modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
+            modelo.menor = IndicadorLN.DetalleIndicadorEnfoque(modelo.iniciativa_mit.ID_INICIATIVA);
+            modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
+            modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
+            modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
+            modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
+            modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
+            modelo.menor = IniciativaLN.getIdEnfoqueMenor(inic);
+            modelo.usuario = UsuarioLN.EspecialistaMedida(modelo.iniciativa_mit.ID_MEDMIT);
+            modelo.revision = 0;
+            //if (modelo.menor == 0)
+            //{
+            //    modelo.menor = getMenorId(modelo.listaEnfoque);
+            //}
+            Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
+            return View(modelo);
+        }
+
         //public JsonResult ProcesarExcel(HttpPostedFileBase fledeclaracion, IndicadorBE entidad)
         public JsonResult ProcesarExcel(HttpPostedFileBase fledeclaracion, ParametroBE entidad)
         {

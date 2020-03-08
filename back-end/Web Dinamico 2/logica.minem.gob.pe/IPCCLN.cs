@@ -17,5 +17,37 @@ namespace logica.minem.gob.pe
         {
             return ipcc.ListaIPCCControl(entidad);
         }
+
+        public static List<IPCCBE> ListarIPCCPaginado(IPCCBE entidad)
+        {
+            if (string.IsNullOrEmpty(entidad.buscar)) entidad.buscar = "";
+            return ipcc.ListarIPCCPaginado(entidad);
+        }
+
+        public static List<IPCCBE> ListarIPCCExcel(IPCCBE entidad)
+        {
+            if (string.IsNullOrEmpty(entidad.buscar)) entidad.buscar = "";
+            return ipcc.ListarIPCCExcel(entidad);
+        }
+
+        public static IPCCBE GetIPCCPorId(IPCCBE entidad)
+        {
+            return ipcc.GetIPCCPorId(entidad);
+        }
+
+        public static IPCCBE RegistrarIPCC(IPCCBE entidad)
+        {
+            return ipcc.RegistrarIPCC(entidad);
+        }
+
+        public static IPCCBE ActualizarIPCC(IPCCBE entidad)
+        {
+            return ipcc.ActualizarIPCC(entidad);
+        }
+
+        public static IPCCBE EliminarIPCC(IPCCBE entidad)
+        {
+            return ipcc.EliminarIPCC(entidad);
+        }
     }
 }

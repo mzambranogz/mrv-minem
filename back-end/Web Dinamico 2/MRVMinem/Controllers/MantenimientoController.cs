@@ -901,6 +901,118 @@ namespace MRVMinem.Controllers
             return Respuesta(itemRespuesta);
         }
 
+        //////////////////////////////// MANTENIMIENTO IPCC
+
+        public ActionResult IPCC(IPCCBE entidad)
+        {
+            if (entidad.pagina == 0)
+            {
+                entidad = new IPCCBE() { cantidad_registros = 10, order_by = "ID_IPCC", order_orden = "ASC", pagina = 1, buscar = "" };
+            }
+            MvIPCC modelo = new MvIPCC();
+            modelo.listaIPCC = IPCCLN.ListarIPCCPaginado(entidad);
+            return View(modelo);
+        }
+
+        public JsonResult BuscarIPCC(IPCCBE entidad)
+        {
+            IPCCBE lista = IPCCLN.GetIPCCPorId(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListaIPCC(IPCCBE entidad)
+        {
+            List<IPCCBE> lista = IPCCLN.ListarIPCCPaginado(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult RegistrarIPCC(IPCCBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            if (entidad.FLAG_ESTADO == "1")
+            {
+                entidad = IPCCLN.RegistrarIPCC(entidad);
+            }
+            else
+            {
+                entidad = IPCCLN.ActualizarIPCC(entidad);
+            }
+            itemRespuesta.success = entidad.OK;
+            itemRespuesta.extra = entidad.extra;
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult EliminarIPCC(IPCCBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = IPCCLN.EliminarIPCC(entidad);
+            itemRespuesta.success = entidad.OK;
+            itemRespuesta.extra = entidad.extra;
+            return Respuesta(itemRespuesta);
+        }
+
+        //////////////////////////////// MANTENIMIENTO NAMA
+
+        public ActionResult Nama(NamaBE entidad)
+        {
+            if (entidad.pagina == 0)
+            {
+                entidad = new NamaBE() { cantidad_registros = 10, order_by = "ID_NAMA", order_orden = "ASC", pagina = 1, buscar = "" };
+            }
+            MvNama modelo = new MvNama();
+            modelo.listaNamas = NamaLN.ListarNamaPaginado(entidad);
+            return View(modelo);
+        }
+
+        public JsonResult BuscarNama(NamaBE entidad)
+        {
+            NamaBE lista = NamaLN.GetNamaPorId(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListaNama(NamaBE entidad)
+        {
+            List<NamaBE> lista = NamaLN.ListarNamaPaginado(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult RegistrarNama(NamaBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            if (entidad.FLG_ESTADO == "1")
+            {
+                entidad = NamaLN.RegistrarNama(entidad);
+            }
+            else
+            {
+                entidad = NamaLN.ActualizarNama(entidad);
+            }
+            itemRespuesta.success = entidad.OK;
+            itemRespuesta.extra = entidad.extra;
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult EliminarNama(NamaBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = NamaLN.EliminarNama(entidad);
+            itemRespuesta.success = entidad.OK;
+            itemRespuesta.extra = entidad.extra;
+            return Respuesta(itemRespuesta);
+        }
+
         /////////// exportar excel
 
         //================================================================== MANTENIMIENTO ENFOQUE FACTOR
@@ -1964,6 +2076,170 @@ namespace MRVMinem.Controllers
                 throw new Exception(ex.Message);
             }
         }
+
+        ////////////// EXPORTAR IPCC
+        public void ExportarMantenimientoIPCC(string item)
+        {
+            try
+            {
+                if (item != null)
+                {
+                    var entidad = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<IPCCBE>(item);
+                    ExportarToExcelMantenimientoIPCC(entidad);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+        }
+
+        public void ExportarToExcelMantenimientoIPCC(IPCCBE entidad)
+        {
+            List<IPCCBE> lista = null;
+            lista = IPCCLN.ListarIPCCExcel(entidad);
+
+            int row = 2;
+            try
+            {
+                string cadena_fecha = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+
+                using (ExcelPackage package = new ExcelPackage())
+                {
+                    var ws1 = package.Workbook.Worksheets.Add("LISTA IPCC");
+                    using (var m = ws1.Cells[1, 1, row, 2])
+                    {
+                        m.Style.Font.Bold = true;
+                        m.Style.WrapText = true;
+                        m.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        m.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        m.Style.Font.Size = 10;
+                        m.Merge = true;
+                        m.Value = "LISTA NAMA " + cadena_fecha;
+                    }
+                    ws1.View.FreezePanes(4, 1);
+                    row++;
+                    ws1.Cells["A" + row].Value = "N°";
+                    ws1.Cells["A" + row].AutoFitColumns(5);
+                    ws1.Cells["B" + row].Value = "IPCC";
+                    ws1.Cells["B" + row].AutoFitColumns(40);
+
+                    FormatoCelda(ws1, "A", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "B", row, 0, 123, 255, 255, 255, 255);
+                    ws1.Row(row).Height = 42;
+                    row++;
+                    if (lista.Count > 0)
+                    {
+                        var xNum = 0;
+                        foreach (IPCCBE dt_fila in lista)
+                        {
+                            xNum++;
+                            ws1.Cells["A" + row].Value = dt_fila.ID_IPCC;
+                            ws1.Cells["B" + row].Value = dt_fila.IPCC;
+                            formatoDetalle(ws1, "A", "B", row);
+                            row++;
+                        }
+                        row++;
+                    }
+
+                    string strFileName = "LISTA_IPCC_" + DateTime.Now.ToString() + ".xlsx";
+                    Response.Clear();
+                    byte[] dataByte = package.GetAsByteArray();
+                    Response.AddHeader("Content-Disposition", "inline;filename=\"" + strFileName + "\"");
+                    Response.AddHeader("Content-Length", dataByte.Length.ToString());
+                    Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                    Response.BinaryWrite(dataByte);
+                    Response.End();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        //============================================================================================================ 
+
+        ////////////// EXPORTAR NAMA
+        public void ExportarMantenimientoNama(string item)
+        {
+            try
+            {
+                if (item != null)
+                {
+                    var entidad = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<NamaBE>(item);
+                    ExportarToExcelMantenimientoNama(entidad);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+        }
+
+        public void ExportarToExcelMantenimientoNama(NamaBE entidad)
+        {
+            List<NamaBE> lista = null;
+            lista = NamaLN.ListarNamaExcel(entidad);
+
+            int row = 2;
+            try
+            {
+                string cadena_fecha = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+
+                using (ExcelPackage package = new ExcelPackage())
+                {
+                    var ws1 = package.Workbook.Worksheets.Add("LISTA NAMA");
+                    using (var m = ws1.Cells[1, 1, row, 2])
+                    {
+                        m.Style.Font.Bold = true;
+                        m.Style.WrapText = true;
+                        m.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        m.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        m.Style.Font.Size = 10;
+                        m.Merge = true;
+                        m.Value = "LISTA NAMA " + cadena_fecha;
+                    }
+                    ws1.View.FreezePanes(4, 1);
+                    row++;
+                    ws1.Cells["A" + row].Value = "N°";
+                    ws1.Cells["A" + row].AutoFitColumns(5);
+                    ws1.Cells["B" + row].Value = "NAMA";
+                    ws1.Cells["B" + row].AutoFitColumns(40);
+
+                    FormatoCelda(ws1, "A", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "B", row, 0, 123, 255, 255, 255, 255);
+                    ws1.Row(row).Height = 42;
+                    row++;
+                    if (lista.Count > 0)
+                    {
+                        var xNum = 0;
+                        foreach (NamaBE dt_fila in lista)
+                        {
+                            xNum++;
+                            ws1.Cells["A" + row].Value = dt_fila.ID_NAMA;
+                            ws1.Cells["B" + row].Value = dt_fila.DESCRIPCION_NAMA;
+                            formatoDetalle(ws1, "A", "B", row);
+                            row++;
+                        }
+                        row++;
+                    }
+
+                    string strFileName = "LISTA_NAMA_" + DateTime.Now.ToString() + ".xlsx";
+                    Response.Clear();
+                    byte[] dataByte = package.GetAsByteArray();
+                    Response.AddHeader("Content-Disposition", "inline;filename=\"" + strFileName + "\"");
+                    Response.AddHeader("Content-Length", dataByte.Length.ToString());
+                    Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                    Response.BinaryWrite(dataByte);
+                    Response.End();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        //============================================================================================================ 
 
         private void FormatoCelda(ExcelWorksheet ws1, string letra, int row, int color1, int color2, int color3, int fontc1, int fontc2, int fontc3)
         {

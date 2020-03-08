@@ -17,5 +17,37 @@ namespace logica.minem.gob.pe
         {
             return nama.ListaNamaControl(entidad);
         }
+
+        public static List<NamaBE> ListarNamaPaginado(NamaBE entidad)
+        {
+            if (string.IsNullOrEmpty(entidad.buscar)) entidad.buscar = "";
+            return nama.ListarNamaPaginado(entidad);
+        }
+
+        public static List<NamaBE> ListarNamaExcel(NamaBE entidad)
+        {
+            if (string.IsNullOrEmpty(entidad.buscar)) entidad.buscar = "";
+            return nama.ListarNamaExcel(entidad);
+        }
+
+        public static NamaBE GetNamaPorId(NamaBE entidad)
+        {
+            return nama.GetNamaPorId(entidad);
+        }
+
+        public static NamaBE RegistrarNama(NamaBE entidad)
+        {
+            return nama.RegistrarNama(entidad);
+        }
+
+        public static NamaBE ActualizarNama(NamaBE entidad)
+        {
+            return nama.ActualizarNama(entidad);
+        }
+
+        public static NamaBE EliminarNama(NamaBE entidad)
+        {
+            return nama.EliminarNama(entidad);
+        }
     }
 }
