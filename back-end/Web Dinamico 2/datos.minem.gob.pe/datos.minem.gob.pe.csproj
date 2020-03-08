@@ -75,6 +75,7 @@
     <Compile Include="OracleDynamicParameters.cs" />
     <Compile Include="ParametroDA.cs" />
     <Compile Include="ParametroIndicadorDA.cs" />
+    <Compile Include="PlazoDA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReporteDA.cs" />
     <Compile Include="RolDA.cs" />

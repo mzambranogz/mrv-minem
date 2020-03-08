@@ -182,6 +182,7 @@
     <Content Include="js\MantenimientoMedidaMitigacion.js" />
     <Content Include="js\MantenimientoMonedas.js" />
     <Content Include="js\MantenimientoNama.js" />
+    <Content Include="js\MantenimientoPlazo.js" />
     <Content Include="js\MantenimientoSector.js" />
     <Content Include="js\MantenimientoTablas.js" />
     <Content Include="js\MantenimientoUbicacion.js" />
@@ -238,6 +239,7 @@
     <Compile Include="Models\MvMoneda.cs" />
     <Compile Include="Models\MvNama.cs" />
     <Compile Include="Models\MvParametro.cs" />
+    <Compile Include="Models\MvPlazo.cs" />
     <Compile Include="Models\MvSector.cs" />
     <Compile Include="Models\MvSesion.cs" />
     <Compile Include="Models\MvUbicacion.cs" />
@@ -505,6 +507,7 @@
     <Content Include="Views\Detalle\CorregirDetalleIndicadorMasivo.cshtml" />
     <Content Include="Views\Mantenimiento\IPCC.cshtml" />
     <Content Include="Views\Mantenimiento\Nama.cshtml" />
+    <Content Include="Views\Mantenimiento\Plazo.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

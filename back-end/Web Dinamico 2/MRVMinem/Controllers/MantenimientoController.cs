@@ -1013,6 +1013,45 @@ namespace MRVMinem.Controllers
             return Respuesta(itemRespuesta);
         }
 
+        //////////////////////////////// MANTENIMIENTO PLAZO
+
+        public ActionResult Plazo(PlazoBE entidad)
+        {
+            if (entidad.pagina == 0)
+            {
+                entidad = new PlazoBE() { cantidad_registros = 10, order_by = "ID_PLAZO_ETAPA_ESTADO", order_orden = "ASC", pagina = 1, buscar = "" };
+            }
+            MvPlazo modelo = new MvPlazo();
+            modelo.listaPlazo = PlazoLN.ListarPlazoPaginado(entidad);
+            return View(modelo);
+        }
+
+        public JsonResult BuscarPlazo(PlazoBE entidad)
+        {
+            PlazoBE lista = PlazoLN.GetPlazoPorId(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListaPlazo(PlazoBE entidad)
+        {
+            List<PlazoBE> lista = PlazoLN.ListarPlazoPaginado(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult RegistrarPlazo(PlazoBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = PlazoLN.ActualizarPlazo(entidad);
+            itemRespuesta.success = entidad.OK;
+            itemRespuesta.extra = entidad.extra;
+            return Respuesta(itemRespuesta);
+        }
+
         /////////// exportar excel
 
         //================================================================== MANTENIMIENTO ENFOQUE FACTOR
@@ -2225,6 +2264,104 @@ namespace MRVMinem.Controllers
                     }
 
                     string strFileName = "LISTA_NAMA_" + DateTime.Now.ToString() + ".xlsx";
+                    Response.Clear();
+                    byte[] dataByte = package.GetAsByteArray();
+                    Response.AddHeader("Content-Disposition", "inline;filename=\"" + strFileName + "\"");
+                    Response.AddHeader("Content-Length", dataByte.Length.ToString());
+                    Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                    Response.BinaryWrite(dataByte);
+                    Response.End();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        //============================================================================================================ 
+
+        ////////////// EXPORTAR PLAZO
+        public void ExportarMantenimientoPlazo(string item)
+        {
+            try
+            {
+                if (item != null)
+                {
+                    var entidad = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<PlazoBE>(item);
+                    ExportarToExcelMantenimientoPlazo(entidad);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+        }
+
+        public void ExportarToExcelMantenimientoPlazo(PlazoBE entidad)
+        {
+            List<PlazoBE> lista = null;
+            lista = PlazoLN.ListarPlazoExcel(entidad);
+
+            int row = 2;
+            try
+            {
+                string cadena_fecha = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+
+                using (ExcelPackage package = new ExcelPackage())
+                {
+                    var ws1 = package.Workbook.Worksheets.Add("LISTA PLAZO");
+                    using (var m = ws1.Cells[1, 1, row, 6])
+                    {
+                        m.Style.Font.Bold = true;
+                        m.Style.WrapText = true;
+                        m.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        m.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        m.Style.Font.Size = 10;
+                        m.Merge = true;
+                        m.Value = "LISTA PLAZO " + cadena_fecha;
+                    }
+                    ws1.View.FreezePanes(4, 1);
+                    row++;
+                    ws1.Cells["A" + row].Value = "N°";
+                    ws1.Cells["A" + row].AutoFitColumns(5);
+                    ws1.Cells["B" + row].Value = "ETAPA";
+                    ws1.Cells["B" + row].AutoFitColumns(50);
+                    ws1.Cells["C" + row].Value = "ESTADO";
+                    ws1.Cells["C" + row].AutoFitColumns(40);
+                    ws1.Cells["D" + row].Value = "RESPONSABLE";
+                    ws1.Cells["D" + row].AutoFitColumns(40);
+                    ws1.Cells["E" + row].Value = "DESCRIPCIÓN";
+                    ws1.Cells["E" + row].AutoFitColumns(50);
+                    ws1.Cells["F" + row].Value = "PLAZO (DÍAS)";
+                    ws1.Cells["F" + row].AutoFitColumns(30);
+
+                    FormatoCelda(ws1, "A", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "B", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "C", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "D", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "E", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "F", row, 0, 123, 255, 255, 255, 255);
+                    ws1.Row(row).Height = 42;
+                    row++;
+                    if (lista.Count > 0)
+                    {
+                        var xNum = 0;
+                        foreach (PlazoBE dt_fila in lista)
+                        {
+                            xNum++;
+                            ws1.Cells["A" + row].Value = dt_fila.ID_PLAZO_ETAPA_ESTADO;
+                            ws1.Cells["B" + row].Value = dt_fila.ETAPA;
+                            ws1.Cells["C" + row].Value = dt_fila.ESTADO;
+                            ws1.Cells["D" + row].Value = dt_fila.DESCRIPCION_ROL;
+                            ws1.Cells["E" + row].Value = dt_fila.DESCRIPCION;
+                            ws1.Cells["F" + row].Value = dt_fila.PLAZO;
+                            formatoDetalle(ws1, "A", "F", row);
+                            row++;
+                        }
+                        row++;
+                    }
+
+                    string strFileName = "LISTA_PLAZO_" + DateTime.Now.ToString() + ".xlsx";
                     Response.Clear();
                     byte[] dataByte = package.GetAsByteArray();
                     Response.AddHeader("Content-Disposition", "inline;filename=\"" + strFileName + "\"");
