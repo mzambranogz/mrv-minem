@@ -715,5 +715,111 @@ namespace datos.minem.gob.pe
             return lista;
         }
 
+        public ParametroBE FactorParametroCuerpo(int parametro, int detalle)
+        {
+            ParametroBE obj = new ParametroBE();
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage3 + "USP_SEL_ID_PARAMETRO_DETALLE";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_PARAMETRO", parametro);
+                    p.Add("pID_DETALLE", detalle);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    obj = db.Query<ParametroBE>(sp, p, commandType: CommandType.StoredProcedure).First();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return obj;
+        }
+
+        public List<FactorParametroDataBE> ListarCuerpoFactor(FactorParametroDataBE entidad)
+        {
+            List<FactorParametroDataBE> listaData = new List<FactorParametroDataBE>();
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage3 + "USP_SEL_GET_FACTOR_DATA";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_FACTOR", entidad.ID_FACTOR);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    var lista = db.Query<FactorParametroDataBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in lista)
+                    {
+                        FactorParametroDataBE f = new FactorParametroDataBE();
+                        List<ParametroBE> listaD = new List<ParametroBE>();
+                        var param = item.ID_PARAMETRO.Split('|');
+                        var valores = item.VALOR.Split('|');
+                        for (int j = 0; j < valores.Length; j++)
+                        {
+                            if (Convert.ToInt32(param[j]) == 6)
+                            {
+                                ParametroBE obj = new ParametroBE();
+                                obj.NOMBRE_DETALLE = Convert.ToString(valores[j]);
+                                obj.VALOR = Convert.ToString(valores[j]);
+                                obj.ID_PARAMETRO = Convert.ToInt32(param[j]);
+                                obj.ID_DETALLE = item.ID_DETALLE;
+                                listaD.Add(obj);
+                            }
+                            else
+                            {
+                                var obj = FactorParametroCuerpo(Convert.ToInt32(param[j]), Convert.ToInt32(valores[j]));
+                                obj.VALOR = Convert.ToString(valores[j]);
+                                obj.ID_PARAMETRO = Convert.ToInt32(param[j]);
+                                obj.ID_DETALLE = item.ID_DETALLE;
+                                listaD.Add(obj);
+                            }
+                            
+                        }
+                        f.ID_DETALLE = item.ID_DETALLE;
+                        f.FACTOR = item.FACTOR;
+                        f.listaParametro = listaD;
+                        listaData.Add(f);
+                    }
+
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.extra = ex.Message;
+                entidad.OK = false;
+            }
+
+            return listaData;
+        }
+
+        public List<FactorBE> ListarFactoresVerificar(string factores)
+        {
+            List<FactorBE> lista = new List<FactorBE>();
+            try
+            {
+                var lista_id = factores.Split(',');
+                for (int i = 0; i < lista_id.Length; i++)
+                {
+                    FactorBE factor = new FactorBE();
+                    factor.ID_FACTOR = Convert.ToInt32(lista_id[i]);
+                    factor.ListaFactorParametro = listarCabeceraFactor(new FactorParametroBE { ID_FACTOR = Convert.ToInt32(lista_id[i])});
+                    factor.listaFactorData = ListarCuerpoFactor(new FactorParametroDataBE { ID_FACTOR = Convert.ToInt32(lista_id[i]) });
+                    lista.Add(factor);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return lista;
+        }
+
     }
 }

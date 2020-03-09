@@ -7,6 +7,7 @@
 @Html.HiddenFor(m => m.revision)
 @Html.HiddenFor(m => m.id_enfoques)
 @Html.HiddenFor(m => m.medida.ID_MEDMIT)
+@Html.HiddenFor(m => m.id_factores)
 @{
     var total_reducido = 0.0;
 }
@@ -360,8 +361,8 @@
                                 <div class="col-sm-12-col-md-12 col-lg-6">&nbsp;</div>
                             </div>
                         </div>
-                        <div class="container-fluid py-4">
-                            <div class="h5">Resumen de Detalles de Indicadores&nbsp;<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Complete los campos de acuerdo al enfoque seleccionado"></i></div>
+                        <div class="container-fluid">
+                            @*<div class="h5">Resumen del Detalle de Iniciativa de Mitigación&nbsp;<span class="text-danger font-weight-bold">&nbsp;</span></div>*@
                             <div class="dropdown-divider"></div>
                             <div class="row">
                                 <div class="col-12 px-0">
@@ -480,17 +481,15 @@
 
 
 
-                <div class="dropdown-divider"></div>
+                @*<div class="dropdown-divider"></div>
                 <div class="container pt-5">
                     <div class="row">
                         <div class="col-12">
-                            <div class="h5 pb-5 text-primary">Resumen@*<br><small class="text-muted">Este es el detalle de su detalle de indicadores</small>*@</div>
+                            <div class="h5 pb-5 text-primary">Resumen</div>
                         </div>
                     </div>
-                </div>
-                <div class="container">
-                    @*<div class="h5">Registro de Detalles&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></div>*@
-                    @*<div class="dropdown-divider"></div>*@
+                </div>*@
+                @*<div class="container">
                     <div class="row">
                         <div class="col-12">
                             <div class="table-responsive tabla-principal">
@@ -513,7 +512,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>*@
                 <div class="dropdown-divider"></div>
 
                 <div class="container py-5">
@@ -665,42 +664,178 @@
                         </div>
                         <div class="modal-body" id="contenido-verificar">
                             @*<div class="row">
-                                <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <img class="img-fluid" src="~/images/formula.jpg"><strong>*
-                                        <div class="badge badge-info">Factores: F1 <br></div>
-                                    </strong><strong>
-                                        <div class="badge badge-primary">Parámetros: P2 <br></div>
-                                    </strong><strong>
-                                        <div class="badge badge-warning">Resultado: 62.25 ktCOeq</div>
-                                    </strong>
-                                </div>
-                                <div class="col-sm-12 col-md-12 col-lg-12"></div>
-                            </div>*@
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <img class="img-fluid" src="~/images/formula.jpg"><strong>*
+                        <div class="badge badge-info">Factores: F1 <br></div>
+                    </strong><strong>
+                        <div class="badge badge-primary">Parámetros: P2 <br></div>
+                    </strong><strong>
+                        <div class="badge badge-warning">Resultado: 62.25 ktCOeq</div>
+                    </strong>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-12"></div>
+            </div>*@
 
+                            <!-- =======================================================  -->
+                            @{
+                                //var enfoque = Model.id_enfoques.Split(',');
+                            }
 
-                            <div class="row">
+                            @if (Model.listaIndData != null)
+                            {
+                                foreach (var itemD in Model.listaIndData)
+                                {
+                                    var parametros = "";
+                                    var formula = "";
+                                    var factor = "";
+                                    <div class="ocultar-verificar" id="contenido-@itemD.ID_ENFOQUE" hidden>
+                                        <div class="row">
+                                            <div><span><strong>ENFOQUE:&nbsp;</strong>@itemD.DESCRIPCION</span></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 px-0">
+                                                <div class="table-responsive tabla-principal tabla-recorrer tabla-detalle-indicadores-1" data-order="tbl-1">
+                                                    <table class="table table-hover" data-fila="0">
+                                                        <thead id="cabeceraTablaVerificar-@itemD.ID_ENFOQUE">
+                                                            <tr class="bg-primary text-white">
+                                                                <th class="text-center" scope="col"><span>N°</span></th>
+                                                                @foreach (var itemCab in itemD.listaParam)
+                                                                {
+                                                                    var columna = "0" + itemCab.ID_GRUPO_INDICADOR;
+                                                                    var descripcion = "";
+                                                                    if (string.IsNullOrEmpty(itemCab.COMBINACION_UNIDAD))
+                                                                    {
+                                                                        descripcion = itemCab.PREFIJO + itemCab.UNIDAD + itemCab.DESCRIPCION_UNIDAD;
+                                                                        if (string.IsNullOrEmpty(descripcion))
+                                                                        {
+                                                                            descripcion = "";
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            descripcion = "<span>(" + descripcion + ")</span>";
+                                                                        }
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        descripcion = "<span>(" + itemCab.COMBINACION_UNIDAD + ")</span>";
+                                                                    }
+                                                                    var param = "<div>[P" + itemCab.ID_PARAMETRO + "]</div>" + "<div><small> " + itemCab.NOMBRE_PARAMETRO + "</small></div>";
+                                                                    var param_li = "<span>[P" + itemCab.ID_PARAMETRO + "]</span>" + "<span><small> " + itemCab.NOMBRE_PARAMETRO + "</small></span>";
+                                                                    parametros += "<li>" + param_li + "</li>";
+                                                                    if (!(string.IsNullOrEmpty(itemCab.FORMULA)))
+                                                                    {
+                                                                        formula += "<li><div><span>[P" + itemCab.ID_PARAMETRO + "]</span>&nbsp;<span><small>" + itemCab.NOMBRE_PARAMETRO + "</small></span>:</div><div><span><small>" + itemCab.FORMULA + "</small></span></div></li>";
+                                                                    }
+                                                                    <th class="text-center grupo-columna-@columna" scope="col"><span>@Html.Raw(@param)</span>@Html.Raw(@descripcion)<small>@itemCab.DESCRIPCION_PARAMETRO</small></th>
+
+                                                                }
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="cuerpoTablaVerificar-@itemD.ID_ENFOQUE"></tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        @foreach (var itemF in itemD.listaFactor)
+                                        {
+                                            factor += "<li><span>[F" + itemF.ID_FACTOR + "]</span>&nbsp;<span><small>" + itemF.NOMBRE_FACTOR + "</small></span></li>";
+                                        }
+
+                                        <div class="row" id="paramVerificar-@itemD.ID_ENFOQUE">
+                                            <div class='col-sm-4 col-md-4 col-lg-4'>
+                                                <div><h5>PARÁMETROS:</h5></div><div>
+                                                    <ul style='list-style:none'>
+                                                        @Html.Raw(@parametros)
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                            <div class='col-sm-4 col-md-4 col-lg-4'>
+                                                <div><h5>FACTORES:</h5></div><div>
+                                                    <ul style='list-style:none'>
+                                                        @Html.Raw(@factor)
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                            <div class='col-sm-4 col-md-4 col-lg-4'>
+                                                <div><h5>FÓRMULAS:</h5></div><div>
+                                                    <ul style='list-style:none'>
+                                                        @Html.Raw(@formula)
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-2" id="tablasFactor-@itemD.ID_ENFOQUE">
+
+                                            @foreach (var itemF in itemD.listaFactor)
+                                            {
+                                                <div class="col-sm-4 col-md-4 col-lg-4">
+                                                    <h5>@itemF.NOMBRE_FACTOR</h5>
+                                                    <div class="row p-2">
+                                                        <div class="col-12 px-0">
+                                                            <div class="table-responsive tabla-principal">
+                                                                <table class="table table-hover">
+                                                                    <thead id="tablaCabeceraFactor-@itemF.ID_FACTOR-@itemD.ID_ENFOQUE" class="factor-cab-@itemF.ID_FACTOR"></thead>
+                                                                    <tbody id="cuerpoTablaFactor-@itemF.ID_FACTOR-@itemD.ID_ENFOQUE" class="factor-det-@itemF.ID_FACTOR"></tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+
+                                        </div>
+
+                                    </div>
+                                }
+                            }
+
+                            @*<div class="row">
                                 <div class="col-12 px-0">
-                                    <div class="table-responsive tabla-principal tabla-recorrer tabla-detalle-indicadores-1" data-order="tbl-1">
-                                        <table class="table table-hover" data-fila="0">
-                                            <thead id="cabeceraTablaVerificar"></thead>
-                                            <tbody></tbody>
+                                    <div class="table-responsive tabla-principal">
+                                        <table class="table table-hover">
+                                            <thead id="tablaCabeceraFactor-@itemF.ID_FACTOR-@itemD.ID_ENFOQUE" class="factor-cab-@itemF.ID_FACTOR"></thead>
+                                            <tbody id="cuerpoTablaFactor-@itemF.ID_FACTOR-@itemD.ID_ENFOQUE" class="factor-det-@itemF.ID_FACTOR"></tbody>
                                         </table>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row" id="paramVerificar">
-                            </div>
-                            <div class="row" id="tablasFactor">
-                            </div>
+                            </div>*@
+
+                                            @*@for (var i = 0; i < enfoque.Length; i++)
+                            {
 
 
+                            }*@
+
+
+
+                                            <!-- =======================================================  -->
+                                            <div class="row">
+                                                <div class="col-12 px-0">
+                                                    <div class="table-responsive tabla-principal tabla-recorrer tabla-detalle-indicadores-1" data-order="tbl-1">
+                                                        <table class="table table-hover" data-fila="0">
+                                                            <thead id="cabeceraTablaVerificar"></thead>
+                                                            <tbody></tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" id="paramVerificar">
+                                            </div>
+                                            <div class="row" id="tablasFactor">
+                                            </div>
+
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="modal-footer">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <div class="modal fade" id="aprobar-revision" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">

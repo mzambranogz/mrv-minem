@@ -191,6 +191,20 @@ namespace MRVMinem.Controllers
             modelo.revision = 1;
             Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
             Session["nombres_destino"] = modelo.usuario.NOMBRES;
+
+            string factores = "";
+            if (modelo.listaIndData.Count > 0)
+            {
+                List<int> id_factores = modelo.listaIndData[modelo.listaIndData.Count - 1].id_factores;
+
+                for (var i = 0; i < id_factores.Count; i++)
+                {
+                    factores += id_factores[i] + ",";
+                }
+                factores = factores.Substring(0, factores.Length - 1);
+                modelo.id_factores = factores;
+            }
+            
             return View(modelo);
         }
 
@@ -263,7 +277,7 @@ namespace MRVMinem.Controllers
             modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
             ida.ID_MEDMIT = modelo.iniciativa_mit.ID_MEDMIT;
             modelo.listaIndData = IndicadorLN.ListarDatosTablaDinamica(ida);
-
+            
             modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
             modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
             modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
@@ -271,6 +285,7 @@ namespace MRVMinem.Controllers
             modelo.revision = 1;
             Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
             Session["usuario_destino"] = modelo.usuario.ID_USUARIO;
+
             return View(modelo);
         }
 
@@ -1898,6 +1913,14 @@ namespace MRVMinem.Controllers
         public JsonResult ListarFormulasVerificar(FactorBE entidad)
         {
             List<FactorBE> lista = FactorLN.ListarFormulaVerificar(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListarFactoresVerificar(string ID_FACTORES)
+        {
+            List<FactorBE> lista = FactorLN.ListarFactoresVerificar(ID_FACTORES);
             var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;

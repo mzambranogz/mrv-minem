@@ -26,5 +26,6 @@ namespace entidad.minem.gob.pe
         public string UNIDAD { get; set; }
         public string PREFIJO { get; set; }
         public string COMBINACION_UNIDAD { get; set; }
+        public string NOMBRE_DETALLE { get; set; }
     }
 }

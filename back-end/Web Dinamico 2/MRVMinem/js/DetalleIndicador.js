@@ -3692,6 +3692,74 @@ function formatoMiles(n) { //add20
     return m.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
 }
 
+
+//=============================================================
+
+function fn_listarFactores() {
+    var item = {
+        ID_FACTORES: $("#id_factores").val()
+    }
+    $.ajax({
+        url: baseUrl + 'Gestion/ListarFactoresVerificar',
+        type: 'POST',
+        datatype: 'json',
+        data: item,
+        //async: false,
+        success: function (data) {
+            if (data != null && data != "") {
+                //$("#tablaCabeceraFactor-"+index).html("");
+                if (data.length > 0) {
+
+                    for (var i = 0; i < data.length; i++) {
+
+                        debugger;
+                        var cabecera = data[i]["ListaFactorParametro"];
+                        var tr = "";
+                        tr += '<tr class="bg-primary text-white">';
+                        tr += '     <th class="text-center" scope="col"><span>N°&nbsp;</span></th>';
+                        for (var j = 0; j < cabecera.length; j++){
+                            if (cabecera[j]["ID_PARAMETRO"] == 0)
+                                tr += '     <th class="text-center grupo-columna-03" scope="col"><span><span>' + cabecera[j]["NOMBRE_DETALLE"] + '</span><span></th>';
+                            else
+                                tr += '     <th class="text-center grupo-columna-03" scope="col"><div>[P' + cabecera[j]["ID_PARAMETRO"] + ']</div><div><small>' + cabecera[j]["NOMBRE_DETALLE"] + '</small></div></th>';
+                        }
+                        tr += '</tr>';
+                        $(".factor-cab-" + data[i]["ID_FACTOR"]).append(tr);
+
+                        //===============================================================
+
+                        var cuerpo = data[i]["listaFactorData"];
+                        var tr1 = "";
+                        for (var h = 0; h < cuerpo.length; h++){
+                            var detalle = cuerpo[h]["listaParametro"];
+                            tr1 += '<tr>';
+                            tr1 += '        <th class="text-center" data-encabezado="Número" scope="row">' + (h + 1) + '</th>';
+                            for (var m = 0; m < detalle.length; m++) {
+                                tr1 += '<td data-encabezado="Columna 04">';
+                                tr1 += '  <div class="input-group">';
+                                tr1 += '        <input class="form-control-plaintext form-control-sm text-center" type="text" placeholder="" value="' + detalle[m]["NOMBRE_DETALLE"] + '" readonly>';
+                                tr1 += '  </div>';
+                                tr1 += '</td>';
+                            }
+                            tr1 += '<td data-encabezado="Columna 04">';
+                            tr1 += '  <div class="input-group">';
+                            tr1 += '        <input class="form-control-plaintext form-control-sm text-center" type="text" placeholder="" value="' + cuerpo[h]["FACTOR"] + '" readonly>';
+                            tr1 += '  </div>';
+                            tr1 += '</td>';
+                            tr1 += '</tr>';
+                        }
+                        $(".factor-det-" + data[i]["ID_FACTOR"]).append(tr1);
+                    }
+
+                }
+            } else {
+            }
+        }
+    });
+}
+
+//========================================================================
+
 $(document).ready(function () {
 
     inicio();
@@ -3724,7 +3792,8 @@ $(document).ready(function () {
         //    armarVerificar(arr[i]);
         //}
         
-        
+        fn_listarFactores();
+
     } else {
         CargarDatosCabecera();
         CargarDatosGuardados();
@@ -4165,8 +4234,8 @@ function factoresVerificar(enfoque) {
                         var factor = "<span>[F" + data[i]["ID_FACTOR"] + "]</span>&nbsp;<span><small>" + data[i]["NOMBRE_FACTOR"] + "</small></span>";
                         factores += "<li>" + factor + "</li>"
                         $("#tablasFactor-"+ enfoque).append('<div class="col-sm-4 col-md-4 col-lg-4"><h5>' + data[i]["NOMBRE_FACTOR"] + '</h5><table><thead id="tablaCabeceraFactor-' + (i + 1) + '-' + enfoque + '"></thead><tbody id="cuerpoTablaFactor-' + (i + 1) + '-' + enfoque + '"></tbody></table></div>');
-                        CargarCabeceraDatos(data[i]["ID_FACTOR"], (i + 1), enfoque);
-                        CargarDatosGuardadosVerificar(data[i]["ID_FACTOR"], (i + 1), enfoque)
+                        //CargarCabeceraDatos(data[i]["ID_FACTOR"], (i + 1), enfoque);
+                        //CargarDatosGuardadosVerificar(data[i]["ID_FACTOR"], (i + 1), enfoque)
                     }
                     factores += "</ul></div></div>";
                     $("#paramVerificar-"+ enfoque).append(factores);

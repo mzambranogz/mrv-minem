@@ -24,9 +24,9 @@ function fn_seleccionarMedidaFactor(medida) {
                         tr += '     </small>';
                         tr += '         <input class="hidden-control field-ctrol" type="hidden" value="' + data[i]["NOMBRE_FACTOR"] + '">';
                         tr += '         <input class="hidden-control field-ctrol valor" type="hidden" data-delete="1" value="' + data[i]["ID_FACTOR"] + '">';
-                        tr += '     <div class="opciones">';
+                        //tr += '     <div class="opciones">';
                         tr += '         <i class="fas fa-minus-circle cursor-pointer m-2 delete-columna-detalle" data-toggle="tooltip"  onclick="eliminarFactor(' + data[i]["ID_FACTOR"] + ');"  data-placement="top" title="" data-original-title="Eliminar"></i>';
-                        tr += '     </div>';
+                        //tr += '     </div>';
                         tr += '</div>';
                         $("#filas-factor").append(tr);
                     }
@@ -326,7 +326,7 @@ function agregarFactor() {
         debugger;
         for (var i = 0; i < arr.length; i++) {
             if (arr[i] != valor) {
-                debugger;
+                //debugger;
                 factor_id += arr[i] + ",";
             } else {
                 reponer = 1
@@ -334,7 +334,7 @@ function agregarFactor() {
         }
         $("#factores-id").data("eliminar", factor_id);
     }
-
+    debugger;
     var tr = "";
     tr += '<div class="btn btn-secondary btn-sw w-100 d-flex flex-row align-items-center justify-content-between my-2 factor-div">';
     tr += '     <small class="badge badge-info">';
@@ -346,9 +346,9 @@ function agregarFactor() {
     } else {
         tr += '         <input class="hidden-control field-ctrol valor" data-delete="0" type="hidden" value="' + valor + '">';
     }    
-    tr += '     <div class="opciones">';
+    //tr += '     <div class="opciones">';
     tr += '         <i class="fas fa-minus-circle cursor-pointer m-2 delete-columna-detalle" data-toggle="tooltip"  onclick="eliminarFactor(' + valor + ');"  data-placement="top" title="" data-original-title="Eliminar"></i>';
-    tr += '     </div>';
+    //tr += '     </div>';
     tr += '</div>';
     $("#filas-factor").append(tr);  
 }

@@ -20,13 +20,13 @@ function fn_seleccionarMedidaFactor(medida) {
                         var tr = "";
                         tr += '<div class="btn btn-secondary btn-sw w-100 d-flex flex-row align-items-center justify-content-between my-2 factor-div">';
                         tr += '     <small class="badge badge-info">';
-                        tr += '         <i class="fas fa-list"></i>' + data[i]["NOMBRE_FACTOR"];
+                        tr += '         <i class="fas fa-list"></i> [F' + data[i]["ID_FACTOR"] + '] ' + data[i]["NOMBRE_FACTOR"];
                         tr += '     </small>';
                         tr += '         <input class="hidden-control field-ctrol" type="hidden" value="' + data[i]["NOMBRE_FACTOR"] + '">';
                         tr += '         <input class="hidden-control field-ctrol valor" type="hidden" data-delete="1" value="' + data[i]["ID_FACTOR"] + '">';
-                        tr += '     <div class="opciones">';
+                        //tr += '     <div class="opciones">';
                         tr += '         <i class="fas fa-minus-circle cursor-pointer m-2 delete-columna-detalle" data-toggle="tooltip"  onclick="eliminarFactor(' + data[i]["ID_FACTOR"] + ');"  data-placement="top" title="" data-original-title="Eliminar"></i>';
-                        tr += '     </div>';
+                        //tr += '     </div>';
                         tr += '</div>';
                         $("#filas-factor").append(tr);
                     }
@@ -329,7 +329,7 @@ function agregarFactor() {
         debugger;
         for (var i = 0; i < arr.length; i++) {
             if (arr[i] != valor) {
-                debugger;
+                //debugger;
                 factor_id += arr[i] + ",";
             } else {
                 reponer = 1
@@ -349,11 +349,12 @@ function agregarFactor() {
     } else {
         tr += '         <input class="hidden-control field-ctrol valor" data-delete="0" type="hidden" value="' + valor + '">';
     }
-    tr += '     <div class="opciones">';
+    //tr += '     <div class="opciones">';
     tr += '         <i class="fas fa-minus-circle cursor-pointer m-2 delete-columna-detalle" data-toggle="tooltip"  onclick="eliminarFactor(' + valor + ');"  data-placement="top" title="" data-original-title="Eliminar"></i>';
-    tr += '     </div>';
+    //tr += '     </div>';
     tr += '</div>';
     $("#filas-factor").append(tr);
+    $("#cbo-factores").val(0);
 }
 
 function eliminarFactor(id) {
@@ -506,7 +507,7 @@ function cargarTablaMedidaFactor() {
                             tr += '            <div class="btn-group">';
                             tr += '                <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
                             tr += '                <div class="dropdown-menu dropdown-menu-right">';
-                            tr += '                    <a class="dropdown-item" href="#" onclick="fn_seleccionarMedidaFactor(' + data[i]["ID_MEDMIT"] + ')" data-toggle="modal" data-target="#modal-medida-de-mitigacion"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
+                            tr += '                    <a class="dropdown-item" href="#" onclick="fn_seleccionarMedidaFactor(' + data[i]["ID_ENFOQUE"] + ')" data-toggle="modal" data-target="#modal-medida-de-mitigacion"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
                             //tr += '                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion"><i class="fas fa-trash"></i>&nbsp;Eliminar</a>';
                             tr += '                </div>';
                             tr += '            </div>';

@@ -99,10 +99,10 @@ function fn_mostrarEditarIniciativa(ini) {
 }
 
 function fn_mostrarCorregirIndicador(id, id_tipo) {
-    if (id_tipo) {
+    if (id_tipo == 1) {
         location.href = baseUrl + "Gestion/CorregirDetalleIndicador/" + id + "/" + Math.round(Math.random() * 100);
     } else {
-        location.href = baseUrl + "Detalle/DetalleIndicadorMasivo/" + id + "/" + Math.round(Math.random() * 100);
+        location.href = baseUrl + "Detalle/CorregirDetalleIndicadorMasivo/" + id + "/" + Math.round(Math.random() * 100);
     }    
 }
 

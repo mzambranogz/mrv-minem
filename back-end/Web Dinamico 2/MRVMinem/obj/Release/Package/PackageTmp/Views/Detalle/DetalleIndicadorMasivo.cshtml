@@ -204,18 +204,18 @@
                                         </div>
                                         @if (Model.iniciativa_mit.FECHA_FIN == "01/01/0001")
                                         {
-                                            @*<input class="form-control-plaintext" type="text" id="txt-fecha-fin" aria-describedby="inputGroup12" value="" readonly>*@
+                                        @*<input class="form-control-plaintext" type="text" id="txt-fecha-fin" aria-describedby="inputGroup12" value="" readonly>*@
                                         }
                                         else
                                         {
-                                            <div class="form-group">
-                                                <label class="font-weight-bold" for="txt-fecha-fin">Fecha de finalización del proyecto<span class="text-danger font-weight-bold">&nbsp;</span></label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup12"><i class="fas fa-calendar-alt"></i></span></div>
-                                                    <input class="form-control-plaintext" type="text" id="txt-fecha-fin" aria-describedby="inputGroup12" value="@Model.iniciativa_mit.FECHA_FIN" readonly>
+                                        <div class="form-group">
+                                            <label class="font-weight-bold" for="txt-fecha-fin">Fecha de finalización del proyecto<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup12"><i class="fas fa-calendar-alt"></i></span></div>
+                                                <input class="form-control-plaintext" type="text" id="txt-fecha-fin" aria-describedby="inputGroup12" value="@Model.iniciativa_mit.FECHA_FIN" readonly>
 
-                                                </div>
                                             </div>
+                                        </div>
                                         }
                                     </div>
                                 </div>
@@ -271,11 +271,11 @@
                                                         {
                                                             if (Model.menor == item.ID_ENFOQUE)
                                                             {
-                                                                <option selected value="@item.ID_ENFOQUE">@item.DESCRIPCION</option>
+                                                    <option selected value="@item.ID_ENFOQUE">@item.DESCRIPCION</option>
                                                             }
                                                             else
                                                             {
-                                                                <option value="@item.ID_ENFOQUE">@item.DESCRIPCION</option>
+                                                    <option value="@item.ID_ENFOQUE">@item.DESCRIPCION</option>
                                                             }
 
                                                         }
@@ -283,7 +283,7 @@
                                                     @*<option selected value="1">Vehículo Eléctrico</option>
                                                     <option value="2">Vehículo Híbrido</option>*@
                                                     @*<option>Enfoque 03</option>
-                                                        <option>Enfoque 04</option>*@
+                                                    <option>Enfoque 04</option>*@
                                                 </select>
                                             </div>
                                         </div>
@@ -294,7 +294,7 @@
                                             <div id="ruta-masivo">
                                                 <label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="~/documentos/4.1 Plantilla_Electricos_Masivo.xlsm" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>
                                             </div>
-                                            
+
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup13"><i class="fas fa-file-excel"></i></span></div>
                                                 <input class="form-control cursor-pointer txt-file-control" type="text" id="txt-declaracion" placeholder="Suba su plantilla" aria-describedby="inputGroup13" required>
@@ -331,9 +331,9 @@
                                                         <th class="text-hide" scope="col" style="display:none;">Id. Iniciativa</th>
                                                     </tr>*@
                                                 </thead>
-                                                <tbody id="cuerpoTablaIndicador" data-row="0" data-total="0" data-delete="", data-flag="0"></tbody> <!-- add id delete-->
+                                                <tbody id="cuerpoTablaIndicador" data-row="0" data-total="0" data-delete="" , data-flag="0"></tbody> <!-- add id delete-->
                                             </table>
-                                        </div>                                        
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -364,12 +364,11 @@
                             </div>
 
                             <!--         -->
-
-                            <div class="container py-4">
+                            @*<div class="container py-4">
                                 <div class="row">
                                     <div class="col-12 text-center"><a href="#" target="_blank"><img src="~/images/sello.svg" width="180" data-toggle="tooltip" data-placement="top" title="Ir a la web del sello"></a></div>
                                 </div>
-                            </div>
+                            </div>*@
 
                             <!--         -->
 
@@ -397,16 +396,16 @@
                                     </div>
                                     <div class="col-sm-12-col-md-12 col-lg-6">
                                         <div class="form-group" @*id="archivos-documentos"*@>
-                                        @{
+                                            @{
                                             var total = 0;
                                             if (Model.iniciativa_mit.ListaSustentos != null)
                                             {
                                                 total = Model.iniciativa_mit.ListaSustentos.Count();
                                             }
-                                        }
-                                        <label>Archivos adjuntos: <span id="total-documentos" data-cantidad="@total" data-eliminarfile="">@total</span> en total</label>
-                                        <div id="archivos-guardados">
-                                        @{
+                                            }
+                                            <label>Archivos adjuntos: <span id="total-documentos" data-cantidad="@total" data-eliminarfile="">@total</span> en total</label>
+                                            <div id="archivos-guardados">
+                                                @{
                                             if (Model.iniciativa_mit.ListaSustentos != null)
                                             {
                                                 var extension = "fa-file-word";
@@ -450,19 +449,19 @@
                                                         }
                                                     }
 
-                                                    <div class="input-group mb-3" id="eliminar-@item.ID_INICIATIVA_SUSTENTATORIO">
-                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="fas @extension"></i></span></div><span class="form-control-plaintext">@item.ADJUNTO_BASE</span>
-                                                        <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="far fa-trash-alt" onclick="fn_eliminarArchivo(@item.ID_INICIATIVA_SUSTENTATORIO)"></i></span></div>
-                                                    </div>
+                                            <div class="input-group mb-3" id="eliminar-@item.ID_INICIATIVA_SUSTENTATORIO">
+                                                <div class="input-group-prepend"><span class="input-group-text"><i class="fas @extension"></i></span></div><span class="form-control-plaintext">@item.ADJUNTO_BASE</span>
+                                                <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="far fa-trash-alt" onclick="fn_eliminarArchivo(@item.ID_INICIATIVA_SUSTENTATORIO)"></i></span></div>
+                                            </div>
                                                 }
                                             }
-                                        }
-                                        </div>
-                                        <div id="archivos-documentos"></div>
+                                                }
+                                            </div>
+                                            <div id="archivos-documentos"></div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="dropdown-divider my-5"></div>
+                                @*<div class="dropdown-divider my-5"></div>
                                 <div class="row">
                                     <div class="col-sm-12 col-md-12 col-lg-6"><span class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Todos los campos son obligatorios</span></div>
                                     <div class="col-sm-12 col-md-12 col-lg-6 text-right">
@@ -470,6 +469,21 @@
                                             <div class="col-lg-6"><a class="btn btn-dark px-5 w-100 nav-tab text-center mb-3" href="#" dest="1"><i class="fas fa-arrow-left pr-1"></i>Anterior</a></div>
                                             <div class="col-lg-6"><a class="btn btn-primary px-5 w-100 nav-tab text-center" href="#" data-toggle="modal" data-target="#solicitar-revision">Enviar<i class="fas fa-paper-plane px-1"></i></a></div>
                                         </div>
+                                    </div>
+                                </div>*@
+                            </div>
+
+                        </div>
+
+                        <div class="container py-5">
+                            <div class="alert alert-info" role="alert"><i class="fas fa-info-circle">&nbsp;</i>Una vez aprobado su iniciativa podrá postular al sistema del <b>Sello Energía Sostenible</b></div>
+                            <div class="dropdown-divider my-5"></div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-6"><span class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Todos los campos son obligatorios</span></div>
+                                <div class="col-sm-12 col-md-12 col-lg-6 text-right">
+                                    <div class="row justify-content-end">
+                                        <div class="col-lg-6"><a class="btn btn-dark px-5 w-100 nav-tab text-center mb-3" href="#" dest="1"><i class="fas fa-arrow-left pr-1"></i>Anterior</a></div>
+                                        <div class="col-lg-6"><a class="btn btn-primary px-5 w-100 nav-tab text-center" href="#" data-toggle="modal" data-target="#solicitar-revision">Enviar<i class="fas fa-paper-plane px-1"></i></a></div>
                                     </div>
                                 </div>
                             </div>
@@ -523,8 +537,7 @@
                             </div>
                         </div>*@
                         @*<div class="tab-pane fade" id="pills-04" role="tabpanel" aria-labelledby="pills-04-tab">*@
-                            
-                        </div>
+
                     </div>
                 </div>
 
@@ -608,13 +621,37 @@
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <div id="mensajeSuccess" hidden>
+
+                                            <div class="alert alert-success d-flex align-items-stretch" role="alert">
+                                                <div class="alert-wrap mr-3">
+                                                    <div class="sa">
+                                                        <div class="sa-success">
+                                                            <div class="sa-success-tip"></div>
+                                                            <div class="sa-success-long"></div>
+                                                            <div class="sa-success-placeholder"></div>
+                                                            <div class="sa-success-fix"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="alert-wrap">
+                                                    <h6>Felicitaciones</h6>
+                                                    <hr>
+                                                    <a class="float-right" href="#" target="_blank"><img src="~/images/sello_new.svg" width="120" data-toggle="tooltip" data-placement="top" title="Ir a la web del sello"></a>
+                                                    <small class="mb-0">Usted ha completado el envío de detalle de su iniciativa de mitigación que será verificada por uno de nuestros especialistas. También, le recordamos que puede ingresar a nuestra plataforma del <b>Sello de Energía Sostenible</b></small>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
                                     </div>
-                                    
+
                                 </div>
                             </div>
                             <div class="modal-footer" id="modalRegistrarBoton">
                                 <button class="btn btn-primary" type="button" onclick="fn_guardarDetalleIndicador();">Si, grabar</button>
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">No, cancelar</button>                              
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">No, cancelar</button>
                             </div>
                             <div class="modal-footer" id="pieCorrecto">
                                 <!-- add 04-02-2020 -->
@@ -622,7 +659,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
                 <div class="modal fade" id="guardar-avance" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -638,26 +675,26 @@
                                         <p class="text-center">Los datos ingresados serán almacenados temporalmente y podrán ser regularizados al editar su iniciativa.</p>
                                     </div>
                                     @*<div class="col-sm-12 col-md-12 col-lg-12">
-                                <div class="alert alert-warning d-flex align-items-stretch" role="alert">
-                                    <div class="alert-wrap mr-3">
-                                        <div class="sa">
-                                            <div class="sa-warning">
-                                                <div class="sa-warning-body"></div>
-                                                <div class="sa-warning-dot"></div>
+                                        <div class="alert alert-warning d-flex align-items-stretch" role="alert">
+                                            <div class="alert-wrap mr-3">
+                                                <div class="sa">
+                                                    <div class="sa-warning">
+                                                        <div class="sa-warning-body"></div>
+                                                        <div class="sa-warning-dot"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="alert-wrap">
+                                                <h6>Sus avances fueron guardados</h6>
+                                                <hr>Recuerde, podrá solicitar una revisión una vez complete todos los campos obligatorios.
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="alert-wrap">
-                                        <h6>Sus avances fueron guardados</h6>
-                                        <hr>Recuerde, podrá solicitar una revisión una vez complete todos los campos obligatorios.
-                                    </div>
-                                </div>
-                            </div>*@
+                                    </div>*@
                                 </div>
                             </div>
                             <div class="modal-footer" id="modalAvanceBoton">
                                 <button class="btn btn-primary" type="button" onclick="fn_guardarAvances();">Si, grabar</button>
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">No, cancelar</button>                                
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">No, cancelar</button>
                             </div>
                             <div class="modal-footer" id="pieCorrectoAvance">
                                 <!-- add 04-02-2020 -->
