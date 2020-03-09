@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - sábado-marzo-07-2020   
+-- Archivo creado  - lunes-marzo-09-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_INICIATIVA_MITIGACION
@@ -857,7 +857,7 @@ END PKG_MRV_INICIATIVA_MITIGACION;
         pRefcursor  OUT SYS_REFCURSOR
    );
 
-    PROCEDURE USP_UPD_NAMA(
+    /*PROCEDURE USP_UPD_NAMA(
        pID_NAMA IN NUMBER,
         pDescripcion_nama  in varchar2
    );
@@ -871,7 +871,7 @@ END PKG_MRV_INICIATIVA_MITIGACION;
         pID_NAMA IN NUMBER,
         pDescripcion_nama  in varchar2,
         pRefcursor OUT SYS_REFCURSOR
-    );
+    );*/
 
    PROCEDURE USP_GET_ROL(
         pIdRol    number,
@@ -1582,6 +1582,114 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
     PROCEDURE USP_SEL_LISTA_TIPO_INICIATIVA(
         pRefcursor  OUT SYS_REFCURSOR
     );
+    
+    --============================================== 08-03-2020
+    PROCEDURE USP_INS_IPCC(
+        pIPCC IN VARCHAR2,
+        pID_IPCC    OUT NUMBER
+    );
+
+    PROCEDURE USP_UPD_IPCC(
+        pID_IPCC IN NUMBER,
+        pIPCC  IN VARCHAR2
+   );
+
+   PROCEDURE USP_DEL_IPCC(
+       pID_IPCC IN NUMBER
+   );
+
+    PROCEDURE USP_GET_IPCC(
+        pID_IPCC IN NUMBER,
+        pRefcursor  OUT SYS_REFCURSOR
+   );
+
+   PROCEDURE USP_SEL_BUSCAR_IPCC(
+        pBuscar     IN VARCHAR2,
+        pRegistros  INTEGER,
+        pPagina     INTEGER,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+
+    PROCEDURE USP_SEL_EXCEL_IPCC(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+    
+    PROCEDURE USP_INS_NAMA(
+        pDESCRIPCION_NAMA IN VARCHAR2,
+        pID_NAMA    OUT NUMBER
+    );
+
+    PROCEDURE USP_UPD_NAMA(
+        pID_NAMA IN NUMBER,
+        pDESCRIPCION_NAMA  IN VARCHAR2
+   );
+
+   PROCEDURE USP_DEL_NAMA(
+       pID_NAMA IN NUMBER
+   );
+
+    PROCEDURE USP_GET_NAMA(
+        pID_NAMA IN NUMBER,
+        pRefcursor  OUT SYS_REFCURSOR
+   );
+
+   PROCEDURE USP_SEL_BUSCAR_NAMA(
+        pBuscar     IN VARCHAR2,
+        pRegistros  INTEGER,
+        pPagina     INTEGER,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+
+    PROCEDURE USP_SEL_EXCEL_NAMA(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+    
+    --
+    PROCEDURE USP_UPD_PLAZO(
+        pID_PLAZO_ETAPA_ESTADO IN NUMBER,
+        pETAPA  IN VARCHAR2,
+        pESTADO  IN VARCHAR2,
+        pDESCRIPCION  IN VARCHAR2,
+        pPLAZO  IN NUMBER
+   );
+
+    PROCEDURE USP_GET_PLAZO(
+        pID_PLAZO_ETAPA_ESTADO IN NUMBER,
+        pRefcursor  OUT SYS_REFCURSOR
+   );
+
+   PROCEDURE USP_SEL_BUSCAR_PLAZO(
+        pBuscar     IN VARCHAR2,
+        pRegistros  INTEGER,
+        pPagina     INTEGER,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+
+    PROCEDURE USP_SEL_EXCEL_PLAZO(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+    
+    --======================================= 09-03-20
+    PROCEDURE USP_SEL_ID_PARAMETRO_DETALLE(
+        pID_PARAMETRO IN NUMBER,
+        pID_DETALLE IN NUMBER,
+        pRefcursor      OUT SYS_REFCURSOR
+   );
 
 END PKG_MRV_MANTENIMIENTO;
 
@@ -1713,201 +1821,6 @@ end PKG_MRV_NOTIFICACION;
         PO_CURSOR OUT SYS_REFCURSOR
     );
 end PKG_MRV_PARAMETROS;
-
-/
---------------------------------------------------------
---  DDL for Package PKG_MRV_REPORTES
---------------------------------------------------------
-
-  CREATE OR REPLACE PACKAGE "MRVMM"."PKG_MRV_REPORTES" AS 
-
-  PROCEDURE SP_SEL_ESCENARIOS_RPT(
-        pIdMedMit   integer,
-        pCursor out SYS_REFCURSOR
-  );
-  
-  PROCEDURE SP_SEL_INICIATIVAS_RPT(
-        pIdIniciativa   integer,
-        pIdSector integer,
-        pIdMedida integer,
-        pCursor out SYS_REFCURSOR
-  );
-  
-  PROCEDURE SP_SEL_INSTITUCIONES_RPT(
-        pIdMedMit       integer,
-        pIdSectorInst   integer,
-        pCursor out SYS_REFCURSOR
-  );
-
-  PROCEDURE SP_SEL_MEDMIT_RPT(
-        pIdMedMit   integer,
-        pCursor out SYS_REFCURSOR
-  );
-
-  PROCEDURE USP_SEL_SEGUIMIENTO_INICIATIVA(
-    pID_INICIATIVA IN NUMBER,
-    pRefCursor out SYS_REFCURSOR
-  );
-
-
-  PROCEDURE USP_SEL_BUS_AVAN_PUB(
-	pNOMBRE_MEDMIT	IN NUMBER,
-	pFECHA_INICIO	IN NUMBER,
-    pSECTOR		    IN NUMBER,
-	pENERGBASE	    IN NUMBER,
-	pENERGPROYEC	IN NUMBER,
-    pRefcursor  OUT SYS_REFCURSOR
-    );
-
-
-    PROCEDURE USP_SEL_BUS_SIMP_PUB(
-    pBuscar	IN VARCHAR2,
-    pRefcursor  OUT SYS_REFCURSOR
-    );
-
-    PROCEDURE USP_SEL_BUS_AVAN_PRI_USU(
-	pID_USUARIO	    IN NUMBER,
-    pNOMBRE_MEDMIT	IN NUMBER,
-	pFECHA_INICIO	IN NUMBER,
-    pSECTOR		    IN NUMBER,
-	pENERGBASE	    IN NUMBER,
-	pENERGPROYEC	IN NUMBER,
-	pRefcursor      OUT SYS_REFCURSOR
-    );
-
-    PROCEDURE USP_SEL_BUS_SIMP_PRI_USU(
-    pBUSCAR	    IN VARCHAR2,
-    pIDUSUARIO	IN NUMBER,
-    pRefcursor  OUT SYS_REFCURSOR
-    );
-
-
-    PROCEDURE USP_SEL_BUS_AVAN_PRI_ESP(
-    pID_USUARIO	    IN NUMBER,
-    pNOMBRE_MEDMIT	IN NUMBER,
-    pFECHA_INICIO	IN NUMBER,
-    pSECTOR		    IN NUMBER,
-    pENERGBASE	    IN NUMBER,
-    pENERGPROYEC	IN NUMBER,
-    pRefcursor      OUT SYS_REFCURSOR
-    );
-
-    PROCEDURE USP_SEL_BUS_SIMP_PRI_ESP(
-    pBUSCAR	IN VARCHAR2,
-    pIDUSUARIO	IN NUMBER,
-    pRefcursor  OUT SYS_REFCURSOR
-    );
-
-    PROCEDURE USP_SEL_BUS_AVAN_PRI_AMIN(
-    pID_USUARIO	    IN NUMBER,
-    pNOMBRE_MEDMIT	IN NUMBER,
-    pFECHA_INICIO	IN NUMBER,
-    pSECTOR		    IN NUMBER,
-    pENERGBASE	    IN NUMBER,
-    pENERGPROYEC	IN NUMBER,
-    pRefcursor      OUT SYS_REFCURSOR
-    );
-
-    PROCEDURE USP_SEL_BUS_SIMP_PRI_AMIN(
-    pBUSCAR	        IN VARCHAR2,
-    pIDUSUARIO	    IN NUMBER,
-    pRefcursor      OUT SYS_REFCURSOR
-    );
-
-    PROCEDURE USP_SEL_BUS_AVAN_PRI_EMRV(
-    pID_USUARIO	    IN NUMBER,
-    pNOMBRE_MEDMIT	IN NUMBER,
-    pFECHA_INICIO	IN NUMBER,
-    pSECTOR		    IN NUMBER,
-    pENERGBASE	    IN NUMBER,
-    pENERGPROYEC	IN NUMBER,
-    pRefcursor      OUT SYS_REFCURSOR
-    );
-
-    PROCEDURE USP_SEL_BUS_SIMP_PRI_EMRV(
-    pBUSCAR	        IN VARCHAR2,
-    pIDUSUARIO	    IN NUMBER,
-    pRefcursor      OUT SYS_REFCURSOR
-    );
-
-    PROCEDURE USP_SEL_BUS_AVAN_PRI_PUBL(
-    pID_USUARIO	    IN NUMBER,
-    pNOMBRE_MEDMIT	IN NUMBER,
-    pFECHA_INICIO	IN NUMBER,
-    pSECTOR		    IN NUMBER,
-    pENERGBASE	    IN NUMBER,
-    pENERGPROYEC	IN NUMBER,
-    pRefcursor      OUT SYS_REFCURSOR
-    );
-
-    PROCEDURE USP_SEL_BUS_SIMP_PRI_PUBL(
-    pBUSCAR	        IN VARCHAR2,
-    pIDUSUARIO	    IN NUMBER,
-    pRefcursor      OUT SYS_REFCURSOR
-    );
-    
-    --///////////////////////////////////////21-02-20
-    PROCEDURE USP_SEL_SECTORES(
-        pRefcursor OUT SYS_REFCURSOR  
-    );
-    
-    PROCEDURE USP_SEL_MED_SECTOR(
-        pID_MEDMIT IN NUMBER,
-        --pID_SECTOR_INST IN NUMBER,
-        pRefcursor OUT SYS_REFCURSOR
-    );
-    
-    PROCEDURE USP_SEL_ANNO(
-        pANNO IN NUMBER,
-        pRefcursor OUT SYS_REFCURSOR
-    );
-    
-    PROCEDURE USP_SEL_INI_MED_ANNO_SEC(
-        pID_MEDMIT IN NUMBER,
-        pID_SECTOR_INST IN NUMBER,
-        pANNO IN NUMBER,
-        pRefcursor OUT SYS_REFCURSOR
-    );
-    
-    PROCEDURE USP_SEL_INI_SECTOR(
-        --pID_SECTOR_INST IN NUMBER,
-        pID_MEDMIT IN NUMBER,
-        pRefcursor OUT SYS_REFCURSOR
-    );
-    
-    PROCEDURE USP_SEL_CANT_INSTITUCION_MED(
-        pID_MEDMIT IN NUMBER,
-        pRefcursor OUT SYS_REFCURSOR
-    );
-    
-    PROCEDURE USP_SEL_CANT_REGION_MED(
-        pID_MEDMIT IN NUMBER,
-        pRefcursor OUT SYS_REFCURSOR
-    );
-    
-    PROCEDURE USP_SEL_TOTAL_GEI_MED(
-        pID_MEDMIT IN NUMBER,
-        pRefcursor OUT SYS_REFCURSOR
-    );
-    
-    --==================================
-    PROCEDURE USP_SEL_INI_MED_ANNO(
-        pID_MEDMIT IN NUMBER,
-        pANNO IN NUMBER,
-        pRefcursor OUT SYS_REFCURSOR
-    );
-    
-    PROCEDURE USP_SEL_TOTALES_MED(
-        pID_MEDMIT IN NUMBER,
-        pRefcursor OUT SYS_REFCURSOR
-    );
-    
-    PROCEDURE USP_SEL_MOSTRAR_GEI_MED(
-        pANNO IN NUMBER,
-        pRefcursor OUT SYS_REFCURSOR
-    );
-
-END PKG_MRV_REPORTES;
 
 /
 --------------------------------------------------------
@@ -7147,7 +7060,7 @@ END PKG_MRV_INICIATIVA_MITIGACION;
 
 
 
-    PROCEDURE USP_UPD_NAMA(                  
+    /*PROCEDURE USP_UPD_NAMA(                  
         pID_NAMA IN NUMBER,
         pDescripcion_nama in varchar2
    )AS
@@ -7184,7 +7097,7 @@ END PKG_MRV_INICIATIVA_MITIGACION;
         OPEN pRefcursor FOR
         SELECT MAX(ID_NAMA) ID_NAMA FROM T_MAE_NAMA;
 
-    END USP_INS_NAMA;
+    END USP_INS_NAMA;*/
 
 
    PROCEDURE USP_GET_ROL(
@@ -9780,6 +9693,405 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
         WHERE   FLAG_ESTADO = '1'
         ORDER BY    ID_TIPO_INICIATIVA;
     END USP_SEL_LISTA_TIPO_INICIATIVA;
+    
+    --=============================================== 08-03-2020
+    PROCEDURE USP_INS_IPCC(
+        pIPCC IN VARCHAR2,
+        pID_IPCC    OUT NUMBER
+    )AS
+    BEGIN
+        SELECT NVL(MAX(ID_IPCC),0) + 1 INTO pID_IPCC FROM T_MAE_IPCC;
+
+        INSERT INTO T_MAE_IPCC(ID_IPCC, IPCC, FLAG_ESTADO )
+        VALUES (pID_IPCC, pIPCC, 1);
+
+    END USP_INS_IPCC;
+
+
+    PROCEDURE USP_UPD_IPCC(                 
+        pID_IPCC IN NUMBER,
+        pIPCC in varchar2
+   )AS
+     BEGIN
+             UPDATE T_MAE_IPCC
+             SET IPCC = pIPCC
+             where ID_IPCC = pID_IPCC;
+
+
+    END USP_UPD_IPCC;
+
+	PROCEDURE USP_DEL_IPCC(                  
+        pID_IPCC IN NUMBER
+   )AS
+     BEGIN
+             UPDATE T_MAE_IPCC
+             set FLAG_ESTADO = 0
+             where ID_IPCC = pID_IPCC;
+
+
+    END USP_DEL_IPCC;
+
+	PROCEDURE USP_GET_IPCC(
+        pID_IPCC IN NUMBER,
+        pRefcursor  OUT SYS_REFCURSOR
+   )AS
+     BEGIN
+             OPEN    pRefcursor FOR
+            SELECT  ID_IPCC,
+                    IPCC
+            FROM    T_MAE_IPCC
+            WHERE   ID_IPCC = pID_IPCC;
+
+    END USP_GET_IPCC;
+
+    PROCEDURE USP_SEL_BUSCAR_IPCC(
+        pBuscar	IN VARCHAR2,
+        pRegistros IN INTEGER,
+      	pPagina    IN INTEGER,
+      	pSortColumn IN VARCHAR2,
+      	pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+        vPaginas    INTEGER;
+        vTotal      INTEGER;
+        vPagina2    INTEGER := pPagina;
+        vPageIndex  INTEGER := 0;
+        vQuery      VARCHAR2(30000) := '';
+        vSortColumn2 VARCHAR2(1000);
+      BEGIN
+
+        SELECT COUNT(1) INTO vTotal
+        FROM  T_MAE_IPCC
+        WHERE FLAG_ESTADO = 1 AND
+              (LOWER(TRANSLATE(IPCC,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) like '%'|| LOWER(TRANSLATE(pBuscar,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) ||'%');
+
+        vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
+        IF vPagina2 = 0 THEN
+            vPagina2 := 1;
+        END IF;
+        IF vPagina2 > vPaginas THEN
+            vPagina2 := vPaginas;
+        END IF;
+
+        vPageIndex := vPagina2 - 1;  
+        vSortColumn2 := pSortColumn;
+
+        vQuery := 'SELECT *    FROM (
+                        SELECT    ID_IPCC,
+                                  IPCC,
+                                                ROW_NUMBER() OVER (ORDER BY ' || vSortColumn2 || ' ' || pSortOrder ||') AS ROWNUMBER,'
+                                                || vPaginas || ' AS total_paginas,'
+                                                || vPagina2 || ' AS pagina,'
+                                                || pRegistros || ' AS cantidad_registros,'
+                                                || vTotal || ' AS total_registros
+                        FROM  T_MAE_IPCC
+                        WHERE FLAG_ESTADO = 1 AND
+                        (LOWER(TRANSLATE(IPCC,''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) ||''%'' )
+					)
+                    WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
+		OPEN pRefcursor FOR vQuery;
+
+    END USP_SEL_BUSCAR_IPCC;
+
+    PROCEDURE USP_SEL_EXCEL_IPCC(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+        vQuery      VARCHAR2(30000) := '';
+        vSortColumn2 VARCHAR2(1000);
+      BEGIN
+        vSortColumn2 := pSortColumn;
+        vQuery := '
+                        SELECT    ID_IPCC,
+                                  IPCC
+                        FROM  T_MAE_IPCC
+                        WHERE FLAG_ESTADO = 1 AND
+                        (LOWER(TRANSLATE(IPCC,''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) ||''%'' )
+                        ORDER BY ' || vSortColumn2 || ' ' || pSortOrder || ' ' ;
+		OPEN pRefcursor FOR vQuery;
+
+    END USP_SEL_EXCEL_IPCC;
+    
+    PROCEDURE USP_INS_NAMA(
+        pDESCRIPCION_NAMA IN VARCHAR2,
+        pID_NAMA    OUT NUMBER
+    )AS
+    BEGIN
+        SELECT NVL(MAX(ID_NAMA),0) + 1 INTO pID_NAMA FROM T_MAE_NAMA;
+
+        INSERT INTO T_MAE_NAMA(ID_NAMA, DESCRIPCION_NAMA, FLG_ESTADO )
+        VALUES (pID_NAMA, pDESCRIPCION_NAMA, 1);
+
+    END USP_INS_NAMA;
+
+
+    PROCEDURE USP_UPD_NAMA(                 
+        pID_NAMA IN NUMBER,
+        pDESCRIPCION_NAMA in varchar2
+   )AS
+     BEGIN
+             UPDATE T_MAE_NAMA
+             SET DESCRIPCION_NAMA = pDESCRIPCION_NAMA
+             where ID_NAMA = pID_NAMA;
+
+
+    END USP_UPD_NAMA;
+
+	PROCEDURE USP_DEL_NAMA(                  
+        pID_NAMA IN NUMBER
+   )AS
+     BEGIN
+             UPDATE T_MAE_NAMA
+             set FLG_ESTADO = 0
+             where ID_NAMA = pID_NAMA;
+
+
+    END USP_DEL_NAMA;
+
+	PROCEDURE USP_GET_NAMA(
+        pID_NAMA IN NUMBER,
+        pRefcursor  OUT SYS_REFCURSOR
+   )AS
+     BEGIN
+             OPEN    pRefcursor FOR
+            SELECT  ID_NAMA,
+                    DESCRIPCION_NAMA
+            FROM    T_MAE_NAMA
+            WHERE   ID_NAMA = pID_NAMA;
+
+    END USP_GET_NAMA;
+
+    PROCEDURE USP_SEL_BUSCAR_NAMA(
+        pBuscar	IN VARCHAR2,
+        pRegistros IN INTEGER,
+      	pPagina    IN INTEGER,
+      	pSortColumn IN VARCHAR2,
+      	pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+        vPaginas    INTEGER;
+        vTotal      INTEGER;
+        vPagina2    INTEGER := pPagina;
+        vPageIndex  INTEGER := 0;
+        vQuery      VARCHAR2(30000) := '';
+        vSortColumn2 VARCHAR2(1000);
+      BEGIN
+
+        SELECT COUNT(1) INTO vTotal
+        FROM  T_MAE_NAMA
+        WHERE FLG_ESTADO = 1 AND
+              (LOWER(TRANSLATE(DESCRIPCION_NAMA,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) like '%'|| LOWER(TRANSLATE(pBuscar,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) ||'%');
+
+        vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
+        IF vPagina2 = 0 THEN
+            vPagina2 := 1;
+        END IF;
+        IF vPagina2 > vPaginas THEN
+            vPagina2 := vPaginas;
+        END IF;
+
+        vPageIndex := vPagina2 - 1;  
+        vSortColumn2 := pSortColumn;
+
+        vQuery := 'SELECT *    FROM (
+                        SELECT    ID_NAMA,
+                                  DESCRIPCION_NAMA,
+                                                ROW_NUMBER() OVER (ORDER BY ' || vSortColumn2 || ' ' || pSortOrder ||') AS ROWNUMBER,'
+                                                || vPaginas || ' AS total_paginas,'
+                                                || vPagina2 || ' AS pagina,'
+                                                || pRegistros || ' AS cantidad_registros,'
+                                                || vTotal || ' AS total_registros
+                        FROM  T_MAE_NAMA
+                        WHERE FLG_ESTADO = 1 AND
+                        (LOWER(TRANSLATE(DESCRIPCION_NAMA,''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) ||''%'' )
+					)
+                    WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
+		OPEN pRefcursor FOR vQuery;
+
+    END USP_SEL_BUSCAR_NAMA;
+
+    PROCEDURE USP_SEL_EXCEL_NAMA(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+        vQuery      VARCHAR2(30000) := '';
+        vSortColumn2 VARCHAR2(1000);
+      BEGIN
+        vSortColumn2 := pSortColumn;
+        vQuery := '
+                        SELECT    ID_NAMA,
+                                  DESCRIPCION_NAMA
+                        FROM  T_MAE_NAMA
+                        WHERE FLG_ESTADO = 1 AND
+                        (LOWER(TRANSLATE(DESCRIPCION_NAMA,''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) ||''%'' )
+                        ORDER BY ' || vSortColumn2 || ' ' || pSortOrder || ' ' ;
+		OPEN pRefcursor FOR vQuery;
+
+    END USP_SEL_EXCEL_NAMA;
+    
+    --
+    PROCEDURE USP_UPD_PLAZO(                 
+        pID_PLAZO_ETAPA_ESTADO IN NUMBER,
+        pETAPA  IN VARCHAR2,
+        pESTADO  IN VARCHAR2,
+        pDESCRIPCION  IN VARCHAR2,
+        pPLAZO  IN NUMBER
+   )AS
+     BEGIN
+             UPDATE T_MAE_PLAZO_ETAPA_ESTADO
+             SET    DESCRIPCION = pDESCRIPCION,
+                    PLAZO = pPLAZO
+             where ID_PLAZO_ETAPA_ESTADO = pID_PLAZO_ETAPA_ESTADO;
+
+
+    END USP_UPD_PLAZO;
+
+	PROCEDURE USP_GET_PLAZO(
+        pID_PLAZO_ETAPA_ESTADO IN NUMBER,
+        pRefcursor  OUT SYS_REFCURSOR
+   )AS
+     BEGIN
+             OPEN    pRefcursor FOR
+            SELECT  PEE.ID_PLAZO_ETAPA_ESTADO,
+                    E.DESCRIPCION ETAPA,
+                    ES.DESCRIPCION ESTADO,
+                    R.DESCRIPCION_ROL,
+                    PEE.DESCRIPCION,
+                    PEE.PLAZO
+            FROM    T_MAE_PLAZO_ETAPA_ESTADO PEE
+            LEFT JOIN   T_MAE_ETAPA E ON PEE.ID_ETAPA = E.ID_ETAPA
+            LEFT JOIN   T_MAE_ESTADO ES ON PEE.ID_ESTADO = ES.ID_ESTADO
+            LEFT JOIN   T_MAE_ROL R ON PEE.ID_ROL = R.ID_ROL
+            WHERE   PEE.ID_PLAZO_ETAPA_ESTADO = pID_PLAZO_ETAPA_ESTADO;
+
+    END USP_GET_PLAZO;
+
+    PROCEDURE USP_SEL_BUSCAR_PLAZO(
+        pBuscar	IN VARCHAR2,
+        pRegistros IN INTEGER,
+      	pPagina    IN INTEGER,
+      	pSortColumn IN VARCHAR2,
+      	pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+        vPaginas    INTEGER;
+        vTotal      INTEGER;
+        vPagina2    INTEGER := pPagina;
+        vPageIndex  INTEGER := 0;
+        vQuery      VARCHAR2(30000) := '';
+        vSortColumn2 VARCHAR2(1000);
+      BEGIN
+
+        SELECT COUNT(1) INTO vTotal
+        FROM    T_MAE_PLAZO_ETAPA_ESTADO PEE
+        LEFT JOIN   T_MAE_ETAPA E ON PEE.ID_ETAPA = E.ID_ETAPA
+        LEFT JOIN   T_MAE_ESTADO ES ON PEE.ID_ESTADO = ES.ID_ESTADO
+        LEFT JOIN   T_MAE_ROL R ON PEE.ID_ROL = R.ID_ROL
+        WHERE --FLG_ESTADO = 1 AND
+              (LOWER(TRANSLATE(PEE.DESCRIPCION,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) like '%'|| LOWER(TRANSLATE(pBuscar,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) ||'%' 
+                OR LOWER(TRANSLATE(ES.DESCRIPCION,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) like '%'||LOWER(TRANSLATE(pBuscar,'ÁÉÍÓÚáéíóú','AEIOUaeiou'))||'%'
+                OR LOWER(TRANSLATE(E.DESCRIPCION,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) like '%'||LOWER(TRANSLATE(pBuscar,'ÁÉÍÓÚáéíóú','AEIOUaeiou'))||'%' 
+                OR LOWER(TRANSLATE(R.DESCRIPCION_ROL,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) like '%'||LOWER(TRANSLATE(pBuscar,'ÁÉÍÓÚáéíóú','AEIOUaeiou'))||'%' 
+                OR LOWER(TRANSLATE(PEE.PLAZO,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) like '%'||LOWER(TRANSLATE(pBuscar,'ÁÉÍÓÚáéíóú','AEIOUaeiou'))||'%' );
+
+        vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
+        IF vPagina2 = 0 THEN
+            vPagina2 := 1;
+        END IF;
+        IF vPagina2 > vPaginas THEN
+            vPagina2 := vPaginas;
+        END IF;
+
+        vPageIndex := vPagina2 - 1;  
+        
+        IF pSortColumn = 'ID_PLAZO_ETAPA_ESTADO' THEN
+            vSortColumn2 := 'PEE.ID_PLAZO_ETAPA_ESTADO';
+        ELSIF pSortColumn = 'ETAPA' THEN
+          	vSortColumn2 := 'E.DESCRIPCION';
+        ELSIF pSortColumn = 'ESTADO' THEN
+          	vSortColumn2 := 'ES.DESCRIPCION';
+        ELSIF pSortColumn = 'DESCRIPCION' THEN
+          	vSortColumn2 := 'PEE.DESCRIPCION';
+        ELSE
+            vSortColumn2 := pSortColumn;
+        END IF;
+
+        vQuery := 'SELECT *    FROM (
+                        SELECT    PEE.ID_PLAZO_ETAPA_ESTADO,
+                                  E.DESCRIPCION ETAPA,
+                                  ES.DESCRIPCION ESTADO,
+                                  R.DESCRIPCION_ROL,
+                                  PEE.DESCRIPCION,
+                                  PEE.PLAZO,
+                                                ROW_NUMBER() OVER (ORDER BY ' || vSortColumn2 || ' ' || pSortOrder ||') AS ROWNUMBER,'
+                                                || vPaginas || ' AS total_paginas,'
+                                                || vPagina2 || ' AS pagina,'
+                                                || pRegistros || ' AS cantidad_registros,'
+                                                || vTotal || ' AS total_registros
+                        FROM    T_MAE_PLAZO_ETAPA_ESTADO PEE
+                        LEFT JOIN   T_MAE_ETAPA E ON PEE.ID_ETAPA = E.ID_ETAPA
+                        LEFT JOIN   T_MAE_ESTADO ES ON PEE.ID_ESTADO = ES.ID_ESTADO
+                        LEFT JOIN   T_MAE_ROL R ON PEE.ID_ROL = R.ID_ROL
+                        WHERE
+                        (LOWER(TRANSLATE(PEE.DESCRIPCION,''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) ||''%'' 
+                        OR LOWER(TRANSLATE(E.DESCRIPCION,''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''ÁÉÍÓÚáéíóú'',''AEIOUaeiou''))||''%'' 
+                        OR LOWER(TRANSLATE(ES.DESCRIPCION,''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''ÁÉÍÓÚáéíóú'',''AEIOUaeiou''))||''%'' 
+                        OR LOWER(TRANSLATE(R.DESCRIPCION_ROL,''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''ÁÉÍÓÚáéíóú'',''AEIOUaeiou''))||''%'' 
+                        OR LOWER(TRANSLATE(PEE.PLAZO,''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''ÁÉÍÓÚáéíóú'',''AEIOUaeiou''))||''%'' )
+					)
+                    WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
+		OPEN pRefcursor FOR vQuery;
+
+    END USP_SEL_BUSCAR_PLAZO;
+
+    PROCEDURE USP_SEL_EXCEL_PLAZO(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+        vQuery      VARCHAR2(30000) := '';
+        vSortColumn2 VARCHAR2(1000);
+      BEGIN
+        vSortColumn2 := pSortColumn;
+        vQuery := '
+                        SELECT    PEE.ID_PLAZO_ETAPA_ESTADO,
+                                  E.DESCRIPCION ETAPA,
+                                  ES.DESCRIPCION ESTADO,
+                                  R.DESCRIPCION_ROL,
+                                  PEE.DESCRIPCION,
+                                  PEE.PLAZO
+                        FROM    T_MAE_PLAZO_ETAPA_ESTADO PEE
+                        LEFT JOIN   T_MAE_ETAPA E ON PEE.ID_ETAPA = E.ID_ETAPA
+                        LEFT JOIN   T_MAE_ESTADO ES ON PEE.ID_ESTADO = ES.ID_ESTADO
+                        LEFT JOIN   T_MAE_ROL R ON PEE.ID_ROL = R.ID_ROL
+                        WHERE
+                        (LOWER(TRANSLATE(PEE.DESCRIPCION,''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) ||''%'' 
+                        OR LOWER(TRANSLATE(E.DESCRIPCION,''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''ÁÉÍÓÚáéíóú'',''AEIOUaeiou''))||''%'' 
+                        OR LOWER(TRANSLATE(ES.DESCRIPCION,''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''ÁÉÍÓÚáéíóú'',''AEIOUaeiou''))||''%'' 
+                        OR LOWER(TRANSLATE(R.DESCRIPCION_ROL,''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''ÁÉÍÓÚáéíóú'',''AEIOUaeiou''))||''%'' 
+                        OR LOWER(TRANSLATE(PEE.PLAZO,''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''ÁÉÍÓÚáéíóú'',''AEIOUaeiou''))||''%'' )
+                        ORDER BY ' || vSortColumn2 || ' ' || pSortOrder || ' ' ;
+		OPEN pRefcursor FOR vQuery;
+
+    END USP_SEL_EXCEL_PLAZO;
+    
+     --======================================= 09-03-20
+    PROCEDURE USP_SEL_ID_PARAMETRO_DETALLE(
+        pID_PARAMETRO IN NUMBER,
+        pID_DETALLE IN NUMBER,
+        pRefcursor      OUT SYS_REFCURSOR
+  )AS
+  BEGIN
+        OPEN pRefcursor FOR
+        SELECT NOMBRE_DETALLE
+        FROM T_MAED_MRV_PARAMETRO 
+        WHERE ID_PARAMETRO = pID_PARAMETRO AND ID_DETALLE = pID_DETALLE;
+  END USP_SEL_ID_PARAMETRO_DETALLE;
 
 END PKG_MRV_MANTENIMIENTO;
 
@@ -10257,707 +10569,6 @@ end PKG_MRV_NOTIFICACION;
     END USP_SEL_FACTOR_PAGINADO;
 
 end PKG_MRV_PARAMETROS;
-
-/
---------------------------------------------------------
---  DDL for Package Body PKG_MRV_REPORTES
---------------------------------------------------------
-
-  CREATE OR REPLACE PACKAGE BODY "MRVMM"."PKG_MRV_REPORTES" AS
-
-  PROCEDURE SP_SEL_ESCENARIOS_RPT(
-        pIdMedMit   integer,
-        pCursor out SYS_REFCURSOR
-  ) AS
-  BEGIN 
-        open pCursor for
-        SELECT  ID_ESCENARIO, 
-                E.ID_MEDMIT, 
-                ANNO, 
-                BAU_EMISION, 
-                MIT_EMISION, 
-                REDUCCION, 
-                VALOR_SOFTWARE, 
-                EXPOST, 
-                META_ANUAL, 
-                m.nombre_medmit  
-        FROM    T_GENM_ESCENARIO E
-        inner join   T_MAE_MEDMIT M
-        ON E.ID_MEDMIT = M.ID_MEDMIT
-        WHERE   (E.ID_MEDMIT = pIdMedMit or pIdMedMit = 0)
-                AND E.FLAG_ESTADO = '1';
-  END SP_SEL_ESCENARIOS_RPT;
-
-  PROCEDURE SP_SEL_MEDMIT_RPT(
-        pIdMedMit   integer,
-        pCursor out SYS_REFCURSOR
-  ) AS
-  BEGIN
-        open pCursor for
-        SELECT  E.*  
-        FROM    T_MAE_MEDMIT E
-        WHERE (ID_MEDMIT = pIdMedMit OR pIdMedMit =0);
-  END SP_SEL_MEDMIT_RPT;
-
-  PROCEDURE SP_SEL_INICIATIVAS_RPT(
-        pIdIniciativa   integer,
-        pIdSector integer,
-        pIdMedida integer,
-        pCursor out SYS_REFCURSOR
-  ) AS
-  BEGIN
-        open pCursor for
-        
-        SELECT  
-                        I.ID_INICIATIVA,
-                        M.NUMERO_MEDMIT || '-' || I.ID_INICIATIVA || '-' || EXTRACT(YEAR FROM I.FECHA_IMPLE_INICIATIVA) INDICE,
-                        I.FECHA_IMPLE_INICIATIVA,
-                        INS.NOMBRE_INSTITUCION,
-                        I.NOMBRE_INICIATIVA,
-                        M.NOMBRE_MEDMIT,
-                        I.GEI_TOTAL,            
-                        I.INVERSION_INICIATIVA,
-                        MON.DESCRIPCION
-                        
-        FROM            T_GENM_INICIATIVA I
-        INNER JOIN      T_GENM_USUARIO U ON I.ID_USUARIO=U.ID_USUARIO
-        INNER JOIN      T_GENM_INSTITUCION INS ON U.ID_INSTITUCION=INS.ID_INSTITUCION
-        INNER JOIN      T_MAE_MEDMIT M ON I.ID_MEDMIT=M.ID_MEDMIT
-        INNER JOIN      T_MAE_MONEDA MON ON I.ID_MONEDA=MON.ID_MONEDA
- 
-        WHERE           (I.ID_INICIATIVA = pIdIniciativa OR pIdIniciativa =0)
-                        AND (I.ID_MEDMIT = pIdMedida OR pIdMedida = 0)
-                        AND (INS.ID_SECTOR_INSTITUCION = pIdSector OR pIdSector = 0)
-        ORDER BY        I.FECHA_IMPLE_INICIATIVA ASC;
-        
-  END SP_SEL_INICIATIVAS_RPT;
-
-
-  PROCEDURE SP_SEL_INSTITUCIONES_RPT(
-        pIdMedMit       integer,
-        pIdSectorInst   integer,
-        pCursor out SYS_REFCURSOR
-  ) AS
-  BEGIN
-        open pCursor for
-        
-        
-        SELECT  
-                        I.ID_INICIATIVA,
-                        INS.NOMBRE_INSTITUCION,
-                        I.NOMBRE_INICIATIVA,
-                        M.NOMBRE_MEDMIT,
-                        SEC.DESCRIPCION,
-                        I.GEI_TOTAL            
-                     
-        FROM            T_GENM_INICIATIVA I
-        INNER JOIN      T_GENM_USUARIO U ON I.ID_USUARIO=U.ID_USUARIO
-        INNER JOIN      T_GENM_INSTITUCION INS ON U.ID_INSTITUCION=INS.ID_INSTITUCION
-        INNER JOIN      T_MAE_MEDMIT M ON I.ID_MEDMIT=M.ID_MEDMIT 
-        INNER JOIN      T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION=SEC.ID_SECTOR_INST
-        WHERE           (I.ID_MEDMIT = pIdMedMit OR pIdMedMit =0) AND (SEC.ID_SECTOR_INST = pIdSectorInst OR pIdSectorInst =0)
-        ORDER BY        INS.NOMBRE_INSTITUCION DESC;
-             
-  END SP_SEL_INSTITUCIONES_RPT;
-
-
-  PROCEDURE USP_SEL_SEGUIMIENTO_INICIATIVA(
-    pID_INICIATIVA IN NUMBER,
-    prefCursor out SYS_REFCURSOR
-  )AS
-  BEGIN
-        OPEN pRefcursor FOR
-        SELECT INI.ID_ETAPA, 
-               INI.ID_ESTADO, 
-               (SELECT UR.ID_ROL FROM T_GENM_USUARIO U
-                                             INNER JOIN T_MAE_USUARIO_ROL UR ON U.ID_USUARIO = UR.ID_USUARIO
-                                             WHERE U.ID_USUARIO = INI.ID_REMITENTE) AS ROL,
-                                             TRIM(USU.NOMBRES_USUARIO) ||' '|| TRIM(USU.APELLIDOS_USUARIO) AS USUARIO,
-               USU.EMAIL_USUARIO,
-               INI.FECHA_DERIVACION
-        FROM T_GEND_DETALLE_INICIATIVA INI
-        INNER JOIN T_GENM_USUARIO USU ON INI.ID_REMITENTE = USU.ID_USUARIO
-        WHERE INI.ID_INICIATIVA = pID_INICIATIVA 
-        ORDER BY INI.ID_DETALLE_INICIATIVA ASC;
-    END USP_SEL_SEGUIMIENTO_INICIATIVA;
-
-
-    PROCEDURE USP_SEL_BUS_AVAN_PUB(
-	pNOMBRE_MEDMIT	IN NUMBER,
-	pFECHA_INICIO	IN NUMBER,
-    pSECTOR		    IN NUMBER,
-	pENERGBASE	    IN NUMBER,
-	pENERGPROYEC	IN NUMBER,
-    pRefcursor  OUT SYS_REFCURSOR
-    )AS
-    BEGIN
-        OPEN pRefcursor FOR
-        SELECT  DISTINCT
-            INI.ID_INICIATIVA,
-            INI.NOMBRE_INICIATIVA,
-            ET.DESCRIPCION,
-            INI.FECHA_IMPLE_INICIATIVA,
-            MD.NOMBRE_MEDMIT,
-            INST.NOMBRE_INSTITUCION,
-            INI.ID_ESTADO,
-            INI.ID_ETAPA PROGRESO
-
-            FROM T_GENM_INICIATIVA INI
-            LEFT JOIN T_MAE_ETAPA ET ON INI.ID_ETAPA = ET.ID_ETAPA
-            LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
-            LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
-            LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
-            INNER JOIN T_GEND_INICIATIVA_GEI IG ON INI.ID_INICIATIVA = IG.ID_INICIATIVA
-            INNER JOIN T_GEND_INICIATIVA_ENERG IE ON INI.ID_INICIATIVA = IE.ID_INICIATIVA
-        WHERE   (MD.ID_MEDMIT = pNOMBRE_MEDMIT OR pNOMBRE_MEDMIT = 0 ) AND 
-                (EXTRACT(YEAR FROM INI.FECHA_IMPLE_INICIATIVA)=pFECHA_INICIO OR  pFECHA_INICIO= 0) AND
-            	(INST.ID_SECTOR_INSTITUCION = pSECTOR OR pSECTOR = 0) AND 
-                (IG.ID_GEI = pENERGBASE	 OR pENERGBASE = 0 )AND
-            	(IE.ID_ENERG = pENERGPROYEC OR pENERGPROYEC = 0 ) AND
-                INI.PRIVACIDAD_INICIATIVA = '1'
-    ORDER BY INI.ID_INICIATIVA DESC;
-    END USP_SEL_BUS_AVAN_PUB;
-
-
-      PROCEDURE USP_SEL_BUS_SIMP_PUB(
-          pBUSCAR	IN VARCHAR2,
-          pRefcursor  OUT SYS_REFCURSOR
-      )AS
-      BEGIN
-        OPEN pRefcursor FOR
-        SELECT DISTINCT
-            INI.ID_INICIATIVA,
-            INI.NOMBRE_INICIATIVA,
-            INI.FECHA_IMPLE_INICIATIVA,
-            MD.NOMBRE_MEDMIT,
-            INST.NOMBRE_INSTITUCION,
-            INI.ID_ESTADO,
-            INI.ID_ETAPA PROGRESO           
-
-            FROM T_GENM_INICIATIVA INI
-            LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
-            LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
-            LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
-            INNER JOIN T_GEND_INICIATIVA_GEI IG ON INI.ID_INICIATIVA = IG.ID_INICIATIVA
-            INNER JOIN T_GEND_INICIATIVA_ENERG IE ON INI.ID_INICIATIVA = IE.ID_INICIATIVA
-        WHERE   (LOWER(TRANSLATE(INI.NOMBRE_INICIATIVA,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) like '%'|| LOWER(TRANSLATE(pBuscar,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) ||'%' 
-                OR LOWER(TRANSLATE(MD.NOMBRE_MEDMIT,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) like'%'|| LOWER(TRANSLATE(pBuscar,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) ||'%' OR 
-                LOWER(TRANSLATE(INST.NOMBRE_INSTITUCION,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) like '%'||LOWER(TRANSLATE(pBuscar,'ÁÉÍÓÚáéíóú','AEIOUaeiou'))||'%' ) AND
-                INI.PRIVACIDAD_INICIATIVA = '1'
-                ORDER BY INI.ID_INICIATIVA DESC;
-        END USP_SEL_BUS_SIMP_PUB;
-
-
-        PROCEDURE USP_SEL_BUS_AVAN_PRI_USU(
-        pID_USUARIO	    IN NUMBER,
-        pNOMBRE_MEDMIT	IN NUMBER,
-        pFECHA_INICIO	IN NUMBER,
-    	pSECTOR		    IN NUMBER,
-        pENERGBASE	    IN NUMBER,
-        pENERGPROYEC	IN NUMBER,
-        pRefcursor      OUT SYS_REFCURSOR
-        )AS
-        BEGIN
-        OPEN pRefcursor FOR
-        SELECT  DISTINCT
-            INI.ID_INICIATIVA,
-            INI.NOMBRE_INICIATIVA,
-            INI.FECHA_IMPLE_INICIATIVA,
-            MD.NOMBRE_MEDMIT,
-            INST.NOMBRE_INSTITUCION,
-            INI.ID_ESTADO,
-            INI.ID_ETAPA PROGRESO
-
-            FROM T_GENM_INICIATIVA INI
-            LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
-            LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
-            LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
-            LEFT JOIN T_GEND_INICIATIVA_GEI IG ON INI.ID_INICIATIVA = IG.ID_INICIATIVA
-            LEFT JOIN T_GEND_INICIATIVA_ENERG IE ON INI.ID_INICIATIVA = IE.ID_INICIATIVA
-            WHERE   (MD.ID_MEDMIT = pNOMBRE_MEDMIT OR MD.ID_MEDMIT = 0 ) AND 
-                    (EXTRACT(YEAR FROM INI.FECHA_IMPLE_INICIATIVA)=pFECHA_INICIO OR  pFECHA_INICIO= 0) AND
-                    (INST.ID_SECTOR_INSTITUCION = pSECTOR OR pSECTOR = 0) AND 
-                    (IG.ID_GEI = pENERGBASE	 OR pENERGBASE = 0 )AND
-                    (IE.ID_ENERG = pENERGPROYEC OR pENERGPROYEC = 0 ) AND
-                    (INI.ID_USUARIO = pID_USUARIO)
-        ORDER BY INI.ID_INICIATIVA DESC;
-        END USP_SEL_BUS_AVAN_PRI_USU;
-
-
-
-        PROCEDURE USP_SEL_BUS_SIMP_PRI_USU(
-            pBUSCAR	IN VARCHAR2,
-            pIDUSUARIO	IN NUMBER,
-            pRefcursor  OUT SYS_REFCURSOR
-            )AS
-            BEGIN
-            OPEN pRefcursor FOR
-            SELECT DISTINCT
-                INI.ID_INICIATIVA,
-                INI.NOMBRE_INICIATIVA,
-                INI.FECHA_IMPLE_INICIATIVA,
-                MD.NOMBRE_MEDMIT,
-                INST.NOMBRE_INSTITUCION,
-                INI.ID_ESTADO,
-                INI.ID_ETAPA PROGRESO           
-
-                FROM T_GENM_INICIATIVA INI
-                LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
-                LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
-                LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
-                INNER JOIN T_GEND_INICIATIVA_GEI IG ON INI.ID_INICIATIVA = IG.ID_INICIATIVA
-                INNER JOIN T_GEND_INICIATIVA_ENERG IE ON INI.ID_INICIATIVA = IE.ID_INICIATIVA
-                WHERE   (LOWER(TRANSLATE(INI.NOMBRE_INICIATIVA,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) like '%'|| LOWER(TRANSLATE(pBuscar,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) ||'%' 
-                        OR LOWER(TRANSLATE(MD.NOMBRE_MEDMIT,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) like'%'|| LOWER(TRANSLATE(pBuscar,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) ||'%' OR 
-                        LOWER(TRANSLATE(INST.NOMBRE_INSTITUCION,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) like '%'||LOWER(TRANSLATE(pBuscar,'ÁÉÍÓÚáéíóú','AEIOUaeiou'))||'%' ) AND
-                        (INI.ID_USUARIO = pIDUSUARIO)
-                        ORDER BY INI.ID_INICIATIVA DESC;
-        END USP_SEL_BUS_SIMP_PRI_USU;
-
-
-
-        PROCEDURE USP_SEL_BUS_AVAN_PRI_ESP(
-        pID_USUARIO	    IN NUMBER,
-        pNOMBRE_MEDMIT	    IN NUMBER,
-        pFECHA_INICIO	    IN NUMBER,
-    	pSECTOR		    IN NUMBER,
-        pENERGBASE	    IN NUMBER,
-        pENERGPROYEC	    IN NUMBER,
-        pRefcursor      OUT SYS_REFCURSOR
-        )AS
-            BEGIN
-            OPEN pRefcursor FOR
-            SELECT  DISTINCT
-                    INI.ID_INICIATIVA,
-                    INI.NOMBRE_INICIATIVA,
-                    ET.DESCRIPCION,
-                    INI.FECHA_IMPLE_INICIATIVA,
-                    MD.NOMBRE_MEDMIT,
-                    INST.NOMBRE_INSTITUCION,
-                    INI.ID_ESTADO,
-                    INI.ID_ETAPA PROGRESO
-                FROM T_GENM_INICIATIVA INI
-                LEFT JOIN T_MAE_ETAPA ET ON INI.ID_ETAPA = ET.ID_ETAPA
-                LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
-                LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
-                INNER JOIN T_GEND_INICIATIVA_GEI IG ON INI.ID_INICIATIVA = IG.ID_INICIATIVA
-                INNER JOIN T_GEND_INICIATIVA_ENERG IE ON INI.ID_INICIATIVA = IE.ID_INICIATIVA
-                LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
-                WHERE 
-                    (MD.ID_MEDMIT = pNOMBRE_MEDMIT OR MD.ID_MEDMIT = 0 ) AND 
-                    (EXTRACT(YEAR FROM INI.FECHA_IMPLE_INICIATIVA)=pFECHA_INICIO OR  pFECHA_INICIO= 0) AND
-                    (INST.ID_SECTOR_INSTITUCION = pSECTOR OR pSECTOR = 0) AND 
-                    (IG.ID_GEI = pENERGBASE	 OR pENERGBASE = 0 )AND
-                    (IE.ID_ENERG = pENERGPROYEC OR pENERGPROYEC = 0 ) AND
-                    INI.ID_ESTADO IN (1,5) AND INI.ID_ETAPA IN (1,3)
-	            ORDER BY INI.ID_INICIATIVA DESC;
-                END USP_SEL_BUS_AVAN_PRI_ESP;
-
-
-
-
-
-        PROCEDURE USP_SEL_BUS_SIMP_PRI_ESP(
-        pBUSCAR	IN VARCHAR2,
-        pIDUSUARIO	IN NUMBER,
-        pRefcursor  OUT SYS_REFCURSOR
-        )AS
-        BEGIN
-        OPEN pRefcursor FOR
-        SELECT  DISTINCT
-                INI.ID_INICIATIVA,
-                INI.NOMBRE_INICIATIVA,
-                ET.DESCRIPCION,
-                INI.FECHA_IMPLE_INICIATIVA,
-                MD.NOMBRE_MEDMIT,
-                INST.NOMBRE_INSTITUCION,
-                INI.ID_ESTADO,
-                INI.ID_ETAPA PROGRESO
-        	FROM T_GENM_INICIATIVA INI
-                LEFT JOIN T_MAE_ETAPA ET ON INI.ID_ETAPA = ET.ID_ETAPA
-                LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
-                LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
-                INNER JOIN T_GEND_INICIATIVA_GEI IG ON INI.ID_INICIATIVA = IG.ID_INICIATIVA
-                INNER JOIN T_GEND_INICIATIVA_ENERG IE ON INI.ID_INICIATIVA = IE.ID_INICIATIVA
-                LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
-	        WHERE       (LOWER(TRANSLATE(INI.NOMBRE_INICIATIVA,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) like '%'|| LOWER(TRANSLATE(pBuscar,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) ||'%' 
-                        OR LOWER(TRANSLATE(MD.NOMBRE_MEDMIT,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) like'%'|| LOWER(TRANSLATE(pBuscar,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) ||'%' OR 
-                        LOWER(TRANSLATE(INST.NOMBRE_INSTITUCION,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) like '%'||LOWER(TRANSLATE(pBuscar,'ÁÉÍÓÚáéíóú','AEIOUaeiou'))||'%' ) AND
-                        INI.ID_ESTADO IN (1,5) AND INI.ID_ETAPA IN (1,3)
-                        ORDER BY INI.ID_INICIATIVA DESC;
-            END USP_SEL_BUS_SIMP_PRI_ESP;
-
-
-        PROCEDURE USP_SEL_BUS_AVAN_PRI_AMIN(
-        pID_USUARIO	    IN NUMBER,
-        pNOMBRE_MEDMIT	IN NUMBER,
-        pFECHA_INICIO	IN NUMBER,
-    	pSECTOR		    IN NUMBER,
-        pENERGBASE	    IN NUMBER,
-        pENERGPROYEC	IN NUMBER,
-        pRefcursor      OUT SYS_REFCURSOR
-        )AS
-        BEGIN
-        OPEN pRefcursor FOR
-        SELECT  DISTINCT INI.ID_INICIATIVA,
-                INI.NOMBRE_INICIATIVA,
-                ET.DESCRIPCION,
-                INI.FECHA_IMPLE_INICIATIVA,
-                MD.NOMBRE_MEDMIT,
-                INST.NOMBRE_INSTITUCION,
-                INI.ID_ESTADO,
-                INI.ID_ETAPA PROGRESO
-            FROM T_GENM_INICIATIVA INI
-                LEFT JOIN T_MAE_ETAPA ET ON INI.ID_ETAPA = ET.ID_ETAPA
-                LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
-                LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
-                INNER JOIN T_GEND_INICIATIVA_GEI IG ON INI.ID_INICIATIVA = IG.ID_INICIATIVA
-                INNER JOIN T_GEND_INICIATIVA_ENERG IE ON INI.ID_INICIATIVA = IE.ID_INICIATIVA
-                LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
-	        WHERE	(MD.ID_MEDMIT = pNOMBRE_MEDMIT OR MD.ID_MEDMIT = 0 ) AND 
-                    (EXTRACT(YEAR FROM INI.FECHA_IMPLE_INICIATIVA)=pFECHA_INICIO OR  pFECHA_INICIO= 0) AND
-                    (INST.ID_SECTOR_INSTITUCION = pSECTOR OR pSECTOR = 0) AND 
-                    (IG.ID_GEI = pENERGBASE	 OR pENERGBASE = 0 )AND
-                    (IE.ID_ENERG = pENERGPROYEC OR pENERGPROYEC = 0 ) AND
-                    NOT (INI.ID_ESTADO = 0 AND INI.ID_ETAPA = 1)
-                    ORDER BY INI.ID_INICIATIVA DESC;	
-        END USP_SEL_BUS_AVAN_PRI_AMIN;
-
-
-
-        PROCEDURE USP_SEL_BUS_SIMP_PRI_AMIN(
-            pBUSCAR	IN VARCHAR2,
-            pIDUSUARIO	IN NUMBER,
-            pRefcursor  OUT SYS_REFCURSOR
-            )AS
-            BEGIN
-            OPEN pRefcursor FOR
-            SELECT  DISTINCT INI.ID_INICIATIVA,
-                INI.NOMBRE_INICIATIVA,
-                ET.DESCRIPCION,
-                INI.FECHA_IMPLE_INICIATIVA,
-                MD.NOMBRE_MEDMIT,
-                INST.NOMBRE_INSTITUCION,
-                INI.ID_ESTADO,
-                INI.ID_ETAPA PROGRESO
-            FROM T_GENM_INICIATIVA INI
-                LEFT JOIN T_MAE_ETAPA ET ON INI.ID_ETAPA = ET.ID_ETAPA
-                LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
-                LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
-                INNER JOIN T_GEND_INICIATIVA_GEI IG ON INI.ID_INICIATIVA = IG.ID_INICIATIVA
-                INNER JOIN T_GEND_INICIATIVA_ENERG IE ON INI.ID_INICIATIVA = IE.ID_INICIATIVA
-                LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
-            WHERE   (LOWER(TRANSLATE(INI.NOMBRE_INICIATIVA,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) like '%'|| LOWER(TRANSLATE(pBuscar,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) ||'%' 
-                    OR LOWER(TRANSLATE(MD.NOMBRE_MEDMIT,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) like'%'|| LOWER(TRANSLATE(pBuscar,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) ||'%' OR 
-                    LOWER(TRANSLATE(INST.NOMBRE_INSTITUCION,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) like '%'||LOWER(TRANSLATE(pBuscar,'ÁÉÍÓÚáéíóú','AEIOUaeiou'))||'%' ) AND
-                    NOT (INI.ID_ESTADO = 0 AND INI.ID_ETAPA = 1)
-                    ORDER BY INI.ID_INICIATIVA DESC;
-        END USP_SEL_BUS_SIMP_PRI_AMIN;
-
-        PROCEDURE USP_SEL_BUS_AVAN_PRI_EMRV(
-        pID_USUARIO	    IN NUMBER,
-        pNOMBRE_MEDMIT	IN NUMBER,
-        pFECHA_INICIO	IN NUMBER,
-    	pSECTOR		    IN NUMBER,
-        pENERGBASE	    IN NUMBER,
-        pENERGPROYEC	IN NUMBER,
-        pRefcursor      OUT SYS_REFCURSOR
-        )AS
-        BEGIN
-        OPEN pRefcursor FOR
-        SELECT  DISTINCT INI.ID_INICIATIVA,
-                INI.NOMBRE_INICIATIVA,
-                ET.DESCRIPCION,
-                INI.FECHA_IMPLE_INICIATIVA,
-                MD.NOMBRE_MEDMIT,
-                INST.NOMBRE_INSTITUCION,
-                INI.ID_ESTADO,
-                INI.ID_ETAPA PROGRESO
-            FROM T_GENM_INICIATIVA INI
-                LEFT JOIN T_MAE_ETAPA ET ON INI.ID_ETAPA = ET.ID_ETAPA
-                LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
-                LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
-                INNER JOIN T_GEND_INICIATIVA_GEI IG ON INI.ID_INICIATIVA = IG.ID_INICIATIVA
-                INNER JOIN T_GEND_INICIATIVA_ENERG IE ON INI.ID_INICIATIVA = IE.ID_INICIATIVA
-                LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
-	        WHERE	(MD.ID_MEDMIT = pNOMBRE_MEDMIT OR MD.ID_MEDMIT = 0 ) AND 
-                    (EXTRACT(YEAR FROM INI.FECHA_IMPLE_INICIATIVA)=pFECHA_INICIO OR  pFECHA_INICIO= 0) AND
-                    (INST.ID_SECTOR_INSTITUCION = pSECTOR OR pSECTOR = 0) AND 
-                    (IG.ID_GEI = pENERGBASE	 OR pENERGBASE = 0 )AND
-                    (IE.ID_ENERG = pENERGPROYEC OR pENERGPROYEC = 0 ) AND
-                    INI.ID_ESTADO = 3 AND INI.ID_ETAPA >= 4
-                    ORDER BY INI.ID_INICIATIVA DESC;	
-        END USP_SEL_BUS_AVAN_PRI_EMRV;
-
-
-
-        PROCEDURE USP_SEL_BUS_SIMP_PRI_EMRV(
-            pBUSCAR	IN VARCHAR2,
-            pIDUSUARIO	IN NUMBER,
-            pRefcursor  OUT SYS_REFCURSOR
-            )AS
-            BEGIN
-            OPEN pRefcursor FOR
-            SELECT  DISTINCT INI.ID_INICIATIVA,
-                INI.NOMBRE_INICIATIVA,
-                ET.DESCRIPCION,
-                INI.FECHA_IMPLE_INICIATIVA,
-                MD.NOMBRE_MEDMIT,
-                INST.NOMBRE_INSTITUCION,
-                INI.ID_ESTADO,
-                INI.ID_ETAPA PROGRESO
-            FROM T_GENM_INICIATIVA INI
-                LEFT JOIN T_MAE_ETAPA ET ON INI.ID_ETAPA = ET.ID_ETAPA
-                LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
-                LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
-                INNER JOIN T_GEND_INICIATIVA_GEI IG ON INI.ID_INICIATIVA = IG.ID_INICIATIVA
-                INNER JOIN T_GEND_INICIATIVA_ENERG IE ON INI.ID_INICIATIVA = IE.ID_INICIATIVA
-                LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
-            WHERE   (LOWER(TRANSLATE(INI.NOMBRE_INICIATIVA,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) like '%'|| LOWER(TRANSLATE(pBuscar,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) ||'%' 
-                    OR LOWER(TRANSLATE(MD.NOMBRE_MEDMIT,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) like'%'|| LOWER(TRANSLATE(pBuscar,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) ||'%' OR 
-                    LOWER(TRANSLATE(INST.NOMBRE_INSTITUCION,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) like '%'||LOWER(TRANSLATE(pBuscar,'ÁÉÍÓÚáéíóú','AEIOUaeiou'))||'%' ) AND
-                    INI.ID_ESTADO = 3 AND INI.ID_ETAPA >= 4
-                    ORDER BY INI.ID_INICIATIVA DESC;
-        END USP_SEL_BUS_SIMP_PRI_EMRV;
-
-        PROCEDURE USP_SEL_BUS_AVAN_PRI_PUBL(
-        pID_USUARIO	    IN NUMBER,
-        pNOMBRE_MEDMIT	IN NUMBER,
-        pFECHA_INICIO	IN NUMBER,
-    	pSECTOR		    IN NUMBER,
-        pENERGBASE	    IN NUMBER,
-        pENERGPROYEC	IN NUMBER,
-        pRefcursor      OUT SYS_REFCURSOR
-        )AS
-        BEGIN
-        OPEN pRefcursor FOR
-        SELECT  DISTINCT INI.ID_INICIATIVA,
-                INI.NOMBRE_INICIATIVA,
-                ET.DESCRIPCION,
-                INI.FECHA_IMPLE_INICIATIVA,
-                MD.NOMBRE_MEDMIT,
-                INST.NOMBRE_INSTITUCION,
-                INI.ID_ESTADO,
-                INI.ID_ETAPA PROGRESO
-            FROM T_GENM_INICIATIVA INI
-                LEFT JOIN T_MAE_ETAPA ET ON INI.ID_ETAPA = ET.ID_ETAPA
-                LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
-                LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
-                INNER JOIN T_GEND_INICIATIVA_GEI IG ON INI.ID_INICIATIVA = IG.ID_INICIATIVA
-                INNER JOIN T_GEND_INICIATIVA_ENERG IE ON INI.ID_INICIATIVA = IE.ID_INICIATIVA
-                LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
-	        WHERE	(MD.ID_MEDMIT = pNOMBRE_MEDMIT OR MD.ID_MEDMIT = 0 ) AND 
-                    (EXTRACT(YEAR FROM INI.FECHA_IMPLE_INICIATIVA)=pFECHA_INICIO OR  pFECHA_INICIO= 0) AND
-                    (INST.ID_SECTOR_INSTITUCION = pSECTOR OR pSECTOR = 0) AND 
-                    (IG.ID_GEI = pENERGBASE	 OR pENERGBASE = 0 )AND
-                    (IE.ID_ENERG = pENERGPROYEC OR pENERGPROYEC = 0 ) AND
-                    INI.ID_ESTADO = 3 AND INI.ID_ETAPA >= 4
-                    ORDER BY INI.ID_INICIATIVA DESC;	
-        END USP_SEL_BUS_AVAN_PRI_PUBL;
-
-
-
-        PROCEDURE USP_SEL_BUS_SIMP_PRI_PUBL(
-        pBUSCAR	IN VARCHAR2,
-        pIDUSUARIO	IN NUMBER,
-        pRefcursor  OUT SYS_REFCURSOR
-        )AS
-        BEGIN
-        OPEN pRefcursor FOR
-        SELECT  DISTINCT INI.ID_INICIATIVA,
-                INI.NOMBRE_INICIATIVA,
-                ET.DESCRIPCION,
-                INI.FECHA_IMPLE_INICIATIVA,
-                MD.NOMBRE_MEDMIT,
-                INST.NOMBRE_INSTITUCION,
-                INI.ID_ESTADO,
-                INI.ID_ETAPA PROGRESO
-            FROM T_GENM_INICIATIVA INI
-                LEFT JOIN T_MAE_ETAPA ET ON INI.ID_ETAPA = ET.ID_ETAPA
-                LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
-                LEFT JOIN T_GENM_USUARIO USU ON INI.ID_USUARIO = USU.ID_USUARIO
-                INNER JOIN T_GEND_INICIATIVA_GEI IG ON INI.ID_INICIATIVA = IG.ID_INICIATIVA
-                INNER JOIN T_GEND_INICIATIVA_ENERG IE ON INI.ID_INICIATIVA = IE.ID_INICIATIVA
-                LEFT JOIN T_GENM_INSTITUCION INST ON USU.ID_INSTITUCION = INST.ID_INSTITUCION
-            WHERE   (LOWER(TRANSLATE(INI.NOMBRE_INICIATIVA,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) like '%'|| LOWER(TRANSLATE(pBuscar,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) ||'%' 
-                    OR LOWER(TRANSLATE(MD.NOMBRE_MEDMIT,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) like'%'|| LOWER(TRANSLATE(pBuscar,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) ||'%' OR 
-                    LOWER(TRANSLATE(INST.NOMBRE_INSTITUCION,'ÁÉÍÓÚáéíóú','AEIOUaeiou')) like '%'||LOWER(TRANSLATE(pBuscar,'ÁÉÍÓÚáéíóú','AEIOUaeiou'))||'%' ) AND
-                    INI.ID_ESTADO = 3 AND INI.ID_ETAPA >= 4
-                    ORDER BY INI.ID_INICIATIVA DESC;
-            END USP_SEL_BUS_SIMP_PRI_PUBL;
-
-        
-    --//////////////////////////////////////
-    PROCEDURE USP_SEL_SECTORES(
-        pRefcursor OUT SYS_REFCURSOR  
-    )AS
-    BEGIN
-        OPEN pRefcursor FOR
-        SELECT * FROM T_MAE_SECTOR_INST
-        WHERE FLAG_ESTADO = '1';
-    END USP_SEL_SECTORES;
-    
-    PROCEDURE USP_SEL_MED_SECTOR(
-        pID_MEDMIT IN NUMBER,
-        --pID_SECTOR_INST IN NUMBER,
-        pRefcursor OUT SYS_REFCURSOR
-    )AS
-    BEGIN
-        OPEN pRefcursor FOR
-        /*SELECT  SUM(NVL(I.GEI_TOTAL,0)) GEI_TOTAL
-        FROM    T_GENM_INICIATIVA I
-        LEFT JOIN T_GENM_USUARIO U ON I.ID_USUARIO = U.ID_USUARIO
-        LEFT JOIN T_GENM_INSTITUCION INS ON U.ID_INSTITUCION = INS.ID_INSTITUCION
-        WHERE INS.ID_SECTOR_INSTITUCION = pID_SECTOR_INST AND I.ID_MEDMIT = pID_MEDMIT;*/
-        SELECT NVL(SUM(NVL(I.GEI_TOTAL,0)),0) TOTAL_GEI, NVL(SEC.DESCRIPCION,'SECTOR PUBLICO') DESCRIPCION, NVL(SEC.ID_SECTOR_INST,1)
-        FROM T_GENM_INICIATIVA I
-        LEFT JOIN T_GENM_USUARIO U ON I.ID_USUARIO = U.ID_USUARIO
-        LEFT JOIN T_GENM_INSTITUCION INS ON U.ID_INSTITUCION = INS.ID_INSTITUCION
-        LEFT JOIN T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
-        WHERE I.ID_MEDMIT = pID_MEDMIT
-        GROUP BY NVL(SEC.DESCRIPCION,'SECTOR PUBLICO'), NVL(SEC.ID_SECTOR_INST,1)
-        ORDER BY NVL(SEC.ID_SECTOR_INST,1) ASC;
-    END USP_SEL_MED_SECTOR;
-    
-    PROCEDURE USP_SEL_ANNO(
-        pANNO IN NUMBER,
-        pRefcursor OUT SYS_REFCURSOR
-    )AS
-    BEGIN
-        OPEN pRefcursor FOR
-        SELECT  *
-        FROM T_MAE_ANNO
-        WHERE DESCRIPCION <= pANNO;
-    END USP_SEL_ANNO;
-    
-    PROCEDURE USP_SEL_INI_MED_ANNO_SEC(
-        pID_MEDMIT IN NUMBER,
-        pID_SECTOR_INST IN NUMBER,
-        pANNO IN NUMBER,
-        pRefcursor OUT SYS_REFCURSOR
-    )AS
-    BEGIN
-        OPEN pRefcursor FOR
-        SELECT  NVL(SUM(NVL(I.GEI_TOTAL,0)),0) GEI_TOTAL
-        FROM    T_GENM_INICIATIVA I
-        LEFT JOIN T_GENM_USUARIO U ON I.ID_USUARIO = U.ID_USUARIO
-        LEFT JOIN T_GENM_INSTITUCION INS ON U.ID_INSTITUCION = INS.ID_INSTITUCION
-        WHERE INS.ID_SECTOR_INSTITUCION = pID_SECTOR_INST AND  EXTRACT(YEAR FROM I.FECHA_IMPLE_INICIATIVA) = pANNO AND I.ID_MEDMIT = pID_MEDMIT;
-    END USP_SEL_INI_MED_ANNO_SEC;
-    
-    PROCEDURE USP_SEL_INI_SECTOR(
-        --pID_SECTOR_INST IN NUMBER,
-        pID_MEDMIT IN NUMBER,
-        pRefcursor OUT SYS_REFCURSOR
-    )AS
-    BEGIN
-        OPEN pRefcursor FOR
-        /*SELECT COUNT(1) FROM T_GENM_INICIATIVA I
-        LEFT JOIN T_GENM_USUARIO U ON I.ID_USUARIO = U.ID_USUARIO
-        LEFT JOIN T_GENM_INSTITUCION INS ON U.ID_INSTITUCION = INS.ID_INSTITUCION
-        WHERE INS.ID_SECTOR_INSTITUCION = pID_SECTOR_INST AND I.ID_MEDMIT = pID_MEDMIT;*/
-        SELECT COUNT(1) CANTIDAD, NVL(SEC.DESCRIPCION,'SECTOR PUBLICO') DESCRIPCION, NVL(SEC.ID_SECTOR_INST,1)
-        FROM T_GENM_INICIATIVA I
-        LEFT JOIN T_GENM_USUARIO U ON I.ID_USUARIO = U.ID_USUARIO
-        LEFT JOIN T_GENM_INSTITUCION INS ON U.ID_INSTITUCION = INS.ID_INSTITUCION
-        LEFT JOIN T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
-        WHERE I.ID_MEDMIT = pID_MEDMIT
-        GROUP BY NVL(SEC.DESCRIPCION,'SECTOR PUBLICO'), NVL(SEC.ID_SECTOR_INST,1)
-        ORDER BY NVL(SEC.ID_SECTOR_INST,1) ASC;
-    END USP_SEL_INI_SECTOR;
-    
-    PROCEDURE USP_SEL_CANT_INSTITUCION_MED(
-        pID_MEDMIT IN NUMBER,
-        pRefcursor OUT SYS_REFCURSOR
-    )AS
-    BEGIN
-        OPEN pRefcursor FOR
-        SELECT COUNT(U.ID_INSTITUCION) TOTAL_INSTITUCION
-        FROM T_GENM_INICIATIVA I
-        LEFT JOIN T_GENM_USUARIO U ON I.ID_USUARIO = U.ID_USUARIO
-        WHERE I.ID_MEDMIT = pID_MEDMIT;
-    END USP_SEL_CANT_INSTITUCION_MED;
-    
-    PROCEDURE USP_SEL_CANT_REGION_MED(
-        pID_MEDMIT IN NUMBER,
-        pRefcursor OUT SYS_REFCURSOR
-    )AS
-    BEGIN
-        OPEN pRefcursor FOR
-        SELECT COUNT(DISTINCT UI.ID_UBICACION) TOTAL_REGION
-        FROM T_GENM_INICIATIVA I
-        LEFT JOIN T_GEND_INICIATIVA_UBICACION UI ON I.ID_INICIATIVA = UI.ID_INICIATIVA
-        WHERE I.ID_MEDMIT = pID_MEDMIT;
-    END USP_SEL_CANT_REGION_MED;
-    
-    PROCEDURE USP_SEL_TOTAL_GEI_MED(
-        pID_MEDMIT IN NUMBER,
-        pRefcursor OUT SYS_REFCURSOR
-    )AS
-    BEGIN
-        OPEN pRefcursor FOR
-        SELECT  SUM(GEI_TOTAL) TOTAL
-        FROM    T_GENM_INICIATIVA 
-        WHERE   ID_MEDMIT = pID_MEDMIT;
-    END USP_SEL_TOTAL_GEI_MED;
-
-    --=====================================================
-    PROCEDURE USP_SEL_INI_MED_ANNO(
-        pID_MEDMIT IN NUMBER,
-        pANNO IN NUMBER,
-        pRefcursor OUT SYS_REFCURSOR
-    )AS
-    BEGIN
-        OPEN pRefcursor FOR
-        SELECT  NVL(SUM(NVL(I.GEI_TOTAL,0)),0) TOTAL_GEI,A.DESCRIPCION ANNO, SEC.ID_SECTOR_INST
-        FROM    T_GENM_INICIATIVA I
-        LEFT JOIN T_GENM_USUARIO U ON I.ID_USUARIO = U.ID_USUARIO
-        LEFT JOIN T_GENM_INSTITUCION INS ON U.ID_INSTITUCION = INS.ID_INSTITUCION
-        LEFT JOIN T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
-        LEFT JOIN T_MAE_ANNO A ON EXTRACT(YEAR FROM I.FECHA_IMPLE_INICIATIVA) = A.DESCRIPCION
-        WHERE EXTRACT(YEAR FROM I.FECHA_IMPLE_INICIATIVA) <= pANNO AND I.ID_MEDMIT = pID_MEDMIT        
-        GROUP BY EXTRACT(YEAR FROM I.FECHA_IMPLE_INICIATIVA), A.DESCRIPCION, SEC.DESCRIPCION, SEC.ID_SECTOR_INST
-        ORDER BY EXTRACT(YEAR FROM I.FECHA_IMPLE_INICIATIVA) ASC;
-    END USP_SEL_INI_MED_ANNO;
-    
-    PROCEDURE USP_SEL_TOTALES_MED(
-        pID_MEDMIT IN NUMBER,
-        pRefcursor OUT SYS_REFCURSOR
-    )AS
-    BEGIN
-        OPEN pRefcursor FOR
-        SELECT        
-            (SELECT  SUM(GEI_TOTAL) 
-            FROM    T_GENM_INICIATIVA 
-            WHERE   ID_MEDMIT = pID_MEDMIT) TOTAL_GEI_REDUCIDO,
-            
-            (SELECT COUNT(DISTINCT UI.ID_UBICACION) 
-            FROM T_GENM_INICIATIVA I
-            LEFT JOIN T_GEND_INICIATIVA_UBICACION UI ON I.ID_INICIATIVA = UI.ID_INICIATIVA
-            WHERE I.ID_MEDMIT = pID_MEDMIT) TOTAL_REGION,
-            
-            (SELECT COUNT(U.ID_INSTITUCION) 
-            FROM T_GENM_INICIATIVA I
-            LEFT JOIN T_GENM_USUARIO U ON I.ID_USUARIO = U.ID_USUARIO
-            WHERE I.ID_MEDMIT = pID_MEDMIT) TOTAL_INSTITUCION
-        FROM DUAL;
-    END USP_SEL_TOTALES_MED;
-    
-    PROCEDURE USP_SEL_MOSTRAR_GEI_MED(
-        pANNO IN NUMBER,
-        pRefcursor OUT SYS_REFCURSOR
-    )AS
-    BEGIN
-        OPEN pRefcursor FOR
-        SELECT SUM(I.GEI_TOTAL) TOTAL_GEI, I.ID_MEDMIT, MM.NOMBRE_MEDMIT
-        FROM    T_GENM_INICIATIVA I
-        LEFT JOIN   T_MAE_MEDMIT MM ON I.ID_MEDMIT = MM.ID_MEDMIT
-        WHERE EXTRACT(YEAR FROM I.FECHA_IMPLE_INICIATIVA) = pANNO
-        GROUP BY I.ID_MEDMIT, MM.NOMBRE_MEDMIT
-        ORDER BY I.ID_MEDMIT;
-    END USP_SEL_MOSTRAR_GEI_MED;
-
-END PKG_MRV_REPORTES;
 
 /
 --------------------------------------------------------
