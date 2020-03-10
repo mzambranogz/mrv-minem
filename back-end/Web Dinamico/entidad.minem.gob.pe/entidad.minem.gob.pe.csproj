@@ -82,6 +82,7 @@
     <Compile Include="ParametroFormulaBE.cs" />
     <Compile Include="ParametroIndicadorAuxBE.cs" />
     <Compile Include="ParametroIndicadorBE.cs" />
+    <Compile Include="PlazoBE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resultado.cs" />
     <Compile Include="RolBE.cs" />

@@ -193,5 +193,10 @@ namespace logica.minem.gob.pe
         {
             return factorDA.ListarFomulasVerificar(entidad);
         }
+
+        public static List<FactorBE> ListarFactoresVerificar(string factores)
+        {
+            return factorDA.ListarFactoresVerificar(factores);
+        }
     }
 }

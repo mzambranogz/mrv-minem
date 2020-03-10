@@ -19,19 +19,23 @@ using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using System.Drawing;
 using utilitario.minem.gob.pe;
-using MRVMinem.Tags;
-using MRVMinem.Helper;
+//using MRVMinem.Tags;
+using System.Web.Security;
+//using MRVMinem.Helper;
 
 namespace MRVMinem.Controllers
 {
-    [Autenticado]
+    //[Autenticado]
+    [Authorize]
     public class GestionController : BaseController
     {
 
         public ActionResult Logout()
         {
-            SessionHelper.DestroyUserSession();
-            return RedirectToAction("Login", "Home");
+            //SessionHelper.DestroyUserSession();
+            //return RedirectToAction("Login", "Home");
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index");
         }
 
         // GET: Gestion
@@ -54,7 +58,7 @@ namespace MRVMinem.Controllers
             {
                 usu.PRIMER_INICIO = "0";
             }
-
+            
             modelo.usuario = usu;
             //if (Convert.ToInt32(Session["rol"]) == 1)
             //{
@@ -93,9 +97,8 @@ namespace MRVMinem.Controllers
             inic.ID_INICIATIVA = ini;
             inic.ID_MEDMIT = id;
             modelo.iniciativa_mit = inic;
-            if (ini > 0)
-            {
-
+            if (ini > 0){
+                                
             }
             else if (id > 0)
             {
@@ -127,8 +130,10 @@ namespace MRVMinem.Controllers
             modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
             modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
             modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
-            modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
-            modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
+            //modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
+            modelo.listaEnergetico = EnergeticoLN.ListarENERG(new EnergeticoBE());
+            //modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
+            modelo.listaGei = GasEfectoInvernaderoLN.ListarGEI(new GasEfectoInvernaderoBE());
             modelo.usuario = UsuarioLN.UsuarioIniciativa(modelo.iniciativa_mit.ID_USUARIO);
             modelo.listaTipoIniciativa = TipoIniciativaLN.listarTipoIniciativa();
             modelo.revision = 1;
@@ -148,17 +153,16 @@ namespace MRVMinem.Controllers
             modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
             modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
 
-            modelo.listaParametro = ParametroLN.ListarParametro(modelo.iniciativa_mit.ID_MEDMIT);
+           modelo.listaParametro = ParametroLN.ListarParametro(modelo.iniciativa_mit.ID_MEDMIT);
 
             modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
             modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
             modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
             modelo.usuario = UsuarioLN.EspecialistaMedida(modelo.iniciativa_mit.ID_MEDMIT);
             modelo.revision = 0;
-            if (modelo.menor == 0)
-            {
+            if (modelo.menor == 0) {
                 modelo.menor = getMenorId(modelo.listaEnfoque);
-            }
+            }            
             Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
 
             return View(modelo);
@@ -191,6 +195,20 @@ namespace MRVMinem.Controllers
             modelo.revision = 1;
             Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
             Session["nombres_destino"] = modelo.usuario.NOMBRES;
+
+            string factores = "";
+            if (modelo.listaIndData.Count > 0)
+            {
+                List<int> id_factores = modelo.listaIndData[modelo.listaIndData.Count - 1].id_factores;
+
+                for (var i = 0; i < id_factores.Count; i++)
+                {
+                    factores += id_factores[i] + ",";
+                }
+                factores = factores.Substring(0, factores.Length - 1);
+                modelo.id_factores = factores;
+            }
+            
             return View(modelo);
         }
 
@@ -263,7 +281,7 @@ namespace MRVMinem.Controllers
             modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
             ida.ID_MEDMIT = modelo.iniciativa_mit.ID_MEDMIT;
             modelo.listaIndData = IndicadorLN.ListarDatosTablaDinamica(ida);
-
+            
             modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
             modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
             modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
@@ -271,6 +289,7 @@ namespace MRVMinem.Controllers
             modelo.revision = 1;
             Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
             Session["usuario_destino"] = modelo.usuario.ID_USUARIO;
+
             return View(modelo);
         }
 
@@ -586,7 +605,7 @@ namespace MRVMinem.Controllers
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
                 itemRespuesta.extra = entidad.DESCRIPCION;
                 Session["correo_destino"] = "";
-
+                                
                 //entidad.EMAIL_USUARIO_ORIGEN = Convert.ToString(Session["correo"]);
                 //entidad.NOMBRES = Convert.ToString(Session["nombres_destino"]);
                 //entidad.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
@@ -761,7 +780,7 @@ namespace MRVMinem.Controllers
                 //==========================================================
                 List<IndicadorDataBE> listaDataE = new List<IndicadorDataBE>();
                 if (!string.IsNullOrEmpty(entidad.DATA))
-                {
+                {                    
                     var valores = entidad.DATA.Split('/');
 
                     for (int i = 0; i < valores.Length; i++)
@@ -794,7 +813,7 @@ namespace MRVMinem.Controllers
                         listaDataE.Add(dataE);
                     }
                 }
-
+                
 
                 //============================================================
 
@@ -880,6 +899,7 @@ namespace MRVMinem.Controllers
                 Log.Error(ex);
             }
 
+            //itemRespuesta.success = true;
             return Respuesta(itemRespuesta);
         }
 
@@ -1020,7 +1040,7 @@ namespace MRVMinem.Controllers
                 IniciativaBE iniciativa = new IniciativaBE();
                 iniciativa.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
                 iniciativa.ASUNTO = "Aprobación Iniciativa y Detalle Indicador - MRVMinem ";
-                iniciativa.DESCRIPCION = "Los detalles de indicadores y la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") fueron revisados y aprobadas por el Administrador MINEM<br/><br/>";
+                iniciativa.DESCRIPCION = "Los detalles de indicadores y la iniciativa ("+entidad.NOMBRE_INICIATIVA+") fueron revisados y aprobadas por el Administrador MINEM<br/><br/>";
                 EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
                 Session["correo_destino"] = "";
@@ -1214,7 +1234,7 @@ namespace MRVMinem.Controllers
             {
                 entidad = UsuarioLN.EditarUsuario(entidad);
             }
-
+            
             if (entidad.OK)
             {
                 if (entidad.ESTADO == "1")
@@ -1242,9 +1262,9 @@ namespace MRVMinem.Controllers
                         perfil = "Verificador";
                     }
 
-                    if (entidad.ID_ESTADO_USUARIO == 1)
+                    if (entidad.ID_ESTADO_USUARIO == 1) 
                     {
-                        estado = " Además, tiene los permisos para acceder al sistema";
+                        estado = " Además, tiene los permisos para acceder al sistema"; 
                     }
                     entidad.ASUNTO = "Registro - MRVMinem ";
                     entidad.DESCRIPCION = entidad.NOMBRES_USUARIO + " " + entidad.APELLIDOS_USUARIO + " ha sido registrado por el Administrador MINEM con el perfil " + perfil + "." + estado + "<br/><br/>";
@@ -1259,8 +1279,8 @@ namespace MRVMinem.Controllers
                         Task tarea = Task.Factory.StartNew(() => hilo_correo.AprobacionUsuario());
                     }
                 }
-            }
-
+            }           
+            
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }
@@ -1809,7 +1829,7 @@ namespace MRVMinem.Controllers
             {
                 Log.Error(ex);
             }
-
+            
             var jsonResult = Json(listaP, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
@@ -1874,7 +1894,7 @@ namespace MRVMinem.Controllers
             itemRespuesta.extra = Convert.ToString(ent.CANTIDAD);
             return Respuesta(itemRespuesta);
         }
-
+                
         public JsonResult CorreoAdministrador(UsuarioBE entidad)
         {
             ResponseEntity itemRespuesta = new ResponseEntity();
@@ -1902,6 +1922,14 @@ namespace MRVMinem.Controllers
             return jsonResult;
         }
 
+        public JsonResult ListarFactoresVerificar(string ID_FACTORES)
+        {
+            List<FactorBE> lista = FactorLN.ListarFactoresVerificar(ID_FACTORES);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
         //public JsonResult ListarTipoIniciativa()
         //{
         //    List<TipoIniciativaBE> lista = TipoIniciativaLN.listarTipoIniciativa();
@@ -1911,123 +1939,6 @@ namespace MRVMinem.Controllers
         //}
 
         //EXPORTAR EXCEL
-
-        public void ExportarIniciativa(string item)
-        {
-            try
-            {
-                if (item != null)
-                {
-                    var entidad = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<IniciativaBE>(item);
-                    entidad.ID_ROL = Convert.ToInt32(Session["rol"]);
-                    ExportarToExcelIniciativaMitigacion(entidad);
-                }
-            }
-            catch (Exception ex)
-            {
-                Log.Error(ex);
-            }
-        }
-
-        public void ExportarToExcelIniciativaMitigacion(IniciativaBE entidad)
-        {
-            List<IniciativaBE> lista = new List<IniciativaBE>();
-            if (entidad.METODO == 0)
-            {
-                lista = IniciativaLN.ListaExcelSimple(entidad);
-            }
-            else
-            {
-                lista = IniciativaLN.ListaExcelAvanzado(entidad);
-            }
-
-            int row = 2;
-            try
-            {
-                string cadena_fecha = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
-
-                using (ExcelPackage package = new ExcelPackage())
-                {
-                    var ws1 = package.Workbook.Worksheets.Add("INICIATIVA MITIGACIÓN");
-                    using (var m = ws1.Cells[1, 1, row, 9])
-                    {
-                        m.Style.Font.Bold = true;
-                        m.Style.WrapText = true;
-                        m.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                        m.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
-                        m.Style.Font.Size = 14;
-                        m.Merge = true;
-                        m.Value = "INICIATIVA MITIGACIÓN " + cadena_fecha;
-                    }
-                    ws1.View.FreezePanes(2, 1);
-                    row++;
-                    ws1.Cells["A" + row].Value = "N°";
-                    ws1.Cells["A" + row].AutoFitColumns(5);
-                    ws1.Cells["B" + row].Value = "NOMBRE DE INICIATIVA";
-                    ws1.Cells["B" + row].AutoFitColumns(60);
-                    ws1.Cells["C" + row].Value = "PROGRESO";
-                    ws1.Cells["C" + row].AutoFitColumns(15);
-                    ws1.Cells["D" + row].Value = "FECHA DE INICIO";
-                    ws1.Cells["D" + row].AutoFitColumns(20);
-                    ws1.Cells["E" + row].Value = "FECHA DE TÉRMINO";
-                    ws1.Cells["E" + row].AutoFitColumns(20);
-                    ws1.Cells["F" + row].Value = "MEDIDA DE MITIGACIÓN";
-                    ws1.Cells["F" + row].AutoFitColumns(60);
-                    ws1.Cells["G" + row].Value = "ENTIDAD";
-                    ws1.Cells["G" + row].AutoFitColumns(35);
-                    ws1.Cells["H" + row].Value = "TOTAL REDUCIDO";
-                    ws1.Cells["H" + row].AutoFitColumns(30);
-                    ws1.Cells["I" + row].Value = "ESTADO";
-                    ws1.Cells["I" + row].AutoFitColumns(25);
-
-                    FormatoCelda(ws1, "A", row, 0, 123, 255, 255, 255, 255);
-                    FormatoCelda(ws1, "B", row, 0, 123, 255, 255, 255, 255);
-                    FormatoCelda(ws1, "C", row, 0, 123, 255, 255, 255, 255);
-                    FormatoCelda(ws1, "D", row, 0, 123, 255, 255, 255, 255);
-                    FormatoCelda(ws1, "E", row, 0, 123, 255, 255, 255, 255);
-                    FormatoCelda(ws1, "F", row, 0, 123, 255, 255, 255, 255);
-                    FormatoCelda(ws1, "G", row, 0, 123, 255, 255, 255, 255);
-                    FormatoCelda(ws1, "H", row, 0, 123, 255, 255, 255, 255);
-                    FormatoCelda(ws1, "I", row, 0, 123, 255, 255, 255, 255);
-                    ws1.Row(row).Height = 42;
-                    row++;
-                    if (lista.Count > 0)
-                    {
-                        var xNum = 0;
-                        foreach (IniciativaBE dt_fila in lista)
-                        {
-                            xNum++;
-                            //ws1.Cells["A" + row].Value = xNum;
-                            ws1.Cells["A" + row].Value = dt_fila.ID_INICIATIVA;
-                            ws1.Cells["B" + row].Value = dt_fila.NOMBRE_INICIATIVA;
-                            ws1.Cells["C" + row].Value = Convert.ToString(dt_fila.PROGRESO * 25) + "%";
-                            ws1.Cells["D" + row].Value = dt_fila.FECHA;
-                            ws1.Cells["E" + row].Value = dt_fila.FECHA_FIN;
-                            ws1.Cells["F" + row].Value = dt_fila.NOMBRE_MEDMIT;
-                            ws1.Cells["G" + row].Value = dt_fila.NOMBRE_INSTITUCION;
-                            ws1.Cells["H" + row].Value = dt_fila.TOTAL_GEI;
-                            ws1.Cells["I" + row].Value = dt_fila.ESTADO_BANDEJA;
-                            formatoDetalle(ws1, "A", "F", row);
-                            row++;
-                        }
-                        row++;
-                    }
-
-                    string strFileName = "LISTA_INICIATIVA_MITIGACION_" + DateTime.Now.ToString() + ".xlsx";
-                    Response.Clear();
-                    byte[] dataByte = package.GetAsByteArray();
-                    Response.AddHeader("Content-Disposition", "inline;filename=\"" + strFileName + "\"");
-                    Response.AddHeader("Content-Length", dataByte.Length.ToString());
-                    Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-                    Response.BinaryWrite(dataByte);
-                    Response.End();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
 
         public void ExportarMantenimientoUsuario(string item)
         {
@@ -2050,13 +1961,13 @@ namespace MRVMinem.Controllers
             List<UsuarioBE> lista = null;
             //if (string.IsNullOrEmpty(entidad.DESCRIPCION))
             //{
-            lista = UsuarioLN.ListaMantenimientoUsuario(entidad);
+                lista = UsuarioLN.ListaMantenimientoUsuario(entidad);
             //}
             //else
             //{
             //    lista = UsuarioLN.BuscarMantenimientoUsuario(entidad);
             //}
-
+            
             int row = 2;
             try
             {
@@ -2113,9 +2024,8 @@ namespace MRVMinem.Controllers
                             ws1.Cells["D" + row].Value = dt_fila.INSTITUCION;
                             if (string.IsNullOrEmpty(dt_fila.TELEFONO_USUARIO))
                             {
-                                ws1.Cells["E" + row].Value = "                    - " + dt_fila.CELULAR_USUARIO;
-                            }
-                            else if (string.IsNullOrEmpty(dt_fila.CELULAR_USUARIO))
+                                ws1.Cells["E" + row].Value = "                    - "+dt_fila.CELULAR_USUARIO;
+                            } else if (string.IsNullOrEmpty(dt_fila.CELULAR_USUARIO))
                             {
                                 ws1.Cells["E" + row].Value = dt_fila.TELEFONO_USUARIO + " -                    ";
                             }
@@ -2193,7 +2103,7 @@ namespace MRVMinem.Controllers
                     }
                     ws1.View.FreezePanes(3, 1);
 
-
+                    
 
                     foreach (var item in lista)
                     {
@@ -2239,7 +2149,7 @@ namespace MRVMinem.Controllers
                         var xNum = 0;
                         foreach (var itemI in item.listaInd)
                         {
-                            j = 1;
+                            j = 1;                            
                             if (itemI.listaInd.Count > 0)
                             {
                                 xNum++;
@@ -2262,7 +2172,7 @@ namespace MRVMinem.Controllers
                                     else
                                     {
                                         ws1.Cells[L + row].Value = itemDet.VALOR;
-                                    }
+                                    }                                    
                                 }
                                 formatoDetalle(ws1, "A", obtenerLetra(j), row);
                                 row++;
@@ -2270,7 +2180,7 @@ namespace MRVMinem.Controllers
                         }
                         row++;
                         row++;
-
+                        
 
                         //if (lista.Count > 0)
                         //{
@@ -2279,7 +2189,7 @@ namespace MRVMinem.Controllers
                         //    {
                         //        xNum++;
                         //        ws1.Cells["A" + row].Value = xNum;
-
+                                
                         //        ws1.Cells["C" + row].Value = dt_fila.TIPO_VEHICULO;
                         //        ws1.Cells["D" + row].Value = dt_fila.TIPO_COMBUSTIBLE;
                         //        ws1.Cells["E" + row].Value = dt_fila.KRV_BASE;
@@ -2413,9 +2323,9 @@ namespace MRVMinem.Controllers
         private int getMenorId(List<EnfoqueBE> lista)
         {
             var menor = 999999999;
-            foreach (var item in lista)
+            foreach(var item in lista)
             {
-                if (item.ID_ENFOQUE < menor)
+                if(item.ID_ENFOQUE < menor)
                 {
                     menor = item.ID_ENFOQUE;
                 }
@@ -2436,7 +2346,7 @@ namespace MRVMinem.Controllers
             return menor;
         }
 
-        private string obtenerLetra(int num)
+        private string obtenerLetra (int num)
         {
             string letra = "";
             if (num == 1) letra = "A";
@@ -2477,8 +2387,8 @@ namespace MRVMinem.Controllers
                 {
                     id_enfoques += item.ID_ENFOQUE + ",";
                 }
-                id_enfoques = id_enfoques.Substring(0, id_enfoques.Length - 1);
-            }
+                id_enfoques = id_enfoques.Substring(0, id_enfoques.Length -1);
+            }            
 
             return id_enfoques;
         }

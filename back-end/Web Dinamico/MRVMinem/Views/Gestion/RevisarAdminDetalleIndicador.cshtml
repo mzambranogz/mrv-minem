@@ -241,11 +241,65 @@
                             }
                         </div>
                     </div>
-                    @*<div class="row">
+                    <div class="row">
                         <div class="col-12">
                             <div class="h5 py-5 text-primary">Indicadores</div>
                         </div>
-                    </div>*@
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="mlt-energetico">Energético asociado<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione uno o varios energéticos asociados de acuerdo a la medida de mitigación seleccionada"></i></label>
+                                <div class="input-group resaltado">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
+                                    <div class="form-control" style="height:120px; overflow-y: auto;" id="listaEnerg" @*data-cantidad="@Model.listaEnergetico.Count"*@>
+                                        @*@{
+                                var index_e = 0;
+                            }
+
+                            @foreach (var item in Model.listaEnergetico)
+                            {
+                                index_e += 1;
+                                var id_energ = "E"+index_e;
+                                <div class="col-auto my-1">
+                                    <div class="custom-control custom-checkbox mr-sm-2">
+                                        <input class="custom-control-input" type="checkbox" id="@id_energ" data-value="@item.ID_ENERG" >
+                                        <label class="custom-control-label" for="@id_energ">@item.DESCRIPCION</label>
+                                    </div>
+                                </div>
+                            }*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="mlt-gei">Gases de efecto invernadero<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione uno o varios GEI de acuerdo a la medida de mitigación seleccionada"></i></label>
+                                <div class="input-group resaltado">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
+                                    <div class="form-control" style="height:120px; overflow-y: auto;" id="listaGei" @*data-cantidad="@Model.listaGei.Count"*@>
+                                        @*@{
+                                var index_g = 0;
+                            }
+
+                            @foreach (var item in Model.listaGei)
+                            {
+                                index_g += 1;
+                                var id_gei = "G" + index_g;
+                                <div class="col-auto my-1">
+                                    <div class="custom-control custom-checkbox mr-sm-2">
+                                        <input class="custom-control-input" type="checkbox" id="@id_gei" data-value="@item.ID_GEI">
+                                        <label class="custom-control-label" for="@id_gei">@item.DESCRIPCION</label>
+                                    </div>
+                                </div>
+                            }*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     @*<div class="row">
                             <div class="col-sm-12-col-md-12 col-lg-6">
                                 <div class="form-group">
@@ -296,7 +350,7 @@
                         var total_e = 0.0;
                         var fila = 0;
                         total_reducido = 0.0;
-                        <div class="container py-5">
+                        <div class="container">
                             <div class="row">
                                 <div class="col-sm-12-col-md-12 col-lg-6">
                                     <div class="form-group">
@@ -310,8 +364,8 @@
                                 <div class="col-sm-12-col-md-12 col-lg-6">&nbsp;</div>
                             </div>
                         </div>
-                        <div class="container-fluid py-4">
-                            <div class="h5">Resumen de Detalles de Indicadores&nbsp;<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Complete los campos de acuerdo al enfoque seleccionado"></i></div>
+                        <div class="container-fluid">
+                            @*<div class="h5">Resumen del Detalle de Iniciativa de Mitigación&nbsp;<span class="text-danger font-weight-bold">&nbsp;</span></div>*@
                             <div class="dropdown-divider"></div>
                             <div class="row">
                                 <div class="col-12 px-0">
@@ -428,17 +482,15 @@
 
 
 
-                <div class="dropdown-divider"></div>
-                <div class="container pt-5">
+                @*<div class="dropdown-divider"></div>*@
+                @*<div class="container pt-5">
                     <div class="row">
                         <div class="col-12">
-                            <div class="h5 pb-5 text-primary">Resumen@*<br><small class="text-muted">Este es el detalle de su detalle de indicadores</small>*@</div>
+                            <div class="h5 pb-5 text-primary">Resumen</div>
                         </div>
                     </div>
                 </div>
                 <div class="container">
-                    @*<div class="h5">Registro de Detalles&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></div>*@
-                    @*<div class="dropdown-divider"></div>*@
                     <div class="row">
                         <div class="col-12">
                             <div class="table-responsive tabla-principal">
@@ -461,7 +513,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>*@
                 <div class="dropdown-divider"></div>
 
                 <div class="container py-5">

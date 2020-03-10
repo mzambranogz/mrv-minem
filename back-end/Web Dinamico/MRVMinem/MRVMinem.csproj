@@ -160,6 +160,8 @@
     <Content Include="images\password-level-47px.png" />
     <Content Include="images\sello.png" />
     <Content Include="images\sello.svg" />
+    <Content Include="images\sello_blanco.png" />
+    <Content Include="images\sello_new.svg" />
     <Content Include="images\_fonfo_footer.png" />
     <Content Include="js\AccionMitigacion.js" />
     <Content Include="js\CambiarClave.js" />
@@ -176,8 +178,11 @@
     <Content Include="js\MantenimientoFactores.js" />
     <Content Include="js\MantenimientoGei.js" />
     <Content Include="js\MantenimientoInstitucion.js" />
+    <Content Include="js\MantenimientoIPCC.js" />
     <Content Include="js\MantenimientoMedidaMitigacion.js" />
     <Content Include="js\MantenimientoMonedas.js" />
+    <Content Include="js\MantenimientoNama.js" />
+    <Content Include="js\MantenimientoPlazo.js" />
     <Content Include="js\MantenimientoSector.js" />
     <Content Include="js\MantenimientoTablas.js" />
     <Content Include="js\MantenimientoUbicacion.js" />
@@ -200,7 +205,6 @@
     <Content Include="Reportes\BlockChain.xml" />
     <Content Include="Reportes\frmReportes.aspx" />
     <Content Include="Reportes\ReporteIni.aspx" />
-    <Content Include="Temp\CAMBIOS-BD-05032020.sql" />
     <Content Include="Temp\LEEME.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -230,9 +234,12 @@
     <Compile Include="Models\MvGei.cs" />
     <Compile Include="Models\MvIniciativa.cs" />
     <Compile Include="Models\MvInstitucion.cs" />
+    <Compile Include="Models\MvIPCC.cs" />
     <Compile Include="Models\MvMedidaMitigacion.cs" />
     <Compile Include="Models\MvMoneda.cs" />
+    <Compile Include="Models\MvNama.cs" />
     <Compile Include="Models\MvParametro.cs" />
+    <Compile Include="Models\MvPlazo.cs" />
     <Compile Include="Models\MvSector.cs" />
     <Compile Include="Models\MvSesion.cs" />
     <Compile Include="Models\MvUbicacion.cs" />
@@ -280,6 +287,10 @@
     <Compile Include="Repositorio\EnvioCorreo.cs" />
     <Compile Include="Repositorio\ReporteRepositorio.cs" />
     <Compile Include="Response\ResponseEntity.cs" />
+    <Compile Include="Seguridad\IdentityPersonalizado.cs" />
+    <Compile Include="Seguridad\PrincipalPersonalizado.cs" />
+    <Compile Include="Seguridad\ProveedorAutenticacion.cs" />
+    <Compile Include="Seguridad\UsuarioMembership.cs" />
     <Compile Include="Tags\AutenticadoAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -443,9 +454,9 @@
       <DependentUpon>DsBlockChain.xsd</DependentUpon>
     </Content>
     <None Include="Reportes\DsBlockChain.xsd">
-      <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DsBlockChain.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
     <Content Include="Reportes\DsBlockChain.xss">
       <DependentUpon>DsBlockChain.xsd</DependentUpon>
@@ -497,8 +508,10 @@
     <Content Include="Views\Gestion\Resultados.cshtml" />
     <Content Include="Views\Mantenimiento\MedidaMitigacion.cshtml" />
     <Content Include="Views\Mantenimiento\EnfoqueFactor.cshtml" />
-    <Content Include="Temp\PKG_MRV_BLOCKCHAIN.pck" />
-    <Content Include="Temp\SHA256.pck" />
+    <Content Include="Views\Detalle\CorregirDetalleIndicadorMasivo.cshtml" />
+    <Content Include="Views\Mantenimiento\IPCC.cshtml" />
+    <Content Include="Views\Mantenimiento\Nama.cshtml" />
+    <Content Include="Views\Mantenimiento\Plazo.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

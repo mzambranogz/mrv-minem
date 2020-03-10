@@ -899,6 +899,29 @@ namespace datos.minem.gob.pe
         }
 
         ///////////////////////////////////////////////////////////////////////////////
+        public List<FactorBE> ListaEnfoqueFactores(int id_enfoque)
+        {
+            List<FactorBE> lista = null;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage4 + "USP_SEL_LISTA_ENFOQUE_FACTOR";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_ENFOQUE", id_enfoque);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    lista = db.Query<FactorBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return lista;
+        }
+
         public List<IndicadorDataBE> ListarDatosTablaDinamica(IndicadorDataBE entidad)
         {
             List<IndicadorDataBE> listaDataE = new List<IndicadorDataBE>();
@@ -912,11 +935,19 @@ namespace datos.minem.gob.pe
                     p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     listaDataE = db.Query<IndicadorDataBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
-
+                    List<int> factores = new List<int>();
                     foreach (var item in listaDataE)
                     {
                         item.listaInd = ListarDatosDinamico(item);
                         item.listaParam = listarDetalleCabeceraDinamico(item);
+                        item.listaFactor = ListaEnfoqueFactores(item.ID_ENFOQUE);
+                        foreach (var itemF in item.listaFactor)
+                        {
+                            int id_factor = (from num in factores where num == itemF.ID_FACTOR select num).Count();
+                            if (id_factor == 0)
+                                factores.Add(itemF.ID_FACTOR);
+                        }
+                        item.id_factores = factores;
                     }
                 }
                 entidad.OK = true;

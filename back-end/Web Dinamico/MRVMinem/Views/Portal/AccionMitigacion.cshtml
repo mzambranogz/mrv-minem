@@ -36,6 +36,24 @@
                             <div class="input-group"><div id="buscar-iniciativa" data-campo=""></div><!-- add id + data campo-->
                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-search"></i></span></div>
                                 <input class="form-control" type="text" id="txt-buscar" placeholder="Ingrese la descripción de su búsqueda" aria-describedby="inputGroup1" required>
+                                <div class="input-group-append" id="seccionFiltro">
+                                    <div class="btn-group">
+                                        <a class="btn btn-teal dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1"><i class="fas fa-filter">&nbsp;</i>Filtrar por estados</a>
+                                        <div class="dropdown-menu">
+                                            @*<a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(1, $(this));"><i class="fas fa-hourglass">&nbsp;</i>Pendientes</a>*@
+                                            <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(2, $(this));"><i class="fas fa-eye">&nbsp;</i>Observadas</a>
+                                            <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(3, $(this));"><i class="fas fa-check">&nbsp;</i>Aprobados</a>
+                                            <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(4, $(this));"><i class="fas fa-check-double">&nbsp;</i>Revisadas</a>
+                                            <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(5, $(this));"><i class="fas fa-clipboard-check">&nbsp;</i>Evaluadas</a>
+                                            <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(6, $(this));"><i class="fas fa-tasks">&nbsp;</i>Verificadas</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(7, $(this));"><i class="fas fa-tachometer-alt">&nbsp;</i>Todas</a>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
                             </div>
                         </div>
 
@@ -75,48 +93,71 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <!--.row
-                                                .col-sm-12
-                                                  .form-group
-                                                    label(for="txt-nombre-iniciativa") Nombre de la Iniciativa&nbsp;
-                                                      i.fas.fa-question-circle.ayuda-tooltip(data-toggle="tooltip", data-placement="right", title="Texto de ayuda que describe el funcionamiento general del módulo [...]")
-                                                    .input-group
-                                                      .input-group-prepend
-                                                        span.input-group-text#inputGroup3
-                                                          i.far.fa-comment-alt
-                                                      input.form-control(type="text", id="txt-nombre-iniciativa", placeholder="Ingrese nombre de la iniciativa", aria-describedby="inputGroup3")
-                                                -->
                                                                     <div class="row">
                                                                         <div class="col-sm-12">
                                                                             <div class="form-group">
-                                                                                <label for="txt-fecha-inicio">Año de Inicio del proyecto&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique el año de inicio del proyecto"></i></label>
+                                                                                <label for="txa-descripcion-medida">Descripción de la iniciativa<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese la descripción de la iniciativa."></i></label>
+                                                                                <div class="input-group">
+                                                                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-tachometer-alt"></i></span></div>
+                                                                                    <textarea class="form-control" id="txa-descripcion-iniciativa" aria-describedby="inputGroup5" cols="30" rows="4" required placeholder="Ingrese una descripción para su iniciativa"></textarea>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--.row
+                                                                    .col-sm-12
+                                                                      .form-group
+                                                                        label(for="txt-nombre-iniciativa") Nombre de la Iniciativa&nbsp;
+                                                                          i.fas.fa-question-circle.ayuda-tooltip(data-toggle="tooltip", data-placement="right", title="Texto de ayuda que describe el funcionamiento general del módulo [...]")
+                                                                        .input-group
+                                                                          .input-group-prepend
+                                                                            span.input-group-text#inputGroup3
+                                                                              i.far.fa-comment-alt
+                                                                          input.form-control(type="text", id="txt-nombre-iniciativa", placeholder="Ingrese nombre de la iniciativa", aria-describedby="inputGroup3")
+                                                                    -->
+                                                                    <div class="row">
+                                                                        <div class="col-sm-12">
+                                                                            <div class="form-group">
+                                                                                <label for="txt-fecha-inicio">Fecha inicial de ejecución del proyecto&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique la fecha inicial de ejecución del proyecto"></i></label>
                                                                                 <div class="input-group">
                                                                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-calendar-alt"></i></span></div>
-                                                                                    <input class="form-control" type="number" id="txt-fecha-inicio" placeholder="Ingrese el año de inicio del proyecto" aria-describedby="inputGroup4" min="2000" max="2030">
+                                                                                    <input class="form-control" type="date" id="txt-fecha-inicio" placeholder="Ingrese fecha de ejecución de la iniciativa" aria-describedby="inputGroup4" min="2010-01-01" max="2030-12-01">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="row">
+                                                                        <div class="col-sm-12">
+                                                                            <div class="form-group">
+                                                                                <label for="txt-fecha-fin">Fecha final de ejecución del proyecto&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique la fecha final de ejecución del proyecto"></i></label>
+                                                                                <div class="input-group">
+                                                                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-calendar-alt"></i></span></div>
+                                                                                    <input class="form-control" type="date" id="txt-fecha-fin" placeholder="Ingrese fecha de ejecución de la iniciativa" aria-describedby="inputGroup4" min="2010-01-01" max="2030-12-01">
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                         <!--.col-sm-6
-                                                    .form-group
-                                                      label(for="cbo-duracion-proyecto") Duración del proyecto&nbsp;
-                                                        i.fas.fa-question-circle.ayuda-tooltip(data-toggle="tooltip", data-placement="right", title="Texto de ayuda que describe el funcionamiento general del módulo [...]")
-                                                      .input-group
-                                                        .input-group-prepend
-                                                          span.input-group-text#inputGroup5
-                                                            i.fas.fa-calendar-alt
-                                                        select.form-control(id="cbo-duracion-proyecto", aria-describedby="inputGroup5")
-                                                          option -Duración en años-
-                                                          option 1 año
-                                                          option 2 años
-                                                          option 3 años
-                                                          option 4 años
-                                                          option 5 años
-                                                          option 6 años
-                                                          option 7 años
-                                                          option 8 años
-                                                          option 9 años
-                                                          option 10 años
-                                                    -->
+                                                                        .form-group
+                                                                          label(for="cbo-duracion-proyecto") Duración del proyecto&nbsp;
+                                                                            i.fas.fa-question-circle.ayuda-tooltip(data-toggle="tooltip", data-placement="right", title="Texto de ayuda que describe el funcionamiento general del módulo [...]")
+                                                                          .input-group
+                                                                            .input-group-prepend
+                                                                              span.input-group-text#inputGroup5
+                                                                                i.fas.fa-calendar-alt
+                                                                            select.form-control(id="cbo-duracion-proyecto", aria-describedby="inputGroup5")
+                                                                              option -Duración en años-
+                                                                              option 1 año
+                                                                              option 2 años
+                                                                              option 3 años
+                                                                              option 4 años
+                                                                              option 5 años
+                                                                              option 6 años
+                                                                              option 7 años
+                                                                              option 8 años
+                                                                              option 9 años
+                                                                              option 10 años
+                                                                        -->
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -244,7 +285,7 @@
                         <div class="row">
 
                             <div class="col-sm-12 col-md-6 col-lg-6">
-                                @*<button class="btn btn-success w-100 mb-2"><i class="fas fa-file-download px-1"></i>Descargar Excel</button>*@
+                                <button class="btn btn-success w-100 mb-2" onclick="exportarIniciativa();"><i class="fas fa-file-download px-1"></i>Descargar Excel</button><div id="divExportar"></div> <!-- add metodo exportar y div creado con su id -->
                             </div>
                             <div class="col-sm-12 col-md-6 col-lg-6">
                                 <button class="btn btn-success w-100 mb-2" @*type="submit"*@ onclick="fn_busqueda_Publico();"><i class="fas fa-search px-1"></i>Buscar</button>
@@ -258,7 +299,7 @@
                 </div>
             </div>
             <div class="container-fluid py-4">
-                <div class="row" id="estadoIniciativa" data-estado="1">
+                <div class="row" id="estadoIniciativa" data-estado="7">
                     <!--add id data -->
                     <div class="col-xs-12 col sm-12 col-lg-9">
                         <div class="h5">Bandeja de Acciones de Mitigación&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Bandeja de todas las iniciativas de mitigación públicas"></i></div>
@@ -347,7 +388,7 @@
     </div>
 </div>
 
-@Html.Hidden("columna", "FECHA");
+@Html.Hidden("columna", "ID_INICIATIVA");
 @Html.Hidden("orden", "ASC");
 
 

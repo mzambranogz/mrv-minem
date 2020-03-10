@@ -27,12 +27,12 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 order-1 order-sm-1 order-md-1 order-lg-2 banner-lado-derecho">
             <div class="banners">
-                <div class="banner-1 banner-mostrado" data-titulo="" data-descripcion="Para medir el impacto de los esfuerzos de &lt;strong&gt;mitigación del cambio climático&lt;/strong&gt; se requiere recopilar datos específicos y cálculos matemáticos. El &lt;strong&gt;sistema MRV&lt;/strong&gt; permite cuantificar y reportar las emisiones de GEI reducidas según cada &lt;strong&gt;medida de mitigación del sector energía&lt;/strong&gt;, así como los avances del alcance de nuestro compromiso como país."></div>
-                <div class="banner-2" data-titulo="" data-descripcion="A través de la &lt;strong&gt;energía renovable&lt;/strong&gt; se pueden aprovechar fuentes inagotables para &lt;strong&gt;generar electricidad de manera, económica y ambientalmente sostenible&lt;/strong&gt; contribuyendo significativamente a la reducción de emisiones de GEI."></div>
-                <div class="banner-3" data-titulo="" data-descripcion="A través de la &lt;strong&gt;eficiencia energética&lt;/strong&gt; se logra un buen uso de &lt;strong&gt;recursos energéticos&lt;/strong&gt;, resultando en &lt;strong&gt;ahorro energético&lt;/strong&gt;, &lt;strong&gt;económico&lt;/strong&gt; y reducción de emisiones de GEI."></div>
-                <div class="banner-4" data-titulo="" data-descripcion="A través de la &lt;strong&gt;cocción limpia&lt;/strong&gt; y la &lt;strong&gt;electrificación en el ámbito rural&lt;/strong&gt; con fuentes renovables se reduce la brecha de acceso a la energía, resultando en &lt;strong&gt;ahorros económicos&lt;/strong&gt;, &lt;strong&gt;mejoras en la salud&lt;/strong&gt;, en la &lt;strong&gt;calidad de vida&lt;/strong&gt; y en la reducción de contaminantes locales y emisiones de GEI."></div>
-                <div class="banner-5" data-titulo="" data-descripcion="El &lt;strong&gt;transporte eléctrico&lt;/strong&gt; permite reducir las emisiones de contaminantes locales, el ruido que afecta negativamente la salud de las personas, así como &lt;strong&gt;reduce considerablemente las emisiones&lt;/strong&gt; de gases de efecto invernadero."></div>
-                <div class="banner-6" data-titulo="" data-descripcion="Reducir las emisiones de &lt;strong&gt;Gases de Efecto Invernadero (GEI)&lt;/strong&gt; para mitigar los efectos del cambio climático es responsabilidad de todas y todos los peruanos."></div>
+                <div class="banner-1 banner-mostrado" data-titulo="" data-color="EEEEEE" data-descripcion="Para medir el impacto de los esfuerzos de &lt;strong&gt;mitigación del cambio climático&lt;/strong&gt; se requiere recopilar datos específicos y cálculos matemáticos. El &lt;strong&gt;sistema MRV&lt;/strong&gt; permite cuantificar y reportar las emisiones de GEI reducidas según cada &lt;strong&gt;medida de mitigación del sector energía&lt;/strong&gt;, así como los avances del alcance de nuestro compromiso como país."></div>
+                <div class="banner-2" data-titulo="" data-color="FAB102" data-descripcion="A través de la &lt;strong&gt;energía renovable&lt;/strong&gt; se pueden aprovechar fuentes inagotables para &lt;strong&gt;generar electricidad de manera, económica y ambientalmente sostenible&lt;/strong&gt; contribuyendo significativamente a la reducción de emisiones de GEI."></div>
+                <div class="banner-3" data-titulo="" data-color="37992F" data-descripcion="A través de la &lt;strong&gt;eficiencia energética&lt;/strong&gt; se logra un buen uso de &lt;strong&gt;recursos energéticos&lt;/strong&gt;, resultando en &lt;strong&gt;ahorro energético&lt;/strong&gt;, &lt;strong&gt;económico&lt;/strong&gt; y reducción de emisiones de GEI."></div>
+                <div class="banner-4" data-titulo="" data-color="FB1C0B" data-descripcion="A través de la &lt;strong&gt;cocción limpia&lt;/strong&gt; y la &lt;strong&gt;electrificación en el ámbito rural&lt;/strong&gt; con fuentes renovables se reduce la brecha de acceso a la energía, resultando en &lt;strong&gt;ahorros económicos&lt;/strong&gt;, &lt;strong&gt;mejoras en la salud&lt;/strong&gt;, en la &lt;strong&gt;calidad de vida&lt;/strong&gt; y en la reducción de contaminantes locales y emisiones de GEI."></div>
+                <div class="banner-5" data-titulo="" data-color="2E58A6" data-descripcion="El &lt;strong&gt;transporte eléctrico&lt;/strong&gt; permite reducir las emisiones de contaminantes locales, el ruido que afecta negativamente la salud de las personas, así como &lt;strong&gt;reduce considerablemente las emisiones&lt;/strong&gt; de gases de efecto invernadero."></div>
+                <div class="banner-6" data-titulo="" data-color="EEEEEE" data-descripcion="Reducir las emisiones de &lt;strong&gt;Gases de Efecto Invernadero (GEI)&lt;/strong&gt; para mitigar los efectos del cambio climático es responsabilidad de todas y todos los peruanos."></div>
             </div>
             <div class="flecha animated bounce infinite" id="enlaceAspectos"><i class="fas fa-angle-double-right fa-2x text-white btn-slider-bottom"></i></div>
             <div class="container">
@@ -231,50 +231,51 @@
     </p>
 </div>
 <div class="container-fluid" id="medidas-mitigacion">
+
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
             <div class="container-fluid">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12 col-md-3 col-lg-3 pb-5">
-                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".4s">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".4s" onclick="CargarDashboardMedida(5)">
                                 <img class="img-thumbnail border-0" src="~/images/ico_nama_amarillo_01.svg">
-                                <div class="nombre-medida bg-nama-amarilla">
+                                <div class="nombre-medida bg-nama-amarilla cursor-pointer" data-toggle="modal" data-target="#modal-resultados">
                                     <span class="h6">
-                                        Transformación del mercado de iluminación del sector residencial
+                                        Transformación del mercado de Iluminación en el Sector Residencial - ISR
                                         <!--small.text-muted NAMA DE EFICIENCIA ENERGETICA-->
                                     </span>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-3 col-lg-3 pb-5">
-                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".5s">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".5s" onclick="CargarDashboardMedida(7)">
                                 <img class="img-thumbnail border-0" src="~/images/ico_nama_amarillo_02.svg">
-                                <div class="nombre-medida bg-nama-amarilla">
+                                <div class="nombre-medida bg-nama-amarilla cursor-pointer" data-toggle="modal" data-target="#modal-resultados">
                                     <span class="h6">
-                                        Reemplazo de lámparas de alumbrado público por lámparas LED
+                                        Lámparas de alumbrado público - LAP
                                         <!--small.text-muted NAMA DE EFICIENCIA ENERGETICA-->
                                     </span>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-3 col-lg-3 pb-5">
-                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".6s">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".6s" onclick="CargarDashboardMedida(1)">
                                 <img class="img-thumbnail border-0" src="~/images/ico_nama_amarillo_03.svg">
-                                <div class="nombre-medida bg-nama-amarilla">
+                                <div class="nombre-medida bg-nama-amarilla cursor-pointer" data-toggle="modal" data-target="#modal-resultados">
                                     <span class="h6">
-                                        Etiquetado de eficiencia energética
+                                        Etiquetado de Eficiencia Energética - EEE
                                         <!--small.text-muted NAMA DE EFICIENCIA ENERGETICA-->
                                     </span>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-3 col-lg-3 pb-5">
-                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".7s">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".7s" onclick="CargarDashboardMedida(4)">
                                 <img class="img-thumbnail border-0" src="~/images/ico_nama_amarillo_04.svg">
-                                <div class="nombre-medida bg-nama-amarilla">
+                                <div class="nombre-medida bg-nama-amarilla cursor-pointer" data-toggle="modal" data-target="#modal-resultados">
                                     <span class="h6">
-                                        Auditorías energéticas sector público
+                                        Auditorías energéticas en el sector público - AESP
                                         <!--small.text-muted NAMA DE EFICIENCIA ENERGETICA-->
                                     </span>
                                 </div>
@@ -291,44 +292,44 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12 col-md-3 col-lg-3 pb-5">
-                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".4s">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".4s" onclick="CargarDashboardMedida(6)">
                                 <img class="img-thumbnail border-0" src="~/images/ico_nama_amarillo_05.svg">
-                                <div class="nombre-medida bg-nama-amarilla">
+                                <div class="nombre-medida bg-nama-amarilla cursor-pointer" data-toggle="modal" data-target="#modal-resultados">
                                     <span class="h6">
-                                        Reemplazo de lámparas por lámparas LED en el sector público
+                                        Reemplazo de lámparas en sector público - LSP
                                         <!--small.text-muted NAMA DE EFICIENCIA ENERGETICA-->
                                     </span>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-3 col-lg-3 pb-5">
-                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".5s">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".5s" onclick="CargarDashboardMedida(2)">
                                 <img class="img-thumbnail border-0" src="~/images/ico_nama_amarillo_06.svg">
-                                <div class="nombre-medida bg-nama-amarilla">
+                                <div class="nombre-medida bg-nama-amarilla cursor-pointer" data-toggle="modal" data-target="#modal-resultados">
                                     <span class="h6">
-                                        Eficiencia energética en el sector industrial
+                                        Eficiencia Energética en el sector industrial - EESI
                                         <!--small.text-muted NAMA DE EFICIENCIA ENERGETICA-->
                                     </span>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-3 col-lg-3 pb-5">
-                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".6s">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".6s" onclick="CargarDashboardMedida(3)">
                                 <img class="img-thumbnail border-0" src="~/images/ico_nama_amarillo_07.svg">
-                                <div class="nombre-medida bg-nama-amarilla">
+                                <div class="nombre-medida bg-nama-amarilla cursor-pointer" data-toggle="modal" data-target="#modal-resultados">
                                     <span class="h6">
-                                        Reemplazo lámparas en el sector comercial
+                                        Eficiencia energética en el sector comercial - EESC
                                         <!--small.text-muted NAMA DE EFICIENCIA ENERGETICA-->
                                     </span>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-3 col-lg-3 pb-5">
-                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".7s">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".7s" onclick="CargarDashboardMedida(12)">
                                 <img class="img-thumbnail border-0" src="~/images/ico_nama_azul_01.svg">
-                                <div class="nombre-medida bg-nama-azul">
+                                <div class="nombre-medida bg-nama-azul cursor-pointer" data-toggle="modal" data-target="#modal-resultados">
                                     <span>
-                                        Promoción de vehículos eléctricos a nivel nacional
+                                        Promoción de vehículos eléctricos - PVE
                                         <!--small.text-muted NAMA DE TRANSPORTE TERRESTRE ELÉCTRICO-->
                                     </span>
                                 </div>
@@ -345,44 +346,44 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12 col-md-3 col-lg-3 pb-5">
-                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".4s">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".4s" onclick="CargarDashboardMedida(9)">
                                 <img class="img-thumbnail border-0" src="~/images/ico_nama_rojo_01.svg">
-                                <div class="nombre-medida bg-nama-roja">
+                                <div class="nombre-medida bg-nama-roja cursor-pointer" data-toggle="modal" data-target="#modal-resultados">
                                     <span>
-                                        Suministro de electricidad con energía renovable en áreas no conectadas
+                                        Electrificación rural - ER
                                         <!--small.text-muted NAMA DE ACCESO UNIVERSAL A LA ENERGIA SOSTENIBLE-->
                                     </span>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-3 col-lg-3 pb-5">
-                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".5s">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".5s" onclick="CargarDashboardMedida(8)">
                                 <img class="img-thumbnail border-0" src="~/images/ico_nama_rojo_02.svg">
-                                <div class="nombre-medida bg-nama-roja">
+                                <div class="nombre-medida bg-nama-roja cursor-pointer" data-toggle="modal" data-target="#modal-resultados">
                                     <span>
-                                        Cocción limpia
+                                        Cocción limpia - CL
                                         <!--small.text-muted NAMA DE ACCESO UNIVERSAL A LA ENERGIA SOSTENIBLE-->
                                     </span>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-3 col-lg-3 pb-5">
-                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".6s">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".6s" onclick="CargarDashboardMedida(10)">
                                 <img class="img-thumbnail border-0" src="~/images/ico_nama_verde_01.svg">
-                                <div class="nombre-medida bg-nama-verde">
+                                <div class="nombre-medida bg-nama-verde cursor-pointer" data-toggle="modal" data-target="#modal-resultados">
                                     <span>
-                                        Combinación de energías renovables
+                                        RER conectado - RERC
                                         <!--small.text-muted NAMA DE RER CONECTADO-->
                                     </span>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-3 col-lg-3 pb-5">
-                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".7s">
+                            <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".7s" onclick="CargarDashboardMedida(11)">
                                 <img class="img-thumbnail border-0" src="~/images/ico_nama_verde_02.svg">
-                                <div class="nombre-medida bg-nama-verde">
+                                <div class="nombre-medida bg-nama-verde cursor-pointer" data-toggle="modal" data-target="#modal-resultados">
                                     <span>
-                                        Generación distribuida
+                                        Generación distribuida - GD
                                         <!--small.text-muted NAMA DE RER CONECTADO-->
                                     </span>
                                 </div>
@@ -393,6 +394,7 @@
             </div>
         </div>
     </div>
+
 </div>
 <div class="container-fluid" id="reportes-resultados">
     <div class="row">
@@ -407,8 +409,101 @@
         </div>
     </div>
 </div>
+
+
+<div class="modal fade" id="modal-resultados" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">@*Mensaje de Usuario*@</h5>
+                <h3 class="text-center" id="nombre-medida">@*Nombre de la Medida de Mitigación Seleccionada*@</h3>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body medidas-modal">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <h3 class="text-center" @*id="nombre-medida"*@>@*Nombre de la Medida de Mitigación Seleccionada*@</h3>
+                        <p class="text-center"> @*Al año 2020 se han logrado reducir 5000 toneladas de CO<sub>2</sub>eq*@</p>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="row">
+
+                            <div class="col-sm-12 col-md-12 col-lg-4 pb-5">
+                                <div class="logros d-flex">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12 col-lg-5 flex-fill d-flex flex-column justify-content-center bg-light pr-0">
+                                            <h2 class="text-center text-dark" id="total-region">@*23*@</h2><small class="text-center">Regiones</small>
+                                        </div>
+                                        <div class="col-sm-12 col-md-12 col-lg-7 flex-fill bg-white py-3">
+                                            <div class="h5">Registradas contribuyendo a la causa</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-12 col-lg-4 pb-5">
+                                <div class="logros d-flex">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12 col-lg-5 flex-fill d-flex flex-column justify-content-center bg-light pr-0">
+                                            <h2 class="text-center text-dark" id="total-gei">@*54*@</h2><small class="text-center">Toneladas</small>
+                                        </div>
+                                        <div class="col-sm-12 col-md-12 col-lg-7 flex-fill bg-white py-3">
+                                            <div class="h5">De CO2eq reducidas</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-12 col-lg-4 pb-5" id="institucion-mostrar" hidden>
+                                <div class="logros d-flex">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12 col-lg-5 flex-fill d-flex flex-column justify-content-center bg-light pr-0">
+                                            <h2 class="text-center text-dark" id="total-institucion">@*1450*@</h2><small class="text-center">Instituciones</small>
+                                        </div>
+                                        <div class="col-sm-12 col-md-12 col-lg-7 flex-fill bg-white py-3">
+                                            <div class="h5">Trabajando en conjunto para el cambio</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-6 pb-5">
+                                <div class="logros chart" id="bar-chart"></div>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-6 pb-5" id="dash-1" hidden>
+                                <div class="logros chart" id="pie-chart"></div>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-6 pb-5" id="dash-2" hidden>
+                                <div class="logros chart" id="column-chart"></div>
+                            </div>
+                            @*<div class="col-sm-12 col-md-12 col-lg-6 pb-5">
+                                    <div class="logros chart" id="line-chart"></div>
+                                </div>*@
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="~/js/script.js"></script>
 <script src="~/js/MRV.js"></script>
+<script type="text/javascript">
+
+    google.charts.load('current', { 'packages': ['corechart'] });
+
+</script>
+<script src="~/js/Resultados.js"></script>
 
 
 

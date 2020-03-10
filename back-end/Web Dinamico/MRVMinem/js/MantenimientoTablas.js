@@ -39,4 +39,13 @@
     if ($("#cbo-tabla-mantenimiento").val() == 13) {
         location.href = baseUrl + "Mantenimiento/MedidaMitigacion";
     }
+    if ($("#cbo-tabla-mantenimiento").val() == 14) {
+        location.href = baseUrl + "Mantenimiento/IPCC";
+    }
+    if ($("#cbo-tabla-mantenimiento").val() == 15) {
+        location.href = baseUrl + "Mantenimiento/Nama";
+    }
+    if ($("#cbo-tabla-mantenimiento").val() == 16) {
+        location.href = baseUrl + "Mantenimiento/Plazo";
+    }
 }

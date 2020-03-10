@@ -1510,7 +1510,6 @@ function fn_evaluarIniciativaDetalle() {
         msj1 = msj1 + '         <hr>';
         msj1 = msj1 + '         <div class="text-monospace" style="word-break: break-all;">' + respuesta.extra2 + '</div>';
         msj1 = msj1 + '     </small>';
-        msj1 = msj1 + '     </div>';
         msj1 = msj1 + '</div>';
 
         $("#aprobar-evaluacion #modalAprobarBoton").hide();
@@ -1768,6 +1767,8 @@ function CargarDatosCabecera() {
     }
     //$("#tbl-main-preload").html("<i Class='fas fa-spinner fa-spin px-1'></i> Cargando...");
     //$("#tbl-main").addClass("d-none");
+    $("#tbl-main-preload").html("<i Class='fas fa-spinner fa-spin px-1'></i> Cargando...");
+    $("#tbl-main").addClass("d-none");
     $.ajax({
         url: baseUrl + 'Gestion/ListarCabeceraIndicador',
         type: 'POST',
@@ -1778,7 +1779,7 @@ function CargarDatosCabecera() {
                 if (data.length > 0) {
                     var tr = "";
                     tr += '<tr class="bg-primary text-white">';
-                    tr += '     <th class="text-center" scope="col"><span>N°</span></th>';
+                    tr += '     <th class="text-center grupo-columna-03" scope="col"><span>N°</span></th>';
                     for (var i = 0; i < data.length; i++) {
                         var columna = "0" + data[i]["ID_GRUPO_INDICADOR"];
                         debugger;
@@ -1809,6 +1810,7 @@ function CargarDatosCabecera() {
                         //}                        
                     }
                     //tr += '     <th class="text-center" scope="col">Más</th>';
+                    tr += '<th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>SUSTENTO</span><small>Seleccione este campo para su registro</small></th>';
                     tr += '</tr>';
                     $("#cabeceraTablaIndicador").append(tr);
                     $("[data-toggle='tooltip']").tooltip();
@@ -1914,6 +1916,11 @@ function CargarCuerpoGuardado(filas) {
                         //tr += '          </div>';
                         //tr += '     </div>';
                         //tr += '</td>';
+                        tr += '<td class="text-center" data-encabezado="Sustento">';
+                        tr += '        <label class="btn btn-secondary btn-sm m-0" for="fle-doc" title="Cargar archivo"><i class="fas fa-upload"></i>';
+                        tr += '          <input class="d-none" type="file" id="fle-doc">';
+                        tr += '        </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>';
+                        tr += '</td>';
                         tr += '</tr>';
                         $("#cuerpoTablaIndicador").append(tr);
                     }
@@ -2320,25 +2327,26 @@ function fn_procesoDetalleIndicador(url, estado) {
                 } else if (estado == 1 || estado == 5) {
                     $('#mensajeModalRegistrar #mensajeGoodRegistro').remove();
                     $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
-                    var msj = '                       <div class="alert alert-success d-flex align-items-stretch" role="alert" id="mensajeGoodRegistro">';
-                    msj = msj + '                            <div class="alert-wrap mr-3">';
-                    msj = msj + '                                <div class="sa">';
-                    msj = msj + '                                    <div class="sa-success">';
-                    msj = msj + '                                        <div class="sa-success-tip"></div>';
-                    msj = msj + '                                        <div class="sa-success-long"></div>';
-                    msj = msj + '                                        <div class="sa-success-placeholder"></div>';
-                    msj = msj + '                                        <div class="sa-success-fix"></div>';
-                    msj = msj + '                                    </div>';
-                    msj = msj + '                                </div>';
-                    msj = msj + '                            </div>';
-                    msj = msj + '                            <div class="alert-wrap">';
-                    msj = msj + '                                <h6>Felicitaciones</h6>';
-                    msj = msj + '                                <hr><small class="mb-0">Usted a completado el envío de detalle de su iniciativa de mitigación que será verificada por uno de nuestros especialistas. También, le recordamos que puede ingresar a nuestra plataforma del <b>Sello de Energía Sostenible</b></small>';
-                    msj = msj + '                            </div>';
-                    msj = msj + '                        </div>';
+                    //var msj = '                       <div class="alert alert-success d-flex align-items-stretch" role="alert" id="mensajeGoodRegistro">';
+                    //msj = msj + '                            <div class="alert-wrap mr-3">';
+                    //msj = msj + '                                <div class="sa">';
+                    //msj = msj + '                                    <div class="sa-success">';
+                    //msj = msj + '                                        <div class="sa-success-tip"></div>';
+                    //msj = msj + '                                        <div class="sa-success-long"></div>';
+                    //msj = msj + '                                        <div class="sa-success-placeholder"></div>';
+                    //msj = msj + '                                        <div class="sa-success-fix"></div>';
+                    //msj = msj + '                                    </div>';
+                    //msj = msj + '                                </div>';
+                    //msj = msj + '                            </div>';
+                    //msj = msj + '                            <div class="alert-wrap">';
+                    //msj = msj + '                                <h6>Felicitaciones</h6>';
+                    //msj = msj + '                                <hr><small class="mb-0">Usted a completado el envío de detalle de su iniciativa de mitigación que será verificada por uno de nuestros especialistas. También, le recordamos que puede ingresar a nuestra plataforma del <b>Sello de Energía Sostenible</b></small>';
+                    //msj = msj + '                            </div>';
+                    //msj = msj + '                        </div>';
                     $("#solicitar-revision #modalRegistrarBoton").hide();
                     $("#pieCorrecto").show();
-                    $('#mensajeModalRegistrar').append(msj);
+                    $("#mensajeSuccess").removeAttr("hidden");
+                    //$('#mensajeModalRegistrar').append(msj);
                     $("#Control").data("modal", 1);
                     if (response.extra == "1") {
                         if (ws != null) ws.send(response.extra);
@@ -2492,6 +2500,8 @@ function CargarDatosGuardados() {
                 //$("#total-detalle").append('<strong id="total">0.00 tCO<sub>2</sub>eq</strong>');
                 //$("#total-detalle2").append('<strong id="total2">0.00 tCO<sub>2</sub>eq</strong>');
             }
+            $("#tbl-main-preload").html("");
+            $("#tbl-main").removeClass("d-none");
         }
     });
 

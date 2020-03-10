@@ -12,8 +12,11 @@ namespace entidad.minem.gob.pe
         public int ID_TIPO_DATO { get; set; }
         public int ID_COLOR_INDICADOR { get; set; }
         public int VERIFICABLE { get; set; }
-        public string DESCRIPCION { get; set; }        
+        public string DESCRIPCION { get; set; }   
+        public string FORMULA { get; set; }     
         public List<IndicadorDataBE> listaInd { get; set; }
         public List<ParametroBE> listaParam { get; set; }
+        public List<FactorBE> listaFactor { get; set; }
+        public List<int> id_factores { get; set; }
     }
 }

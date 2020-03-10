@@ -215,18 +215,18 @@
                             }
                         </div>
                     </div>
-                    @*<div class="row">
+                    <div class="row">
                         <div class="col-12">
                             <div class="h5 py-5 text-primary">Indicadores</div>
                         </div>
-                    </div>*@
-                    @*<div class="row">
+                    </div>
+                    <div class="row">
                             <div class="col-sm-12-col-md-12 col-lg-6">
                                 <div class="form-group">
                                     <label for="mlt-energetico" class="font-weight-bold">Energético asociado<span class="text-danger font-weight-bold">&nbsp;</span></label>
-                                    <div class="input-group">
+                                    <div class="input-group resaltado">
                                         <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
-                                        <textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
+                                        <textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="4" readonly placeholder="Ingrese una descripción para su iniciativa">
                                             @if (Model.listaEnergetico != null)
                                             {
                                                 foreach (var item in Model.listaEnergetico)
@@ -240,11 +240,11 @@
                                 </div>
                             </div>
                             <div class="col-sm-12-col-md-12 col-lg-6">
-                                <div class="form-group">
+                                <div class="form-group resaltado">
                                     <label for="mlt-gei" class="font-weight-bold">Gases de efecto invernadero<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
-                                        <textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
+                                        <textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="4" readonly placeholder="Ingrese una descripción para su iniciativa">
                                             @if (Model.listaGei != null)
                                             {
                                                 foreach (var item in Model.listaGei)
@@ -257,7 +257,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>*@
+                        </div>
                 </div>
 
 
@@ -280,7 +280,7 @@
                         var total_e = 0.0;
                         var fila = 0;
                         total_reducido = 0.0;
-                        <div class="container py-5">
+                        <div class="container">
                             <div class="row">
                                 <div class="col-sm-12-col-md-12 col-lg-6">
                                     <div class="form-group">
@@ -294,8 +294,8 @@
                                 <div class="col-sm-12-col-md-12 col-lg-6">&nbsp;</div>
                             </div>
                         </div>
-                        <div class="container-fluid py-4">
-                            <div class="h5">Resumen de Detalles de Indicadores&nbsp;<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Complete los campos de acuerdo al enfoque seleccionado"></i></div>
+                        <div class="container-fluid">
+                            @*<div class="h5">Resumen del Detalle de Iniciativa de Mitigación&nbsp;<span class="text-danger font-weight-bold">&nbsp;</span></div>*@
                             <div class="dropdown-divider"></div>
                             <div class="row">
                                 <div class="col-12 px-0">
@@ -410,17 +410,15 @@
                 }
 
 
-                <div class="dropdown-divider"></div>
+                @*<div class="dropdown-divider"></div>
                 <div class="container pt-5">
                     <div class="row">
                         <div class="col-12">
-                            <div class="h5 pb-5 text-primary">Resumen@*<br><small class="text-muted">Este es el detalle de su detalle de indicadores</small>*@</div>
+                            <div class="h5 pb-5 text-primary">Resumen</div>
                         </div>
                     </div>
                 </div>
                 <div class="container">
-                    @*<div class="h5">Registro de Detalles&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></div>*@
-                    @*<div class="dropdown-divider"></div>*@
                     <div class="row">
                         <div class="col-12">
                             <div class="table-responsive tabla-principal">
@@ -443,7 +441,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>*@
                 <div class="dropdown-divider"></div>
 
                 <div class="container py-5">

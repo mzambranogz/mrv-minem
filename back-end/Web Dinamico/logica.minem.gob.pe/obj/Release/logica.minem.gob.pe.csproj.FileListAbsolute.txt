@@ -124,3 +124,17 @@ C:\Users\User\Desktop\backend\back-end\Web Dinamico\logica.minem.gob.pe\bin\Rele
 C:\Users\User\Desktop\backend\back-end\Web Dinamico\logica.minem.gob.pe\obj\Release\logica.minem.gob.pe.csprojResolveAssemblyReference.cache
 C:\Users\User\Desktop\backend\back-end\Web Dinamico\logica.minem.gob.pe\obj\Release\logica.minem.gob.pe.dll
 C:\Users\User\Desktop\backend\back-end\Web Dinamico\logica.minem.gob.pe\obj\Release\logica.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\logica.minem.gob.pe\bin\Release\logica.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\logica.minem.gob.pe\bin\Release\logica.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\logica.minem.gob.pe\bin\Release\datos.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\logica.minem.gob.pe\bin\Release\entidad.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\logica.minem.gob.pe\bin\Release\utilitario.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\logica.minem.gob.pe\bin\Release\Dapper.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\logica.minem.gob.pe\bin\Release\Oracle.DataAccess.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\logica.minem.gob.pe\bin\Release\datos.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\logica.minem.gob.pe\bin\Release\entidad.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\logica.minem.gob.pe\bin\Release\utilitario.minem.gob.pe.pdb
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\logica.minem.gob.pe\bin\Release\Dapper.xml
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\logica.minem.gob.pe\obj\Release\logica.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\logica.minem.gob.pe\obj\Release\logica.minem.gob.pe.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\logica.minem.gob.pe\obj\Release\logica.minem.gob.pe.pdb

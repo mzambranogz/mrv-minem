@@ -10,5 +10,6 @@ namespace entidad.minem.gob.pe
     {
         public int ID_IPCC { get; set; }
         public string IPCC { get; set; }
+        public string FLAG_ESTADO { get; set; }
     }
 }
