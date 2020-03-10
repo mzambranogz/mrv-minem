@@ -245,10 +245,10 @@ function fn_procesoIniciativa(url, estado) {
             msj = msj + '                           </div>';
             msj = msj + '                     </div>';
             $('#mensajeModalRegistrar').append(msj);
-            return false;
-            
+            return false;            
         }
     }
+
         var terminos = $("#chk-publicar").prop("checked");
         var inversion = $("#chk-publicar-monto-inversion").prop("checked");
         var privacidad = '0';
@@ -277,16 +277,115 @@ function fn_procesoIniciativa(url, estado) {
         //gei = gei.substring(0, gei.length - 1);
 
         var ubicacion = "";
+        var ubi_verificar = "";
         for (var i = 0; i < $("#listaUbicacion").data("cantidad") ; i++) {
             if ($('#U' + (i + 1)).prop('checked')) {
                 ubicacion = ubicacion + $('#U' + (i + 1)).data("value") + "," + "1/";
+                ubi_verificar += $('#U' + (i + 1)).data("value") + ",";
             }
         }
         ubicacion = ubicacion.substring(0, ubicacion.length - 1);
-        debugger;
+        ubi_verificar = ubi_verificar.substring(0, ubi_verificar.length - 1);
+        
         var monto_inversion = $("#txt-monto-inversion").val();
         monto_inversion = String(monto_inversion);
         monto_inversion = monto_inversion.replace(/,/gi, '');
+
+    //=============================================================================== VALIDAR
+        var validar_ini = 0;
+        if (estado == 1 || estado == 5) {
+            var item = {
+                ID_INICIATIVA: $("#Control").data("iniciativa"),
+                ID_MEDMIT: $("#Control").data("mitigacion"),
+                ID_USUARIO: $("#Control").data("usuario"),
+                NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
+                UBICACION: ubi_verificar,
+                INVERSION_INICIATIVA: monto_inversion,
+                ID_MONEDA: $("#cbo-moneda").val(),
+                FECHA_IMPLE_INICIATIVA: $("#txt-fecha-inicio").val()
+            };
+            var respuesta = MRV.Ajax(baseUrl + "Gestion/VerificarIniciativaMitigacion", item, false);
+            if (respuesta.success) {
+                if (respuesta.extra == '1') {
+                    validar_ini = 1;
+                }
+            } else {
+                validar_ini = 1;
+            }
+        }   
+
+        if (validar_ini == 1) {
+            var msj = '                       <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="mensajeDangerRegistro">';
+            msj = msj + '                            <div class="alert-wrap mr-3">';
+            msj = msj + '                                <div class="sa">';
+            msj = msj + '                                    <div class="sa-error">';
+            msj = msj + '                                       <div class="sa-error-x">';
+            msj = msj + '                                           <div class="sa-error-left"></div>';
+            msj = msj + '                                           <div class="sa-error-right"></div>';
+            msj = msj + '                                       </div>';
+            msj = msj + '                                       <div class="sa-error-placeholder"></div>';
+            msj = msj + '                                       <div class="sa-error-fix"></div>';
+            msj = msj + '                                   </div>';
+            msj = msj + '                               </div>';
+            msj = msj + '                           </div>';
+            msj = msj + '                           <div class="alert-wrap">';
+            msj = msj + '                                <h6>Error de registro</h6>';
+            msj = msj + '                                <hr><small class="mb-0">Ya existe una iniciativa con estos datos, por favor verificar</small>';
+            msj = msj + '                           </div>';
+            msj = msj + '                     </div>';
+            if ($("#Control").data("iniciativa") == 0) {
+                $("#solicitar-revision #modalRegistrarBoton").hide();
+                $("#pieCorrecto").show();
+                $("#Control").data("modal", 1);
+            }
+            $('#mensajeModalRegistrar').append(msj);
+            return false;
+        }
+    //===============================================================================================
+
+    //========================================================================== VALIDAR REVISION
+        var est = 0;
+        if (estado == 1 || estado == 5) {
+            var item = {
+                ID_INICIATIVA: $("#Control").data("iniciativa")
+            };
+            var respuesta = MRV.Ajax(baseUrl + "Gestion/VerificarRevisionIniciativaMitigacion", item, false);
+            if (respuesta.success) {
+                if (respuesta.extra == '1') {
+                    est = 1;
+                }
+            } else {
+                est = 1;
+            }
+        }
+
+        if (est == 1) {
+            var msj = '                       <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="mensajeDangerRegistro">';
+            msj = msj + '                            <div class="alert-wrap mr-3">';
+            msj = msj + '                                <div class="sa">';
+            msj = msj + '                                    <div class="sa-error">';
+            msj = msj + '                                       <div class="sa-error-x">';
+            msj = msj + '                                           <div class="sa-error-left"></div>';
+            msj = msj + '                                           <div class="sa-error-right"></div>';
+            msj = msj + '                                       </div>';
+            msj = msj + '                                       <div class="sa-error-placeholder"></div>';
+            msj = msj + '                                       <div class="sa-error-fix"></div>';
+            msj = msj + '                                   </div>';
+            msj = msj + '                               </div>';
+            msj = msj + '                           </div>';
+            msj = msj + '                           <div class="alert-wrap">';
+            msj = msj + '                                <h6>Error de registro</h6>';
+            msj = msj + '                                <hr><small class="mb-0">La iniciativa de mitigación ya fue enviada para su revisión</small>';
+            msj = msj + '                           </div>';
+            msj = msj + '                     </div>';
+            $('#mensajeModalRegistrar').append(msj);
+            $("#solicitar-revision #modalRegistrarBoton").hide();
+            $("#pieCorrecto").show();
+            $("#Control").data("modal", 1);
+            return false;
+        }
+
+    //==============================================================================================
 
         var item = {
             ID_INICIATIVA: $("#Control").data("iniciativa"), //
@@ -329,6 +428,8 @@ function fn_procesoIniciativa(url, estado) {
                 $("#guardar-avance #modalAvanceBoton").hide();
                 $("#pieCorrectoAvance").show();
                 $('#mensajeModalAvance').append(msj);
+                debugger;
+                if ($("#Control").data("iniciativa") == 0) { $("#Control").data("iniciativa", parseInt(respuesta.extra2)) };
             } else {
                 $('#mensajeModalRegistrar #mensajeDangerRegistro').remove();
                 var msj = '                       <div class="alert alert-success d-flex align-items-stretch" role="alert" id="mensajeGoodRegistro">';

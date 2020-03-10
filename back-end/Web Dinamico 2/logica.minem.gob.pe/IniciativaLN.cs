@@ -572,7 +572,17 @@ namespace logica.minem.gob.pe
             return iniciativaDA.getIdEnfoqueMenor(entidad);
         }
 
+        public static IniciativaBE VerificarIniciativaMitigacion(IniciativaBE entidad)
+        {
+            if (string.IsNullOrEmpty(entidad.UBICACION)) entidad.UBICACION = "0";
+            entidad.FECHA = entidad.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
+            return iniciativaDA.VerificarIniciativaMitigacion(entidad);
+        }
 
+        public static IniciativaBE VerificarRevisionIniciativaMitigacion(IniciativaBE entidad)
+        {
+            return iniciativaDA.VerificarRevisionIniciativaMitigacion(entidad);
+        }
 
     }
 }

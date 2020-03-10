@@ -18,6 +18,7 @@ namespace entidad.minem.gob.pe
         public string COLOR_GRUPO { get; set; }
         public int EDITABLE { get; set; }
         public int VERIFICABLE { get; set; }
+        public string LEYENDA_PARAMETRO { get; set; }
         public List<ParametroDetalleBE> listaDetalle { get; set; }
     }
 }

@@ -515,6 +515,7 @@ namespace MRVMinem.Controllers
 
             }
             itemRespuesta.success = entidad.OK;
+            itemRespuesta.extra2 = Convert.ToString(entidad.ID_INICIATIVA);
             itemRespuesta.extra = entidad.ASUNTO;   // entidad.ID_ESTADO.ToString();
             return Respuesta(itemRespuesta);
         }
@@ -1924,6 +1925,26 @@ namespace MRVMinem.Controllers
             var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
+        }
+
+        public JsonResult VerificarIniciativaMitigacion(IniciativaBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = IniciativaLN.VerificarIniciativaMitigacion(entidad);
+            itemRespuesta.success = entidad.OK;
+            itemRespuesta.extra = Convert.ToString(entidad.CANTIDAD);
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult VerificarRevisionIniciativaMitigacion(IniciativaBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = IniciativaLN.VerificarRevisionIniciativaMitigacion(entidad);
+            itemRespuesta.success = entidad.OK;
+            itemRespuesta.extra = Convert.ToString(entidad.CANTIDAD);
+            return Respuesta(itemRespuesta);
         }
 
         //public JsonResult ListarTipoIniciativa()

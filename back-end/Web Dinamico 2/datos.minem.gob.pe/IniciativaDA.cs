@@ -2029,6 +2029,77 @@ namespace datos.minem.gob.pe
             return id_enque;
         }
 
+        public IniciativaBE VerificarIniciativaMitigacion(IniciativaBE entidad)
+        {
+            int num = 0;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_VALIDAR_INI";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    p.Add("pNOMBRE_INICIATIVA", entidad.NOMBRE_INICIATIVA);
+                    p.Add("pINVERSION_INICIATIVA", entidad.INVERSION_INICIATIVA);
+                    p.Add("pID_MONEDA", entidad.ID_MONEDA);
+                    p.Add("pFECHA", entidad.FECHA);
+                    p.Add("pUBICACION", entidad.UBICACION);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    var CONT = db.ExecuteScalar(sp, p, commandType: CommandType.StoredProcedure);
+                    num = Convert.ToInt32(CONT);
+
+                    if (entidad.UBICACION != "0")
+                    {
+                        var arr = entidad.UBICACION.Split(',');
+                        if (num == arr.Count())
+                        {
+                            num = 1;
+                        }
+                        else
+                        {
+                            num = 0;
+                        }
+                    }
+                    entidad.CANTIDAD = num;
+                    entidad.OK = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                entidad.OK = false;
+                entidad.CANTIDAD = 1;
+                Log.Error(ex);
+            }
+
+            return entidad;
+        }
+
+        public IniciativaBE VerificarRevisionIniciativaMitigacion(IniciativaBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_VALIDAR_INI_REV";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    var ESTADO = db.ExecuteScalar(sp, p, commandType: CommandType.StoredProcedure);
+                    entidad.CANTIDAD = Convert.ToInt32(ESTADO);
+                    entidad.OK = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                entidad.OK = false;
+                Log.Error(ex);
+            }
+
+            return entidad;
+        }
+
     }
 
 }
