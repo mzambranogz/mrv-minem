@@ -1767,6 +1767,8 @@ function CargarDatosCabecera() {
     }
     //$("#tbl-main-preload").html("<i Class='fas fa-spinner fa-spin px-1'></i> Cargando...");
     //$("#tbl-main").addClass("d-none");
+    $("#tbl-main-preload").html("<i Class='fas fa-spinner fa-spin px-1'></i> Cargando...");
+    $("#tbl-main").addClass("d-none");
     $.ajax({
         url: baseUrl + 'Gestion/ListarCabeceraIndicador',
         type: 'POST',
@@ -1777,7 +1779,7 @@ function CargarDatosCabecera() {
                 if (data.length > 0) {
                     var tr = "";
                     tr += '<tr class="bg-primary text-white">';
-                    tr += '     <th class="text-center" scope="col"><span>N°</span></th>';
+                    tr += '     <th class="text-center grupo-columna-03" scope="col"><span>N°</span></th>';
                     for (var i = 0; i < data.length; i++) {
                         var columna = "0" + data[i]["ID_GRUPO_INDICADOR"];
                         debugger;
@@ -1808,6 +1810,7 @@ function CargarDatosCabecera() {
                         //}                        
                     }
                     //tr += '     <th class="text-center" scope="col">Más</th>';
+                    tr += '<th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>SUSTENTO</span><small>Seleccione este campo para su registro</small></th>';
                     tr += '</tr>';
                     $("#cabeceraTablaIndicador").append(tr);
                     $("[data-toggle='tooltip']").tooltip();
@@ -1913,6 +1916,11 @@ function CargarCuerpoGuardado(filas) {
                         //tr += '          </div>';
                         //tr += '     </div>';
                         //tr += '</td>';
+                        tr += '<td class="text-center" data-encabezado="Sustento">';
+                        tr += '        <label class="btn btn-secondary btn-sm m-0" for="fle-doc" title="Cargar archivo"><i class="fas fa-upload"></i>';
+                        tr += '          <input class="d-none" type="file" id="fle-doc">';
+                        tr += '        </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>';
+                        tr += '</td>';
                         tr += '</tr>';
                         $("#cuerpoTablaIndicador").append(tr);
                     }
@@ -2492,6 +2500,8 @@ function CargarDatosGuardados() {
                 //$("#total-detalle").append('<strong id="total">0.00 tCO<sub>2</sub>eq</strong>');
                 //$("#total-detalle2").append('<strong id="total2">0.00 tCO<sub>2</sub>eq</strong>');
             }
+            $("#tbl-main-preload").html("");
+            $("#tbl-main").removeClass("d-none");
         }
     });
 

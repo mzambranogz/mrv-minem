@@ -1808,6 +1808,7 @@ function CargarDatosCabecera() {
                         //}                        
                     }
                     //tr += '     <th class="text-center" scope="col">Más</th>';
+                    tr += '<th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>SUSTENTO</span><small>Seleccione este campo para su registro</small></th>';
                     tr += '</tr>';
                     $("#cabeceraTablaIndicador").append(tr);
                     $("[data-toggle='tooltip']").tooltip();
@@ -1913,6 +1914,11 @@ function CargarCuerpoGuardado(filas) {
                         //tr += '          </div>';
                         //tr += '     </div>';
                         //tr += '</td>';
+                        tr += '<td class="text-center" data-encabezado="Sustento">';
+                        tr += '        <label class="btn btn-secondary btn-sm m-0" for="fle-doc" title="Cargar archivo"><i class="fas fa-upload"></i>';
+                        tr += '          <input class="d-none" type="file" id="fle-doc">';
+                        tr += '        </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>';
+                        tr += '</td>';
                         tr += '</tr>';
                         $("#cuerpoTablaIndicador").append(tr);
                     }

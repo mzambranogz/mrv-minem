@@ -3224,16 +3224,23 @@ function CargarCuerpoGuardado(filas) {
                                 tr += '</td>'
                             }
                         }
-                        tr += '<td class="text-center text-xs-right" data-encabezado="Acciones">';
-                        tr += '     <div class="btn-group">';
-                        tr += '          <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
-                        tr += '          <div class="dropdown-menu dropdown-menu-right">';
-                        //tr += '               <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;Verificar</a>';
-                        tr += '               <a class="dropdown-item agregarCampos" href="#"><i class="fas fa-plus-circle"></i>&nbsp;Agregar</a>';
-                        tr += '               <a class="dropdown-item quitarCampos" href="#" onclick="fn_eliminarRestarTotal()"><i class="fas fa-minus-circle"></i>&nbsp;Eliminar</a>';
-                        tr += '          </div>';
-                        tr += '     </div>';
+                        //tr += '<td class="text-center text-xs-right" data-encabezado="Acciones">';
+                        //tr += '     <div class="btn-group">';
+                        //tr += '          <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
+                        //tr += '          <div class="dropdown-menu dropdown-menu-right">';
+                        //tr += '               <a class="dropdown-item agregarCampos" href="#"><i class="fas fa-plus-circle"></i>&nbsp;Agregar</a>';
+                        //tr += '               <a class="dropdown-item quitarCampos" href="#" onclick="fn_eliminarRestarTotal()"><i class="fas fa-minus-circle"></i>&nbsp;Eliminar</a>';
+                        //tr += '          </div>';
+                        //tr += '     </div>';
+                        //tr += '</td>';
+
+                        tr += '<td class="text-center" data-encabezado="Sustento">';
+                        tr += '        <label class="btn btn-secondary btn-sm m-0" for="fle-doc" title="Cargar archivo"><i class="fas fa-upload"></i>';
+                        tr += '          <input class="d-none" type="file" id="fle-doc">';
+                        tr += '        </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>';
                         tr += '</td>';
+                        tr += '<td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCampos" href="#" onclick="fn_eliminarRestarTotal()" title="Quitar fila"><i class="fas fa-minus-circle"></i></a></td>';
+
                         tr += '</tr>';
                         $("#cuerpoTablaIndicador").append(tr);
                     }
@@ -3334,6 +3341,8 @@ function CargarDatosGuardados() {
                 //$("#total-detalle").append('<strong id="total">0.00 tCO<sub>2</sub>eq</strong>');
                 //$("#total-detalle2").append('<strong id="total2">0.00 tCO<sub>2</sub>eq</strong>');
             }
+            $("#tbl-main-preload").html("");
+            $("#tbl-main").removeClass("d-none");
         }
     });
 
@@ -3494,19 +3503,20 @@ function CargarDatosCabecera() {
         ID_MEDMIT: medida,
         ID_ENFOQUE: enfoque
     }
-    //$("#tbl-main-preload").html("<i Class='fas fa-spinner fa-spin px-1'></i> Cargando...");
-    //$("#tbl-main").addClass("d-none");
+    $("#tbl-main-preload").html("<i Class='fas fa-spinner fa-spin px-1'></i> Cargando...");
+    $("#tbl-main").addClass("d-none");
     $.ajax({
         url: baseUrl + 'Gestion/ListarCabeceraIndicador',
         type: 'POST',
         datatype: 'json',
         data: item,
+        async: false,
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
                     var tr = "";
                     tr += '<tr class="bg-primary text-white">';
-                    tr += '     <th class="text-center" scope="col"><span>N°</span></th>';
+                    tr += '     <th class="text-center grupo-columna-03" scope="col"><span>N°</span></th>';
                     for (var i = 0; i < data.length; i++) {
                         var columna = "0" + data[i]["ID_GRUPO_INDICADOR"];
                         var descripcion = "";
@@ -3536,7 +3546,8 @@ function CargarDatosCabecera() {
                         //}                        
                     }
                     //tr += '     <th class="text-center grupo-columna-02" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>Sustento</span><small>Seleccione este campo para su registro</small></th>';
-                    tr += '     <th class="text-center" scope="col">Más</th>';
+                    tr += '<th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>SUSTENTO</span><small>Seleccione este campo para su registro</small></th>';
+                    tr += '     <th class="text-center" scope="col"><span>Más<br></span><a class="btn btn-warning btn-sm m-0 agregarCampos" href="#" title="Agregar fila" download><i class="fas fa-plus-circle"></i></a></th>';
                     tr += '</tr>';
                     $("#cabeceraTablaIndicador").append(tr);
                     $("[data-toggle='tooltip']").tooltip();
@@ -3996,7 +4007,7 @@ function fn_validarCampoReg(f) {
 }
 
 function fn_eliminarRestarTotal() {
-    if ($("#tablaIndicador").find("tbody").find("tr") > 1) {
+    if ($("#tablaIndicador").find("tbody").find("tr").length > 1) {
         var total = parseFloat($("#cuerpoTablaIndicador").data("total"));
         var fila = $("#tablaIndicador").data("fila");
         var campos = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + fila).find("[data-param]");

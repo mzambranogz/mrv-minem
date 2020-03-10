@@ -310,28 +310,29 @@
                                 </div>
                             </div>
                             <div class="container-fluid py-4">
-                                <div class="h5">Registro de Detalles de Iniciativa de Mitigación&nbsp;<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Complete los campos de acuerdo al enfoque seleccionado"></i></div>
+                                <div class="h5">Registro de Detalles de Iniciativa de Mitigación&nbsp;<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Complete los campos de acuerdo al enfoque seleccionado"></i></div>
                                 <div class="dropdown-divider"></div>
                                 <div class="row">
                                     <div class="col-12 px-0">
-                                        <div class="table-responsive tabla-principal tabla-detalle-indicadores-1">
+                                        <div id="tbl-main-preload" class="mb-3">@*<i Class="fas fa-spinner fa-spin px-1"></i> Cargando...*@</div>
+                                        <div id="tbl-main" class="table-responsive tabla-principal tabla-detalle-indicadores-1">
                                             <table class="table table-hover" id="tablaIndicador" data-fila="0">
                                                 <thead id="cabeceraTablaIndicador">
                                                     @*<tr class="bg-primary text-white">
-                                                            <th class="text-center" style="background-color: green;" scope="col"><span>N°&nbsp;</span></th>
-                                                            <th class="text-center" style="background-color: green;" scope="col"><span>Año&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Año"></i></span></th>
-                                                            <th class="text-center" style="background-color: green;" scope="col"><span>Inicio de Operaciones&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Fecha de inicio de operaciones del vehículo"></i></span></th>
-                                                            <th class="text-center" style="background-color: green;" scope="col"><span>Tipo Vehiculo&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Tipo Vehículo"></i></span></th>
-                                                            <th class="text-center" style="background-color: orange;" scope="col"><span>Tipo Combustible&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Tipo Combustible"></i></span></th>
-                                                            <th class="text-center" style="background-color: green;" scope="col"><span>KRV&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador KRV"></i></span></th>
-                                                            <th class="text-center" style="background-color: green;" scope="col"><span>Cantidad&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Cantidad"></i></span></th>
-                                                            <th class="text-center" style="background-color: green;" scope="col"><span>Factor de Rendimiento&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Rendimiento"></i></span></th>
-                                                            <th class="text-center" style="background-color: orange;" scope="col"><span>Línea Base Emisiones GEI (tCO<sub>2</sub>eq)</span></th>
-                                                            <th class="text-center" style="background-color: green;" scope="col"><span>Iniciativa Mitigación Emisiones GEI (tCO<sub>2</sub>eq)</span></th>
-                                                            <th class="text-center" style="background-color: #2271b3;" scope="col"><span>Emisiones GEI Reducidas (tCO<sub>2</sub>eq)</span></th>
-                                                            <th class="text-center" scope="col">Más</th>
-                                                            <th class="text-hide" scope="col" style="display:none;">Id. Iniciativa</th>
-                                                        </tr>*@
+                        <th class="text-center" style="background-color: green;" scope="col"><span>N°&nbsp;</span></th>
+                        <th class="text-center" style="background-color: green;" scope="col"><span>Año&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Año"></i></span></th>
+                        <th class="text-center" style="background-color: green;" scope="col"><span>Inicio de Operaciones&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Fecha de inicio de operaciones del vehículo"></i></span></th>
+                        <th class="text-center" style="background-color: green;" scope="col"><span>Tipo Vehiculo&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Tipo Vehículo"></i></span></th>
+                        <th class="text-center" style="background-color: orange;" scope="col"><span>Tipo Combustible&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Tipo Combustible"></i></span></th>
+                        <th class="text-center" style="background-color: green;" scope="col"><span>KRV&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador KRV"></i></span></th>
+                        <th class="text-center" style="background-color: green;" scope="col"><span>Cantidad&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Cantidad"></i></span></th>
+                        <th class="text-center" style="background-color: green;" scope="col"><span>Factor de Rendimiento&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Rendimiento"></i></span></th>
+                        <th class="text-center" style="background-color: orange;" scope="col"><span>Línea Base Emisiones GEI (tCO<sub>2</sub>eq)</span></th>
+                        <th class="text-center" style="background-color: green;" scope="col"><span>Iniciativa Mitigación Emisiones GEI (tCO<sub>2</sub>eq)</span></th>
+                        <th class="text-center" style="background-color: #2271b3;" scope="col"><span>Emisiones GEI Reducidas (tCO<sub>2</sub>eq)</span></th>
+                        <th class="text-center" scope="col">Más</th>
+                        <th class="text-hide" scope="col" style="display:none;">Id. Iniciativa</th>
+                    </tr>*@
                                                 </thead>
                                                 <tbody id="cuerpoTablaIndicador" data-row="0" data-total="0" data-delete="" , data-flag="0"></tbody> <!-- add id delete-->
                                             </table>

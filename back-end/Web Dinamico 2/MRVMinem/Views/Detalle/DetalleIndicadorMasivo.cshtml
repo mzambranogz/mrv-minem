@@ -308,11 +308,12 @@
                                 </div>
                             </div>
                             <div class="container-fluid py-4">
-                                <div class="h5">Registro de Detalles de Iniciativa de Mitigación&nbsp;<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Complete los campos de acuerdo al enfoque seleccionado"></i></div>
+                                <div class="h5">Registro de Detalles de Iniciativa de Mitigación&nbsp;<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Complete los campos de acuerdo al enfoque seleccionado"></i></div>
                                 <div class="dropdown-divider"></div>
                                 <div class="row">
                                     <div class="col-12 px-0">
-                                        <div class="table-responsive tabla-principal tabla-detalle-indicadores-1">
+                                        <div id="tbl-main-preload" class="mb-3">@*<i Class="fas fa-spinner fa-spin px-1"></i> Cargando...*@</div>
+                                        <div id="tbl-main" class="table-responsive tabla-principal tabla-detalle-indicadores-1">
                                             <table class="table table-hover" id="tablaIndicador" data-fila="0">
                                                 <thead id="cabeceraTablaIndicador">
                                                     @*<tr class="bg-primary text-white">
