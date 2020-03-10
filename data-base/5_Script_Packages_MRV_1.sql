@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - lunes-marzo-09-2020   
+-- Archivo creado  - martes-marzo-10-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_ADMIN_SISTEMA
@@ -2286,7 +2286,7 @@ end PKG_MRV_BLOCKCHAIN;
   BEGIN
         OPEN pRefcursor FOR        
         SELECT  MI.ID_ENFOQUE, MP.NOMBRE_PARAMETRO, MI.ORDEN, MI.ID_GRUPO_INDICADOR, MGI.COLOR_GRUPO, MI.ID_PARAMETRO,
-                MP.ID_TIPO_CONTROL, MP.EDITABLE, MP.ID_TIPO_DATO, MP.VERIFICABLE,
+                MP.ID_TIPO_CONTROL, MP.EDITABLE, MP.ID_TIPO_DATO, MP.VERIFICABLE,MP.LEYENDA_PARAMETRO,
                 NVL(MP.DESCRIPCION_PARAMETRO,' ') DESCRIPCION_PARAMETRO, MP.DESCRIPCION_UNIDAD, UM.SIMBOLO UNIDAD, PR.SIMBOLO PREFIJO, MP.COMBINACION_UNIDAD
         FROM    T_MAEM_INDICADOR MI
         LEFT JOIN   T_MAEM_MRV_PARAMETRO MP ON MI.ID_PARAMETRO = MP.ID_PARAMETRO
