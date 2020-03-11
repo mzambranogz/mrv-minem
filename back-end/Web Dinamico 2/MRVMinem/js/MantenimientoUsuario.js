@@ -216,6 +216,7 @@ function CargarTablaMantenimiento() {
 }
 
 function fn_seleccionarMantenimientoUsuario(id) {
+    $(".ocultar-psw").hide();
     var Item = {
         ID_USUARIO: id
     };
@@ -257,6 +258,17 @@ function fn_seleccionarMantenimientoUsuario(id) {
                         } else if (data[i]["ID_ESTADO_USUARIO"] == 2) {
                             $("#rad-02").prop("checked", true);
                         }
+
+                        //===============================================
+
+                        if (data[i]["ID_ROL"] == 3) {
+                            $("#ocultar-habilitar").hide();
+                        } else {
+                            $("#ocultar-habilitar").show();
+                        }
+
+                        //======================================================
+
                         $("#archivo-declaracion #seccion-file").remove();
                         if (data[i]["ADJUNTO_BASE"] != null) {
                             //for (var sus = 0; sus < data[i]["ListaSustentos"].length; sus++) {
@@ -323,6 +335,7 @@ function fn_seleccionarMantenimientoUsuario(id) {
 }
 
 function fn_nuevoMantenimientoUsuario() {
+    //$(".ocultar-psw").show();
     $("#cabeceraEditarMantenimientoUsuario").hide();
 }
 
@@ -341,6 +354,11 @@ function fn_limpiarCampo() {
     $("#txt-pswd").val("");
     $("#rad-01").prop("checked", false);
     $("#rad-02").prop("checked", false);
+    $("#txt-pswd").val("");
+    $("#txt-re-pswd").val("");
+    $("#txt-pswd").attr("type", "password");
+    $("#txt-re-pswd").attr("type", "password");
+    $(".ver-clave").html("").html('<i class="fas fa-eye mr-1"></i>Mostrar');
 }
 
 function validarEstado() {
@@ -355,7 +373,7 @@ function validarEstado() {
 function fn_validarCampo() {
     var arr = [];
     var clave = $("#txt-pswd").val();
-
+    var validar = $("#txt-re-pswd").val();
     
     if (!(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test($("#txt-user").val()))) {
         arr.push("Debe ingresar un correo electrónico válido");
@@ -381,11 +399,15 @@ function fn_validarCampo() {
     }
 
     if ($("#validarUsuario").data("guardar") == 1) {
-        if (!(/[a-zñ]/.test(clave) && /[A-ZÑ]/.test(clave) && /[0-9]/.test(clave))) {
-            arr.push("La contraseña debe contener minuscula(s), mayúscula(s), número(s) y caracter(es) especial(es)");
-        }
-        if (clave.length < 6) {
-            arr.push("La contraseña debe contener 6 o más caracteres");
+        if (clave == validar) {
+            if (!(/[a-zñ]/.test(clave) && /[A-ZÑ]/.test(clave) && /[0-9]/.test(clave) && /[@#.]/.test(clave))) {
+                arr.push("La contraseña debe contener minúscula(s), mayúscula(s), número(s) y caracter(es) especial(es) [@#.]");
+            }
+            if (clave.length < 6) {
+                arr.push("La contraseña debe contener 6 o más caracteres por seguridad");
+            }
+        } else {
+            arr.push("Las contraseñas no coinciden");
         }
     }
     
@@ -400,10 +422,11 @@ function fn_validarCampo() {
         $("#correctoMantenimientoUsuario").hide();
         $("#errorRegistrarMantenimientoUsuario").hide();
         $("#errorEditarMantenimientoUsuario").hide();
-        var error = '';
+        var error = '<ul>';
         $.each(arr, function (ind, elem) {
-            error = error + '<small class="mb-0">' + elem + '</small><br/>';
+            error = error + '<li><small class="mb-0">' + elem + '</small></li>';
         });
+        error += '</ul>';
         var msj = '                      <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="errorRegistro">';
         msj = msj + '                           <div class="alert-wrap mr-3">';
         msj = msj + '                                <div class="sa">';
@@ -418,9 +441,9 @@ function fn_validarCampo() {
         msj = msj + '                                </div>';
         msj = msj + '                            </div>';
         msj = msj + '                            <div class="alert-wrap">';
-        msj = msj + '                                <h6>Error de registro</h6>';
-        //msj = msj + error;
+        msj = msj + '                                <h6>Error de registro</h6>';        
         msj = msj + '                                <hr><small class="mb-0">Verifique que los datos sean correctamente ingresados, complete todos los campos obligatorios e intente otra vez.</small>';
+        msj = msj + error;
         msj = msj + '                            </div>';
         msj = msj + '                        </div>';
         $("#seccionMensaje").append(msj);
@@ -628,6 +651,8 @@ function regUsuario() {
     $("#cabeceraEditarMantenimientoUsuario").hide();
     $("#btn-modal-consultar").hide();
     $("#archivo-declaracion #seccion-file").remove();
+    $(".ocultar-psw").show();
+    $("#ocultar-habilitar").show();
 }
 
 //////////////////////////////////////EXPORTAR

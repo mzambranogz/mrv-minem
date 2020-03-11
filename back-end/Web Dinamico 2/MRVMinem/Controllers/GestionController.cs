@@ -1224,6 +1224,7 @@ namespace MRVMinem.Controllers
                 if (institucion.ID_INSTITUCION != 0)
                 {
                     entidad.ID_INSTITUCION = institucion.ID_INSTITUCION;
+                    entidad.USUARIO_REGISTRO = Convert.ToString(Session["usuario"]);
                     entidad = UsuarioLN.RegistraUsuario(entidad);
                 }
             }

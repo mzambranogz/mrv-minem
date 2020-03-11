@@ -64,6 +64,11 @@ namespace datos.minem.gob.pe
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     var CODIGO = db.ExecuteScalar(sp, p, commandType: CommandType.StoredProcedure);
                     entidad.ID_USUARIO = Convert.ToInt32(CODIGO);
+
+                    if (entidad.ID_ROL == 3)
+                    {
+                        DeshabilitarUsuario(new UsuarioBE { ID_USUARIO = Convert.ToInt32(entidad.USUARIO_REGISTRO)});
+                    }
                 }
                 entidad.OK = true;
                 string[] medidas;
