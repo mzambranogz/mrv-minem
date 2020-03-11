@@ -331,7 +331,12 @@
                     <thead>
                       <tr class="bg-primary text-white">
                         <th class="text-center" scope="col" width="3%"><span>N°&nbsp;<i class="fas fa-sort"></i></span></th>
-                        <th class="text-center" scope="col" width="3%"><span>Enviado&nbsp;<i class="fas fa-sort"></i></span></th>
+                        <th class="text-center" scope="col" width="3%">
+                          <div class="custom-control custom-checkbox-new custom-checkbox d-inline-block pl-3" data-toggle="tooltip" data-placement="bottom" title="Seleccione una iniciativa para enviarla al Verificador Externo, también puede seleccionar una o varias iniciativas para enviarlas por paquete al Evaluador MINAM">
+                            <input class="custom-control-input" type="checkbox" id="chk-send-im-">
+                            <label class="custom-control-label" for="chk-send-im-">&nbsp;</label>
+                          </div>
+                        </th>
                         <th scope="col" width="19%"><span>Nombre de <br> Iniciativa&nbsp;<i class="fas fa-sort"></i></span></th>
                         <th scope="col" width="10%"><span>Progreso&nbsp;<i class="fas fa-sort"></i></span></th>
                         <th class="text-center" scope="col" width="10%"><span>Fecha de <br> Inicio&nbsp;<i class="fas fa-sort"></i></span></th>
@@ -346,8 +351,8 @@
                     <tbody>
                       <tr>
                         <th class="text-center" data-encabezado="Número" scope="row">1</th>
-                        <td class="text-center" data-encabezado="" scope="row">
-                          <div class="custom-control custom-checkbox d-inline-block">
+                        <td class="text-center mw-auto" data-encabezado="" scope="row">
+                          <div class="custom-control custom-checkbox d-inline-block pl-3">
                             <input class="custom-control-input" type="checkbox" id="chk-send-im-2">
                             <label class="custom-control-label" for="chk-send-im-2">&nbsp;</label>
                           </div>
@@ -360,10 +365,12 @@
                         </td>
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
                         <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
-                        <td class="text-center" data-encabezado="Medida de Mitigación"><span data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
+                        <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
                         <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
                         <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
-                        <td class="text-center" data-encabezado="Estado">estado</td>
+                        <td class="text-center" data-encabezado="Estado"><i class="fas fa-flag text-danger" data-toggle="tooltip" data-placement="top" title="Su plazo está por vencer hoy o ya venció"></i>&nbsp;
+                          Pendiente por Aprobar por el Verificador MINAM
+                        </td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
@@ -374,14 +381,15 @@
                                 Revisar</a><a class="dropdown-item text-info" href="./evaluacion-de-iniciativa-detalles.html"><i class="fas fa-clipboard-check"></i>&nbsp;
                                 Evaluar</a><a class="dropdown-item text-warning" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-tasks"></i>&nbsp;
                                 Verificar</a><a class="dropdown-item" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-download"></i>&nbsp;
-                                Descargar ficha</a></div>
+                                Descargar ficha</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-recordatorio"><i class="fas fa-envelope"></i>&nbsp;
+                                Recordatorio</a></div>
                           </div>
                         </td>
                       </tr>
                       <tr>
                         <th class="text-center" data-encabezado="Número" scope="row">2</th>
-                        <td class="text-center" data-encabezado="" scope="row">
-                          <div class="custom-control custom-checkbox d-inline-block">
+                        <td class="text-center mw-auto" data-encabezado="" scope="row">
+                          <div class="custom-control custom-checkbox d-inline-block pl-3">
                             <input class="custom-control-input" type="checkbox" id="chk-send-im-3">
                             <label class="custom-control-label" for="chk-send-im-3">&nbsp;</label>
                           </div>
@@ -394,10 +402,12 @@
                         </td>
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
                         <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
-                        <td class="text-center" data-encabezado="Medida de Mitigación"><span data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
+                        <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
                         <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
                         <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
-                        <td class="text-center" data-encabezado="Estado">estado</td>
+                        <td class="text-center" data-encabezado="Estado"><i class="fas fa-flag text-warning" data-toggle="tooltip" data-placement="top" title="Su plazo de atención vence en 2 días"></i>&nbsp;
+                          Pendiente por Aprobar por el Verificador MINAM
+                        </td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
@@ -408,14 +418,15 @@
                                 Revisar</a><a class="dropdown-item text-info" href="./evaluacion-de-iniciativa-detalles.html"><i class="fas fa-clipboard-check"></i>&nbsp;
                                 Evaluar</a><a class="dropdown-item text-warning" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-tasks"></i>&nbsp;
                                 Verificar</a><a class="dropdown-item" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-download"></i>&nbsp;
-                                Descargar ficha</a></div>
+                                Descargar ficha</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-recordatorio"><i class="fas fa-envelope"></i>&nbsp;
+                                Recordatorio</a></div>
                           </div>
                         </td>
                       </tr>
                       <tr>
                         <th class="text-center" data-encabezado="Número" scope="row">3</th>
-                        <td class="text-center" data-encabezado="" scope="row">
-                          <div class="custom-control custom-checkbox d-inline-block">
+                        <td class="text-center mw-auto" data-encabezado="" scope="row">
+                          <div class="custom-control custom-checkbox d-inline-block pl-3">
                             <input class="custom-control-input" type="checkbox" id="chk-send-im-4">
                             <label class="custom-control-label" for="chk-send-im-4">&nbsp;</label>
                           </div>
@@ -428,10 +439,12 @@
                         </td>
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
                         <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
-                        <td class="text-center" data-encabezado="Medida de Mitigación"><span data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
+                        <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
                         <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
                         <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
-                        <td class="text-center" data-encabezado="Estado">estado</td>
+                        <td class="text-center" data-encabezado="Estado"><i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>&nbsp;
+                          Pendiente por Aprobar por el Verificador MINAM
+                        </td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
@@ -442,14 +455,15 @@
                                 Revisar</a><a class="dropdown-item text-info" href="./evaluacion-de-iniciativa-detalles.html"><i class="fas fa-clipboard-check"></i>&nbsp;
                                 Evaluar</a><a class="dropdown-item text-warning" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-tasks"></i>&nbsp;
                                 Verificar</a><a class="dropdown-item" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-download"></i>&nbsp;
-                                Descargar ficha</a></div>
+                                Descargar ficha</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-recordatorio"><i class="fas fa-envelope"></i>&nbsp;
+                                Recordatorio</a></div>
                           </div>
                         </td>
                       </tr>
                       <tr>
                         <th class="text-center" data-encabezado="Número" scope="row">4</th>
-                        <td class="text-center" data-encabezado="" scope="row">
-                          <div class="custom-control custom-checkbox d-inline-block">
+                        <td class="text-center mw-auto" data-encabezado="" scope="row">
+                          <div class="custom-control custom-checkbox d-inline-block pl-3">
                             <input class="custom-control-input" type="checkbox" id="chk-send-im-5">
                             <label class="custom-control-label" for="chk-send-im-5">&nbsp;</label>
                           </div>
@@ -462,10 +476,12 @@
                         </td>
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
                         <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
-                        <td class="text-center" data-encabezado="Medida de Mitigación"><span data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
+                        <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
                         <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
                         <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
-                        <td class="text-center" data-encabezado="Estado">estado</td>
+                        <td class="text-center" data-encabezado="Estado"><i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>&nbsp;
+                          Pendiente por Aprobar por el Verificador MINAM
+                        </td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
@@ -476,14 +492,15 @@
                                 Revisar</a><a class="dropdown-item text-info" href="./evaluacion-de-iniciativa-detalles.html"><i class="fas fa-clipboard-check"></i>&nbsp;
                                 Evaluar</a><a class="dropdown-item text-warning" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-tasks"></i>&nbsp;
                                 Verificar</a><a class="dropdown-item" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-download"></i>&nbsp;
-                                Descargar ficha</a></div>
+                                Descargar ficha</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-recordatorio"><i class="fas fa-envelope"></i>&nbsp;
+                                Recordatorio</a></div>
                           </div>
                         </td>
                       </tr>
                       <tr>
                         <th class="text-center" data-encabezado="Número" scope="row">5</th>
-                        <td class="text-center" data-encabezado="" scope="row">
-                          <div class="custom-control custom-checkbox d-inline-block">
+                        <td class="text-center mw-auto" data-encabezado="" scope="row">
+                          <div class="custom-control custom-checkbox d-inline-block pl-3">
                             <input class="custom-control-input" type="checkbox" id="chk-send-im-6">
                             <label class="custom-control-label" for="chk-send-im-6">&nbsp;</label>
                           </div>
@@ -496,10 +513,12 @@
                         </td>
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
                         <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
-                        <td class="text-center" data-encabezado="Medida de Mitigación"><span data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
+                        <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
                         <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
                         <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
-                        <td class="text-center" data-encabezado="Estado">estado</td>
+                        <td class="text-center" data-encabezado="Estado"><i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>&nbsp;
+                          Pendiente por Aprobar por el Verificador MINAM
+                        </td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
@@ -510,14 +529,15 @@
                                 Revisar</a><a class="dropdown-item text-info" href="./evaluacion-de-iniciativa-detalles.html"><i class="fas fa-clipboard-check"></i>&nbsp;
                                 Evaluar</a><a class="dropdown-item text-warning" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-tasks"></i>&nbsp;
                                 Verificar</a><a class="dropdown-item" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-download"></i>&nbsp;
-                                Descargar ficha</a></div>
+                                Descargar ficha</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-recordatorio"><i class="fas fa-envelope"></i>&nbsp;
+                                Recordatorio</a></div>
                           </div>
                         </td>
                       </tr>
                       <tr>
                         <th class="text-center" data-encabezado="Número" scope="row">6</th>
-                        <td class="text-center" data-encabezado="" scope="row">
-                          <div class="custom-control custom-checkbox d-inline-block">
+                        <td class="text-center mw-auto" data-encabezado="" scope="row">
+                          <div class="custom-control custom-checkbox d-inline-block pl-3">
                             <input class="custom-control-input" type="checkbox" id="chk-send-dm-7">
                             <label class="custom-control-label" for="chk-send-dm-7">&nbsp;</label>
                           </div>
@@ -530,10 +550,12 @@
                         </td>
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
                         <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
-                        <td class="text-center" data-encabezado="Medida de Mitigación"><span data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
+                        <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
                         <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
                         <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
-                        <td class="text-center" data-encabezado="Estado">estado</td>
+                        <td class="text-center" data-encabezado="Estado"><i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>&nbsp;
+                          Pendiente por Aprobar por el Verificador MINAM
+                        </td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-02 dropdown-toggle text-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
@@ -546,14 +568,15 @@
                                 Revisar</a><a class="dropdown-item text-info" href="./evaluacion-de-iniciativa-detalles.html"><i class="fas fa-clipboard-check"></i>&nbsp;
                                 Evaluar</a><a class="dropdown-item text-warning" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-tasks"></i>&nbsp;
                                 Verificar</a><a class="dropdown-item" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-download"></i>&nbsp;
-                                Descargar ficha</a></div>
+                                Descargar ficha</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-recordatorio"><i class="fas fa-envelope"></i>&nbsp;
+                                Recordatorio</a></div>
                           </div>
                         </td>
                       </tr>
                       <tr>
                         <th class="text-center" data-encabezado="Número" scope="row">7</th>
-                        <td class="text-center" data-encabezado="" scope="row">
-                          <div class="custom-control custom-checkbox d-inline-block">
+                        <td class="text-center mw-auto" data-encabezado="" scope="row">
+                          <div class="custom-control custom-checkbox d-inline-block pl-3">
                             <input class="custom-control-input" type="checkbox" id="chk-send-dm-8">
                             <label class="custom-control-label" for="chk-send-dm-8">&nbsp;</label>
                           </div>
@@ -566,10 +589,12 @@
                         </td>
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
                         <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
-                        <td class="text-center" data-encabezado="Medida de Mitigación"><span data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
+                        <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
                         <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
                         <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
-                        <td class="text-center" data-encabezado="Estado">estado</td>
+                        <td class="text-center" data-encabezado="Estado"><i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>&nbsp;
+                          Pendiente por Aprobar por el Verificador MINAM
+                        </td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-02 dropdown-toggle text-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
@@ -582,14 +607,15 @@
                                 Revisar</a><a class="dropdown-item text-info" href="./evaluacion-de-iniciativa-detalles.html"><i class="fas fa-clipboard-check"></i>&nbsp;
                                 Evaluar</a><a class="dropdown-item text-warning" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-tasks"></i>&nbsp;
                                 Verificar</a><a class="dropdown-item" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-download"></i>&nbsp;
-                                Descargar ficha</a></div>
+                                Descargar ficha</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-recordatorio"><i class="fas fa-envelope"></i>&nbsp;
+                                Recordatorio</a></div>
                           </div>
                         </td>
                       </tr>
                       <tr>
                         <th class="text-center" data-encabezado="Número" scope="row">8</th>
-                        <td class="text-center" data-encabezado="" scope="row">
-                          <div class="custom-control custom-checkbox d-inline-block">
+                        <td class="text-center mw-auto" data-encabezado="" scope="row">
+                          <div class="custom-control custom-checkbox d-inline-block pl-3">
                             <input class="custom-control-input" type="checkbox" id="chk-send-dm-9">
                             <label class="custom-control-label" for="chk-send-dm-9">&nbsp;</label>
                           </div>
@@ -602,10 +628,12 @@
                         </td>
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
                         <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
-                        <td class="text-center" data-encabezado="Medida de Mitigación"><span data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
+                        <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
                         <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
                         <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
-                        <td class="text-center" data-encabezado="Estado">estado</td>
+                        <td class="text-center" data-encabezado="Estado"><i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>&nbsp;
+                          Pendiente por Aprobar por el Verificador MINAM
+                        </td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-02 dropdown-toggle text-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
@@ -618,14 +646,15 @@
                                 Revisar</a><a class="dropdown-item text-info" href="./evaluacion-de-iniciativa-detalles.html"><i class="fas fa-clipboard-check"></i>&nbsp;
                                 Evaluar</a><a class="dropdown-item text-warning" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-tasks"></i>&nbsp;
                                 Verificar</a><a class="dropdown-item" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-download"></i>&nbsp;
-                                Descargar ficha</a></div>
+                                Descargar ficha</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-recordatorio"><i class="fas fa-envelope"></i>&nbsp;
+                                Recordatorio</a></div>
                           </div>
                         </td>
                       </tr>
                       <tr>
                         <th class="text-center" data-encabezado="Número" scope="row">9</th>
-                        <td class="text-center" data-encabezado="" scope="row">
-                          <div class="custom-control custom-checkbox d-inline-block">
+                        <td class="text-center mw-auto" data-encabezado="" scope="row">
+                          <div class="custom-control custom-checkbox d-inline-block pl-3">
                             <input class="custom-control-input" type="checkbox" id="chk-send-dm-10">
                             <label class="custom-control-label" for="chk-send-dm-10">&nbsp;</label>
                           </div>
@@ -638,10 +667,12 @@
                         </td>
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
                         <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
-                        <td class="text-center" data-encabezado="Medida de Mitigación"><span data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
+                        <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
                         <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
                         <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
-                        <td class="text-center" data-encabezado="Estado">estado</td>
+                        <td class="text-center" data-encabezado="Estado"><i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>&nbsp;
+                          Pendiente por Aprobar por el Verificador MINAM
+                        </td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-02 dropdown-toggle text-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
@@ -654,14 +685,15 @@
                                 Revisar</a><a class="dropdown-item text-info" href="./evaluacion-de-iniciativa-detalles.html"><i class="fas fa-clipboard-check"></i>&nbsp;
                                 Evaluar</a><a class="dropdown-item text-warning" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-tasks"></i>&nbsp;
                                 Verificar</a><a class="dropdown-item" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-download"></i>&nbsp;
-                                Descargar ficha</a></div>
+                                Descargar ficha</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-recordatorio"><i class="fas fa-envelope"></i>&nbsp;
+                                Recordatorio</a></div>
                           </div>
                         </td>
                       </tr>
                       <tr>
                         <th class="text-center" data-encabezado="Número" scope="row">10</th>
-                        <td class="text-center" data-encabezado="" scope="row">
-                          <div class="custom-control custom-checkbox d-inline-block">
+                        <td class="text-center mw-auto" data-encabezado="" scope="row">
+                          <div class="custom-control custom-checkbox d-inline-block pl-3">
                             <input class="custom-control-input" type="checkbox" id="chk-send-dm-11">
                             <label class="custom-control-label" for="chk-send-dm-11">&nbsp;</label>
                           </div>
@@ -674,10 +706,12 @@
                         </td>
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
                         <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
-                        <td class="text-center" data-encabezado="Medida de Mitigación"><span data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
+                        <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
                         <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
                         <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
-                        <td class="text-center" data-encabezado="Estado">estado</td>
+                        <td class="text-center" data-encabezado="Estado"><i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>&nbsp;
+                          Pendiente por Aprobar por el Verificador MINAM
+                        </td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-02 dropdown-toggle text-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
@@ -690,7 +724,8 @@
                                 Revisar</a><a class="dropdown-item text-info" href="./evaluacion-de-iniciativa-detalles.html"><i class="fas fa-clipboard-check"></i>&nbsp;
                                 Evaluar</a><a class="dropdown-item text-warning" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-tasks"></i>&nbsp;
                                 Verificar</a><a class="dropdown-item" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-download"></i>&nbsp;
-                                Descargar ficha</a></div>
+                                Descargar ficha</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-recordatorio"><i class="fas fa-envelope"></i>&nbsp;
+                                Recordatorio</a></div>
                           </div>
                         </td>
                       </tr>
@@ -1050,6 +1085,90 @@
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">No, cancelar</button>
             <button class="btn btn-primary" type="button">Si, grabar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modal-recordatorio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Recordatorio</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="modal-body medidas-modal">
+            <div class="row mb-2">
+              <div class="col-sm-12 col-md-6 col-lg-6"><strong>De: Juan Perez&nbsp;<span class="badge badge-actor-03">Especialista</span></strong><br><strong>Para: Luis Silva&nbsp;<span class="badge badge-actor-02">Usuario Administrado</span></strong></div>
+              <div class="col-sm-12 col-md-6 col-lg-6 text-right"><strong>Fecha de Registro: 15/01/2020</strong></div>
+            </div>
+            <!--.row
+            .col-sm-12-col-md-12.col-lg-6
+              .form-group
+                label(for="cbo-tipo-observacion") Tipo de observación
+                  span.text-danger.font-weight-bold &nbsp;(*)&nbsp;
+                  i.fas.fa-question-circle.ayuda-tooltip(data-toggle="tooltip", data-placement="right", title="ESeleccione un tipo de observación, una corrección leve o un error detectado")
+                .input-group
+                  .input-group-prepend
+                    span.input-group-text#inputGroup10
+                      i.fas.fa-exclamation-triangle
+                  select.form-control(id="cbo-tipo-observacion", aria-describedby="inputGroup10")
+                    option -Seleccione-
+                    option.bg-warning Corrección
+                    option.bg-danger.text-white Error
+            .col-sm-12-col-md-12.col-lg-6
+            -->
+            <div class="row">
+              <div class="col-sm-12-col-md-12 col-lg-12">
+                <div class="form-group">
+                  <label for="txa-nombre-iniciativa">Descripción:<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span></label>
+                  <div class="input-group">
+                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-comment-alt"></i></span></div>
+                    <textarea class="form-control" id="txa-nombre-iniciativa" aria-describedby="inputGroup4" cols="30" rows="5" required placeholder="Ingrese aquí la descripción de su recordatorio"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="alert alert-danger d-flex align-items-stretch" role="alert">
+                  <div class="alert-wrap mr-3">
+                    <div class="sa">
+                      <div class="sa-error">
+                        <div class="sa-error-x">
+                          <div class="sa-error-left"></div>
+                          <div class="sa-error-right"></div>
+                        </div>
+                        <div class="sa-error-placeholder"></div>
+                        <div class="sa-error-fix"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="alert-wrap">
+                    <h6>Error de registro</h6>
+                    <hr><small class="mb-0">Su recordatorio no fue enviado, inténtelo nuevamente.</small>
+                  </div>
+                </div>
+                <div class="alert alert-success d-flex align-items-stretch" role="alert">
+                  <div class="alert-wrap mr-3">
+                    <div class="sa">
+                      <div class="sa-success">
+                        <div class="sa-success-tip"></div>
+                        <div class="sa-success-long"></div>
+                        <div class="sa-success-placeholder"></div>
+                        <div class="sa-success-fix"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="alert-wrap">
+                    <h6>Bien hecho</h6>
+                    <hr><small class="mb-0">Su recordatorio se envió correctamente.</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer"><a class="btn btn-primary" href="#">Si, enviar<i class="fas fa-envelope ml-1"></i></a>
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">No, cancelar</button>
           </div>
         </div>
       </div>
