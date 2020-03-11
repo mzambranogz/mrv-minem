@@ -15,7 +15,7 @@ using System.Net.Mime;
 using MRVMinem.Models;
 using System.IO;
 using System.Web.Configuration;
-//using MRVMinem.Helper;
+using MRVMinem.Helper;
 using utilitario.minem.gob.pe;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
@@ -294,38 +294,38 @@ namespace MRVMinem.Controllers
             try
             {
 
-                if (Membership.ValidateUser(entidad.USUARIO, entidad.PASSWORD_USUARIO))
-                {
-                    entidad = UsuarioLN.ObtenerPassword(entidad);
-                    itemRespuesta.success = entidad.OK;
-                    //itemRespuesta.success = true;
-                    Session["usuario"] = entidad.ID_USUARIO.ToString();
-                    Session["socket"] = WebConfigurationManager.AppSettings.Get("Socket");
-                    List<RolOpcionesBE> lista = RolOpcionesLN.ListarOpciones(entidad.ID_USUARIO);
-                    limpiarSetearSesion(lista);
-                    FormsAuthentication.RedirectFromLoginPage(entidad.USUARIO, false);
-
-                    return null;
-                }
-                else
-                {
-                    itemRespuesta.extra = entidad.extra;
-                }
-
-                //entidad = UsuarioLN.ObtenerPassword(entidad);
-                //itemRespuesta.success = entidad.OK;
-                //if (entidad.OK)
+                //if (Membership.ValidateUser(entidad.USUARIO, entidad.PASSWORD_USUARIO))
                 //{
-                //    SessionHelper.AddUserToSession(entidad.ID_USUARIO.ToString());
+                //    entidad = UsuarioLN.ObtenerPassword(entidad);
+                //    itemRespuesta.success = entidad.OK;
+                //    //itemRespuesta.success = true;
                 //    Session["usuario"] = entidad.ID_USUARIO.ToString();
                 //    Session["socket"] = WebConfigurationManager.AppSettings.Get("Socket");
                 //    List<RolOpcionesBE> lista = RolOpcionesLN.ListarOpciones(entidad.ID_USUARIO);
                 //    limpiarSetearSesion(lista);
+                //    FormsAuthentication.RedirectFromLoginPage(entidad.USUARIO, false);
+
+                //    return null;
                 //}
                 //else
                 //{
                 //    itemRespuesta.extra = entidad.extra;
                 //}
+
+                entidad = UsuarioLN.ObtenerPassword(entidad);
+                itemRespuesta.success = entidad.OK;
+                if (entidad.OK)
+                {
+                    SessionHelper.AddUserToSession(entidad.ID_USUARIO.ToString());
+                    Session["usuario"] = entidad.ID_USUARIO.ToString();
+                    Session["socket"] = WebConfigurationManager.AppSettings.Get("Socket");
+                    List<RolOpcionesBE> lista = RolOpcionesLN.ListarOpciones(entidad.ID_USUARIO);
+                    limpiarSetearSesion(lista);
+                }
+                else
+                {
+                    itemRespuesta.extra = entidad.extra;
+                }
             }
             catch (Exception ex)
             {

@@ -2,7 +2,7 @@
 using logica.minem.gob.pe;
 using MRVMinem.Core;
 using MRVMinem.Models;
-//using MRVMinem.Tags;
+using MRVMinem.Tags;
 using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
@@ -14,8 +14,8 @@ using System.Web.Mvc;
 
 namespace MRVMinem.Controllers
 {
-    //[Autenticado]
-    [Authorize]
+    [Autenticado]
+    //[Authorize]
     public class DetalleController : BaseController
     {
         // GET: Detalle

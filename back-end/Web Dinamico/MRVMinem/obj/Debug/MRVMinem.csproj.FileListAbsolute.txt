@@ -818,7 +818,6 @@ D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Log\LEEME.txt
 D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Temp\LEEME.txt
 D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\Manual_Usuario_MRV.pdf
 D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\modelo-declaracion-jurada.pdf
-D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\4.1 Plantilla_Electricos_Masivo.xlsm
 D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\MRVMinem.dll.config
 D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\MRVMinem.dll
 D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\MRVMinem.pdb
@@ -938,9 +937,6 @@ E:\Eduardo\mrv-minem\back-end\Web-CH-G-v2\MRVMinem\obj\Debug\RdlCompile.cache
 E:\Eduardo\mrv-minem\back-end\Web-CH-G-v2\MRVMinem\obj\Debug\RdlCompile.compiled
 E:\Eduardo\mrv-minem\back-end\Web-CH-G-v2\MRVMinem\obj\Debug\MRVMinem.dll
 E:\Eduardo\mrv-minem\back-end\Web-CH-G-v2\MRVMinem\obj\Debug\MRVMinem.pdb
-D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\4.1 Plantilla_Electricos_Consumo_Masivo.xlsm
-D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\4.1 Plantilla_Electricos_Hibrido_Consumo_Masivo.xlsm
-D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\4.1 Plantilla_Electricos_Hibrido_Masivo.xlsm
 C:\Users\User\Desktop\backend\back-end\Web Dinamico\MRVMinem\bin\roslyn\csc.exe
 C:\Users\User\Desktop\backend\back-end\Web Dinamico\MRVMinem\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 C:\Users\User\Desktop\backend\back-end\Web Dinamico\MRVMinem\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
@@ -1305,3 +1301,28 @@ E:\Eduardo\mrv-minem\back-end\Web Dinamico\MRVMinem\obj\Debug\RdlCompile.cache
 E:\Eduardo\mrv-minem\back-end\Web Dinamico\MRVMinem\obj\Debug\RdlCompile.compiled
 E:\Eduardo\mrv-minem\back-end\Web Dinamico\MRVMinem\obj\Debug\MRVMinem.dll
 E:\Eduardo\mrv-minem\back-end\Web Dinamico\MRVMinem\obj\Debug\MRVMinem.pdb
+D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\images\medida_mitigacion\LEEME.txt
+D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\1.3 Plantilla_Eficiencia_energetica_comercial.xlsx
+D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\1.5 Plantilla_Iluminacion_residencial.xlsx
+D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\1.6 Plantilla_Reemplazo_de_lamparas_de_sector_publico.xlsx
+D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\1.7 Plantilla_Lamparas_de_alumbrado_publico.xlsx
+D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\2.2 Plantilla_Electrificacion_rural.xlsx
+D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\3.1 Plantilla_RER_Conectado.xlsx
+D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\3.2 Plantilla_Generacion_Distribuida.xlsx
+D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\4.1 Plantilla_Vehiculos_electricos_Consumo.xlsm
+D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\4.1 Plantilla_Vehiculos_electricos_Recorrido.xlsm
+D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\4.1 Plantilla_Vehiculos_hibridos_consumo.xlsm
+D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\4.1 Plantilla_Vehiculos_hibridos_Recorrido.xlsm
+D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_etiquetado_congeladoras.xlsx
+D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_etiquetado_refrigeradoras.xlsx
+D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\1.2 Plantilla_Eficiencia_energetica_sector_industrial_Motor.xlsx
+D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\2.1 Plantilla Coccion limpia_vales_fise.xlsx
+D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_ Aire acondicionado.xlsx
+D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_ Calentadores_ agua_electrico.xlsx
+D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_ Calentadores_ agua_gas.xlsx
+D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_ Calentadores_ agua_instantaneo.xlsx
+D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_Motores Electricos.xlsx
+D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\1.2 Plantilla_Eficiencia_energetica_ industrial_caldera.xlsx
+D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_Lavadoras.xlsx
+D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_Secadora.xlsx
+D:\DGEE\mrv-minem\back-end\Web Dinamico\MRVMinem\bin\Documentos\2.1 Plantilla_Coccion_Lena.xlsx

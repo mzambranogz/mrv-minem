@@ -41,7 +41,7 @@ function fn_iniciarSesion() {
 
     var respuesta = MRV.Ajax(url, item, false);
     if (respuesta.success) {
-        //location.href = baseUrl + "Gestion/AccionMitigacion";
+        location.href = baseUrl + "Gestion/AccionMitigacion";
     } else {
         $("#seccionMensaje #errorLogin").remove();
         var msj = '                      <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="errorLogin">';

@@ -28,3 +28,4 @@ ORA-06512: at line 1
 10/03/2020 00:41:30: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaBusquedaSimplePublico(entidad.minem.gob.pe.IniciativaBE), Línea: 1776] - ORA-00936: missing expression
 ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 4579
 ORA-06512: at line 1
+10/03/2020 16:04:22: [Método: entidad.minem.gob.pe.UsuarioBE obtenerUsuario(entidad.minem.gob.pe.UsuarioBE), Línea: 420] - Referencia a objeto no establecida como instancia de un objeto.

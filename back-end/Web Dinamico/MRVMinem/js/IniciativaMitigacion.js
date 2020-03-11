@@ -902,7 +902,7 @@ function fn_observacionIniciativaMitigacion() {
 function fn_ListarMedidaMitigacion() {
     var item = {
     };
-    vurl = baseUrl + "Portal/ListarMedidaMitigacion";
+    vurl = baseUrl + "Gestion/ListarMedidaMitigacion";
     $.ajax({
         url: vurl,
         type: 'POST',

@@ -16,14 +16,14 @@ namespace MRVMinem
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
 
-        protected void Application_PostAuthenticateRequest(object sender, EventArgs e)
-        {
-            if (Request.IsAuthenticated)
-            {
-                var identity = new IdentityPersonalizado(HttpContext.Current.User.Identity);
-                var principal = new PrincipalPersonalizado(identity);
-                HttpContext.Current.User = principal;
-            }
-        }
+        //protected void Application_PostAuthenticateRequest(object sender, EventArgs e)
+        //{
+        //    if (Request.IsAuthenticated)
+        //    {
+        //        var identity = new IdentityPersonalizado(HttpContext.Current.User.Identity);
+        //        var principal = new PrincipalPersonalizado(identity);
+        //        HttpContext.Current.User = principal;
+        //    }
+        //}
     }
 }

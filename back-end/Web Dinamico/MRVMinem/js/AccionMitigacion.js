@@ -550,7 +550,7 @@ function fn_nuevaIniciativaMitigacion(id) {
 function CargarMedidaMitigacion() {
     var item = {
     };
-    vurl = baseUrl + "Portal/ListarMedidaMitigacion";
+    vurl = baseUrl + "Gestion/ListarMedidaMitigacion";
     $.ajax({
         url: vurl,
         type: 'POST',

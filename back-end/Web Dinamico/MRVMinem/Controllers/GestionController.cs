@@ -19,14 +19,14 @@ using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using System.Drawing;
 using utilitario.minem.gob.pe;
-//using MRVMinem.Tags;
+using MRVMinem.Tags;
 using System.Web.Security;
-//using MRVMinem.Helper;
+using MRVMinem.Helper;
 
 namespace MRVMinem.Controllers
 {
-    //[Autenticado]
-    [Authorize]
+    [Autenticado]
+    //[Authorize]
     public class GestionController : BaseController
     {
 
@@ -85,6 +85,14 @@ namespace MRVMinem.Controllers
         public ActionResult Sesion()
         {
             return View();
+        }
+
+        public JsonResult ListarMedidaMitigacion(MedidaMitigacionBE entidad)
+        {
+            List<MedidaMitigacionBE> lista = MedidaMitigacionLN.ListarMedidaMitigacion(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
 
         public ActionResult IniciativaMitigacion(int id, int ini)
