@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - martes-marzo-10-2020   
+-- Archivo creado  - miércoles-marzo-11-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_ADMIN_SISTEMA
@@ -112,7 +112,13 @@
     PROCEDURE USP_UPD_DESHABILITAR_USUARIO(
         pID_USUARIO IN NUMBER
     );
-
+    
+    --========================11-03-2020
+    PROCEDURE USP_SEL_LISTA_EVA_VERF(
+        pID_ROL IN NUMBER,
+        pRefcursor OUT SYS_REFCURSOR
+    );
+    
 END PKG_MRV_ADMIN_SISTEMA;
 
 /
@@ -871,6 +877,19 @@ END PKG_MRV_DETALLE_INDICADORES;
         SET     ID_ESTADO_USUARIO = 2
         WHERE   ID_USUARIO = pID_USUARIO;
     END USP_UPD_DESHABILITAR_USUARIO;
+    
+    --=======================11-03-2020
+    PROCEDURE USP_SEL_LISTA_EVA_VERF(
+        pID_ROL IN NUMBER,
+        pRefcursor OUT SYS_REFCURSOR
+    )AS
+    BEGIN
+        OPEN pRefcursor FOR
+        SELECT  U.ID_USUARIO,TRIM(U.NOMBRES_USUARIO) || ' ' || TRIM(U.APELLIDOS_USUARIO) NOMBRES
+        FROM    T_GENM_USUARIO U
+        LEFT JOIN   T_MAE_USUARIO_ROL UR ON U.ID_USUARIO = UR.ID_USUARIO
+        WHERE UR.ID_ROL = pID_ROL AND U.FLG_ESTADO = 1;
+    END USP_SEL_LISTA_EVA_VERF;
 
 END PKG_MRV_ADMIN_SISTEMA;
 

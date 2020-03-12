@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - martes-marzo-10-2020   
+-- Archivo creado  - miércoles-marzo-11-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_INICIATIVA_MITIGACION
@@ -830,6 +830,13 @@
     PROCEDURE USP_SEL_VALIDAR_INI_REV(
         pID_INICIATIVA IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
+    );
+    
+    --==================== 11-03-2020
+    PROCEDURE USP_UPD_ASIGNAR_INI(
+        pID_INICIATIVA_MASIVO IN VARCHAR2,
+        pID_USUARIO_ASIGNAR IN NUMBER,
+        pID_ROL IN NUMBER
     );
 
 END PKG_MRV_INICIATIVA_MITIGACION;
@@ -6174,6 +6181,8 @@ end PKG_MRV_NOTIFICACION;
                                 INI.ID_ESTADO,
                                 PEE.DESCRIPCION ESTADO_BANDEJA,
                                 INI.ID_ETAPA PROGRESO,
+                                TO_DATE(SYSDATE,''dd/MM/yyyy hh:mi'') - (SELECT TO_DATE(DI.FECHA_DERIVACION,''dd/MM/yyyy hh:mi'') FROM T_GEND_DETALLE_INICIATIVA DI WHERE DI.ID_DETALLE_INICIATIVA = (SELECT MAX(ID_DETALLE_INICIATIVA) FROM T_GEND_DETALLE_INICIATIVA WHERE ID_INICIATIVA = INI.ID_INICIATIVA)) DIAS,
+                                PEE.PLAZO,
                                 ROW_NUMBER() OVER (ORDER BY ' || vSortColumn2 || ' ' || pSortOrder ||') AS ROWNUMBER,'
                                 || vPaginas || ' AS total_paginas,'
                                 || vPagina2 || ' AS pagina,'
@@ -6288,6 +6297,8 @@ end PKG_MRV_NOTIFICACION;
                                 INI.ID_ESTADO,
                                 PEE.DESCRIPCION ESTADO_BANDEJA,
                                 INI.ID_ETAPA PROGRESO,
+                                SYSDATE - (SELECT DI.FECHA_DERIVACION FROM T_GEND_DETALLE_INICIATIVA DI WHERE DI.ID_DETALLE_INICIATIVA = (SELECT MAX(ID_DETALLE_INICIATIVA) FROM T_GEND_DETALLE_INICIATIVA WHERE ID_INICIATIVA = INI.ID_INICIATIVA)) DIAS,
+                                PEE.PLAZO,
                                 ROW_NUMBER() OVER (ORDER BY ' || vSortColumn2 || ' ' || pSortOrder ||') AS ROWNUMBER,'
                                 || vPaginas || ' AS total_paginas,'
                                 || vPagina2 || ' AS pagina,'
@@ -6750,6 +6761,25 @@ end PKG_MRV_NOTIFICACION;
         OPEN pRefcursor FOR
         SELECT vRevisar ESTADO FROM DUAL;
     END USP_SEL_VALIDAR_INI_REV;
+    
+    --==================== 11-03-2020
+    PROCEDURE USP_UPD_ASIGNAR_INI(
+        pID_INICIATIVA_MASIVO IN VARCHAR2,
+        pID_USUARIO_ASIGNAR IN NUMBER,
+        pID_ROL IN NUMBER
+    )IS
+        vQuery VARCHAR2(1000);
+    BEGIN
+        IF pID_ROL = 4 THEN
+            vQuery := 'UPDATE T_GENM_INICIATIVA SET ASIGNAR_INI = '|| pID_USUARIO_ASIGNAR ||', ID_ESTADO = ''3'', ID_ETAPA = ''9'', ID_PLAZO_ETAPA_ESTADO = 21 WHERE ID_INICIATIVA IN ('|| pID_INICIATIVA_MASIVO || ')';
+        END IF;        
+        
+        IF pID_ROL = 5 THEN
+            vQuery := 'UPDATE T_GENM_INICIATIVA SET ASIGNAR_INI = '|| pID_USUARIO_ASIGNAR ||', ID_ESTADO = ''3'', ID_ETAPA = ''10'', ID_PLAZO_ETAPA_ESTADO = 22  WHERE ID_INICIATIVA IN ('|| pID_INICIATIVA_MASIVO || ')';
+        END IF;
+        
+        EXECUTE IMMEDIATE vQuery;
+    END USP_UPD_ASIGNAR_INI;
 
 END PKG_MRV_INICIATIVA_MITIGACION;
 
