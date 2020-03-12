@@ -1464,7 +1464,7 @@ Tacna</textarea>
                   </div>
                 </div>
                 <div class="container py-5">
-                  <div class="alert alert-info" role="alert"><i class="fas fa-info-circle">&nbsp;</i>Una vez aprobado su iniciativa podrá postular al sistema del <b>Sello Energía Sostenible</b></div>
+                  <div class="alert alert-info" role="alert"><i class="fas fa-info-circle">&nbsp;</i>Una vez aprobado su iniciativa podrá postular a la <b>Plataforma del Sello de Reconocimiento de Energía Sostenible</b></div>
                   <div class="dropdown-divider my-5"></div>
                   <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-6"><span class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Todos los campos son obligatorios</span></div>
@@ -1612,167 +1612,197 @@ Tacna</textarea>
               -->
             </div>
           </div>
-          <div class="modal fade" id="tipo-ingreso-detalle" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Seleccione un Tipo de Registro <br><small class="text-muted">Para iniciar con el registro de detalle de sus indicadores</small></h5>
-                  <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <!--.modal.fade(id="tipo-ingreso-detalle", tabindex="-1", role="dialog", aria-labelledby="exampleModalLabel", aria-hidden="true")
+          .modal-dialog.modal.modal-dialog-centered(role="document")
+            .modal-content
+              .modal-header
+                h5.modal-title(id="exampleModalLabel") Seleccione un Tipo de Registro <br>
+                  small.text-muted Para iniciar con el registro de detalle de sus indicadores
+                button.close(type="button", data-dismiss="modal", aria-label="Close")
+                  span(aria-hidden="true") &times;
+              .modal-body.medidas-modal
+                .row
+                  .col-sm-12.col-md-12.col-lg-8.offset-lg-2
+                    .row
+                      .col-sm-12.col-md-6.col-lg-6.pb-5.text-center
+                        a.d-inline-block(href="./registro-de-detalles-de-indicadores-manual.html", data-toggle="tooltip", data-placement="top", title="Registro manual de detalle de indicadores")
+                          img(src="./images/01_registro_manual.svg")
+          
+                      .col-sm-12.col-md-6.col-lg-6.pb-5.text-center
+                        a.d-inline-block(href="./registro-de-detalles-de-indicadores-masivo.html", data-toggle="tooltip", data-placement="top", title="Registro a través de archivo excel")
+                          img(src="./images/02_registro_masivo.svg")
+          
+          -->
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="solicitar-revision" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <!--.modal-header
+          h5.modal-title(id="exampleModalLabel") Mensaje de Usuario
+          button.close(type="button", data-dismiss="modal", aria-label="Close")
+            span(aria-hidden="true") &times;
+          -->
+          <div class="modal-body medidas-modal">
+            <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="swal2-icon swal2-question swal2-icon-show" style="display: flex;">
+                  <div class="swal2-icon-content"><i class="fas fa-question"></i></div>
                 </div>
-                <div class="modal-body medidas-modal">
-                  <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
-                      <div class="row">
-                        <div class="col-sm-12 col-md-6 col-lg-6 pb-5 text-center"><a class="d-inline-block" href="./registro-de-detalles-de-indicadores-manual.html" data-toggle="tooltip" data-placement="top" title="Registro manual de detalle de indicadores"><img src="./images/01_registro_manual.svg"></a></div>
-                        <div class="col-sm-12 col-md-6 col-lg-6 pb-5 text-center"><a class="d-inline-block" href="./registro-de-detalles-de-indicadores-masivo.html" data-toggle="tooltip" data-placement="top" title="Registro a través de archivo excel"><img src="./images/02_registro_masivo.svg"></a></div>
+                <h3 class="text-center">¿Está seguro de enviar su solicitud a revisión?</h3>
+                <p class="text-center">Confirme si está seguro de enviar todos los datos registrados para iniciar el proceso de revisión y obtener la aprobación por parte de nuestros especialistas.</p>
+              </div>
+              <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="alert alert-warning d-flex align-items-stretch" role="alert">
+                  <div class="alert-wrap mr-3">
+                    <div class="sa">
+                      <div class="sa-warning">
+                        <div class="sa-warning-body"></div>
+                        <div class="sa-warning-dot"></div>
                       </div>
                     </div>
+                  </div>
+                  <div class="alert-wrap">
+                    <h6>Publicar datos</h6>
+                    <hr>
+                    <div class="custom-control custom-checkbox d-inline-block">
+                      <input class="custom-control-input" type="checkbox" id="chk-publicar">
+                      <label class="custom-control-label" for="chk-publicar">Hacer públicos los datos registrados en esta iniciativa. &nbsp;</label><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Sus datos serán visibles públicamente y podrán ser consultados desde el sitio web del visitante"></i>
+                    </div>
+                    <div class="custom-control custom-checkbox d-inline-block">
+                      <input class="custom-control-input" type="checkbox" id="chk-publicar-monto-inversion">
+                      <label class="custom-control-label" for="chk-publicar-monto-inversion">Hacer público "Monto de inversión" &nbsp;</label><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="El monto de inversión será visible públicamente y podrá ser consultado desde el sitio web del visitante"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="alert alert-danger d-flex align-items-stretch" role="alert">
+                  <div class="alert-wrap mr-3">
+                    <div class="sa">
+                      <div class="sa-error">
+                        <div class="sa-error-x">
+                          <div class="sa-error-left"></div>
+                          <div class="sa-error-right"></div>
+                        </div>
+                        <div class="sa-error-placeholder"></div>
+                        <div class="sa-error-fix"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="alert-wrap">
+                    <h6>Error de registro</h6>
+                    <hr><small class="mb-0">Verifique que los datos sean correctamente ingresados, complete todos los campos obligatorios e intente otra vez.</small>
+                  </div>
+                </div>
+                <div class="alert alert-success d-flex align-items-stretch" role="alert">
+                  <div class="alert-wrap mr-3">
+                    <div class="sa">
+                      <div class="sa-success">
+                        <div class="sa-success-tip"></div>
+                        <div class="sa-success-long"></div>
+                        <div class="sa-success-placeholder"></div>
+                        <div class="sa-success-fix"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="alert-wrap">
+                    <h6>Felicitaciones</h6>
+                    <hr><a class="float-right" href="#" target="_blank"><img src="./images/sello_new.svg" width="120" data-toggle="tooltip" data-placement="top" title="Ir a la web del sello"></a><small class="mb-0">Usted ha completado el envío de detalle de su iniciativa de mitigación que será verificada por uno de nuestros especialistas. También, le recordamos que puede ingresar a nuestra <b>Plataforma del Sello de Reconocimiento de Energía Sostenible</b></small>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="modal fade" id="solicitar-revision" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Mensaje de Usuario</h5>
-                  <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <div class="modal-footer d-flex justify-content-center">
+            <button class="btn btn-info" type="button">Si, grabar</button>
+            <button class="btn btn-dark" type="button" data-dismiss="modal">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="guardar-avance" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <!--.modal-header
+          h5.modal-title(id="exampleModalLabel") Mensaje de Usuario
+          button.close(type="button", data-dismiss="modal", aria-label="Close")
+            span(aria-hidden="true") &times;
+          -->
+          <div class="modal-body medidas-modal">
+            <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="swal2-icon swal2-question swal2-icon-show" style="display: flex;">
+                  <div class="swal2-icon-content"><i class="fas fa-question"></i></div>
                 </div>
-                <div class="modal-body medidas-modal">
-                  <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-12">
-                      <h3 class="text-center">¿Está seguro de enviar su solicitud a revisión? <br></h3>
-                      <p class="text-center">Confirme si está seguro de enviar todos los datos registrados para iniciar el proceso de revisión y obtener la aprobación por parte de nuestros especialistas.</p>
-                    </div>
-                    <div class="col-sm-12 col-md-12 col-lg-12">
-                      <div class="alert alert-warning d-flex align-items-stretch" role="alert">
-                        <div class="alert-wrap mr-3">
-                          <div class="sa">
-                            <div class="sa-warning">
-                              <div class="sa-warning-body"></div>
-                              <div class="sa-warning-dot"></div>
-                            </div>
-                          </div>
+                <h3 class="text-center">¿Desea guardar su avance?</h3>
+                <p class="text-center">Los datos ingresados serán almacenados temporalmente y podrán ser regularizados al editar su iniciativa.</p>
+              </div>
+              <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="alert alert-danger d-flex align-items-stretch" role="alert">
+                  <div class="alert-wrap mr-3">
+                    <div class="sa">
+                      <div class="sa-error">
+                        <div class="sa-error-x">
+                          <div class="sa-error-left"></div>
+                          <div class="sa-error-right"></div>
                         </div>
-                        <div class="alert-wrap">
-                          <h6>Publicar datos</h6>
-                          <hr>
-                          <div class="custom-control custom-checkbox d-inline-block">
-                            <input class="custom-control-input" type="checkbox" id="chk-publicar">
-                            <label class="custom-control-label" for="chk-publicar">Hacer públicos los datos registrados en esta iniciativa. &nbsp;</label><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Sus datos serán visibles públicamente y podrán ser consultados desde el sitio web del visitante"></i>
-                          </div>
-                          <!--.custom-control.custom-checkbox.d-inline-block
-                          input(type="checkbox", class="custom-control-input", id="chk-publicar-monto-inversion")
-                          label.custom-control-label(for="chk-publicar-monto-inversion") Hacer público "Monto de inversión"
-                          
-                          -->
-                        </div>
-                      </div>
-                      <div class="alert alert-danger d-flex align-items-stretch" role="alert">
-                        <div class="alert-wrap mr-3">
-                          <div class="sa">
-                            <div class="sa-error">
-                              <div class="sa-error-x">
-                                <div class="sa-error-left"></div>
-                                <div class="sa-error-right"></div>
-                              </div>
-                              <div class="sa-error-placeholder"></div>
-                              <div class="sa-error-fix"></div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="alert-wrap">
-                          <h6>Error de registro</h6>
-                          <hr><small class="mb-0">Verifique que los datos sean correctamente ingresados, complete todos los campos obligatorios e intente otra vez.</small>
-                        </div>
-                      </div>
-                      <div class="alert alert-success d-flex align-items-stretch" role="alert">
-                        <div class="alert-wrap mr-3">
-                          <div class="sa">
-                            <div class="sa-success">
-                              <div class="sa-success-tip"></div>
-                              <div class="sa-success-long"></div>
-                              <div class="sa-success-placeholder"></div>
-                              <div class="sa-success-fix"></div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="alert-wrap">
-                          <h6>Felicitaciones</h6>
-                          <hr><a class="float-right" href="#" target="_blank"><img src="./images/sello_new.svg" width="120" data-toggle="tooltip" data-placement="top" title="Ir a la web del sello"></a><small class="mb-0">Usted ha completado el envío de detalle de su iniciativa de mitigación que será verificada por uno de nuestros especialistas. También, le recordamos que puede ingresar a nuestra plataforma del <b>Sello de Energía Sostenible</b></small>
-                        </div>
+                        <div class="sa-error-placeholder"></div>
+                        <div class="sa-error-fix"></div>
                       </div>
                     </div>
                   </div>
+                  <div class="alert-wrap">
+                    <h6>Error al guardar</h6>
+                    <hr><small class="mb-0">Verifique que los datos e intente otra vez.</small>
+                  </div>
                 </div>
-                <div class="modal-footer">
-                  <button class="btn btn-primary" type="button">Si, grabar</button>
-                  <button class="btn btn-secondary" type="button" data-dismiss="modal">No, cancelar</button>
+                <div class="alert alert-success d-flex align-items-stretch" role="alert">
+                  <div class="alert-wrap mr-3">
+                    <div class="sa">
+                      <div class="sa-success">
+                        <div class="sa-success-tip"></div>
+                        <div class="sa-success-long"></div>
+                        <div class="sa-success-placeholder"></div>
+                        <div class="sa-success-fix"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="alert-wrap">
+                    <h6>Bien</h6>
+                    <hr><small class="mb-0">Usted a guardado correctamente su avance.</small>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="modal fade" id="guardar-avance" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Mensaje de Usuario</h5>
-                  <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                </div>
-                <div class="modal-body medidas-modal">
-                  <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-12">
-                      <h3 class="text-center">¿Desea guardar su avance? <br></h3>
-                      <p class="text-center">Los datos ingresados serán almacenados temporalmente y podrán ser regularizados al editar su iniciativa.</p>
-                    </div>
-                    <div class="col-sm-12 col-md-12 col-lg-12">
-                      <div class="alert alert-warning d-flex align-items-stretch" role="alert">
-                        <div class="alert-wrap mr-3">
-                          <div class="sa">
-                            <div class="sa-warning">
-                              <div class="sa-warning-body"></div>
-                              <div class="sa-warning-dot"></div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="alert-wrap">
-                          <h6>Sus avances fueron guardados</h6>
-                          <hr>Recuerde, podrá solicitar una revisión una vez complete todos los campos obligatorios.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button class="btn btn-primary" type="button">Si, grabar</button>
-                  <button class="btn btn-secondary" type="button" data-dismiss="modal">No, cancelar</button>
-                </div>
-              </div>
-            </div>
+          <div class="modal-footer d-flex justify-content-center">
+            <button class="btn btn-info" type="button">Si, grabar</button>
+            <button class="btn btn-dark" type="button" data-dismiss="modal">Cancelar</button>
           </div>
-          <div class="modal fade" id="modal-verificacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Verificación de Composición</h5>
-                  <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                </div>
-                <div class="modal-body">
-                  <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-12"><img class="img-fluid" src="./images/formula.jpg"><strong>
-                        <div class="badge badge-info">Factores: F1 <br></div></strong><strong>
-                        <div class="badge badge-primary">Parámetros: P2 <br></div></strong><strong>
-                        <div class="badge badge-warning">Resultado: 62.25 ktCOeq</div></strong></div>
-                    <div class="col-sm-12 col-md-12 col-lg-12"></div>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
-                </div>
-              </div>
-            </div>
-          </div>
+          <!--.modal.fade(id="modal-verificacion", tabindex="-1", role="dialog", aria-labelledby="exampleModalLabel", aria-hidden="true")
+          .modal-dialog.modal-lg.modal-dialog-centered(role="document")
+            .modal-content
+              .modal-header
+                h5.modal-title(id="exampleModalLabel") Verificación de Composición
+                button.close(type="button", data-dismiss="modal", aria-label="Close")
+                  span(aria-hidden="true") &times;
+              .modal-body
+                .row
+                  .col-sm-12.col-md-12.col-lg-12
+                    img.img-fluid(src="./images/formula.jpg")
+                    strong
+                      .badge.badge-info Factores: F1 <br>
+                    strong
+                      .badge.badge-primary Parámetros: P2 <br>
+                    strong
+                      .badge.badge-warning Resultado: 62.25 ktCOeq
+          
+                  .col-sm-12.col-md-12.col-lg-12
+          
+              .modal-footer
+                button(type="button", class="btn btn-secondary", data-dismiss="modal") Cerrar
+          
+          -->
           <!--.modal.fade(id="registrar-placas", tabindex="-1", role="dialog", aria-labelledby="exampleModalLabel", aria-hidden="true")
           .modal-dialog.modal-lg.modal-dialog-centered(role="document")
             .modal-content

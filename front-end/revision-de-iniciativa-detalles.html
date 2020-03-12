@@ -74,7 +74,7 @@
                   <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
                   <div class="col-sm-12 col-md-6 col-lg-6">
                     <div class="btn-group btn-group-lg w-100 mb-3" data-toggle="tooltip" data-placement="top" title="Dar por aprobado esta iniciativa de mitigación"><a class="btn btn-primary dropdown-toggle w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0"><i class="fas fa-check pr-1"></i>Aprobar revisión</a>
-                      <div class="dropdown-menu dropdown-menu-right w-100"><a class="dropdown-item" href="#" data-toggle="modal" data-target="#aprobar-revision"><i class="fas fa-times-circle pr-1"></i>No enviar</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#aprobar-revision"><i class="far fa-user-circle pr-1"></i>Enviar al Verificador Externo</a></div>
+                      <div class="dropdown-menu dropdown-menu-right w-100"><a class="dropdown-item" href="#" data-toggle="modal" data-target="#aprobar-revision"><i class="fas fa-times-circle pr-1"></i>No enviar</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-evaluador"><i class="far fa-user-circle pr-1"></i>Enviar al Verificador Externo</a></div>
                     </div><span data-toggle="modal" data-target="#aprobar-revision"><a class="aprobar-revision" href="#" data-toggle="tooltip" data-placement="top" title="Dar por aprobado esta iniciativa de mitigación"><i class="fas fa-check px-1"></i>Aprobar revisión</a></span><span data-toggle="modal" data-target="#observar-revision"><a class="observar-revision" href="#" data-toggle="tooltip" data-placement="top" title="¿Encontró alguna observación? utilice esta opción para solicitar una corrección"><i class="fas fa-eye px-1"></i>Observar revisión</a></span>
                     <div class="btn-group btn-group-lg w-100 mb-3"><a class="btn btn-success dropdown-toggle w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0"><i class="fas fa-download pr-1"></i>Descargar</a>
                       <div class="dropdown-menu dropdown-menu-right w-100"><a class="dropdown-item" href="#"><i class="fas fa-file-excel pr-1"></i>Formato excel</a><a class="dropdown-item" href="#"><i class="fas fa-file-pdf pr-1"></i>Formato pdf</a></div>
@@ -255,6 +255,7 @@ Tacna</textarea>
               .col-sm-12-col-md-12.col-lg-6
                 .form-group
                   label.font-weight-bold(for="mlt-gei") Gases de efecto invernadero
+                    span.text-danger.font-weight-bold &nbsp;
                   .input-group
                     .input-group-prepend
                       span.input-group-text#inputGroup9
@@ -288,9 +289,9 @@ Tacna</textarea>
                   </div>
                 </div>
                 <div class="col-sm-12-col-md-12 col-lg-6">
-                  <div class="form-group resaltado">
+                  <div class="form-group">
                     <label for="mlt-gei">Gases de efecto invernadero<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione uno o varios GEI de acuerdo a la medida de mitigación seleccionada"></i></label>
-                    <div class="input-group">
+                    <div class="input-group resaltado">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
                       <div class="form-control" style="height:90px; overflow-y: auto;">
                         <div class="col-auto my-1">
@@ -724,16 +725,20 @@ Tacna</textarea>
             </div>
           </div>
           <div class="modal fade" id="aprobar-revision" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-dialog modal modal-dialog-centered" role="document">
               <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Mensaje de Usuario</h5>
-                  <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                </div>
+                <!--.modal-header
+                h5.modal-title(id="exampleModalLabel") Mensaje de Usuario
+                button.close(type="button", data-dismiss="modal", aria-label="Close")
+                  span(aria-hidden="true") &times;
+                -->
                 <div class="modal-body medidas-modal">
                   <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                      <h3 class="text-center">¿Está seguro de aprobar la inicitiva de mitigación seleccionada? <br></h3>
+                      <div class="swal2-icon swal2-question swal2-icon-show" style="display: flex;">
+                        <div class="swal2-icon-content"><i class="fas fa-question"></i></div>
+                      </div>
+                      <h3 class="text-center">¿Está seguro de aprobar la inicitiva de mitigación seleccionada?</h3>
                       <p class="text-center">Está de acuerdo en aprobar todos los datos vinculados en de esta iniciativa de mitigación, como de los detalles de indicadores registrados.</p>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12">
@@ -774,31 +779,39 @@ Tacna</textarea>
                     </div>
                   </div>
                 </div>
-                <div class="modal-footer">
-                  <button class="btn btn-primary" type="button">Si, grabar</button>
-                  <button class="btn btn-secondary" type="button" data-dismiss="modal">No, cancelar</button>
+                <div class="modal-footer d-flex justify-content-center">
+                  <button class="btn btn-info" type="button">Si, grabar</button>
+                  <button class="btn btn-dark" type="button" data-dismiss="modal">Cancelar</button>
                 </div>
               </div>
             </div>
           </div>
           <div class="modal fade" id="observar-revision" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-dialog modal modal-dialog-centered" role="document">
               <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Observaciones</h5>
-                  <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                </div>
+                <!--.modal-header
+                h5.modal-title(id="exampleModalLabel") Observaciones
+                button.close(type="button", data-dismiss="modal", aria-label="Close")
+                  span(aria-hidden="true") &times;
+                -->
                 <div class="modal-body medidas-modal">
-                  <div class="row mb-2">
-                    <div class="col-sm-12 col-md-6 col-lg-6"><strong>De: Juan Perez&nbsp;<span class="badge badge-actor-03">Especialista</span></strong><br><strong>Para: Luis Silva&nbsp;<span class="badge badge-actor-02">Usuario Administrado</span></strong></div>
-                    <div class="col-sm-12 col-md-6 col-lg-6 text-right"><strong>Fecha de Registro: 15/01/2020</strong></div>
+                  <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                      <div class="swal2-icon swal2-question swal2-icon-show" style="display: flex;">
+                        <div class="swal2-icon-content"><i class="fas fa-eye"></i></div>
+                      </div>
+                      <h3 class="text-center">Observaciones en su revisión</h3>
+                      <p class="text-center">describa sus observaciones en el siguiente campo:</p>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-7"><strong>De: Juan Perez&nbsp;<span class="badge badge-actor-03">Especialista</span></strong><br><strong>Para: Luis Silva&nbsp;<span class="badge badge-actor-02">Usuario Administrado</span></strong></div>
+                    <div class="col-sm-12 col-md-6 col-lg-5 text-right"><strong>Fecha de Registro: 15/01/2020</strong></div>
                   </div>
                   <!--.row
                   .col-sm-12-col-md-12.col-lg-6
                     .form-group
                       label(for="cbo-tipo-observacion") Tipo de observación
                         span.text-danger.font-weight-bold &nbsp;(*)&nbsp;
-                        i.fas.fa-question-circle.ayuda-tooltip(data-toggle="tooltip", data-placement="right", title="Seleccione un tipo de observación, una corrección leve o un error detectado")
+                        i.fas.fa-question-circle.ayuda-tooltip(data-toggle="tooltip", data-placement="right", title="ESeleccione un tipo de observación, una corrección leve o un error detectado")
                       .input-group
                         .input-group-prepend
                           span.input-group-text#inputGroup10
@@ -815,7 +828,7 @@ Tacna</textarea>
                         <label for="txa-nombre-iniciativa">Observaciones:<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span></label>
                         <div class="input-group">
                           <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-comment-alt"></i></span></div>
-                          <textarea class="form-control" id="txa-nombre-iniciativa" aria-describedby="inputGroup4" cols="30" rows="5" required placeholder="Ingrese aquí la observación y/o consulta requerida"></textarea>
+                          <textarea class="form-control" id="txa-nombre-iniciativa" aria-describedby="inputGroup4" cols="30" rows="5" required placeholder="Ingrese aquí la observación y/o consultas requeridas"></textarea>
                         </div>
                       </div>
                     </div>
@@ -859,8 +872,141 @@ Tacna</textarea>
                     </div>
                   </div>
                 </div>
-                <div class="modal-footer"><a class="btn btn-primary" href="./registro-de-iniciativa-de-mitigacion.html">Si, enviar<i class="fas fa-paper-plane ml-1"></i></a>
-                  <button class="btn btn-secondary" type="button" data-dismiss="modal">No, cancelar</button>
+                <div class="modal-footer d-flex justify-content-center"><a class="btn btn-info" href="./registro-de-iniciativa-de-mitigacion.html">Si, enviar<i class="fas fa-paper-plane ml-1"></i></a>
+                  <button class="btn btn-dark" type="button" data-dismiss="modal">Cancelar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="modal-evaluador" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <!--.modal-header
+                h5.modal-title(id="exampleModalLabel") Enviar paquete de iniciativas
+                button.close(type="button", data-dismiss="modal", aria-label="Close")
+                  span(aria-hidden="true") &times;
+                -->
+                <div class="modal-body medidas-modal">
+                  <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                      <div class="swal2-icon swal2-question swal2-icon-show" style="display: flex;">
+                        <div class="swal2-icon-content"><i class="fas fa-info"></i></div>
+                      </div>
+                      <h3 class="text-center">Seleccione un Verificador Externo<br></h3>
+                      <p class="text-center">A continuación seleccione un responsable para enviarle la iniciativas seleccionada.</p>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                      <div class="form-group">
+                        <label for="mls-ubicaciones">Selecciones un&nbsp;<span class="paquete-actor">Verificador Externo</span><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span></label>
+                        <div class="input-group">
+                          <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-user"></i></span></div>
+                          <div class="form-control" style="height:214px; overflow-y: auto;">
+                            <div class="col-auto my-1">
+                              <div class="custom-control custom-radio mr-sm-2">
+                                <input class="custom-control-input" type="radio" name="rad-evaluadores" id="rad-evaluador-1">
+                                <label class="custom-control-label" for="rad-evaluador-1">Verificador externo&nbsp;1
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-auto my-1">
+                              <div class="custom-control custom-radio mr-sm-2">
+                                <input class="custom-control-input" type="radio" name="rad-evaluadores" id="rad-evaluador-2">
+                                <label class="custom-control-label" for="rad-evaluador-2">Verificador externo&nbsp;2
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-auto my-1">
+                              <div class="custom-control custom-radio mr-sm-2">
+                                <input class="custom-control-input" type="radio" name="rad-evaluadores" id="rad-evaluador-3">
+                                <label class="custom-control-label" for="rad-evaluador-3">Verificador externo&nbsp;3
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-auto my-1">
+                              <div class="custom-control custom-radio mr-sm-2">
+                                <input class="custom-control-input" type="radio" name="rad-evaluadores" id="rad-evaluador-4">
+                                <label class="custom-control-label" for="rad-evaluador-4">Verificador externo&nbsp;4
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-auto my-1">
+                              <div class="custom-control custom-radio mr-sm-2">
+                                <input class="custom-control-input" type="radio" name="rad-evaluadores" id="rad-evaluador-5">
+                                <label class="custom-control-label" for="rad-evaluador-5">Verificador externo&nbsp;5
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-auto my-1">
+                              <div class="custom-control custom-radio mr-sm-2">
+                                <input class="custom-control-input" type="radio" name="rad-evaluadores" id="rad-evaluador-6">
+                                <label class="custom-control-label" for="rad-evaluador-6">Verificador externo&nbsp;6
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-auto my-1">
+                              <div class="custom-control custom-radio mr-sm-2">
+                                <input class="custom-control-input" type="radio" name="rad-evaluadores" id="rad-evaluador-7">
+                                <label class="custom-control-label" for="rad-evaluador-7">Verificador externo&nbsp;7
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-auto my-1">
+                              <div class="custom-control custom-radio mr-sm-2">
+                                <input class="custom-control-input" type="radio" name="rad-evaluadores" id="rad-evaluador-8">
+                                <label class="custom-control-label" for="rad-evaluador-8">Verificador externo&nbsp;8
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-auto my-1">
+                              <div class="custom-control custom-radio mr-sm-2">
+                                <input class="custom-control-input" type="radio" name="rad-evaluadores" id="rad-evaluador-9">
+                                <label class="custom-control-label" for="rad-evaluador-9">Verificador externo&nbsp;9
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="alert alert-danger d-flex align-items-stretch" role="alert">
+                        <div class="alert-wrap mr-3">
+                          <div class="sa">
+                            <div class="sa-error">
+                              <div class="sa-error-x">
+                                <div class="sa-error-left"></div>
+                                <div class="sa-error-right"></div>
+                              </div>
+                              <div class="sa-error-placeholder"></div>
+                              <div class="sa-error-fix"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="alert-wrap">
+                          <h6>Error al enviar</h6>
+                          <hr><small class="mb-0">Verifique que los datos sean correctos e intente otra vez.</small>
+                        </div>
+                      </div>
+                      <div class="alert alert-success d-flex align-items-stretch" role="alert">
+                        <div class="alert-wrap mr-3">
+                          <div class="sa">
+                            <div class="sa-success">
+                              <div class="sa-success-tip"></div>
+                              <div class="sa-success-long"></div>
+                              <div class="sa-success-placeholder"></div>
+                              <div class="sa-success-fix"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="alert-wrap">
+                          <h6>Bien hecho</h6>
+                          <hr><small class="mb-0">El envío fue realizado exitosamente.</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                  <button class="btn btn-info" type="button">Si, grabar</button>
+                  <button class="btn btn-dark" type="button" data-dismiss="modal">Cancelar</button>
                 </div>
               </div>
             </div>

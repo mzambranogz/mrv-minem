@@ -672,16 +672,20 @@ CH 2</textarea>
             </div>
           </div>
           <div class="modal fade" id="aprobar-verificacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-dialog modal modal-dialog-centered" role="document">
               <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Mensaje de Usuario</h5>
-                  <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                </div>
+                <!--.modal-header
+                h5.modal-title(id="exampleModalLabel") Mensaje de Usuario
+                button.close(type="button", data-dismiss="modal", aria-label="Close")
+                  span(aria-hidden="true") &times;
+                -->
                 <div class="modal-body medidas-modal">
                   <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                      <h3 class="text-center">¿Está seguro de aprobar la inicitiva de mitigación seleccionada? <br></h3>
+                      <div class="swal2-icon swal2-question swal2-icon-show" style="display: flex;">
+                        <div class="swal2-icon-content"><i class="fas fa-question"></i></div>
+                      </div>
+                      <h3 class="text-center">¿Está seguro de aprobar la inicitiva de mitigación seleccionada?</h3>
                       <p class="text-center">Está de acuerdo en aprobar todos los datos vinculados en de esta iniciativa de mitigación, como de los detalles de indicadores registrados.</p>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12">
@@ -716,53 +720,45 @@ CH 2</textarea>
                         </div>
                         <div class="alert-wrap">
                           <h6>Bien hecho</h6>
-                          <hr><small class="mb-0">Se aprobó correctamente esta verificación, se procederá a notificar al Especialista.</small>
-                        </div>
-                      </div>
-                      <div class="alert alert-warning d-flex align-items-stretch" role="alert">
-                        <div class="alert-wrap mr-3">
-                          <div class="sa">
-                            <div class="sa-warning">
-                              <div class="sa-warning-body"></div>
-                              <div class="sa-warning-dot"></div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="alert-wrap">
-                          <h6>Mercado de carbono</h6>
-                          <hr><small class="mb-0">Se ha generado la cadena de bloques para la medida de mitigación&nbsp;<strong>aprobada&nbsp; <br></strong><a class="btn btn-warning px-5 text-center my-3" href="#" data-toggle="modal" data-target="#observar-verificacion"><i class="fas fa-download px-1"></i>Descargar certificado</a>
-                            <hr>
-                            <div class="text-monospace" style="word-break: break-all;">341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb723341c682443beca780143b04cacbdb72</div></small>
+                          <hr><small class="mb-0">Se aprobó correctamente esta revisión, se procederá a notificar al Usuario Administrado.</small>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="modal-footer">
-                  <button class="btn btn-primary" type="button">Si, grabar</button>
-                  <button class="btn btn-secondary" type="button" data-dismiss="modal">No, cancelar</button>
+                <div class="modal-footer d-flex justify-content-center">
+                  <button class="btn btn-info" type="button">Si, grabar</button>
+                  <button class="btn btn-dark" type="button" data-dismiss="modal">Cancelar</button>
                 </div>
               </div>
             </div>
           </div>
           <div class="modal fade" id="observar-verificacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-dialog modal modal-dialog-centered" role="document">
               <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Observaciones</h5>
-                  <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                </div>
+                <!--.modal-header
+                h5.modal-title(id="exampleModalLabel") Observaciones
+                button.close(type="button", data-dismiss="modal", aria-label="Close")
+                  span(aria-hidden="true") &times;
+                -->
                 <div class="modal-body medidas-modal">
-                  <div class="row mb-2">
-                    <div class="col-sm-12 col-md-6 col-lg-6"><strong>De: Erick Sanchez&nbsp;<span class="badge badge-actor-05">Verificador Externo</span></strong><br><strong>Para: Juan Perez&nbsp;<span class="badge badge-actor-03">Especialista</span></strong></div>
-                    <div class="col-sm-12 col-md-6 col-lg-6 text-right"><strong>Fecha de Registro: 25/02/2020</strong></div>
+                  <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                      <div class="swal2-icon swal2-question swal2-icon-show" style="display: flex;">
+                        <div class="swal2-icon-content"><i class="fas fa-eye"></i></div>
+                      </div>
+                      <h3 class="text-center">Observaciones en su verificación</h3>
+                      <p class="text-center">describa sus observaciones en el siguiente campo:</p>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-7"><strong>De: Juan Perez&nbsp;<span class="badge badge-actor-03">Especialista</span></strong><br><strong>Para: Luis Silva&nbsp;<span class="badge badge-actor-02">Usuario Administrado</span></strong></div>
+                    <div class="col-sm-12 col-md-6 col-lg-5 text-right"><strong>Fecha de Registro: 15/01/2020</strong></div>
                   </div>
                   <!--.row
                   .col-sm-12-col-md-12.col-lg-6
                     .form-group
                       label(for="cbo-tipo-observacion") Tipo de observación
                         span.text-danger.font-weight-bold &nbsp;(*)&nbsp;
-                        i.fas.fa-question-circle.ayuda-tooltip(data-toggle="tooltip", data-placement="right", title="Seleccione un tipo de observación, una corrección leve o un error detectado")
+                        i.fas.fa-question-circle.ayuda-tooltip(data-toggle="tooltip", data-placement="right", title="ESeleccione un tipo de observación, una corrección leve o un error detectado")
                       .input-group
                         .input-group-prepend
                           span.input-group-text#inputGroup10
@@ -779,7 +775,7 @@ CH 2</textarea>
                         <label for="txa-nombre-iniciativa">Observaciones:<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span></label>
                         <div class="input-group">
                           <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-comment-alt"></i></span></div>
-                          <textarea class="form-control" id="txa-nombre-iniciativa" aria-describedby="inputGroup4" cols="30" rows="5" required placeholder="Ingrese aquí la observación y/o consulta requerida"></textarea>
+                          <textarea class="form-control" id="txa-nombre-iniciativa" aria-describedby="inputGroup4" cols="30" rows="5" required placeholder="Ingrese aquí la observación y/o consultas requeridas"></textarea>
                         </div>
                       </div>
                     </div>
@@ -823,8 +819,8 @@ CH 2</textarea>
                     </div>
                   </div>
                 </div>
-                <div class="modal-footer"><a class="btn btn-primary" href="./registro-de-iniciativa-de-mitigacion.html">Si, enviar<i class="fas fa-paper-plane ml-1"></i></a>
-                  <button class="btn btn-secondary" type="button" data-dismiss="modal">No, cancelar</button>
+                <div class="modal-footer d-flex justify-content-center"><a class="btn btn-info" href="./registro-de-iniciativa-de-mitigacion.html">Si, enviar<i class="fas fa-paper-plane ml-1"></i></a>
+                  <button class="btn btn-dark" type="button" data-dismiss="modal">Cancelar</button>
                 </div>
               </div>
             </div>
