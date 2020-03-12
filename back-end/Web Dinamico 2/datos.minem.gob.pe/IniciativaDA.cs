@@ -1213,7 +1213,8 @@ namespace datos.minem.gob.pe
                         else if (entidad.ID_ROL == 5)
                         {
                             //sp += "USP_SEL_BUSQUEDA_SPL_PRI_VRF";
-                            entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA IN (6,8))";
+                            //entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA IN (6,8))";
+                            entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA IN (8,10)) AND INI.ASIGNAR_INI = " + entidad.ID_USUARIO + ")";
                         }
                     }
                     else if (entidad.ID_ESTADO == 2)
@@ -1266,6 +1267,10 @@ namespace datos.minem.gob.pe
                             entidad.CONDICION = "NOT (INI.ID_ESTADO = 0 AND INI.ID_ETAPA = 1)";
                         }
                         //sp += "USP_SEL_BUSQUEDA_SPL_PRI_TODO";
+                    }
+                    else if (entidad.ID_ESTADO == 8)
+                    {
+                        entidad.CONDICION = "(INI.ID_ESTADO = 3 AND INI.ID_ETAPA IN (9,10))";
                     }
 
                     //if (entidad.ID_ROL == 1)
@@ -1334,12 +1339,13 @@ namespace datos.minem.gob.pe
                         {
                             //sp += "USP_SEL_BUSQUEDA_SPL_PRI_EVA";
                             //entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 5) OR (INI.ID_ESTADO = 2 AND INI.ID_ETAPA = 6)";
-                            entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 5)";
+                            entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 9 AND INI.ASIGNAR_INI = " + entidad.ID_USUARIO + ")";
                         }
                         else if (entidad.ID_ROL == 5)
                         {
                             //sp += "USP_SEL_BUSQUEDA_SPL_PRI_VRF";
-                            entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA IN (6,8))";
+                            //entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA IN (6,8))";
+                            entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA IN (8,10) AND INI.ASIGNAR_INI = " + entidad.ID_USUARIO + ")";
                         }
                     }
                     else if (entidad.ID_ESTADO == 2)
@@ -1366,15 +1372,15 @@ namespace datos.minem.gob.pe
                             entidad.CONDICION = "(INI.ID_ESTADO = 3 AND INI.ID_ETAPA IN (2,4))";
                         }                        
                     }
-                    else if (entidad.ID_ESTADO == 4)
+                    else if (entidad.ID_ESTADO == 4) //revisados
                     {
-                        //sp += "USP_SEL_BUSQUEDA_SPL_PRI_REVI";
                         entidad.CONDICION = "(INI.ID_ESTADO = 3 AND INI.ID_ETAPA IN (5,8))";
+                        //sp += "USP_SEL_BUSQUEDA_SPL_PRI_REVI";
                     }
-                    else if (entidad.ID_ESTADO == 5)
+                    else if (entidad.ID_ESTADO == 5) // evaluados
                     {
                         //sp += "USP_SEL_BUSQUEDA_SPL_PRI_EVAL";
-                        entidad.CONDICION = "(INI.ID_ESTADO = 3 AND INI.ID_ETAPA = 6)";
+                        entidad.CONDICION = "(INI.ID_ESTADO = 3 AND INI.ID_ETAPA = 6)";                      
                     }
                     else if (entidad.ID_ESTADO == 6)
                     {
@@ -1394,7 +1400,11 @@ namespace datos.minem.gob.pe
                         }
                             
                     }
-                    
+                    else if (entidad.ID_ESTADO == 8)
+                    {
+                        entidad.CONDICION = "(INI.ID_ESTADO = 3 AND INI.ID_ETAPA IN (9,10))";
+                    }
+
                     //if (entidad.ID_ROL == 1)
                     //{
                     //    p.Add("pID_USUARIO", entidad.ID_USUARIO);
@@ -1522,6 +1532,10 @@ namespace datos.minem.gob.pe
                         {
                             entidad.CONDICION = "NOT (INI.ID_ESTADO = 0 AND INI.ID_ETAPA = 1)";
                         }
+                    }
+                    else if (entidad.ID_ESTADO == 8)
+                    {
+                        entidad.CONDICION = "(INI.ID_ESTADO = 3 AND INI.ID_ETAPA IN (9,10))";
                     }
 
                     //var p = new OracleDynamicParameters();
@@ -1657,6 +1671,10 @@ namespace datos.minem.gob.pe
                         {
                             entidad.CONDICION = "NOT (INI.ID_ESTADO = 0 AND INI.ID_ETAPA = 1)";
                         }
+                    }
+                    else if (entidad.ID_ESTADO == 8)
+                    {
+                        entidad.CONDICION = "(INI.ID_ESTADO = 3 AND INI.ID_ETAPA IN (9,10))";
                     }
 
                     //var p = new OracleDynamicParameters();
@@ -2088,6 +2106,30 @@ namespace datos.minem.gob.pe
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     var ESTADO = db.ExecuteScalar(sp, p, commandType: CommandType.StoredProcedure);
                     entidad.CANTIDAD = Convert.ToInt32(ESTADO);
+                    entidad.OK = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                entidad.OK = false;
+                Log.Error(ex);
+            }
+
+            return entidad;
+        }
+
+        public IniciativaBE AsignarIniciativaMasivo(IniciativaBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_UPD_ASIGNAR_INI";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA_MASIVO", entidad.ID_INICIATIVA_MASIVO);
+                    p.Add("pID_USUARIO_ASIGNAR", entidad.ID_USUARIO);
+                    p.Add("pID_ROL", entidad.ID_ROL);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                     entidad.OK = true;
                 }
             }

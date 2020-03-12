@@ -331,7 +331,12 @@ namespace MRVMinem.Controllers
         public ActionResult SeguimientoIniciativa(int id, int ini)
         {
             ViewBag.usuario = Session["nombres"];
-            MvSesion modelo = new MvSesion();
+            ListaObjeto modelo = new ListaObjeto();
+            IniciativaBE inic = new IniciativaBE();
+            inic.ID_INICIATIVA = id;
+            modelo.iniciativa_mit = inic;
+            modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
+            modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
             modelo.identificador = id;
             return View(modelo);
         }
@@ -1948,6 +1953,22 @@ namespace MRVMinem.Controllers
             return Respuesta(itemRespuesta);
         }
 
+        public JsonResult ListarActorEnviar(UsuarioBE entidad)
+        {
+            List<UsuarioBE> lista = UsuarioLN.ListarActorEnviar(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+        
+        public JsonResult AsignarIniciativaMasivo(IniciativaBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = IniciativaLN.AsignarIniciativaMasivo(entidad);
+            itemRespuesta.success = entidad.OK;
+            return Respuesta(itemRespuesta);
+        }
         //public JsonResult ListarTipoIniciativa()
         //{
         //    List<TipoIniciativaBE> lista = TipoIniciativaLN.listarTipoIniciativa();

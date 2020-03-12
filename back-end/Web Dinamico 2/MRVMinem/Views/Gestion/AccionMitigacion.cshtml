@@ -30,12 +30,18 @@
                             @*<div class="col-sm-12 col-md-6 col-lg-6" id="nuevaIniciativa">*@
                                 @if (Convert.ToInt32(Session["rol"]) == 1)
                                 {
-                                    <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#medidas-mitigacion-listado"><a class="agregar-iniciativa" href="#" data-toggle="tooltip" data-placement="top" title="Seleccione una medida de mitigación para agregar una nueva inicitiva de mitigación">
+                                    <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#medidas-mitigacion-listado"><a class="agregar-iniciativa" href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Seleccione una medida de mitigación para agregar una nueva inicitiva de mitigación">
                                         @if (Model.usuario.PRIMER_INICIO == "1")
                                         {
                                             <i class="far fa-hand-point-left fa-3x primerIngreso animated bounceInRight infinite"></i>
                                         }                                        
                                         <i class="fas fa-plus px-1"></i>Agregar iniciativa</a></span></div>
+                                }
+                                else if (Convert.ToInt32(Session["rol"]) == 3)
+                                {
+                                    <div class="col-sm-12 col-md-6 col-lg-6">
+                                        <span data-toggle="modal" data-target="#modal-evaluador"><a class="enviar-paquete" href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Una vez seleccionadas las iniciativas de mitigación, por medida y periodo, puede generar y enviar un paquete al Evaluador MINAM "><i class="fas fa-box px-1"></i>Enviar paquete</a></span>
+                                    </div>
                                 }
                             @*</div>*@
                         </div>
@@ -52,7 +58,8 @@
                                 <div class="input-group-append" id="seccionFiltro"> <!-- add id-->
                                     
                                         <div class="btn-group">
-                                            <a class="btn btn-teal dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1"><i class="fas fa-filter">&nbsp;</i>Filtrar por estados</a>
+                                            @*<a class="btn btn-teal dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1"><i class="fas fa-filter">&nbsp;</i>Filtrar por estados</a>*@
+                                            <a class="btn btn-teal dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1"><i class="fas fa-hourglass">&nbsp;</i>Pendientes</a>
                                             <div class="dropdown-menu">
                                                 <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(1, $(this));"><i class="fas fa-hourglass">&nbsp;</i>Pendientes</a>
                                                 <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(2, $(this));"><i class="fas fa-eye">&nbsp;</i>Observadas</a>
@@ -61,6 +68,10 @@
                                                 @if (Convert.ToInt32(Session["rol"]) != 1)
                                                 {
                                                     <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(4, $(this));"><i class="fas fa-check-double">&nbsp;</i>Revisadas</a>
+                                                    if (Convert.ToInt32(Session["rol"]) == 3)
+                                                    {
+                                                        <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(8, $(this));"><i class="fas fa-check-double">&nbsp;</i>Enviados</a>
+                                                    }
                                                     <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(5, $(this));"><i class="fas fa-clipboard-check">&nbsp;</i>Evaluadas</a>
                                                     <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(6, $(this));"><i class="fas fa-tasks">&nbsp;</i>Verificadas</a>
                                                 }                                                
@@ -327,10 +338,21 @@
                 <div class="row">
                     <div class="col-12 px-0">
                         <div class="table-responsive tabla-principal">
-                            <table class="table table-hover">
+                            <table class="table table-hover" id="tabla-iniciativa">
                                 <thead>
                                     <tr class="bg-primary text-white">
                                         <th class="text-center" scope="col"><span class="miColumna" width="3%">N°&nbsp;<i class="fas fa-sort-up" style="color: lightgray" id="ID_INICIATIVA"></i></span></th>
+                                        @if (Convert.ToInt32(Session["rol"]) == 3)
+                                        {
+                                            <th class="text-center" scope="col" width="3%" id="ocultar-enviado" onclick="fn_habilitarTodo();">
+                                                @*<span>Enviado&nbsp;<i class="fas fa-sort"></i>*@
+                                                <div class="custom-control custom-checkbox-new custom-checkbox d-inline-block pl-3" data-toggle="tooltip" data-placement="bottom" title="Seleccione una iniciativa para enviarla al Verificador Externo, también puede seleccionar una o varias iniciativas para enviarlas por paquete al Evaluador MINAM">
+                                                    <input class="custom-control-input" type="checkbox" id="chk-send-im">
+                                                    <label class="custom-control-label" for="chk-send-im">&nbsp;</label>
+                                                </div>
+                                                @*</span>*@
+                                            </th>
+                                        }
                                         <th scope="col" width="19%"><span class="miColumna">Nombre de <br> Iniciativa&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NOMBRE_INICIATIVA"></i></span></th>
                                         <th scope="col" width="10%"><span class="miColumna">Progreso&nbsp;<i class="fas fa-sort" style="color: lightgray" id="PROGRESO"></i></span></th>
                                         <th class="text-center" scope="col" width="10%"><span class="miColumna">Fecha de <br> Inicio&nbsp;<i class="fas fa-sort" style="color: lightgray" id="FECHA"></i></span></th>
@@ -612,6 +634,168 @@
                 </div>
             </div>
         </div>
+
+        <div class="modal fade" id="modal-evaluador" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Enviar paquete de iniciativas</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body medidas-modal">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <h3 class="text-center">Seleccione un&nbsp;<span class="paquete-actor">Evaluador MINAM</span><br></h3>
+                                <p class="text-center">A continuación seleccione un responsable para enviarle el paquete de iniciativas seleccionada.</p>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <div class="form-group">
+                                    <label for="cbo-actor-paquete">Seleccione actor<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span></label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="fas fa-user"></i></span></div>
+                                        <select class="form-control" id="cbo-actor-paquete" aria-describedby="inputGroup10">
+                                            <option value="4" selected>Evaluador MINAM</option>
+                                            <option value="5">Verificador Externo</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="mls-ubicaciones">Selecciones un&nbsp;<span class="paquete-actor">Evaluador MiNAM</span><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span></label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-user"></i></span></div>
+                                        <div class="form-control" style="height:214px; overflow-y: auto;" id="lista-actor-enviar" data-paquete="0">
+                                            @*<div class="col-auto my-1">
+                                                <div class="custom-control custom-radio mr-sm-2">
+                                                    <input class="custom-control-input" type="radio" name="rad-evaluadores" id="rad-evaluador-1">
+                                                    <label class="custom-control-label" for="rad-evaluador-1">
+                                                        Evaluador MINAM / Verificador externo&nbsp;1
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-auto my-1">
+                                                <div class="custom-control custom-radio mr-sm-2">
+                                                    <input class="custom-control-input" type="radio" name="rad-evaluadores" id="rad-evaluador-2">
+                                                    <label class="custom-control-label" for="rad-evaluador-2">
+                                                        Evaluador MINAM / Verificador externo&nbsp;2
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-auto my-1">
+                                                <div class="custom-control custom-radio mr-sm-2">
+                                                    <input class="custom-control-input" type="radio" name="rad-evaluadores" id="rad-evaluador-3">
+                                                    <label class="custom-control-label" for="rad-evaluador-3">
+                                                        Evaluador MINAM / Verificador externo&nbsp;3
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-auto my-1">
+                                                <div class="custom-control custom-radio mr-sm-2">
+                                                    <input class="custom-control-input" type="radio" name="rad-evaluadores" id="rad-evaluador-4">
+                                                    <label class="custom-control-label" for="rad-evaluador-4">
+                                                        Evaluador MINAM / Verificador externo&nbsp;4
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-auto my-1">
+                                                <div class="custom-control custom-radio mr-sm-2">
+                                                    <input class="custom-control-input" type="radio" name="rad-evaluadores" id="rad-evaluador-5">
+                                                    <label class="custom-control-label" for="rad-evaluador-5">
+                                                        Evaluador MINAM / Verificador externo&nbsp;5
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-auto my-1">
+                                                <div class="custom-control custom-radio mr-sm-2">
+                                                    <input class="custom-control-input" type="radio" name="rad-evaluadores" id="rad-evaluador-6">
+                                                    <label class="custom-control-label" for="rad-evaluador-6">
+                                                        Evaluador MINAM / Verificador externo&nbsp;6
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-auto my-1">
+                                                <div class="custom-control custom-radio mr-sm-2">
+                                                    <input class="custom-control-input" type="radio" name="rad-evaluadores" id="rad-evaluador-7">
+                                                    <label class="custom-control-label" for="rad-evaluador-7">
+                                                        Evaluador MINAM / Verificador externo&nbsp;7
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-auto my-1">
+                                                <div class="custom-control custom-radio mr-sm-2">
+                                                    <input class="custom-control-input" type="radio" name="rad-evaluadores" id="rad-evaluador-8">
+                                                    <label class="custom-control-label" for="rad-evaluador-8">
+                                                        Evaluador MINAM / Verificador externo&nbsp;8
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-auto my-1">
+                                                <div class="custom-control custom-radio mr-sm-2">
+                                                    <input class="custom-control-input" type="radio" name="rad-evaluadores" id="rad-evaluador-9">
+                                                    <label class="custom-control-label" for="rad-evaluador-9">
+                                                        Evaluador MINAM / Verificador externo&nbsp;9
+                                                    </label>
+                                                </div>
+                                            </div>*@
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="seccionMensaje"></div>
+
+                                <div id="msjErrorPaquete" hidden>
+                                    <div class="alert alert-danger d-flex align-items-stretch" role="alert">
+                                        <div class="alert-wrap mr-3">
+                                            <div class="sa">
+                                                <div class="sa-error">
+                                                    <div class="sa-error-x">
+                                                        <div class="sa-error-left"></div>
+                                                        <div class="sa-error-right"></div>
+                                                    </div>
+                                                    <div class="sa-error-placeholder"></div>
+                                                    <div class="sa-error-fix"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="alert-wrap">
+                                            <h6>Error al enviar</h6>
+                                            <hr><small class="mb-0">Ocurrió un problema, vuelva a intentar o comuniquese con el administrador.</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="msjCorrectoPaquete" hidden>
+                                    <div class="alert alert-success d-flex align-items-stretch" role="alert">
+                                        <div class="alert-wrap mr-3">
+                                            <div class="sa">
+                                                <div class="sa-success">
+                                                    <div class="sa-success-tip"></div>
+                                                    <div class="sa-success-long"></div>
+                                                    <div class="sa-success-placeholder"></div>
+                                                    <div class="sa-success-fix"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="alert-wrap">
+                                            <h6>Bien hecho</h6>
+                                            <hr><small class="mb-0">El envío fue realizado exitosamente.</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer" id="pieInicial">
+                        <button class="btn btn-primary" type="button" onclick="fn_enviarPaquete();">Si, enviar</button>
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">No, cancelar</button>                        
+                    </div>
+                    <div class="modal-footer" id="pieCorrecto"> <!-- add 03-02-2020 -->
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <script>var primerIngreso=@Model.usuario.PRIMER_INICIO;</script>
 
     </div>

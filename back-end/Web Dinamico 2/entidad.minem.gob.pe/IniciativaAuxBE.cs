@@ -50,6 +50,9 @@ namespace entidad.minem.gob.pe
         public string NUMERO_MEDMIT { get; set; }
         public int ID_INDICADOR { get; set; }
         public string TIPO_INICIATIVA { get; set; }
+        public string ID_INICIATIVA_MASIVO { get; set; }
+        public string DIAS { get; set; }
+        public int PLAZO { get; set; }
         public List<IniciativaBE> listaGeiAnno { get; set; }
     }
 }

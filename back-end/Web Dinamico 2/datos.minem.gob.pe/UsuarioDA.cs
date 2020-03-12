@@ -640,5 +640,28 @@ namespace datos.minem.gob.pe
             return entidad;
         }
 
+        public List<UsuarioBE> ListarActorEnviar(UsuarioBE entidad)
+        {
+            List<UsuarioBE> lista = new List<UsuarioBE>();
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_LISTA_EVA_VERF";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_ROL", entidad.ID_ROL);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    lista = db.Query<UsuarioBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                    entidad.OK = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+            return lista;
+        }
+
     }
 }

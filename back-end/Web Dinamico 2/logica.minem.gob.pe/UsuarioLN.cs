@@ -159,5 +159,10 @@ namespace logica.minem.gob.pe
         {
             return usuarioDA.DeshabilitarUsuario(entidad);
         }
+
+        public static List<UsuarioBE> ListarActorEnviar(UsuarioBE entidad)
+        {
+            return usuarioDA.ListarActorEnviar(entidad);
+        }
     }
 }

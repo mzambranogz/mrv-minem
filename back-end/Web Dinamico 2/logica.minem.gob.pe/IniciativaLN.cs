@@ -584,5 +584,10 @@ namespace logica.minem.gob.pe
             return iniciativaDA.VerificarRevisionIniciativaMitigacion(entidad);
         }
 
+        public static IniciativaBE AsignarIniciativaMasivo(IniciativaBE entidad)
+        {
+            return iniciativaDA.AsignarIniciativaMasivo(entidad);
+        }
+
     }
 }

@@ -17,6 +17,7 @@ namespace MRVMinem.Models
         public int detalle { get; set; }
         public string id_enfoques { get; set; }
         public string id_factores { get; set; }
+        public int identificador { get; set; }
         public List<IndicadorBE> listaIndicador { get; set; }
         public List<UbicacionBE> listaUbicacion { get; set; }
         public List<EnergeticoBE> listaEnergetico { get; set; }
