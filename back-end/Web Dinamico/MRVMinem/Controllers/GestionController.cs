@@ -82,6 +82,7 @@ namespace MRVMinem.Controllers
             //}
             return View(modelo);
         }
+
         public ActionResult Sesion()
         {
             return View();

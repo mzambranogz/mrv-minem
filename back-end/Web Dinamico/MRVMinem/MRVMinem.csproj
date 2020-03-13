@@ -52,6 +52,11 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -240,6 +245,7 @@
     <Compile Include="Models\MvNama.cs" />
     <Compile Include="Models\MvParametro.cs" />
     <Compile Include="Models\MvPlazo.cs" />
+    <Compile Include="Models\MvReCAPTCHASettings.cs" />
     <Compile Include="Models\MvSector.cs" />
     <Compile Include="Models\MvSesion.cs" />
     <Compile Include="Models\MvUbicacion.cs" />
@@ -285,6 +291,7 @@
       <DependentUpon>ReporteIni.aspx</DependentUpon>
     </Compile>
     <Compile Include="Repositorio\EnvioCorreo.cs" />
+    <Compile Include="Repositorio\GoogleReCAPTCHAService.cs" />
     <Compile Include="Repositorio\ReporteRepositorio.cs" />
     <Compile Include="Response\ResponseEntity.cs" />
     <Compile Include="Seguridad\IdentityPersonalizado.cs" />

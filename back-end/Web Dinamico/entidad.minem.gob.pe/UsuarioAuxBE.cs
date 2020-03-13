@@ -18,5 +18,6 @@ namespace entidad.minem.gob.pe
         public int ESTADO_BUSCAR { get; set; }
         public string EMAIL_USUARIO_ORIGEN { get; set; }
         public string CABECERA_EMAIL { get; set; }
+        public string Token { get; set; }
     }
 }

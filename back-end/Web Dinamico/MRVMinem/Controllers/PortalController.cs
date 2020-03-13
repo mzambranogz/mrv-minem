@@ -26,6 +26,8 @@ namespace MRVMinem.Controllers
 {
     public class PortalController : BaseController
     {
+        private GoogleReCAPTCHAService _GoogleReCAPTCHAService = new GoogleReCAPTCHAService(new MvReCAPTCHASettings() { ReCAPTCHA_Secret_Key = WebConfigurationManager.AppSettings["ReCAPTCHA_Secret_Key"], ReCAPTCHA_Site_Key = WebConfigurationManager.AppSettings["ReCAPTCHA_Site_Key"] });
+
         // GET: Portal
         SessionBE session = new SessionBE();
         public ActionResult Index()
@@ -287,6 +289,8 @@ namespace MRVMinem.Controllers
             return jsonResult;
         }
 
+
+        
         public JsonResult IniciarSesion(UsuarioBE entidad)
         {
             ResponseEntity itemRespuesta = new ResponseEntity();
@@ -294,37 +298,47 @@ namespace MRVMinem.Controllers
             try
             {
 
-                //if (Membership.ValidateUser(entidad.USUARIO, entidad.PASSWORD_USUARIO))
-                //{
-                //    entidad = UsuarioLN.ObtenerPassword(entidad);
-                //    itemRespuesta.success = entidad.OK;
-                //    //itemRespuesta.success = true;
-                //    Session["usuario"] = entidad.ID_USUARIO.ToString();
-                //    Session["socket"] = WebConfigurationManager.AppSettings.Get("Socket");
-                //    List<RolOpcionesBE> lista = RolOpcionesLN.ListarOpciones(entidad.ID_USUARIO);
-                //    limpiarSetearSesion(lista);
-                //    FormsAuthentication.RedirectFromLoginPage(entidad.USUARIO, false);
-
-                //    return null;
-                //}
-                //else
-                //{
-                //    itemRespuesta.extra = entidad.extra;
-                //}
-
-                entidad = UsuarioLN.ObtenerPassword(entidad);
-                itemRespuesta.success = entidad.OK;
-                if (entidad.OK)
+                var _GoogleRecaptcha = _GoogleReCAPTCHAService.VerifyRecaptcha(entidad.Token);
+                if (!_GoogleRecaptcha.Result.success && _GoogleRecaptcha.Result.score <= 0.5)
                 {
-                    SessionHelper.AddUserToSession(entidad.ID_USUARIO.ToString());
-                    Session["usuario"] = entidad.ID_USUARIO.ToString();
-                    Session["socket"] = WebConfigurationManager.AppSettings.Get("Socket");
-                    List<RolOpcionesBE> lista = RolOpcionesLN.ListarOpciones(entidad.ID_USUARIO);
-                    limpiarSetearSesion(lista);
+                    itemRespuesta.success = false;
+                    itemRespuesta.extra = "Usted no es una entidad válida (You are Not Human ....)";
                 }
                 else
                 {
-                    itemRespuesta.extra = entidad.extra;
+
+                    //if (Membership.ValidateUser(entidad.USUARIO, entidad.PASSWORD_USUARIO))
+                    //{
+                    //    entidad = UsuarioLN.ObtenerPassword(entidad);
+                    //    itemRespuesta.success = entidad.OK;
+                    //    //itemRespuesta.success = true;
+                    //    Session["usuario"] = entidad.ID_USUARIO.ToString();
+                    //    Session["socket"] = WebConfigurationManager.AppSettings.Get("Socket");
+                    //    List<RolOpcionesBE> lista = RolOpcionesLN.ListarOpciones(entidad.ID_USUARIO);
+                    //    limpiarSetearSesion(lista);
+                    //    FormsAuthentication.RedirectFromLoginPage(entidad.USUARIO, false);
+
+                    //    return null;
+                    //}
+                    //else
+                    //{
+                    //    itemRespuesta.extra = entidad.extra;
+                    //}
+
+                    entidad = UsuarioLN.ObtenerPassword(entidad);
+                    itemRespuesta.success = entidad.OK;
+                    if (entidad.OK)
+                    {
+                        SessionHelper.AddUserToSession(entidad.ID_USUARIO.ToString());
+                        Session["usuario"] = entidad.ID_USUARIO.ToString();
+                        Session["socket"] = WebConfigurationManager.AppSettings.Get("Socket");
+                        List<RolOpcionesBE> lista = RolOpcionesLN.ListarOpciones(entidad.ID_USUARIO);
+                        limpiarSetearSesion(lista);
+                    }
+                    else
+                    {
+                        itemRespuesta.extra = entidad.extra;
+                    }
                 }
             }
             catch (Exception ex)
