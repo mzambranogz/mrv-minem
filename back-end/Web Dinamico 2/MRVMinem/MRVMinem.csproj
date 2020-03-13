@@ -215,6 +215,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DetalleController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\GestionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MantenimientoController.cs" />
@@ -508,6 +509,8 @@
     <Content Include="Views\Mantenimiento\IPCC.cshtml" />
     <Content Include="Views\Mantenimiento\Nama.cshtml" />
     <Content Include="Views\Mantenimiento\Plazo.cshtml" />
+    <Content Include="Views\Error\Default.cshtml" />
+    <Content Include="Views\Error\TestError.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

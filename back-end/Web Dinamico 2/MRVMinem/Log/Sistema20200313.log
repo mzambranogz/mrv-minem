@@ -2420,3 +2420,11 @@ PL/SQL: Statement ignored
 13/03/2020 04:08:17 a.m.: [Método: entidad.minem.gob.pe.ParametroBE FactorParametroCuerpo(Int32, Int32), Línea: 730] - La secuencia no contiene elementos
 13/03/2020 04:08:17 a.m.: [Método: TSource First[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - La secuencia no contiene elementos
 13/03/2020 04:08:17 a.m.: [Método: entidad.minem.gob.pe.ParametroBE FactorParametroCuerpo(Int32, Int32), Línea: 730] - La secuencia no contiene elementos
+13/03/2020 10:07:33: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32), Línea: 0] - ORA-12541: TNS:no hay ningún listener
+13/03/2020 10:07:33: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object), Línea: 0] - ORA-12541: TNS:no hay ningún listener
+13/03/2020 10:07:33: [Método: Void Open(), Línea: 0] - ORA-12541: TNS:no hay ningún listener
+13/03/2020 10:07:33: [Método: Boolean MoveNext(), Línea: 0] - ORA-12541: TNS:no hay ningún listener
+13/03/2020 10:07:33: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12541: TNS:no hay ningún listener
+13/03/2020 10:07:33: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12541: TNS:no hay ningún listener
+13/03/2020 10:07:33: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12541: TNS:no hay ningún listener
+13/03/2020 10:07:33: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] MostrarGeiporAnio(entidad.minem.gob.pe.IniciativaBE), Línea: 1443] - ORA-12541: TNS:no hay ningún listener
