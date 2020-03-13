@@ -32,9 +32,23 @@ namespace MRVMinem.Controllers
             modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
             modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
             modelo.usuario = UsuarioLN.EspecialistaMedida(modelo.iniciativa_mit.ID_MEDMIT);
-            if (modelo.menor == 0)
+            //if (modelo.menor == 0)
+            //{
+            //    modelo.menor = getMenorId(modelo.listaEnfoque);
+            //}
+            int enf = IniciativaLN.getIdEnfoqueMenor(inic);
+            if (enf == 0)
             {
-                modelo.menor = getMenorId(modelo.listaEnfoque);
+                if (modelo.menor == 0)
+                {
+                    modelo.menor = getMenorId(modelo.listaEnfoque);
+                    Session["enfoque"] = 0;
+                }
+            }
+            else
+            {
+                modelo.menor = enf;
+                Session["enfoque"] = enf;
             }
             Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
             return View(modelo);

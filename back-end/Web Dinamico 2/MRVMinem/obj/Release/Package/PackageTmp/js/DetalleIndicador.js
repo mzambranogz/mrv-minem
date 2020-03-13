@@ -1345,7 +1345,8 @@ function fn_revisarAdminDetalleIndicador() {
         ID_INICIATIVA: $("#Control").data("iniciativa"),
         //ID_USUARIO: $("#Control").data("usuario"),
         NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
-        ESTADO_ACTOR: $("#estado-actor").data("estado"),
+        //ESTADO_ACTOR: $("#estado-actor").data("estado"),
+        ESTADO_ACTOR: 5,
         ID_TIPO_INICIATIVA: $("#tipo-iniciativa").data("tipo"),
         ENERGETICO: energetico, //add
         GEI: gei //add
@@ -2546,7 +2547,7 @@ function CargarArchivosGuardados() {
                     $("#archivos-documentos").html("");
                     $("#archivos-guardados").html("");
                     for (var i = 0; i < data.length; i++) {
-
+                        debugger;
                         var extension = "fa-file-word";
 
                                 if (data[i]["ADJUNTO"].includes("pdf")) {

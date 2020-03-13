@@ -294,7 +294,15 @@ namespace MRVMinem.Repositorio
             sb.Append("     <div style=\"border-left:1px solid #ededed;margin:10px;padding:10px;\">");
             sb.Append("         <table style=\"font-family: Roboto;font-size:12px;\">");
             sb.Append("             <tr>");
-            sb.Append("                 <td style=\"padding:5px;\"><span>" + entidad.DESCRIPCION + "</span><span><a href=\"" + server + "Home/login\">" + server + "Home/login</a></span></td>");
+            //sb.Append("                 <td style=\"padding:5px;\"><span>" + entidad.DESCRIPCION + "</span><span><a href=\"" + server + "Home/login\">" + server + "Home/login</a></span></td>");
+            if (entidad.VALIDAR_RUTA == 1)
+            {
+                sb.Append("                 <td style=\"padding:5px;\"><span>" + entidad.DESCRIPCION + "</span></td>");
+            }
+            else
+            {
+                sb.Append("                 <td style=\"padding:5px;\"><span>" + entidad.DESCRIPCION + "</span><span><a href=\"" + server + "Home/login\">" + server + "Home/login</a></span></td>");
+            }            
             sb.Append("             </tr>");
             sb.Append("         </table>");
             sb.Append("     <div style=\"border-left:1px solid #ededed;margin-top:50px;\">");

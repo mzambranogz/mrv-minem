@@ -523,6 +523,8 @@ namespace datos.minem.gob.pe
                     p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
                     p.Add("pID_USUARIO", entidad.ID_USUARIO);
                     p.Add("pID_TIPO_INICIATIVA", entidad.ID_TIPO_INICIATIVA);
+                    p.Add("pID_DESCRIPCION_GEI", entidad.DESCRIPCION_GEI);
+                    p.Add("pID_DESCRIPCION_ENERG", entidad.DESCRIPCION_ENERG);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
                 entidad.OK = true;
@@ -610,7 +612,8 @@ namespace datos.minem.gob.pe
 
                     foreach (var item in Lista)
                     {
-                        item.FECHA = item.FECHA_DERIVACION.ToString("dd/MM/yyyy");
+                        item.FECHA = item.FECHA_DERIVACION.ToString("dd/MM/yyyy HH:mm");
+                        item.FECHA_OPERACIONES = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
                     }
                 }
             }
@@ -1426,6 +1429,7 @@ namespace datos.minem.gob.pe
                         if (item.FECHA_FIN == "01/01/0001") item.FECHA_FIN = "--/--/----";
                         if (string.IsNullOrEmpty(item.NOMBRE_INICIATIVA)) item.NOMBRE_INICIATIVA = "";
                         if (string.IsNullOrEmpty(item.NOMBRE_MEDMIT)) item.NOMBRE_MEDMIT = "";
+                        item.DIAS_RESTANTES = item.PLAZO - Convert.ToInt32(item.DIAS);
                     }
                 }
             }
@@ -2131,6 +2135,11 @@ namespace datos.minem.gob.pe
                     p.Add("pID_ROL", entidad.ID_ROL);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                     entidad.OK = true;
+                    var arr = entidad.ID_INICIATIVA_MASIVO.Split(',');
+                    for (int i = 0; i < arr.Length; i++)
+                    {
+                        InsertarSeguimientoPaquete(new IniciativaBE {ID_INICIATIVA = Convert.ToInt32(arr[i]), ID_ROL = entidad.ID_ROL, ID_USUARIO = entidad.ID_USUARIO_ADMIN});
+                    }
                 }
             }
             catch (Exception ex)
@@ -2142,6 +2151,73 @@ namespace datos.minem.gob.pe
             return entidad;
         }
 
+        public List<IniciativaBE> MostrarUsuarioRecordatorio(IniciativaBE entidad)
+        {
+            List<IniciativaBE> lista = new List<IniciativaBE>();
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_USUARIO_RECORDATORIO";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return lista;
+        }
+
+        public IniciativaBE IniciativaMitigacionRecordatorio(int cod)
+        {
+            IniciativaBE ent = new IniciativaBE();
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_INI_RECORDATORIO";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", cod);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    ent = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return ent;
+        }
+
+        public IniciativaBE InsertarSeguimientoPaquete(IniciativaBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_INS_SEGUIMIENTO_PAQ";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    p.Add("pID_ROL", entidad.ID_ROL);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                    entidad.OK = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                entidad.OK = false;
+                Log.Error(ex);
+            }
+
+            return entidad;
+        }
     }
 
 }

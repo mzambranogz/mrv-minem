@@ -156,11 +156,21 @@ namespace MRVMinem.Controllers
             modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
             modelo.usuario = UsuarioLN.EspecialistaMedida(modelo.iniciativa_mit.ID_MEDMIT);
             modelo.revision = 0;
-            if (modelo.menor == 0) {
-                modelo.menor = getMenorId(modelo.listaEnfoque);
-            }            
+                       
             Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
-
+            int enf = IniciativaLN.getIdEnfoqueMenor(inic);
+            if (enf == 0)
+            {
+                if (modelo.menor == 0)
+                {
+                    modelo.menor = getMenorId(modelo.listaEnfoque);
+                    Session["enfoque"] = 0;
+                }
+            }else
+            {
+                modelo.menor = enf;
+                Session["enfoque"] = enf;
+            }            
             return View(modelo);
         }
 
@@ -817,8 +827,16 @@ namespace MRVMinem.Controllers
                 }
                 
 
-                //============================================================
-
+                //============================================================ add 12-03-2020
+                if (Convert.ToInt32(Session["enfoque"]) != entidad.ID_ENFOQUE)
+                {
+                    if (entidad.ID_ESTADO == 0)
+                    {
+                        IndicadorLN.deleteRegDetalle(entidad);
+                        Session["enfoque"] = entidad.ID_ENFOQUE;
+                    }                    
+                }
+                //==========================================================
                 //IndicadorBE indicador = null;
                 IndicadorDataBE indicador = null;
                 //if (entidad.ListaIndicadores != null)
@@ -1965,8 +1983,49 @@ namespace MRVMinem.Controllers
         {
             ResponseEntity itemRespuesta = new ResponseEntity();
 
+            entidad.ID_USUARIO_ADMIN = Convert.ToInt32(Session["usuario"]);
             entidad = IniciativaLN.AsignarIniciativaMasivo(entidad);
             itemRespuesta.success = entidad.OK;
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult MostrarUsuarioRecordatorio(IniciativaBE entidad)
+        {
+            List<IniciativaBE> lista = IniciativaLN.MostrarUsuarioRecordatorio(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult EnviarRecordatorio(IniciativaBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            UsuarioBE usu = new UsuarioBE();
+            IniciativaBE inic = IniciativaLN.IniciativaMitigacionRecordatorio(entidad.ID_INICIATIVA);
+            usu = UsuarioLN.obtenerUsuarioId(entidad.ID_ASIGNADO);
+            entidad.EMAIL_USUARIO = usu.EMAIL_USUARIO;
+            entidad.VALIDAR_RUTA = 1;
+            entidad.ASUNTO = "Recordatorio - MRV";
+            entidad.SALUDO = "Estimado Sr(a): "+ usu.NOMBRES+"<br/></br/>";
+
+            entidad.CABECERA = "Detallamos la siguiente información de su registro:<br/><br/>Código de la Iniciativa de Mitigación: " + inic.ID_INICIATIVA + "<br/>Nombre de su proyecto: " + inic.NOMBRE_INICIATIVA + "<br/>Medida de Mitigación asociada: " + inic.NOMBRE_MEDMIT + "<br/>Estado: Evaluada y atendida<br/>Fecha " + inic.FECHA + "<br/><br/>";
+
+            //if (entidad.ID_ROL == 1)
+            //{
+            //    entidad.CABECERA = "Le informamos de su inicativa de mitigación de código " + inic.ID_INICIATIVA + ", con nombre de proyecto (" + inic.NOMBRE_INICIATIVA + ")" + " asociado a la medida de mitigación " + inic.NOMBRE_MEDMIT + ", evaluada y atendida en la fecha "+ inic.FECHA + " :<br/><br/>";
+            //}
+            //else
+            //{
+            //    entidad.CABECERA = "La inicativa de mitigación de código " + inic.ID_INICIATIVA + ", con nombre de proyecto (" + inic.NOMBRE_INICIATIVA + ")" + " asociado a la medida de mitigación " + inic.NOMBRE_MEDMIT + ", evaluada y atendida en la fecha " + inic.FECHA + " :<br/><br/>";
+            //}
+            entidad.DESCRIPCION = entidad.SALUDO + entidad.CABECERA + entidad.DESCRIPCION + "<br/><br/>Enviado por el "+ Convert.ToString(Session["nombreRol"]) + ": "+ Convert.ToString(Session["nombres"])+ "<br/><br/>";
+            EnvioCorreo hilo_correo = new EnvioCorreo(entidad, 1);
+            Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+            //itemRespuesta.extra = entidad.DESCRIPCION;
+            //Session["correo_destino"] = "";
+
+            itemRespuesta.success = true;
             return Respuesta(itemRespuesta);
         }
         //public JsonResult ListarTipoIniciativa()

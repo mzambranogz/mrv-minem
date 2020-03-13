@@ -306,9 +306,12 @@ namespace datos.minem.gob.pe
                     string sp = sPackage + "USP_PRC_AVANCE_DETALLE";
                     var p = new OracleDynamicParameters();
                     p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_ENFOQUE", entidad.ID_ENFOQUE);
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
                     p.Add("pID_USUARIO", entidad.ID_USUARIO);
                     p.Add("pID_ESTADO", entidad.ID_ESTADO);
                     p.Add("pID_TIPO_INGRESO", entidad.ID_TIPO_INGRESO);
+                    p.Add("pTOTAL_GEI", entidad.TOTAL_GEI);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
                 entidad.OK = true;
@@ -357,6 +360,8 @@ namespace datos.minem.gob.pe
                     p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
                     p.Add("pID_USUARIO", entidad.ID_USUARIO);
                     p.Add("pID_TIPO_INICIATIVA", entidad.ID_TIPO_INICIATIVA);
+                    p.Add("pID_DESCRIPCION_GEI", entidad.DESCRIPCION_GEI);
+                    p.Add("pID_DESCRIPCION_ENERG", entidad.DESCRIPCION_ENERG);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
                 entidad.OK = true;
@@ -586,6 +591,9 @@ namespace datos.minem.gob.pe
                     p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
                     p.Add("pID_USUARIO", entidad.ID_USUARIO);
                     p.Add("pID_TIPO_INGRESO", entidad.ID_TIPO_INGRESO);
+                    p.Add("pID_ENFOQUE", entidad.ID_ENFOQUE);
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pTOTAL_GEI", entidad.TOTAL_GEI);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
                 entidad.OK = true;
@@ -658,6 +666,9 @@ namespace datos.minem.gob.pe
                     var p = new OracleDynamicParameters();
                     p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
                     p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    p.Add("pID_ENFOQUE", entidad.ID_ENFOQUE);
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pTOTAL_GEI", entidad.TOTAL_GEI);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
                 entidad.OK = true;
@@ -1473,6 +1484,30 @@ namespace datos.minem.gob.pe
             }
 
             return lista;
+        }
+
+        public IniciativaBE deleteRegDetalle(IniciativaBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_UPD_DELETE_DETALLE";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pID_ENFOQUE", entidad.ID_ENFOQUE);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                    entidad.OK = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+
+            return entidad;
         }
 
 

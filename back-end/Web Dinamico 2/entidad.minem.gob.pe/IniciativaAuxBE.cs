@@ -18,6 +18,7 @@ namespace entidad.minem.gob.pe
         public string SECTOR { get; set; }
         public string MONEDA { get; set; }
         public string DESCRIPCION { get; set; }
+        public string DESCRIPCION_ROL { get; set; }
         public DateTime FECHA_DERIVACION { get; set; }
         public string USUARIO { get; set; }
         public string EMAIL_USUARIO { get; set; }
@@ -53,6 +54,16 @@ namespace entidad.minem.gob.pe
         public string ID_INICIATIVA_MASIVO { get; set; }
         public string DIAS { get; set; }
         public int PLAZO { get; set; }
+        public int DIAS_RESTANTES { get; set; }
+        public int ID_ASIGNADO { get; set; }
+        public string SALUDO { get; set; }
+        public string CABECERA { get; set; }
+        public int VALIDAR_RUTA { get; set; }
+        public int ID_USUARIO_ADMIN { get; set; }
+        public string OBSERVACIONES { get; set; }
+        public string FECHA_OPERACIONES { get; set; }
+        public string DESCRIPCION_GEI { get; set; }
+        public string DESCRIPCION_ENERG { get; set; }
         public List<IniciativaBE> listaGeiAnno { get; set; }
     }
 }

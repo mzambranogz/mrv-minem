@@ -76,7 +76,9 @@ namespace entidad.minem.gob.pe
         public string NOMBRE_MEDMIT { get; set; }
         public int ID_TIPO_INICIATIVA { get; set; }
         public string ENERGETICO { get; set; }
-        public string GEI { get; set; }        
+        public string GEI { get; set; }
+        public string DESCRIPCION_GEI { get; set; }
+        public string DESCRIPCION_ENERG { get; set; }
         public List<IniciativaBE> listaGei { get; set; }
         public List<IniciativaBE> listaAnnoSec { get; set; }
         public List<IniciativaBE> listaCant { get; set; }

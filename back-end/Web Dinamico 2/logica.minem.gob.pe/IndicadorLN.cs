@@ -324,6 +324,11 @@ namespace logica.minem.gob.pe
             return entidad;
         }
 
+        public static IniciativaBE deleteRegDetalle(IniciativaBE entidad)
+        {
+            return indicador.deleteRegDetalle(entidad);
+        }
+
         /* NUEVOS PROCEDIMIENTOS */
         public static List<IndicadorDataBE> CalculoIndicador(List<IndicadorDataBE> listaEntidad)
         {
