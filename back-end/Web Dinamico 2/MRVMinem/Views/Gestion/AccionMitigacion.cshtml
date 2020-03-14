@@ -43,6 +43,12 @@
                                         <span data-toggle="modal" data-target="#modal-evaluador"><a class="enviar-paquete" href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Una vez seleccionadas las iniciativas de mitigación, por medida y periodo, puede generar y enviar un paquete al Evaluador MINAM "><i class="fas fa-box px-1"></i>Enviar paquete</a></span>
                                     </div>
                                 }
+                                else if (Convert.ToInt32(Session["rol"]) == 4)
+                                {
+                                    <div class="col-sm-12 col-md-6 col-lg-6">
+                                        <span><a class="aprobar-evaluacion" href="#" onclick="fn_aprobarPaquete();" data-toggle="tooltip" data-placement="top" title="Dar por aprobado las iniciativa de mitigación filtradas"><i class="fas fa-check px-1"></i>Aprobar evaluación</a></span>
+                                    </div>
+                                }
                             @*</div>*@
                         </div>
                     </div>
@@ -337,14 +343,14 @@
                 <div class="dropdown-divider"></div>
                 <div class="row">
                     <div class="col-12 px-0">
-                        <div id="tbl-main-preload" class="mb-3">@*<i Class="fas fa-spinner fa-spin px-1"></i> Cargando...*@</div>
+                        <div id="tbl-main-preload" class="mb-3"></div>
                         <div id="tbl-main" class="table-responsive tabla-principal">@*</div>  *@
                         @*<div class="table-responsive tabla-principal">*@
                             <table class="table table-hover" id="tabla-iniciativa">
                                 <thead>
                                     <tr class="bg-primary text-white">
                                         <th class="text-center" scope="col"><span class="miColumna" width="3%">N°&nbsp;<i class="fas fa-sort-up" style="color: lightgray" id="ID_INICIATIVA"></i></span></th>
-                                        @if (Convert.ToInt32(Session["rol"]) == 3)
+                                        @if (Convert.ToInt32(Session["rol"]) == 3 || Convert.ToInt32(Session["rol"]) == 4)
                                         {
                                             <th class="text-center" scope="col" width="3%" id="ocultar-enviado" onclick="fn_habilitarTodo();">
                                                 @*<span>Enviado&nbsp;<i class="fas fa-sort"></i>*@

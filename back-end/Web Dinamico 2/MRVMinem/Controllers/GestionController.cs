@@ -1055,17 +1055,17 @@ namespace MRVMinem.Controllers
             entidad.ID_USUARIO = Convert.ToInt32(Session["usuario"]);
             entidad.ID_MEDMIT = Convert.ToInt32(Session["id_medida"]);
             entidad = IndicadorLN.AprobarAdminIniciativaDetalleIndicador(entidad);
-            if (entidad.OK)
-            {
-                IniciativaBE iniciativa = new IniciativaBE();
-                iniciativa.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
-                iniciativa.ASUNTO = "Aprobación Iniciativa y Detalle Indicador - MRVMinem ";
-                iniciativa.DESCRIPCION = "Los detalles de indicadores y la iniciativa ("+entidad.NOMBRE_INICIATIVA+") fueron revisados y aprobadas por el Administrador MINEM<br/><br/>";
-                EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
-                Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
-                Session["correo_destino"] = "";
-                Session["id_medida"] = 0;
-            }
+            //if (entidad.OK)
+            //{
+            //    IniciativaBE iniciativa = new IniciativaBE();
+            //    iniciativa.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
+            //    iniciativa.ASUNTO = "Aprobación Iniciativa y Detalle Indicador - MRVMinem ";
+            //    iniciativa.DESCRIPCION = "Los detalles de indicadores y la iniciativa ("+entidad.NOMBRE_INICIATIVA+") fueron revisados y aprobadas por el Administrador MINEM<br/><br/>";
+            //    EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
+            //    Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+            //    Session["correo_destino"] = "";
+            //    Session["id_medida"] = 0;
+            //}
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }
@@ -1158,8 +1158,19 @@ namespace MRVMinem.Controllers
         public JsonResult VerificarIniciativaDetalleIndicador(IndicadorBE entidad)
         {
             ResponseEntity itemRespuesta = new ResponseEntity();
+            string urlSello = WebConfigurationManager.AppSettings.Get("Sello");
 
             entidad.ID_USUARIO = Convert.ToInt32(Session["usuario"]);
+            entidad.NOMBRES = Convert.ToString(Session["nombres"]);
+            BlockChainBE block = new BlockChainBE() { ID_INICIATIVA = entidad.ID_INICIATIVA, ID_USUARIO = entidad.ID_USUARIO, IP_PC = Request.UserHostAddress.ToString().Trim() };
+            block = BlockChainLN.GeneraBlockChain(block);
+            if (block.OK)
+            {
+                itemRespuesta.extra = block.ID_BLOCKCHAIN.ToString();
+                itemRespuesta.extra2 = block.HASH;
+            }
+            
+            entidad.BLOCKCHAIN = block.HASH;
             entidad.ID_USUARIO_DESTINO = Convert.ToInt32(Session["usuario_destino"]);
             entidad = IndicadorLN.VerificarIniciativaDetalleIndicador(entidad);
             if (entidad.OK)
@@ -1167,20 +1178,16 @@ namespace MRVMinem.Controllers
                 //var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
                 IniciativaBE iniciativa = new IniciativaBE();
                 iniciativa.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
-                iniciativa.ASUNTO = "Verificación Iniciativa y Detalle Indicador - MRVMinem ";
-                iniciativa.DESCRIPCION = "Los detalles de indicadores y la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") fueron revisados y aprobadas por el Verificador Externo<br/><br/>";
+                //iniciativa.EMAIL_USUARIO = ini.EMAIL_USUARIO;
+                //ini.EMAIL_USUARIO = "juancarlossotoc1990@gmail.com";
+                iniciativa.VALIDAR_RUTA = 1;
+                iniciativa.ASUNTO = "Su Iniciativa de Mitigación ha sido Evaluada y/o Verificada - MRVMinem ";
+                iniciativa.SALUDO = "Estimado Sr(a): " + entidad.NOMBRES + "<br/></br/>";
+                iniciativa.DESCRIPCION = iniciativa.SALUDO + "Felicitaciones, su Iniciativa de Mitigación ha sido evaluada y/o verificada por nuestro equipo, asimismo ha contribuido en la reducción de los gases de efecto invernadero (GEI). Por ello, lo invitamos a ingresar a nuestra <a href=\"" + urlSello + "\">Plataforma del Sello de Reconocimiento de Energía Sostenible</a><br/><br/>";
                 EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
                 Session["correo_destino"] = "";
                 Session["usuario_destino"] = 0;
-
-                BlockChainBE block = new BlockChainBE() { ID_INICIATIVA = entidad.ID_INICIATIVA, ID_USUARIO = entidad.ID_USUARIO, IP_PC = Request.UserHostAddress.ToString().Trim() };
-                block = BlockChainLN.GeneraBlockChain(block);
-                if (block.OK)
-                {
-                    itemRespuesta.extra = block.ID_BLOCKCHAIN.ToString();
-                    itemRespuesta.extra2 = block.HASH;
-                }
             }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
@@ -1983,8 +1990,39 @@ namespace MRVMinem.Controllers
         {
             ResponseEntity itemRespuesta = new ResponseEntity();
 
+            MedidaMitigacionBE med = MedidaMitigacionLN.getMedidaMitigacion(entidad.ID_MEDMIT);
+
+            entidad.NOMBRE_MEDMIT = med.NOMBRE_MEDMIT;
+            entidad.FECHA = entidad.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
+            entidad.FECHA_FIN = entidad.FECHA_FIN_INICIATIVA.ToString("dd/MM/yyyy");
             entidad.ID_USUARIO_ADMIN = Convert.ToInt32(Session["usuario"]);
             entidad = IniciativaLN.AsignarIniciativaMasivo(entidad);
+
+            UsuarioBE usu = new UsuarioBE();
+            usu = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
+            if (entidad.OK)
+            {
+                //var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
+                IniciativaBE iniciativa = new IniciativaBE();
+                iniciativa.EMAIL_USUARIO = usu.EMAIL_USUARIO;
+                //iniciativa.EMAIL_USUARIO = "juancarlossotoc1990@gmail.com";
+                iniciativa.VALIDAR_RUTA = 1;
+                iniciativa.SALUDO = "Estimado Sr(a): " + usu.NOMBRES + "<br/></br/>";
+                if (entidad.ID_ROL == 4)
+                {
+                    
+                    iniciativa.ASUNTO = "Envio de Paquete de Iniciativas de mitigación - MRVMinem ";
+                    iniciativa.DESCRIPCION = iniciativa.SALUDO + "Se envió un paquete de Iniciativas de Mitigación correspondiente a la medida " + med.NOMBRE_MEDMIT + " del período "+ entidad.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy") + " - " + entidad.FECHA_FIN_INICIATIVA.ToString("dd/MM/yyyy") + ", en espera de su evaluación<br/><br/>";
+                }
+                else
+                {
+                    iniciativa.ASUNTO = "Envio de Iniciativa(s) de mitigación - MRVMinem ";
+                    iniciativa.DESCRIPCION = iniciativa.SALUDO + "Se le asignó un grupo de Iniciativas de Mitigación para su verificación<br/><br/>";
+                }
+                
+                EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
+                Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+            }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }
@@ -2026,6 +2064,43 @@ namespace MRVMinem.Controllers
             //Session["correo_destino"] = "";
 
             itemRespuesta.success = true;
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult AprobarIniciativaMasivo(IniciativaBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            string urlSello = WebConfigurationManager.AppSettings.Get("Sello");
+            entidad.ID_USUARIO = Convert.ToInt32(Session["usuario"]);
+            entidad.NOMBRES = Convert.ToString(Session["nombres"]);
+            var arr = entidad.ID_INICIATIVA_MASIVO.Split(',');
+            for (int i = 0; i < arr.Length; i++)
+            {
+                //==============================================================
+                BlockChainBE block = new BlockChainBE() { ID_INICIATIVA = Convert.ToInt32(arr[i]), ID_USUARIO = entidad.ID_USUARIO, IP_PC = Request.UserHostAddress.ToString().Trim() };
+                block = BlockChainLN.GeneraBlockChain(block);
+                //itemRespuesta.extra = block.ID_BLOCKCHAIN.ToString();
+                entidad.ID_INICIATIVA = Convert.ToInt32(arr[i]);
+                entidad.BLOCKCHAIN = block.HASH;
+                //===================================================================                
+                entidad = IniciativaLN.AprobarIniciativaMasivo(entidad);
+
+                IniciativaBE ini = IniciativaLN.ObtenerUsuarioIniciativa(new IniciativaBE { ID_INICIATIVA = Convert.ToInt32(arr[i]) });
+                
+                ini.EMAIL_USUARIO = ini.EMAIL_USUARIO;
+                //ini.EMAIL_USUARIO = "juancarlossotoc1990@gmail.com";
+                ini.VALIDAR_RUTA = 1;
+                ini.ASUNTO = "Su Iniciativa de Mitigación ha sido Evaluada y/o Verificada - MRVMinem ";
+                ini.SALUDO = "Estimado Sr(a): " + ini.NOMBRES + "<br/></br/>";                
+                ini.DESCRIPCION = ini.SALUDO + "Felicitaciones, su Iniciativa de Mitigación ha sido evaluada y/o verificada por nuestro equipo, asimismo ha contribuido en la reducción de los gases de efecto invernadero (GEI). Por ello, lo invitamos a ingresar a nuestra <a href=\""+ urlSello + "\">Plataforma del Sello de Reconocimiento de Energía Sostenible</a><br/><br/>";
+
+                EnvioCorreo hilo_correo = new EnvioCorreo(ini, 1);
+                Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+            }
+            
+
+            itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }
         //public JsonResult ListarTipoIniciativa()

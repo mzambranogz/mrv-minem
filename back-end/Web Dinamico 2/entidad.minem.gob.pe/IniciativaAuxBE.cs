@@ -64,6 +64,7 @@ namespace entidad.minem.gob.pe
         public string FECHA_OPERACIONES { get; set; }
         public string DESCRIPCION_GEI { get; set; }
         public string DESCRIPCION_ENERG { get; set; }
+        public string BLOCKCHAIN { get; set; }
         public List<IniciativaBE> listaGeiAnno { get; set; }
     }
 }

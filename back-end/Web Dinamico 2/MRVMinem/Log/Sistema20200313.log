@@ -2428,3 +2428,160 @@ PL/SQL: Statement ignored
 13/03/2020 10:07:33: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12541: TNS:no hay ningún listener
 13/03/2020 10:07:33: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12541: TNS:no hay ningún listener
 13/03/2020 10:07:33: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] MostrarGeiporAnio(entidad.minem.gob.pe.IniciativaBE), Línea: 1443] - ORA-12541: TNS:no hay ningún listener
+13/03/2020 02:14:32 p.m.: [Método: Void ThrowDataException(System.Exception, Int32, System.Data.IDataReader, System.Object), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:14:32 p.m.: [Método: entidad.minem.gob.pe.IniciativaBE Deserializeacf3f848-74a7-48c8-8087-8efc0aa85eac(System.Data.IDataReader), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:14:32 p.m.: [Método: Boolean MoveNext(), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:14:32 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:14:32 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:14:32 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:14:32 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaBusquedaAvanzadoPrivado(entidad.minem.gob.pe.IniciativaBE), Línea: 1705] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:16:21 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12899: value too large for column "MRVMM"."T_GEND_DETALLE_INICIATIVA"."OBSERVACIONES" (actual: 140, maximum: 100)
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 5112
+ORA-06512: at line 1
+13/03/2020 02:16:21 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12899: value too large for column "MRVMM"."T_GEND_DETALLE_INICIATIVA"."OBSERVACIONES" (actual: 140, maximum: 100)
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 5112
+ORA-06512: at line 1
+13/03/2020 02:16:21 p.m.: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-12899: value too large for column "MRVMM"."T_GEND_DETALLE_INICIATIVA"."OBSERVACIONES" (actual: 140, maximum: 100)
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 5112
+ORA-06512: at line 1
+13/03/2020 02:16:21 p.m.: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-12899: value too large for column "MRVMM"."T_GEND_DETALLE_INICIATIVA"."OBSERVACIONES" (actual: 140, maximum: 100)
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 5112
+ORA-06512: at line 1
+13/03/2020 02:16:21 p.m.: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-12899: value too large for column "MRVMM"."T_GEND_DETALLE_INICIATIVA"."OBSERVACIONES" (actual: 140, maximum: 100)
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 5112
+ORA-06512: at line 1
+13/03/2020 02:16:21 p.m.: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12899: value too large for column "MRVMM"."T_GEND_DETALLE_INICIATIVA"."OBSERVACIONES" (actual: 140, maximum: 100)
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 5112
+ORA-06512: at line 1
+13/03/2020 02:16:21 p.m.: [Método: entidad.minem.gob.pe.IniciativaBE AprobarIniciativaMasivo(entidad.minem.gob.pe.IniciativaBE), Línea: 2235] - ORA-12899: value too large for column "MRVMM"."T_GEND_DETALLE_INICIATIVA"."OBSERVACIONES" (actual: 140, maximum: 100)
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 5112
+ORA-06512: at line 1
+13/03/2020 02:22:09 p.m.: [Método: Void ThrowDataException(System.Exception, Int32, System.Data.IDataReader, System.Object), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:22:09 p.m.: [Método: entidad.minem.gob.pe.IniciativaBE Deserializeacf3f848-74a7-48c8-8087-8efc0aa85eac(System.Data.IDataReader), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:22:09 p.m.: [Método: Boolean MoveNext(), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:22:09 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:22:09 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:22:09 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:22:09 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaBusquedaAvanzadoPrivado(entidad.minem.gob.pe.IniciativaBE), Línea: 1705] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:22:36 p.m.: [Método: Void ThrowDataException(System.Exception, Int32, System.Data.IDataReader, System.Object), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:22:36 p.m.: [Método: entidad.minem.gob.pe.IniciativaBE Deserializeacf3f848-74a7-48c8-8087-8efc0aa85eac(System.Data.IDataReader), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:22:36 p.m.: [Método: Boolean MoveNext(), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:22:36 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:22:36 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:22:36 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:22:36 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaBusquedaAvanzadoPrivado(entidad.minem.gob.pe.IniciativaBE), Línea: 1705] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:22:38 p.m.: [Método: Void ThrowDataException(System.Exception, Int32, System.Data.IDataReader, System.Object), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:22:38 p.m.: [Método: entidad.minem.gob.pe.IniciativaBE Deserializeacf3f848-74a7-48c8-8087-8efc0aa85eac(System.Data.IDataReader), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:22:38 p.m.: [Método: Boolean MoveNext(), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:22:38 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:22:38 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:22:38 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:22:38 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaBusquedaAvanzadoPrivado(entidad.minem.gob.pe.IniciativaBE), Línea: 1705] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:24:12 p.m.: [Método: Void ThrowDataException(System.Exception, Int32, System.Data.IDataReader, System.Object), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:24:12 p.m.: [Método: entidad.minem.gob.pe.IniciativaBE Deserializeacf3f848-74a7-48c8-8087-8efc0aa85eac(System.Data.IDataReader), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:24:12 p.m.: [Método: Boolean MoveNext(), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:24:12 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:24:12 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:24:12 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:24:12 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaBusquedaAvanzadoPrivado(entidad.minem.gob.pe.IniciativaBE), Línea: 1705] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:29:10 p.m.: [Método: Void ThrowDataException(System.Exception, Int32, System.Data.IDataReader, System.Object), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:29:10 p.m.: [Método: entidad.minem.gob.pe.IniciativaBE Deserializeacf3f848-74a7-48c8-8087-8efc0aa85eac(System.Data.IDataReader), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:29:10 p.m.: [Método: Boolean MoveNext(), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:29:10 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:29:10 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:29:10 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 02:29:10 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaBusquedaAvanzadoPrivado(entidad.minem.gob.pe.IniciativaBE), Línea: 1705] - Error parsing column 13 (DIAS=5 - Decimal)
+13/03/2020 03:43:09 p.m.: [Método: Void EnsureExecutionSession(), Línea: 0] - Se ha producido un error durante el procesamiento local de informes.
+13/03/2020 03:43:09 p.m.: [Método: Void InternalRender(System.String, Boolean, System.String, Microsoft.Reporting.WebForms.PageCountMode, Microsoft.ReportingServices.Interfaces.CreateAndRegisterStream, Microsoft.Reporting.WebForms.Warning[] ByRef), Línea: 0] - Se ha producido un error durante el procesamiento local de informes.
+13/03/2020 03:43:09 p.m.: [Método: Byte[] InternalRender(System.String, Boolean, System.String, Microsoft.Reporting.WebForms.PageCountMode, System.String ByRef, System.String ByRef, System.String ByRef, System.String[] ByRef, Microsoft.Reporting.WebForms.Warning[] ByRef), Línea: 0] - Se ha producido un error durante el procesamiento local de informes.
+13/03/2020 03:43:09 p.m.: [Método: Byte[] Render(System.String, System.String, Microsoft.Reporting.WebForms.PageCountMode, System.String ByRef, System.String ByRef, System.String ByRef, System.String[] ByRef, Microsoft.Reporting.WebForms.Warning[] ByRef), Línea: 0] - Se ha producido un error durante el procesamiento local de informes.
+13/03/2020 03:43:09 p.m.: [Método: Byte[] Render(System.String, System.String, System.String ByRef, System.String ByRef, System.String ByRef, System.String[] ByRef, Microsoft.Reporting.WebForms.Warning[] ByRef), Línea: 0] - Se ha producido un error durante el procesamiento local de informes.
+13/03/2020 03:43:09 p.m.: [Método: Boolean GenerarPDFBlockChain(Int32, System.String), Línea: 46] - Se ha producido un error durante el procesamiento local de informes.
+13/03/2020 07:02:48 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_UPD_APROBAR_PAQ_INI'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+13/03/2020 07:02:48 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_UPD_APROBAR_PAQ_INI'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+13/03/2020 07:02:48 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_UPD_APROBAR_PAQ_INI'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+13/03/2020 07:02:48 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_UPD_APROBAR_PAQ_INI'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+13/03/2020 07:02:48 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_UPD_APROBAR_PAQ_INI'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+13/03/2020 07:02:48 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_UPD_APROBAR_PAQ_INI'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+13/03/2020 07:02:48 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_UPD_APROBAR_PAQ_INI'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+13/03/2020 07:02:48 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_UPD_APROBAR_PAQ_INI'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+13/03/2020 07:02:48 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_UPD_APROBAR_PAQ_INI'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+13/03/2020 07:02:48 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_UPD_APROBAR_PAQ_INI'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+13/03/2020 07:02:48 p.m.: [Método: entidad.minem.gob.pe.IniciativaBE ObtenerUsuarioIniciativa(entidad.minem.gob.pe.IniciativaBE), Línea: 2262] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_UPD_APROBAR_PAQ_INI'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+13/03/2020 07:04:29 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_UPD_APROBAR_PAQ_INI'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+13/03/2020 07:04:29 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_UPD_APROBAR_PAQ_INI'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+13/03/2020 07:04:29 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_UPD_APROBAR_PAQ_INI'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+13/03/2020 07:04:29 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_UPD_APROBAR_PAQ_INI'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+13/03/2020 07:04:29 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_UPD_APROBAR_PAQ_INI'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+13/03/2020 07:04:29 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_UPD_APROBAR_PAQ_INI'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+13/03/2020 07:04:29 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_UPD_APROBAR_PAQ_INI'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+13/03/2020 07:04:29 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_UPD_APROBAR_PAQ_INI'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+13/03/2020 07:04:29 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_UPD_APROBAR_PAQ_INI'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+13/03/2020 07:04:29 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_UPD_APROBAR_PAQ_INI'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored
+13/03/2020 07:04:29 p.m.: [Método: entidad.minem.gob.pe.IniciativaBE ObtenerUsuarioIniciativa(entidad.minem.gob.pe.IniciativaBE), Línea: 0] - ORA-06550: line 1, column 7:
+PLS-00306: wrong number or types of arguments in call to 'USP_UPD_APROBAR_PAQ_INI'
+ORA-06550: line 1, column 7:
+PL/SQL: Statement ignored

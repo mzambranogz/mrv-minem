@@ -599,5 +599,15 @@ namespace logica.minem.gob.pe
             return iniciativaDA.IniciativaMitigacionRecordatorio(cod);
         }
 
+        public static IniciativaBE AprobarIniciativaMasivo(IniciativaBE entidad)
+        {
+            return iniciativaDA.AprobarIniciativaMasivo(entidad);
+        }
+
+        public static IniciativaBE ObtenerUsuarioIniciativa(IniciativaBE entidad)
+        {
+            return iniciativaDA.ObtenerUsuarioIniciativa(entidad);
+        }
+
     }
 }

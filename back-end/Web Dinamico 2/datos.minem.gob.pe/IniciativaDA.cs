@@ -1617,7 +1617,7 @@ namespace datos.minem.gob.pe
                         {
                             //sp += "USP_SEL_BUSQUEDA_AVA_PRI_EVA";
                             //entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 5) OR (INI.ID_ESTADO = 2 AND INI.ID_ETAPA = 6)";
-                            entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 5)";
+                            entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 9)";
                         }
                         else if (entidad.ID_ROL == 5)
                         {
@@ -2138,7 +2138,7 @@ namespace datos.minem.gob.pe
                     var arr = entidad.ID_INICIATIVA_MASIVO.Split(',');
                     for (int i = 0; i < arr.Length; i++)
                     {
-                        InsertarSeguimientoPaquete(new IniciativaBE {ID_INICIATIVA = Convert.ToInt32(arr[i]), ID_ROL = entidad.ID_ROL, ID_USUARIO = entidad.ID_USUARIO_ADMIN});
+                        InsertarSeguimientoPaquete(new IniciativaBE {ID_INICIATIVA = Convert.ToInt32(arr[i]), ID_ROL = entidad.ID_ROL, ID_USUARIO = entidad.ID_USUARIO, FECHA = entidad.FECHA, FECHA_FIN = entidad.FECHA_FIN, NOMBRE_MEDMIT = entidad.NOMBRE_MEDMIT, CANTIDAD = arr.Length});
                     }
                 }
             }
@@ -2206,8 +2206,60 @@ namespace datos.minem.gob.pe
                     p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
                     p.Add("pID_USUARIO", entidad.ID_USUARIO);
                     p.Add("pID_ROL", entidad.ID_ROL);
+                    p.Add("pNOMBRE_MEDMIT", entidad.NOMBRE_MEDMIT);
+                    p.Add("pFECHA", entidad.FECHA);
+                    p.Add("pFECHA_FIN", entidad.FECHA_FIN);
+                    p.Add("pCANTIDAD", entidad.CANTIDAD);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                     entidad.OK = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                entidad.OK = false;
+                Log.Error(ex);
+            }
+
+            return entidad;
+        }
+
+
+        public IniciativaBE AprobarIniciativaMasivo(IniciativaBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_UPD_APROBAR_PAQ_INI";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    p.Add("pNOMBRES", entidad.NOMBRES);
+                    p.Add("pBLOCKCHAIN", entidad.BLOCKCHAIN);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                    entidad.OK = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                entidad.OK = false;
+                Log.Error(ex);
+            }
+
+            return entidad;
+        }
+
+        public IniciativaBE ObtenerUsuarioIniciativa(IniciativaBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_USUARIO_INI";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    entidad = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).FirstOrDefault();
                 }
             }
             catch (Exception ex)

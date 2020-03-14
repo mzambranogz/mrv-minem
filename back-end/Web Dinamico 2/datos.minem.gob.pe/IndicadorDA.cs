@@ -465,6 +465,8 @@ namespace datos.minem.gob.pe
                     p.Add("pID_ETAPA", entidad.ESTADO_ACTOR); //estado 5: Evaluador | estado 6: Verificador -> ETAPAS
                     p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
                     p.Add("pID_TIPO_INICIATIVA", entidad.ID_TIPO_INICIATIVA);
+                    p.Add("pDESCRIPCION_GEI", entidad.DESCRIPCION_GEI);
+                    p.Add("pDESCRIPCION_ENERG", entidad.DESCRIPCION_ENERG);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
                 entidad.OK = true;
@@ -515,6 +517,8 @@ namespace datos.minem.gob.pe
                     p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
                     p.Add("pID_USUARIO", entidad.ID_USUARIO);
                     p.Add("pID_USUARIO_DESTINO", entidad.ID_USUARIO_DESTINO);
+                    p.Add("pBLOCKCHAIN", entidad.BLOCKCHAIN);
+                    p.Add("pNOMBRES", entidad.NOMBRES);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
                 entidad.OK = true;
