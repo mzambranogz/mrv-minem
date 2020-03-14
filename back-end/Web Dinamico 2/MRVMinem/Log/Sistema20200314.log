@@ -1,0 +1,39 @@
+14/03/2020 09:32:19 a.m.: [Método: Void EnsureExecutionSession(), Línea: 0] - Se ha producido un error durante el procesamiento local de informes.
+14/03/2020 09:32:19 a.m.: [Método: Void InternalRender(System.String, Boolean, System.String, Microsoft.Reporting.WebForms.PageCountMode, Microsoft.ReportingServices.Interfaces.CreateAndRegisterStream, Microsoft.Reporting.WebForms.Warning[] ByRef), Línea: 0] - Se ha producido un error durante el procesamiento local de informes.
+14/03/2020 09:32:19 a.m.: [Método: Byte[] InternalRender(System.String, Boolean, System.String, Microsoft.Reporting.WebForms.PageCountMode, System.String ByRef, System.String ByRef, System.String ByRef, System.String[] ByRef, Microsoft.Reporting.WebForms.Warning[] ByRef), Línea: 0] - Se ha producido un error durante el procesamiento local de informes.
+14/03/2020 09:32:19 a.m.: [Método: Byte[] Render(System.String, System.String, Microsoft.Reporting.WebForms.PageCountMode, System.String ByRef, System.String ByRef, System.String ByRef, System.String[] ByRef, Microsoft.Reporting.WebForms.Warning[] ByRef), Línea: 0] - Se ha producido un error durante el procesamiento local de informes.
+14/03/2020 09:32:19 a.m.: [Método: Byte[] Render(System.String, System.String, System.String ByRef, System.String ByRef, System.String ByRef, System.String[] ByRef, Microsoft.Reporting.WebForms.Warning[] ByRef), Línea: 0] - Se ha producido un error durante el procesamiento local de informes.
+14/03/2020 09:32:19 a.m.: [Método: Boolean GenerarPDFBlockChain(Int32, System.String), Línea: 0] - Se ha producido un error durante el procesamiento local de informes.
+14/03/2020 10:34:24 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: missing expression
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 4597
+ORA-06512: at line 1
+14/03/2020 10:34:24 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: missing expression
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 4597
+ORA-06512: at line 1
+14/03/2020 10:34:24 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: missing expression
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 4597
+ORA-06512: at line 1
+14/03/2020 10:34:24 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: missing expression
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 4597
+ORA-06512: at line 1
+14/03/2020 10:34:24 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-00936: missing expression
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 4597
+ORA-06512: at line 1
+14/03/2020 10:34:24 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00936: missing expression
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 4597
+ORA-06512: at line 1
+14/03/2020 10:34:24 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-00936: missing expression
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 4597
+ORA-06512: at line 1
+14/03/2020 10:34:24 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-00936: missing expression
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 4597
+ORA-06512: at line 1
+14/03/2020 10:34:24 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-00936: missing expression
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 4597
+ORA-06512: at line 1
+14/03/2020 10:34:24 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00936: missing expression
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 4597
+ORA-06512: at line 1
+14/03/2020 10:34:24 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] ListaBusquedaSimplePublico(entidad.minem.gob.pe.IniciativaBE), Línea: 1798] - ORA-00936: missing expression
+ORA-06512: at "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", line 4597
+ORA-06512: at line 1

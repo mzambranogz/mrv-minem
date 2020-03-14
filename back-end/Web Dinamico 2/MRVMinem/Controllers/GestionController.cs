@@ -1176,13 +1176,15 @@ namespace MRVMinem.Controllers
             if (entidad.OK)
             {
                 //var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
-                IniciativaBE iniciativa = new IniciativaBE();
-                iniciativa.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
+                IniciativaBE iniciativa = IniciativaLN.ObtenerUsuarioIniciativa(new IniciativaBE { ID_INICIATIVA = entidad.ID_INICIATIVA });
+                //IniciativaBE iniciativa = new IniciativaBE();
+                //iniciativa.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
                 //iniciativa.EMAIL_USUARIO = ini.EMAIL_USUARIO;
                 //ini.EMAIL_USUARIO = "juancarlossotoc1990@gmail.com";
                 iniciativa.VALIDAR_RUTA = 1;
+                iniciativa.EMAIL_USUARIO = "juancarlossotoc1990@gmail.com";
                 iniciativa.ASUNTO = "Su Iniciativa de Mitigación ha sido Evaluada y/o Verificada - MRVMinem ";
-                iniciativa.SALUDO = "Estimado Sr(a): " + entidad.NOMBRES + "<br/></br/>";
+                iniciativa.SALUDO = "Estimado Sr(a): " + iniciativa.NOMBRES + "<br/></br/>";
                 iniciativa.DESCRIPCION = iniciativa.SALUDO + "Felicitaciones, su Iniciativa de Mitigación ha sido evaluada y/o verificada por nuestro equipo, asimismo ha contribuido en la reducción de los gases de efecto invernadero (GEI). Por ello, lo invitamos a ingresar a nuestra <a href=\"" + urlSello + "\">Plataforma del Sello de Reconocimiento de Energía Sostenible</a><br/><br/>";
                 EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());

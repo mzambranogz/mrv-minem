@@ -130,8 +130,8 @@ function CargarCuerpoGuardado(filas, factor) {
                         tr += '     <div class="btn-group">';
                         tr += '          <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
                         tr += '          <div class="dropdown-menu dropdown-menu-right">';
-                        tr += '               <a class="dropdown-item agregarCampos" href="#"><i class="fas fa-plus-circle"></i>&nbsp;Agregar</a>';
-                        tr += '               <a class="dropdown-item quitarCampos" href="#" onclick="fn_eliminarFactor()"><i class="fas fa-minus-circle"></i>&nbsp;Eliminar</a>';
+                        tr += '               <a class="dropdown-item agregarCamposMnt" href="#"><i class="fas fa-plus-circle"></i>&nbsp;Agregar</a>';
+                        tr += '               <a class="dropdown-item quitarCamposMnt" href="#" onclick="fn_eliminarFactor()"><i class="fas fa-minus-circle"></i>&nbsp;Eliminar</a>';
                         tr += '          </div>';
                         tr += '     </div>';
                         tr += '</td>';

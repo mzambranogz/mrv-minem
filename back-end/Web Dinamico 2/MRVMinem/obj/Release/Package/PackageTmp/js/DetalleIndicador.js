@@ -1138,20 +1138,26 @@ function fn_revisarDetalleIndicador() {
 
     ///================================= add
     var energetico = "";
+    var descripcion_energ = "";
     for (var i = 0; i < $("#listaEnerg").data("cantidad") ; i++) {
         if ($('#E' + (i + 1)).prop('checked')) {
             energetico = energetico + $('#E' + (i + 1)).data("value") + "," + "1/";
+            descripcion_energ += $(".energ-" + (i + 1)).html() + " - ";
         }
     }
     energetico = energetico.substring(0, energetico.length - 1);
+    descripcion_energ = descripcion_energ.substring(0, descripcion_energ.length - 3);
 
     var gei = "";
+    var descripcion_gei = "";
     for (var i = 0; i < $("#listaGei").data("cantidad") ; i++) {
         if ($('#G' + (i + 1)).prop('checked')) {
             gei = gei + $('#G' + (i + 1)).data("value") + "," + "1/";
+            descripcion_gei += $(".gei-" + (i + 1)).html() + " - ";
         }
     }
     gei = gei.substring(0, gei.length - 1);
+    descripcion_gei = descripcion_gei.substring(0, descripcion_gei.length - 3);
     ///=====================================
 
     var item = {
@@ -1161,7 +1167,9 @@ function fn_revisarDetalleIndicador() {
         NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
         ID_TIPO_INICIATIVA: $("#tipo-iniciativa").data("tipo"),
         ENERGETICO: energetico, //add
-        GEI: gei //add
+        GEI: gei, //add
+        DESCRIPCION_GEI: descripcion_gei,
+        DESCRIPCION_ENERG: descripcion_energ
     }
     url = baseUrl + "Gestion/AprobarDetalleIndicador";
     var respuesta = MRV.Ajax(url, item, false);
@@ -1260,7 +1268,7 @@ function fn_observacionAdminDetalleIndicador() {
         $("#pieCorrectoObservacion").show();
         $("#modalRevision").append(msj);
         $("#Control").data("modal", 1);
-        if (ws != null) ws.send(respuesta.extra);
+        //if (ws != null) ws.send(respuesta.extra);
 
     } else {
         $("#modalRevision #modalErrorRevision").remove();
@@ -1325,20 +1333,26 @@ function fn_revisarAdminDetalleIndicador() {
 
     ///================================= add
     var energetico = "";
+    var descripcion_energ = "";
     for (var i = 0; i < $("#listaEnerg").data("cantidad") ; i++) {
         if ($('#E' + (i + 1)).prop('checked')) {
             energetico = energetico + $('#E' + (i + 1)).data("value") + "," + "1/";
+            descripcion_energ += $(".energ-" + (i + 1)).html() + " - ";
         }
     }
     energetico = energetico.substring(0, energetico.length - 1);
+    descripcion_energ = descripcion_energ.substring(0, descripcion_energ.length - 3);
 
     var gei = "";
+    var descripcion_gei = "";
     for (var i = 0; i < $("#listaGei").data("cantidad") ; i++) {
         if ($('#G' + (i + 1)).prop('checked')) {
             gei = gei + $('#G' + (i + 1)).data("value") + "," + "1/";
+            descripcion_gei += $(".gei-" + (i + 1)).html() + " - ";
         }
     }
     gei = gei.substring(0, gei.length - 1);
+    descripcion_gei = descripcion_gei.substring(0, descripcion_gei.length - 3);
     ///=====================================
 
     var item = {
@@ -1349,7 +1363,9 @@ function fn_revisarAdminDetalleIndicador() {
         ESTADO_ACTOR: 5,
         ID_TIPO_INICIATIVA: $("#tipo-iniciativa").data("tipo"),
         ENERGETICO: energetico, //add
-        GEI: gei //add
+        GEI: gei, //add
+        DESCRIPCION_GEI: descripcion_gei,
+        DESCRIPCION_ENERG: descripcion_energ
     }
     url = baseUrl + "Gestion/AprobarAdminIniciativaDetalleIndicador";
     var respuesta = MRV.Ajax(url, item, false);
@@ -2772,6 +2788,7 @@ function fn_procesoDetalleIndicador(url, estado) {
         ID_ESTADO: estado,
         ID_ENFOQUE: enfoque,
         ID_MEDMIT: medida,
+        TOTAL_GEI: parseFloat($("#total-detalle").html()),
         DATA: parametros,
         ID_TIPO_INGRESO: 1,
         //ListaIndicadores: indicadores,
@@ -2795,6 +2812,7 @@ function fn_procesoDetalleIndicador(url, estado) {
             ID_ESTADO: estado,
             ID_ENFOQUE: enfoque,
             ID_MEDMIT: medida,
+            TOTAL_GEI: parseFloat($("#total-detalle").html()),
             DATA: parametros,
             ID_TIPO_INGRESO: 1,
             //ListaIndicadores: indicadores,
@@ -3663,7 +3681,7 @@ function fn_ListarENERG() {
                     var check = '<div class="col-auto my-1">';
                     check = check + '<div class="custom-control custom-checkbox mr-sm-2">';
                     check = check + '    <input class="custom-control-input" type="checkbox" id="E' + (i + 1) + '" data-value="' + data[i]["ID_ENERG"] + '" >';
-                    check = check + '    <label class="custom-control-label" for="E' + (i + 1) + '">' + data[i]["DESCRIPCION"] + '</label>';
+                    check = check + '    <label class="custom-control-label energ-' + (i + 1) + '" for="E' + (i + 1) + '">' + data[i]["DESCRIPCION"] + '</label>';
                     check = check + '</div>';
                     check = check + '</div>';
                     $("#listaEnerg").append(check);
@@ -3690,7 +3708,7 @@ function fn_ListarGEI() {
                     var check = '<div class="col-auto my-1">';
                     check = check + '<div class="custom-control custom-checkbox mr-sm-2">';
                     check = check + '    <input class="custom-control-input" type="checkbox" id="G' + (i + 1) + '" data-value="' + data[i]["ID_GEI"] + '" >';
-                    check = check + '    <label class="custom-control-label" for="G' + (i + 1) + '">' + data[i]["DESCRIPCION"] + '</label>';
+                    check = check + '    <label class="custom-control-label gei-' + (i + 1) + '" for="G' + (i + 1) + '">' + data[i]["DESCRIPCION"] + '</label>';
                     check = check + '</div>';
                     check = check + '</div>';
                     $("#listaGei").append(check);
@@ -3810,7 +3828,7 @@ $(document).ready(function () {
         //    armarVerificar(arr[i]);
         //}
         
-        fn_listarFactores();
+        //fn_listarFactores(); -agregar luego 13-03-20
 
     } else {
         CargarDatosCabecera();

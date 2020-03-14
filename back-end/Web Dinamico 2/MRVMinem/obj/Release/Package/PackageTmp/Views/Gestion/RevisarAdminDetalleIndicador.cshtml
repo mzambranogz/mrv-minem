@@ -60,7 +60,7 @@
                                         <a class="btn btn-purple dropdown-toggle w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0" id="tipo-iniciativa" data-tipo="@Model.iniciativa_mit.ID_TIPO_INICIATIVA"><i class="fas fa-list pr-1"></i>@Model.iniciativa_mit.TIPO_INICIATIVA</a>
                                     }
 
-                                    <div class="dropdown-menu dropdown-menu-right w-100">
+                                    @*<div class="dropdown-menu dropdown-menu-right w-100">
                                         @if (Model.listaTipoIniciativa != null)
                                         {
                                             foreach (var item in Model.listaTipoIniciativa)
@@ -68,10 +68,7 @@
                                                 <a class="dropdown-item" href="javascript:void(0);" onclick="fn_cambiarTipoIniciativa(@item.ID_TIPO_INICIATIVA, '@item.TIPO_INICIATIVA')"><i class="fas fa-list pr-1"></i>@item.TIPO_INICIATIVA</a>
                                             }
                                         }
-
-                                        @*<a class="dropdown-item" href="#"><i class="fas fa-list pr-1"></i>PNUD</a>*@
-                                        @*<a class="dropdown-item" href="#"><i class="fas fa-list pr-1"></i>Otros</a>*@
-                                    </div>
+                                    </div>*@
                                 </div>
                             </div>
                         </div>

@@ -407,7 +407,7 @@ function fn_procesoIniciativa(url, estado) {
         var mensaje = "";
         var respuesta = MRV.Ajax(url, item, false);
         if (respuesta.success) {
-            if (estado == 0) {
+            if (estado == 0 || estado == 6) {
                 $("#mensajeModalAvance #mensajeDangerAvance").remove();
                 var msj = '                   <div class="col-sm-12 col-md-12 col-lg-12" id="mensajeWarningAvance">';
                 msj = msj + '                       <div class="alert alert-warning d-flex align-items-stretch" role="alert">';
@@ -455,7 +455,7 @@ function fn_procesoIniciativa(url, estado) {
                 //if (ws != null) ws.send(respuesta.extra);
             }
         } else {
-            if (estado == 0) {
+            if (estado == 0 || estado == 6) {
                 $("#mensajeModalAvance #mensajeWarningAvance").remove();
                 $("#mensajeModalAvance #mensajeDangerAvance").remove();
                 var msj = '                   <div class="col-sm-12 col-md-12 col-lg-12" id="mensajeDangerAvance">';
@@ -748,7 +748,7 @@ function fn_ListarENERG() {
                     var check = '<div class="col-auto my-1">';
                     check = check + '<div class="custom-control custom-checkbox mr-sm-2">';
                     check = check + '    <input class="custom-control-input" type="checkbox" id="E' + (i + 1) + '" data-value="' + data[i]["ID_ENERG"] + '" >';
-                    check = check + '    <label class="custom-control-label" for="E' + (i + 1) + '">' + data[i]["DESCRIPCION"] + '</label>';
+                    check = check + '    <label class="custom-control-label energ-' + (i + 1) + '" for="E' + (i + 1) + '">' + data[i]["DESCRIPCION"] + '</label>';
                     check = check + '</div>';
                     check = check + '</div>';
                     $("#listaEnerg").append(check);
@@ -775,7 +775,7 @@ function fn_ListarGEI() {
                     var check = '<div class="col-auto my-1">';
                     check = check + '<div class="custom-control custom-checkbox mr-sm-2">';
                     check = check + '    <input class="custom-control-input" type="checkbox" id="G' + (i + 1) + '" data-value="' + data[i]["ID_GEI"] + '" >';
-                    check = check + '    <label class="custom-control-label" for="G' + (i + 1) + '">' + data[i]["DESCRIPCION"] + '</label>';
+                    check = check + '    <label class="custom-control-label gei-'+ (i + 1) +'" for="G' + (i + 1) + '">' + data[i]["DESCRIPCION"] + '</label>';
                     check = check + '</div>';
                     check = check + '</div>';
                     $("#listaGei").append(check);
@@ -842,20 +842,26 @@ function fn_revisarIniciativaMitigacion() {
 
     ///================================= add
     var energetico = "";
+    var descripcion_energ = "";
     for (var i = 0; i < $("#listaEnerg").data("cantidad") ; i++) {
         if ($('#E' + (i + 1)).prop('checked')) {
             energetico = energetico + $('#E' + (i + 1)).data("value") + "," + "1/";
+            descripcion_energ += $(".energ-" + (i + 1)).html() + " - ";
         }
     }
     energetico = energetico.substring(0, energetico.length - 1);
+    descripcion_energ = descripcion_energ.substring(0, descripcion_energ.length - 3);
 
     var gei = "";
+    var descripcion_gei = "";
     for (var i = 0; i < $("#listaGei").data("cantidad") ; i++) {
         if ($('#G' + (i + 1)).prop('checked')) {
             gei = gei + $('#G' + (i + 1)).data("value") + "," + "1/";
+            descripcion_gei += $(".gei-" + (i + 1)).html() + " - ";
         }
     }
     gei = gei.substring(0, gei.length - 1);
+    descripcion_gei = descripcion_gei.substring(0, descripcion_gei.length - 3);
     ///=====================================
 
     var item = {
@@ -865,7 +871,9 @@ function fn_revisarIniciativaMitigacion() {
         NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
         ID_TIPO_INICIATIVA: $("#tipo-iniciativa").data("tipo"),
         ENERGETICO: energetico, //add
-        GEI: gei //add
+        GEI: gei, //add
+        DESCRIPCION_GEI: descripcion_gei,
+        DESCRIPCION_ENERG: descripcion_energ
     }
     url = baseUrl + "Gestion/AprobarIniciativaMitigacion";
     var respuesta = MRV.Ajax(url, item, false);
@@ -944,6 +952,7 @@ function fn_observacionIniciativaMitigacion() {
     var mensaje = "";
     var respuesta = MRV.Ajax(url, item, false);
     if (respuesta.success) {
+        $("#modalRevision #modalErrorRevision").remove();
         var msj  =  '                           <div class="alert alert-success d-flex align-items-stretch" role="alert" id="modalCorrectoRevision">';
         msj = msj + '                               <div class="alert-wrap mr-3">';
         msj = msj + '                                    <div class="sa">';
