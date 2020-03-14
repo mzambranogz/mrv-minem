@@ -1,85 +1,6 @@
 --------------------------------------------------------
--- Archivo creado  - miércoles-marzo-11-2020   
+-- Archivo creado  - viernes-marzo-13-2020   
 --------------------------------------------------------
---------------------------------------------------------
---  DDL for Package PKG_MRV_PARAMETROS
---------------------------------------------------------
-
-  CREATE OR REPLACE PACKAGE "MRVMM"."PKG_MRV_PARAMETROS" is
-
-  -- Author  : CORPORACIÓN ZUÑIGA S.A.C
-  -- Created : 14/02/2020 16:23:45
-  -- Purpose : Gestión de parámetros
-
-	PROCEDURE USP_SEL_PARAMETRO(
-		PI_ID_PARAMETRO NUMBER,
-        PO_CURSOR OUT SYS_REFCURSOR
-	);
-
-    PROCEDURE USP_SEL_DET_PARAMETRO(
-		PI_ID_PARAMETRO NUMBER,
-        PO_CURSOR OUT SYS_REFCURSOR
-	);
-
-    PROCEDURE USP_SEL_FORMULA_PARAMETRO(
-		PI_ID_PARAMETRO NUMBER,
-        PI_ID_ENFOQUE NUMBER,
-        PI_ID_MEDMIT NUMBER,
-        PO_CURSOR OUT SYS_REFCURSOR
-	);
-
-    PROCEDURE USP_SEL_PARAMETRO_INDICADOR(
-      	PI_ID_PARAMETRO NUMBER,
-        PI_ID_ENFOQUE NUMBER,
-        PI_ID_MEDMIT NUMBER,
-        PO_CURSOR OUT SYS_REFCURSOR
-    );
-
-    PROCEDURE USP_SEL_FACTOR_PARAMETRO(
-        PI_ID_FACTOR NUMBER,
-        PO_CURSOR OUT SYS_REFCURSOR
-    );
-
-    PROCEDURE USP_SEL_FACTOR_VALOR(
-        PI_ID_FACTOR NUMBER,
-        PI_SQL_WHERE VARCHAR2,
-        PO_CURSOR OUT SYS_REFCURSOR
-    );
-
-    PROCEDURE USP_SEL_FACTOR(
-        PI_ID_FACTOR NUMBER,
-        PO_CURSOR OUT SYS_REFCURSOR
-    );
-
-    PROCEDURE USP_MNT_FACTOR(
-      	PI_ID_FACTOR NUMBER,
-        PI_NOMBRE VARCHAR2,
-        PO_ID_FACTOR OUT NUMBER
-    );
-
-    PROCEDURE USP_MNT_FACTOR_PARAMETRO(
-		PI_ID_FACTOR NUMBER,
-    	PI_ID_DETALLE NUMBER,
-        PI_ID_TIPO_CONTROL NUMBER,
-        PI_ID_PARAMETRO NUMBER,
-        PI_NOMBRE_DETALLE VARCHAR2,
-        PI_ORDEN NUMBER
-    );
-
-    PROCEDURE USP_DEL_FACTOR_PARAMETRO(
-		PI_ID_FACTOR NUMBER
-    );
-
-    PROCEDURE USP_SEL_FACTOR_PAGINADO(
-        pRegistros  INTEGER,
-        pPagina     INTEGER,
-        pSortColumn IN VARCHAR2,
-        pSortOrder  IN VARCHAR2,
-        PO_CURSOR OUT SYS_REFCURSOR
-    );
-end PKG_MRV_PARAMETROS;
-
-/
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_REPORTES
 --------------------------------------------------------
@@ -272,6 +193,17 @@ end PKG_MRV_PARAMETROS;
         pRefcursor OUT SYS_REFCURSOR
     );
 
+    -- INGRESADO EL 13-03-2020 RS
+    PROCEDURE USP_SEL_FICHA_MEDMIT(
+        pID_MEDMIT IN NUMBER,
+        pRefcursor OUT SYS_REFCURSOR
+    );
+    
+    PROCEDURE USP_SEL_FICHA_MEDMIT_ENFOQUE(
+        pID_MEDMIT IN NUMBER,
+        pRefcursor OUT SYS_REFCURSOR
+    );
+
 END PKG_MRV_REPORTES;
 
 /
@@ -412,245 +344,6 @@ END SHA256;
 
 /
 --------------------------------------------------------
---  DDL for Package Body PKG_MRV_PARAMETROS
---------------------------------------------------------
-
-  CREATE OR REPLACE PACKAGE BODY "MRVMM"."PKG_MRV_PARAMETROS" is
-
-	PROCEDURE USP_SEL_PARAMETRO(
-		PI_ID_PARAMETRO NUMBER,
-        PO_CURSOR OUT SYS_REFCURSOR
-	)
-    AS
-    BEGIN
-    	OPEN PO_CURSOR FOR
-        SELECT	*
-        FROM	T_MAEM_MRV_PARAMETRO P 
-        WHERE 	(P.ID_PARAMETRO = PI_ID_PARAMETRO OR PI_ID_PARAMETRO = 0);
-
-    END USP_SEL_PARAMETRO;
-
-    PROCEDURE USP_SEL_DET_PARAMETRO(
-		PI_ID_PARAMETRO NUMBER,
-        PO_CURSOR OUT SYS_REFCURSOR
-	)
-    AS
-    BEGIN
-    	OPEN PO_CURSOR FOR
-        SELECT	*
-        FROM	T_MAED_MRV_PARAMETRO P 
-        WHERE 	(P.ID_PARAMETRO = PI_ID_PARAMETRO OR PI_ID_PARAMETRO = 0);
-
-    END USP_SEL_DET_PARAMETRO;
-
-    PROCEDURE USP_SEL_FORMULA_PARAMETRO(
-		PI_ID_PARAMETRO NUMBER,
-        PI_ID_ENFOQUE NUMBER,
-        PI_ID_MEDMIT NUMBER,
-        PO_CURSOR OUT SYS_REFCURSOR
-	)
-    AS
-    BEGIN
-    	OPEN PO_CURSOR FOR
-        SELECT	*
-        FROM	T_MAEM_FORMULA_PARAMETRO P 
-        WHERE 	(P.ID_PARAMETRO = PI_ID_PARAMETRO OR PI_ID_PARAMETRO = 0)
-        		AND ID_ENFOQUE = PI_ID_ENFOQUE
-                AND ID_MEDMIT = PI_ID_MEDMIT;
-
-    END USP_SEL_FORMULA_PARAMETRO;
-
-    PROCEDURE USP_SEL_PARAMETRO_INDICADOR(
-      	PI_ID_PARAMETRO NUMBER,
-        PI_ID_ENFOQUE NUMBER,
-        PI_ID_MEDMIT NUMBER,
-        PO_CURSOR OUT SYS_REFCURSOR
-    )
-    AS
-    BEGIN
-      	OPEN PO_CURSOR FOR
-        SELECT 	*
-        FROM	T_MAEM_INDICADOR I
-        WHERE	I.ID_ENFOQUE = PI_ID_ENFOQUE
-        		AND I.ID_MEDMIT = PI_ID_MEDMIT
-                AND (I.ID_PARAMETRO = PI_ID_PARAMETRO OR PI_ID_PARAMETRO = 0);
-    END USP_SEL_PARAMETRO_INDICADOR;
-
-    PROCEDURE USP_SEL_FACTOR_PARAMETRO(
-        PI_ID_FACTOR NUMBER,
-        PO_CURSOR OUT SYS_REFCURSOR
-    )
-    AS
-    BEGIN
-        OPEN PO_CURSOR FOR
-        SELECT  FP.*, 
-                (SELECT COUNT(1) 
-                FROM    T_MAEM_MRV_FACTOR_PARAMETRO FP 
-                WHERE   FP.ID_FACTOR = PI_ID_FACTOR 
-                        AND FP.ID_PARAMETRO IS NOT NULL) NUMERO_PARAMETROS
-        FROM    T_MAEM_MRV_FACTOR F,
-                T_MAEM_MRV_FACTOR_PARAMETRO FP
-        WHERE   F.ID_FACTOR = PI_ID_FACTOR 
-                AND F.ID_FACTOR = FP.ID_FACTOR
-                AND FP.ID_PARAMETRO IS NOT NULL
-                AND FP.FLAG_ESTADO = '1'
-        ORDER BY FP.ORDEN;
-
-    END USP_SEL_FACTOR_PARAMETRO;
-
-    PROCEDURE USP_SEL_FACTOR_VALOR(
-        PI_ID_FACTOR NUMBER,
-        PI_SQL_WHERE VARCHAR2,
-        PO_CURSOR OUT SYS_REFCURSOR
-    )
-    AS
-        V_SQL VARCHAR2(4000);
-    BEGIN
-        V_SQL := 'SELECT  *
-                FROM    T_MAEM_FACTOR_DATA F 
-                WHERE   F.ID_FACTOR = ' || TO_CHAR(PI_ID_FACTOR) || ' ';
-        V_SQL := V_SQL || PI_SQL_WHERE;
-
-        OPEN PO_CURSOR FOR V_SQL;
-    END USP_SEL_FACTOR_VALOR;
-
-    PROCEDURE USP_SEL_FACTOR(
-        PI_ID_FACTOR NUMBER,
-        PO_CURSOR OUT SYS_REFCURSOR
-    )
-    AS
-    BEGIN 
-        OPEN PO_CURSOR FOR
-        SELECT  *
-        FROM    T_MAEM_MRV_FACTOR F
-        WHERE   (F.ID_FACTOR = PI_ID_FACTOR OR PI_ID_FACTOR = 0)
-        ORDER BY F.NOMBRE_FACTOR;
-    END USP_SEL_FACTOR;
-
-
-    PROCEDURE USP_MNT_FACTOR(
-      	PI_ID_FACTOR NUMBER,
-        PI_NOMBRE VARCHAR2,
-        PO_ID_FACTOR OUT NUMBER
-    )
-    AS
-    	V_ID_FACTOR NUMBER;
-    BEGIN
-      	IF PI_ID_FACTOR > 0 THEN
-        	UPDATE 	T_MAEM_MRV_FACTOR F
-            SET		F.NOMBRE_FACTOR = PI_NOMBRE
-            WHERE 	F.ID_FACTOR = PI_ID_FACTOR;
-            PO_ID_FACTOR := PI_ID_FACTOR;
-        ELSE
-          	SELECT SQ_MAE_FACTOR.NEXTVAL INTO V_ID_FACTOR FROM DUAL;
-
-          	INSERT INTO T_MAEM_MRV_FACTOR(ID_FACTOR, NOMBRE_FACTOR)
-            VALUES(V_ID_FACTOR, PI_NOMBRE);
-            PO_ID_FACTOR := V_ID_FACTOR;
-        END IF;
-
-    END USP_MNT_FACTOR;
-
-	PROCEDURE USP_MNT_FACTOR_PARAMETRO(
-		PI_ID_FACTOR NUMBER,
-    	PI_ID_DETALLE NUMBER,
-        PI_ID_TIPO_CONTROL NUMBER,
-        PI_ID_PARAMETRO NUMBER,
-        PI_NOMBRE_DETALLE VARCHAR2,
-        PI_ORDEN NUMBER
-    )
-    AS
-    	V_ID_DETALLE NUMBER;
-    BEGIN
-    	IF PI_ID_DETALLE > 0 THEN
-          	UPDATE T_MAEM_MRV_FACTOR_PARAMETRO FP
-            SET		FP.ID_TIPO_CONTROL = PI_ID_TIPO_CONTROL,
-            		FP.NOMBRE_DETALLE = PI_NOMBRE_DETALLE,
-                    FP.ORDEN = PI_ORDEN,
-                    FP.ID_PARAMETRO = PI_ID_PARAMETRO,
-                    FP.FLAG_ESTADO = '1'
-			WHERE 	FP.ID_FACTOR = PI_ID_FACTOR
-            		AND FP.ID_DETALLE = PI_ID_DETALLE;
-
-        ELSE
-          	SELECT 	NVL(MAX(ID_DETALLE),0) + 1 INTO V_ID_DETALLE
-            FROM	T_MAEM_MRV_FACTOR_PARAMETRO MP
-            WHERE	MP.ID_FACTOR = PI_ID_FACTOR;
-
-          	INSERT INTO T_MAEM_MRV_FACTOR_PARAMETRO(ID_FACTOR,
-                                                   ID_DETALLE,
-                                                   ID_TIPO_CONTROL,
-                                                   NOMBRE_DETALLE,
-                                                   FLAG_ESTADO,
-                                                   ORDEN,
-                                                   ID_PARAMETRO)
-			VALUES(	PI_ID_FACTOR, V_ID_DETALLE, PI_ID_TIPO_CONTROL, 
-            		PI_NOMBRE_DETALLE, '1', PI_ORDEN, PI_ID_PARAMETRO);
-
-        END IF;
-
-    END USP_MNT_FACTOR_PARAMETRO;
-
-    PROCEDURE USP_DEL_FACTOR_PARAMETRO(
-		PI_ID_FACTOR NUMBER
-    )
-    AS
-    BEGIN
-      	UPDATE 	T_MAEM_MRV_FACTOR_PARAMETRO FP
-        SET		FP.FLAG_ESTADO = '0'
-        WHERE	FP.ID_FACTOR = PI_ID_FACTOR;
-
-    END	USP_DEL_FACTOR_PARAMETRO;
-
-    PROCEDURE USP_SEL_FACTOR_PAGINADO(
-        pRegistros  INTEGER,
-        pPagina     INTEGER,
-        pSortColumn IN VARCHAR2,
-        pSortOrder  IN VARCHAR2,
-        PO_CURSOR OUT SYS_REFCURSOR
-    )
-    AS
-    	vPaginas    INTEGER;
-        vTotal      INTEGER;
-        vPagina2    INTEGER := pPagina;
-        vPageIndex  INTEGER := 0;
-        vQuery      VARCHAR2(10000) := '';
-        vSortColumn2 VARCHAR2(1000);
-    BEGIN
-      	SELECT  COUNT(1) INTO vTotal
-        FROM    T_MAEM_MRV_FACTOR N;
-
-        vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
-        IF vPagina2 = 0 THEN
-            vPagina2 := 1;
-        END IF;
-        IF vPagina2 > vPaginas THEN
-            vPagina2 := vPaginas;
-        END IF;
-
-        vPageIndex := vPagina2 - 1;
-
-        vSortColumn2 := pSortColumn;        
-
-        vQuery := 'SELECT *    FROM (
-        SELECT      F.ID_FACTOR,
-                    F.NOMBRE_FACTOR,
-                    ROW_NUMBER() OVER (ORDER BY ' || vSortColumn2 || ' ' || pSortOrder ||') AS ROWNUMBER,'
-                    || vPaginas || ' AS total_paginas,'
-                    || vPagina2 || ' AS pagina,'
-                    || pRegistros || ' AS cantidad_registros,'
-                    || vTotal || ' AS total_registros
-                FROM T_MAEM_MRV_FACTOR F
-                )
-                WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
-
-        OPEN PO_CURSOR FOR vQuery;
-    END USP_SEL_FACTOR_PAGINADO;
-
-end PKG_MRV_PARAMETROS;
-
-/
---------------------------------------------------------
 --  DDL for Package Body PKG_MRV_REPORTES
 --------------------------------------------------------
 
@@ -764,8 +457,14 @@ end PKG_MRV_PARAMETROS;
                                              INNER JOIN T_MAE_USUARIO_ROL UR ON U.ID_USUARIO = UR.ID_USUARIO
                                              WHERE U.ID_USUARIO = INI.ID_REMITENTE) AS ROL,
                                              TRIM(USU.NOMBRES_USUARIO) ||' '|| TRIM(USU.APELLIDOS_USUARIO) AS USUARIO,
+                (SELECT R.DESCRIPCION_ROL FROM T_GENM_USUARIO U
+                                             INNER JOIN T_MAE_USUARIO_ROL UR ON U.ID_USUARIO = UR.ID_USUARIO
+                                             LEFT JOIN T_MAE_ROL R ON UR.ID_ROL = R.ID_ROL
+                                             WHERE U.ID_USUARIO = INI.ID_REMITENTE) AS DESCRIPCION_ROL,
                USU.EMAIL_USUARIO,
-               INI.FECHA_DERIVACION
+               INI.FECHA_DERIVACION,
+               INI.OBSERVACIONES--,
+               --(SELECT FECHA_IMPLE_INICIATIVA FROM T_GENM_INICIATIVA WHERE ID_INICIATIVA = pID_INICIATIVA) FECHA_IMPLE_INICIATIVA
         FROM T_GEND_DETALLE_INICIATIVA INI
         INNER JOIN T_GENM_USUARIO USU ON INI.ID_REMITENTE = USU.ID_USUARIO
         WHERE INI.ID_INICIATIVA = pID_INICIATIVA 
@@ -1347,6 +1046,43 @@ end PKG_MRV_PARAMETROS;
         GROUP BY I.ID_MEDMIT, MM.NOMBRE_MEDMIT
         ORDER BY I.ID_MEDMIT;
     END USP_SEL_MOSTRAR_GEI_MED;
+    
+    PROCEDURE USP_SEL_FICHA_MEDMIT(
+        pID_MEDMIT IN NUMBER,
+        pRefcursor OUT SYS_REFCURSOR
+    )AS
+    BEGIN
+        OPEN pRefcursor FOR
+        SELECT
+        MM.ID_MEDMIT, MM.NOMBRE_MEDMIT, MM.DESCRIPCION_MEDMIT, MM.IPSC_MEDMIT, MM.OBJETIVO_MEDMIT,
+        (LISTAGG(UB.DESCRIPCION, ',') WITHIN GROUP (ORDER BY UB.DESCRIPCION)) AS UBICACION,
+        NVL(RTRIM(US.NOMBRES_USUARIO) || ' ', '') || NVL(RTRIM(US.APELLIDOS_USUARIO), '') AS RESPONSABLE
+        FROM T_GENM_INICIATIVA I
+        INNER JOIN T_MAE_MEDMIT MM ON I.ID_MEDMIT = MM.ID_MEDMIT
+        LEFT JOIN T_GEND_INICIATIVA_UBICACION IU ON I.ID_INICIATIVA = IU.ID_INICIATIVA
+        LEFT JOIN T_MAE_UBICACION UB ON IU.ID_UBICACION = UB.ID_UBICACION
+        LEFT JOIN T_GENM_USUARIO US ON MM.ASOCIADO = US.ID_USUARIO
+        WHERE I.ID_MEDMIT = pID_MEDMIT
+        GROUP BY MM.ID_MEDMIT, MM.NOMBRE_MEDMIT, MM.DESCRIPCION_MEDMIT, MM.IPSC_MEDMIT, MM.OBJETIVO_MEDMIT,
+        NVL(RTRIM(US.NOMBRES_USUARIO) || ' ', '') || NVL(RTRIM(US.APELLIDOS_USUARIO), '');
+    END USP_SEL_FICHA_MEDMIT;
+    
+    PROCEDURE USP_SEL_FICHA_MEDMIT_ENFOQUE(
+        pID_MEDMIT IN NUMBER,
+        pRefcursor OUT SYS_REFCURSOR
+    )AS
+    BEGIN
+        OPEN pRefcursor FOR
+        SELECT DISTINCT MRVP.NOMBRE_PARAMETRO,
+        CASE WHEN MRVP.COMBINACION_UNIDAD IS NOT NULL THEN NVL(MRVP.COMBINACION_UNIDAD, '') ELSE NVL(P.SIMBOLO, '') || NVL(UM.SIMBOLO, '') || NVL(MRVP.DESCRIPCION_UNIDAD, '') END AS DESCRIPCION_UNIDAD,
+        MRVP.DESCRIPCION_PARAMETRO, 'ANUAL' AS FRECUENCIA
+        FROM T_GENM_ENFOQUE E
+        INNER JOIN T_MAEM_INDICADOR I ON E.ID_ENFOQUE = I.ID_ENFOQUE
+        INNER JOIN T_MAEM_MRV_PARAMETRO MRVP ON I.ID_PARAMETRO = MRVP.ID_PARAMETRO
+        LEFT JOIN T_MAEM_PREFIJO P ON MRVP.ID_PREFIJO = P.ID_PREFIJO
+        LEFT JOIN T_MAEM_UNIDAD_MEDIDA UM ON MRVP.ID_UNIDAD_MEDIDA = UM.ID_UNIDAD_MEDIDA
+        WHERE E.ID_MEDMIT = pID_MEDMIT;
+    END USP_SEL_FICHA_MEDMIT_ENFOQUE;
 
 END PKG_MRV_REPORTES;
 

@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - miércoles-marzo-11-2020   
+-- Archivo creado  - viernes-marzo-13-2020   
 --------------------------------------------------------
 REM INSERTING into MRVMM.T_MAEM_FACTOR_DATA
 SET DEFINE OFF;
