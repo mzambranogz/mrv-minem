@@ -71,7 +71,7 @@
               <div class="col-md-12 col-lg-6 pt-4">
                 <div class="row">
                   <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
-                  <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#medidas-mitigacion-listado"><a class="agregar-iniciativa" href="#" data-toggle="tooltip" data-placement="top" title="Seleccione una medida de mitigación para agregar una nueva inicitiva de mitigación"><i class="far fa-hand-point-left fa-3x primerIngreso animated bounceInRight infinite"></i><i class="fas fa-plus px-1"></i>Agregar iniciativa</a></span><span data-toggle="modal" data-target="#modal-evaluador"><a class="enviar-paquete" href="#" data-toggle="tooltip" data-placement="top" title="Una vez seleccionadas las iniciativas de mitigación, por medida y periodo, puede generar y enviar un paquete al Evaluador MINAM "><i class="fas fa-box px-1"></i>Enviar paquete</a></span><span><a class="aprobar-evaluacion" href="#" data-toggle="tooltip" data-placement="top" title="Dar por aprobado las iniciativa de mitigación filtradas"><i class="fas fa-check px-1"></i>Aprobar evaluación</a></span></div>
+                  <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#medidas-mitigacion-listado"><a class="agregar-iniciativa" href="#" data-toggle="tooltip" data-placement="top" title="Seleccione una medida de mitigación para agregar una nueva inicitiva de mitigación"><i class="far fa-hand-point-left fa-3x primerIngreso animated bounceInRight infinite"></i><i class="fas fa-plus px-1"></i>Agregar iniciativa</a></span><span data-toggle="modal" data-target="#modal-evaluador"><a class="enviar-paquete" href="#" data-toggle="tooltip" data-placement="top" title="Una vez seleccionadas las iniciativas de mitigación, por medida y periodo, puede generar y enviar un paquete al Evaluador MINAM "><i class="fas fa-box px-1"></i>Enviar paquete</a></span><span data-toggle="modal" data-target="#modal-aprobacion-evaluador"><a class="aprobar-evaluacion" href="#" data-toggle="tooltip" data-placement="top" title="Dar por aprobado las iniciativa de mitigación filtradas"><i class="fas fa-check px-1"></i>Aprobar evaluación</a></span></div>
                 </div>
               </div>
             </div>
@@ -85,7 +85,7 @@
                       <input class="form-control" type="text" id="txt-buscar" placeholder="Ingrese la descripción de su búsqueda" aria-describedby="inputGroup1" required>
                       <div class="input-group-append">
                         <div class="btn-group" id="filtro-estado"><a class="btn btn-teal dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1"><i class="fas fa-filter">&nbsp;</i>Filtrar por estados</a>
-                          <div class="dropdown-menu"><a class="dropdown-item" href="#"><i class="fas fa-hourglass">&nbsp;</i>Pendientes</a><a class="dropdown-item" href="#"><i class="fas fa-eye">&nbsp;</i>Observadas</a><a class="dropdown-item" href="#"><i class="fas fa-check">&nbsp;</i>Aprobadas</a><a class="dropdown-item" href="#"><i class="fas fa-check-double">&nbsp;</i>Revisadas</a><a class="dropdown-item" href="#"><i class="fas fa-clipboard-check">&nbsp;</i>Evaluadas</a><a class="dropdown-item" href="#"><i class="fas fa-tasks">&nbsp;</i>Verificadas</a>
+                          <div class="dropdown-menu"><a class="dropdown-item" href="#"><i class="fas fa-hourglass">&nbsp;</i>Pendientes</a><a class="dropdown-item" href="#"><i class="fas fa-eye">&nbsp;</i>Observadas</a><a class="dropdown-item" href="#"><i class="fas fa-check">&nbsp;</i>Aprobadas</a><a class="dropdown-item" href="#"><i class="fas fa-check-double">&nbsp;</i>Revisadas</a><a class="dropdown-item" href="#"><i class="far fa-paper-plane">&nbsp;</i>Enviadas</a><a class="dropdown-item" href="#"><i class="fas fa-clipboard-check">&nbsp;</i>Evaluadas</a><a class="dropdown-item" href="#"><i class="fas fa-tasks">&nbsp;</i>Verificadas</a>
                             <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="fas fa-tachometer-alt">&nbsp;</i>Todas</a>
                           </div>
                         </div>
@@ -442,7 +442,7 @@
                         <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
                         <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
                         <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
-                        <td class="text-center" data-encabezado="Estado"><i class="fas fa-flag bg-gradient-warning" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>&nbsp;
+                        <td class="text-center" data-encabezado="Estado"><i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>&nbsp;
                           Pendiente por Aprobar por el Verificador MINAM
                         </td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
@@ -606,10 +606,9 @@
                                 Editar</a><a class="dropdown-item text-primary" href="./revision-de-iniciativa-detalles.html"><i class="fas fa-check-double"></i>&nbsp;
                                 Revisar</a><a class="dropdown-item text-info" href="./evaluacion-de-iniciativa-detalles.html"><i class="fas fa-clipboard-check"></i>&nbsp;
                                 Evaluar</a><a class="dropdown-item text-warning" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-tasks"></i>&nbsp;
-                                Verificar</a>
-                                <a class="dropdown-item" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-download"></i>&nbsp;Descargar ficha</a>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-recordatorio"><i class="fas fa-envelope"></i>&nbsp;Recordatorio</a>
-                              </div>
+                                Verificar</a><a class="dropdown-item" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-download"></i>&nbsp;
+                                Descargar ficha</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-recordatorio"><i class="fas fa-envelope"></i>&nbsp;
+                                Recordatorio</a></div>
                           </div>
                         </td>
                       </tr>
@@ -784,45 +783,41 @@
       </div>
     </div>
     <div class="modal fade" id="medidas-mitigacion-listado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
         <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Seleccione su medida de mitigación <br><small class="text-muted">en la que usted crea que corresponda la iniciativa a registrar</small></h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          </div>
+          <!--.modal-headerh5.modal-title(id="exampleModalLabel") Seleccione su medida de mitigación <br>
+            small.text-muted en la que usted crea que corresponda la iniciativa a registrar
+          button.close(type="button", data-dismiss="modal", aria-label="Close")
+            span(aria-hidden="true") &times;
+          -->
           <div class="modal-body medidas-modal">
             <div class="row">
               <div class="col-12">
                 <div class="row">
-                  <div class="col-sm-12 col-md-4 col-lg-3 pb-1 text-center">
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="swal2-icon swal2-question swal2-icon-show" style="display: flex;">
+                      <div class="swal2-icon-content"><i class="fas fa-info"></i></div>
+                    </div>
+                    <h3 class="text-center">Seleccione una medida de mitigación</h3>
+                    <p class="text-center">en la que usted crea que corresponda la iniciativa a registrar</p>
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
                     <div class="rounded py-3"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Transformación del mercado de iluminación del sector residencial"><img src="./images/ico_nama_amarillo_01.svg"></a></div><small class="font-weight-bold">Transformación del mercado de iluminación del sector residencial</small>
                   </div>
-                  <div class="col-sm-12 col-md-4 col-lg-3 pb-1 text-center">
+                  <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
                     <div class="rounded py-3"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Reemplazo de lámparas de alumbrado público por lámparas LED"><img src="./images/ico_nama_amarillo_02.svg"></a></div><small class="font-weight-bold">Reemplazo de lámparas de alumbrado público por lámparas LED</small>
                   </div>
-                  <div class="col-sm-12 col-md-4 col-lg-3 pb-1 text-center">
+                  <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
                     <div class="rounded py-3"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Etiquetado de eficiencia energética"><img src="./images/ico_nama_amarillo_03.svg"></a></div><small class="font-weight-bold">Etiquetado de eficiencia energética</small>
                   </div>
-                  <div class="col-sm-12 col-md-4 col-lg-3 pb-1 text-center">
+                  <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
                     <div class="rounded py-3"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Auditorías energéticas sector público"><img src="./images/ico_nama_amarillo_04.svg"></a></div><small class="font-weight-bold">Auditorías energéticas sector público</small>
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12">
-                <div class="row">
-                  <div class="col-sm-12 col-md-4 col-lg-3 pb-1 text-center">
+                  <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
                     <div class="rounded py-3"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Reemplazo de lámparas por lámparas LED en el sector público"><img src="./images/ico_nama_amarillo_05.svg"></a></div><small class="font-weight-bold">Reemplazo de lámparas por lámparas LED en el sector público</small>
                   </div>
-                  <div class="col-sm-12 col-md-4 col-lg-3 pb-1 text-center">
+                  <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
                     <div class="rounded py-3"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Eficiencia energética en el sector industrial"><img src="./images/ico_nama_amarillo_06.svg"></a></div><small class="font-weight-bold">Eficiencia energética en el sector industrial</small>
-                  </div>
-                  <div class="col-sm-12 col-md-4 col-lg-3 pb-1 text-center">
-                    <div class="rounded py-3"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Reemplazo lámparas en el sector comercial"><img src="./images/ico_nama_amarillo_07.svg"></a></div><small class="font-weight-bold">Reemplazo lámparas en el sector comercial</small>
-                  </div>
-                  <div class="col-sm-12 col-md-4 col-lg-3 pb-1 text-center">
-                    <div class="rounded py-3"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Promoción de vehículos eléctricos a nivel nacional"><img src="./images/ico_nama_azul_01.svg"></a></div><small class="font-weight-bold">Promoción de vehículos eléctricos a nivel nacional</small>
                   </div>
                 </div>
               </div>
@@ -830,16 +825,22 @@
             <div class="row">
               <div class="col-12">
                 <div class="row">
-                  <div class="col-sm-12 col-md-4 col-lg-3 pb-1 text-center">
+                  <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
+                    <div class="rounded py-3"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Reemplazo lámparas en el sector comercial"><img src="./images/ico_nama_amarillo_07.svg"></a></div><small class="font-weight-bold">Reemplazo lámparas en el sector comercial</small>
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
+                    <div class="rounded py-3"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Promoción de vehículos eléctricos a nivel nacional"><img src="./images/ico_nama_azul_01.svg"></a></div><small class="font-weight-bold">Promoción de vehículos eléctricos a nivel nacional</small>
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
                     <div class="rounded py-3"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Suministro de electricidad con energía renovable en áreas no conectadas"><img src="./images/ico_nama_rojo_01.svg"></a></div><small class="font-weight-bold">Suministro de electricidad con energía renovable en áreas no conectadas</small>
                   </div>
-                  <div class="col-sm-12 col-md-4 col-lg-3 pb-1 text-center">
+                  <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
                     <div class="rounded py-3"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Cocción limpia"><img src="./images/ico_nama_rojo_02.svg"></a></div><small class="font-weight-bold">Cocción limpia</small>
                   </div>
-                  <div class="col-sm-12 col-md-4 col-lg-3 pb-1 text-center">
+                  <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
                     <div class="rounded py-3"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Combinación de energías renovables"><img src="./images/ico_nama_verde_01.svg"></a></div><small class="font-weight-bold">Combinación de energías renovables</small>
                   </div>
-                  <div class="col-sm-12 col-md-4 col-lg-3 pb-1 text-center">
+                  <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
                     <div class="rounded py-3"><a class="d-inline-block" href="./registro-de-iniciativa-de-mitigacion.html" data-toggle="tooltip" data-placement="top" title="Generación distribuida"><img src="./images/ico_nama_verde_02.svg"></a></div><small class="font-weight-bold">Generación distribuida</small>
                   </div>
                 </div>
@@ -847,7 +848,7 @@
             </div>
             <div class="row">
               <div class="col-sm-12 col-md-12 col-lg-12 mt-3">
-                <div class="alert alert-warning">No te preocupes, que podrás cambiar la medida de mitigacion en cualquier momento. <br> Si no encuentra la medida de mitigación que está buscando comuníquese con el administrador del sistema al siguientete correo electrónico:&nbsp;<strong>carlos.galdos@minem.gob.pe</strong></div>
+                <div class="alert alert-warning">No te preocupes, que podrás cambiar la medida de mitigacion en cualquier momento. Si no encuentra la medida de mitigación que está buscando comuníquese con el administrador del sistema al siguiente correo electrónico: <b>carlos.galdos@minem.gob.pe</b></div>
               </div>
             </div>
           </div>
@@ -857,12 +858,20 @@
     <div class="modal fade" id="tipo-ingreso-detalle" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal modal-dialog-centered" role="document">
         <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Seleccione un Tipo de Registro <br><small class="text-muted">Para iniciar con el registro de detalle de sus indicadores</small></h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          </div>
+          <!--.modal-headerh5.modal-title(id="exampleModalLabel") Seleccione un Tipo de Registro <br>
+            small.text-muted Para iniciar con el registro de detalle de sus indicadores
+          button.close(type="button", data-dismiss="modal", aria-label="Close")
+            span(aria-hidden="true") &times;
+          -->
           <div class="modal-body medidas-modal">
             <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="swal2-icon swal2-question swal2-icon-show" style="display: flex;">
+                  <div class="swal2-icon-content"><i class="fas fa-info"></i></div>
+                </div>
+                <h3 class="text-center">Seleccione un tipo de registro</h3>
+                <p class="text-center">para iniciar con el registro de detalle de sus indicadores</p>
+              </div>
               <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
                 <div class="row">
                   <div class="col-sm-12 col-md-6 col-lg-6 pb-5 text-center"><a class="d-inline-block" href="./registro-de-detalles-de-indicadores-manual.html" data-toggle="tooltip" data-placement="top" title="Registro manual de detalle de indicadores"><img src="./images/01_registro_manual.svg"></a><small class="font-weight-bold">Registro manual de detalle de indicadores</small></div>
@@ -875,15 +884,19 @@
       </div>
     </div>
     <div class="modal fade" id="copiar-iniciativa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-dialog modal modal-dialog-centered" role="document">
         <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Mensaje de Usuario</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          </div>
+          <!--.modal-header
+          h5.modal-title(id="exampleModalLabel") Mensaje de Usuario
+          button.close(type="button", data-dismiss="modal", aria-label="Close")
+            span(aria-hidden="true") &times;
+          -->
           <div class="modal-body medidas-modal">
             <div class="row">
               <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="swal2-icon swal2-question swal2-icon-show" style="display: flex;">
+                  <div class="swal2-icon-content"><i class="fas fa-question"></i></div>
+                </div>
                 <h3 class="text-center">¿Confirma copiar esta iniciativa de mitigación? <br></h3>
                 <p class="text-center">Está de acuerdo en copiar todos los datos para iniciar el registro de una nueva iniciativa de mitigación.</p>
               </div>
@@ -919,15 +932,15 @@
                   </div>
                   <div class="alert-wrap">
                     <h6>Bien hecho</h6>
-                    <hr><small class="mb-0">Los datos de su iniciativa fueron copiados exitosamente, se registro una nueva iniciativa con id:<strong>1452698.</strong></small>
+                    <hr><small class="mb-0">Los datos de su iniciativa fueron copiados exitosamente, se registro una nueva iniciativa con id: <b>1452698</b>.</small>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">No, cancelar</button>
-            <button class="btn btn-primary" type="button">Si, grabar</button>
+          <div class="modal-footer d-flex justify-content-center">
+            <button class="btn btn-info" type="button">Si, aceptar</button>
+            <button class="btn btn-dark" type="button" data-dismiss="modal">Cancelar</button>
           </div>
         </div>
       </div>
@@ -954,13 +967,17 @@
     <div class="modal fade" id="modal-evaluador" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-md modal-dialog-centered" role="document">
         <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Enviar paquete de iniciativas</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          </div>
+          <!--.modal-header
+          h5.modal-title(id="exampleModalLabel") Enviar paquete de iniciativas
+          button.close(type="button", data-dismiss="modal", aria-label="Close")
+            span(aria-hidden="true") &times;
+          -->
           <div class="modal-body medidas-modal">
             <div class="row">
               <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="swal2-icon swal2-question swal2-icon-show" style="display: flex;">
+                  <div class="swal2-icon-content"><i class="fas fa-info"></i></div>
+                </div>
                 <h3 class="text-center">Seleccione un&nbsp;<span class="paquete-actor">Evaluador MINAM</span><br></h3>
                 <p class="text-center">A continuación seleccione un responsable para enviarle el paquete de iniciativas seleccionada.</p>
               </div>
@@ -1083,24 +1100,32 @@
               </div>
             </div>
           </div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">No, cancelar</button>
-            <button class="btn btn-primary" type="button">Si, grabar</button>
+          <div class="modal-footer d-flex justify-content-center">
+            <button class="btn btn-info" type="button">Si, grabar</button>
+            <button class="btn btn-dark" type="button" data-dismiss="modal">Cancelar</button>
           </div>
         </div>
       </div>
     </div>
     <div class="modal fade" id="modal-recordatorio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-dialog modal modal-dialog-centered" role="document">
         <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Recordatorio</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          </div>
+          <!--.modal-header
+          h5.modal-title(id="exampleModalLabel") Recordatorio
+          button.close(type="button", data-dismiss="modal", aria-label="Close")
+            span(aria-hidden="true") &times;
+          -->
           <div class="modal-body medidas-modal">
-            <div class="row mb-2">
-              <div class="col-sm-12 col-md-6 col-lg-6"><strong>De: Juan Perez&nbsp;<span class="badge badge-actor-03">Especialista</span></strong><br><strong>Para: Luis Silva&nbsp;<span class="badge badge-actor-02">Usuario Administrado</span></strong></div>
-              <div class="col-sm-12 col-md-6 col-lg-6 text-right"><strong>Fecha de Registro: 15/01/2020</strong></div>
+            <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="swal2-icon swal2-question swal2-icon-show" style="display: flex;">
+                  <div class="swal2-icon-content"><i class="fas fa-bell"></i></div>
+                </div>
+                <h3 class="text-center">Recordatorio de plazos</h3>
+                <p class="text-center">envíe un mensaje directo para atender sus iniciativas dentro del plazo correcto</p>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-7"><strong>De: Juan Perez&nbsp;<span class="badge badge-actor-03">Especialista</span></strong><br><strong>Para: Luis Silva&nbsp;<span class="badge badge-actor-02">Usuario Administrado</span></strong></div>
+              <div class="col-sm-12 col-md-6 col-lg-5 text-right"><strong>Fecha de Registro: 15/01/2020</strong></div>
             </div>
             <!--.row
             .col-sm-12-col-md-12.col-lg-6
@@ -1168,8 +1193,65 @@
               </div>
             </div>
           </div>
-          <div class="modal-footer"><a class="btn btn-primary" href="#">Si, enviar<i class="fas fa-envelope ml-1"></i></a>
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">No, cancelar</button>
+          <div class="modal-footer d-flex justify-content-center"><a class="btn btn-info" href="#">Si, enviar<i class="fas fa-envelope ml-1"></i></a>
+            <button class="btn btn-dark" type="button" data-dismiss="modal">No, cancelar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modal-aprobacion-evaluador" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body medidas-modal">
+            <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="swal2-icon swal2-question swal2-icon-show" style="display: flex;">
+                  <div class="swal2-icon-content"><i class="fas fa-question"></i></div>
+                </div>
+                <h3 class="text-center">¿Está seguro de aprobar su evaluación?</h3>
+                <p class="text-center">A continuación confirme su operación, con una de las opciones.</p>
+              </div>
+              <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="alert alert-danger d-flex align-items-stretch" role="alert">
+                  <div class="alert-wrap mr-3">
+                    <div class="sa">
+                      <div class="sa-error">
+                        <div class="sa-error-x">
+                          <div class="sa-error-left"></div>
+                          <div class="sa-error-right"></div>
+                        </div>
+                        <div class="sa-error-placeholder"></div>
+                        <div class="sa-error-fix"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="alert-wrap">
+                    <h6>Error al aprobar</h6>
+                    <hr><small class="mb-0">Verifique que los datos sean correctos e intente otra vez.</small>
+                  </div>
+                </div>
+                <div class="alert alert-success d-flex align-items-stretch" role="alert">
+                  <div class="alert-wrap mr-3">
+                    <div class="sa">
+                      <div class="sa-success">
+                        <div class="sa-success-tip"></div>
+                        <div class="sa-success-long"></div>
+                        <div class="sa-success-placeholder"></div>
+                        <div class="sa-success-fix"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="alert-wrap">
+                    <h6>Bien hecho</h6>
+                    <hr><small class="mb-0">Se aprobó su evaluación con exitosamente.</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer d-flex justify-content-center">
+            <button class="btn btn-info" type="button">Si, grabar</button>
+            <button class="btn btn-dark" type="button" data-dismiss="modal">Cancelar</button>
           </div>
         </div>
       </div>
