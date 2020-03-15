@@ -1535,7 +1535,7 @@ function fn_observacionVerificarDetalleIndicador() {
         $("#pieCorrectoObservacion").show();
         $("#modalRevision").append(msj);
         $("#Control").data("modal", 1);
-        if (ws != null) ws.send(respuesta.extra);
+        //if (ws != null) ws.send(respuesta.extra);
 
     } else {
         $("#modalRevision #modalErrorRevision").remove();

@@ -177,6 +177,7 @@ function validarCheck(id, sid) {
 }
 
 function validarCampo() {
+    var utc = new Date().toJSON().slice(0, 10).replace(/-/g, '-');
 
     if ($("#cbo-medida-mitigacion-seleccionada").val() == 0) {
         return false;
@@ -197,24 +198,33 @@ function validarCampo() {
         return false;
     }
     debugger;
-    if ($("#txt-fecha-fin").val() != "") {
-        if ($("#txt-fecha-inicio").val() > $("#txt-fecha-fin").val()) {
-            return false;
+    if ($("#txt-fecha-inicio").val() > utc) {
+        return false
+    } else {
+        if ($("#txt-fecha-fin").val() != "") {
+            if ($("#txt-fecha-inicio").val() > $("#txt-fecha-fin").val()) {
+                return false;
+            }
         }
     }
+    
     if (!validarCheck("#listaUbicacion", "#U")) {
         return false;
     }
+
+    
     //if (!validarCheck("#listaEnerg", "#E")) {
     //    return false;
     //}
     //if (!validarCheck("#listaGei", "#G")){
     //    return false;
     //}
+
     return true;
 }
 
 function fn_procesoIniciativa(url, estado) {
+    var utc = new Date().toJSON().slice(0, 10).replace(/-/g, '-');
 
     if (estado == 1 || estado == 5) {
         if (!validarCampo()) {
@@ -235,13 +245,19 @@ function fn_procesoIniciativa(url, estado) {
             msj = msj + '                           </div>';
             msj = msj + '                           <div class="alert-wrap">';
             msj = msj + '                                <h6>Error de registro</h6>';
-            if ($("#txt-fecha-fin").val() != "") {
-                if ($("#txt-fecha-inicio").val() > $("#txt-fecha-fin").val())
-                    msj = msj + '                                <hr><small class="mb-0">Por favor, verificar que la fecha de finalización del proyecto no sea mayor a la fecha de ejecución del proyecto.</small>';
-                else
+
+            if ($("#txt-fecha-inicio").val() > utc) {
+                msj = msj + '                                <hr><small class="mb-0">Por favor, la fecha de inicio de operaciones no puede superar la fecha actual.</small>';
+            } else {
+                if ($("#txt-fecha-fin").val() != "") {
+                    if ($("#txt-fecha-inicio").val() > $("#txt-fecha-fin").val())
+                        msj = msj + '                                <hr><small class="mb-0">Por favor, verificar que la fecha de finalización del proyecto no sea mayor a la fecha de ejecución del proyecto.</small>';
+                    else
+                        msj = msj + '                                <hr><small class="mb-0">Por favor, completar los campos obligatorios.</small>';
+                } else
                     msj = msj + '                                <hr><small class="mb-0">Por favor, completar los campos obligatorios.</small>';
-            } else
-                msj = msj + '                                <hr><small class="mb-0">Por favor, completar los campos obligatorios.</small>';
+            }
+            
             msj = msj + '                           </div>';
             msj = msj + '                     </div>';
             $('#mensajeModalRegistrar').append(msj);
@@ -293,26 +309,26 @@ function fn_procesoIniciativa(url, estado) {
 
     //=============================================================================== VALIDAR
         var validar_ini = 0;
-        if (estado == 1 || estado == 5) {
-            var item = {
-                ID_INICIATIVA: $("#Control").data("iniciativa"),
-                ID_MEDMIT: $("#Control").data("mitigacion"),
-                ID_USUARIO: $("#Control").data("usuario"),
-                NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
-                UBICACION: ubi_verificar,
-                INVERSION_INICIATIVA: monto_inversion,
-                ID_MONEDA: $("#cbo-moneda").val(),
-                FECHA_IMPLE_INICIATIVA: $("#txt-fecha-inicio").val()
-            };
-            var respuesta = MRV.Ajax(baseUrl + "Gestion/VerificarIniciativaMitigacion", item, false);
-            if (respuesta.success) {
-                if (respuesta.extra == '1') {
-                    validar_ini = 1;
-                }
-            } else {
-                validar_ini = 1;
-            }
-        }   
+        //if (estado == 1 || estado == 5) {
+        //    var item = {
+        //        ID_INICIATIVA: $("#Control").data("iniciativa"),
+        //        ID_MEDMIT: $("#Control").data("mitigacion"),
+        //        ID_USUARIO: $("#Control").data("usuario"),
+        //        NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
+        //        UBICACION: ubi_verificar,
+        //        INVERSION_INICIATIVA: monto_inversion,
+        //        ID_MONEDA: $("#cbo-moneda").val(),
+        //        FECHA_IMPLE_INICIATIVA: $("#txt-fecha-inicio").val()
+        //    };
+        //    var respuesta = MRV.Ajax(baseUrl + "Gestion/VerificarIniciativaMitigacion", item, false);
+        //    if (respuesta.success) {
+        //        if (respuesta.extra == '1') {
+        //            validar_ini = 1;
+        //        }
+        //    } else {
+        //        validar_ini = 1;
+        //    }
+        //}   
 
         if (validar_ini == 1) {
             var msj = '                       <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="mensajeDangerRegistro">';
@@ -445,7 +461,7 @@ function fn_procesoIniciativa(url, estado) {
                 msj = msj + '                            </div>';
                 msj = msj + '                            <div class="alert-wrap">';
                 msj = msj + '                                <h6>Felicitaciones</h6>';
-                msj = msj + '                                <hr><small class="mb-0">Usted a completado el envío de su iniciativa de mitigación que será verificada por uno de nuestros especialistas. También, le recordamos que puede ingresar a nuestra plataforma del <b>Sello de Energía Sostenible</b></small>';
+                msj = msj + '                                <hr><small class="mb-0">Usted a completado el envío de iniciativa de mitigación que será verificada por uno de nuestros especialistas.</b></small>';
                 msj = msj + '                            </div>';
                 msj = msj + '                        </div>';
                 $("#solicitar-revision #modalRegistrarBoton").hide();

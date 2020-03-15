@@ -219,6 +219,7 @@
     <Compile Include="Controllers\GestionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MantenimientoController.cs" />
+    <Compile Include="Controllers\MRVController.cs" />
     <Compile Include="Controllers\PortalController.cs" />
     <Compile Include="Controllers\ReportesController.cs" />
     <Compile Include="Core\BaseController.cs" />
@@ -511,6 +512,7 @@
     <Content Include="Views\Mantenimiento\Plazo.cshtml" />
     <Content Include="Views\Error\Default.cshtml" />
     <Content Include="Views\Error\TestError.cshtml" />
+    <Content Include="Views\MRV\MINEM.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

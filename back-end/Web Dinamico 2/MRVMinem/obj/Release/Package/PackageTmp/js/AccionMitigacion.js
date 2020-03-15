@@ -1653,7 +1653,7 @@ $(document).ready(function () {
 });
 
 
-$("#modal-bienbenida").on("hidden.bs.modal", function () {
+$("#modal-bienvenida").on("hidden.bs.modal", function () {
     url = baseUrl + "Gestion/ActualizarPrimeraVisita"
     var item = {
     };
@@ -1942,21 +1942,21 @@ function fn_aprobarPaquete() {
 
     debugger;
     if ($("#cbo-medida-mitigacion").val() == 0 || $("#txt-fecha-inicio").val() == "" || $("#txt-fecha-fin").val() == "") {
-        //fn_msjError('<hr><small class="mb-0">Por favor, seleccione la medida de mitigación y el período de las fechas en que se enviarán la iniciativa.</small>');
+        fn_msjErrorA('<hr><small class="mb-0">Por favor, seleccione la medida de mitigación y el período de las fechas en que se aprobarán las iniciativas.</small>');
     } else {
         if (cont > 0) {
             fn_aprobarPaqueteIniciativa(id_iniciativa);
         } else {
-            //fn_msjError('<hr><small class="mb-0">Por favor, seleccione una o más iniciativas para enviar al Evaluador.</small>');
+            fn_msjErrorA('<hr><small class="mb-0">Por favor, seleccione una o más iniciativas para aprobarlas.</small>');
         }
     }
 }
 
 
 function fn_aprobarPaqueteIniciativa(id_iniciativa) {
-    //$("#msjCorrectoPaquete").attr("hidden", true);
-    //$("#msjErrorPaquete").attr("hidden", true);
-    //$("#pieInicial").hide();
+    $("#msjCorrectoAprobar").attr("hidden", true);
+    $("#msjErrorAprobar").attr("hidden", true);
+    $("#pieAprobar").hide();
     var item = {
         //ID_USUARIO: id_actor,        
         //ID_ROL: rol,
@@ -1964,16 +1964,47 @@ function fn_aprobarPaqueteIniciativa(id_iniciativa) {
     };
     var respuesta = MRV.Ajax(baseUrl + "Gestion/AprobarIniciativaMasivo", item, false);
     if (respuesta.success) {
-        //$("#pieCorrecto").show();
-        //$("#msjCorrectoPaquete").removeAttr("hidden");
-        alert("Registro exitoso");
+        $("#pieCorrectoAprobar").show();
+        $("#msjCorrectoAprobar").removeAttr("hidden");
+        //alert("Registro exitoso");
         fn_CargaIniciativas();
     } else {
-        alert("Error");
-        //$("#pieCorrecto").show();
-        //$("#msjErrorPaquete").removeAttr("hidden");
+        //alert("Error");
+        $("#pieCorrectoAprobar").show();
+        $("#msjErrorAprobar").removeAttr("hidden");
     }
 
 }
+
+function fn_msjErrorA(error) {
+    var msj = '                      <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="errorRegistro">';
+    msj = msj + '                           <div class="alert-wrap mr-3">';
+    msj = msj + '                                <div class="sa">';
+    msj = msj + '                                    <div class="sa-error">';
+    msj = msj + '                                        <div class="sa-error-x">';
+    msj = msj + '                                            <div class="sa-error-left"></div>';
+    msj = msj + '                                            <div class="sa-error-right"></div>';
+    msj = msj + '                                        </div>';
+    msj = msj + '                                        <div class="sa-error-placeholder"></div>';
+    msj = msj + '                                        <div class="sa-error-fix"></div>';
+    msj = msj + '                                    </div>';
+    msj = msj + '                                </div>';
+    msj = msj + '                            </div>';
+    msj = msj + '                            <div class="alert-wrap">';
+    msj = msj + '                                <h6>Error de registro</h6>';
+    //msj = msj + '                                <hr><small class="mb-0">Verifique que los datos sean correctamente ingresados, complete todos los campos obligatorios e intente otra vez.</small>';
+    msj = msj + error;
+    msj = msj + '                            </div>';
+    msj = msj + '                        </div>';
+    $("#seccionMensaje3").append(msj);
+}
+
+$("#modal-aprobacion-evaluador").on("hidden.bs.modal", function () {
+    $("#msjCorrectoAprobar").attr("hidden", true);
+    $("#msjErrorAprobar").attr("hidden", true);
+    $("#seccionMensaje3 #errorRegistro").remove();
+    $("#pieAprobar").show();
+    $("#pieCorrectoAprobar").attr("hidden", true);
+});
 
 

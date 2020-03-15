@@ -29,7 +29,7 @@
                     <div class="col-md-12 col-lg-6 pt-4">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
-                            <div class="col-sm-12 col-md-6 col-lg-6"><a class="volver-atras" href="#" onclick="fn_regresarListaIniciativa();"><i class="fas fa-hand-point-left px-1"></i>Retroceder</a></div>
+                            <div class="col-lg-6"><a class="btn btn-dark px-5 w-100 text-center mb-3" href="#" onclick="fn_regresarListaIniciativa();" data-toggle="tooltip" data-placement="top" title="Has click aquí para retroceder al paso anterior"><i class="fas fa-hand-point-left pr-1"></i>Retroceder</a></div>
                         </div>
                     </div>
                 </div>
@@ -173,7 +173,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="font-weight-bold" for="txt-fecha-inicio">Fecha de ejecución del proyecto<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                <label class="font-weight-bold" for="txt-fecha-inicio">Fecha de inicio de operaciones<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup12"><i class="fas fa-calendar-alt"></i></span></div>
                                     <input class="form-control-plaintext" type="text" id="txt-fecha-inicio" aria-describedby="inputGroup12" value="@Model.iniciativa_mit.FECHA" readonly>
@@ -186,7 +186,7 @@
                             else
                             {
                                 <div class="form-group">
-                                    <label class="font-weight-bold" for="txt-fecha-fin">Fecha de finalización del proyecto<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                    <label class="font-weight-bold" for="txt-fecha-fin">Fecha de finalización<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text" id="inputGroup12"><i class="fas fa-calendar-alt"></i></span></div>
                                         <input class="form-control-plaintext" type="text" id="txt-fecha-fin" aria-describedby="inputGroup12" value="@Model.iniciativa_mit.FECHA_FIN" readonly>
@@ -239,7 +239,7 @@
                         <div class="col-sm-12 col-md-12 col-lg-6 text-right">
                             <div class="row justify-content-end">
                                 <div class="col-lg-6">&nbsp;</div>
-                                <div class="col-lg-6"><a class="btn btn-dark px-5 w-100 text-center mb-3" href="#" onclick="fn_regresarListaIniciativa();"><i class="fas fa-hand-point-left pr-1"></i>Retroceder</a></div>
+                                <div class="col-lg-6"><a class="btn btn-dark px-5 w-100 text-center mb-3" href="#" onclick="fn_regresarListaIniciativa();" data-toggle="tooltip" data-placement="top" title="Has click aquí para retroceder al paso anterior"><i class="fas fa-hand-point-left pr-1"></i>Retroceder</a></div>
                             </div>
                         </div>
                     </div>

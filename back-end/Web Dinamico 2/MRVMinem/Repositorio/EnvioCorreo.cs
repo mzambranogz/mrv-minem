@@ -305,7 +305,7 @@ namespace MRVMinem.Repositorio
             }            
             sb.Append("             </tr>");
             sb.Append("         </table>");
-            sb.Append("     <div style=\"border-left:1px solid #ededed;margin-top:50px;\">");
+            sb.Append("     <div style=\"border-left:1px solid #ededed;margin-top:10px;\">");
             sb.Append("         <table style=\"font-family: Roboto; font-size:13px;\" >");
             sb.Append("             <tr>");
             sb.Append("                 <td><img src=\"cid:imagenMEM\" height=\"40\" style=\"margin-right:7px;\" /><img src=\"cid:imagenGEF\" height=\"45\" style =\"margin-right:7px;\" /><img src=\"cid:imagenPNUD\" height =\"51\" style=\"margin-right:7px;\" /></td>");

@@ -46,6 +46,7 @@
     <Compile Include="BlockChainBE.cs" />
     <Compile Include="BusquedaAvanzadaBE.cs" />
     <Compile Include="BusquedaSimpleBE.cs" />
+    <Compile Include="DireccionamientoBE.cs" />
     <Compile Include="IPCCBE.cs" />
     <Compile Include="NamaBE.cs" />
     <Compile Include="EnergeticoBE.cs" />

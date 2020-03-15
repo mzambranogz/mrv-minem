@@ -17,5 +17,7 @@ namespace entidad.minem.gob.pe
         public DateTime FECHA_CREA_INICIATIVA { get; set; }
         public DateTime FECHA_IMPLE_INICIATIVA { get; set; }
         public DateTime FECHA_FIN_INICIATIVA { get; set; }
+        public string RESPONSABLE { get; set; }
+        public string NOMBRE_INSTITUCION { get; set; }
     }
 }

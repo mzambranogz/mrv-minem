@@ -51,7 +51,7 @@ function fn_verificarEmail() {
 }
 
 function dirigir() {
-    location.href = baseUrl + "Portal/AccionMitigacion";
+    location.href = baseUrl + "Home/Index";
 }
 
 function fn_validar(e) {

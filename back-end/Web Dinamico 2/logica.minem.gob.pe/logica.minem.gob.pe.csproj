@@ -46,6 +46,7 @@
     <Compile Include="BlockChainLN.cs" />
     <Compile Include="BusquedaAvanzadaLN.cs" />
     <Compile Include="BusquedaSimpleLN.cs" />
+    <Compile Include="DireccionamientoLN.cs" />
     <Compile Include="EnergeticoLN.cs" />
     <Compile Include="EnfoqueLN.cs" />
     <Compile Include="EscenarioLN.cs" />
