@@ -334,5 +334,86 @@ namespace MRVMinem.Controllers
             return menor;
         }
 
+        //private int validar_campo(ExcelWorksheet worksheet, ParametroBE entidad, List<ParametroBE> listaParametro, int cant_column)
+        //{
+        //    List<IndicadorDataBE> listaData = new List<IndicadorDataBE>();
+        //    for (int i = worksheet.Dimension.Start.Row; i <= worksheet.Dimension.End.Row; i++)
+        //    {
+        //        IndicadorDataBE itemData = new IndicadorDataBE();
+        //        List<IndicadorDataBE> listaIndicadores = new List<IndicadorDataBE>();
+        //        int num = 0;
+        //        if (i > 2)
+        //        {
+        //            //loop all columns in a row                                    
+        //            var validar = 0;
+        //            for (int n = 0; n < cant_column; n++)
+        //            {
+        //                IndicadorDataBE item = new IndicadorDataBE();
+        //                item.ID_ENFOQUE = entidad.ID_ENFOQUE;
+        //                item.ID_MEDMIT = entidad.ID_MEDMIT;
+        //                item.ID_PARAMETRO = listaParametro[(n - 1)].ID_PARAMETRO;
+        //                if (worksheet.Cells[i, (n)].Value != null)
+        //                {
+        //                    if (listaParametro[n].ID_TIPO_CONTROL == 2)
+        //                    {
+        //                        if (listaParametro[n].ID_TIPO_DATO == 1)
+        //                        {
+        //                            var fec = Convert.ToString(DateTime.FromOADate(long.Parse(worksheet.Cells[i, (n+1)].Value.ToString())));
+        //                            item.VALOR = Convert.ToDateTime(fec).ToString("yyyy-MM-dd");
+        //                            var fecha = item.VALOR.Split('-');
+        //                            DateTime fechaActual = DateTime.Today;
+
+        //                            int dia = fechaActual.Day;
+        //                            int mes = fechaActual.Month;
+        //                            int anno = fechaActual.Year;
+        //                            if (Convert.ToInt32(fecha[2]) > anno)
+        //                            {
+        //                                item.extra = "1";
+        //                            }
+        //                            else if (Convert.ToInt32(fecha[1]) > mes)
+        //                            {
+        //                                item.extra = "1";
+        //                            }
+        //                            else if (Convert.ToInt32(fecha[0]) > dia)
+        //                            {
+        //                                item.extra = "1";
+        //                            }
+        //                            else
+        //                            {
+        //                                item.extra = "0";
+        //                            }
+        //                        }
+        //                        else if (listaParametro[n].ID_TIPO_DATO == 2)
+        //                        {
+        //                            item.VALOR = worksheet.Cells[i, n].Value.ToString();
+        //                            if (!int.TryParse((worksheet.Cells[i, n].Value).ToString(), out num))
+        //                            {
+        //                                item.extra = "1";
+        //                            }
+        //                            else
+        //                            {
+        //                                item.extra = "0";
+        //                            }
+        //                        }
+        //                        else if (listaParametro[n + 1].ID_TIPO_DATO == 3)
+        //                        {
+        //                            item.VALOR = worksheet.Cells[i,n].Value.ToString();
+        //                        }
+        //                    }
+        //                }
+        //                if (listaParametro[n].AGREGAR == 1)
+        //                    listaIndicadores.Add(item);
+        //            }
+
+        //            if (validar == 0)
+        //            {                        
+        //                itemData.listaInd = listaIndicadores;
+        //                listaData.Add(itemData);
+        //            }
+        //        }
+        //    }
+        //    return 0;
+        //}
+
     }
 }

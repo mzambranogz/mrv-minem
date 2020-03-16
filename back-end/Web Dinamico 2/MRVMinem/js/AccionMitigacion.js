@@ -532,7 +532,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                             }
                         }
                         if (p == 16 || p == 18) {
-                            tr = tr + '<a class="dropdown-item" href="#" onclick="fn_visualizarBlockchain(' + data[i]["ID_BLOCKCHAIN"] + ');" id="block-' + data[i]["ID_BLOCKCHAIN"] + '" data-block="'+ data[i]["GENERADO_PDF"] +'"><i class="fas fa-file-code"></i>&nbsp;Blockchain</a></div>';
+                            tr = tr + '<a class="dropdown-item" href="javascript:void(0);" onclick="fn_visualizarBlockchain(' + data[i]["ID_BLOCKCHAIN"] + ');" id="block-' + data[i]["ID_BLOCKCHAIN"] + '" data-block="' + data[i]["GENERADO_PDF"] + '"><i class="fas fa-file-code"></i>&nbsp;Blockchain</a></div>';
                         }
                         
                         tr = tr + '         </div>';
