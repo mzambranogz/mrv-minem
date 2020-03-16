@@ -518,6 +518,26 @@ namespace MRVMinem.Controllers
             return jsonResult;
         }
 
+        public JsonResult GeIniciativaSustento(SustentoIniciativaBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            List<SustentoIniciativaBE> lista = IniciativaLN.ListaSustentoIniciativa(entidad);
+            string carpetaTemp = WebConfigurationManager.AppSettings["RutaTemp"];
+            string carpeta = WebConfigurationManager.AppSettings["Sustentatorio"];
+            if (lista != null)
+            {
+                if (System.IO.File.Exists(carpeta + "\\" + lista[0].ADJUNTO))
+                {
+                    System.IO.File.Copy(carpeta + "\\" + lista[0].ADJUNTO, carpetaTemp + "\\" + lista[0].ADJUNTO, true);
+                    itemRespuesta.success = true;
+                }
+                itemRespuesta.extra = lista[0].ADJUNTO;
+            }
+
+            return Respuesta(itemRespuesta);
+        }
+
         public void ExportarIniciativa(string item)
         {
             try

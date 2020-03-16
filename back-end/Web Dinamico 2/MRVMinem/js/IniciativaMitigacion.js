@@ -121,7 +121,7 @@ function fn_cargarIniciativa() {
                 if (data.length > 0) {
                     for (var i = 0; i < data.length; i++) {
                         fn_ObtenerMedidaMitigacion(data[i]["ID_MEDMIT"]);
-                        $("#Control").data("mitigacion", data[i]["ID_MEDMIT"]);
+                        $("#Control").data("mitigacion", data[i]["ID_MEDMIT"]);    
                         $("#txa-nombre-iniciativa").val(data[i]["NOMBRE_INICIATIVA"]);
                         $("#txa-descripcion-medida").val(data[i]["DESC_INICIATIVA"]);
                         $("#txt-nombre-responsable").val(data[i]["NOMBRES"]);
@@ -136,6 +136,7 @@ function fn_cargarIniciativa() {
                          
                         if ($("#Control").data("revision") == 0) {
                             $("#cbo-moneda").val(data[i]["ID_MONEDA"]);
+                            $("#cbo-tipo-iniciativa-mitigacion").val(data[i]["ID_TIPO_INICIATIVA"]); // add 16-03-20
                             if (data[i]["FECHA"].toString() != "01/01/0001") {
                                 $("#txt-fecha-inicio").val(data[i]["FECHA_EDITAR"]);
                                 //$("#txt-fecha-inicio").val("2019-12-12"); FORMATO EJEMPLO PARA CARGA
@@ -147,6 +148,7 @@ function fn_cargarIniciativa() {
                             $("#receptorObservacion").append(data[i]["NOMBRES"]);
                             $("#emisorObservacion").append($("#Control").data("nombres"));
                             $("#txt-moneda").val(data[i]["MONEDA"]);
+                            $("#txt-tipo-iniciativa-mitigacion").val(data[i]["TIPO_INICIATIVA"]); //add 16-03-20
                             if (data[i]["FECHA"].toString() != "01/01/0001") {
                                 $("#txt-fecha-inicio").val(data[i]["FECHA"].toString());
                             }
@@ -180,6 +182,9 @@ function validarCampo() {
     var utc = new Date().toJSON().slice(0, 10).replace(/-/g, '-');
 
     if ($("#cbo-medida-mitigacion-seleccionada").val() == 0) {
+        return false;
+    }
+    if ($("#cbo-tipo-iniciativa-mitigacion").val() == 0) {
         return false;
     }
     if ($("#txa-nombre-iniciativa").val().trim() === ""){
@@ -245,7 +250,6 @@ function fn_procesoIniciativa(url, estado) {
             msj = msj + '                           </div>';
             msj = msj + '                           <div class="alert-wrap">';
             msj = msj + '                                <h6>Error de registro</h6>';
-
             if ($("#txt-fecha-inicio").val() > utc) {
                 msj = msj + '                                <hr><small class="mb-0">Por favor, la fecha de inicio de operaciones no puede superar la fecha actual.</small>';
             } else {
@@ -418,7 +422,8 @@ function fn_procesoIniciativa(url, estado) {
             ID_ESTADO: estado,
             ENERGETICO: energetico,
             GEI: gei,
-            UBICACION: ubicacion
+            UBICACION: ubicacion,
+            ID_TIPO_INICIATIVA: $("#cbo-tipo-iniciativa-mitigacion").val()
         };
         var mensaje = "";
         var respuesta = MRV.Ajax(url, item, false);

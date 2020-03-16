@@ -197,6 +197,19 @@ function fn_verfilesutento(idIniciativaSustento) {
     }
 }
 
+function fn_verfilesutento2(idIniciativaSustento) {
+    var item = {
+        ID_INICIATIVA: $("#Control").data("iniciativa"),
+        ID_INICIATIVA_SUSTENTATORIO: idIniciativaSustento
+    };
+    var url = baseUrl + 'Portal/GeIniciativaSustento';
+    var respuesta = MRV.Ajax(url, item, false);
+    if (respuesta.success) {
+        var urlMostrar = baseUrl + "Temp/" + respuesta.extra;
+        window.open(urlMostrar, "_blank");
+    }
+}
+
 function formatoMiles(n) { //add20
     var m = n * 1;
     return m.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');

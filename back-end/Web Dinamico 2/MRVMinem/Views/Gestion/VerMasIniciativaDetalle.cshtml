@@ -80,6 +80,15 @@
                     <div class="row">
                         <div class="col-sm-12-col-md-12 col-lg-12">
                             <div class="form-group">
+                                <label class="font-weight-bold" for="txt-tipo-iniciativa">Tipo de iniciativa</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-tachometer-alt"></i></span></div>
+                                    <input class="form-control-plaintext" id="txt-tipo-iniciativa" aria-describedby="inputGroup9" value="@Model.iniciativa_mit.TIPO_INICIATIVA" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12-col-md-12 col-lg-12">
+                            <div class="form-group">
                                 <label class="font-weight-bold" for="txa-nombre-iniciativa">Nombre de la iniciativa<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-tachometer-alt"></i></span></div>
@@ -200,12 +209,12 @@
                             }
                         </div>
                     </div>
-                    @*<div class="row">
+                    <div class="row">
                         <div class="col-12">
                             <div class="h5 py-5 text-primary">Indicadores</div>
                         </div>
-                    </div>*@
-                    @*<div class="row">
+                    </div>
+                    <div class="row">
                         <div class="col-sm-12-col-md-12 col-lg-6">
                             <div class="form-group">
                                 <label class="font-weight-bold" for="mlt-energetico">Energético asociado<span class="text-danger font-weight-bold">&nbsp;</span></label>
@@ -234,7 +243,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>*@
+                    </div>
                 </div>
 
 
@@ -254,7 +263,7 @@
                         <div class="container pt-5">
                             <div class="row">
                                 <div class="col-12">
-                                    <div class="h5 pb-5 text-primary">Detalles de Indicadores</div>
+                                    <div class="h5 pb-5 text-primary">Detalle de la iniciativa de mitigación</div>
                                 </div>
                             </div>
                             <div class="row">
@@ -390,7 +399,7 @@
 
 
 
-                <div class="dropdown-divider"></div>
+                @*<div class="dropdown-divider"></div>
                 <div class="container pt-5">
                     <div class="row">
                         <div class="col-12">
@@ -421,7 +430,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>*@
                 <div class="dropdown-divider"></div>
                 <div class="container py-5">
                     <div class="row">

@@ -93,6 +93,7 @@ namespace MRVMinem.Controllers
             inic.ID_INICIATIVA = ini;
             inic.ID_MEDMIT = id;
             modelo.iniciativa_mit = inic;
+            modelo.listaTipoIniciativa = TipoIniciativaLN.listarTipoIniciativa();
             if (ini > 0){
                                 
             }
@@ -114,6 +115,7 @@ namespace MRVMinem.Controllers
         {
             MvSesion modelo = new MvSesion();
             modelo.iniciativa = ini;
+            modelo.listaTipoIniciativa = TipoIniciativaLN.listarTipoIniciativa();
             return View(modelo);
         }
 

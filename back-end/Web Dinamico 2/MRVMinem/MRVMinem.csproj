@@ -185,6 +185,7 @@
     <Content Include="js\MantenimientoPlazo.js" />
     <Content Include="js\MantenimientoSector.js" />
     <Content Include="js\MantenimientoTablas.js" />
+    <Content Include="js\MantenimientoTipoIniciativa.js" />
     <Content Include="js\MantenimientoUbicacion.js" />
     <Content Include="js\MantenimientoUsuario.js" />
     <Content Include="js\MantenimientoMedidaMitigacionDetalle.js" />
@@ -244,6 +245,7 @@
     <Compile Include="Models\MvPlazo.cs" />
     <Compile Include="Models\MvSector.cs" />
     <Compile Include="Models\MvSesion.cs" />
+    <Compile Include="Models\MvTipoIniciativa.cs" />
     <Compile Include="Models\MvUbicacion.cs" />
     <Compile Include="Models\MvUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -516,6 +518,7 @@
     <Content Include="Views\Error\Default.cshtml" />
     <Content Include="Views\Error\TestError.cshtml" />
     <Content Include="Views\MRV\MINEM.cshtml" />
+    <Content Include="Views\Mantenimiento\TipoIniciativa.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

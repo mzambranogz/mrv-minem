@@ -10,5 +10,6 @@ namespace entidad.minem.gob.pe
     {
         public int ID_TIPO_INICIATIVA { get; set; }
         public string TIPO_INICIATIVA { get; set; }
+        public string FLAG_ESTADO { get; set; }
     }
 }

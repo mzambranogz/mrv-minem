@@ -143,6 +143,29 @@
                             <div class="row">
                                 <div class="col-sm-12-col-md-12 col-lg-12">
                                     <div class="form-group">
+                                        <label for="cbo-tipo-iniciativa-mitigacion">Tipo de iniciativa<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione un tipo de iniciativa para clasificar su registro"></i></label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup300"><i class="fas fa-tachometer-alt"></i></span></div>
+                                            <select class="form-control" id="cbo-tipo-iniciativa-mitigacion" aria-describedby="inputGroup300">
+                                                <option value="0">-Seleccione-</option>
+                                                @if (Model.listaTipoIniciativa != null)
+                                                {
+                                                    foreach (var item in Model.listaTipoIniciativa)
+                                                    {
+                                                        <option value="@item.ID_TIPO_INICIATIVA">@item.TIPO_INICIATIVA</option>
+                                                    }
+                                                }
+                                                @*<option>Contribuirá con los compromisos internacionales (NDC)</option>
+                                                <option>Comercializará las emisiones reducidas nacionales</option>
+                                                <option>Comercializará las emisiones reducidas internacionalmente</option>*@
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12-col-md-12 col-lg-12">
+                                    <div class="form-group">
                                         <label for="txa-nombre-iniciativa">Nombre de la iniciativa<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="En caso no posea un nombre, coloque el nombre de la medida de mitigación seguido de un guión y nombre o siglas de la institución."></i></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-tachometer-alt"></i></span></div>
@@ -229,174 +252,7 @@
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
                                             <div class="form-control" style="height:120px; overflow-y: auto;" id="listaUbicacion">
-                                                <!--<div class="col-auto my-1">
-                                                  <div class="custom-control custom-checkbox mr-sm-2">
-                                                    <input class="custom-control-input" type="checkbox" id="chk-region-1">
-                                                    <label class="custom-control-label" for="chk-region-1">Departamento&nbsp;1
-                                                    </label>
-                                                  </div>
-                                                </div>
-                                                <div class="col-auto my-1">
-                                                  <div class="custom-control custom-checkbox mr-sm-2">
-                                                    <input class="custom-control-input" type="checkbox" id="chk-region-2">
-                                                    <label class="custom-control-label" for="chk-region-2">Departamento&nbsp;2
-                                                    </label>
-                                                  </div>
-                                                </div>
-                                                <div class="col-auto my-1">
-                                                  <div class="custom-control custom-checkbox mr-sm-2">
-                                                    <input class="custom-control-input" type="checkbox" id="chk-region-3">
-                                                    <label class="custom-control-label" for="chk-region-3">Departamento&nbsp;3
-                                                    </label>
-                                                  </div>
-                                                </div>
-                                                <div class="col-auto my-1">
-                                                  <div class="custom-control custom-checkbox mr-sm-2">
-                                                    <input class="custom-control-input" type="checkbox" id="chk-region-4">
-                                                    <label class="custom-control-label" for="chk-region-4">Departamento&nbsp;4
-                                                    </label>
-                                                  </div>
-                                                </div>
-                                                <div class="col-auto my-1">
-                                                  <div class="custom-control custom-checkbox mr-sm-2">
-                                                    <input class="custom-control-input" type="checkbox" id="chk-region-5">
-                                                    <label class="custom-control-label" for="chk-region-5">Departamento&nbsp;5
-                                                    </label>
-                                                  </div>
-                                                </div>
-                                                <div class="col-auto my-1">
-                                                  <div class="custom-control custom-checkbox mr-sm-2">
-                                                    <input class="custom-control-input" type="checkbox" id="chk-region-6">
-                                                    <label class="custom-control-label" for="chk-region-6">Departamento&nbsp;6
-                                                    </label>
-                                                  </div>
-                                                </div>
-                                                <div class="col-auto my-1">
-                                                  <div class="custom-control custom-checkbox mr-sm-2">
-                                                    <input class="custom-control-input" type="checkbox" id="chk-region-7">
-                                                    <label class="custom-control-label" for="chk-region-7">Departamento&nbsp;7
-                                                    </label>
-                                                  </div>
-                                                </div>
-                                                <div class="col-auto my-1">
-                                                  <div class="custom-control custom-checkbox mr-sm-2">
-                                                    <input class="custom-control-input" type="checkbox" id="chk-region-8">
-                                                    <label class="custom-control-label" for="chk-region-8">Departamento&nbsp;8
-                                                    </label>
-                                                  </div>
-                                                </div>
-                                                <div class="col-auto my-1">
-                                                  <div class="custom-control custom-checkbox mr-sm-2">
-                                                    <input class="custom-control-input" type="checkbox" id="chk-region-9">
-                                                    <label class="custom-control-label" for="chk-region-9">Departamento&nbsp;9
-                                                    </label>
-                                                  </div>
-                                                </div>
-                                                <div class="col-auto my-1">
-                                                  <div class="custom-control custom-checkbox mr-sm-2">
-                                                    <input class="custom-control-input" type="checkbox" id="chk-region-10">
-                                                    <label class="custom-control-label" for="chk-region-10">Departamento&nbsp;10
-                                                    </label>
-                                                  </div>
-                                                </div>
-                                                <div class="col-auto my-1">
-                                                  <div class="custom-control custom-checkbox mr-sm-2">
-                                                    <input class="custom-control-input" type="checkbox" id="chk-region-11">
-                                                    <label class="custom-control-label" for="chk-region-11">Departamento&nbsp;11
-                                                    </label>
-                                                  </div>
-                                                </div>
-                                                <div class="col-auto my-1">
-                                                  <div class="custom-control custom-checkbox mr-sm-2">
-                                                    <input class="custom-control-input" type="checkbox" id="chk-region-12">
-                                                    <label class="custom-control-label" for="chk-region-12">Departamento&nbsp;12
-                                                    </label>
-                                                  </div>
-                                                </div>
-                                                <div class="col-auto my-1">
-                                                  <div class="custom-control custom-checkbox mr-sm-2">
-                                                    <input class="custom-control-input" type="checkbox" id="chk-region-13">
-                                                    <label class="custom-control-label" for="chk-region-13">Departamento&nbsp;13
-                                                    </label>
-                                                  </div>
-                                                </div>
-                                                <div class="col-auto my-1">
-                                                  <div class="custom-control custom-checkbox mr-sm-2">
-                                                    <input class="custom-control-input" type="checkbox" id="chk-region-14">
-                                                    <label class="custom-control-label" for="chk-region-14">Departamento&nbsp;14
-                                                    </label>
-                                                  </div>
-                                                </div>
-                                                <div class="col-auto my-1">
-                                                  <div class="custom-control custom-checkbox mr-sm-2">
-                                                    <input class="custom-control-input" type="checkbox" id="chk-region-15">
-                                                    <label class="custom-control-label" for="chk-region-15">Departamento&nbsp;15
-                                                    </label>
-                                                  </div>
-                                                </div>
-                                                <div class="col-auto my-1">
-                                                  <div class="custom-control custom-checkbox mr-sm-2">
-                                                    <input class="custom-control-input" type="checkbox" id="chk-region-16">
-                                                    <label class="custom-control-label" for="chk-region-16">Departamento&nbsp;16
-                                                    </label>
-                                                  </div>
-                                                </div>
-                                                <div class="col-auto my-1">
-                                                  <div class="custom-control custom-checkbox mr-sm-2">
-                                                    <input class="custom-control-input" type="checkbox" id="chk-region-17">
-                                                    <label class="custom-control-label" for="chk-region-17">Departamento&nbsp;17
-                                                    </label>
-                                                  </div>
-                                                </div>
-                                                <div class="col-auto my-1">
-                                                  <div class="custom-control custom-checkbox mr-sm-2">
-                                                    <input class="custom-control-input" type="checkbox" id="chk-region-18">
-                                                    <label class="custom-control-label" for="chk-region-18">Departamento&nbsp;18
-                                                    </label>
-                                                  </div>
-                                                </div>
-                                                <div class="col-auto my-1">
-                                                  <div class="custom-control custom-checkbox mr-sm-2">
-                                                    <input class="custom-control-input" type="checkbox" id="chk-region-19">
-                                                    <label class="custom-control-label" for="chk-region-19">Departamento&nbsp;19
-                                                    </label>
-                                                  </div>
-                                                </div>
-                                                <div class="col-auto my-1">
-                                                  <div class="custom-control custom-checkbox mr-sm-2">
-                                                    <input class="custom-control-input" type="checkbox" id="chk-region-20">
-                                                    <label class="custom-control-label" for="chk-region-20">Departamento&nbsp;20
-                                                    </label>
-                                                  </div>
-                                                </div>
-                                                <div class="col-auto my-1">
-                                                  <div class="custom-control custom-checkbox mr-sm-2">
-                                                    <input class="custom-control-input" type="checkbox" id="chk-region-21">
-                                                    <label class="custom-control-label" for="chk-region-21">Departamento&nbsp;21
-                                                    </label>
-                                                  </div>
-                                                </div>
-                                                <div class="col-auto my-1">
-                                                  <div class="custom-control custom-checkbox mr-sm-2">
-                                                    <input class="custom-control-input" type="checkbox" id="chk-region-22">
-                                                    <label class="custom-control-label" for="chk-region-22">Departamento&nbsp;22
-                                                    </label>
-                                                  </div>
-                                                </div>
-                                                <div class="col-auto my-1">
-                                                  <div class="custom-control custom-checkbox mr-sm-2">
-                                                    <input class="custom-control-input" type="checkbox" id="chk-region-23">
-                                                    <label class="custom-control-label" for="chk-region-23">Departamento&nbsp;23
-                                                    </label>
-                                                  </div>
-                                                </div>
-                                                <div class="col-auto my-1">
-                                                  <div class="custom-control custom-checkbox mr-sm-2">
-                                                    <input class="custom-control-input" type="checkbox" id="chk-region-24">
-                                                    <label class="custom-control-label" for="chk-region-24">Departamento&nbsp;24
-                                                    </label>
-                                                  </div>
-                                                </div>-->
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -423,7 +279,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="txt-fecha-inicio">Fecha de inicio de operaciones<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique el año de inicio de operaciones"></i></label>
+                                        <label for="txt-fecha-inicio">Fecha de inicio de operaciones<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique la fecha de inicio de operaciones"></i></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup12"><i class="fas fa-calendar-alt"></i></span></div>
                                             <input class="form-control" type="date" id="txt-fecha-inicio" placeholder="Ingrese nombre de la iniciativa" aria-describedby="inputGroup12" min="2000-01-01" max="2030-12-31">

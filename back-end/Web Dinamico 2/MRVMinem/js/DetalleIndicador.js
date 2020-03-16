@@ -3623,13 +3623,22 @@ function fn_cargarGei() {
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
-                    for (var j = 0; j < data.length; j++) {
-                        for (var i = 0; i < $("#listaGei").data("cantidad") ; i++) {
-                            if ($('#G' + (i + 1)).data("value") == data[j]["ID_GEI"]) {
-                                $('#G' + (i + 1)).prop('checked', true);
+                    if ($("#Control").data("revision") == 1) {
+                        for (var j = 0; j < data.length; j++) {
+                            for (var i = 0; i < $("#listaGei").data("cantidad") ; i++) {
+                                if ($('#G' + (i + 1)).data("value") == data[j]["ID_GEI"]) {
+                                    $('#G' + (i + 1)).prop('checked', true);
+                                }
                             }
                         }
-                    }                 
+                    } else {
+                        var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">';
+                        for (var j = 0; j < data.length; j++) {
+                            msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
+                        }
+                        msj = msj + ' </textarea>';
+                        $("#campoGei").append(msj);
+                    }                
                 }
             }
         }
@@ -3649,15 +3658,24 @@ function fn_cargarEnergetico() {
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
-                    for (var j = 0; j < data.length; j++) {
-                        for (var i = 0; i < $("#listaEnerg").data("cantidad") ; i++) {
-                            if ($('#E' + (i + 1)).data("value") == data[j]["ID_ENERG"]) {
-                                $('#E' + (i + 1)).prop('checked', true);
+                    if ($("#Control").data("revision") == 1) {
+                        for (var j = 0; j < data.length; j++) {
+                            for (var i = 0; i < $("#listaEnerg").data("cantidad") ; i++) {
+                                if ($('#E' + (i + 1)).data("value") == data[j]["ID_ENERG"]) {
+                                    $('#E' + (i + 1)).prop('checked', true);
+                                }
                             }
                         }
-                    }                  
+                    } else {
+                        var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">';
+                        for (var j = 0; j < data.length; j++) {
+                            msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
+                        }
+                        msj = msj + ' </textarea>';
+                        $("#campoEnerg").append(msj);
+                    }                 
                 }
-            }
+            }            
         }
     });
 }

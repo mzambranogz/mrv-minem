@@ -143,6 +143,29 @@
                             <div class="row">
                                 <div class="col-sm-12-col-md-12 col-lg-12">
                                     <div class="form-group">
+                                        <label for="cbo-tipo-iniciativa-mitigacion">Tipo de iniciativa<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione un tipo de iniciativa para clasificar su registro"></i></label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup300"><i class="fas fa-tachometer-alt"></i></span></div>
+                                            <select class="form-control" id="cbo-tipo-iniciativa-mitigacion" aria-describedby="inputGroup300">
+                                                <option value="0">-Seleccione-</option>
+                                                @if (Model.listaTipoIniciativa != null)
+                                                {
+                                                    foreach (var item in Model.listaTipoIniciativa)
+                                                    {
+                                                        <option value="@item.ID_TIPO_INICIATIVA">@item.TIPO_INICIATIVA</option>
+                                                    }
+                                                }
+                                                @*<option>Contribuirá con los compromisos internacionales (NDC)</option>
+                                                <option>Comercializará las emisiones reducidas nacionales</option>
+                                                <option>Comercializará las emisiones reducidas internacionalmente</option>*@
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12-col-md-12 col-lg-12">
+                                    <div class="form-group">
                                         <label for="txa-nombre-iniciativa">Nombre de la iniciativa<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="En caso no posea un nombre, coloque el nombre de la medida de mitigación seguido de un guión y nombre o siglas de la institución."></i></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-tachometer-alt"></i></span></div>
@@ -256,7 +279,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="txt-fecha-inicio">Fecha de inicio de operaciones<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique el año de inicio de operaciones"></i></label>
+                                        <label for="txt-fecha-inicio">Fecha de inicio de operaciones<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique la fecha de inicio de operaciones"></i></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup12"><i class="fas fa-calendar-alt"></i></span></div>
                                             <input class="form-control" type="date" id="txt-fecha-inicio" placeholder="Ingrese nombre de la iniciativa" aria-describedby="inputGroup12" min="2000-01-01" max="2030-12-31">

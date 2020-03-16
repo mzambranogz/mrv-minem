@@ -48,4 +48,7 @@
     if ($("#cbo-tabla-mantenimiento").val() == 16) {
         location.href = baseUrl + "Mantenimiento/Plazo";
     }
+    if ($("#cbo-tabla-mantenimiento").val() == 17) {
+        location.href = baseUrl + "Mantenimiento/TipoIniciativa";
+    }
 }
