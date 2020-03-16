@@ -531,6 +531,9 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                                 tr = tr + '        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-recordatorio" onclick="fn_mostrarUsuarioRecordatorio(' + data[i]["ID_INICIATIVA"] + ')"><i class="fas fa-envelope"></i>&nbsp;Recordatorio</a>';
                             }
                         }
+                        if (p == 16 || p == 18) {
+                            tr = tr + '<a class="dropdown-item" href="#" onclick="fn_visualizarBlockchain(' + data[i]["ID_BLOCKCHAIN"] + ');" id="block-' + data[i]["ID_BLOCKCHAIN"] + '" data-block="'+ data[i]["GENERADO_PDF"] +'"><i class="fas fa-file-code"></i>&nbsp;Blockchain</a></div>';
+                        }
                         
                         tr = tr + '         </div>';
                         tr = tr + '     </div>';
@@ -2006,5 +2009,41 @@ $("#modal-aprobacion-evaluador").on("hidden.bs.modal", function () {
     $("#pieAprobar").show();
     $("#pieCorrectoAprobar").attr("hidden", true);
 });
+
+
+function fn_visualizarBlockchain(idBlock) {
+    if ($("#block-" + idBlock).data("block") == 1){
+        fn_mostrarBlockchain(idBlock);
+    } else {
+        fn_descargarCertificado(idBlock);        
+    }
+}
+
+function fn_mostrarBlockchain(idBlock) {
+    var item = {
+        ID_BLOCKCHAIN: idBlock
+    };
+    var url = baseUrl + "Gestion/MostrarBlockChain";
+    var respuesta = MRV.Ajax(url, item, false);
+
+    if (respuesta.success) {
+        var urlMostrar = baseUrl + "Temp/" + respuesta.extra;
+        window.open(urlMostrar, "_blank");
+    }
+}
+
+function fn_descargarCertificado(idBlock) {
+    var item = {
+        ID_BLOCKCHAIN: idBlock
+    };
+    var url = baseUrl + "Gestion/DescargarBlockChain";
+    var respuesta = MRV.Ajax(url, item, false);
+
+    if (respuesta.success) {
+        var urlMostrar = baseUrl + "Temp/" + respuesta.extra;
+        window.open(urlMostrar, "_blank");
+        $("#block-" + idBlock).data("block", 1);
+    }
+}
 
 

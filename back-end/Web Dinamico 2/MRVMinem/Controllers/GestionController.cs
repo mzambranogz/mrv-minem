@@ -1281,8 +1281,25 @@ namespace MRVMinem.Controllers
             string nombrePDF = nombrePDF = WebConfigurationManager.AppSettings["RutaTemp"] + "\\" + nombreArchivo;
             itemRespuesta.success = new ReporteRepositorio().GenerarPDFBlockChain(entidad.ID_BLOCKCHAIN, nombrePDF);
             if (itemRespuesta.success)
+            {
                 itemRespuesta.extra = nombreArchivo;
+                //========================================================= add 15-03-2020
+                BlockChainLN.NombrePDFBlockchain(new BlockChainBE() { ID_BLOCKCHAIN = entidad.ID_BLOCKCHAIN, NOMBRE_PDF = nombreArchivo });
+            }
+                
 
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult MostrarBlockChain(BlockChainBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+            entidad = BlockChainLN.MostrarBlockchain(entidad);
+            if (entidad.OK)
+            {
+                itemRespuesta.extra = entidad.NOMBRE_PDF; 
+            }
+            itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }
 

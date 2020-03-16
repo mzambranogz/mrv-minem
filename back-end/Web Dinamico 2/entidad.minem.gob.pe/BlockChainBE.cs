@@ -11,6 +11,8 @@ namespace entidad.minem.gob.pe
         public int ID_BLOCKCHAIN { get; set; }
         public int ID_INICIATIVA { get; set; }
         public string HASH { get; set; }
+        public string NOMBRE_PDF { get; set; }
+        public int GENERADO_PDF { get; set; }
 
     }
 }

@@ -303,6 +303,10 @@ namespace MRVMinem.Reportes {
             
             private global::System.Data.DataColumn columnFECHA_FIN_INICIATIVA;
             
+            private global::System.Data.DataColumn columnRESPONSABLE;
+            
+            private global::System.Data.DataColumn columnNOMBRE_INSTITUCION;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DtBlockChainDataTable() {
@@ -434,6 +438,22 @@ namespace MRVMinem.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn RESPONSABLEColumn {
+                get {
+                    return this.columnRESPONSABLE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOMBRE_INSTITUCIONColumn {
+                get {
+                    return this.columnNOMBRE_INSTITUCION;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -469,7 +489,7 @@ namespace MRVMinem.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DtBlockChainRow AddDtBlockChainRow(int ID_BLOCKCHAIN, int ID_INICIATIVA, string HASH, int ID_MEDMIT, string NOMBRE_MEDMIT, int ID_USUARIO, string NOMBRE_INICIATIVA, double INVERSION_INICIATIVA, int ID_MONEDA, System.DateTime FECHA_CREA_INICIATIVA, System.DateTime FECHA_IMPLE_INICIATIVA, System.DateTime FECHA_FIN_INICIATIVA) {
+            public DtBlockChainRow AddDtBlockChainRow(int ID_BLOCKCHAIN, int ID_INICIATIVA, string HASH, int ID_MEDMIT, string NOMBRE_MEDMIT, int ID_USUARIO, string NOMBRE_INICIATIVA, double INVERSION_INICIATIVA, int ID_MONEDA, System.DateTime FECHA_CREA_INICIATIVA, System.DateTime FECHA_IMPLE_INICIATIVA, System.DateTime FECHA_FIN_INICIATIVA, string RESPONSABLE, string NOMBRE_INSTITUCION) {
                 DtBlockChainRow rowDtBlockChainRow = ((DtBlockChainRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID_BLOCKCHAIN,
@@ -483,7 +503,9 @@ namespace MRVMinem.Reportes {
                         ID_MONEDA,
                         FECHA_CREA_INICIATIVA,
                         FECHA_IMPLE_INICIATIVA,
-                        FECHA_FIN_INICIATIVA};
+                        FECHA_FIN_INICIATIVA,
+                        RESPONSABLE,
+                        NOMBRE_INSTITUCION};
                 rowDtBlockChainRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDtBlockChainRow);
                 return rowDtBlockChainRow;
@@ -518,6 +540,8 @@ namespace MRVMinem.Reportes {
                 this.columnFECHA_CREA_INICIATIVA = base.Columns["FECHA_CREA_INICIATIVA"];
                 this.columnFECHA_IMPLE_INICIATIVA = base.Columns["FECHA_IMPLE_INICIATIVA"];
                 this.columnFECHA_FIN_INICIATIVA = base.Columns["FECHA_FIN_INICIATIVA"];
+                this.columnRESPONSABLE = base.Columns["RESPONSABLE"];
+                this.columnNOMBRE_INSTITUCION = base.Columns["NOMBRE_INSTITUCION"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -547,6 +571,10 @@ namespace MRVMinem.Reportes {
                 base.Columns.Add(this.columnFECHA_IMPLE_INICIATIVA);
                 this.columnFECHA_FIN_INICIATIVA = new global::System.Data.DataColumn("FECHA_FIN_INICIATIVA", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFECHA_FIN_INICIATIVA);
+                this.columnRESPONSABLE = new global::System.Data.DataColumn("RESPONSABLE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRESPONSABLE);
+                this.columnNOMBRE_INSTITUCION = new global::System.Data.DataColumn("NOMBRE_INSTITUCION", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOMBRE_INSTITUCION);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -885,6 +913,39 @@ namespace MRVMinem.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string RESPONSABLE {
+                get {
+                    try {
+                        return ((string)(this[this.tableDtBlockChain.RESPONSABLEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'RESPONSABLE\' de la tabla \'DtBlockChain\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDtBlockChain.RESPONSABLEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string NOMBRE_INSTITUCION {
+                get {
+                    try {
+                        return ((string)(this[this.tableDtBlockChain.NOMBRE_INSTITUCIONColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'NOMBRE_INSTITUCION\' de la tabla \'DtBlockChain\' es DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableDtBlockChain.NOMBRE_INSTITUCIONColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsID_BLOCKCHAINNull() {
                 return this.IsNull(this.tableDtBlockChain.ID_BLOCKCHAINColumn);
             }
@@ -1025,6 +1086,30 @@ namespace MRVMinem.Reportes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetFECHA_FIN_INICIATIVANull() {
                 this[this.tableDtBlockChain.FECHA_FIN_INICIATIVAColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRESPONSABLENull() {
+                return this.IsNull(this.tableDtBlockChain.RESPONSABLEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRESPONSABLENull() {
+                this[this.tableDtBlockChain.RESPONSABLEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOMBRE_INSTITUCIONNull() {
+                return this.IsNull(this.tableDtBlockChain.NOMBRE_INSTITUCIONColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOMBRE_INSTITUCIONNull() {
+                this[this.tableDtBlockChain.NOMBRE_INSTITUCIONColumn] = global::System.Convert.DBNull;
             }
         }
         

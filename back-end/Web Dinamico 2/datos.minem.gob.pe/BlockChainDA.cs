@@ -62,5 +62,51 @@ namespace datos.minem.gob.pe
             }
             return lista;
         }
+
+        public List<BlockChainBE> NombrePDFBlockchain(BlockChainBE entidad)
+        {
+            List<BlockChainBE> lista = null;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_UPD_BLOCKCHAIN_PDF";
+                    var p = new OracleDynamicParameters();
+                    p.Add("PI_ID_BLOCKCHAIN", entidad.ID_BLOCKCHAIN);
+                    p.Add("PI_NOMBRE_PDF", entidad.NOMBRE_PDF);
+                    lista = db.Query<BlockChainBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                    entidad.OK = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+            return lista;
+        }
+
+        public BlockChainBE MostrarBlockchain(BlockChainBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_BLOCKCHAIN_PDF";
+                    var p = new OracleDynamicParameters();
+                    p.Add("PI_ID_BLOCKCHAIN", entidad.ID_BLOCKCHAIN);
+                    p.Add("PO_CURSOR", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    var PDF = db.ExecuteScalar(sp, p, commandType: CommandType.StoredProcedure);
+                    entidad.NOMBRE_PDF = Convert.ToString(PDF);
+                    entidad.OK = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+            return entidad;
+        }
     }
 }

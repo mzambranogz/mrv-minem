@@ -21,5 +21,15 @@ namespace logica.minem.gob.pe
         {
             return blochainDA.ListaBlockChain(entidad);
         }
+
+        public static List<BlockChainBE> NombrePDFBlockchain(BlockChainBE entidad)
+        {
+            return blochainDA.NombrePDFBlockchain(entidad);
+        }
+
+        public static BlockChainBE MostrarBlockchain(BlockChainBE entidad)
+        {
+            return blochainDA.MostrarBlockchain(entidad);
+        }
     }
 }
