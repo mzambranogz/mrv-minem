@@ -559,16 +559,23 @@
                 <div class="modal fade" id="solicitar-revision" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                         <div class="modal-content">
-                            <div class="modal-header">
+                            @*<div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Mensaje de Usuario</h5>
                                 <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            </div>
+                            </div>*@
                             <div class="modal-body medidas-modal">
                                 <div class="row">
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <h3 class="text-center">¿Está seguro de enviar su solicitud a revisión? <br></h3>
+                                        <div class="swal2-icon swal2-question swal2-icon-show" style="display: flex;">
+                                            <div class="swal2-icon-content"><i class="fas fa-question"></i></div>
+                                        </div>
+                                        <h3 class="text-center">¿Está seguro de enviar su solicitud a revisión?</h3>
                                         <p class="text-center">Confirme si está seguro de enviar todos los datos registrados para iniciar el proceso de revisión y obtener la aprobación por parte de nuestros especialistas.</p>
                                     </div>
+                                    @*<div class="col-sm-12 col-md-12 col-lg-12">
+                                        <h3 class="text-center">¿Está seguro de enviar su solicitud a revisión? <br></h3>
+                                        <p class="text-center">Confirme si está seguro de enviar todos los datos registrados para iniciar el proceso de revisión y obtener la aprobación por parte de nuestros especialistas.</p>
+                                    </div>*@
                                     <div class="col-sm-12 col-md-12 col-lg-12" id="mensajeModalRegistrar">
                                         <div class="alert alert-warning d-flex align-items-stretch" role="alert">
                                             <div class="alert-wrap mr-3">
@@ -584,15 +591,19 @@
                                                 <hr>
                                                 <div class="custom-control custom-checkbox d-inline-block">
                                                     <input class="custom-control-input" type="checkbox" id="chk-publicar">
-                                                    <label class="custom-control-label" for="chk-publicar">Hacer públicos los datos registrados en esta iniciativa.</label>
+                                                    <label class="custom-control-label" for="chk-publicar">Hacer públicos los datos registrados en esta iniciativa. &nbsp;</label><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Sus datos serán visibles públicamente y podrán ser consultados desde el sitio web del visitante"></i>
                                                 </div>
-                                                <!--.custom-control.custom-checkbox.d-inline-block
-                                                input(type="checkbox", class="custom-control-input", id="chk-publicar-monto-inversion")
-                                                label.custom-control-label(for="chk-publicar-monto-inversion") Hacer público "Monto de inversión"
-
-                                                -->
+                                                <div class="custom-control custom-checkbox d-inline-block">
+                                                    <input class="custom-control-input" type="checkbox" id="chk-publicar-monto-inversion">
+                                                    <label class="custom-control-label" for="chk-publicar-monto-inversion">Hacer público "Monto de inversión" &nbsp;</label><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="El monto de inversión será visible públicamente y podrá ser consultado desde el sitio web del visitante"></i>
+                                                </div>
                                             </div>
                                         </div>
+
+                                        @*<div class="progress mb-3" style="height: 25px;">
+                                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">Guardado...</div>
+                                        </div>*@
+
                                         @*<div class="alert alert-danger d-flex align-items-stretch" role="alert">
                                                 <div class="alert-wrap mr-3">
                                                     <div class="sa">
@@ -656,13 +667,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="modal-footer" id="modalRegistrarBoton">
-                                <button class="btn btn-primary" type="button" onclick="fn_guardarDetalleIndicador();">Si, grabar</button>
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">No, cancelar</button>                                
+                            <div class="modal-footer justify-content-center" id="modalRegistrarBoton">
+                                <button class="btn btn-info" type="button" onclick="fn_guardarDetalleIndicador();">Si, grabar</button>
+                                <button class="btn btn-dark" type="button" data-dismiss="modal">Cancelar</button>                                
                             </div>
-                            <div class="modal-footer" id="pieCorrecto">
+                            <div class="modal-footer justify-content-center" id="pieCorrecto">
                                 <!-- add 04-02-2020 -->
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
+                                <button class="btn btn-dark" type="button" data-dismiss="modal">Cerrar</button>
                             </div>
                         </div>
                     </div>
@@ -670,16 +681,24 @@
                 <div class="modal fade" id="guardar-avance" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                         <div class="modal-content">
-                            <div class="modal-header">
+                            @*<div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Mensaje de Usuario</h5>
                                 <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            </div>
-                            <div class="modal-body medidas-modal" id="mensajeModalAvance">
-                                <div class="row">
+                            </div>*@
+                            <div class="modal-body medidas-modal">
+                                <div class="row" id="mensajeModalAvance">
                                     <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <h3 class="text-center">¿Desea guardar su avance? <br></h3>
+                                        <div class="swal2-icon swal2-question swal2-icon-show" style="display: flex;">
+                                            <div class="swal2-icon-content"><i class="fas fa-question"></i></div>
+                                        </div>
+                                        <h3 class="text-center">¿Desea guardar su avance?</h3>
                                         <p class="text-center">Los datos ingresados serán almacenados temporalmente y podrán ser regularizados al editar su iniciativa.</p>
                                     </div>
+
+                                    @*<div class="col-sm-12 col-md-12 col-lg-12">
+                                        <h3 class="text-center">¿Desea guardar su avance? <br></h3>
+                                        <p class="text-center">Los datos ingresados serán almacenados temporalmente y podrán ser regularizados al editar su iniciativa.</p>
+                                    </div>*@
                                     @*<div class="col-sm-12 col-md-12 col-lg-12">
                                             <div class="alert alert-warning d-flex align-items-stretch" role="alert">
                                                 <div class="alert-wrap mr-3">
@@ -698,13 +717,13 @@
                                         </div>*@
                                 </div>
                             </div>
-                            <div class="modal-footer" id="modalAvanceBoton">
-                                <button class="btn btn-primary" type="button" onclick="fn_guardarAvances();">Si, grabar</button>
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">No, cancelar</button>                                
+                            <div class="modal-footer justify-content-center" id="modalAvanceBoton">
+                                <button class="btn btn-info" type="button" onclick="fn_guardarAvances();">Si, grabar</button>
+                                <button class="btn btn-dark" type="button" data-dismiss="modal">Cancelar</button>                                
                             </div>
-                            <div class="modal-footer" id="pieCorrectoAvance">
+                            <div class="modal-footer justify-content-center" id="pieCorrectoAvance">
                                 <!-- add 04-02-2020 -->
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
+                                <button class="btn btn-dark" type="button" data-dismiss="modal">Cerrar</button>
                             </div>
                         </div>
                     </div>

@@ -22,63 +22,82 @@ namespace MRVMinem.Controllers
         public ActionResult DetalleIndicadorMasivo(int id, int ini)
         {
             ListaObjeto modelo = new ListaObjeto();
-            IniciativaBE inic = new IniciativaBE();
-            inic.ID_INICIATIVA = id;
-            modelo.iniciativa_mit = inic;
-            modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
-            modelo.menor = IndicadorLN.DetalleIndicadorEnfoque(modelo.iniciativa_mit.ID_INICIATIVA);
-            modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
-            modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
-            modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
-            modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
-            modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
-            modelo.usuario = UsuarioLN.EspecialistaMedida(modelo.iniciativa_mit.ID_MEDMIT);
-            modelo.url = WebConfigurationManager.AppSettings.Get("Sello");
-            //if (modelo.menor == 0)
-            //{
-            //    modelo.menor = getMenorId(modelo.listaEnfoque);
-            //}
-            int enf = IniciativaLN.getIdEnfoqueMenor(inic);
-            if (enf == 0)
+            int validar = IniciativaLN.ValidarVista(id);
+            if (validar == 6 || validar == 7)
             {
-                if (modelo.menor == 0)
+                IniciativaBE inic = new IniciativaBE();
+                inic.ID_INICIATIVA = id;
+                modelo.iniciativa_mit = inic;
+                modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
+                modelo.menor = IndicadorLN.DetalleIndicadorEnfoque(modelo.iniciativa_mit.ID_INICIATIVA);
+                modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
+                modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
+                modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
+                modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
+                modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
+                modelo.usuario = UsuarioLN.EspecialistaMedida(modelo.iniciativa_mit.ID_MEDMIT);
+                modelo.url = WebConfigurationManager.AppSettings.Get("Sello");
+                //if (modelo.menor == 0)
+                //{
+                //    modelo.menor = getMenorId(modelo.listaEnfoque);
+                //}
+                int enf = IniciativaLN.getIdEnfoqueMenor(inic);
+                if (enf == 0)
                 {
-                    modelo.menor = getMenorId(modelo.listaEnfoque);
-                    Session["enfoque"] = 0;
+                    if (modelo.menor == 0)
+                    {
+                        modelo.menor = getMenorId(modelo.listaEnfoque);
+                        Session["enfoque"] = 0;
+                    }
                 }
+                else
+                {
+                    modelo.menor = enf;
+                    Session["enfoque"] = enf;
+                }
+                Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
             }
             else
             {
-                modelo.menor = enf;
-                Session["enfoque"] = enf;
+                return RedirectToAction("Default", "Error");
             }
-            Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
+
+
             return View(modelo);
         }
 
         public ActionResult CorregirDetalleIndicadorMasivo(int id, int ini)
         {
             ListaObjeto modelo = new ListaObjeto();
-            IniciativaBE inic = new IniciativaBE();
-            inic.ID_INICIATIVA = id;
-            modelo.iniciativa_mit = inic;
-            modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
-            //modelo.menor = IndicadorLN.DetalleIndicadorEnfoque(modelo.iniciativa_mit.ID_INICIATIVA);
-            modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
-            modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
-            modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
-            modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
-            modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
-            modelo.menor = IniciativaLN.getIdEnfoqueMenor(inic);
-            modelo.usuario = UsuarioLN.EspecialistaMedida(modelo.iniciativa_mit.ID_MEDMIT);
-            modelo.url = WebConfigurationManager.AppSettings.Get("Sello");
-            modelo.revision = 0;
-            Session["enfoque"] = modelo.menor;
-            //if (modelo.menor == 0)
-            //{
-            //    modelo.menor = getMenorId(modelo.listaEnfoque);
-            //}
-            Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
+            int validar = IniciativaLN.ValidarVista(id);
+            if (validar == 9 || validar == 10)
+            {
+                IniciativaBE inic = new IniciativaBE();
+                inic.ID_INICIATIVA = id;
+                modelo.iniciativa_mit = inic;
+                modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
+                //modelo.menor = IndicadorLN.DetalleIndicadorEnfoque(modelo.iniciativa_mit.ID_INICIATIVA);
+                modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
+                modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
+                modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
+                modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
+                modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
+                modelo.menor = IniciativaLN.getIdEnfoqueMenor(inic);
+                modelo.usuario = UsuarioLN.EspecialistaMedida(modelo.iniciativa_mit.ID_MEDMIT);
+                modelo.url = WebConfigurationManager.AppSettings.Get("Sello");
+                modelo.revision = 0;
+                Session["enfoque"] = modelo.menor;
+                //if (modelo.menor == 0)
+                //{
+                //    modelo.menor = getMenorId(modelo.listaEnfoque);
+                //}
+                Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
+            }
+            else
+            {
+                return RedirectToAction("Default", "Error");
+            }
+
             return View(modelo);
         }
 

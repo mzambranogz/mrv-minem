@@ -598,6 +598,8 @@ namespace datos.minem.gob.pe
                     p.Add("pID_ENFOQUE", entidad.ID_ENFOQUE);
                     p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
                     p.Add("pTOTAL_GEI", entidad.TOTAL_GEI);
+                    p.Add("pPRIVACIDAD_INICIATIVA", entidad.PRIVACIDAD_INICIATIVA);
+                    p.Add("pPRIVACIDAD_INVERSION", entidad.PRIVACIDAD_INVERSION);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
                 entidad.OK = true;
@@ -673,6 +675,8 @@ namespace datos.minem.gob.pe
                     p.Add("pID_ENFOQUE", entidad.ID_ENFOQUE);
                     p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
                     p.Add("pTOTAL_GEI", entidad.TOTAL_GEI);
+                    p.Add("pPRIVACIDAD_INICIATIVA", entidad.PRIVACIDAD_INICIATIVA);
+                    p.Add("pPRIVACIDAD_INVERSION", entidad.PRIVACIDAD_INVERSION);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                 }
                 entidad.OK = true;

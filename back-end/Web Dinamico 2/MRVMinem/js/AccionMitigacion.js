@@ -629,10 +629,10 @@ function fn_nuevaIniciativaMitigacion(id) {
 
 ////////////////// BUSQUEDA
 
-function CargarMedidaMitigacion() {
+function CargarMedidaMitigacion(vurl) {
     var item = {
     };
-    vurl = baseUrl + "Portal/ListarMedidaMitigacion";
+    //vurl = baseUrl + "Portal/ListarMedidaMitigacion";
     $.ajax({
         url: vurl,
         type: 'POST',
@@ -664,10 +664,10 @@ function valor() {
 //================================================================================================0
 
 
-function CargarSector() {
+function CargarSector(vurl) {
     var item = {
     };
-    vurl = baseUrl + "Portal/ListaSectorInstitucion";
+    //vurl = baseUrl + "Portal/ListaSectorInstitucion";
     $.ajax({
         url: vurl,
         type: 'POST',
@@ -685,10 +685,10 @@ function CargarSector() {
     });
 }
 
-function CargarEnergeticoLineaBase() {
+function CargarEnergeticoLineaBase(vurl) {
     var item = {
     };
-    vurl = baseUrl + "Portal/ListaEnergetico";
+    //vurl = baseUrl + "Portal/ListaEnergetico";
     $.ajax({
         url: vurl,
         type: 'POST',
@@ -707,10 +707,10 @@ function CargarEnergeticoLineaBase() {
 }
 
 
-function CargarEnergeticoProyecto() {
+function CargarEnergeticoProyecto(vurl) {
     var item = {
     };
-    vurl = baseUrl + "Portal/ListaEnergeticoProyecto";
+    //vurl = baseUrl + "Portal/ListaEnergeticoProyecto";
     $.ajax({
         url: vurl,
         type: 'POST',
@@ -1584,10 +1584,25 @@ function CargarListaActor() {
 $(document).ready(function () {
     $("#pieCorrecto").hide();
     CargarOpcionesCuerpo();
-    CargarMedidaMitigacion();
-    CargarSector();
-    CargarEnergeticoLineaBase();
-    CargarEnergeticoProyecto();
+    var url = "";
+    var SectorUrl = "";
+    var EnergUrl = "";
+    var GeiUrl = "";
+    if ($("#Control").data("usuario") > 0) {
+        url = baseUrl + "Gestion/ListarMedidaMitigacion";
+        SectorUrl = baseUrl + "Gestion/ListaSectorInstitucion";
+        EnergUrl = baseUrl + "Gestion/ListaEnergetico";
+        GeiUrl = baseUrl + "Gestion/ListaEnergeticoProyecto";
+    } else {
+        url = baseUrl + "Portal/ListarMedidaMitigacion";
+        SectorUrl = baseUrl + "Portal/ListaSectorInstitucion";
+        EnergUrl = baseUrl + "Portal/ListaEnergetico";
+        GeiUrl = baseUrl + "Portal/ListaEnergeticoProyecto";
+    }
+    CargarMedidaMitigacion(url);
+    CargarSector(SectorUrl);
+    CargarEnergeticoLineaBase(EnergUrl);
+    CargarEnergeticoProyecto(GeiUrl);
     if ($("#Control").data("usuario") > 0) {
         CorreoAdmin();
         if ($("#Control").data("rol") == 2) {

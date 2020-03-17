@@ -8,6 +8,7 @@ namespace MRVMinem.Tags
 {
     public class AutenticadoAttribute : ActionFilterAttribute
     {
+        // Si no estamos logeado, regresamos al login
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {     
             try
@@ -30,6 +31,7 @@ namespace MRVMinem.Tags
         }
     }
 
+    // Si estamos logeado ya no podemos acceder a la página de Login
     public class NoLoginAttribute : ActionFilterAttribute
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)

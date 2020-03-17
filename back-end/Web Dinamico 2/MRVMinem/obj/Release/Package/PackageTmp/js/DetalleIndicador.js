@@ -1039,6 +1039,16 @@ function validarCampoRevision() {
 
 //===============================================
 function fn_observacionDetalleIndicador() {
+
+    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "modalErrorRevision", "Esta iniciativa ya fue revisada y/o observada");
+    if (mns != "") {
+        $("#observar-revision #modalObservacionBoton").hide();
+        $("#pieCorrectoObservacion").show();
+        $("#modalRevision").append(mns);
+        $("#Control").data("modal", 1);
+        return false;
+    }
+
     url = baseUrl + "Gestion/ObservacionDetalleIndicador";
     var item = {
         ID_INICIATIVA: $("#Control").data("iniciativa"),
@@ -1065,7 +1075,7 @@ function fn_observacionDetalleIndicador() {
         msj = msj + '                                    </div>';
         msj = msj + '                                </div>';
         msj = msj + '                                <div class="alert-wrap">';
-        msj = msj + '                                    <h6>Bien hecho</h6';
+        msj = msj + '                                    <h6>Bien hecho</h6>';
         msj = msj + '                                    <hr><small class="mb-0">Sus observaciones se enviaron correctamente.</small>';
         msj = msj + '                                </div>';
         msj = msj + '                            </div>';
@@ -1073,7 +1083,7 @@ function fn_observacionDetalleIndicador() {
         $("#pieCorrectoObservacion").show();
         $("#modalRevision").append(msj);
         $("#Control").data("modal", 1);
-        if (ws != null) ws.send(respuesta.extra);
+        //if (ws != null) ws.send(respuesta.extra);
 
     } else {
         $("#modalRevision #modalErrorRevision").remove();
@@ -1098,18 +1108,28 @@ function fn_observacionDetalleIndicador() {
         $("#modalRevision").append(msj);
     }
 
-    $("#observar-revision").on("hidden.bs.modal", function () {
-        if ($("#Control").data("modal") == 1) {
-            location.href = baseUrl + "Gestion/AccionMitigacion";
-        } else {
-            $("#modalRevision #modalErrorRevision").remove();
-            $("#observar-revision #modalObservacionBoton").show();
-            $("#pieCorrectoObservacion").hide();
-        }
-    });
 }
 
+$("#observar-revision").on("hidden.bs.modal", function () {
+    if ($("#Control").data("modal") == 1) {
+        location.href = baseUrl + "Gestion/AccionMitigacion";
+    } else {
+        $("#modalRevision #modalErrorRevision").remove();
+        $("#observar-revision #modalObservacionBoton").show();
+        $("#pieCorrectoObservacion").hide();
+    }
+});
+
 function fn_revisarDetalleIndicador() {
+
+    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "mensajeDangerRegistro", "Esta iniciativa ya fue revisada y/o observada");
+    if (mns != "") {
+        $("#aprobar-revision #modalAprobarBoton").hide();
+        $("#pieCorrectoAprobacion").show();
+        $("#modalAprobacion").append(mns);
+        $("#Control").data("modal", 1);
+        return false;
+    }
 
     if (!validarCampoRevision()) {
         $('#modalAprobacion #modalErrorAprobacion').remove();
@@ -1188,7 +1208,7 @@ function fn_revisarDetalleIndicador() {
         msj = msj + '                                    </div>';
         msj = msj + '                                </div>';
         msj = msj + '                                <div class="alert-wrap">';
-        msj = msj + '                                    <h6>Bien hecho</h6';
+        msj = msj + '                                    <h6>Bien hecho</h6>';
         msj = msj + '                                    <hr><small class="mb-0">Se aprobó correctamente esta revisión, se procederá a notificar al Usuario Administrado.</small>';
         msj = msj + '                                </div>';
         msj = msj + '                            </div>';
@@ -1220,19 +1240,29 @@ function fn_revisarDetalleIndicador() {
         msj = msj + '                            </div>';
         $("#modalAprobacion").append(msj);
     }
-
-    $("#aprobar-revision").on("hidden.bs.modal", function () {
-        if ($("#Control").data("modal") == 1) {
-            location.href = baseUrl + "Gestion/AccionMitigacion";
-        } else {
-            $("#modalAprobacion #modalErrorAprobacion").remove();
-            $("#aprobar-revision #modalAprobarBoton").show();
-            $("#pieCorrectoAprobacion").hide();
-        }
-    });
 }
 
+$("#aprobar-revision").on("hidden.bs.modal", function () {
+    if ($("#Control").data("modal") == 1) {
+        location.href = baseUrl + "Gestion/AccionMitigacion";
+    } else {
+        $("#modalAprobacion #modalErrorAprobacion").remove();
+        $("#aprobar-revision #modalAprobarBoton").show();
+        $("#pieCorrectoAprobacion").hide();
+    }
+});
+
 function fn_observacionAdminDetalleIndicador() {
+
+    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "modalErrorRevision", "Esta iniciativa ya fue revisada y/o observada");
+    if (mns != "") {
+        $("#observar-revision #modalObservacionBoton").hide();
+        $("#pieCorrectoObservacion").show();
+        $("#modalRevision").append(mns);
+        $("#Control").data("modal", 1);
+        return false;
+    }
+
     url = baseUrl + "Gestion/ObservacionAdminDetalleIndicador";
     var item = {
         ID_INICIATIVA: $("#Control").data("iniciativa"),
@@ -1260,7 +1290,7 @@ function fn_observacionAdminDetalleIndicador() {
         msj = msj + '                                    </div>';
         msj = msj + '                                </div>';
         msj = msj + '                                <div class="alert-wrap">';
-        msj = msj + '                                    <h6>Bien hecho</h6';
+        msj = msj + '                                    <h6>Bien hecho</h6>';
         msj = msj + '                                    <hr><small class="mb-0">Sus observaciones se enviaron correctamente.</small>';
         msj = msj + '                                </div>';
         msj = msj + '                            </div>';
@@ -1292,19 +1322,29 @@ function fn_observacionAdminDetalleIndicador() {
         msj = msj + '                            </div>';
         $("#modalRevision").append(msj);
     }
-
-    $("#observar-revision").on("hidden.bs.modal", function () {
-        if ($("#Control").data("modal") == 1) {
-            location.href = baseUrl + "Gestion/AccionMitigacion";
-        } else {
-            $("#modalRevision #modalErrorRevision").remove();
-            $("#observar-revision #modalObservacionBoton").show();
-            $("#pieCorrectoObservacion").hide();
-        }
-    });
+    
 }
 
+$("#observar-revision").on("hidden.bs.modal", function () {
+    if ($("#Control").data("modal") == 1) {
+        location.href = baseUrl + "Gestion/AccionMitigacion";
+    } else {
+        $("#modalRevision #modalErrorRevision").remove();
+        $("#observar-revision #modalObservacionBoton").show();
+        $("#pieCorrectoObservacion").hide();
+    }
+});
+
 function fn_revisarAdminDetalleIndicador() {
+
+    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "mensajeDangerRegistro", "Esta iniciativa ya fue revisada y/o observada");
+    if (mns != "") {
+        $("#aprobar-revision #modalAprobarBoton").hide();
+        $("#pieCorrectoAprobacion").show();
+        $("#modalAprobacion").append(mns);
+        $("#Control").data("modal", 1);
+        return false;
+    }
 
     if (!validarCampoRevision()) {
         $('#modalAprobacion #modalErrorAprobacion').remove();
@@ -1386,8 +1426,9 @@ function fn_revisarAdminDetalleIndicador() {
         msj = msj + '                                    </div>';
         msj = msj + '                                </div>';
         msj = msj + '                                <div class="alert-wrap">';
-        msj = msj + '                                    <h6>Bien hecho</h6';
-        msj = msj + '                                    <hr><small class="mb-0">Se aprobó correctamente esta revisión, se procederá a notificar al especialista.</small>';
+        msj = msj + '                                    <h6>Bien hecho</h6>';
+        msj = msj + '                                    <hr><small class="mb-0">Se aprobó correctamente esta revisión.</small>';
+        //msj = msj + '                                    <hr><small class="mb-0">Se aprobó correctamente esta revisión, se procederá a notificar al especialista.</small>';
         msj = msj + '                                </div>';
         msj = msj + '                            </div>';
         $("#modalAprobacion").append(msj);
@@ -1430,6 +1471,16 @@ $("#aprobar-revision").on("hidden.bs.modal", function () {
 });
 
 function fn_observacionEvaluadorDetalleIndicador() {
+
+    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "modalErrorRevision", "Esta iniciativa ya fue evaluada y/o observada");
+    if (mns != "") {
+        $("#observar-evaluacion #modalObservacionBoton").hide();
+        $("#pieCorrectoObservacion").show();
+        $("#modalRevision").append(mns);
+        $("#Control").data("modal", 1);
+        return false;
+    }
+
     url = baseUrl + "Gestion/ObservacionEvaluarDetalleIndicador";
     var item = {
         ID_INICIATIVA: $("#Control").data("iniciativa"),
@@ -1456,7 +1507,7 @@ function fn_observacionEvaluadorDetalleIndicador() {
         msj = msj + '                                    </div>';
         msj = msj + '                                </div>';
         msj = msj + '                                <div class="alert-wrap">';
-        msj = msj + '                                    <h6>Bien hecho</h6';
+        msj = msj + '                                    <h6>Bien hecho</h6>';
         msj = msj + '                                    <hr><small class="mb-0">Sus observaciones se enviaron correctamente.</small>';
         msj = msj + '                                </div>';
         msj = msj + '                            </div>';
@@ -1488,19 +1539,29 @@ function fn_observacionEvaluadorDetalleIndicador() {
         msj = msj + '                            </div>';
         $("#modalRevision").append(msj);
     }
-
-    $("#observar-evaluacion").on("hidden.bs.modal", function () {
-        if ($("#Control").data("modal") == 1) {
-            location.href = baseUrl + "Gestion/AccionMitigacion";
-        } else {
-            $("#modalRevision #modalErrorRevision").remove();
-            $("#observar-evaluacion #modalObservacionBoton").show();
-            $("#pieCorrectoObservacion").hide();
-        }
-    });
 }
 
+$("#observar-evaluacion").on("hidden.bs.modal", function () {
+    if ($("#Control").data("modal") == 1) {
+        location.href = baseUrl + "Gestion/AccionMitigacion";
+    } else {
+        $("#modalRevision #modalErrorRevision").remove();
+        $("#observar-evaluacion #modalObservacionBoton").show();
+        $("#pieCorrectoObservacion").hide();
+    }
+});
+
 function fn_observacionVerificarDetalleIndicador() {
+
+    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "modalErrorRevision", "Esta iniciativa ya fue verificada y/o observada");
+    if (mns != "") {
+        $("#observar-verificacion #modalObservacionBoton").hide();
+        $("#pieCorrectoObservacion").show();
+        $("#modalRevision").append(mns);
+        $("#Control").data("modal", 1);
+        return false;
+    }
+
     url = baseUrl + "Gestion/ObservacionVerificarDetalleIndicador";
     var item = {
         ID_INICIATIVA: $("#Control").data("iniciativa"),
@@ -1527,7 +1588,7 @@ function fn_observacionVerificarDetalleIndicador() {
         msj = msj + '                                    </div>';
         msj = msj + '                                </div>';
         msj = msj + '                                <div class="alert-wrap">';
-        msj = msj + '                                    <h6>Bien hecho</h6';
+        msj = msj + '                                    <h6>Bien hecho</h6>';
         msj = msj + '                                    <hr><small class="mb-0">Sus observaciones se enviaron correctamente.</small>';
         msj = msj + '                                </div>';
         msj = msj + '                            </div>';
@@ -1535,7 +1596,7 @@ function fn_observacionVerificarDetalleIndicador() {
         $("#pieCorrectoObservacion").show();
         $("#modalRevision").append(msj);
         $("#Control").data("modal", 1);
-        if (ws != null) ws.send(respuesta.extra);
+        //if (ws != null) ws.send(respuesta.extra);
 
     } else {
         $("#modalRevision #modalErrorRevision").remove();
@@ -1559,19 +1620,21 @@ function fn_observacionVerificarDetalleIndicador() {
         msj = msj + '                            </div>';
         $("#modalRevision").append(msj);
     }
-
-    $("#observar-verificacion").on("hidden.bs.modal", function () {
-        if ($("#Control").data("modal") == 1) {
-            location.href = baseUrl + "Gestion/AccionMitigacion";
-        } else {
-            $("#modalRevision #modalErrorRevision").remove();
-            $("#observar-verificacion #modalObservacionBoton").show();
-            $("#pieCorrectoObservacion").hide();
-        }
-    });
+       
 }
 
+$("#observar-verificacion").on("hidden.bs.modal", function () {
+    if ($("#Control").data("modal") == 1) {
+        location.href = baseUrl + "Gestion/AccionMitigacion";
+    } else {
+        $("#modalRevision #modalErrorRevision").remove();
+        $("#observar-verificacion #modalObservacionBoton").show();
+        $("#pieCorrectoObservacion").hide();
+    }
+});
+
 function fn_evaluarIniciativaDetalle() {
+
     var item = {
         ID_INICIATIVA: $("#Control").data("iniciativa"),
         ID_USUARIO: $("#Control").data("usuario"),
@@ -1595,7 +1658,7 @@ function fn_evaluarIniciativaDetalle() {
         msj = msj + '                                    </div>';
         msj = msj + '                                </div>';
         msj = msj + '                                <div class="alert-wrap">';
-        msj = msj + '                                    <h6>Bien hecho</h6';
+        msj = msj + '                                    <h6>Bien hecho</h6>';
         msj = msj + '                                    <hr><small class="mb-0">Se aprobó correctamente esta evaluación, se procederá a notificar al Especialista.</small>';
         msj = msj + '                                </div>';
         msj = msj + '                            </div>';
@@ -1660,6 +1723,16 @@ function fn_evaluarIniciativaDetalle() {
 }
 
 function fn_verificarIniciativaDetalle() {
+
+    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "modalErrorAprobacion", "Esta iniciativa ya fue verificada y/o observada");
+    if (mns != "") {
+        $("#aprobar-verificacion #modalAprobarBoton").hide();
+        $("#pieCorrectoAprobacion").show();
+        $("#modalAprobacion").append(mns);
+        $("#Control").data("modal", 1);
+        return false;
+    }
+
     var item = {
         ID_INICIATIVA: $("#Control").data("iniciativa"),
         ID_USUARIO: $("#Control").data("usuario"),
@@ -1683,7 +1756,7 @@ function fn_verificarIniciativaDetalle() {
         msj = msj + '                                    </div>';
         msj = msj + '                                </div>';
         msj = msj + '                                <div class="alert-wrap">';
-        msj = msj + '                                    <h6>Bien hecho</h6';
+        msj = msj + '                                    <h6>Bien hecho</h6>';
         msj = msj + '                                    <hr><small class="mb-0">Se aprobó correctamente esta verificación, se procederá a notificar al Especialista.</small>';
         msj = msj + '                                </div>';
         msj = msj + '                            </div>';
@@ -1700,7 +1773,7 @@ function fn_verificarIniciativaDetalle() {
         msj1 = msj1 + '     <div class="alert-wrap">';
         msj1 = msj1 + '     <h6>Mercado de carbono</h6>';
         msj1 = msj1 + '     <hr><small class="mb-0">';
-        msj1 = msj1 + '         Se ha generado la cadena de bloques para la medida de mitigación&nbsp;<strong>aprobada&nbsp; <br></strong><a class="btn btn-warning px-5 text-center my-3" href="#" onclick="fn_descargarCertificado(' + respuesta.extra + ');" data-toggle="modal" data-target="#observar-verificacion"><i class="fas fa-download px-1"></i>Descargar certificado</a>';
+        msj1 = msj1 + '         Se ha generado la cadena de bloques para la medida de mitigación&nbsp;<strong>aprobada&nbsp; <br></strong><a class="btn btn-warning px-5 text-center my-3" href="#" onclick="fn_descargarCertificado(' + respuesta.extra + ');" data-toggle="modal" data-target=""><i class="fas fa-download px-1"></i>Descargar certificado</a>';
         msj1 = msj1 + '         <hr>';
         msj1 = msj1 + '         <div class="text-monospace" style="word-break: break-all;">' + respuesta.extra2 + '</div>';
         msj1 = msj1 + '     </small>';
@@ -1734,18 +1807,19 @@ function fn_verificarIniciativaDetalle() {
         msj = msj + '                            </div>';
         $("#modalAprobacion").append(msj);
     }
-
-    $("#aprobar-verificacion").on("hidden.bs.modal", function () {
-        if ($("#Control").data("modal") == 1) {
-            location.href = baseUrl + "Gestion/AccionMitigacion";
-        } else {
-            $("#modalAprobacion #modalErrorAprobacion").remove();
-            $("#modalAprobacion #modalBCAprobacion").remove();
-            $("#aprobar-verificacion #modalAprobarBoton").show();
-            $("#pieCorrectoAprobacion").hide();
-        }
-    });
+    
 }
+
+$("#aprobar-verificacion").on("hidden.bs.modal", function () {
+    if ($("#Control").data("modal") == 1) {
+        location.href = baseUrl + "Gestion/AccionMitigacion";
+    } else {
+        $("#modalAprobacion #modalErrorAprobacion").remove();
+        $("#modalAprobacion #modalBCAprobacion").remove();
+        $("#aprobar-verificacion #modalAprobarBoton").show();
+        $("#pieCorrectoAprobacion").hide();
+    }
+});
 
 function fn_descargarCertificado(idBlock) {
     var item = {
@@ -2615,6 +2689,28 @@ function CargarArchivosGuardados() {
 //==============================================================================================================
 
 function fn_procesoDetalleIndicador(url, estado) {
+    
+    var num_validar = 0;
+    if (estado == 1 || estado == 0) { num_validar = 8 }
+    else if (estado == 5 || estado == 6) { num_validar = 11 }
+
+    var mns = ValidarRevision('1', $("#Control").data("iniciativa"), num_validar, "mensajeDangerRegistro", "El detalle de esta iniciativa ya fue enviada para su revisión");
+    debugger;
+    if (mns != "") {
+        if (estado == 1 || estado == 5) {
+            $("#solicitar-revision #modalRegistrarBoton").hide();
+            $("#pieCorrecto").show();
+            $('#mensajeModalRegistrar').append(mns);
+            $("#Control").data("modal", 1);
+        } else if (estado == 6 || estado == 0) {
+            $("#guardar-avance #modalAvanceBoton").hide();
+            $("#pieCorrectoAvance").show();
+            $('#mensajeModalAvance').append(mns);
+            $("#Control").data("modal", 1);
+        }        
+        return false;
+    }
+
     indicadores = [];
     documentos = [];
     var medida = $("#Control").data("mitigacion");
@@ -2655,101 +2751,7 @@ function fn_procesoDetalleIndicador(url, estado) {
     }
     parametros = parametros.substring(0, parametros.length - 1);
     //parametros = parametros.substring(0, parametros.length - 1);
-    //if (enfoque == 1) {
-    //    for (var fila = 1 ; fila < n; fila++) {
-    //        if ($("#txt-det-7-" + fila).val() != '') {
-    //            var itx = {
-    //                ID_INDICADOR: $("#txt-det-8-" + fila).val(),
-    //                ID_INICIATIVA: $("#Control").data("iniciativa"),
-    //                ANNOB: $("#cbo-det-1-" + fila).val(),
-    //                INICIO_OPERACIONES: $("#dat-det-1-" + fila).val(),
-    //                ID_TIPO_VEHICULOB: $("#cbo-det-2-" + fila).val(),
-    //                ID_TIPO_COMBUSTIBLEB: $("#cbo-det-3-" + fila).val(),
-    //                KRVB: $("#txt-det-1-" + fila).val(),
-    //                CANTIDADB: $("#txt-det-2-" + fila).val(),
-    //                FACTOR_RENDIMIENTO: $("#txt-det-3-" + fila).val(),
-    //                PLACA: $("#txt-det-4-" + fila).val(),
-    //                TOTAL_GEI_BASE: $("#txt-det-5-" + fila).val(),
-    //                TOTAL_GEI_INIMIT: $("#txt-det-6-" + fila).val(),
-    //                TOTAL_GEI_REDUCIDO: $("#txt-det-7-" + fila).val(),
-    //                ID_TIPO_FUENTEI: 1,
-    //                ID_ENFOQUE: $("#cbo-enfoque").val(),
-    //                ADJUNTO_BASE: $("#fledoc-" + fila).val()
-    //            }
-    //            indicadores.push(itx);
-    //        }
-    //    }
-    //} else if (enfoque == 2) {
-    //    for (var fila = 1 ; fila < n; fila++) {
-    //        if ($("#txt-det-8-" + fila).val() != '') {
-    //            var itx = {
-    //                ID_INDICADOR: $("#txt-det-9-" + fila).val(),
-    //                ID_INICIATIVA: $("#Control").data("iniciativa"),
-    //                ANNOB: $("#cbo-det-1-" + fila).val(),
-    //                INICIO_OPERACIONES: $("#dat-det-1-" + fila).val(),
-    //                ID_TIPO_VEHICULOB: $("#cbo-det-2-" + fila).val(),
-    //                ID_TIPO_COMBUSTIBLEB: $("#cbo-det-3-" + fila).val(),
-    //                KRVB: $("#txt-det-1-" + fila).val(),
-    //                KRV_COMBUSTIBLE: $("#txt-det-2-" + fila).val(),
-    //                CANTIDADB: $("#txt-det-3-" + fila).val(),
-    //                FACTOR_RENDIMIENTO: $("#txt-det-4-" + fila).val(),
-    //                PLACA: $("#txt-det-5-" + fila).val(),
-    //                TOTAL_GEI_BASE: $("#txt-det-6-" + fila).val(),
-    //                TOTAL_GEI_INIMIT: $("#txt-det-7-" + fila).val(),
-    //                TOTAL_GEI_REDUCIDO: $("#txt-det-8-" + fila).val(),
-    //                ID_TIPO_FUENTEI: 2,
-    //                ID_ENFOQUE: $("#cbo-enfoque").val(),
-    //                ADJUNTO_BASE: $("#fledoc-" + fila).val()
-    //            }
-    //            indicadores.push(itx);
-    //        }
-    //    }
-    //} else if (enfoque == 3) {
-    //    for (var fila = 1 ; fila < n; fila++) {
-    //        if ($("#txt-det-5-" + fila).val() != '') {
-    //            var itx = {
-    //                ID_INDICADOR: $("#txt-det-6-" + fila).val(),
-    //                ID_INICIATIVA: $("#Control").data("iniciativa"),
-    //                ANNOB: $("#cbo-det-1-" + fila).val(),
-    //                INICIO_OPERACIONES: $("#dat-det-1-" + fila).val(),
-    //                ID_TIPO_VEHICULOB: $("#cbo-det-2-" + fila).val(),
-    //                ID_TIPO_COMBUSTIBLEB: $("#cbo-det-3-" + fila).val(),
-    //                CONSUMO_ELECTRICIDAD: $("#txt-det-1-" + fila).val(),
-    //                PLACA: $("#txt-det-2-" + fila).val(),
-    //                TOTAL_GEI_BASE: $("#txt-det-3-" + fila).val(),
-    //                TOTAL_GEI_INIMIT: $("#txt-det-4-" + fila).val(),
-    //                TOTAL_GEI_REDUCIDO: $("#txt-det-5-" + fila).val(),
-    //                //ID_TIPO_FUENTEI: $("#cbo-enfoque").val(),
-    //                ID_ENFOQUE: $("#cbo-enfoque").val(),
-    //                ADJUNTO_BASE: $("#fledoc-" + fila).val()
-    //            }
-    //            indicadores.push(itx);
-    //        }
-    //    }
-    //} else if (enfoque == 4) {
-    //    for (var fila = 1 ; fila < n; fila++) {
-    //        if ($("#txt-det-6-" + fila).val() != '') {
-    //            var itx = {
-    //                ID_INDICADOR: $("#txt-det-7-" + fila).val(),
-    //                ID_INICIATIVA: $("#Control").data("iniciativa"),
-    //                ANNOB: $("#cbo-det-1-" + fila).val(),
-    //                INICIO_OPERACIONES: $("#dat-det-1-" + fila).val(),
-    //                ID_TIPO_VEHICULOB: $("#cbo-det-2-" + fila).val(),
-    //                ID_TIPO_COMBUSTIBLEB: $("#cbo-det-3-" + fila).val(),
-    //                CONSUMO_ELECTRICIDAD: $("#txt-det-1-" + fila).val(),
-    //                CONSUMO_COMBUSTIBLE: $("#txt-det-2-" + fila).val(),
-    //                PLACA: $("#txt-det-3-" + fila).val(),
-    //                TOTAL_GEI_BASE: $("#txt-det-4-" + fila).val(),
-    //                TOTAL_GEI_INIMIT: $("#txt-det-5-" + fila).val(),
-    //                TOTAL_GEI_REDUCIDO: $("#txt-det-6-" + fila).val(),
-    //                //ID_TIPO_FUENTEI: $("#cbo-enfoque").val(),
-    //                ID_ENFOQUE: $("#cbo-enfoque").val(),
-    //                ADJUNTO_BASE: $("#fledoc-" + fila).val()
-    //            }
-    //            indicadores.push(itx);
-    //        }
-    //    }
-    //}
+
 
     for (var i = 0, len = storedFiles.length; i < len; i++) {
         var sux = {
@@ -2760,6 +2762,18 @@ function fn_procesoDetalleIndicador(url, estado) {
         documentos.push(sux);
     }
 
+    //===========================================
+    var terminos = $("#chk-publicar").prop("checked");
+    var inversion = $("#chk-publicar-monto-inversion").prop("checked");
+    var privacidad = '0';
+    var privacidad_monto = '0';
+    if (terminos) {
+        privacidad = '1'; //0 - PRIVADO : 1 - PUBLICO
+    }
+    if (inversion) {
+        privacidad_monto = '1'; //0 - PRIVADO : 1 - PUBLICO
+    }
+    //===========================================
 
     var archivos = "";
     for (var i = 0, len = storedFiles.length; i < len; i++) {
@@ -2791,6 +2805,8 @@ function fn_procesoDetalleIndicador(url, estado) {
         TOTAL_GEI: parseFloat($("#total-detalle").html()),
         DATA: parametros,
         ID_TIPO_INGRESO: 1,
+        PRIVACIDAD_INICIATIVA: privacidad,
+        PRIVACIDAD_INVERSION: privacidad_monto,
         //ListaIndicadores: indicadores,
         //ListaIndicadoresData: indicadores,
         ListaSustentos: documentos,
@@ -2815,6 +2831,8 @@ function fn_procesoDetalleIndicador(url, estado) {
             TOTAL_GEI: parseFloat($("#total-detalle").html()),
             DATA: parametros,
             ID_TIPO_INGRESO: 1,
+            PRIVACIDAD_INICIATIVA: privacidad,
+            PRIVACIDAD_INVERSION: privacidad_monto,
             //ListaIndicadores: indicadores,
             //ListaIndicadoresData: indicadores,
             ListaSustentos: documentos,
@@ -2841,22 +2859,24 @@ function fn_procesoDetalleIndicador(url, estado) {
                 $("#fledocumentos").val("");
                 if (estado == 0 || estado == 6) {
                     $("#mensajeModalAvance #mensajeDangerAvance").remove();
-                    var msj = '                   <div class="col-sm-12 col-md-12 col-lg-12" id="mensajeWarningAvance">';
-                    msj = msj + '                       <div class="alert alert-warning d-flex align-items-stretch" role="alert">';
-                    msj = msj + '                            <div class="alert-wrap mr-3">';
-                    msj = msj + '                                <div class="sa">';
-                    msj = msj + '                                    <div class="sa-warning">';
-                    msj = msj + '                                        <div class="sa-warning-body"></div>';
-                    msj = msj + '                                        <div class="sa-warning-dot"></div>';
-                    msj = msj + '                                    </div>';
-                    msj = msj + '                                </div>';
-                    msj = msj + '                            </div>';
-                    msj = msj + '                            <div class="alert-wrap">';
-                    msj = msj + '                                <h6>Sus avances fueron guardados</h6>';
-                    msj = msj + '                                <hr>Recuerde, podrá solicitar una revisión una vez complete todos los campos obligatorios.';
-                    msj = msj + '                            </div>';
-                    msj = msj + '                        </div>';
-                    msj = msj + '                    </div>';
+                    //var msj = '                   <div class="col-sm-12 col-md-12 col-lg-12" id="mensajeWarningAvance">';
+                    //msj = msj + '                       <div class="alert alert-warning d-flex align-items-stretch" role="alert">';
+                    //msj = msj + '                            <div class="alert-wrap mr-3">';
+                    //msj = msj + '                                <div class="sa">';
+                    //msj = msj + '                                    <div class="sa-warning">';
+                    //msj = msj + '                                        <div class="sa-warning-body"></div>';
+                    //msj = msj + '                                        <div class="sa-warning-dot"></div>';
+                    //msj = msj + '                                    </div>';
+                    //msj = msj + '                                </div>';
+                    //msj = msj + '                            </div>';
+                    //msj = msj + '                            <div class="alert-wrap">';
+                    //msj = msj + '                                <h6>Sus avances fueron guardados</h6>';
+                    //msj = msj + '                                <hr>Recuerde, podrá solicitar una revisión una vez complete todos los campos obligatorios.';
+                    //msj = msj + '                            </div>';
+                    //msj = msj + '                        </div>';
+                    //msj = msj + '                    </div>';
+                    var msj = mensajeCorrecto("mensajeWarningAvance", "Bien", "Usted a guardado correctamente su avance.");
+
                     $("#guardar-avance #modalAvanceBoton").hide();
                     $("#pieCorrectoAvance").show();
                     $('#mensajeModalAvance').append(msj);
@@ -2886,7 +2906,7 @@ function fn_procesoDetalleIndicador(url, estado) {
                     //$('#mensajeModalRegistrar').append(msj);
                     $("#Control").data("modal", 1);
                     if (response.extra == "1") {
-                        if (ws != null) ws.send(response.extra);
+                        //if (ws != null) ws.send(response.extra);
                     }
                 }
             } else {
@@ -2907,8 +2927,8 @@ function fn_procesoDetalleIndicador(url, estado) {
                     msj = msj + '                               </div>';
                     msj = msj + '                           </div>';
                     msj = msj + '                            <div class="alert-wrap">';
-                    msj = msj + '                                <h6>Error</h6>';
-                    msj = msj + '                                <hr>Ocurrio un error durante el proceso de guardado del avance.';
+                    msj = msj + '                                <h6>Error al guardar</h6>';
+                    msj = msj + '                                <hr><small class="mb-0">Verifique que los datos e intente otra vez.</small>';
                     msj = msj + '                            </div>';
                     msj = msj + '                        </div>';
                     msj = msj + '                    </div>';
@@ -2962,6 +2982,9 @@ $("#solicitar-revision").on("hidden.bs.modal", function () {
 });
 
 $("#guardar-avance").on("hidden.bs.modal", function () {
+    if ($("#Control").data("modal") == 1) {
+        location.href = baseUrl + "Gestion/AccionMitigacion";
+    }
     $("#mensajeModalAvance #mensajeDangerAvance").remove();
     $("#mensajeModalAvance #mensajeWarningAvance").remove();
     $("#guardar-avance #modalAvanceBoton").show();
@@ -3623,13 +3646,22 @@ function fn_cargarGei() {
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
-                    for (var j = 0; j < data.length; j++) {
-                        for (var i = 0; i < $("#listaGei").data("cantidad") ; i++) {
-                            if ($('#G' + (i + 1)).data("value") == data[j]["ID_GEI"]) {
-                                $('#G' + (i + 1)).prop('checked', true);
+                    if ($("#Control").data("revision") == 1) {
+                        for (var j = 0; j < data.length; j++) {
+                            for (var i = 0; i < $("#listaGei").data("cantidad") ; i++) {
+                                if ($('#G' + (i + 1)).data("value") == data[j]["ID_GEI"]) {
+                                    $('#G' + (i + 1)).prop('checked', true);
+                                }
                             }
                         }
-                    }                 
+                    } else {
+                        var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">';
+                        for (var j = 0; j < data.length; j++) {
+                            msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
+                        }
+                        msj = msj + ' </textarea>';
+                        $("#campoGei").append(msj);
+                    }                
                 }
             }
         }
@@ -3649,15 +3681,24 @@ function fn_cargarEnergetico() {
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
-                    for (var j = 0; j < data.length; j++) {
-                        for (var i = 0; i < $("#listaEnerg").data("cantidad") ; i++) {
-                            if ($('#E' + (i + 1)).data("value") == data[j]["ID_ENERG"]) {
-                                $('#E' + (i + 1)).prop('checked', true);
+                    if ($("#Control").data("revision") == 1) {
+                        for (var j = 0; j < data.length; j++) {
+                            for (var i = 0; i < $("#listaEnerg").data("cantidad") ; i++) {
+                                if ($('#E' + (i + 1)).data("value") == data[j]["ID_ENERG"]) {
+                                    $('#E' + (i + 1)).prop('checked', true);
+                                }
                             }
                         }
-                    }                  
+                    } else {
+                        var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">';
+                        for (var j = 0; j < data.length; j++) {
+                            msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
+                        }
+                        msj = msj + ' </textarea>';
+                        $("#campoEnerg").append(msj);
+                    }                 
                 }
-            }
+            }            
         }
     });
 }
@@ -4505,4 +4546,69 @@ function cargarVerificar(enfoque, tabla, fila) {
 function fn_cambiarTipoIniciativa(id, tipoIniciativa) {
     $("#tipo-iniciativa").html("").append('<i class="fas fa-list pr-1"></i>' + tipoIniciativa);
     $("#tipo-iniciativa").data("tipo", id);
+}
+
+function mensajeCorrecto(id, titulo, mensaje) {
+    var msj = '                   <div class="col-sm-12 col-md-12 col-lg-12" id="' + id + '">';
+    msj = msj + '                       <div class="alert alert-success d-flex align-items-stretch" role="alert">';
+    msj = msj + '                            <div class="alert-wrap mr-3">';
+    msj = msj + '                                <div class="sa">';
+    msj = msj + '                                    <div class="sa-success">';
+    msj = msj + '                                        <div class="sa-success-tip"></div>';
+    msj = msj + '                                        <div class="sa-success-long"></div>';
+    msj = msj + '                                        <div class="sa-success-placeholder"></div>';
+    msj = msj + '                                        <div class="sa-success-fix"></div>';
+    msj = msj + '                                    </div>';
+    msj = msj + '                                </div>';
+    msj = msj + '                            </div>';
+    msj = msj + '                            <div class="alert-wrap">';
+    msj = msj + '                                <h6>' + titulo + '</h6>';
+    msj = msj + '                                <hr><small class="mb-0">' + mensaje + '</b></small>';
+    msj = msj + '                            </div>';
+    msj = msj + '                        </div>';
+    msj = msj + '                 </div>';
+    return msj;
+}
+
+function mensajeError(id, titulo, mensaje) {
+    var msj = '                   <div class="col-sm-12 col-md-12 col-lg-12" id="' + id + '">';
+    msj = msj = '                       <div class="alert alert-danger d-flex align-items-stretch" role="alert">';
+    msj = msj + '                            <div class="alert-wrap mr-3">';
+    msj = msj + '                                <div class="sa">';
+    msj = msj + '                                    <div class="sa-error">';
+    msj = msj + '                                       <div class="sa-error-x">';
+    msj = msj + '                                           <div class="sa-error-left"></div>';
+    msj = msj + '                                           <div class="sa-error-right"></div>';
+    msj = msj + '                                       </div>';
+    msj = msj + '                                       <div class="sa-error-placeholder"></div>';
+    msj = msj + '                                       <div class="sa-error-fix"></div>';
+    msj = msj + '                                   </div>';
+    msj = msj + '                               </div>';
+    msj = msj + '                           </div>';
+    msj = msj + '                            <div class="alert-wrap">';
+    msj = msj + '                                <h6>' + titulo + '</h6>';
+    msj = msj + '                                <hr><small class="mb-0">' + mensaje + '</b></small>';
+    msj = msj + '                            </div>';
+    msj = msj + '                        </div>';
+    msj = msj + '                    </div>';
+    msj = msj + '                 </div>';
+    return msj;
+}
+
+
+function ValidarRevision(num_validar ,id_ini, id_plazo, id_msj, mensaje) {
+    var msj = "";
+    var item = {
+        ID_INICIATIVA: id_ini,
+        ID_PLAZO_ETAPA_ESTADO: id_plazo
+    };
+    var respuesta = MRV.Ajax(baseUrl + "Gestion/ValidarRevisionIniciativa", item, false);
+    if (respuesta.success) {
+        if (respuesta.extra == num_validar) {
+            msj = mensajeError(id_msj, "Error", mensaje);
+        }
+    } else {
+        msj = mensajeError(id_msj, "Error", "Ocurrio un error durante el proceso de guardado de la Iniciativa.");
+    }
+    return msj;
 }

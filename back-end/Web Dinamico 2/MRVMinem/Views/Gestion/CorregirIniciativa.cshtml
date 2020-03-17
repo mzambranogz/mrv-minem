@@ -384,32 +384,41 @@
                 </div>
             </div>
             <div class="modal fade" id="medidas-mitigacion-listado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
                     <div class="modal-content">
-                        <div class="modal-header">
+                        @*<div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Seleccione una Medida de Mitigación <br><small class="text-muted">Para iniciar con el registro de su identificación</small></h5>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        </div>
+                        </div>*@
                         <div class="modal-body medidas-modal">
                             <div class="row">
-                                <div class="col-12">
-                                    <div class="row">
-                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-1 text-center">
-                                            <div class="rounded py-3"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(5);" data-toggle="tooltip" data-placement="top" title="Transformación del mercado de Iluminación en el Sector Residencial - ISR"><img src="~/images/ico_nama_amarillo_01.svg"></a></div><small class="font-weight-bold">Transformación del mercado de Iluminación en el Sector Residencial - ISR</small>
-                                        </div>
-                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-1 text-center">
-                                            <div class="rounded py-3"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(7);" data-toggle="tooltip" data-placement="top" title="Lámparas de alumbrado público - LAP"><img src="~/images/ico_nama_amarillo_02.svg"></a></div><small class="font-weight-bold">Lámparas de alumbrado público - LAP</small>
-                                        </div>
-                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-1 text-center">
-                                            <div class="rounded py-3"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(1);" data-toggle="tooltip" data-placement="top" title="Etiquetado de Eficiencia Energética - EEE"><img src="~/images/ico_nama_amarillo_03.svg"></a></div><small class="font-weight-bold">Etiquetado de Eficiencia Energética - EEE</small>
-                                        </div>
-                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-1 text-center">
-                                            <div class="rounded py-3"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(4);" data-toggle="tooltip" data-placement="top" title="Auditorías energéticas en el sector público - AESP"><img src="~/images/ico_nama_amarillo_04.svg"></a></div><small class="font-weight-bold">Auditorías energéticas en el sector público - AESP</small>
-                                        </div>
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <div class="swal2-icon swal2-question swal2-icon-show" style="display: flex;">
+                                        <div class="swal2-icon-content"><i class="fas fa-info"></i></div>
                                     </div>
+                                    <h3 class="text-center">Seleccione una medida de mitigación</h3>
+                                    <p class="text-center">en la que usted crea que corresponda la iniciativa a registrar</p>
+                                </div>
+                                <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
+                                    <div class="rounded py-3"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(5);" data-toggle="tooltip" data-placement="top" title="Transformación del mercado de Iluminación en el Sector Residencial - ISR"><img src="~/images/ico_nama_amarillo_01.svg"></a></div><small class="font-weight-bold">Transformación del mercado de Iluminación en el Sector Residencial - ISR</small>
+                                </div>
+                                <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
+                                    <div class="rounded py-3"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(7);" data-toggle="tooltip" data-placement="top" title="Lámparas de alumbrado público - LAP"><img src="~/images/ico_nama_amarillo_02.svg"></a></div><small class="font-weight-bold">Lámparas de alumbrado público - LAP</small>
+                                </div>
+                                <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
+                                    <div class="rounded py-3"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(1);" data-toggle="tooltip" data-placement="top" title="Etiquetado de Eficiencia Energética - EEE"><img src="~/images/ico_nama_amarillo_03.svg"></a></div><small class="font-weight-bold">Etiquetado de Eficiencia Energética - EEE</small>
+                                </div>
+                                <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
+                                    <div class="rounded py-3"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(4);" data-toggle="tooltip" data-placement="top" title="Auditorías energéticas en el sector público - AESP"><img src="~/images/ico_nama_amarillo_04.svg"></a></div><small class="font-weight-bold">Auditorías energéticas en el sector público - AESP</small>
+                                </div>
+                                <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
+                                    <div class="rounded py-3"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(6);" data-toggle="tooltip" data-placement="top" title="Reemplazo de lámparas en sector público - LSP"><img src="~/images/ico_nama_amarillo_05.svg"></a></div><small class="font-weight-bold">Reemplazo de lámparas en sector público - LSP</small>
+                                </div>
+                                <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
+                                    <div class="rounded py-3"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(2);" data-toggle="tooltip" data-placement="top" title="Eficiencia Energética en el sector industrial - EESI"><img src="~/images/ico_nama_amarillo_06.svg"></a></div><small class="font-weight-bold">Eficiencia Energética en el sector industrial - EESI</small>
                                 </div>
                             </div>
-                            <div class="row">
+                            @*<div class="row">
                                 <div class="col-12">
                                     <div class="row">
                                         <div class="col-sm-12 col-md-4 col-lg-3 pb-1 text-center">
@@ -426,20 +435,26 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>*@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="row">
-                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-1 text-center">
+                                        <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
+                                            <div class="rounded py-3"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(3);" data-toggle="tooltip" data-placement="top" title="Eficiencia energética en el sector comercial - EESC"><img src="~/images/ico_nama_amarillo_07.svg"></a></div><small class="font-weight-bold">Eficiencia energética en el sector comercial - EESC</small>
+                                        </div>
+                                        <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
+                                            <div class="rounded py-3"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(12);" data-toggle="tooltip" data-placement="top" title="Promoción de vehículos eléctricos - PVE"><img src="~/images/ico_nama_azul_01.svg"></a></div><small class="font-weight-bold">Promoción de vehículos eléctricos - PVE</small>
+                                        </div>
+                                        <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
                                             <div class="rounded py-3"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(9);" data-toggle="tooltip" data-placement="top" title="Electrificación rural - ER"><img src="~/images/ico_nama_rojo_01.svg"></a></div><small class="font-weight-bold">Electrificación rural - ER</small>
                                         </div>
-                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-1 text-center">
+                                        <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
                                             <div class="rounded py-3"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(8);" data-toggle="tooltip" data-placement="top" title="Cocción limpia - CL"><img src="~/images/ico_nama_rojo_02.svg"></a></div><small class="font-weight-bold">Cocción limpia - CL</small>
                                         </div>
-                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-1 text-center">
+                                        <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
                                             <div class="rounded py-3"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(10);" data-toggle="tooltip" data-placement="top" title="RER conectado - RERC"><img src="~/images/ico_nama_verde_01.svg"></a></div><small class="font-weight-bold">RER conectado - RERC</small>
                                         </div>
-                                        <div class="col-sm-12 col-md-4 col-lg-3 pb-1 text-center">
+                                        <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
                                             <div class="rounded py-3"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(11);" data-toggle="tooltip" data-placement="top" title="Generación distribuida - GD"><img src="~/images/ico_nama_verde_02.svg"></a></div><small class="font-weight-bold">Generación distribuida - GD</small>
                                         </div>
                                     </div>
@@ -447,7 +462,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-12 mt-3">
-                                    <div class="alert alert-warning">No te preocupes, que podrás cambiar la medida de mitigacion en cualquier momento. </br>Si no encuentra la medida de mitigación que está buscando comuniquese con el administrador del sistema al siguiente correo electrónico: <strong id="correo-admin">@*carlos.galdos@minen.gob.pe*@</strong></div>
+                                    <div class="alert alert-warning">No te preocupes, que podrás cambiar la medida de mitigacion en cualquier momento. Si no encuentra la medida de mitigación que está buscando comuniquese con el administrador del sistema al siguiente correo electrónico: <strong id="correo-admin">@*carlos.galdos@minen.gob.pe*@</strong></div>
                                 </div>
                             </div>
 
@@ -493,16 +508,24 @@
             <div class="modal fade" id="solicitar-revision" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                     <div class="modal-content">
-                        <div class="modal-header">
+                        @*<div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Mensaje de Usuario</h5>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        </div>
+                        </div>*@
                         <div class="modal-body medidas-modal">
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <h3 class="text-center">¿Está seguro de enviar su solicitud a revisión? <br></h3>
+                                    <div class="swal2-icon swal2-question swal2-icon-show" style="display: flex;">
+                                        <div class="swal2-icon-content"><i class="fas fa-question"></i></div>
+                                    </div>
+                                    <h3 class="text-center">¿Está seguro de enviar su solicitud a revisión?</h3>
                                     <p class="text-center">Confirme si está seguro de enviar todos los datos registrados para iniciar el proceso de revisión y obtener la aprobación por parte de nuestros especialistas.</p>
                                 </div>
+
+                                @*<div class="col-sm-12 col-md-12 col-lg-12">
+                                    <h3 class="text-center">¿Está seguro de enviar su solicitud a revisión? <br></h3>
+                                    <p class="text-center">Confirme si está seguro de enviar todos los datos registrados para iniciar el proceso de revisión y obtener la aprobación por parte de nuestros especialistas.</p>
+                                </div>*@
                                 <div class="col-sm-12 col-md-12 col-lg-12" id="mensajeModalRegistrar">
                                     <div class="alert alert-warning d-flex align-items-stretch" role="alert">
                                         <div class="alert-wrap mr-3">
@@ -563,29 +586,37 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer" id="modalRegistrarBoton">
-                            <button class="btn btn-primary" type="button" onclick="fn_CorregirIniciativaMitigacion();">Si, grabar</button>
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">No, cancelar</button>                            
+                        <div class="modal-footer justify-content-center" id="modalRegistrarBoton">
+                            <button class="btn btn-info" type="button" onclick="fn_CorregirIniciativaMitigacion();">Si, grabar</button>
+                            <button class="btn btn-dark" type="button" data-dismiss="modal">Cancelar</button>                            
                         </div>
-                        <div class="modal-footer" id="pieCorrecto"> <!-- add 04-02-2020 -->
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
+                        <div class="modal-footer justify-content-center" id="pieCorrecto"> <!-- add 04-02-2020 -->
+                            <button class="btn btn-dark" type="button" data-dismiss="modal">Cerrar</button>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal fade" id="guardar-avance" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-dialog modal modal-dialog-centered" role="document">
                     <div class="modal-content">
-                        <div class="modal-header">
+                        @*<div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Mensaje de Usuario</h5>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        </div>
+                        </div>*@
                         <div class="modal-body medidas-modal" id="mensajeModalAvance">
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-12">
-                                    <h3 class="text-center">¿Desea guardar su avance? <br></h3>
+                                    <div class="swal2-icon swal2-question swal2-icon-show" style="display: flex;">
+                                        <div class="swal2-icon-content"><i class="fas fa-question"></i></div>
+                                    </div>
+                                    <h3 class="text-center">¿Desea guardar su avance?</h3>
                                     <p class="text-center">Los datos ingresados serán almacenados temporalmente y podrán ser regularizados al editar su iniciativa.</p>
                                 </div>
+
+                                @*<div class="col-sm-12 col-md-12 col-lg-12">
+                                    <h3 class="text-center">¿Desea guardar su avance? <br></h3>
+                                    <p class="text-center">Los datos ingresados serán almacenados temporalmente y podrán ser regularizados al editar su iniciativa.</p>
+                                </div>*@
                                 <!--<div class="col-sm-12 col-md-12 col-lg-12">
                                   <div class="alert alert-warning d-flex align-items-stretch" role="alert">
                                     <div class="alert-wrap mr-3">
@@ -604,13 +635,12 @@
                                 </div>-->
                             </div>
                         </div>
-                        <div class="modal-footer" id="modalAvanceBoton">
-                            @*<button class="btn btn-primary" type="button" onclick="fn_guardarAvances();">Si, grabar</button>*@
-                            <button class="btn btn-primary" type="button" onclick="fn_guardarCorregirAvances();">Si, grabar</button>
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">No, cancelar</button>                            
+                        <div class="modal-footer justify-content-center" id="modalAvanceBoton">
+                            <button class="btn btn-info" type="button" onclick="fn_guardarCorregirAvances();">Si, grabar</button>
+                            <button class="btn btn-dark" type="button" data-dismiss="modal">Cancelar</button>                            
                         </div>
-                        <div class="modal-footer" id="pieCorrectoAvance"> <!-- add 04-02-2020 -->
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
+                        <div class="modal-footer justify-content-center" id="pieCorrectoAvance"> <!-- add 04-02-2020 -->
+                            <button class="btn btn-dark" type="button" data-dismiss="modal">Cerrar</button>
                         </div>
                     </div>
                 </div>

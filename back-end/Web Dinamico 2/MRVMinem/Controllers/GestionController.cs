@@ -114,109 +114,149 @@ namespace MRVMinem.Controllers
         public ActionResult CorregirIniciativa(int id, int ini)
         {
             MvSesion modelo = new MvSesion();
-            modelo.iniciativa = ini;
-            modelo.listaTipoIniciativa = TipoIniciativaLN.listarTipoIniciativa();
+            int validar = IniciativaLN.ValidarVista(ini);
+            if (validar == 1 || validar == 3 || validar == 4)
+            {
+                
+                modelo.iniciativa = ini;
+                modelo.listaTipoIniciativa = TipoIniciativaLN.listarTipoIniciativa();
+            }
+            else
+            {
+                return RedirectToAction("Default", "Error");
+            }
+
             return View(modelo);
         }
 
         public ActionResult RevisarIniciativa(int id, int ini)
         {
             ListaObjeto modelo = new ListaObjeto();
-            IniciativaBE inic = new IniciativaBE();
-            inic.ID_INICIATIVA = ini;
-            modelo.iniciativa_mit = inic;
-            modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
-            modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
-            modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
-            //modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
-            modelo.listaEnergetico = EnergeticoLN.ListarENERG(new EnergeticoBE());
-            //modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
-            modelo.listaGei = GasEfectoInvernaderoLN.ListarGEI(new GasEfectoInvernaderoBE());
-            modelo.usuario = UsuarioLN.UsuarioIniciativa(modelo.iniciativa_mit.ID_USUARIO);
-            modelo.listaTipoIniciativa = TipoIniciativaLN.listarTipoIniciativa();
-            modelo.revision = 1;
-            Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
-            Session["nombres_destino"] = modelo.usuario.NOMBRES;
+            int validar = IniciativaLN.ValidarVista(ini);
+            if (validar == 2 || validar == 5)
+            {
+                IniciativaBE inic = new IniciativaBE();
+                inic.ID_INICIATIVA = ini;
+                modelo.iniciativa_mit = inic;
+                modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
+                modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
+                modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
+                //modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
+                modelo.listaEnergetico = EnergeticoLN.ListarENERG(new EnergeticoBE());
+                //modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
+                modelo.listaGei = GasEfectoInvernaderoLN.ListarGEI(new GasEfectoInvernaderoBE());
+                modelo.usuario = UsuarioLN.UsuarioIniciativa(modelo.iniciativa_mit.ID_USUARIO);
+                modelo.listaTipoIniciativa = TipoIniciativaLN.listarTipoIniciativa();
+                modelo.revision = 1;
+                modelo.estado_flujo = validar;
+                Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
+                Session["nombres_destino"] = modelo.usuario.NOMBRES;
+            }
+            else
+            {
+                return RedirectToAction("Default", "Error");
+            }
+
             return View(modelo);
         }
 
         public ActionResult DetalleIndicador(int id, int ini)
-        {            
+        {
             ListaObjeto modelo = new ListaObjeto();
-            IniciativaBE inic = new IniciativaBE();
-            inic.ID_INICIATIVA = id;
-            modelo.iniciativa_mit = inic;
-            modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
-            modelo.menor = IndicadorLN.DetalleIndicadorEnfoque(modelo.iniciativa_mit.ID_INICIATIVA);
-            modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
-            modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
-
-           modelo.listaParametro = ParametroLN.ListarParametro(modelo.iniciativa_mit.ID_MEDMIT);
-
-            modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
-            modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
-            modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
-            modelo.usuario = UsuarioLN.EspecialistaMedida(modelo.iniciativa_mit.ID_MEDMIT);
-            modelo.url = WebConfigurationManager.AppSettings.Get("Sello");
-            modelo.revision = 0;
-                       
-            Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
-            int enf = IniciativaLN.getIdEnfoqueMenor(inic);
-            if (enf == 0)
+            int validar = IniciativaLN.ValidarVista(id);
+            if (validar == 6 || validar == 7)
             {
-                if (modelo.menor == 0)
+                IniciativaBE inic = new IniciativaBE();
+                inic.ID_INICIATIVA = id;
+                modelo.iniciativa_mit = inic;
+                modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
+                modelo.menor = IndicadorLN.DetalleIndicadorEnfoque(modelo.iniciativa_mit.ID_INICIATIVA);
+                modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
+                modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
+
+                modelo.listaParametro = ParametroLN.ListarParametro(modelo.iniciativa_mit.ID_MEDMIT);
+
+                modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
+                modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
+                modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
+                modelo.usuario = UsuarioLN.EspecialistaMedida(modelo.iniciativa_mit.ID_MEDMIT);
+                modelo.url = WebConfigurationManager.AppSettings.Get("Sello");
+                modelo.revision = 0;
+
+                Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
+                int enf = IniciativaLN.getIdEnfoqueMenor(inic);
+                if (enf == 0)
                 {
-                    modelo.menor = getMenorId(modelo.listaEnfoque);
-                    Session["enfoque"] = 0;
+                    if (modelo.menor == 0)
+                    {
+                        modelo.menor = getMenorId(modelo.listaEnfoque);
+                        Session["enfoque"] = 0;
+                    }
                 }
-            }else
+                else
+                {
+                    modelo.menor = enf;
+                    Session["enfoque"] = enf;
+                }
+            }
+            else
             {
-                modelo.menor = enf;
-                Session["enfoque"] = enf;
-            }            
+                return RedirectToAction("Default", "Error");
+            }
+
             return View(modelo);
         }
 
         public ActionResult RevisarDetalleIndicador(int id, int ini)
         {
             ListaObjeto modelo = new ListaObjeto();
-            IniciativaBE inic = new IniciativaBE();
-            IndicadorDataBE ida = new IndicadorDataBE();
-            inic.ID_INICIATIVA = id;
-            ida.ID_INICIATIVA = id;
-            modelo.iniciativa_mit = inic;
-            modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
-            //modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
-            modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
-            //modelo.listaEnfoque = EnfoqueLN.listarEnfoqueIniciativa(modelo.iniciativa_mit.ID_INICIATIVA);
-            ida.ID_MEDMIT = modelo.iniciativa_mit.ID_MEDMIT;
-            modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
-
-            modelo.listaIndData = IndicadorLN.ListarDatosTablaDinamica(ida);
-
-            //modelo.listaParametro = ParametroLN.ListarParametro(modelo.iniciativa_mit.ID_MEDMIT);            
-            modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
-            modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
-            modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
-            modelo.usuario = UsuarioLN.UsuarioIniciativa(modelo.iniciativa_mit.ID_USUARIO);
-            modelo.listaTipoIniciativa = TipoIniciativaLN.listarTipoIniciativa();
-            modelo.id_enfoques = concatenarIdEnfoque(modelo.listaIndData); //add 2-3-20
-            modelo.revision = 1;
-            Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
-            Session["nombres_destino"] = modelo.usuario.NOMBRES;
-
-            string factores = "";
-            if (modelo.listaIndData.Count > 0)
+            int validar = IniciativaLN.ValidarVista(id);
+            if (validar == 8 || validar == 11 || validar == 13)
             {
-                List<int> id_factores = modelo.listaIndData[modelo.listaIndData.Count - 1].id_factores;
+                IniciativaBE inic = new IniciativaBE();
+                IndicadorDataBE ida = new IndicadorDataBE();
+                inic.ID_INICIATIVA = id;
+                ida.ID_INICIATIVA = id;
+                modelo.iniciativa_mit = inic;
+                modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
+                //modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
+                modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
+                //modelo.listaEnfoque = EnfoqueLN.listarEnfoqueIniciativa(modelo.iniciativa_mit.ID_INICIATIVA);
+                ida.ID_MEDMIT = modelo.iniciativa_mit.ID_MEDMIT;
+                modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
 
-                for (var i = 0; i < id_factores.Count; i++)
+                modelo.listaIndData = IndicadorLN.ListarDatosTablaDinamica(ida);
+
+                //modelo.listaParametro = ParametroLN.ListarParametro(modelo.iniciativa_mit.ID_MEDMIT);            
+                modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
+                modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
+                modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
+                modelo.usuario = UsuarioLN.UsuarioIniciativa(modelo.iniciativa_mit.ID_USUARIO);
+                modelo.listaTipoIniciativa = TipoIniciativaLN.listarTipoIniciativa();
+                modelo.id_enfoques = concatenarIdEnfoque(modelo.listaIndData); //add 2-3-20
+                modelo.revision = 1;
+                modelo.estado_flujo = validar;
+                Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
+                Session["nombres_destino"] = modelo.usuario.NOMBRES;
+
+                string factores = "";
+                if (modelo.listaIndData.Count > 0)
                 {
-                    factores += id_factores[i] + ",";
-                }
-                factores = factores.Substring(0, factores.Length - 1);
-                modelo.id_factores = factores;
+                    List<int> id_factores = modelo.listaIndData[modelo.listaIndData.Count - 1].id_factores;
+
+                    for (var i = 0; i < id_factores.Count; i++)
+                    {
+                        factores += id_factores[i] + ",";
+                    }
+                    factores = factores.Substring(0, factores.Length - 1);
+                    modelo.id_factores = factores;
+                }                
             }
+            else
+            {
+                return RedirectToAction("Default", "Error");
+            }
+            
             
             return View(modelo);
         }
@@ -224,82 +264,110 @@ namespace MRVMinem.Controllers
         public ActionResult CorregirDetalleIndicador(int id, int ini)
         {
             ListaObjeto modelo = new ListaObjeto();
-            IniciativaBE inic = new IniciativaBE();
-            inic.ID_INICIATIVA = id;
-            modelo.iniciativa_mit = inic;
-            modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
-            modelo.menor = IndicadorLN.DetalleIndicadorEnfoque(modelo.iniciativa_mit.ID_INICIATIVA);
-            modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
-            modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
-            modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
-            modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
-            modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
-            modelo.menor = IniciativaLN.getIdEnfoqueMenor(inic);
-            modelo.usuario = UsuarioLN.EspecialistaMedida(modelo.iniciativa_mit.ID_MEDMIT);
-            modelo.url = WebConfigurationManager.AppSettings.Get("Sello");
-            modelo.revision = 0;
-            Session["enfoque"] = modelo.menor;
-            //if (modelo.menor == 0)
-            //{
-            //    modelo.menor = getMenorId(modelo.listaEnfoque);
-            //}
-            Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
+            int validar = IniciativaLN.ValidarVista(id);
+            if (validar == 9 || validar == 10)
+            {
+                IniciativaBE inic = new IniciativaBE();
+                inic.ID_INICIATIVA = id;
+                modelo.iniciativa_mit = inic;
+                modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
+                modelo.menor = IndicadorLN.DetalleIndicadorEnfoque(modelo.iniciativa_mit.ID_INICIATIVA);
+                modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
+                modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
+                modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
+                modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
+                modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
+                modelo.menor = IniciativaLN.getIdEnfoqueMenor(inic);
+                modelo.usuario = UsuarioLN.EspecialistaMedida(modelo.iniciativa_mit.ID_MEDMIT);
+                modelo.url = WebConfigurationManager.AppSettings.Get("Sello");
+                modelo.revision = 0;
+                Session["enfoque"] = modelo.menor;
+                //if (modelo.menor == 0)
+                //{
+                //    modelo.menor = getMenorId(modelo.listaEnfoque);
+                //}
+                Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
+            }
+            else
+            {
+                return RedirectToAction("Default", "Error");
+            }
+                
             return View(modelo);
         }
 
         public ActionResult RevisarAdminDetalleIndicador(int id, int ini)
         {
-            //MvSesion modelo = new MvSesion();
             ListaObjeto modelo = new ListaObjeto();
-            IniciativaBE inic = new IniciativaBE();
-            IndicadorDataBE ida = new IndicadorDataBE();
-            inic.ID_INICIATIVA = id;
-            ida.ID_INICIATIVA = id;
-            modelo.iniciativa_mit = inic;
-            modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
-            //modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
-            //modelo.listaEnfoque = EnfoqueLN.listarEnfoqueIniciativa(modelo.iniciativa_mit.ID_INICIATIVA);
-            modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
+            int validar = IniciativaLN.ValidarVista(id);
+            if (validar == 12 || validar == 15 || validar == 19)
+            {
+                IniciativaBE inic = new IniciativaBE();
+                IndicadorDataBE ida = new IndicadorDataBE();
+                inic.ID_INICIATIVA = id;
+                ida.ID_INICIATIVA = id;
+                modelo.iniciativa_mit = inic;
+                modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
+                //modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
+                //modelo.listaEnfoque = EnfoqueLN.listarEnfoqueIniciativa(modelo.iniciativa_mit.ID_INICIATIVA);
+                modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
 
-            modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
-            ida.ID_MEDMIT = modelo.iniciativa_mit.ID_MEDMIT;
-            modelo.listaIndData = IndicadorLN.ListarDatosTablaDinamica(ida);
+                modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
+                ida.ID_MEDMIT = modelo.iniciativa_mit.ID_MEDMIT;
+                modelo.listaIndData = IndicadorLN.ListarDatosTablaDinamica(ida);
 
-            modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
-            modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
-            modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
-            modelo.usuario = UsuarioLN.EspecialistaMedida(modelo.iniciativa_mit.ID_MEDMIT);
-            modelo.listaTipoIniciativa = TipoIniciativaLN.listarTipoIniciativa();
-            modelo.revision = 1;
-            Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
-            Session["id_medida"] = modelo.medida.ID_MEDMIT;
+                modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
+                modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
+                modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
+                modelo.usuario = UsuarioLN.EspecialistaMedida(modelo.iniciativa_mit.ID_MEDMIT);
+                modelo.listaTipoIniciativa = TipoIniciativaLN.listarTipoIniciativa();
+                modelo.revision = 1;
+                modelo.estado_flujo = validar;
+                Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
+                Session["id_medida"] = modelo.medida.ID_MEDMIT;
+
+            }
+            else
+            {
+                return RedirectToAction("Default", "Error");
+            }
+
             return View(modelo);
         }
 
         public ActionResult EvaluarIniciativaDetalle(int id, int ini)
         {
             ListaObjeto modelo = new ListaObjeto();
-            IniciativaBE inic = new IniciativaBE();
-            IndicadorDataBE ida = new IndicadorDataBE();
-            inic.ID_INICIATIVA = id;
-            ida.ID_INICIATIVA = id;
-            modelo.iniciativa_mit = inic;
-            modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
-            //modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
-            //modelo.listaEnfoque = EnfoqueLN.listarEnfoqueIniciativa(modelo.iniciativa_mit.ID_INICIATIVA);
-            modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
+            int validar = IniciativaLN.ValidarVista(id);
+            if (validar == 21)
+            {
+                IniciativaBE inic = new IniciativaBE();
+                IndicadorDataBE ida = new IndicadorDataBE();
+                inic.ID_INICIATIVA = id;
+                ida.ID_INICIATIVA = id;
+                modelo.iniciativa_mit = inic;
+                modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
+                //modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
+                //modelo.listaEnfoque = EnfoqueLN.listarEnfoqueIniciativa(modelo.iniciativa_mit.ID_INICIATIVA);
+                modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
 
-            modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
-            ida.ID_MEDMIT = modelo.iniciativa_mit.ID_MEDMIT;
-            modelo.listaIndData = IndicadorLN.ListarDatosTablaDinamica(ida);
-            
-            modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
-            modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
-            modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
-            modelo.usuario = UsuarioLN.UsuarioAdministrador();
-            modelo.revision = 1;
-            Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
-            Session["usuario_destino"] = modelo.usuario.ID_USUARIO;
+                modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
+                ida.ID_MEDMIT = modelo.iniciativa_mit.ID_MEDMIT;
+                modelo.listaIndData = IndicadorLN.ListarDatosTablaDinamica(ida);
+
+                modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
+                modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
+                modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
+                modelo.usuario = UsuarioLN.UsuarioAdministrador();
+                modelo.revision = 1;
+                modelo.estado_flujo = validar;
+                Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
+                Session["usuario_destino"] = modelo.usuario.ID_USUARIO;
+            }
+            else
+            {
+                return RedirectToAction("Default", "Error");
+            }                
 
             return View(modelo);
         }
@@ -307,34 +375,44 @@ namespace MRVMinem.Controllers
         public ActionResult VerificarIniciativaDetalle(int id, int ini)
         {
             ListaObjeto modelo = new ListaObjeto();
-            IniciativaBE inic = new IniciativaBE();
-            IndicadorDataBE ida = new IndicadorDataBE();
-            inic.ID_INICIATIVA = id;
-            ida.ID_INICIATIVA = id;
-            modelo.iniciativa_mit = inic;
-            modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
-            //modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
-            //modelo.listaEnfoque = EnfoqueLN.listarEnfoqueIniciativa(modelo.iniciativa_mit.ID_INICIATIVA);
-            modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
-
-            modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
-            ida.ID_MEDMIT = modelo.iniciativa_mit.ID_MEDMIT;
-            modelo.listaIndData = IndicadorLN.ListarDatosTablaDinamica(ida);
-
-            modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
-            modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
-            modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
-            if (modelo.iniciativa_mit.ID_ETAPA == 8)
+            int validar = IniciativaLN.ValidarVista(id);
+            if (validar == 22)
             {
-                modelo.usuario = UsuarioLN.UsuarioAdministrador();
+                IniciativaBE inic = new IniciativaBE();
+                IndicadorDataBE ida = new IndicadorDataBE();
+                inic.ID_INICIATIVA = id;
+                ida.ID_INICIATIVA = id;
+                modelo.iniciativa_mit = inic;
+                modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
+                //modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
+                //modelo.listaEnfoque = EnfoqueLN.listarEnfoqueIniciativa(modelo.iniciativa_mit.ID_INICIATIVA);
+                modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
+
+                modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
+                ida.ID_MEDMIT = modelo.iniciativa_mit.ID_MEDMIT;
+                modelo.listaIndData = IndicadorLN.ListarDatosTablaDinamica(ida);
+
+                modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
+                modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
+                modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
+                if (modelo.iniciativa_mit.ID_ETAPA == 8)
+                {
+                    modelo.usuario = UsuarioLN.UsuarioAdministrador();
+                }
+                else
+                {
+                    modelo.usuario = UsuarioLN.UsuarioEvaluador();
+                }
+                Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
+                Session["usuario_destino"] = modelo.usuario.ID_USUARIO;
+                modelo.revision = 1;
+                modelo.estado_flujo = validar;
             }
             else
             {
-                modelo.usuario = UsuarioLN.UsuarioEvaluador();
+                return RedirectToAction("Default", "Error");
             }
-            Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
-            Session["usuario_destino"] = modelo.usuario.ID_USUARIO;
-            modelo.revision = 1;
+                
             return View(modelo);
         }
 
@@ -437,6 +515,36 @@ namespace MRVMinem.Controllers
             return View(model);
         }
         ////////////////////////////////////////////////////////7
+        public JsonResult ListaSectorInstitucion(SectorInstitucionBE entidad)
+        {
+            List<SectorInstitucionBE> lista = SectorInstitucionLN.ListaSectorInstitucion(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+        public JsonResult ListarMedidaMitigacion(MedidaMitigacionBE entidad)
+        {
+            List<MedidaMitigacionBE> lista = MedidaMitigacionLN.ListarMedidaMitigacion(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListaEnergetico(GasEfectoInvernaderoBE entidad)
+        {
+            List<GasEfectoInvernaderoBE> lista = GasEfectoInvernaderoLN.ListarGEI(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListaEnergeticoProyecto(EnergeticoBE entidad)
+        {
+            List<EnergeticoBE> lista = EnergeticoLN.ListarENERGProyecto(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
 
         public JsonResult ListaIniciativasEspecialista(IniciativaBE entidad)
         {
@@ -2203,7 +2311,17 @@ namespace MRVMinem.Controllers
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }
-        
+
+        public JsonResult ValidarRevisionIniciativa(IniciativaBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = IniciativaLN.ValidarRevisionIniciativa(entidad);
+            itemRespuesta.success = entidad.OK;
+            itemRespuesta.extra = Convert.ToString(entidad.CANTIDAD);
+            return Respuesta(itemRespuesta);
+        }
+
         //public JsonResult ListarTipoIniciativa()
         //{
         //    List<TipoIniciativaBE> lista = TipoIniciativaLN.listarTipoIniciativa();

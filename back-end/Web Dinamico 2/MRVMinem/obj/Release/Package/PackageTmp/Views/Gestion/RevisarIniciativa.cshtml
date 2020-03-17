@@ -5,6 +5,7 @@
 }
 @Html.HiddenFor(m => m.iniciativa_mit.ID_INICIATIVA)
 @Html.HiddenFor(m => m.iniciativa_mit.ID_MEDMIT)
+@Html.HiddenFor(m => m.estado_flujo)
 @Html.HiddenFor(m => m.revision)
 
 <div class="container-fluid map-root" id="historia">
@@ -104,6 +105,15 @@
                         </div>
                     </div>
                     <div class="row">
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label class="font-weight-bold" for="txt-tipo-iniciativa">Tipo de iniciativa</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-tachometer-alt"></i></span></div>
+                                    <input class="form-control-plaintext" id="txt-tipo-iniciativa" aria-describedby="inputGroup9" value="@Model.iniciativa_mit.TIPO_INICIATIVA" readonly>
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-sm-12-col-md-12 col-lg-12">
                             <div class="form-group">
                                 <label for="txa-nombre-iniciativa" class="font-weight-bold">Nombre de la iniciativa<span class="text-danger font-weight-bold">&nbsp;</span></label>
@@ -330,18 +340,25 @@
 
 
             <div class="modal fade" id="aprobar-revision" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-dialog modal modal-dialog-centered" role="document">
                     <div class="modal-content">
-                        <div class="modal-header">
+                        @*<div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Mensaje de Usuario</h5>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        </div>
+                        </div>*@
                         <div class="modal-body medidas-modal">
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <div class="swal2-icon swal2-question swal2-icon-show" style="display: flex;">
+                                        <div class="swal2-icon-content"><i class="fas fa-question"></i></div>
+                                    </div>
+                                    <h3 class="text-center">¿Está seguro de aprobar la inicitiva de mitigación seleccionada?</h3>
+                                    <p class="text-center">Está de acuerdo en aprobar todos los datos vinculados de esta iniciativa de mitigación</p>
+                                </div>
+                                @*<div class="col-sm-12 col-md-12 col-lg-12">
                                     <h3 class="text-center">¿Está seguro de aprobar la inicitiva de mitigación seleccionada? <br></h3>
                                     <p class="text-center">Está de acuerdo en aprobar todos los datos vinculados en de esta iniciativa de mitigación, como de los detalles de indicadores registrados.</p>
-                                </div>
+                                </div>*@
                                 <div class="col-sm-12 col-md-12 col-lg-12" id="modalAprobacion">
                                     @*
                                     <div class="alert alert-danger d-flex align-items-stretch" role="alert">
@@ -383,27 +400,34 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer" id="modalAprobarBoton">
-                            <button class="btn btn-primary" type="button" onclick="fn_revisarIniciativaMitigacion();">Si, grabar</button>
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">No, cancelar</button>                            
+                        <div class="modal-footer justify-content-center" id="modalAprobarBoton">
+                            <button class="btn btn-info" type="button" onclick="fn_revisarIniciativaMitigacion();">Si, grabar</button>
+                            <button class="btn btn-dark" type="button" data-dismiss="modal">Cancelar</button>                            
                         </div>
-                        <div class="modal-footer" id="pieCorrectoAprobacion"> <!-- add 04-02-2020 -->
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
+                        <div class="modal-footer justify-content-center" id="pieCorrectoAprobacion"> <!-- add 04-02-2020 -->
+                            <button class="btn btn-dark" type="button" data-dismiss="modal">Cerrar</button>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal fade" id="observar-revision" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-dialog modal modal-dialog-centered" role="document">
                     <div class="modal-content">
-                        <div class="modal-header">
+                        @*<div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Observaciones</h5>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        </div>
+                        </div>*@
                         <div class="modal-body medidas-modal">
-                            <div class="row mb-2">
-                                <div class="col-sm-12 col-md-6 col-lg-6"><strong>De: @Session["nombres"]&nbsp;<span class="badge badge-actor-@Session["colorRol"]">@Session["nombreRol"]</span></strong><br><strong>Para: @Model.usuario.NOMBRES&nbsp;<span class="badge badge-actor-@Model.usuario.COLOR">@Model.usuario.ROL</span></strong></div>
-                                <div class="col-sm-12 col-md-6 col-lg-6 text-right">@*<strong>Fecha de Registro: 25/02/2020</strong>*@</div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <div class="swal2-icon swal2-question swal2-icon-show" style="display: flex;">
+                                        <div class="swal2-icon-content"><i class="fas fa-eye"></i></div>
+                                    </div>
+                                    <h3 class="text-center">Observaciones en su revisión</h3>
+                                    <p class="text-center">describa sus observaciones en el siguiente campo:</p>
+                                </div>
+                                <div class="col-sm-12 col-md-6 col-lg-7"><strong>De: @Session["nombres"]&nbsp;<span class="badge badge-actor-@Session["colorRol"]">@Session["nombreRol"]</span></strong><br><strong>Para: @Model.usuario.NOMBRES&nbsp;<span class="badge badge-actor-@Model.usuario.COLOR">@Model.usuario.ROL</span></strong></div>
+                                <div class="col-sm-12 col-md-6 col-lg-5 text-right">@*<strong>Fecha de Registro: 25/02/2020</strong>*@</div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-12-col-md-12 col-lg-6" hidden>
@@ -433,7 +457,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-12" id="modalRevision">
+                                <div class="col-sm-12 col-md-12 col-lg-12" id="modalRevision">                                
                                     @*
                                     <div class="alert alert-danger d-flex align-items-stretch" role="alert">
                                         <div class="alert-wrap mr-3">
@@ -474,12 +498,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer" id="modalObservacionBoton">
-                            <a class="btn btn-primary" href="#" onclick="fn_observacionIniciativaMitigacion();">Si, enviar<i class="fas fa-paper-plane ml-1"></i></a>
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">No, cancelar</button>                            
+                        <div class="modal-footer justify-content-center" id="modalObservacionBoton">
+                            <a class="btn btn-info" href="#" onclick="fn_observacionIniciativaMitigacion();">Si, enviar<i class="fas fa-paper-plane ml-1"></i></a>
+                            <button class="btn btn-dark" type="button" data-dismiss="modal">No, cancelar</button>                            
                         </div>
-                        <div class="modal-footer" id="pieCorrectoObservacion"> <!-- add 04-02-2020 -->
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
+                        <div class="modal-footer justify-content-center" id="pieCorrectoObservacion"> <!-- add 04-02-2020 -->
+                            <button class="btn btn-dark" type="button" data-dismiss="modal">Cerrar</button>
                         </div>
                     </div>
                 </div>

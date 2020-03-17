@@ -19,6 +19,7 @@ namespace MRVMinem.Models
         public string id_factores { get; set; }
         public int identificador { get; set; }
         public string url { get; set; }
+        public int estado_flujo { get; set; }
         public List<IndicadorBE> listaIndicador { get; set; }
         public List<UbicacionBE> listaUbicacion { get; set; }
         public List<EnergeticoBE> listaEnergetico { get; set; }

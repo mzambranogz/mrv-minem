@@ -1593,7 +1593,7 @@ function fn_verificarIniciativaDetalle() {
         msj1 = msj1 + '     <div class="alert-wrap">';
         msj1 = msj1 + '     <h6>Mercado de carbono</h6>';
         msj1 = msj1 + '     <hr><small class="mb-0">';
-        msj1 = msj1 + '         Se ha generado la cadena de bloques para la medida de mitigación&nbsp;<strong>aprobada&nbsp; <br></strong><a class="btn btn-warning px-5 text-center my-3" href="#" onclick="fn_descargarCertificado(' + respuesta.extra + ');" data-toggle="modal" data-target="#observar-verificacion"><i class="fas fa-download px-1"></i>Descargar certificado</a>';
+        msj1 = msj1 + '         Se ha generado la cadena de bloques para la medida de mitigación&nbsp;<strong>aprobada&nbsp; <br></strong><a class="btn btn-warning px-5 text-center my-3" href="#" onclick="fn_descargarCertificado(' + respuesta.extra + ');" data-toggle="modal" data-target=""><i class="fas fa-download px-1"></i>Descargar certificado</a>';
         msj1 = msj1 + '         <hr>';
         msj1 = msj1 + '         <div class="text-monospace" style="word-break: break-all;">' + respuesta.extra2 + '</div>';
         msj1 = msj1 + '     </small>';
@@ -2100,6 +2100,8 @@ $(document).on("change", "#cbo-enfoque", function () {
         $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.1 Plantilla_Etiquetado_de_eficiencia_ Calentadores_ agua_gas.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
     } else if (enfoque == 24) {
         $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.1 Plantilla_Etiquetado_de_eficiencia_ Calentadores_ agua_instantaneo.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+    } else if (enfoque == 25) {
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.4 Plantilla_Auditoria_energetica.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
     }
     $('[data-toggle="tooltip"]').tooltip();
     $("#cuerpoTablaIndicador").html("");
@@ -2188,6 +2190,28 @@ function removeFile(e) {
 
 
 function fn_procesoDetalleIndicador(url, estado) {
+
+    var num_validar = 0;
+    if (estado == 1 || estado == 0) { num_validar = 8 }
+    else if (estado == 5 || estado == 6) { num_validar = 11 }
+
+    var mns = ValidarRevision('1', $("#Control").data("iniciativa"), num_validar, "mensajeDangerRegistro", "El detalle de esta iniciativa ya fue enviada para su revisión");
+    debugger;
+    if (mns != "") {
+        if (estado == 1 || estado == 5) {
+            $("#solicitar-revision #modalRegistrarBoton").hide();
+            $("#pieCorrecto").show();
+            $('#mensajeModalRegistrar').append(mns);
+            $("#Control").data("modal", 1);
+        } else if (estado == 6 || estado == 0) {
+            $("#guardar-avance #modalAvanceBoton").hide();
+            $("#pieCorrectoAvance").show();
+            $('#mensajeModalAvance').append(mns);
+            $("#Control").data("modal", 1);
+        }
+        return false;
+    }
+
     indicadores = [];
     documentos = [];
     var medida = $("#Control").data("mitigacion");
@@ -2224,6 +2248,18 @@ function fn_procesoDetalleIndicador(url, estado) {
         documentos.push(sux);
     }
 
+    //===========================================
+    var terminos = $("#chk-publicar").prop("checked");
+    var inversion = $("#chk-publicar-monto-inversion").prop("checked");
+    var privacidad = '0';
+    var privacidad_monto = '0';
+    if (terminos) {
+        privacidad = '1'; //0 - PRIVADO : 1 - PUBLICO
+    }
+    if (inversion) {
+        privacidad_monto = '1'; //0 - PRIVADO : 1 - PUBLICO
+    }
+    //===========================================
 
     var archivos = "";
     for (var i = 0, len = storedFiles.length; i < len; i++) {
@@ -2260,6 +2296,8 @@ function fn_procesoDetalleIndicador(url, estado) {
         ID_MEDMIT: medida,
         DATA: parametros,
         ID_TIPO_INGRESO: 2,
+        PRIVACIDAD_INICIATIVA: privacidad,
+        PRIVACIDAD_INVERSION: privacidad_monto,
         //ListaIndicadores: indicadores,
         //ListaIndicadoresData: indicadores,
         ListaSustentos: documentos,
@@ -2283,6 +2321,8 @@ function fn_procesoDetalleIndicador(url, estado) {
             ID_MEDMIT: medida,
             DATA: parametros,
             ID_TIPO_INGRESO: 2,
+            PRIVACIDAD_INICIATIVA: privacidad,
+            PRIVACIDAD_INVERSION: privacidad_monto,
             //ListaIndicadores: indicadores,
             //ListaIndicadoresData: indicadores,
             ListaSustentos: documentos,
@@ -2311,22 +2351,24 @@ function fn_procesoDetalleIndicador(url, estado) {
                 $("#fledocumentos").val("");
                 if (estado == 0 || estado == 6) {
                     $("#mensajeModalAvance #mensajeDangerAvance").remove();
-                    var msj = '                   <div class="col-sm-12 col-md-12 col-lg-12" id="mensajeWarningAvance">';
-                    msj = msj + '                       <div class="alert alert-warning d-flex align-items-stretch" role="alert">';
-                    msj = msj + '                            <div class="alert-wrap mr-3">';
-                    msj = msj + '                                <div class="sa">';
-                    msj = msj + '                                    <div class="sa-warning">';
-                    msj = msj + '                                        <div class="sa-warning-body"></div>';
-                    msj = msj + '                                        <div class="sa-warning-dot"></div>';
-                    msj = msj + '                                    </div>';
-                    msj = msj + '                                </div>';
-                    msj = msj + '                            </div>';
-                    msj = msj + '                            <div class="alert-wrap">';
-                    msj = msj + '                                <h6>Sus avances fueron guardados</h6>';
-                    msj = msj + '                                <hr>Recuerde, podrá solicitar una revisión una vez complete todos los campos obligatorios.';
-                    msj = msj + '                            </div>';
-                    msj = msj + '                        </div>';
-                    msj = msj + '                    </div>';
+                    //var msj = '                   <div class="col-sm-12 col-md-12 col-lg-12" id="mensajeWarningAvance">';
+                    //msj = msj + '                       <div class="alert alert-warning d-flex align-items-stretch" role="alert">';
+                    //msj = msj + '                            <div class="alert-wrap mr-3">';
+                    //msj = msj + '                                <div class="sa">';
+                    //msj = msj + '                                    <div class="sa-warning">';
+                    //msj = msj + '                                        <div class="sa-warning-body"></div>';
+                    //msj = msj + '                                        <div class="sa-warning-dot"></div>';
+                    //msj = msj + '                                    </div>';
+                    //msj = msj + '                                </div>';
+                    //msj = msj + '                            </div>';
+                    //msj = msj + '                            <div class="alert-wrap">';
+                    //msj = msj + '                                <h6>Sus avances fueron guardados</h6>';
+                    //msj = msj + '                                <hr>Recuerde, podrá solicitar una revisión una vez complete todos los campos obligatorios.';
+                    //msj = msj + '                            </div>';
+                    //msj = msj + '                        </div>';
+                    //msj = msj + '                    </div>';
+                    var msj = mensajeCorrecto("mensajeWarningAvance", "Bien", "Usted a guardado correctamente su avance.");
+
                     $("#guardar-avance #modalAvanceBoton").hide();
                     $("#pieCorrectoAvance").show();
                     $('#mensajeModalAvance').append(msj);
@@ -2355,7 +2397,7 @@ function fn_procesoDetalleIndicador(url, estado) {
                     //$('#mensajeModalRegistrar').append(msj);
                     $("#Control").data("modal", 1);
                     if (response.extra == "1") {
-                        if (ws != null) ws.send(response.extra);
+                        //if (ws != null) ws.send(response.extra);
                     }
                 }
             } else {
@@ -2580,7 +2622,9 @@ function asignarRuta(enfoque) {
         $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.1 Plantilla_Etiquetado_de_eficiencia_ Calentadores_ agua_gas.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
     } else if (enfoque == 24) {
         $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.1 Plantilla_Etiquetado_de_eficiencia_ Calentadores_ agua_instantaneo.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
-    } 
+    } else if (enfoque == 25) {
+        $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/1.4 Plantilla_Auditoria_energetica.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
+    }
     $('[data-toggle="tooltip"]').tooltip();
 }
 
@@ -2695,4 +2739,70 @@ function fn_validarCampo(url, estado) {
 
     }
 
+}
+
+
+function mensajeCorrecto(id, titulo, mensaje) {
+    var msj = '                   <div class="col-sm-12 col-md-12 col-lg-12" id="' + id + '">';
+    msj = msj + '                       <div class="alert alert-success d-flex align-items-stretch" role="alert">';
+    msj = msj + '                            <div class="alert-wrap mr-3">';
+    msj = msj + '                                <div class="sa">';
+    msj = msj + '                                    <div class="sa-success">';
+    msj = msj + '                                        <div class="sa-success-tip"></div>';
+    msj = msj + '                                        <div class="sa-success-long"></div>';
+    msj = msj + '                                        <div class="sa-success-placeholder"></div>';
+    msj = msj + '                                        <div class="sa-success-fix"></div>';
+    msj = msj + '                                    </div>';
+    msj = msj + '                                </div>';
+    msj = msj + '                            </div>';
+    msj = msj + '                            <div class="alert-wrap">';
+    msj = msj + '                                <h6>' + titulo + '</h6>';
+    msj = msj + '                                <hr><small class="mb-0">' + mensaje + '</b></small>';
+    msj = msj + '                            </div>';
+    msj = msj + '                        </div>';
+    msj = msj + '                 </div>';
+    return msj;
+}
+
+function mensajeError(id, titulo, mensaje) {
+    var msj = '                   <div class="col-sm-12 col-md-12 col-lg-12" id="' + id + '">';
+    msj = msj = '                       <div class="alert alert-danger d-flex align-items-stretch" role="alert">';
+    msj = msj + '                            <div class="alert-wrap mr-3">';
+    msj = msj + '                                <div class="sa">';
+    msj = msj + '                                    <div class="sa-error">';
+    msj = msj + '                                       <div class="sa-error-x">';
+    msj = msj + '                                           <div class="sa-error-left"></div>';
+    msj = msj + '                                           <div class="sa-error-right"></div>';
+    msj = msj + '                                       </div>';
+    msj = msj + '                                       <div class="sa-error-placeholder"></div>';
+    msj = msj + '                                       <div class="sa-error-fix"></div>';
+    msj = msj + '                                   </div>';
+    msj = msj + '                               </div>';
+    msj = msj + '                           </div>';
+    msj = msj + '                            <div class="alert-wrap">';
+    msj = msj + '                                <h6>' + titulo + '</h6>';
+    msj = msj + '                                <hr><small class="mb-0">' + mensaje + '</b></small>';
+    msj = msj + '                            </div>';
+    msj = msj + '                        </div>';
+    msj = msj + '                    </div>';
+    msj = msj + '                 </div>';
+    return msj;
+}
+
+
+function ValidarRevision(num_validar, id_ini, id_plazo, id_msj, mensaje) {
+    var msj = "";
+    var item = {
+        ID_INICIATIVA: id_ini,
+        ID_PLAZO_ETAPA_ESTADO: id_plazo
+    };
+    var respuesta = MRV.Ajax(baseUrl + "Gestion/ValidarRevisionIniciativa", item, false);
+    if (respuesta.success) {
+        if (respuesta.extra == num_validar) {
+            msj = mensajeError(id_msj, "Error", mensaje);
+        }
+    } else {
+        msj = mensajeError(id_msj, "Error", "Ocurrio un error durante el proceso de guardado de la Iniciativa.");
+    }
+    return msj;
 }

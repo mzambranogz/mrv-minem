@@ -527,9 +527,12 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                                 tr = tr + '        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-recordatorio" onclick="fn_mostrarUsuarioRecordatorio(' + data[i]["ID_INICIATIVA"] + ')"><i class="fas fa-envelope"></i>&nbsp;Recordatorio</a>';
                             }
                         } else if ($('#Control').data('rol') == 3) {
-                            if (p != 12 && p != 15 && p != 17 && p != 13) {
+                            if (p != 12 && p != 15 && p != 17 && p != 13 && p != 19) {
                                 tr = tr + '        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-recordatorio" onclick="fn_mostrarUsuarioRecordatorio(' + data[i]["ID_INICIATIVA"] + ')"><i class="fas fa-envelope"></i>&nbsp;Recordatorio</a>';
                             }
+                        }
+                        if (p == 16 || p == 18) {
+                            tr = tr + '<a class="dropdown-item" href="javascript:void(0);" onclick="fn_visualizarBlockchain(' + data[i]["ID_BLOCKCHAIN"] + ');" id="block-' + data[i]["ID_BLOCKCHAIN"] + '" data-block="' + data[i]["GENERADO_PDF"] + '"><i class="fas fa-file-code"></i>&nbsp;Blockchain</a></div>';
                         }
                         
                         tr = tr + '         </div>';
@@ -626,10 +629,10 @@ function fn_nuevaIniciativaMitigacion(id) {
 
 ////////////////// BUSQUEDA
 
-function CargarMedidaMitigacion() {
+function CargarMedidaMitigacion(vurl) {
     var item = {
     };
-    vurl = baseUrl + "Portal/ListarMedidaMitigacion";
+    //vurl = baseUrl + "Portal/ListarMedidaMitigacion";
     $.ajax({
         url: vurl,
         type: 'POST',
@@ -661,10 +664,10 @@ function valor() {
 //================================================================================================0
 
 
-function CargarSector() {
+function CargarSector(vurl) {
     var item = {
     };
-    vurl = baseUrl + "Portal/ListaSectorInstitucion";
+    //vurl = baseUrl + "Portal/ListaSectorInstitucion";
     $.ajax({
         url: vurl,
         type: 'POST',
@@ -682,10 +685,10 @@ function CargarSector() {
     });
 }
 
-function CargarEnergeticoLineaBase() {
+function CargarEnergeticoLineaBase(vurl) {
     var item = {
     };
-    vurl = baseUrl + "Portal/ListaEnergetico";
+    //vurl = baseUrl + "Portal/ListaEnergetico";
     $.ajax({
         url: vurl,
         type: 'POST',
@@ -704,10 +707,10 @@ function CargarEnergeticoLineaBase() {
 }
 
 
-function CargarEnergeticoProyecto() {
+function CargarEnergeticoProyecto(vurl) {
     var item = {
     };
-    vurl = baseUrl + "Portal/ListaEnergeticoProyecto";
+    //vurl = baseUrl + "Portal/ListaEnergeticoProyecto";
     $.ajax({
         url: vurl,
         type: 'POST',
@@ -1581,10 +1584,25 @@ function CargarListaActor() {
 $(document).ready(function () {
     $("#pieCorrecto").hide();
     CargarOpcionesCuerpo();
-    CargarMedidaMitigacion();
-    CargarSector();
-    CargarEnergeticoLineaBase();
-    CargarEnergeticoProyecto();
+    var url = "";
+    var SectorUrl = "";
+    var EnergUrl = "";
+    var GeiUrl = "";
+    if ($("#Control").data("usuario") > 0) {
+        url = baseUrl + "Gestion/ListarMedidaMitigacion";
+        SectorUrl = baseUrl + "Gestion/ListaSectorInstitucion";
+        EnergUrl = baseUrl + "Gestion/ListaEnergetico";
+        GeiUrl = baseUrl + "Gestion/ListaEnergeticoProyecto";
+    } else {
+        url = baseUrl + "Portal/ListarMedidaMitigacion";
+        SectorUrl = baseUrl + "Portal/ListaSectorInstitucion";
+        EnergUrl = baseUrl + "Portal/ListaEnergetico";
+        GeiUrl = baseUrl + "Portal/ListaEnergeticoProyecto";
+    }
+    CargarMedidaMitigacion(url);
+    CargarSector(SectorUrl);
+    CargarEnergeticoLineaBase(EnergUrl);
+    CargarEnergeticoProyecto(GeiUrl);
     if ($("#Control").data("usuario") > 0) {
         CorreoAdmin();
         if ($("#Control").data("rol") == 2) {
@@ -2006,5 +2024,41 @@ $("#modal-aprobacion-evaluador").on("hidden.bs.modal", function () {
     $("#pieAprobar").show();
     $("#pieCorrectoAprobar").attr("hidden", true);
 });
+
+
+function fn_visualizarBlockchain(idBlock) {
+    if ($("#block-" + idBlock).data("block") == 1){
+        fn_mostrarBlockchain(idBlock);
+    } else {
+        fn_descargarCertificado(idBlock);        
+    }
+}
+
+function fn_mostrarBlockchain(idBlock) {
+    var item = {
+        ID_BLOCKCHAIN: idBlock
+    };
+    var url = baseUrl + "Gestion/MostrarBlockChain";
+    var respuesta = MRV.Ajax(url, item, false);
+
+    if (respuesta.success) {
+        var urlMostrar = baseUrl + "Temp/" + respuesta.extra;
+        window.open(urlMostrar, "_blank");
+    }
+}
+
+function fn_descargarCertificado(idBlock) {
+    var item = {
+        ID_BLOCKCHAIN: idBlock
+    };
+    var url = baseUrl + "Gestion/DescargarBlockChain";
+    var respuesta = MRV.Ajax(url, item, false);
+
+    if (respuesta.success) {
+        var urlMostrar = baseUrl + "Temp/" + respuesta.extra;
+        window.open(urlMostrar, "_blank");
+        $("#block-" + idBlock).data("block", 1);
+    }
+}
 
 

@@ -609,5 +609,15 @@ namespace logica.minem.gob.pe
             return iniciativaDA.ObtenerUsuarioIniciativa(entidad);
         }
 
+        public static IniciativaBE ValidarRevisionIniciativa(IniciativaBE entidad)
+        {
+            return iniciativaDA.ValidarRevisionIniciativa(entidad);
+        }
+
+        public static int ValidarVista(int id)
+        {
+            return iniciativaDA.ValidarVista(id);
+        }
+
     }
 }

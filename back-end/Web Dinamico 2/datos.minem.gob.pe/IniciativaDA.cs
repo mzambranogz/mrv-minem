@@ -2069,24 +2069,27 @@ namespace datos.minem.gob.pe
                     p.Add("pINVERSION_INICIATIVA", entidad.INVERSION_INICIATIVA);
                     p.Add("pID_MONEDA", entidad.ID_MONEDA);
                     p.Add("pFECHA", entidad.FECHA);
-                    p.Add("pUBICACION", entidad.UBICACION);
+                   // p.Add("pUBICACION", entidad.UBICACION);
+                    p.Add("pUBICACION", '0');
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     var CONT = db.ExecuteScalar(sp, p, commandType: CommandType.StoredProcedure);
-                    num = Convert.ToInt32(CONT);
+                    entidad.CANTIDAD = Convert.ToInt32(CONT);
 
-                    if (entidad.UBICACION != "0")
-                    {
-                        var arr = entidad.UBICACION.Split(',');
-                        if (num == arr.Count())
-                        {
-                            num = 1;
-                        }
-                        else
-                        {
-                            num = 0;
-                        }
-                    }
-                    entidad.CANTIDAD = num;
+                    //num = Convert.ToInt32(CONT);
+
+                    //if (entidad.UBICACION != "0")
+                    //{
+                    //    var arr = entidad.UBICACION.Split(',');
+                    //    if (num == arr.Count())
+                    //    {
+                    //        num = 1;
+                    //    }
+                    //    else
+                    //    {
+                    //        num = 0;
+                    //    }
+                    //}
+                    //entidad.CANTIDAD = num;
                     entidad.OK = true;
                 }
             }
@@ -2272,6 +2275,55 @@ namespace datos.minem.gob.pe
 
             return entidad;
         }
+
+        public IniciativaBE ValidarRevisionIniciativa(IniciativaBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_VALIDAR_REVISION";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_PLAZO_ETAPA_ESTADO", entidad.ID_PLAZO_ETAPA_ESTADO);
+                    p.Add("pR", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    var NUM = db.ExecuteScalar(sp, p, commandType: CommandType.StoredProcedure);
+                    entidad.CANTIDAD = Convert.ToInt32(NUM);
+                    entidad.OK = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                entidad.OK = false;
+                Log.Error(ex);
+            }
+
+            return entidad;
+        }
+
+        public int ValidarVista(int id)
+        {
+            int validar = 0;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_VALIDAR_VISTA";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", id);
+                    p.Add("pR", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    var NUM = db.ExecuteScalar(sp, p, commandType: CommandType.StoredProcedure);
+                    validar = Convert.ToInt32(NUM);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return validar;
+        }
+
     }
 
 }
