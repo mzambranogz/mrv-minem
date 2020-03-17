@@ -1944,6 +1944,7 @@ function CargarDatosExcel(data) {
     CargarCuerpoGuardado(data.length);
     var total = 0.0;
     for (var i = 0; i < data.length; i++) {
+        var validar = 0;
         var lista = 0;
         var texto = 0;
         var fecha = 0;
@@ -1952,12 +1953,20 @@ function CargarDatosExcel(data) {
 
         var fila = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + (i + 1)).find("[data-param]");
         fila.each(function (index, value) {
+            if (entidad[index]["extra"] == '1') {
+                validar = 1;
+            }
             var valor = entidad[index]["VALOR"];
             if (!isNaN(valor)) if (valor - Math.floor(valor) != 0) valor = Math.round(valor * 100) / 100
             if (entidad[index]["ID_PARAMETRO"] == 11) total += valor;
             $("#" + $(value).attr("id")).val(valor);
             index++;
         });
+
+        if (validar == 1) {
+            $("#detalles-tr-" + (i + 1)).addClass("error-data");
+        }
+
         $("#total-detalle").html("").append((Math.round(total * 100) / 100));
         $("#total-detalle2").html("").append((Math.round(total * 100) / 100));
         $("#cuerpoTablaIndicador").data("total", total);
@@ -2805,4 +2814,8 @@ function ValidarRevision(num_validar, id_ini, id_plazo, id_msj, mensaje) {
         msj = mensajeError(id_msj, "Error", "Ocurrio un error durante el proceso de guardado de la Iniciativa.");
     }
     return msj;
+}
+
+function fn_calcularValor(e) {
+
 }
