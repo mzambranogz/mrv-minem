@@ -11,6 +11,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Configuration;
+using utilitario.minem.gob.pe;
 
 
 namespace MRVMinem.Controllers
@@ -105,130 +106,137 @@ namespace MRVMinem.Controllers
         //public JsonResult ProcesarExcel(HttpPostedFileBase fledeclaracion, IndicadorBE entidad)
         public JsonResult ProcesarExcel(HttpPostedFileBase fledeclaracion, ParametroBE entidad)
         {
-            List<IndicadorDataBE> listaData = new List<IndicadorDataBE>();            
-            
-            List<ParametroBE> listaParametro = new List<ParametroBE>(); //add
-            List<ParametroBE> listaTemp = new List<ParametroBE>(); //add
-            ParametroBE entTemp = new ParametroBE();
-            ResponseEntity itemRespuesta = new ResponseEntity();
-            List<string> excelData = new List<string>();
-
-            listaTemp = ParametroLN.ListarParametroCabeceraExcel(entidad);
-            foreach (var item in listaTemp)
+            List<IndicadorDataBE> listaData = new List<IndicadorDataBE>();
+            try
             {
-                item.AGREGAR = 1;
-                listaParametro.Add(item);
-                if (item.ID_TIPO_CONTROL == 1)
+                List<ParametroBE> listaParametro = new List<ParametroBE>(); //add
+                List<ParametroBE> listaTemp = new List<ParametroBE>(); //add
+                ParametroBE entTemp = new ParametroBE();
+                ResponseEntity itemRespuesta = new ResponseEntity();
+                List<string> excelData = new List<string>();
+
+                listaTemp = ParametroLN.ListarParametroCabeceraExcel(entidad);
+                foreach (var item in listaTemp)
                 {
-                    if (item.ID_PARAMETRO != 6)
-                    {                        
-                        entTemp.AGREGAR = 0;
-                        listaParametro.Add(entTemp);
+                    item.AGREGAR = 1;
+                    listaParametro.Add(item);
+                    if (item.ID_TIPO_CONTROL == 1)
+                    {
+                        if (item.ID_PARAMETRO != 6)
+                        {
+                            entTemp.AGREGAR = 0;
+                            listaParametro.Add(entTemp);
+                        }
                     }
                 }
-            }
 
-            int pagina = 0;
-            if (fledeclaracion != null)
-            {
-                //load the uploaded file into the memorystream
-                byte[] archivo = new byte[fledeclaracion.ContentLength];
-                fledeclaracion.InputStream.Read(archivo, 0, fledeclaracion.ContentLength - 1);
-                using (MemoryStream stream = new MemoryStream(archivo))
-                using (ExcelPackage excelPackage = new ExcelPackage(stream))
+                int pagina = 0;
+                if (fledeclaracion != null)
                 {
-                    //loop all worksheets
-                    foreach (ExcelWorksheet worksheet in excelPackage.Workbook.Worksheets)
+                    //load the uploaded file into the memorystream
+                    byte[] archivo = new byte[fledeclaracion.ContentLength];
+                    fledeclaracion.InputStream.Read(archivo, 0, fledeclaracion.ContentLength - 1);
+                    using (MemoryStream stream = new MemoryStream(archivo))
+                    using (ExcelPackage excelPackage = new ExcelPackage(stream))
                     {
-                        pagina++;
-                        pagina++;
-                        var cant_column = worksheet.Dimension.End.Column;
-                        var ultimos = listaParametro.Count - cant_column;
-                        //loop all rows
-                        if (pagina < 3)
+                        //loop all worksheets
+                        foreach (ExcelWorksheet worksheet in excelPackage.Workbook.Worksheets)
                         {
-                            List<IndicadorDataBE> listaDataTemp = new List<IndicadorDataBE>();
-                            listaDataTemp = validar_campo(worksheet, entidad, listaParametro, cant_column);
-                            if (bandera == 1)
+                            pagina++;
+                            pagina++;
+                            var cant_column = worksheet.Dimension.End.Column;
+                            var ultimos = listaParametro.Count - cant_column;
+                            //loop all rows
+                            if (pagina < 3)
                             {
-                                listaData = listaDataTemp;                            
-                                break;
-                            }
-
-                            for (int i = worksheet.Dimension.Start.Row; i <= worksheet.Dimension.End.Row; i++)
-                            {
-                                IndicadorDataBE itemData = new IndicadorDataBE();
-                                List<IndicadorDataBE> listaIndicadores = new List<IndicadorDataBE>();
-                                if (i > 2)
+                                List<IndicadorDataBE> listaDataTemp = new List<IndicadorDataBE>();
+                                listaDataTemp = validar_campo(worksheet, entidad, listaParametro, cant_column);
+                                if (bandera == 1)
                                 {
-                                    //loop all columns in a row                                    
-                                    var validar = 0;
-                                    for(int n = 0; n < cant_column; n++)
+                                    listaData = listaDataTemp;
+                                    break;
+                                }
+
+                                for (int i = worksheet.Dimension.Start.Row; i <= worksheet.Dimension.End.Row; i++)
+                                {
+                                    IndicadorDataBE itemData = new IndicadorDataBE();
+                                    List<IndicadorDataBE> listaIndicadores = new List<IndicadorDataBE>();
+                                    if (i > 2)
                                     {
-                                        if (worksheet.Cells[i, (n+1)].Value == null)
+                                        //loop all columns in a row                                    
+                                        var validar = 0;
+                                        for (int n = 0; n < cant_column; n++)
                                         {
-                                            validar = 1;
-                                            break;
+                                            if (worksheet.Cells[i, (n + 1)].Value == null)
+                                            {
+                                                validar = 1;
+                                                break;
+                                            }
+                                        }
+
+                                        if (validar == 0)
+                                        {
+                                            for (int j = worksheet.Dimension.Start.Column; j <= worksheet.Dimension.End.Column; j++)
+                                            {
+                                                //add the cell data to the List
+                                                if (worksheet.Cells[i, j].Value != null)
+                                                {
+                                                    IndicadorDataBE item = new IndicadorDataBE();
+                                                    excelData.Add(worksheet.Cells[i, j].Value.ToString());
+                                                    item.ID_ENFOQUE = entidad.ID_ENFOQUE;
+                                                    item.ID_MEDMIT = entidad.ID_MEDMIT;
+                                                    item.ID_PARAMETRO = listaParametro[(j - 1)].ID_PARAMETRO;
+                                                    if (listaParametro[(j - 1)].ID_TIPO_DATO == 1)
+                                                    {
+                                                        var fec = Convert.ToString(DateTime.FromOADate(long.Parse(worksheet.Cells[i, j].Value.ToString())));
+                                                        item.VALOR = Convert.ToDateTime(fec).ToString("yyyy-MM-dd");
+                                                        //item.VALOR = Convert.ToString(DateTime.FromOADate(long.Parse(worksheet.Cells[i, j].Value.ToString())));
+                                                        //item.VALOR = item.VALOR.Substring(0, 10);
+                                                        //item.VALOR = "2018-11-12";
+
+                                                        //ALTERNO
+                                                        //string p = worksheet.Cells[i, j].Value.ToString();
+                                                        //item.VALOR = Convert.ToDateTime(p).ToString("yyyy-MM-dd");
+                                                    }
+                                                    else
+                                                        item.VALOR = worksheet.Cells[i, j].Value.ToString();
+
+                                                    if (listaParametro[(j - 1)].AGREGAR == 1)
+                                                        listaIndicadores.Add(item);
+                                                }
+                                                else
+                                                {
+                                                    IndicadorDataBE item = new IndicadorDataBE();
+                                                    excelData.Add(worksheet.Cells[i, j].Value.ToString());
+                                                    item.ID_ENFOQUE = entidad.ID_ENFOQUE;
+                                                    item.ID_MEDMIT = entidad.ID_MEDMIT;
+                                                    item.ID_PARAMETRO = listaParametro[(j - 1)].ID_PARAMETRO;
+                                                    item.VALOR = "";
+                                                }
+                                            }
+                                            for (int m = cant_column; m < listaParametro.Count; m++)
+                                            {
+                                                IndicadorDataBE item = new IndicadorDataBE();
+                                                item.ID_ENFOQUE = entidad.ID_ENFOQUE;
+                                                item.ID_MEDMIT = entidad.ID_MEDMIT;
+                                                item.ID_PARAMETRO = listaParametro[m].ID_PARAMETRO;
+                                                item.VALOR = "";
+                                                listaIndicadores.Add(item);
+                                            }
+                                            itemData.listaInd = IndicadorLN.CalculoIndicador(listaIndicadores);
+                                            listaData.Add(itemData);
                                         }
                                     }
-
-                                    if (validar == 0)
-                                    {
-                                        for (int j = worksheet.Dimension.Start.Column; j <= worksheet.Dimension.End.Column; j++)
-                                        {
-                                            //add the cell data to the List
-                                            if (worksheet.Cells[i, j].Value != null)
-                                            {
-                                                IndicadorDataBE item = new IndicadorDataBE();
-                                                excelData.Add(worksheet.Cells[i, j].Value.ToString());
-                                                item.ID_ENFOQUE = entidad.ID_ENFOQUE;
-                                                item.ID_MEDMIT = entidad.ID_MEDMIT;
-                                                item.ID_PARAMETRO = listaParametro[(j-1)].ID_PARAMETRO;
-                                                if (listaParametro[(j - 1)].ID_TIPO_DATO == 1)
-                                                {
-                                                    var fec = Convert.ToString(DateTime.FromOADate(long.Parse(worksheet.Cells[i, j].Value.ToString())));
-                                                    item.VALOR = Convert.ToDateTime(fec).ToString("yyyy-MM-dd");
-                                                    //item.VALOR = Convert.ToString(DateTime.FromOADate(long.Parse(worksheet.Cells[i, j].Value.ToString())));
-                                                    //item.VALOR = item.VALOR.Substring(0, 10);
-                                                    //item.VALOR = "2018-11-12";
-
-                                                    //ALTERNO
-                                                    //string p = worksheet.Cells[i, j].Value.ToString();
-                                                    //item.VALOR = Convert.ToDateTime(p).ToString("yyyy-MM-dd");
-                                                }                                                    
-                                                else
-                                                    item.VALOR = worksheet.Cells[i, j].Value.ToString();
-
-                                                if (listaParametro[(j - 1)].AGREGAR == 1)
-                                                    listaIndicadores.Add(item);
-                                            }
-                                            else
-                                            {
-                                                IndicadorDataBE item = new IndicadorDataBE();
-                                                excelData.Add(worksheet.Cells[i, j].Value.ToString());
-                                                item.ID_ENFOQUE = entidad.ID_ENFOQUE;
-                                                item.ID_MEDMIT = entidad.ID_MEDMIT;
-                                                item.ID_PARAMETRO = listaParametro[(j - 1)].ID_PARAMETRO;
-                                                item.VALOR = "";
-                                            }
-                                        }
-                                        for (int m = cant_column; m < listaParametro.Count; m++)
-                                        {
-                                            IndicadorDataBE item = new IndicadorDataBE();
-                                            item.ID_ENFOQUE = entidad.ID_ENFOQUE;
-                                            item.ID_MEDMIT = entidad.ID_MEDMIT;
-                                            item.ID_PARAMETRO = listaParametro[m].ID_PARAMETRO;
-                                            item.VALOR = "";
-                                            listaIndicadores.Add(item);
-                                        }
-                                        itemData.listaInd = IndicadorLN.CalculoIndicador(listaIndicadores);
-                                        listaData.Add(itemData);
-                                    }     
                                 }
                             }
                         }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex); 
+
             }
 
             var jsonResult = Json(listaData, JsonRequestBehavior.AllowGet);

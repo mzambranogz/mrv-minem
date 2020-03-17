@@ -832,6 +832,7 @@
     }
 
     function fn_CargarExcel(evt) {
+        $("#validar-excel").attr("hidden", true);
         $("#txt-declaracion").prop("disabled", true);
         $("#fledeclaracion").prop("disbled", true);
         $("#cbo-enfoque").prop("disabled", true);
@@ -882,7 +883,7 @@
                     console.log(response);
                     if (response.length > 0) {
                         //for (var i = 0; i < response.length; i++) {
-                            //debugger;
+                            debugger;
                             //CargarTablaIndicador(response, i);
                         $("#txt-declaracion").prop("disabled", false);
                         $("#fledeclaracion").prop("disbled", false);
@@ -895,6 +896,7 @@
                         //$("#cuerpoTablaIndicador").data("row", response.length);
                     }
                 } else {
+                    debugger;
                     $("#fledeclaracion").val("");
                     $("#txt-declaracion").val("");
                     $("#txt-declaracion").prop("disabled", false);
@@ -902,6 +904,8 @@
                     $("#cbo-enfoque").prop("disabled", false);
                     $("#fledeclaracion").val("");
                     $("#txt-declaracion").val("");
+                    $("#fledeclaracion").next().find("label").empty().html('<i class="fas fa-upload mr-1"></i> Subir plantilla');
+                    $("#validar-excel").removeAttr("hidden");
                     //alert(response);
                 }
             },
