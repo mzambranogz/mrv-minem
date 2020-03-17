@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - lunes-marzo-16-2020   
+-- Archivo creado  - martes-marzo-17-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_ADMIN_SISTEMA
@@ -281,7 +281,9 @@ end PKG_MRV_BLOCKCHAIN;
         pID_TIPO_INGRESO IN NUMBER,
         pID_ENFOQUE IN NUMBER,
         pID_MEDMIT IN NUMBER,
-        pTOTAL_GEI IN NUMBER
+        pTOTAL_GEI IN NUMBER,
+        pPRIVACIDAD_INICIATIVA IN VARCHAR2,
+        pPRIVACIDAD_INVERSION IN VARCHAR2
     );
     
     PROCEDURE USP_UPD_AVANCE_DETALLE(
@@ -310,7 +312,9 @@ end PKG_MRV_BLOCKCHAIN;
         pID_USUARIO IN NUMBER,
         pID_ENFOQUE IN NUMBER,
         pID_MEDMIT IN NUMBER,
-        pTOTAL_GEI IN NUMBER
+        pTOTAL_GEI IN NUMBER,
+        pPRIVACIDAD_INICIATIVA IN VARCHAR2,
+        pPRIVACIDAD_INVERSION IN VARCHAR2
     );
 
     PROCEDURE USP_UPD_APROBAR_INI_DETALLE(
@@ -1487,7 +1491,9 @@ end PKG_MRV_BLOCKCHAIN;
         pID_TIPO_INGRESO IN NUMBER,
         pID_ENFOQUE IN NUMBER,
         pID_MEDMIT IN NUMBER,
-        pTOTAL_GEI IN NUMBER
+        pTOTAL_GEI IN NUMBER,
+        pPRIVACIDAD_INICIATIVA IN VARCHAR2,
+        pPRIVACIDAD_INVERSION IN VARCHAR2
     )AS
         vIdEspecialista NUMBER;
         vID_MEDMIT      NUMBER;
@@ -1511,6 +1517,8 @@ end PKG_MRV_BLOCKCHAIN;
         SET     ID_ETAPA = 3,
                 ID_ESTADO = 1,
                 ID_TIPO_INGRESO = pID_TIPO_INGRESO,
+                PRIVACIDAD_INICIATIVA = PPRIVACIDAD_INICIATIVA, --ADD
+                PRIVACIDAD_INVERSION = PPRIVACIDAD_INVERSION, --ADD
                 ID_PLAZO_ETAPA_ESTADO = 8 --ADD
         WHERE   ID_INICIATIVA = pID_INICIATIVA;
 
@@ -1686,7 +1694,9 @@ end PKG_MRV_BLOCKCHAIN;
         pID_USUARIO IN NUMBER,
         pID_ENFOQUE IN NUMBER,
         pID_MEDMIT IN NUMBER,
-        pTOTAL_GEI IN NUMBER
+        pTOTAL_GEI IN NUMBER,
+        pPRIVACIDAD_INICIATIVA IN VARCHAR2,
+        pPRIVACIDAD_INVERSION IN VARCHAR2
     )IS
         vEntidad VARCHAR2(50);
         vIdDetalle NUMBER;
@@ -1699,18 +1709,20 @@ end PKG_MRV_BLOCKCHAIN;
 
         UPDATE  T_GENM_INICIATIVA
         SET     ID_ESTADO = 5,
+                PRIVACIDAD_INICIATIVA = PPRIVACIDAD_INICIATIVA, --ADD
+                PRIVACIDAD_INVERSION = PPRIVACIDAD_INVERSION, --ADD
                 ID_PLAZO_ETAPA_ESTADO = 11 --ADD
         WHERE ID_INICIATIVA = pID_INICIATIVA;
 
         SELECT I.ID_MEDMIT INTO vIdMedMit FROM T_GENM_INICIATIVA I WHERE I.ID_INICIATIVA = pID_INICIATIVA;
-        
+
         --=============================================================================
         SELECT  NOMBRE_MEDMIT INTO vNombreMedmit FROM T_MAE_MEDMIT WHERE ID_MEDMIT = pID_MEDMIT;
         SELECT  DESCRIPCION INTO vNombreEnfoque FROM T_GENM_ENFOQUE WHERE ID_ENFOQUE = pID_ENFOQUE;
         SELECT COUNT(*) INTO vCantidad FROM T_GEND_INICIATIVA_SUSTENTA WHERE ID_INICIATIVA = pID_INICIATIVA;
-        
+
         SELECT SQ_GEND_DETALLE_INICIATIVA.NEXTVAL INTO vIdDetalle FROM DUAL;
-        
+
         INSERT INTO T_GEND_DETALLE_INICIATIVA (id_detalle_iniciativa, ID_INICIATIVA, ID_REMITENTE, ID_ETAPA, ID_ESTADO, FECHA_DERIVACION, OBSERVACIONES)
         VALUES (vIdDetalle, pID_INICIATIVA, pID_USUARIO,3,5, SYSDATE, vNombreMedmit || '|' || vNombreEnfoque || '|' || vCantidad || '|' || pTOTAL_GEI);
 

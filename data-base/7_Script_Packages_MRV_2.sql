@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - lunes-marzo-16-2020   
+-- Archivo creado  - martes-marzo-17-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_DIRECCIONAMIENTO
@@ -894,6 +894,17 @@ END PKG_MRV_DIRECCIONAMIENTO;
         pID_INICIATIVA IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
     );
+    
+    PROCEDURE USP_SEL_VALIDAR_REVISION(
+        pID_INICIATIVA IN NUMBER,
+        pID_PLAZO_ETAPA_ESTADO IN NUMBER,
+        pR OUT SYS_REFCURSOR
+      );
+      
+      PROCEDURE USP_SEL_VALIDAR_VISTA(
+        pID_INICIATIVA IN NUMBER,
+        pR OUT SYS_REFCURSOR
+      );
 
 END PKG_MRV_INICIATIVA_MITIGACION;
 
@@ -1951,7 +1962,10 @@ END PKG_MRV_DIRECCIONAMIENTO;
         --===========================================================
 
         SELECT  NOMBRE_MEDMIT INTO vNombreMedmit FROM T_MAE_MEDMIT WHERE ID_MEDMIT = pID_MEDMIT;
-        SELECT DESCRIPCION INTO vMoneda FROM T_MAE_MONEDA WHERE ID_MONEDA = pID_MONEDA;
+        --SELECT DESCRIPCION INTO vMoneda FROM T_MAE_MONEDA WHERE ID_MONEDA = pID_MONEDA;
+        IF pID_MONEDA > 0 THEN
+            SELECT DESCRIPCION INTO vMoneda FROM T_MAE_MONEDA WHERE ID_MONEDA = pID_MONEDA;
+        END IF; 
 
         -- SELECT NVL(MAX(ID_INICIATIVA),0) INTO vIdIniciativa FROM T_GENM_INICIATIVA;
         SELECT SQ_GEND_DETALLE_INICIATIVA.NEXTVAL INTO vIdDetalleIniciativa FROM DUAL;
@@ -6332,7 +6346,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         vSortColumn2 VARCHAR2(1000);
     BEGIN    
 
-        vQuery_cont := 'SELECT  COUNT(ID_INICIATIVA) 
+        vQuery_cont := 'SELECT  COUNT(INI.ID_INICIATIVA) 
                         FROM T_GENM_INICIATIVA INI
                         LEFT JOIN T_MAE_ETAPA ET ON INI.ID_ETAPA = ET.ID_ETAPA
                         LEFT JOIN T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
@@ -6838,7 +6852,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
             IF pUBICACION = '0' THEN
                 vQuery := 'SELECT count(*) FROM T_GENM_INICIATIVA
                             WHERE ID_MEDMIT = '|| pID_MEDMIT ||' AND ID_USUARIO = '|| pID_USUARIO ||' AND NOMBRE_INICIATIVA = '''|| pNOMBRE_INICIATIVA ||''' AND INVERSION_INICIATIVA = '|| pINVERSION_INICIATIVA ||' AND ID_MONEDA = '|| pID_MONEDA ||' 
-                                AND TO_CHAR(FECHA_IMPLE_INICIATIVA, ''dd/MM/yyyy'') = '''|| pFECHA ||''' AND NOT I.ID_INICIATIVA = '|| pID_INICIATIVA;
+                                AND TO_CHAR(FECHA_IMPLE_INICIATIVA, ''dd/MM/yyyy'') = '''|| pFECHA ||''' AND NOT ID_INICIATIVA = '|| pID_INICIATIVA;
             ELSE
                 vQuery := 'SELECT count(*) FROM T_GENM_INICIATIVA I
                                 INNER JOIN t_gend_iniciativa_ubicacion IU ON I.ID_INICIATIVA = IU.ID_INICIATIVA
@@ -7007,6 +7021,29 @@ END PKG_MRV_DIRECCIONAMIENTO;
         LEFT JOIN T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
         WHERE I.ID_INICIATIVA = pID_INICIATIVA;
     END USP_SEL_USUARIO_INI;
+    
+    PROCEDURE USP_SEL_VALIDAR_REVISION(
+        pID_INICIATIVA IN NUMBER,
+        pID_PLAZO_ETAPA_ESTADO IN NUMBER,
+        pR OUT SYS_REFCURSOR
+      ) AS
+      BEGIN
+        OPEN pR FOR
+        SELECT  NVL(COUNT(*),0) NUM
+        FROM    T_GENM_INICIATIVA
+        WHERE   ID_INICIATIVA = pID_INICIATIVA AND ID_PLAZO_ETAPA_ESTADO = pID_PLAZO_ETAPA_ESTADO;
+      END USP_SEL_VALIDAR_REVISION;
+
+    PROCEDURE USP_SEL_VALIDAR_VISTA(
+        pID_INICIATIVA IN NUMBER,
+        pR OUT SYS_REFCURSOR
+      ) AS
+      BEGIN
+        OPEN pR FOR
+        SELECT  ID_PLAZO_ETAPA_ESTADO NUM
+        FROM    T_GENM_INICIATIVA
+        WHERE   ID_INICIATIVA = pID_INICIATIVA;
+      END USP_SEL_VALIDAR_VISTA;
 
 END PKG_MRV_INICIATIVA_MITIGACION;
 
