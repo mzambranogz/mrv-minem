@@ -259,6 +259,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DsEscenario.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\DsFichaIniciativa.cs">
+      <DependentUpon>DsFichaIniciativa.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\DsFichaIniciativa.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsFichaIniciativa.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\DsIniciativa.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -475,6 +483,17 @@
     <Content Include="Reportes\DsIniciativa.xsc">
       <DependentUpon>DsIniciativa.xsd</DependentUpon>
     </Content>
+    <Content Include="Reportes\DsFichaIniciativa.xsc">
+      <DependentUpon>DsFichaIniciativa.xsd</DependentUpon>
+    </Content>
+    <None Include="Reportes\DsFichaIniciativa.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsFichaIniciativa.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reportes\DsFichaIniciativa.xss">
+      <DependentUpon>DsFichaIniciativa.xsd</DependentUpon>
+    </Content>
     <None Include="Reportes\DsIniciativa.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DsIniciativa.Designer.cs</LastGenOutput>
@@ -547,6 +566,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Reportes\EscenarioRpt.rdlc" />
     <EmbeddedResource Include="Reportes\rptBlockChain.rdlc" />
+    <EmbeddedResource Include="Reportes\rptFichaIniciativa.rdlc" />
     <EmbeddedResource Include="Reportes\rptIniciativa.rdlc" />
     <EmbeddedResource Include="Reportes\rptInstitucion.rdlc" />
     <EmbeddedResource Include="Reportes\rptMedMit.rdlc" />

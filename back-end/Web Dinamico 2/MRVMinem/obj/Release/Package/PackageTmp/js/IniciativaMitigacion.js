@@ -1231,6 +1231,7 @@ function ValidarRevision(id_ini, id_plazo, id_msj, mensaje) {
     };
     var respuesta = MRV.Ajax(baseUrl + "Gestion/ValidarRevisionIniciativa", item, false);
     if (respuesta.success) {
+        debugger;
         if (respuesta.extra == '0') {
             msj = mensajeError(id_msj, "Error", mensaje);
         }

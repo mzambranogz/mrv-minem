@@ -16,6 +16,7 @@ namespace datos.minem.gob.pe
     {
         private string sPackage = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_INICIATIVA_MITIGACION.";
         private string sPackage2 = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_DETALLE_INDICADORES.";
+        private string sPackageR = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_REPORTES.";
 
         public List<IniciativaBE> ListaIniciativaPublico(IniciativaBE entidad)
         {
@@ -2322,6 +2323,29 @@ namespace datos.minem.gob.pe
             }
 
             return validar;
+        }
+
+        public List<IniciativaBE> ListaIniciativaFicha(IniciativaBE entidad)
+        {
+            List<IniciativaBE> lista = null;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackageR + "USP_SEL_INICIATIVA_FICHA";
+                    var p = new OracleDynamicParameters();
+                    p.Add("PI_ID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("PO_CURSOR", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                    entidad.OK = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+            return lista;
         }
 
     }

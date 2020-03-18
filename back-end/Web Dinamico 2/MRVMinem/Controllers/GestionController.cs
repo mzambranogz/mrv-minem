@@ -395,7 +395,7 @@ namespace MRVMinem.Controllers
                 modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
                 modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
                 modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
-                if (modelo.iniciativa_mit.ID_ETAPA == 8)
+                if (modelo.iniciativa_mit.ID_ETAPA == 10)
                 {
                     modelo.usuario = UsuarioLN.UsuarioAdministrador();
                 }
@@ -446,8 +446,8 @@ namespace MRVMinem.Controllers
             usu.buscar = "";
             usu.cantidad_registros = 10;
             usu.pagina = 1;
-            usu.order_by = "ID_ESTADO_USUARIO";
-            usu.order_orden = "ASC";
+            usu.order_by = "U.ID_ESTADO_USUARIO, U.ID_USUARIO";
+            usu.order_orden = "DESC";
             modelo.listaUsuario = UsuarioLN.BuscarMantenimientoUsuario(usu);
             return View(modelo);
         }
@@ -1111,7 +1111,7 @@ namespace MRVMinem.Controllers
                 iniciativa.EMAIL_USUARIO = ini.EMAIL_USUARIO;
                 //iniciativa.EMAIL_USUARIO = "juancarlossotoc1990@gmail.com";
                 iniciativa.VALIDAR_RUTA = 1;
-                iniciativa.ASUNTO = "Observación Detalle de Iniciativa de Mitigación - MRVMinem ";
+                iniciativa.ASUNTO = "Observación Detalle de Iniciativa de Mitigación - MRVMinem";
                 iniciativa.SALUDO = "Estimado Sr(a): " + ini.NOMBRES + "<br/></br/>";
                 string link1 = "Observación de iniciativa de Mitigación:<br/>" + link(ruta, 3, 2, entidad.ID_INICIATIVA, ini.ID_USUARIO, ini.ID_TIPO_INGRESO);
                 iniciativa.DESCRIPCION = iniciativa.SALUDO + "En el detalle de la iniciativa <strong>" + entidad.NOMBRE_INICIATIVA + "</strong> se ha detectado algunos datos a corregir, los detalles en la siguiente descripción: <br/><br/>" + entidad.DESCRIPCION + "<br/><br/>Por favor, pulse o copie el siguiente link en su navegador para dirigirse al detalle de la Iniciativa de Mitigación<br/><br/>" + link1;
@@ -1397,6 +1397,23 @@ namespace MRVMinem.Controllers
                 BlockChainLN.NombrePDFBlockchain(new BlockChainBE() { ID_BLOCKCHAIN = entidad.ID_BLOCKCHAIN, NOMBRE_PDF = nombreArchivo });
             }
                 
+
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult DescargarFicha(IniciativaBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+            string nombreArchivo = Guid.NewGuid() + ".pdf";
+            string nombrePDF = nombrePDF = WebConfigurationManager.AppSettings["RutaTemp"] + "\\" + nombreArchivo;
+            itemRespuesta.success = new ReporteRepositorio().GenerarPDFBlockChain(entidad.ID_INICIATIVA, nombrePDF);
+            if (itemRespuesta.success)
+            {
+                itemRespuesta.extra = nombreArchivo;
+                //========================================================= add 15-03-2020
+                BlockChainLN.NombrePDFBlockchain(new BlockChainBE() { ID_BLOCKCHAIN = entidad.ID_BLOCKCHAIN, NOMBRE_PDF = nombreArchivo });
+            }
+
 
             return Respuesta(itemRespuesta);
         }

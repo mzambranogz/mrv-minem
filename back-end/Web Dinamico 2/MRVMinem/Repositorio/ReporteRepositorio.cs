@@ -60,5 +60,45 @@ namespace MRVMinem.Repositorio
             return OK;
         }
 
+        public bool GenerarPDFfICHA(int id_iniciativa, string NombrePDF)
+        {
+            bool OK = true;
+            try
+            {
+                Warning[] warnings;
+                string[] streamids;
+                string mimeType;
+                string encoding;
+                string filenameExtension;
+                string rutatarget = WebConfigurationManager.AppSettings["RutaReportes"].ToString();
+
+                ConfigurarReporte();
+                rvReporte.LocalReport.ReportPath = string.Format("{0}\\rptFichaIniciativa.rdlc", rutatarget);
+                List<IniciativaBE> listaIniciativa = IniciativaLN.ListaIniciativaFicha(new IniciativaBE() { ID_INICIATIVA = id_iniciativa });
+                ReportDataSource dataSource = new ReportDataSource("DtFichaIniciativa", listaIniciativa);
+
+                rvReporte.LocalReport.DataSources.Clear();
+                rvReporte.LocalReport.DataSources.Add(dataSource);
+                //List<ReportParameter> parameters = new List<ReportParameter>();
+                //parameters.Add(new ReportParameter("PI_IDCONVOCATORIA", IdConvocatoria.ToString()));
+
+                //rvReporte.ServerReport.SetParameters(parameters);
+                byte[] bytes = rvReporte.LocalReport.Render("PDF", null, out mimeType, out encoding, out filenameExtension, out streamids, out warnings);
+
+                using (FileStream fs = new FileStream(NombrePDF, FileMode.Create))
+                {
+                    fs.Write(bytes, 0, bytes.Length);
+                    fs.Close();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                OK = false;
+                Log.Error(ex);
+            }
+            return OK;
+        }
+
     }
 }

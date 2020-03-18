@@ -305,12 +305,40 @@
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup13"><i class="fas fa-file-excel"></i></span></div>
                                                 <input class="form-control cursor-pointer txt-file-control" type="text" id="txt-declaracion" placeholder="Suba su plantilla" aria-describedby="inputGroup13" required>
-                                                <input class="d-none fil-file-control" type="file" id="fledeclaracion" name="fledeclaracion" accept=".xls,.xlsx,.xlsm">
+                                                <input class="d-none fil-file-control" type="file" id="fledeclaracion" name="fledeclaracion" accept=".xlsx,.xlsm"> @*.xls,*@
                                                 <div class="input-group-append" data-toggle="tooltip" data-placement="top" title="Suba la plantilla de excel completa con los datos requeridos para completar sus detalles de indicadores">
                                                     <label class="input-group-text cursor-pointer" for="txt-declaracion"><i class="fas fa-upload mr-1"></i>Subir plantilla</label>
                                                 </div>
                                             </div>
+                                            
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12-col-md-12 col-lg-6"></div>
+                                    <div class="col-sm-12-col-md-12 col-lg-6">
+
+                                        <div id="validar-excel" hidden>
+                                            <div class="alert alert-danger d-flex align-items-stretch" role="alert">
+                                                <div class="alert-wrap mr-3">
+                                                    <div class="sa">
+                                                        <div class="sa-error">
+                                                            <div class="sa-error-x">
+                                                                <div class="sa-error-left"></div>
+                                                                <div class="sa-error-right"></div>
+                                                            </div>
+                                                            <div class="sa-error-placeholder"></div>
+                                                            <div class="sa-error-fix"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="alert-wrap">
+                                                    <h6>Error de registro</h6>
+                                                    <hr><small class="mb-0">Por favor, verifique que el archivo selecionado sea el correcto para la carga masiva de datos.</small>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -804,10 +832,25 @@
     }
 
     function fn_CargarExcel(evt) {
+        $("#validar-excel").attr("hidden", true);
         $("#txt-declaracion").prop("disabled", true);
         $("#fledeclaracion").prop("disbled", true);
         $("#cbo-enfoque").prop("disabled", true);
         $("#cuerpoTablaIndicador").empty();
+        debugger;
+        var fileName = this.files[0].name;
+        switch (fileName.substring(fileName.lastIndexOf('.') + 1).toLowerCase()) {
+            case 'xlsx': case 'xlsm':
+                break;
+            default:
+                $(this).val('');
+                $("#validar-excel").removeAttr("hidden");
+                storedFiles = [];
+                $("#total-documentos").html($("#total-documentos").data("cantidad"));
+                return false;
+                break;
+        }
+
         $("#fledeclaracion").next().find("label").empty().html('<i class="fas fa-spinner fa-spin px-1"></i> Cargando...');
         var url = baseUrl + 'Detalle/ProcesarExcel';
         var options = {
@@ -840,7 +883,7 @@
                     console.log(response);
                     if (response.length > 0) {
                         //for (var i = 0; i < response.length; i++) {
-                            //debugger;
+                            debugger;
                             //CargarTablaIndicador(response, i);
                         $("#txt-declaracion").prop("disabled", false);
                         $("#fledeclaracion").prop("disbled", false);
@@ -853,8 +896,16 @@
                         //$("#cuerpoTablaIndicador").data("row", response.length);
                     }
                 } else {
+                    debugger;
                     $("#fledeclaracion").val("");
                     $("#txt-declaracion").val("");
+                    $("#txt-declaracion").prop("disabled", false);
+                    $("#fledeclaracion").prop("disbled", false);
+                    $("#cbo-enfoque").prop("disabled", false);
+                    $("#fledeclaracion").val("");
+                    $("#txt-declaracion").val("");
+                    $("#fledeclaracion").next().find("label").empty().html('<i class="fas fa-upload mr-1"></i> Subir plantilla');
+                    $("#validar-excel").removeAttr("hidden");
                     //alert(response);
                 }
             },

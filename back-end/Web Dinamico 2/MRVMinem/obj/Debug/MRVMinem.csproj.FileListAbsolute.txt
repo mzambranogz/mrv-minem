@@ -1262,6 +1262,7 @@ C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_Lavadoras.xlsx
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_Secadora.xlsx
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\2.1 Plantilla_Coccion_Lena.xlsx
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\1.4 Plantilla_Auditoria_energetica.xlsx
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\MRVMinem.dll.config
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\MRVMinem.dll
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\MRVMinem.pdb
@@ -1316,4 +1317,3 @@ C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\obj\Debug\RdlCompile.compiled
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\obj\Debug\MRVMinem.dll
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\obj\Debug\MRVMinem.pdb
-C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\1.4 Plantilla_Auditoria_energetica.xlsx

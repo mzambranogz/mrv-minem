@@ -1782,7 +1782,7 @@ function fn_enviarPaquete() {
                 //fn_msjError('<hr><small class="mb-0">Por favor, seleccione la iniciativa que se enviará al Verificador.</small>');
             }
     } else {
-        fn_msjError('<hr><small class="mb-0">Por favor, seleccione a un especialista o verificador para el envío de la(s) iniciativa(s).</small>');
+        fn_msjError('<hr><small class="mb-0">Por favor, seleccione a un evaluador o verificador para el envío de la(s) iniciativa(s).</small>');
     }    
 }
 

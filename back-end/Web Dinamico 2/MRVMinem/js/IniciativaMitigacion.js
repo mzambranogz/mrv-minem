@@ -879,7 +879,7 @@ function validarCampoRevision() {
 function fn_revisarIniciativaMitigacion() {
     //debugger;
 
-    var mns = ValidarRevision($("#Control").data("iniciativa"), 2, "mensajeDangerRegistro", "Esta iniciativa ya fue revisada y/o observada");
+    var mns = ValidarRevision($("#Control").data("iniciativa"), $("#estado_flujo").val(), "mensajeDangerRegistro", "Esta iniciativa ya fue revisada y/o observada");
     if (mns != "") {        
         $("#aprobar-revision #modalAprobarBoton").hide();
         $("#pieCorrectoAprobacion").show();
@@ -1231,6 +1231,7 @@ function ValidarRevision(id_ini, id_plazo, id_msj, mensaje) {
     };
     var respuesta = MRV.Ajax(baseUrl + "Gestion/ValidarRevisionIniciativa", item, false);
     if (respuesta.success) {
+        debugger;
         if (respuesta.extra == '0') {
             msj = mensajeError(id_msj, "Error", mensaje);
         }
