@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - martes-marzo-17-2020   
+-- Archivo creado  - miÈrcoles-marzo-18-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_DIRECCIONAMIENTO
@@ -1782,6 +1782,42 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pID_DETALLE IN NUMBER,
         pRefcursor      OUT SYS_REFCURSOR
    );
+   
+    --=========================================== 16-02-2020
+    PROCEDURE USP_INS_TIPO_INICIATIVA(
+        pTIPO_INICIATIVA IN VARCHAR2,
+        pID_TIPO_INICIATIVA    OUT NUMBER
+    );
+
+    PROCEDURE USP_UPD_TIPO_INICIATIVA(
+        pID_TIPO_INICIATIVA IN NUMBER,
+        pTIPO_INICIATIVA  IN VARCHAR2
+   );
+
+   PROCEDURE USP_DEL_TIPO_INICIATIVA(
+       pID_TIPO_INICIATIVA IN NUMBER
+   );
+
+    PROCEDURE USP_GET_TIPO_INICIATIVA(
+        pID_TIPO_INICIATIVA IN NUMBER,
+        pRefcursor  OUT SYS_REFCURSOR
+   );
+
+   PROCEDURE USP_SEL_BUSCAR_TIPO_INICIATIVA(
+        pBuscar     IN VARCHAR2,
+        pRegistros  INTEGER,
+        pPagina     INTEGER,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+
+    PROCEDURE USP_SEL_EXCEL_TIPO_INICIATIVA(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
 
 END PKG_MRV_MANTENIMIENTO;
 
@@ -10253,6 +10289,125 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
         FROM T_MAED_MRV_PARAMETRO 
         WHERE ID_PARAMETRO = pID_PARAMETRO AND ID_DETALLE = pID_DETALLE;
   END USP_SEL_ID_PARAMETRO_DETALLE;
+  
+  --==================================== 16-03-2020
+  PROCEDURE USP_INS_TIPO_INICIATIVA(
+        pTIPO_INICIATIVA IN VARCHAR2,
+        pID_TIPO_INICIATIVA    OUT NUMBER
+    )AS
+    BEGIN
+        SELECT NVL(MAX(ID_TIPO_INICIATIVA),0) + 1 INTO pID_TIPO_INICIATIVA FROM T_MAE_TIPO_INICIATIVA;
+
+        INSERT INTO T_MAE_TIPO_INICIATIVA(ID_TIPO_INICIATIVA, TIPO_INICIATIVA, FLAG_ESTADO )
+        VALUES (pID_TIPO_INICIATIVA, pTIPO_INICIATIVA, 1);
+
+    END USP_INS_TIPO_INICIATIVA;
+
+
+    PROCEDURE USP_UPD_TIPO_INICIATIVA(                 
+        pID_TIPO_INICIATIVA IN NUMBER,
+        pTIPO_INICIATIVA in varchar2
+   )AS
+     BEGIN
+             UPDATE T_MAE_TIPO_INICIATIVA
+             SET TIPO_INICIATIVA = pTIPO_INICIATIVA
+             where ID_TIPO_INICIATIVA = pID_TIPO_INICIATIVA;
+
+
+    END USP_UPD_TIPO_INICIATIVA;
+
+	PROCEDURE USP_DEL_TIPO_INICIATIVA(                  
+        pID_TIPO_INICIATIVA IN NUMBER
+   )AS
+     BEGIN
+             UPDATE T_MAE_TIPO_INICIATIVA
+             set FLAG_ESTADO = 0
+             where ID_TIPO_INICIATIVA = pID_TIPO_INICIATIVA;
+
+    END USP_DEL_TIPO_INICIATIVA;
+
+	PROCEDURE USP_GET_TIPO_INICIATIVA(
+        pID_TIPO_INICIATIVA IN NUMBER,
+        pRefcursor  OUT SYS_REFCURSOR
+   )AS
+     BEGIN
+             OPEN    pRefcursor FOR
+            SELECT  ID_TIPO_INICIATIVA,
+                    TIPO_INICIATIVA
+            FROM    T_MAE_TIPO_INICIATIVA
+            WHERE   ID_TIPO_INICIATIVA = pID_TIPO_INICIATIVA;
+
+    END USP_GET_TIPO_INICIATIVA;
+
+    PROCEDURE USP_SEL_BUSCAR_TIPO_INICIATIVA(
+        pBuscar	IN VARCHAR2,
+        pRegistros IN INTEGER,
+      	pPagina    IN INTEGER,
+      	pSortColumn IN VARCHAR2,
+      	pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+        vPaginas    INTEGER;
+        vTotal      INTEGER;
+        vPagina2    INTEGER := pPagina;
+        vPageIndex  INTEGER := 0;
+        vQuery      VARCHAR2(30000) := '';
+        vSortColumn2 VARCHAR2(1000);
+      BEGIN
+
+        SELECT COUNT(1) INTO vTotal
+        FROM  T_MAE_TIPO_INICIATIVA
+        WHERE FLAG_ESTADO = 1 AND
+              (LOWER(TRANSLATE(TIPO_INICIATIVA,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like '%'|| LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) ||'%');
+
+        vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
+        IF vPagina2 = 0 THEN
+            vPagina2 := 1;
+        END IF;
+        IF vPagina2 > vPaginas THEN
+            vPagina2 := vPaginas;
+        END IF;
+
+        vPageIndex := vPagina2 - 1;  
+        vSortColumn2 := pSortColumn;
+
+        vQuery := 'SELECT *    FROM (
+                        SELECT    ID_TIPO_INICIATIVA,
+                                  TIPO_INICIATIVA,
+                                                ROW_NUMBER() OVER (ORDER BY ' || vSortColumn2 || ' ' || pSortOrder ||') AS ROWNUMBER,'
+                                                || vPaginas || ' AS total_paginas,'
+                                                || vPagina2 || ' AS pagina,'
+                                                || pRegistros || ' AS cantidad_registros,'
+                                                || vTotal || ' AS total_registros
+                        FROM  T_MAE_TIPO_INICIATIVA
+                        WHERE FLAG_ESTADO = 1 AND
+                        (LOWER(TRANSLATE(TIPO_INICIATIVA,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' )
+					)
+                    WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
+		OPEN pRefcursor FOR vQuery;
+
+    END USP_SEL_BUSCAR_TIPO_INICIATIVA;
+
+    PROCEDURE USP_SEL_EXCEL_TIPO_INICIATIVA(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+        vQuery      VARCHAR2(30000) := '';
+        vSortColumn2 VARCHAR2(1000);
+      BEGIN
+        vSortColumn2 := pSortColumn;
+        vQuery := '
+                        SELECT    ID_TIPO_INICIATIVA,
+                                  TIPO_INICIATIVA
+                        FROM  T_MAE_TIPO_INICIATIVA
+                        WHERE FLAG_ESTADO = 1 AND
+                        (LOWER(TRANSLATE(TIPO_INICIATIVA,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' )
+                        ORDER BY ' || vSortColumn2 || ' ' || pSortOrder || ' ' ;
+		OPEN pRefcursor FOR vQuery;
+
+    END USP_SEL_EXCEL_TIPO_INICIATIVA;
 
 END PKG_MRV_MANTENIMIENTO;
 
