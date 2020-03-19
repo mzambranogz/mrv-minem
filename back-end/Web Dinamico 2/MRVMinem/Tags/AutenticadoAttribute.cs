@@ -18,8 +18,8 @@ namespace MRVMinem.Tags
                 {
                     filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new
                     {
-                        controller = "Home",
-                        action = "Login"
+                        controller = "Error",
+                        action = "SinSesion"
                     }));
                 }
             }

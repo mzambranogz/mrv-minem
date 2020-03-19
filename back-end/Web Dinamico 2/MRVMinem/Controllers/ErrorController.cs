@@ -26,5 +26,10 @@ namespace MRVMinem.Controllers
         {
             return View();
         }
+
+        public ActionResult SinSesion()
+        {
+            return View();
+        }
     }
 }
