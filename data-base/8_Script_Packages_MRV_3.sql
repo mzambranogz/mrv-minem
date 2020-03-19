@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - miércoles-marzo-18-2020   
+-- Archivo creado  - jueves-marzo-19-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_PARAMETROS
@@ -281,6 +281,16 @@ end PKG_MRV_PARAMETROS;
     PROCEDURE USP_SEL_FICHA_MEDMIT_ENFOQUE(
         pID_MEDMIT IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
+    );
+    
+    PROCEDURE USP_SEL_INICIATIVA_PDF(
+        PI_ID_INICIATIVA NUMBER,
+        PO_CURSOR OUT SYS_REFCURSOR
+    );
+    
+    PROCEDURE USP_UPD_FICHA_PDF(
+        PI_ID_INICIATIVA NUMBER,
+        PI_NOMBRE_PDF VARCHAR2
     );
 
 END PKG_MRV_REPORTES;
@@ -1401,6 +1411,27 @@ end PKG_MRV_PARAMETROS;
         LEFT JOIN T_MAEM_UNIDAD_MEDIDA UM ON MRVP.ID_UNIDAD_MEDIDA = UM.ID_UNIDAD_MEDIDA
         WHERE E.ID_MEDMIT = pID_MEDMIT;
     END USP_SEL_FICHA_MEDMIT_ENFOQUE;
+    
+    PROCEDURE USP_SEL_INICIATIVA_PDF(
+        PI_ID_INICIATIVA NUMBER,
+        PO_CURSOR OUT SYS_REFCURSOR
+    )AS
+    BEGIN
+        OPEN PO_CURSOR FOR
+        SELECT  NOMBRE_FICHA PDF
+        FROM    T_GENM_INICIATIVA
+        WHERE ID_INICIATIVA = PI_ID_INICIATIVA;
+    END USP_SEL_INICIATIVA_PDF;
+    
+    PROCEDURE USP_UPD_FICHA_PDF(
+        PI_ID_INICIATIVA NUMBER,
+        PI_NOMBRE_PDF VARCHAR2
+    )AS
+    BEGIN
+        
+        UPDATE T_GENM_INICIATIVA SET NOMBRE_FICHA = PI_NOMBRE_PDF , ESTADO_FICHA = 1 WHERE ID_INICIATIVA = PI_ID_INICIATIVA;
+        
+    END USP_UPD_FICHA_PDF;
 
 END PKG_MRV_REPORTES;
 

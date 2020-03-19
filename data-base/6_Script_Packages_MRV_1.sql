@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - miércoles-marzo-18-2020   
+-- Archivo creado  - jueves-marzo-19-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_ADMIN_SISTEMA
@@ -1585,12 +1585,14 @@ end PKG_MRV_BLOCKCHAIN;
         IF pID_TIPO_INICIATIVA = 0 THEN
             UPDATE T_GENM_INICIATIVA
             SET ID_ESTADO = 3, ID_ETAPA = 4,
+                ESTADO_FICHA = 0, --ADD
                 ID_PLAZO_ETAPA_ESTADO = 12 --ADD
             WHERE ID_INICIATIVA = pID_INICIATIVA;
         ELSE
             UPDATE T_GENM_INICIATIVA
             SET ID_ESTADO = 3, ID_ETAPA = 4,
                 ID_PLAZO_ETAPA_ESTADO = 12, --ADD
+                ESTADO_FICHA = 0, --ADD
                 ID_TIPO_INICIATIVA = pID_TIPO_INICIATIVA
             WHERE ID_INICIATIVA = pID_INICIATIVA;
         END IF;
@@ -2355,7 +2357,7 @@ end PKG_MRV_BLOCKCHAIN;
             INSERT INTO T_MAEM_INDICADOR_DATA (ID_INICIATIVA, ID_INDICADOR, ID_ENFOQUE, ID_MEDMIT, ID_PARAMETRO, VALOR, FLAG_ESTADO)
             VALUES (pID_INICIATIVA, pID_INDICADOR, pID_ENFOQUE, pID_MEDMIT, pID_PARAMETRO, pVALOR, '1');
         ELSE
-            UPDATE T_MAEM_INDICADOR_DATA SET VALOR = pVALOR
+            UPDATE T_MAEM_INDICADOR_DATA SET VALOR = pVALOR, FLAG_ESTADO = '1' --add
             WHERE ID_INICIATIVA = pID_INICIATIVA AND ID_ENFOQUE = pID_ENFOQUE AND ID_MEDMIT = pID_MEDMIT AND ID_INDICADOR = pID_INDICADOR AND
                   ID_PARAMETRO = pID_PARAMETRO;
         END IF;

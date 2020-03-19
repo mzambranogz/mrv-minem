@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - miércoles-marzo-18-2020   
+-- Archivo creado  - jueves-marzo-19-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_DIRECCIONAMIENTO
@@ -902,6 +902,12 @@ END PKG_MRV_DIRECCIONAMIENTO;
       );
       
       PROCEDURE USP_SEL_VALIDAR_VISTA(
+        pID_INICIATIVA IN NUMBER,
+        pR OUT SYS_REFCURSOR
+      );
+      
+      --=================================== 18-03-20
+    PROCEDURE USP_SEL_FICHA_INI(
         pID_INICIATIVA IN NUMBER,
         pR OUT SYS_REFCURSOR
       );
@@ -6333,6 +6339,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
                                 CH.ID_BLOCKCHAIN,
                                 CH.GENERADO_PDF,
                                 CH.NOMBRE_PDF,
+                                INI.ESTADO_FICHA,
                                 ROW_NUMBER() OVER (ORDER BY ' || vSortColumn2 || ' ' || pSortOrder ||') AS ROWNUMBER,'
                                 || vPaginas || ' AS total_paginas,'
                                 || vPagina2 || ' AS pagina,'
@@ -6455,6 +6462,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
                                 CH.ID_BLOCKCHAIN,
                                 CH.GENERADO_PDF,
                                 CH.NOMBRE_PDF,
+                                INI.ESTADO_FICHA,
                                 ROW_NUMBER() OVER (ORDER BY ' || vSortColumn2 || ' ' || pSortOrder ||') AS ROWNUMBER,'
                                 || vPaginas || ' AS total_paginas,'
                                 || vPagina2 || ' AS pagina,'
@@ -7080,6 +7088,44 @@ END PKG_MRV_DIRECCIONAMIENTO;
         FROM    T_GENM_INICIATIVA
         WHERE   ID_INICIATIVA = pID_INICIATIVA;
       END USP_SEL_VALIDAR_VISTA;
+      
+      --=================================== 18-03-20
+      PROCEDURE USP_SEL_FICHA_INI(
+        pID_INICIATIVA IN NUMBER,
+        pR OUT SYS_REFCURSOR
+      )AS
+      BEGIN
+        OPEN pR FOR
+        SELECT  
+                INI.ID_INICIATIVA,
+                MD.ID_MEDMIT,
+                MD.NOMBRE_MEDMIT,
+                IPCC.IPCC,
+                MD.DESCRIPCION_MEDMIT,
+                MD.OBJETIVO_MEDMIT,
+                TI.TIPO_INICIATIVA,
+                INI.NOMBRE_INICIATIVA,
+                INI.DESC_INICIATIVA,
+                TRIM(U.NOMBRES_USUARIO) || ' '|| TRIM(U.APELLIDOS_USUARIO) NOMBRES,
+                U.EMAIL_USUARIO,
+                INS.NOMBRE_INSTITUCION INSTITUCION,
+                INS.DIRECCION_INSTITUCION DIRECCION,
+                SEC.DESCRIPCION SECTOR,
+                MO.DESCRIPCION MONEDA,
+                INI.INVERSION_INICIATIVA,
+                INI.FECHA_IMPLE_INICIATIVA,
+                INI.FECHA_FIN_INICIATIVA,
+                INI.GEI_TOTAL TOTAL_GEI
+        FROM    T_GENM_INICIATIVA INI
+        LEFT JOIN   T_MAE_TIPO_INICIATIVA TI ON INI.ID_TIPO_INICIATIVA = TI.ID_TIPO_INICIATIVA
+        LEFT JOIN   T_MAE_MONEDA MO ON INI.ID_MONEDA = MO.ID_MONEDA
+        LEFT JOIN   T_MAE_MEDMIT MD ON INI.ID_MEDMIT = MD.ID_MEDMIT
+        LEFT JOIN   T_MAE_IPCC IPCC ON MD.ID_IPCC = IPCC.ID_IPCC
+        LEFT JOIN   T_GENM_USUARIO U ON INI.ID_USUARIO = U.ID_USUARIO
+        LEFT JOIN   T_GENM_INSTITUCION INS ON U.ID_INSTITUCION = INS.ID_INSTITUCION
+        LEFT JOIN   T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
+        WHERE INI.ID_INICIATIVA = pID_INICIATIVA;
+      END USP_SEL_FICHA_INI;
 
 END PKG_MRV_INICIATIVA_MITIGACION;
 
