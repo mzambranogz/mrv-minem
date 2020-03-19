@@ -720,7 +720,6 @@ C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\3.1 Plantilla_RER_Conectado.xlsx
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\3.2 Plantilla_Generacion_Distribuida.xlsx
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\4.1 Plantilla_Vehiculos_electricos_Consumo.xlsm
-C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\4.1 Plantilla_Vehiculos_electricos_Recorrido.xlsm
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\4.1 Plantilla_Vehiculos_hibridos_consumo.xlsm
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\4.1 Plantilla_Vehiculos_hibridos_Recorrido.xlsm
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_etiquetado_congeladoras.xlsx
@@ -791,3 +790,8 @@ C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\obj\Release\MRVMinem.dll
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\obj\Release\MRVMinem.pdb
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\1.4 Plantilla_Auditoria_energetica.xlsx
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\4.1 Plantilla_Vehiculos_electricos_Recorrido.xlsx
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\itextsharp.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\Newtonsoft.Json.dll
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\itextsharp.xml
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\Newtonsoft.Json.xml

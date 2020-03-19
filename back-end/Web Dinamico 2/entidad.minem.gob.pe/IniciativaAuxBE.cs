@@ -69,5 +69,9 @@ namespace entidad.minem.gob.pe
         public int GENERADO_PDF { get; set; }
         public string NOMBRE_PDF { get; set; }
         public List<IniciativaBE> listaGeiAnno { get; set; }
+        public string IPCC { get; set; }
+        public string DESCRIPCION_MEDMIT { get; set; }
+        public string OBJETIVO_MEDMIT { get; set; }
+        public int ESTADO_FICHA { get; set; }
     }
 }

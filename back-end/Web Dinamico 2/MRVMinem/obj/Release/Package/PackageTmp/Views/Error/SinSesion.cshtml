@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "SinSesion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid banner d-flex flex-row justify-content-center align-items-center" id="carousel">
+    <div class="banners-degradado">
+        <div class="banner-1 banner-mostrado" data-titulo="" data-descripcion="Para medir el impacto de los esfuerzos de &lt;strong&gt;mitigación del cambio climático&lt;/strong&gt; se  requiere recopilar datos específicos y cálculos matemáticos.&lt;br&gt;El &lt;strong&gt;sistema MRV&lt;/strong&gt; permite cuantificar y reportar las emisiones de GEI reducidas según cada &lt;strong&gt;medida de mitigación del sector energía&lt;/strong&gt;, así como  los avances del alcance de nuestro compromiso como país."></div>
+        <div class="banner-2" data-titulo="" data-descripcion="A través de la &lt;strong&gt;energía renovable&lt;/strong&gt; se pueden aprovechar fuentes inagotables para &lt;strong&gt;generar electricidad de manera, económica y ambientalmente sostenible&lt;/strong&gt; contribuyendo significativamente a la reducción de emisiones de GEI."></div>
+        <div class="banner-3" data-titulo="" data-descripcion="A través de la &lt;strong&gt;eficiencia energética&lt;/strong&gt; se logra un buen uso de &lt;strong&gt;recursos energéticos&lt;/strong&gt;, resultando en &lt;strong&gt;ahorro energético&lt;/strong&gt;, &lt;strong&gt;económico&lt;/strong&gt; y reducción de emisiones de GEI."></div>
+        <div class="banner-4" data-titulo="" data-descripcion="A través de la &lt;strong&gt;cocción limpia&lt;/strong&gt; y la &lt;strong&gt;electrificación en el ámbito rural&lt;/strong&gt; con fuentes renovables se reduce la brecha de acceso a la energía, resultando en &lt;strong&gt;ahorros económicos&lt;/strong&gt;, &lt;strong&gt;mejoras en la salud&lt;/strong&gt;, en la &lt;strong&gt;calidad de vida&lt;/strong&gt; y en la reducción de contaminantes locales y emisiones de GEI."></div>
+        <div class="banner-5" data-titulo="" data-descripcion="El &lt;strong&gt;transporte eléctrico&lt;/strong&gt; permite reducir las emisiones de contaminantes locales, el ruido que afecta negativamente la salud de las personas, así como &lt;strong&gt;reduce considerablemente las emisiones&lt;/strong&gt; de gases de efecto invernadero."></div>
+        <div class="banner-6" data-titulo="" data-descripcion="Reducir las emisiones de &lt;strong&gt;Gases de Efecto Invernadero (GEI)&lt;/strong&gt; para mitigar los efectos del cambio climático es responsabilidad de todas y todos los peruanos."></div>
+    </div>
+    <div class="flecha d-none" id="enlaceAspectos"><i class="fas fa-angle-double-right fa-2x text-white btn-slider-bottom"></i></div>
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-2 d-flex flex-row justify-content-center align-items-center wrap-slider-left"><i class="fas fa-chevron-left fa-3x text-white btn-slider-left d-none"></i></div>
+            <div class="col-md-8 col-sm-12 text-center">
+                <div class="row">
+                    <div class="col-12 d-flex flex-row justify-content-center align-items-end">
+                        <div class="slider-pagging d-none"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 d-flex flex-row justify-content-center align-items-center wrap-slider-right"><i class="fas fa-chevron-right fa-3x text-white btn-slider-right d-none"></i></div>
+        </div>
+        <div class="row dentro-banner rounded">
+            <div class="col-sm-12 col-md-12 col-lg-12 p-4">
+                <div class="display-4 text-white animated slideInDown text-center py-5">Su sesión ha terminado y/o NO ha iniciado sesión</div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12 p-4 bg-light rounded-bottom text-justify">
+                <div class="container-fluid px-0 py-2">
+                    <div class="container p-0">
+                        <div class="lead font-weight-bold cursor-pointer mb-4" data-toggle="collapse" href="#aspecto-undefined" aria-expanded="true" aria-controls="aspecto-undefined"><i class="fas fa-exclamation-triangle mr-2"></i><span>Mens   aje</span></div>
+                        <div class="collapse show" id="aspecto-undefined">
+                            <div class="card card-body alert alert-warning">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <p class="text-monospace"><a href="@Url.Action("login","Home")"><i class="fas fa-sign-in-alt pr-1"></i>Inciar sesión Aquí</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

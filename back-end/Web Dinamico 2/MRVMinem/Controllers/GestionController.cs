@@ -21,6 +21,10 @@ using System.Drawing;
 using utilitario.minem.gob.pe;
 using MRVMinem.Tags;
 using MRVMinem.Helper;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.text.html.simpleparser;
+using System.Globalization;
 
 namespace MRVMinem.Controllers
 {
@@ -972,17 +976,17 @@ namespace MRVMinem.Controllers
                         listaDataE.Add(dataE);
                     }
                 }
-                
+
 
                 //============================================================ add 12-03-2020
-                if (Convert.ToInt32(Session["enfoque"]) != entidad.ID_ENFOQUE)
+                //if (Convert.ToInt32(Session["enfoque"]) != entidad.ID_ENFOQUE)
+                //{
+                if (entidad.ID_ESTADO == 0 || entidad.ID_ESTADO == 1)
                 {
-                    if (entidad.ID_ESTADO == 0)
-                    {
-                        IndicadorLN.deleteRegDetalle(entidad);
-                        Session["enfoque"] = entidad.ID_ENFOQUE;
-                    }                    
+                    IndicadorLN.deleteRegDetalle(entidad);
+                    //Session["enfoque"] = entidad.ID_ENFOQUE;
                 }
+                //}
                 //==========================================================
                 //IndicadorBE indicador = null;
                 IndicadorDataBE indicador = null;
@@ -1404,14 +1408,17 @@ namespace MRVMinem.Controllers
         public JsonResult DescargarFicha(IniciativaBE entidad)
         {
             ResponseEntity itemRespuesta = new ResponseEntity();
-            string nombreArchivo = Guid.NewGuid() + ".pdf";
-            string nombrePDF = nombrePDF = WebConfigurationManager.AppSettings["RutaTemp"] + "\\" + nombreArchivo;
-            itemRespuesta.success = new ReporteRepositorio().GenerarPDFBlockChain(entidad.ID_INICIATIVA, nombrePDF);
+            string nombreArchivo = entidad.ID_INICIATIVA + "_MRV.pdf";
+            //string nombrePDF = nombrePDF = WebConfigurationManager.AppSettings["RutaTemp"] + "\\" + nombreArchivo;
+            //itemRespuesta.success = new ReporteRepositorio().GenerarPDFBlockChain(entidad.ID_INICIATIVA, nombrePDF);
+
+            entidad.NOMBRE_PDF = nombreArchivo;
+            itemRespuesta.success = HTMLToPDF(entidad);
             if (itemRespuesta.success)
             {
                 itemRespuesta.extra = nombreArchivo;
                 //========================================================= add 15-03-2020
-                BlockChainLN.NombrePDFBlockchain(new BlockChainBE() { ID_BLOCKCHAIN = entidad.ID_BLOCKCHAIN, NOMBRE_PDF = nombreArchivo });
+                IniciativaLN.NombrePDFFicha(entidad);
             }
 
 
@@ -1425,6 +1432,19 @@ namespace MRVMinem.Controllers
             if (entidad.OK)
             {
                 itemRespuesta.extra = entidad.NOMBRE_PDF; 
+            }
+            itemRespuesta.success = entidad.OK;
+            return Respuesta(itemRespuesta);
+        }
+
+        //=================================================0
+        public JsonResult MostrarFicha(IniciativaBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+            entidad = IniciativaLN.MostrarFicha(entidad);
+            if (entidad.OK)
+            {
+                itemRespuesta.extra = entidad.NOMBRE_PDF;
             }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
@@ -2811,6 +2831,155 @@ namespace MRVMinem.Controllers
             int r4 = rnd.Next(100, 999);
             string r = "<a href=\"" + ruta + "MRV/MINEM/minem-"+ r1 + "-" + id_iniciativa + "-"+ etapa +"-"+ estado +"-"+ id_usuario +"-"+ opcion +"/reg-minem-"+ r3 +"-"+ r4 +"\">" + ruta + "MRV/MINEM/minem-"+ r1 +"-" + id_iniciativa + "-"+ etapa +"-"+ estado +"-" + id_usuario + "-" + opcion +"/reg-minem-" + r3 + "-" + r4 + "</a><br/><br/>";
             return r;
+        }
+
+        public bool HTMLToPDF(IniciativaBE entidad)
+        {
+            bool validar = true;
+            try
+            {
+                StringWriter sw = new StringWriter();
+                string shtml = BuildFicha(entidad.ID_INICIATIVA, entidad.ID_PLAZO_ETAPA_ESTADO);
+                sw.WriteLine(shtml);
+                StringReader sr = new StringReader(sw.ToString());
+                Document pdfDoc = new Document();
+                HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
+
+                string rut = WebConfigurationManager.AppSettings["RutaTemp"];
+
+                PdfWriter.GetInstance(pdfDoc, new FileStream(rut + "\\" + entidad.NOMBRE_PDF, FileMode.Create));
+                string fullimagepath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"images\header.jpg");
+                //string image2 = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"images\logo-minem.jpg");
+                pdfDoc.Open();
+                //var p = new Paragraph("");
+                //p.SpacingBefore = 200;
+                //p.SpacingAfter = 0;
+                //p.Alignment = 1; //0-Left, 1 middle,2 Right
+                //pdfDoc.Add(p);
+                iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(fullimagepath);
+                //iTextSharp.text.Image imageF2 = iTextSharp.text.Image.GetInstance(image2);
+                //image.ScalePercent(20f);
+                //imageF2.ScaleAbsolute(250, 750);
+                //imageF2.ScalePercent(10f);
+                image.ScaleAbsoluteWidth(450);
+                image.ScaleAbsoluteHeight(40);
+                image.Alignment = 1;
+                //imageF2.Alignment = 2;
+                pdfDoc.Add(image);
+                //pdfDoc.Add(imageF2);
+
+                htmlparser.Parse(sr);
+                pdfDoc.Close();
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                validar = false;
+            }
+            return validar;
+
+        }
+
+        public string BuildFicha(int id, int id_plazo)
+        {
+            IniciativaBE ini = IniciativaLN.IniciativaFicha(new IniciativaBE { ID_INICIATIVA = id });
+            NumberFormatInfo formato = new CultureInfo("es-ES").NumberFormat;
+            formato.CurrencyGroupSeparator = ".";
+            formato.NumberDecimalSeparator = ",";
+            string html = "";
+            html += "<html>";
+            html += "<head>";
+            html += "</head>";
+            html += "<body>";
+            html += "<br/>";
+            html += "<div style='text-align: center;font-weight: bold;font-size: 22px;'>" + ini.NOMBRE_MEDMIT + "</div><br/>";
+            html += "<div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>IPCC:</span>&nbsp;<span> " + ini.IPCC + "</span></div>";
+            html += "<div style='text-align: justify;font-size: 12px;'><span style='font-weight: bold;'>Descripción Medida Mitigación:</span>&nbsp;<span> " + ini.DESCRIPCION_MEDMIT + "</span></div>";
+            html += "<div style='text-align: justify;font-size: 12px;'><span style='font-weight: bold;'>Objetivo Medida Mitigación:</span>&nbsp;<span> " + ini.OBJETIVO_MEDMIT + "</span></div>";
+            html += "<br/><div style='text-align: left;font-weight: bold;font-size: 14px;'>Datos principales</div>";
+            html += "<div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Tipo de iniciativa:</span>&nbsp;<span> " + ini.TIPO_INICIATIVA + "</span></div>";
+            html += "<div style='text-align: justify;font-size: 12px;'><span style='font-weight: bold;'>Nombre de la iniciativa:</span>&nbsp;<span> " + ini.NOMBRE_INICIATIVA + "</span></div>";
+            html += "<div style='text-align: justify;font-size: 12px;'><span style='font-weight: bold;'>Descripción de la iniciativa:</span>&nbsp;<span> " + ini.DESC_INICIATIVA + "</span></div>";
+            html += "<div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Responsable del registro:</span>&nbsp;<span> " + ini.NOMBRES + "</span></div>";
+            html += "<div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Correo electrónico:</span>&nbsp;<span> " + ini.EMAIL_USUARIO + "</span></div>";
+            html += "<div style='text-align: justify;font-size: 12px;'><span style='font-weight: bold;'>Nombre de la institución:</span>&nbsp;<span> " + ini.INSTITUCION + "</span></div>";
+            html += "<div style='text-align: justify;font-size: 12px;'><span style='font-weight: bold;'>Dirección:</span>&nbsp;<span> " + ini.DIRECCION + "</span></div>";
+            html += "<br/><div style='text-align: left;font-weight: bold;font-size: 14px;'>Datos generales</div>";
+            html += "<div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Sector de la institución:</span>&nbsp;<span> " + ini.SECTOR + "</span></div>";
+            html += "<div style='text-align: justify;font-size: 12px;'><span style='font-weight: bold;'>Ubicación:</span>&nbsp;<span> " + ini.UBICACION + "</span></div>";
+            html += "<div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Moneda:</span>&nbsp;<span> " + ini.MONEDA + "</span></div>";
+            html += "<div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Monto de inversión:</span>&nbsp;<span> " + ini.INVERSION_INICIATIVA.ToString("N", formato) + "</span></div>";
+            html += "<div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Fecha de inicio de operaciones:</span>&nbsp;<span> " + ini.FECHA + "</span></div>";
+            if (ini.FECHA_FIN != "01/01/0001")
+            {
+                html += "<div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Fecha de finalización:</span>&nbsp;<span> " + ini.FECHA_FIN + "</span></div>";
+            }
+
+            if (id_plazo >= 12)
+            {
+                List<IndicadorDataBE> lista = IndicadorLN.ListarDatosTablaDinamica(new IndicadorDataBE { ID_INICIATIVA = ini.ID_INICIATIVA, ID_MEDMIT = ini.ID_MEDMIT });
+
+                if (!string.IsNullOrEmpty(ini.ENERGETICO) || !string.IsNullOrEmpty(ini.GEI))
+                {
+                    html += "<br/><div style='text-align: left;font-weight: bold;font-size: 14px;'>Indicadores</div>";
+                    if (!string.IsNullOrEmpty(ini.ENERGETICO))
+                    {
+                        html += "<div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Energéticos:</span>&nbsp;<span> " + ini.ENERGETICO + "</span></div>";
+                    }
+                    if (!string.IsNullOrEmpty(ini.GEI))
+                    {
+                        html += "<div style='text-align: justify;font-size: 12px;'><span style='font-weight: bold;'>Gases de efecto invernadero:</span>&nbsp;<span> " + ini.GEI + "</span></div>";
+                    }
+                }                
+
+                html += "<br/><div style='text-align: left;font-weight: bold;font-size: 14px;'>Detalle de la iniciativa de mitigación</div>";
+                html += "<div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Enfoque:</span>&nbsp;<span> " + lista[lista.Count() - 1].DESCRIPCION + "</span></div>";
+                html += "<div>";
+                html += "   <table style=''>";
+                html += "       <thead>";
+                html += "           <tr style='font-size: 6px;font-weight: bold;text-align: center;border: black 1px solid;border-collapse: collapse;'>";
+                foreach (var item in lista[lista.Count() - 1].listaParam)
+                {
+                    html += "       <th scope='col'><span><small>" + item.NOMBRE_PARAMETRO + "</small></span></th>";
+                }
+                html += "               </tr>";
+                html += "           <thead>";
+                html += "       </thead>";
+                html += "       <tbody>";
+
+                foreach (var item in lista[lista.Count() - 1].listaInd)
+                {
+                    html += "           <tr style='font-size: 6px;background-color: green;text-align: center;border: 1px;border-collapse: collapse;'>";
+                    foreach (var itemD in item.listaInd)
+                    {
+                        if (itemD.ID_TIPO_CONTROL == 1)
+                        {
+                            if (itemD.ID_PARAMETRO == 6)
+                            {
+                                html += "       <td><span><small>" + itemD.VALOR + "</small></span></td>";
+                            }
+                            else
+                            {
+                                html += "       <td><span><small>" + itemD.DESCRIPCION + "</small></span></td>";
+                            }
+                        }
+                        else
+                        {
+                            html += "       <td><span><small>" + itemD.VALOR + "</small></span></td>";
+                        }
+                    }
+                    html += "               </tr>";
+                }
+
+                html += "       </tbody>";
+                html += "   </table>";
+                html += "</div>";
+                html += "<br/><div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Total reducido de GEI: </span>&nbsp;<span> " + ini.TOTAL_GEI + " tCO<sub>2</sub>eq</span></div>";
+                html += "</body>";
+                html += "</html>";
+            }
+
+            return html;
         }
 
     }

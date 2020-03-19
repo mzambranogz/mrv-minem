@@ -521,7 +521,9 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                         if ($('#Control').data('rol') == 5 && (data[i]["PROGRESO"] == 10 || data[i]["PROGRESO"] == 8) && (data[i]["ID_ESTADO"] == 3 || data[i]["ID_ESTADO"] == 5)) {
                             tr = tr + '             <a class="dropdown-item text-warning" href="#" onclick="fn_verificarIniciativaDetalle(' + data[i]["ID_INICIATIVA"] + ')"><i class="fas fa-tasks"></i>&nbsp;Verificar</a>';
                         }
-                        tr = tr + '        <a class="dropdown-item" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-download"></i>&nbsp;Descargar ficha</a>';
+                        if (p >= 6) {
+                            tr = tr + '        <a class="dropdown-item" href="#" onclick="fn_visualizarFicha(' + data[i]["ID_INICIATIVA"] + ',' + p + ');" id="ficha-' + data[i]["ID_INICIATIVA"] + '" data-ficha="' + data[i]["ESTADO_FICHA"] + '"><i class="fas fa-download"></i>&nbsp;Descargar ficha</a>';
+                        }
                         if ($('#Control').data('rol') == 2) {
                             if (p == 1 || p == 3 || p == 4 || p == 6 || p == 7 || p == 9 || p == 10 || p == 12) {
                                 tr = tr + '        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-recordatorio" onclick="fn_mostrarUsuarioRecordatorio(' + data[i]["ID_INICIATIVA"] + ')"><i class="fas fa-envelope"></i>&nbsp;Recordatorio</a>';
@@ -2058,6 +2060,44 @@ function fn_descargarCertificado(idBlock) {
         var urlMostrar = baseUrl + "Temp/" + respuesta.extra;
         window.open(urlMostrar, "_blank");
         $("#block-" + idBlock).data("block", 1);
+    }
+}
+
+//======================
+
+function fn_visualizarFicha(id, p) {
+    if ($("#ficha-" + id).data("ficha") == 1) {
+        fn_mostrarFicha(id);
+    } else {
+        fn_descargarFicha(id, p);
+    }
+}
+
+function fn_mostrarFicha(id) {
+    var item = {
+        ID_INICIATIVA: id
+    };
+    var url = baseUrl + "Gestion/MostrarFicha";
+    var respuesta = MRV.Ajax(url, item, false);
+
+    if (respuesta.success) {
+        var urlMostrar = baseUrl + "Temp/" + respuesta.extra;
+        window.open(urlMostrar, "_blank");
+    }
+}
+
+function fn_descargarFicha(id, p) {
+    var item = {
+        ID_INICIATIVA: id,
+        ID_PLAZO_ETAPA_ESTADO: p
+    };
+    var url = baseUrl + "Gestion/DescargarFicha";
+    var respuesta = MRV.Ajax(url, item, false);
+
+    if (respuesta.success) {
+        var urlMostrar = baseUrl + "Temp/" + respuesta.extra;
+        window.open(urlMostrar, "_blank");
+        $("#ficha-" + id).data("ficha", 1);
     }
 }
 

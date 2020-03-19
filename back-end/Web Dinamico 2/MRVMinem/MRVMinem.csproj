@@ -46,6 +46,10 @@
     <Reference Include="EPPlus">
       <HintPath>libreria\EPPlus.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.1, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.1\lib\itextsharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -132,6 +136,7 @@
     <Content Include="images\fondo_12_medidas.png" />
     <Content Include="images\fondo_footer.png" />
     <Content Include="images\formula.jpg" />
+    <Content Include="images\header.jpg" />
     <Content Include="images\ico_nama_amarillo_01.svg" />
     <Content Include="images\ico_nama_amarillo_02.svg" />
     <Content Include="images\ico_nama_amarillo_03.svg" />
@@ -371,9 +376,6 @@
     <Content Include="Documentos\4.1 Plantilla_Vehiculos_electricos_Consumo.xlsm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Documentos\4.1 Plantilla_Vehiculos_electricos_Recorrido.xlsm">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Documentos\4.1 Plantilla_Vehiculos_hibridos_consumo.xlsm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -420,6 +422,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Documentos\1.4 Plantilla_Auditoria_energetica.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Documentos\4.1 Plantilla_Vehiculos_electricos_Recorrido.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Properties\PublishProfiles\MRVMinem.pubxml" />

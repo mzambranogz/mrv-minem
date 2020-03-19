@@ -2348,6 +2348,128 @@ namespace datos.minem.gob.pe
             return lista;
         }
 
+        //===========================================================================0
+        public IniciativaBE IniciativaFicha(IniciativaBE entidad)
+        {
+            List<IniciativaBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_FICHA_INI";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pR", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in Lista)
+                    {
+                        entidad = item;
+                        List<UbicacionBE> listau = ListarUbicacionIniciativa(new IniciativaBE { ID_INICIATIVA = item.ID_INICIATIVA });
+                        if (listau.Count() > 0)
+                        {
+                            var ubicaciones = "";
+                            foreach (var ubi in listau)
+                            {
+                                ubicaciones += ubi.DESCRIPCION + " - ";
+                            }
+                            entidad.UBICACION = ubicaciones.Substring(0, ubicaciones.Length - 3);
+                        }
+                        else
+                        {
+                            entidad.UBICACION = "";
+                        }
+
+                        List<EnergeticoBE> listae = ListarEnergeticoIniciativa(new IniciativaBE { ID_INICIATIVA = item.ID_INICIATIVA });
+                        if (listau.Count() > 0)
+                        {
+                            var energeticos = "";
+                            foreach (var energ in listae)
+                            {
+                                energeticos += energ.DESCRIPCION + " - ";
+                            }
+                            entidad.ENERGETICO = energeticos.Substring(0, energeticos.Length - 3);
+                        }
+                        else
+                        {
+                            entidad.ENERGETICO = "";
+                        }
+
+                        List<GasEfectoInvernaderoBE> listag = ListarGeiIniciativa(new IniciativaBE { ID_INICIATIVA = item.ID_INICIATIVA });
+                        if (listau.Count() > 0)
+                        {
+                            var geis = "";
+                            foreach (var gei in listae)
+                            {
+                                geis += gei.DESCRIPCION + " - ";
+                            }
+                            entidad.GEI= geis.Substring(0, geis.Length - 3);
+                        }
+                        else
+                        {
+                            entidad.GEI = "";
+                        }
+
+                        entidad.FECHA = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
+                        entidad.FECHA_FIN = item.FECHA_FIN_INICIATIVA.ToString("dd/MM/yyyy");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return entidad;
+        }
+
+        public IniciativaBE MostrarFicha(IniciativaBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackageR + "USP_SEL_INICIATIVA_PDF";
+                    var p = new OracleDynamicParameters();
+                    p.Add("PI_ID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("PO_CURSOR", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    var PDF = db.ExecuteScalar(sp, p, commandType: CommandType.StoredProcedure);
+                    entidad.NOMBRE_PDF = Convert.ToString(PDF);
+                    entidad.OK = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+            return entidad;
+        }
+
+        public List<IniciativaBE> NombrePDFFicha(IniciativaBE entidad)
+        {
+            List<IniciativaBE> lista = null;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackageR + "USP_UPD_FICHA_PDF";
+                    var p = new OracleDynamicParameters();
+                    p.Add("PI_ID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("PI_NOMBRE_PDF", entidad.NOMBRE_PDF);
+                    lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                    entidad.OK = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+            return lista;
+        }
+
     }
 
 }

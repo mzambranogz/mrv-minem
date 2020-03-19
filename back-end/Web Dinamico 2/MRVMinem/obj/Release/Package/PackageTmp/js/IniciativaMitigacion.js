@@ -879,7 +879,7 @@ function validarCampoRevision() {
 function fn_revisarIniciativaMitigacion() {
     //debugger;
 
-    var mns = ValidarRevision($("#Control").data("iniciativa"), 2, "mensajeDangerRegistro", "Esta iniciativa ya fue revisada y/o observada");
+    var mns = ValidarRevision($("#Control").data("iniciativa"), $("#estado_flujo").val(), "mensajeDangerRegistro", "Esta iniciativa ya fue revisada y/o observada");
     if (mns != "") {        
         $("#aprobar-revision #modalAprobarBoton").hide();
         $("#pieCorrectoAprobacion").show();

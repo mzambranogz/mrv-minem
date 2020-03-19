@@ -623,5 +623,21 @@ namespace logica.minem.gob.pe
         {
             return iniciativaDA.ListaIniciativaFicha(entidad);
         }
+
+        //==================================================================
+        public static IniciativaBE IniciativaFicha(IniciativaBE entidad)
+        {
+            return iniciativaDA.IniciativaFicha(entidad);
+        }
+
+        public static IniciativaBE MostrarFicha(IniciativaBE entidad)
+        {
+            return iniciativaDA.MostrarFicha(entidad);
+        }
+
+        public static List<IniciativaBE> NombrePDFFicha(IniciativaBE entidad)
+        {
+            return iniciativaDA.NombrePDFFicha(entidad);
+        }
     }
 }
