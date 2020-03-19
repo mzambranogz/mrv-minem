@@ -530,7 +530,7 @@
                           <label for="txt-nombre-parametro">Nombre del Parámetro<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese el nombre de su parámetro"></i></span></label>
                           <div class="input-group">
                             <div class="input-group-prepend"><span class="input-group-text"><i class="far fa-list-alt">&nbsp;</i></span></div>
-                            <input class="form-control" type="text" id="txt-nombre-control" placeholder="Ingrese el nombre de su control">
+                            <input class="form-control" type="text" id="txt-nombre-control" placeholder="Ingrese el nombre de su parámetro">
                           </div>
                         </div>
                         <div class="form-group">
@@ -587,10 +587,10 @@
                           </div>
                         </div>
                         <div class="form-group">
-                          <label for="txt-etiqueta">Descripción<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese la/las etiqueta(s) para su parámetro"></i></span></label>
+                          <label for="txt-etiqueta">Descripción<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese la descripción de su parámetro"></i></span></label>
                           <div class="input-group">
                             <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-list-alt">&nbsp;</i></span></div>
-                            <input class="form-control" type="text" id="txt-etiqueta" placeholder="Ingrese nombre de su parámetro">
+                            <input class="form-control" type="text" id="txt-etiqueta" placeholder="Ingrese su descripción">
                           </div>
                         </div>
                         <!--.form-group
@@ -607,7 +607,7 @@
                           <div class="col-md-12 col-lg-6">&nbsp;</div>
                           <div class="col-md-12 col-lg-6"><a class="btn btn-success w-100" id="add-lista-valor" href="#" data-toggle="tooltip" data-placement="left" title="Agregar valor a su parámetro"><i class="fas fa-plus px-1"></i>Agregar</a><a class="btn btn-info w-100 d-none" id="edit-lista-valor" href="#" data-toggle="tooltip" data-placement="left" title="Editar valor a su parámetro"><i class="fas fa-edit px-1"></i>Editar</a></div>
                         </div>
-                        <div class="form-group mt-2">
+                        <div class="form-group mt-2 compocicion-paramatros">
                           <label for="mlt-gei">Composición del parámetro<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Aquí se mostrará de que valores se compone su parámetro"></i></label>
                           <div class="input-group">
                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-list-alt"></i></span></div>
@@ -637,56 +637,56 @@
                           </div>
                         </div>
                         <div class="form-group">
-                          <label for="txt-combinacion-unidades">Combinación de unidades<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese el/los valor(es) para su parámetro"></i></span></label>
+                          <label for="txt-combinacion-unidades">Combinación de unidades<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese una combinación de unidades"></i></span></label>
                           <div class="input-group">
                             <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-list-alt">&nbsp;</i></span></div>
                             <input class="form-control" type="text" id="txt-combinacion-unidades" placeholder="Ingrese una combinación de unidades">
                           </div>
                         </div>
                         <div class="form-group">
-                          <label for="txt-leyenda-unidades">Leyenda tooltip de unidades<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese el/los valor(es) para su parámetro"></i></span></label>
+                          <label for="txt-leyenda-unidades">Leyenda tooltip de unidades<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese la leyenda tooltip de unidades"></i></span></label>
                           <div class="input-group">
                             <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-list-alt">&nbsp;</i></span></div>
-                            <input class="form-control" type="text" id="txt-leyenda-unidades" placeholder="Ingrese una combinación de unidades">
+                            <input class="form-control" type="text" id="txt-leyenda-unidades" placeholder="Ingrese la leyenda tooltip de unidades">
                           </div>
                         </div>
                         <div class="form-group">
-                          <label for="txt-descripcion-metodologia">Descripción de la metodología<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese el/los valor(es) para su parámetro"></i></span></label>
+                          <label for="txt-descripcion-metodologia">Descripción de la metodología<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese una descripción de metodología"></i></span></label>
                           <div class="input-group">
                             <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-list-alt">&nbsp;</i></span></div>
                             <input class="form-control" type="text" id="txt-descripcion-metodologia" placeholder="Ingrese una descripción de metodología">
                           </div>
                         </div>
                         <div class="form-group">
-                          <label for="txt-procedimiento">Procedimiento<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese el/los valor(es) para su parámetro"></i></span></label>
+                          <label for="txt-procedimiento">Procedimiento<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese su procedimiento"></i></span></label>
                           <div class="input-group">
                             <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-list-alt">&nbsp;</i></span></div>
                             <input class="form-control" type="text" id="txt-procedimiento" placeholder="Ingrese su procedimiento">
                           </div>
                         </div>
                         <div class="form-group">
-                          <label for="txt-control-calidad">Control de calidad<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese el/los valor(es) para su parámetro"></i></span></label>
+                          <label for="txt-control-calidad">Control de calidad<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese su control de calidad"></i></span></label>
                           <div class="input-group">
                             <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-list-alt">&nbsp;</i></span></div>
                             <input class="form-control" type="text" id="txt-control-calidad" placeholder="Ingrese su control de calidad">
                           </div>
                         </div>
                         <div class="form-group">
-                          <label for="txt-aseguramiento-calidad">Aseguramiento de calidad<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese el/los valor(es) para su parámetro"></i></span></label>
+                          <label for="txt-aseguramiento-calidad">Aseguramiento de calidad<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese su aseguramiento de calidad"></i></span></label>
                           <div class="input-group">
                             <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-list-alt">&nbsp;</i></span></div>
                             <input class="form-control" type="text" id="txt-aseguramiento-calidad" placeholder="Ingrese su aseguramiento de calidad">
                           </div>
                         </div>
                         <div class="form-group">
-                          <label for="txt-proposito-parametro">Propósito de parámetro<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese el/los valor(es) para su parámetro"></i></span></label>
+                          <label for="txt-proposito-parametro">Propósito de parámetro<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese el propósito de su parámetro"></i></span></label>
                           <div class="input-group">
                             <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-list-alt">&nbsp;</i></span></div>
                             <input class="form-control" type="text" id="txt-proposito-parametro" placeholder="Ingrese su propósito de parámetro">
                           </div>
                         </div>
                         <div class="form-group">
-                          <label for="txt-frecuencia">Frecuencia<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese el/los valor(es) para su parámetro"></i></span></label>
+                          <label for="txt-frecuencia">Frecuencia<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese su frecuencia"></i></span></label>
                           <div class="input-group">
                             <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-list-alt">&nbsp;</i></span></div>
                             <input class="form-control" type="text" id="txt-frecuencia" placeholder="Ingrese su frecuencia">
