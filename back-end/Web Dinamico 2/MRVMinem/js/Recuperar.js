@@ -1,6 +1,13 @@
-﻿$("#frmRecuperarClave").on("submit", function (e) {
+﻿
+$("#frmRecuperarClave").on("submit", function (e) {
+    var item = {
+        TOKEN: $("#TOKEN").val()
+    };
+    var url = baseUrl + "Home/VerificarCaptcha";
+    var respuesta = MRV.Ajax(url, item, false);
 
-    if (grecaptcha.getResponse() == "") {
+    // if (grecaptcha.getResponse() == "") {
+    if (!respuesta) {
         e.preventDefault();
         $("#frmRecuperarClave #errorCambiar").remove();
         $("#frmRecuperarClave #correctoCambiar").remove();
@@ -139,7 +146,14 @@ $("#frmReestablecerClave").on("submit", function (e) {
         arr.push("Compruebe que ambas contraseñas son iguales.");
     }
 
-    if (grecaptcha.getResponse() == "") {
+    var item = {
+        TOKEN: $("#TOKEN").val()
+    };
+    var url = baseUrl + "Home/VerificarCaptcha";
+    var respuesta = MRV.Ajax(url, item, false);
+
+    if (!respuesta.success) {
+        //if (grecaptcha.getResponse() == "") {
         e.preventDefault();
         arr.push("Por favor verificar el captcha.");
     }

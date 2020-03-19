@@ -73,15 +73,15 @@ function fn_validar(e) {
     }
 
     //if ($("#rad-01").prop("checked")) {
-        if ($("#txt-telefono").val().trim() === "") {
-            arr.push("Ingrese un teléfono");
-        }
+    if ($("#txt-telefono").val().trim() === "") {
+        arr.push("Ingrese un teléfono");
+    }
     //}
 
     //if ($("#rad-02").prop("checked")) {
-        if ($("#txt-celular").val().trim() === "") {
-            arr.push("Ingrese un celular");
-        }
+    if ($("#txt-celular").val().trim() === "") {
+        arr.push("Ingrese un celular");
+    }
     //}
 
     if ($("#txt-institucion").val().trim() === "") {
@@ -107,20 +107,22 @@ function fn_validar(e) {
         arr.push("Las contraseñas no coinciden");
     }
 
-    //if ($("#cbo-sector").val() == 2) {
-    //    if (!($('#fledeclaracion').val())) {
-    //        arr.push("Debe adjuntar la declaración jurada");
-    //    }
-    //}    
-
     if (!($("#chk-terminos-condiciones").prop("checked"))) {
         arr.push("Debe aceptar los términos y condiciones");
     }
 
-    if (grecaptcha.getResponse() == "") {
-        e.preventDefault();
+    var item = {
+        TOKEN: $("#TOKEN").val()
+    };
+    var url = baseUrl + "Home/VerificarCaptcha";
+    var respuesta = MRV.Ajax(url, item, false);
+    if (!respuesta.success) {
         arr.push("Por favor verificar el captcha.");
     }
+    //if (grecaptcha.getResponse() == "") {
+    //    e.preventDefault();
+    //    arr.push("Por favor verificar el captcha.");
+    //}
 
     if (arr.length == 0) {
         fn_verificarEmail();
@@ -153,65 +155,6 @@ function fn_validar(e) {
         return false;
     }
 }
-
-//$("#formRegistrar").on("submit", function (e) {
-//    e.preventDefault();
-//    var arr = [];
-//    var clave = $("#txt-pswd").val();
-//    var validar = $("#txt-re-pswd").val();
-//    $("#seccionMensaje #errorRegistro").remove();
-//    //debugger;
-//    if (clave == validar) {
-//        if (!(/[a-zñ]/.test(clave) && /[A-ZÑ]/.test(clave) && /[0-9]/.test(clave))) {
-//            arr.push("La contraseña debe contener minuscula(s), mayúscula(s) y número(s)");
-//        }
-//        if (clave.length < 6) {
-//            arr.push("La contraseña debe contener 6 o más caracteres");
-//        }
-//    } else {
-//        arr.push("Las contraseñas no coinciden");
-//    }
-
-//    if (!($('#fle-declaracion').val())) {
-//        arr.push("Debe adjuntar la declaración jurada");
-//    }
-
-//    if (!($("#chk-terminos-condiciones").prop("checked"))) {
-//        arr.push("Debe aceptar los términos y condiciones");
-//    }
-
-//    if (arr.length == 0) {
-//        fn_verificarEmail();
-//        return true;
-//    } else {
-//        var error = '<ul>';
-//        $.each(arr, function (ind, elem) {
-//            error = error + '<li><small class="mb-0">' + elem + '</li></small>';
-//        });
-//        error = error + '</ul>';
-//        var msj = '                      <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="errorRegistro">';
-//        msj = msj + '                           <div class="alert-wrap mr-3">';
-//        msj = msj + '                                <div class="sa">';
-//        msj = msj + '                                    <div class="sa-error">';
-//        msj = msj + '                                        <div class="sa-error-x">';
-//        msj = msj + '                                            <div class="sa-error-left"></div>';
-//        msj = msj + '                                            <div class="sa-error-right"></div>';
-//        msj = msj + '                                        </div>';
-//        msj = msj + '                                        <div class="sa-error-placeholder"></div>';
-//        msj = msj + '                                        <div class="sa-error-fix"></div>';
-//        msj = msj + '                                    </div>';
-//        msj = msj + '                                </div>';
-//        msj = msj + '                            </div>';
-//        msj = msj + '                            <div class="alert-wrap">';
-//        msj = msj + '                                <h6>Error de registro</h6>';
-//        msj = msj + error;
-//        msj = msj + '                            </div>';
-//        msj = msj + '                        </div>';
-//        $("#seccionMensaje").append(msj);
-//        return false;
-//    }
-//});
-
 
 function fn_registrarUsuario() {
     var url = baseUrl + "Portal/RegistrarUsuario2";
@@ -318,51 +261,7 @@ function fn_registrarUsuario() {
     $("#formRegistrar").ajaxForm(options);
     $("#formRegistrar").submit();
 
-
-    //var respuesta = MRV.Ajax(url, item, false);
-    //if (respuesta.success) {
-    //    var msj = '                       <div class="alert alert-success d-flex align-items-stretch" role="alert">';
-    //    msj = msj + '                            <div class="alert-wrap mr-3">';
-    //    msj = msj + '                                <div class="sa">';
-    //    msj = msj + '                                    <div class="sa-success">';
-    //    msj = msj + '                                        <div class="sa-success-tip"></div>';
-    //    msj = msj + '                                        <div class="sa-success-long"></div>';
-    //    msj = msj + '                                        <div class="sa-success-placeholder"></div>';
-    //    msj = msj + '                                        <div class="sa-success-fix"></div>';
-    //    msj = msj + '                                    </div>';
-    //    msj = msj + '                                </div>';
-    //    msj = msj + '                            </div>';
-    //    msj = msj + '                            <div class="alert-wrap">';
-    //    msj = msj + '                                <h6>Bien hecho</h6>';
-    //    msj = msj + '                                <hr><small class="mb-0">Su registro fue exitoso, en breve le notificaremos el estado a través de un email.</small>';
-    //    msj = msj + '                            </div>';
-    //    msj = msj + '                        </div>';
-    //    $("#seccionMensaje").append(msj);
-    //    setTimeout(dirigir, 10000);
-    //} else {
-    //    var msj = '                      <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="errorRegistro">';
-    //    msj = msj + '                           <div class="alert-wrap mr-3">';
-    //    msj = msj + '                                <div class="sa">';
-    //    msj = msj + '                                    <div class="sa-error">';
-    //    msj = msj + '                                        <div class="sa-error-x">';
-    //    msj = msj + '                                            <div class="sa-error-left"></div>';
-    //    msj = msj + '                                            <div class="sa-error-right"></div>';
-    //    msj = msj + '                                        </div>';
-    //    msj = msj + '                                        <div class="sa-error-placeholder"></div>';
-    //    msj = msj + '                                        <div class="sa-error-fix"></div>';
-    //    msj = msj + '                                    </div>';
-    //    msj = msj + '                                </div>';
-    //    msj = msj + '                            </div>';
-    //    msj = msj + '                            <div class="alert-wrap">';
-    //    msj = msj + '                                <h6>Error de registro</h6>';
-    //    msj = msj + '                                <hr><small class="mb-0">Ocurrio un problema durante el registro.</small>';
-    //    msj = msj + '                            </div>';
-    //    msj = msj + '                        </div>';
-    //    $("#seccionMensaje").append(msj);
-    //}
 }
-
-
 
 $(function () {
     $(".validar").keydown(function (event) {

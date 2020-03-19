@@ -86,6 +86,9 @@ namespace MRVMinem.Controllers
         {
             MvSesion modelo = new MvSesion();
             modelo.identificador = id;
+            modelo.ReCAPTCHA_Secret_Key = WebConfigurationManager.AppSettings["ReCAPTCHA_Secret_Key"];
+            modelo.ReCAPTCHA_Site_Key = WebConfigurationManager.AppSettings["ReCAPTCHA_Site_Key"];
+
             return View(modelo);
         }
 
@@ -121,7 +124,7 @@ namespace MRVMinem.Controllers
         }
 
         public JsonResult VerificarEmail(UsuarioBE entidad)
-        {            
+        {
             ResponseEntity itemRespuesta = new ResponseEntity();
             try
             {
@@ -135,11 +138,12 @@ namespace MRVMinem.Controllers
                     itemRespuesta.success = true;
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Log.Error(ex);
                 itemRespuesta.success = false;
-            }    
-            
+            }
+
             return Respuesta(itemRespuesta);
         }
 
@@ -221,7 +225,7 @@ namespace MRVMinem.Controllers
                     fledeclaracion.InputStream.Read(content, 0, fledeclaracion.ContentLength);
                     double tamanio = (fledeclaracion.ContentLength / 1024);
                     nomArchivoSave = Guid.NewGuid() + Path.GetExtension(fledeclaracion.FileName).ToString();
-                }                
+                }
 
                 entidad.ID_INSTITUCION = institucion.ID_INSTITUCION;
                 entidad.ADJUNTO = nomArchivoSave;
@@ -255,7 +259,7 @@ namespace MRVMinem.Controllers
                             itemRespuesta.extra = e.Message;
                         }
                     }
-                    
+
 
                     EnvioCorreo hilo_correo = new EnvioCorreo(entidad);    //.CreacionUsuario(entidad);
                     //Thread hilo = new Thread(new ThreadStart(hilo_correo.CreacionUsuario));
@@ -311,7 +315,7 @@ namespace MRVMinem.Controllers
                 Log.Error(ex);
                 itemRespuesta.success = false;
             }
-            
+
             return Respuesta(itemRespuesta);
         }
 
@@ -567,7 +571,7 @@ namespace MRVMinem.Controllers
                 else
                 {
                     lista = IniciativaLN.ListaExcelSimple(entidad);
-                }                
+                }
             }
             else
             {

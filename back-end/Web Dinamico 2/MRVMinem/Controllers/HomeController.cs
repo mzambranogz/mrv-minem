@@ -1,5 +1,6 @@
 ﻿using entidad.minem.gob.pe;
 using logica.minem.gob.pe;
+using MRVMinem.Core;
 using MRVMinem.Helper;
 using MRVMinem.Models;
 using MRVMinem.Response;
@@ -17,7 +18,7 @@ using utilitario.minem.gob.pe;
 
 namespace MRVMinem.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         // GET: Home
         public ActionResult Index()
@@ -206,18 +207,45 @@ namespace MRVMinem.Controllers
         /// </summary>
         /// <returns></returns>
 
-        
+
 
         public ActionResult registro()
         {
             ViewBag.estilo = "^[a-zA-Z0-9.!#$%&amp;’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$";
             ViewBag.caracter = "@#.";
-            return View();
+
+            MvReCAPTCHASettings modelo = new MvReCAPTCHASettings()
+            {
+                ReCAPTCHA_Secret_Key = WebConfigurationManager.AppSettings["ReCAPTCHA_Secret_Key"],
+                ReCAPTCHA_Site_Key = WebConfigurationManager.AppSettings["ReCAPTCHA_Site_Key"],
+                OK = true
+            };
+
+            return View(modelo);
+        }
+
+        public async Task<JsonResult> VerificarCaptcha(MvReCAPTCHASettings model)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            var isCaptchaValid = await IsCaptchaValid(model.TOKEN);
+            itemRespuesta.success = isCaptchaValid;
+            if (!itemRespuesta.success)
+                itemRespuesta.message = "El Captcha no es válido";
+
+            return Respuesta(itemRespuesta);
         }
 
         public ActionResult recuperar()
         {
-            return View();
+            MvReCAPTCHASettings modelo = new MvReCAPTCHASettings()
+            {
+                ReCAPTCHA_Secret_Key = WebConfigurationManager.AppSettings["ReCAPTCHA_Secret_Key"],
+                ReCAPTCHA_Site_Key = WebConfigurationManager.AppSettings["ReCAPTCHA_Site_Key"],
+                OK = true
+            };
+
+            return View(modelo);
         }
     }
 }

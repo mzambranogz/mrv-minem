@@ -1,4 +1,4 @@
-﻿
+﻿@model MRVMinem.Models.MvReCAPTCHASettings
 @{
     ViewBag.Title = "recuperar";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -44,45 +44,14 @@
                             <input class="form-control" type="text" id="txt-user" placeholder="Dirección de email" aria-describedby="inputGroup1" required>
                         </div>
                     </div>
-                    <div class="form-group">
-                        @*<div class="g-recaptcha" data-sitekey="6Ldqw8sUAAAAAM2nmHyMhCNd3HtkOJyWc8nsh7DR"></div>*@
+                    @Html.HiddenFor(m => m.TOKEN)
+
+                    @*<div class="form-group">
                         <div class="g-recaptcha" data-sitekey="6Lciud4UAAAAALLGOg6kG0HPUF5lKb0pfBQt0cIc"></div>  
-                    </div>
+                    </div>*@
+
                     <div id="seccionMensaje"></div>
-                    @*<div class="alert alert-danger d-flex align-items-stretch" role="alert">
-                            <div class="alert-wrap mr-3">
-                                <div class="sa">
-                                    <div class="sa-error">
-                                        <div class="sa-error-x">
-                                            <div class="sa-error-left"></div>
-                                            <div class="sa-error-right"></div>
-                                        </div>
-                                        <div class="sa-error-placeholder"></div>
-                                        <div class="sa-error-fix"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="alert-wrap">
-                                <h6>Error de recuperación</h6>
-                                <hr><small class="mb-0">El correo ingresado no existe o fue ingresado erradamente.</small>
-                            </div>
-                        </div>
-                        <div class="alert alert-success d-flex align-items-stretch" role="alert">
-                            <div class="alert-wrap mr-3">
-                                <div class="sa">
-                                    <div class="sa-success">
-                                        <div class="sa-success-tip"></div>
-                                        <div class="sa-success-long"></div>
-                                        <div class="sa-success-placeholder"></div>
-                                        <div class="sa-success-fix"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="alert-wrap">
-                                <h6>Bien hecho</h6>
-                                <hr><small class="mb-0">Siga las instrucciones enviadas a su correo para obtener su contraseña</small>
-                            </div>
-                        </div>*@
+                    
                     <button class="btn-lg btn-primary w-100" type="submit" id="botonCambiar"><i class="fas fa-undo px-1"></i>Recuperar</button>
                 </form>
                 <p class="pt-4 mb-0 text-center">¿No tienes una cuenta?&nbsp;<a href="@Url.Action("registro", "Home")">Regístrese ahora <br></a></p>
@@ -108,3 +77,13 @@
 <script src="~/js/MRV.js"></script>
 <script src="~/js/Recuperar.js"></script>
 
+<script src="https://www.google.com/recaptcha/api.js?render=@Model.ReCAPTCHA_Site_Key"></script>
+<script>
+    grecaptcha.ready(function () {
+
+        grecaptcha.execute('@Model.ReCAPTCHA_Site_Key', { action: 'Gestion/AccionMitigacion' }).then(function (token) {
+            console.log(token);
+            $("#TOKEN").val(token);
+        });
+    });
+</script>
