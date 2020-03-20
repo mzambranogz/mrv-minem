@@ -534,60 +534,83 @@
                           </div>
                         </div>
                         <div class="form-group">
-                          <label for="mlt-gei">Tipo de control<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione uno de los controles asociados"></i></label>
+                          <label for="cbo-tipo-control">Tipo de control<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione un tipo de control para sus parámetros"></i></label>
                           <div class="input-group">
-                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-wrench"></i></span></div>
-                            <div class="form-control" style="height:74px; overflow-y: auto;">
-                              <div class="col-auto my-1">
-                                <div class="custom-control custom-radio mr-sm-2">
-                                  <input class="custom-control-input" type="radio" name="rad-controles" id="rad-controles-01" value="cbo" checked>
-                                  <label class="custom-control-label badge" for="rad-controles-01">Listas de selección &nbsp;<small class="d-inline-block">(Varias opciones)</small></label>
-                                </div>
-                              </div>
-                              <div class="col-auto my-1">
-                                <div class="custom-control custom-radio mr-sm-2">
-                                  <input class="custom-control-input" type="radio" name="rad-controles" id="rad-controles-02" value="txt">
-                                  <label class="custom-control-label badge" for="rad-controles-02">Cajas de texto &nbsp;<small class="d-inline-block">(Una opción)</small></label>
-                                </div>
-                              </div>
-                              <!--.col-auto.my-1
+                            <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-wrench"></i></span></div>
+                            <select class="form-control" id="cbo-tipo-control">
+                              <option>-Seleccione-</option>
+                              <option value="cbo">Listas de selección</option>
+                              <option value="txt">Cajas de texto</option>
+                            </select>
+                          </div>
+                        </div>
+                        <!--.form-group
+                        label(for="mlt-gei") Tipo de control
+                          span.text-danger.font-weight-bold &nbsp;(*)&nbsp;
+                          i.fas.fa-question-circle.ayuda-tooltip(data-toggle="tooltip", data-placement="right", title="Seleccione uno de los controles asociados")
+                        .input-group
+                          .input-group-prepend
+                            span.input-group-text#inputGroup9
+                              i.fas.fa-wrench
+                          .form-control(style="height:74px; overflow-y: auto;")
+                            .col-auto.my-1
+                              .custom-control.custom-radio.mr-sm-2
+                                input.custom-control-input(type="radio", name="rad-controles", id="rad-controles-01", value="cbo", checked)
+                                label.custom-control-label.badge(for="rad-controles-01")
+                                  | Listas de selección &nbsp;
+                                  small.d-inline-block (Varias opciones)
+                            .col-auto.my-1
+                              .custom-control.custom-radio.mr-sm-2
+                                input.custom-control-input(type="radio", name="rad-controles", id="rad-controles-02", value="txt")
+                                label.custom-control-label.badge(for="rad-controles-02")
+                                  | Cajas de texto &nbsp;
+                                  small.d-inline-block (Una opción)
+                            //.col-auto.my-1
                               .custom-control.custom-radio.mr-sm-2
                                 input.custom-control-input(type="radio", name="rad-controles", id="rad-controles-03", value="fch")
                                 label.custom-control-label.badge(for="rad-controles-03")
                                   | Cajas de fechas &nbsp;
                                   small (Una opción)
-                              -->
-                            </div>
-                          </div>
-                        </div>
-                        <div class="form-group mlt-tipo-txt d-none">
-                          <label for="mlt-tipo-txt">Tipo de caja<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione uno de los tipos de caja"></i></label>
+                        -->
+                        <div class="form-group tipo-caja d-none">
+                          <label for="cbo-tipo-control">Tipo de caja<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione uno de los tipos de caja"></i></label>
                           <div class="input-group">
-                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-wrench"></i></span></div>
-                            <div class="form-control" style="height:102px; overflow-y: auto;">
-                              <div class="col-auto my-1">
-                                <div class="custom-control custom-radio mr-sm-2">
-                                  <input class="custom-control-input" type="radio" name="rad-controles-tipo-caja" id="rad-controles-tipo-caja-01" value="cbo" checked>
-                                  <label class="custom-control-label badge" for="rad-controles-tipo-caja-01">Texto</label>
-                                </div>
-                              </div>
-                              <div class="col-auto my-1">
-                                <div class="custom-control custom-radio mr-sm-2">
-                                  <input class="custom-control-input" type="radio" name="rad-controles-tipo-caja" id="rad-controles-tipo-caja-02" value="txt">
-                                  <label class="custom-control-label badge" for="rad-controles-tipo-caja-02">Numérico</label>
-                                </div>
-                              </div>
-                              <div class="col-auto my-1">
-                                <div class="custom-control custom-radio mr-sm-2">
-                                  <input class="custom-control-input" type="radio" name="rad-controles-tipo-caja" id="rad-controles-tipo-caja-03" value="fch">
-                                  <label class="custom-control-label badge" for="rad-controles-tipo-caja-03">Fecha</label>
-                                </div>
-                              </div>
-                            </div>
+                            <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-edit"></i></span></div>
+                            <select class="form-control" id="cbo-tipo-control">
+                              <option>-Seleccione-</option>
+                              <option value="txt-strg">Texto</option>
+                              <option value="txt-numb">Numérico</option>
+                              <option value="txt-date">Fecha</option>
+                            </select>
                           </div>
                         </div>
-                        <div class="form-group">
-                          <label for="txt-etiqueta">Descripción<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese la descripción de su parámetro"></i></span></label>
+                        <!--.form-group.mlt-tipo-txt.d-none
+                        label(for="mlt-tipo-txt") Tipo de caja
+                          span.text-danger.font-weight-bold &nbsp;(*)&nbsp;
+                          i.fas.fa-question-circle.ayuda-tooltip(data-toggle="tooltip", data-placement="right", title="Seleccione uno de los tipos de caja")
+                        .input-group
+                          .input-group-prepend
+                            span.input-group-text#inputGroup9
+                              i.fas.fa-wrench
+                          .form-control(style="height:102px; overflow-y: auto;")
+                            .col-auto.my-1
+                              .custom-control.custom-radio.mr-sm-2
+                                input.custom-control-input(type="radio", name="rad-controles-tipo-caja", id="rad-controles-tipo-caja-01", value="cbo", checked)
+                                label.custom-control-label.badge(for="rad-controles-tipo-caja-01")
+                                  | Texto
+                            .col-auto.my-1
+                              .custom-control.custom-radio.mr-sm-2
+                                input.custom-control-input(type="radio", name="rad-controles-tipo-caja", id="rad-controles-tipo-caja-02", value="txt")
+                                label.custom-control-label.badge(for="rad-controles-tipo-caja-02")
+                                  | Numérico
+                            .col-auto.my-1
+                              .custom-control.custom-radio.mr-sm-2
+                                input.custom-control-input(type="radio", name="rad-controles-tipo-caja", id="rad-controles-tipo-caja-03", value="fch")
+                                label.custom-control-label.badge(for="rad-controles-tipo-caja-03")
+                                  | Fecha
+                        -->
+                        <div class="form-group tipo-lista">
+                          <label for="txt-etiqueta">Nombre detalle parámetro<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese la descripción de su parámetro"></i></span></label>
                           <div class="input-group">
                             <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-list-alt">&nbsp;</i></span></div>
                             <input class="form-control" type="text" id="txt-etiqueta" placeholder="Ingrese su descripción">
@@ -603,11 +626,11 @@
                               i.fas.fa-list-alt &nbsp;
                           input.form-control(type="text", id="txt-valor", placeholder="Ingrese valor de su parámetro")
                         -->
-                        <div class="row">
+                        <div class="row tipo-lista">
                           <div class="col-md-12 col-lg-6">&nbsp;</div>
                           <div class="col-md-12 col-lg-6"><a class="btn btn-success w-100" id="add-lista-valor" href="#" data-toggle="tooltip" data-placement="left" title="Agregar valor a su parámetro"><i class="fas fa-plus px-1"></i>Agregar</a><a class="btn btn-info w-100 d-none" id="edit-lista-valor" href="#" data-toggle="tooltip" data-placement="left" title="Editar valor a su parámetro"><i class="fas fa-edit px-1"></i>Editar</a></div>
                         </div>
-                        <div class="form-group mt-2 compocicion-paramatros">
+                        <div class="form-group mt-2 tipo-lista">
                           <label for="mlt-gei">Composición del parámetro<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Aquí se mostrará de que valores se compone su parámetro"></i></label>
                           <div class="input-group">
                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-list-alt"></i></span></div>
@@ -634,6 +657,13 @@
                                 </div>
                               </div>
                             </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="txt-descripcion-parametro">Descripción del parámetro<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese una combinación de unidades"></i></span></label>
+                          <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-list-alt">&nbsp;</i></span></div>
+                            <input class="form-control" type="text" id="txt-descripcion-parametro" placeholder="Ingrese una descripción de su parámetro">
                           </div>
                         </div>
                         <div class="form-group">
