@@ -17,5 +17,6 @@ namespace MRVMinem.Models
         public string ReCAPTCHA_Site_Key { get; set; }
         public string ReCAPTCHA_Secret_Key { get; set; }
         public string TOKEN { get; set; }
+        public List<MedidaMitigacionBE> listaMedidaMitigacion { get; set; }
     }
 }

@@ -28,6 +28,26 @@ namespace datos.minem.gob.pe
                     var p = new OracleDynamicParameters();
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<MedidaMitigacionBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in Lista)
+                    {
+                        if (item.ID_NAMA == 1)
+                        {
+                            item.COLOR_NAMA = "amarilla";
+                        }
+                        else if (item.ID_NAMA == 2)
+                        {
+                            item.COLOR_NAMA = "roja";
+                        }
+                        else if (item.ID_NAMA == 3)
+                        {
+                            item.COLOR_NAMA = "verde";
+                        }
+                        else if (item.ID_NAMA == 4)
+                        {
+                            item.COLOR_NAMA = "azul";
+                        }
+                    }
                 }
 
             }

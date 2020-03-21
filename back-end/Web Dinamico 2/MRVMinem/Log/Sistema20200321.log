@@ -1,0 +1,57 @@
+21/03/2020 09:21:39 a.m.: [Método: Void WinIOError(Int32, System.String), Línea: 0] - No se puede encontrar una parte de la ruta de acceso 'C:\inetpub\wwwroot\mrv-minem\Temp\661_MRV.pdf'.
+21/03/2020 09:21:39 a.m.: [Método: Void Init(System.String, System.IO.FileMode, System.IO.FileAccess, Int32, Boolean, System.IO.FileShare, Int32, System.IO.FileOptions, SECURITY_ATTRIBUTES, System.String, Boolean, Boolean, Boolean), Línea: 0] - No se puede encontrar una parte de la ruta de acceso 'C:\inetpub\wwwroot\mrv-minem\Temp\661_MRV.pdf'.
+21/03/2020 09:21:39 a.m.: [Método: Void .ctor(System.String, System.IO.FileMode, System.IO.FileAccess, System.IO.FileShare, Int32, System.IO.FileOptions, System.String, Boolean), Línea: 0] - No se puede encontrar una parte de la ruta de acceso 'C:\inetpub\wwwroot\mrv-minem\Temp\661_MRV.pdf'.
+21/03/2020 09:21:39 a.m.: [Método: Void .ctor(System.String, System.IO.FileMode), Línea: 0] - No se puede encontrar una parte de la ruta de acceso 'C:\inetpub\wwwroot\mrv-minem\Temp\661_MRV.pdf'.
+21/03/2020 09:21:39 a.m.: [Método: Boolean HTMLToPDF(entidad.minem.gob.pe.IniciativaBE), Línea: 2856] - No se puede encontrar una parte de la ruta de acceso 'C:\inetpub\wwwroot\mrv-minem\Temp\661_MRV.pdf'.
+21/03/2020 10:41:57 a.m.: [Método: Void ThrowArgumentOutOfRangeException(System.ExceptionArgument, System.ExceptionResource), Línea: 0] - El índice estaba fuera del intervalo. Debe ser un valor no negativo e inferior al tamaño de la colección.
+Nombre del parámetro: index
+21/03/2020 10:41:57 a.m.: [Método: T get_Item(Int32), Línea: 0] - El índice estaba fuera del intervalo. Debe ser un valor no negativo e inferior al tamaño de la colección.
+Nombre del parámetro: index
+21/03/2020 10:41:57 a.m.: [Método: System.String BuildFicha(Int32, Int32), Línea: 873] - El índice estaba fuera del intervalo. Debe ser un valor no negativo e inferior al tamaño de la colección.
+Nombre del parámetro: index
+21/03/2020 10:41:57 a.m.: [Método: Boolean HTMLToPDF(entidad.minem.gob.pe.IniciativaBE), Línea: 779] - El índice estaba fuera del intervalo. Debe ser un valor no negativo e inferior al tamaño de la colección.
+Nombre del parámetro: index
+21/03/2020 10:42:12 a.m.: [Método: Void ThrowArgumentOutOfRangeException(System.ExceptionArgument, System.ExceptionResource), Línea: 0] - El índice estaba fuera del intervalo. Debe ser un valor no negativo e inferior al tamaño de la colección.
+Nombre del parámetro: index
+21/03/2020 10:42:12 a.m.: [Método: T get_Item(Int32), Línea: 0] - El índice estaba fuera del intervalo. Debe ser un valor no negativo e inferior al tamaño de la colección.
+Nombre del parámetro: index
+21/03/2020 10:42:12 a.m.: [Método: System.String BuildFicha(Int32, Int32), Línea: 873] - El índice estaba fuera del intervalo. Debe ser un valor no negativo e inferior al tamaño de la colección.
+Nombre del parámetro: index
+21/03/2020 10:42:12 a.m.: [Método: Boolean HTMLToPDF(entidad.minem.gob.pe.IniciativaBE), Línea: 779] - El índice estaba fuera del intervalo. Debe ser un valor no negativo e inferior al tamaño de la colección.
+Nombre del parámetro: index
+21/03/2020 10:42:23 a.m.: [Método: Void ThrowArgumentOutOfRangeException(System.ExceptionArgument, System.ExceptionResource), Línea: 0] - El índice estaba fuera del intervalo. Debe ser un valor no negativo e inferior al tamaño de la colección.
+Nombre del parámetro: index
+21/03/2020 10:42:23 a.m.: [Método: T get_Item(Int32), Línea: 0] - El índice estaba fuera del intervalo. Debe ser un valor no negativo e inferior al tamaño de la colección.
+Nombre del parámetro: index
+21/03/2020 10:42:23 a.m.: [Método: System.String BuildFicha(Int32, Int32), Línea: 873] - El índice estaba fuera del intervalo. Debe ser un valor no negativo e inferior al tamaño de la colección.
+Nombre del parámetro: index
+21/03/2020 10:42:23 a.m.: [Método: Boolean HTMLToPDF(entidad.minem.gob.pe.IniciativaBE), Línea: 779] - El índice estaba fuera del intervalo. Debe ser un valor no negativo e inferior al tamaño de la colección.
+Nombre del parámetro: index
+21/03/2020 10:43:42 a.m.: [Método: Void ThrowArgumentOutOfRangeException(System.ExceptionArgument, System.ExceptionResource), Línea: 0] - El índice estaba fuera del intervalo. Debe ser un valor no negativo e inferior al tamaño de la colección.
+Nombre del parámetro: index
+21/03/2020 10:43:42 a.m.: [Método: T get_Item(Int32), Línea: 0] - El índice estaba fuera del intervalo. Debe ser un valor no negativo e inferior al tamaño de la colección.
+Nombre del parámetro: index
+21/03/2020 10:43:42 a.m.: [Método: System.String BuildFicha(Int32, Int32), Línea: 873] - El índice estaba fuera del intervalo. Debe ser un valor no negativo e inferior al tamaño de la colección.
+Nombre del parámetro: index
+21/03/2020 10:43:42 a.m.: [Método: Boolean HTMLToPDF(entidad.minem.gob.pe.IniciativaBE), Línea: 779] - El índice estaba fuera del intervalo. Debe ser un valor no negativo e inferior al tamaño de la colección.
+Nombre del parámetro: index
+21/03/2020 10:46:31 a.m.: [Método: Void Open(), Línea: 0] - No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'OracleConnection'.
+21/03/2020 10:46:31 a.m.: [Método: Boolean MoveNext(), Línea: 0] - No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'OracleConnection'.
+21/03/2020 10:46:31 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'OracleConnection'.
+21/03/2020 10:46:31 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'OracleConnection'.
+21/03/2020 10:46:31 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'OracleConnection'.
+21/03/2020 10:46:31 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] ListarDatosTablaDinamica(entidad.minem.gob.pe.IndicadorDataBE), Línea: 956] - No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'OracleConnection'.
+21/03/2020 10:46:31 a.m.: [Método: Void ThrowArgumentOutOfRangeException(System.ExceptionArgument, System.ExceptionResource), Línea: 0] - El índice estaba fuera del intervalo. Debe ser un valor no negativo e inferior al tamaño de la colección.
+Nombre del parámetro: index
+21/03/2020 10:46:31 a.m.: [Método: T get_Item(Int32), Línea: 0] - El índice estaba fuera del intervalo. Debe ser un valor no negativo e inferior al tamaño de la colección.
+Nombre del parámetro: index
+21/03/2020 10:46:31 a.m.: [Método: System.String BuildFicha(Int32, Int32), Línea: 873] - El índice estaba fuera del intervalo. Debe ser un valor no negativo e inferior al tamaño de la colección.
+Nombre del parámetro: index
+21/03/2020 10:46:31 a.m.: [Método: Boolean HTMLToPDF(entidad.minem.gob.pe.IniciativaBE), Línea: 779] - El índice estaba fuera del intervalo. Debe ser un valor no negativo e inferior al tamaño de la colección.
+Nombre del parámetro: index

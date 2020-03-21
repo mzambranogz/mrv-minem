@@ -9,5 +9,6 @@ namespace entidad.minem.gob.pe
     public partial class MedidaMitigacionBE
     {
         public string IPSC_MEDMIT { get; set; }
+        public string COLOR_NAMA { get; set; }
     }
 }

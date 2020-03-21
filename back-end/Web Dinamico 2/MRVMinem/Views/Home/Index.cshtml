@@ -1,4 +1,4 @@
-﻿
+﻿@model MRVMinem.Models.ListaObjeto
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -237,7 +237,32 @@
             <div class="container-fluid">
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-12 col-md-3 col-lg-3 pb-5">
+                        @if (Model.listaMedidaMitigacion != null)
+                        {
+                            var tiempo = 3;
+                            var ms = "";
+                            foreach (var item in Model.listaMedidaMitigacion)
+                            {
+                                tiempo++;
+                                ms = "." + tiempo + "s";
+                                <div class="col-sm-12 col-md-3 col-lg-3 pb-5">
+                                    <div class="medida-mitigacion wow bounceInUp" data-wow-delay="@ms" onclick="CargarDashboardMedida(@item.ID_MEDMIT)">
+                                        <img class="img-thumbnail border-0" src="~/images/medida_mitigacion/@item.ADJUNTO">
+                                        <div class="nombre-medida bg-nama-@item.COLOR_NAMA cursor-pointer" data-toggle="modal" data-target="#modal-resultados">
+                                            <span class="h6">
+                                                @item.NOMBRE_MEDMIT
+                                                <!--small.text-muted NAMA DE EFICIENCIA ENERGETICA-->
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                if (tiempo == 7)
+                                {
+                                    tiempo = 3;
+                                }
+                            }
+                        }
+                        @*<div class="col-sm-12 col-md-3 col-lg-3 pb-5">
                             <div class="medida-mitigacion wow bounceInUp" data-wow-delay=".4s" onclick="CargarDashboardMedida(5)">
                                 <img class="img-thumbnail border-0" src="~/images/ico_nama_amarillo_01.svg">
                                 <div class="nombre-medida bg-nama-amarilla cursor-pointer" data-toggle="modal" data-target="#modal-resultados">
@@ -280,13 +305,13 @@
                                     </span>
                                 </div>
                             </div>
-                        </div>
+                        </div>*@
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
+    @*<div class="row">
         <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
             <div class="container-fluid">
                 <div class="container">
@@ -393,7 +418,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>*@
 
 </div>
 <div class="container-fluid" id="reportes-resultados">
@@ -445,7 +470,7 @@
                                 <div class="logros d-flex">
                                     <div class="row">
                                         <div class="col-sm-12 col-md-12 col-lg-5 flex-fill d-flex flex-column justify-content-center bg-light pr-0">
-                                            <h2 class="text-center text-dark" id="total-gei">@*54*@</h2><small class="text-center">Toneladas</small>
+                                            <h2 class="text-center text-dark" id="total-gei">@*54*@</h2><small class="text-center" id="unidad-gei">Toneladas</small>
                                         </div>
                                         <div class="col-sm-12 col-md-12 col-lg-7 flex-fill bg-white py-3">
                                             <div class="h5">De CO2eq reducidas</div>

@@ -41,7 +41,9 @@ namespace MRVMinem.Controllers
         // GET: Gestion
         public ActionResult Index()
         {
-            return View();
+            ListaObjeto modelo = new ListaObjeto();
+            modelo.listaMedidaMitigacion = modelo.listaMedidaMitigacion = MedidaMitigacionLN.ListarMedidaMitigacion(new MedidaMitigacionBE());
+            return View(modelo);
         }
         public ActionResult AccionMitigacion()
         {
@@ -58,7 +60,9 @@ namespace MRVMinem.Controllers
             {
                 usu.PRIMER_INICIO = "0";
             }
-            
+            if (Convert.ToInt32(Session["rol"]) == 1){
+                modelo.listaMedidaMitigacion = MedidaMitigacionLN.ListarMedidaMitigacion(new MedidaMitigacionBE());
+            }                    
             modelo.usuario = usu;
             //if (Convert.ToInt32(Session["rol"]) == 1)
             //{
@@ -98,6 +102,7 @@ namespace MRVMinem.Controllers
             inic.ID_MEDMIT = id;
             modelo.iniciativa_mit = inic;
             modelo.listaTipoIniciativa = TipoIniciativaLN.listarTipoIniciativa();
+            modelo.listaMedidaMitigacion = MedidaMitigacionLN.ListarMedidaMitigacion(new MedidaMitigacionBE());
             if (ini > 0){
                                 
             }
@@ -124,6 +129,7 @@ namespace MRVMinem.Controllers
                 
                 modelo.iniciativa = ini;
                 modelo.listaTipoIniciativa = TipoIniciativaLN.listarTipoIniciativa();
+                modelo.listaMedidaMitigacion = MedidaMitigacionLN.ListarMedidaMitigacion(new MedidaMitigacionBE());
             }
             else
             {
@@ -2356,6 +2362,18 @@ namespace MRVMinem.Controllers
             entidad = IniciativaLN.ValidarRevisionIniciativa(entidad);
             itemRespuesta.success = entidad.OK;
             itemRespuesta.extra = Convert.ToString(entidad.CANTIDAD);
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult MostrarImagenMedida(MedidaMitigacionBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+            entidad = MedidaMitigacionLN.getMedidaMitigacion(entidad.ID_MEDMIT);
+            if (entidad.OK)
+            {
+                itemRespuesta.extra = entidad.ADJUNTO;
+            }
+            itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }
 

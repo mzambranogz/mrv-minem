@@ -23,7 +23,9 @@ namespace MRVMinem.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            ListaObjeto modelo = new ListaObjeto();
+            modelo.listaMedidaMitigacion = modelo.listaMedidaMitigacion = MedidaMitigacionLN.ListarMedidaMitigacion(new MedidaMitigacionBE());
+            return View(modelo);
         }
 
         //CAPTCHA V 3.0
