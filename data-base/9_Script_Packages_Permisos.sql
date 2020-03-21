@@ -1,6 +1,6 @@
 --------------------------------------------------------
 -- Permisos para paquetes
--- Archivo creado  - jueves-enero-31-2020 
+-- Archivo creado  - viernes-Marzo-20-2020 
 -- Se ejecuta desde el System  
 --------------------------------------------------------
 

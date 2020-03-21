@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - jueves-marzo-19-2020   
+-- Archivo creado  - s·bado-marzo-21-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_DIRECCIONAMIENTO
@@ -1824,6 +1824,62 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
     );
+    
+    --================= 19-03-2020
+    PROCEDURE USP_INS_PARAMETRO(
+        pID_PARAMETRO IN NUMBER,
+        pNOMBRE_PARAMETRO IN VARCHAR2,
+        pID_TIPO_CONTROL IN NUMBER,
+        pID_TIPO_DATO IN NUMBER,
+        pDESCRIPCION_PARAMETRO IN VARCHAR2,
+        pCOMBINACION_UNIDAD IN VARCHAR2,
+        pLEYENDA_PARAMETRO IN VARCHAR2,
+        pDESCRIPCION_METODOLOGIA IN VARCHAR2,
+        pPROCEDIMIENTO IN VARCHAR2,
+        pCONTROL_CALIDAD IN VARCHAR2,
+        pASEGURAMIENTO_CALIDAD IN VARCHAR2,
+        pPROPOSITO IN VARCHAR2,
+        pFRECUENCIA IN VARCHAR2,
+        pEDITABLE IN VARCHAR2,
+        pVERIFICABLE IN VARCHAR2,
+        pR OUT SYS_REFCURSOR
+    );
+    
+    PROCEDURE USP_INS_PARAM_DETALLE(
+        pID_PARAMETRO IN NUMBER,
+        pID_DETALLE IN NUMBER,
+        pNOMBRE_DETALLE IN VARCHAR2
+    );
+    
+    PROCEDURE USP_UPD_ESTADO_PARAM_DETALLE(
+        pID_PARAMETRO IN NUMBER,
+        pID_ELIMINAR_DETALLE IN VARCHAR2
+    );
+    
+    PROCEDURE USP_DEL_PARAMETRO(             
+        pID_PARAMETRO IN NUMBER
+   );
+    
+    PROCEDURE USP_GET_PARAMETRO(
+        pID_PARAMETRO IN NUMBER,
+        pRefcursor  OUT SYS_REFCURSOR
+   );
+    
+    PROCEDURE USP_SEL_BUSCAR_PARAMETRO(
+        pBuscar	IN VARCHAR2,
+        pRegistros IN INTEGER,
+      	pPagina    IN INTEGER,
+      	pSortColumn IN VARCHAR2,
+      	pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+    
+    PROCEDURE USP_SEL_EXCEL_PARAMETRO(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
 
 END PKG_MRV_MANTENIMIENTO;
 
@@ -1911,12 +1967,15 @@ END PKG_MRV_DIRECCIONAMIENTO;
         pRefcursor OUT SYS_REFCURSOR
     ) AS
   BEGIN
-
+ 
     OPEN pRefcursor FOR
     SELECT  ID_MEDMIT,
-            NOMBRE_MEDMIT
+            NOMBRE_MEDMIT,
+            ADJUNTO, --add
+            ADJUNTO_BASE, --add
+            ID_NAMA --add
     FROM    T_MAE_MEDMIT
-    ORDER BY NOMBRE_MEDMIT ASC;
+    ORDER BY ID_MEDMIT ASC;
   END USP_SEL_LISTA_MEDIDAMITIGACION;
 
   PROCEDURE USP_SEL_MONEDA(
@@ -1943,8 +2002,11 @@ END PKG_MRV_DIRECCIONAMIENTO;
                 NOMBRE_MEDMIT,
                 DESCRIPCION_MEDMIT,
                 OBJETIVO_MEDMIT,
-                IPSC_MEDMIT
-        FROM    T_MAE_MEDMIT
+                IPCC.IPCC IPSC_MEDMIT,
+                ADJUNTO,
+                ADJUNTO_BASE
+        FROM    T_MAE_MEDMIT MD
+        LEFT JOIN T_MAE_IPCC IPCC ON MD.ID_IPCC =IPCC.ID_IPCC
         WHERE ID_MEDMIT = pID_MEDMIT;
       END USP_SEL_MEDIDA_MITIGACION;
 
@@ -6559,6 +6621,8 @@ END PKG_MRV_DIRECCIONAMIENTO;
                                 INI.ID_ESTADO,
                                 PEE.DESCRIPCION ESTADO_BANDEJA,
                                 INI.ID_ETAPA PROGRESO,
+                                PEE.ID_PLAZO_ETAPA_ESTADO,
+                                INI.ESTADO_FICHA,
                                 ROW_NUMBER() OVER (ORDER BY ' || vSortColumn2 || ' ' || pSortOrder ||') AS ROWNUMBER,'
                                 || vPaginas || ' AS total_paginas,'
                                 || vPagina2 || ' AS pagina,'
@@ -6659,6 +6723,8 @@ END PKG_MRV_DIRECCIONAMIENTO;
                                 INI.ID_ESTADO,
                                 PEE.DESCRIPCION ESTADO_BANDEJA,
                                 INI.ID_ETAPA PROGRESO,
+                                PEE.ID_PLAZO_ETAPA_ESTADO,
+                                INI.ESTADO_FICHA,
                                 ROW_NUMBER() OVER (ORDER BY ' || vSortColumn2 || ' ' || pSortOrder ||') AS ROWNUMBER,'
                                 || vPaginas || ' AS total_paginas,'
                                 || vPagina2 || ' AS pagina,'
@@ -7115,7 +7181,8 @@ END PKG_MRV_DIRECCIONAMIENTO;
                 INI.INVERSION_INICIATIVA,
                 INI.FECHA_IMPLE_INICIATIVA,
                 INI.FECHA_FIN_INICIATIVA,
-                INI.GEI_TOTAL TOTAL_GEI
+                INI.GEI_TOTAL TOTAL_GEI,
+                INI.PRIVACIDAD_INVERSION --add
         FROM    T_GENM_INICIATIVA INI
         LEFT JOIN   T_MAE_TIPO_INICIATIVA TI ON INI.ID_TIPO_INICIATIVA = TI.ID_TIPO_INICIATIVA
         LEFT JOIN   T_MAE_MONEDA MO ON INI.ID_MONEDA = MO.ID_MONEDA
@@ -10454,6 +10521,245 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
 		OPEN pRefcursor FOR vQuery;
 
     END USP_SEL_EXCEL_TIPO_INICIATIVA;
+    
+    
+    --================================================== 19-03-2020
+    
+    PROCEDURE USP_INS_PARAMETRO(
+        pID_PARAMETRO IN NUMBER,
+        pNOMBRE_PARAMETRO IN VARCHAR2,
+        pID_TIPO_CONTROL IN NUMBER,
+        pID_TIPO_DATO IN NUMBER,
+        pDESCRIPCION_PARAMETRO IN VARCHAR2,
+        pCOMBINACION_UNIDAD IN VARCHAR2,
+        pLEYENDA_PARAMETRO IN VARCHAR2,
+        pDESCRIPCION_METODOLOGIA IN VARCHAR2,
+        pPROCEDIMIENTO IN VARCHAR2,
+        pCONTROL_CALIDAD IN VARCHAR2,
+        pASEGURAMIENTO_CALIDAD IN VARCHAR2,
+        pPROPOSITO IN VARCHAR2,
+        pFRECUENCIA IN VARCHAR2,
+        pEDITABLE IN VARCHAR2,
+        pVERIFICABLE IN VARCHAR2,
+        pR OUT SYS_REFCURSOR
+    )AS
+        vIdParametro NUMBER := 0;
+    BEGIN
+        IF pID_PARAMETRO = 0 THEN
+            SELECT SQ_GEND_PARAMETRO.NEXTVAL INTO vIdParametro FROM DUAL;
+                IF pID_TIPO_CONTROL = 1 THEN
+                    INSERT INTO T_MAEM_MRV_PARAMETRO (ID_PARAMETRO, NOMBRE_PARAMETRO, ID_TIPO_CONTROL, DESCRIPCION_PARAMETRO, COMBINACION_UNIDAD,
+                        LEYENDA_PARAMETRO, DESCRIPCION_METODOLOGIA, PROCEDIMIENTO, CONTROL_CALIDAD, ASEGURAMIENTO_CALIDAD, PROPOSITO,
+                        FRECUENCIA, EDITABLE, VERIFICABLE, FLG_ESTADO)
+                    VALUES (vIdParametro, pNOMBRE_PARAMETRO, pID_TIPO_CONTROL, pDESCRIPCION_PARAMETRO, pCOMBINACION_UNIDAD,
+                                pLEYENDA_PARAMETRO, pDESCRIPCION_METODOLOGIA, pPROCEDIMIENTO, pCONTROL_CALIDAD, pASEGURAMIENTO_CALIDAD, pPROPOSITO,
+                                pFRECUENCIA, pEDITABLE, pVERIFICABLE, '1');
+                ELSE
+                    INSERT INTO T_MAEM_MRV_PARAMETRO (ID_PARAMETRO, NOMBRE_PARAMETRO, ID_TIPO_CONTROL, ID_TIPO_DATO, DESCRIPCION_PARAMETRO, COMBINACION_UNIDAD,
+                        LEYENDA_PARAMETRO, DESCRIPCION_METODOLOGIA, PROCEDIMIENTO, CONTROL_CALIDAD, ASEGURAMIENTO_CALIDAD, PROPOSITO,
+                        FRECUENCIA, EDITABLE, VERIFICABLE, FLG_ESTADO)
+                    VALUES (vIdParametro, pNOMBRE_PARAMETRO, pID_TIPO_CONTROL, pID_TIPO_DATO, pDESCRIPCION_PARAMETRO, pCOMBINACION_UNIDAD,
+                                pLEYENDA_PARAMETRO, pDESCRIPCION_METODOLOGIA, pPROCEDIMIENTO, pCONTROL_CALIDAD, pASEGURAMIENTO_CALIDAD, pPROPOSITO,
+                                pFRECUENCIA, pEDITABLE, pVERIFICABLE, '1');
+                END IF;
+            
+        ELSE
+            IF pID_TIPO_CONTROL = 1 THEN
+                UPDATE T_MAEM_MRV_PARAMETRO
+                SET     NOMBRE_PARAMETRO = pNOMBRE_PARAMETRO, 
+                        ID_TIPO_CONTROL = pID_TIPO_CONTROL, 
+                        --ID_TIPO_DATO = pID_TIPO_DATO, 
+                        DESCRIPCION_PARAMETRO = pDESCRIPCION_PARAMETRO, 
+                        COMBINACION_UNIDAD = pCOMBINACION_UNIDAD,
+                        LEYENDA_PARAMETRO = pLEYENDA_PARAMETRO, 
+                        DESCRIPCION_METODOLOGIA = pDESCRIPCION_METODOLOGIA, 
+                        PROCEDIMIENTO = pPROCEDIMIENTO, 
+                        CONTROL_CALIDAD = pCONTROL_CALIDAD, 
+                        ASEGURAMIENTO_CALIDAD = pASEGURAMIENTO_CALIDAD, 
+                        PROPOSITO = pPROPOSITO,
+                        FRECUENCIA = pFRECUENCIA, 
+                        EDITABLE = pEDITABLE, 
+                        VERIFICABLE = pVERIFICABLE,
+                        FLG_ESTADO = '1'
+                WHERE   ID_PARAMETRO = pID_PARAMETRO;
+            ELSE
+                UPDATE T_MAEM_MRV_PARAMETRO
+                SET     NOMBRE_PARAMETRO = pNOMBRE_PARAMETRO, 
+                        ID_TIPO_CONTROL = pID_TIPO_CONTROL, 
+                        ID_TIPO_DATO = pID_TIPO_DATO, 
+                        DESCRIPCION_PARAMETRO = pDESCRIPCION_PARAMETRO, 
+                        COMBINACION_UNIDAD = pCOMBINACION_UNIDAD,
+                        LEYENDA_PARAMETRO = pLEYENDA_PARAMETRO, 
+                        DESCRIPCION_METODOLOGIA = pDESCRIPCION_METODOLOGIA, 
+                        PROCEDIMIENTO = pPROCEDIMIENTO, 
+                        CONTROL_CALIDAD = pCONTROL_CALIDAD, 
+                        ASEGURAMIENTO_CALIDAD = pASEGURAMIENTO_CALIDAD, 
+                        PROPOSITO = pPROPOSITO,
+                        FRECUENCIA = pFRECUENCIA, 
+                        EDITABLE = pEDITABLE, 
+                        VERIFICABLE = pVERIFICABLE,
+                        FLG_ESTADO = '1'
+                WHERE   ID_PARAMETRO = pID_PARAMETRO;
+                END IF;            
+        END IF;
+        OPEN pR FOR
+        SELECT vIdParametro COD FROM DUAL;
+    END USP_INS_PARAMETRO;
+    
+    PROCEDURE USP_INS_PARAM_DETALLE(
+        pID_PARAMETRO IN NUMBER,
+        pID_DETALLE IN NUMBER,
+        pNOMBRE_DETALLE IN VARCHAR2
+    )AS
+        vIdDetalle NUMBER;
+    BEGIN
+        IF pID_DETALLE = 0 THEN
+            SELECT (NVL(MAX(ID_DETALLE),0) + 1) INTO vIdDetalle FROM T_MAED_MRV_PARAMETRO WHERE ID_PARAMETRO = pID_PARAMETRO;
+            INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO, ID_DETALLE, NOMBRE_DETALLE)
+            VALUES (pID_PARAMETRO, vIdDetalle, pNOMBRE_DETALLE);
+        ELSE
+            UPDATE T_MAED_MRV_PARAMETRO
+            SET     NOMBRE_DETALLE = pNOMBRE_DETALLE, FLG_ESTADO = '1'
+            WHERE   ID_PARAMETRO = pID_PARAMETRO AND ID_DETALLE = pID_DETALLE;
+        END IF;
+    END USP_INS_PARAM_DETALLE;
+    
+    PROCEDURE USP_UPD_ESTADO_PARAM_DETALLE(
+        pID_PARAMETRO IN NUMBER,
+        pID_ELIMINAR_DETALLE IN VARCHAR2
+    )IS
+        vSql            VARCHAR2(250);
+    BEGIN 
+        vSql := 'UPDATE T_MAED_MRV_PARAMETRO SET FLG_ESTADO = ''0'' WHERE ID_PARAMETRO ='||pID_PARAMETRO||' AND ID_DETALLE IN ('||pID_ELIMINAR_DETALLE||')';
+        EXECUTE IMMEDIATE vSql;
+    END USP_UPD_ESTADO_PARAM_DETALLE;
+    
+    PROCEDURE USP_DEL_PARAMETRO(             
+        pID_PARAMETRO IN NUMBER
+   )AS
+     BEGIN
+             UPDATE T_MAEM_MRV_PARAMETRO
+             SET FLG_ESTADO = 0
+             WHERE ID_PARAMETRO = pID_PARAMETRO;
+    END USP_DEL_PARAMETRO;
+    
+    PROCEDURE USP_GET_PARAMETRO(
+        pID_PARAMETRO IN NUMBER,
+        pRefcursor  OUT SYS_REFCURSOR
+   )AS
+     BEGIN
+             OPEN    pRefcursor FOR
+            SELECT  ID_PARAMETRO,
+                    NOMBRE_PARAMETRO,
+                    ID_TIPO_CONTROL,
+                    ID_TIPO_DATO,
+                    EDITABLE,
+                    VERIFICABLE,
+                    DESCRIPCION_PARAMETRO,
+                    COMBINACION_UNIDAD,
+                    LEYENDA_PARAMETRO,
+                    DESCRIPCION_METODOLOGIA,
+                    PROCEDIMIENTO,
+                    CONTROL_CALIDAD,
+                    ASEGURAMIENTO_CALIDAD,
+                    PROPOSITO,
+                    FRECUENCIA
+            FROM    T_MAEM_MRV_PARAMETRO
+            WHERE   ID_PARAMETRO = pID_PARAMETRO;
+
+    END USP_GET_PARAMETRO;
+    
+    PROCEDURE USP_SEL_BUSCAR_PARAMETRO(
+        pBuscar	IN VARCHAR2,
+        pRegistros IN INTEGER,
+      	pPagina    IN INTEGER,
+      	pSortColumn IN VARCHAR2,
+      	pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+        vPaginas    INTEGER;
+        vTotal      INTEGER;
+        vPagina2    INTEGER := pPagina;
+        vPageIndex  INTEGER := 0;
+        vQuery      VARCHAR2(30000) := '';
+        vSortColumn2 VARCHAR2(1000);
+      BEGIN
+
+        SELECT COUNT(1) INTO vTotal
+        FROM  T_MAEM_MRV_PARAMETRO P
+                        LEFT JOIN T_MAEM_TIPO_CONTROL TC ON P.ID_TIPO_CONTROL = TC.ID_TIPO_CONTROL
+                        LEFT JOIN T_MAEM_TIPO_DATO TD ON P.ID_TIPO_DATO = TD.ID_TIPO_DATO
+                        WHERE FLG_ESTADO = 1 AND
+              (LOWER(TRANSLATE(P.NOMBRE_PARAMETRO,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like '%'|| LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) ||'%'
+              OR LOWER(TRANSLATE(TC.TIPO_CONTROL,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like '%'|| LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) ||'%');
+
+        vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
+        IF vPagina2 = 0 THEN
+            vPagina2 := 1;
+        END IF;
+        IF vPagina2 > vPaginas THEN
+            vPagina2 := vPaginas;
+        END IF;
+
+        vPageIndex := vPagina2 - 1;  
+        
+        IF pSortColumn = 'ID_PARAMETRO' THEN
+            vSortColumn2 := 'P.ID_PARAMETRO';
+        ELSIF pSortColumn = 'ID_TIPO_CONTROL' THEN
+          	vSortColumn2 := 'TC.ID_TIPO_CONTROL';
+        ELSE
+            vSortColumn2 := pSortColumn;
+        END IF;
+
+        vQuery := 'SELECT *    FROM (
+                        SELECT    P.ID_PARAMETRO,
+                                  P.NOMBRE_PARAMETRO,
+                                  TC.ID_TIPO_CONTROL,
+                                  TC.TIPO_CONTROL,
+                                  TD.TIPO_DATO,
+                                                ROW_NUMBER() OVER (ORDER BY ' || vSortColumn2 || ' ' || pSortOrder ||') AS ROWNUMBER,'
+                                                || vPaginas || ' AS total_paginas,'
+                                                || vPagina2 || ' AS pagina,'
+                                                || pRegistros || ' AS cantidad_registros,'
+                                                || vTotal || ' AS total_registros
+                        FROM  T_MAEM_MRV_PARAMETRO P
+                        LEFT JOIN T_MAEM_TIPO_CONTROL TC ON P.ID_TIPO_CONTROL = TC.ID_TIPO_CONTROL
+                        LEFT JOIN T_MAEM_TIPO_DATO TD ON P.ID_TIPO_DATO = TD.ID_TIPO_DATO
+                        WHERE FLG_ESTADO = 1 AND
+                        (LOWER(TRANSLATE(P.NOMBRE_PARAMETRO,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' 
+                        OR LOWER(TRANSLATE(TC.TIPO_CONTROL,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou''))||''%'' )
+					)
+                    WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
+		OPEN pRefcursor FOR vQuery;
+
+    END USP_SEL_BUSCAR_PARAMETRO;
+    
+    PROCEDURE USP_SEL_EXCEL_PARAMETRO(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+        vQuery      VARCHAR2(30000) := '';
+        vSortColumn2 VARCHAR2(1000);
+      BEGIN
+        vSortColumn2 := pSortColumn;
+        vQuery := '
+                        SELECT    P.ID_PARAMETRO,
+                                  P.NOMBRE_PARAMETRO,
+                                  TC.ID_TIPO_CONTROL,
+                                  TC.TIPO_CONTROL,
+                                  TD.TIPO_DATO
+                        FROM  T_MAEM_MRV_PARAMETRO P
+                        LEFT JOIN T_MAEM_TIPO_CONTROL TC ON P.ID_TIPO_CONTROL = TC.ID_TIPO_CONTROL
+                        LEFT JOIN T_MAEM_TIPO_DATO TD ON P.ID_TIPO_DATO = TD.ID_TIPO_DATO
+                        WHERE FLG_ESTADO = 1 AND
+                        (LOWER(TRANSLATE(P.NOMBRE_PARAMETRO,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' 
+                        OR LOWER(TRANSLATE(TC.TIPO_CONTROL,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou''))||''%'' )
+                        ORDER BY ' || vSortColumn2 || ' ' || pSortOrder || ' ' ;
+		OPEN pRefcursor FOR vQuery;
+
+    END USP_SEL_EXCEL_PARAMETRO;
 
 END PKG_MRV_MANTENIMIENTO;
 

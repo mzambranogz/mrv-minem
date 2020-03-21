@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - jueves-marzo-19-2020   
+-- Archivo creado  - sábado-marzo-21-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_ADMIN_SISTEMA
@@ -2289,7 +2289,7 @@ end PKG_MRV_BLOCKCHAIN;
         OPEN pRefcursor FOR
         SELECT  ID_DETALLE, NOMBRE_DETALLE
         FROM    T_MAED_MRV_PARAMETRO
-        WHERE   ID_PARAMETRO = pID_PARAMETRO;
+        WHERE   ID_PARAMETRO = pID_PARAMETRO AND FLG_ESTADO = '1';
   END USP_SEL_DETALLE_PARAMETRO;
   
   PROCEDURE USP_SEL_PARAMETRO(
