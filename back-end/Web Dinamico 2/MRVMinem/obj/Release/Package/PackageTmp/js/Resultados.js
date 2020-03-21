@@ -35,8 +35,25 @@
                             $("#total-institucion").html(data[i]["TOTAL_INSTITUCION"]);
                             //$("#institucion-mostrar").removeAttr("hidden");
                         }
+                        var total_gei = Math.round(data[i]["TOTAL_GEI_REDUCIDO"]);
+                        var desc_gei = "Toneladas";
+                        if (total_gei > 999) {
+                            total_gei = Math.round((total_gei / 1000) * 100) / 100;
+                            desc_gei = "KToneladas";
+                            if (total_gei > 999) {
+                                total_gei = Math.round((total_gei / 1000) * 100) / 100;
+                                desc_gei = "MToneladas";
+                                if (total_gei > 999) {
+                                    total_gei = Math.round((total_gei / 1000) * 100) / 100;
+                                    desc_gei = "GToneladas";
+                                }
+                            }
+                        }
+
                         $("#total-region").html(data[i]["TOTAL_REGION"]);
-                        $("#total-gei").html(data[i]["TOTAL_GEI_REDUCIDO"]);
+                        //$("#total-gei").html(data[i]["TOTAL_GEI_REDUCIDO"]);
+                        $("#unidad-gei").html("").html(desc_gei);
+                        $("#total-gei").html(total_gei);
                         $("#nombre-medida").html(data[i]["NOMBRE_MEDMIT"]);
 
                         var entidad = data[i]["listaGei"];

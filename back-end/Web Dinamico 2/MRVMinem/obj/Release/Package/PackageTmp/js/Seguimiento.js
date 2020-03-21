@@ -403,7 +403,7 @@ function fn_mostrarSeguimiento() {
                             var blk1 = arr[4].substring(0, 50);
                             var blk2 = arr[4].substring(50, arr[4].length);                            
                             tr = tr + '<div class="timeline">';
-                            tr = tr + '<div class="timeline-icon"><i class="fas fa-check-circle"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
+                            tr = tr + '<div class="timeline-icon"><i class="fas fa-flag-checkered"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
                             tr = tr + '<div class="timeline-content">';
                             tr = tr + '<h5 class="title">EVALUACIÓN APROBADA <br><small class="text-muted">INICIATIVA / DETALLES</small></h5>';
                             tr = tr + '<div>';

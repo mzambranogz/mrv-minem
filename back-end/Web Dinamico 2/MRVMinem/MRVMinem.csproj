@@ -164,6 +164,42 @@
     <Content Include="images\logo_pnud.jpg" />
     <Content Include="images\logo_pnud.png" />
     <Content Include="images\logo_pnud.svg" />
+    <Content Include="images\medida_mitigacion\ico_nama_amarillo_01.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\medida_mitigacion\ico_nama_amarillo_02.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\medida_mitigacion\ico_nama_amarillo_03.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\medida_mitigacion\ico_nama_amarillo_04.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\medida_mitigacion\ico_nama_amarillo_05.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\medida_mitigacion\ico_nama_amarillo_06.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\medida_mitigacion\ico_nama_amarillo_07.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\medida_mitigacion\ico_nama_azul_01.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\medida_mitigacion\ico_nama_rojo_01.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\medida_mitigacion\ico_nama_rojo_02.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\medida_mitigacion\ico_nama_verde_01.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\medida_mitigacion\ico_nama_verde_02.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="images\medida_mitigacion\LEEME.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

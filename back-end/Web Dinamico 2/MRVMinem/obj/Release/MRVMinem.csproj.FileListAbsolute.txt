@@ -795,3 +795,15 @@ C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\Newtonsoft.Json.dll
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\itextsharp.xml
 C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\Newtonsoft.Json.xml
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\images\medida_mitigacion\ico_nama_amarillo_01.svg
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\images\medida_mitigacion\ico_nama_amarillo_02.svg
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\images\medida_mitigacion\ico_nama_amarillo_03.svg
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\images\medida_mitigacion\ico_nama_amarillo_04.svg
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\images\medida_mitigacion\ico_nama_amarillo_05.svg
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\images\medida_mitigacion\ico_nama_amarillo_06.svg
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\images\medida_mitigacion\ico_nama_amarillo_07.svg
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\images\medida_mitigacion\ico_nama_azul_01.svg
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\images\medida_mitigacion\ico_nama_rojo_01.svg
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\images\medida_mitigacion\ico_nama_rojo_02.svg
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\images\medida_mitigacion\ico_nama_verde_01.svg
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\images\medida_mitigacion\ico_nama_verde_02.svg

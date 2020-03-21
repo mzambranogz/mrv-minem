@@ -399,7 +399,18 @@
                                     <h3 class="text-center">Seleccione una medida de mitigación</h3>
                                     <p class="text-center">en la que usted crea que corresponda la iniciativa a registrar</p>
                                 </div>
-                                <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
+
+                                @if (Model.listaMedidaMitigacion != null)
+                                        {
+                                            foreach (var item in Model.listaMedidaMitigacion)
+                                            {
+                                                <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
+                                                    <div class="rounded py-3"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(@item.ID_MEDMIT);" data-toggle="tooltip" data-placement="top" title="@item.NOMBRE_MEDMIT"><img src="~/images/medida_mitigacion/@item.ADJUNTO" class="img-fluid"></a></div><small class="font-weight-bold">@item.NOMBRE_MEDMIT</small>
+                                                </div>
+                                            }
+                                        }
+
+                                @*<div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
                                     <div class="rounded py-3"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(5);" data-toggle="tooltip" data-placement="top" title="Transformación del mercado de Iluminación en el Sector Residencial - ISR"><img src="~/images/ico_nama_amarillo_01.svg"></a></div><small class="font-weight-bold">Transformación del mercado de Iluminación en el Sector Residencial - ISR</small>
                                 </div>
                                 <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
@@ -416,7 +427,7 @@
                                 </div>
                                 <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
                                     <div class="rounded py-3"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(2);" data-toggle="tooltip" data-placement="top" title="Eficiencia Energética en el sector industrial - EESI"><img src="~/images/ico_nama_amarillo_06.svg"></a></div><small class="font-weight-bold">Eficiencia Energética en el sector industrial - EESI</small>
-                                </div>
+                                </div>*@
                             </div>
                             @*<div class="row">
                                 <div class="col-12">
@@ -436,7 +447,7 @@
                                     </div>
                                 </div>
                             </div>*@
-                            <div class="row">
+                            @*<div class="row">
                                 <div class="col-12">
                                     <div class="row">
                                         <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
@@ -459,7 +470,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>*@
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-12 mt-3">
                                     <div class="alert alert-warning">No te preocupes, que podrás cambiar la medida de mitigacion en cualquier momento. Si no encuentra la medida de mitigación que está buscando comuniquese con el administrador del sistema al siguiente correo electrónico: <strong id="correo-admin">@*carlos.galdos@minen.gob.pe*@</strong></div>

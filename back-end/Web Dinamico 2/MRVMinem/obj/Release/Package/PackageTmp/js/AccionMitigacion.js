@@ -196,7 +196,7 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
                     var total_paginas = 0;
 
                     for (var i = 0; i < data.length; i++) {
-
+                        var p = data[i]["ID_PLAZO_ETAPA_ESTADO"];
                         var progreso = '0%';
                         if (data[i]["ID_ESTADO"] != 0 || (data[i]["ID_ESTADO"] == 0 && data[i]["PROGRESO"] == 3)) {
                             if (data[i]["PROGRESO"] == 1 && (data[i]["ID_ESTADO"] == 1 || data[i]["ID_ESTADO"] == 5 || data[i]["ID_ESTADO"] == 2 || data[i]["ID_ESTADO"] == 6)) {
@@ -253,7 +253,9 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
                         } else if (data[i]["PROGRESO"] >= 3) {
                             tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_verMasPrivadoIniciativaDetalleP(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-plus-circle"></i>&nbsp;Ver más</a>';
                         }
-                        tr = tr + '        <a class="dropdown-item" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-download"></i>&nbsp;Descargar ficha</a>';
+                        if (p >= 6) {
+                            tr = tr + '        <a class="dropdown-item" href="#" onclick="fn_visualizarFichaPublica(' + data[i]["ID_INICIATIVA"] + ',' + p + ');" id="ficha-' + data[i]["ID_INICIATIVA"] + '" data-ficha="' + data[i]["ESTADO_FICHA"] + '"><i class="fas fa-download"></i>&nbsp;Descargar ficha</a>';
+                        }
                         //tr = tr + '        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-recordatorio"><i class="fas fa-envelope"></i>&nbsp;Recordatorio</a>';
                         tr = tr + '         </div>';
                         tr = tr + '     </div>';
@@ -2092,6 +2094,50 @@ function fn_descargarFicha(id, p) {
         ID_PLAZO_ETAPA_ESTADO: p
     };
     var url = baseUrl + "Gestion/DescargarFicha";
+    var respuesta = MRV.Ajax(url, item, false);
+
+    if (respuesta.success) {
+        var urlMostrar = baseUrl + "Temp/" + respuesta.extra;
+        window.open(urlMostrar, "_blank");
+        $("#ficha-" + id).data("ficha", 1);
+    }
+}
+
+//========================================================
+
+function enviarIniciativa(id) {
+    location.href = baseUrl + "Gestion/IniciativaMitigacion/" + id + "/" + 0;
+}
+
+//======================
+
+function fn_visualizarFichaPublica(id, p) {
+    if ($("#ficha-" + id).data("ficha") == 1) {
+        fn_mostrarFichaPublica(id);
+    } else {
+        fn_descargarFichaPublica(id, p);
+    }
+}
+
+function fn_mostrarFichaPublica(id) {
+    var item = {
+        ID_INICIATIVA: id
+    };
+    var url = baseUrl + "Portal/MostrarFicha";
+    var respuesta = MRV.Ajax(url, item, false);
+
+    if (respuesta.success) {
+        var urlMostrar = baseUrl + "Temp/" + respuesta.extra;
+        window.open(urlMostrar, "_blank");
+    }
+}
+
+function fn_descargarFichaPublica(id, p) {
+    var item = {
+        ID_INICIATIVA: id,
+        ID_PLAZO_ETAPA_ESTADO: p
+    };
+    var url = baseUrl + "Portal/DescargarFicha";
     var respuesta = MRV.Ajax(url, item, false);
 
     if (respuesta.success) {

@@ -177,7 +177,8 @@ function regMantenimiento() {
     $("#validarUsuario").data("guardar", 1);
     $("#userMantenimiento").data("value", 0);
     fn_modalInicio();
-    $("#title-nuevo").show()
+    $("#title-nuevo").show();
+    $(".imagen-medida").addClass("d-none");
 }
 
 function fn_cargarDatosMantenimiento(id) {
@@ -186,6 +187,7 @@ function fn_cargarDatosMantenimiento(id) {
     $("#validarUsuario").data("guardar", 0)
     $("#title-nuevo").hide()
     $("#title-edit").show();
+    $(".imagen-medida").removeClass("d-none");
     fn_seleccionarMantenimiento(id);
 }
 
@@ -390,5 +392,18 @@ function fn_eliminarMantenimiento() {
     }
     $("#modal-confirmacion").modal('hide');
 
+}
+
+function mostrarImagen() {
+    var item = {
+        ID_MEDMIT: $("#userMantenimiento").data("value")
+    };
+    var url = baseUrl + "Gestion/MostrarImagenMedida";
+    var respuesta = MRV.Ajax(url, item, false);
+
+    if (respuesta.success) {
+        var urlMostrar = baseUrl + "images/medida_mitigacion/" + respuesta.extra;
+        window.open(urlMostrar, "_blank");
+    }
 }
 
