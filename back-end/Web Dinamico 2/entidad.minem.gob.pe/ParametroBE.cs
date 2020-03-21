@@ -19,6 +19,12 @@ namespace entidad.minem.gob.pe
         public int EDITABLE { get; set; }
         public int VERIFICABLE { get; set; }
         public string LEYENDA_PARAMETRO { get; set; }
+        public string DESCRIPCION_METODOLOGIA { get; set; }
+        public string PROCEDIMIENTO { get; set; }
+        public string CONTROL_CALIDAD { get; set; }
+        public string ASEGURAMIENTO_CALIDAD { get; set; }
+        public string PROPOSITO { get; set; }
+        public string FRECUENCIA { get; set; }
         public List<ParametroDetalleBE> listaDetalle { get; set; }
     }
 }

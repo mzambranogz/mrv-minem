@@ -1108,6 +1108,55 @@ namespace MRVMinem.Controllers
             return Respuesta(itemRespuesta);
         }
 
+
+        ////////////////////////////////////////// MANTENIMIENTO PARAMETROS
+
+        public ActionResult Parametros(ParametroBE entidad)
+        {
+            if (entidad.pagina == 0)
+            {
+                entidad = new ParametroBE() { cantidad_registros = 10, order_by = "ID_PARAMETRO", order_orden = "ASC", pagina = 1, buscar = "" };
+            }
+            MvParametro modelo = new MvParametro();
+            modelo.listaParametro = ParametroLN.ListarParametroPaginado(entidad);
+            return View(modelo);
+        }
+
+        public JsonResult BuscarParametro(ParametroBE entidad)
+        {
+            ParametroBE lista = ParametroLN.GetParametroPorId(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListarParametros(ParametroBE entidad)
+        {
+            List<ParametroBE> lista = ParametroLN.ListarParametroPaginado(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult RegistrarParametro(ParametroBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+            entidad = ParametroLN.RegistrarParametro(entidad);
+            itemRespuesta.success = entidad.OK;
+            itemRespuesta.extra = entidad.extra;
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult EliminarParametro(ParametroBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = ParametroLN.EliminarParametro(entidad);
+            itemRespuesta.success = entidad.OK;
+            itemRespuesta.extra = entidad.extra;
+            return Respuesta(itemRespuesta);
+        }
+
         /////////// exportar excel
 
         //================================================================== MANTENIMIENTO ENFOQUE FACTOR
@@ -2515,6 +2564,116 @@ namespace MRVMinem.Controllers
             }
         }
 
+        ////////////// EXPORTAR PARAMETRO
+        public void ExportarMantenimientoParametros(string item)
+        {
+            try
+            {
+                if (item != null)
+                {
+                    var entidad = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<ParametroBE>(item);
+                    ExportarToExcelMantenimientoParametros(entidad);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+        }
+
+        public void ExportarToExcelMantenimientoParametros(ParametroBE entidad)
+        {
+            List<ParametroBE> lista = null;
+            lista = ParametroLN.ListarParametroExcel(entidad);
+            var limite = getMayorControlParam(lista);
+            limite += 3;
+
+            int row = 2;
+            try
+            {
+                string cadena_fecha = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+
+                using (ExcelPackage package = new ExcelPackage())
+                {
+                    var ws1 = package.Workbook.Worksheets.Add("LISTA PARAMETROS");
+                    using (var m = ws1.Cells[1, 1, row, limite])
+                    {
+                        m.Style.Font.Bold = true;
+                        m.Style.WrapText = true;
+                        m.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        m.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        m.Style.Font.Size = 10;
+                        m.Merge = true;
+                        m.Value = "LISTA PARAMETROS " + cadena_fecha;
+                    }
+                    ws1.View.FreezePanes(4, 1);
+                    row++;
+                    ws1.Cells["A" + row].Value = "N°";
+                    ws1.Cells["A" + row].AutoFitColumns(5);
+                    ws1.Cells["B" + row].Value = "PARÁMETRO";
+                    ws1.Cells["B" + row].AutoFitColumns(40);
+                    ws1.Cells["C" + row].Value = "TIPO CONTROL";
+                    ws1.Cells["C" + row].AutoFitColumns(20);
+                    ws1.Cells["D" + row].Value = "VALOR(ES)";
+                    ws1.Cells["D" + row].AutoFitColumns(40);
+
+                    FormatoCelda(ws1, "A", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "B", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "C", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "D", row, 0, 123, 255, 255, 255, 255);
+
+                    for (var i = 4; i < limite; i++)
+                    {
+                        ws1.Cells[obtenerLetra(i + 1) + row].Value = "";
+                        ws1.Cells[obtenerLetra(i + 1) + row].AutoFitColumns(35);
+                        FormatoCelda(ws1, obtenerLetra(i + 1), row, 0, 123, 255, 255, 255, 255);
+                    }
+
+                    ws1.Row(row).Height = 42;
+                    row++;
+                    if (lista.Count > 0)
+                    {
+                        //var xNum = 0;
+                        foreach (ParametroBE dt_fila in lista)
+                        {
+                            var xNum = 4;
+                            ws1.Cells["A" + row].Value = dt_fila.ID_PARAMETRO;
+                            ws1.Cells["B" + row].Value = dt_fila.NOMBRE_PARAMETRO;
+                            ws1.Cells["C" + row].Value = dt_fila.TIPO_CONTROL;
+
+                            if (dt_fila.ID_TIPO_CONTROL == 1)
+                            {
+                                foreach (var item in dt_fila.listaDetalle)
+                                {
+                                    ws1.Cells[obtenerLetra(xNum) + row].Value = item.NOMBRE_DETALLE;
+                                    FormatoCelda(ws1, obtenerLetra(xNum), row, 91, 192, 222, 255, 255, 255);                                    
+                                    xNum++;
+                                }
+                            }
+
+                            formatoDetalle(ws1, "A", obtenerLetra(xNum), row);
+                            row++;
+                        }
+                        row++;
+                    }
+
+                    string strFileName = "LISTA_PARAMETRO_" + DateTime.Now.ToString() + ".xlsx";
+                    Response.Clear();
+                    byte[] dataByte = package.GetAsByteArray();
+                    Response.AddHeader("Content-Disposition", "inline;filename=\"" + strFileName + "\"");
+                    Response.AddHeader("Content-Length", dataByte.Length.ToString());
+                    Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                    Response.BinaryWrite(dataByte);
+                    Response.End();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        //============================================================================================================ 
+
         //==================================================================================================================================
 
         private void FormatoCelda(ExcelWorksheet ws1, string letra, int row, int color1, int color2, int color3, int fontc1, int fontc2, int fontc3)
@@ -2585,6 +2744,22 @@ namespace MRVMinem.Controllers
                 {
                     mayor = item.ListaParametroInd.Count;
                 }
+            }
+            return mayor;
+        }
+
+        private int getMayorControlParam(List<ParametroBE> lista)
+        {
+            var mayor = 1;
+            foreach (var item in lista)
+            {
+                if (item.ID_TIPO_CONTROL == 1)
+                {
+                    if (item.listaDetalle.Count() > mayor)
+                    {
+                        mayor = item.listaDetalle.Count;
+                    }
+                }                
             }
             return mayor;
         }

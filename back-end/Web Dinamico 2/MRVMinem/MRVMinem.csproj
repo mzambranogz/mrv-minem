@@ -192,6 +192,7 @@
     <Content Include="js\MantenimientoMedidaMitigacion.js" />
     <Content Include="js\MantenimientoMonedas.js" />
     <Content Include="js\MantenimientoNama.js" />
+    <Content Include="js\MantenimientoParametros.js" />
     <Content Include="js\MantenimientoPlazo.js" />
     <Content Include="js\MantenimientoSector.js" />
     <Content Include="js\MantenimientoTablas.js" />
@@ -551,6 +552,7 @@
     <Content Include="Views\MRV\MINEM.cshtml" />
     <Content Include="Views\Mantenimiento\TipoIniciativa.cshtml" />
     <Content Include="Views\Error\SinSesion.cshtml" />
+    <Content Include="Views\Mantenimiento\Parametros.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
