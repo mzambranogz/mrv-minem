@@ -242,7 +242,7 @@ namespace MRVMinem.Controllers
                 modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
                 modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
                 modelo.usuario = UsuarioLN.UsuarioIniciativa(modelo.iniciativa_mit.ID_USUARIO);
-                modelo.listaTipoIniciativa = TipoIniciativaLN.listarTipoIniciativa();
+                //modelo.listaTipoIniciativa = TipoIniciativaLN.listarTipoIniciativa();
                 modelo.id_enfoques = concatenarIdEnfoque(modelo.listaIndData); //add 2-3-20
                 modelo.revision = 1;
                 modelo.estado_flujo = validar;
