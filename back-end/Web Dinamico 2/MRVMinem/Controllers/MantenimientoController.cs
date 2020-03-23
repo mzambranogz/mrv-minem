@@ -310,7 +310,7 @@ namespace MRVMinem.Controllers
             return Respuesta(itemRespuesta);
         }
 
-        /////////
+        ///////// MANTENIMIENTO ENFOQUE
 
         public ActionResult Enfoques(EnfoqueBE entidad)
         {
@@ -339,20 +339,79 @@ namespace MRVMinem.Controllers
             return jsonResult;
         }
 
-        public JsonResult RegistrarEnfoque(EnfoqueBE entidad)
+        //public JsonResult RegistrarEnfoque(EnfoqueBE entidad)
+        //{
+        //    ResponseEntity itemRespuesta = new ResponseEntity();
+
+        //    if (entidad.FLAG_ESTADO == "1")
+        //    {
+        //        entidad = EnfoqueLN.RegistrarEnfoque(entidad);
+        //    }
+        //    else
+        //    {
+        //        entidad = EnfoqueLN.ActualizarEnfoque(entidad);
+        //    }
+        //    itemRespuesta.success = entidad.OK;
+        //    itemRespuesta.extra = entidad.extra;
+        //    return Respuesta(itemRespuesta);
+        //}
+
+        public JsonResult RegistrarEnfoque(HttpPostedFileBase fledocumentos, FormCollection forms)
         {
+            EnfoqueBE entidad = new EnfoqueBE();
+
+            entidad.ID_ENFOQUE = int.Parse(Request.Form["ID_ENFOQUE"].ToString());
+            entidad.ID_MEDMIT = int.Parse(Request.Form["ID_MEDMIT"].ToString());            
+            entidad.DESCRIPCION = Request.Form["DESCRIPCION"].ToString();
+            //entidad.FLAG_ESTADO= Request.Form["FLAG_ESTADO"].ToString();
+
             ResponseEntity itemRespuesta = new ResponseEntity();
 
-            if (entidad.FLAG_ESTADO == "1")
+            string nomArchivoSave = "";
+            string nomOriginal = "";
+            if (fledocumentos != null)
             {
-                entidad = EnfoqueLN.RegistrarEnfoque(entidad);
+                nomOriginal = fledocumentos.FileName;
+                var content = new byte[fledocumentos.ContentLength];
+                fledocumentos.InputStream.Read(content, 0, fledocumentos.ContentLength);
+                double tamanio = (fledocumentos.ContentLength / 1024);
+                nomArchivoSave = Guid.NewGuid() + Path.GetExtension(fledocumentos.FileName).ToString();
+                nomArchivoSave = nomOriginal.Substring(0, nomOriginal.Length - 5) + "_"+ nomArchivoSave; //add
             }
             else
             {
-                entidad = EnfoqueLN.ActualizarEnfoque(entidad);
+                nomArchivoSave = "nul";
             }
-            itemRespuesta.success = entidad.OK;
-            itemRespuesta.extra = entidad.extra;
+            entidad.ADJUNTO = nomArchivoSave;
+            entidad.ADJUNTO_BASE = nomOriginal;
+            entidad = EnfoqueLN.GuardarEnfoque(entidad);
+
+            if (!entidad.OK)
+            {
+                itemRespuesta.success = false;
+                itemRespuesta.extra = entidad.extra;
+            }
+            else
+            {
+                if (fledocumentos != null)
+                {
+                    try
+                    {
+                        //var carpeta = WebConfigurationManager.AppSettings.Get("Exportar");
+                        var ruta = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Documentos\Exportar\"+ nomArchivoSave);
+                        //var ruta = Path.Combine(carpeta, nomArchivoSave);
+                        fledocumentos.SaveAs(ruta);
+                        itemRespuesta.success = true;
+                    }
+                    catch (Exception e)
+                    {
+                        itemRespuesta.success = false;
+                        itemRespuesta.extra = e.Message;
+                    }
+                }
+                itemRespuesta.success = true;
+
+            }
             return Respuesta(itemRespuesta);
         }
 

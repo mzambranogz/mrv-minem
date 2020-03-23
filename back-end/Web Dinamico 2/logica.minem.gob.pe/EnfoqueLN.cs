@@ -64,6 +64,12 @@ namespace logica.minem.gob.pe
         {
             return Enfoque.ListarEnfoque();
         }
+
+        //==================================================
+        public static EnfoqueBE GuardarEnfoque(EnfoqueBE entidad)
+        {
+            return Enfoque.GuardarEnfoque(entidad);
+        }
     }
 
 }

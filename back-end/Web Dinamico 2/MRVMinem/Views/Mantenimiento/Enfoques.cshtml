@@ -159,7 +159,7 @@
                 </div>
 
                 <div class="modal fade" id="modal-edicion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-dialog modal modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="title-nuevo">Registro de Nuevo Enfoque <br><small class="text-muted">Complete los siguientes campos para registrar un nuevo enfoque</small><small class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</small></h5>
@@ -167,7 +167,7 @@
                                 <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             </div>
                             <div class="modal-body medidas-modal">
-                                <form>
+                                <form id="frm-enfoque">
                                     <div class="row" id="ventanaEditar">
                                         <div class="col-md-12 col-lg-12">
                                             <div class="form-group">
@@ -187,6 +187,27 @@
                                                 </div>
                                             </div>
                                         </div>
+
+
+                                        <div class="col-md-12 col-lg-12">
+                                            <div class="form-group">
+                                                <label for="txt-documentos">Adjuntar documento (xlsx, xlsm, xls)<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup13"><i class="fas fa-file"></i></span></div>
+                                                    <input class="form-control cursor-pointer txt-file-control" type="text" id="txt-documentos" placeholder="Suba su documentos" aria-describedby="inputGroup13" required>
+                                                    <input class="d-none fil-file-control" type="file" id="fle-documentos" name="fledocumentos" accept=".xlsx,.xlsm,.xls">
+                                                    <div class="input-group-append">
+                                                        <label class="input-group-text cursor-pointer" for="txt-documentos" data-toggle="tooltip" data-placement="top" title="Seleccione un archivo para su enfoque"><i class="fas fa-upload mr-1"></i>Subir archivo</label>
+
+                                                        <div class="input-group documento-enfoque">
+                                                            @*<a class="input-group-append" data-toggle="tooltip" data-placement="top" title="Descargar documento" href="~/documentos/Exportar/1.1.EEE_aire_acondicionado_exp.xlsx" download><span class="input-group-text cursor-pointer"><i class="fas fa-download"></i></span></a>*@
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
 
                                     <div class="row">

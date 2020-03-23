@@ -255,5 +255,32 @@ namespace datos.minem.gob.pe
 
             return Lista;
         }
+
+        public EnfoqueBE GuardarEnfoque(EnfoqueBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_PRC_ENFOQUE";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_ENFOQUE", entidad.ID_ENFOQUE);
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pDESCRIPCION", entidad.DESCRIPCION);
+                    p.Add("pADJUNTO", entidad.ADJUNTO);
+                    p.Add("pADJUNTO_BASE", entidad.ADJUNTO_BASE);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                    entidad.OK = true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+
+            return entidad;
+        }
     }
 }
