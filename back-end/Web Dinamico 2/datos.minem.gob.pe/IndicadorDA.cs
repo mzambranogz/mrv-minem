@@ -872,7 +872,10 @@ namespace datos.minem.gob.pe
                     {
                         listaDataE.Add(ListarIndicadorParametros(item));
                     }
-
+                    foreach(var arc in listaDataE)
+                    {
+                        arc.ArchivoSustento = new IndicadorArchivoDA().GetArchivoDetalleIndicador(new IndicadorArchivoBE() { ID_INICIATIVA = entidad.ID_INICIATIVA, ID_INDICADOR = arc.ID_INDICADOR });
+                    }
                 }
                 entidad.OK = true;
             }

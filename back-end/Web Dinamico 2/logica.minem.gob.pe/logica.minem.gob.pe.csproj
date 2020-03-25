@@ -54,6 +54,7 @@
     <Compile Include="FactorLN.cs" />
     <Compile Include="GasEfectoInvernaderoLN.cs" />
     <Compile Include="GrupoIniciativaLN.cs" />
+    <Compile Include="IndicadorArchivoLN.cs" />
     <Compile Include="IndicadorLN.cs" />
     <Compile Include="IniciativaLN.cs" />
     <Compile Include="InstitucionLN.cs" />

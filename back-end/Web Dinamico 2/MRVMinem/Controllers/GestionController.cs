@@ -60,9 +60,10 @@ namespace MRVMinem.Controllers
             {
                 usu.PRIMER_INICIO = "0";
             }
-            if (Convert.ToInt32(Session["rol"]) == 1){
+            if (Convert.ToInt32(Session["rol"]) == 1)
+            {
                 modelo.listaMedidaMitigacion = MedidaMitigacionLN.ListarMedidaMitigacion(new MedidaMitigacionBE());
-            }                    
+            }
             modelo.usuario = usu;
             //if (Convert.ToInt32(Session["rol"]) == 1)
             //{
@@ -103,8 +104,9 @@ namespace MRVMinem.Controllers
             modelo.iniciativa_mit = inic;
             modelo.listaTipoIniciativa = TipoIniciativaLN.listarTipoIniciativa();
             modelo.listaMedidaMitigacion = MedidaMitigacionLN.ListarMedidaMitigacion(new MedidaMitigacionBE());
-            if (ini > 0){
-                                
+            if (ini > 0)
+            {
+
             }
             else if (id > 0)
             {
@@ -126,7 +128,7 @@ namespace MRVMinem.Controllers
             int validar = IniciativaLN.ValidarVista(ini);
             if (validar == 1 || validar == 3 || validar == 4)
             {
-                
+
                 modelo.iniciativa = ini;
                 modelo.listaTipoIniciativa = TipoIniciativaLN.listarTipoIniciativa();
                 modelo.listaMedidaMitigacion = MedidaMitigacionLN.ListarMedidaMitigacion(new MedidaMitigacionBE());
@@ -172,6 +174,7 @@ namespace MRVMinem.Controllers
 
         public ActionResult DetalleIndicador(int id, int ini)
         {
+            Session["MisArchivos"] = null;
             ListaObjeto modelo = new ListaObjeto();
             int validar = IniciativaLN.ValidarVista(id);
             if (validar == 6 || validar == 7)
@@ -260,14 +263,14 @@ namespace MRVMinem.Controllers
                     }
                     factores = factores.Substring(0, factores.Length - 1);
                     modelo.id_factores = factores;
-                }                
+                }
             }
             else
             {
                 return RedirectToAction("Default", "Error");
             }
-            
-            
+
+
             return View(modelo);
         }
 
@@ -302,7 +305,7 @@ namespace MRVMinem.Controllers
             {
                 return RedirectToAction("Default", "Error");
             }
-                
+
             return View(modelo);
         }
 
@@ -377,7 +380,7 @@ namespace MRVMinem.Controllers
             else
             {
                 return RedirectToAction("Default", "Error");
-            }                
+            }
 
             return View(modelo);
         }
@@ -422,7 +425,7 @@ namespace MRVMinem.Controllers
             {
                 return RedirectToAction("Default", "Error");
             }
-                
+
             return View(modelo);
         }
 
@@ -651,7 +654,7 @@ namespace MRVMinem.Controllers
                     entidad.ASUNTO = "Registro Iniciativa - Entidad " + usuario.INSTITUCION;
                     entidad.SALUDO = "Estimado Sr(a): " + especialista.NOMBRES + "<br/></br/>";
                     string link1 = "Revisar iniciativa de Mitigación:<br/>" + link(ruta, 1, 1, entidad.ID_INICIATIVA, especialista.ID_USUARIO, 0);
-                    entidad.DESCRIPCION = entidad.SALUDO + "El usuario de la entidad <strong>" + usuario.INSTITUCION + "</strong> ha realizado un registro de la Iniciativa <strong>" + entidad.NOMBRE_INICIATIVA + "</strong>, en espera de su revisión.<br/><br/>Por favor, pulse o copie el siguiente link en su navegador<br/><br/>"+ link1;
+                    entidad.DESCRIPCION = entidad.SALUDO + "El usuario de la entidad <strong>" + usuario.INSTITUCION + "</strong> ha realizado un registro de la Iniciativa <strong>" + entidad.NOMBRE_INICIATIVA + "</strong>, en espera de su revisión.<br/><br/>Por favor, pulse o copie el siguiente link en su navegador<br/><br/>" + link1;
                     EnvioCorreo hilo_correo = new EnvioCorreo(entidad, 1);
                     Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
                 }
@@ -752,7 +755,7 @@ namespace MRVMinem.Controllers
             {
                 //var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
                 //iniciativa.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
-                IniciativaBE iniciativa = IniciativaLN.ObtenerUsuarioIniciativa(new IniciativaBE { ID_INICIATIVA = entidad.ID_INICIATIVA });                
+                IniciativaBE iniciativa = IniciativaLN.ObtenerUsuarioIniciativa(new IniciativaBE { ID_INICIATIVA = entidad.ID_INICIATIVA });
                 entidad.EMAIL_USUARIO = iniciativa.EMAIL_USUARIO;
                 //entidad.EMAIL_USUARIO = "juancarlossotoc1990@gmail.com";
                 entidad.VALIDAR_RUTA = 1;
@@ -764,7 +767,7 @@ namespace MRVMinem.Controllers
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
                 itemRespuesta.extra = entidad.DESCRIPCION;
                 Session["correo_destino"] = "";
-                                
+
                 //entidad.EMAIL_USUARIO_ORIGEN = Convert.ToString(Session["correo"]);
                 //entidad.NOMBRES = Convert.ToString(Session["nombres_destino"]);
                 //entidad.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
@@ -795,14 +798,14 @@ namespace MRVMinem.Controllers
                 string ruta = WebConfigurationManager.AppSettings.Get("Server");
                 entidad.EMAIL_USUARIO = ini.EMAIL_USUARIO;
                 //entidad.EMAIL_USUARIO = "juancarlossotoc1990@gmail.com";
-                entidad.VALIDAR_RUTA = 1;               
+                entidad.VALIDAR_RUTA = 1;
                 entidad.ASUNTO = "Aprobación Iniciativa - MRVMinem ";
                 entidad.SALUDO = "Estimado Sr(a): " + ini.NOMBRES + "<br/></br/>";
                 //string link = "Registro manual de detalle de Iniciativa de Mitigación:<br/><a href=\"" + ruta + "Gestion/DetalleIndicador/" + entidad.ID_INICIATIVA + "/34\" > " + ruta + "Gestion/DetalleIndicador/" + entidad.ID_INICIATIVA + "/34</a><br/><br/>Registro a través de Excel de detalle de Iniciativa de Mitigación:<br/><a href=\"" + ruta + "Detalle/DetalleIndicadorMasivo/" + entidad.ID_INICIATIVA + "/34\" > " + ruta + "Detalle/DetalleIndicadorMasivo/" + entidad.ID_INICIATIVA + "/34</a><br/><br/>";
                 //string link = "Registro manual de detalle de Iniciativa de Mitigación:<br/><a href=\"" + ruta + "MRV/MINEM/minem-010-" + entidad.ID_INICIATIVA + "-3-1/reg-minem\" > " + ruta + "MRV/MINEM/minem-010-" + entidad.ID_INICIATIVA + "-3-1/reg-minem</a><br/><br/>Registro a través de Excel de detalle de Iniciativa de Mitigación:<br/><a href=\"" + ruta + "MRV/MINEM/minem-020-" + entidad.ID_INICIATIVA + "-3-1/reg-minem\" > " + ruta + "MRV/MINEM/minem-010-" + entidad.ID_INICIATIVA + "-3-1/reg-minem</a><br/><br/>";
                 string link1 = "Registro manual de detalle de Iniciativa de Mitigación:<br/>" + link(ruta, 2, 3, entidad.ID_INICIATIVA, ini.ID_USUARIO, 1);
                 string link2 = "Registro a través de Excel de detalle de Iniciativa de Mitigación:<br/>" + link(ruta, 2, 3, entidad.ID_INICIATIVA, ini.ID_USUARIO, 2);
-                entidad.DESCRIPCION = entidad.SALUDO + "Su iniciativa fue aprobada, ahora proceda a completar sus datos en el siguiente link<br/><br/>"+ link1 + link2;
+                entidad.DESCRIPCION = entidad.SALUDO + "Su iniciativa fue aprobada, ahora proceda a completar sus datos en el siguiente link<br/><br/>" + link1 + link2;
                 EnvioCorreo hilo_correo = new EnvioCorreo(entidad, 1);
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
                 itemRespuesta.extra = entidad.DESCRIPCION;
@@ -949,7 +952,7 @@ namespace MRVMinem.Controllers
                 //==========================================================
                 List<IndicadorDataBE> listaDataE = new List<IndicadorDataBE>();
                 if (!string.IsNullOrEmpty(entidad.DATA))
-                {                    
+                {
                     var valores = entidad.DATA.Split('/');
 
                     for (int i = 0; i < valores.Length; i++)
@@ -979,6 +982,15 @@ namespace MRVMinem.Controllers
                         if (string.IsNullOrEmpty(indic[1])) indic[1] = "0";
                         dataE.ID_INDICADOR = Convert.ToInt32(indic[1]);
                         dataE.listaInd = listaP;
+                        //Ubicamos los archivos del detalle - 24.03.2020
+                        if (!string.IsNullOrEmpty(indic[2]))
+                        {
+                            List<IndicadorArchivoBE> MisArchivos = (List<IndicadorArchivoBE>)Session["MisArchivos"];
+                            IndicadorArchivoBE encontrado = MisArchivos.Find(A => A.ADJUNTO_BASE.Equals(indic[2]));
+                            if (encontrado != null)
+                                dataE.ArchivoSustento = new IndicadorArchivoBE() { ADJUNTO = encontrado.ADJUNTO, ADJUNTO_BASE = encontrado.ADJUNTO_BASE, ID_INICIATIVA = entidad.ID_INICIATIVA, ID_INDICADOR = dataE.ID_INDICADOR };
+                        }
+
                         listaDataE.Add(dataE);
                     }
                 }
@@ -1046,7 +1058,7 @@ namespace MRVMinem.Controllers
                 string ruta_link = WebConfigurationManager.AppSettings.Get("Server");
                 if (entidad.ID_ESTADO == 1)
                 {
-                    IniciativaBE iniciativa = new IniciativaBE();                    
+                    IniciativaBE iniciativa = new IniciativaBE();
                     var especialista = UsuarioLN.EspecialistaMedida(entidad.ID_MEDMIT);
                     var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
                     iniciativa.EMAIL_USUARIO = especialista.EMAIL_USUARIO;
@@ -1150,7 +1162,7 @@ namespace MRVMinem.Controllers
                 //iniciativa.EMAIL_USUARIO = "juancarlossotoc1990@gmail.com";
                 iniciativa.VALIDAR_RUTA = 1;
                 iniciativa.ASUNTO = "Aprobación Detalle de Iniciativa de Mitigación - MRVMinem ";
-                iniciativa.SALUDO = "Estimado Sr(a): " + ini.NOMBRES + "<br/></br/>";                
+                iniciativa.SALUDO = "Estimado Sr(a): " + ini.NOMBRES + "<br/></br/>";
                 iniciativa.DESCRIPCION = iniciativa.SALUDO + "Felicitaciones, el detalle de su Iniciativa de Mitigación fue revisada y aprobada. Lo invitamos a ingresar a nuestra <a href=\"" + urlSello + "\">Plataforma del Sello de Reconocimiento de Energía Sostenible</a><br/><br/>";
                 EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
@@ -1164,7 +1176,7 @@ namespace MRVMinem.Controllers
                 iniciativa2.ASUNTO = "Aprobación Detalle de Iniciativa de Mitigación - MRVMinem ";
                 iniciativa2.SALUDO = "Estimado Sr(a): " + usu.NOMBRES + "<br/></br/>";
                 string link1 = "Revisión Detalle de Iniciativa de Mitigación:<br/>" + link(ruta, 4, 3, entidad.ID_INICIATIVA, usu.ID_USUARIO, 0);
-                iniciativa2.DESCRIPCION = iniciativa2.SALUDO + "El detalle de la Iniciativa de Mitigación <strong>" + ini.NOMBRE_INICIATIVA + "</strong> de la Entidad <strong>" + ini.NOMBRE_INSTITUCION + "</strong> fue revisada y aprobada por el Especialista, en espera de su revisión.<br/><br/>Por favor, pulse o copie el siguiente link en su navegador para dirigirse al detalle de la Iniciativa de Mitigación<br/><br/>"+link1;
+                iniciativa2.DESCRIPCION = iniciativa2.SALUDO + "El detalle de la Iniciativa de Mitigación <strong>" + ini.NOMBRE_INICIATIVA + "</strong> de la Entidad <strong>" + ini.NOMBRE_INSTITUCION + "</strong> fue revisada y aprobada por el Especialista, en espera de su revisión.<br/><br/>Por favor, pulse o copie el siguiente link en su navegador para dirigirse al detalle de la Iniciativa de Mitigación<br/><br/>" + link1;
                 EnvioCorreo hilo_correo2 = new EnvioCorreo(iniciativa2, 1);
                 Task tarea2 = Task.Factory.StartNew(() => hilo_correo2.menajeIniciativa());
                 itemRespuesta.extra = entidad.DESCRIPCION;
@@ -1367,7 +1379,7 @@ namespace MRVMinem.Controllers
                 itemRespuesta.extra = block.ID_BLOCKCHAIN.ToString();
                 itemRespuesta.extra2 = block.HASH;
             }
-            
+
             entidad.BLOCKCHAIN = block.HASH;
             entidad.ID_USUARIO_DESTINO = Convert.ToInt32(Session["usuario_destino"]);
             entidad = IndicadorLN.VerificarIniciativaDetalleIndicador(entidad);
@@ -1406,7 +1418,7 @@ namespace MRVMinem.Controllers
                 //========================================================= add 15-03-2020
                 BlockChainLN.NombrePDFBlockchain(new BlockChainBE() { ID_BLOCKCHAIN = entidad.ID_BLOCKCHAIN, NOMBRE_PDF = nombreArchivo });
             }
-                
+
 
             return Respuesta(itemRespuesta);
         }
@@ -1437,7 +1449,7 @@ namespace MRVMinem.Controllers
             entidad = BlockChainLN.MostrarBlockchain(entidad);
             if (entidad.OK)
             {
-                itemRespuesta.extra = entidad.NOMBRE_PDF; 
+                itemRespuesta.extra = entidad.NOMBRE_PDF;
             }
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
@@ -1513,7 +1525,7 @@ namespace MRVMinem.Controllers
             {
                 entidad = UsuarioLN.EditarUsuario(entidad);
             }
-            
+
             if (entidad.OK)
             {
                 if (entidad.ESTADO == "1")
@@ -1541,9 +1553,9 @@ namespace MRVMinem.Controllers
                         perfil = "Verificador";
                     }
 
-                    if (entidad.ID_ESTADO_USUARIO == 1) 
+                    if (entidad.ID_ESTADO_USUARIO == 1)
                     {
-                        estado = " Además, tiene los permisos para acceder al sistema"; 
+                        estado = " Además, tiene los permisos para acceder al sistema";
                     }
                     entidad.ASUNTO = "Registro - MRVMinem ";
                     entidad.DESCRIPCION = entidad.NOMBRES_USUARIO + " " + entidad.APELLIDOS_USUARIO + " ha sido registrado por el Administrador MINEM con el perfil " + perfil + "." + estado + "<br/><br/>";
@@ -1558,8 +1570,8 @@ namespace MRVMinem.Controllers
                         Task tarea = Task.Factory.StartNew(() => hilo_correo.AprobacionUsuario());
                     }
                 }
-            }           
-            
+            }
+
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }
@@ -2108,7 +2120,7 @@ namespace MRVMinem.Controllers
             {
                 Log.Error(ex);
             }
-            
+
             var jsonResult = Json(listaP, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
@@ -2173,7 +2185,7 @@ namespace MRVMinem.Controllers
             itemRespuesta.extra = Convert.ToString(ent.CANTIDAD);
             return Respuesta(itemRespuesta);
         }
-                
+
         public JsonResult CorreoAdministrador(UsuarioBE entidad)
         {
             ResponseEntity itemRespuesta = new ResponseEntity();
@@ -2236,7 +2248,7 @@ namespace MRVMinem.Controllers
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
         }
-        
+
         public JsonResult AsignarIniciativaMasivo(IniciativaBE entidad)
         {
             ResponseEntity itemRespuesta = new ResponseEntity();
@@ -2261,16 +2273,16 @@ namespace MRVMinem.Controllers
                 iniciativa.SALUDO = "Estimado Sr(a): " + usu.NOMBRES + "<br/></br/>";
                 if (entidad.ID_ROL == 4)
                 {
-                    
+
                     iniciativa.ASUNTO = "Envio de Paquete de Iniciativas de mitigación - MRVMinem ";
-                    iniciativa.DESCRIPCION = iniciativa.SALUDO + "Se envió un paquete de Iniciativas de Mitigación correspondiente a la medida " + med.NOMBRE_MEDMIT + " del período "+ entidad.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy") + " - " + entidad.FECHA_FIN_INICIATIVA.ToString("dd/MM/yyyy") + ", en espera de su evaluación<br/><br/>";
+                    iniciativa.DESCRIPCION = iniciativa.SALUDO + "Se envió un paquete de Iniciativas de Mitigación correspondiente a la medida " + med.NOMBRE_MEDMIT + " del período " + entidad.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy") + " - " + entidad.FECHA_FIN_INICIATIVA.ToString("dd/MM/yyyy") + ", en espera de su evaluación<br/><br/>";
                 }
                 else
                 {
                     iniciativa.ASUNTO = "Envio de Iniciativa(s) de mitigación - MRVMinem ";
                     iniciativa.DESCRIPCION = iniciativa.SALUDO + "Se le asignó un grupo de Iniciativas de Mitigación para su verificación<br/><br/>";
                 }
-                
+
                 EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
             }
@@ -2296,7 +2308,7 @@ namespace MRVMinem.Controllers
             entidad.EMAIL_USUARIO = usu.EMAIL_USUARIO;
             entidad.VALIDAR_RUTA = 1;
             entidad.ASUNTO = "Recordatorio - MRV";
-            entidad.SALUDO = "Estimado Sr(a): "+ usu.NOMBRES+"<br/></br/>";
+            entidad.SALUDO = "Estimado Sr(a): " + usu.NOMBRES + "<br/></br/>";
 
             entidad.CABECERA = "Detallamos la siguiente información de su registro:<br/><br/>Código de la Iniciativa de Mitigación: " + inic.ID_INICIATIVA + "<br/>Nombre de su proyecto: " + inic.NOMBRE_INICIATIVA + "<br/>Medida de Mitigación asociada: " + inic.NOMBRE_MEDMIT + "<br/>Estado: Evaluada y atendida<br/>Fecha " + inic.FECHA + "<br/><br/>";
 
@@ -2308,7 +2320,7 @@ namespace MRVMinem.Controllers
             //{
             //    entidad.CABECERA = "La inicativa de mitigación de código " + inic.ID_INICIATIVA + ", con nombre de proyecto (" + inic.NOMBRE_INICIATIVA + ")" + " asociado a la medida de mitigación " + inic.NOMBRE_MEDMIT + ", evaluada y atendida en la fecha " + inic.FECHA + " :<br/><br/>";
             //}
-            entidad.DESCRIPCION = entidad.SALUDO + entidad.CABECERA + entidad.DESCRIPCION + "<br/><br/>Enviado por el "+ Convert.ToString(Session["nombreRol"]) + ": "+ Convert.ToString(Session["nombres"])+ "<br/><br/>";
+            entidad.DESCRIPCION = entidad.SALUDO + entidad.CABECERA + entidad.DESCRIPCION + "<br/><br/>Enviado por el " + Convert.ToString(Session["nombreRol"]) + ": " + Convert.ToString(Session["nombres"]) + "<br/><br/>";
             EnvioCorreo hilo_correo = new EnvioCorreo(entidad, 1);
             Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
             //itemRespuesta.extra = entidad.DESCRIPCION;
@@ -2338,18 +2350,18 @@ namespace MRVMinem.Controllers
                 entidad = IniciativaLN.AprobarIniciativaMasivo(entidad);
 
                 IniciativaBE ini = IniciativaLN.ObtenerUsuarioIniciativa(new IniciativaBE { ID_INICIATIVA = Convert.ToInt32(arr[i]) });
-                
+
                 ini.EMAIL_USUARIO = ini.EMAIL_USUARIO;
                 //ini.EMAIL_USUARIO = "juancarlossotoc1990@gmail.com";
                 ini.VALIDAR_RUTA = 1;
                 ini.ASUNTO = "Su Iniciativa de Mitigación ha sido Evaluada y/o Verificada - MRVMinem ";
-                ini.SALUDO = "Estimado Sr(a): " + ini.NOMBRES + "<br/></br/>";                
-                ini.DESCRIPCION = ini.SALUDO + "Felicitaciones, su Iniciativa de Mitigación ha sido evaluada y/o verificada por nuestro equipo, asimismo ha contribuido en la reducción de los gases de efecto invernadero (GEI). Por ello, lo invitamos a ingresar a nuestra <a href=\""+ urlSello + "\">Plataforma del Sello de Reconocimiento de Energía Sostenible</a><br/><br/>";
+                ini.SALUDO = "Estimado Sr(a): " + ini.NOMBRES + "<br/></br/>";
+                ini.DESCRIPCION = ini.SALUDO + "Felicitaciones, su Iniciativa de Mitigación ha sido evaluada y/o verificada por nuestro equipo, asimismo ha contribuido en la reducción de los gases de efecto invernadero (GEI). Por ello, lo invitamos a ingresar a nuestra <a href=\"" + urlSello + "\">Plataforma del Sello de Reconocimiento de Energía Sostenible</a><br/><br/>";
 
                 EnvioCorreo hilo_correo = new EnvioCorreo(ini, 1);
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
             }
-            
+
 
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
@@ -2362,18 +2374,6 @@ namespace MRVMinem.Controllers
             entidad = IniciativaLN.ValidarRevisionIniciativa(entidad);
             itemRespuesta.success = entidad.OK;
             itemRespuesta.extra = Convert.ToString(entidad.CANTIDAD);
-            return Respuesta(itemRespuesta);
-        }
-
-        public JsonResult MostrarImagenMedida(MedidaMitigacionBE entidad)
-        {
-            ResponseEntity itemRespuesta = new ResponseEntity();
-            entidad = MedidaMitigacionLN.getMedidaMitigacion(entidad.ID_MEDMIT);
-            if (entidad.OK)
-            {
-                itemRespuesta.extra = entidad.ADJUNTO;
-            }
-            itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }
 
@@ -2408,13 +2408,13 @@ namespace MRVMinem.Controllers
             List<UsuarioBE> lista = null;
             //if (string.IsNullOrEmpty(entidad.DESCRIPCION))
             //{
-                lista = UsuarioLN.ListaMantenimientoUsuario(entidad);
+            lista = UsuarioLN.ListaMantenimientoUsuario(entidad);
             //}
             //else
             //{
             //    lista = UsuarioLN.BuscarMantenimientoUsuario(entidad);
             //}
-            
+
             int row = 2;
             try
             {
@@ -2471,8 +2471,9 @@ namespace MRVMinem.Controllers
                             ws1.Cells["D" + row].Value = dt_fila.INSTITUCION;
                             if (string.IsNullOrEmpty(dt_fila.TELEFONO_USUARIO))
                             {
-                                ws1.Cells["E" + row].Value = "                    - "+dt_fila.CELULAR_USUARIO;
-                            } else if (string.IsNullOrEmpty(dt_fila.CELULAR_USUARIO))
+                                ws1.Cells["E" + row].Value = "                    - " + dt_fila.CELULAR_USUARIO;
+                            }
+                            else if (string.IsNullOrEmpty(dt_fila.CELULAR_USUARIO))
                             {
                                 ws1.Cells["E" + row].Value = dt_fila.TELEFONO_USUARIO + " -                    ";
                             }
@@ -2550,7 +2551,7 @@ namespace MRVMinem.Controllers
                     }
                     ws1.View.FreezePanes(3, 1);
 
-                    
+
 
                     foreach (var item in lista)
                     {
@@ -2596,7 +2597,7 @@ namespace MRVMinem.Controllers
                         var xNum = 0;
                         foreach (var itemI in item.listaInd)
                         {
-                            j = 1;                            
+                            j = 1;
                             if (itemI.listaInd.Count > 0)
                             {
                                 xNum++;
@@ -2619,7 +2620,7 @@ namespace MRVMinem.Controllers
                                     else
                                     {
                                         ws1.Cells[L + row].Value = itemDet.VALOR;
-                                    }                                    
+                                    }
                                 }
                                 formatoDetalle(ws1, "A", obtenerLetra(j), row);
                                 row++;
@@ -2627,7 +2628,7 @@ namespace MRVMinem.Controllers
                         }
                         row++;
                         row++;
-                        
+
 
                         //if (lista.Count > 0)
                         //{
@@ -2636,7 +2637,7 @@ namespace MRVMinem.Controllers
                         //    {
                         //        xNum++;
                         //        ws1.Cells["A" + row].Value = xNum;
-                                
+
                         //        ws1.Cells["C" + row].Value = dt_fila.TIPO_VEHICULO;
                         //        ws1.Cells["D" + row].Value = dt_fila.TIPO_COMBUSTIBLE;
                         //        ws1.Cells["E" + row].Value = dt_fila.KRV_BASE;
@@ -2770,9 +2771,9 @@ namespace MRVMinem.Controllers
         private int getMenorId(List<EnfoqueBE> lista)
         {
             var menor = 999999999;
-            foreach(var item in lista)
+            foreach (var item in lista)
             {
-                if(item.ID_ENFOQUE < menor)
+                if (item.ID_ENFOQUE < menor)
                 {
                     menor = item.ID_ENFOQUE;
                 }
@@ -2793,7 +2794,7 @@ namespace MRVMinem.Controllers
             return menor;
         }
 
-        private string obtenerLetra (int num)
+        private string obtenerLetra(int num)
         {
             string letra = "";
             if (num == 1) letra = "A";
@@ -2834,8 +2835,8 @@ namespace MRVMinem.Controllers
                 {
                     id_enfoques += item.ID_ENFOQUE + ",";
                 }
-                id_enfoques = id_enfoques.Substring(0, id_enfoques.Length -1);
-            }            
+                id_enfoques = id_enfoques.Substring(0, id_enfoques.Length - 1);
+            }
 
             return id_enfoques;
         }
@@ -2847,7 +2848,7 @@ namespace MRVMinem.Controllers
             int r2 = rnd.Next(100, 999);
             int r3 = rnd.Next(100, 999);
             int r4 = rnd.Next(100, 999);
-            string r = "<a href=\"" + ruta + "MRV/MINEM/minem-"+ r1 + "-" + id_iniciativa + "-"+ etapa +"-"+ estado +"-"+ id_usuario +"-"+ opcion +"/reg-minem-"+ r3 +"-"+ r4 +"\">" + ruta + "MRV/MINEM/minem-"+ r1 +"-" + id_iniciativa + "-"+ etapa +"-"+ estado +"-" + id_usuario + "-" + opcion +"/reg-minem-" + r3 + "-" + r4 + "</a><br/><br/>";
+            string r = "<a href=\"" + ruta + "MRV/MINEM/minem-" + r1 + "-" + id_iniciativa + "-" + etapa + "-" + estado + "-" + id_usuario + "-" + opcion + "/reg-minem-" + r3 + "-" + r4 + "\">" + ruta + "MRV/MINEM/minem-" + r1 + "-" + id_iniciativa + "-" + etapa + "-" + estado + "-" + id_usuario + "-" + opcion + "/reg-minem-" + r3 + "-" + r4 + "</a><br/><br/>";
             return r;
         }
 
@@ -2948,7 +2949,7 @@ namespace MRVMinem.Controllers
                     {
                         html += "<div style='text-align: justify;font-size: 12px;'><span style='font-weight: bold;'>Gases de efecto invernadero:</span>&nbsp;<span> " + ini.GEI + "</span></div>";
                     }
-                }                
+                }
 
                 html += "<br/><div style='text-align: left;font-weight: bold;font-size: 14px;'>Detalle de la iniciativa de mitigación</div>";
                 html += "<div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Enfoque:</span>&nbsp;<span> " + lista[lista.Count() - 1].DESCRIPCION + "</span></div>";
@@ -2998,6 +2999,184 @@ namespace MRVMinem.Controllers
             }
 
             return html;
+        }
+
+
+        [HttpPost]
+        public ActionResult FileUpload(int IdIniciativa, int IdIndicador, string accion)
+        {
+            List<IndicadorArchivoBE> MisArchivos = null;
+            List<IndicadorArchivoBE> uploadFile = new List<IndicadorArchivoBE>();
+            string cargosesion = "0";
+
+            if (accion == "I")
+            {
+                if (Session["MisArchivos"] != null)
+                {
+                    MisArchivos = (List<IndicadorArchivoBE>)Session["MisArchivos"];
+                    cargosesion = "1";
+                }
+                else
+                {
+                    MisArchivos = new List<IndicadorArchivoBE>();
+                }
+                string sessionId = this.Session.SessionID;
+                var gui = Guid.NewGuid();
+                String strCarpeta = WebConfigurationManager.AppSettings["Detalle"];
+                HttpFileCollectionBase files = Request.Files;
+
+                for (int i = 0; i < files.Count; i++)
+                {
+                    HttpPostedFileBase file_Uploader = files[i];
+
+                    if (file_Uploader != null)
+                    {
+                        IndicadorArchivoBE encontrado = null;
+                        if (cargosesion == "1")
+                        {
+                            //Buscamos si esta en la sesión (si esta cambiando de archivo)
+                            encontrado = MisArchivos.Find(A => A.ADJUNTO.Contains(IdIniciativa.ToString() + "-" + IdIndicador.ToString() + "-"));
+                            if (encontrado != null)
+                            {
+                                System.IO.File.Delete(strCarpeta + "\\" + encontrado.ADJUNTO);
+                            }
+                        }
+
+                        string fileName = string.Empty;
+                        string destinationPath = string.Empty;
+                        string Id_fileName = string.Empty;
+                        fileName = Path.GetFileName(file_Uploader.FileName);
+
+                        String[] ext = fileName.Split('.');
+                        string extension = ext[(ext.Length - 1)].ToUpper().Trim();
+                        string extCompara = ext[(ext.Length - 1)].ToUpper().Trim();
+                        Id_fileName = IdIniciativa.ToString() + "-" + IdIndicador.ToString() + "-" + gui + "." + extCompara;
+
+                        destinationPath = Path.Combine(strCarpeta, Id_fileName);
+                        file_Uploader.SaveAs(destinationPath);
+
+                        if (encontrado != null)
+                        {
+                            encontrado.ADJUNTO = Id_fileName;
+                            encontrado.ADJUNTO_BASE = fileName;
+                            encontrado.accion = "1";
+                            encontrado.message = "Archivo Cargado";
+                            uploadFile.Add(encontrado);
+
+                        }
+                        else
+                        {
+                            IndicadorArchivoBE indicadorArchivo = new IndicadorArchivoBE() { ID_INICIATIVA = IdIniciativa, ID_INDICADOR = IdIndicador, ADJUNTO = Id_fileName, ADJUNTO_BASE = fileName, accion = "1", message = "Archivo Cargado" };
+                            MisArchivos.Add(indicadorArchivo);
+                            uploadFile.Add(indicadorArchivo);
+                        }
+
+                        Session["MisArchivos"] = MisArchivos;
+
+                    }
+                }
+            }
+            return Json(uploadFile);
+        }
+
+        public ActionResult FileDownload(int IdIniciativa, int IdIndicador, string accion)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+            List<IndicadorArchivoBE> MisArchivos = null;
+            string filename = IdIniciativa.ToString() + "-" + IdIndicador.ToString() + "-";
+            string id_filename = "";
+            string file_origen = "";
+
+            if (accion == "I")
+            {
+                DirectoryInfo di = new DirectoryInfo(WebConfigurationManager.AppSettings["Detalle"]);
+                foreach (var fil in di.GetFiles(filename + "*"))
+                {
+                    id_filename = fil.Name;
+                }
+                if (id_filename != "")
+                {
+                    //Buscamos en la session
+                    if (Session["MisArchivos"] != null)
+                    {
+                        MisArchivos = (List<IndicadorArchivoBE>)Session["MisArchivos"];
+                        IndicadorArchivoBE encontrado = MisArchivos.Find(A => A.ADJUNTO.Equals(id_filename));
+                        if (encontrado != null)
+                        {
+                            file_origen = encontrado.ADJUNTO_BASE;
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
+                    else
+                    {
+                        return null;
+                    }
+
+                    byte[] fileBytes = System.IO.File.ReadAllBytes(WebConfigurationManager.AppSettings["Detalle"] + "\\" + id_filename);
+                    string fileName = file_origen;
+                    return File(fileBytes, MediaTypeNames.Application.Octet, file_origen);
+                }
+            }
+            else
+            {
+
+            }
+            return Respuesta(itemRespuesta);
+
+        }
+
+        public ActionResult FileDownloadDetalle(int IdIniciativa, int IdIndicador, string accion)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            IndicadorArchivoBE archivo = IndicadorArchivoLN.GetArchivoDetalleIndicador(new IndicadorArchivoBE() { ID_INICIATIVA = IdIniciativa, ID_INDICADOR = IdIndicador });
+            if (archivo != null)
+            {
+                byte[] fileBytes = System.IO.File.ReadAllBytes(WebConfigurationManager.AppSettings["Sustentatorio"] + "\\" + archivo.ADJUNTO);
+                string fileName = archivo.ADJUNTO_BASE;
+                return File(fileBytes, MediaTypeNames.Application.Octet, fileName);
+            }
+
+            else
+            {
+                //return null;
+            }
+
+            return Respuesta(itemRespuesta);
+
+        }
+
+        public ActionResult FileDelete(int IdIniciativa, int IdIndicador)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+            List<IndicadorArchivoBE> MisArchivos = null;
+            string filename = IdIniciativa.ToString() + "-" + IdIndicador.ToString() + "-";
+            String strCarpeta = WebConfigurationManager.AppSettings["Detalle"];
+
+            if (Session["MisArchivos"] != null)
+            {
+                MisArchivos = (List<IndicadorArchivoBE>)Session["MisArchivos"];
+            }
+            if (MisArchivos != null)
+            {
+                DirectoryInfo di = new DirectoryInfo(WebConfigurationManager.AppSettings["Detalle"]);
+                foreach (var fil in di.GetFiles(filename + "*"))
+                {
+                    IndicadorArchivoBE encontrado = MisArchivos.Find(A => A.ADJUNTO.Equals(fil.Name));
+                    if (encontrado != null)
+                    {
+                        MisArchivos.Remove(encontrado);
+                    }
+                    System.IO.File.Delete(strCarpeta + "\\" + fil.Name);
+                }
+            }
+            itemRespuesta.success = true;
+
+            return Respuesta(itemRespuesta);
+
         }
 
     }

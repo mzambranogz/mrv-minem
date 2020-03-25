@@ -9,6 +9,7 @@ using System.Globalization;
 using Microsoft.JScript.Vsa;
 using Microsoft.JScript;
 using System.Web.Configuration;
+using System.IO;
 
 namespace logica.minem.gob.pe
 {
@@ -141,6 +142,14 @@ namespace logica.minem.gob.pe
                     {
                         break;
                     }
+                }
+                if (item.ArchivoSustento != null)
+                {
+                    item.ArchivoSustento.ID_INDICADOR = id_indicador;
+                    IndicadorArchivoBE ret = new IndicadorArchivoDA().RegistrarArchivoDetalleIndicador(item.ArchivoSustento);
+                    string origen = WebConfigurationManager.AppSettings["Detalle"] + "\\" + item.ArchivoSustento.ADJUNTO;
+                    string destino = WebConfigurationManager.AppSettings["Sustentatorio"] + "\\" + item.ArchivoSustento.ADJUNTO;
+                    File.Move(origen, destino);
                 }
             }
 

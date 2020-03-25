@@ -64,6 +64,7 @@
     <Compile Include="FactorDA.cs" />
     <Compile Include="GasEfectoInvernaderoDA.cs" />
     <Compile Include="GrupoIndicadorDA.cs" />
+    <Compile Include="IndicadorArchivoDA.cs" />
     <Compile Include="IndicadorDA.cs" />
     <Compile Include="IndicadorFormulaDA.cs" />
     <Compile Include="IniciativaDA.cs" />
