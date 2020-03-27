@@ -49,6 +49,11 @@ namespace MRVMinem.Controllers
         {
             ListaObjeto modelo = new ListaObjeto();
             UsuarioBE usu = new UsuarioBE();
+
+            if (Session["rol"] == null)
+            {
+                return RedirectToAction("SinSesion", "Error");
+            }
             if (Convert.ToString(Session["rol"]) == "1")
             {
                 usu.ID_USUARIO = Convert.ToInt32(Session["usuario"]);

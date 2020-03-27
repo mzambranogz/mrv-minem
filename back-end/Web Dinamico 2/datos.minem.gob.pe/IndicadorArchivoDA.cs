@@ -55,7 +55,8 @@ namespace datos.minem.gob.pe
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     entidad = db.Query<IndicadorArchivoBE>(sp, p, commandType: CommandType.StoredProcedure).FirstOrDefault();
                 }
-                entidad.OK = true;
+                
+                //entidad.OK = true;
             }
             catch (Exception ex)
             {

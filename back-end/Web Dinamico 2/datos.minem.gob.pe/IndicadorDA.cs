@@ -1003,6 +1003,7 @@ namespace datos.minem.gob.pe
                 foreach (var item in listaP)
                 {
                     item.listaInd = ListarDetalleDatosDinamico(item);
+                    item.ArchivoSustento = new IndicadorArchivoDA().GetArchivoDetalleIndicador(new IndicadorArchivoBE() { ID_INDICADOR = item.ID_INDICADOR, ID_INICIATIVA = entidad.ID_INICIATIVA });
                 }
                 entidad.OK = true;
             }

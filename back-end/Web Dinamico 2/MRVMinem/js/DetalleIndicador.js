@@ -2730,14 +2730,6 @@ function fn_procesoDetalleIndicador(url, estado) {
                 parametros += medida + ",";
                 parametros += $(value).attr("data-param") + ",";
                 parametros += $("#" + $(value).attr("id")).val() + "|";
-                //var itx = {
-                //ID_FILA: fila,
-                //ID_ENFOQUE: enfoque,
-                //ID_MEDMIT: medida,
-                //ID_PARAMETRO: $(value).attr("data-param"),
-                //VALOR: $("#" + $(value).attr("id")).val()
-                //};
-                //indicadores.push(itx);
             });
             parametros = parametros.substring(0, parametros.length - 1);
             if (Xfilas != null && Xfilas != undefined) {
@@ -2751,16 +2743,9 @@ function fn_procesoDetalleIndicador(url, estado) {
             parametros += "/";
         }
 
-        //parametros += enfoque + ",";
-        //parametros += medida + ",";
-        //parametros += $(value).attr("data-param") + ",";
-        //parametros += $("#" + $(value).attr("id")).val() + "|";
-        //});
 
     }
     parametros = parametros.substring(0, parametros.length - 1);
-    //parametros = parametros.substring(0, parametros.length - 1);
-
 
     for (var i = 0, len = storedFiles.length; i < len; i++) {
         var sux = {
@@ -3259,7 +3244,7 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                             }
                         }
 
-                        var urlDw = baseUrl + 'Gestion/FileDownload?IdIniciativa=' + $("#iniciativa_mit_ID_INICIATIVA").val() + '&IdIndicador=' + i + "&accion=I";
+                        var urlDw = baseUrl + 'Gestion/FileDownload?IdIniciativa=' + $("#iniciativa_mit_ID_INICIATIVA").val() + '&IdIndicador=' + (i + 1) + "&accion=I";
 
                         if (xIndicador > 0) {
                             urlDw = baseUrl + 'Gestion/FileDownloadDetalle?IdIniciativa=' + $("#iniciativa_mit_ID_INICIATIVA").val() + '&IdIndicador=' + xIndicador + "&accion=M";
@@ -3550,17 +3535,8 @@ function CargarDatosGuardados() {
                                 console.log(Xdown);
                                 Xdown[0].href = baseUrl + 'Gestion/FileDownload?IdIniciativa=' + $("#iniciativa_mit_ID_INICIATIVA").val() + '&IdIndicador=' + data[i]["ID_INDICADOR"] + "&accion=I";
                             }
-
-                            //$("#tablaIndicador").find("tbody").find("#detalles-tr-" + (i + 1)).find("input[name=fledoc]").on("onchange", "handleFileSustento(this.files," + data[i]["ID_INDICADOR"] + ",1)");
-
-                            //var Xupdl = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + (i + 1)).find("input[name=fledoc]").on("onchange", "handleFileSustento(this.files," + data[i]["ID_INDICADOR"] + ",1)");
-                            //if (Xupdl != undefined && Xupdl != null) {
-                            //    //Xupdl[0].onchange = "handleFileSustento(this.files," + data[i]["ID_INDICADOR"] + ",1)";
-                            //    Xupdl[0].on("onchange", "handleFileSustento(this.files," + data[i]["ID_INDICADOR"] + ",1)");
-                            //}
-                            //console.log(Xupdl);
                         }
-                        //for (var j = 0; j < entidad.length; j++) {     
+                        
                         for (var m = 0; m < entidad.length; m++) {
                             debugger;
                             if (entidad[m]["ID_TIPO_CONTROL"] == 1) {
@@ -4074,7 +4050,7 @@ $(document).ready(function () {
     //$("#cbo-enfoque").val($("#menor").val());
     //$("#enfoque-" + ($("#cbo-enfoque").val())).removeAttr("hidden");
     //$("#cbo-enfoque").data("select", $("#cbo-enfoque").val()); //data-select para saber quien fue el anterior
-    //debugger;
+    debugger;
     if ($("#revision").val() == 1) {
 
 

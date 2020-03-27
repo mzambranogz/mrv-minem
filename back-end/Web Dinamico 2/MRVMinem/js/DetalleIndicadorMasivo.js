@@ -1821,14 +1821,14 @@ function CargarDatosCabecera() {
                     $("#cabeceraTablaIndicador").append(tr);
                     $("[data-toggle='tooltip']").tooltip();
                 }
-            } 
+            }
             //$('[data-toggle="tooltip"]').tooltip();
         }
     });
 
 }
 
-function CargarCuerpoGuardado(filas) {
+function CargarCuerpoGuardado(filas, xIndicador) {
     var medida = $("#Control").data("mitigacion");
     var enfoque = $("#cbo-enfoque").val();
     var iniciativa = $("#Control").data("iniciativa");
@@ -1846,7 +1846,7 @@ function CargarCuerpoGuardado(filas) {
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
-                    $("#cuerpoTablaIndicador").html("");                    
+                    $("#cuerpoTablaIndicador").html("");
                     for (var i = 0; i < filas; i++) {
                         var lista = 0;
                         var texto = 0;
@@ -1912,20 +1912,17 @@ function CargarCuerpoGuardado(filas) {
                                 tr += '</td>'
                             }
                         }
-                        //tr += '<td class="text-center text-xs-right" data-encabezado="Acciones">';
-                        //tr += '     <div class="btn-group">';
-                        //tr += '          <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
-                        //tr += '          <div class="dropdown-menu dropdown-menu-right">';
-                        //tr += '               <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;Verificar</a>';
-                        //tr += '               <a class="dropdown-item agregarCampos" href="#"><i class="fas fa-plus-circle"></i>&nbsp;Agregar</a>';
-                        //tr += '               <a class="dropdown-item quitarCampos" href="#" onclick="fn_eliminarRestarTotal()"><i class="fas fa-minus-circle"></i>&nbsp;Eliminar</a>';
-                        //tr += '          </div>';
-                        //tr += '     </div>';
-                        //tr += '</td>';
+
+                        var urlDw = baseUrl + 'Gestion/FileDownload?IdIniciativa=' + $("#iniciativa_mit_ID_INICIATIVA").val() + '&IdIndicador=' + (i + 1) + "&accion=I";
+
+                        if (xIndicador > 0) {
+                            urlDw = baseUrl + 'Gestion/FileDownloadDetalle?IdIniciativa=' + $("#iniciativa_mit_ID_INICIATIVA").val() + '&IdIndicador=' + xIndicador + "&accion=M";
+                        }
+
                         tr += '<td class="text-center" data-encabezado="Sustento">';
-                        tr += '        <label class="btn btn-secondary btn-sm m-0" for="fle-doc" title="Cargar archivo"><i class="fas fa-upload"></i>';
-                        tr += '          <input class="d-none" type="file" id="fle-doc">';
-                        tr += '        </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>';
+                        tr += '        <label class="btn btn-secondary btn-sm m-0" for="fle-doc-' + (i + 1) + '" title="Cargar archivo"><i class="fas fa-upload"></i>';
+                        tr += '         <input class="d-none" type="file" id="fle-doc-' + (i + 1) + '" name="fledoc" onchange="handleFileSustento(this.files,' + (i + 1) + ',1)">';
+                        tr += '        </label><a class="btn btn-success btn-sm m-0" name="fledownload" href="' + urlDw + '" title="Descargar archivo" id="fle-dow-' + (i + 1) + '" target="_blank" style="display: none;"><i class="fas fa-download"></i></a>';
                         tr += '</td>';
                         tr += '</tr>';
                         $("#cuerpoTablaIndicador").append(tr);
@@ -1939,9 +1936,91 @@ function CargarCuerpoGuardado(filas) {
 }
 
 
+function handleFileSustento(evt, idIndicador, accion) {
+    console.log(evt);
+
+    detalleFiles = []; // add 12-02-2020
+    ////////////////////////77
+    var files = evt; //evt.target.files; // FileList object
+    debugger;
+    // files is a FileList of File objects. List some properties.
+    var output = [];
+    var extension = "fa-file-word";
+    var name = "";
+    var file_extension = "";
+    for (var i = 0, f; f = files[i]; i++) {
+        name = f.name;
+        file_extension = name.split(".").pop().toLowerCase();
+
+        if (f.size > 4194304) {
+            $(this).val("");
+            MRV.Alert("Alerta", "Archivo que esta subiendo pesa más de 4 MB", "", "es")
+            detalleFiles = [];
+            return false;
+        }
+
+        switch (f.name.substring(f.name.lastIndexOf('.') + 1).toLowerCase()) {
+            case 'pdf': case 'jpg': case 'jpeg': case 'gif': case 'png': case 'tif': case 'doc': case 'docx': case 'xls': case 'xlsx': case 'xlsm': case 'ppt': case 'pptx': case 'txt':
+                break;
+            default:
+                $(this).val('');
+                MRV.Alert('Alerta', "formato de archivo no válido", '', 'es');
+                detalleFiles = [];
+                return false;
+                break;
+        }
+
+        var form_data = new FormData();
+        form_data.append("fledoc", f)
+        var xaccion = accion == "1" ? "I" : "M"
+        var url = baseUrl + 'Gestion/FileUpload?IdIniciativa=' + $("#iniciativa_mit_ID_INICIATIVA").val() + '&IdIndicador=' + idIndicador + "&accion=" + xaccion;
+        $.ajax({
+            url: url, //'/Home/FileUpload',
+            type: "POST",
+            contentType: false, // Not to set any content header  
+            processData: false, // Not to process data  
+            data: form_data,
+            success: function (result) {
+                if (result != null && result != "") {
+                    $.each(result, function (i, v) {
+                        if (v.accion == "1") {
+                            $("#fle-dow-" + idIndicador).removeAttr('style');
+                        } else {
+                            MRV.Alert('Alerta', v.message, '', 'es');
+                        }
+                    });
+                }
+            },
+            xhr: function () {  // Custom XMLHttpRequest
+                var myXhr = $.ajaxSettings.xhr();
+                if (myXhr.upload) { // Check if upload property exists
+                    myXhr.upload.addEventListener('progress', progressHandlingFunction, false); // For handling the progress of the upload
+                }
+                return myXhr;
+            },
+            error: function (err) {
+                MRV.Alert('Alerta', err.message, '', 'es');
+            }
+        });
+
+        detalleFiles.push(f);
+
+    }
+}
+
+function progressHandlingFunction(e) {
+    var spanProgress = document.getElementById("spanProgress");
+    if (e.lengthComputable) {
+        $('progress').css("display", "block");
+        $('#lbProgress').css("display", "block");
+        $('progress').attr({ value: e.loaded, max: e.total });
+        $("#lbProgress").text(Math.floor((e.loaded / e.total) * 100) + " %");
+    }
+}
+
 function CargarDatosExcel(data) {
 
-    CargarCuerpoGuardado(data.length);
+    CargarCuerpoGuardado(data.length, 0);
     var total = 0.0;
     for (var i = 0; i < data.length; i++) {
         var validar = 0;
@@ -2002,7 +2081,7 @@ function GuardarIdDetalle() {
                 }
             }
         }
-   });
+    });
 }
 
 //=================================================================
@@ -2227,11 +2306,13 @@ function fn_procesoDetalleIndicador(url, estado) {
     var enfoque = $("#cbo-enfoque").val();
     var parametros = "";
     var n = $("#tablaIndicador").find("tbody").find("th").length + 1;
-    debugger;
+
     for (var fila = 1 ; fila < n; fila++) {
+        debugger;
         var enfoque = $("#cbo-enfoque").val();
         var ind = $("#cuerpoTablaIndicador #detalles-tr-" + fila).data("ind");
         var filas = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + fila).find("[data-param]");
+        var Xfilas = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + fila).find("input[name=fledoc]");
         if (fn_validarCampoReg(fila)) {
             filas.each(function (index, value) {
                 parametros += enfoque + ",";
@@ -2240,14 +2321,21 @@ function fn_procesoDetalleIndicador(url, estado) {
                 parametros += $("#" + $(value).attr("id")).val() + "|";
             });
             parametros = parametros.substring(0, parametros.length - 1);
-            parametros += ";" + ind;
+            if (Xfilas != null && Xfilas != undefined) {
+                if (Xfilas[0].files.length > 0)
+                    parametros += ";" + ind + ";" + Xfilas[0].files[0].name;
+                else
+                    parametros += ";" + ind + ";";
+            }
+            else
+                parametros += ";" + ind + ";";
             parametros += "/";
         }
 
 
     }
     parametros = parametros.substring(0, parametros.length - 1);
-    debugger;
+
     for (var i = 0, len = storedFiles.length; i < len; i++) {
         var sux = {
             ID_INICIATIVA: $("#Control").data("iniciativa"),
@@ -2288,7 +2376,7 @@ function fn_procesoDetalleIndicador(url, estado) {
     //    id_delete = id_delete.substring(0, id_delete.length - 1);
     //}
 
-    var id_eliminar = "";    
+    var id_eliminar = "";
     if ($("#total-documentos").data("eliminarfile") != "") {
         id_eliminar = $("#total-documentos").data("eliminarfile");
         id_eliminar = id_eliminar.substring(0, id_eliminar.length - 1);
@@ -2303,6 +2391,7 @@ function fn_procesoDetalleIndicador(url, estado) {
         ID_ESTADO: estado,
         ID_ENFOQUE: enfoque,
         ID_MEDMIT: medida,
+        TOTAL_GEI: parseFloat($("#total-detalle").html()),
         DATA: parametros,
         ID_TIPO_INGRESO: 2,
         PRIVACIDAD_INICIATIVA: privacidad,
@@ -2319,24 +2408,7 @@ function fn_procesoDetalleIndicador(url, estado) {
         contentType: false,
         url: url,
         processData: false,
-        data: ({
-            ID_INICIATIVA: $("#Control").data("iniciativa"),
-            ID_USUARIO: $("#Control").data("usuario"),
-            NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
-            ID_INDICADOR_DELETE: id_delete,
-            ID_INDICADOR_ELIMINAR: id_eliminar,
-            ID_ESTADO: estado,
-            ID_ENFOQUE: enfoque,
-            ID_MEDMIT: medida,
-            DATA: parametros,
-            ID_TIPO_INGRESO: 2,
-            PRIVACIDAD_INICIATIVA: privacidad,
-            PRIVACIDAD_INVERSION: privacidad_monto,
-            //ListaIndicadores: indicadores,
-            //ListaIndicadoresData: indicadores,
-            ListaSustentos: documentos,
-            extra: archivos
-        }),
+        data: item,
         xhr: function () {  // Custom XMLHttpRequest
             var myXhr = $.ajaxSettings.xhr();
             if (myXhr.upload) { // Check if upload property exists
@@ -2355,7 +2427,7 @@ function fn_procesoDetalleIndicador(url, estado) {
                 CargarArchivosGuardados();
                 GuardarIdDetalle();//
                 $("#cuerpoTablaIndicador").data("flag", 0);//
-                $("#cuerpoTablaIndicador").data("delete", ""); 
+                $("#cuerpoTablaIndicador").data("delete", "");
                 $("#total-documentos").data("eliminarfile", "");
                 $("#fledocumentos").val("");
                 if (estado == 0 || estado == 6) {
@@ -2507,7 +2579,7 @@ function CargarDatosGuardados() {
             if (data != null && data != "") {
                 if (data.length > 0) {
                     var order = $("#tablaIndicador").data("order");
-                    CargarCuerpoGuardado(data.length);
+                    CargarCuerpoGuardado(data.length, 1);
                     var total = 0.0;
                     for (var i = 0; i < data.length; i++) {
                         var lista = 0;
@@ -2515,7 +2587,23 @@ function CargarDatosGuardados() {
                         var fecha = 0;
                         var entidad = data[i]["listaInd"]
                         $("#cuerpoTablaIndicador #detalles-tr-" + (i + 1)).attr({ "data-ind": data[i]["ID_INDICADOR"] });
-                        //for (var j = 0; j < entidad.length; j++) {     
+                        var tieneArchivo = data[i].ArchivoSustento;
+                        if (tieneArchivo != undefined && tieneArchivo != null) {
+                            var Xdown = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + (i + 1)).find("a[name=fledownload]");
+                            if (Xdown != undefined && Xdown != null) {
+                                console.log(Xdown);
+                                Xdown[0].style.cssText = "";
+                                Xdown[0].href = baseUrl + 'Gestion/FileDownloadDetalle?IdIniciativa=' + $("#iniciativa_mit_ID_INICIATIVA").val() + '&IdIndicador=' + data[i]["ID_INDICADOR"] + "&accion=M";
+                            }
+                        }
+                        else {
+                            var Xdown = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + (i + 1)).find("a[name=fledownload]");
+                            if (Xdown != undefined && Xdown != null) {
+                                console.log(Xdown);
+                                Xdown[0].href = baseUrl + 'Gestion/FileDownload?IdIniciativa=' + $("#iniciativa_mit_ID_INICIATIVA").val() + '&IdIndicador=' + data[i]["ID_INDICADOR"] + "&accion=I";
+                            }
+                        }
+
                         for (var m = 0; m < entidad.length; m++) {
                             if (entidad[m]["ID_TIPO_CONTROL"] == 1) {
                                 lista++;
@@ -2582,7 +2670,7 @@ function fn_validarCampoReg(f) {
 }
 
 function asignarRuta(enfoque) {
-    
+
     if (enfoque == 1) {
         $("#ruta-masivo").html("").append('<label for="txt-declaracion">Plantilla excel&nbsp;<small><a href="' + baseUrl + 'Documentos/4.1 Plantilla_Vehiculos_electricos_Recorrido.xlsx" download>(&nbsp;<i class="fas fa-file-excel"></i>&nbsp;Descargar plantilla para esta medida de mitigación&nbsp;)</a></small><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="left" title="Descargue la plantilla de excel que contiene el formato de columnas que debe completar"></i></label>');
     } else if (enfoque == 2) {
