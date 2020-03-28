@@ -230,6 +230,7 @@
     <Content Include="js\MantenimientoNama.js" />
     <Content Include="js\MantenimientoParametros.js" />
     <Content Include="js\MantenimientoPlazo.js" />
+    <Content Include="js\MantenimientoRol.js" />
     <Content Include="js\MantenimientoSector.js" />
     <Content Include="js\MantenimientoTablas.js" />
     <Content Include="js\MantenimientoTipoIniciativa.js" />
@@ -291,6 +292,7 @@
     <Compile Include="Models\MvParametro.cs" />
     <Compile Include="Models\MvPlazo.cs" />
     <Compile Include="Models\MvReCAPTCHASettings.cs" />
+    <Compile Include="Models\MvRol.cs" />
     <Compile Include="Models\MvSector.cs" />
     <Compile Include="Models\MvSesion.cs" />
     <Compile Include="Models\MvTipoIniciativa.cs" />
@@ -664,6 +666,7 @@
     <Content Include="Views\Mantenimiento\TipoIniciativa.cshtml" />
     <Content Include="Views\Error\SinSesion.cshtml" />
     <Content Include="Views\Mantenimiento\Parametros.cshtml" />
+    <Content Include="Views\Mantenimiento\Rol.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

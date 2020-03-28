@@ -198,7 +198,7 @@ namespace MRVMinem.Controllers
             return Respuesta(itemRespuesta);
         }
 
-        ////////////////////////////////
+        //////////////////////////////// MANTENIMIENTO MONEDA
 
         public ActionResult Monedas(MonedaBE entidad)
         {
@@ -1211,6 +1211,62 @@ namespace MRVMinem.Controllers
             ResponseEntity itemRespuesta = new ResponseEntity();
 
             entidad = ParametroLN.EliminarParametro(entidad);
+            itemRespuesta.success = entidad.OK;
+            itemRespuesta.extra = entidad.extra;
+            return Respuesta(itemRespuesta);
+        }
+
+        //////////////////////////////// MANTENIMIENTO ROL
+
+        public ActionResult Rol(RolBE entidad)
+        {
+            if (entidad.pagina == 0)
+            {
+                entidad = new RolBE() { cantidad_registros = 10, order_by = "ID_ROL", order_orden = "ASC", pagina = 1, buscar = "" };
+            }
+            MvRol modelo = new MvRol();
+            modelo.ListaRoles = RolLN.ListarRolPaginado(entidad);
+            return View(modelo);
+        }
+
+        public JsonResult BuscarRol(RolBE entidad)
+        {
+            RolBE lista = RolLN.GetRolPorId(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult ListaRoles(RolBE entidad)
+        {
+            List<RolBE> lista = RolLN.ListarRolPaginado(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult RegistrarRol(RolBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            if (entidad.FLAG_ESTADO == "1")
+            {
+                entidad = RolLN.RegistrarRol(entidad);
+            }
+            else
+            {
+                entidad = RolLN.ActualizarRol(entidad);
+            }
+            itemRespuesta.success = entidad.OK;
+            itemRespuesta.extra = entidad.extra;
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult EliminarRol(RolBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            entidad = RolLN.EliminarRol(entidad);
             itemRespuesta.success = entidad.OK;
             itemRespuesta.extra = entidad.extra;
             return Respuesta(itemRespuesta);
@@ -2732,6 +2788,95 @@ namespace MRVMinem.Controllers
             }
         }
         //============================================================================================================ 
+
+        //============================================= MANTENIMIENTO ROL
+
+        public void ExportarMantenimientoRoles(string item)
+        {
+            try
+            {
+                if (item != null)
+                {
+                    var entidad = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<RolBE>(item);
+                    ExportarToExcelMantenimientoRoles(entidad);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+        }
+
+        public void ExportarToExcelMantenimientoRoles(RolBE entidad)
+        {
+            List<RolBE> lista = null;
+            //if (string.IsNullOrEmpty(entidad.DESCRIPCION))
+            //{
+            lista = RolLN.ListarRolExcel(entidad);
+            //}
+            //else
+            //{
+            //    lista = UsuarioLN.BuscarMantenimientoUsuario(entidad);
+            //}
+
+            int row = 2;
+            try
+            {
+                string cadena_fecha = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+
+                using (ExcelPackage package = new ExcelPackage())
+                {
+                    var ws1 = package.Workbook.Worksheets.Add("LISTA ROL");
+                    using (var m = ws1.Cells[1, 1, row, 2])
+                    {
+                        m.Style.Font.Bold = true;
+                        m.Style.WrapText = true;
+                        m.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        m.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        m.Style.Font.Size = 10;
+                        m.Merge = true;
+                        m.Value = "LISTA ROL " + cadena_fecha;
+                    }
+                    ws1.View.FreezePanes(4, 1);
+                    row++;
+                    ws1.Cells["A" + row].Value = "N°";
+                    ws1.Cells["A" + row].AutoFitColumns(5);
+                    ws1.Cells["B" + row].Value = "ROL";
+                    ws1.Cells["B" + row].AutoFitColumns(40);
+
+                    FormatoCelda(ws1, "A", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "B", row, 0, 123, 255, 255, 255, 255);
+                    ws1.Row(row).Height = 42;
+                    row++;
+                    if (lista.Count > 0)
+                    {
+                        var xNum = 0;
+                        foreach (RolBE dt_fila in lista)
+                        {
+                            xNum++;
+                            ws1.Cells["A" + row].Value = dt_fila.ID_ROL;
+                            ws1.Cells["B" + row].Value = dt_fila.DESCRIPCION_ROL;
+                            formatoDetalle(ws1, "A", "B", row);
+                            row++;
+                        }
+                        row++;
+                    }
+
+                    string strFileName = "LISTA_ROL_" + DateTime.Now.ToString() + ".xlsx";
+                    Response.Clear();
+                    byte[] dataByte = package.GetAsByteArray();
+                    Response.AddHeader("Content-Disposition", "inline;filename=\"" + strFileName + "\"");
+                    Response.AddHeader("Content-Length", dataByte.Length.ToString());
+                    Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                    Response.BinaryWrite(dataByte);
+                    Response.End();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
 
         //==================================================================================================================================
 

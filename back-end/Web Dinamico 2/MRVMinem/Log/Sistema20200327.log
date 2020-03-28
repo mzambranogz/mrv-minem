@@ -1,0 +1,1996 @@
+27/03/2020 10:49:18 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:49:18 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:49:18 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:49:18 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:49:18 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:49:18 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:49:18 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:49:18 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:49:18 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:49:18 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:49:18 a.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE GetArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 56] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:49:18 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:49:18 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:49:18 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:49:18 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:49:18 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:49:18 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:49:18 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:49:18 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:49:18 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:49:18 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:49:18 a.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE GetArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 56] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:49:39 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:49:39 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:49:39 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:49:39 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:49:39 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:49:39 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:49:39 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:49:39 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:49:39 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:49:39 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:49:39 a.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE GetArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 56] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:50:34 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:50:34 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:50:34 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:50:34 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:50:34 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:50:34 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:50:34 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:50:34 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:50:34 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:50:34 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:50:34 a.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE GetArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 56] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:50:34 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:50:34 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:50:34 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:50:34 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:50:34 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:50:34 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:50:34 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:50:34 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:50:34 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:50:34 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:50:34 a.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE GetArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 56] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:51:24 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:51:24 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:51:24 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:51:24 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:51:24 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:51:24 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:51:24 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:51:24 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:51:24 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:51:24 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:51:24 a.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE GetArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 56] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:51:24 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:51:24 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:51:24 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:51:24 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:51:24 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:51:24 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:51:24 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:51:24 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:51:24 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:51:24 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:51:24 a.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE GetArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 56] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:51:39 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:51:39 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:51:39 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:51:39 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:51:39 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:51:39 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:51:39 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:51:39 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:51:39 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:51:39 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:51:39 a.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE GetArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 56] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 10:52:49 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:52:49 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:52:49 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:52:49 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:52:49 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:52:49 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:52:49 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:52:49 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:52:49 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:52:49 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:52:49 a.m.: [Método: System.Decimal SumatoriaGeiReducido(Int32, Int32), Línea: 55] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:52:49 a.m.: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 587] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:52:49 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 388] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:52:49 a.m.: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2122] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:52:55 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:52:55 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:52:55 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:52:55 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:52:55 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:52:55 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:52:55 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:52:55 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:52:55 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:52:55 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:52:55 a.m.: [Método: System.Decimal SumatoriaGeiReducido(Int32, Int32), Línea: 55] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:52:55 a.m.: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 587] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:52:55 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 388] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:52:55 a.m.: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2122] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:04 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:04 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:04 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:04 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:04 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:04 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:04 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:04 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:04 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:04 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:04 a.m.: [Método: System.Decimal SumatoriaGeiReducido(Int32, Int32), Línea: 55] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:04 a.m.: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 587] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:04 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 388] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:04 a.m.: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2122] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:05 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:05 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:05 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:05 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:05 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:05 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:05 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:05 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:05 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:05 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:05 a.m.: [Método: System.Decimal SumatoriaGeiReducido(Int32, Int32), Línea: 55] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:05 a.m.: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 587] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:05 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 388] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:05 a.m.: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2122] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:10 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:10 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:10 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:10 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:10 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:10 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:10 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:10 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:10 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:10 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:10 a.m.: [Método: System.Decimal SumatoriaGeiReducido(Int32, Int32), Línea: 55] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:10 a.m.: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 587] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:10 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 388] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:10 a.m.: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2122] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:11 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:11 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:11 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:11 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:11 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:11 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:11 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:11 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:11 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:11 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:11 a.m.: [Método: System.Decimal SumatoriaGeiReducido(Int32, Int32), Línea: 55] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:11 a.m.: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 587] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:11 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 388] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:11 a.m.: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2122] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:12 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:12 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:12 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:12 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:12 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:12 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:12 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:12 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:12 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:12 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:12 a.m.: [Método: System.Decimal SumatoriaGeiReducido(Int32, Int32), Línea: 55] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:13 a.m.: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 587] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:13 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 388] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:13 a.m.: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2122] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:13 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:13 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:13 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:13 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:13 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:13 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:13 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:13 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:13 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:13 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:13 a.m.: [Método: System.Decimal SumatoriaGeiReducido(Int32, Int32), Línea: 55] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:13 a.m.: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 587] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:13 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 388] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:13 a.m.: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2122] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:14 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:14 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:14 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:14 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:14 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:14 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:14 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:14 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:14 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:14 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:14 a.m.: [Método: System.Decimal SumatoriaGeiReducido(Int32, Int32), Línea: 55] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:14 a.m.: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 587] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:14 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 388] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:14 a.m.: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2122] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:34 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:34 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:34 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:34 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:34 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:34 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:34 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:34 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:34 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:34 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:34 a.m.: [Método: System.Decimal SumatoriaGeiReducido(Int32, Int32), Línea: 55] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:34 a.m.: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 587] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:34 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 388] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:34 a.m.: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2122] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:35 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:35 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:35 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:35 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:35 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:35 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:35 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:35 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:35 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:35 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:35 a.m.: [Método: System.Decimal SumatoriaGeiReducido(Int32, Int32), Línea: 55] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:35 a.m.: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 587] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:35 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 388] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:35 a.m.: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2122] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:38 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:38 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:38 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:38 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:38 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:38 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:38 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:38 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:38 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:38 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:38 a.m.: [Método: System.Decimal SumatoriaGeiReducido(Int32, Int32), Línea: 55] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:38 a.m.: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 587] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:38 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 388] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:38 a.m.: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2122] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:56 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:56 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:56 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:56 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:56 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:56 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:56 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:56 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:56 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:56 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:56 a.m.: [Método: System.Decimal SumatoriaGeiReducido(Int32, Int32), Línea: 55] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:56 a.m.: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 587] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:56 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 388] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:56 a.m.: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2122] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:57 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:57 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:57 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:57 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:57 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:57 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:57 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:57 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:57 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:57 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:57 a.m.: [Método: System.Decimal SumatoriaGeiReducido(Int32, Int32), Línea: 55] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:57 a.m.: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 587] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:57 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 388] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:57 a.m.: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2122] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:57 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:57 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:57 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:57 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:57 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:57 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:57 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:57 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:57 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:57 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:57 a.m.: [Método: System.Decimal SumatoriaGeiReducido(Int32, Int32), Línea: 55] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:53:58 a.m.: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 587] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:58 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 388] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:53:58 a.m.: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2122] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:54:25 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:25 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:25 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:25 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:25 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:25 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:25 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:25 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:25 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:25 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:25 a.m.: [Método: System.Decimal SumatoriaGeiReducido(Int32, Int32), Línea: 55] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:25 a.m.: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 587] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:54:25 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 388] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:54:25 a.m.: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2122] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:54:27 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:27 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:27 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:27 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:27 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:27 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:27 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:27 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:27 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:27 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:27 a.m.: [Método: System.Decimal SumatoriaGeiReducido(Int32, Int32), Línea: 55] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:27 a.m.: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 587] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:54:27 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 388] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:54:27 a.m.: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2122] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:54:28 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:28 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:28 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:28 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:28 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:28 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:28 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:28 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:28 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:28 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:28 a.m.: [Método: System.Decimal SumatoriaGeiReducido(Int32, Int32), Línea: 55] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:28 a.m.: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 587] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:54:28 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 388] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:54:28 a.m.: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2122] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:54:30 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:30 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:30 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:30 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:30 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:30 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:30 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:30 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:30 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:30 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:30 a.m.: [Método: System.Decimal SumatoriaGeiReducido(Int32, Int32), Línea: 55] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:30 a.m.: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 587] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:54:30 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 388] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:54:30 a.m.: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2122] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:54:32 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:32 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:32 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:32 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:32 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:32 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:32 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:32 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:32 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:32 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:32 a.m.: [Método: System.Decimal SumatoriaGeiReducido(Int32, Int32), Línea: 55] - ORA-01403: No se ha encontrado ningún dato
+ORA-06512: en "MRVMM.PKG_MRV_VARIABLES", línea 24
+ORA-06512: en línea 1
+27/03/2020 10:54:32 a.m.: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 587] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:54:32 a.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 388] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 10:54:32 a.m.: [Método: System.Web.Mvc.JsonResult CalcularIndicadorDinamico(System.String), Línea: 2122] - Referencia a objeto no establecida como instancia de un objeto.
+27/03/2020 11:06:52 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:06:52 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:06:52 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:06:52 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:06:52 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:06:52 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:06:52 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:06:52 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:06:52 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:06:52 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:06:52 a.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE GetArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 56] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:07:15 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:07:15 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:07:15 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:07:15 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:07:15 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:07:15 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:07:15 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:07:15 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:07:15 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:07:15 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:07:15 a.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE GetArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 56] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:08:03 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:08:03 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:08:03 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:08:03 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:08:03 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:08:03 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:08:03 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:08:03 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:08:03 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:08:03 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:08:03 a.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE GetArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 56] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:08:33 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:08:33 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:08:33 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:08:33 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:08:33 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:08:33 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:08:33 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:08:33 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:08:33 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:08:33 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:08:33 a.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE GetArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 56] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:08:48 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:08:48 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:08:48 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:08:48 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:08:48 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:08:48 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:08:48 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:08:48 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:08:48 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:08:48 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:08:48 a.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE GetArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 56] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:09:32 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:09:32 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:09:32 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:09:32 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:09:32 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:09:32 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:09:32 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:09:32 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:09:32 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:09:32 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:09:32 a.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE GetArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 56] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:10:06 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:10:06 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:10:06 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:10:06 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:10:06 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:10:06 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:10:06 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:10:06 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:10:06 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:10:06 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:10:06 a.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE GetArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 56] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:10:40 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:10:40 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:10:40 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:10:40 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:10:40 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:10:40 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:10:40 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:10:40 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:10:40 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:10:40 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:10:40 a.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE GetArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 56] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:11:32 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:11:32 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:11:32 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:11:32 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:11:32 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:11:32 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:11:32 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:11:32 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:11:32 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:11:32 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:11:32 a.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE GetArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 56] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:12:34 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:12:34 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:12:34 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:12:34 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:12:34 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:12:34 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:12:34 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:12:34 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:12:34 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:12:34 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:12:34 a.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE GetArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 56] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:12:34 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:12:34 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:12:34 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:12:34 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:12:34 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:12:34 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:12:34 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:12:34 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:12:34 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:12:34 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:12:34 a.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE GetArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 56] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:14:20 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:14:20 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:14:20 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:14:20 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:14:20 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:14:20 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:14:20 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:14:20 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:14:20 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:14:20 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:14:20 a.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE GetArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 56] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:14:20 a.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:14:20 a.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:14:20 a.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:14:20 a.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:14:20 a.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:14:20 a.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:14:20 a.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:14:20 a.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:14:20 a.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:14:20 a.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 11:14:20 a.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE GetArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 56] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:41:53 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:41:53 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:41:53 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:41:53 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:41:53 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:41:53 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:41:53 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:41:53 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:41:53 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:41:53 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:41:53 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.RolBE] ListarRolPaginado(entidad.minem.gob.pe.RolBE), Línea: 59] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:43:06 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:43:06 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:43:06 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:43:06 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:43:06 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:43:06 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:43:06 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:43:06 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:43:06 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:43:06 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:43:06 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.RolBE] ListarRolPaginado(entidad.minem.gob.pe.RolBE), Línea: 59] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:43:48 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:43:48 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:43:48 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:43:48 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:43:48 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:43:48 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:43:48 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:43:48 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:43:48 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:43:48 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:43:48 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.RolBE] ListarRolPaginado(entidad.minem.gob.pe.RolBE), Línea: 59] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:48:11 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:48:11 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:48:11 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:48:11 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:48:11 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:48:11 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:48:11 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:48:11 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:48:11 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:48:11 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:48:11 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.RolBE] ListarRolPaginado(entidad.minem.gob.pe.RolBE), Línea: 59] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:48:31 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_GET_ROL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:48:31 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_GET_ROL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:48:31 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_GET_ROL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:48:31 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_GET_ROL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:48:31 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_GET_ROL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:48:31 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_GET_ROL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:48:31 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_GET_ROL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:48:31 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_GET_ROL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:48:31 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_GET_ROL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:48:31 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_GET_ROL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:48:31 p.m.: [Método: entidad.minem.gob.pe.RolBE GetRolPorId(entidad.minem.gob.pe.RolBE), Línea: 105] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_GET_ROL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:48:39 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_GET_ROL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:48:39 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_GET_ROL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:48:39 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_GET_ROL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:48:39 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_GET_ROL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:48:39 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_GET_ROL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:48:39 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_GET_ROL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:48:39 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_GET_ROL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:48:39 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_GET_ROL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:48:39 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_GET_ROL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:48:39 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_GET_ROL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:48:39 p.m.: [Método: entidad.minem.gob.pe.RolBE GetRolPorId(entidad.minem.gob.pe.RolBE), Línea: 105] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_GET_ROL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:51:58 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_GET_ROL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:51:58 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_GET_ROL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:51:58 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_GET_ROL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:51:58 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_GET_ROL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:51:58 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_GET_ROL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:51:58 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_GET_ROL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:51:58 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_GET_ROL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:51:58 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_GET_ROL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:51:58 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_GET_ROL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:51:58 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_GET_ROL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 03:51:58 p.m.: [Método: entidad.minem.gob.pe.RolBE GetRolPorId(entidad.minem.gob.pe.RolBE), Línea: 105] - ORA-06550: línea 1, columna 7:
+PLS-00306: número o tipos de argumentos erróneos al llamar a 'USP_GET_ROL'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 05:43:38 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 05:43:38 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 05:43:38 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 05:43:38 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 05:43:38 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 05:43:38 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 05:43:38 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 05:43:38 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 05:43:38 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 05:43:38 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/03/2020 05:43:38 p.m.: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.RolBE] ListarRolPaginado(entidad.minem.gob.pe.RolBE), Línea: 59] - ORA-06550: línea 1, columna 35:
+PLS-00302: el componente 'USP_SEL_BUSCAR_ROL' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored

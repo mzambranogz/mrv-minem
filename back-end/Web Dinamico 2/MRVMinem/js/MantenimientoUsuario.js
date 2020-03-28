@@ -359,6 +359,7 @@ function fn_limpiarCampo() {
     $("#txt-pswd").attr("type", "password");
     $("#txt-re-pswd").attr("type", "password");
     $(".ver-clave").html("").html('<i class="fas fa-eye mr-1"></i>Mostrar');
+    $(".medidas-especialista").hide();
 }
 
 function validarEstado() {
@@ -840,6 +841,17 @@ $(function () {
             return false;
         }
     });
+});
+
+
+$(document).on("change", "#cbo-perfil", function () {
+    debugger;
+    if ($("#cbo-perfil").val() == 2) {
+        $(".medidas-especialista").show()
+    } else {
+        $(".medidas-especialista").hide()
+    }
+
 });
 
 

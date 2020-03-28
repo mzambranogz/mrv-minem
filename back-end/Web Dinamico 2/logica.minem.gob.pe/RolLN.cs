@@ -16,5 +16,37 @@ namespace logica.minem.gob.pe
         {
             return rol.ListarRol(entidad);
         }
+
+        public static List<RolBE> ListarRolPaginado(RolBE entidad)
+        {
+            if (string.IsNullOrEmpty(entidad.buscar)) entidad.buscar = "";
+            return rol.ListarRolPaginado(entidad);
+        }
+
+        public static List<RolBE> ListarRolExcel(RolBE entidad)
+        {
+            if (string.IsNullOrEmpty(entidad.buscar)) entidad.buscar = "";
+            return rol.ListarRolExcel(entidad);
+        }
+
+        public static RolBE GetRolPorId(RolBE entidad)
+        {
+            return rol.GetRolPorId(entidad);
+        }
+
+        public static RolBE RegistrarRol(RolBE entidad)
+        {
+            return rol.RegistrarRol(entidad);
+        }
+
+        public static RolBE ActualizarRol(RolBE entidad)
+        {
+            return rol.ActualizarRol(entidad);
+        }
+
+        public static RolBE EliminarRol(RolBE entidad)
+        {
+            return rol.EliminarRol(entidad);
+        }
     }
 }
