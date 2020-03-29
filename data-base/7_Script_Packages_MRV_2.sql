@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - sábado-marzo-21-2020   
+-- Archivo creado  - sábado-marzo-28-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_DIRECCIONAMIENTO
@@ -972,7 +972,7 @@ END PKG_MRV_INICIATIVA_MITIGACION;
     );*/
 
    PROCEDURE USP_GET_ROL(
-        pIdRol    number,
+        pID_ROL    number,
         pRefcursor  OUT SYS_REFCURSOR
    );
 
@@ -980,7 +980,7 @@ END PKG_MRV_INICIATIVA_MITIGACION;
         pRefcursor  OUT SYS_REFCURSOR
    );
 
-    PROCEDURE USP_SEL_ROL(
+    PROCEDURE USP_SEL_BUSCAR_ROL(
         pBuscar     IN VARCHAR2,
         pRegistros  INTEGER,
         pPagina     INTEGER,
@@ -997,7 +997,7 @@ END PKG_MRV_INICIATIVA_MITIGACION;
     PROCEDURE USP_DEL_ROL(
        pIdRol IN NUMBER
    );
-   
+
     PROCEDURE USP_INS_ROL(
         pDescripcion_rol in varchar2,
         pIdRol OUT NUMBER
@@ -1362,6 +1362,14 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pDESCRIPCION  IN VARCHAR2,
         pID_MEDMIT IN NUMBER
    );
+   
+   PROCEDURE USP_PRC_ENFOQUE(
+        pID_ENFOQUE  IN NUMBER,
+        pDESCRIPCION IN VARCHAR2,
+        pID_MEDMIT IN NUMBER,
+        pADJUNTO  IN VARCHAR2,
+        pADJUNTO_BASE  IN VARCHAR2
+    );
 
    PROCEDURE USP_DEL_ENFOQUE(
        pID_ENFOQUE IN NUMBER
@@ -7411,7 +7419,7 @@ END PKG_MRV_INICIATIVA_MITIGACION;
 
 
    PROCEDURE USP_GET_ROL(
-        pIdRol    number,
+        pID_ROL    number,
         pRefcursor  OUT SYS_REFCURSOR
    ) AS
      BEGIN
@@ -7419,12 +7427,12 @@ END PKG_MRV_INICIATIVA_MITIGACION;
             SELECT  ID_ROL,
                     DESCRIPCION_ROL
             FROM    T_MAE_ROL
-            WHERE   ID_ROL = pIdRol AND
+            WHERE   ID_ROL = pID_ROL AND
                     NVL(FLG_ESTADO,1) = 1;
 
   END USP_GET_ROL;
 
-    
+
 
    PROCEDURE USP_SEL_LISTA_ROL(
         pRefcursor  OUT SYS_REFCURSOR
@@ -7437,8 +7445,8 @@ END PKG_MRV_INICIATIVA_MITIGACION;
             WHERE   NVL(FLG_ESTADO,1) = 1;
 
   END USP_SEL_LISTA_ROL;
-  
-    PROCEDURE USP_SEL_ROL( 
+
+    PROCEDURE USP_SEL_BUSCAR_ROL( 
         pBuscar     IN VARCHAR2,
         pRegistros  INTEGER,
         pPagina     INTEGER,
@@ -7483,7 +7491,7 @@ END PKG_MRV_INICIATIVA_MITIGACION;
                 WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
         OPEN pRefcursor FOR vQuery;
 
-    END USP_SEL_ROL;
+    END USP_SEL_BUSCAR_ROL; 
 
 
 
@@ -7518,7 +7526,7 @@ END PKG_MRV_INICIATIVA_MITIGACION;
     )AS
     BEGIN
         SELECT NVL(MAX(ID_ROL),0) + 1  INTO pIdRol FROM T_MAE_ROL;
-        
+
         INSERT INTO T_MAE_ROL(ID_ROL, DESCRIPCION_ROL, FLG_ESTADO )
         VALUES (pIdRol, pDescripcion_rol, 1);
 
@@ -8873,6 +8881,43 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
 
 
     END USP_UPD_ENFOQUE;
+    
+    
+    PROCEDURE USP_PRC_ENFOQUE(
+        pID_ENFOQUE  IN NUMBER,
+        pDESCRIPCION IN VARCHAR2,
+        pID_MEDMIT IN NUMBER,
+        pADJUNTO  IN VARCHAR2,
+        pADJUNTO_BASE  IN VARCHAR2
+    )AS
+        vIdEnfoque NUMBER;
+    BEGIN
+        
+        
+        IF pID_ENFOQUE = 0 THEN
+        
+            SELECT NVL(MAX(ID_ENFOQUE),0) + 1 INTO vIdEnfoque FROM T_GENM_ENFOQUE;
+
+            INSERT INTO T_GENM_ENFOQUE(ID_ENFOQUE, DESCRIPCION, ID_MEDMIT, ADJUNTO, ADJUNTO_BASE,FLAG_ESTADO )
+            VALUES (vIdEnfoque, pDESCRIPCION, pID_MEDMIT, pADJUNTO, pADJUNTO_BASE, 1);
+        
+        ELSE
+            UPDATE T_GENM_ENFOQUE
+            SET DESCRIPCION = pDESCRIPCION,
+                 ID_MEDMIT = pID_MEDMIT
+            WHERE ID_ENFOQUE = pID_ENFOQUE;
+
+            IF pADJUNTO = 'nul' THEN
+                SELECT '0' INTO vIdEnfoque FROM DUAL;
+            ELSE
+                UPDATE  T_GENM_ENFOQUE
+                SET     ADJUNTO = pADJUNTO,
+                        ADJUNTO_BASE = pADJUNTO_BASE
+                WHERE   ID_ENFOQUE = pID_ENFOQUE;
+            END IF;
+        END IF;
+
+    END USP_PRC_ENFOQUE;
 
 	PROCEDURE USP_DEL_ENFOQUE(                  
         pID_ENFOQUE IN NUMBER

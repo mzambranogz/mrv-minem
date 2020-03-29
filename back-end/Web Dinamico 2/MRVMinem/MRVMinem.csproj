@@ -108,6 +108,9 @@
     <Content Include="Archivos\sustentatorios\LEEME.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Archivos\Temp\LEEME.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="css\style.css" />
     <Content Include="fonts\fa-brands-400.svg" />
     <Content Include="fonts\fa-regular-400.svg" />
@@ -676,7 +679,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Archivos\Temp\" />
     <Folder Include="libreria\" />
   </ItemGroup>
   <ItemGroup>

@@ -1486,3 +1486,4 @@ E:\Eduardo\mrv-minem\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\Exportar\3.
 E:\Eduardo\mrv-minem\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\Exportar\3.2.GD_exp.xlsx
 E:\Eduardo\mrv-minem\back-end\Web Dinamico 2\MRVMinem\bin\itextsharp.dll
 E:\Eduardo\mrv-minem\back-end\Web Dinamico 2\MRVMinem\bin\itextsharp.xml
+C:\Users\JK\Downloads\PLANTILLA_MINEN\CONECTADO\ORDENADO\git-new-repository\back-end\Web Dinamico 2\MRVMinem\bin\Archivos\Temp\LEEME.txt

@@ -1,0 +1,674 @@
+28/03/2020 02:00:17 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:00:17 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:00:17 p.m.: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:00:17 p.m.: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:00:17 p.m.: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:00:17 p.m.: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:00:17 p.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE RegistrarArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 31] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:00:22 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:00:22 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:00:22 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:00:22 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:00:22 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:00:22 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:00:22 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:00:22 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:00:22 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:00:22 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:00:22 p.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE GetArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 56] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:00:40 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:00:40 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:00:40 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:00:40 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:00:40 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:00:40 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:00:40 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:00:40 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:00:40 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:00:40 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:00:40 p.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE GetArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 56] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:04:15 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:04:15 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:04:15 p.m.: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:04:15 p.m.: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:04:15 p.m.: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:04:15 p.m.: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:04:15 p.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE RegistrarArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 31] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:04:16 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:04:16 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:04:16 p.m.: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:04:16 p.m.: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:04:16 p.m.: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:04:16 p.m.: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:04:16 p.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE RegistrarArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 31] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:04:18 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:04:18 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:04:18 p.m.: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:04:18 p.m.: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:04:18 p.m.: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:04:18 p.m.: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:04:18 p.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE RegistrarArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 31] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:04:18 p.m.: [Método: Void WinIOError(Int32, System.String), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\391-2-71d3a192-a974-4481-b6ce-41f02db56540.XLSX'.
+28/03/2020 02:04:18 p.m.: [Método: Void InternalMove(System.String, System.String, Boolean), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\391-2-71d3a192-a974-4481-b6ce-41f02db56540.XLSX'.
+28/03/2020 02:04:18 p.m.: [Método: Void Move(System.String, System.String), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\391-2-71d3a192-a974-4481-b6ce-41f02db56540.XLSX'.
+28/03/2020 02:04:18 p.m.: [Método: entidad.minem.gob.pe.IndicadorDataBE RegistraTodosIndicadoresData(entidad.minem.gob.pe.IniciativaBE, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 152] - No se pudo encontrar el archivo 'C:\Archivos\Temp\391-2-71d3a192-a974-4481-b6ce-41f02db56540.XLSX'.
+28/03/2020 02:04:18 p.m.: [Método: System.Web.Mvc.JsonResult RegistrarDetalleIndicador(System.Web.HttpPostedFileBase[], System.Web.HttpPostedFileBase[], entidad.minem.gob.pe.IniciativaBE), Línea: 1020] - No se pudo encontrar el archivo 'C:\Archivos\Temp\391-2-71d3a192-a974-4481-b6ce-41f02db56540.XLSX'.
+28/03/2020 02:09:21 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:09:21 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:09:21 p.m.: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:09:21 p.m.: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:09:21 p.m.: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:09:21 p.m.: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:09:21 p.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE RegistrarArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 31] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:10:28 p.m.: [Método: Void WinIOError(Int32, System.String), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\391-2-71d3a192-a974-4481-b6ce-41f02db56540.XLSX'.
+28/03/2020 02:10:28 p.m.: [Método: Void InternalMove(System.String, System.String, Boolean), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\391-2-71d3a192-a974-4481-b6ce-41f02db56540.XLSX'.
+28/03/2020 02:10:28 p.m.: [Método: Void Move(System.String, System.String), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\391-2-71d3a192-a974-4481-b6ce-41f02db56540.XLSX'.
+28/03/2020 02:10:28 p.m.: [Método: entidad.minem.gob.pe.IndicadorDataBE RegistraTodosIndicadoresData(entidad.minem.gob.pe.IniciativaBE, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 152] - No se pudo encontrar el archivo 'C:\Archivos\Temp\391-2-71d3a192-a974-4481-b6ce-41f02db56540.XLSX'.
+28/03/2020 02:10:28 p.m.: [Método: System.Web.Mvc.JsonResult RegistrarDetalleIndicador(System.Web.HttpPostedFileBase[], System.Web.HttpPostedFileBase[], entidad.minem.gob.pe.IniciativaBE), Línea: 1020] - No se pudo encontrar el archivo 'C:\Archivos\Temp\391-2-71d3a192-a974-4481-b6ce-41f02db56540.XLSX'.
+28/03/2020 02:10:37 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:10:37 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:10:37 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:10:37 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:10:37 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:10:37 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:10:37 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:10:37 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:10:37 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:10:37 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:10:37 p.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE GetArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 56] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:10:37 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:10:37 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:10:37 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:10:37 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:10:37 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:10:37 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:10:37 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:10:37 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:10:37 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:10:37 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:10:37 p.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE GetArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 56] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:10:45 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:10:45 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:10:45 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:10:45 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:10:45 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:10:45 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:10:45 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:10:45 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:10:45 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:10:45 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:10:45 p.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE GetArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 56] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:15:37 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:15:37 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:15:37 p.m.: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:15:37 p.m.: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:15:37 p.m.: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:15:37 p.m.: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:15:37 p.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE RegistrarArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 31] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:15:42 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:15:42 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:15:42 p.m.: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:15:42 p.m.: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:15:42 p.m.: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:15:42 p.m.: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:15:42 p.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE RegistrarArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 31] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:15:42 p.m.: [Método: Void WinIOError(Int32, System.String), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\391-1-90acd9c2-d1b7-4a33-9018-d3b42788bf35.XLSX'.
+28/03/2020 02:15:42 p.m.: [Método: Void InternalMove(System.String, System.String, Boolean), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\391-1-90acd9c2-d1b7-4a33-9018-d3b42788bf35.XLSX'.
+28/03/2020 02:15:42 p.m.: [Método: Void Move(System.String, System.String), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\391-1-90acd9c2-d1b7-4a33-9018-d3b42788bf35.XLSX'.
+28/03/2020 02:15:42 p.m.: [Método: entidad.minem.gob.pe.IndicadorDataBE RegistraTodosIndicadoresData(entidad.minem.gob.pe.IniciativaBE, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 152] - No se pudo encontrar el archivo 'C:\Archivos\Temp\391-1-90acd9c2-d1b7-4a33-9018-d3b42788bf35.XLSX'.
+28/03/2020 02:15:42 p.m.: [Método: System.Web.Mvc.JsonResult RegistrarDetalleIndicador(System.Web.HttpPostedFileBase[], System.Web.HttpPostedFileBase[], entidad.minem.gob.pe.IniciativaBE), Línea: 1020] - No se pudo encontrar el archivo 'C:\Archivos\Temp\391-1-90acd9c2-d1b7-4a33-9018-d3b42788bf35.XLSX'.
+28/03/2020 02:16:56 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:16:56 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:16:56 p.m.: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:16:56 p.m.: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:16:56 p.m.: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:16:56 p.m.: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:16:56 p.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE RegistrarArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 31] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:16:56 p.m.: [Método: Void WinIOError(Int32, System.String), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\391-1-90acd9c2-d1b7-4a33-9018-d3b42788bf35.XLSX'.
+28/03/2020 02:16:56 p.m.: [Método: Void InternalMove(System.String, System.String, Boolean), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\391-1-90acd9c2-d1b7-4a33-9018-d3b42788bf35.XLSX'.
+28/03/2020 02:16:56 p.m.: [Método: Void Move(System.String, System.String), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\391-1-90acd9c2-d1b7-4a33-9018-d3b42788bf35.XLSX'.
+28/03/2020 02:16:56 p.m.: [Método: entidad.minem.gob.pe.IndicadorDataBE RegistraTodosIndicadoresData(entidad.minem.gob.pe.IniciativaBE, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 152] - No se pudo encontrar el archivo 'C:\Archivos\Temp\391-1-90acd9c2-d1b7-4a33-9018-d3b42788bf35.XLSX'.
+28/03/2020 02:16:56 p.m.: [Método: System.Web.Mvc.JsonResult RegistrarDetalleIndicador(System.Web.HttpPostedFileBase[], System.Web.HttpPostedFileBase[], entidad.minem.gob.pe.IniciativaBE), Línea: 1020] - No se pudo encontrar el archivo 'C:\Archivos\Temp\391-1-90acd9c2-d1b7-4a33-9018-d3b42788bf35.XLSX'.
+28/03/2020 02:17:09 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:17:09 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:17:09 p.m.: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:17:09 p.m.: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:17:09 p.m.: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:17:09 p.m.: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:17:09 p.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE RegistrarArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 31] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_INS_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:17:52 p.m.: [Método: Void WinIOError(Int32, System.String), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\391-1-90acd9c2-d1b7-4a33-9018-d3b42788bf35.XLSX'.
+28/03/2020 02:17:52 p.m.: [Método: Void InternalMove(System.String, System.String, Boolean), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\391-1-90acd9c2-d1b7-4a33-9018-d3b42788bf35.XLSX'.
+28/03/2020 02:17:52 p.m.: [Método: Void Move(System.String, System.String), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\391-1-90acd9c2-d1b7-4a33-9018-d3b42788bf35.XLSX'.
+28/03/2020 02:17:52 p.m.: [Método: entidad.minem.gob.pe.IndicadorDataBE RegistraTodosIndicadoresData(entidad.minem.gob.pe.IniciativaBE, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 152] - No se pudo encontrar el archivo 'C:\Archivos\Temp\391-1-90acd9c2-d1b7-4a33-9018-d3b42788bf35.XLSX'.
+28/03/2020 02:17:52 p.m.: [Método: System.Web.Mvc.JsonResult RegistrarDetalleIndicador(System.Web.HttpPostedFileBase[], System.Web.HttpPostedFileBase[], entidad.minem.gob.pe.IniciativaBE), Línea: 1020] - No se pudo encontrar el archivo 'C:\Archivos\Temp\391-1-90acd9c2-d1b7-4a33-9018-d3b42788bf35.XLSX'.
+28/03/2020 02:18:58 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:18:58 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:18:58 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:18:58 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:18:58 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:18:58 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:18:58 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:18:58 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:18:58 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:18:58 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:18:58 p.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE GetArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 56] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:18:58 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:18:58 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:18:58 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:18:58 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:18:58 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:18:58 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:18:58 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:18:58 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:18:58 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:18:58 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:18:58 p.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE GetArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 56] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:19:03 p.m.: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:19:03 p.m.: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:19:03 p.m.: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:19:03 p.m.: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:19:03 p.m.: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:19:03 p.m.: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:19:03 p.m.: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:19:03 p.m.: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:19:03 p.m.: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:19:03 p.m.: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 02:19:03 p.m.: [Método: entidad.minem.gob.pe.IndicadorArchivoBE GetArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 56] - ORA-06550: línea 1, columna 41:
+PLS-00302: el componente 'USP_SEL_ARCHIVO_DETALLE' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+28/03/2020 06:52:07 p.m.: [Método: Void WinIOError(Int32, System.String), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\389-2-074f63e8-2fd9-4cac-9469-7e1d2e5f652f.XLSX'.
+28/03/2020 06:52:07 p.m.: [Método: Void InternalMove(System.String, System.String, Boolean), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\389-2-074f63e8-2fd9-4cac-9469-7e1d2e5f652f.XLSX'.
+28/03/2020 06:52:07 p.m.: [Método: Void Move(System.String, System.String), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\389-2-074f63e8-2fd9-4cac-9469-7e1d2e5f652f.XLSX'.
+28/03/2020 06:52:07 p.m.: [Método: entidad.minem.gob.pe.IndicadorDataBE RegistraTodosIndicadoresData(entidad.minem.gob.pe.IniciativaBE, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 152] - No se pudo encontrar el archivo 'C:\Archivos\Temp\389-2-074f63e8-2fd9-4cac-9469-7e1d2e5f652f.XLSX'.
+28/03/2020 06:52:07 p.m.: [Método: System.Web.Mvc.JsonResult RegistrarDetalleIndicador(System.Web.HttpPostedFileBase[], System.Web.HttpPostedFileBase[], entidad.minem.gob.pe.IniciativaBE), Línea: 1020] - No se pudo encontrar el archivo 'C:\Archivos\Temp\389-2-074f63e8-2fd9-4cac-9469-7e1d2e5f652f.XLSX'.
+28/03/2020 06:53:41 p.m.: [Método: Void WinIOError(Int32, System.String), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\389-2-074f63e8-2fd9-4cac-9469-7e1d2e5f652f.XLSX'.
+28/03/2020 06:53:41 p.m.: [Método: Void InternalMove(System.String, System.String, Boolean), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\389-2-074f63e8-2fd9-4cac-9469-7e1d2e5f652f.XLSX'.
+28/03/2020 06:53:41 p.m.: [Método: Void Move(System.String, System.String), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\389-2-074f63e8-2fd9-4cac-9469-7e1d2e5f652f.XLSX'.
+28/03/2020 06:53:41 p.m.: [Método: entidad.minem.gob.pe.IndicadorDataBE RegistraTodosIndicadoresData(entidad.minem.gob.pe.IniciativaBE, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 152] - No se pudo encontrar el archivo 'C:\Archivos\Temp\389-2-074f63e8-2fd9-4cac-9469-7e1d2e5f652f.XLSX'.
+28/03/2020 06:53:41 p.m.: [Método: System.Web.Mvc.JsonResult RegistrarDetalleIndicador(System.Web.HttpPostedFileBase[], System.Web.HttpPostedFileBase[], entidad.minem.gob.pe.IniciativaBE), Línea: 1020] - No se pudo encontrar el archivo 'C:\Archivos\Temp\389-2-074f63e8-2fd9-4cac-9469-7e1d2e5f652f.XLSX'.
+28/03/2020 06:58:11 p.m.: [Método: Void WinIOError(Int32, System.String), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\389-2-72aff317-ff8f-4eec-b23d-07935e5df8be.XLSX'.
+28/03/2020 06:58:11 p.m.: [Método: Void InternalMove(System.String, System.String, Boolean), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\389-2-72aff317-ff8f-4eec-b23d-07935e5df8be.XLSX'.
+28/03/2020 06:58:11 p.m.: [Método: Void Move(System.String, System.String), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\389-2-72aff317-ff8f-4eec-b23d-07935e5df8be.XLSX'.
+28/03/2020 06:58:11 p.m.: [Método: entidad.minem.gob.pe.IndicadorDataBE RegistraTodosIndicadoresData(entidad.minem.gob.pe.IniciativaBE, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 152] - No se pudo encontrar el archivo 'C:\Archivos\Temp\389-2-72aff317-ff8f-4eec-b23d-07935e5df8be.XLSX'.
+28/03/2020 06:58:11 p.m.: [Método: System.Web.Mvc.JsonResult RegistrarDetalleIndicador(System.Web.HttpPostedFileBase[], System.Web.HttpPostedFileBase[], entidad.minem.gob.pe.IniciativaBE), Línea: 1020] - No se pudo encontrar el archivo 'C:\Archivos\Temp\389-2-72aff317-ff8f-4eec-b23d-07935e5df8be.XLSX'.
+28/03/2020 07:00:14 p.m.: [Método: Void WinIOError(Int32, System.String), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\389-2-72aff317-ff8f-4eec-b23d-07935e5df8be.XLSX'.
+28/03/2020 07:00:14 p.m.: [Método: Void InternalMove(System.String, System.String, Boolean), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\389-2-72aff317-ff8f-4eec-b23d-07935e5df8be.XLSX'.
+28/03/2020 07:00:14 p.m.: [Método: Void Move(System.String, System.String), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\389-2-72aff317-ff8f-4eec-b23d-07935e5df8be.XLSX'.
+28/03/2020 07:00:14 p.m.: [Método: entidad.minem.gob.pe.IndicadorDataBE RegistraTodosIndicadoresData(entidad.minem.gob.pe.IniciativaBE, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 152] - No se pudo encontrar el archivo 'C:\Archivos\Temp\389-2-72aff317-ff8f-4eec-b23d-07935e5df8be.XLSX'.
+28/03/2020 07:00:14 p.m.: [Método: System.Web.Mvc.JsonResult RegistrarDetalleIndicador(System.Web.HttpPostedFileBase[], System.Web.HttpPostedFileBase[], entidad.minem.gob.pe.IniciativaBE), Línea: 1020] - No se pudo encontrar el archivo 'C:\Archivos\Temp\389-2-72aff317-ff8f-4eec-b23d-07935e5df8be.XLSX'.
+28/03/2020 07:40:34 p.m.: [Método: Void WinIOError(Int32, System.String), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\379-2-a15cddb6-b458-4412-b2c6-66b7a2ff78e1.PDF'.
+28/03/2020 07:40:34 p.m.: [Método: Void InternalMove(System.String, System.String, Boolean), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\379-2-a15cddb6-b458-4412-b2c6-66b7a2ff78e1.PDF'.
+28/03/2020 07:40:34 p.m.: [Método: Void Move(System.String, System.String), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\379-2-a15cddb6-b458-4412-b2c6-66b7a2ff78e1.PDF'.
+28/03/2020 07:40:34 p.m.: [Método: entidad.minem.gob.pe.IndicadorDataBE RegistraTodosIndicadoresData(entidad.minem.gob.pe.IniciativaBE, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 152] - No se pudo encontrar el archivo 'C:\Archivos\Temp\379-2-a15cddb6-b458-4412-b2c6-66b7a2ff78e1.PDF'.
+28/03/2020 07:40:34 p.m.: [Método: System.Web.Mvc.JsonResult RegistrarDetalleIndicador(System.Web.HttpPostedFileBase[], System.Web.HttpPostedFileBase[], entidad.minem.gob.pe.IniciativaBE), Línea: 1020] - No se pudo encontrar el archivo 'C:\Archivos\Temp\379-2-a15cddb6-b458-4412-b2c6-66b7a2ff78e1.PDF'.
+28/03/2020 07:40:46 p.m.: [Método: Void WinIOError(Int32, System.String), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\379-1-3a63b50c-e77c-475b-8f43-0064f86e9c9a.PDF'.
+28/03/2020 07:40:46 p.m.: [Método: Void InternalMove(System.String, System.String, Boolean), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\379-1-3a63b50c-e77c-475b-8f43-0064f86e9c9a.PDF'.
+28/03/2020 07:40:46 p.m.: [Método: Void Move(System.String, System.String), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\379-1-3a63b50c-e77c-475b-8f43-0064f86e9c9a.PDF'.
+28/03/2020 07:40:46 p.m.: [Método: entidad.minem.gob.pe.IndicadorDataBE RegistraTodosIndicadoresData(entidad.minem.gob.pe.IniciativaBE, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 152] - No se pudo encontrar el archivo 'C:\Archivos\Temp\379-1-3a63b50c-e77c-475b-8f43-0064f86e9c9a.PDF'.
+28/03/2020 07:40:46 p.m.: [Método: System.Web.Mvc.JsonResult RegistrarDetalleIndicador(System.Web.HttpPostedFileBase[], System.Web.HttpPostedFileBase[], entidad.minem.gob.pe.IniciativaBE), Línea: 1020] - No se pudo encontrar el archivo 'C:\Archivos\Temp\379-1-3a63b50c-e77c-475b-8f43-0064f86e9c9a.PDF'.
+28/03/2020 07:42:28 p.m.: [Método: Void WinIOError(Int32, System.String), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\379-1-3a63b50c-e77c-475b-8f43-0064f86e9c9a.PDF'.
+28/03/2020 07:42:28 p.m.: [Método: Void InternalMove(System.String, System.String, Boolean), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\379-1-3a63b50c-e77c-475b-8f43-0064f86e9c9a.PDF'.
+28/03/2020 07:42:28 p.m.: [Método: Void Move(System.String, System.String), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\379-1-3a63b50c-e77c-475b-8f43-0064f86e9c9a.PDF'.
+28/03/2020 07:42:28 p.m.: [Método: entidad.minem.gob.pe.IndicadorDataBE RegistraTodosIndicadoresData(entidad.minem.gob.pe.IniciativaBE, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 152] - No se pudo encontrar el archivo 'C:\Archivos\Temp\379-1-3a63b50c-e77c-475b-8f43-0064f86e9c9a.PDF'.
+28/03/2020 07:42:28 p.m.: [Método: System.Web.Mvc.JsonResult RegistrarDetalleIndicador(System.Web.HttpPostedFileBase[], System.Web.HttpPostedFileBase[], entidad.minem.gob.pe.IniciativaBE), Línea: 1020] - No se pudo encontrar el archivo 'C:\Archivos\Temp\379-1-3a63b50c-e77c-475b-8f43-0064f86e9c9a.PDF'.
+28/03/2020 07:43:54 p.m.: [Método: Void WinIOError(Int32, System.String), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\379-1-3a63b50c-e77c-475b-8f43-0064f86e9c9a.PDF'.
+28/03/2020 07:43:54 p.m.: [Método: Void InternalMove(System.String, System.String, Boolean), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\379-1-3a63b50c-e77c-475b-8f43-0064f86e9c9a.PDF'.
+28/03/2020 07:43:54 p.m.: [Método: Void Move(System.String, System.String), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\379-1-3a63b50c-e77c-475b-8f43-0064f86e9c9a.PDF'.
+28/03/2020 07:43:54 p.m.: [Método: entidad.minem.gob.pe.IndicadorDataBE RegistraTodosIndicadoresData(entidad.minem.gob.pe.IniciativaBE, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 152] - No se pudo encontrar el archivo 'C:\Archivos\Temp\379-1-3a63b50c-e77c-475b-8f43-0064f86e9c9a.PDF'.
+28/03/2020 07:43:54 p.m.: [Método: System.Web.Mvc.JsonResult RegistrarDetalleIndicador(System.Web.HttpPostedFileBase[], System.Web.HttpPostedFileBase[], entidad.minem.gob.pe.IniciativaBE), Línea: 1020] - No se pudo encontrar el archivo 'C:\Archivos\Temp\379-1-3a63b50c-e77c-475b-8f43-0064f86e9c9a.PDF'.
+28/03/2020 07:46:46 p.m.: [Método: Void WinIOError(Int32, System.String), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\379-1-6c21527f-5368-400b-aef0-c19947daafc9.PDF'.
+28/03/2020 07:46:46 p.m.: [Método: Void InternalMove(System.String, System.String, Boolean), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\379-1-6c21527f-5368-400b-aef0-c19947daafc9.PDF'.
+28/03/2020 07:46:46 p.m.: [Método: Void Move(System.String, System.String), Línea: 0] - No se pudo encontrar el archivo 'C:\Archivos\Temp\379-1-6c21527f-5368-400b-aef0-c19947daafc9.PDF'.
+28/03/2020 07:46:46 p.m.: [Método: entidad.minem.gob.pe.IndicadorDataBE RegistraTodosIndicadoresData(entidad.minem.gob.pe.IniciativaBE, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 152] - No se pudo encontrar el archivo 'C:\Archivos\Temp\379-1-6c21527f-5368-400b-aef0-c19947daafc9.PDF'.
+28/03/2020 07:46:46 p.m.: [Método: System.Web.Mvc.JsonResult RegistrarDetalleIndicador(System.Web.HttpPostedFileBase[], System.Web.HttpPostedFileBase[], entidad.minem.gob.pe.IniciativaBE), Línea: 1020] - No se pudo encontrar el archivo 'C:\Archivos\Temp\379-1-6c21527f-5368-400b-aef0-c19947daafc9.PDF'.

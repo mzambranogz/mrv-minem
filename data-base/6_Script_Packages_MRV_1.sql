@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - sábado-marzo-21-2020   
+-- Archivo creado  - sábado-marzo-28-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_ADMIN_SISTEMA
@@ -586,6 +586,19 @@ end PKG_MRV_BLOCKCHAIN;
         pID_ENFOQUE IN NUMBER
     );
     
+    PROCEDURE USP_INS_ARCHIVO_DETALLE(
+         pID_INICIATIVA IN NUMBER,
+         pID_INDICADOR IN NUMBER,
+         pADJUNTO IN VARCHAR2,
+         pADJUNTO_BASE IN VARCHAR2
+    );
+    
+    PROCEDURE USP_SEL_ARCHIVO_DETALLE(
+         pID_INICIATIVA IN NUMBER,
+         pID_INDICADOR IN NUMBER,
+         pRefcursor OUT SYS_REFCURSOR
+    );
+    
 
 --////////////////////////////////////////// DINAMICO FINAL
 
@@ -755,7 +768,8 @@ END PKG_MRV_DETALLE_INDICADORES;
                             SEC.DESCRIPCION SECTOR,
                             U.EMAIL_USUARIO CORREO,
                             INS.DIRECCION_INSTITUCION DIRECCION,
-                            NVL(U.PRIMER_INICIO,1) PRIMER_INICIO
+                            NVL(U.PRIMER_INICIO,1) PRIMER_INICIO,
+                            R.DESCRIPCION_ROL ROL
         FROM        T_MAE_USUARIO_ROL UR
         INNER JOIN  T_MAE_ROL R ON UR.ID_ROL = R.ID_ROL
         LEFT JOIN   T_GENM_USUARIO U ON UR.ID_USUARIO = U.ID_USUARIO
@@ -2349,19 +2363,19 @@ end PKG_MRV_BLOCKCHAIN;
   )IS
         vContador NUMBER;
   BEGIN
-        SELECT COUNT(1) INTO vContador FROM T_MAEM_INDICADOR_DATA 
+        SELECT COUNT(1) INTO vContador FROM T_MAEM_INDICADOR_DATA
         WHERE ID_INICIATIVA = pID_INICIATIVA AND ID_ENFOQUE = pID_ENFOQUE AND ID_MEDMIT = pID_MEDMIT AND ID_INDICADOR = pID_INDICADOR AND
               ID_PARAMETRO = pID_PARAMETRO;
-              
+
         IF vContador = 0 THEN
             INSERT INTO T_MAEM_INDICADOR_DATA (ID_INICIATIVA, ID_INDICADOR, ID_ENFOQUE, ID_MEDMIT, ID_PARAMETRO, VALOR, FLAG_ESTADO)
             VALUES (pID_INICIATIVA, pID_INDICADOR, pID_ENFOQUE, pID_MEDMIT, pID_PARAMETRO, pVALOR, '1');
         ELSE
-            UPDATE T_MAEM_INDICADOR_DATA SET VALOR = pVALOR, FLAG_ESTADO = '1' --add
+            UPDATE T_MAEM_INDICADOR_DATA SET VALOR = pVALOR, FLAG_ESTADO = '1' --24.03.2020 
             WHERE ID_INICIATIVA = pID_INICIATIVA AND ID_ENFOQUE = pID_ENFOQUE AND ID_MEDMIT = pID_MEDMIT AND ID_INDICADOR = pID_INDICADOR AND
                   ID_PARAMETRO = pID_PARAMETRO;
         END IF;
-        
+
   END USP_INS_INDICADOR_DATA;
   
   PROCEDURE USP_SEL_GET_INDICADORES(
@@ -2458,7 +2472,7 @@ end PKG_MRV_BLOCKCHAIN;
    )AS
    BEGIN
         OPEN pRefcursor FOR
-        SELECT DISTINCT IDA.ID_ENFOQUE, E.DESCRIPCION, IDA.ID_INICIATIVA, IDA.ID_MEDMIT
+        SELECT DISTINCT IDA.ID_ENFOQUE, E.DESCRIPCION, IDA.ID_INICIATIVA, IDA.ID_MEDMIT, E.ADJUNTO --add
         FROM    T_MAEM_INDICADOR_DATA IDA
         LEFT JOIN T_GENM_ENFOQUE E ON IDA.ID_ENFOQUE = E.ID_ENFOQUE
         WHERE   IDA.ID_INICIATIVA = pID_INICIATIVA AND IDA.ID_MEDMIT = pID_MEDMIT AND IDA.FLAG_ESTADO = '1';
@@ -2601,6 +2615,52 @@ end PKG_MRV_BLOCKCHAIN;
     BEGIN    
         UPDATE T_MAEM_INDICADOR_DATA SET FLAG_ESTADO = '0' WHERE ID_INICIATIVA = pID_INICIATIVA AND ID_MEDMIT = pID_MEDMIT;    
     END USP_UPD_DELETE_DETALLE;
+    
+    
+    PROCEDURE USP_INS_ARCHIVO_DETALLE(
+         pID_INICIATIVA IN NUMBER,
+         pID_INDICADOR IN NUMBER,
+         pADJUNTO IN VARCHAR2,
+         pADJUNTO_BASE IN VARCHAR2
+    )AS
+        vCOUNT INT;
+    BEGIN
+        SELECT COUNT(1) INTO vCOUNT
+        FROM T_MAED_INDICADOR_ADJUNTO A
+        WHERE A.ID_INICIATIVA = pID_INICIATIVA
+            AND A.ID_INDICADOR = pID_INDICADOR;
+        
+        IF vCOUNT = 0 THEN
+            INSERT INTO T_MAED_INDICADOR_ADJUNTO(ID_INICIATIVA,
+                                                 ID_INDICADOR,
+                                                 ADJUNTO,
+                                                 ADJUNTO_BASE)
+            VALUES(pID_INICIATIVA, pID_INDICADOR, pADJUNTO, pADJUNTO_BASE);
+        ELSE
+            UPDATE T_MAED_INDICADOR_ADJUNTO
+            SET ADJUNTO = pADJUNTO,
+                ADJUNTO_BASE = pADJUNTO_BASE
+            WHERE ID_INICIATIVA = pID_INICIATIVA
+                AND ID_INDICADOR = pID_INDICADOR;
+        END IF;
+    END USP_INS_ARCHIVO_DETALLE;
+    
+    PROCEDURE USP_SEL_ARCHIVO_DETALLE(
+         pID_INICIATIVA IN NUMBER,
+         pID_INDICADOR IN NUMBER,
+         pRefcursor OUT SYS_REFCURSOR
+    )AS
+    BEGIN
+        OPEN pRefcursor FOR
+        SELECT  A.ID_INICIATIVA,
+                A.ID_INDICADOR,
+                A.ADJUNTO,
+                A.ADJUNTO_BASE
+        FROM    T_MAED_INDICADOR_ADJUNTO A
+        WHERE   A.ID_INICIATIVA = pID_INICIATIVA
+                AND (A.ID_INDICADOR = pID_INDICADOR OR pID_INDICADOR = 0)
+        ORDER BY    A.ID_INDICADOR;
+    END USP_SEL_ARCHIVO_DETALLE;
   
   --////////////////////////////////////////// DINAMICO FINAL  
 

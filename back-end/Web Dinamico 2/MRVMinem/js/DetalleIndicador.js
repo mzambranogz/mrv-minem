@@ -2775,6 +2775,7 @@ function fn_procesoDetalleIndicador(url, estado) {
     }
     if (archivos == "") archivos = "|";
 
+    debugger;
     var id_delete = "";
     if ($("#cuerpoTablaIndicador").data("delete") != "") {
         id_delete = $("#cuerpoTablaIndicador").data("delete");
