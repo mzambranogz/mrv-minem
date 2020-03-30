@@ -34,7 +34,10 @@
         <asp:Button ID="btnReporte" runat="server" OnClick="btnReporte_Click" Text="Mostrar Reporte" BorderStyle="Ridge" />
             <br />
             <br />
-            <rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Verdana" Font-Size="8pt" InteractiveDeviceInfos="(Colección)" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="98%" Height="7.1in" BackColor="#ECE9E8" DocumentMapWidth="50%" Visible="False"></rsweb:ReportViewer>
+            <rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Verdana" Font-Size="8pt" InteractiveDeviceInfos="(Colección)" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="98%" Height="7.1in" BackColor="#ECE9E8" DocumentMapWidth="50%" Visible="False">
+                <LocalReport ReportPath="Reportes\rptFichaMinam.rdlc">
+                </LocalReport>
+            </rsweb:ReportViewer>
 
         </div>
     </form>

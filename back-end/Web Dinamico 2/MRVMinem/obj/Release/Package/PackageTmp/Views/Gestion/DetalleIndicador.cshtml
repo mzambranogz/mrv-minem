@@ -20,7 +20,8 @@
     </div>
 </div>
 <div class="container-fluid my-4" id="cuerpo">
-    <form id="formRegistrar" enctype="multipart/form-data" method="post"> <!-- ADD form -->
+    <form id="formRegistrar" enctype="multipart/form-data" method="post">
+        <!-- ADD form -->
         <div class="row m-0">
             <div class="col-12 cuerpo-interior">
                 <div class="container py-4">
@@ -54,7 +55,7 @@
                             <li class="nav-item flex-fill"><a class="nav-link" id="pills-01-tab" data-toggle="pill" href="#pills-01" role="tab" aria-controls="pills-01" aria-selected="true" order="1">IDENTIFICACIÓN</a></li>
                             <li class="nav-item flex-fill"><a class="nav-link active" id="pills-02-tab" data-toggle="pill" href="#pills-02" role="tab" aria-controls="pills-02" aria-selected="false" order="2">DETALLES</a></li>
                             @*<li class="nav-item flex-fill"><a class="nav-link" id="pills-03-tab" data-toggle="pill" href="#pills-03" role="tab" aria-controls="pills-03" aria-selected="false" order="3">RESUMEN</a></li>
-                            <li class="nav-item flex-fill"><a class="nav-link" id="pills-04-tab" data-toggle="pill" href="#pills-04" role="tab" aria-controls="pills-04" aria-selected="false" order="4">DOCUMENTOS</a></li>*@
+                                <li class="nav-item flex-fill"><a class="nav-link" id="pills-04-tab" data-toggle="pill" href="#pills-04" role="tab" aria-controls="pills-04" aria-selected="false" order="4">DOCUMENTOS</a></li>*@
                         </ul>
                         <div class="progress" style="height: 20px;">
                             <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 50%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">50%</div>
@@ -301,10 +302,6 @@
                                                         }
                                                     }
 
-                                                    @*<option selected value="1">Vehículo Eléctrico</option>
-                                                    <option value="2">Vehículo Híbrido</option>*@
-                                                    @*<option>Enfoque 03</option>
-                                                        <option>Enfoque 04</option>*@
                                                 </select>
                                             </div>
                                         </div>
@@ -321,26 +318,20 @@
                                         <div id="tbl-main-preload" class="mb-3">@*<i Class="fas fa-spinner fa-spin px-1"></i> Cargando...*@</div>
                                         <div id="tbl-main" class="table-responsive tabla-principal tabla-detalle-indicadores-1" data-order="tbl-1">
                                             <table class="table table-hover" id="tablaIndicador" data-fila="0" data-order="tbl-1">
-                                                <thead id="cabeceraTablaIndicador" >
-                                                    @*<tr class="bg-primary text-white">
-                                                        <th class="text-center" style="background-color: green;" scope="col"><span>N°&nbsp;</span></th>
-                                                        <th class="text-center" style="background-color: green;" scope="col"><span>Año&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Año"></i></span></th>
-                                                        <th class="text-center" style="background-color: green;" scope="col"><span>Tipo Vehiculo&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Tipo Vehículo"></i></span></th>
-                                                        <th class="text-center" style="background-color: orange;" scope="col"><span>Tipo Combustible&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Tipo Combustible"></i></span></th>
-                                                        <th class="text-center" style="background-color: green;" scope="col"><span>KRV&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador KRV"></i></span></th>
-                                                        <th class="text-center" style="background-color: green;" scope="col"><span>Cantidad&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Cantidad"></i></span></th>
-                                                        <th class="text-center" style="background-color: green;" scope="col"><span>Factor de Rendimiento&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Rendimiento"></i></span></th>
-                                                        <th class="text-center" style="background-color: orange;" scope="col"><span>Línea Base Emisiones GEI (tCO<sub>2</sub>eq)</span></th>
-                                                        <th class="text-center" style="background-color: green;" scope="col"><span>Iniciativa Mitigación Emisiones GEI (tCO<sub>2</sub>eq)</span></th>
-                                                        <th class="text-center" style="background-color: #2271b3;" scope="col"><span>Emisiones GEI Reducidas (tCO<sub>2</sub>eq)</span></th>
-                                                        <th class="text-center" scope="col">Más</th>
-                                                        <th class="text-hide" scope="col" style="display:none;">Id. Iniciativa</th>
-                                                    </tr>*@
+                                                <thead id="cabeceraTablaIndicador">
+
                                                 </thead>
-                                                <tbody id="cuerpoTablaIndicador" data-row="0" data-total="0" data-delete=""> <!-- add id delete-->
+                                                <tbody id="cuerpoTablaIndicador" data-row="0" data-total="0" data-delete="">
+                                                    <!-- add id delete-->
                                                 </tbody>
                                             </table>
-                                        </div>                                    
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="col-sm-10"><progress id="progress" class="form-control" style="display:none"></progress></div>
+                                        <div class="col-sm-2"><label id="lbProgress" style="display:none;margin-left:-20px;margin-top:2px;font-weight:bold; color:blue; font-size:medium;">0 %</label></div>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -350,7 +341,7 @@
                                 </div>
                             </div>
 
-                            
+
                             <div class="container py-4">
                                 <div class="row">
                                     <div class="col-12">
@@ -376,16 +367,6 @@
                                 </div>
                             </div>
 
-                            <!--         -->
-
-                            @*<div class="container py-4">
-                                <div class="row">
-                                    <div class="col-12 text-center"><a href="#" target="_blank"><img src="~/images/sello.svg" width="180" data-toggle="tooltip" data-placement="top" title="Ir a la web del sello"></a></div>
-                                </div>
-                            </div>*@
-
-                            <!--         -->
-
                             <div class="container py-4">
                                 <div class="row">
                                     <div class="col-sm-12-col-md-12 col-lg-6">
@@ -403,71 +384,71 @@
                                     </div>
                                     <div class="col-sm-12-col-md-12 col-lg-6">
                                         <div class="form-group" @*id="archivos-documentos"*@>
-                                        @{
-                                            var total = 0;
-                                            if (Model.iniciativa_mit.ListaSustentos != null)
-                                            {
-                                                total = Model.iniciativa_mit.ListaSustentos.Count();
-                                            }
-                                        }
-                                        <label>Archivos adjuntos: <span id="total-documentos" data-cantidad="@total" data-eliminarfile="">@total</span> en total</label>
-                                        <div id="archivos-guardados">
-                                        @{
-                                            if (Model.iniciativa_mit.ListaSustentos != null)
-                                            {
-                                                var extension = "fa-file-word";
-
-                                                foreach (var item in Model.iniciativa_mit.ListaSustentos)
+                                            @{
+                                                var total = 0;
+                                                if (Model.iniciativa_mit.ListaSustentos != null)
                                                 {
-                                                    if (item.ADJUNTO_BASE.Contains("pdf"))
+                                                    total = Model.iniciativa_mit.ListaSustentos.Count();
+                                                }
+                                            }
+                                            <label>Archivos adjuntos: <span id="total-documentos" data-cantidad="@total" data-eliminarfile="">@total</span> en total</label>
+                                            <div id="archivos-guardados">
+                                                @{
+                                                    if (Model.iniciativa_mit.ListaSustentos != null)
                                                     {
-                                                        extension = "fa-file-pdf";
-                                                    }
-                                                    else
-                                                    {
-                                                        if (item.ADJUNTO_BASE.Contains("jpeg") || item.ADJUNTO_BASE.Contains("png") || item.ADJUNTO_BASE.Contains("jpg") || item.ADJUNTO_BASE.Contains("gif"))
+                                                        var extension = "fa-file-word";
+
+                                                        foreach (var item in Model.iniciativa_mit.ListaSustentos)
                                                         {
-                                                            extension = "fa-file-image";
-                                                        }
-                                                        else
-                                                        {
-                                                            if (item.ADJUNTO_BASE.Contains("xls") || item.ADJUNTO_BASE.Contains("xlsx"))
+                                                            if (item.ADJUNTO_BASE.Contains("pdf"))
                                                             {
-                                                                extension = "fa-file-excel";
+                                                                extension = "fa-file-pdf";
                                                             }
                                                             else
                                                             {
-                                                                if (item.ADJUNTO_BASE.Contains("ppt") || item.ADJUNTO_BASE.Contains("pptx"))
+                                                                if (item.ADJUNTO_BASE.Contains("jpeg") || item.ADJUNTO_BASE.Contains("png") || item.ADJUNTO_BASE.Contains("jpg") || item.ADJUNTO_BASE.Contains("gif"))
                                                                 {
-                                                                    extension = "fa-file-powerpoint";
+                                                                    extension = "fa-file-image";
                                                                 }
                                                                 else
                                                                 {
-                                                                    if (item.ADJUNTO_BASE.Contains("doc") || item.ADJUNTO_BASE.Contains("docx"))
+                                                                    if (item.ADJUNTO_BASE.Contains("xls") || item.ADJUNTO_BASE.Contains("xlsx"))
                                                                     {
-                                                                        extension = "fa-file-word";
+                                                                        extension = "fa-file-excel";
                                                                     }
                                                                     else
                                                                     {
-                                                                        extension = "fa-file";
+                                                                        if (item.ADJUNTO_BASE.Contains("ppt") || item.ADJUNTO_BASE.Contains("pptx"))
+                                                                        {
+                                                                            extension = "fa-file-powerpoint";
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            if (item.ADJUNTO_BASE.Contains("doc") || item.ADJUNTO_BASE.Contains("docx"))
+                                                                            {
+                                                                                extension = "fa-file-word";
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                extension = "fa-file";
+                                                                            }
+                                                                        }
                                                                     }
                                                                 }
                                                             }
+
+                                                            <div class="input-group mb-3" id="eliminar-@item.ID_INICIATIVA_SUSTENTATORIO">
+                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="fas @extension"></i></span></div><span class="form-control-plaintext">@item.ADJUNTO_BASE</span>
+                                                                <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="far fa-trash-alt" onclick="fn_eliminarArchivo(@item.ID_INICIATIVA_SUSTENTATORIO)"></i></span></div>
+                                                            </div>
                                                         }
                                                     }
-
-                                                    <div class="input-group mb-3" id="eliminar-@item.ID_INICIATIVA_SUSTENTATORIO">
-                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="fas @extension"></i></span></div><span class="form-control-plaintext">@item.ADJUNTO_BASE</span>
-                                                        <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="far fa-trash-alt" onclick="fn_eliminarArchivo(@item.ID_INICIATIVA_SUSTENTATORIO)"></i></span></div>
-                                                    </div>
                                                 }
-                                            }
-                                        }
+                                            </div>
+                                            <div id="archivos-documentos"></div>
                                         </div>
-                                        <div id="archivos-documentos"></div>
                                     </div>
-                                    </div>
-                                </div>                                
+                                </div>
                             </div>
 
                             <div class="container py-5">
@@ -484,56 +465,7 @@
                                 </div>
                             </div>
 
-                                @*<div class="tab-pane fade" id="pills-03" role="tabpanel" aria-labelledby="pills-03-tab">
-                <div class="container py-5">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="h5 pb-5 text-primary">
-                                <div class="steps">PASO 3 DE 4 &nbsp;</div>Resumen<br><small class="text-muted">Este es el detalle de su detalle de indicadores</small>
-                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="container py-4">
-                    <div class="h5">Resumen de Detalles de Indicadores&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Mostramos el resumen total calculado en el detalle de indicadores"></i></div>
-                    <div class="dropdown-divider"></div>
-                    <div class="row">
-                        <div class="col-12 px-0">
-                            <div class="table-responsive tabla-principal">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr class="bg-primary text-white">
-                                            <th class="text-center" scope="col" width="2%"><span>N°&nbsp;</span></th>
-                                            <th scope="col" width="88%"><span>Resumen</span></th>
-                                            <th scope="col" width="10%"><span>Total</span></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th class="text-center" data-encabezado="Número" scope="row">1</th>
-                                            <td data-encabezado="Resumen">@Model.medida.IPSC_MEDMIT</td>
-                                            <td data-encabezado="Total"><strong id="total-detalle2">0.00</strong><strong>&nbsp;tCO<sub>2</sub>eq</strong></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dropdown-divider my-5"></div>
-                    <div class="row">
-                        <div class="col-sm-12 col-md-12 col-lg-6">&nbsp;</div>
-                        <div class="col-sm-12 col-md-12 col-lg-6 text-right">
-                            <div class="row justify-content-end">
-                                <div class="col-lg-6"><a class="btn btn-dark px-5 w-100 nav-tab text-center mb-3" href="#" dest="2"><i class="fas fa-arrow-left pr-1"></i>Anterior</a></div>
-                                <div class="col-lg-6"><a class="btn btn-success px-5 w-100 nav-tab text-center" href="#" dest="4">Siguiente<i class="fas fa-arrow-right pl-1"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>*@
-                                @*<div class="tab-pane fade" id="pills-04" role="tabpanel" aria-labelledby="pills-04-tab">*@
-
-                            </div>
                     </div>
                 </div>
                 <div class="modal fade" id="tipo-ingreso-detalle" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -560,9 +492,9 @@
                     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                         <div class="modal-content">
                             @*<div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Mensaje de Usuario</h5>
-                                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            </div>*@
+                                    <h5 class="modal-title" id="exampleModalLabel">Mensaje de Usuario</h5>
+                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                </div>*@
                             <div class="modal-body medidas-modal">
                                 <div class="row">
                                     <div class="col-sm-12 col-md-12 col-lg-12">
@@ -573,9 +505,9 @@
                                         <p class="text-center">Confirme si está seguro de enviar todos los datos registrados para iniciar el proceso de revisión y obtener la aprobación por parte de nuestros especialistas.</p>
                                     </div>
                                     @*<div class="col-sm-12 col-md-12 col-lg-12">
-                                        <h3 class="text-center">¿Está seguro de enviar su solicitud a revisión? <br></h3>
-                                        <p class="text-center">Confirme si está seguro de enviar todos los datos registrados para iniciar el proceso de revisión y obtener la aprobación por parte de nuestros especialistas.</p>
-                                    </div>*@
+                                            <h3 class="text-center">¿Está seguro de enviar su solicitud a revisión? <br></h3>
+                                            <p class="text-center">Confirme si está seguro de enviar todos los datos registrados para iniciar el proceso de revisión y obtener la aprobación por parte de nuestros especialistas.</p>
+                                        </div>*@
                                     <div class="col-sm-12 col-md-12 col-lg-12" id="mensajeModalRegistrar">
                                         <div class="alert alert-warning d-flex align-items-stretch" role="alert">
                                             <div class="alert-wrap mr-3">
@@ -600,28 +532,7 @@
                                             </div>
                                         </div>
 
-                                        @*<div class="progress mb-3" style="height: 25px;">
-                                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">Guardado...</div>
-                                        </div>*@
-
-                                        @*<div class="alert alert-danger d-flex align-items-stretch" role="alert">
-                                                <div class="alert-wrap mr-3">
-                                                    <div class="sa">
-                                                        <div class="sa-error">
-                                                            <div class="sa-error-x">
-                                                                <div class="sa-error-left"></div>
-                                                                <div class="sa-error-right"></div>
-                                                            </div>
-                                                            <div class="sa-error-placeholder"></div>
-                                                            <div class="sa-error-fix"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="alert-wrap">
-                                                    <h6>Error de registro</h6>
-                                                    <hr><small class="mb-0">Verifique que los datos sean correctamente ingresados, complete todos los campos obligatorios e intente otra vez.</small>
-                                                </div>
-                                            </div>
+                                        <div id="mensajeSuccess" hidden>
 
                                             <div class="alert alert-success d-flex align-items-stretch" role="alert">
                                                 <div class="alert-wrap mr-3">
@@ -635,41 +546,23 @@
                                                     </div>
                                                 </div>
                                                 <div class="alert-wrap">
-                                                    <h6>Bien hecho</h6>
-                                                    <hr><small class="mb-0">Los datos de su detalle de indicadores fueron guardados exitosamente, espere la aprobación del especialista para continuar confirmar su registro. En breve le notificaremos el estado de su solicitud de revisión.</small>
+                                                    <h6>Felicitaciones</h6>
+                                                    <hr>
+                                                    <a class="float-right" href="@Model.url" target="_blank"><img src="~/images/sello_new.svg" width="120" data-toggle="tooltip" data-placement="top" title="Ir a la web del sello"></a>
+                                                    <small class="mb-0">Usted ha completado el envío de detalle de su iniciativa de mitigación que será verificada por uno de nuestros especialistas. También, le recordamos que puede ingresar a nuestra <b>Plataforma del Sello de Reconocimiento de Energía Sostenible</b></small>
                                                 </div>
-                                            </div>*@
-                                            <div id="mensajeSuccess" hidden>
-
-                                                <div class="alert alert-success d-flex align-items-stretch" role="alert">
-                                                    <div class="alert-wrap mr-3">
-                                                        <div class="sa">
-                                                            <div class="sa-success">
-                                                                <div class="sa-success-tip"></div>
-                                                                <div class="sa-success-long"></div>
-                                                                <div class="sa-success-placeholder"></div>
-                                                                <div class="sa-success-fix"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="alert-wrap">
-                                                        <h6>Felicitaciones</h6>
-                                                        <hr>
-                                                        <a class="float-right" href="@Model.url" target="_blank"><img src="~/images/sello_new.svg" width="120" data-toggle="tooltip" data-placement="top" title="Ir a la web del sello"></a>
-                                                        <small class="mb-0">Usted ha completado el envío de detalle de su iniciativa de mitigación que será verificada por uno de nuestros especialistas. También, le recordamos que puede ingresar a nuestra <b>Plataforma del Sello de Reconocimiento de Energía Sostenible</b></small>
-                                                    </div>
-                                                </div>
-
                                             </div>
-                                            
-                                  
-                                        
+
+                                        </div>
+
+
+
                                     </div>
                                 </div>
                             </div>
                             <div class="modal-footer justify-content-center" id="modalRegistrarBoton">
                                 <button class="btn btn-info" type="button" onclick="fn_guardarDetalleIndicador();">Si, grabar</button>
-                                <button class="btn btn-dark" type="button" data-dismiss="modal">Cancelar</button>                                
+                                <button class="btn btn-dark" type="button" data-dismiss="modal">Cancelar</button>
                             </div>
                             <div class="modal-footer justify-content-center" id="pieCorrecto">
                                 <!-- add 04-02-2020 -->
@@ -682,9 +575,9 @@
                     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                         <div class="modal-content">
                             @*<div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Mensaje de Usuario</h5>
-                                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            </div>*@
+                                    <h5 class="modal-title" id="exampleModalLabel">Mensaje de Usuario</h5>
+                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                </div>*@
                             <div class="modal-body medidas-modal">
                                 <div class="row" id="mensajeModalAvance">
                                     <div class="col-sm-12 col-md-12 col-lg-12">
@@ -695,31 +588,11 @@
                                         <p class="text-center">Los datos ingresados serán almacenados temporalmente y podrán ser regularizados al editar su iniciativa.</p>
                                     </div>
 
-                                    @*<div class="col-sm-12 col-md-12 col-lg-12">
-                                        <h3 class="text-center">¿Desea guardar su avance? <br></h3>
-                                        <p class="text-center">Los datos ingresados serán almacenados temporalmente y podrán ser regularizados al editar su iniciativa.</p>
-                                    </div>*@
-                                    @*<div class="col-sm-12 col-md-12 col-lg-12">
-                                            <div class="alert alert-warning d-flex align-items-stretch" role="alert">
-                                                <div class="alert-wrap mr-3">
-                                                    <div class="sa">
-                                                        <div class="sa-warning">
-                                                            <div class="sa-warning-body"></div>
-                                                            <div class="sa-warning-dot"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="alert-wrap">
-                                                    <h6>Sus avances fueron guardados</h6>
-                                                    <hr>Recuerde, podrá solicitar una revisión una vez complete todos los campos obligatorios.
-                                                </div>
-                                            </div>
-                                        </div>*@
                                 </div>
                             </div>
                             <div class="modal-footer justify-content-center" id="modalAvanceBoton">
                                 <button class="btn btn-info" type="button" onclick="fn_guardarAvances();">Si, grabar</button>
-                                <button class="btn btn-dark" type="button" data-dismiss="modal">Cancelar</button>                                
+                                <button class="btn btn-dark" type="button" data-dismiss="modal">Cancelar</button>
                             </div>
                             <div class="modal-footer justify-content-center" id="pieCorrectoAvance">
                                 <!-- add 04-02-2020 -->
@@ -756,30 +629,6 @@
                         </div>
                     </div>
                 </div>
-                @*<div class="modal fade" id="registrar-placas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Registrar placas</h5>
-                                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            </div>
-                            <div class="modal-body medidas-modal">
-                                <div class="row">
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <h3 class="text-center">Agregue sus placas <br></h3>
-                                        <p class="text-center">Digite cada una de las placas de sus vehículos y presione enter para continuar agregando la siguiente.</p>
-                                    </div>
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-                                        <input type="text" value="ABC-123,DEF-456,GHI-789,JKL-012,MNO-345" data-role="tagsinput">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button class="btn btn-primary btn-afirmar-placas" type="button">Guardar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>*@
 
             </div>
         </div>
@@ -822,7 +671,7 @@
                 default:
                     $(this).val('');
                     MRV.Alert('Alerta', "formato de archivo no válido", '', 'es');
-                    storedFiles = [];  
+                    storedFiles = [];
                     $("#total-documentos").html($("#total-documentos").data("cantidad"));
                     return false;
                     break;

@@ -54,4 +54,7 @@
     if ($("#cbo-tabla-mantenimiento").val() == 18) {
         location.href = baseUrl + "Mantenimiento/Parametros";
     }
+    if ($("#cbo-tabla-mantenimiento").val() == 19) {
+        location.href = baseUrl + "Mantenimiento/Rol";
+    }
 }

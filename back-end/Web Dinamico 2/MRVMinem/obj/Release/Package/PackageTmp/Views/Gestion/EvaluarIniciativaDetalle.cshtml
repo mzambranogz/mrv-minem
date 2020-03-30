@@ -41,7 +41,8 @@
                                 <div class="btn-group btn-group-lg w-100">
                                     <a class="btn btn-success dropdown-toggle w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0"><i class="fas fa-download pr-1"></i>Descargar</a>
                                     <div class="dropdown-menu dropdown-menu-right w-100">
-                                        <a class="dropdown-item" href="#" onclick="exportarDetalle();"><i class="fas fa-file-excel pr-1"></i>Formato excel</a><div id="divExportar"></div> <!-- add metodo exportar y div creado con su id -->
+                                        <a class="dropdown-item" href="~/documentos/Exportar/@Model.listaIndData[0].ADJUNTO" download><i class="fas fa-file-excel pr-1"></i>Formato excel</a><div id="divExportar"></div> <!-- add metodo exportar y div creado con su id -->
+                                        @*<a class="dropdown-item" href="#" onclick="exportarDetalle();"><i class="fas fa-file-excel pr-1"></i>Formato excel</a><div id="divExportar"></div> <!-- add metodo exportar y div creado con su id -->*@
                                         @*<a class="dropdown-item" href="#"><i class="fas fa-file-pdf pr-1"></i>Formato pdf</a>*@
                                     </div>
                                 </div>
@@ -338,7 +339,7 @@
                                                         <th class="text-center grupo-columna-@columna" scope="col"><span>@itemCab.NOMBRE_PARAMETRO&nbsp;</span><span>@descripcion</span><small>@itemCab.DESCRIPCION_PARAMETRO</small></th>
 
                                                     }
-                                                    <th class="text-center" scope="col">Más</th>
+                                                    @*<th class="text-center" scope="col">Más</th>*@
                                                 </tr>
                                             </thead>
                                             <tbody id="cuerpoTablaIndicador-1" data-row="0" data-total="0" data-delete="">
@@ -376,14 +377,14 @@
                                                                 total_reducido += Convert.ToDouble(itemDet.VALOR);
                                                             }
                                                         }
-                                                        <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                                        @*<td class="text-center text-xs-right" data-encabezado="Acciones">
                                                             <div class="btn-group">
                                                                 <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
                                                                 <div class="dropdown-menu dropdown-menu-right">
                                                                     <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;Verificar</a>
                                                                 </div>
                                                             </div>
-                                                        </td>
+                                                        </td>*@
                                                     </tr>
                                                 }
                                             </tbody>
@@ -576,7 +577,8 @@
                                     <div class="btn-group w-100">
                                         <a class="btn btn-success dropdown-toggle w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0"><i class="fas fa-download pr-1"></i>Descargar</a>
                                         <div class="dropdown-menu dropdown-menu-right w-100">
-                                            <a class="dropdown-item" href="#" onclick="exportarDetalle();"><i class="fas fa-file-excel pr-1"></i>Formato excel</a><div id="divExportar"></div> <!-- add metodo exportar y div creado con su id -->
+                                            <a class="dropdown-item" href="~/documentos/Exportar/@Model.listaIndData[0].ADJUNTO" download><i class="fas fa-file-excel pr-1"></i>Formato excel</a><div id="divExportar"></div> <!-- add metodo exportar y div creado con su id -->
+                                            @*<a class="dropdown-item" href="#" onclick="exportarDetalle();"><i class="fas fa-file-excel pr-1"></i>Formato excel</a><div id="divExportar"></div> <!-- add metodo exportar y div creado con su id -->*@
                                             @*<a class="dropdown-item" href="#"><i class="fas fa-file-pdf pr-1"></i>Formato pdf</a>*@
                                         </div>
                                     </div>
@@ -586,8 +588,9 @@
                         </div>
                         <div class="col-sm-12 col-md-12 col-lg-6 text-right">
                             <div class="row justify-content-end">
+                                <div class="col-lg-6"></div>
                                 <div class="col-lg-6"><a class="btn btn-warning px-5 w-100 nav-tab text-center mb-3" href="#" data-toggle="modal" data-target="#observar-evaluacion"><i class="fas fa-eye px-1"></i>Observar</a></div>
-                                <div class="col-lg-6"><a class="btn btn-primary px-5 w-100 nav-tab text-center" href="#" data-toggle="modal" data-target="#aprobar-evaluacion">Aprobar<i class="fas fa-check px-1"></i></a></div>
+                                @*<div class="col-lg-6"><a class="btn btn-primary px-5 w-100 nav-tab text-center" href="#" data-toggle="modal" data-target="#aprobar-evaluacion">Aprobar<i class="fas fa-check px-1"></i></a></div>*@
                             </div>
                         </div>
                     </div>
@@ -635,7 +638,7 @@
                                     <div class="swal2-icon swal2-question swal2-icon-show" style="display: flex;">
                                         <div class="swal2-icon-content"><i class="fas fa-question"></i></div>
                                     </div>
-                                    <h3 class="text-center">¿Está seguro de aprobar la inicitiva de mitigación seleccionada?</h3>
+                                    <h3 class="text-center">¿Está seguro de aprobar la iniciativa de mitigación seleccionada?</h3>
                                     <p class="text-center">Está de acuerdo en aprobar todos los datos vinculados de esta iniciativa de mitigación, como de los detalles de indicadores registrados.</p>
                                 </div>
                                 @*<div class="col-sm-12 col-md-12 col-lg-12">

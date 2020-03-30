@@ -1,4 +1,4 @@
-﻿/// <reference path="C:\Users\JK\Desktop\BACKUP 20-01-20\back-end\Web\MRVMinem\Views/Gestion/Sesion.cshtml" />
+﻿
 var indicadores = new Array();
 var documentos = new Array();
 
@@ -294,14 +294,14 @@ function CargarDatosIniciativa() {
 
                         if ($("#Control").data("revision") == 0) {
                             //$("#cbo-moneda").val(data[i]["ID_MONEDA"]);
-                            
+
                             //if (data[i]["FECHA_FIN"].toString() != "01/01/0001") {
                             //    $("#txt-fecha-fin").val(data[i]["FECHA_EDITAR_FIN"]);
                             //}
                         } else {
                             $("#emisorObservacion").append($("#Control").data("nombres"));
-                            
-                            
+
+
                         }
                         if (data[i]["PRIVACIDAD_INICIATIVA"] == 1) {
                             $("#chk-publicar").prop("checked", true);
@@ -1322,7 +1322,7 @@ function fn_observacionAdminDetalleIndicador() {
         msj = msj + '                            </div>';
         $("#modalRevision").append(msj);
     }
-    
+
 }
 
 $("#observar-revision").on("hidden.bs.modal", function () {
@@ -1620,7 +1620,7 @@ function fn_observacionVerificarDetalleIndicador() {
         msj = msj + '                            </div>';
         $("#modalRevision").append(msj);
     }
-       
+
 }
 
 $("#observar-verificacion").on("hidden.bs.modal", function () {
@@ -1807,7 +1807,7 @@ function fn_verificarIniciativaDetalle() {
         msj = msj + '                            </div>';
         $("#modalAprobacion").append(msj);
     }
-    
+
 }
 
 $("#aprobar-verificacion").on("hidden.bs.modal", function () {
@@ -1917,7 +1917,7 @@ function fn_DatosComentario(id) {
 }
 
 
-function fn_EstadoActor(id){
+function fn_EstadoActor(id) {
     $("#estado-actor").data("estado", id);
     //alert($("#estado-actor").data("estado"));
 }
@@ -1937,95 +1937,95 @@ function inicio() {
 //==============================================================================================================
 
 function cargarCuerpoElectrico(data, fila, enfoque, bandera) {
-        var tr = '<tr id="detalles-tr-' + fila + '" data-value="' + fila + '0" >';
-        tr = tr + '         <th class="text-center" data-encabezado="Número" scope="row" id="row-' + fila + '">' + fila + '</th>';
-        tr = tr + '         <td data-encabezado="Columna 01">';
-        tr = tr + '             <div class="form-group m-0">';
-        tr = tr + '                     <select class="form-control form-control-sm text-right" id="cbo-det-1-' + fila + '" onchange="fn_calcular(' + fila + ')">';
-        tr = tr + '                          <option value="2018">2018</option>';
-        tr = tr + cargarAnio();
-        tr = tr + '                     </select>';
-        tr = tr + '            </div>';
-        tr = tr + '         </td>';
-        tr = tr + '         <td data-encabezado="Columna 04">';
-        tr = tr + '              <div class="form-group m-0">';
-        tr = tr + '                      <input class="form-control form-control-sm text-right" type="date" placeholder="" id="dat-det-1-' + fila + '" onBlur="fn_calcular(' + fila + ')">';
-        tr = tr + '              </div>';
-        tr = tr + '         </td>';
-        tr = tr + '         <td data-encabezado="Columna 02">';
-        tr = tr + '             <div class="form-group m-0">';
-        tr = tr + '                     <select class="form-control form-control-sm text-right" id="cbo-det-2-' + fila + '" onchange="fn_calcular(' + fila + ')">';
-        tr = tr + '                          <option value="0">Seleccione</option>';
-        tr = tr + '                     </select>';
-        tr = tr + '            </div>';
-        tr = tr + '         </td>';
-        tr = tr + '         <td data-encabezado="Columna 03">';
-        tr = tr + '             <div class="form-group m-0">';
-        tr = tr + '                     <select class="form-control form-control-sm text-right" id="cbo-det-3-' + fila + '" onchange="fn_calcular(' + fila + ')">';
-        tr = tr + '                          <option value="0">Seleccione</option>';
-        tr = tr + '                     </select>';
-        tr = tr + '            </div>';
-        tr = tr + '         </td>';
-        tr = tr + '         <td data-encabezado="Columna 04">';
-        tr = tr + '              <div class="form-group m-0">';
-        tr = tr + '                      <input class="form-control form-control-sm text-right" type="text" placeholder="" id="txt-det-1-' + fila + '" onBlur="fn_calcular(' + fila + ')">';
-        tr = tr + '              </div>';
-        tr = tr + '         </td>';
-        tr = tr + '         <td data-encabezado="Columna 05">';
-        tr = tr + '              <div class="form-group m-0">';
-        tr = tr + '                      <input class="form-control form-control-sm text-right" type="text" placeholder="" id="txt-det-2-' + fila + '" onBlur="fn_calcular(' + fila + ')">';
-        tr = tr + '              </div>';
-        tr = tr + '         </td>';
-        tr = tr + '         <td data-encabezado="Columna 06">';
-        tr = tr + '              <div class="form-group m-0">';
-        tr = tr + '                      <input class="form-control form-control-sm text-right" type="text" placeholder="" id="txt-det-3-' + fila + '" onBlur="fn_calcular(' + fila + ')">';
-        tr = tr + '              </div>';
-        tr = tr + '         </td>';
-        tr = tr + '         <td data-encabezado="Columna 04">';
-        tr = tr + '              <div class="form-group m-0">';
-        tr = tr + '                      <input class="form-control form-control-sm text-right" type="text" placeholder="" id="txt-det-4-' + fila + '">';
-        tr = tr + '              </div>';
-        tr = tr + '         </td>';
-        tr = tr + '         <td data-encabezado="Columna 07">';
-        tr = tr + '              <div class="form-group m-0">';
-        tr = tr + '                      <input class="form-control form-control-sm text-right" type="text" placeholder="" id="txt-det-5-' + fila + '" disabled>';
-        tr = tr + '              </div>';
-        tr = tr + '         </td>';
-        tr = tr + '         <td data-encabezado="Columna 07">';
-        tr = tr + '              <div class="form-group m-0">';
-        tr = tr + '                      <input class="form-control form-control-sm text-right" type="text" placeholder="" id="txt-det-6-' + fila + '" disabled>';
-        tr = tr + '              </div>';
-        tr = tr + '         </td>';
-        tr = tr + '         <td data-encabezado="Subtotal">';
-        tr = tr + '               <div class="form-group m-0">';
-        tr = tr + '                       <input class="form-control form-control-sm text-right" type="text" id="txt-det-7-' + fila + '" disabled>';
-        tr = tr + '               </div>';
-        tr = tr + '         </td>';
-        tr = tr + '         <td class="text-center text-xs-right" data-encabezado="Acciones">';
-        tr = tr + '                <div class="btn-group">';
-        tr = tr + '                     <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
-        tr = tr + '                          <div class="dropdown-menu dropdown-menu-right">';
-        tr = tr + '                                  <a class="dropdown-item agregarFila" href="#">';
-        tr = tr + '                                         <i class="fas fa-plus-circle"></i>&nbsp;Agregar';
-        tr = tr + '                                  </a><a class="dropdown-item quitarCampos" href="#" onclick="fn_restarTotal(7, 8);">';
-        tr = tr + '                                         <i class="fas fa-minus-circle"></i>&nbsp;Eliminar';
-        tr = tr + '                                  </a>';
-        tr = tr + '                          </div>';
-        tr = tr + '               </div>';
-        tr = tr + '         </td>';
+    var tr = '<tr id="detalles-tr-' + fila + '" data-value="' + fila + '0" >';
+    tr = tr + '         <th class="text-center" data-encabezado="Número" scope="row" id="row-' + fila + '">' + fila + '</th>';
+    tr = tr + '         <td data-encabezado="Columna 01">';
+    tr = tr + '             <div class="form-group m-0">';
+    tr = tr + '                     <select class="form-control form-control-sm text-right" id="cbo-det-1-' + fila + '" onchange="fn_calcular(' + fila + ')">';
+    tr = tr + '                          <option value="2018">2018</option>';
+    tr = tr + cargarAnio();
+    tr = tr + '                     </select>';
+    tr = tr + '            </div>';
+    tr = tr + '         </td>';
+    tr = tr + '         <td data-encabezado="Columna 04">';
+    tr = tr + '              <div class="form-group m-0">';
+    tr = tr + '                      <input class="form-control form-control-sm text-right" type="date" placeholder="" id="dat-det-1-' + fila + '" onBlur="fn_calcular(' + fila + ')">';
+    tr = tr + '              </div>';
+    tr = tr + '         </td>';
+    tr = tr + '         <td data-encabezado="Columna 02">';
+    tr = tr + '             <div class="form-group m-0">';
+    tr = tr + '                     <select class="form-control form-control-sm text-right" id="cbo-det-2-' + fila + '" onchange="fn_calcular(' + fila + ')">';
+    tr = tr + '                          <option value="0">Seleccione</option>';
+    tr = tr + '                     </select>';
+    tr = tr + '            </div>';
+    tr = tr + '         </td>';
+    tr = tr + '         <td data-encabezado="Columna 03">';
+    tr = tr + '             <div class="form-group m-0">';
+    tr = tr + '                     <select class="form-control form-control-sm text-right" id="cbo-det-3-' + fila + '" onchange="fn_calcular(' + fila + ')">';
+    tr = tr + '                          <option value="0">Seleccione</option>';
+    tr = tr + '                     </select>';
+    tr = tr + '            </div>';
+    tr = tr + '         </td>';
+    tr = tr + '         <td data-encabezado="Columna 04">';
+    tr = tr + '              <div class="form-group m-0">';
+    tr = tr + '                      <input class="form-control form-control-sm text-right" type="text" placeholder="" id="txt-det-1-' + fila + '" onBlur="fn_calcular(' + fila + ')">';
+    tr = tr + '              </div>';
+    tr = tr + '         </td>';
+    tr = tr + '         <td data-encabezado="Columna 05">';
+    tr = tr + '              <div class="form-group m-0">';
+    tr = tr + '                      <input class="form-control form-control-sm text-right" type="text" placeholder="" id="txt-det-2-' + fila + '" onBlur="fn_calcular(' + fila + ')">';
+    tr = tr + '              </div>';
+    tr = tr + '         </td>';
+    tr = tr + '         <td data-encabezado="Columna 06">';
+    tr = tr + '              <div class="form-group m-0">';
+    tr = tr + '                      <input class="form-control form-control-sm text-right" type="text" placeholder="" id="txt-det-3-' + fila + '" onBlur="fn_calcular(' + fila + ')">';
+    tr = tr + '              </div>';
+    tr = tr + '         </td>';
+    tr = tr + '         <td data-encabezado="Columna 04">';
+    tr = tr + '              <div class="form-group m-0">';
+    tr = tr + '                      <input class="form-control form-control-sm text-right" type="text" placeholder="" id="txt-det-4-' + fila + '">';
+    tr = tr + '              </div>';
+    tr = tr + '         </td>';
+    tr = tr + '         <td data-encabezado="Columna 07">';
+    tr = tr + '              <div class="form-group m-0">';
+    tr = tr + '                      <input class="form-control form-control-sm text-right" type="text" placeholder="" id="txt-det-5-' + fila + '" disabled>';
+    tr = tr + '              </div>';
+    tr = tr + '         </td>';
+    tr = tr + '         <td data-encabezado="Columna 07">';
+    tr = tr + '              <div class="form-group m-0">';
+    tr = tr + '                      <input class="form-control form-control-sm text-right" type="text" placeholder="" id="txt-det-6-' + fila + '" disabled>';
+    tr = tr + '              </div>';
+    tr = tr + '         </td>';
+    tr = tr + '         <td data-encabezado="Subtotal">';
+    tr = tr + '               <div class="form-group m-0">';
+    tr = tr + '                       <input class="form-control form-control-sm text-right" type="text" id="txt-det-7-' + fila + '" disabled>';
+    tr = tr + '               </div>';
+    tr = tr + '         </td>';
+    tr = tr + '         <td class="text-center text-xs-right" data-encabezado="Acciones">';
+    tr = tr + '                <div class="btn-group">';
+    tr = tr + '                     <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
+    tr = tr + '                          <div class="dropdown-menu dropdown-menu-right">';
+    tr = tr + '                                  <a class="dropdown-item agregarFila" href="#">';
+    tr = tr + '                                         <i class="fas fa-plus-circle"></i>&nbsp;Agregar';
+    tr = tr + '                                  </a><a class="dropdown-item quitarCampos" href="#" onclick="fn_restarTotal(7, 8);">';
+    tr = tr + '                                         <i class="fas fa-minus-circle"></i>&nbsp;Eliminar';
+    tr = tr + '                                  </a>';
+    tr = tr + '                          </div>';
+    tr = tr + '               </div>';
+    tr = tr + '         </td>';
 
-        tr = tr + '         <td class="text-hide" data-encabezado="ID_INDICADOR" style="display:none;">';
-        tr = tr + '               <div class="form-group m-0">';
-        tr = tr + '                       <input class="form-control form-control-sm text-right" type="text" id="txt-det-8-' + fila + '" disabled>';
-        tr = tr + '               </div>';
-        tr = tr + '         </td>';
+    tr = tr + '         <td class="text-hide" data-encabezado="ID_INDICADOR" style="display:none;">';
+    tr = tr + '               <div class="form-group m-0">';
+    tr = tr + '                       <input class="form-control form-control-sm text-right" type="text" id="txt-det-8-' + fila + '" disabled>';
+    tr = tr + '               </div>';
+    tr = tr + '         </td>';
 
-        tr = tr + '</tr>';
-        $("#cuerpoTablaIndicador").append(tr);
-        if (bandera == 1) {
-            fn_CargarListaTipoVehiculo(data, (fila - 1), enfoque);
-        }        
-        //return tr;
+    tr = tr + '</tr>';
+    $("#cuerpoTablaIndicador").append(tr);
+    if (bandera == 1) {
+        fn_CargarListaTipoVehiculo(data, (fila - 1), enfoque);
+    }
+    //return tr;
 }
 
 //==============================================================================================================
@@ -2206,7 +2206,7 @@ function cargarCuerpoElectricoConsumo(data, fila, enfoque, bandera) {
     tr = tr + '</tr>';
     $("#cuerpoTablaIndicador").append(tr);
     if (bandera == 1) {
-        fn_CargarListaTipoVehiculo(data, (fila-1), enfoque);
+        fn_CargarListaTipoVehiculo(data, (fila - 1), enfoque);
     }
     //return tr;
 }
@@ -2519,7 +2519,7 @@ function fn_calcular(fila) {
             }
             fn_enviarDatos(item, fila, enfoque)
         }
-    } else if (enfoque == 2){
+    } else if (enfoque == 2) {
         if (validarCampoH(fila)) {
             var item = {
                 ANNOB: $("#cbo-det-1-" + fila).val(),
@@ -2590,7 +2590,7 @@ function asignar_Datos(data, i, fila, enfoque) {
         $("#txt-det-5-" + fila).val(data[i]["TOTAL_GEI_BASE"]);
         $("#txt-det-6-" + fila).val(data[i]["TOTAL_GEI_INIMIT"]);
         $("#txt-det-7-" + fila).val(data[i]["TOTAL_GEI_REDUCIDO"]);
-    } else if (enfoque == 2){
+    } else if (enfoque == 2) {
         $("#txt-det-4-" + fila).val(data[i]["FACTOR_RENDIMIENTO"]);
         $("#txt-det-6-" + fila).val(data[i]["TOTAL_GEI_BASE"]);
         $("#txt-det-7-" + fila).val(data[i]["TOTAL_GEI_INIMIT"]);
@@ -2631,7 +2631,7 @@ function CargarArchivosGuardados() {
         data: item,
         success: function (data) {
             if (data != null && data != "") {
-                
+
                 if (data.length > 0) {
                     $("#total-documentos").data("cantidad", data.length);
                     $("#archivos-documentos").html("");
@@ -2640,27 +2640,27 @@ function CargarArchivosGuardados() {
                         debugger;
                         var extension = "fa-file-word";
 
-                                if (data[i]["ADJUNTO"].includes("pdf")) {
-                                    extension = "fa-file-pdf";
+                        if (data[i]["ADJUNTO"].includes("pdf")) {
+                            extension = "fa-file-pdf";
+                        } else {
+                            if (data[i]["ADJUNTO"].includes("jpeg") || data[i]["ADJUNTO"].includes("png") || data[i]["ADJUNTO"].includes("jpg")) {
+                                extension = "fa-file-image";
+                            } else {
+                                if (data[i]["ADJUNTO"].includes("xlsx") || data[i]["ADJUNTO"].includes("xls")) {
+                                    extension = "fa-file-excel";
                                 } else {
-                                    if (data[i]["ADJUNTO"].includes("jpeg") || data[i]["ADJUNTO"].includes("png") || data[i]["ADJUNTO"].includes("jpg")) {
-                                        extension = "fa-file-image";
+                                    if (data[i]["ADJUNTO"].includes("pptx") || data[i]["ADJUNTO"].includes("ppt")) {
+                                        extension = "fa-file-powerpoint";
                                     } else {
-                                        if (data[i]["ADJUNTO"].includes("xlsx") || data[i]["ADJUNTO"].includes("xls")) {
-                                            extension = "fa-file-excel";
+                                        if (data[i]["ADJUNTO"].includes("docx") || data[i]["ADJUNTO"].includes("doc")) {
+                                            extension = "fa-file-word";
                                         } else {
-                                            if (data[i]["ADJUNTO"].includes("pptx") || data[i]["ADJUNTO"].includes("ppt")) {
-                                                extension = "fa-file-powerpoint";
-                                            } else {
-                                                if (data[i]["ADJUNTO"].includes("docx") || data[i]["ADJUNTO"].includes("doc")) {
-                                                    extension = "fa-file-word";
-                                                } else {
-                                                    extension = "fa-file";
-                                                }
-                                            }
+                                            extension = "fa-file";
                                         }
                                     }
                                 }
+                            }
+                        }
 
                         var tr = "";
                         tr += '     <div class="input-group mb-3" id="eliminar-' + data[i]["ID_INICIATIVA_SUSTENTATORIO"] + '">';
@@ -2689,13 +2689,13 @@ function CargarArchivosGuardados() {
 //==============================================================================================================
 
 function fn_procesoDetalleIndicador(url, estado) {
-    
+
     var num_validar = 0;
     if (estado == 1 || estado == 0) { num_validar = 8 }
     else if (estado == 5 || estado == 6) { num_validar = 11 }
 
     var mns = ValidarRevision('1', $("#Control").data("iniciativa"), num_validar, "mensajeDangerRegistro", "El detalle de esta iniciativa ya fue enviada para su revisión");
-    debugger;
+
     if (mns != "") {
         if (estado == 1 || estado == 5) {
             $("#solicitar-revision #modalRegistrarBoton").hide();
@@ -2707,7 +2707,7 @@ function fn_procesoDetalleIndicador(url, estado) {
             $("#pieCorrectoAvance").show();
             $('#mensajeModalAvance').append(mns);
             $("#Control").data("modal", 1);
-        }        
+        }
         return false;
     }
 
@@ -2719,39 +2719,33 @@ function fn_procesoDetalleIndicador(url, estado) {
     var n = $("#tablaIndicador").find("tbody").find("th").length + 1;
 
     for (var fila = 1 ; fila < n; fila++) {
+        debugger;
         var enfoque = $("#cbo-enfoque").val();
         var ind = $("#cuerpoTablaIndicador #detalles-tr-" + fila).data("ind");
         var filas = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + fila).find("[data-param]");
+        var Xfilas = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + fila).find("input[name=fledoc]");
         if (fn_validarCampoReg(fila)) {
             filas.each(function (index, value) {
                 parametros += enfoque + ",";
                 parametros += medida + ",";
                 parametros += $(value).attr("data-param") + ",";
                 parametros += $("#" + $(value).attr("id")).val() + "|";
-                //var itx = {
-                    //ID_FILA: fila,
-                    //ID_ENFOQUE: enfoque,
-                    //ID_MEDMIT: medida,
-                    //ID_PARAMETRO: $(value).attr("data-param"),
-                    //VALOR: $("#" + $(value).attr("id")).val()
-                //};
-                //indicadores.push(itx);
             });
             parametros = parametros.substring(0, parametros.length - 1);
-            parametros += ";" + ind;
+            if (Xfilas != null && Xfilas != undefined) {
+                if (Xfilas[0].files.length > 0)
+                    parametros += ";" + ind + ";" + Xfilas[0].files[0].name;
+                else
+                    parametros += ";" + ind + ";";
+            }
+            else
+                parametros += ";" + ind + ";";
             parametros += "/";
         }
-        
-            //parametros += enfoque + ",";
-            //parametros += medida + ",";
-            //parametros += $(value).attr("data-param") + ",";
-            //parametros += $("#" + $(value).attr("id")).val() + "|";
-        //});
-        
+
+
     }
     parametros = parametros.substring(0, parametros.length - 1);
-    //parametros = parametros.substring(0, parametros.length - 1);
-
 
     for (var i = 0, len = storedFiles.length; i < len; i++) {
         var sux = {
@@ -2781,6 +2775,7 @@ function fn_procesoDetalleIndicador(url, estado) {
     }
     if (archivos == "") archivos = "|";
 
+    debugger;
     var id_delete = "";
     if ($("#cuerpoTablaIndicador").data("delete") != "") {
         id_delete = $("#cuerpoTablaIndicador").data("delete");
@@ -2819,25 +2814,7 @@ function fn_procesoDetalleIndicador(url, estado) {
         contentType: false,
         url: url,
         processData: false,
-        data: ({
-            ID_INICIATIVA: $("#Control").data("iniciativa"),
-            ID_USUARIO: $("#Control").data("usuario"),
-            NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
-            ID_INDICADOR_DELETE: id_delete,
-            ID_INDICADOR_ELIMINAR: id_eliminar,
-            ID_ESTADO: estado,
-            ID_ENFOQUE: enfoque,
-            ID_MEDMIT: medida,
-            TOTAL_GEI: parseFloat($("#total-detalle").html()),
-            DATA: parametros,
-            ID_TIPO_INGRESO: 1,
-            PRIVACIDAD_INICIATIVA: privacidad,
-            PRIVACIDAD_INVERSION: privacidad_monto,
-            //ListaIndicadores: indicadores,
-            //ListaIndicadoresData: indicadores,
-            ListaSustentos: documentos,
-            extra: archivos
-        }),
+        data: item,
         xhr: function () {  // Custom XMLHttpRequest
             var myXhr = $.ajaxSettings.xhr();
             if (myXhr.upload) { // Check if upload property exists
@@ -2995,7 +2972,7 @@ function fn_guardarDetalleIndicador() {
     debugger;
     //var url = baseUrl + "Gestion/RegistrarDetalleIndicador2";
     var url = baseUrl + "Gestion/RegistrarDetalleIndicador";
-    fn_validarArchivo(url, 1);    
+    fn_validarArchivo(url, 1);
     //fn_procesoDetalleIndicador(url, 1);
 }
 
@@ -3047,7 +3024,7 @@ function llenarTabla(data, j, enfoque) {
         $("#txt-det-7-" + (j + 1)).val(data[j]["TOTAL_GEI_REDUCIDO"]);
         $("#txt-det-8-" + (j + 1)).val(data[j]["ID_INDICADOR"]);
         //$("#detalles-tr-" + (j + 1)).data("value", data[j]["ID_INDICADOR"]);
-    } else if (enfoque == 2){
+    } else if (enfoque == 2) {
         $("#cbo-det-1-" + (j + 1)).val(data[j]["ANNO_BASE"]);
         $("#cbo-det-2-" + (j + 1)).val(data[j]["ID_TIPO_VEHICULO_BASE"]);
         $("#cbo-det-3-" + (j + 1)).val(data[j]["ID_TIPO_COMBUSTIBLE_BASE"]);
@@ -3085,7 +3062,7 @@ function llenarTabla(data, j, enfoque) {
         $("#txt-det-6-" + (j + 1)).val(data[j]["TOTAL_GEI_REDUCIDO"]);
         $("#txt-det-7-" + (j + 1)).val(data[j]["ID_INDICADOR"]);
     }
-    
+
     //$("#cuerpoTablaIndicador").data("total", $("#cuerpoTablaIndicador").data("total") + data[j]["TOTAL_GEI_REDUCIDO"]);
     //$("#total-detalle #total").remove();
     //$("#total-detalle").append('<strong id="total">' + (Math.round($("#cuerpoTablaIndicador").data("total") * 100) / 100) + ' tCO<sub>2</sub>eq</strong>');
@@ -3121,7 +3098,7 @@ function CargarDetalleDatos() {
                 if (data.length > 0) {
                     var total = 0.0;
                     for (var i = 0; i < data.length; i++) {
-                        
+
                         var enfoque = $("#cbo-enfoque").val();
                         if (enfoque == 1) {
                             cargarCuerpoElectrico(data, (i + 1), enfoque, 1);
@@ -3132,7 +3109,7 @@ function CargarDetalleDatos() {
                         } else if (enfoque == 4) {
                             cargarCuerpoHibridoConsumo(data, (i + 1), enfoque, 1);
                         }
-                       total += data[i]["TOTAL_GEI_REDUCIDO"]
+                        total += data[i]["TOTAL_GEI_REDUCIDO"]
                     }
                     $("#total-detalle").html("");
                     $("#total-detalle").append((Math.round(total * 100) / 100));
@@ -3153,10 +3130,10 @@ var asignarAfecto = function (ids) {
         var a = ids[0].split('+');
         //console.log(a);
         $("#" + a[0]).attr({ "data-afectar": a[1] });
-    }    
+    }
 }
 
-function CargarCuerpoGuardado(filas) {
+function CargarCuerpoGuardado(filas, xIndicador) {
     var medida = $("#Control").data("mitigacion");
     var enfoque = $("#cbo-enfoque").val();
     var iniciativa = $("#Control").data("iniciativa");
@@ -3173,113 +3150,111 @@ function CargarCuerpoGuardado(filas) {
         datatype: 'json',
         data: item,
         success: function (data) {
+            debugger;
             if (data != null && data != "") {
                 if (data.length > 0) {
                     $("#cuerpoTablaIndicador").html("");
-                    for (var i = 0; i < filas; i++){
+                    for (var i = 0; i < filas; i++) {
                         var lista = 0;
                         var texto = 0;
                         var fecha = 0;
                         var indicador = 0;
                         var id_anno = "";
                         var tr = "";
-                        tr += '<tr id="detalles-tr-'+ ( i + 1) +'" data-ind="0">';
-                        tr += '     <th class="text-center" data-encabezado="Número" scope="row">'+ (i + 1) +'</th>';
+                        tr += '<tr id="detalles-tr-' + (i + 1) + '" data-ind="0">';
+                        tr += '     <th class="text-center" data-encabezado="Número" scope="row">' + (i + 1) + '</th>';
                         for (var j = 0; j < data.length; j++) {
                             indicador = data[j]["ID_INDICADOR"];
-                            if (data[j]["ID_TIPO_CONTROL"] == 1){
+                            if (data[j]["ID_TIPO_CONTROL"] == 1) {
                                 tr += '<td data-encabezado="Columna 07">';
                                 tr += '     <div class="form-group m-0">';
-                                if(data[j]["VERIFICABLE"] == 1){
+                                if (data[j]["VERIFICABLE"] == 1) {
                                     lista++;
                                     if (data[j]["ID_PARAMETRO"] == 6) {
-                                        id_anno = 'cbo-det-tbl-1-'+ lista +'-'+ (i + 1);
+                                        id_anno = 'cbo-det-tbl-1-' + lista + '-' + (i + 1);
                                         tr += '<select class="form-control form-control-sm require-data" id="cbo-det-tbl-1-' + lista + '-' + (i + 1) + '" onchange="fn_calcularValor(this)" data-afectar="" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '">';
                                         tr += '        <option value="0">Seleccionar</option>';
                                         var listaD = data[j]["listaDetalle"];
-                                        for (var m = 0; m < listaD.length; m++){
-                                            tr += '<option value="'+ listaD[m]["NOMBRE_DETALLE"] +'">'+ listaD[m]["NOMBRE_DETALLE"] +'</option>';
+                                        for (var m = 0; m < listaD.length; m++) {
+                                            tr += '<option value="' + listaD[m]["NOMBRE_DETALLE"] + '">' + listaD[m]["NOMBRE_DETALLE"] + '</option>';
                                         }
                                         tr += '</select>';
-                                    }else{
+                                    } else {
                                         tr += '<select class="form-control form-control-sm require-data" id="cbo-det-tbl-1-' + lista + '-' + (i + 1) + '" onchange="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '">';
                                         tr += '        <option value="0">Seleccionar</option>';
                                         var listaD = data[j]["listaDetalle"];
-                                        for (var m = 0; m < listaD.length; m++){
-                                            tr += '<option value="'+ listaD[m]["ID_DETALLE"] +'">'+ listaD[m]["NOMBRE_DETALLE"] +'</option>';
+                                        for (var m = 0; m < listaD.length; m++) {
+                                            tr += '<option value="' + listaD[m]["ID_DETALLE"] + '">' + listaD[m]["NOMBRE_DETALLE"] + '</option>';
                                         }
                                         tr += '</select>';
                                     }
-                                }else{
+                                } else {
                                     lista++;
                                     tr += '<select class="form-control form-control-sm require-data" id="cbo-det-tbl-1-' + lista + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '">';
                                     tr += '        <option value="0">Seleccionar</option>';
                                     var listaD = data[j]["listaDetalle"];
-                                    for (var m = 0; m < listaD.length; m++){
-                                        tr += '<option value="'+ listaD[m]["ID_DETALLE"] +'">'+ listaD[m]["NOMBRE_DETALLE"] +'</option>';
+                                    for (var m = 0; m < listaD.length; m++) {
+                                        tr += '<option value="' + listaD[m]["ID_DETALLE"] + '">' + listaD[m]["NOMBRE_DETALLE"] + '</option>';
                                     }
                                     tr += '</select>';
                                 }
-                            }else if (data[j]["ID_TIPO_CONTROL"] == 2){
+                            } else if (data[j]["ID_TIPO_CONTROL"] == 2) {
                                 tr += '<td data-encabezado="Columna 02">';
                                 tr += '    <div class="form-group m-0">';
-                                if (data[j]["EDITABLE"] == 1){
-                                    if (data[j]["ID_TIPO_DATO"] == 1){
+                                if (data[j]["EDITABLE"] == 1) {
+                                    if (data[j]["ID_TIPO_DATO"] == 1) {
                                         fecha++;
                                         //debugger;
                                         if (data[j]["ID_PARAMETRO"] == 32) {
-                                            console.log(id_anno+' fch-det-tbl-1-' + fecha + '-' + (i + 1));
+                                            console.log(id_anno + ' fch-det-tbl-1-' + fecha + '-' + (i + 1));
                                             var id_fecha = "fch-det-tbl-1-" + fecha + "-" + (i + 1);
                                             arregloIDs[i] = id_anno + '+' + id_fecha;
                                             tr += '<input class="form-control form-control-sm text-center require-data" type="date" placeholder="" id="fch-det-tbl-1-' + fecha + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" min="" max="">';
                                         } else {
                                             tr += '<input class="form-control form-control-sm text-center require-data" type="date" placeholder="" id="fch-det-tbl-1-' + fecha + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '">';
                                         }
-                                        
-                                    }else{
+
+                                    } else {
                                         texto++;
                                         if (data[j]["VERIFICABLE"] == 0) {
-                                            if (data[j]["ID_TIPO_DATO"] == 2){
+                                            if (data[j]["ID_TIPO_DATO"] == 2) {
                                                 tr += '<input class="form-control form-control-sm text-center validar require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="12">';
                                             } else if (data[j]["ID_TIPO_DATO"] == 3) {
                                                 tr += '<input class="form-control form-control-sm text-center require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="12">';
-                                            }                                            
+                                            }
                                         } else {
                                             if (data[j]["ID_TIPO_DATO"] == 2) {
                                                 tr += '<input class="form-control form-control-sm text-center validar require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" onBlur="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="12">';
                                             } else if (data[j]["ID_TIPO_DATO"] == 3) {
                                                 tr += '<input class="form-control form-control-sm text-center require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" onBlur="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="12">';
                                             }
-                                            
+
                                         }
                                     }
-                                }else{
+                                } else {
                                     texto++;
                                     if (data[j]["ID_PARAMETRO"] == 11) {
-                                        tr += '<input class="form-control form-control-sm text-center campo-total" type="text" placeholder="" id="txt-det-tbl-1-'+ texto +'-'+(i + 1)+'" data-param="'+ data[j]["ID_PARAMETRO"] +'" readonly>';
-                                    }else{
-                                        tr += '<input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-'+ texto +'-'+(i + 1)+'" data-param="'+ data[j]["ID_PARAMETRO"] +'" readonly>';
+                                        tr += '<input class="form-control form-control-sm text-center campo-total" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" readonly>';
+                                    } else {
+                                        tr += '<input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" readonly>';
                                     }
-                                    
+
                                 }
                                 tr += '    </div>';
                                 tr += '</td>'
                             }
                         }
-                        //tr += '<td class="text-center text-xs-right" data-encabezado="Acciones">';
-                        //tr += '     <div class="btn-group">';
-                        //tr += '          <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
-                        //tr += '          <div class="dropdown-menu dropdown-menu-right">';
-                        //tr += '               <a class="dropdown-item agregarCampos" href="#"><i class="fas fa-plus-circle"></i>&nbsp;Agregar</a>';
-                        //tr += '               <a class="dropdown-item quitarCampos" href="#" onclick="fn_eliminarRestarTotal()"><i class="fas fa-minus-circle"></i>&nbsp;Eliminar</a>';
-                        //tr += '          </div>';
-                        //tr += '     </div>';
-                        //tr += '</td>';
 
-                        tr += '<td class="text-center" data-encabezado="Sustento">';
-                        tr += '        <label class="btn btn-secondary btn-sm m-0" for="fle-doc" title="Cargar archivo"><i class="fas fa-upload"></i>';
-                        tr += '          <input class="d-none" type="file" id="fle-doc">';
-                        tr += '        </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>';
+                        var urlDw = baseUrl + 'Gestion/FileDownload?IdIniciativa=' + $("#iniciativa_mit_ID_INICIATIVA").val() + '&IdIndicador=' + (i + 1) + "&accion=I";
+
+                        if (xIndicador > 0) {
+                            urlDw = baseUrl + 'Gestion/FileDownloadDetalle?IdIniciativa=' + $("#iniciativa_mit_ID_INICIATIVA").val() + '&IdIndicador=' + xIndicador + "&accion=M";
+                        }
+
+                        tr += '<td class="text-center" data-encabezado="Sustento" id="sustento' + (i + 1) + '">';
+                        tr += '        <label class="btn btn-secondary btn-sm m-0" for="fle-doc-' + (i + 1) + '" title="Cargar archivo"><i class="fas fa-upload"></i>';
+                        tr += '          <input class="d-none" type="file" id="fle-doc-' + (i + 1) + '" name="fledoc" onchange="handleFileSustento(this.files,' + (i + 1) + ',1)">';
+                        tr += '        </label><a class="btn btn-success btn-sm m-0" name="fledownload" href="' + urlDw + '" title="Descargar archivo" id="fle-dow-' + (i + 1) + '" target="_blank" style="display: none;"><i class="fas fa-download"></i></a>';
                         tr += '</td>';
                         tr += '<td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCampos" href="#" onclick="fn_eliminarRestarTotal()" title="Quitar fila"><i class="fas fa-minus-circle"></i></a></td>';
 
@@ -3289,22 +3264,225 @@ function CargarCuerpoGuardado(filas) {
                     //console.log(arregloIDs);
                     asignarAfecto(arregloIDs);
 
-                    //var total = 0.0;
-                    //for (var i = 0; i < data.length; i++) {
-                    //    debugger;
-                    //    var entidad = data[i]["listaInd"]
-                    //    for (var j = 0; j < entidad.length; j++) {
-                    //        debugger;
-                    //        for (var m = 0; m < entidad.length; m++) {
-                    //            debugger;
-                    //            var a = entidad[m]["VALOR"];
-                    //        }
-                    //    }
-                    //}
-                    //$("#total-detalle").html("");
-                    //$("#total-detalle").append((Math.round(total * 100) / 100));
-                    //$("#cuerpoTablaIndicador").data("total", total);
-                    //$("#cuerpoTablaIndicador").data("row", data.length);
+                }
+            } else {
+                //cargarCuerpoTabla($("#cbo-enfoque").val());
+                //$("#total-detalle").append('<strong id="total">0.00 tCO<sub>2</sub>eq</strong>');
+                //$("#total-detalle2").append('<strong id="total2">0.00 tCO<sub>2</sub>eq</strong>');
+            }
+        }
+    });
+}
+
+
+function handleFileSustento(evt, idIndicador, accion) {
+    console.log(evt);
+
+    detalleFiles = []; // add 12-02-2020
+    ////////////////////////77
+    var files = evt; //evt.target.files; // FileList object
+    debugger;
+    // files is a FileList of File objects. List some properties.
+    var output = [];
+    var extension = "fa-file-word";
+    var name = "";
+    var file_extension = "";
+    for (var i = 0, f; f = files[i]; i++) {
+        name = f.name;
+        file_extension = name.split(".").pop().toLowerCase();
+
+        if (f.size > 4194304) {
+            $(this).val("");
+            MRV.Alert("Alerta", "Archivo que esta subiendo pesa más de 4 MB", "", "es")
+            detalleFiles = [];
+            return false;
+        }
+
+        switch (f.name.substring(f.name.lastIndexOf('.') + 1).toLowerCase()) {
+            case 'pdf': case 'jpg': case 'jpeg': case 'gif': case 'png': case 'tif': case 'doc': case 'docx': case 'xls': case 'xlsx': case 'xlsm': case 'ppt': case 'pptx': case 'txt':
+                break;
+            default:
+                $(this).val('');
+                MRV.Alert('Alerta', "formato de archivo no válido", '', 'es');
+                detalleFiles = [];
+                return false;
+                break;
+        }
+
+        var form_data = new FormData();
+        form_data.append("fledoc", f)
+        var xaccion = accion == "1" ? "I" : "M"
+        var url = baseUrl + 'Gestion/FileUpload?IdIniciativa=' + $("#iniciativa_mit_ID_INICIATIVA").val() + '&IdIndicador=' + idIndicador + "&accion=" + xaccion;
+        $.ajax({
+            url: url, //'/Home/FileUpload',
+            type: "POST",
+            contentType: false, // Not to set any content header  
+            processData: false, // Not to process data  
+            data: form_data,
+            success: function (result) {
+                if (result != null && result != "") {
+                    $.each(result, function (i, v) {
+                        if (v.accion == "1") {
+                            $("#fle-dow-" + idIndicador).removeAttr('style');
+                        } else {
+                            MRV.Alert('Alerta', v.message, '', 'es');
+                        }
+                    });
+                }
+            },
+            xhr: function () {  // Custom XMLHttpRequest
+                var myXhr = $.ajaxSettings.xhr();
+                if (myXhr.upload) { // Check if upload property exists
+                    myXhr.upload.addEventListener('progress', progressHandlingFunction, false); // For handling the progress of the upload
+                }
+                return myXhr;
+            },
+            error: function (err) {
+                MRV.Alert('Alerta', err.message, '', 'es');
+            }
+        });
+
+        detalleFiles.push(f);
+
+    }
+}
+
+function progressHandlingFunction(e) {
+    var spanProgress = document.getElementById("spanProgress");
+    if (e.lengthComputable) {
+        $('progress').css("display", "block");
+        $('#lbProgress').css("display", "block");
+        $('progress').attr({ value: e.loaded, max: e.total });
+        $("#lbProgress").text(Math.floor((e.loaded / e.total) * 100) + " %");
+    }
+}
+
+function CargarNuevaFila(filas) {
+    var medida = $("#Control").data("mitigacion");
+    var enfoque = $("#cbo-enfoque").val();
+    var iniciativa = $("#Control").data("iniciativa");
+    var item = {
+        ID_INICIATIVA: iniciativa,
+        ID_MEDMIT: medida,
+        ID_ENFOQUE: enfoque
+    }
+    var arregloIDs = [];
+    var rows = $("#cuerpoTablaIndicador tr").length;
+    $.ajax({
+        async: false,
+        url: baseUrl + 'Gestion/ListarCuerpoIndicador',
+        type: 'POST',
+        datatype: 'json',
+        data: item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    //$("#cuerpoTablaIndicador").html("");
+                    for (var i = 0; i < filas; i++) {
+                        var lista = 0;
+                        var texto = 0;
+                        var fecha = 0;
+                        var indicador = 0;
+                        var id_anno = "";
+                        var tr = "";
+                        tr += '<tr id="detalles-tr-' + (rows + 1) + '" data-ind="0">';
+                        tr += '     <th class="text-center" data-encabezado="Número" scope="row">' + (rows + 1) + '</th>';
+                        for (var j = 0; j < data.length; j++) {
+                            indicador = data[j]["ID_INDICADOR"];
+                            if (data[j]["ID_TIPO_CONTROL"] == 1) {
+                                tr += '<td data-encabezado="Columna 07">';
+                                tr += '     <div class="form-group m-0">';
+                                if (data[j]["VERIFICABLE"] == 1) {
+                                    lista++;
+                                    if (data[j]["ID_PARAMETRO"] == 6) {
+                                        id_anno = 'cbo-det-tbl-1-' + lista + '-' + (rows + 1);
+                                        tr += '<select class="form-control form-control-sm require-data" id="cbo-det-tbl-1-' + lista + '-' + (rows + 1) + '" onchange="fn_calcularValor(this)" data-afectar="" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '">';
+                                        tr += '        <option value="0">Seleccionar</option>';
+                                        var listaD = data[j]["listaDetalle"];
+                                        for (var m = 0; m < listaD.length; m++) {
+                                            tr += '<option value="' + listaD[m]["NOMBRE_DETALLE"] + '">' + listaD[m]["NOMBRE_DETALLE"] + '</option>';
+                                        }
+                                        tr += '</select>';
+                                    } else {
+                                        tr += '<select class="form-control form-control-sm require-data" id="cbo-det-tbl-1-' + lista + '-' + (rows + 1) + '" onchange="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '">';
+                                        tr += '        <option value="0">Seleccionar</option>';
+                                        var listaD = data[j]["listaDetalle"];
+                                        for (var m = 0; m < listaD.length; m++) {
+                                            tr += '<option value="' + listaD[m]["ID_DETALLE"] + '">' + listaD[m]["NOMBRE_DETALLE"] + '</option>';
+                                        }
+                                        tr += '</select>';
+                                    }
+                                } else {
+                                    lista++;
+                                    tr += '<select class="form-control form-control-sm require-data" id="cbo-det-tbl-1-' + lista + '-' + (rows + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '">';
+                                    tr += '        <option value="0">Seleccionar</option>';
+                                    var listaD = data[j]["listaDetalle"];
+                                    for (var m = 0; m < listaD.length; m++) {
+                                        tr += '<option value="' + listaD[m]["ID_DETALLE"] + '">' + listaD[m]["NOMBRE_DETALLE"] + '</option>';
+                                    }
+                                    tr += '</select>';
+                                }
+                            } else if (data[j]["ID_TIPO_CONTROL"] == 2) {
+                                tr += '<td data-encabezado="Columna 02">';
+                                tr += '    <div class="form-group m-0">';
+                                if (data[j]["EDITABLE"] == 1) {
+                                    if (data[j]["ID_TIPO_DATO"] == 1) {
+                                        fecha++;
+                                        //debugger;
+                                        if (data[j]["ID_PARAMETRO"] == 32) {
+                                            console.log(id_anno + ' fch-det-tbl-1-' + fecha + '-' + (i + 1));
+                                            var id_fecha = "fch-det-tbl-1-" + fecha + "-" + (i + 1);
+                                            arregloIDs[i] = id_anno + '+' + id_fecha;
+                                            tr += '<input class="form-control form-control-sm text-center require-data" type="date" placeholder="" id="fch-det-tbl-1-' + fecha + '-' + (rows + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" min="" max="">';
+                                        } else {
+                                            tr += '<input class="form-control form-control-sm text-center require-data" type="date" placeholder="" id="fch-det-tbl-1-' + fecha + '-' + (rows + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '">';
+                                        }
+
+                                    } else {
+                                        texto++;
+                                        if (data[j]["VERIFICABLE"] == 0) {
+                                            if (data[j]["ID_TIPO_DATO"] == 2) {
+                                                tr += '<input class="form-control form-control-sm text-center validar require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="12">';
+                                            } else if (data[j]["ID_TIPO_DATO"] == 3) {
+                                                tr += '<input class="form-control form-control-sm text-center require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="12">';
+                                            }
+                                        } else {
+                                            if (data[j]["ID_TIPO_DATO"] == 2) {
+                                                tr += '<input class="form-control form-control-sm text-center validar require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" onBlur="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="12">';
+                                            } else if (data[j]["ID_TIPO_DATO"] == 3) {
+                                                tr += '<input class="form-control form-control-sm text-center require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" onBlur="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="12">';
+                                            }
+
+                                        }
+                                    }
+                                } else {
+                                    texto++;
+                                    if (data[j]["ID_PARAMETRO"] == 11) {
+                                        tr += '<input class="form-control form-control-sm text-center campo-total" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" readonly>';
+                                    } else {
+                                        tr += '<input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" readonly>';
+                                    }
+
+                                }
+                                tr += '    </div>';
+                                tr += '</td>'
+                            }
+                        }
+
+                        var urlDw = baseUrl + 'Gestion/FileDownload?IdIniciativa=' + $("#iniciativa_mit_ID_INICIATIVA").val() + '&IdIndicador=' + rows + "&accion=I ";
+
+                        tr += '<td class="text-center" data-encabezado="Sustento" id="sustento' + rows + '">';
+                        tr += '        <label class="btn btn-secondary btn-sm m-0" for="fle-doc-' + rows + '" title="Cargar archivo"><i class="fas fa-upload"></i>';
+                        tr += '          <input class="d-none" type="file" id="fle-doc-' + rows + '" name="fledoc" onchange="handleFileSustento(this.files,' + rows + ',1)">';
+                        tr += '        </label><a class="btn btn-success btn-sm m-0" href="' + urlDw + '" title="Descargar archivo" id="fle-dow-' + rows + '" target="_blank" style="display: none;"><i class="fas fa-download"></i></a>';
+                        tr += '</td>';
+                        tr += '<td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCampos" href="#" onclick="fn_eliminarRestarTotal()" title="Quitar fila"><i class="fas fa-minus-circle"></i></a></td>';
+
+                        tr += '</tr>';
+                        $("#cuerpoTablaIndicador").append(tr);
+                    }
+                    //console.log(arregloIDs);
+                    asignarAfecto(arregloIDs);
                 }
             } else {
                 //cargarCuerpoTabla($("#cbo-enfoque").val());
@@ -3330,44 +3508,63 @@ function CargarDatosGuardados() {
         datatype: 'json',
         data: item,
         success: function (data) {
+            debugger;
             if (data != null && data != "") {
-                if (data.length > 0) {                    
+                if (data.length > 0) {
                     var order = $("#tablaIndicador").data("order");
-                    CargarCuerpoGuardado(data.length);
+                    CargarCuerpoGuardado(data.length, 1);
                     var total = 0.0;
                     for (var i = 0; i < data.length; i++) {
                         var lista = 0;
                         var texto = 0;
                         var fecha = 0;
                         var entidad = data[i]["listaInd"]
-                        $("#cuerpoTablaIndicador #detalles-tr-" + (i + 1)).attr({"data-ind" : data[i]["ID_INDICADOR"]});
-                        //for (var j = 0; j < entidad.length; j++) {     
-                            for (var m = 0; m < entidad.length; m++) {
-                                if (entidad[m]["ID_TIPO_CONTROL"] == 1) {
-                                    lista++;
-                                    $("#cbo-det-tbl-1-" + lista + "-" + (i + 1)).val(entidad[m]["VALOR"]);
-                                    if (entidad[m]["VERIFICABLE"] == 1){
-                                        $("#cbo-det-tbl-1-" + lista + "-" + (i + 1)).attr({ "data-validar": 1 });
+                        $("#cuerpoTablaIndicador #detalles-tr-" + (i + 1)).attr({ "data-ind": data[i]["ID_INDICADOR"] });
+                        var tieneArchivo = data[i].ArchivoSustento;
+
+                        if (tieneArchivo != undefined && tieneArchivo != null) {
+                            var Xdown = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + (i + 1)).find("a[name=fledownload]");
+                            if (Xdown != undefined && Xdown != null) {
+                                console.log(Xdown);
+                                Xdown[0].style.cssText = "";
+                                Xdown[0].href = baseUrl + 'Gestion/FileDownloadDetalle?IdIniciativa=' + $("#iniciativa_mit_ID_INICIATIVA").val() + '&IdIndicador=' + data[i]["ID_INDICADOR"] + "&accion=M";
+                            }
+                        }
+                        else {
+                            var Xdown = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + (i + 1)).find("a[name=fledownload]");
+                            if (Xdown != undefined && Xdown != null) {
+                                console.log(Xdown);
+                                Xdown[0].href = baseUrl + 'Gestion/FileDownload?IdIniciativa=' + $("#iniciativa_mit_ID_INICIATIVA").val() + '&IdIndicador=' + data[i]["ID_INDICADOR"] + "&accion=I";
+                            }
+                        }
+                        
+                        for (var m = 0; m < entidad.length; m++) {
+                            debugger;
+                            if (entidad[m]["ID_TIPO_CONTROL"] == 1) {
+                                lista++;
+                                $("#cbo-det-tbl-1-" + lista + "-" + (i + 1)).val(entidad[m]["VALOR"]);
+                                if (entidad[m]["VERIFICABLE"] == 1) {
+                                    $("#cbo-det-tbl-1-" + lista + "-" + (i + 1)).attr({ "data-validar": 1 });
+                                }
+                            } else if (entidad[m]["ID_TIPO_CONTROL"] == 2) {
+                                if (entidad[m]["ID_TIPO_DATO"] == 1) {
+                                    fecha++;
+                                    $("#fch-det-tbl-1-" + fecha + "-" + (i + 1)).val(entidad[m]["VALOR"]);
+                                    if (entidad[m]["VERIFICABLE"] == 1) {
+                                        $("#fch-det-tbl-1-" + fecha + "-" + (i + 1)).attr({ "data-validar": 1 });
                                     }
-                                } else if (entidad[m]["ID_TIPO_CONTROL"] == 2){
-                                    if (entidad[m]["ID_TIPO_DATO"] == 1){
-                                        fecha++;
-                                        $("#fch-det-tbl-1-" + fecha + "-" + (i + 1)).val(entidad[m]["VALOR"]);
-                                        if (entidad[m]["VERIFICABLE"] == 1) {
-                                            $("#fch-det-tbl-1-" + fecha + "-" + (i + 1)).attr({ "data-validar": 1 });
-                                        }
-                                    } else {
-                                        texto++;
-                                        $("#txt-det-tbl-1-" + texto + "-" + (i + 1)).val(entidad[m]["VALOR"]);
-                                        if (entidad[m]["VERIFICABLE"] == 1) {
-                                            $("#txt-det-tbl-1-" + texto + "-" + (i + 1)).attr({ "data-validar": 1 });
-                                        }                                        
+                                } else {
+                                    texto++;
+                                    $("#txt-det-tbl-1-" + texto + "-" + (i + 1)).val(entidad[m]["VALOR"]);
+                                    if (entidad[m]["VERIFICABLE"] == 1) {
+                                        $("#txt-det-tbl-1-" + texto + "-" + (i + 1)).attr({ "data-validar": 1 });
                                     }
-                                }                                
-                                if (entidad[m]["ID_PARAMETRO"] == 11) {
-                                    total += parseFloat(entidad[m]["VALOR"]);
                                 }
                             }
+                            if (entidad[m]["ID_PARAMETRO"] == 11) {
+                                total += parseFloat(entidad[m]["VALOR"]);
+                            }
+                        }
                         //}
                     }
                     $("#total-detalle").html("").append((Math.round(total * 100) / 100));
@@ -3376,7 +3573,7 @@ function CargarDatosGuardados() {
                     //$("#cuerpoTablaIndicador").data("row", data.length);
                 }
             } else {
-                CargarCuerpoGuardado(1);
+                CargarCuerpoGuardado(1, 0);
                 $("#total-detalle").html("").append(0.00);
                 $("#total-detalle2").html("").append(0.00);
                 //cargarCuerpoTabla($("#cbo-enfoque").val());
@@ -3423,7 +3620,7 @@ function fn_total(row) {
             if ($("#txt-det-6-" + (i + 1)).val() != '') {
                 total += parseFloat($("#txt-det-6-" + (i + 1)).val());
             }
-        }        
+        }
     }
     $("#cuerpoTablaIndicador").data("total", total);
     $("#total-detalle").html("");
@@ -3436,7 +3633,7 @@ function fn_total(row) {
 function fn_restarTotal(num1, num2) {
     var row = $(".tabla-detalle-indicadores").find("tbody").find("th").length - 1;
     $("#cuerpoTablaIndicador").data("row", row);
-    if ($("#txt-det-"+num1+"-" + $("#tablaIndicador").data("fila")).val() != '') {
+    if ($("#txt-det-" + num1 + "-" + $("#tablaIndicador").data("fila")).val() != '') {
         var t = parseFloat($("#txt-det-" + num1 + "-" + $("#tablaIndicador").data("fila")).val());
         var tt = parseFloat($("#cuerpoTablaIndicador").data("total")) - t;
         $("#cuerpoTablaIndicador").data("total", tt);
@@ -3469,7 +3666,7 @@ function fn_eliminarArchivo(id) {
     var cantidad = $("#total-documentos").data("cantidad") - 1;
     $("#total-documentos").data("cantidad", cantidad);
     $("#total-documentos").html($("#total-documentos").data("cantidad") + storedFiles.length);
-    $("#eliminar-"+id).remove();
+    $("#eliminar-" + id).remove();
 }
 
 function removeFile(e) {
@@ -3501,11 +3698,11 @@ function removeFile(e) {
 
 function cargarCabeceraTabla(id) {
     $("#cabeceraTablaIndicador").html("");
-    if (id == 1){
+    if (id == 1) {
         cargarCabeceraElectrico();
-    }else if (id == 2){
+    } else if (id == 2) {
         cargarCabeceraHibrido();
-    }else if (id == 3){
+    } else if (id == 3) {
         cargarCabecerElectricoConsumo();
     } else if (id == 4) {
         cargarCabeceraHibridoConsumo();
@@ -3524,7 +3721,7 @@ $(document).on("change", "#cbo-enfoque", function () {
     //cargarCuerpoTabla($("#cbo-enfoque").val());
     CargarDatosCabecera();
     CargarDatosGuardados();
-    
+
 
 
 });
@@ -3566,7 +3763,7 @@ function CargarDatosCabecera() {
                             if (data[i]["PREFIJO"] != null) {
                                 descripcion += data[i]["PREFIJO"];
                             }
-                            if (data[i]["UNIDAD"] != null){
+                            if (data[i]["UNIDAD"] != null) {
                                 descripcion += data[i]["UNIDAD"];
                             }
                             if (data[i]["DESCRIPCION_UNIDAD"] != null) {
@@ -3574,7 +3771,7 @@ function CargarDatosCabecera() {
                             }
                             if (descripcion == 0) {
                                 descripcion = "";
-                            }else{
+                            } else {
                                 descripcion = "(" + descripcion + ")";
                             }
                         } else {
@@ -3590,12 +3787,13 @@ function CargarDatosCabecera() {
                             tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col" data-toggle="tooltip" data-placement="bottom" title="' + data[i]["LEYENDA_PARAMETRO"] + '"><span>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span><small>' + data[i]["DESCRIPCION_PARAMETRO"] + '</small></th>';
                         }
 
-                        
+
                         //}                        
                     }
                     //tr += '     <th class="text-center grupo-columna-02" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>Sustento</span><small>Seleccione este campo para su registro</small></th>';
                     tr += '<th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>SUSTENTO</span><small>Seleccione este campo para su registro</small></th>';
-                    tr += '     <th class="text-center" scope="col"><span>Más<br></span><a class="btn btn-warning btn-sm m-0 agregarCampos" href="#" title="Agregar fila" download><i class="fas fa-plus-circle"></i></a></th>';
+                    tr += '     <th class="text-center" scope="col"><span>Más<br></span><a class="btn btn-warning btn-sm m-0" href="javascript:void(0)" title="Agregar fila" download onclick="CargarNuevaFila(1);"><i class="fas fa-plus-circle"></i></a></th>';
+                    //tr += '     <th class="text-center" scope="col"><span>Más<br></span><a class="btn btn-warning btn-sm m-0 agregarCampos" href="#" title="Agregar fila" download><i class="fas fa-plus-circle"></i></a></th>';
                     tr += '</tr>';
                     $("#cabeceraTablaIndicador").append(tr);
                     $("[data-toggle='tooltip']").tooltip();
@@ -3603,7 +3801,7 @@ function CargarDatosCabecera() {
             }
         }
     });
-                                                                                    
+
 }
 
 //======================================================================================== 
@@ -3661,7 +3859,7 @@ function fn_cargarGei() {
                         }
                         msj = msj + ' </textarea>';
                         $("#campoGei").append(msj);
-                    }                
+                    }
                 }
             }
         }
@@ -3696,9 +3894,9 @@ function fn_cargarEnergetico() {
                         }
                         msj = msj + ' </textarea>';
                         $("#campoEnerg").append(msj);
-                    }                 
+                    }
                 }
-            }            
+            }
         }
     });
 }
@@ -3794,7 +3992,7 @@ function fn_listarFactores() {
                         var tr = "";
                         tr += '<tr class="bg-primary text-white">';
                         tr += '     <th class="text-center" scope="col"><span>N°&nbsp;</span></th>';
-                        for (var j = 0; j < cabecera.length; j++){
+                        for (var j = 0; j < cabecera.length; j++) {
                             if (cabecera[j]["ID_PARAMETRO"] == 0)
                                 tr += '     <th class="text-center grupo-columna-03" scope="col"><span><span>' + cabecera[j]["NOMBRE_DETALLE"] + '</span><span></th>';
                             else
@@ -3807,7 +4005,7 @@ function fn_listarFactores() {
 
                         var cuerpo = data[i]["listaFactorData"];
                         var tr1 = "";
-                        for (var h = 0; h < cuerpo.length; h++){
+                        for (var h = 0; h < cuerpo.length; h++) {
                             var detalle = cuerpo[h]["listaParametro"];
                             tr1 += '<tr>';
                             tr1 += '        <th class="text-center" data-encabezado="Número" scope="row">' + (h + 1) + '</th>';
@@ -3868,7 +4066,7 @@ $(document).ready(function () {
         //for (var i = 0; i < arr.length; i++){
         //    armarVerificar(arr[i]);
         //}
-        
+
         //fn_listarFactores(); -agregar luego 13-03-20
 
     } else {
@@ -3889,7 +4087,7 @@ $(document).ready(function () {
 
     var monto = $("#txt-monto-inversion").val();
     $("#txt-monto-inversion").val(formatoMiles(monto)); //add20
-    
+
     //CargarDatosIniciativa();
     //fn_cargarUbicacion();
     //fn_cargarEnergetico();
@@ -3947,7 +4145,7 @@ function fn_calcularValor(e) {
     var dv = $(e).attr("data-validar");
     var row = $("#tablaIndicador").data("fila");
 
-    
+
 
     id = e.id;
     var indice_id = id.substring(0, 3);
@@ -3970,12 +4168,12 @@ function fn_calcularValor(e) {
             $(e).attr({ "data-validar": "0" });
         }
     }
-    
+
 
     var valor = 0;
-    var campos = $("#tablaIndicador").find("tbody").find("#detalles-tr-"+ row).find("[data-validar]");
+    var campos = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + row).find("[data-validar]");
     campos.each(function (index, value) {
-        console.log(index + " + " + $(value).attr("id") +" + "+ $(value).attr("data-validar"));
+        console.log(index + " + " + $(value).attr("id") + " + " + $(value).attr("data-validar"));
 
         if ($(value).attr("data-validar") == 0) {
             valor = 1;
@@ -3994,7 +4192,7 @@ function fn_calcularValor(e) {
             parametros += enfoque + ",";
             parametros += medida + ",";
             parametros += $(value).attr("data-param") + ",";
-            parametros += $("#" + $(value).attr("id")).val() + "|";            
+            parametros += $("#" + $(value).attr("id")).val() + "|";
         });
         parametros = parametros.substring(0, parametros.length - 1);
 
@@ -4092,7 +4290,13 @@ function fn_eliminarRestarTotal() {
             var id_borrar = $("#cuerpoTablaIndicador").data("delete") + $("#tablaIndicador #detalles-tr-" + fila).data("ind") + ",";
             $("#cuerpoTablaIndicador").data("delete", id_borrar);
         }
-    }       
+
+        var url = baseUrl + "Gestion/FileDelete?IdIniciativa=" + $("#Control").data("iniciativa") + "&IdIndicador=" + (parseInt(fila) - 1);
+        var respuesta = MRV.Ajax(url, null, false);
+        if (respuesta.success) {
+            console.log("Archivos borrados");
+        }
+    }
 }
 
 function fn_mensajeCompletar() {
@@ -4211,10 +4415,10 @@ function fn_validarCampo(url, estado) {
                             if ($(value).find("div").find("[data-param]").val() != "") {
                                 validar = 1;
                             }
-                            
+
                         }
                     });
-                    
+
                 });
                 if (validar == 1) {
                     fn_procesoDetalleIndicador(url, estado);
@@ -4277,14 +4481,14 @@ function CargarDatosCabeceraVerificar(enfoque) {
                         }
                         var param = "<div>[P" + data[i]["ID_PARAMETRO"] + "]</div>" + "<div><small> " + data[i]["NOMBRE_PARAMETRO"] + "</small></div>";
                         var param_li = "<span>[P" + data[i]["ID_PARAMETRO"] + "]</span>" + "<span><small> " + data[i]["NOMBRE_PARAMETRO"] + "</small></span>";
-                        parametros += "<li>"+ param_li +"</li>"
-                        tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col">' + param + '<div>' + descripcion + '</div></th>';                       
+                        parametros += "<li>" + param_li + "</li>"
+                        tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col">' + param + '<div>' + descripcion + '</div></th>';
                     }
                     tr += '     <th class="text-center" scope="col">Más</th>';
                     tr += '</tr>';
                     parametros += "</ul></div></div>";
                     $("#cabeceraTablaVerificar-" + enfoque).append(tr);
-                    $("#paramVerificar-"+ enfoque).append(parametros);
+                    $("#paramVerificar-" + enfoque).append(parametros);
                     factoresVerificar(enfoque);
                 }
             }
@@ -4310,12 +4514,12 @@ function factoresVerificar(enfoque) {
                     for (var i = 0; i < data.length; i++) {
                         var factor = "<span>[F" + data[i]["ID_FACTOR"] + "]</span>&nbsp;<span><small>" + data[i]["NOMBRE_FACTOR"] + "</small></span>";
                         factores += "<li>" + factor + "</li>"
-                        $("#tablasFactor-"+ enfoque).append('<div class="col-sm-4 col-md-4 col-lg-4"><h5>' + data[i]["NOMBRE_FACTOR"] + '</h5><table><thead id="tablaCabeceraFactor-' + (i + 1) + '-' + enfoque + '"></thead><tbody id="cuerpoTablaFactor-' + (i + 1) + '-' + enfoque + '"></tbody></table></div>');
+                        $("#tablasFactor-" + enfoque).append('<div class="col-sm-4 col-md-4 col-lg-4"><h5>' + data[i]["NOMBRE_FACTOR"] + '</h5><table><thead id="tablaCabeceraFactor-' + (i + 1) + '-' + enfoque + '"></thead><tbody id="cuerpoTablaFactor-' + (i + 1) + '-' + enfoque + '"></tbody></table></div>');
                         //CargarCabeceraDatos(data[i]["ID_FACTOR"], (i + 1), enfoque);
                         //CargarDatosGuardadosVerificar(data[i]["ID_FACTOR"], (i + 1), enfoque)
                     }
                     factores += "</ul></div></div>";
-                    $("#paramVerificar-"+ enfoque).append(factores);
+                    $("#paramVerificar-" + enfoque).append(factores);
                     //debugger;
                     FormulaVerificar(enfoque);
                 }
@@ -4379,7 +4583,7 @@ function CargarCabeceraDatos(factor, index, enfoque) {
                     }
                     //tr += '     <th class="text-center" style="background-color: #007BFF;" scope="col">Más</th>';
                     tr += '</tr>';
-                    $("#tablaCabeceraFactor-" + index + "-"+ enfoque).append(tr);
+                    $("#tablaCabeceraFactor-" + index + "-" + enfoque).append(tr);
                 }
             } else {
             }
@@ -4417,7 +4621,7 @@ function CargarCuerpoGuardadoVerificar(filas, factor, index, enfoque) {
                                 tr += '     <div class="form-group m-0">';
                                 lista++;
                                 if (data[j]["ID_PARAMETRO"] == 6) {
-                                    tr += '<select class="form-control form-control-sm" id="cbo-det-tbl-1-' + lista + '-' + (i + 1) + '-' + index + '-' + factor +'-' + enfoque + '" data-param="' + data[j]["ID_PARAMETRO"] + '" disabled>';
+                                    tr += '<select class="form-control form-control-sm" id="cbo-det-tbl-1-' + lista + '-' + (i + 1) + '-' + index + '-' + factor + '-' + enfoque + '" data-param="' + data[j]["ID_PARAMETRO"] + '" disabled>';
                                     tr += '        <option value="0">Seleccionar</option>';
                                     var listaD = data[j]["listaDetalle"];
                                     for (var m = 0; m < listaD.length; m++) {
@@ -4533,7 +4737,7 @@ function cargarVerificar(enfoque, tabla, fila) {
             row += '<td data-encabezado="Columna 04"><div class="form-group m-0"><input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-p-' + i + '" value="' + $(value).val() + '" readonly></div></td>';
             //var a = $(value).val();
         });
-    });    
+    });
     //for (var i = 0; i < fila_valor.length; i++){
     //    row += '<td data-encabezado="Columna 04"><div class="form-group m-0"><input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-p-'+ (i + 1) +'" value="' + fila_valor[i] + '" readonly></div></td>';
     //}
@@ -4596,7 +4800,7 @@ function mensajeError(id, titulo, mensaje) {
 }
 
 
-function ValidarRevision(num_validar ,id_ini, id_plazo, id_msj, mensaje) {
+function ValidarRevision(num_validar, id_ini, id_plazo, id_msj, mensaje) {
     var msj = "";
     var item = {
         ID_INICIATIVA: id_ini,

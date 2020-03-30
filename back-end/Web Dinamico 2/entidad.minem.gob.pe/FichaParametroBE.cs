@@ -12,7 +12,7 @@ namespace entidad.minem.gob.pe
         public int ID_ENFOQUE { get; set; }
         public int ID_PARAMETRO { get; set; }
         public string NOMBRE_PARAMETRO { get; set; }
-        public int DESCRIPCION_UNIDAD { get; set; }
+        public string DESCRIPCION_UNIDAD { get; set; }
         public string COMBINACION_UNIDAD { get; set; }
         public string DESCRIPCION_PARAMETRO { get; set; }
         public string LEYENDA_PARAMETRO { get; set; }

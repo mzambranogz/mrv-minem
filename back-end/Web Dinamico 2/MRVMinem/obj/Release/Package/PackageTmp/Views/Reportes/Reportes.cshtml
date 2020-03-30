@@ -35,8 +35,9 @@
                                     <select class="form-control cbo-list" id="cbo-reporte" required>
                                         <option value="0">-Seleccione un Tipo de Reporte-</option>
                                         <option value="1">Reporte de iniciativa de mitigación por sector y medida de mitigación</option>
-                                        <option value="2">Reporte de emisiones de GEI reducidas por medidas de mitigación</option>                                     
+                                        <option value="2">Reporte de emisiones de GEI reducidas por medidas de mitigación</option>
                                         <option value="3">Reporte de escenarios</option>
+                                        <option value="4">Reporte de Ficha MINAM</option>
                                     </select>
                                 </div>
                             </div>
@@ -68,13 +69,13 @@
         $("#reporte-mrv").addClass("nav-active");
     });
 
-    function fn_ejecutaReporte(){
+    function fn_ejecutaReporte() {
         var idReporte = Number($("#cbo-reporte").val());
-        if(idReporte > 0){
+        if (idReporte > 0) {
             GenerarReporte(idReporte);
             $("#mireporte").show();
         }
-        else{
+        else {
             $("#mireporte").hide();
         }
     }
@@ -85,8 +86,13 @@
         if (IdReporte == 1) {
             url = '@Url.Content("~/Reportes/ReporteIni.aspx")';
         } else {
-            url = '@Url.Content("~/Reportes/frmReportes.aspx")';
-            url = url + "?IdReporte=" + IdReporte;
+            if (IdReporte == 4) {
+                url = '@Url.Content("~/Reportes/frmReporteFicha.aspx")';
+            }
+            else {
+                url = '@Url.Content("~/Reportes/frmReportes.aspx")';
+                url = url + "?IdReporte=" + IdReporte;
+            }
         }
         //$("#iframeReporte").attr("src", url);
         $("#iframeReporte").css({ "height": "0px" });
@@ -99,7 +105,5 @@
 
 
 </script>
-
-
 
 

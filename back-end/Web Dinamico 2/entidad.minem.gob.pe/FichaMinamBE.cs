@@ -22,5 +22,6 @@ namespace entidad.minem.gob.pe
         public string UBICACION { get; set; }
         public string METODOLOGIA { get; set; }
         public string NOMBRE_ENFOQUE { get; set; }
+
     }
 }

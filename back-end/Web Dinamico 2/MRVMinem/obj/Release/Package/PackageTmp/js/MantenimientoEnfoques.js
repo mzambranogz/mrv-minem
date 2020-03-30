@@ -148,13 +148,17 @@ function fn_avance_grilla(boton) {
 function regMantenimiento() {
     fn_limpiarCampo();
     $("#validarUsuario").data("guardar", 1);
+    $("#userMantenimiento").data("value", 0);
     fn_modalInicio();
+    $(".documento-enfoque").addClass("d-none");
     $("#title-nuevo").show()
 }
 
 function fn_limpiarCampo() {
     $("#txt-descripcion").val("");
     $("#cbo-medida").val(0);
+    $("#txt-documentos").val("");
+    $("#fle-documentos").val("");
     $("#title-nuevo").hide();
     $("#title-edit").hide();
 }
@@ -164,6 +168,7 @@ function fn_cargarDatosMantenimiento(id) {
     $("#validarUsuario").data("guardar", 0)
     $("#title-nuevo").hide()
     $("#title-edit").show();
+    $(".documento-enfoque").removeClass("d-none");
     fn_seleccionarMantenimiento(id);
 }
 
@@ -181,6 +186,8 @@ function fn_seleccionarMantenimiento(id) {
                 $("#userMantenimiento").data("value", data["ID_ENFOQUE"]);
                 $("#txt-descripcion").val(data["DESCRIPCION"]);
                 $("#cbo-medida").val(data["ID_MEDMIT"]);
+                $("#txt-documentos").val(data["ADJUNTO_BASE"]);
+                $(".documento-enfoque").html("").html('<a class="input-group-append" data-toggle="tooltip" data-placement="top" title="Descargar documento" href="/Documentos/Exportar/' + data["ADJUNTO"] + '" download><span class="input-group-text cursor-pointer"><i class="fas fa-download"></i></span></a>');
             }
         }
     });
@@ -202,26 +209,87 @@ function fn_editarMantenimiento() {
         ID_MEDMIT: $("#cbo-medida").val(),
         FLAG_ESTADO: $("#validarUsuario").data("guardar")
     };
-    var mensaje = "";
-    var respuesta = MRV.Ajax(url, item, false);
-    if (respuesta.success) {
-        fn_CargaDatos();
-        $("#ventanaEditar").hide();
-        $("#title-nuevo").hide();
-        $("#title-edit").hide();
-        $("#errorEditarMantenimientoUsuario").hide();
-        $("#errorRegistrarMantenimientoUsuario").hide();
-        $("#pieMantenimientoUsuario").hide();
-        $("#mensajeRegistroMantenimientoUsuario").hide();
-        $("#correctoMantenimientoUsuario").show();
-        $("#pieCorrecto").show();
-    } else {
-        $("#ventanaEditar").show();
-        $("#correctoMantenimientoUsuario").hide();
-        $("#errorRegistrarMantenimientoUsuario").hide();
-        $("#errorEditarMantenimientoUsuario").show();
-    }
+
+
+    var options = {
+        type: "POST",
+        dataType: "json",
+        contentType: false,
+        url: url,
+        processData: false,
+        data: ({
+            ID_ENFOQUE: $("#userMantenimiento").data("value"),
+            DESCRIPCION: $("#txt-descripcion").val(),
+            ID_MEDMIT: $("#cbo-medida").val(),
+            FLAG_ESTADO: $("#validarUsuario").data("guardar")
+        }),
+        xhr: function () {  // Custom XMLHttpRequest
+            var myXhr = $.ajaxSettings.xhr();
+            if (myXhr.upload) { // Check if upload property exists
+                //myXhr.upload.addEventListener('progress', progressHandlingFunction, false); // For handling the progress of the upload
+            }
+            return myXhr;
+        },
+        resetForm: false,
+        beforeSubmit: function (formData, jqForm, options) {
+            return true;
+        },
+        success: function (response, textStatus, myXhr) {
+            if (response.success) {
+                fn_CargaDatos();
+                $("#ventanaEditar").hide();
+                $("#title-nuevo").hide();
+                $("#title-edit").hide();
+                $("#errorEditarMantenimientoUsuario").hide();
+                $("#errorRegistrarMantenimientoUsuario").hide();
+                $("#pieMantenimientoUsuario").hide();
+                $("#mensajeRegistroMantenimientoUsuario").hide();
+                $("#correctoMantenimientoUsuario").show();
+                $("#pieCorrecto").show();
+            } else {
+                $("#ventanaEditar").show();
+                $("#correctoMantenimientoUsuario").hide();
+                $("#errorRegistrarMantenimientoUsuario").hide();
+                $("#errorEditarMantenimientoUsuario").show();
+            }
+        },
+        error: function (myXhr, textStatus, errorThrown) {
+            console.log(myXhr);
+            console.log(textStatus);
+            console.log(errorThrown);
+        }
+    };
+
+    $("#frm-enfoque").ajaxForm(options);
+    $("#frm-enfoque").submit();
+
+    //var mensaje = "";
+    //var respuesta = MRV.Ajax(url, item, false);
+    //if (respuesta.success) {
+    //    fn_CargaDatos();
+    //    $("#ventanaEditar").hide();
+    //    $("#title-nuevo").hide();
+    //    $("#title-edit").hide();
+    //    $("#errorEditarMantenimientoUsuario").hide();
+    //    $("#errorRegistrarMantenimientoUsuario").hide();
+    //    $("#pieMantenimientoUsuario").hide();
+    //    $("#mensajeRegistroMantenimientoUsuario").hide();
+    //    $("#correctoMantenimientoUsuario").show();
+    //    $("#pieCorrecto").show();
+    //} else {
+    //    $("#ventanaEditar").show();
+    //    $("#correctoMantenimientoUsuario").hide();
+    //    $("#errorRegistrarMantenimientoUsuario").hide();
+    //    $("#errorEditarMantenimientoUsuario").show();
+    //}
 }
+
+$("#modal-edicion").on("hidden.bs.modal", function () {
+    $("#correctoMantenimientoUsuario").hide();
+    $("#errorRegistrarMantenimientoUsuario").hide();
+    $("#errorEditarMantenimientoUsuario").hide();
+    $("#seccionMensaje #errorRegistro").remove();
+});
 
 function fn_validarCampo() {
     var arr = [];
@@ -232,6 +300,12 @@ function fn_validarCampo() {
 
     if ($("#cbo-medida").val() == 0) {
         arr.push("Debe seleccionar una medida");
+    }
+    debugger;
+    if ($("#validarUsuario").data("guardar") == 1) {
+        if ($("#fle-documentos").val() == "") {
+            arr.push("Debe seleccionar un archivo");
+        }
     }
 
     if (arr.length > 0) {

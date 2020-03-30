@@ -13,8 +13,8 @@
     <div class="container">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="@Url.Action("Index","Gestion")">Inicio</a></li>
-                <li class="breadcrumb-item"><a href="@Url.Action("AccionMitigacion","Gestion")">Listado de Iniciativas de Mitigación</a></li>
+                <li class="breadcrumb-item"><a href="@Url.Action(" Index","Gestion")">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="@Url.Action(" AccionMitigacion","Gestion")">Listado de Iniciativas de Mitigación</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Ver más sobre la Iniciativa de Mitigación y Detalles de Indicadores</li>
             </ol>
         </nav>
@@ -287,7 +287,7 @@
                                     <div class="table-responsive tabla-principal tabla-recorrer tabla-detalle-indicadores-1" data-order="tbl-1">
 
                                         <table class="table table-hover" data-fila="0">
-                                            <thead @*id="cabeceraTablaIndicador"*@>
+                                            <thead @*id="cabeceraTablaIndicador" *@>
                                                 <tr class="bg-primary text-white">
                                                     <th class="text-center" scope="col"><span>N°</span></th>
                                                     @foreach (var itemCab in itemD.listaParam)
@@ -313,7 +313,9 @@
                                                         <th class="text-center grupo-columna-@columna" scope="col"><span>@itemCab.NOMBRE_PARAMETRO&nbsp;</span><span>@descripcion</span><small>@itemCab.DESCRIPCION_PARAMETRO</small></th>
 
                                                     }
-                                                    <th class="text-center" scope="col">Más</th>
+                                                    <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="top" title="Texto descriptivo de ayuda"><span>SUSTENTO</span></th>
+                                                    @*
+                                                        <th class="text-center" scope="col">Más</th>*@
                                                 </tr>
                                             </thead>
                                             <tbody id="cuerpoTablaIndicador-1" data-row="0" data-total="0" data-delete="">
@@ -351,14 +353,25 @@
                                                                 //total_reducido += Convert.ToDouble(itemDet.VALOR);
                                                             }
                                                         }
-                                                        <td class="text-center text-xs-right" data-encabezado="Acciones">
-                                                            <div class="btn-group">
-                                                                <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                                                                <div class="dropdown-menu dropdown-menu-right">
-                                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;Verificar</a>
+                                                        @*
+                                                            <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                                                <div class="btn-group">
+                                                                    <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-verificacion"><i class="fas fa-eye"></i>&nbsp;Verificar</a>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                        </td>
+                                                            </td>*@
+                                                        @if (itemDatos.ArchivoSustento != null)
+                                                        {
+                                                            <td class="text-center" data-encabezado="Sustento" id="sustento-@fila">
+                                                                <a class="btn btn-success btn-sm m-0" name="fledownload" href="@Url.Action("FileDownloadDetalle","Gestion", new { IdIniciativa = itemDatos.ArchivoSustento.ID_INICIATIVA, IdIndicador = itemDatos.ArchivoSustento.ID_INDICADOR})" title="Descargar archivo" id="fle-dow-@itemDatos.ID_INDICADOR" target="_blank"><i class="fas fa-download"></i></a>
+                                                            </td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td class="text-center" data-encabezado="Sustento" id="sustento-@fila"></td>
+                                                        }
                                                     </tr>
                                                 }
                                             </tbody>
@@ -400,37 +413,37 @@
 
 
                 @*<div class="dropdown-divider"></div>
-                <div class="container pt-5">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="h5 pb-5 text-primary">Resumen</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="table-responsive tabla-principal">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr class="bg-primary text-white">
-                                            <th class="text-center" scope="col" width="2%"><span>N°&nbsp;</span></th>
-                                            <th scope="col" width="88%"><span>Resumen</span></th>
-                                            <th scope="col" width="10%"><span>Total</span></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th class="text-center" data-encabezado="Número" scope="row">1</th>
-                                            <td data-encabezado="Resumen">@Model.medida.NOMBRE_MEDMIT</td>
-                                            <td data-encabezado="Total"><strong>@total_reducido</strong><strong>&nbsp;tCO<sub>2</sub>eq</strong></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                    <div class="container pt-5">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="h5 pb-5 text-primary">Resumen</div>
                             </div>
                         </div>
                     </div>
-                </div>*@
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="table-responsive tabla-principal">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr class="bg-primary text-white">
+                                                <th class="text-center" scope="col" width="2%"><span>N°&nbsp;</span></th>
+                                                <th scope="col" width="88%"><span>Resumen</span></th>
+                                                <th scope="col" width="10%"><span>Total</span></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th class="text-center" data-encabezado="Número" scope="row">1</th>
+                                                <td data-encabezado="Resumen">@Model.medida.NOMBRE_MEDMIT</td>
+                                                <td data-encabezado="Total"><strong>@total_reducido</strong><strong>&nbsp;tCO<sub>2</sub>eq</strong></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
                 <div class="dropdown-divider"></div>
                 <div class="container py-5">
                     <div class="row">
