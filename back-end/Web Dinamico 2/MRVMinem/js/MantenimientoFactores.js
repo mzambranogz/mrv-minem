@@ -2,6 +2,7 @@
 
 
 $(document).ready(function () {
+    $("#radio-control").data("tipocontrol", 1) // add
     $('html, body').animate({ scrollTop: scroll }, 1000);
     //fn_CargarNotificacion();
 
@@ -52,16 +53,19 @@ $(document).ready(function () {
 function fn_nuevoFactor() {
     debugger;
     $("#txt-nombre-factor").val("");
+    $("#txt-unidad-factor").val(""); //add
     $("#IdFactor").val("");
     $("#filas-parametro").html("");
     $("#divError").hide();
     $("#divOk").hide();
+    $("#unidad-medida").data("unidad", 0); //add
+    $("#radio-control").data("tipocontrol", 1) // add
 }
 
 function fn_EditarFactorParametro(Idfactor) {
     $("#divError").hide();
     $("#divOk").hide();
-
+    $("#filas-parametro").html("");
     var item = {
         ID_FACTOR: Idfactor
     };
@@ -75,9 +79,12 @@ function fn_EditarFactorParametro(Idfactor) {
             if (data != null && data != "") {
                 if (data.length > 0) {
                     for (var i = 0; i < data.length; i++) {
-                        debugger;
+                        //debugger;
                         $("#txt-nombre-factor").val(data[i]["NOMBRE_FACTOR"]);
                         $("#IdFactor").val(data[i]["ID_FACTOR"]);
+
+                        $("#unidad-medida").data("unidad", data[i]["ID_DETALLE"]); // add
+                        $("#txt-unidad-factor").val(data[i]["UNIDAD_MEDIDA"]);
 
                         var html = "";
                         if (data[i].ListaFactorParametro != null && data[i].ListaFactorParametro != "") {
@@ -161,6 +168,11 @@ function fn_validarSaveParametros() {
         $("#msgError").html("Ingrese el nombre del factor, verifique antes de continuar");
         return false;
     }
+    if ($("#txt-unidad-factor").val() == "") {
+        $("#divError").show();
+        $("#msgError").html("Ingrese la unidad(es) de medida del factor, verifique antes de continuar");
+        return false;
+    }
     $("#divError").hide();
     return true;
 }
@@ -185,6 +197,8 @@ function fn_guardarFactor() {
         var item = {
             ID_FACTOR: $("#IdFactor").val(),
             NOMBRE_FACTOR: $("#txt-nombre-factor").val(),
+            UNIDAD_MEDIDA: $("#txt-unidad-factor").val(), //add
+            ID_DETALLE: $("#unidad-medida").data("unidad"), //add
             ListaFactorParametro: parametros
         }
 
@@ -237,7 +251,8 @@ function fn_CargarFactores() {
         cantidad_registros: $("#cantidad-registros").val(),
         pagina: $("#pagina").val(),
         order_by: $("#columna").val(),
-        order_orden: $("#orden").val()
+        order_orden: $("#orden").val(),
+        buscar: $("#buscar-usuarios").data("campo"),
     };
 
     $.ajax({
@@ -261,13 +276,13 @@ function fn_CargarFactores() {
 
 
                         var tr = '<tr>';
-                        tr = tr + '     <th class="text-center" data-encabezado="Número" scope="row">' + data[i]["RowNumber"] + '</th>';
+                        tr = tr + '     <th class="text-center" data-encabezado="Número" scope="row">' + data[i]["ID_FACTOR"] + '</th>';
                         tr = tr + '     <td data-encabezado="Nombre del Factor">' + data[i]["NOMBRE_FACTOR"] + '</td>';
                         tr = tr + '     <td data-encabezado="Estructura de columnas">';
                         tr = tr + '         <div class="form-control">';
                         tr = tr + '             <div class="list-group sortable-list m-0">';
                         tr = tr + '                 <div class="list-group sortable-list m-0">';
-                        
+
                         if (data[i].ListaFactorParametro != null && data[i].ListaFactorParametro != "") {
                             for (var j = 0; j < data[i].ListaFactorParametro.length; j++) {
                                 tr = tr + '             <div class="mx-1 p-1 text-center border-right"><small>' + data[i].ListaFactorParametro[j]["NOMBRE_DETALLE"] + '</small></div>';
@@ -310,4 +325,9 @@ function fn_CargarFactores() {
             }
         }
     });
+}
+
+function fn_buscar() {
+    $("#buscar-usuarios").data("campo", $("#txt-buscar").val());
+    fn_CargarFactores();
 }

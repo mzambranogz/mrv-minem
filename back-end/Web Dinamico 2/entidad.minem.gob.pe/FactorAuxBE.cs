@@ -19,6 +19,7 @@ namespace entidad.minem.gob.pe
         public int ID_PARAMETRO { get; set; }
         public string NOMBRE_PARAMETRO { get; set; }
         public string FORMULA { get; set; }
+        public int ID_DETALLE { get; set; }
         public List<FactorBE> listaFactor { get; set; }
         public List<FactorParametroBE> ListaFactorParametro { get; set; }
         public List<FactorParametroDataBE> listaFactorData { get; set; }

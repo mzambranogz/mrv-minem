@@ -11,5 +11,6 @@ namespace entidad.minem.gob.pe
         public int ID_FACTOR { get; set; }
         public string NOMBRE_FACTOR { get; set; }
         public int NUMERO_PARAMETROS { get; set; }
+        public string UNIDAD_MEDIDA { get; set; }
     }
 }

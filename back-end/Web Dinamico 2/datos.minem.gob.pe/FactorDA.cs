@@ -367,6 +367,7 @@ namespace datos.minem.gob.pe
                     p.Add("pPagina", entidad.pagina);
                     p.Add("pSortColumn", entidad.order_by);
                     p.Add("pSortOrder", entidad.order_orden);
+                    p.Add("pBuscar", entidad.buscar); //add
                     p.Add("PO_CURSOR", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<FactorBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
                 }
@@ -820,6 +821,58 @@ namespace datos.minem.gob.pe
 
             return lista;
         }
+
+        public FactorParametroBE RegistraFactorValor(FactorParametroBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_MNT_FACTOR_VALOR";
+                    var p = new OracleDynamicParameters();
+                    p.Add("PI_ID_FACTOR", entidad.ID_FACTOR);
+                    p.Add("PI_ID_DETALLE", entidad.ID_DETALLE);
+                    p.Add("PI_NOMBRE_DETALLE", entidad.NOMBRE_DETALLE);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                }
+
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+                entidad.message = ex.Message;
+            }
+
+            return entidad;
+        }
+
+
+        public FactorParametroBE GetUnidadFactor(FactorParametroBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_GET_UNIDAD_FACTOR";
+                    var p = new OracleDynamicParameters();
+                    p.Add("PI_ID_FACTOR", entidad.ID_FACTOR);
+                    p.Add("PO_CURSOR", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    entidad = db.Query<FactorParametroBE>(sp, p, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                    string cad = entidad.NOMBRE_DETALLE;
+                    entidad.NOMBRE_DETALLE = cad.Substring(6, cad.Length - 6).Trim();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return entidad;
+        }
+
 
     }
 }

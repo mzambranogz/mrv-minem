@@ -800,8 +800,9 @@ namespace MRVMinem.Controllers
             {
                 entidad.cantidad_registros = 10;
                 entidad.pagina = 1;
-                entidad.order_by = "NOMBRE_FACTOR";
+                entidad.order_by = "ID_FACTOR";
                 entidad.order_orden = "ASC";
+                entidad.buscar = "";
             }
 
             Modelo.ListaFactores = FactorLN.ListaFactorPaginado(entidad);
@@ -818,6 +819,9 @@ namespace MRVMinem.Controllers
                 foreach (var item in lista)
                 {
                     item.ListaFactorParametro = FactorLN.ListaFactorParametro(item);
+                    FactorParametroBE fp = FactorLN.GetUnidadFactor(new FactorParametroBE { ID_FACTOR = entidad.ID_FACTOR }); //add
+                    item.ID_DETALLE = fp.ID_DETALLE; // add
+                    item.UNIDAD_MEDIDA = fp.NOMBRE_DETALLE; //add
                 }
             }
 

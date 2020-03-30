@@ -96,6 +96,7 @@ namespace logica.minem.gob.pe
 
         public static List<FactorBE> ListaFactorPaginado(FactorBE entidad)
         {
+            if (string.IsNullOrEmpty(entidad.buscar)) entidad.buscar = "";
             List<FactorBE> lista = factorDA.ListaFactorPaginado(entidad);
 
             if (lista != null)
@@ -138,11 +139,17 @@ namespace logica.minem.gob.pe
                                 break;
                             }
                         }
+                        factorDA.RegistraFactorValor(new FactorParametroBE { ID_FACTOR = entidad.ID_FACTOR, ID_DETALLE = entidad.ID_DETALLE, NOMBRE_DETALLE = "FACTOR " + entidad.UNIDAD_MEDIDA }); //add 29-03-20
                     }
                 }
             }
 
             return entidad;
+        }
+
+        public static FactorParametroBE GetUnidadFactor(FactorParametroBE entidad)
+        {
+            return factorDA.GetUnidadFactor(entidad);
         }
         /////////////////////////////////////////////////////////77
         public static List<FactorBE> listarEnfoqueFactor(FactorBE entidad)
