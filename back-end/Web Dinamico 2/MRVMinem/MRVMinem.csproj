@@ -255,6 +255,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Reportes\BlockChain.xml" />
+    <Content Include="Reportes\frmReporteFicha.aspx" />
     <Content Include="Reportes\frmReportes.aspx" />
     <Content Include="Reportes\ReporteIni.aspx" />
     <Content Include="Temp\LEEME.txt">
@@ -320,6 +321,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DsFichaIniciativa.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\DsFichaMinam.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsFichaMinam.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\DsIniciativa.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -334,6 +340,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DsMedMit.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReporteFicha.aspx.cs">
+      <DependentUpon>frmReporteFicha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReporteFicha.aspx.designer.cs">
+      <DependentUpon>frmReporteFicha.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reportes\frmReportes.aspx.cs">
       <DependentUpon>frmReportes.aspx</DependentUpon>
@@ -623,6 +636,17 @@
     <Content Include="Reportes\DsFichaIniciativa.xss">
       <DependentUpon>DsFichaIniciativa.xsd</DependentUpon>
     </Content>
+    <Content Include="Reportes\DsFichaMinam.xsc">
+      <DependentUpon>DsFichaMinam.xsd</DependentUpon>
+    </Content>
+    <None Include="Reportes\DsFichaMinam.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsFichaMinam.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reportes\DsFichaMinam.xss">
+      <DependentUpon>DsFichaMinam.xsd</DependentUpon>
+    </Content>
     <None Include="Reportes\DsIniciativa.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DsIniciativa.Designer.cs</LastGenOutput>
@@ -699,6 +723,8 @@
     <EmbeddedResource Include="Reportes\EscenarioRpt.rdlc" />
     <EmbeddedResource Include="Reportes\rptBlockChain.rdlc" />
     <EmbeddedResource Include="Reportes\rptFichaIniciativa.rdlc" />
+    <EmbeddedResource Include="Reportes\rptFichaMinam.rdlc" />
+    <EmbeddedResource Include="Reportes\rptFichaParametros.rdlc" />
     <EmbeddedResource Include="Reportes\rptIniciativa.rdlc" />
     <EmbeddedResource Include="Reportes\rptInstitucion.rdlc" />
     <EmbeddedResource Include="Reportes\rptMedMit.rdlc" />

@@ -11,7 +11,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div  style ="text-align:center; border: 5px outset #cccccc; background-color: #cccccc; font-size: 20px;" </div>
+    <div style ="text-align:center; border: 5px outset #cccccc; background-color: #cccccc; font-size: 20px;"> </div>
     <div>
     
         <asp:ScriptManager ID="ScriptManager1" runat="server">

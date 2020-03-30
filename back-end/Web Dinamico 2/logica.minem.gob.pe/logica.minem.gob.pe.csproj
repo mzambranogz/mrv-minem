@@ -52,6 +52,7 @@
     <Compile Include="EscenarioLN.cs" />
     <Compile Include="EscenarioRptLN.cs" />
     <Compile Include="FactorLN.cs" />
+    <Compile Include="FichaMinamLN.cs" />
     <Compile Include="GasEfectoInvernaderoLN.cs" />
     <Compile Include="GrupoIniciativaLN.cs" />
     <Compile Include="IndicadorArchivoLN.cs" />

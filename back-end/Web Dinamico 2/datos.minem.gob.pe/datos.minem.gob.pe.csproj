@@ -62,6 +62,7 @@
     <Compile Include="EscenarioDA.cs" />
     <Compile Include="EscenarioRptDA.cs" />
     <Compile Include="FactorDA.cs" />
+    <Compile Include="FichaMinamDA.cs" />
     <Compile Include="GasEfectoInvernaderoDA.cs" />
     <Compile Include="GrupoIndicadorDA.cs" />
     <Compile Include="IndicadorArchivoDA.cs" />
