@@ -14,6 +14,7 @@ namespace entidad.minem.gob.pe
         public int ID_MEDMIT { get; set; }
         public int ID_PARAMETRO { get; set; }
         public string VALOR { get; set; }
-        
+        public string ADJUNTO { get; set; }
+        public string ADJUNTO_BASE { get; set; }
     }
 }
