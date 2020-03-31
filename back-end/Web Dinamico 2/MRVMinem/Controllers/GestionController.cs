@@ -880,43 +880,43 @@ namespace MRVMinem.Controllers
         //    return Respuesta(itemRespuesta);
         //}
 
-        public JsonResult RegistrarDetalleIndicador(HttpPostedFileBase[] fledoc, HttpPostedFileBase[] fledocumentos, IniciativaBE entidad)
+        public JsonResult RegistrarDetalleIndicador(HttpPostedFileBase[] fledoc2, HttpPostedFileBase[] fledocumentos, IniciativaBE entidad)
         {
             ResponseEntity itemRespuesta = new ResponseEntity();
             entidad.ID_USUARIO = Convert.ToInt32(Session["usuario"]);
             try
             {
-                if (fledoc != null)
-                {
-                    foreach (var f in fledoc)
-                    {
-                        if (f != null)
-                        {
-                            string archivoOriginal = f.FileName;
-                            string nomArchivoSave = "";
-                            nomArchivoSave = Guid.NewGuid() + Path.GetExtension(f.FileName).ToString();
-                            var carpeta = WebConfigurationManager.AppSettings.Get("Sustentatorio");
-                            var ruta = Path.Combine(carpeta, nomArchivoSave);
-                            f.SaveAs(ruta);
+                //if (fledoc != null)
+                //{
+                //    foreach (var f in fledoc)
+                //    {
+                //        if (f != null)
+                //        {
+                //            string archivoOriginal = f.FileName;
+                //            string nomArchivoSave = "";
+                //            nomArchivoSave = Guid.NewGuid() + Path.GetExtension(f.FileName).ToString();
+                //            var carpeta = WebConfigurationManager.AppSettings.Get("Sustentatorio");
+                //            var ruta = Path.Combine(carpeta, nomArchivoSave);
+                //            f.SaveAs(ruta);
 
 
-                            if (entidad.ListaIndicadores != null)
-                            {
-                                foreach (IndicadorBE item in entidad.ListaIndicadores)
-                                {
-                                    if (item.ADJUNTO_BASE != null)
-                                    {
-                                        if (item.ADJUNTO_BASE.Contains(archivoOriginal))
-                                        {
-                                            item.ADJUNTO = nomArchivoSave;
-                                            break;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+                //            if (entidad.ListaIndicadores != null)
+                //            {
+                //                foreach (IndicadorBE item in entidad.ListaIndicadores)
+                //                {
+                //                    if (item.ADJUNTO_BASE != null)
+                //                    {
+                //                        if (item.ADJUNTO_BASE.Contains(archivoOriginal))
+                //                        {
+                //                            item.ADJUNTO = nomArchivoSave;
+                //                            break;
+                //                        }
+                //                    }
+                //                }
+                //            }
+                //        }
+                //    }
+                //}
 
                 if (fledocumentos != null)
                 {

@@ -142,3 +142,81 @@ PL/SQL: Statement ignored
 31/03/2020 01:13:14 a.m.: [Método: Int32 getMayorControlF(System.Collections.Generic.List`1[entidad.minem.gob.pe.FactorBE]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
 31/03/2020 01:13:14 a.m.: [Método: Void ExportarToExcelMantenimientoFactores(entidad.minem.gob.pe.FactorBE), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
 31/03/2020 01:13:14 a.m.: [Método: Void ExportarMantenimientoFactores(System.String), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+31/03/2020 08:18:52: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:18:52: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:18:52: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:18:52: [Método: Void Open(), Línea: 0] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:18:52: [Método: Boolean MoveNext(), Línea: 0] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:18:52: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:18:52: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:18:52: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:18:52: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.MedidaMitigacionBE] ListarMedidaMitigacion(entidad.minem.gob.pe.MedidaMitigacionBE), Línea: 30] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:19:04: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:19:04: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:19:04: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:19:04: [Método: Void Open(), Línea: 0] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:19:04: [Método: Boolean MoveNext(), Línea: 0] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:19:04: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:19:04: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:19:04: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:19:04: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] MostrarGeiporAnio(entidad.minem.gob.pe.IniciativaBE), Línea: 1455] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:45:01: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:45:01: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:45:01: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:45:01: [Método: Void Open(), Línea: 0] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:45:01: [Método: Boolean MoveNext(), Línea: 0] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:45:01: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:45:01: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:45:01: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:45:01: [Método: entidad.minem.gob.pe.UsuarioBE ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 230] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:45:14: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:45:14: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, System.Object, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:45:14: [Método: Void Open(Oracle.DataAccess.Client.OracleConnection), Línea: 0] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:45:14: [Método: Void Open(), Línea: 0] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:45:14: [Método: Boolean MoveNext(), Línea: 0] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:45:14: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:45:14: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:45:14: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 08:45:14: [Método: entidad.minem.gob.pe.UsuarioBE ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 230] - ORA-12514: TNS:el listener no conoce actualmente el servicio solicitado en el descriptor de conexión
+31/03/2020 11:12:49: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12899: value too large for column "MRVMM"."T_MAED_INDICADOR_ADJUNTO"."ADJUNTO_BASE" (actual: 103, maximum: 100)
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 1547
+ORA-06512: at line 1
+31/03/2020 11:12:49: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12899: value too large for column "MRVMM"."T_MAED_INDICADOR_ADJUNTO"."ADJUNTO_BASE" (actual: 103, maximum: 100)
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 1547
+ORA-06512: at line 1
+31/03/2020 11:12:49: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-12899: value too large for column "MRVMM"."T_MAED_INDICADOR_ADJUNTO"."ADJUNTO_BASE" (actual: 103, maximum: 100)
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 1547
+ORA-06512: at line 1
+31/03/2020 11:12:49: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-12899: value too large for column "MRVMM"."T_MAED_INDICADOR_ADJUNTO"."ADJUNTO_BASE" (actual: 103, maximum: 100)
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 1547
+ORA-06512: at line 1
+31/03/2020 11:12:49: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-12899: value too large for column "MRVMM"."T_MAED_INDICADOR_ADJUNTO"."ADJUNTO_BASE" (actual: 103, maximum: 100)
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 1547
+ORA-06512: at line 1
+31/03/2020 11:12:49: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12899: value too large for column "MRVMM"."T_MAED_INDICADOR_ADJUNTO"."ADJUNTO_BASE" (actual: 103, maximum: 100)
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 1547
+ORA-06512: at line 1
+31/03/2020 11:12:49: [Método: entidad.minem.gob.pe.IndicadorArchivoBE RegistrarArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 31] - ORA-12899: value too large for column "MRVMM"."T_MAED_INDICADOR_ADJUNTO"."ADJUNTO_BASE" (actual: 103, maximum: 100)
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 1547
+ORA-06512: at line 1
+31/03/2020 11:13:52: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12899: value too large for column "MRVMM"."T_MAED_INDICADOR_ADJUNTO"."ADJUNTO_BASE" (actual: 103, maximum: 100)
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 1547
+ORA-06512: at line 1
+31/03/2020 11:13:52: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-12899: value too large for column "MRVMM"."T_MAED_INDICADOR_ADJUNTO"."ADJUNTO_BASE" (actual: 103, maximum: 100)
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 1547
+ORA-06512: at line 1
+31/03/2020 11:13:52: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-12899: value too large for column "MRVMM"."T_MAED_INDICADOR_ADJUNTO"."ADJUNTO_BASE" (actual: 103, maximum: 100)
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 1547
+ORA-06512: at line 1
+31/03/2020 11:13:52: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-12899: value too large for column "MRVMM"."T_MAED_INDICADOR_ADJUNTO"."ADJUNTO_BASE" (actual: 103, maximum: 100)
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 1547
+ORA-06512: at line 1
+31/03/2020 11:13:52: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-12899: value too large for column "MRVMM"."T_MAED_INDICADOR_ADJUNTO"."ADJUNTO_BASE" (actual: 103, maximum: 100)
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 1547
+ORA-06512: at line 1
+31/03/2020 11:13:52: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-12899: value too large for column "MRVMM"."T_MAED_INDICADOR_ADJUNTO"."ADJUNTO_BASE" (actual: 103, maximum: 100)
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 1547
+ORA-06512: at line 1
+31/03/2020 11:13:52: [Método: entidad.minem.gob.pe.IndicadorArchivoBE RegistrarArchivoDetalleIndicador(entidad.minem.gob.pe.IndicadorArchivoBE), Línea: 31] - ORA-12899: value too large for column "MRVMM"."T_MAED_INDICADOR_ADJUNTO"."ADJUNTO_BASE" (actual: 103, maximum: 100)
+ORA-06512: at "MRVMM.PKG_MRV_DETALLE_INDICADORES", line 1547
+ORA-06512: at line 1

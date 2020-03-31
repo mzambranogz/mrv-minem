@@ -3323,6 +3323,10 @@ function handleFileSustento(evt, idIndicador, accion) {
                 if (result != null && result != "") {
                     $.each(result, function (i, v) {
                         if (v.accion == "1") {
+                            var xref = $("#fle-dow-" + idIndicador);
+                            if (xref[0].href.lastIndexOf("FileDownloadDetalle") != -1) {
+                                xref[0].href = baseUrl + 'Gestion/FileDownload?IdIniciativa=' + $("#iniciativa_mit_ID_INICIATIVA").val() + '&IdIndicador=' + idIndicador + "&accion=I";
+                            }
                             $("#fle-dow-" + idIndicador).removeAttr('style');
                         } else {
                             MRV.Alert('Alerta', v.message, '', 'es');
