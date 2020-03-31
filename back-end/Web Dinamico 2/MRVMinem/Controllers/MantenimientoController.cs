@@ -2882,7 +2882,111 @@ namespace MRVMinem.Controllers
             }
         }
 
+
+        //================================================================== MANTENIMIENTO ENFOQUE FACTOR
+
+        public void ExportarMantenimientoFactores(string item)
+        {
+            try
+            {
+                if (item != null)
+                {
+                    var entidad = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<FactorBE>(item);
+                    ExportarToExcelMantenimientoFactores(entidad);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+        }
+
+        public void ExportarToExcelMantenimientoFactores(FactorBE entidad)
+        {
+            List<FactorBE> lista = null;
+            lista = FactorLN.ListarFactorExcel(entidad);
+            var limite = getMayorControlFactorParam(lista);
+            limite += 2;
+
+            int row = 2;
+            try
+            {
+                string cadena_fecha = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+
+                using (ExcelPackage package = new ExcelPackage())
+                {
+                    var ws1 = package.Workbook.Worksheets.Add("LISTA FACTORES PARAMETRO");
+                    using (var m = ws1.Cells[1, 1, row, limite])
+                    {
+                        m.Style.Font.Bold = true;
+                        m.Style.WrapText = true;
+                        m.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        m.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        m.Style.Font.Size = 10;
+                        m.Merge = true;
+                        m.Value = "FACTORES PARAMETRO " + cadena_fecha;
+                    }
+                    ws1.View.FreezePanes(4, 1);
+                    row++;
+                    ws1.Cells["A" + row].Value = "N°";
+                    ws1.Cells["A" + row].AutoFitColumns(5);
+                    ws1.Cells["B" + row].Value = "FACTOR";
+                    ws1.Cells["B" + row].AutoFitColumns(40);
+                    ws1.Cells["C" + row].Value = "ESTRUCTURA DE PARÁMETROS";
+                    ws1.Cells["C" + row].AutoFitColumns(30);
+
+                    for (var i = 3; i < limite; i++)
+                    {
+                        ws1.Cells[obtenerLetra(i + 1) + row].Value = "";
+                        ws1.Cells[obtenerLetra(i + 1) + row].AutoFitColumns(40);
+                        FormatoCelda(ws1, obtenerLetra(i + 1), row, 0, 123, 255, 255, 255, 255);
+                    }
+
+                    FormatoCelda(ws1, "A", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "B", row, 0, 123, 255, 255, 255, 255);
+                    FormatoCelda(ws1, "C", row, 0, 123, 255, 255, 255, 255);
+                    ws1.Row(row).Height = 30;
+                    row++;
+                    if (lista.Count > 0)
+                    {
+
+                        foreach (FactorBE dt_fila in lista)
+                        {
+                            var xNum = 3;
+                            ws1.Cells["A" + row].Value = dt_fila.ID_FACTOR;
+                            ws1.Cells["B" + row].Value = dt_fila.NOMBRE_FACTOR;
+                            foreach (var item in dt_fila.ListaFactorParametro)
+                            {
+                                ws1.Cells[obtenerLetra(xNum) + row].Value = item.NOMBRE_DETALLE;
+                                FormatoCelda(ws1, obtenerLetra(xNum), row, 91, 192, 222, 255, 255, 255);
+                                xNum++;
+                            }
+
+                            formatoDetalle(ws1, "A", obtenerLetra(xNum), row);
+                            row++;
+                        }
+                        row++;
+                    }
+
+                    string strFileName = "FACTOR_PARAMETRO" + DateTime.Now.ToString() + ".xlsx";
+                    Response.Clear();
+                    byte[] dataByte = package.GetAsByteArray();
+                    Response.AddHeader("Content-Disposition", "inline;filename=\"" + strFileName + "\"");
+                    Response.AddHeader("Content-Length", dataByte.Length.ToString());
+                    Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                    Response.BinaryWrite(dataByte);
+                    Response.End();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
         //==================================================================================================================================
+
+
 
         private void FormatoCelda(ExcelWorksheet ws1, string letra, int row, int color1, int color2, int color3, int fontc1, int fontc2, int fontc3)
         {
@@ -2938,6 +3042,19 @@ namespace MRVMinem.Controllers
                 if (item.listaFactor.Count > mayor)
                 {
                     mayor = item.listaFactor.Count;
+                }
+            }
+            return mayor;
+        }
+
+        private int getMayorControlFactorParam(List<FactorBE> lista)
+        {
+            var mayor = -1;
+            foreach (var item in lista)
+            {
+                if (item.ListaFactorParametro.Count > mayor)
+                {
+                    mayor = item.ListaFactorParametro.Count;
                 }
             }
             return mayor;

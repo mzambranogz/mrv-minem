@@ -285,7 +285,10 @@ function fn_CargarFactores() {
 
                         if (data[i].ListaFactorParametro != null && data[i].ListaFactorParametro != "") {
                             for (var j = 0; j < data[i].ListaFactorParametro.length; j++) {
-                                tr = tr + '             <div class="mx-1 p-1 text-center border-right"><small>' + data[i].ListaFactorParametro[j]["NOMBRE_DETALLE"] + '</small></div>';
+                                tr = tr + '             <div class="p-1 text-center border-right">';
+                                tr = tr + '                 <div class="h6 span badge badge-info w-100">' + data[i].ListaFactorParametro[j]["NOMBRE_DETALLE"] + '</div>';
+                                tr = tr + '             </div>';
+                                //tr = tr + '             <div class="mx-1 p-1 text-center border-right"><small>' + data[i].ListaFactorParametro[j]["NOMBRE_DETALLE"] + '</small></div>';
                             }
                         }
                         tr = tr + '                 </div>';
@@ -330,4 +333,32 @@ function fn_CargarFactores() {
 function fn_buscar() {
     $("#buscar-usuarios").data("campo", $("#txt-buscar").val());
     fn_CargarFactores();
+}
+
+function exportarMantenimiento() {
+    var item = {
+        buscar: $("#buscar-usuarios").data("campo"),
+        order_by: $("#columna").val(),
+        order_orden: $("#orden").val()
+    };
+
+    var url = baseUrl + 'Mantenimiento/ExportarMantenimientoFactores';
+
+    var parametros = {
+        Url: url,
+        Item: JSON.stringify(item)
+    };
+
+    var frm = '<form id = "frmDescarga" name = "frmDescarga" method = "POST" target = "_blank" action = "' + url + '"></form>';
+    var hdn = '<input type = "hidden" id = "url" name = "url" />';
+    var hdnFormato = '<input type = "hidden" id = "formato" name = "formato" />';
+    var hdnItem = '<input type = "hidden" id = "item" name = "item" />';
+    jQuery('#divExportar').append(frm)
+    jQuery(hdn).appendTo(jQuery('#frmDescarga'));
+    jQuery(hdnFormato).appendTo(jQuery('#frmDescarga'));
+    jQuery(hdnItem).appendTo(jQuery('#frmDescarga'));
+    jQuery('#frmDescarga #url').val(parametros.Url);
+    jQuery('#frmDescarga #item').val(parametros.Item);
+    jQuery('#frmDescarga').submit();
+    jQuery('#frmDescarga').remove();
 }

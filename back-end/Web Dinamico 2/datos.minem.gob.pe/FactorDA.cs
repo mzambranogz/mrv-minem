@@ -873,6 +873,59 @@ namespace datos.minem.gob.pe
             return entidad;
         }
 
+        public List<FactorBE> ListarFactorExcel(FactorBE entidad)
+        {
+            List<FactorBE> lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_EXCEL_FACTORES";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pBuscar", entidad.buscar);
+                    p.Add("pSortColumn", entidad.order_by);
+                    p.Add("pSortOrder", entidad.order_orden);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    lista = db.Query<FactorBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in lista)
+                    {
+                        item.ListaFactorParametro = ListaFactoresExcel(item);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return lista;
+        }
+
+        public List<FactorParametroBE> ListaFactoresExcel(FactorBE entidad)
+        {
+            List<FactorParametroBE> lista = null;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_FACTORES_PARAM";
+                    var p = new OracleDynamicParameters();
+                    p.Add("PI_ID_FACTOR", entidad.ID_FACTOR);
+                    p.Add("PO_REF", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    lista = db.Query<FactorParametroBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return lista;
+        }
+
 
     }
 }

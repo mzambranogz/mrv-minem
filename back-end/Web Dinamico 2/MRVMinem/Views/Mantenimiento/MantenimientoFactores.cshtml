@@ -92,7 +92,10 @@
                                                             {
                                                                 foreach (var item2 in item.ListaFactorParametro)
                                                                 {
-                                                                    <div class="mx-1 p-1 text-center border-right"><small>@item2.NOMBRE_DETALLE </small></div>
+                                                                    <div class="p-1 text-center border-right">
+                                                                        <div class="h6 span badge badge-info w-100">@item2.NOMBRE_DETALLE</div>
+                                                                    </div>
+                                                                    @*<div class="mx-1 p-1 text-center border-right"><small>@item2.NOMBRE_DETALLE </small></div>*@
                                                                 }
                                                             }
                                                         </div>
