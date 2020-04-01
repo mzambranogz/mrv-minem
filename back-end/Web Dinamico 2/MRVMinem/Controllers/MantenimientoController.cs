@@ -898,6 +898,7 @@ namespace MRVMinem.Controllers
             entidad.ID_NAMA = int.Parse(Request.Form["ID_NAMA"].ToString());
             entidad.OBJETIVO_MEDMIT = Request.Form["OBJETIVO_MEDMIT"].ToString();
             entidad.ID_IPCC = int.Parse(Request.Form["ID_IPCC"].ToString());
+            entidad.METODOLOGIA_MEDMIT = Request.Form["METODOLOGIA_MEDMIT"].ToString(); //add
 
             ResponseEntity itemRespuesta = new ResponseEntity();
 

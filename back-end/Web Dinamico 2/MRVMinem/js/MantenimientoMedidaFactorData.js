@@ -54,7 +54,8 @@ function CargarCabeceraDatos(factor) {
                         tr += '<tr class="bg-primary text-white">';
                         tr += '     <th class="text-center" scope="col"><span>N°&nbsp;</span></th>';
                         for (var i = 0; i < data.length; i++) {
-                            tr += '     <th scope="col"><span>' + data[i]["NOMBRE_DETALLE"] + '&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador ' + data[i]["NOMBRE_DETALLE"] + '"></i></span></th>';
+                            //tr += '     <th scope="col"><span>' + data[i]["NOMBRE_DETALLE"] + '&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador ' + data[i]["NOMBRE_DETALLE"] + '"></i></span></th>';
+                            tr += '     <th scope="col"><span>' + data[i]["NOMBRE_DETALLE"] + '&nbsp;</span></th>';
                             //tr += '     <th class="text-center" style="background-color: ' + data[i]["COLOR_GRUPO"] + ';" scope="col"><span>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador ' + data[i]["NOMBRE_PARAMETRO"] + '"></i></span></th>';
                         }
                         tr += '     <th class="text-center" style="background-color: #007BFF;" scope="col">Más</th>';

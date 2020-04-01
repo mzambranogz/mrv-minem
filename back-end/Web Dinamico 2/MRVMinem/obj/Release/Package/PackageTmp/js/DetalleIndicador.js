@@ -3372,6 +3372,7 @@ function CargarNuevaFila(filas) {
     }
     var arregloIDs = [];
     var rows = $("#cuerpoTablaIndicador tr").length;
+    debugger;
     $.ajax({
         async: false,
         url: baseUrl + 'Gestion/ListarCuerpoIndicador',
@@ -3473,12 +3474,12 @@ function CargarNuevaFila(filas) {
                             }
                         }
 
-                        var urlDw = baseUrl + 'Gestion/FileDownload?IdIniciativa=' + $("#iniciativa_mit_ID_INICIATIVA").val() + '&IdIndicador=' + rows + "&accion=I ";
+                        var urlDw = baseUrl + 'Gestion/FileDownload?IdIniciativa=' + $("#iniciativa_mit_ID_INICIATIVA").val() + '&IdIndicador=' + (rows + 1) + "&accion=I ";
 
-                        tr += '<td class="text-center" data-encabezado="Sustento" id="sustento' + rows + '">';
-                        tr += '        <label class="btn btn-secondary btn-sm m-0" for="fle-doc-' + rows + '" title="Cargar archivo"><i class="fas fa-upload"></i>';
-                        tr += '          <input class="d-none" type="file" id="fle-doc-' + rows + '" name="fledoc" onchange="handleFileSustento(this.files,' + rows + ',1)">';
-                        tr += '        </label><a class="btn btn-success btn-sm m-0" href="' + urlDw + '" title="Descargar archivo" id="fle-dow-' + rows + '" target="_blank" style="display: none;"><i class="fas fa-download"></i></a>';
+                        tr += '<td class="text-center" data-encabezado="Sustento" id="sustento' + (rows + 1) + '">';
+                        tr += '        <label class="btn btn-secondary btn-sm m-0" for="fle-doc-' + (rows + 1) + '" title="Cargar archivo"><i class="fas fa-upload"></i>';
+                        tr += '          <input class="d-none" type="file" id="fle-doc-' + (rows + 1) + '" name="fledoc" onchange="handleFileSustento(this.files,' + (rows + 1) + ',1)">';
+                        tr += '        </label><a class="btn btn-success btn-sm m-0" href="' + urlDw + '" title="Descargar archivo" id="fle-dow-' + (rows + 1) + '" target="_blank" style="display: none;"><i class="fas fa-download"></i></a>';
                         tr += '</td>';
                         tr += '<td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCampos" href="#" onclick="fn_eliminarRestarTotal()" title="Quitar fila"><i class="fas fa-minus-circle"></i></a></td>';
 
@@ -3541,7 +3542,7 @@ function CargarDatosGuardados() {
                                 Xdown[0].href = baseUrl + 'Gestion/FileDownload?IdIniciativa=' + $("#iniciativa_mit_ID_INICIATIVA").val() + '&IdIndicador=' + data[i]["ID_INDICADOR"] + "&accion=I";
                             }
                         }
-                        
+
                         for (var m = 0; m < entidad.length; m++) {
                             debugger;
                             if (entidad[m]["ID_TIPO_CONTROL"] == 1) {
@@ -3795,8 +3796,8 @@ function CargarDatosCabecera() {
                         //}                        
                     }
                     //tr += '     <th class="text-center grupo-columna-02" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>Sustento</span><small>Seleccione este campo para su registro</small></th>';
-                    tr += '<th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>SUSTENTO</span><small>Seleccione este campo para su registro</small></th>';
-                    tr += '     <th class="text-center" scope="col"><span>Más<br></span><a class="btn btn-warning btn-sm m-0" href="javascript:void(0)" title="Agregar fila" download onclick="CargarNuevaFila(1);"><i class="fas fa-plus-circle"></i></a></th>';
+                    tr += '<th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>SUSTENTO</span><br/><small>Seleccione este campo para su registro</small></th>';
+                    tr += '     <th class="text-center" scope="col"><span>Más<br></span><a class="btn btn-warning btn-sm m-0" href="javascript:void(0)" title="Agregar fila" onclick="CargarNuevaFila(1);"><i class="fas fa-plus-circle"></i></a></th>';
                     //tr += '     <th class="text-center" scope="col"><span>Más<br></span><a class="btn btn-warning btn-sm m-0 agregarCampos" href="#" title="Agregar fila" download><i class="fas fa-plus-circle"></i></a></th>';
                     tr += '</tr>';
                     $("#cabeceraTablaIndicador").append(tr);

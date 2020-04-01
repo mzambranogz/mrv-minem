@@ -190,6 +190,7 @@ namespace datos.minem.gob.pe
                     p.Add("pID_IPCC", entidad.ID_IPCC);
                     p.Add("pADJUNTO", entidad.ADJUNTO);
                     p.Add("pADJUNTO_BASE", entidad.ADJUNTO_BASE);
+                    p.Add("pMETODOLOGIA_MEDMIT", entidad.METODOLOGIA_MEDMIT); //ADD
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                     entidad.OK = true;
                 }

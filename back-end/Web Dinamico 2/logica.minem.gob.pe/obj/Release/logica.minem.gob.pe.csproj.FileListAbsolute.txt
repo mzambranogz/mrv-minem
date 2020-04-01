@@ -152,3 +152,17 @@ E:\Eduardo\mrv-minem\back-end\Web Dinamico 2\logica.minem.gob.pe\bin\Release\Dap
 E:\Eduardo\mrv-minem\back-end\Web Dinamico 2\logica.minem.gob.pe\obj\Release\logica.minem.gob.pe.csprojResolveAssemblyReference.cache
 E:\Eduardo\mrv-minem\back-end\Web Dinamico 2\logica.minem.gob.pe\obj\Release\logica.minem.gob.pe.dll
 E:\Eduardo\mrv-minem\back-end\Web Dinamico 2\logica.minem.gob.pe\obj\Release\logica.minem.gob.pe.pdb
+C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\logica.minem.gob.pe\bin\Release\logica.minem.gob.pe.dll
+C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\logica.minem.gob.pe\bin\Release\logica.minem.gob.pe.pdb
+C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\logica.minem.gob.pe\bin\Release\datos.minem.gob.pe.dll
+C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\logica.minem.gob.pe\bin\Release\entidad.minem.gob.pe.dll
+C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\logica.minem.gob.pe\bin\Release\utilitario.minem.gob.pe.dll
+C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\logica.minem.gob.pe\bin\Release\Dapper.dll
+C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\logica.minem.gob.pe\bin\Release\Oracle.DataAccess.dll
+C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\logica.minem.gob.pe\bin\Release\datos.minem.gob.pe.pdb
+C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\logica.minem.gob.pe\bin\Release\entidad.minem.gob.pe.pdb
+C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\logica.minem.gob.pe\bin\Release\utilitario.minem.gob.pe.pdb
+C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\logica.minem.gob.pe\bin\Release\Dapper.xml
+C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\logica.minem.gob.pe\obj\Release\logica.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\logica.minem.gob.pe\obj\Release\logica.minem.gob.pe.dll
+C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\logica.minem.gob.pe\obj\Release\logica.minem.gob.pe.pdb

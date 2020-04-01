@@ -19,5 +19,6 @@ namespace entidad.minem.gob.pe
         public string IMAGEN_MEDMIT { get; set; }
         public string ADJUNTO { get; set; }
         public string ADJUNTO_BASE { get; set; }
+        public string METODOLOGIA_MEDMIT { get; set; } //add
     }
 }
