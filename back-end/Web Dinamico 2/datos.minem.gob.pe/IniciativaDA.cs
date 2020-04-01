@@ -1196,31 +1196,33 @@ namespace datos.minem.gob.pe
                         if (entidad.ID_ROL == 1)
                         {
                             //sp += "USP_SEL_BUSQUEDA_SPL_PRI_USU";
-                            entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ")";
+                            //entidad.CONDICION = "(INI.ID_USUARIO = "+ entidad.ID_USUARIO +") AND (INI.ID_ETAPA IN (1, 3) AND INI.ID_ESTADO IN (0, 6))";
+                            entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,7,9,10))";
                         }
                         else if (entidad.ID_ROL == 2)
                         {
                             //sp += "USP_SEL_BUSQUEDA_SPL_PRI_ESP";
                             //entidad.CONDICION = "(INI.ID_ESTADO IN (1,5) AND INI.ID_ETAPA IN (1,3) OR (INI.ID_ESTADO = 2 AND INI.ID_ETAPA = 4))";
-                            entidad.CONDICION = "(INI.ID_ESTADO IN (1,5) AND INI.ID_ETAPA IN (1,3))";
+                            //entidad.CONDICION = "(INI.ID_ESTADO IN (1,5) AND INI.ID_ETAPA IN (1,3))";
+                            entidad.CONDICION = "(INI.ID_PLAZO_ETAPA_ESTADO IN (2,5,8,11,13) AND MD.ID_MEDMIT IN (SELECT ID_MEDMIT FROM T_MAE_MEDMIT WHERE ASOCIADO = " + entidad.ID_USUARIO + "))";
                         }
                         else if (entidad.ID_ROL == 3)
                         {
                             //sp += "USP_SEL_BUSQUEDA_SPL_PRI_ADM";
                             //entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 4) OR (INI.ID_ESTADO IN (2) AND INI.ID_ETAPA IN (5,8))";
-                            entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 4)";
+                            entidad.CONDICION = "(INI.ID_PLAZO_ETAPA_ESTADO IN (12,15,19) AND INI.ID_ETAPA = 4)";
                         }
                         else if (entidad.ID_ROL == 4)
                         {
                             //sp += "USP_SEL_BUSQUEDA_SPL_PRI_EVA";
                             //entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 5) OR (INI.ID_ESTADO = 2 AND INI.ID_ETAPA = 6)";
-                            entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 5)";
+                            entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 9 AND INI.ASIGNAR_INI = " + entidad.ID_USUARIO + ")";
                         }
                         else if (entidad.ID_ROL == 5)
                         {
                             //sp += "USP_SEL_BUSQUEDA_SPL_PRI_VRF";
                             //entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA IN (6,8))";
-                            entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA IN (8,10)) AND INI.ASIGNAR_INI = " + entidad.ID_USUARIO + ")";
+                            entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA IN (8,10) AND INI.ASIGNAR_INI = " + entidad.ID_USUARIO + ")";
                         }
                     }
                     else if (entidad.ID_ESTADO == 2)
@@ -1327,19 +1329,21 @@ namespace datos.minem.gob.pe
                         if (entidad.ID_ROL == 1)
                         {
                             //sp += "USP_SEL_BUSQUEDA_SPL_PRI_USU";
-                            entidad.CONDICION = "(INI.ID_USUARIO = "+ entidad.ID_USUARIO +") AND (INI.ID_ETAPA IN (1, 3) AND INI.ID_ESTADO IN (0, 6))";
+                            //entidad.CONDICION = "(INI.ID_USUARIO = "+ entidad.ID_USUARIO +") AND (INI.ID_ETAPA IN (1, 3) AND INI.ID_ESTADO IN (0, 6))";
+                            entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,7,9,10))";
                         }
                         else if (entidad.ID_ROL == 2)
                         {
                             //sp += "USP_SEL_BUSQUEDA_SPL_PRI_ESP";
                             //entidad.CONDICION = "(INI.ID_ESTADO IN (1,5) AND INI.ID_ETAPA IN (1,3) OR (INI.ID_ESTADO = 2 AND INI.ID_ETAPA = 4))";
-                            entidad.CONDICION = "(INI.ID_ESTADO IN (1,5) AND INI.ID_ETAPA IN (1,3))";
+                            //entidad.CONDICION = "(INI.ID_ESTADO IN (1,5) AND INI.ID_ETAPA IN (1,3))";
+                            entidad.CONDICION = "(INI.ID_PLAZO_ETAPA_ESTADO IN (2,5,8,11,13) AND MD.ID_MEDMIT IN (SELECT ID_MEDMIT FROM T_MAE_MEDMIT WHERE ASOCIADO = " + entidad.ID_USUARIO + "))";
                         }
                         else if (entidad.ID_ROL == 3)
                         {
                             //sp += "USP_SEL_BUSQUEDA_SPL_PRI_ADM";
                             //entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 4) OR (INI.ID_ESTADO IN (2) AND INI.ID_ETAPA IN (5,8))";
-                            entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 4)";
+                            entidad.CONDICION = "(INI.ID_PLAZO_ETAPA_ESTADO IN (12,15,19) AND INI.ID_ETAPA = 4)";
                         }
                         else if (entidad.ID_ROL == 4)
                         {
@@ -1462,31 +1466,34 @@ namespace datos.minem.gob.pe
                     {
                         if (entidad.ID_ROL == 1)
                         {
-                            //sp += "USP_SEL_BUSQUEDA_AVA_PRI_USU";
-                            entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ")";
+                            //sp += "USP_SEL_BUSQUEDA_SPL_PRI_USU";
+                            //entidad.CONDICION = "(INI.ID_USUARIO = "+ entidad.ID_USUARIO +") AND (INI.ID_ETAPA IN (1, 3) AND INI.ID_ESTADO IN (0, 6))";
+                            entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,7,9,10))";
                         }
                         else if (entidad.ID_ROL == 2)
                         {
-                            //sp += "USP_SEL_BUSQUEDA_AVA_PRI_ESP";
+                            //sp += "USP_SEL_BUSQUEDA_SPL_PRI_ESP";
                             //entidad.CONDICION = "(INI.ID_ESTADO IN (1,5) AND INI.ID_ETAPA IN (1,3) OR (INI.ID_ESTADO = 2 AND INI.ID_ETAPA = 4))";
-                            entidad.CONDICION = "(INI.ID_ESTADO IN (1,5) AND INI.ID_ETAPA IN (1,3))";
+                            //entidad.CONDICION = "(INI.ID_ESTADO IN (1,5) AND INI.ID_ETAPA IN (1,3))";
+                            entidad.CONDICION = "(INI.ID_PLAZO_ETAPA_ESTADO IN (2,5,8,11,13) AND MD.ID_MEDMIT IN (SELECT ID_MEDMIT FROM T_MAE_MEDMIT WHERE ASOCIADO = " + entidad.ID_USUARIO + "))";
                         }
                         else if (entidad.ID_ROL == 3)
                         {
-                            //sp += "USP_SEL_BUSQUEDA_AVA_PRI_ADM";
+                            //sp += "USP_SEL_BUSQUEDA_SPL_PRI_ADM";
                             //entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 4) OR (INI.ID_ESTADO IN (2) AND INI.ID_ETAPA IN (5,8))";
-                            entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 4)";
+                            entidad.CONDICION = "(INI.ID_PLAZO_ETAPA_ESTADO IN (12,15,19) AND INI.ID_ETAPA = 4)";
                         }
                         else if (entidad.ID_ROL == 4)
                         {
-                            //sp += "USP_SEL_BUSQUEDA_AVA_PRI_EVA";
+                            //sp += "USP_SEL_BUSQUEDA_SPL_PRI_EVA";
                             //entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 5) OR (INI.ID_ESTADO = 2 AND INI.ID_ETAPA = 6)";
-                            entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 5)";
+                            entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 9 AND INI.ASIGNAR_INI = " + entidad.ID_USUARIO + ")";
                         }
                         else if (entidad.ID_ROL == 5)
                         {
-                            //sp += "USP_SEL_BUSQUEDA_AVA_PRI_VRF";
-                            entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA IN (6,8))";
+                            //sp += "USP_SEL_BUSQUEDA_SPL_PRI_VRF";
+                            //entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA IN (6,8))";
+                            entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA IN (8,10) AND INI.ASIGNAR_INI = " + entidad.ID_USUARIO + ")";
                         }
                     }
                     else if (entidad.ID_ESTADO == 2)
@@ -1513,19 +1520,19 @@ namespace datos.minem.gob.pe
                             entidad.CONDICION = "(INI.ID_ESTADO = 3 AND INI.ID_ETAPA IN (2,4))";
                         }
                     }
-                    else if (entidad.ID_ESTADO == 4)
+                    else if (entidad.ID_ESTADO == 4) //revisados
                     {
-                        //sp += "USP_SEL_BUSQUEDA_AVA_PRI_REVI";
                         entidad.CONDICION = "(INI.ID_ESTADO = 3 AND INI.ID_ETAPA IN (5,8))";
+                        //sp += "USP_SEL_BUSQUEDA_SPL_PRI_REVI";
                     }
-                    else if (entidad.ID_ESTADO == 5)
+                    else if (entidad.ID_ESTADO == 5) // evaluados
                     {
-                        //sp += "USP_SEL_BUSQUEDA_AVA_PRI_EVAL";
+                        //sp += "USP_SEL_BUSQUEDA_SPL_PRI_EVAL";
                         entidad.CONDICION = "(INI.ID_ESTADO = 3 AND INI.ID_ETAPA = 6)";
                     }
                     else if (entidad.ID_ESTADO == 6)
                     {
-                        //sp += "USP_SEL_BUSQUEDA_AVA_PRI_VRFI";
+                        //sp += "USP_SEL_BUSQUEDA_SPL_PRI_VRFI";
                         entidad.CONDICION = "(INI.ID_ESTADO = 3 AND INI.ID_ETAPA = 7)";
                     }
                     else if (entidad.ID_ESTADO == 7)
@@ -1539,6 +1546,7 @@ namespace datos.minem.gob.pe
                         {
                             entidad.CONDICION = "NOT (INI.ID_ESTADO = 0 AND INI.ID_ETAPA = 1)";
                         }
+
                     }
                     else if (entidad.ID_ESTADO == 8)
                     {
@@ -1601,31 +1609,34 @@ namespace datos.minem.gob.pe
                     {
                         if (entidad.ID_ROL == 1)
                         {
-                            //sp += "USP_SEL_BUSQUEDA_AVA_PRI_USU";
-                            entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ")";
+                            //sp += "USP_SEL_BUSQUEDA_SPL_PRI_USU";
+                            //entidad.CONDICION = "(INI.ID_USUARIO = "+ entidad.ID_USUARIO +") AND (INI.ID_ETAPA IN (1, 3) AND INI.ID_ESTADO IN (0, 6))";
+                            entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,7,9,10))";
                         }
                         else if (entidad.ID_ROL == 2)
                         {
-                            //sp += "USP_SEL_BUSQUEDA_AVA_PRI_ESP";
+                            //sp += "USP_SEL_BUSQUEDA_SPL_PRI_ESP";
                             //entidad.CONDICION = "(INI.ID_ESTADO IN (1,5) AND INI.ID_ETAPA IN (1,3) OR (INI.ID_ESTADO = 2 AND INI.ID_ETAPA = 4))";
-                            entidad.CONDICION = "(INI.ID_ESTADO IN (1,5) AND INI.ID_ETAPA IN (1,3))";
+                            //entidad.CONDICION = "(INI.ID_ESTADO IN (1,5) AND INI.ID_ETAPA IN (1,3))";
+                            entidad.CONDICION = "(INI.ID_PLAZO_ETAPA_ESTADO IN (2,5,8,11,13) AND MD.ID_MEDMIT IN (SELECT ID_MEDMIT FROM T_MAE_MEDMIT WHERE ASOCIADO = " + entidad.ID_USUARIO + "))";
                         }
                         else if (entidad.ID_ROL == 3)
                         {
-                            //sp += "USP_SEL_BUSQUEDA_AVA_PRI_ADM";
+                            //sp += "USP_SEL_BUSQUEDA_SPL_PRI_ADM";
                             //entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 4) OR (INI.ID_ESTADO IN (2) AND INI.ID_ETAPA IN (5,8))";
-                            entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 4)";
+                            entidad.CONDICION = "(INI.ID_PLAZO_ETAPA_ESTADO IN (12,15,19) AND INI.ID_ETAPA = 4)";
                         }
                         else if (entidad.ID_ROL == 4)
                         {
-                            //sp += "USP_SEL_BUSQUEDA_AVA_PRI_EVA";
+                            //sp += "USP_SEL_BUSQUEDA_SPL_PRI_EVA";
                             //entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 5) OR (INI.ID_ESTADO = 2 AND INI.ID_ETAPA = 6)";
-                            entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 9)";
+                            entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 9 AND INI.ASIGNAR_INI = " + entidad.ID_USUARIO + ")";
                         }
                         else if (entidad.ID_ROL == 5)
                         {
-                            //sp += "USP_SEL_BUSQUEDA_AVA_PRI_VRF";
-                            entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA IN (6,8))";
+                            //sp += "USP_SEL_BUSQUEDA_SPL_PRI_VRF";
+                            //entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA IN (6,8))";
+                            entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA IN (8,10) AND INI.ASIGNAR_INI = " + entidad.ID_USUARIO + ")";
                         }
                     }
                     else if (entidad.ID_ESTADO == 2)
@@ -1652,19 +1663,19 @@ namespace datos.minem.gob.pe
                             entidad.CONDICION = "(INI.ID_ESTADO = 3 AND INI.ID_ETAPA IN (2,4))";
                         }
                     }
-                    else if (entidad.ID_ESTADO == 4)
+                    else if (entidad.ID_ESTADO == 4) //revisados
                     {
-                        //sp += "USP_SEL_BUSQUEDA_AVA_PRI_REVI";
                         entidad.CONDICION = "(INI.ID_ESTADO = 3 AND INI.ID_ETAPA IN (5,8))";
+                        //sp += "USP_SEL_BUSQUEDA_SPL_PRI_REVI";
                     }
-                    else if (entidad.ID_ESTADO == 5)
+                    else if (entidad.ID_ESTADO == 5) // evaluados
                     {
-                        //sp += "USP_SEL_BUSQUEDA_AVA_PRI_EVAL";
+                        //sp += "USP_SEL_BUSQUEDA_SPL_PRI_EVAL";
                         entidad.CONDICION = "(INI.ID_ESTADO = 3 AND INI.ID_ETAPA = 6)";
                     }
                     else if (entidad.ID_ESTADO == 6)
                     {
-                        //sp += "USP_SEL_BUSQUEDA_AVA_PRI_VRFI";
+                        //sp += "USP_SEL_BUSQUEDA_SPL_PRI_VRFI";
                         entidad.CONDICION = "(INI.ID_ESTADO = 3 AND INI.ID_ETAPA = 7)";
                     }
                     else if (entidad.ID_ESTADO == 7)
@@ -1678,6 +1689,7 @@ namespace datos.minem.gob.pe
                         {
                             entidad.CONDICION = "NOT (INI.ID_ESTADO = 0 AND INI.ID_ETAPA = 1)";
                         }
+
                     }
                     else if (entidad.ID_ESTADO == 8)
                     {

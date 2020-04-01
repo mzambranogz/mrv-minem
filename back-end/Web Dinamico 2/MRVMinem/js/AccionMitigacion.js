@@ -391,6 +391,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                             }
                         }
 
+                        var estado_iniciativa = $("#estadoIniciativa").data("estado");
                         var tooltip = "";
                         if (data[i]["PROGRESO"] == 1 && (data[i]["ID_ESTADO"] == 1)) {
                             tooltip = "Iniciativa de mitigación registrada";
@@ -506,23 +507,27 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                                 tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_mostrarCorregirIndicador(' + data[i]["ID_INICIATIVA"] + ', ' + data[i]["ID_TIPO_INGRESO"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
                             }
                         }
-                        if ($('#Control').data('rol') == 2 && data[i]["PROGRESO"] == 1 && (data[i]["ID_ESTADO"] == 1 || data[i]["ID_ESTADO"] == 5)) {
-                            tr = tr + '             <a class="dropdown-item text-primary" href="#" onclick="fn_revisarIniciativa(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-check"></i>&nbsp;Revisar</a>';
-                            //tr = tr + '             <a class="dropdown-item text-primary" href="@Url.Action("MantenimientoTablas","Gestion")"><i class="fas fa-check"></i>&nbsp;Revisar</a>';
-                        } else if ($('#Control').data('rol') == 2 && ((data[i]["PROGRESO"] == 3 && (data[i]["ID_ESTADO"] == 1 || data[i]["ID_ESTADO"] == 5)) || (data[i]["PROGRESO"] == 4 && data[i]["ID_ESTADO"] == 2))) {
-                            tr = tr + '<a class="dropdown-item text-primary" href="#" onclick="fn_revisarDetalle(' + data[i]["ID_INICIATIVA"] + ')"><i class="fas fa-check-double"></i>&nbsp;Revisar</a>';
+
+                        if (estado_iniciativa == 1) {
+                            if ($('#Control').data('rol') == 2 && data[i]["PROGRESO"] == 1 && (data[i]["ID_ESTADO"] == 1 || data[i]["ID_ESTADO"] == 5)) {
+                                tr = tr + '             <a class="dropdown-item text-primary" href="#" onclick="fn_revisarIniciativa(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-check"></i>&nbsp;Revisar</a>';
+                                //tr = tr + '             <a class="dropdown-item text-primary" href="@Url.Action("MantenimientoTablas","Gestion")"><i class="fas fa-check"></i>&nbsp;Revisar</a>';
+                            } else if ($('#Control').data('rol') == 2 && ((data[i]["PROGRESO"] == 3 && (data[i]["ID_ESTADO"] == 1 || data[i]["ID_ESTADO"] == 5)) || (data[i]["PROGRESO"] == 4 && data[i]["ID_ESTADO"] == 2))) {
+                                tr = tr + '<a class="dropdown-item text-primary" href="#" onclick="fn_revisarDetalle(' + data[i]["ID_INICIATIVA"] + ')"><i class="fas fa-check-double"></i>&nbsp;Revisar</a>';
+                            }
+                            if ($('#Control').data('rol') == 3 && ((data[i]["PROGRESO"] == 4 && data[i]["ID_ESTADO"] == 3) || ((data[i]["PROGRESO"] == 8 || data[i]["PROGRESO"] == 5) && data[i]["ID_ESTADO"] == 2))) {
+                                tr = tr + '<a class="dropdown-item text-primary" href="#" onclick="fn_revisarDetalleAdmin(' + data[i]["ID_INICIATIVA"] + ')"><i class="fas fa-check-double"></i>&nbsp;Revisar</a>';
+                            }
+                            //if ($('#Control').data('rol') == 4 && ((data[i]["PROGRESO"] == 5 && (data[i]["ID_ESTADO"] == 3 || data[i]["ID_ESTADO"] == 5)) || (data[i]["PROGRESO"] == 6 && data[i]["ID_ESTADO"] == 2))) {
+                            if ($('#Control').data('rol') == 4 && (data[i]["PROGRESO"] == 9 && (data[i]["ID_ESTADO"] == 3 || data[i]["ID_ESTADO"] == 5))) {
+                                tr = tr + '             <a class="dropdown-item text-info" href="#" onclick="fn_evaluarIniciativaDetalle(' + data[i]["ID_INICIATIVA"] + ')"><i class="fas fa-clipboard-check"></i>&nbsp;Evaluar</a>';
+                            }
+                            //if ($('#Control').data('rol') == 5 && (data[i]["PROGRESO"] == 6 || data[i]["PROGRESO"] == 8) && (data[i]["ID_ESTADO"] == 3 || data[i]["ID_ESTADO"] == 5)) {
+                            if ($('#Control').data('rol') == 5 && (data[i]["PROGRESO"] == 10 || data[i]["PROGRESO"] == 8) && (data[i]["ID_ESTADO"] == 3 || data[i]["ID_ESTADO"] == 5)) {
+                                tr = tr + '             <a class="dropdown-item text-warning" href="#" onclick="fn_verificarIniciativaDetalle(' + data[i]["ID_INICIATIVA"] + ')"><i class="fas fa-tasks"></i>&nbsp;Verificar</a>';
+                            }
                         }
-                        if ($('#Control').data('rol') == 3 && ((data[i]["PROGRESO"] == 4 && data[i]["ID_ESTADO"] == 3) || ((data[i]["PROGRESO"] == 8 || data[i]["PROGRESO"] == 5) && data[i]["ID_ESTADO"] == 2))) {
-                            tr = tr + '<a class="dropdown-item text-primary" href="#" onclick="fn_revisarDetalleAdmin(' + data[i]["ID_INICIATIVA"] + ')"><i class="fas fa-check-double"></i>&nbsp;Revisar</a>';
-                        }
-                        //if ($('#Control').data('rol') == 4 && ((data[i]["PROGRESO"] == 5 && (data[i]["ID_ESTADO"] == 3 || data[i]["ID_ESTADO"] == 5)) || (data[i]["PROGRESO"] == 6 && data[i]["ID_ESTADO"] == 2))) {
-                        if ($('#Control').data('rol') == 4 && (data[i]["PROGRESO"] == 9 && (data[i]["ID_ESTADO"] == 3 || data[i]["ID_ESTADO"] == 5))) {
-                            tr = tr + '             <a class="dropdown-item text-info" href="#" onclick="fn_evaluarIniciativaDetalle(' + data[i]["ID_INICIATIVA"] + ')"><i class="fas fa-clipboard-check"></i>&nbsp;Evaluar</a>';
-                        }
-                        //if ($('#Control').data('rol') == 5 && (data[i]["PROGRESO"] == 6 || data[i]["PROGRESO"] == 8) && (data[i]["ID_ESTADO"] == 3 || data[i]["ID_ESTADO"] == 5)) {
-                        if ($('#Control').data('rol') == 5 && (data[i]["PROGRESO"] == 10 || data[i]["PROGRESO"] == 8) && (data[i]["ID_ESTADO"] == 3 || data[i]["ID_ESTADO"] == 5)) {
-                            tr = tr + '             <a class="dropdown-item text-warning" href="#" onclick="fn_verificarIniciativaDetalle(' + data[i]["ID_INICIATIVA"] + ')"><i class="fas fa-tasks"></i>&nbsp;Verificar</a>';
-                        }
+                        
                         if (p >= 6) {
                             tr = tr + '        <a class="dropdown-item" href="#" onclick="fn_visualizarFicha(' + data[i]["ID_INICIATIVA"] + ',' + p + ');" id="ficha-' + data[i]["ID_INICIATIVA"] + '" data-ficha="' + data[i]["ESTADO_FICHA"] + '"><i class="fas fa-download"></i>&nbsp;Descargar ficha</a>';
                         }

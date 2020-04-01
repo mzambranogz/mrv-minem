@@ -1,0 +1,4 @@
+01/04/2020 12:15:56 a.m.: [Método: Void ThrowForNonSuccess(System.Threading.Tasks.Task), Línea: 0] - Error al enviar la solicitud.
+01/04/2020 12:15:56 a.m.: [Método: Void HandleNonSuccessAndDebuggerNotification(System.Threading.Tasks.Task), Línea: 0] - Error al enviar la solicitud.
+01/04/2020 12:15:56 a.m.: [Método: TResult GetResult(), Línea: 0] - Error al enviar la solicitud.
+01/04/2020 12:15:56 a.m.: [Método: Void MoveNext(), Línea: 108] - Error al enviar la solicitud.
