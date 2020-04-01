@@ -405,7 +405,7 @@ function mostrarImagen() {
     var item = {
         ID_MEDMIT: $("#userMantenimiento").data("value")
     };
-    var url = baseUrl + "Gestion/MostrarImagenMedida";
+    var url = baseUrl + "Mantenimiento/MostrarImagenMedida";
     var respuesta = MRV.Ajax(url, item, false);
 
     if (respuesta.success) {

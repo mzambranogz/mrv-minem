@@ -965,6 +965,16 @@ namespace MRVMinem.Controllers
             return Respuesta(itemRespuesta);
         }
 
+        public JsonResult MostrarImagenMedida(MedidaMitigacionBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            List<MedidaMitigacionBE> lista = MedidaMitigacionLN.BuscarMedidaMitigacion(entidad);
+            itemRespuesta.success = true;
+            itemRespuesta.extra = lista[0].ADJUNTO;
+            return Respuesta(itemRespuesta);
+        }
+
         //////////////////////////////// MANTENIMIENTO IPCC
 
         public ActionResult IPCC(IPCCBE entidad)
