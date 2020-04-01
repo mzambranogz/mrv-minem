@@ -1210,7 +1210,7 @@ namespace datos.minem.gob.pe
                         {
                             //sp += "USP_SEL_BUSQUEDA_SPL_PRI_ADM";
                             //entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 4) OR (INI.ID_ESTADO IN (2) AND INI.ID_ETAPA IN (5,8))";
-                            entidad.CONDICION = "(INI.ID_PLAZO_ETAPA_ESTADO IN (12,15,19) AND INI.ID_ETAPA = 4)";
+                            entidad.CONDICION = "(INI.ID_PLAZO_ETAPA_ESTADO IN (12,15,19))";
                         }
                         else if (entidad.ID_ROL == 4)
                         {
@@ -1343,7 +1343,7 @@ namespace datos.minem.gob.pe
                         {
                             //sp += "USP_SEL_BUSQUEDA_SPL_PRI_ADM";
                             //entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 4) OR (INI.ID_ESTADO IN (2) AND INI.ID_ETAPA IN (5,8))";
-                            entidad.CONDICION = "(INI.ID_PLAZO_ETAPA_ESTADO IN (12,15,19) AND INI.ID_ETAPA = 4)";
+                            entidad.CONDICION = "(INI.ID_PLAZO_ETAPA_ESTADO IN (12,15,19))";
                         }
                         else if (entidad.ID_ROL == 4)
                         {
@@ -1481,7 +1481,7 @@ namespace datos.minem.gob.pe
                         {
                             //sp += "USP_SEL_BUSQUEDA_SPL_PRI_ADM";
                             //entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 4) OR (INI.ID_ESTADO IN (2) AND INI.ID_ETAPA IN (5,8))";
-                            entidad.CONDICION = "(INI.ID_PLAZO_ETAPA_ESTADO IN (12,15,19) AND INI.ID_ETAPA = 4)";
+                            entidad.CONDICION = "(INI.ID_PLAZO_ETAPA_ESTADO IN (12,15,19))";
                         }
                         else if (entidad.ID_ROL == 4)
                         {
@@ -1624,7 +1624,7 @@ namespace datos.minem.gob.pe
                         {
                             //sp += "USP_SEL_BUSQUEDA_SPL_PRI_ADM";
                             //entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 4) OR (INI.ID_ESTADO IN (2) AND INI.ID_ETAPA IN (5,8))";
-                            entidad.CONDICION = "(INI.ID_PLAZO_ETAPA_ESTADO IN (12,15,19) AND INI.ID_ETAPA = 4)";
+                            entidad.CONDICION = "(INI.ID_PLAZO_ETAPA_ESTADO IN (12,15,19))";
                         }
                         else if (entidad.ID_ROL == 4)
                         {
