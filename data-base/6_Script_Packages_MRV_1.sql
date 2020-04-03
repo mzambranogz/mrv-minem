@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - sábado-marzo-28-2020   
+-- Archivo creado  - miércoles-abril-01-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_ADMIN_SISTEMA
@@ -598,7 +598,19 @@ end PKG_MRV_BLOCKCHAIN;
          pID_INDICADOR IN NUMBER,
          pRefcursor OUT SYS_REFCURSOR
     );
+   
+    --============================================
+    PROCEDURE USP_SEL_INI_DET_ACUMULADO(
+      pID_INICIATIVA NUMBER
+    );
     
+    PROCEDURE USP_INS_ACUMULADO_DETALLE(
+        pID_INICIATIVA NUMBER,
+        pID_MEDMIT NUMBER,
+        pID_ENFOQUE NUMBER,
+        pID_INDICADOR NUMBER
+    );
+
 
 --////////////////////////////////////////// DINAMICO FINAL
 
@@ -1632,6 +1644,10 @@ end PKG_MRV_BLOCKCHAIN;
         VALUES
             (vIdDetalle, pID_INICIATIVA, pID_USUARIO, 4, 3, SYSDATE, pID_DESCRIPCION_ENERG || '|' || pID_DESCRIPCION_GEI || '|' || vGeiTotal);
 
+         --==================================================================== add 30-03-20
+        USP_SEL_INI_DET_ACUMULADO(pID_INICIATIVA);
+        --====================================================================
+
         --SE DEBE NOTIFICAR AL USUARIO  --28.01.2020
         SELECT ID_USUARIO INTO vIdUsuario FROM T_GENM_INICIATIVA WHERE ID_INICIATIVA = pID_INICIATIVA;
         PKG_MRV_NOTIFICACION.USP_INS_NOTIFICACION(pIdIniciativa         => pID_INICIATIVA,
@@ -2661,6 +2677,97 @@ end PKG_MRV_BLOCKCHAIN;
                 AND (A.ID_INDICADOR = pID_INDICADOR OR pID_INDICADOR = 0)
         ORDER BY    A.ID_INDICADOR;
     END USP_SEL_ARCHIVO_DETALLE;
+
+    --======================================
+
+    PROCEDURE USP_SEL_INI_DET_ACUMULADO(
+      pID_INICIATIVA NUMBER
+    )AS
+    BEGIN
+        FOR CURDET IN (
+            SELECT DISTINCT ID_INICIATIVA, ID_MEDMIT, ID_ENFOQUE, ID_INDICADOR 
+            FROM T_MAEM_INDICADOR_DATA 
+            WHERE ID_INICIATIVA = pID_INICIATIVA AND FLAG_ESTADO = '1'
+        )
+        LOOP
+            USP_INS_ACUMULADO_DETALLE(CURDET.ID_INICIATIVA, CURDET.ID_MEDMIT, CURDET.ID_ENFOQUE, CURDET.ID_INDICADOR);
+        END LOOP;
+        
+    END USP_SEL_INI_DET_ACUMULADO;       
+                        
+  PROCEDURE USP_INS_ACUMULADO_DETALLE(
+        pID_INICIATIVA NUMBER,
+        pID_MEDMIT NUMBER,
+        pID_ENFOQUE NUMBER,
+        pID_INDICADOR NUMBER
+    )  
+    AS    
+        V6 NUMBER;
+        V9 NUMBER;
+        V10 NUMBER;
+        V11 NUMBER;
+        VCONT NUMBER;
+        vsql VARCHAR2(4000);
+    BEGIN
+            FOR CURINI IN (
+                SELECT  D.ID_INDICADOR, D.ID_ENFOQUE, D.ID_PARAMETRO, D.VALOR, D.ID_MEDMIT, D.ID_INICIATIVA
+                FROM    T_MAEM_INDICADOR_DATA D
+                WHERE   D.ID_INICIATIVA = pID_INICIATIVA AND
+                        D.ID_ENFOQUE = pID_ENFOQUE AND
+                        D.ID_MEDMIT = pID_MEDMIT AND
+                        D.ID_INDICADOR = pID_INDICADOR AND
+                        D.ID_PARAMETRO IN (6,9,10,11) AND
+                        D.FLAG_ESTADO = 1
+            )
+            LOOP
+                IF CURINI.ID_PARAMETRO = 6 THEN
+                    V6 := TO_NUMBER(CURINI.VALOR,'9999');
+                ELSE
+                    IF CURINI.ID_PARAMETRO = 9 THEN
+                        --V9 := TO_NUMBER(TO_CHAR(NVL(CURINI.VALOR,'0'), '9999999990.00000000'),'99999990.000000000');
+                        vsql := 'SELECT 1*'|| NVL(CURINI.VALOR,'0') || ' FROM DUAL';
+                        EXECUTE IMMEDIATE vsql INTO V9;
+                    ELSE
+                        IF CURINI.ID_PARAMETRO = 10 THEN
+                            --V10 := 0;--TO_NUMBER(TO_CHAR(NVL(CURINI.VALOR,'0'), '9999999990.00000000'),'99999990.000000000');
+                            vsql := 'SELECT 1*'|| NVL(CURINI.VALOR,'0') || ' FROM DUAL';
+                            EXECUTE IMMEDIATE vsql INTO V10;
+                        ELSE
+                            IF CURINI.ID_PARAMETRO = 11 THEN
+                                --V11 := 0;--TO_NUMBER(TO_CHAR(NVL(CURINI.VALOR,'0'), '9999999990.00000000'),'99999990.000000000');
+                                vsql := 'SELECT 1*'|| NVL(CURINI.VALOR,'0') || ' FROM DUAL';
+                                EXECUTE IMMEDIATE vsql INTO V11;
+                            END IF;
+                        END IF;
+                    END IF;
+                END IF;   
+                
+            END LOOP;  
+    
+    SELECT COUNT(*) INTO VCONT FROM T_GENM_ACUMULADO 
+    WHERE ID_INICIATIVA = pID_INICIATIVA AND
+          ID_ENFOQUE = pID_ENFOQUE AND
+          ID_MEDMIT = pID_MEDMIT AND
+          ID_INDICADOR = pID_INDICADOR AND
+          ANNO = V6;
+    
+    IF VCONT = 0 THEN
+        INSERT INTO T_GENM_ACUMULADO (ID_INICIATIVA, ID_MEDMIT, ID_ENFOQUE, ID_INDICADOR, ANNO, BAU, INI, REDUCIDO)
+        VALUES (pID_INICIATIVA, pID_MEDMIT, pID_ENFOQUE, pID_INDICADOR, V6, V9, V10, V11);
+    ELSE
+        UPDATE  T_GENM_ACUMULADO 
+        SET     BAU = V9,
+                INI = V10,
+                REDUCIDO = V11
+        WHERE ID_INICIATIVA = pID_INICIATIVA AND
+              ID_ENFOQUE = pID_ENFOQUE AND
+              ID_MEDMIT = pID_MEDMIT AND
+              ID_INDICADOR = pID_INDICADOR AND
+              ANNO = V6;
+    END IF;   
+          
+    END USP_INS_ACUMULADO_DETALLE;
+
   
   --////////////////////////////////////////// DINAMICO FINAL  
 

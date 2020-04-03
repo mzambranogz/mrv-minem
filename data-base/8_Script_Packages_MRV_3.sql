@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - s·bado-marzo-28-2020   
+-- Archivo creado  - miÈrcoles-abril-01-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_PARAMETROS
@@ -75,8 +75,33 @@
         pPagina     INTEGER,
         pSortColumn IN VARCHAR2,
         pSortOrder  IN VARCHAR2,
+        pBuscar     IN VARCHAR2, --add
         PO_CURSOR OUT SYS_REFCURSOR
     );
+    --===========
+    PROCEDURE USP_MNT_FACTOR_VALOR(
+		PI_ID_FACTOR NUMBER,
+    	PI_ID_DETALLE NUMBER,
+        PI_NOMBRE_DETALLE VARCHAR2
+    );
+    
+    PROCEDURE USP_GET_UNIDAD_FACTOR(
+        PI_ID_FACTOR NUMBER,
+        PO_CURSOR OUT SYS_REFCURSOR
+    );
+    
+     PROCEDURE USP_SEL_EXCEL_FACTORES(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+    
+    PROCEDURE USP_SEL_FACTORES_PARAM(
+        PI_ID_FACTOR IN NUMBER,
+        PO_REF OUT SYS_REFCURSOR
+    );
+    
 end PKG_MRV_PARAMETROS;
 
 /
@@ -292,6 +317,52 @@ end PKG_MRV_PARAMETROS;
         PI_ID_INICIATIVA NUMBER,
         PI_NOMBRE_PDF VARCHAR2
     );
+    
+    PROCEDURE USP_SEL_FICHA_MINAM(
+        pID_MEDMIT NUMBER,
+        pANNO NUMBER,
+        pRefcursor OUT SYS_REFCURSOR
+    );
+    
+    
+    PROCEDURE USP_SEL_FICHA_PARAMETROS(
+        pID_MEDMIT NUMBER,
+        pID_ENFOQUE NUMBER,
+        pRefcursor OUT SYS_REFCURSOR
+    );
+    
+    --========*//////////////////////////////////////////////////////////////////////////////////////////////////////*==================
+    --ACUMULADOS
+    
+    PROCEDURE CALCULO_AUTOMATIZADO(
+        pANNO NUMBER
+    );
+    
+    PROCEDURE USP_PRC_ACUMULADO(
+        pID_INICIATIVA NUMBER,
+        pID_MEDMIT NUMBER,
+        pID_ENFOQUE NUMBER,
+        pID_INDICADOR NUMBER,
+        pANNO NUMBER--,   
+        --PO OUT SYS_REFCURSOR
+    );
+    
+    FUNCTION FN_GET_VALOR_DATA (         
+        pID_INICIATIVA NUMBER,
+        pID_ENFOQUE NUMBER,
+        pID_MEDMIT NUMBER,
+        pID_INDICADOR NUMBER,
+        pID_PARAMETRO VARCHAR2        
+    )RETURN NUMBER;
+    
+    FUNCTION FN_GET_FACTOR_DATA (         
+        pID_INICIATIVA NUMBER,
+        pID_ENFOQUE NUMBER,
+        pID_MEDMIT NUMBER,
+        pID_INDICADOR NUMBER,
+        pID_FACTOR VARCHAR2,
+        pANNO NUMBER --add
+    ) RETURN NUMBER;
 
 END PKG_MRV_REPORTES;
 
@@ -628,6 +699,7 @@ END SHA256;
         pPagina     INTEGER,
         pSortColumn IN VARCHAR2,
         pSortOrder  IN VARCHAR2,
+        pBuscar     IN VARCHAR2, --add
         PO_CURSOR OUT SYS_REFCURSOR
     )
     AS
@@ -639,7 +711,8 @@ END SHA256;
         vSortColumn2 VARCHAR2(1000);
     BEGIN
       	SELECT  COUNT(1) INTO vTotal
-        FROM    T_MAEM_MRV_FACTOR N;
+        FROM    T_MAEM_MRV_FACTOR N
+        WHERE   LOWER(TRANSLATE(N.NOMBRE_FACTOR,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) like '%'|| LOWER(TRANSLATE(pBuscar,'¡…Õ”⁄·ÈÌÛ˙','AEIOUaeiou')) ||'%';
 
         vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
         IF vPagina2 = 0 THEN
@@ -662,11 +735,75 @@ END SHA256;
                     || pRegistros || ' AS cantidad_registros,'
                     || vTotal || ' AS total_registros
                 FROM T_MAEM_MRV_FACTOR F
+                WHERE LOWER(TRANSLATE(F.NOMBRE_FACTOR,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%''
                 )
                 WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
 
         OPEN PO_CURSOR FOR vQuery;
     END USP_SEL_FACTOR_PAGINADO;
+    
+    
+    --==========================
+    PROCEDURE USP_MNT_FACTOR_VALOR(
+		PI_ID_FACTOR NUMBER,
+    	PI_ID_DETALLE NUMBER,
+        PI_NOMBRE_DETALLE VARCHAR2
+    )AS
+    BEGIN
+        IF PI_ID_DETALLE = 0 THEN
+            INSERT INTO T_MAEM_MRV_FACTOR_PARAMETRO (ID_FACTOR, ID_DETALLE, ID_TIPO_CONTROL, ID_TIPO_DATO, NOMBRE_DETALLE, ORDEN, FLAG_ESTADO)
+            VALUES (PI_ID_FACTOR, 100, 2, 2, PI_NOMBRE_DETALLE, 100, '1');
+        ELSE
+            UPDATE T_MAEM_MRV_FACTOR_PARAMETRO
+            SET    NOMBRE_DETALLE = PI_NOMBRE_DETALLE,
+                   FLAG_ESTADO = '1'
+            WHERE  ID_FACTOR = PI_ID_FACTOR AND ID_DETALLE = PI_ID_DETALLE; 
+        END IF;
+    END USP_MNT_FACTOR_VALOR;
+    
+    PROCEDURE USP_GET_UNIDAD_FACTOR(
+        PI_ID_FACTOR NUMBER,
+        PO_CURSOR OUT SYS_REFCURSOR
+    )
+    AS
+    BEGIN
+        OPEN PO_CURSOR FOR
+        SELECT  NOMBRE_DETALLE, ID_DETALLE
+        FROM    T_MAEM_MRV_FACTOR_PARAMETRO
+        WHERE   ID_FACTOR = PI_ID_FACTOR AND ID_TIPO_CONTROL = 2;
+    END USP_GET_UNIDAD_FACTOR;
+
+    PROCEDURE USP_SEL_EXCEL_FACTORES(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+        vQuery      VARCHAR2(30000) := '';
+        vSortColumn2 VARCHAR2(1000);
+      BEGIN
+        vSortColumn2 := pSortColumn;
+        vQuery := '
+            SELECT      F.ID_FACTOR,
+                        F.NOMBRE_FACTOR
+                        FROM T_MAEM_MRV_FACTOR F
+                        WHERE LOWER(TRANSLATE(F.NOMBRE_FACTOR,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%''
+                        ORDER BY ' || vSortColumn2 || ' ' || pSortOrder || ' ' ;
+		OPEN pRefcursor FOR vQuery;
+
+    END USP_SEL_EXCEL_FACTORES;
+    
+    PROCEDURE USP_SEL_FACTORES_PARAM(
+        PI_ID_FACTOR IN NUMBER,
+        PO_REF OUT SYS_REFCURSOR
+    )AS
+    BEGIN
+        OPEN PO_REF FOR
+        SELECT  ID_FACTOR, NOMBRE_DETALLE
+        FROM    T_MAEM_MRV_FACTOR_PARAMETRO
+        WHERE   ID_FACTOR = PI_ID_FACTOR AND FLAG_ESTADO = '1'
+        ORDER BY ORDEN ASC;
+    END USP_SEL_FACTORES_PARAM;
 
 end PKG_MRV_PARAMETROS;
 
@@ -1432,6 +1569,391 @@ end PKG_MRV_PARAMETROS;
         UPDATE T_GENM_INICIATIVA SET NOMBRE_FICHA = PI_NOMBRE_PDF , ESTADO_FICHA = 1 WHERE ID_INICIATIVA = PI_ID_INICIATIVA;
         
     END USP_UPD_FICHA_PDF;
+    
+    PROCEDURE USP_SEL_FICHA_MINAM(
+        pID_MEDMIT NUMBER,
+        pANNO NUMBER,
+        pRefcursor OUT SYS_REFCURSOR
+    )
+    AS
+    BEGIN
+        OPEN pRefcursor FOR
+        SELECT  A.ID_MEDMIT, A.ID_ENFOQUE, A.ANNO,
+                SUM(A.BAU) AS BAU, SUM(A.INI) AS INI, SUM(A.REDUCIDO) AS REDUCIDO,
+                M.NOMBRE_MEDMIT AS TITULO_MEDIDA_MITIGACION, M.IPSC_MEDMIT AS SECTOR, M.OBJETIVO_MEDMIT AS OBJETIVO, M.DESCRIPCION_MEDMIT AS DESCRIPCION,
+                'Nacional' AS UBICACION, M.METODOLOGIA_MEDMIT AS METODOLOGIA, E.DESCRIPCION NOMBRE_ENFOQUE
+        FROM T_GENM_ACUMULADO A
+                INNER JOIN T_MAE_MEDMIT M
+                ON A.ID_MEDMIT = M.ID_MEDMIT
+                INNER JOIN T_GENM_ENFOQUE E
+                ON A.ID_MEDMIT = E.ID_MEDMIT
+                AND A.ID_ENFOQUE = E.ID_ENFOQUE
+        WHERE ANNO = pANNO AND A.ID_MEDMIT = pID_MEDMIT
+        GROUP BY A.ID_MEDMIT, A.ID_ENFOQUE, A.ANNO, M.NOMBRE_MEDMIT, M.IPSC_MEDMIT,
+                M.OBJETIVO_MEDMIT, M.DESCRIPCION_MEDMIT, M.METODOLOGIA_MEDMIT, E.DESCRIPCION;
+    END USP_SEL_FICHA_MINAM;
+    
+    PROCEDURE USP_SEL_FICHA_PARAMETROS(
+        pID_MEDMIT NUMBER,
+        pID_ENFOQUE NUMBER,
+        pRefcursor OUT SYS_REFCURSOR
+    )
+    AS
+    BEGIN
+        OPEN pRefcursor FOR
+        SELECT  I.ID_MEDMIT, I.ID_ENFOQUE, I.ID_PARAMETRO,
+                P.NOMBRE_PARAMETRO, P.DESCRIPCION_UNIDAD, P.COMBINACION_UNIDAD,
+                P.DESCRIPCION_PARAMETRO, P.LEYENDA_PARAMETRO, P.DESCRIPCION_METODOLOGIA,
+                P.PROCEDIMIENTO, P.CONTROL_CALIDAD, P.ASEGURAMIENTO_CALIDAD,
+                P.PROPOSITO, P.FRECUENCIA,
+                F.COMPORTAMIENTO,
+                F.VALOR,
+                F.FORMULA,
+                F.FORMULA_ARMADO
+        FROM T_MAEM_INDICADOR I
+                INNER JOIN T_MAEM_MRV_PARAMETRO P
+                ON I.ID_PARAMETRO = P.ID_PARAMETRO
+                LEFT JOIN T_MAEM_FORMULA_PARAMETRO F
+                ON I.ID_MEDMIT = F.ID_MEDMIT
+                AND I.ID_ENFOQUE = F.ID_ENFOQUE
+                AND I.ID_PARAMETRO = F.ID_PARAMETRO
+                AND F.FLAG_ACTIVO = '1'
+        WHERE   I.ID_MEDMIT = pID_MEDMIT AND
+                (I.ID_ENFOQUE = pID_ENFOQUE OR pID_ENFOQUE = 0) AND
+                P.FLG_ESTADO = '1'
+        ORDER BY ORDEN;
+    END USP_SEL_FICHA_PARAMETROS;
+    
+    
+    --========*//////////////////////////////////////////////////////////////////////////////////////////////////////*==================
+    --ACUMULADOS
+    
+    PROCEDURE CALCULO_AUTOMATIZADO(
+        pANNO NUMBER
+    )AS
+        VNUM NUMBER;
+        ANNO NUMBER;
+    BEGIN
+        ANNO := pANNO - 1;
+        FOR CUR_CAL IN(
+            SELECT  DISTINCT ID_INICIATIVA, ID_MEDMIT, ID_ENFOQUE, ID_INDICADOR, ID_PARAMETRO, VALOR
+            FROM    T_MAEM_INDICADOR_DATA 
+            WHERE FLAG_ESTADO = '1' --AND ID_INICIATIVA < 500 --and id_iniciativa > 449
+            AND NOT ID_ENFOQUE IN (25) AND ID_PARAMETRO = 6
+            ORDER BY ID_INICIATIVA ASC
+        )
+        LOOP
+            IF TO_NUMBER(CUR_CAL.VALOR,'9999') < ANNO THEN
+                USP_PRC_ACUMULADO(CUR_CAL.ID_INICIATIVA, CUR_CAL.ID_MEDMIT, CUR_CAL.ID_ENFOQUE, CUR_CAL.ID_INDICADOR, ANNO);
+                --EXTRACT(YEAR FROM SYSDATE);
+            ELSE
+                SELECT 0 INTO VNUM FROM DUAL;                
+                --SELECT 0 INTO VNUM FROM DUAL;
+            END IF;
+        END LOOP;
+    END CALCULO_AUTOMATIZADO;
+
+    
+    --EJEMPLO DE USO
+    --JOB -> 01/01/XXXX
+    --ACTIVE  -> EXECUTE PKG_MRV_REPORTES.CALCULO_AUTOMATIZADO(EXTRACT(YEAR FROM SYSDATE));
+    
+    PROCEDURE USP_PRC_ACUMULADO(
+        pID_INICIATIVA NUMBER,
+        pID_MEDMIT NUMBER,
+        pID_ENFOQUE NUMBER,
+        pID_INDICADOR NUMBER,
+        pANNO NUMBER--,
+        --PO OUT SYS_REFCURSOR
+    )  
+    AS 
+        VDATA VARCHAR2(4000);
+        VNUM NUMBER(32,8);
+        VDATO NUMBER(32,8);
+        VFORMULA VARCHAR2(1000);
+        VTAM NUMBER;
+        VVAR VARCHAR2(1000);
+        VVARFAC VARCHAR2(1000);
+        VVARFACTOR NUMBER(32,8);
+        VVARPARAM NUMBER(32,8);
+        VRES VARCHAR(4000);
+        VID NUMBER;
+        V9 NUMBER;
+        V10 NUMBER;
+        V11 NUMBER;
+        vsql VARCHAR2(4000);
+        
+        
+        VFACTOR VARCHAR(300);
+    BEGIN
+
+            FOR CURINI IN (
+                SELECT  D.ID_INDICADOR, D.ID_ENFOQUE, D.ID_PARAMETRO, D.VALOR, D.ID_MEDMIT, D.ID_INICIATIVA
+                FROM    T_MAEM_INDICADOR_DATA D
+                WHERE   D.ID_INICIATIVA = pID_INICIATIVA AND
+                        D.ID_ENFOQUE = pID_ENFOQUE AND
+                        D.ID_MEDMIT = pID_MEDMIT AND
+                        D.ID_INDICADOR = pID_INDICADOR AND
+                        D.FLAG_ESTADO = 1
+            )
+            LOOP
+                        VDATA := '';
+                        SELECT COUNT(*) INTO VDATO FROM T_MAEM_FORMULA_PARAMETRO                         
+                        WHERE ID_PARAMETRO = CURINI.ID_PARAMETRO AND ID_ENFOQUE = CURINI.ID_ENFOQUE AND ID_MEDMIT = CURINI.ID_MEDMIT;
+                        
+                        IF VDATO > 0 THEN
+                            SELECT FORMULA_ARMADO INTO VFORMULA FROM T_MAEM_FORMULA_PARAMETRO                         
+                            WHERE ID_PARAMETRO = CURINI.ID_PARAMETRO AND ID_ENFOQUE = CURINI.ID_ENFOQUE AND ID_MEDMIT = CURINI.ID_MEDMIT;
+                            
+                            FOR CUR_IND IN(
+                                select distinct 
+                                      regexp_substr(VFORMULA,'[^|]+', 1, level) as VALORES
+                                     , level     
+                                from   DUAL
+                                connect by regexp_substr(VFORMULA, '[^|]+', 1, level) is not null 
+                                order by level ASC
+                            )
+                            LOOP                                
+                                SELECT LENGTH(CUR_IND.VALORES) INTO VTAM FROM DUAL; 
+                                
+                                IF VTAM =1 THEN
+                                    VDATA := VDATA || '' || CUR_IND.VALORES || '';
+                                ELSE
+                                    SELECT SUBSTR(CUR_IND.VALORES,2,1) INTO VVAR FROM DUAL;
+                                    IF VVAR = 'P' THEN
+                                        IF VTAM = 4 THEN
+                                            --SELECT SUBSTR(CUR_IND.VALORES,2,2) INTO VVAR FROM DUAL;
+                                            SELECT SUBSTR(CUR_IND.VALORES,3,1) INTO VVAR FROM DUAL;
+                                            
+                                            --VVAR := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
+                                            VVARPARAM := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
+                                            
+                                        END IF;
+                                        
+                                        IF VTAM = 5 THEN
+                                            --SELECT SUBSTR(CUR_IND.VALORES,2,3) INTO VVAR FROM DUAL;
+                                            SELECT SUBSTR(CUR_IND.VALORES,3,2) INTO VVAR FROM DUAL;
+                                            
+                                            IF VVAR = '17' THEN
+                                                VVARPARAM := 0;
+                                            ELSE
+                                                VVARPARAM := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
+                                            END IF;
+                                            --VVAR := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
+                                            
+                                           --VVARPARAM := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
+                                            
+                                        END IF;
+                                         
+                                        IF VTAM = 6 THEN
+                                            --SELECT SUBSTR(CUR_IND.VALORES,2,4) INTO VVAR FROM DUAL;
+                                            SELECT SUBSTR(CUR_IND.VALORES,3,3) INTO VVAR FROM DUAL;
+                                            --VVAR := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
+                                            
+                                            VVARPARAM := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
+                                        END IF;
+                                        
+                                        --VVARPARAM := TO_NUMBER(VVAR,'999999999,99999');
+                                        VVAR := TO_CHAR(VVARPARAM, '9999999990.000000');
+                                        --VDATA := VDATA || '' || VVARPARAM || '';
+                                        
+                                        VDATA := VDATA || '' || VVAR || '';
+                                    END IF;
+                                    
+                                    IF VVAR = 'F' THEN
+                                        IF VTAM = 4 THEN
+                                            --SELECT SUBSTR(CUR_IND.VALORES,2,2) INTO VVAR FROM DUAL;
+                                            SELECT SUBSTR(CUR_IND.VALORES,3,1) INTO VVAR FROM DUAL;
+                                            
+                                            IF VVAR = '3' AND pID_ENFOQUE = 1 THEN
+                                                VVARPARAM := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, '13');
+                                            ELSE
+                                                VVARPARAM := FN_GET_FACTOR_DATA (CURINI.ID_INICIATIVA,CURINI.ID_ENFOQUE,CURINI.ID_MEDMIT,CURINI.ID_INDICADOR,VVAR,pANNO);
+                                                --VVAR := TO_CHAR(FN_GET_FACTOR_DATA (CURINI.ID_INICIATIVA,CURINI.ID_ENFOQUE,CURINI.ID_MEDMIT,CURINI.ID_INDICADOR,VVAR));                                                
+                                            END IF;
+                                            
+                                            VVAR := TO_CHAR(VVARPARAM, '9999999990.00000000');
+                                            --VFACTOR := VFACTOR || '--' || VVAR || '';
+                                        END IF;
+                                        
+                                        IF VTAM = 5 THEN
+                                            --SELECT SUBSTR(CUR_IND.VALORES,2,3) INTO VVAR FROM DUAL;
+                                            SELECT SUBSTR(CUR_IND.VALORES,3,2) INTO VVAR FROM DUAL;
+                                            VVARPARAM := FN_GET_FACTOR_DATA (CURINI.ID_INICIATIVA,CURINI.ID_ENFOQUE,CURINI.ID_MEDMIT,CURINI.ID_INDICADOR,VVAR,pANNO);     
+                                            
+                                            VVAR := TO_CHAR(VVARPARAM, '9999999990.00000000');
+                                            --VFACTOR := VFACTOR || '--' || VVAR || '';
+                                        END IF;
+                                        
+                                        IF VTAM = 6 THEN
+                                            --SELECT SUBSTR(CUR_IND.VALORES,2,4) INTO VVAR FROM DUAL;
+                                            SELECT SUBSTR(CUR_IND.VALORES,3,3) INTO VVAR FROM DUAL;
+                                            VVARPARAM := FN_GET_FACTOR_DATA (CURINI.ID_INICIATIVA,CURINI.ID_ENFOQUE,CURINI.ID_MEDMIT,CURINI.ID_INDICADOR,VVAR,pANNO);     
+                                            
+                                            VVAR := TO_CHAR(VVARPARAM, '9999999990.00000000');
+                                            --VFACTOR := VFACTOR || '--' || VVAR || '';
+                                        END IF;
+                                        --VVARPARAM := TO_NUMBER(VVAR,'999999999,99999');
+                                        VDATA := VDATA || '' || TRIM(VVAR) || '';
+                                    END IF;
+                                    
+                                    IF VVAR = 'V' THEN
+                                        VDATA := VDATA || '365';
+                                    END IF;
+                                    
+                                    IF VVAR = 'C' THEN
+                                            
+                                        --SELECT SUBSTR(CUR_IND.VALORES,2,VTAM-3) INTO VVAR FROM DUAL;      
+                                        SELECT SUBSTR(CUR_IND.VALORES,3,VTAM-3) INTO VVAR FROM DUAL;    
+                                        VDATA := VDATA || '' || VVAR || '';
+                                    END IF;
+                                    
+                                    --VDATA := VDATA || '' || VVAR || ' -- ';
+                                END IF;
+                                
+                                --VDATA := VDATA || '--' || CUR_IND.VALORES || ' / ';
+                                
+                            END LOOP;
+                            vsql := 'SELECT '|| VDATA ||' FROM DUAL';
+                            EXECUTE IMMEDIATE vsql INTO VDATA;
+                            VRES := VRES || CURINI.ID_PARAMETRO || '/' || TRIM(TO_CHAR(VDATA, '9999999990.000000')) || '|';
+                            
+                            --VDATA := VDATA ||' -- ' || TO_CHAR(CURINI.ID_INDICADOR) ||' --- ' || VFORMULA;
+                        END IF;
+                        
+            END LOOP;
+            
+            VNUM := 0;
+            FOR CURRES IN(
+                    select distinct 
+                    regexp_substr(VRES,'[^|]+', 1, level) as VALORES
+                    , level     
+                    from   DUAL
+                    connect by regexp_substr(VRES, '[^|]+', 1, level) is not null 
+                    order by level ASC
+                    )
+                    LOOP   
+                        VNUM := VNUM + 1;
+                        
+                        SELECT SUBSTR(CURRES.VALORES,1,1) INTO VVAR FROM DUAL;
+                        
+                        IF VVAR = '9' THEN
+                            SELECT SUBSTR(CURRES.VALORES, 3, LENGTH(CURRES.VALORES)) INTO VVAR FROM DUAL;   
+                            vsql := 'SELECT ROUND('|| '10000' ||'*'|| VVAR ||')/10000 FROM DUAL';
+                            EXECUTE IMMEDIATE vsql INTO V9;
+                        ELSE
+                            SELECT SUBSTR(CURRES.VALORES,1,2) INTO VVAR FROM DUAL;
+                            IF VVAR = '10' THEN
+                                SELECT SUBSTR(CURRES.VALORES, 4, LENGTH(CURRES.VALORES)) INTO VVAR FROM DUAL;
+                                vsql := 'SELECT ROUND('|| '10000' ||'*'|| VVAR ||')/10000 FROM DUAL';
+                                EXECUTE IMMEDIATE vsql INTO V10;
+                            END IF;
+                            
+                            IF VVAR = '11' THEN
+                                --IF LENGTH(V9) >  0 AND LENGTH(V10) > 0 THEN
+                                IF V9 >  0 AND V10 > 0 THEN
+                                    --vsql := 'SELECT '|| V9 ||'-'|| V10 ||' FROM DUAL';
+                                    --EXECUTE IMMEDIATE vsql INTO V11;
+                                    V11 := V9 - V10;
+                                ELSE
+                                    SELECT SUBSTR(CURRES.VALORES, 4, LENGTH(CURRES.VALORES)) INTO VVAR FROM DUAL;
+                                    vsql := 'SELECT ROUND('|| '10000' ||'*'|| VVAR ||')/10000 FROM DUAL';
+                                    EXECUTE IMMEDIATE vsql INTO V11;
+                                END IF;
+                            END IF;
+                        END IF;
+                                    
+                    END LOOP;
+
+                    INSERT INTO T_GENM_ACUMULADO (ID_INICIATIVA, ID_MEDMIT, ID_ENFOQUE, ID_INDICADOR, ANNO, BAU, INI, REDUCIDO)
+                    VALUES (pID_INICIATIVA, pID_MEDMIT, pID_ENFOQUE, pID_INDICADOR, pANNO, V9, V10, V11);        
+            
+            --OPEN PO FOR
+            --SELECT VRES, VFACTOR FROM DUAL;
+    END USP_PRC_ACUMULADO;
+    
+    
+    FUNCTION FN_GET_VALOR_DATA (         
+        pID_INICIATIVA NUMBER,
+        pID_ENFOQUE NUMBER,
+        pID_MEDMIT NUMBER,
+        pID_INDICADOR NUMBER,
+        pID_PARAMETRO VARCHAR2        
+    ) RETURN NUMBER
+    AS 
+        VVAR NUMBER(32,8);
+    BEGIN   
+        SELECT TO_NUMBER(NVL(IDA.VALOR,0.0),'999999990.0000000') INTO VVAR FROM T_MAEM_INDICADOR_DATA IDA
+        WHERE IDA.ID_INICIATIVA = pID_INICIATIVA
+        AND IDA.ID_ENFOQUE = pID_ENFOQUE 
+        AND IDA.ID_MEDMIT = pID_MEDMIT AND IDA.ID_INDICADOR = pID_INDICADOR 
+        AND IDA.ID_PARAMETRO = pID_PARAMETRO;
+        Return (VVAR);
+    END;
+    
+    FUNCTION FN_GET_FACTOR_DATA (         
+        pID_INICIATIVA NUMBER,
+        pID_ENFOQUE NUMBER,
+        pID_MEDMIT NUMBER,
+        pID_INDICADOR NUMBER,
+        pID_FACTOR VARCHAR2,
+        pANNO NUMBER --add
+    ) RETURN NUMBER
+    AS 
+        VVARFAC VARCHAR2(100);
+        VVARPARAM VARCHAR2(100);
+        VVALOR VARCHAR2(100);
+        VRESULTADO NUMBER;
+    BEGIN   
+    
+        --SELECT DISTINCT ID_PARAMETRO INTO VVARFAC FROM T_MAEM_MRV_LG_FACTOR_DATA WHERE ID_FACTOR = pID_FACTOR;
+        SELECT DISTINCT ID_PARAMETRO INTO VVARFAC FROM T_MAEM_FACTOR_DATA WHERE ID_FACTOR = pID_FACTOR;
+        
+        IF VVARFAC = '17' THEN
+            Return (0);
+        ELSE
+            FOR CUR_IND IN(
+                select distinct 
+                regexp_substr(VVARFAC,'[^|]+', 1, level) as VALORES
+                , level     
+                from   DUAL
+                connect by regexp_substr(VVARFAC, '[^|]+', 1, level) is not null 
+                order by level ASC
+            )
+            LOOP
+                IF CUR_IND.VALORES = '6' THEN
+                    --VVALOR := VVALOR || '' || EXTRACT(YEAR FROM SYSDATE) || '|'; 
+                    VVALOR := VVALOR || '' || pANNO || '|'; 
+                ELSE
+                    --IF CUR_IND.VALORES = '17' THEN
+                    --    VVALOR := VVALOR || '0' || '|'; 
+                    --ELSE
+                        SELECT IDA.VALOR INTO VVARPARAM FROM T_MAEM_INDICADOR_DATA IDA
+                        WHERE IDA.ID_INICIATIVA = pID_INICIATIVA
+                        AND IDA.ID_ENFOQUE = pID_ENFOQUE 
+                        AND IDA.ID_MEDMIT = pID_MEDMIT 
+                        AND IDA.ID_INDICADOR = pID_INDICADOR 
+                        AND IDA.ID_PARAMETRO = CUR_IND.VALORES;
+                    
+                        VVALOR := VVALOR || '' || VVARPARAM || '|'; 
+                    --END IF;
+                     
+                END IF;
+                         
+                
+            END LOOP;
+            
+            SELECT SUBSTR(VVALOR,1,LENGTH(VVALOR)-1) INTO VVALOR FROM DUAL; 
+            
+            --SELECT FACTOR INTO VRESULTADO FROM T_MAEM_MRV_LG_FACTOR_DATA 
+            SELECT NVL(FACTOR,0.0) INTO VRESULTADO FROM T_MAEM_FACTOR_DATA 
+            WHERE ID_FACTOR = pID_FACTOR AND ID_PARAMETRO = VVARFAC AND VALOR = VVALOR;
+            Return (VRESULTADO);
+            
+        END IF;        
+        
+    END;     
+
 
 END PKG_MRV_REPORTES;
 
