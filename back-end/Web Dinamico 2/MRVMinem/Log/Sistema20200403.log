@@ -1,0 +1,178 @@
+3/04/2020 01:15:19: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:15:19: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:15:19: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:15:19: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:15:19: [Método: System.Object ExecuteScalar(), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:15:19: [Método: T ExecuteScalarImpl[T](System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:15:19: [Método: System.Object ExecuteScalar(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:15:19: [Método: entidad.minem.gob.pe.IniciativaBE VerificarIniciativaMitigacion(entidad.minem.gob.pe.IniciativaBE), Línea: 2088] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:15:34: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:15:34: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:15:34: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:15:34: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:15:34: [Método: System.Object ExecuteScalar(), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:15:34: [Método: T ExecuteScalarImpl[T](System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:15:34: [Método: System.Object ExecuteScalar(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:15:34: [Método: entidad.minem.gob.pe.IniciativaBE VerificarIniciativaMitigacion(entidad.minem.gob.pe.IniciativaBE), Línea: 2088] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:15:51: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:15:51: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:15:51: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:15:51: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:15:51: [Método: System.Object ExecuteScalar(), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:15:51: [Método: T ExecuteScalarImpl[T](System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:15:51: [Método: System.Object ExecuteScalar(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:15:51: [Método: entidad.minem.gob.pe.IniciativaBE VerificarIniciativaMitigacion(entidad.minem.gob.pe.IniciativaBE), Línea: 2088] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:16:07: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:16:07: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:16:07: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:16:07: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:16:07: [Método: System.Object ExecuteScalar(), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:16:07: [Método: T ExecuteScalarImpl[T](System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:16:07: [Método: System.Object ExecuteScalar(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:16:07: [Método: entidad.minem.gob.pe.IniciativaBE VerificarIniciativaMitigacion(entidad.minem.gob.pe.IniciativaBE), Línea: 2088] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:23:53: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:23:53: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:23:53: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:23:53: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:23:53: [Método: System.Object ExecuteScalar(), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:23:53: [Método: T ExecuteScalarImpl[T](System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:23:53: [Método: System.Object ExecuteScalar(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+3/04/2020 01:23:53: [Método: entidad.minem.gob.pe.IniciativaBE VerificarIniciativaMitigacion(entidad.minem.gob.pe.IniciativaBE), Línea: 2088] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+03/04/2020 01:27:57: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+03/04/2020 01:27:57: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+03/04/2020 01:27:57: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+03/04/2020 01:27:57: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+03/04/2020 01:27:57: [Método: System.Object ExecuteScalar(), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+03/04/2020 01:27:57: [Método: T ExecuteScalarImpl[T](System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+03/04/2020 01:27:57: [Método: System.Object ExecuteScalar(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+03/04/2020 01:27:57: [Método: entidad.minem.gob.pe.IniciativaBE VerificarIniciativaMitigacion(entidad.minem.gob.pe.IniciativaBE), Línea: 2088] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+03/04/2020 01:36:33: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+03/04/2020 01:36:33: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+03/04/2020 01:36:33: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+03/04/2020 01:36:33: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+03/04/2020 01:36:33: [Método: System.Object ExecuteScalar(), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+03/04/2020 01:36:33: [Método: T ExecuteScalarImpl[T](System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+03/04/2020 01:36:33: [Método: System.Object ExecuteScalar(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+03/04/2020 01:36:33: [Método: entidad.minem.gob.pe.IniciativaBE VerificarIniciativaMitigacion(entidad.minem.gob.pe.IniciativaBE), Línea: 2088] - ORA-00933: comando SQL no terminado correctamente
+ORA-06512: en "MRVMM.PKG_MRV_INICIATIVA_MITIGACION", línea 5014
+ORA-06512: en línea 1
+03/04/2020 01:49:20: [Método: Void WinIOError(Int32, System.String), Línea: 0] - No se pudo encontrar el archivo 'C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\Archivos\Temp\681-1-4cc845ce-5ac3-4020-8108-98b6de0cb517.TXT'.
+03/04/2020 01:49:20: [Método: Void InternalMove(System.String, System.String, Boolean), Línea: 0] - No se pudo encontrar el archivo 'C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\Archivos\Temp\681-1-4cc845ce-5ac3-4020-8108-98b6de0cb517.TXT'.
+03/04/2020 01:49:20: [Método: Void Move(System.String, System.String), Línea: 0] - No se pudo encontrar el archivo 'C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\Archivos\Temp\681-1-4cc845ce-5ac3-4020-8108-98b6de0cb517.TXT'.
+03/04/2020 01:49:20: [Método: entidad.minem.gob.pe.IndicadorDataBE RegistraTodosIndicadoresData(entidad.minem.gob.pe.IniciativaBE, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 152] - No se pudo encontrar el archivo 'C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\Archivos\Temp\681-1-4cc845ce-5ac3-4020-8108-98b6de0cb517.TXT'.
+03/04/2020 01:49:20: [Método: System.Web.Mvc.JsonResult RegistrarDetalleIndicador(System.Web.HttpPostedFileBase[], System.Web.HttpPostedFileBase[], entidad.minem.gob.pe.IniciativaBE), Línea: 1020] - No se pudo encontrar el archivo 'C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\Archivos\Temp\681-1-4cc845ce-5ac3-4020-8108-98b6de0cb517.TXT'.
+03/04/2020 01:57:53: [Método: Void WinIOError(Int32, System.String), Línea: 0] - No se pudo encontrar el archivo 'C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\Archivos\Temp\681-1-4cc845ce-5ac3-4020-8108-98b6de0cb517.TXT'.
+03/04/2020 01:57:53: [Método: Void InternalMove(System.String, System.String, Boolean), Línea: 0] - No se pudo encontrar el archivo 'C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\Archivos\Temp\681-1-4cc845ce-5ac3-4020-8108-98b6de0cb517.TXT'.
+03/04/2020 01:57:53: [Método: Void Move(System.String, System.String), Línea: 0] - No se pudo encontrar el archivo 'C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\Archivos\Temp\681-1-4cc845ce-5ac3-4020-8108-98b6de0cb517.TXT'.
+03/04/2020 01:57:53: [Método: entidad.minem.gob.pe.IndicadorDataBE RegistraTodosIndicadoresData(entidad.minem.gob.pe.IniciativaBE, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 152] - No se pudo encontrar el archivo 'C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\Archivos\Temp\681-1-4cc845ce-5ac3-4020-8108-98b6de0cb517.TXT'.
+03/04/2020 01:57:53: [Método: System.Web.Mvc.JsonResult RegistrarDetalleIndicador(System.Web.HttpPostedFileBase[], System.Web.HttpPostedFileBase[], entidad.minem.gob.pe.IniciativaBE), Línea: 1020] - No se pudo encontrar el archivo 'C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\Archivos\Temp\681-1-4cc845ce-5ac3-4020-8108-98b6de0cb517.TXT'.

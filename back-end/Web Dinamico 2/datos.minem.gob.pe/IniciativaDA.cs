@@ -2394,7 +2394,7 @@ namespace datos.minem.gob.pe
                         }
 
                         List<EnergeticoBE> listae = ListarEnergeticoIniciativa(new IniciativaBE { ID_INICIATIVA = item.ID_INICIATIVA });
-                        if (listau.Count() > 0)
+                        if (listae.Count() > 0)
                         {
                             var energeticos = "";
                             foreach (var energ in listae)
@@ -2409,10 +2409,10 @@ namespace datos.minem.gob.pe
                         }
 
                         List<GasEfectoInvernaderoBE> listag = ListarGeiIniciativa(new IniciativaBE { ID_INICIATIVA = item.ID_INICIATIVA });
-                        if (listau.Count() > 0)
+                        if (listag.Count() > 0)
                         {
                             var geis = "";
-                            foreach (var gei in listae)
+                            foreach (var gei in listag) //add
                             {
                                 geis += gei.DESCRIPCION + " - ";
                             }
