@@ -79,6 +79,12 @@ namespace MRVMinem.Controllers
                 {
                     model.OK = false;
                     model.extra = "El Captcha no es válido";
+
+                    return new RedirectToRouteResult(new RouteValueDictionary(new
+                    {
+                        controller = "Home",
+                        action = "login"
+                    }));
                 }
             }
             catch (Exception ex)

@@ -956,6 +956,7 @@ namespace MRVMinem.Controllers
 
                 //==========================================================
                 List<IndicadorDataBE> listaDataE = new List<IndicadorDataBE>();
+                List<IndicadorArchivoBE> lista_remover = new List<IndicadorArchivoBE>(); //add 18-04-2020
                 if (!string.IsNullOrEmpty(entidad.DATA))
                 {
                     var valores = entidad.DATA.Split('/');
@@ -991,9 +992,14 @@ namespace MRVMinem.Controllers
                         if (!string.IsNullOrEmpty(indic[2]))
                         {
                             List<IndicadorArchivoBE> MisArchivos = (List<IndicadorArchivoBE>)Session["MisArchivos"];
-                            IndicadorArchivoBE encontrado = MisArchivos.Find(A => A.ADJUNTO_BASE.Equals(indic[2]));
+                            //if (lista_remover.Count > 0) MisArchivos = removerArchivosRepetidos(MisArchivos, lista_remover); //add 18-04-2020
+                            IndicadorArchivoBE encontrado = MisArchivos.Find(A => A.ADJUNTO_BASE.Equals(indic[2]));                            
                             if (encontrado != null)
+                            {
                                 dataE.ArchivoSustento = new IndicadorArchivoBE() { ADJUNTO = encontrado.ADJUNTO, ADJUNTO_BASE = encontrado.ADJUNTO_BASE, ID_INICIATIVA = entidad.ID_INICIATIVA, ID_INDICADOR = dataE.ID_INDICADOR };
+                                lista_remover.Add(encontrado); //add 18-04-2020
+                                MisArchivos = removerArchivosRepetidos(MisArchivos, lista_remover); //add 18-04-2020
+                            }                                
                         }
 
                         listaDataE.Add(dataE);
@@ -3184,5 +3190,14 @@ namespace MRVMinem.Controllers
 
         }
 
-    }
+        private List<IndicadorArchivoBE> removerArchivosRepetidos(List<IndicadorArchivoBE> archivo, List<IndicadorArchivoBE> lista_remover)
+        {
+            foreach (var item in lista_remover)
+            {
+                archivo.Remove(item);
+            }
+            return archivo;
+        }
+
+    }    
 }
