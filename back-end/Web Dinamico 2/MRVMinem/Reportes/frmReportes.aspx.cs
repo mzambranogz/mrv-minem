@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using utilitario.minem.gob.pe;
 
 namespace MRVMinem.Reportes
 {
@@ -15,22 +16,30 @@ namespace MRVMinem.Reportes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            try //add trycatch
             {
-                if (Request.QueryString["IdReporte"] == "1")
+                if (!Page.IsPostBack)
                 {
-                     ReporteIniciativa();
-                }
-                else if (Request.QueryString["IdReporte"] == "2")
-                {
-                     ReporteMedidaMitigacion();
-                }
-               
-                else if (Request.QueryString["IdReporte"] == "3")
-                {
-                    ReporteEscenarios();
+                    if (Request.QueryString["IdReporte"] == "1")
+                    {
+                        ReporteIniciativa();
+                    }
+                    else if (Request.QueryString["IdReporte"] == "2")
+                    {
+                        ReporteMedidaMitigacion();
+                    }
+
+                    else if (Request.QueryString["IdReporte"] == "3")
+                    {
+                        ReporteEscenarios();
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+            
         }
 
         private void ConfigurarReporte()

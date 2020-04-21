@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using utilitario.minem.gob.pe;
 
 namespace MRVMinem.Reportes
 {
@@ -15,13 +16,21 @@ namespace MRVMinem.Reportes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            try //add trycatch
             {
-                cargaMedidaMitigacion();
-                cargaSector();
-            }
-            ReportViewer1.LocalReport.SubreportProcessing += new SubreportProcessingEventHandler(rvwFichaEventHandler);
+                if (!Page.IsPostBack)
+                {
+                    cargaMedidaMitigacion();
+                    cargaSector();
+                }
+                ReportViewer1.LocalReport.SubreportProcessing += new SubreportProcessingEventHandler(rvwFichaEventHandler);
 
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+            
         }
 
         protected void rvwFichaEventHandler(object sender, SubreportProcessingEventArgs e)
@@ -57,24 +66,32 @@ namespace MRVMinem.Reportes
 
         protected void btnReporte_Click(object sender, EventArgs e)
         {
-            string rutatarget = WebConfigurationManager.AppSettings["RutaReportes"].ToString();
-            List<FichaMinamBE> listado = FichaMinamLN.ListaFichaMinam(new FichaMinamBE() { ID_MEDMIT = int.Parse(ddlMedMit.SelectedValue), ANNO = int.Parse(ddlAnio.SelectedValue) });
-
-            ReportDataSource dataSource = new ReportDataSource("DtFichaMinam", listado);
-            ReportViewer1.ProcessingMode = ProcessingMode.Local;
-            ReportViewer1.LocalReport.ReportPath = string.Format("{0}\\rptFichaMinam.rdlc", rutatarget);
-            ReportViewer1.LocalReport.DataSources.Clear();
-            ReportViewer1.LocalReport.DataSources.Add(dataSource);
-
-            if (listado != null)
+            try //add trycatch
             {
-                ReportViewer1.Visible = true;
-                ReportViewer1.LocalReport.Refresh();
+                string rutatarget = WebConfigurationManager.AppSettings["RutaReportes"].ToString();
+                List<FichaMinamBE> listado = FichaMinamLN.ListaFichaMinam(new FichaMinamBE() { ID_MEDMIT = int.Parse(ddlMedMit.SelectedValue), ANNO = int.Parse(ddlAnio.SelectedValue) });
+
+                ReportDataSource dataSource = new ReportDataSource("DtFichaMinam", listado);
+                ReportViewer1.ProcessingMode = ProcessingMode.Local;
+                ReportViewer1.LocalReport.ReportPath = string.Format("{0}\\rptFichaMinam.rdlc", rutatarget);
+                ReportViewer1.LocalReport.DataSources.Clear();
+                ReportViewer1.LocalReport.DataSources.Add(dataSource);
+
+                if (listado != null)
+                {
+                    ReportViewer1.Visible = true;
+                    ReportViewer1.LocalReport.Refresh();
+                }
+                else
+                {
+                    ReportViewer1.Visible = false;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                ReportViewer1.Visible = false;
+                Log.Error(ex);
             }
+            
         }
     }
 }
