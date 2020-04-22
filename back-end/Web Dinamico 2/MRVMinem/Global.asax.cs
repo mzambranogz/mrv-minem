@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using utilitario.minem.gob.pe;
 
 namespace MRVMinem
 {
@@ -18,6 +19,8 @@ namespace MRVMinem
         protected void Application_Error(object sender, EventArgs e)
         {
             Exception exception = Server.GetLastError();
+
+            Log.Error(exception); //add 
 
             Response.Clear();
 
