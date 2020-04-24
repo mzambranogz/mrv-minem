@@ -257,18 +257,18 @@ namespace MRVMinem.Controllers
                 Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
                 Session["nombres_destino"] = modelo.usuario.NOMBRES;
 
-                string factores = "";
-                if (modelo.listaIndData.Count > 0)
-                {
-                    List<int> id_factores = modelo.listaIndData[modelo.listaIndData.Count - 1].id_factores;
+                //string factores = "";
+                //if (modelo.listaIndData.Count > 0)
+                //{
+                //    List<int> id_factores = modelo.listaIndData[modelo.listaIndData.Count - 1].id_factores;
 
-                    for (var i = 0; i < id_factores.Count; i++)
-                    {
-                        factores += id_factores[i] + ",";
-                    }
-                    factores = factores.Substring(0, factores.Length - 1);
-                    modelo.id_factores = factores;
-                }
+                //    for (var i = 0; i < id_factores.Count; i++)
+                //    {
+                //        factores += id_factores[i] + ",";
+                //    }
+                //    factores = factores.Substring(0, factores.Length - 1);
+                //    modelo.id_factores = factores;
+                //}
             }
             else
             {
@@ -436,7 +436,14 @@ namespace MRVMinem.Controllers
 
         public ActionResult CambiarClave()
         {
-            return View();
+            MvReCAPTCHASettings modelo = new MvReCAPTCHASettings()
+            {
+                ReCAPTCHA_Secret_Key = WebConfigurationManager.AppSettings["ReCAPTCHA_Secret_Key"],
+                ReCAPTCHA_Site_Key = WebConfigurationManager.AppSettings["ReCAPTCHA_Site_Key"],
+                OK = true
+            };
+            ViewBag.caracter = "@#.";
+            return View(modelo);
         }
 
         public ActionResult SeguimientoIniciativa(int id, int ini)

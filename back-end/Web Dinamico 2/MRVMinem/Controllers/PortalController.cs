@@ -92,7 +92,7 @@ namespace MRVMinem.Controllers
             modelo.identificador = id;
             modelo.ReCAPTCHA_Secret_Key = WebConfigurationManager.AppSettings["ReCAPTCHA_Secret_Key"];
             modelo.ReCAPTCHA_Site_Key = WebConfigurationManager.AppSettings["ReCAPTCHA_Site_Key"];
-
+            ViewBag.caracter = "@#.";
             return View(modelo);
         }
 
@@ -355,6 +355,14 @@ namespace MRVMinem.Controllers
             {
                 itemRespuesta.success = false;
             }
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult CambiarNuevaClave(UsuarioBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+            entidad = UsuarioLN.CambiarClave(entidad);
+            itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }
 

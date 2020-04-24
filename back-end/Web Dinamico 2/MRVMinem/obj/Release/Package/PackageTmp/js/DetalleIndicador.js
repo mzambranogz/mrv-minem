@@ -2717,13 +2717,15 @@ function fn_procesoDetalleIndicador(url, estado) {
     var enfoque = $("#cbo-enfoque").val();
     var parametros = "";
     var n = $("#tablaIndicador").find("tbody").find("th").length + 1;
-
+    var nom = ""
+    //var nom2 = $("#fle-nom-1").val();
     for (var fila = 1 ; fila < n; fila++) {
         debugger;
         var enfoque = $("#cbo-enfoque").val();
         var ind = $("#cuerpoTablaIndicador #detalles-tr-" + fila).data("ind");
         var filas = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + fila).find("[data-param]");
         var Xfilas = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + fila).find("input[name=fledoc]");
+        var nomarchivo = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + fila).find("[data-nomarchivo]");//add 18-04-2020
         if (fn_validarCampoReg(fila)) {
             filas.each(function (index, value) {
                 parametros += enfoque + ",";
@@ -2732,9 +2734,17 @@ function fn_procesoDetalleIndicador(url, estado) {
                 parametros += $("#" + $(value).attr("id")).val() + "|";
             });
             parametros = parametros.substring(0, parametros.length - 1);
+
+            nomarchivo.each(function (index, value) {
+                debugger;
+                nom = $("#" + $(value).attr("id")).val();
+            });
+
             if (Xfilas != null && Xfilas != undefined) {
                 if (Xfilas[0].files.length > 0)
                     parametros += ";" + ind + ";" + Xfilas[0].files[0].name;
+                else if (nom != "")
+                    parametros += ";" + ind + ";" + nom;
                 else
                     parametros += ";" + ind + ";";
             }
@@ -3254,7 +3264,9 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                         tr += '<td class="text-center" data-encabezado="Sustento" id="sustento' + (i + 1) + '">';
                         tr += '        <label class="btn btn-secondary btn-sm m-0" for="fle-doc-' + (i + 1) + '" title="Cargar archivo"><i class="fas fa-upload"></i>';
                         tr += '          <input class="d-none" type="file" id="fle-doc-' + (i + 1) + '" name="fledoc" onchange="handleFileSustento(this.files,' + (i + 1) + ',1)">';
-                        tr += '        </label><a class="btn btn-success btn-sm m-0" name="fledownload" href="' + urlDw + '" title="Descargar archivo" id="fle-dow-' + (i + 1) + '" target="_blank" style="display: none;"><i class="fas fa-download"></i></a>';
+                        tr += '           <input id="fle-nom-' + (i + 1) + '" type="text" data-nomarchivo="" hidden>';//
+                        //tr += '        </label><a class="btn btn-success btn-sm m-0" name="fledownload" href="' + urlDw + '" title="Descargar archivo" id="fle-dow-' + (i + 1) + '" target="_blank" style="display: none;"><i class="fas fa-download"></i></a>';
+                        tr += '        </label><a class="btn btn-success btn-sm m-0" name="fledownload" href="' + urlDw + '" title="Descargar archivo" id="fle-dow-' + (i + 1) + '" target="_blank" style="display: none;"><i class="fas fa-download"></i></a>'; //add 18-04-2020
                         tr += '</td>';
                         tr += '<td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCampos" href="#" onclick="fn_eliminarRestarTotal()" title="Quitar fila"><i class="fas fa-minus-circle"></i></a></td>';
 
@@ -3286,9 +3298,11 @@ function handleFileSustento(evt, idIndicador, accion) {
     var output = [];
     var extension = "fa-file-word";
     var name = "";
+    var nom_archivo = ""; //add 18-04-2020
     var file_extension = "";
     for (var i = 0, f; f = files[i]; i++) {
         name = f.name;
+        nom_archivo = f.name; //add 18-04-2020
         file_extension = name.split(".").pop().toLowerCase();
 
         if (f.size > 4194304) {
@@ -3327,7 +3341,9 @@ function handleFileSustento(evt, idIndicador, accion) {
                             if (xref[0].href.lastIndexOf("FileDownloadDetalle") != -1) {
                                 xref[0].href = baseUrl + 'Gestion/FileDownload?IdIniciativa=' + $("#iniciativa_mit_ID_INICIATIVA").val() + '&IdIndicador=' + idIndicador + "&accion=I";
                             }
+                            debugger;
                             $("#fle-dow-" + idIndicador).removeAttr('style');
+                            $("#fle-nom-" + idIndicador).val(nom_archivo); //add 18-04-2020
                         } else {
                             MRV.Alert('Alerta', v.message, '', 'es');
                         }

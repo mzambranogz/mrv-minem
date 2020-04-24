@@ -255,7 +255,7 @@ function fn_procesoIniciativa(url, estado) {
             } else {
                 if ($("#txt-fecha-fin").val() != "") {
                     if ($("#txt-fecha-inicio").val() > $("#txt-fecha-fin").val())
-                        msj = msj + '                                <hr><small class="mb-0">Por favor, verificar que la fecha de finalización del proyecto no sea mayor a la fecha de ejecución del proyecto.</small>';
+                        msj = msj + '                                <hr><small class="mb-0">Por favor, verificar que la fecha de inicio de operaciones no sea mayor a la fecha de finalización del proyecto.</small>';
                     else
                         msj = msj + '                                <hr><small class="mb-0">Verifique que los datos sean correctamente ingresados, complete todos los campos obligatorios e intente otra vez.</small>';
                 } else

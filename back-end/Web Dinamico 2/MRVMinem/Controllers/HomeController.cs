@@ -126,6 +126,52 @@ namespace MRVMinem.Controllers
             }
         }
 
+        //add
+        public async Task<JsonResult> ValidarCaptcha(MvReCAPTCHASettings model)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+
+            UsuarioBE entidad = new UsuarioBE() { USUARIO = model.USUARIO, PASSWORD_USUARIO = model.PASSWORD_USUARIO };
+            try
+            {
+                //GoogleResponse _GoogleRecaptcha = await GoogleReCAPTCHAService.VerifyRecaptcha(entidad.Token);
+                var isCaptchaValid = await IsCaptchaValid(model.TOKEN);
+
+                if (isCaptchaValid)
+                {
+                    entidad = UsuarioLN.ObtenerPassword(entidad);
+                    if (entidad.OK)
+                    {
+                        SessionHelper.AddUserToSession(entidad.ID_USUARIO.ToString());
+                        Session["usuario"] = entidad.ID_USUARIO.ToString();
+                        Session["socket"] = WebConfigurationManager.AppSettings.Get("Socket");
+                        List<RolOpcionesBE> lista = RolOpcionesLN.ListarOpciones(entidad.ID_USUARIO);
+                        limpiarSetearSesion(lista);
+
+                        itemRespuesta.success = true;
+                    }
+                    else
+                    {
+                        itemRespuesta.extra = entidad.extra;
+                        itemRespuesta.success = false;
+                    }
+                }
+                else
+                {
+                    itemRespuesta.extra = "El Captcha no es válido";
+                    itemRespuesta.success = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                itemRespuesta.extra = "Usuario y/o Password incorrecto";
+                itemRespuesta.success = false;
+            }
+
+            return Respuesta(itemRespuesta);
+        }
+
         private void limpiarSetearSesion(List<RolOpcionesBE> lista)
         {
             Session["opcion1"] = 0;

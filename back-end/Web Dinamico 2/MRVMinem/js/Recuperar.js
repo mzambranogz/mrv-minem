@@ -130,33 +130,74 @@ function fn_enviarCorreoRecuperacion() {
 
 $("#frmReestablecerClave").on("submit", function (e) {
 
+    grecaptcha.ready(function () {
+
+        grecaptcha.execute(key, { action: 'Gestion/AccionMitigacion' }).then(function (token) {
+            var item = {
+                TOKEN: token
+            };
+            var url = baseUrl + "Home/VerificarCaptcha";
+            var respuesta = MRV.Ajax(url, item, false);
+            if (!respuesta.success) {
+
+                var msj = '                      <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="errorRegistro">';
+                msj = msj + '                           <div class="alert-wrap mr-3">';
+                msj = msj + '                                <div class="sa">';
+                msj = msj + '                                    <div class="sa-error">';
+                msj = msj + '                                        <div class="sa-error-x">';
+                msj = msj + '                                            <div class="sa-error-left"></div>';
+                msj = msj + '                                            <div class="sa-error-right"></div>';
+                msj = msj + '                                        </div>';
+                msj = msj + '                                        <div class="sa-error-placeholder"></div>';
+                msj = msj + '                                        <div class="sa-error-fix"></div>';
+                msj = msj + '                                    </div>';
+                msj = msj + '                                </div>';
+                msj = msj + '                            </div>';
+                msj = msj + '                            <div class="alert-wrap">';
+                msj = msj + '                                <h6>Error de registro</h6>';
+                msj = msj + '                                <ul><li><small class="mb-0">Por favor verificar el captcha.</small></li></ul>';
+                msj = msj + '                            </div>';
+                msj = msj + '                        </div>';
+                $("#seccionMensaje").append(msj);
+
+            } else {
+                fn_validar();
+            }
+
+        });
+    });
+    return false;
+
+});
+
+function fn_validar() {
     var arr = [];
     var clave = $("#txt-pswd").val();
     var reclave = $("#txt-re-pswd").val();
     $("#frmReestablecerClave #errorCambiar").remove();
     $("#frmReestablecerClave #correctoCambiar").remove();
     if (clave == reclave) {
-        if (!(/[a-zñ]/.test(clave) && /[A-ZÑ]/.test(clave) && /[0-9]/.test(clave))) {
-            arr.push("La nueva contraseña debe contener minuscula(s), mayúscula(s) y número(s)");
+        if (!(/[a-zñ]/.test(clave) && /[A-ZÑ]/.test(clave) && /[0-9]/.test(clave) && /[@#.]/.test(clave))) {
+            arr.push("La contraseña debe contener minúscula(s), mayúscula(s), número(s) y caracter(es) especial(es) [@#.]");
         }
         if (clave.length < 6) {
-            arr.push("La nueva contraseña debe contener 6 o más caracteres");
+            arr.push("La contraseña debe contener 6 o más caracteres por seguridad");
         }
     } else {
-        arr.push("Compruebe que ambas contraseñas son iguales.");
+        arr.push("Compruebe que ambas contraseñas sean iguales.");
     }
 
-    var item = {
-        TOKEN: $("#TOKEN").val()
-    };
-    var url = baseUrl + "Home/VerificarCaptcha";
-    var respuesta = MRV.Ajax(url, item, false);
+    //var item = {
+    //    TOKEN: $("#TOKEN").val()
+    //};
+    //var url = baseUrl + "Home/VerificarCaptcha";
+    //var respuesta = MRV.Ajax(url, item, false);
 
-    if (!respuesta.success) {
-        //if (grecaptcha.getResponse() == "") {
-        e.preventDefault();
-        arr.push("Por favor verificar el captcha.");
-    }
+    //if (!respuesta.success) {
+    //    //if (grecaptcha.getResponse() == "") {
+    //    e.preventDefault();
+    //    arr.push("Por favor verificar el captcha.");
+    //}
 
     if (arr.length == 0) {
         fn_reestablecerClave();
@@ -189,11 +230,11 @@ $("#frmReestablecerClave").on("submit", function (e) {
         $("#seccionMensaje").append(msj);
         return false;
     }
-});
+}
 
 
 function fn_reestablecerClave() {
-    var url = baseUrl + "Gestion/CambiarNuevaClave";
+    var url = baseUrl + "Portal/CambiarNuevaClave";
     var item = {
         ID_USUARIO: $("#identificador").val(),
         NUEVO_PASSWORD_USUARIO: $("#txt-pswd").val()
