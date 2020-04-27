@@ -19,5 +19,6 @@ namespace entidad.minem.gob.pe
         public string DIRECCION { get; set; }
         public string PRIMER_INICIO { get; set; }
         public string ROL { get; set; }
+        public int ID_SECTOR_INST { get; set; } //add
     }
 }

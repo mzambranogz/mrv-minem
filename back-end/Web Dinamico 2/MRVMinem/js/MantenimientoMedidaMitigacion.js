@@ -2,6 +2,7 @@
 $(document).ready(function () {
     MRV.CargarSelect(baseUrl + "Mantenimiento/ListaNamaControl", "#cbo-nama", "ID_NAMA", "DESCRIPCION_NAMA");    
     MRV.CargarSelect(baseUrl + "Mantenimiento/ListaIPCCControl", "#cbo-ipcc", "ID_IPCC", "IPCC");
+    MRV.CargarSelect(baseUrl + "Gestion/ListaSectorInstitucion", "#cbo-usuario-medida", "ID_SECTOR_INST", "DESCRIPCION");
 });
 
 function fn_CargaDatos() {
@@ -157,6 +158,9 @@ function fn_modalInicio() {
     $("#mensajeRegistroMantenimientoUsuario").show();
     $("#pieMantenimientoUsuario").show();
     $("#pieCorrecto").hide();
+
+    $("#mensajeCorrecto").attr("hidden", true); //add
+    $("#mensajeError").attr("hidden", true); //add
 }
 
 function fn_limpiarCampo() {
@@ -171,6 +175,7 @@ function fn_limpiarCampo() {
     $("#title-nuevo").hide();
     $("#title-edit").hide();
     $("#txa-metodologia").val(""); //add
+    $("#cbo-usuario-medida").val(0); //add 26-04-2020
 }
 
 function regMantenimiento() {
@@ -213,6 +218,7 @@ function fn_seleccionarMantenimiento(id) {
                     $("#cbo-ipcc").val(data[i]["ID_IPCC"]);
                     $("#txt-documentos").val(data[i]["ADJUNTO_BASE"]);
                     $("#txa-metodologia").val(data[i]["METODOLOGIA_MEDMIT"]); //add
+                    $("#cbo-usuario-medida").val(data[i]["USUARIO_ASOCIADO_MEDMIT"]); //add
                 }                
             }
         }
@@ -247,6 +253,9 @@ function fn_validarCampo() {
     }
     if ($("#txa-metodologia").val().trim() == "") { //add
         arr.push("Debe ingresar una metodología");
+    }
+    if ($("#cbo-usuario-medida").val() == 0) { //add
+        arr.push("Debe seleccionar el usuario al que estará asociado la medida de mitigación");
     }
 
     if (arr.length > 0) {
@@ -294,7 +303,8 @@ function fn_editarMantenimiento() {
         DESCRIPCION_MEDMIT: $("#txa-descripcion-medida").val(),
         OBJETIVO_MEDMIT: $("#txa-objetivo-medida").val(),
         ID_IPCC: $("#cbo-ipcc").val(),
-        METODOLOGIA_MEDMIT: $("#txa-metodologia").val() //add
+        METODOLOGIA_MEDMIT: $("#txa-metodologia").val(), //add,
+        USUARIO_ASOCIADO_MEDMIT: $("#cbo-usuario-medida").val() //ADD
     };
 
     var options = {
@@ -311,7 +321,8 @@ function fn_editarMantenimiento() {
             DESCRIPCION_MEDMIT: $("#txa-descripcion-medida").val(),
             OBJETIVO_MEDMIT: $("#txa-objetivo-medida").val(),
             ID_IPCC: $("#cbo-ipcc").val(),
-            METODOLOGIA_MEDMIT: $("#txa-metodologia").val() //add
+            METODOLOGIA_MEDMIT: $("#txa-metodologia").val(), //add
+            USUARIO_ASOCIADO_MEDMIT: $("#cbo-usuario-medida").val() //ADD
         }),
         xhr: function () {  // Custom XMLHttpRequest
             var myXhr = $.ajaxSettings.xhr();
@@ -336,11 +347,15 @@ function fn_editarMantenimiento() {
                 $("#mensajeRegistroMantenimientoUsuario").hide();
                 $("#correctoMantenimientoUsuario").show();
                 $("#pieCorrecto").show();
+
+                $("#mensajeCorrecto").removeAttr("hidden"); //add
             } else {
                 $("#ventanaEditar").show();
                 $("#correctoMantenimientoUsuario").hide();
                 $("#errorRegistrarMantenimientoUsuario").hide();
                 $("#errorEditarMantenimientoUsuario").show();
+
+                $("#mensajeError").removeAttr("hidden"); //add
             }
         },
         error: function (myXhr, textStatus, errorThrown) {

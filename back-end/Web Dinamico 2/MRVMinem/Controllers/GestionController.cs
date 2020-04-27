@@ -60,12 +60,13 @@ namespace MRVMinem.Controllers
                 usu.NOMBRES_USUARIO = Convert.ToString(Session["nombres"]);
                 usu.APELLIDOS_USUARIO = Convert.ToString(Session["apellidos"]);
                 usu.PRIMER_INICIO = Convert.ToString(Session["primer_inicio"]);
+                usu.ID_SECTOR_INST = Convert.ToInt32(Session["id_sector"]); //add
             }
             else
             {
                 usu.PRIMER_INICIO = "0";
             }
-            if (Convert.ToInt32(Session["rol"]) == 1)
+            if (Convert.ToInt32(Session["rol"]) == 1 || Convert.ToInt32(Session["rol"]) == 2)
             {
                 modelo.listaMedidaMitigacion = MedidaMitigacionLN.ListarMedidaMitigacion(new MedidaMitigacionBE());
             }
@@ -124,6 +125,8 @@ namespace MRVMinem.Controllers
             //modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
             //modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
             //modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
+            modelo.id_sector = Convert.ToInt32(Session["id_sector"]); //add
+            modelo.id_rol = Convert.ToInt32(Session["rol"]); //add
             return View(modelo);
         }
 
@@ -142,6 +145,8 @@ namespace MRVMinem.Controllers
             {
                 return RedirectToAction("Default", "Error");
             }
+            modelo.id_sector = Convert.ToInt32(Session["id_sector"]); //add
+            modelo.id_rol = Convert.ToInt32(Session["rol"]); //add
 
             return View(modelo);
         }
@@ -2246,6 +2251,7 @@ namespace MRVMinem.Controllers
             entidad = IniciativaLN.VerificarIniciativaMitigacion(entidad);
             itemRespuesta.success = entidad.OK;
             itemRespuesta.extra = Convert.ToString(entidad.CANTIDAD);
+            //itemRespuesta.extra = "1";
             return Respuesta(itemRespuesta);
         }
 

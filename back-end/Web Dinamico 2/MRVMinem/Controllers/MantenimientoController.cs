@@ -702,7 +702,7 @@ namespace MRVMinem.Controllers
         {
             if (entidad.pagina == 0)
             {
-                entidad = new FactorBE() { cantidad_registros = 10, order_by = "ID_ENFOQUE", order_orden = "ASC", pagina = 1, buscar = "" };
+                entidad = new FactorBE() { cantidad_registros = 10, order_by = "ID_MEDMIT", order_orden = "ASC", pagina = 1, buscar = "" };
             }
             MvParametro modelo = new MvParametro();
             modelo.listaEnfoque = EnfoqueLN.ListarEnfoque();
@@ -899,6 +899,7 @@ namespace MRVMinem.Controllers
             entidad.OBJETIVO_MEDMIT = Request.Form["OBJETIVO_MEDMIT"].ToString();
             entidad.ID_IPCC = int.Parse(Request.Form["ID_IPCC"].ToString());
             entidad.METODOLOGIA_MEDMIT = Request.Form["METODOLOGIA_MEDMIT"].ToString(); //add
+            entidad.USUARIO_ASOCIADO_MEDMIT = int.Parse(Request.Form["USUARIO_ASOCIADO_MEDMIT"].ToString()); //ADD
 
             ResponseEntity itemRespuesta = new ResponseEntity();
 

@@ -20,6 +20,7 @@ namespace entidad.minem.gob.pe
         public string ADJUNTO { get; set; }
         public string ADJUNTO_BASE { get; set; }
         public string METODOLOGIA_MEDMIT { get; set; } //add
+        public int USUARIO_ASOCIADO_MEDMIT { get; set; } //add
 
         //actualizado 23-04-2020
     }

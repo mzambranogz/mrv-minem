@@ -1105,7 +1105,20 @@ function fn_ListarMedidaMitigacion() {
             if (data != null && data != "") {
                 if (data.length > 0) {
                     for (var i = 0; i < data.length; i++) {
-                        $("#cbo-medida-mitigacion-seleccionada").append('<option value="' + data[i]["ID_MEDMIT"] + '">' + data[i]["NOMBRE_MEDMIT"] + '</option>');
+                        if ($("#id_rol").val() == '2') {
+                            if (data[i]["USUARIO_ASOCIADO_MEDMIT"] == 100) {
+                                $("#cbo-medida-mitigacion-seleccionada").append('<option value="' + data[i]["ID_MEDMIT"] + '" style="font-weight: bold;">' + data[i]["NOMBRE_MEDMIT"] + '</option>');
+                            }else{
+                                $("#cbo-medida-mitigacion-seleccionada").append('<option value="' + data[i]["ID_MEDMIT"] + '" disabled>' + data[i]["NOMBRE_MEDMIT"] + '</option>');
+                            }
+                        } else {
+                            if ($("#id_sector").val() == data[i]["USUARIO_ASOCIADO_MEDMIT"]) {
+                                $("#cbo-medida-mitigacion-seleccionada").append('<option value="' + data[i]["ID_MEDMIT"] + '" style="font-weight: bold;">' + data[i]["NOMBRE_MEDMIT"] + '</option>');
+                            }else {
+                                $("#cbo-medida-mitigacion-seleccionada").append('<option value="' + data[i]["ID_MEDMIT"] + '" disabled>' + data[i]["NOMBRE_MEDMIT"] + '</option>');
+                            }
+                        }
+                        //$("#cbo-medida-mitigacion-seleccionada").append('<option value="' + data[i]["ID_MEDMIT"] + '" disabled>' + data[i]["NOMBRE_MEDMIT"] + '</option>');
                     }
                 }
             }

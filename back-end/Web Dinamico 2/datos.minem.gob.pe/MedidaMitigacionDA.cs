@@ -191,6 +191,7 @@ namespace datos.minem.gob.pe
                     p.Add("pADJUNTO", entidad.ADJUNTO);
                     p.Add("pADJUNTO_BASE", entidad.ADJUNTO_BASE);
                     p.Add("pMETODOLOGIA_MEDMIT", entidad.METODOLOGIA_MEDMIT); //ADD
+                    p.Add("pUSUARIO_ASOCIADO_MEDMIT", entidad.USUARIO_ASOCIADO_MEDMIT); //ADD
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
                     entidad.OK = true;
                 }

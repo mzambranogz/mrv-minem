@@ -22,6 +22,19 @@ function fn_mostrarSeguimiento() {
                     $("#seguimiento").html("");
                     for (var i = 0; i < data.length; i++) {
 
+                        color = "";
+                        if (data[i]["ID_ROL"] == 1) {
+                            color = "02";
+                        } else if (data[i]["ID_ROL"] == 2) {
+                            color = "03";
+                        } else if (data[i]["ID_ROL"] == 3) {
+                            color = "06";
+                        } else if (data[i]["ID_ROL"] == 4) {
+                            color = "04";
+                        } else if (data[i]["ID_ROL"] == 5) {
+                            color = "05";
+                        }
+
                         var tr = '';
                         if (data[i]["ID_ETAPA"] == 1 && data[i]["ID_ESTADO"] == 0) {
                             var cad = data[i]["OBSERVACIONES"];
@@ -36,7 +49,7 @@ function fn_mostrarSeguimiento() {
                                 tr = tr + '<span><strong>NOMBRE DE PROYECTO</strong><br>' + arr[0] + '<br></span>';
                                 tr = tr + '<span><strong>CORREO ELECTRÓNICO</strong><br>' + data[i]["EMAIL_USUARIO"] + '<br></span>';
                                 tr = tr + '</div>';
-                                tr = tr + '<p class="description"></span><span class="badge badge-actor-02">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
+                                tr = tr + '<p class="description"></span><span class="badge badge-actor-'+ color +'">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
                                 //tr = tr + '<p class="description"><span>'+data[i]["EMAIL_USUARIO"]+'<br></span><span class="badge badge-actor-02">Administrado</span></p>';
                                 tr = tr + '</div>';
                                 tr = tr + '</div>';
@@ -57,10 +70,10 @@ function fn_mostrarSeguimiento() {
                             tr = tr + '<span><strong>NOMBRE DE PROYECTO</strong><br>' + arr[0] + '<br></span>';
                             tr = tr + '<span><strong>INICIO DE OPERACIONES</strong><br>' + arr[2] + '<br></span>';
                             tr = tr + '<span><strong>MONEDA</strong><br>' + arr[3] + '<br></span>';
-                            tr = tr + '<span><strong>MONTO INVERSIÓN</strong><br>' + formatoMiles(arr[4]) + '<br></span>';
+                            tr = tr + '<span><strong>MONTO INVERSIÓN</strong><br>' + formatoMiles(parseFloat(arr[4])) + '<br></span>';
                             tr = tr + '<span><strong>CORREO ELECTRÓNICO</strong><br>' + data[i]["EMAIL_USUARIO"] + '<br></span>';
                             tr = tr + '</div>';
-                            tr = tr + '<p class="description"></span><span class="badge badge-actor-02">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
+                            tr = tr + '<p class="description"></span><span class="badge badge-actor-' + color + '">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
                             //tr = tr + '<p class="description"><span class="text-link">' + data[i]["EMAIL_USUARIO"] + '<br></span><span class="badge badge-actor-02">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
                             tr = tr + '</div>';
                             tr = tr + '</div';
@@ -73,7 +86,7 @@ function fn_mostrarSeguimiento() {
                         tr = tr + '<div class="timeline-icon"><i class="fas fa-search"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
                         tr = tr + '<div class="timeline-content">';
                         tr = tr + '<h5 class="title">SOLICITUD DE REVISIÓN VISTA <br><small class="text-muted">INICIATIVA DE MITIGACIÓN</small></h5>';
-                        tr = tr + '<p class="description"><span class="text-link">' + data[i]["EMAIL_USUARIO"] + '<br></span><span class="badge badge-actor-03">Especialista</span></p>';
+                        tr = tr + '<p class="description"><span class="text-link">' + data[i]["EMAIL_USUARIO"] + '<br></span><span class="badge badge-actor-' + color + '">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
                         tr = tr + '</div>';
                         tr = tr + '</div>';
                         //$("#seguimiento").append(tr);
@@ -88,7 +101,7 @@ function fn_mostrarSeguimiento() {
                         tr = tr + '<span><strong>OBSERVACIÓN</strong><br>' + data[i]["OBSERVACIONES"] + '<br></span>';
                         tr = tr + '<span><strong>CORREO ELECTRÓNICO</strong><br>' + data[i]["EMAIL_USUARIO"] + '<br></span>';
                         tr = tr + '</div>';
-                        tr = tr + '<p class="description"></span><span class="badge badge-actor-03">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
+                        tr = tr + '<p class="description"></span><span class="badge badge-actor-' + color + '">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
                         //tr = tr + '<p class="description"><span class="text-link">' + data[i]["EMAIL_USUARIO"] + '<br></span><span class="badge badge-actor-03">Especialista</span></p>';
                         tr = tr + '</div>';
                         tr = tr + '</div>';
@@ -108,10 +121,10 @@ function fn_mostrarSeguimiento() {
                             tr = tr + '<span><strong>NOMBRE DE PROYECTO</strong><br>' + arr[0] + '<br></span>';
                             tr = tr + '<span><strong>INICIO DE OPERACIONES</strong><br>' + arr[2] + '<br></span>';
                             tr = tr + '<span><strong>MONEDA</strong><br>' + arr[3] + '<br></span>';
-                            tr = tr + '<span><strong>MONTO INVERSIÓN</strong><br>' + formatoMiles(arr[4]) + '<br></span>';
+                            tr = tr + '<span><strong>MONTO INVERSIÓN</strong><br>' + formatoMiles(parseFloat(arr[4])) + '<br></span>';
                             tr = tr + '<span><strong>CORREO ELECTRÓNICO</strong><br>' + data[i]["EMAIL_USUARIO"] + '<br></span>';
                             tr = tr + '</div>';
-                            tr = tr + '<p class="description"></span><span class="badge badge-actor-02">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
+                            tr = tr + '<p class="description"></span><span class="badge badge-actor-' + color + '">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
                             //tr = tr + '<p class="description"><span>' + data[i]["EMAIL_USUARIO"] + '<br></span><span class="badge badge-actor-02">Administrado</span></p>';
                             tr = tr + '</div>';
                             tr = tr + '</div>';
@@ -132,10 +145,10 @@ function fn_mostrarSeguimiento() {
                             tr = tr + '<span><strong>NOMBRE DE PROYECTO</strong><br>' + arr[0] + '<br></span>';
                             tr = tr + '<span><strong>INICIO DE OPERACIONES</strong><br>' + arr[2] + '<br></span>';
                             tr = tr + '<span><strong>MONEDA</strong><br>' + arr[3] + '<br></span>';
-                            tr = tr + '<span><strong>MONTO INVERSIÓN</strong><br>' + formatoMiles(arr[4]) + '<br></span>';
+                            tr = tr + '<span><strong>MONTO INVERSIÓN</strong><br>' + formatoMiles(parseFloat(arr[4])) + '<br></span>';
                             tr = tr + '<span><strong>CORREO ELECTRÓNICO</strong><br>' + data[i]["EMAIL_USUARIO"] + '<br></span>';
                             tr = tr + '</div>';
-                            tr = tr + '<p class="description"></span><span class="badge badge-actor-02">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
+                            tr = tr + '<p class="description"></span><span class="badge badge-actor-' + color + '">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
                             //tr = tr + '<p class="description"><span class="text-link">' + data[i]["EMAIL_USUARIO"] + '<br></span><span class="badge badge-actor-02">Administrado</span></p>';
                             tr = tr + '</div>';
                             tr = tr + '</div>';
@@ -160,7 +173,7 @@ function fn_mostrarSeguimiento() {
                             }
                             tr = tr + '<span><strong>CORREO ELECTRÓNICO</strong><br>' + data[i]["EMAIL_USUARIO"] + '<br></span>';
                             tr = tr + '</div>';
-                            tr = tr + '<p class="description"></span><span class="badge badge-actor-03">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
+                            tr = tr + '<p class="description"></span><span class="badge badge-actor-' + color + '">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
                             //tr = tr + '<p class="description"><span class="text-link">' + data[i]["EMAIL_USUARIO"] + '<br></span><span class="badge badge-actor-03">Especialista</span></p>';
                             tr = tr + '</div>';
                             tr = tr + '</div>';
@@ -184,7 +197,7 @@ function fn_mostrarSeguimiento() {
                             tr = tr + '<span><strong>TOTAL GEI</strong><br>' + arr[3] + ' tCO<sub>2</sub>eq<br></span>';
                             tr = tr + '<span><strong>CORREO ELECTRÓNICO</strong><br>' + data[i]["EMAIL_USUARIO"] + '<br></span>';
                             tr = tr + '</div>';
-                            tr = tr + '<p class="description"></span><span class="badge badge-actor-02">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
+                            tr = tr + '<p class="description"></span><span class="badge badge-actor-' + color + '">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
                             //tr = tr + '<p class="description"><span>' + data[i]["EMAIL_USUARIO"] + '<br></span><span class="badge badge-actor-02">Administrado</span></p>';
                             tr = tr + '</div>';
                             tr = tr + '</div>';
@@ -207,7 +220,7 @@ function fn_mostrarSeguimiento() {
                             tr = tr + '<span><strong>TOTAL GEI</strong><br>' + arr[3] + ' tCO<sub>2</sub>eq<br></span>';
                             tr = tr + '<span><strong>CORREO ELECTRÓNICO</strong><br>' + data[i]["EMAIL_USUARIO"] + '<br></span>';
                             tr = tr + '</div>';
-                            tr = tr + '<p class="description"></span><span class="badge badge-actor-02">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
+                            tr = tr + '<p class="description"></span><span class="badge badge-actor-' + color + '">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
                             //tr = tr + '<p class="description"><span class="text-link">' + data[i]["EMAIL_USUARIO"] + '<br></span><span class="badge badge-actor-02">Administrado</span></p>';
                             tr = tr + '</div>';
                             tr = tr + '</div>';
@@ -220,7 +233,7 @@ function fn_mostrarSeguimiento() {
                         tr = tr + '<div class="timeline-icon"><i class="fas fa-search"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
                         tr = tr + '<div class="timeline-content">';
                         tr = tr + '<h5 class="title">SOLICITUD DE REVISIÓN VISTA <br><small class="text-muted">DETALLE DE INDICADORES</small></h5>';
-                        tr = tr + '<p class="description"><span class="text-link">' + data[i]["EMAIL_USUARIO"] + '<br></span><span class="badge badge-actor-03">Especialista</span></p>';
+                        tr = tr + '<p class="description"><span class="text-link">' + data[i]["EMAIL_USUARIO"] + '<br></span><span class="badge badge-actor-' + color + '">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
                         tr = tr + '</div>';
                         tr = tr + '</div>';
                         //$("#seguimiento").append(tr);
@@ -236,7 +249,7 @@ function fn_mostrarSeguimiento() {
                         tr = tr + '<span><strong>OBSERVACIÓN</strong><br>' + data[i]["OBSERVACIONES"] + '<br></span>';
                         tr = tr + '<span><strong>CORREO ELECTRÓNICO</strong><br>' + data[i]["EMAIL_USUARIO"] + '<br></span>';
                         tr = tr + '</div>';
-                        tr = tr + '<p class="description"></span><span class="badge badge-actor-03">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
+                        tr = tr + '<p class="description"></span><span class="badge badge-actor-' + color + '">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
                         //tr = tr + '<p class="description"><span class="text-link">' + data[i]["EMAIL_USUARIO"] + '<br></span><span class="badge badge-actor-03">Especialista</span></p>';
                         tr = tr + '</div>';
                         tr = tr + '</div>';
@@ -258,7 +271,7 @@ function fn_mostrarSeguimiento() {
                             tr = tr + '<span><strong>TOTAL GEI</strong><br>' + arr[3] + ' tCO<sub>2</sub>eq<br></span>';
                             tr = tr + '<span><strong>CORREO ELECTRÓNICO</strong><br>' + data[i]["EMAIL_USUARIO"] + '<br></span>';
                             tr = tr + '</div>';
-                            tr = tr + '<p class="description"></span><span class="badge badge-actor-02">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
+                            tr = tr + '<p class="description"></span><span class="badge badge-actor-' + color + '">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
                             //tr = tr + '<p class="description"><span>' + data[i]["EMAIL_USUARIO"] + '<br></span><span class="badge badge-actor-02">Administrado</span></p>';
                             tr = tr + '</div>';
                             tr = tr + '</div>';
@@ -281,7 +294,7 @@ function fn_mostrarSeguimiento() {
                             tr = tr + '<span><strong>TOTAL GEI</strong><br>' + arr[3] + ' tCO<sub>2</sub>eq<br></span>';
                             tr = tr + '<span><strong>CORREO ELECTRÓNICO</strong><br>' + data[i]["EMAIL_USUARIO"] + '<br></span>';
                             tr = tr + '</div>';
-                            tr = tr + '<p class="description"></span><span class="badge badge-actor-02">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
+                            tr = tr + '<p class="description"></span><span class="badge badge-actor-' + color + '">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
                             //tr = tr + '<p class="description"><span class="text-link">' + data[i]["EMAIL_USUARIO"] + '<br></span><span class="badge badge-actor-02">Administrado</span></p>';
                             tr = tr + '</div>';
                             tr = tr + '</div>';
@@ -307,7 +320,7 @@ function fn_mostrarSeguimiento() {
                             tr = tr + '<span><strong>TOTAL GEI</strong><br>' + arr[2] + ' tCO<sub>2</sub>eq<br></span>';
                             tr = tr + '<span><strong>CORREO ELECTRÓNICO</strong><br>' + data[i]["EMAIL_USUARIO"] + '<br></span>';
                             tr = tr + '</div>';
-                            tr = tr + '<p class="description"></span><span class="badge badge-actor-03">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
+                            tr = tr + '<p class="description"></span><span class="badge badge-actor-' + color + '">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
                             //tr = tr + '<p class="description"><span class="text-link">' + data[i]["EMAIL_USUARIO"] + '<br></span><span class="badge badge-actor-03">Especialista</span></p>';
                             tr = tr + '</div>';
                             tr = tr + '</div>';
@@ -336,7 +349,7 @@ function fn_mostrarSeguimiento() {
                         tr = tr + '<div class="timeline-icon"><i class="fas fa-clock"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
                         tr = tr + '<div class="timeline-content">';
                         tr = tr + '<h5 class="title">SOLICITUD DE REVISIÓN OBSERVADA SUBSANADA <br><small class="text-muted">INICIATIVA / DETALLES</small></h5>';
-                        tr = tr + '<p class="description"><span class="text-link">' + data[i]["EMAIL_USUARIO"] + '<br></span><span class="badge badge-actor-02">Administrado</span></p>';
+                        tr = tr + '<p class="description"><span class="text-link">' + data[i]["EMAIL_USUARIO"] + '<br></span><span class="badge badge-actor-' + color + '">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
                         tr = tr + '</div>';
                         tr = tr + '</div>';
                         //$("#seguimiento").append(tr);
