@@ -1,5 +1,5 @@
---------------------------------------------------------
--- Archivo creado  - jueves-abril-02-2020   
+-------------------------------------------------------------------------------
+-- Archivo creado  - lunes-abril-27-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_PARAMETROS
@@ -926,6 +926,10 @@ end PKG_MRV_PARAMETROS;
                                              INNER JOIN T_MAE_USUARIO_ROL UR ON U.ID_USUARIO = UR.ID_USUARIO
                                              LEFT JOIN T_MAE_ROL R ON UR.ID_ROL = R.ID_ROL
                                              WHERE U.ID_USUARIO = INI.ID_REMITENTE) AS DESCRIPCION_ROL,
+                (SELECT R.ID_ROL FROM T_GENM_USUARIO U
+                                             INNER JOIN T_MAE_USUARIO_ROL UR ON U.ID_USUARIO = UR.ID_USUARIO
+                                             LEFT JOIN T_MAE_ROL R ON UR.ID_ROL = R.ID_ROL
+                                             WHERE U.ID_USUARIO = INI.ID_REMITENTE) AS ID_ROL, --ADD
                USU.EMAIL_USUARIO,
                INI.FECHA_DERIVACION,
                INI.OBSERVACIONES--,

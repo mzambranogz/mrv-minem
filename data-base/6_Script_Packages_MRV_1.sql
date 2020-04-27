@@ -1,5 +1,5 @@
---------------------------------------------------------
--- Archivo creado  - jueves-abril-02-2020   
+----------------------------------------------------------------------------
+-- Archivo creado  - lunes-abril-27-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_ADMIN_SISTEMA
@@ -617,6 +617,7 @@ end PKG_MRV_BLOCKCHAIN;
 END PKG_MRV_DETALLE_INDICADORES;
 
 /
+
 --------------------------------------------------------
 --  DDL for Package Body PKG_MRV_ADMIN_SISTEMA
 --------------------------------------------------------
@@ -664,7 +665,8 @@ END PKG_MRV_DETALLE_INDICADORES;
             OPEN    pRefcursor FOR
             SELECT  ID_SECTOR_INST,
                     DESCRIPCION
-            FROM    T_MAE_SECTOR_INST;
+            FROM    T_MAE_SECTOR_INST
+            WHERE   FLAG_ESTADO = '1'; --add 
     END USP_SEL_SECTOR_INST;
 
     /*
@@ -767,7 +769,7 @@ END PKG_MRV_DETALLE_INDICADORES;
     END USP_SEL_PASSWORD; 
    
 
-    PROCEDURE USP_SEL_USUARIO_ROL(
+   PROCEDURE USP_SEL_USUARIO_ROL(
         pID_USUARIO          IN NUMBER,
         pRefcursor           OUT SYS_REFCURSOR
     )AS
@@ -781,7 +783,8 @@ END PKG_MRV_DETALLE_INDICADORES;
                             U.EMAIL_USUARIO CORREO,
                             INS.DIRECCION_INSTITUCION DIRECCION,
                             NVL(U.PRIMER_INICIO,1) PRIMER_INICIO,
-                            R.DESCRIPCION_ROL ROL
+                            R.DESCRIPCION_ROL ROL,
+                            SEC.ID_SECTOR_INST --ADD
         FROM        T_MAE_USUARIO_ROL UR
         INNER JOIN  T_MAE_ROL R ON UR.ID_ROL = R.ID_ROL
         LEFT JOIN   T_GENM_USUARIO U ON UR.ID_USUARIO = U.ID_USUARIO
@@ -2774,3 +2777,4 @@ end PKG_MRV_BLOCKCHAIN;
 END PKG_MRV_DETALLE_INDICADORES;
 
 /
+

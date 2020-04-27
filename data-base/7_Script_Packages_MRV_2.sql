@@ -1,5 +1,5 @@
---------------------------------------------------------
--- Archivo creado  - jueves-abril-02-2020   
+---------------------------------------------------------------------------
+-- Archivo creado  - lunes-abril-27-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_DIRECCIONAMIENTO
@@ -1602,7 +1602,8 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pID_IPCC  IN NUMBER,
         pADJUNTO  IN VARCHAR2,
         pADJUNTO_BASE  IN VARCHAR2,
-        pMETODOLOGIA_MEDMIT IN VARCHAR2 --ADD
+        pMETODOLOGIA_MEDMIT IN VARCHAR2, --ADD
+        pUSUARIO_ASOCIADO_MEDMIT IN NUMBER --ADD
   );
   
   PROCEDURE USP_SEL_GET_MEDMIT(
@@ -1943,6 +1944,7 @@ END PKG_MRV_MANTENIMIENTO;
 end PKG_MRV_NOTIFICACION;
 
 /
+
 --------------------------------------------------------
 --  DDL for Package Body PKG_MRV_DIRECCIONAMIENTO
 --------------------------------------------------------
@@ -1982,8 +1984,10 @@ END PKG_MRV_DIRECCIONAMIENTO;
             NOMBRE_MEDMIT,
             ADJUNTO, --add
             ADJUNTO_BASE, --add
-            ID_NAMA --add
+            ID_NAMA, --add
+            USUARIO_ASOCIADO_MEDMIT --ADD
     FROM    T_MAE_MEDMIT
+    WHERE   FLAG_ESTADO = '1' --ADD
     ORDER BY ID_MEDMIT ASC;
   END USP_SEL_LISTA_MEDIDAMITIGACION;
 
@@ -6957,12 +6961,12 @@ END PKG_MRV_DIRECCIONAMIENTO;
         IF pID_INICIATIVA = 0 THEN
             IF pUBICACION = '0' THEN
                 vQuery := 'SELECT count(*) FROM T_GENM_INICIATIVA
-                            WHERE ID_MEDMIT = '|| pID_MEDMIT ||' AND ID_USUARIO = '|| pID_USUARIO ||' AND NOMBRE_INICIATIVA = '''|| pNOMBRE_INICIATIVA ||''' AND INVERSION_INICIATIVA = '|| pINVERSION_INICIATIVA ||' AND ID_MONEDA = '|| pID_MONEDA ||' 
+                            WHERE ID_MEDMIT = '|| pID_MEDMIT ||' AND ID_USUARIO = '|| pID_USUARIO ||' AND NOMBRE_INICIATIVA = '''|| pNOMBRE_INICIATIVA ||''' AND INVERSION_INICIATIVA = '|| TO_CHAR(pINVERSION_INICIATIVA, '9999999999990.00000') ||' AND ID_MONEDA = '|| pID_MONEDA ||' 
                                 AND TO_CHAR(FECHA_IMPLE_INICIATIVA, ''dd/MM/yyyy'') = '''|| pFECHA ||''' ';
             ELSE
                 vQuery := 'SELECT count(*) FROM T_GENM_INICIATIVA I
                                 INNER JOIN t_gend_iniciativa_ubicacion IU ON I.ID_INICIATIVA = IU.ID_INICIATIVA
-                            WHERE ID_MEDMIT = '|| pID_MEDMIT ||' AND ID_USUARIO = '|| pID_USUARIO ||' AND NOMBRE_INICIATIVA = '''|| pNOMBRE_INICIATIVA ||''' AND INVERSION_INICIATIVA = '|| pINVERSION_INICIATIVA ||' AND ID_MONEDA = '|| pID_MONEDA ||' 
+                            WHERE ID_MEDMIT = '|| pID_MEDMIT ||' AND ID_USUARIO = '|| pID_USUARIO ||' AND NOMBRE_INICIATIVA = '''|| pNOMBRE_INICIATIVA ||''' AND INVERSION_INICIATIVA = '|| TO_CHAR(pINVERSION_INICIATIVA, '9999999999990.00000') ||' AND ID_MONEDA = '|| pID_MONEDA ||' 
                                 AND TO_CHAR(FECHA_IMPLE_INICIATIVA, ''dd/MM/yyyy'') = '''|| pFECHA ||''' AND IU.ID_UBICACION IN ('|| pUBICACION ||') AND IU.FLAG_ESTADO = 1';
             END IF;
         
@@ -6970,12 +6974,12 @@ END PKG_MRV_DIRECCIONAMIENTO;
         
             IF pUBICACION = '0' THEN
                 vQuery := 'SELECT count(*) FROM T_GENM_INICIATIVA
-                            WHERE ID_MEDMIT = '|| pID_MEDMIT ||' AND ID_USUARIO = '|| pID_USUARIO ||' AND NOMBRE_INICIATIVA = '''|| pNOMBRE_INICIATIVA ||''' AND INVERSION_INICIATIVA = '|| pINVERSION_INICIATIVA ||' AND ID_MONEDA = '|| pID_MONEDA ||' 
+                            WHERE ID_MEDMIT = '|| pID_MEDMIT ||' AND ID_USUARIO = '|| pID_USUARIO ||' AND NOMBRE_INICIATIVA = '''|| pNOMBRE_INICIATIVA ||''' AND INVERSION_INICIATIVA = '|| TO_CHAR(pINVERSION_INICIATIVA, '9999999999990.00000') ||' AND ID_MONEDA = '|| pID_MONEDA ||' 
                                 AND TO_CHAR(FECHA_IMPLE_INICIATIVA, ''dd/MM/yyyy'') = '''|| pFECHA ||''' AND NOT ID_INICIATIVA = '|| pID_INICIATIVA;
             ELSE
                 vQuery := 'SELECT count(*) FROM T_GENM_INICIATIVA I
                                 INNER JOIN t_gend_iniciativa_ubicacion IU ON I.ID_INICIATIVA = IU.ID_INICIATIVA
-                            WHERE ID_MEDMIT = '|| pID_MEDMIT ||' AND ID_USUARIO = '|| pID_USUARIO ||' AND NOMBRE_INICIATIVA = '''|| pNOMBRE_INICIATIVA ||''' AND INVERSION_INICIATIVA = '|| pINVERSION_INICIATIVA ||' AND ID_MONEDA = '|| pID_MONEDA ||' 
+                            WHERE ID_MEDMIT = '|| pID_MEDMIT ||' AND ID_USUARIO = '|| pID_USUARIO ||' AND NOMBRE_INICIATIVA = '''|| pNOMBRE_INICIATIVA ||''' AND INVERSION_INICIATIVA = '|| TO_CHAR(pINVERSION_INICIATIVA, '9999999999990.00000') ||' AND ID_MONEDA = '|| pID_MONEDA ||' 
                                 AND TO_CHAR(FECHA_IMPLE_INICIATIVA, ''dd/MM/yyyy'') = '''|| pFECHA ||''' AND IU.ID_UBICACION IN ('|| pUBICACION ||') AND IU.FLAG_ESTADO = 1 AND NOT I.ID_INICIATIVA = '|| pID_INICIATIVA;
             END IF;
         
@@ -9494,6 +9498,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
         SELECT  NOMBRE_DETALLE, ID_PARAMETRO
         FROM    T_MAEM_MRV_FACTOR_PARAMETRO     
         WHERE ID_FACTOR = pID_FACTOR
+              AND FLAG_ESTADO = '1' --ADD
         ORDER BY ORDEN ASC;
   END USP_SEL_CABECERA_FACTOR;
   
@@ -9506,6 +9511,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
         SELECT  MI.ID_PARAMETRO, MI.ID_TIPO_CONTROL, MI.ID_TIPO_DATO
         FROM    T_MAEM_MRV_FACTOR_PARAMETRO  MI       
         WHERE MI.ID_FACTOR = pID_FACTOR
+              AND FLAG_ESTADO = '1' --ADD
         ORDER BY MI.ORDEN ASC;
   END USP_SEL_CUERPO_FACTOR;
   
@@ -9724,15 +9730,16 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
         pID_IPCC  IN NUMBER,
         pADJUNTO  IN VARCHAR2,
         pADJUNTO_BASE  IN VARCHAR2,
-        pMETODOLOGIA_MEDMIT IN VARCHAR2 --ADD
+        pMETODOLOGIA_MEDMIT IN VARCHAR2, --ADD
+        pUSUARIO_ASOCIADO_MEDMIT IN NUMBER --ADD
   )IS
         vIdMedmit NUMBER;
   BEGIN
         IF pID_MEDMIT = 0 THEN
             SELECT SQ_GENM_MEDMIT.NEXTVAL INTO vIdMedmit FROM DUAL;
             --SELECT NVL(MAX(ID_MEDMIT),0)+1 INTO vIdMedmit FROM T_MAE_MEDMIT;
-            INSERT INTO T_MAE_MEDMIT (ID_MEDMIT, NOMBRE_MEDMIT, NUMERO_MEDMIT, DESCRIPCION_MEDMIT, ID_NAMA, OBJETIVO_MEDMIT, ID_IPCC, ADJUNTO, ADJUNTO_BASE, METODOLOGIA_MEDMIT, FLAG_ESTADO)
-            VALUES (vIdMedmit, pNOMBRE_MEDMIT, pNUMERO_MEDMIT, pDESCRIPCION_MEDMIT, pID_NAMA, pOBJETIVO_MEDMIT, pID_IPCC, pADJUNTO, pADJUNTO_BASE, pMETODOLOGIA_MEDMIT,'1');
+            INSERT INTO T_MAE_MEDMIT (ID_MEDMIT, NOMBRE_MEDMIT, NUMERO_MEDMIT, DESCRIPCION_MEDMIT, ID_NAMA, OBJETIVO_MEDMIT, ID_IPCC, ADJUNTO, ADJUNTO_BASE, METODOLOGIA_MEDMIT, USUARIO_ASOCIADO_MEDMIT,FLAG_ESTADO)
+            VALUES (vIdMedmit, pNOMBRE_MEDMIT, pNUMERO_MEDMIT, pDESCRIPCION_MEDMIT, pID_NAMA, pOBJETIVO_MEDMIT, pID_IPCC, pADJUNTO, pADJUNTO_BASE, pMETODOLOGIA_MEDMIT, pUSUARIO_ASOCIADO_MEDMIT,'1');
         ELSE
             UPDATE  T_MAE_MEDMIT
             SET     NOMBRE_MEDMIT = pNOMBRE_MEDMIT,
@@ -9741,7 +9748,8 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
                     ID_NAMA = pID_NAMA,
                     OBJETIVO_MEDMIT = pOBJETIVO_MEDMIT,
                     ID_IPCC = pID_IPCC,
-                    METODOLOGIA_MEDMIT = pMETODOLOGIA_MEDMIT --add
+                    METODOLOGIA_MEDMIT = pMETODOLOGIA_MEDMIT, --add
+                    USUARIO_ASOCIADO_MEDMIT = pUSUARIO_ASOCIADO_MEDMIT --ADD
             WHERE   ID_MEDMIT = pID_MEDMIT;
             
             IF pADJUNTO = 'nul' THEN
@@ -9763,7 +9771,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
   BEGIN
         OPEN pRefcursor FOR
         SELECT  M.NOMBRE_MEDMIT, M.NUMERO_MEDMIT, M.DESCRIPCION_MEDMIT, M.ID_NAMA, M.ID_IPCC, M.OBJETIVO_MEDMIT, M.ID_MEDMIT,
-                NA.DESCRIPCION_NAMA, ICC.IPCC, M.ADJUNTO, M.ADJUNTO_BASE, M.METODOLOGIA_MEDMIT --ADD
+                NA.DESCRIPCION_NAMA, ICC.IPCC, M.ADJUNTO, M.ADJUNTO_BASE, M.METODOLOGIA_MEDMIT, M.USUARIO_ASOCIADO_MEDMIT --ADD
         FROM    T_MAE_MEDMIT M
         LEFT JOIN T_MAE_NAMA NA ON M.ID_NAMA = NA.ID_NAMA
         LEFT JOIN T_MAE_IPCC ICC ON M.ID_IPCC = ICC.ID_IPCC
@@ -9810,6 +9818,8 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
           	vSortColumn2 := 'E.DESCRIPCION';
         ELSIF pSortColumn = 'NOMBRE_MEDMIT' THEN
           	vSortColumn2 := 'M.NOMBRE_MEDMIT';
+        ELSIF pSortColumn = 'ID_MEDMIT' THEN -- ADD
+          	vSortColumn2 := 'M.ID_MEDMIT'; -- ADD
         ELSE
             vSortColumn2 := pSortColumn;
         END IF;
@@ -9818,6 +9828,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
         SELECT      E.ID_ENFOQUE,
                     E.DESCRIPCION,
                     M.NOMBRE_MEDMIT,
+                    M.ID_MEDMIT,
                     ROW_NUMBER() OVER (ORDER BY ' || vSortColumn2 || ' ' || pSortOrder ||') AS ROWNUMBER,'
                     || vPaginas || ' AS total_paginas,'
                     || vPagina2 || ' AS pagina,'
@@ -9829,7 +9840,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
                 WHERE
                 (LOWER(TRANSLATE(M.NOMBRE_MEDMIT,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) ||''%'' 
                 OR LOWER(TRANSLATE(E.DESCRIPCION,''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''¡…Õ”⁄·ÈÌÛ˙'',''AEIOUaeiou''))||''%'' )
-                GROUP BY E.ID_ENFOQUE, E.DESCRIPCION, M.NOMBRE_MEDMIT
+                GROUP BY E.ID_ENFOQUE, E.DESCRIPCION, M.NOMBRE_MEDMIT, M.ID_MEDMIT
                 )
                 WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
         OPEN pRefcursor FOR vQuery;
