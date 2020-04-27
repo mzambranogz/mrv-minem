@@ -638,6 +638,7 @@
     </Content>
     <Content Include="Reportes\DsFichaMinam.xsc">
       <DependentUpon>DsFichaMinam.xsd</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <None Include="Reportes\DsFichaMinam.xsd">
       <SubType>Designer</SubType>
@@ -646,6 +647,7 @@
     </None>
     <Content Include="Reportes\DsFichaMinam.xss">
       <DependentUpon>DsFichaMinam.xsd</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <None Include="Reportes\DsIniciativa.xsd">
       <Generator>MSDataSetGenerator</Generator>
