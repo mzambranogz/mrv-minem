@@ -1672,14 +1672,14 @@ end PKG_MRV_PARAMETROS;
     )  
     AS 
         VDATA VARCHAR2(4000);
-        VNUM NUMBER(32,8);
-        VDATO NUMBER(32,8);
+        VNUM NUMBER(36,16);
+        VDATO NUMBER(36,16);
         VFORMULA VARCHAR2(1000);
         VTAM NUMBER;
         VVAR VARCHAR2(1000);
         VVARFAC VARCHAR2(1000);
-        VVARFACTOR NUMBER(32,8);
-        VVARPARAM NUMBER(32,8);
+        VVARFACTOR NUMBER(36,16);
+        VVARPARAM NUMBER(36,16);
         VRES VARCHAR(4000);
         VID NUMBER;
         V9 NUMBER;
@@ -1688,7 +1688,7 @@ end PKG_MRV_PARAMETROS;
         vsql VARCHAR2(4000);
         
         
-        VFACTOR VARCHAR(300);
+        VFACTOR VARCHAR(1000);
     BEGIN
 
             FOR CURINI IN (
@@ -1758,7 +1758,7 @@ end PKG_MRV_PARAMETROS;
                                         END IF;
                                         
                                         --VVARPARAM := TO_NUMBER(VVAR,'999999999,99999');
-                                        VVAR := TO_CHAR(VVARPARAM, '9999999990.000000');
+                                        VVAR := TO_CHAR(VVARPARAM, '999999990.0000000000000000');
                                         --VDATA := VDATA || '' || VVARPARAM || '';
                                         
                                         VDATA := VDATA || '' || VVAR || '';
@@ -1776,7 +1776,7 @@ end PKG_MRV_PARAMETROS;
                                                 --VVAR := TO_CHAR(FN_GET_FACTOR_DATA (CURINI.ID_INICIATIVA,CURINI.ID_ENFOQUE,CURINI.ID_MEDMIT,CURINI.ID_INDICADOR,VVAR));                                                
                                             END IF;
                                             
-                                            VVAR := TO_CHAR(VVARPARAM, '9999999990.00000000');
+                                            VVAR := TO_CHAR(VVARPARAM, '999999990.0000000000000000');
                                             --VFACTOR := VFACTOR || '--' || VVAR || '';
                                         END IF;
                                         
@@ -1785,7 +1785,7 @@ end PKG_MRV_PARAMETROS;
                                             SELECT SUBSTR(CUR_IND.VALORES,3,2) INTO VVAR FROM DUAL;
                                             VVARPARAM := FN_GET_FACTOR_DATA (CURINI.ID_INICIATIVA,CURINI.ID_ENFOQUE,CURINI.ID_MEDMIT,CURINI.ID_INDICADOR,VVAR,pANNO);     
                                             
-                                            VVAR := TO_CHAR(VVARPARAM, '9999999990.00000000');
+                                            VVAR := TO_CHAR(VVARPARAM, '999999990.0000000000000000');
                                             --VFACTOR := VFACTOR || '--' || VVAR || '';
                                         END IF;
                                         
@@ -1794,7 +1794,7 @@ end PKG_MRV_PARAMETROS;
                                             SELECT SUBSTR(CUR_IND.VALORES,3,3) INTO VVAR FROM DUAL;
                                             VVARPARAM := FN_GET_FACTOR_DATA (CURINI.ID_INICIATIVA,CURINI.ID_ENFOQUE,CURINI.ID_MEDMIT,CURINI.ID_INDICADOR,VVAR,pANNO);     
                                             
-                                            VVAR := TO_CHAR(VVARPARAM, '9999999990.00000000');
+                                            VVAR := TO_CHAR(VVARPARAM, '999999990.0000000000000000');
                                             --VFACTOR := VFACTOR || '--' || VVAR || '';
                                         END IF;
                                         --VVARPARAM := TO_NUMBER(VVAR,'999999999,99999');
@@ -1820,7 +1820,7 @@ end PKG_MRV_PARAMETROS;
                             END LOOP;
                             vsql := 'SELECT '|| VDATA ||' FROM DUAL';
                             EXECUTE IMMEDIATE vsql INTO VDATA;
-                            VRES := VRES || CURINI.ID_PARAMETRO || '/' || TRIM(TO_CHAR(VDATA, '9999999990.000000')) || '|';
+                            VRES := VRES || CURINI.ID_PARAMETRO || '/' || TRIM(TO_CHAR(VDATA, '999999990.0000000000000000')) || '|';
                             
                             --VDATA := VDATA ||' -- ' || TO_CHAR(CURINI.ID_INDICADOR) ||' --- ' || VFORMULA;
                         END IF;
@@ -1885,9 +1885,9 @@ end PKG_MRV_PARAMETROS;
         pID_PARAMETRO VARCHAR2        
     ) RETURN NUMBER
     AS 
-        VVAR NUMBER(32,8);
+        VVAR NUMBER(36,15);
     BEGIN   
-        SELECT TO_NUMBER(NVL(IDA.VALOR,0.0),'999999990.0000000') INTO VVAR FROM T_MAEM_INDICADOR_DATA IDA
+        SELECT TO_NUMBER(NVL(IDA.VALOR,0.0),'999999990.0000000000000000') INTO VVAR FROM T_MAEM_INDICADOR_DATA IDA
         WHERE IDA.ID_INICIATIVA = pID_INICIATIVA
         AND IDA.ID_ENFOQUE = pID_ENFOQUE 
         AND IDA.ID_MEDMIT = pID_MEDMIT AND IDA.ID_INDICADOR = pID_INDICADOR 
@@ -1904,10 +1904,10 @@ end PKG_MRV_PARAMETROS;
         pANNO NUMBER --add
     ) RETURN NUMBER
     AS 
-        VVARFAC VARCHAR2(100);
-        VVARPARAM VARCHAR2(100);
-        VVALOR VARCHAR2(100);
-        VRESULTADO NUMBER;
+        VVARFAC VARCHAR2(4000);
+        VVARPARAM VARCHAR2(4000);
+        VVALOR VARCHAR2(4000);
+        VRESULTADO NUMBER(36,16);
     BEGIN   
     
         --SELECT DISTINCT ID_PARAMETRO INTO VVARFAC FROM T_MAEM_MRV_LG_FACTOR_DATA WHERE ID_FACTOR = pID_FACTOR;
@@ -1956,7 +1956,7 @@ end PKG_MRV_PARAMETROS;
             
         END IF;        
         
-    END;     
+    END;   
 
 
 END PKG_MRV_REPORTES;
