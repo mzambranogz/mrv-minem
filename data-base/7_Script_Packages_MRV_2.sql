@@ -1,5 +1,5 @@
----------------------------------------------------------------------------
--- Archivo creado  - lunes-abril-27-2020   
+--------------------------------------------------------
+-- Archivo creado  - miércoles-abril-29-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_DIRECCIONAMIENTO
@@ -15,6 +15,7 @@
   );
 
 END PKG_MRV_DIRECCIONAMIENTO;
+
 
 /
 --------------------------------------------------------
@@ -302,7 +303,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         pID_USUARIO IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_BUSQUEDA_SPL_PRI_USU(
         pID_USUARIO IN NUMBER,
         pBuscar IN VARCHAR2,
@@ -312,7 +313,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_BUSQUEDA_SPL_PRI_ESP(
         pBuscar IN VARCHAR2,
         pRegistros IN  INTEGER,
@@ -321,7 +322,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_BUSQUEDA_SPL_PRI_ADM(
         pBuscar IN VARCHAR2,
         pRegistros IN  INTEGER,
@@ -330,7 +331,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_BUSQUEDA_SPL_PRI_EVA(
         pBuscar IN VARCHAR2,
         pRegistros IN  INTEGER,
@@ -339,7 +340,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_BUSQUEDA_SPL_PRI_VRF(
         pBuscar IN VARCHAR2,
         pRegistros IN  INTEGER,
@@ -348,7 +349,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_BUSQUEDA_SPL_PRI_OBSE(
         pBuscar IN VARCHAR2,
         pRegistros  INTEGER,
@@ -357,7 +358,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_BUSQUEDA_SPL_PRI_APRO(
         pBuscar IN VARCHAR2,
         pRegistros  INTEGER,
@@ -366,7 +367,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_BUSQUEDA_SPL_PRI_REVI(
         pBuscar IN VARCHAR2,
         pRegistros  INTEGER,
@@ -375,7 +376,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_BUSQUEDA_SPL_PRI_EVAL(
         pBuscar IN VARCHAR2,
         pRegistros  INTEGER,
@@ -384,7 +385,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_BUSQUEDA_SPL_PRI_VRFI(
         pBuscar IN VARCHAR2,
         pRegistros  INTEGER,
@@ -393,7 +394,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_BUSQUEDA_AVA_PRI_USU(
         pID_USUARIO IN NUMBER,
         pMedida IN VARCHAR2,
@@ -407,7 +408,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_BUSQUEDA_SPL_PRI_TODO(
         pBuscar IN VARCHAR2,
         pRegistros  INTEGER,
@@ -416,7 +417,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     --busqueda avanzada
     PROCEDURE USP_SEL_BUSQUEDA_AVA_PRI_ESP(
         pMedida IN VARCHAR2,
@@ -430,7 +431,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_BUSQUEDA_AVA_PRI_ADM(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -443,7 +444,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_BUSQUEDA_AVA_PRI_EVA(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -456,7 +457,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_BUSQUEDA_AVA_PRI_VRF(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -469,7 +470,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_BUSQUEDA_AVA_PRI_OBSE(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -482,7 +483,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_BUSQUEDA_AVA_PRI_APRO(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -495,7 +496,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_BUSQUEDA_AVA_PRI_REVI(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -508,7 +509,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_BUSQUEDA_AVA_PRI_EVAL(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -521,7 +522,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_BUSQUEDA_AVA_PRI_VRFI(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -534,7 +535,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_BUSQUEDA_AVA_PRI_TODO(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -547,8 +548,8 @@ END PKG_MRV_DIRECCIONAMIENTO;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
-    
+
+
     --excel
     PROCEDURE USP_SEL_EXCEL_SPL_PRI_USU(
         pID_USUARIO IN NUMBER,
@@ -557,77 +558,77 @@ END PKG_MRV_DIRECCIONAMIENTO;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_SPL_PRI_ESP(
         pBuscar IN VARCHAR2,
         pSortColumn IN VARCHAR2,
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_SPL_PRI_ADM(
         pBuscar IN VARCHAR2,
         pSortColumn IN VARCHAR2,
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_SPL_PRI_EVA(
         pBuscar IN VARCHAR2,
         pSortColumn IN VARCHAR2,
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_SPL_PRI_VRF(
         pBuscar IN VARCHAR2,
         pSortColumn IN VARCHAR2,
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_SPL_PRI_OBSE(
         pBuscar IN VARCHAR2,
         pSortColumn IN VARCHAR2,
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_SPL_PRI_APRO(
         pBuscar IN VARCHAR2,
         pSortColumn IN VARCHAR2,
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_SPL_PRI_REVI(
         pBuscar IN VARCHAR2,
         pSortColumn IN VARCHAR2,
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_SPL_PRI_EVAL(
         pBuscar IN VARCHAR2,
         pSortColumn IN VARCHAR2,
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_SPL_PRI_VRFI(
         pBuscar IN VARCHAR2,
         pSortColumn IN VARCHAR2,
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_SPL_PRI_TODO(
         pBuscar IN VARCHAR2,
         pSortColumn IN VARCHAR2,
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_AVA_PRI_USU(
         pID_USUARIO IN NUMBER,
         pMedida IN VARCHAR2,
@@ -639,7 +640,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_AVA_PRI_ESP(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -650,7 +651,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_AVA_PRI_ADM(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -661,7 +662,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_AVA_PRI_EVA(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -672,7 +673,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_AVA_PRI_VRF(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -683,7 +684,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_AVA_PRI_OBSE(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -694,7 +695,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_AVA_PRI_APRO(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -705,7 +706,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_AVA_PRI_REVI(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -716,7 +717,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_AVA_PRI_EVAL(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -727,7 +728,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_AVA_PRI_VRFI(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -738,7 +739,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_AVA_PRI_TODO(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -749,7 +750,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       	pSortOrder  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     --=============================================23-02-2020
     PROCEDURE USP_SEL_BUSQUEDA_SIMPLE(
         pBuscar IN VARCHAR2,
@@ -760,7 +761,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         pCondicion  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
         );
-        
+
     PROCEDURE USP_SEL_BUSQUEDA_AVANZADA(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -777,7 +778,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         pCondicion  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_BUSQUEDA_SIMPLE_PUB(
         pBuscar IN VARCHAR2,
         pRegistros  INTEGER,
@@ -787,7 +788,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         pCondicion  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_BUSQUEDA_AVANZADA_PUB(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -804,7 +805,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         pCondicion  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_BUSQ_AVANZ_EXCEL(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -827,7 +828,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         pCondicion  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_BUSQ_SPL_PUB_EXCEL(
         pBuscar IN VARCHAR2,
       	pSortColumn IN VARCHAR2,
@@ -835,7 +836,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         pCondicion  IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     --==================== 10-03-20
     PROCEDURE USP_SEL_VALIDAR_INI(
         pID_INICIATIVA IN NUMBER,
@@ -848,30 +849,30 @@ END PKG_MRV_DIRECCIONAMIENTO;
         pUBICACION IN VARCHAR2,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_VALIDAR_INI_REV(
         pID_INICIATIVA IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     --==================== 11-03-2020
     PROCEDURE USP_UPD_ASIGNAR_INI(
         pID_INICIATIVA_MASIVO IN VARCHAR2,
         pID_USUARIO_ASIGNAR IN NUMBER,
         pID_ROL IN NUMBER
     );
-    
+
     --=========== 12-03-2020
     PROCEDURE USP_SEL_USUARIO_RECORDATORIO(
         pID_INICIATIVA IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_INI_RECORDATORIO(
         pID_INICIATIVA IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_INS_SEGUIMIENTO_PAQ (
         pID_USUARIO IN NUMBER,
         pID_ROL IN NUMBER,
@@ -881,31 +882,31 @@ END PKG_MRV_DIRECCIONAMIENTO;
         pFECHA_FIN IN VARCHAR2,
         pCANTIDAD IN NUMBER
     );
-    
+
     PROCEDURE USP_UPD_APROBAR_PAQ_INI(
         pID_INICIATIVA IN VARCHAR2,
         pID_USUARIO IN NUMBER,
         pNOMBRES IN VARCHAR2,
         pBLOCKCHAIN IN VARCHAR2
     );
-    
+
     --============== 13-02-2020
     PROCEDURE USP_SEL_USUARIO_INI(
         pID_INICIATIVA IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_VALIDAR_REVISION(
         pID_INICIATIVA IN NUMBER,
         pID_PLAZO_ETAPA_ESTADO IN NUMBER,
         pR OUT SYS_REFCURSOR
       );
-      
+
       PROCEDURE USP_SEL_VALIDAR_VISTA(
         pID_INICIATIVA IN NUMBER,
         pR OUT SYS_REFCURSOR
       );
-      
+
       --=================================== 18-03-20
     PROCEDURE USP_SEL_FICHA_INI(
         pID_INICIATIVA IN NUMBER,
@@ -913,6 +914,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       );
 
 END PKG_MRV_INICIATIVA_MITIGACION;
+
 
 /
 --------------------------------------------------------
@@ -1010,9 +1012,9 @@ END PKG_MRV_INICIATIVA_MITIGACION;
         pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
     );
-    
-    
-    
+
+
+
     PROCEDURE USP_GET_TIPO_VEHICULO(
         pIdTipo_Vehiculo    number,
         pRefcursor  OUT SYS_REFCURSOR
@@ -1039,7 +1041,7 @@ END PKG_MRV_INICIATIVA_MITIGACION;
     PROCEDURE USP_DEL_TIPOVEHICULO(
        pIdTipo_Vehiculo IN NUMBER
    );
-   
+
     PROCEDURE USP_INS_TIPO_VEHICULO(
         pDescripcion in varchar2,
         pIdTipo_Vehiculo OUT NUMBER
@@ -1052,8 +1054,8 @@ END PKG_MRV_INICIATIVA_MITIGACION;
         pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
     );
-    
-   
+
+
     PROCEDURE USP_GET_TIPO_COMBUSTIBLE(
         pIdTipo_Combustible    number,
         pRefcursor  OUT SYS_REFCURSOR
@@ -1080,7 +1082,7 @@ END PKG_MRV_INICIATIVA_MITIGACION;
     PROCEDURE USP_DEL_TIPOCOMBUSTIBLE(
        pIdTipo_Combustible IN NUMBER
    );
-   
+
     PROCEDURE USP_INS_TIPO_COMBUSTIBLE(
         pDescripcion in varchar2,
         pIdTipo_Combustible OUT NUMBER
@@ -1093,7 +1095,7 @@ END PKG_MRV_INICIATIVA_MITIGACION;
         pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
     );
-  
+
 PROCEDURE USP_SEL_LISTA_MEDMIT(
         pRefcursor  OUT SYS_REFCURSOR
    );
@@ -1161,7 +1163,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
       	pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_INSTITUCION(
         pBuscar     VARCHAR2,
         pRegistros  INTEGER,
@@ -1170,7 +1172,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR);
 
-        
+
     PROCEDURE USP_UPD_INSTITUCION(
         pID_INSTITUCION			IN NUMBER,
         pID_SECTOR_INSTITUCION  IN INTEGER,
@@ -1178,21 +1180,21 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pNOMBRE_INSTITUCION     IN VARCHAR2,
         pDIRECCION_INSTITUCION  IN VARCHAR2
     );
-        
+
     PROCEDURE USP_DEL_INSTITUCION(
       	pID_INSTITUCION			IN NUMBER
     );
-        
+
     PROCEDURE USP_GET_INSTITUCION_ID(
       	pIdInstitucion	NUMBER,
         pRefcursor OUT SYS_REFCURSOR);
-        
- 
+
+
     PROCEDURE USP_GET_UBICACION(
         pIdUbicacion    number,
         pRefcursor  OUT SYS_REFCURSOR
    );
-   
+
    PROCEDURE USP_SEL_UBICACION(
         pBuscar     IN VARCHAR2,
         pRegistros  INTEGER,
@@ -1201,40 +1203,40 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
    );
-   
+
    PROCEDURE USP_DEL_UBICACION(
       	pID_UBICACION IN NUMBER
     );
-   
+
    PROCEDURE USP_UPD_UBICACION(
        pID_UBICACION IN NUMBER,
         pDescripcion  in varchar2
    );
-   
+
    PROCEDURE USP_INS_UBICACION(
         pDescripcion in varchar2,
         pIdUbicacion OUT NUMBER
     );
-    
+
     PROCEDURE USP_INS_SECTORINSTITUCION(
         pDescripcion in varchar2,
         pIdSector    OUT number
     );
-    
+
     PROCEDURE USP_UPD_SECTORINSTITUCION(
        pID_SECTOR_INST IN NUMBER,
         pDescripcion  in varchar2
    );
-   
+
    PROCEDURE USP_DEL_SECTORINSTITUCION(
       	pID_SECTOR_INST IN NUMBER
     );
-    
+
     PROCEDURE USP_GET_SECTORINSTITUCION(
         pID_SECTOR_INST IN NUMBER,
         pRefcursor  OUT SYS_REFCURSOR
    );
-   
+
    PROCEDURE USP_SEL_SECTORINSTITUCION(
         pBuscar     VARCHAR2,
         pRegistros  INTEGER,
@@ -1243,12 +1245,12 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_GET_ESCENARIO(
         pID_ESCENARIO IN NUMBER,
         pRefcursor  OUT SYS_REFCURSOR
    );
-   
+
    PROCEDURE USP_SEL_ESCENARIO(
         pBuscar     VARCHAR2,
         pRegistros  INTEGER,
@@ -1257,7 +1259,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
    );
-   
+
    PROCEDURE USP_INS_ESCENARIO(
         pID_MEDMIT      IN NUMBER,
         pANNO           IN NUMBER,
@@ -1269,26 +1271,26 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pMETA_ANUAL     IN NUMBER,
         pIdEscenario    OUT NUMBER
    );
-   
+
    PROCEDURE USP_INS_MONEDA(
         pDESCRIPCION IN VARCHAR2,
         pID_MONEDA    OUT NUMBER
     );
-    
+
     PROCEDURE USP_UPD_MONEDA(
         pID_MONEDA IN NUMBER,
         pDESCRIPCION  IN VARCHAR2
    );
-   
+
    PROCEDURE USP_DEL_MONEDA(
        pID_MONEDA IN NUMBER
    );
-    
+
     PROCEDURE USP_GET_MONEDA(
         pID_MONEDA IN NUMBER,
         pRefcursor  OUT SYS_REFCURSOR
    );
-   
+
    PROCEDURE USP_SEL_BUSCAR_MONEDA(
         pBuscar     IN VARCHAR2,
         pRegistros  INTEGER,
@@ -1297,16 +1299,16 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_MONEDA(
         pBuscar     IN VARCHAR2,
         pSortColumn IN VARCHAR2,
         pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
     );
-    
+
     --GEI
-    
+
     PROCEDURE USP_INS_GEI(
         pDESCRIPCION IN VARCHAR2,
         pAR2  IN NUMBER,
@@ -1315,7 +1317,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pAR6  IN NUMBER,
         pID_GEI    OUT NUMBER
     );
-    
+
     PROCEDURE USP_UPD_GEI(
         pID_GEI IN NUMBER,
         pDESCRIPCION  IN VARCHAR2,
@@ -1324,16 +1326,16 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pAR5  IN NUMBER,
         pAR6  IN NUMBER
    );
-   
+
    PROCEDURE USP_DEL_GEI(
        pID_GEI IN NUMBER
    );
-    
+
     PROCEDURE USP_GET_GEI(
         pID_GEI IN NUMBER,
         pRefcursor  OUT SYS_REFCURSOR
    );
-   
+
    PROCEDURE USP_SEL_BUSCAR_GEI(
         pBuscar     IN VARCHAR2,
         pRegistros  INTEGER,
@@ -1342,14 +1344,14 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_GEI(
         pBuscar     IN VARCHAR2,
         pSortColumn IN VARCHAR2,
         pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
     );
-    
+
     --ENFOQUE
     PROCEDURE USP_INS_ENFOQUE(
         pDESCRIPCION IN VARCHAR2,
@@ -1362,7 +1364,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pDESCRIPCION  IN VARCHAR2,
         pID_MEDMIT IN NUMBER
    );
-   
+
    PROCEDURE USP_PRC_ENFOQUE(
         pID_ENFOQUE  IN NUMBER,
         pDESCRIPCION IN VARCHAR2,
@@ -1395,7 +1397,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_INS_ENERG(
         pDESCRIPCION IN VARCHAR2,
         pID_ENERG    OUT NUMBER
@@ -1430,32 +1432,32 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_LISTA_UBICACION(
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_SECTORINST(
         pBuscar     IN VARCHAR2,
         pSortColumn IN VARCHAR2,
         pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_UBICACION(
         pBuscar     IN VARCHAR2,
         pSortColumn IN VARCHAR2,
         pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_INSTITUCION(
         pBuscar     IN VARCHAR2,
         pSortColumn IN VARCHAR2,
         pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_UPD_ESCENARIO(
         pID_ESCENARIO   IN NUMBER,
         pID_MEDMIT      IN NUMBER,
@@ -1471,14 +1473,14 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
     PROCEDURE USP_DEL_ESCENARIO(                  
         pID_ESCENARIO IN NUMBER
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_ESCENARIO(
         pBuscar     IN VARCHAR2,
         pSortColumn IN VARCHAR2,
         pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
     );
-    
+
     --////////////////////////////// DINAMICO INICIO
     PROCEDURE USP_SEL_LISTA_M_INDICADOR(
         pBuscar     VARCHAR2,
@@ -1488,13 +1490,13 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_M_INDICADOR(
         pID_MEDMIT  IN NUMBER,
         pID_ENFOQUE IN NUMBER,
         pRefcursor  OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_INS_M_INDICADOR(
         pID_MEDMIT IN NUMBER,
         pID_ENFOQUE IN NUMBER,
@@ -1508,41 +1510,41 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pVALOR NUMBER,
         pINS NUMBER
     );
-    
+
     PROCEDURE USP_SEL_ALL_MEDMIT(
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_LISTA_MEDIDA_FACTOR(
         pID_MEDMIT IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_CABECERA_FACTOR(
         pID_FACTOR  IN NUMBER,
         pRefcursor      OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_CUERPO_FACTOR(
         pID_FACTOR  IN NUMBER,
         pRefcursor      OUT SYS_REFCURSOR
   );
-  
+
   PROCEDURE USP_SEL_DETALLE_FACT_PARAMETRO(
         pID_PARAMETRO   IN NUMBER,
         pRefcursor      OUT SYS_REFCURSOR
   );
-  
+
   PROCEDURE USP_SEL_GET_FACTOR_DATA(
         pID_FACTOR IN NUMBER,
         pRefcursor      OUT SYS_REFCURSOR
   );
-  
+
   PROCEDURE USP_SEL_ID_PARAMETRO(
         pID_PARAMETRO IN NUMBER,
         pRefcursor      OUT SYS_REFCURSOR
   );
-  
+
   PROCEDURE USP_PRC_FACTOR_DATA(
         pID_FACTOR IN NUMBER,
         pID_DETALLE IN NUMBER,
@@ -1550,29 +1552,29 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pVALOR IN VARCHAR2,
         pFACTOR IN NUMBER
   );
-  
+
   PROCEDURE USP_UPD_ELIMINAR_FACTOR(
         pID_FACTOR IN NUMBER,
         pID_ELIMINAR_FACTOR IN VARCHAR2
   );
-  
+
   --======================= 23-02-20
   PROCEDURE USP_PRC_MEDIDA_FACTOR(
         pID_FACTOR IN NUMBER,
         pID_MEDMIT IN NUMBER,
         pORDEN IN NUMBER
   );
-  
+
   PROCEDURE USP_UPD_ELIMINAR_MED_FACTOR(
         pID_MEDMIT IN NUMBER,
         pID_ELIMINAR_FACTOR IN VARCHAR2
   );
-  
+
   PROCEDURE USP_UPD_VALIDAR_MED_FACTOR(
         pID_MEDMIT IN NUMBER,
         pRefcursor      OUT SYS_REFCURSOR
   );
-  
+
   PROCEDURE USP_SEL_LISTA_ANNO_ACTUAL(
         pANNO IN NUMBER,
         pRefcursor      OUT SYS_REFCURSOR
@@ -1582,7 +1584,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
   PROCEDURE USP_SEL_LISTA_IPCC(
         pRefcursor  OUT SYS_REFCURSOR
    );
-  
+
   PROCEDURE USP_SEL_LISTA_MEDMIT_MANT(
         pBuscar     VARCHAR2,
         pRegistros  INTEGER,
@@ -1591,7 +1593,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
     );
-    
+
   PROCEDURE USP_INS_MEDMIT(
         pID_MEDMIT    IN VARCHAR2,
         pNOMBRE_MEDMIT  IN VARCHAR2,
@@ -1605,12 +1607,12 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pMETODOLOGIA_MEDMIT IN VARCHAR2, --ADD
         pUSUARIO_ASOCIADO_MEDMIT IN NUMBER --ADD
   );
-  
+
   PROCEDURE USP_SEL_GET_MEDMIT(
         pID_MEDMIT    IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
   );
-  
+
   --======================== 29-02-2020
   PROCEDURE USP_SEL_LISTA_ENFOQUE(
         pBuscar     VARCHAR2,
@@ -1620,48 +1622,48 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
     );
-    
+
   PROCEDURE USP_SEL_LISTA_ENFOQUE_FACTOR(
         pID_ENFOQUE IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
    );
-   
+
    PROCEDURE USP_UPD_VALIDAR_ENF_FACTOR(
         pID_ENFOQUE IN NUMBER,
         pRefcursor      OUT SYS_REFCURSOR
   );
-  
+
   PROCEDURE USP_PRC_ENFOQUE_FACTOR(
         pID_FACTOR IN NUMBER,
         pID_ENFOQUE IN NUMBER,
         pORDEN IN NUMBER
   );
-  
+
   PROCEDURE USP_UPD_ELIMINAR_ENF_FACTOR(
         pID_ENFOQUE IN NUMBER,
         pID_ELIMINAR_FACTOR IN VARCHAR2
   );
-  
+
   --==========================================================
   PROCEDURE USP_UPD_M_INDICADOR_DEL(
         pID_MEDMIT IN NUMBER,
         pID_ENFOQUE IN NUMBER,
         pID_ACTIVO IN VARCHAR2
   );
-  
+
   PROCEDURE USP_UPD_VALIDAR_MED_ENFOQUE(
         pID_MEDMIT IN NUMBER,
         pID_ENFOQUE IN NUMBER,
         pRefcursor      OUT SYS_REFCURSOR
   );
-  
+
   PROCEDURE USP_SEL_EXCEL_MED_ENF(
         pBuscar     IN VARCHAR2,
         pSortColumn IN VARCHAR2,
         pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_MEDIDAMIT(
         pBuscar     IN VARCHAR2,
         pSortColumn IN VARCHAR2,
@@ -1672,25 +1674,25 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
     PROCEDURE USP_SEL_LISTA_ENFOQUE_F(
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_ENF_FAC(
         pBuscar     IN VARCHAR2,
         pSortColumn IN VARCHAR2,
         pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_LISTA_FORMULA_VERIF(
         pID_ENFOQUE IN NUMBER,
         pID_MEDMIT IN NUMBER,
         pRefcursor  OUT SYS_REFCURSOR
     );
-    
+
     --=============================================04-03-20
     PROCEDURE USP_SEL_LISTA_TIPO_INICIATIVA(
         pRefcursor  OUT SYS_REFCURSOR
     );
-    
+
     --============================================== 08-03-2020
     PROCEDURE USP_INS_IPCC(
         pIPCC IN VARCHAR2,
@@ -1726,7 +1728,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_INS_NAMA(
         pDESCRIPCION_NAMA IN VARCHAR2,
         pID_NAMA    OUT NUMBER
@@ -1761,7 +1763,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
     );
-    
+
     --
     PROCEDURE USP_UPD_PLAZO(
         pID_PLAZO_ETAPA_ESTADO IN NUMBER,
@@ -1791,14 +1793,14 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
     );
-    
+
     --======================================= 09-03-20
     PROCEDURE USP_SEL_ID_PARAMETRO_DETALLE(
         pID_PARAMETRO IN NUMBER,
         pID_DETALLE IN NUMBER,
         pRefcursor      OUT SYS_REFCURSOR
    );
-   
+
     --=========================================== 16-02-2020
     PROCEDURE USP_INS_TIPO_INICIATIVA(
         pTIPO_INICIATIVA IN VARCHAR2,
@@ -1834,7 +1836,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
     );
-    
+
     --================= 19-03-2020
     PROCEDURE USP_INS_PARAMETRO(
         pID_PARAMETRO IN NUMBER,
@@ -1854,27 +1856,27 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         pVERIFICABLE IN VARCHAR2,
         pR OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_INS_PARAM_DETALLE(
         pID_PARAMETRO IN NUMBER,
         pID_DETALLE IN NUMBER,
         pNOMBRE_DETALLE IN VARCHAR2
     );
-    
+
     PROCEDURE USP_UPD_ESTADO_PARAM_DETALLE(
         pID_PARAMETRO IN NUMBER,
         pID_ELIMINAR_DETALLE IN VARCHAR2
     );
-    
+
     PROCEDURE USP_DEL_PARAMETRO(             
         pID_PARAMETRO IN NUMBER
    );
-    
+
     PROCEDURE USP_GET_PARAMETRO(
         pID_PARAMETRO IN NUMBER,
         pRefcursor  OUT SYS_REFCURSOR
    );
-    
+
     PROCEDURE USP_SEL_BUSCAR_PARAMETRO(
         pBuscar	IN VARCHAR2,
         pRegistros IN INTEGER,
@@ -1883,7 +1885,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
       	pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_EXCEL_PARAMETRO(
         pBuscar     IN VARCHAR2,
         pSortColumn IN VARCHAR2,
@@ -1892,6 +1894,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
     );
 
 END PKG_MRV_MANTENIMIENTO;
+
 
 /
 --------------------------------------------------------
@@ -1943,8 +1946,8 @@ END PKG_MRV_MANTENIMIENTO;
 
 end PKG_MRV_NOTIFICACION;
 
-/
 
+/
 --------------------------------------------------------
 --  DDL for Package Body PKG_MRV_DIRECCIONAMIENTO
 --------------------------------------------------------
@@ -1978,7 +1981,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         pRefcursor OUT SYS_REFCURSOR
     ) AS
   BEGIN
- 
+
     OPEN pRefcursor FOR
     SELECT  ID_MEDMIT,
             NOMBRE_MEDMIT,
@@ -3601,9 +3604,9 @@ END PKG_MRV_DIRECCIONAMIENTO;
         FROM    T_MAE_MEDMIT
         WHERE   ASOCIADO IN (0,pID_USUARIO);
     END USP_SEL_LISTA_MEDMIT_ASOCIADO;
-    
+
     --BUSQUEDAS SIMPLE
-    
+
     PROCEDURE USP_SEL_BUSQUEDA_SPL_PRI_USU(
         pID_USUARIO IN NUMBER,
         pBuscar  IN VARCHAR2,
@@ -3677,7 +3680,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_BUSQUEDA_SPL_PRI_USU;
-    
+
     PROCEDURE USP_SEL_BUSQUEDA_SPL_PRI_ESP(
         pBuscar IN VARCHAR2,
         pRegistros  INTEGER,
@@ -3750,7 +3753,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_BUSQUEDA_SPL_PRI_ESP;
-      
+
       PROCEDURE USP_SEL_BUSQUEDA_SPL_PRI_ADM(
         pBuscar IN VARCHAR2,
         pRegistros  INTEGER,
@@ -3823,7 +3826,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_BUSQUEDA_SPL_PRI_ADM;
-      
+
       PROCEDURE USP_SEL_BUSQUEDA_SPL_PRI_EVA(
         pBuscar IN VARCHAR2,
         pRegistros  INTEGER,
@@ -3896,7 +3899,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_BUSQUEDA_SPL_PRI_EVA;
-      
+
       PROCEDURE USP_SEL_BUSQUEDA_SPL_PRI_VRF(
         pBuscar IN VARCHAR2,
         pRegistros  INTEGER,
@@ -3969,7 +3972,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_BUSQUEDA_SPL_PRI_VRF;
-      
+
       PROCEDURE USP_SEL_BUSQUEDA_SPL_PRI_OBSE(
         pBuscar IN VARCHAR2,
         pRegistros  INTEGER,
@@ -4042,8 +4045,8 @@ END PKG_MRV_DIRECCIONAMIENTO;
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_BUSQUEDA_SPL_PRI_OBSE;
-      
-      
+
+
       PROCEDURE USP_SEL_BUSQUEDA_SPL_PRI_APRO(
         pBuscar IN VARCHAR2,
         pRegistros  INTEGER,
@@ -4116,7 +4119,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_BUSQUEDA_SPL_PRI_APRO;
-      
+
       PROCEDURE USP_SEL_BUSQUEDA_SPL_PRI_REVI(
         pBuscar IN VARCHAR2,
         pRegistros  INTEGER,
@@ -4189,7 +4192,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_BUSQUEDA_SPL_PRI_REVI;
-      
+
       PROCEDURE USP_SEL_BUSQUEDA_SPL_PRI_EVAL(
         pBuscar IN VARCHAR2,
         pRegistros  INTEGER,
@@ -4262,7 +4265,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_BUSQUEDA_SPL_PRI_EVAL;
-      
+
       PROCEDURE USP_SEL_BUSQUEDA_SPL_PRI_VRFI(
         pBuscar IN VARCHAR2,
         pRegistros  INTEGER,
@@ -4335,7 +4338,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_BUSQUEDA_SPL_PRI_VRFI;
-      
+
       PROCEDURE USP_SEL_BUSQUEDA_SPL_PRI_TODO(
         pBuscar IN VARCHAR2,
         pRegistros  INTEGER,
@@ -4408,7 +4411,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_BUSQUEDA_SPL_PRI_TODO;
-      
+
       --BUSQUEDA AVANZADA
       PROCEDURE USP_SEL_BUSQUEDA_AVA_PRI_USU(
         pID_USUARIO IN NUMBER,
@@ -4487,14 +4490,14 @@ END PKG_MRV_DIRECCIONAMIENTO;
                         (INST.ID_SECTOR_INSTITUCION = '||pSector||' OR '||pSector||' = 0) AND
                         ((SELECT COUNT(1) FROM T_GEND_INICIATIVA_GEI DI WHERE DI.ID_INICIATIVA = INI.ID_INICIATIVA AND DI.ID_GEI = ' ||pGei||' AND DI.FLAG_ESTADO = 1) = 1 OR ' ||pGei||' = 0)	AND
                         ((SELECT COUNT(1) FROM T_GEND_INICIATIVA_ENERG EI WHERE EI.ID_INICIATIVA = INI.ID_INICIATIVA AND EI.ID_ENERG = ' ||pEnerg||' AND EI.FLAG_ESTADO = 1) = 1 OR ' ||pEnerg||' = 0)
-                        
+
                     )
                     WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
 
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_BUSQUEDA_AVA_PRI_USU;
-      
+
       PROCEDURE USP_SEL_BUSQUEDA_AVA_PRI_ESP(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -4571,14 +4574,14 @@ END PKG_MRV_DIRECCIONAMIENTO;
                         (INST.ID_SECTOR_INSTITUCION = '||pSector||' OR '||pSector||' = 0) AND
                         ((SELECT COUNT(1) FROM T_GEND_INICIATIVA_GEI DI WHERE DI.ID_INICIATIVA = INI.ID_INICIATIVA AND DI.ID_GEI = ' ||pGei||' AND DI.FLAG_ESTADO = 1) = 1 OR ' ||pGei||' = 0)	AND
                         ((SELECT COUNT(1) FROM T_GEND_INICIATIVA_ENERG EI WHERE EI.ID_INICIATIVA = INI.ID_INICIATIVA AND EI.ID_ENERG = ' ||pEnerg||' AND EI.FLAG_ESTADO = 1) = 1 OR ' ||pEnerg||' = 0)
-                        
+
                     )
                     WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
 
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_BUSQUEDA_AVA_PRI_ESP;
-      
+
       PROCEDURE USP_SEL_BUSQUEDA_AVA_PRI_ADM(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -4655,14 +4658,14 @@ END PKG_MRV_DIRECCIONAMIENTO;
                         (INST.ID_SECTOR_INSTITUCION = '||pSector||' OR '||pSector||' = 0) AND
                         ((SELECT COUNT(1) FROM T_GEND_INICIATIVA_GEI DI WHERE DI.ID_INICIATIVA = INI.ID_INICIATIVA AND DI.ID_GEI = ' ||pGei||' AND DI.FLAG_ESTADO = 1) = 1 OR ' ||pGei||' = 0)	AND
                         ((SELECT COUNT(1) FROM T_GEND_INICIATIVA_ENERG EI WHERE EI.ID_INICIATIVA = INI.ID_INICIATIVA AND EI.ID_ENERG = ' ||pEnerg||' AND EI.FLAG_ESTADO = 1) = 1 OR ' ||pEnerg||' = 0)
-                        
+
                     )
                     WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
 
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_BUSQUEDA_AVA_PRI_ADM;
-      
+
       PROCEDURE USP_SEL_BUSQUEDA_AVA_PRI_EVA(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -4739,14 +4742,14 @@ END PKG_MRV_DIRECCIONAMIENTO;
                         (INST.ID_SECTOR_INSTITUCION = '||pSector||' OR '||pSector||' = 0) AND
                         ((SELECT COUNT(1) FROM T_GEND_INICIATIVA_GEI DI WHERE DI.ID_INICIATIVA = INI.ID_INICIATIVA AND DI.ID_GEI = ' ||pGei||' AND DI.FLAG_ESTADO = 1) = 1 OR ' ||pGei||' = 0)	AND
                         ((SELECT COUNT(1) FROM T_GEND_INICIATIVA_ENERG EI WHERE EI.ID_INICIATIVA = INI.ID_INICIATIVA AND EI.ID_ENERG = ' ||pEnerg||' AND EI.FLAG_ESTADO = 1) = 1 OR ' ||pEnerg||' = 0)
-                        
+
                     )
                     WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
 
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_BUSQUEDA_AVA_PRI_EVA;
-      
+
       PROCEDURE USP_SEL_BUSQUEDA_AVA_PRI_VRF(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -4823,14 +4826,14 @@ END PKG_MRV_DIRECCIONAMIENTO;
                         (INST.ID_SECTOR_INSTITUCION = '||pSector||' OR '||pSector||' = 0) AND
                         ((SELECT COUNT(1) FROM T_GEND_INICIATIVA_GEI DI WHERE DI.ID_INICIATIVA = INI.ID_INICIATIVA AND DI.ID_GEI = ' ||pGei||' AND DI.FLAG_ESTADO = 1) = 1 OR ' ||pGei||' = 0)	AND
                         ((SELECT COUNT(1) FROM T_GEND_INICIATIVA_ENERG EI WHERE EI.ID_INICIATIVA = INI.ID_INICIATIVA AND EI.ID_ENERG = ' ||pEnerg||' AND EI.FLAG_ESTADO = 1) = 1 OR ' ||pEnerg||' = 0)
-                        
+
                     )
                     WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
 
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_BUSQUEDA_AVA_PRI_VRF;
-      
+
       PROCEDURE USP_SEL_BUSQUEDA_AVA_PRI_OBSE(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -4907,15 +4910,15 @@ END PKG_MRV_DIRECCIONAMIENTO;
                         (INST.ID_SECTOR_INSTITUCION = '||pSector||' OR '||pSector||' = 0) AND
                         ((SELECT COUNT(1) FROM T_GEND_INICIATIVA_GEI DI WHERE DI.ID_INICIATIVA = INI.ID_INICIATIVA AND DI.ID_GEI = ' ||pGei||' AND DI.FLAG_ESTADO = 1) = 1 OR ' ||pGei||' = 0)	AND
                         ((SELECT COUNT(1) FROM T_GEND_INICIATIVA_ENERG EI WHERE EI.ID_INICIATIVA = INI.ID_INICIATIVA AND EI.ID_ENERG = ' ||pEnerg||' AND EI.FLAG_ESTADO = 1) = 1 OR ' ||pEnerg||' = 0)
-                        
+
                     )
                     WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
 
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_BUSQUEDA_AVA_PRI_OBSE;
-      
-      
+
+
       PROCEDURE USP_SEL_BUSQUEDA_AVA_PRI_APRO(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -4992,14 +4995,14 @@ END PKG_MRV_DIRECCIONAMIENTO;
                         (INST.ID_SECTOR_INSTITUCION = '||pSector||' OR '||pSector||' = 0) AND
                         ((SELECT COUNT(1) FROM T_GEND_INICIATIVA_GEI DI WHERE DI.ID_INICIATIVA = INI.ID_INICIATIVA AND DI.ID_GEI = ' ||pGei||' AND DI.FLAG_ESTADO = 1) = 1 OR ' ||pGei||' = 0)	AND
                         ((SELECT COUNT(1) FROM T_GEND_INICIATIVA_ENERG EI WHERE EI.ID_INICIATIVA = INI.ID_INICIATIVA AND EI.ID_ENERG = ' ||pEnerg||' AND EI.FLAG_ESTADO = 1) = 1 OR ' ||pEnerg||' = 0)
-                        
+
                     )
                     WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
 
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_BUSQUEDA_AVA_PRI_APRO;
-      
+
       PROCEDURE USP_SEL_BUSQUEDA_AVA_PRI_REVI(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -5076,15 +5079,15 @@ END PKG_MRV_DIRECCIONAMIENTO;
                         (INST.ID_SECTOR_INSTITUCION = '||pSector||' OR '||pSector||' = 0) AND
                         ((SELECT COUNT(1) FROM T_GEND_INICIATIVA_GEI DI WHERE DI.ID_INICIATIVA = INI.ID_INICIATIVA AND DI.ID_GEI = ' ||pGei||' AND DI.FLAG_ESTADO = 1) = 1 OR ' ||pGei||' = 0)	AND
                         ((SELECT COUNT(1) FROM T_GEND_INICIATIVA_ENERG EI WHERE EI.ID_INICIATIVA = INI.ID_INICIATIVA AND EI.ID_ENERG = ' ||pEnerg||' AND EI.FLAG_ESTADO = 1) = 1 OR ' ||pEnerg||' = 0)
-                        
+
                     )
                     WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
 
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_BUSQUEDA_AVA_PRI_REVI;
-      
-      
+
+
       PROCEDURE USP_SEL_BUSQUEDA_AVA_PRI_EVAL(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -5161,14 +5164,14 @@ END PKG_MRV_DIRECCIONAMIENTO;
                         (INST.ID_SECTOR_INSTITUCION = '||pSector||' OR '||pSector||' = 0) AND
                         ((SELECT COUNT(1) FROM T_GEND_INICIATIVA_GEI DI WHERE DI.ID_INICIATIVA = INI.ID_INICIATIVA AND DI.ID_GEI = ' ||pGei||' AND DI.FLAG_ESTADO = 1) = 1 OR ' ||pGei||' = 0)	AND
                         ((SELECT COUNT(1) FROM T_GEND_INICIATIVA_ENERG EI WHERE EI.ID_INICIATIVA = INI.ID_INICIATIVA AND EI.ID_ENERG = ' ||pEnerg||' AND EI.FLAG_ESTADO = 1) = 1 OR ' ||pEnerg||' = 0)
-                        
+
                     )
                     WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
 
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_BUSQUEDA_AVA_PRI_EVAL;
-      
+
       PROCEDURE USP_SEL_BUSQUEDA_AVA_PRI_VRFI(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -5245,15 +5248,15 @@ END PKG_MRV_DIRECCIONAMIENTO;
                         (INST.ID_SECTOR_INSTITUCION = '||pSector||' OR '||pSector||' = 0) AND
                         ((SELECT COUNT(1) FROM T_GEND_INICIATIVA_GEI DI WHERE DI.ID_INICIATIVA = INI.ID_INICIATIVA AND DI.ID_GEI = ' ||pGei||' AND DI.FLAG_ESTADO = 1) = 1 OR ' ||pGei||' = 0)	AND
                         ((SELECT COUNT(1) FROM T_GEND_INICIATIVA_ENERG EI WHERE EI.ID_INICIATIVA = INI.ID_INICIATIVA AND EI.ID_ENERG = ' ||pEnerg||' AND EI.FLAG_ESTADO = 1) = 1 OR ' ||pEnerg||' = 0)
-                        
+
                     )
                     WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
 
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_BUSQUEDA_AVA_PRI_VRFI;
-      
-      
+
+
       PROCEDURE USP_SEL_BUSQUEDA_AVA_PRI_TODO(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -5330,16 +5333,16 @@ END PKG_MRV_DIRECCIONAMIENTO;
                         (INST.ID_SECTOR_INSTITUCION = '||pSector||' OR '||pSector||' = 0) AND
                         ((SELECT COUNT(1) FROM T_GEND_INICIATIVA_GEI DI WHERE DI.ID_INICIATIVA = INI.ID_INICIATIVA AND DI.ID_GEI = ' ||pGei||' AND DI.FLAG_ESTADO = 1) = 1 OR ' ||pGei||' = 0)	AND
                         ((SELECT COUNT(1) FROM T_GEND_INICIATIVA_ENERG EI WHERE EI.ID_INICIATIVA = INI.ID_INICIATIVA AND EI.ID_ENERG = ' ||pEnerg||' AND EI.FLAG_ESTADO = 1) = 1 OR ' ||pEnerg||' = 0)
-                        
+
                     )
                     WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
 
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_BUSQUEDA_AVA_PRI_TODO;
-      
-      
-      
+
+
+
       PROCEDURE USP_SEL_EXCEL_SPL_PRI_USU(
       	pID_USUARIO IN NUMBER,
         pBuscar IN VARCHAR2,
@@ -5380,8 +5383,8 @@ END PKG_MRV_DIRECCIONAMIENTO;
 
         OPEN pRefcursor FOR vQuery;
     END USP_SEL_EXCEL_SPL_PRI_USU;
-    
-    
+
+
     PROCEDURE USP_SEL_EXCEL_SPL_PRI_ESP(
         pBuscar IN VARCHAR2,
         pSortColumn IN VARCHAR2,
@@ -5421,8 +5424,8 @@ END PKG_MRV_DIRECCIONAMIENTO;
 
         OPEN pRefcursor FOR vQuery;
     END USP_SEL_EXCEL_SPL_PRI_ESP;
-    
-    
+
+
     PROCEDURE USP_SEL_EXCEL_SPL_PRI_ADM(
         pBuscar IN VARCHAR2,
         pSortColumn IN VARCHAR2,
@@ -5462,7 +5465,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
 
         OPEN pRefcursor FOR vQuery;
     END USP_SEL_EXCEL_SPL_PRI_ADM;
-    
+
     PROCEDURE USP_SEL_EXCEL_SPL_PRI_EVA(
         pBuscar IN VARCHAR2,
         pSortColumn IN VARCHAR2,
@@ -5502,7 +5505,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
 
         OPEN pRefcursor FOR vQuery;
     END USP_SEL_EXCEL_SPL_PRI_EVA;
-    
+
     PROCEDURE USP_SEL_EXCEL_SPL_PRI_VRF(
         pBuscar IN VARCHAR2,
         pSortColumn IN VARCHAR2,
@@ -5542,8 +5545,8 @@ END PKG_MRV_DIRECCIONAMIENTO;
 
         OPEN pRefcursor FOR vQuery;
     END USP_SEL_EXCEL_SPL_PRI_VRF;
-    
-    
+
+
     PROCEDURE USP_SEL_EXCEL_SPL_PRI_OBSE(
         pBuscar IN VARCHAR2,
         pSortColumn IN VARCHAR2,
@@ -5583,8 +5586,8 @@ END PKG_MRV_DIRECCIONAMIENTO;
 
         OPEN pRefcursor FOR vQuery;
     END USP_SEL_EXCEL_SPL_PRI_OBSE;
-    
-    
+
+
     PROCEDURE USP_SEL_EXCEL_SPL_PRI_APRO(
         pBuscar IN VARCHAR2,
         pSortColumn IN VARCHAR2,
@@ -5624,7 +5627,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
 
         OPEN pRefcursor FOR vQuery;
     END USP_SEL_EXCEL_SPL_PRI_APRO;
-    
+
     PROCEDURE USP_SEL_EXCEL_SPL_PRI_REVI(
         pBuscar IN VARCHAR2,
         pSortColumn IN VARCHAR2,
@@ -5664,7 +5667,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
 
         OPEN pRefcursor FOR vQuery;
     END USP_SEL_EXCEL_SPL_PRI_REVI;
-    
+
     PROCEDURE USP_SEL_EXCEL_SPL_PRI_EVAL(
         pBuscar IN VARCHAR2,
         pSortColumn IN VARCHAR2,
@@ -5704,7 +5707,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
 
         OPEN pRefcursor FOR vQuery;
     END USP_SEL_EXCEL_SPL_PRI_EVAL;
-    
+
     PROCEDURE USP_SEL_EXCEL_SPL_PRI_VRFI(
         pBuscar IN VARCHAR2,
         pSortColumn IN VARCHAR2,
@@ -5744,8 +5747,8 @@ END PKG_MRV_DIRECCIONAMIENTO;
 
         OPEN pRefcursor FOR vQuery;
     END USP_SEL_EXCEL_SPL_PRI_VRFI;
-    
-    
+
+
     PROCEDURE USP_SEL_EXCEL_SPL_PRI_TODO(
         pBuscar IN VARCHAR2,
         pSortColumn IN VARCHAR2,
@@ -5785,8 +5788,8 @@ END PKG_MRV_DIRECCIONAMIENTO;
 
         OPEN pRefcursor FOR vQuery;
     END USP_SEL_EXCEL_SPL_PRI_TODO;
-    
-    
+
+
     PROCEDURE USP_SEL_EXCEL_AVA_PRI_USU(
         pID_USUARIO IN NUMBER,
         pMedida IN VARCHAR2,
@@ -5836,7 +5839,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_EXCEL_AVA_PRI_USU;
-      
+
       PROCEDURE USP_SEL_EXCEL_AVA_PRI_ESP(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -5885,7 +5888,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_EXCEL_AVA_PRI_ESP;
-      
+
       PROCEDURE USP_SEL_EXCEL_AVA_PRI_ADM(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -5934,7 +5937,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_EXCEL_AVA_PRI_ADM;
-      
+
       PROCEDURE USP_SEL_EXCEL_AVA_PRI_EVA(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -5983,7 +5986,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_EXCEL_AVA_PRI_EVA;
-      
+
       PROCEDURE USP_SEL_EXCEL_AVA_PRI_VRF(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -6032,7 +6035,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_EXCEL_AVA_PRI_VRF;
-      
+
       PROCEDURE USP_SEL_EXCEL_AVA_PRI_OBSE(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -6081,7 +6084,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_EXCEL_AVA_PRI_OBSE;
-      
+
       PROCEDURE USP_SEL_EXCEL_AVA_PRI_APRO(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -6130,7 +6133,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_EXCEL_AVA_PRI_APRO;
-      
+
       PROCEDURE USP_SEL_EXCEL_AVA_PRI_REVI(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -6179,7 +6182,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_EXCEL_AVA_PRI_REVI;
-      
+
       PROCEDURE USP_SEL_EXCEL_AVA_PRI_EVAL(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -6228,7 +6231,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_EXCEL_AVA_PRI_EVAL;
-      
+
       PROCEDURE USP_SEL_EXCEL_AVA_PRI_VRFI(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -6277,7 +6280,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_EXCEL_AVA_PRI_VRFI;
-      
+
       PROCEDURE USP_SEL_EXCEL_AVA_PRI_TODO(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -6326,7 +6329,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_EXCEL_AVA_PRI_TODO;
-      
+
       --==============================================23-02-2020
       PROCEDURE USP_SEL_BUSQUEDA_SIMPLE(
         pBuscar IN VARCHAR2,
@@ -6345,7 +6348,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         vQuery      VARCHAR2(10000) := '';
         vSortColumn2 VARCHAR2(1000);
     BEGIN    
-    
+
         vQuery_cont := 'SELECT  COUNT(1) 
                         FROM T_GENM_INICIATIVA INI
                         LEFT JOIN T_MAE_ETAPA ET ON INI.ID_ETAPA = ET.ID_ETAPA
@@ -6436,9 +6439,9 @@ END PKG_MRV_DIRECCIONAMIENTO;
                     WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
 --(INI.ID_ESTADO = 3 AND INI.ID_ETAPA IN (2,4))
         OPEN pRefcursor FOR vQuery;
-      
+
       END USP_SEL_BUSQUEDA_SIMPLE;
-      
+
       PROCEDURE USP_SEL_BUSQUEDA_AVANZADA(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -6480,7 +6483,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
                         ( TO_CHAR(INI.FECHA_IMPLE_INICIATIVA, ''yyyy/MM/dd'') <= '''|| pFECHA_EJECUCION_FIN ||''' OR  '''|| pFECHA_EJECUCION_FIN ||''' = ''0001/01/01'') AND
                         (LOWER(TRANSLATE(INI.NOMBRE_INICIATIVA,''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) like ''%'' || LOWER(TRANSLATE('''||pNOMBRE_INICIATIVA||''',''ÁÉÍÓÚáéíóú'',''AEIOUaeiou''))|| ''%'' )';
         EXECUTE IMMEDIATE vQuery_cont INTO vTotal;
-        
+
       	/*SELECT COUNT(1) INTO vTotal
         FROM T_GENM_INICIATIVA INI
         LEFT JOIN T_MAE_ETAPA ET ON INI.ID_ETAPA = ET.ID_ETAPA
@@ -6559,11 +6562,11 @@ END PKG_MRV_DIRECCIONAMIENTO;
                         (LOWER(TRANSLATE(INI.NOMBRE_INICIATIVA,''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) like ''%'' ||LOWER(TRANSLATE('''||pNOMBRE_INICIATIVA||''',''ÁÉÍÓÚáéíóú'',''AEIOUaeiou''))|| ''%'' )                       
                     )
                     WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
-        
+
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_BUSQUEDA_AVANZADA;
-      
+
       --========================================= 25-02-2020
       PROCEDURE USP_SEL_BUSQUEDA_SIMPLE_PUB(
         pBuscar IN VARCHAR2,
@@ -6582,7 +6585,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         vQuery      VARCHAR2(10000) := '';
         vSortColumn2 VARCHAR2(1000);
     BEGIN    
-    
+
         vQuery_cont := 'SELECT  COUNT(1) 
                         FROM T_GENM_INICIATIVA INI
                         LEFT JOIN T_MAE_ETAPA ET ON INI.ID_ETAPA = ET.ID_ETAPA
@@ -6596,7 +6599,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
                                LOWER(TRANSLATE(MD.NOMBRE_MEDMIT,''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) like''%''|| LOWER(TRANSLATE('''||pBuscar||''',''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) ||''%'' OR 
                                LOWER(TRANSLATE(INST.NOMBRE_INSTITUCION,''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''ÁÉÍÓÚáéíóú'',''AEIOUaeiou''))||''%'' )';
         EXECUTE IMMEDIATE vQuery_cont INTO vTotal;
-        
+
         vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
         IF vPagina2 = 0 THEN
             vPagina2 := 1;
@@ -6655,9 +6658,9 @@ END PKG_MRV_DIRECCIONAMIENTO;
 					)
                     WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
         OPEN pRefcursor FOR vQuery;
-      
+
       END USP_SEL_BUSQUEDA_SIMPLE_PUB;
-      
+
       PROCEDURE USP_SEL_BUSQUEDA_AVANZADA_PUB(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -6682,7 +6685,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         vQuery      VARCHAR2(10000) := '';
         vSortColumn2 VARCHAR2(1000);
     BEGIN    
-    
+
         vQuery_cont := 'SELECT  COUNT(1) 
                         FROM T_GENM_INICIATIVA INI
                         LEFT JOIN T_MAE_ETAPA ET ON INI.ID_ETAPA = ET.ID_ETAPA
@@ -6698,7 +6701,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
                         ( TO_CHAR(INI.FECHA_IMPLE_INICIATIVA, ''yyyy/MM/dd'') <= '''|| pFECHA_EJECUCION_FIN ||''' OR  '''|| pFECHA_EJECUCION_FIN ||''' = ''0001/01/01'') AND
                         (LOWER(TRANSLATE(INI.NOMBRE_INICIATIVA,''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) like ''%'' || LOWER(TRANSLATE('''||pNOMBRE_INICIATIVA||''',''ÁÉÍÓÚáéíóú'',''AEIOUaeiou''))|| ''%'' )';
         EXECUTE IMMEDIATE vQuery_cont INTO vTotal;
-        
+
         vPaginas := CEIL(TO_NUMBER(vTotal) / TO_NUMBER(pRegistros));
         IF vPagina2 = 0 THEN
             vPagina2 := 1;
@@ -6763,8 +6766,8 @@ END PKG_MRV_DIRECCIONAMIENTO;
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_BUSQUEDA_AVANZADA_PUB;
-      
-      
+
+
       PROCEDURE USP_SEL_BUSQ_AVANZ_EXCEL(
         pMedida IN VARCHAR2,
         pAnio  INTEGER,
@@ -6829,7 +6832,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         OPEN pRefcursor FOR vQuery;
 
       END USP_SEL_BUSQ_AVANZ_EXCEL;
-      
+
     PROCEDURE USP_SEL_BUSQ_SIMPLE_EXCEL(
         pBuscar IN VARCHAR2,
       	pSortColumn IN VARCHAR2,
@@ -6840,7 +6843,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         vQuery      VARCHAR2(10000) := '';
         vSortColumn2 VARCHAR2(1000);
     BEGIN    
-    
+
         IF pSortColumn = 'FECHA' THEN
             vSortColumn2 := 'FECHA_IMPLE_INICIATIVA';
         ELSIF pSortColumn = 'PROGRESO' THEN
@@ -6883,9 +6886,9 @@ END PKG_MRV_DIRECCIONAMIENTO;
 					ORDER BY ' || vSortColumn2 || ' ' || pSortOrder || ' ' ;
 
         OPEN pRefcursor FOR vQuery;
-      
+
       END USP_SEL_BUSQ_SIMPLE_EXCEL;
-      
+
       PROCEDURE USP_SEL_BUSQ_SPL_PUB_EXCEL(
         pBuscar IN VARCHAR2,
       	pSortColumn IN VARCHAR2,
@@ -6896,7 +6899,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         vQuery      VARCHAR2(10000) := '';
         vSortColumn2 VARCHAR2(1000);
     BEGIN    
-    
+
         IF pSortColumn = 'FECHA' THEN
             vSortColumn2 := 'FECHA_IMPLE_INICIATIVA';
         ELSIF pSortColumn = 'PROGRESO' THEN
@@ -6939,9 +6942,9 @@ END PKG_MRV_DIRECCIONAMIENTO;
 					ORDER BY ' || vSortColumn2 || ' ' || pSortOrder || ' ' ;
 
         OPEN pRefcursor FOR vQuery;
-      
+
       END USP_SEL_BUSQ_SPL_PUB_EXCEL;
-      
+
       --==================== 10-03-20
       PROCEDURE USP_SEL_VALIDAR_INI(
         pID_INICIATIVA IN NUMBER,
@@ -6957,7 +6960,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         vValidar NUMBER;
         vQuery      VARCHAR2(10000) := '';
     BEGIN
-        
+
         IF pID_INICIATIVA = 0 THEN
             IF pUBICACION = '0' THEN
                 vQuery := 'SELECT count(*) FROM T_GENM_INICIATIVA
@@ -6969,9 +6972,9 @@ END PKG_MRV_DIRECCIONAMIENTO;
                             WHERE ID_MEDMIT = '|| pID_MEDMIT ||' AND ID_USUARIO = '|| pID_USUARIO ||' AND NOMBRE_INICIATIVA = '''|| pNOMBRE_INICIATIVA ||''' AND INVERSION_INICIATIVA = '|| TO_CHAR(pINVERSION_INICIATIVA, '9999999999990.00000') ||' AND ID_MONEDA = '|| pID_MONEDA ||' 
                                 AND TO_CHAR(FECHA_IMPLE_INICIATIVA, ''dd/MM/yyyy'') = '''|| pFECHA ||''' AND IU.ID_UBICACION IN ('|| pUBICACION ||') AND IU.FLAG_ESTADO = 1';
             END IF;
-        
+
         ELSE
-        
+
             IF pUBICACION = '0' THEN
                 vQuery := 'SELECT count(*) FROM T_GENM_INICIATIVA
                             WHERE ID_MEDMIT = '|| pID_MEDMIT ||' AND ID_USUARIO = '|| pID_USUARIO ||' AND NOMBRE_INICIATIVA = '''|| pNOMBRE_INICIATIVA ||''' AND INVERSION_INICIATIVA = '|| TO_CHAR(pINVERSION_INICIATIVA, '9999999999990.00000') ||' AND ID_MONEDA = '|| pID_MONEDA ||' 
@@ -6982,17 +6985,17 @@ END PKG_MRV_DIRECCIONAMIENTO;
                             WHERE ID_MEDMIT = '|| pID_MEDMIT ||' AND ID_USUARIO = '|| pID_USUARIO ||' AND NOMBRE_INICIATIVA = '''|| pNOMBRE_INICIATIVA ||''' AND INVERSION_INICIATIVA = '|| TO_CHAR(pINVERSION_INICIATIVA, '9999999999990.00000') ||' AND ID_MONEDA = '|| pID_MONEDA ||' 
                                 AND TO_CHAR(FECHA_IMPLE_INICIATIVA, ''dd/MM/yyyy'') = '''|| pFECHA ||''' AND IU.ID_UBICACION IN ('|| pUBICACION ||') AND IU.FLAG_ESTADO = 1 AND NOT I.ID_INICIATIVA = '|| pID_INICIATIVA;
             END IF;
-        
+
         END IF;
-        
-             
+
+
         EXECUTE IMMEDIATE vQuery INTO vValidar;
-        
+
         OPEN pRefcursor FOR
         SELECT vValidar CONT FROM DUAL;
-        
+
     END USP_SEL_VALIDAR_INI;
-    
+
     PROCEDURE USP_SEL_VALIDAR_INI_REV(
         pID_INICIATIVA IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
@@ -7001,11 +7004,11 @@ END PKG_MRV_DIRECCIONAMIENTO;
     BEGIN
         SELECT COUNT(*) INTO vRevisar FROM T_GENM_INICIATIVA 
         WHERE ID_ESTADO IN (1,5) AND ID_INICIATIVA = pID_INICIATIVA;
-        
+
         OPEN pRefcursor FOR
         SELECT vRevisar ESTADO FROM DUAL;
     END USP_SEL_VALIDAR_INI_REV;
-    
+
     --==================== 11-03-2020
     PROCEDURE USP_UPD_ASIGNAR_INI(
         pID_INICIATIVA_MASIVO IN VARCHAR2,
@@ -7017,14 +7020,14 @@ END PKG_MRV_DIRECCIONAMIENTO;
         IF pID_ROL = 4 THEN
             vQuery := 'UPDATE T_GENM_INICIATIVA SET ASIGNAR_INI = '|| pID_USUARIO_ASIGNAR ||', ID_ESTADO = ''3'', ID_ETAPA = ''9'', ID_PLAZO_ETAPA_ESTADO = 21 WHERE ID_INICIATIVA IN ('|| pID_INICIATIVA_MASIVO || ')';
         END IF;        
-        
+
         IF pID_ROL = 5 THEN
             vQuery := 'UPDATE T_GENM_INICIATIVA SET ASIGNAR_INI = '|| pID_USUARIO_ASIGNAR ||', ID_ESTADO = ''3'', ID_ETAPA = ''10'', ID_PLAZO_ETAPA_ESTADO = 22  WHERE ID_INICIATIVA IN ('|| pID_INICIATIVA_MASIVO || ')';
         END IF;     
-        
+
         EXECUTE IMMEDIATE vQuery;
     END USP_UPD_ASIGNAR_INI;
-    
+
     --=========== 12-03-2020
     PROCEDURE USP_SEL_USUARIO_RECORDATORIO(
         pID_INICIATIVA IN NUMBER,
@@ -7057,7 +7060,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         LEFT JOIN T_MAE_PLAZO_ETAPA_ESTADO PEE ON I.ID_PLAZO_ETAPA_ESTADO = PEE.ID_PLAZO_ETAPA_ESTADO
         WHERE I.ID_INICIATIVA = pID_INICIATIVA;
     END USP_SEL_USUARIO_RECORDATORIO;
-    
+
     PROCEDURE USP_SEL_INI_RECORDATORIO(
         pID_INICIATIVA IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
@@ -7072,7 +7075,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         LEFT JOIN T_MAE_MEDMIT MD ON I.ID_MEDMIT = MD.ID_MEDMIT
         WHERE I.ID_INICIATIVA = pID_INICIATIVA;
     END USP_SEL_INI_RECORDATORIO;
-    
+
     PROCEDURE USP_INS_SEGUIMIENTO_PAQ (
         pID_USUARIO IN NUMBER,
         pID_ROL IN NUMBER,
@@ -7084,20 +7087,20 @@ END PKG_MRV_DIRECCIONAMIENTO;
     )IS
         vIdDetalle NUMBER;
     BEGIN
-        
+
         SELECT SQ_GEND_DETALLE_INICIATIVA.NEXTVAL INTO vIdDetalle FROM DUAL; 
-    
+
         IF pID_ROL = 4 THEN
             INSERT INTO T_GEND_DETALLE_INICIATIVA (id_detalle_iniciativa, ID_INICIATIVA, ID_REMITENTE, ID_ETAPA, ID_ESTADO, FECHA_DERIVACION, OBSERVACIONES)
             VALUES (vIdDetalle, pID_INICIATIVA, pID_USUARIO, 9, 3, SYSDATE, pNOMBRE_MEDMIT || '|' || pFECHA || ' - ' ||pFECHA_FIN || '|' || pCANTIDAD);
         END IF;
-        
+
         IF pID_ROL = 5 THEN
             INSERT INTO T_GEND_DETALLE_INICIATIVA (id_detalle_iniciativa, ID_INICIATIVA, ID_REMITENTE, ID_ETAPA, ID_ESTADO, FECHA_DERIVACION, OBSERVACIONES)
             VALUES (vIdDetalle, pID_INICIATIVA, pID_USUARIO, 10, 3, SYSDATE, pCANTIDAD);
         END IF;
     END USP_INS_SEGUIMIENTO_PAQ;
-    
+
     PROCEDURE USP_UPD_APROBAR_PAQ_INI(
         pID_INICIATIVA IN VARCHAR2,
         pID_USUARIO IN NUMBER,
@@ -7109,20 +7112,20 @@ END PKG_MRV_DIRECCIONAMIENTO;
         vTotal NUMBER;
         vIdDetalle NUMBER;
     BEGIN      
-        
+
         SELECT NOMBRE_INICIATIVA INTO vNombreIniciativa FROM T_GENM_INICIATIVA WHERE ID_INICIATIVA = pID_INICIATIVA;
         SELECT NOMBRE_MEDMIT INTO vNombreMedmit FROM T_MAE_MEDMIT WHERE ID_MEDMIT = (SELECT ID_MEDMIT FROM T_GENM_INICIATIVA WHERE ID_INICIATIVA = pID_INICIATIVA);
         SELECT GEI_TOTAL INTO vTotal FROM T_GENM_INICIATIVA WHERE ID_INICIATIVA = pID_INICIATIVA;
-        
+
         UPDATE T_GENM_INICIATIVA SET ID_ESTADO = '3', ID_ETAPA = '6', ID_PLAZO_ETAPA_ESTADO = 16  WHERE ID_INICIATIVA = pID_INICIATIVA;
-       
+
         SELECT SQ_GEND_DETALLE_INICIATIVA.NEXTVAL INTO vIdDetalle FROM DUAL; 
-    
+
         INSERT INTO T_GEND_DETALLE_INICIATIVA (id_detalle_iniciativa, ID_INICIATIVA, ID_REMITENTE, ID_ETAPA, ID_ESTADO, FECHA_DERIVACION, OBSERVACIONES)
         VALUES (vIdDetalle, pID_INICIATIVA, pID_USUARIO, 6, 3, SYSDATE, vNombreMedmit || '|' || vNombreIniciativa || '|' || vTotal || '|' || pNOMBRES || '|' || pBLOCKCHAIN);
-       
+
     END USP_UPD_APROBAR_PAQ_INI;
-    
+
     --============== 13-02-2020
     PROCEDURE USP_SEL_USUARIO_INI(
         pID_INICIATIVA IN NUMBER,
@@ -7144,7 +7147,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         LEFT JOIN T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION = SEC.ID_SECTOR_INST
         WHERE I.ID_INICIATIVA = pID_INICIATIVA;
     END USP_SEL_USUARIO_INI;
-    
+
     PROCEDURE USP_SEL_VALIDAR_REVISION(
         pID_INICIATIVA IN NUMBER,
         pID_PLAZO_ETAPA_ESTADO IN NUMBER,
@@ -7167,7 +7170,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         FROM    T_GENM_INICIATIVA
         WHERE   ID_INICIATIVA = pID_INICIATIVA;
       END USP_SEL_VALIDAR_VISTA;
-      
+
       --=================================== 18-03-20
       PROCEDURE USP_SEL_FICHA_INI(
         pID_INICIATIVA IN NUMBER,
@@ -7209,6 +7212,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
 
 END PKG_MRV_INICIATIVA_MITIGACION;
 
+
 /
 --------------------------------------------------------
 --  DDL for Package Body PKG_MRV_MANTENIMIENTO
@@ -7225,7 +7229,7 @@ END PKG_MRV_INICIATIVA_MITIGACION;
         vSortColumn2 VARCHAR2(1000);
         vQuery      VARCHAR2(30000) := '';
     BEGIN
-        
+
         IF pSortColumn = 'ID_USUARIO' THEN
             vSortColumn2 := 'U.ID_USUARIO';
         ELSIF pSortColumn = 'NOMBRES_USUARIO' THEN
@@ -7243,7 +7247,7 @@ END PKG_MRV_INICIATIVA_MITIGACION;
         ELSE
         	vSortColumn2 := pSortColumn;
         END IF;  
-      
+
         vQuery := 'SELECT                   UR.ID_USUARIO,
                                             TRIM(U.NOMBRES_USUARIO) || '' '' || TRIM(U.APELLIDOS_USUARIO) AS NOMBRES,
                                             U.EMAIL_USUARIO CORREO,
@@ -7296,7 +7300,7 @@ END PKG_MRV_INICIATIVA_MITIGACION;
                         OR LOWER(TRANSLATE(U.CELULAR_USUARIO,''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''ÁÉÍÓÚáéíóú'',''AEIOUaeiou''))||''%'' )
                         ORDER BY ' || vSortColumn2 || ' ' || pSortOrder || ' ' ;
 		OPEN pRefcursor FOR vQuery;  
-    
+
     END USP_SEL_MANTENIMIENTO_USUARIO;
 
     PROCEDURE USP_SEL_MANTE_ID_USUARIO(
@@ -7558,7 +7562,7 @@ END PKG_MRV_INICIATIVA_MITIGACION;
 		OPEN pRefcursor FOR vQuery;
 
     END USP_SEL_EXCEL_ROL;
-    
+
 
     PROCEDURE USP_GET_TIPO_VEHICULO(
         pIdTipo_Vehiculo    number,
@@ -7574,7 +7578,7 @@ END PKG_MRV_INICIATIVA_MITIGACION;
 
   END USP_GET_TIPO_VEHICULO;
 
-    
+
 
    PROCEDURE USP_SEL_LISTA_TIPOVEHICULO(
         pRefcursor  OUT SYS_REFCURSOR
@@ -7587,7 +7591,7 @@ END PKG_MRV_INICIATIVA_MITIGACION;
             WHERE   NVL(FLG_ESTADO,1) = 1;
 
   END USP_SEL_LISTA_TIPOVEHICULO;
-  
+
     PROCEDURE USP_SEL_TIPO_VEHICULO( 
         pBuscar     IN VARCHAR2,
         pRegistros  INTEGER,
@@ -7668,7 +7672,7 @@ END PKG_MRV_INICIATIVA_MITIGACION;
     )AS
     BEGIN
         SELECT NVL(MAX(ID_TIPO_VEHICULO),0) + 1  INTO pIdTipo_Vehiculo  FROM T_MAE_TIPO_VEHICULO;
-        
+
         INSERT INTO T_MAE_TIPO_VEHICULO(ID_TIPO_VEHICULO, DESCRIPCION, FLG_ESTADO )
         VALUES (pIdTipo_Vehiculo , pDescripcion , 1);
 
@@ -7695,7 +7699,7 @@ END PKG_MRV_INICIATIVA_MITIGACION;
 		OPEN pRefcursor FOR vQuery;
 
     END USP_SEL_EXCEL_TIPOVEHICULO;
-    
+
     PROCEDURE USP_GET_TIPO_COMBUSTIBLE(
         pIdTipo_Combustible    number,
         pRefcursor  OUT SYS_REFCURSOR
@@ -7710,7 +7714,7 @@ END PKG_MRV_INICIATIVA_MITIGACION;
 
   END USP_GET_TIPO_COMBUSTIBLE;
 
-    
+
 
    PROCEDURE USP_SEL_LISTA_TIPOCOMBUSTIBLE(
         pRefcursor  OUT SYS_REFCURSOR
@@ -7723,7 +7727,7 @@ END PKG_MRV_INICIATIVA_MITIGACION;
             WHERE   NVL(FLG_ESTADO,1) = 1;
 
   END USP_SEL_LISTA_TIPOCOMBUSTIBLE;
-  
+
     PROCEDURE USP_SEL_TIPO_COMBUSTIBLE( 
         pBuscar     IN VARCHAR2,
         pRegistros  INTEGER,
@@ -7806,7 +7810,7 @@ END PKG_MRV_INICIATIVA_MITIGACION;
     )AS
     BEGIN
         SELECT NVL(MAX(ID_TIPO_COMBUSTIBLE),0) + 1  INTO pIdTipo_Combustible  FROM T_MAE_TIPO_COMBUSTIBLE;
-        
+
         INSERT INTO T_MAE_TIPO_COMBUSTIBLE(ID_TIPO_COMBUSTIBLE, DESCRIPCION, FLG_ESTADO )
         VALUES (pIdTipo_Combustible , pDescripcion , 1);
 
@@ -8002,7 +8006,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
             pIDINSTITUCION := vIdInstitucion;
 
     END USP_INS_MAN_INSTI;
-    
+
     PROCEDURE USP_UPD_INSTITUCION(
       	pID_INSTITUCION			IN NUMBER,
         pID_SECTOR_INSTITUCION  IN INTEGER,
@@ -8019,7 +8023,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
                 I.DIRECCION_INSTITUCION = pDIRECCION_INSTITUCION
         WHERE	I.ID_INSTITUCION = pID_INSTITUCION;
     END USP_UPD_INSTITUCION;
-    
+
     PROCEDURE USP_SEL_INSTITUCION(
         pBuscar     VARCHAR2,
         pRegistros  INTEGER,
@@ -8123,7 +8127,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         vQuery      VARCHAR2(30000) := '';
         vSortColumn2 VARCHAR2(1000);
       BEGIN
-      
+
         SELECT COUNT(1) INTO vTotal
         FROM                T_GENM_USUARIO U
         LEFT JOIN  T_GENM_INSTITUCION INS ON U.ID_INSTITUCION = INS.ID_INSTITUCION
@@ -8167,7 +8171,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         ELSE
         	vSortColumn2 := pSortColumn;
         END IF;    
-            
+
         vQuery := 'SELECT *    FROM (
                         SELECT    UR.ID_USUARIO,
                                             TRIM(U.NOMBRES_USUARIO) || '' '' || TRIM(U.APELLIDOS_USUARIO) AS NOMBRES,
@@ -8227,9 +8231,9 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
 					)
                     WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
 		OPEN pRefcursor FOR vQuery;  
-        
+
     END USP_SEL_BUSCAR_USUARIO_MANT;
-    
+
     PROCEDURE USP_DEL_INSTITUCION(
       	pID_INSTITUCION			IN NUMBER
     )
@@ -8238,9 +8242,9 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
       	UPDATE T_GENM_INSTITUCION I
         SET I.FLAG_ESTADO = '0'
         WHERE I.ID_INSTITUCION = pID_INSTITUCION;
-    
+
     END USP_DEL_INSTITUCION;
-    
+
     PROCEDURE USP_GET_INSTITUCION_ID(
       	pIdInstitucion	NUMBER,
         pRefcursor OUT SYS_REFCURSOR
@@ -8256,9 +8260,9 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
             FROM    T_GENM_INSTITUCION I
             WHERE	I.ID_INSTITUCION = pIdInstitucion;
       END USP_GET_INSTITUCION_ID;
-      
+
       --06022020
-      
+
       PROCEDURE USP_GET_UBICACION(
         pIdUbicacion    number,
         pRefcursor  OUT SYS_REFCURSOR
@@ -8319,7 +8323,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         OPEN pRefcursor FOR vQuery;
 
     END USP_SEL_UBICACION;
-	
+
   PROCEDURE USP_DEL_UBICACION(
       	pID_UBICACION IN NUMBER
     )AS
@@ -8328,7 +8332,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         SET     FLG_ESTADO = 0
         WHERE   ID_UBICACION =pID_UBICACION;
     END USP_DEL_UBICACION;
-    
+
   PROCEDURE USP_UPD_UBICACION(                  
         pID_UBICACION IN NUMBER,
         pDescripcion in varchar2
@@ -8347,13 +8351,13 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
     )AS
     BEGIN
         SELECT NVL(MAX(ID_UBICACION),0) + 1  INTO pIdUbicacion FROM T_MAE_UBICACION;
-        
+
         INSERT INTO T_MAE_UBICACION(ID_UBICACION, DESCRIPCION, FLG_ESTADO )
         VALUES (pIdUbicacion, pDescripcion, 1);
 
     END USP_INS_UBICACION;
-	
-	
+
+
 ---PKG_MRV_MANTENIMIENTO
     PROCEDURE USP_INS_SECTORINSTITUCION(
         pDescripcion in varchar2,
@@ -8361,12 +8365,12 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
     )AS
     BEGIN
         SELECT NVL(MAX(ID_SECTOR_INST),0) + 1 INTO pIdSector FROM T_MAE_SECTOR_INST;
-        
+
         INSERT INTO T_MAE_SECTOR_INST(ID_SECTOR_INST, DESCRIPCION, FLAG_ESTADO )
         VALUES (pIdSector, pDescripcion, 1);
 
     END USP_INS_SECTORINSTITUCION;
-	
+
   PROCEDURE USP_UPD_SECTORINSTITUCION(                 
         pID_SECTOR_INST IN NUMBER,
         pDescripcion in varchar2
@@ -8378,7 +8382,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
 
 
     END USP_UPD_SECTORINSTITUCION;
-    
+
     PROCEDURE USP_DEL_SECTORINSTITUCION(
       	pID_SECTOR_INST IN NUMBER
     )AS
@@ -8387,7 +8391,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         SET     FLAG_ESTADO = 0
         WHERE   ID_SECTOR_INST = pID_SECTOR_INST;
     END USP_DEL_SECTORINSTITUCION;
-	
+
 	PROCEDURE USP_GET_SECTORINSTITUCION(
         pID_SECTOR_INST IN NUMBER,
         pRefcursor  OUT SYS_REFCURSOR
@@ -8400,8 +8404,8 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
             WHERE   ID_SECTOR_INST = pID_SECTOR_INST;
 
     END USP_GET_SECTORINSTITUCION;
-    
-	
+
+
     PROCEDURE USP_SEL_SECTORINSTITUCION(
         pBuscar     VARCHAR2,
         pRegistros  INTEGER,
@@ -8449,7 +8453,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
                 WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
         OPEN pRefcursor FOR vQuery;
     END USP_SEL_SECTORINSTITUCION;	
-	
+
 	PROCEDURE USP_GET_ESCENARIO(
         pID_ESCENARIO IN NUMBER,
         pRefcursor  OUT SYS_REFCURSOR
@@ -8540,7 +8544,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         OPEN pRefcursor FOR vQuery;
 
     END USP_SEL_ESCENARIO;
-	
+
 	PROCEDURE USP_INS_ESCENARIO(
         pID_MEDMIT      IN NUMBER,
         pANNO           IN NUMBER,
@@ -8577,22 +8581,22 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
                 '1');
 
     END USP_INS_ESCENARIO;
-    
+
     -- MONEDA
-    
+
     PROCEDURE USP_INS_MONEDA(
         pDESCRIPCION IN VARCHAR2,
         pID_MONEDA    OUT NUMBER
     )AS
     BEGIN
         SELECT NVL(MAX(ID_MONEDA),0) + 1 INTO pID_MONEDA FROM T_MAE_MONEDA;
-        
+
         INSERT INTO T_MAE_MONEDA(ID_MONEDA, DESCRIPCION, FLAG_ESTADO )
         VALUES (pID_MONEDA, pDESCRIPCION, 1);
 
     END USP_INS_MONEDA;
-    
-    
+
+
     PROCEDURE USP_UPD_MONEDA(                 
         pID_MONEDA IN NUMBER,
         pDESCRIPCION in varchar2
@@ -8604,7 +8608,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
 
 
     END USP_UPD_MONEDA;
-	
+
 	PROCEDURE USP_DEL_MONEDA(                  
         pID_MONEDA IN NUMBER
    )AS
@@ -8615,7 +8619,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
 
 
     END USP_DEL_MONEDA;
-  
+
 	PROCEDURE USP_GET_MONEDA(
         pID_MONEDA IN NUMBER,
         pRefcursor  OUT SYS_REFCURSOR
@@ -8644,7 +8648,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         vQuery      VARCHAR2(30000) := '';
         vSortColumn2 VARCHAR2(1000);
       BEGIN
-      
+
         SELECT COUNT(1) INTO vTotal
         FROM  T_MAE_MONEDA
         WHERE FLAG_ESTADO = 1 AND
@@ -8660,7 +8664,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
 
         vPageIndex := vPagina2 - 1;  
         vSortColumn2 := pSortColumn;
-            
+
         vQuery := 'SELECT *    FROM (
                         SELECT    ID_MONEDA,
                                   DESCRIPCION,
@@ -8675,9 +8679,9 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
 					)
                     WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
 		OPEN pRefcursor FOR vQuery;
-    
+
     END USP_SEL_BUSCAR_MONEDA;
-    
+
     PROCEDURE USP_SEL_EXCEL_MONEDA(
         pBuscar     IN VARCHAR2,
         pSortColumn IN VARCHAR2,
@@ -8696,12 +8700,12 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
                         (LOWER(TRANSLATE(DESCRIPCION,''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) like ''%''|| LOWER(TRANSLATE('''||pBuscar||''',''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) ||''%'' )
                         ORDER BY ' || vSortColumn2 || ' ' || pSortOrder || ' ' ;
 		OPEN pRefcursor FOR vQuery;
-    
+
     END USP_SEL_EXCEL_MONEDA;
-    
-    
+
+
     -- GEI
-    
+
     PROCEDURE USP_INS_GEI(
         pDESCRIPCION IN VARCHAR2,
         pAR2  IN NUMBER,
@@ -8712,13 +8716,13 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
     )AS
     BEGIN
         SELECT NVL(MAX(ID_GEI),0) + 1 INTO pID_GEI FROM T_MAE_GEI;
-        
+
         INSERT INTO T_MAE_GEI(ID_GEI, DESCRIPCION, AR2, AR4, AR5, AR6,FLAG_ESTADO )
         VALUES (pID_GEI, pDESCRIPCION, pAR2, pAR4, pAR5, pAR6,1);
 
     END USP_INS_GEI;
-    
-    
+
+
     PROCEDURE USP_UPD_GEI(                 
         pID_GEI IN NUMBER,
         pDESCRIPCION in varchar2,
@@ -8738,7 +8742,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
 
 
     END USP_UPD_GEI;
-	
+
 	PROCEDURE USP_DEL_GEI(                  
         pID_GEI IN NUMBER
    )AS
@@ -8749,7 +8753,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
 
 
     END USP_DEL_GEI;
-  
+
 	PROCEDURE USP_GET_GEI(
         pID_GEI IN NUMBER,
         pRefcursor  OUT SYS_REFCURSOR
@@ -8782,7 +8786,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         vQuery      VARCHAR2(30000) := '';
         vSortColumn2 VARCHAR2(1000);
       BEGIN
-      
+
         SELECT COUNT(1) INTO vTotal
         FROM  T_MAE_GEI
         WHERE FLAG_ESTADO = 1 AND
@@ -8802,7 +8806,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
 
         vPageIndex := vPagina2 - 1;  
         vSortColumn2 := pSortColumn;
-            
+
         vQuery := 'SELECT *    FROM (
                         SELECT    ID_GEI,
                                   DESCRIPCION,
@@ -8825,9 +8829,9 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
 					)
                     WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
 		OPEN pRefcursor FOR vQuery;
-    
+
     END USP_SEL_BUSCAR_GEI;
-    
+
     PROCEDURE USP_SEL_EXCEL_GEI(
         pBuscar     IN VARCHAR2,
         pSortColumn IN VARCHAR2,
@@ -8854,11 +8858,11 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
                         OR LOWER(TRANSLATE(AR6,''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) like ''%''||LOWER(TRANSLATE('''||pBuscar||''',''ÁÉÍÓÚáéíóú'',''AEIOUaeiou''))||''%'' )
                         ORDER BY ' || vSortColumn2 || ' ' || pSortOrder || ' ' ;
 		OPEN pRefcursor FOR vQuery;
-    
+
     END USP_SEL_EXCEL_GEI;
-    
+
     --ENFOQUE
-    
+
     PROCEDURE USP_INS_ENFOQUE(
         pDESCRIPCION IN VARCHAR2,
         pID_MEDMIT IN NUMBER,
@@ -8886,8 +8890,8 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
 
 
     END USP_UPD_ENFOQUE;
-    
-    
+
+
     PROCEDURE USP_PRC_ENFOQUE(
         pID_ENFOQUE  IN NUMBER,
         pDESCRIPCION IN VARCHAR2,
@@ -8897,15 +8901,15 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
     )AS
         vIdEnfoque NUMBER;
     BEGIN
-        
-        
+
+
         IF pID_ENFOQUE = 0 THEN
-        
+
             SELECT NVL(MAX(ID_ENFOQUE),0) + 1 INTO vIdEnfoque FROM T_GENM_ENFOQUE;
 
             INSERT INTO T_GENM_ENFOQUE(ID_ENFOQUE, DESCRIPCION, ID_MEDMIT, ADJUNTO, ADJUNTO_BASE,FLAG_ESTADO )
             VALUES (vIdEnfoque, pDESCRIPCION, pID_MEDMIT, pADJUNTO, pADJUNTO_BASE, 1);
-        
+
         ELSE
             UPDATE T_GENM_ENFOQUE
             SET DESCRIPCION = pDESCRIPCION,
@@ -8981,7 +8985,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         END IF;
 
         vPageIndex := vPagina2 - 1;  
-        
+
         IF pSortColumn = 'ID_ENFOQUE' THEN
             vSortColumn2 := 'E.ID_ENFOQUE';
         ELSIF pSortColumn = 'DESCRIPCION' THEN
@@ -8991,7 +8995,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         ELSE
             vSortColumn2 := pSortColumn;
         END IF;
-        
+
 
         vQuery := 'SELECT *    FROM (
                         SELECT    E.ID_ENFOQUE,
@@ -9022,7 +9026,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         vQuery      VARCHAR2(30000) := '';
         vSortColumn2 VARCHAR2(1000);
       BEGIN
-        
+
         IF pSortColumn = 'ID_ENFOQUE' THEN
             vSortColumn2 := 'E.ID_ENFOQUE';
         ELSIF pSortColumn = 'DESCRIPCION' THEN
@@ -9032,7 +9036,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         ELSE
             vSortColumn2 := pSortColumn;
         END IF;
-        
+
         vQuery := '
                         SELECT    E.ID_ENFOQUE,
                                   E.DESCRIPCION,
@@ -9046,9 +9050,9 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
 		OPEN pRefcursor FOR vQuery;
 
     END USP_SEL_EXCEL_ENFOQUE;
-    
+
     --ENERGETICO
-    
+
     PROCEDURE USP_INS_ENERG(
         pDESCRIPCION IN VARCHAR2,
         pID_ENERG    OUT NUMBER
@@ -9167,8 +9171,8 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
 		OPEN pRefcursor FOR vQuery;
 
     END USP_SEL_EXCEL_ENERG;
-    
-    
+
+
     PROCEDURE USP_SEL_LISTA_UBICACION(
         pRefcursor OUT SYS_REFCURSOR
     )AS
@@ -9179,7 +9183,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
         FROM    T_MAE_UBICACION
         WHERE   FLG_ESTADO = 1;
     END USP_SEL_LISTA_UBICACION;
-    
+
     PROCEDURE USP_SEL_EXCEL_SECTORINST(
         pBuscar     IN VARCHAR2,
         pSortColumn IN VARCHAR2,
@@ -9200,7 +9204,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
 		OPEN pRefcursor FOR vQuery;
 
     END USP_SEL_EXCEL_SECTORINST;
-    
+
     PROCEDURE USP_SEL_EXCEL_UBICACION(
         pBuscar     IN VARCHAR2,
         pSortColumn IN VARCHAR2,
@@ -9221,9 +9225,9 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
 		OPEN pRefcursor FOR vQuery;
 
     END USP_SEL_EXCEL_UBICACION;
-    
-    
-    
+
+
+
 PROCEDURE USP_SEL_EXCEL_INSTITUCION(
         pBuscar     IN VARCHAR2,
         pSortColumn IN VARCHAR2,
@@ -9252,8 +9256,8 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
 		OPEN pRefcursor FOR vQuery;
 
     END USP_SEL_EXCEL_INSTITUCION;
-    
-    
+
+
     PROCEDURE USP_UPD_ESCENARIO(
 	pID_ESCENARIO   IN NUMBER,
         pID_MEDMIT      IN NUMBER,
@@ -9266,7 +9270,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
         pMETA_ANUAL     IN NUMBER
    )AS
      BEGIN
-     
+
         UPDATE  T_GENM_ESCENARIO
         SET     ID_MEDMIT = pID_MEDMIT,
                 ANNO = pANNO,
@@ -9279,7 +9283,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
        WHERE    ID_ESCENARIO = pID_ESCENARIO;
 
     END USP_UPD_ESCENARIO;
-    
+
     PROCEDURE USP_DEL_ESCENARIO(                  
         pID_ESCENARIO IN NUMBER
    )AS
@@ -9290,7 +9294,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
 
 
     END USP_DEL_ESCENARIO;
-    
+
     PROCEDURE USP_SEL_EXCEL_ESCENARIO(
         pBuscar     IN VARCHAR2,
         pSortColumn IN VARCHAR2,
@@ -9327,10 +9331,10 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
 		OPEN pRefcursor FOR vQuery;
 
     END USP_SEL_EXCEL_ESCENARIO;
-    
-    
+
+
  --///////////////////////// DINAMICO INICIO
-    
+
     PROCEDURE USP_SEL_LISTA_M_INDICADOR(
         pBuscar     VARCHAR2,
         pRegistros  INTEGER,
@@ -9362,7 +9366,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
             vPagina2 := vPaginas;
         END IF;
         vPageIndex := vPagina2 - 1;
-        
+
         IF pSortColumn = 'ID_ENFOQUE' THEN
             vSortColumn2 := 'MI.ID_ENFOQUE';
         ELSIF pSortColumn = 'DESCRIPCION' THEN
@@ -9394,7 +9398,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
         OPEN pRefcursor FOR vQuery;
 
     END USP_SEL_LISTA_M_INDICADOR;
-    
+
     PROCEDURE USP_SEL_M_INDICADOR(
         pID_MEDMIT  IN NUMBER,
         pID_ENFOQUE IN NUMBER,
@@ -9412,7 +9416,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
         WHERE MI.ID_MEDMIT = pID_MEDMIT AND MI.ID_ENFOQUE = pID_ENFOQUE AND MI.FLAG_ESTADO = '1'
         ORDER BY MI.ID_ENFOQUE ,MI.ORDEN ASC;
     END USP_SEL_M_INDICADOR;
-    
+
     PROCEDURE USP_INS_M_INDICADOR(
         pID_MEDMIT IN NUMBER,
         pID_ENFOQUE IN NUMBER,
@@ -9431,7 +9435,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
     BEGIN
         SELECT COUNT(1) INTO vContador FROM T_MAEM_INDICADOR 
         WHERE ID_MEDMIT = pID_MEDMIT AND ID_ENFOQUE = pID_ENFOQUE AND ID_PARAMETRO = pID_PARAMETRO;
-        
+
         IF vContador > 0 THEN
             UPDATE  T_MAEM_INDICADOR
             SET     ID_GRUPO_INDICADOR = pID_GRUPO_INDICADOR, ORDEN = pID_ORDEN, FLAG_ESTADO = '1'
@@ -9440,11 +9444,11 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
             INSERT INTO T_MAEM_INDICADOR (ID_ENFOQUE, ID_MEDMIT, ID_PARAMETRO, ID_GRUPO_INDICADOR, ORDEN, FLAG_ESTADO)
             VALUES (pID_ENFOQUE, pID_MEDMIT, pID_PARAMETRO, pID_GRUPO_INDICADOR, pID_ORDEN, '1');
         END IF;
-                
+
         IF pINS = 1 THEN
             SELECT COUNT(1) INTO vContador_F FROM T_MAEM_FORMULA_PARAMETRO 
             WHERE ID_MEDMIT = pID_MEDMIT AND ID_ENFOQUE = pID_ENFOQUE AND ID_PARAMETRO = pID_PARAMETRO;
-            
+
             IF vContador_F > 0 THEN
                 UPDATE T_MAEM_FORMULA_PARAMETRO
                 SET    COMPORTAMIENTO = pCOMPORTAMIENTO, VALOR = pVALOR, FORMULA = pFORMULA, FORMULA_ARMADO = pFORMULA_ARMADO
@@ -9456,16 +9460,16 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
         ELSE
             SELECT COUNT(1) INTO vContador_F FROM T_MAEM_FORMULA_PARAMETRO 
             WHERE ID_MEDMIT = pID_MEDMIT AND ID_ENFOQUE = pID_ENFOQUE AND ID_PARAMETRO = pID_PARAMETRO;
-            
+
             IF vContador_F > 0 THEN
                 UPDATE T_MAEM_FORMULA_PARAMETRO
                 SET    FORMULA = '', FORMULA_ARMADO = ''
                 WHERE ID_MEDMIT = pID_MEDMIT AND ID_ENFOQUE = pID_ENFOQUE AND ID_PARAMETRO = pID_PARAMETRO;
             END IF;
         END IF;
-        
+
     END USP_INS_M_INDICADOR;
-    
+
     PROCEDURE USP_SEL_ALL_MEDMIT(
         pRefcursor OUT SYS_REFCURSOR
     )AS
@@ -9475,7 +9479,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
         FROM T_MAE_MEDMIT
         ORDER BY ID_MEDMIT DESC;
     END USP_SEL_ALL_MEDMIT;
-    
+
     PROCEDURE USP_SEL_LISTA_MEDIDA_FACTOR(
         pID_MEDMIT IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
@@ -9488,7 +9492,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
         WHERE ID_MEDMIT = pID_MEDMIT AND MF.FLAG_ESTADO = '1'
         ORDER BY MF.ORDEN ASC;
     END USP_SEL_LISTA_MEDIDA_FACTOR;
-    
+
     PROCEDURE USP_SEL_CABECERA_FACTOR(
         pID_FACTOR  IN NUMBER,
         pRefcursor      OUT SYS_REFCURSOR
@@ -9501,7 +9505,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
               AND FLAG_ESTADO = '1' --ADD
         ORDER BY ORDEN ASC;
   END USP_SEL_CABECERA_FACTOR;
-  
+
   PROCEDURE USP_SEL_CUERPO_FACTOR(
         pID_FACTOR  IN NUMBER,
         pRefcursor      OUT SYS_REFCURSOR
@@ -9514,7 +9518,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
               AND FLAG_ESTADO = '1' --ADD
         ORDER BY MI.ORDEN ASC;
   END USP_SEL_CUERPO_FACTOR;
-  
+
   PROCEDURE USP_SEL_DETALLE_FACT_PARAMETRO(
         pID_PARAMETRO   IN NUMBER,
         pRefcursor      OUT SYS_REFCURSOR
@@ -9525,7 +9529,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
         FROM    T_MAED_MRV_PARAMETRO
         WHERE   ID_PARAMETRO = pID_PARAMETRO;
   END USP_SEL_DETALLE_FACT_PARAMETRO;
-  
+
   PROCEDURE USP_SEL_GET_FACTOR_DATA(
         pID_FACTOR IN NUMBER,
         pRefcursor      OUT SYS_REFCURSOR
@@ -9537,7 +9541,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
         WHERE FD.ID_FACTOR = pID_FACTOR AND FD.FLAG_ESTADO = '1'
         ORDER BY FD.ID_DETALLE ASC;
   END USP_SEL_GET_FACTOR_DATA;
-  
+
   PROCEDURE USP_SEL_ID_PARAMETRO(
         pID_PARAMETRO IN NUMBER,
         pRefcursor      OUT SYS_REFCURSOR
@@ -9548,7 +9552,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
         FROM T_MAEM_MRV_PARAMETRO
         WHERE ID_PARAMETRO = pID_PARAMETRO;
   END USP_SEL_ID_PARAMETRO;
-  
+
   PROCEDURE USP_PRC_FACTOR_DATA(
         pID_FACTOR IN NUMBER,
         pID_DETALLE IN NUMBER,
@@ -9561,7 +9565,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
   BEGIN
         SELECT COUNT(1) INTO vContador FROM T_MAEM_FACTOR_DATA 
         WHERE ID_FACTOR = pID_FACTOR AND ID_DETALLE = pID_DETALLE;
-        
+
         IF vContador = 0 THEN
             SELECT NVL(MAX(ID_DETALLE), 0) + 1 INTO vIdDetalle FROM T_MAEM_FACTOR_DATA WHERE ID_FACTOR = pID_FACTOR;
             INSERT INTO T_MAEM_FACTOR_DATA (ID_FACTOR, ID_DETALLE, ID_PARAMETRO, VALOR, FACTOR, FLAG_ESTADO)
@@ -9573,9 +9577,9 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
                     FACTOR = pFACTOR
             WHERE ID_FACTOR = pID_FACTOR AND ID_DETALLE = pID_DETALLE;
         END IF;
-        
+
   END USP_PRC_FACTOR_DATA;
-  
+
   PROCEDURE USP_UPD_ELIMINAR_FACTOR(
         pID_FACTOR IN NUMBER,
         pID_ELIMINAR_FACTOR IN VARCHAR2
@@ -9585,7 +9589,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
         vSql := 'UPDATE T_MAEM_FACTOR_DATA SET FLAG_ESTADO = 0 WHERE ID_FACTOR ='||pID_FACTOR||' AND ID_DETALLE IN ('||pID_ELIMINAR_FACTOR||')';
         EXECUTE IMMEDIATE vSql;
     END USP_UPD_ELIMINAR_FACTOR;
-    
+
      --============================== 23-02-2020
     PROCEDURE USP_PRC_MEDIDA_FACTOR(
         pID_FACTOR IN NUMBER,
@@ -9604,9 +9608,9 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
                 FLAG_ESTADO = '1'
         WHERE   ID_MEDMIT = pID_MEDMIT AND ID_FACTOR = pID_FACTOR;
     END IF;
-        
+
   END USP_PRC_MEDIDA_FACTOR;
-  
+
   PROCEDURE USP_UPD_ELIMINAR_MED_FACTOR(
         pID_MEDMIT IN NUMBER,
         pID_ELIMINAR_FACTOR IN VARCHAR2
@@ -9616,7 +9620,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
         vSql := 'UPDATE T_MAEM_MEDIDA_FACTOR SET FLAG_ESTADO = 0 WHERE ID_MEDMIT ='||pID_MEDMIT||' AND ID_FACTOR IN ('||pID_ELIMINAR_FACTOR||')';
         EXECUTE IMMEDIATE vSql;
     END USP_UPD_ELIMINAR_MED_FACTOR;
-    
+
    PROCEDURE USP_UPD_VALIDAR_MED_FACTOR(
         pID_MEDMIT IN NUMBER,
         pRefcursor      OUT SYS_REFCURSOR
@@ -9625,12 +9629,12 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
   BEGIN
     SELECT COUNT(1) INTO vValidar FROM T_MAEM_MEDIDA_FACTOR
     WHERE ID_MEDMIT = pID_MEDMIT AND FLAG_ESTADO = '1';
-    
+
     OPEN pRefcursor FOR
     SELECT vValidar VALIDAR FROM DUAL;
   END USP_UPD_VALIDAR_MED_FACTOR;
-  
-  
+
+
   PROCEDURE USP_SEL_LISTA_ANNO_ACTUAL(
         pANNO IN NUMBER,
         pRefcursor      OUT SYS_REFCURSOR
@@ -9656,7 +9660,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
             FROM    T_MAE_IPCC
             WHERE   NVL(FLAG_ESTADO,1) = 1;
   END USP_SEL_LISTA_IPCC;
-  
+
   PROCEDURE USP_SEL_LISTA_MEDMIT_MANT(
         pBuscar     VARCHAR2,
         pRegistros  INTEGER,
@@ -9719,7 +9723,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
                 WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
         OPEN pRefcursor FOR vQuery;
     END USP_SEL_LISTA_MEDMIT_MANT;
-    
+
     PROCEDURE USP_INS_MEDMIT(
         pID_MEDMIT    IN VARCHAR2,
         pNOMBRE_MEDMIT  IN VARCHAR2,
@@ -9751,7 +9755,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
                     METODOLOGIA_MEDMIT = pMETODOLOGIA_MEDMIT, --add
                     USUARIO_ASOCIADO_MEDMIT = pUSUARIO_ASOCIADO_MEDMIT --ADD
             WHERE   ID_MEDMIT = pID_MEDMIT;
-            
+
             IF pADJUNTO = 'nul' THEN
                 SELECT '0' INTO vIdMedmit FROM DUAL;
             ELSE
@@ -9763,7 +9767,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
         END IF;
   END USP_INS_MEDMIT;
 
-  
+
   PROCEDURE USP_SEL_GET_MEDMIT(
         pID_MEDMIT    IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
@@ -9811,7 +9815,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
             vPagina2 := vPaginas;
         END IF;
         vPageIndex := vPagina2 - 1;
-        
+
         IF pSortColumn = 'ID_ENFOQUE' THEN
             vSortColumn2 := 'E.ID_ENFOQUE';
         ELSIF pSortColumn = 'DESCRIPCION' THEN
@@ -9846,7 +9850,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
         OPEN pRefcursor FOR vQuery;
 
     END USP_SEL_LISTA_ENFOQUE;
-  
+
   /*PROCEDURE USP_SEL_LISTA_ENFOQUE(
         pRefcursor OUT SYS_REFCURSOR
     ) AS
@@ -9860,7 +9864,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
     LEFT JOIN T_MAE_MEDMIT M ON E.ID_MEDMIT = M.ID_MEDMIT 
     ORDER BY E.ID_ENFOQUE ASC;
   END USP_SEL_LISTA_ENFOQUE;*/
-  
+
   PROCEDURE USP_SEL_LISTA_ENFOQUE_FACTOR(
         pID_ENFOQUE IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
@@ -9873,7 +9877,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
         WHERE ID_ENFOQUE = pID_ENFOQUE AND MF.FLAG_ESTADO = '1'
         ORDER BY MF.ORDEN ASC;
     END USP_SEL_LISTA_ENFOQUE_FACTOR;
-    
+
     PROCEDURE USP_UPD_VALIDAR_ENF_FACTOR(
         pID_ENFOQUE IN NUMBER,
         pRefcursor      OUT SYS_REFCURSOR
@@ -9882,11 +9886,11 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
   BEGIN
     SELECT COUNT(1) INTO vValidar FROM T_MAEM_ENFOQUE_FACTOR
     WHERE ID_ENFOQUE = pID_ENFOQUE AND FLAG_ESTADO = '1';
-    
+
     OPEN pRefcursor FOR
     SELECT vValidar VALIDAR FROM DUAL;
   END USP_UPD_VALIDAR_ENF_FACTOR;
-  
+
   PROCEDURE USP_PRC_ENFOQUE_FACTOR(
         pID_FACTOR IN NUMBER,
         pID_ENFOQUE IN NUMBER,
@@ -9904,9 +9908,9 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
                 FLAG_ESTADO = '1'
         WHERE   ID_ENFOQUE = pID_ENFOQUE AND ID_FACTOR = pID_FACTOR;
     END IF;
-        
+
   END USP_PRC_ENFOQUE_FACTOR;
-  
+
   PROCEDURE USP_UPD_ELIMINAR_ENF_FACTOR(
         pID_ENFOQUE IN NUMBER,
         pID_ELIMINAR_FACTOR IN VARCHAR2
@@ -9928,7 +9932,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
         vSql := 'UPDATE T_MAEM_INDICADOR SET FLAG_ESTADO = 0 WHERE ID_ENFOQUE ='||pID_ENFOQUE||'AND ID_MEDMIT = '|| pID_MEDMIT ||'  AND ID_PARAMETRO NOT IN ('||pID_ACTIVO||')';
         EXECUTE IMMEDIATE vSql; 
     END USP_UPD_M_INDICADOR_DEL;
-    
+
     PROCEDURE USP_UPD_VALIDAR_MED_ENFOQUE(
         pID_MEDMIT IN NUMBER,
         pID_ENFOQUE IN NUMBER,
@@ -9938,11 +9942,11 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
   BEGIN
     SELECT COUNT(1) INTO vValidar FROM T_MAEM_INDICADOR
     WHERE ID_MEDMIT = pID_MEDMIT AND ID_ENFOQUE = pID_ENFOQUE;
-    
+
     OPEN pRefcursor FOR
     SELECT vValidar VALIDAR FROM DUAL;
   END USP_UPD_VALIDAR_MED_ENFOQUE;
-  
+
   PROCEDURE USP_SEL_EXCEL_MED_ENF(
         pBuscar     IN VARCHAR2,
         pSortColumn IN VARCHAR2,
@@ -9970,7 +9974,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
 		OPEN pRefcursor FOR vQuery;
 
     END USP_SEL_EXCEL_MED_ENF;
-    
+
     PROCEDURE USP_SEL_EXCEL_MEDIDAMIT(
         pBuscar     IN VARCHAR2,
         pSortColumn IN VARCHAR2,
@@ -10001,7 +10005,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
 		OPEN pRefcursor FOR vQuery;
 
     END USP_SEL_EXCEL_MEDIDAMIT;
-    
+
     PROCEDURE USP_SEL_LISTA_ENFOQUE_F(
         pRefcursor OUT SYS_REFCURSOR
     )AS
@@ -10013,7 +10017,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
         LEFT JOIN T_MAE_MEDMIT M ON E.ID_MEDMIT = M.ID_MEDMIT         
         ORDER BY E.ID_ENFOQUE ASC;
     END USP_SEL_LISTA_ENFOQUE_F;
-    
+
     PROCEDURE USP_SEL_EXCEL_ENF_FAC(
         pBuscar     IN VARCHAR2,
         pSortColumn IN VARCHAR2,
@@ -10039,7 +10043,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
 		OPEN pRefcursor FOR vQuery; 
 
     END USP_SEL_EXCEL_ENF_FAC;
-    
+
     PROCEDURE USP_SEL_LISTA_FORMULA_VERIF(
         pID_ENFOQUE IN NUMBER,
         pID_MEDMIT IN NUMBER,
@@ -10052,7 +10056,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
         INNER JOIN  T_MAEM_MRV_PARAMETRO MP ON FP.ID_PARAMETRO = MP.ID_PARAMETRO
         WHERE   FP.ID_ENFOQUE = pID_ENFOQUE AND FP.ID_MEDMIT = pID_MEDMIT;
     END USP_SEL_LISTA_FORMULA_VERIF;
-    
+
     --=============================================04-03-20
     PROCEDURE USP_SEL_LISTA_TIPO_INICIATIVA(
         pRefcursor  OUT SYS_REFCURSOR
@@ -10064,7 +10068,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
         WHERE   FLAG_ESTADO = '1'
         ORDER BY    ID_TIPO_INICIATIVA;
     END USP_SEL_LISTA_TIPO_INICIATIVA;
-    
+
     --=============================================== 08-03-2020
     PROCEDURE USP_INS_IPCC(
         pIPCC IN VARCHAR2,
@@ -10184,7 +10188,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
 		OPEN pRefcursor FOR vQuery;
 
     END USP_SEL_EXCEL_IPCC;
-    
+
     PROCEDURE USP_INS_NAMA(
         pDESCRIPCION_NAMA IN VARCHAR2,
         pID_NAMA    OUT NUMBER
@@ -10303,7 +10307,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
 		OPEN pRefcursor FOR vQuery;
 
     END USP_SEL_EXCEL_NAMA;
-    
+
     --
     PROCEDURE USP_UPD_PLAZO(                 
         pID_PLAZO_ETAPA_ESTADO IN NUMBER,
@@ -10378,7 +10382,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
         END IF;
 
         vPageIndex := vPagina2 - 1;  
-        
+
         IF pSortColumn = 'ID_PLAZO_ETAPA_ESTADO' THEN
             vSortColumn2 := 'PEE.ID_PLAZO_ETAPA_ESTADO';
         ELSIF pSortColumn = 'ETAPA' THEN
@@ -10450,7 +10454,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
 		OPEN pRefcursor FOR vQuery;
 
     END USP_SEL_EXCEL_PLAZO;
-    
+
      --======================================= 09-03-20
     PROCEDURE USP_SEL_ID_PARAMETRO_DETALLE(
         pID_PARAMETRO IN NUMBER,
@@ -10463,7 +10467,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
         FROM T_MAED_MRV_PARAMETRO 
         WHERE ID_PARAMETRO = pID_PARAMETRO AND ID_DETALLE = pID_DETALLE;
   END USP_SEL_ID_PARAMETRO_DETALLE;
-  
+
   --==================================== 16-03-2020
   PROCEDURE USP_INS_TIPO_INICIATIVA(
         pTIPO_INICIATIVA IN VARCHAR2,
@@ -10582,10 +10586,10 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
 		OPEN pRefcursor FOR vQuery;
 
     END USP_SEL_EXCEL_TIPO_INICIATIVA;
-    
-    
+
+
     --================================================== 19-03-2020
-    
+
     PROCEDURE USP_INS_PARAMETRO(
         pID_PARAMETRO IN NUMBER,
         pNOMBRE_PARAMETRO IN VARCHAR2,
@@ -10623,7 +10627,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
                                 pLEYENDA_PARAMETRO, pDESCRIPCION_METODOLOGIA, pPROCEDIMIENTO, pCONTROL_CALIDAD, pASEGURAMIENTO_CALIDAD, pPROPOSITO,
                                 pFRECUENCIA, pEDITABLE, pVERIFICABLE, '1');
                 END IF;
-            
+
         ELSE
             IF pID_TIPO_CONTROL = 1 THEN
                 UPDATE T_MAEM_MRV_PARAMETRO
@@ -10666,7 +10670,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
         OPEN pR FOR
         SELECT vIdParametro COD FROM DUAL;
     END USP_INS_PARAMETRO;
-    
+
     PROCEDURE USP_INS_PARAM_DETALLE(
         pID_PARAMETRO IN NUMBER,
         pID_DETALLE IN NUMBER,
@@ -10684,7 +10688,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
             WHERE   ID_PARAMETRO = pID_PARAMETRO AND ID_DETALLE = pID_DETALLE;
         END IF;
     END USP_INS_PARAM_DETALLE;
-    
+
     PROCEDURE USP_UPD_ESTADO_PARAM_DETALLE(
         pID_PARAMETRO IN NUMBER,
         pID_ELIMINAR_DETALLE IN VARCHAR2
@@ -10694,7 +10698,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
         vSql := 'UPDATE T_MAED_MRV_PARAMETRO SET FLG_ESTADO = ''0'' WHERE ID_PARAMETRO ='||pID_PARAMETRO||' AND ID_DETALLE IN ('||pID_ELIMINAR_DETALLE||')';
         EXECUTE IMMEDIATE vSql;
     END USP_UPD_ESTADO_PARAM_DETALLE;
-    
+
     PROCEDURE USP_DEL_PARAMETRO(             
         pID_PARAMETRO IN NUMBER
    )AS
@@ -10703,7 +10707,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
              SET FLG_ESTADO = 0
              WHERE ID_PARAMETRO = pID_PARAMETRO;
     END USP_DEL_PARAMETRO;
-    
+
     PROCEDURE USP_GET_PARAMETRO(
         pID_PARAMETRO IN NUMBER,
         pRefcursor  OUT SYS_REFCURSOR
@@ -10729,7 +10733,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
             WHERE   ID_PARAMETRO = pID_PARAMETRO;
 
     END USP_GET_PARAMETRO;
-    
+
     PROCEDURE USP_SEL_BUSCAR_PARAMETRO(
         pBuscar	IN VARCHAR2,
         pRegistros IN INTEGER,
@@ -10763,7 +10767,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
         END IF;
 
         vPageIndex := vPagina2 - 1;  
-        
+
         IF pSortColumn = 'ID_PARAMETRO' THEN
             vSortColumn2 := 'P.ID_PARAMETRO';
         ELSIF pSortColumn = 'ID_TIPO_CONTROL' THEN
@@ -10794,7 +10798,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
 		OPEN pRefcursor FOR vQuery;
 
     END USP_SEL_BUSCAR_PARAMETRO;
-    
+
     PROCEDURE USP_SEL_EXCEL_PARAMETRO(
         pBuscar     IN VARCHAR2,
         pSortColumn IN VARCHAR2,
@@ -10823,6 +10827,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
     END USP_SEL_EXCEL_PARAMETRO;
 
 END PKG_MRV_MANTENIMIENTO;
+
 
 /
 --------------------------------------------------------
@@ -11059,5 +11064,6 @@ END PKG_MRV_MANTENIMIENTO;
     END USP_GET_NOTIFICACION;
 
 end PKG_MRV_NOTIFICACION;
+
 
 /

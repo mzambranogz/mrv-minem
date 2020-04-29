@@ -1,5 +1,5 @@
--------------------------------------------------------------------------------
--- Archivo creado  - lunes-abril-27-2020   
+--------------------------------------------------------
+-- Archivo creado  - miércoles-abril-29-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_PARAMETROS
@@ -84,25 +84,26 @@
     	PI_ID_DETALLE NUMBER,
         PI_NOMBRE_DETALLE VARCHAR2
     );
-    
+
     PROCEDURE USP_GET_UNIDAD_FACTOR(
         PI_ID_FACTOR NUMBER,
         PO_CURSOR OUT SYS_REFCURSOR
     );
-    
+
      PROCEDURE USP_SEL_EXCEL_FACTORES(
         pBuscar     IN VARCHAR2,
         pSortColumn IN VARCHAR2,
         pSortOrder  IN VARCHAR2,
         pRefcursor  OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_FACTORES_PARAM(
         PI_ID_FACTOR IN NUMBER,
         PO_REF OUT SYS_REFCURSOR
     );
-    
+
 end PKG_MRV_PARAMETROS;
+
 
 /
 --------------------------------------------------------
@@ -115,14 +116,14 @@ end PKG_MRV_PARAMETROS;
         pIdMedMit   integer,
         pCursor out SYS_REFCURSOR
   );
-  
+
   PROCEDURE SP_SEL_INICIATIVAS_RPT(
         pIdIniciativa   integer,
         pIdSector integer,
         pIdMedida integer,
         pCursor out SYS_REFCURSOR
   );
-  
+
   PROCEDURE SP_SEL_INSTITUCIONES_RPT(
         pIdMedMit       integer,
         pIdSectorInst   integer,
@@ -235,63 +236,63 @@ end PKG_MRV_PARAMETROS;
     pIDUSUARIO	    IN NUMBER,
     pRefcursor      OUT SYS_REFCURSOR
     );
-    
+
     --///////////////////////////////////////21-02-20
     PROCEDURE USP_SEL_SECTORES(
         pRefcursor OUT SYS_REFCURSOR  
     );
-    
+
     PROCEDURE USP_SEL_MED_SECTOR(
         pID_MEDMIT IN NUMBER,
         --pID_SECTOR_INST IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_ANNO(
         pANNO IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_INI_MED_ANNO_SEC(
         pID_MEDMIT IN NUMBER,
         pID_SECTOR_INST IN NUMBER,
         pANNO IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_INI_SECTOR(
         --pID_SECTOR_INST IN NUMBER,
         pID_MEDMIT IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_CANT_INSTITUCION_MED(
         pID_MEDMIT IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_CANT_REGION_MED(
         pID_MEDMIT IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_TOTAL_GEI_MED(
         pID_MEDMIT IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     --==================================
     PROCEDURE USP_SEL_INI_MED_ANNO(
         pID_MEDMIT IN NUMBER,
         pANNO IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_TOTALES_MED(
         pID_MEDMIT IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_MOSTRAR_GEI_MED(
         pANNO IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
@@ -302,42 +303,42 @@ end PKG_MRV_PARAMETROS;
         pID_MEDMIT IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_FICHA_MEDMIT_ENFOQUE(
         pID_MEDMIT IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_SEL_INICIATIVA_PDF(
         PI_ID_INICIATIVA NUMBER,
         PO_CURSOR OUT SYS_REFCURSOR
     );
-    
+
     PROCEDURE USP_UPD_FICHA_PDF(
         PI_ID_INICIATIVA NUMBER,
         PI_NOMBRE_PDF VARCHAR2
     );
-    
+
     PROCEDURE USP_SEL_FICHA_MINAM(
         pID_MEDMIT NUMBER,
         pANNO NUMBER,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
-    
+
+
     PROCEDURE USP_SEL_FICHA_PARAMETROS(
         pID_MEDMIT NUMBER,
         pID_ENFOQUE NUMBER,
         pRefcursor OUT SYS_REFCURSOR
     );
-    
+
     --========*//////////////////////////////////////////////////////////////////////////////////////////////////////*==================
     --ACUMULADOS
-    
+
     PROCEDURE CALCULO_AUTOMATIZADO(
         pANNO NUMBER
     );
-    
+
     PROCEDURE USP_PRC_ACUMULADO(
         pID_INICIATIVA NUMBER,
         pID_MEDMIT NUMBER,
@@ -346,7 +347,7 @@ end PKG_MRV_PARAMETROS;
         pANNO NUMBER--,   
         --PO OUT SYS_REFCURSOR
     );
-    
+
     FUNCTION FN_GET_VALOR_DATA (         
         pID_INICIATIVA NUMBER,
         pID_ENFOQUE NUMBER,
@@ -354,7 +355,7 @@ end PKG_MRV_PARAMETROS;
         pID_INDICADOR NUMBER,
         pID_PARAMETRO VARCHAR2        
     )RETURN NUMBER;
-    
+
     FUNCTION FN_GET_FACTOR_DATA (         
         pID_INICIATIVA NUMBER,
         pID_ENFOQUE NUMBER,
@@ -365,6 +366,7 @@ end PKG_MRV_PARAMETROS;
     ) RETURN NUMBER;
 
 END PKG_MRV_REPORTES;
+
 
 /
 --------------------------------------------------------
@@ -387,6 +389,7 @@ END PKG_MRV_REPORTES;
         PO_CURSOR OUT SYS_REFCURSOR
     );
 end PKG_MRV_VARIABLES;
+
 
 /
 --------------------------------------------------------
@@ -501,6 +504,7 @@ end PKG_MRV_VARIABLES;
     FUNCTION ENCRYPT_RAW(x IN RAW) RETURN VARCHAR2;
 
 END SHA256;
+
 
 /
 --------------------------------------------------------
@@ -741,8 +745,8 @@ END SHA256;
 
         OPEN PO_CURSOR FOR vQuery;
     END USP_SEL_FACTOR_PAGINADO;
-    
-    
+
+
     --==========================
     PROCEDURE USP_MNT_FACTOR_VALOR(
 		PI_ID_FACTOR NUMBER,
@@ -760,7 +764,7 @@ END SHA256;
             WHERE  ID_FACTOR = PI_ID_FACTOR AND ID_DETALLE = PI_ID_DETALLE; 
         END IF;
     END USP_MNT_FACTOR_VALOR;
-    
+
     PROCEDURE USP_GET_UNIDAD_FACTOR(
         PI_ID_FACTOR NUMBER,
         PO_CURSOR OUT SYS_REFCURSOR
@@ -792,7 +796,7 @@ END SHA256;
 		OPEN pRefcursor FOR vQuery;
 
     END USP_SEL_EXCEL_FACTORES;
-    
+
     PROCEDURE USP_SEL_FACTORES_PARAM(
         PI_ID_FACTOR IN NUMBER,
         PO_REF OUT SYS_REFCURSOR
@@ -806,6 +810,7 @@ END SHA256;
     END USP_SEL_FACTORES_PARAM;
 
 end PKG_MRV_PARAMETROS;
+
 
 /
 --------------------------------------------------------
@@ -856,7 +861,7 @@ end PKG_MRV_PARAMETROS;
   ) AS
   BEGIN
         open pCursor for
-        
+
         SELECT  
                         I.ID_INICIATIVA,
                         M.NUMERO_MEDMIT || '-' || I.ID_INICIATIVA || '-' || EXTRACT(YEAR FROM I.FECHA_IMPLE_INICIATIVA) INDICE,
@@ -867,18 +872,18 @@ end PKG_MRV_PARAMETROS;
                         I.GEI_TOTAL,            
                         I.INVERSION_INICIATIVA,
                         MON.DESCRIPCION
-                        
+
         FROM            T_GENM_INICIATIVA I
         INNER JOIN      T_GENM_USUARIO U ON I.ID_USUARIO=U.ID_USUARIO
         INNER JOIN      T_GENM_INSTITUCION INS ON U.ID_INSTITUCION=INS.ID_INSTITUCION
         INNER JOIN      T_MAE_MEDMIT M ON I.ID_MEDMIT=M.ID_MEDMIT
         INNER JOIN      T_MAE_MONEDA MON ON I.ID_MONEDA=MON.ID_MONEDA
- 
+
         WHERE           (I.ID_INICIATIVA = pIdIniciativa OR pIdIniciativa =0)
                         AND (I.ID_MEDMIT = pIdMedida OR pIdMedida = 0)
                         AND (INS.ID_SECTOR_INSTITUCION = pIdSector OR pIdSector = 0)
         ORDER BY        I.FECHA_IMPLE_INICIATIVA ASC;
-        
+
   END SP_SEL_INICIATIVAS_RPT;
 
 
@@ -889,8 +894,8 @@ end PKG_MRV_PARAMETROS;
   ) AS
   BEGIN
         open pCursor for
-        
-        
+
+
         SELECT  
                         I.ID_INICIATIVA,
                         INS.NOMBRE_INSTITUCION,
@@ -898,7 +903,7 @@ end PKG_MRV_PARAMETROS;
                         M.NOMBRE_MEDMIT,
                         SEC.DESCRIPCION,
                         I.GEI_TOTAL            
-                     
+
         FROM            T_GENM_INICIATIVA I
         INNER JOIN      T_GENM_USUARIO U ON I.ID_USUARIO=U.ID_USUARIO
         INNER JOIN      T_GENM_INSTITUCION INS ON U.ID_INSTITUCION=INS.ID_INSTITUCION
@@ -906,7 +911,7 @@ end PKG_MRV_PARAMETROS;
         INNER JOIN      T_MAE_SECTOR_INST SEC ON INS.ID_SECTOR_INSTITUCION=SEC.ID_SECTOR_INST
         WHERE           (I.ID_MEDMIT = pIdMedMit OR pIdMedMit =0) AND (SEC.ID_SECTOR_INST = pIdSectorInst OR pIdSectorInst =0)
         ORDER BY        INS.NOMBRE_INSTITUCION DESC;
-             
+
   END SP_SEL_INSTITUCIONES_RPT;
 
 
@@ -1345,7 +1350,7 @@ end PKG_MRV_PARAMETROS;
                     ORDER BY INI.ID_INICIATIVA DESC;
             END USP_SEL_BUS_SIMP_PRI_PUBL;
 
-        
+
     --//////////////////////////////////////
     PROCEDURE USP_SEL_SECTORES(
         pRefcursor OUT SYS_REFCURSOR  
@@ -1355,7 +1360,7 @@ end PKG_MRV_PARAMETROS;
         SELECT * FROM T_MAE_SECTOR_INST
         WHERE FLAG_ESTADO = '1';
     END USP_SEL_SECTORES;
-    
+
     PROCEDURE USP_SEL_MED_SECTOR(
         pID_MEDMIT IN NUMBER,
         --pID_SECTOR_INST IN NUMBER,
@@ -1377,7 +1382,7 @@ end PKG_MRV_PARAMETROS;
         GROUP BY NVL(SEC.DESCRIPCION,'SECTOR PUBLICO'), NVL(SEC.ID_SECTOR_INST,1)
         ORDER BY NVL(SEC.ID_SECTOR_INST,1) ASC;
     END USP_SEL_MED_SECTOR;
-    
+
     PROCEDURE USP_SEL_ANNO(
         pANNO IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
@@ -1388,7 +1393,7 @@ end PKG_MRV_PARAMETROS;
         FROM T_MAE_ANNO
         WHERE DESCRIPCION <= pANNO;
     END USP_SEL_ANNO;
-    
+
     PROCEDURE USP_SEL_INI_MED_ANNO_SEC(
         pID_MEDMIT IN NUMBER,
         pID_SECTOR_INST IN NUMBER,
@@ -1403,7 +1408,7 @@ end PKG_MRV_PARAMETROS;
         LEFT JOIN T_GENM_INSTITUCION INS ON U.ID_INSTITUCION = INS.ID_INSTITUCION
         WHERE INS.ID_SECTOR_INSTITUCION = pID_SECTOR_INST AND  EXTRACT(YEAR FROM I.FECHA_IMPLE_INICIATIVA) = pANNO AND I.ID_MEDMIT = pID_MEDMIT;
     END USP_SEL_INI_MED_ANNO_SEC;
-    
+
     PROCEDURE USP_SEL_INI_SECTOR(
         --pID_SECTOR_INST IN NUMBER,
         pID_MEDMIT IN NUMBER,
@@ -1424,7 +1429,7 @@ end PKG_MRV_PARAMETROS;
         GROUP BY NVL(SEC.DESCRIPCION,'SECTOR PUBLICO'), NVL(SEC.ID_SECTOR_INST,1)
         ORDER BY NVL(SEC.ID_SECTOR_INST,1) ASC;
     END USP_SEL_INI_SECTOR;
-    
+
     PROCEDURE USP_SEL_CANT_INSTITUCION_MED(
         pID_MEDMIT IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
@@ -1436,7 +1441,7 @@ end PKG_MRV_PARAMETROS;
         LEFT JOIN T_GENM_USUARIO U ON I.ID_USUARIO = U.ID_USUARIO
         WHERE I.ID_MEDMIT = pID_MEDMIT;
     END USP_SEL_CANT_INSTITUCION_MED;
-    
+
     PROCEDURE USP_SEL_CANT_REGION_MED(
         pID_MEDMIT IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
@@ -1448,7 +1453,7 @@ end PKG_MRV_PARAMETROS;
         LEFT JOIN T_GEND_INICIATIVA_UBICACION UI ON I.ID_INICIATIVA = UI.ID_INICIATIVA
         WHERE I.ID_MEDMIT = pID_MEDMIT;
     END USP_SEL_CANT_REGION_MED;
-    
+
     PROCEDURE USP_SEL_TOTAL_GEI_MED(
         pID_MEDMIT IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
@@ -1478,7 +1483,7 @@ end PKG_MRV_PARAMETROS;
         GROUP BY EXTRACT(YEAR FROM I.FECHA_IMPLE_INICIATIVA), A.DESCRIPCION, SEC.DESCRIPCION, SEC.ID_SECTOR_INST
         ORDER BY EXTRACT(YEAR FROM I.FECHA_IMPLE_INICIATIVA) ASC;
     END USP_SEL_INI_MED_ANNO;
-    
+
     PROCEDURE USP_SEL_TOTALES_MED(
         pID_MEDMIT IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
@@ -1489,19 +1494,19 @@ end PKG_MRV_PARAMETROS;
             (SELECT  SUM(GEI_TOTAL) 
             FROM    T_GENM_INICIATIVA 
             WHERE   ID_MEDMIT = pID_MEDMIT) TOTAL_GEI_REDUCIDO,
-            
+
             (SELECT COUNT(DISTINCT UI.ID_UBICACION) 
             FROM T_GENM_INICIATIVA I
             LEFT JOIN T_GEND_INICIATIVA_UBICACION UI ON I.ID_INICIATIVA = UI.ID_INICIATIVA
             WHERE I.ID_MEDMIT = pID_MEDMIT) TOTAL_REGION,
-            
+
             (SELECT COUNT(U.ID_INSTITUCION) 
             FROM T_GENM_INICIATIVA I
             LEFT JOIN T_GENM_USUARIO U ON I.ID_USUARIO = U.ID_USUARIO
             WHERE I.ID_MEDMIT = pID_MEDMIT) TOTAL_INSTITUCION
         FROM DUAL;
     END USP_SEL_TOTALES_MED;
-    
+
     PROCEDURE USP_SEL_MOSTRAR_GEI_MED(
         pANNO IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
@@ -1515,7 +1520,7 @@ end PKG_MRV_PARAMETROS;
         GROUP BY I.ID_MEDMIT, MM.NOMBRE_MEDMIT
         ORDER BY I.ID_MEDMIT;
     END USP_SEL_MOSTRAR_GEI_MED;
-    
+
     PROCEDURE USP_SEL_FICHA_MEDMIT(
         pID_MEDMIT IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
@@ -1535,7 +1540,7 @@ end PKG_MRV_PARAMETROS;
         GROUP BY MM.ID_MEDMIT, MM.NOMBRE_MEDMIT, MM.DESCRIPCION_MEDMIT, MM.IPSC_MEDMIT, MM.OBJETIVO_MEDMIT,
         NVL(RTRIM(US.NOMBRES_USUARIO) || ' ', '') || NVL(RTRIM(US.APELLIDOS_USUARIO), '');
     END USP_SEL_FICHA_MEDMIT;
-    
+
     PROCEDURE USP_SEL_FICHA_MEDMIT_ENFOQUE(
         pID_MEDMIT IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
@@ -1552,7 +1557,7 @@ end PKG_MRV_PARAMETROS;
         LEFT JOIN T_MAEM_UNIDAD_MEDIDA UM ON MRVP.ID_UNIDAD_MEDIDA = UM.ID_UNIDAD_MEDIDA
         WHERE E.ID_MEDMIT = pID_MEDMIT;
     END USP_SEL_FICHA_MEDMIT_ENFOQUE;
-    
+
     PROCEDURE USP_SEL_INICIATIVA_PDF(
         PI_ID_INICIATIVA NUMBER,
         PO_CURSOR OUT SYS_REFCURSOR
@@ -1563,17 +1568,17 @@ end PKG_MRV_PARAMETROS;
         FROM    T_GENM_INICIATIVA
         WHERE ID_INICIATIVA = PI_ID_INICIATIVA;
     END USP_SEL_INICIATIVA_PDF;
-    
+
     PROCEDURE USP_UPD_FICHA_PDF(
         PI_ID_INICIATIVA NUMBER,
         PI_NOMBRE_PDF VARCHAR2
     )AS
     BEGIN
-        
+
         UPDATE T_GENM_INICIATIVA SET NOMBRE_FICHA = PI_NOMBRE_PDF , ESTADO_FICHA = 1 WHERE ID_INICIATIVA = PI_ID_INICIATIVA;
-        
+
     END USP_UPD_FICHA_PDF;
-    
+
     PROCEDURE USP_SEL_FICHA_MINAM(
         pID_MEDMIT NUMBER,
         pANNO NUMBER,
@@ -1596,7 +1601,7 @@ end PKG_MRV_PARAMETROS;
         GROUP BY A.ID_MEDMIT, A.ID_ENFOQUE, A.ANNO, M.NOMBRE_MEDMIT, M.IPSC_MEDMIT,
                 M.OBJETIVO_MEDMIT, M.DESCRIPCION_MEDMIT, M.METODOLOGIA_MEDMIT, E.DESCRIPCION;
     END USP_SEL_FICHA_MINAM;
-    
+
     PROCEDURE USP_SEL_FICHA_PARAMETROS(
         pID_MEDMIT NUMBER,
         pID_ENFOQUE NUMBER,
@@ -1627,11 +1632,11 @@ end PKG_MRV_PARAMETROS;
                 P.FLG_ESTADO = '1'
         ORDER BY ORDEN;
     END USP_SEL_FICHA_PARAMETROS;
-    
-    
+
+
     --========*//////////////////////////////////////////////////////////////////////////////////////////////////////*==================
     --ACUMULADOS
-    
+
     PROCEDURE CALCULO_AUTOMATIZADO(
         pANNO NUMBER
     )AS
@@ -1657,11 +1662,11 @@ end PKG_MRV_PARAMETROS;
         END LOOP;
     END CALCULO_AUTOMATIZADO;
 
-    
+
     --EJEMPLO DE USO
     --JOB -> 01/01/XXXX
     --ACTIVE  -> EXECUTE PKG_MRV_REPORTES.CALCULO_AUTOMATIZADO(EXTRACT(YEAR FROM SYSDATE));
-    
+
     PROCEDURE USP_PRC_ACUMULADO(
         pID_INICIATIVA NUMBER,
         pID_MEDMIT NUMBER,
@@ -1686,8 +1691,8 @@ end PKG_MRV_PARAMETROS;
         V10 NUMBER;
         V11 NUMBER;
         vsql VARCHAR2(4000);
-        
-        
+
+
         VFACTOR VARCHAR(1000);
     BEGIN
 
@@ -1704,11 +1709,11 @@ end PKG_MRV_PARAMETROS;
                         VDATA := '';
                         SELECT COUNT(*) INTO VDATO FROM T_MAEM_FORMULA_PARAMETRO                         
                         WHERE ID_PARAMETRO = CURINI.ID_PARAMETRO AND ID_ENFOQUE = CURINI.ID_ENFOQUE AND ID_MEDMIT = CURINI.ID_MEDMIT;
-                        
+
                         IF VDATO > 0 THEN
                             SELECT FORMULA_ARMADO INTO VFORMULA FROM T_MAEM_FORMULA_PARAMETRO                         
                             WHERE ID_PARAMETRO = CURINI.ID_PARAMETRO AND ID_ENFOQUE = CURINI.ID_ENFOQUE AND ID_MEDMIT = CURINI.ID_MEDMIT;
-                            
+
                             FOR CUR_IND IN(
                                 select distinct 
                                       regexp_substr(VFORMULA,'[^|]+', 1, level) as VALORES
@@ -1719,7 +1724,7 @@ end PKG_MRV_PARAMETROS;
                             )
                             LOOP                                
                                 SELECT LENGTH(CUR_IND.VALORES) INTO VTAM FROM DUAL; 
-                                
+
                                 IF VTAM =1 THEN
                                     VDATA := VDATA || '' || CUR_IND.VALORES || '';
                                 ELSE
@@ -1728,105 +1733,105 @@ end PKG_MRV_PARAMETROS;
                                         IF VTAM = 4 THEN
                                             --SELECT SUBSTR(CUR_IND.VALORES,2,2) INTO VVAR FROM DUAL;
                                             SELECT SUBSTR(CUR_IND.VALORES,3,1) INTO VVAR FROM DUAL;
-                                            
+
                                             --VVAR := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
                                             VVARPARAM := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
-                                            
+
                                         END IF;
-                                        
+
                                         IF VTAM = 5 THEN
                                             --SELECT SUBSTR(CUR_IND.VALORES,2,3) INTO VVAR FROM DUAL;
                                             SELECT SUBSTR(CUR_IND.VALORES,3,2) INTO VVAR FROM DUAL;
-                                            
+
                                             IF VVAR = '17' THEN
                                                 VVARPARAM := 0;
                                             ELSE
                                                 VVARPARAM := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
                                             END IF;
                                             --VVAR := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
-                                            
+
                                            --VVARPARAM := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
-                                            
+
                                         END IF;
-                                         
+
                                         IF VTAM = 6 THEN
                                             --SELECT SUBSTR(CUR_IND.VALORES,2,4) INTO VVAR FROM DUAL;
                                             SELECT SUBSTR(CUR_IND.VALORES,3,3) INTO VVAR FROM DUAL;
                                             --VVAR := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
-                                            
+
                                             VVARPARAM := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, VVAR);
                                         END IF;
-                                        
+
                                         --VVARPARAM := TO_NUMBER(VVAR,'999999999,99999');
                                         VVAR := TO_CHAR(VVARPARAM, '999999990.0000000000000000');
                                         --VDATA := VDATA || '' || VVARPARAM || '';
-                                        
+
                                         VDATA := VDATA || '' || VVAR || '';
                                     END IF;
-                                    
+
                                     IF VVAR = 'F' THEN
                                         IF VTAM = 4 THEN
                                             --SELECT SUBSTR(CUR_IND.VALORES,2,2) INTO VVAR FROM DUAL;
                                             SELECT SUBSTR(CUR_IND.VALORES,3,1) INTO VVAR FROM DUAL;
-                                            
+
                                             IF VVAR = '3' AND pID_ENFOQUE = 1 THEN
                                                 VVARPARAM := FN_GET_VALOR_DATA(CURINI.ID_INICIATIVA, CURINI.ID_ENFOQUE, CURINI.ID_MEDMIT, CURINI.ID_INDICADOR, '13');
                                             ELSE
                                                 VVARPARAM := FN_GET_FACTOR_DATA (CURINI.ID_INICIATIVA,CURINI.ID_ENFOQUE,CURINI.ID_MEDMIT,CURINI.ID_INDICADOR,VVAR,pANNO);
                                                 --VVAR := TO_CHAR(FN_GET_FACTOR_DATA (CURINI.ID_INICIATIVA,CURINI.ID_ENFOQUE,CURINI.ID_MEDMIT,CURINI.ID_INDICADOR,VVAR));                                                
                                             END IF;
-                                            
+
                                             VVAR := TO_CHAR(VVARPARAM, '999999990.0000000000000000');
                                             --VFACTOR := VFACTOR || '--' || VVAR || '';
                                         END IF;
-                                        
+
                                         IF VTAM = 5 THEN
                                             --SELECT SUBSTR(CUR_IND.VALORES,2,3) INTO VVAR FROM DUAL;
                                             SELECT SUBSTR(CUR_IND.VALORES,3,2) INTO VVAR FROM DUAL;
                                             VVARPARAM := FN_GET_FACTOR_DATA (CURINI.ID_INICIATIVA,CURINI.ID_ENFOQUE,CURINI.ID_MEDMIT,CURINI.ID_INDICADOR,VVAR,pANNO);     
-                                            
+
                                             VVAR := TO_CHAR(VVARPARAM, '999999990.0000000000000000');
                                             --VFACTOR := VFACTOR || '--' || VVAR || '';
                                         END IF;
-                                        
+
                                         IF VTAM = 6 THEN
                                             --SELECT SUBSTR(CUR_IND.VALORES,2,4) INTO VVAR FROM DUAL;
                                             SELECT SUBSTR(CUR_IND.VALORES,3,3) INTO VVAR FROM DUAL;
                                             VVARPARAM := FN_GET_FACTOR_DATA (CURINI.ID_INICIATIVA,CURINI.ID_ENFOQUE,CURINI.ID_MEDMIT,CURINI.ID_INDICADOR,VVAR,pANNO);     
-                                            
+
                                             VVAR := TO_CHAR(VVARPARAM, '999999990.0000000000000000');
                                             --VFACTOR := VFACTOR || '--' || VVAR || '';
                                         END IF;
                                         --VVARPARAM := TO_NUMBER(VVAR,'999999999,99999');
                                         VDATA := VDATA || '' || TRIM(VVAR) || '';
                                     END IF;
-                                    
+
                                     IF VVAR = 'V' THEN
                                         VDATA := VDATA || '365';
                                     END IF;
-                                    
+
                                     IF VVAR = 'C' THEN
-                                            
+
                                         --SELECT SUBSTR(CUR_IND.VALORES,2,VTAM-3) INTO VVAR FROM DUAL;      
                                         SELECT SUBSTR(CUR_IND.VALORES,3,VTAM-3) INTO VVAR FROM DUAL;    
                                         VDATA := VDATA || '' || VVAR || '';
                                     END IF;
-                                    
+
                                     --VDATA := VDATA || '' || VVAR || ' -- ';
                                 END IF;
-                                
+
                                 --VDATA := VDATA || '--' || CUR_IND.VALORES || ' / ';
-                                
+
                             END LOOP;
                             vsql := 'SELECT '|| VDATA ||' FROM DUAL';
                             EXECUTE IMMEDIATE vsql INTO VDATA;
                             VRES := VRES || CURINI.ID_PARAMETRO || '/' || TRIM(TO_CHAR(VDATA, '999999990.0000000000000000')) || '|';
-                            
+
                             --VDATA := VDATA ||' -- ' || TO_CHAR(CURINI.ID_INDICADOR) ||' --- ' || VFORMULA;
                         END IF;
-                        
+
             END LOOP;
-            
+
             VNUM := 0;
             FOR CURRES IN(
                     select distinct 
@@ -1838,9 +1843,9 @@ end PKG_MRV_PARAMETROS;
                     )
                     LOOP   
                         VNUM := VNUM + 1;
-                        
+
                         SELECT SUBSTR(CURRES.VALORES,1,1) INTO VVAR FROM DUAL;
-                        
+
                         IF VVAR = '9' THEN
                             SELECT SUBSTR(CURRES.VALORES, 3, LENGTH(CURRES.VALORES)) INTO VVAR FROM DUAL;   
                             vsql := 'SELECT ROUND('|| '10000' ||'*'|| VVAR ||')/10000 FROM DUAL';
@@ -1852,7 +1857,7 @@ end PKG_MRV_PARAMETROS;
                                 vsql := 'SELECT ROUND('|| '10000' ||'*'|| VVAR ||')/10000 FROM DUAL';
                                 EXECUTE IMMEDIATE vsql INTO V10;
                             END IF;
-                            
+
                             IF VVAR = '11' THEN
                                 --IF LENGTH(V9) >  0 AND LENGTH(V10) > 0 THEN
                                 IF V9 >  0 AND V10 > 0 THEN
@@ -1866,17 +1871,17 @@ end PKG_MRV_PARAMETROS;
                                 END IF;
                             END IF;
                         END IF;
-                                    
+
                     END LOOP;
 
                     INSERT INTO T_GENM_ACUMULADO (ID_INICIATIVA, ID_MEDMIT, ID_ENFOQUE, ID_INDICADOR, ANNO, BAU, INI, REDUCIDO)
                     VALUES (pID_INICIATIVA, pID_MEDMIT, pID_ENFOQUE, pID_INDICADOR, pANNO, V9, V10, V11);        
-            
+
             --OPEN PO FOR
             --SELECT VRES, VFACTOR FROM DUAL;
     END USP_PRC_ACUMULADO;
-    
-    
+
+
     FUNCTION FN_GET_VALOR_DATA (         
         pID_INICIATIVA NUMBER,
         pID_ENFOQUE NUMBER,
@@ -1894,7 +1899,7 @@ end PKG_MRV_PARAMETROS;
         AND IDA.ID_PARAMETRO = pID_PARAMETRO;
         Return (VVAR);
     END;
-    
+
     FUNCTION FN_GET_FACTOR_DATA (         
         pID_INICIATIVA NUMBER,
         pID_ENFOQUE NUMBER,
@@ -1909,10 +1914,10 @@ end PKG_MRV_PARAMETROS;
         VVALOR VARCHAR2(4000);
         VRESULTADO NUMBER(36,16);
     BEGIN   
-    
+
         --SELECT DISTINCT ID_PARAMETRO INTO VVARFAC FROM T_MAEM_MRV_LG_FACTOR_DATA WHERE ID_FACTOR = pID_FACTOR;
         SELECT DISTINCT ID_PARAMETRO INTO VVARFAC FROM T_MAEM_FACTOR_DATA WHERE ID_FACTOR = pID_FACTOR;
-        
+
         IF VVARFAC = '17' THEN
             Return (0);
         ELSE
@@ -1938,28 +1943,29 @@ end PKG_MRV_PARAMETROS;
                         AND IDA.ID_MEDMIT = pID_MEDMIT 
                         AND IDA.ID_INDICADOR = pID_INDICADOR 
                         AND IDA.ID_PARAMETRO = CUR_IND.VALORES;
-                    
+
                         VVALOR := VVALOR || '' || VVARPARAM || '|'; 
                     --END IF;
-                     
+
                 END IF;
-                         
-                
+
+
             END LOOP;
-            
+
             SELECT SUBSTR(VVALOR,1,LENGTH(VVALOR)-1) INTO VVALOR FROM DUAL; 
-            
+
             --SELECT FACTOR INTO VRESULTADO FROM T_MAEM_MRV_LG_FACTOR_DATA 
             SELECT NVL(FACTOR,0.0) INTO VRESULTADO FROM T_MAEM_FACTOR_DATA 
             WHERE ID_FACTOR = pID_FACTOR AND ID_PARAMETRO = VVARFAC AND VALOR = VVALOR;
             Return (VRESULTADO);
-            
+
         END IF;        
-        
+
     END;   
 
 
 END PKG_MRV_REPORTES;
+
 
 /
 --------------------------------------------------------
@@ -2007,6 +2013,7 @@ END PKG_MRV_REPORTES;
     END SP_SEL_REDUCCION_GEI_PASADOS;
 
 end PKG_MRV_VARIABLES;
+
 
 /
 --------------------------------------------------------
@@ -2625,5 +2632,6 @@ BEGIN
     K(63) := to_number('c67178f2', 'xxxxxxxx');
 
 END SHA256;
+
 
 /
