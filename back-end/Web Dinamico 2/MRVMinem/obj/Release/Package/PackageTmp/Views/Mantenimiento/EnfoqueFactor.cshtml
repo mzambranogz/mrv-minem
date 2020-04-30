@@ -106,7 +106,7 @@
                                                                 @foreach (var itemD in item.listaFactor)
                                                                 {
                                                                     <div class="p-1 text-center border-right">
-                                                                        <div class="h6 span badge badge-info w-100 p-3">@itemD.NOMBRE_FACTOR <br><span data-toggle="tooltip" data-placement="top" title="Editar valores del factor @itemD.NOMBRE_FACTOR"><a class="text-white" href="#" onclick="CargarTabla(@itemD.ID_FACTOR)" data-toggle="modal" data-target="#modal-valores"><i class="fas fa fa-edit p-1"></i></a></span></div>
+                                                                        <div class="h6 span badge badge-info w-100 p-3">@itemD.NOMBRE_FACTOR <br><span data-toggle="tooltip" data-placement="top" title="Editar valores del factor @itemD.NOMBRE_FACTOR"><a class="text-white" href="#" onclick="CargarTabla(@itemD.ID_FACTOR,'@itemD.NOMBRE_FACTOR')" data-toggle="modal" data-target="#modal-valores"><i class="fas fa fa-edit p-1"></i></a></span></div>
                                                                     </div>
                                                                 }
                                                             </div>
@@ -344,6 +344,11 @@
                         <div class="modal-body medidas-modal">
                             <div class="row">
                                 <div class="col-12">
+                                    <h6 class="font-weight-bold" id="titulo-factor">FACTOR</h6>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
                                     <div class="table-responsive tabla-principal tabla-detalle-indicadores-1" data-order="tbl-1">
                                         <table class="table table-hover" id="tablaFactor" data-fila="0">
                                             <thead id="tablaCabeceraFactor" data-idfactor="0">
@@ -467,10 +472,60 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-12">
+
+                                    <div id="mensajeCorrecto2" hidden>
+                                        <div class="alert alert-success d-flex align-items-stretch" role="alert">
+                                            <div class="alert-wrap mr-3">
+                                                <div class="sa">
+                                                    <div class="sa-success">
+                                                        <div class="sa-success-tip"></div>
+                                                        <div class="sa-success-long"></div>
+                                                        <div class="sa-success-placeholder"></div>
+                                                        <div class="sa-success-fix"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="alert-wrap">
+                                                <h6>Bien hecho</h6>
+                                                <hr><small class="mb-0">Los datos ingresados fueron guardados exitosamente.</small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="mensajeError2" hidden>
+                                        <div class="alert alert-danger d-flex align-items-stretch" role="alert">
+                                            <div class="alert-wrap mr-3">
+                                                <div class="sa">
+                                                    <div class="sa-error">
+                                                        <div class="sa-error-x">
+                                                            <div class="sa-error-left"></div>
+                                                            <div class="sa-error-right"></div>
+                                                        </div>
+                                                        <div class="sa-error-placeholder"></div>
+                                                        <div class="sa-error-fix"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="alert-wrap">
+                                                <h6>Error de registro</h6>
+                                                <hr><small class="mb-0">Ocurrió un problema durante el guardado de los datos, por favor intente nuevamente.</small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-primary" type="button" onclick="fn_guardarFactor()">Guardar</button>
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                            <div id="botones-guardar2">
+                                <button class="btn btn-primary" type="button" onclick="fn_guardarFactor()">Guardar</button>
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                            </div>
+                            <div id="botones-cerrar2" hidden>
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
+                            </div> 
                         </div>
                     </div>
                 </div>
@@ -479,7 +534,7 @@
     </div>
 </div>
 
-@Html.Hidden("columna", "ID_ENFOQUE")
+@Html.Hidden("columna", "ID_MEDMIT")
 @Html.Hidden("orden", "ASC")
 
 <script src="~/js/script.js"></script>

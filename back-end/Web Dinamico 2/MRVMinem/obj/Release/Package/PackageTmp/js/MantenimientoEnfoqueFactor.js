@@ -55,7 +55,7 @@ function CargarCabeceraDatos(factor) {
                     tr += '     <th class="text-center" scope="col"><span>N°&nbsp;</span></th>';
                     for (var i = 0; i < data.length; i++) {
                         //tr += '     <th scope="col"><span>' + data[i]["NOMBRE_DETALLE"] + '&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador ' + data[i]["NOMBRE_DETALLE"] + '"></i></span></th>';
-                        tr += '     <th scope="col"><span>' + data[i]["NOMBRE_DETALLE"] + '&nbsp;</span></th>';
+                        tr += '     <th scope="col" class="text-center"><span>' + data[i]["NOMBRE_DETALLE"] + '&nbsp;</span></th>';
                         //tr += '     <th class="text-center" style="background-color: ' + data[i]["COLOR_GRUPO"] + ';" scope="col"><span>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador ' + data[i]["NOMBRE_PARAMETRO"] + '"></i></span></th>';
                     }
                     tr += '     <th class="text-center" style="background-color: #007BFF;" scope="col">Más</th>';
@@ -96,7 +96,7 @@ function CargarCuerpoGuardado(filas, factor) {
                                 tr += '<td data-encabezado="Columna 07">';
                                 tr += '     <div class="form-group m-0">';
                                 lista++;
-                                if (data[j]["ID_PARAMETRO"] == 6) {
+                                if (data[j]["ID_PARAMETRO"] == 6) {//style="text-align-last: right;"
                                     tr += '<select class="form-control form-control-sm" id="cbo-det-tbl-1-' + lista + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '">';
                                     tr += '        <option value="0">Seleccionar</option>';
                                     var listaD = data[j]["listaDetalle"];
@@ -198,9 +198,11 @@ function CargarDatosGuardados(factor) {
 
 }
 
-function CargarTabla(factor) {
+function CargarTabla(factor, nombre_factor) {
+    debugger;
     $("#tablaCuerpoFactor").data("delete", "");
     $("#tablaCabeceraFactor").data("idfactor", factor);
+    $("#titulo-factor").html("").html(nombre_factor); //add
     CargarCabeceraDatos(factor);
     CargarDatosGuardados(factor);
 }
@@ -272,9 +274,24 @@ function fn_guardarFactor() {
     var url = baseUrl + "Mantenimiento/GuardarFactores";
     var respuesta = MRV.Ajax(url, item, false);
     if (respuesta.success) {
-        alert("Guardado exitoso");
+        //alert("Guardado exitoso");
+        debugger;
+        $("#mensajeError2").attr("hidden", true);
+        $("#mensajeCorrecto2").removeAttr("hidden");
+        $("#botones-guardar2").attr("hidden", true);
+        $("#botones-cerrar2").removeAttr("hidden");
+    } else {
+        $("#mensajeCorrecto2").attr("hidden", true);
+        $("#mensajeError2").removeAttr("hidden");
     }
 }
+
+$("#modal-valores").on("hidden.bs.modal", function () {
+    $("#mensajeCorrecto2").attr("hidden", true);
+    $("#mensajeError2").attr("hidden", true);
+    $("#botones-cerrar2").attr("hidden", true);
+    $("#botones-guardar2").removeAttr("hidden");
+});
 
 $(document).on("mouseover", "#tablaFactor tbody tr", function () {
     var fila = $(this).find('th:eq(0)').html();
@@ -498,7 +515,7 @@ function cargarTablaMedidaFactor() {
                             tr += '                <div class="list-group sortable-list m-0">';
                             for (var j = 0; j < entidad.length; j++) {
                                 tr += '                        <div class="p-1 text-center border-right">';
-                                tr += '                    <div class="h6 span badge badge-info w-100 p-3">' + entidad[j]["NOMBRE_FACTOR"] + '<br><span data-toggle="tooltip" data-placement="top" title="Editar valores del factor ' + entidad[j]["NOMBRE_FACTOR"] + '"><a class="text-white" href="#" onclick="CargarTabla(' + entidad[j]["ID_FACTOR"] + ')" data-toggle="modal" data-target="#modal-valores"><i class="fas fa fa-edit p-1"></i></a></span></div>';
+                                tr += '                    <div class="h6 span badge badge-info w-100 p-3">' + entidad[j]["NOMBRE_FACTOR"] + '<br><span data-toggle="tooltip" data-placement="top" title="Editar valores del factor ' + entidad[j]["NOMBRE_FACTOR"] + '"><a class="text-white" href="#" onclick="CargarTabla(' + entidad[j]["ID_FACTOR"] + ',\'' + entidad[j]["NOMBRE_FACTOR"] + '\')" data-toggle="modal" data-target="#modal-valores"><i class="fas fa fa-edit p-1"></i></a></span></div>';
                                 tr += '                </div>';
                             }
                             tr += '                </div>';

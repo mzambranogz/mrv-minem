@@ -24,7 +24,7 @@ function fn_CargaIniciativas() {
             CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaEvaluado");
         } else if ($("#estadoIniciativa").data("estado") == 6) {
             CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaVerificado");
-        } else if ($("#estadoIniciativa").data("estado") == 7 || $("#estadoIniciativa").data("estado") == 8) {
+        } else if ($("#estadoIniciativa").data("estado") == 7 || $("#estadoIniciativa").data("estado") == 8 || $("#estadoIniciativa").data("estado") == 9) {
             CargarListarIniciativaMitigacionGeneral(baseUrl + "Gestion/ListaTodo");
         }
 
@@ -507,6 +507,22 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                                 tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_mostrarCorregirIndicador(' + data[i]["ID_INICIATIVA"] + ', ' + data[i]["ID_TIPO_INGRESO"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
                             }
                         }
+
+                        //==============================
+                        if ($('#Control').data('rol') == 2) {
+                            if (data[i]["PROGRESO"] == 1 && data[i]["ID_ESTADO"] == 0 && $('#Control').data('rol') == 2) {
+                                tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_mostrarEditarIniciativa(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
+                            } else if (data[i]["PROGRESO"] == 1 && (data[i]["ID_ESTADO"] == 2 || data[i]["ID_ESTADO"] == 6) && $('#Control').data('rol') == 2) {
+                                tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_mostrarCorregirIniciativa(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
+                            } else if (data[i]["PROGRESO"] == 2 && $('#Control').data('rol') == 2 && data[i]["ID_ESTADO"] == 3) {
+                                tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_cargarIdIniciativa(' + data[i]["ID_INICIATIVA"] + ');" data-toggle="modal" data-target="#tipo-ingreso-detalle"><i class="fas fa-clipboard-list"></i>&nbsp;Agregar detalle</a>';
+                            } else if (data[i]["PROGRESO"] == 3 && data[i]["ID_ESTADO"] == 0 && $('#Control').data('rol') == 2) {
+                                tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_mostrarEditarIndicador(' + data[i]["ID_INICIATIVA"] + ', ' + data[i]["ID_TIPO_INGRESO"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
+                            } else if (data[i]["PROGRESO"] == 3 && (data[i]["ID_ESTADO"] == 2 || data[i]["ID_ESTADO"] == 6) && $('#Control').data('rol') == 2) {
+                                tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_mostrarCorregirIndicador(' + data[i]["ID_INICIATIVA"] + ', ' + data[i]["ID_TIPO_INGRESO"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
+                            }
+                        }
+                        //================================================
 
                         if (estado_iniciativa == 1) {
                             if ($('#Control').data('rol') == 2 && data[i]["PROGRESO"] == 1 && (data[i]["ID_ESTADO"] == 1 || data[i]["ID_ESTADO"] == 5)) {

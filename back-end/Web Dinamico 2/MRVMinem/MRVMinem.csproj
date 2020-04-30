@@ -382,13 +382,6 @@
     <Content Include="Documentos\Manual_Usuario_MRV.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Log\Sistema20200123.log" />
-    <Content Include="Log\Sistema20200124.log" />
-    <Content Include="Log\Sistema20200125.log" />
-    <Content Include="Log\Sistema20200126.log" />
-    <Content Include="Log\Sistema20200127.log" />
-    <Content Include="Log\Sistema20200128.log" />
-    <Content Include="Log\Sistema20200129.log" />
     <Content Include="fonts\fa-brands-400.eot" />
     <Content Include="fonts\fa-brands-400.ttf" />
     <Content Include="fonts\fa-brands-400.woff" />

@@ -111,14 +111,14 @@ function fn_validar(e) {
         arr.push("Debe aceptar los términos y condiciones");
     }
 
-    var item = {
-        TOKEN: $("#TOKEN").val()
-    };
-    var url = baseUrl + "Home/VerificarCaptcha";
-    var respuesta = MRV.Ajax(url, item, false);
-    if (!respuesta.success) {
-        arr.push("Por favor verificar el captcha.");
-    }
+    //var item = {
+    //    TOKEN: $("#TOKEN").val()
+    //};
+    ////var url = baseUrl + "Home/VerificarCaptcha";
+    //var respuesta = MRV.Ajax(url, item, false);
+    //if (!respuesta.success) {
+    //    arr.push("Por favor verificar el captcha.");
+    //}
     //if (grecaptcha.getResponse() == "") {
     //    e.preventDefault();
     //    arr.push("Por favor verificar el captcha.");
@@ -284,7 +284,44 @@ $(document).ready(function () {
 
     //$("#btnRegistrar").removeClass("btn-primary").addClass("btn-default");
     $("#btnRegistrar").click(function (e) {
-        fn_validar(e);
+        
+        grecaptcha.ready(function () {
+
+            grecaptcha.execute(key, { action: 'Gestion/AccionMitigacion' }).then(function (token) {
+                var item = {
+                    TOKEN: token
+                };
+                var url = baseUrl + "Home/VerificarCaptcha";
+                var respuesta = MRV.Ajax(url, item, false);
+                if (!respuesta.success) {
+
+                    var msj = '                      <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="errorRegistro">';
+                    msj = msj + '                           <div class="alert-wrap mr-3">';
+                    msj = msj + '                                <div class="sa">';
+                    msj = msj + '                                    <div class="sa-error">';
+                    msj = msj + '                                        <div class="sa-error-x">';
+                    msj = msj + '                                            <div class="sa-error-left"></div>';
+                    msj = msj + '                                            <div class="sa-error-right"></div>';
+                    msj = msj + '                                        </div>';
+                    msj = msj + '                                        <div class="sa-error-placeholder"></div>';
+                    msj = msj + '                                        <div class="sa-error-fix"></div>';
+                    msj = msj + '                                    </div>';
+                    msj = msj + '                                </div>';
+                    msj = msj + '                            </div>';
+                    msj = msj + '                            <div class="alert-wrap">';
+                    msj = msj + '                                <h6>Error de registro</h6>';
+                    msj = msj + '                                <ul><li><small class="mb-0">Por favor verificar el captcha.</small></li></ul>';
+                    msj = msj + '                            </div>';
+                    msj = msj + '                        </div>';
+                    $("#seccionMensaje").append(msj);
+
+                } else {
+                    fn_validar(e);
+                }
+
+            });
+        });
+
     });
 });
 

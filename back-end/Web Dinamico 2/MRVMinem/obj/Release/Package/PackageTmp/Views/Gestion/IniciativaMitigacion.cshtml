@@ -5,6 +5,8 @@
 }
 @Html.HiddenFor(m => m.iniciativa_mit.ID_INICIATIVA)
 @Html.HiddenFor(m => m.iniciativa_mit.ID_MEDMIT)
+@Html.HiddenFor(m => m.id_sector)
+@Html.HiddenFor(m => m.id_rol)
 
 <div class="container-fluid map-root" id="historia">
     <div class="container">
@@ -408,9 +410,40 @@
                                         {
                                             foreach (var item in Model.listaMedidaMitigacion)
                                             {
-                                                <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
+                                                @*<div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
                                                     <div class="rounded py-3"><a class="d-inline-block" href="#" onclick="fn_cambiarIniciativaMitigacion(@item.ID_MEDMIT);" data-toggle="tooltip" data-placement="top" title="@item.NOMBRE_MEDMIT"><img src="~/images/medida_mitigacion/@item.ADJUNTO" class="img-fluid"></a></div><small class="font-weight-bold">@item.NOMBRE_MEDMIT</small>
-                                                </div>
+                                                </div>*@
+
+                                                if (Convert.ToInt32(Session["rol"]) == 2)
+                                                {
+                                                    if (item.USUARIO_ASOCIADO_MEDMIT == 100)
+                                                    {
+                                                        <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
+                                                            <div class="rounded py-3"><a class="d-inline-block" href="javascript:void(0);" onclick="fn_cambiarIniciativaMitigacion(@item.ID_MEDMIT);" data-toggle="tooltip" data-placement="top" title="@item.NOMBRE_MEDMIT"><img src="~/images/medida_mitigacion/@item.ADJUNTO" class="img-fluid"></a></div><small class="font-weight-bold">@item.NOMBRE_MEDMIT</small>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center" style="opacity: 0.2; filter: grayscale(1);">
+                                                            <div class="rounded py-3"><a class="d-inline-block" href="javascript:void(0);" @*onclick="enviarIniciativa(@item.ID_MEDMIT)"*@ data-toggle="tooltip" data-placement="top" title="@item.NOMBRE_MEDMIT"><img src="~/images/medida_mitigacion/@item.ADJUNTO" class="img-fluid"></a></div><small class="font-weight-bold">@item.NOMBRE_MEDMIT</small>
+                                                        </div>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    if (Model.id_sector == item.USUARIO_ASOCIADO_MEDMIT)
+                                                    {
+                                                        <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
+                                                            <div class="rounded py-3"><a class="d-inline-block" href="javascript:void(0);" onclick="fn_cambiarIniciativaMitigacion(@item.ID_MEDMIT);" data-toggle="tooltip" data-placement="top" title="@item.NOMBRE_MEDMIT"><img src="~/images/medida_mitigacion/@item.ADJUNTO" class="img-fluid"></a></div><small class="font-weight-bold">@item.NOMBRE_MEDMIT</small>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center" style="opacity: 0.2; filter: grayscale(1);">
+                                                            <div class="rounded py-3"><a class="d-inline-block" href="javascript:void(0);" @*onclick="enviarIniciativa(@item.ID_MEDMIT)"*@ data-toggle="tooltip" data-placement="top" title="@item.NOMBRE_MEDMIT"><img src="~/images/medida_mitigacion/@item.ADJUNTO" class="img-fluid"></a></div><small class="font-weight-bold">@item.NOMBRE_MEDMIT</small>
+                                                        </div>
+                                                    }
+                                                }
                                             }
                                         }
                                         @*<div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">

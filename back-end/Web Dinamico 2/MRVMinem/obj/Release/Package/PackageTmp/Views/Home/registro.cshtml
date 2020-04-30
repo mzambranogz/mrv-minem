@@ -312,11 +312,14 @@
 
 <script src="https://www.google.com/recaptcha/api.js?render=@Model.ReCAPTCHA_Site_Key"></script>
 <script>
-    grecaptcha.ready(function () {
+
+    var key = '@Model.ReCAPTCHA_Site_Key';
+
+    @*grecaptcha.ready(function () {
 
         grecaptcha.execute('@Model.ReCAPTCHA_Site_Key', { action: 'Gestion/AccionMitigacion' }).then(function (token) {
             console.log(token);
             $("#TOKEN").val(token);
         });
-    });
+    });*@
 </script>

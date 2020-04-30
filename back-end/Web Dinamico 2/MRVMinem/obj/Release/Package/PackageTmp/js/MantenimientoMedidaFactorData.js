@@ -198,9 +198,10 @@ function CargarDatosGuardados(factor) {
 
 }
 
-function CargarTabla(factor) {
+function CargarTabla(factor, nombre_factor) {
     $("#tablaCuerpoFactor").data("delete", "");
     $("#tablaCabeceraFactor").data("idfactor", factor);
+    $("#titulo-factor").html("").html(nombre_factor); //add
     CargarCabeceraDatos(factor);
     CargarDatosGuardados(factor);
 }
@@ -489,7 +490,7 @@ function cargarTablaMedidaFactor() {
                             tr += '                <div class="list-group sortable-list m-0">';
                             for (var j = 0; j < entidad.length; j++) {                                
                                 tr += '                        <div class="p-1 text-center border-right">';
-                                tr += '                    <div class="h6 span badge badge-info w-100 p-3">' + entidad[j]["NOMBRE_FACTOR"] + '<br><span data-toggle="tooltip" data-placement="top" title="Editar valores del factor ' + entidad[j]["NOMBRE_FACTOR"] + '"><a class="text-white" href="#" onclick="CargarTabla(' + entidad[j]["ID_FACTOR"] + ')" data-toggle="modal" data-target="#modal-valores"><i class="fas fa fa-edit p-1"></i></a></span></div>';
+                                tr += '                    <div class="h6 span badge badge-info w-100 p-3">' + entidad[j]["NOMBRE_FACTOR"] + '<br><span data-toggle="tooltip" data-placement="top" title="Editar valores del factor ' + entidad[j]["NOMBRE_FACTOR"] + '"><a class="text-white" href="#" onclick="CargarTabla(' + entidad[j]["ID_FACTOR"] + ',\'' + entidad[j]["NOMBRE_FACTOR"] + '\')" data-toggle="modal" data-target="#modal-valores"><i class="fas fa fa-edit p-1"></i></a></span></div>';
                                 tr += '                </div>';
                             }
                             tr += '                </div>';

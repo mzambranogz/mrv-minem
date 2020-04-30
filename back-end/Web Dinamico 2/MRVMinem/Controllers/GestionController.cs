@@ -242,6 +242,9 @@ namespace MRVMinem.Controllers
                 ida.ID_INICIATIVA = id;
                 modelo.iniciativa_mit = inic;
                 modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
+
+                if(modelo.iniciativa_mit.ListaSustentos.Count > 0) modelo.iniciativa_mit.ListaSustentos = limpiarFileSustento(modelo.iniciativa_mit.ListaSustentos);//add
+
                 //modelo.listaIndicador = IndicadorLN.ListarDetalleIndicadorDatos(modelo.iniciativa_mit);
                 modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
                 //modelo.listaEnfoque = EnfoqueLN.listarEnfoqueIniciativa(modelo.iniciativa_mit.ID_INICIATIVA);
@@ -1304,7 +1307,7 @@ namespace MRVMinem.Controllers
                 IniciativaBE iniciativa = new IniciativaBE();
                 UsuarioBE usu = UsuarioLN.UsuarioAdministrador();
                 iniciativa.EMAIL_USUARIO = usu.EMAIL_USUARIO;
-                iniciativa.EMAIL_USUARIO = "juancarlossotoc1990@gmail.com";
+                //iniciativa.EMAIL_USUARIO = "juancarlossotoc1990@gmail.com";
                 iniciativa.VALIDAR_RUTA = 1;
                 iniciativa.ASUNTO = "Observación Iniciativa de Mitigación - MRVMinem";
                 iniciativa.SALUDO = "Estimado Sr(a): " + usu.NOMBRES + "<br/></br/>";
@@ -3210,6 +3213,33 @@ namespace MRVMinem.Controllers
                 archivo.Remove(item);
             }
             return archivo;
+        }
+
+        public List<SustentoIniciativaBE> limpiarFileSustento(List<SustentoIniciativaBE> sustento)
+        {
+            List<SustentoIniciativaBE> new_lista = new List<SustentoIniciativaBE>();
+            string cod_file = "";
+            int cod_ini = 0;
+            foreach (var item in sustento)
+            {
+                if (item.ADJUNTO != null)
+                {
+                    new_lista.Add(item);
+                }
+                else
+                {
+                    cod_file = item.ID_INICIATIVA_SUSTENTATORIO + ",";
+                    cod_ini = item.ID_INICIATIVA;
+                }
+            }
+
+            if (!string.IsNullOrEmpty(cod_file))
+            {
+                cod_file.Substring(0, cod_file.Length - 1);
+                IndicadorLN.EliminarIndicadoresFile(new IniciativaBE { ID_INICIATIVA = cod_ini, ID_INDICADOR_ELIMINAR = cod_file });
+            }
+            
+            return new_lista;
         }
 
     }    

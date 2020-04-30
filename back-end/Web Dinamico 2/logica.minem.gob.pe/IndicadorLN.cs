@@ -181,6 +181,15 @@ namespace logica.minem.gob.pe
             return entidad;
         }
 
+        //add
+
+        public static IniciativaBE removerFile(IniciativaBE entidad)
+        {
+            return indicador.RegistrarEnvioDetalle(entidad);
+        }
+
+        //add
+
         public static IniciativaBE RegistrarEnvioDetalle(IniciativaBE entidad)
         {
             return indicador.RegistrarEnvioDetalle(entidad);

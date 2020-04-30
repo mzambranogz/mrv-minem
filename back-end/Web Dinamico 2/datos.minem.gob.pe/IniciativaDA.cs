@@ -1282,7 +1282,7 @@ namespace datos.minem.gob.pe
                     }
                     else if (entidad.ID_ESTADO == 9)
                     {
-                        entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,9,10))";
+                        entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,9,10,11,12,13,14,15,16,17,18,19,20,21,22))";
                     }
                     //if (entidad.ID_ROL == 1)
                     //{
@@ -1560,7 +1560,7 @@ namespace datos.minem.gob.pe
                     }
                     else if (entidad.ID_ESTADO == 9)
                     {
-                        entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,9,10))";
+                        entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,9,10,11,12,13,14,15,16,17,18,19,20,21,22))";
                     }
                     //var p = new OracleDynamicParameters();
                     //if (entidad.ID_ROL == 1)
@@ -1706,7 +1706,7 @@ namespace datos.minem.gob.pe
                     }
                     else if (entidad.ID_ESTADO == 9)
                     {
-                        entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,9,10))";
+                        entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,9,10,11,12,13,14,15,16,17,18,19,20,21,22))";
                     }
                     //var p = new OracleDynamicParameters();
                     //if (entidad.ID_ROL == 1)

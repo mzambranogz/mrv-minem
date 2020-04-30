@@ -1578,6 +1578,7 @@ C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\bin\EPPlus.dll
 C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\bin\itextsharp.dll
 C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\bin\logica.minem.gob.pe.dll
 C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\bin\Microsoft.ReportViewer.WebForms.dll
 C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\bin\Newtonsoft.Json.dll
 C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\bin\System.Web.Helpers.dll
@@ -1590,6 +1591,7 @@ C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\bin\utilitario.mine
 C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\bin\datos.minem.gob.pe.dll
 C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\bin\Dapper.dll
 C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\bin\Oracle.DataAccess.dll
+C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\bin\Microsoft.SqlServer.Types.dll
 C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\bin\entidad.minem.gob.pe.pdb
 C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\bin\logica.minem.gob.pe.pdb
 C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\bin\utilitario.minem.gob.pe.pdb
@@ -1611,11 +1613,6 @@ C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\bin\es\System.Web.W
 C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\bin\es\System.Web.Webpages.Razor.resources.dll
 C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\bin\es\System.Web.Helpers.resources.dll
 C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\bin\es\System.Web.Mvc.resources.dll
-C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\obj\Debug\MRVMinem.csprojResolveAssemblyReference.cache
-C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\obj\Debug\MRVMinem.dll
-C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\obj\Debug\MRVMinem.pdb
-C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\bin\Microsoft.ReportViewer.WebForms.dll
-C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\bin\Microsoft.SqlServer.Types.dll
 C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\bin\de\Microsoft.SqlServer.Types.resources.dll
 C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\bin\es\Microsoft.SqlServer.Types.resources.dll
 C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\bin\fr\Microsoft.SqlServer.Types.resources.dll
@@ -1626,5 +1623,8 @@ C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\bin\pt\Microsoft.Sq
 C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\bin\ru\Microsoft.SqlServer.Types.resources.dll
 C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\bin\zh-Hans\Microsoft.SqlServer.Types.resources.dll
 C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\bin\zh-Hant\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\obj\Debug\MRVMinem.csprojResolveAssemblyReference.cache
 C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\obj\Debug\RdlCompile.cache
 C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\obj\Debug\RdlCompile.compiled
+C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\obj\Debug\MRVMinem.dll
+C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\obj\Debug\MRVMinem.pdb
