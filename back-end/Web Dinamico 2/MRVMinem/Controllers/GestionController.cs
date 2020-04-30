@@ -3217,27 +3217,36 @@ namespace MRVMinem.Controllers
 
         public List<SustentoIniciativaBE> limpiarFileSustento(List<SustentoIniciativaBE> sustento)
         {
+
             List<SustentoIniciativaBE> new_lista = new List<SustentoIniciativaBE>();
             string cod_file = "";
             int cod_ini = 0;
-            foreach (var item in sustento)
-            {
-                if (item.ADJUNTO != null)
-                {
-                    new_lista.Add(item);
-                }
-                else
-                {
-                    cod_file = item.ID_INICIATIVA_SUSTENTATORIO + ",";
-                    cod_ini = item.ID_INICIATIVA;
-                }
-            }
 
-            if (!string.IsNullOrEmpty(cod_file))
+            try
             {
-                cod_file.Substring(0, cod_file.Length - 1);
-                IndicadorLN.EliminarIndicadoresFile(new IniciativaBE { ID_INICIATIVA = cod_ini, ID_INDICADOR_ELIMINAR = cod_file });
+                foreach (var item in sustento)
+                {
+                    if (item.ADJUNTO != null)
+                    {
+                        new_lista.Add(item);
+                    }
+                    else
+                    {
+                        cod_file = item.ID_INICIATIVA_SUSTENTATORIO + ",";
+                        cod_ini = item.ID_INICIATIVA;
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(cod_file))
+                {
+                    cod_file.Substring(0, cod_file.Length - 1);
+                    IndicadorLN.EliminarIndicadoresFile(new IniciativaBE { ID_INICIATIVA = cod_ini, ID_INDICADOR_ELIMINAR = cod_file });
+                }
             }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }   
             
             return new_lista;
         }
