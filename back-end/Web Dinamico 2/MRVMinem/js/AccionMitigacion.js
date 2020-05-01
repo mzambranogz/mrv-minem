@@ -249,9 +249,9 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
                         tr = tr + '         <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
                         tr = tr + '         <div class="dropdown-menu dropdown-menu-right">';
                         if (data[i]["PROGRESO"] == 1 || data[i]["PROGRESO"] == 2) {
-                            tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_verMasPrivadoIniciativaP(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-plus-circle"></i>&nbsp;Ver más</a>';
+                            tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_verMasPrivadoIniciativaP(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-plus-circle"></i>&nbsp;Ver detalles</a>';
                         } else if (data[i]["PROGRESO"] >= 3) {
-                            tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_verMasPrivadoIniciativaDetalleP(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-plus-circle"></i>&nbsp;Ver más</a>';
+                            tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_verMasPrivadoIniciativaDetalleP(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-plus-circle"></i>&nbsp;Ver detalles</a>';
                         }
                         if (p >= 6) {
                             tr = tr + '        <a class="dropdown-item" href="#" onclick="fn_visualizarFichaPublica(' + data[i]["ID_INICIATIVA"] + ',' + p + ');" id="ficha-' + data[i]["ID_INICIATIVA"] + '" data-ficha="' + data[i]["ESTADO_FICHA"] + '"><i class="fas fa-download"></i>&nbsp;Descargar ficha</a>';
@@ -408,6 +408,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                         }
 
                         var tr = '<tr>';
+                        //debugger;
                         //tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + (1 + i) + '</th>'; 
                         //tr = tr + '<th class="text-center" data-encabezado="Número" scope="row">' + data[i]["RowNumber"] + '</th>';
                         tr = tr + '<th class="text-center fila-inicio" data-encabezado="Número" scope="row">' + data[i]["ID_INICIATIVA"] + '</th>';
@@ -489,11 +490,14 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                         }
                         tr = tr + '         <div class="dropdown-menu dropdown-menu-right">';
                         if (data[i]["PROGRESO"] == 1 || data[i]["PROGRESO"] == 2) {
-                            tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_verMasPrivadoIniciativaG(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-plus-circle"></i>&nbsp;Ver más</a>';
+                            tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_verMasPrivadoIniciativaG(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-plus-circle"></i>&nbsp;Ver detalles</a>';
                         } else if (data[i]["PROGRESO"] >= 3) {
-                            tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_verMasPrivadoIniciativaDetalleG(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-plus-circle"></i>&nbsp;Ver más</a>';
+                            tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_verMasPrivadoIniciativaDetalleG(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-plus-circle"></i>&nbsp;Ver detalles</a>';
                         }
                         tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_mostrarSeguimiento(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-history"></i>&nbsp;Seguimiento</a>';
+                        //add 01-05-2020
+                        //tr = tr + '             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-observaciones"><i class="fas fa-envelope"></i>&nbsp;Observaciones</a>';
+                        tr = tr + '             <a class="dropdown-item" href="javascript:void(0);" onclick="mostrarObservacion(' + data[i]["ID_INICIATIVA"] + ')"><i class="fas fa-envelope"></i>&nbsp;Observaciones</a>';
                         if ($('#Control').data('rol') == 2 || $('#Control').data('rol') == 1) {
                             if (data[i]["PROGRESO"] == 1 && data[i]["ID_ESTADO"] == 0 && $('#Control').data('rol') == 1) {
                                 tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_mostrarEditarIniciativa(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
@@ -563,6 +567,10 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                         tr = tr + '         </div>';
                         tr = tr + '     </div>';
                         tr = tr + '</td>';
+
+                        //add 01-05-2020
+                        tr = tr + '<td class="text-center text-xs-right" data-encabezado="Descargas"><a class="text-dark" href="javascript:void(0);"><i class="fas fa-download"></i></a></td>';
+
                         tr = tr + '</tr>';
                         $("#cuerpoMitigacion").append(tr);
                         $('[data-toggle="tooltip"]').tooltip();
@@ -594,6 +602,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                 $("#pagina-actual").html(1);
                 $("#total-paginas").html(1);
                 $("#pagina").val(1);
+                $("#ocultar-enviado").hide(); //add 01-05-2020
             }
             $('[data-toggle="tooltip"]').tooltip();
             $("#tbl-main-preload").html("");
@@ -1380,6 +1389,25 @@ function fn_filtrarEstado(opc, t) {
     var $a = $t.parent().prev();
     $a.html($e);
     $("#estadoIniciativa").data("estado", opc);
+
+    // add 01-05-2020
+    if ($('#Control').data('rol') == 3) {
+        if ($("#estadoIniciativa").data("estado") == 4) {
+            $(".btn-enviar").removeClass("d-none");
+        } else {
+            $(".btn-enviar").addClass("d-none");
+        }
+    }
+
+    // add 01-05-2020
+    if ($('#Control').data('rol') == 4) {
+        if ($("#estadoIniciativa").data("estado") == 1) {
+            $(".btn-evaluar").removeClass("d-none");
+        } else {
+            $(".btn-evaluar").addClass("d-none");
+        }
+    }
+
     fn_CargaIniciativas();
 }
 
@@ -1983,7 +2011,8 @@ function fn_aprobarPaquete() {
     });
     id_iniciativa = id_iniciativa.substring(0, id_iniciativa.length - 1);
 
-    debugger;
+    //debugger;
+    $("#seccionMensaje3 #errorRegistro").remove(); //add
     if ($("#cbo-medida-mitigacion").val() == 0 || $("#txt-fecha-inicio").val() == "" || $("#txt-fecha-fin").val() == "") {
         fn_msjErrorA('<hr><small class="mb-0">Por favor, seleccione la medida de mitigación y el período de las fechas en que se aprobarán las iniciativas.</small>');
     } else {
@@ -1997,9 +2026,11 @@ function fn_aprobarPaquete() {
 
 
 function fn_aprobarPaqueteIniciativa(id_iniciativa) {
+    $("#seccionMensaje3 #errorRegistro").remove(); //add
     $("#msjCorrectoAprobar").attr("hidden", true);
     $("#msjErrorAprobar").attr("hidden", true);
-    $("#pieAprobar").hide();
+    $("#pieCorrectoAprobar").attr("hidden", true);
+    $("#pieAprobar").removeAttr("hidden");
     var item = {
         //ID_USUARIO: id_actor,        
         //ID_ROL: rol,
@@ -2007,13 +2038,15 @@ function fn_aprobarPaqueteIniciativa(id_iniciativa) {
     };
     var respuesta = MRV.Ajax(baseUrl + "Gestion/AprobarIniciativaMasivo", item, false);
     if (respuesta.success) {
-        $("#pieCorrectoAprobar").show();
+        $("#pieAprobar").attr("hidden", true);
+        $("#pieCorrectoAprobar").removeAttr("hidden");
         $("#msjCorrectoAprobar").removeAttr("hidden");
         //alert("Registro exitoso");
         fn_CargaIniciativas();
     } else {
         //alert("Error");
-        $("#pieCorrectoAprobar").show();
+        $("#pieAprobar").attr("hidden", true);
+        $("#pieCorrectoAprobar").removeAttr("hidden");
         $("#msjErrorAprobar").removeAttr("hidden");
     }
 
@@ -2046,7 +2079,7 @@ $("#modal-aprobacion-evaluador").on("hidden.bs.modal", function () {
     $("#msjCorrectoAprobar").attr("hidden", true);
     $("#msjErrorAprobar").attr("hidden", true);
     $("#seccionMensaje3 #errorRegistro").remove();
-    $("#pieAprobar").show();
+    $("#pieAprobar").removeAttr("hidden");
     $("#pieCorrectoAprobar").attr("hidden", true);
 });
 
@@ -2166,6 +2199,65 @@ function fn_descargarFichaPublica(id, p) {
         window.open(urlMostrar, "_blank");
         $("#ficha-" + id).data("ficha", 1);
     }
+}
+
+function mostrarObservacion(id) {
+
+    var item = {
+        ID_INICIATIVA: id
+    };
+    $.ajax({
+        url: baseUrl + "Gestion/MostrarMensajeObservacion",
+        type: 'POST',
+        datatype: 'json',
+        data: item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    for (var i = 0; i < data.length; i++) {
+                        var color_r = "";
+                        var color_u = "";
+                        $("#usu-remitente").html("").html(data[i]["NOMBRES_REMITENTE"]);
+                        $("#rol-remitente").html("").html(data[i]["ROL_REMITENTE"]);
+                        $("#usu-destino").html("").html(data[i]["NOMBRES"]);
+                        $("#rol-destino").html("").html(data[i]["ROL"]);
+                        color_r = obtenerColor(data[i]["ID_ROL_REMITENTE"]);
+                        color_u = obtenerColor(data[i]["ID_ROL"]);
+                        $("#rol-remitente").removeClass("badge-actor-02 badge-actor-06 badge-actor-03 badge-actor-04 badge-actor-05").addClass("badge-actor-" + color_r);
+                        $("#rol-destino").removeClass("badge-actor-02 badge-actor-06 badge-actor-03 badge-actor-04 badge-actor-05").addClass("badge-actor-" + color_u);
+                        $("#fecha-observacion").html("").html(data[i]["FECHA"]);
+                        $("#txa-observacion").val(data[i]["OBSERVACIONES"]);
+                        $("#id-ini").data("value", id);
+                    }
+                    $('#modal-observaciones').modal('show');
+                }
+            } else {
+                $('#modal-observaciones-none').modal('show');
+            }
+        }
+    });
+
+}
+
+function obtenerColor(rol) {
+    var color = "";
+    if (rol == 1) {
+        color = "02";
+    } else if (rol == 2) {
+        color = "03";
+    } else if (rol == 3) {
+        color = "06";
+    } else if (rol == 4) {
+        color = "04";
+    } else if (rol == 5) {
+        color = "05";
+    }
+    return color;
+}
+
+function verObservSeguimiento() {
+    var id = $("#id-ini").data("value");
+    location.href = baseUrl + "Gestion/SeguimientoIniciativa/" + id + "/" + Math.round(Math.random() * 100);
 }
 
 

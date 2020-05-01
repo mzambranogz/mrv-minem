@@ -73,5 +73,9 @@ namespace entidad.minem.gob.pe
         public string DESCRIPCION_MEDMIT { get; set; }
         public string OBJETIVO_MEDMIT { get; set; }
         public int ESTADO_FICHA { get; set; }
+        public string NOMBRES_REMITENTE { get; set; } //ADD
+        public string ROL_REMITENTE { get; set; } //ADD
+        public int ID_ROL_REMITENTE { get; set; } //ADD
+        public string ROL { get; set; } //ADD
     }
 }

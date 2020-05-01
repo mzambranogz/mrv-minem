@@ -54,7 +54,12 @@
 
                                 </div>
 
+                                <div class="input-group-append">
+                                    <button class="btn btn-info" onclick="fn_busqueda_Publico();"><i class="fas fa-search px-1"></i>Buscar</button>
+                                </div>
+
                             </div>
+                            
                         </div>
 
                         <div class="form-group">
@@ -284,12 +289,12 @@
 
                         <div class="row">
 
-                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                <button class="btn btn-success w-100 mb-2" onclick="exportarIniciativa();"><i class="fas fa-file-download px-1"></i>Descargar Excel</button><div id="divExportar"></div> <!-- add metodo exportar y div creado con su id -->
-                            </div>
-                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                <button class="btn btn-success w-100 mb-2" @*type="submit"*@ onclick="fn_busqueda_Publico();"><i class="fas fa-search px-1"></i>Buscar</button>
-                            </div>
+                            @*<div class="col-sm-12 col-md-6 col-lg-6">
+                                <button class="btn btn-success w-100 mb-2" onclick="exportarIniciativa();"><i class="fas fa-file-download px-1"></i>Descargar Excel</button><div id="divExportar"></div>
+                            </div>*@
+                            @*<div class="col-sm-12 col-md-6 col-lg-6">
+                                <button class="btn btn-success w-100 mb-2" onclick="fn_busqueda_Publico();"><i class="fas fa-search px-1"></i>Buscar</button>
+                            </div>*@
                         </div>
                         <!--</form>-->
                     </div>
@@ -301,10 +306,11 @@
             <div class="container-fluid py-4">
                 <div class="row" id="estadoIniciativa" data-estado="7">
                     <!--add id data -->
-                    <div class="col-xs-12 col sm-12 col-lg-9">
+                    <div class="col-xs-12 col sm-12 col-lg-10 d-flex align-items-end justify-content-left">
                         <div class="h5">Bandeja de Acciones de Mitigación&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Bandeja de todas las iniciativas de mitigación públicas"></i></div>
                     </div>
-                    <div class="col-xs-12 col sm-12 col-lg-3 text-lg-right">
+                    <div class="col-xs-12 col sm-12 col-lg-2 text-lg-right">
+                        <button class="btn btn-success w-100 mb-2" onclick="exportarIniciativa();"><i class="fas fa-file-download px-1"></i>Descargar Excel</button><div id="divExportar"></div> <!-- add metodo exportar y div creado con su id -->
                         <div class="btn-group" id="filtro-conversion">
                             <a class="btn btn-purple dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1"><i class="fas fa-filter">&nbsp;</i>Convertir unidades</a><div class="dropdown-menu">
                                 <a class="dropdown-item" @*href="#"*@ onclick="convertirATonelada();"><i class="fas fa-exchange-alt">&nbsp;</i><strong>ktCO2eq &nbsp;</strong>a &nbsp;<strong>tCO2eq</strong></a>
@@ -331,7 +337,7 @@
                                         <th scope="col" width="10%"><span class="miColumna">Entidad&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NOMBRE_INSTITUCION"></i></span></th>
                                         <th scope="col" width="10%"><span class="miColumna">Total <br> reducido&nbsp;<i class="fas fa-sort" style="color: lightgray" id="GEI_TOTAL"></i></span></th>
                                         <th class="text-center" scope="col" width="7%"><span class="miColumna">Estado&nbsp;<i class="fas fa-sort" style="color: lightgray" id="ID_ESTADO"></i></span></th>
-                                        <th class="text-center" scope="col">Más</th>
+                                        <th class="text-center" scope="col">Gestión</th>
                                     </tr>
                                 </thead>
                                 <tbody id="cuerpoMitigacion" data-convertir="0"></tbody>

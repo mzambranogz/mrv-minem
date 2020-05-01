@@ -458,7 +458,7 @@
                 <div class="container py-5">
                     <div class="row">
                         <div class="col-12">
-                            <div class="h5 pb-5 text-primary">Documentos&nbsp;<br><small class="text-muted">Cargue uno o varios documentos sustentatorios</small></div>
+                            <div class="h5 pb-3 text-primary">Documentos&nbsp;@*<br><small class="text-muted">Cargue uno o varios documentos sustentatorios</small>*@</div>
                         </div>
                     </div>
                     <div class="row">
@@ -471,7 +471,7 @@
                                         total = Model.iniciativa_mit.ListaSustentos.Count();
                                     }
                                 }
-                                <label>Archivos adjuntos: <span id="total-documentos">@total</span> en total</label>
+                                <label class="font-weight-bold">Archivos adjuntos: <span id="total-documentos">@total</span> en total</label>
                                 @{
                                     if (Model.iniciativa_mit.ListaSustentos != null)
                                     {
@@ -517,8 +517,9 @@
                                             }
 
                                             <div class="input-group mb-3">
-                                                <div class="input-group-prepend"><span class="input-group-text"><i class="fas @extension"></i></span></div><span class="form-control-plaintext">@item.ADJUNTO_BASE</span>
                                                 <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="fas fa-download" onclick="fn_verfilesutento(@item.ID_INICIATIVA_SUSTENTATORIO)"></i></span></div>
+                                                <div class="input-group-prepend"><span class="input-group-text"><i class="fas @extension"></i></span></div><span class="form-control-plaintext">@item.ADJUNTO_BASE</span>
+                                                @*<div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="fas fa-download" onclick="fn_verfilesutento(@item.ID_INICIATIVA_SUSTENTATORIO)"></i></span></div>*@
                                             </div>
                                         }
                                     }
@@ -554,7 +555,7 @@
                                     <input class="custom-control-input" type="checkbox" id="chk-publicar" disabled>
                                 }
 
-                                <label class="custom-control-label" for="chk-publicar">Hacer públicos los datos registrados.</label>
+                                <label class="custom-control-label" for="chk-publicar">Hacer públicos los datos registrados</label>
                             </div>
                             <div class="custom-control custom-checkbox d-inline-block">
                                 @if (Model.iniciativa_mit.PRIVACIDAD_INVERSION == '1')

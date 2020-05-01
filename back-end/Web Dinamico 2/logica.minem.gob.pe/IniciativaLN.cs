@@ -639,5 +639,11 @@ namespace logica.minem.gob.pe
         {
             return iniciativaDA.NombrePDFFicha(entidad);
         }
+
+        //add 01-05-2020
+        public static List<IniciativaBE> MostrarMensajeObservacion(IniciativaBE entidad)
+        {
+            return iniciativaDA.MostrarMensajeObservacion(entidad);
+        }
     }
 }

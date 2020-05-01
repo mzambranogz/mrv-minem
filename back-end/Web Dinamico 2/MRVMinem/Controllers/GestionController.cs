@@ -2388,8 +2388,7 @@ namespace MRVMinem.Controllers
                 EnvioCorreo hilo_correo = new EnvioCorreo(ini, 1);
                 Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
             }
-
-
+            
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }
@@ -3249,6 +3248,14 @@ namespace MRVMinem.Controllers
             }   
             
             return new_lista;
+        }
+
+        public JsonResult MostrarMensajeObservacion(IniciativaBE entidad)
+        {
+            List<IniciativaBE> lista = IniciativaLN.MostrarMensajeObservacion(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
 
     }    
