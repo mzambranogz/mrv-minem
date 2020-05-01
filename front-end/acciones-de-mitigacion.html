@@ -82,6 +82,11 @@
                           </div>
                         </div>
                       </div>
+                      <div class="input-group-append">
+                        <!--span.input-group-text-->
+                        <button class="btn btn-info" type="submit"><i class="fas fa-search px-1"></i>Buscar</button>
+                      </div>
+                      <!---->
                     </div>
                   </div>
                   <div class="form-group">
@@ -293,10 +298,16 @@
                   </div>
                   <div class="row">
                     <div class="col-sm-12 col-md-6 col-lg-6">
-                      <button class="btn btn-success w-100 mb-2"><i class="fas fa-file-download px-1"></i>Descargar Excel</button>
+                      <!--button.btn.btn-success.w-100.mb-2
+                      i.fas.fa-file-download.px-1
+                      | Descargar Excel
+                      -->
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-6">
-                      <button class="btn btn-info w-100 mb-2" type="submit"><i class="fas fa-search px-1"></i>Buscar</button>
+                      <!--button.btn.btn-info.w-100.mb-2(type="submit")
+                      i.fas.fa-search.px-1
+                      | Buscar
+                      -->
                     </div>
                   </div>
                 </form>
@@ -326,14 +337,14 @@
                       <tr class="bg-primary text-white">
                         <th class="text-center" scope="col" width="3%"><span>N°&nbsp;<i class="fas fa-sort"></i></span></th>
                         <th scope="col" width="19%"><span>Nombre de <br> Iniciativa&nbsp;<i class="fas fa-sort"></i></span></th>
-                        <th scope="col" width="10%"><span>Progreso&nbsp;<i class="fas fa-sort"></i></span></th>
-                        <th class="text-center" scope="col" width="10%"><span>Fecha de <br> Inicio&nbsp;<i class="fas fa-sort"></i></span></th>
-                        <th class="text-center" scope="col" width="10%"><span>Fecha de <br>  Término&nbsp;<i class="fas fa-sort"></i></span></th>
-                        <th scope="col" width="10%"><span>Medida de  <br> Mitigación&nbsp;<i class="fas fa-sort"></i></span></th>
-                        <th scope="col" width="18%"><span>Entidad&nbsp;<i class="fas fa-sort"></i></span></th>
-                        <th scope="col" width="10%"><span>Total <br> reducido&nbsp;<i class="fas fa-sort"></i></span></th>
-                        <th class="text-center" scope="col" width="7%"><span>Estado&nbsp;<i class="fas fa-sort"></i></span></th>
-                        <th class="text-center" scope="col" width="3%">Más</th>
+                        <th scope="col" width="8%"><span>Progreso de <br> Inicitiva&nbsp;<i class="fas fa-sort"></i></span></th>
+                        <th class="text-center" scope="col" width="8%"><span>Fecha de <br> Inicio&nbsp;<i class="fas fa-sort"></i></span></th>
+                        <th class="text-center" scope="col" width="8%"><span>Fecha de <br> Término&nbsp;<i class="fas fa-sort"></i></span></th>
+                        <th class="text-center" scope="col" width="10%"><span>Medida de  <br> Mitigación&nbsp;<i class="fas fa-sort"></i></span></th>
+                        <th scope="col" width="19%"><span>Entidad <br> Responsable&nbsp;<i class="fas fa-sort"></i></span></th>
+                        <th scope="col" width="5%"><span>Total <br> Reducido&nbsp;<i class="fas fa-sort"></i></span></th>
+                        <th scope="col" width="17%"><span>Estado de <br> Iniciativa&nbsp;<i class="fas fa-sort"></i></span></th>
+                        <th class="text-center" scope="col" width="3%">Gestión</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -347,15 +358,17 @@
                         </td>
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
                         <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
-                        <td class="text-center" data-encabezado="Medida de Mitigación"><span data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
-                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
-                        <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
-                        <td class="text-center" data-encabezado="Estado">estado</td>
+                        <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
+                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial</td>
+                        <td class="text-right pr-3" data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
+                        <td data-encabezado="Estado"><i class="fas fa-flag text-danger" data-toggle="tooltip" data-placement="top" title="Su plazo está por vencer hoy o ya venció"></i>&nbsp;
+                          Pendiente por Aprobar por el Verificador MINAM
+                        </td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="./ver-mas-iniciativa-de-mitigacion.html"><i class="fas fa-plus-circle"></i>&nbsp;
-                                Ver más</a></div>
+                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="./ver-mas-iniciativa-de-mitigacion-interno.html"><i class="fas fa-plus-circle"></i>&nbsp;
+                                Ver detalles</a></div>
                           </div>
                         </td>
                       </tr>
@@ -369,15 +382,17 @@
                         </td>
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
                         <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
-                        <td class="text-center" data-encabezado="Medida de Mitigación"><span data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
-                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
-                        <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
-                        <td class="text-center" data-encabezado="Estado">estado</td>
+                        <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
+                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial</td>
+                        <td class="text-right pr-3" data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
+                        <td data-encabezado="Estado"><i class="fas fa-flag text-warning" data-toggle="tooltip" data-placement="top" title="Su plazo de atención vence en 2 días"></i>&nbsp;
+                          Pendiente por Aprobar por el Verificador MINAM
+                        </td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="./ver-mas-iniciativa-de-mitigacion.html"><i class="fas fa-plus-circle"></i>&nbsp;
-                                Ver más</a></div>
+                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="./ver-mas-iniciativa-de-mitigacion-interno.html"><i class="fas fa-plus-circle"></i>&nbsp;
+                                Ver detalles</a></div>
                           </div>
                         </td>
                       </tr>
@@ -391,15 +406,17 @@
                         </td>
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
                         <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
-                        <td class="text-center" data-encabezado="Medida de Mitigación"><span data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
-                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
-                        <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
-                        <td class="text-center" data-encabezado="Estado">estado</td>
+                        <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
+                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial</td>
+                        <td class="text-right pr-3" data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
+                        <td data-encabezado="Estado"><i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>&nbsp;
+                          Pendiente por Aprobar por el Verificador MINAM
+                        </td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="./ver-mas-iniciativa-de-mitigacion.html"><i class="fas fa-plus-circle"></i>&nbsp;
-                                Ver más</a></div>
+                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="./ver-mas-iniciativa-de-mitigacion-interno.html"><i class="fas fa-plus-circle"></i>&nbsp;
+                                Ver detalles</a></div>
                           </div>
                         </td>
                       </tr>
@@ -413,15 +430,17 @@
                         </td>
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
                         <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
-                        <td class="text-center" data-encabezado="Medida de Mitigación"><span data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
-                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
-                        <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
-                        <td class="text-center" data-encabezado="Estado">estado</td>
+                        <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
+                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial</td>
+                        <td class="text-right pr-3" data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
+                        <td data-encabezado="Estado"><i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>&nbsp;
+                          Pendiente por Aprobar por el Verificador MINAM
+                        </td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="./ver-mas-iniciativa-de-mitigacion.html"><i class="fas fa-plus-circle"></i>&nbsp;
-                                Ver más</a></div>
+                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="./ver-mas-iniciativa-de-mitigacion-interno.html"><i class="fas fa-plus-circle"></i>&nbsp;
+                                Ver detalles</a></div>
                           </div>
                         </td>
                       </tr>
@@ -435,15 +454,17 @@
                         </td>
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
                         <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
-                        <td class="text-center" data-encabezado="Medida de Mitigación"><span data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
-                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
-                        <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
-                        <td class="text-center" data-encabezado="Estado">estado</td>
+                        <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
+                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial</td>
+                        <td class="text-right pr-3" data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
+                        <td data-encabezado="Estado"><i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>&nbsp;
+                          Pendiente por Aprobar por el Verificador MINAM
+                        </td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="./ver-mas-iniciativa-de-mitigacion.html"><i class="fas fa-plus-circle"></i>&nbsp;
-                                Ver más</a></div>
+                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="./ver-mas-iniciativa-de-mitigacion-interno.html"><i class="fas fa-plus-circle"></i>&nbsp;
+                                Ver detalles</a></div>
                           </div>
                         </td>
                       </tr>
@@ -457,15 +478,17 @@
                         </td>
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
                         <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
-                        <td class="text-center" data-encabezado="Medida de Mitigación"><span data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
-                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
-                        <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
-                        <td class="text-center" data-encabezado="Estado">estado</td>
+                        <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
+                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial</td>
+                        <td class="text-right pr-3" data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
+                        <td data-encabezado="Estado"><i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>&nbsp;
+                          Pendiente por Aprobar por el Verificador MINAM
+                        </td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="./ver-mas-iniciativa-de-mitigacion.html"><i class="fas fa-plus-circle"></i>&nbsp;
-                                Ver más</a></div>
+                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="./ver-mas-iniciativa-de-mitigacion-interno.html"><i class="fas fa-plus-circle"></i>&nbsp;
+                                Ver detalles</a></div>
                           </div>
                         </td>
                       </tr>
@@ -479,15 +502,17 @@
                         </td>
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
                         <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
-                        <td class="text-center" data-encabezado="Medida de Mitigación"><span data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
-                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
-                        <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
-                        <td class="text-center" data-encabezado="Estado">estado</td>
+                        <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
+                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial</td>
+                        <td class="text-right pr-3" data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
+                        <td data-encabezado="Estado"><i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>&nbsp;
+                          Pendiente por Aprobar por el Verificador MINAM
+                        </td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="./ver-mas-iniciativa-de-mitigacion.html"><i class="fas fa-plus-circle"></i>&nbsp;
-                                Ver más</a></div>
+                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="./ver-mas-iniciativa-de-mitigacion-interno.html"><i class="fas fa-plus-circle"></i>&nbsp;
+                                Ver detalles</a></div>
                           </div>
                         </td>
                       </tr>
@@ -501,15 +526,17 @@
                         </td>
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
                         <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
-                        <td class="text-center" data-encabezado="Medida de Mitigación"><span data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
-                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
-                        <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
-                        <td class="text-center" data-encabezado="Estado">estado</td>
+                        <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
+                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial</td>
+                        <td class="text-right pr-3" data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
+                        <td data-encabezado="Estado"><i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>&nbsp;
+                          Pendiente por Aprobar por el Verificador MINAM
+                        </td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="./ver-mas-iniciativa-de-mitigacion.html"><i class="fas fa-plus-circle"></i>&nbsp;
-                                Ver más</a></div>
+                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="./ver-mas-iniciativa-de-mitigacion-interno.html"><i class="fas fa-plus-circle"></i>&nbsp;
+                                Ver detalles</a></div>
                           </div>
                         </td>
                       </tr>
@@ -523,15 +550,17 @@
                         </td>
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
                         <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
-                        <td class="text-center" data-encabezado="Medida de Mitigación"><span data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
-                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
-                        <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
-                        <td class="text-center" data-encabezado="Estado">estado</td>
+                        <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
+                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial</td>
+                        <td class="text-right pr-3" data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
+                        <td data-encabezado="Estado"><i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>&nbsp;
+                          Pendiente por Aprobar por el Verificador MINAM
+                        </td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="./ver-mas-iniciativa-de-mitigacion.html"><i class="fas fa-plus-circle"></i>&nbsp;
-                                Ver más</a></div>
+                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="./ver-mas-iniciativa-de-mitigacion-interno.html"><i class="fas fa-plus-circle"></i>&nbsp;
+                                Ver detalles</a></div>
                           </div>
                         </td>
                       </tr>
@@ -545,15 +574,17 @@
                         </td>
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
                         <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
-                        <td class="text-center" data-encabezado="Medida de Mitigación"><span data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
-                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
-                        <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
-                        <td class="text-center" data-encabezado="Estado">estado</td>
+                        <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
+                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial</td>
+                        <td class="text-right pr-3" data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
+                        <td data-encabezado="Estado"><i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>&nbsp;
+                          Pendiente por Aprobar por el Verificador MINAM
+                        </td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
-                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="./ver-mas-iniciativa-de-mitigacion.html"><i class="fas fa-plus-circle"></i>&nbsp;
-                                Ver más</a></div>
+                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="./ver-mas-iniciativa-de-mitigacion-interno.html"><i class="fas fa-plus-circle"></i>&nbsp;
+                                Ver detalles</a></div>
                           </div>
                         </td>
                       </tr>

@@ -71,7 +71,18 @@
               <div class="col-md-12 col-lg-6 pt-4">
                 <div class="row">
                   <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
-                  <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#medidas-mitigacion-listado"><a class="agregar-iniciativa" href="#" data-toggle="tooltip" data-placement="top" title="Seleccione una medida de mitigación para agregar una nueva inicitiva de mitigación"><i class="far fa-hand-point-left fa-3x primerIngreso animated bounceInRight infinite"></i><i class="fas fa-plus px-1"></i>Agregar iniciativa</a></span><span data-toggle="modal" data-target="#modal-evaluador"><a class="enviar-paquete" href="#" data-toggle="tooltip" data-placement="top" title="Una vez seleccionadas las iniciativas de mitigación, por medida y periodo, puede generar y enviar un paquete al Evaluador MINAM "><i class="fas fa-box px-1"></i>Enviar paquete</a></span><span data-toggle="modal" data-target="#modal-aprobacion-evaluador"><a class="aprobar-evaluacion" href="#" data-toggle="tooltip" data-placement="top" title="Dar por aprobado las iniciativa de mitigación filtradas"><i class="fas fa-check px-1"></i>Aprobar evaluación</a></span></div>
+                  <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#medidas-mitigacion-listado"><a class="agregar-iniciativa" href="#" data-toggle="tooltip" data-placement="top" title="Seleccione una medida de mitigación para agregar una nueva inicitiva de mitigación"><i class="far fa-hand-point-left fa-3x primerIngreso animated bounceInRight infinite"></i><i class="fas fa-plus px-1"></i>Agregar iniciativa</a></span>
+                    <!--span(data-toggle="modal", data-target="#modal-evaluador")
+                    a.enviar-paquete(href="#", data-toggle="tooltip", data-placement="top", title="Una vez seleccionadas las iniciativas de mitigación, por medida y periodo, puede generar y enviar un paquete al Evaluador MINAM ")
+                      i.fas.fa-box.px-1
+                      | Enviar paquete
+                    -->
+                    <!--span(data-toggle="modal", data-target="#modal-aprobacion-evaluador")
+                    a.aprobar-evaluacion(href="#", data-toggle="tooltip", data-placement="top", title="Dar por aprobado las iniciativa de mitigación filtradas")
+                      i.fas.fa-check.px-1
+                      | Aprobar evaluación
+                    -->
+                  </div>
                 </div>
               </div>
             </div>
@@ -90,6 +101,11 @@
                           </div>
                         </div>
                       </div>
+                      <div class="input-group-append">
+                        <!--span.input-group-text-->
+                        <button class="btn btn-info" type="submit"><i class="fas fa-search px-1"></i>Buscar</button>
+                      </div>
+                      <!---->
                     </div>
                   </div>
                   <div class="form-group">
@@ -301,10 +317,16 @@
                   </div>
                   <div class="row">
                     <div class="col-sm-12 col-md-6 col-lg-6">
-                      <button class="btn btn-success w-100 mb-2"><i class="fas fa-file-download px-1"></i>Descargar Excel</button>
+                      <!--button.btn.btn-success.w-100.mb-2
+                      i.fas.fa-file-download.px-1
+                      | Descargar Excel
+                      -->
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-6">
-                      <button class="btn btn-info w-100 mb-2" type="submit"><i class="fas fa-search px-1"></i>Buscar</button>
+                      <!--button.btn.btn-info.w-100.mb-2(type="submit")
+                      i.fas.fa-search.px-1
+                      | Buscar
+                      -->
                     </div>
                   </div>
                 </form>
@@ -314,10 +336,11 @@
           </div>
           <div class="container-fluid py-4">
             <div class="row">
-              <div class="col-xs-12 col sm-12 col-lg-9">
+              <div class="col-xs-12 col sm-12 col-lg-10 d-flex align-items-end justify-content-left">
                 <div class="h5">Bandeja de Iniciativas de Mitigación&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Bandeja de iniciativas de mitigación registradas por su institución"></i></div>
               </div>
-              <div class="col-xs-12 col sm-12 col-lg-3 text-lg-right">
+              <div class="col-xs-12 col sm-12 col-lg-2 text-lg-right"><span data-toggle="modal" data-target="#modal-evaluador"><a class="btn btn-purple w-100 mb-2" href="#" data-toggle="tooltip" data-placement="top" title="Una vez seleccionadas las iniciativas de mitigación, por medida y periodo, puede generar y enviar un paquete al Evaluador MINAM "><i class="fas fa-box px-1"></i>Enviar paquete</a></span>
+                <button class="btn btn-success w-100 mb-2"><i class="fas fa-file-download px-1"></i>Descargar Excel</button>
                 <div class="btn-group" id="filtro-conversion"><a class="btn btn-purple dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1"><i class="fas fa-filter">&nbsp;</i>Convertir unidades</a>
                   <div class="dropdown-menu"><a class="dropdown-item" href="#"><i class="fas fa-exchange-alt">&nbsp;</i><strong>ktCO2eq &nbsp;</strong>a &nbsp;<strong>tCO2eq</strong></a><a class="dropdown-item" href="#"><i class="fas fa-exchange-alt">&nbsp;</i><strong>tCO2eq &nbsp;</strong>a &nbsp;<strong>ktCO2eq</strong></a></div>
                 </div>
@@ -337,15 +360,16 @@
                             <label class="custom-control-label" for="chk-send-im-">&nbsp;</label>
                           </div>
                         </th>
-                        <th scope="col" width="19%"><span>Nombre de <br> Iniciativa&nbsp;<i class="fas fa-sort"></i></span></th>
-                        <th scope="col" width="10%"><span>Progreso&nbsp;<i class="fas fa-sort"></i></span></th>
-                        <th class="text-center" scope="col" width="10%"><span>Fecha de <br> Inicio&nbsp;<i class="fas fa-sort"></i></span></th>
-                        <th class="text-center" scope="col" width="10%"><span>Fecha de <br>  Término&nbsp;<i class="fas fa-sort"></i></span></th>
-                        <th scope="col" width="10%"><span>Medida de  <br> Mitigación&nbsp;<i class="fas fa-sort"></i></span></th>
-                        <th scope="col" width="18%"><span>Entidad&nbsp;<i class="fas fa-sort"></i></span></th>
-                        <th scope="col" width="10%"><span>Total <br> reducido&nbsp;<i class="fas fa-sort"></i></span></th>
-                        <th class="text-center" scope="col" width="7%"><span>Estado&nbsp;<i class="fas fa-sort"></i></span></th>
-                        <th class="text-center" scope="col" width="3%">Más</th>
+                        <th scope="col" width="17%"><span>Nombre de <br> Iniciativa&nbsp;<i class="fas fa-sort"></i></span></th>
+                        <th scope="col" width="8%"><span>Progreso de <br> Inicitiva&nbsp;<i class="fas fa-sort"></i></span></th>
+                        <th class="text-center" scope="col" width="8%"><span>Fecha de <br> Inicio&nbsp;<i class="fas fa-sort"></i></span></th>
+                        <th class="text-center" scope="col" width="8%"><span>Fecha de <br> Término&nbsp;<i class="fas fa-sort"></i></span></th>
+                        <th class="text-center" scope="col" width="10%"><span>Medida de  <br> Mitigación&nbsp;<i class="fas fa-sort"></i></span></th>
+                        <th scope="col" width="17%"><span>Entidad <br> Responsable&nbsp;<i class="fas fa-sort"></i></span></th>
+                        <th scope="col" width="5%"><span>Total <br> Reducido&nbsp;<i class="fas fa-sort"></i></span></th>
+                        <th scope="col" width="15%"><span>Estado de <br> Iniciativa&nbsp;<i class="fas fa-sort"></i></span></th>
+                        <th class="text-center" scope="col" width="3%">Gestión</th>
+                        <th class="text-center" scope="col" width="3%"><i class="fas fa-download text-white" data-toggle="tooltip" data-placement="top" title="Descargas"></i></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -366,17 +390,18 @@
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
                         <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
                         <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
-                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
-                        <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
-                        <td class="text-center" data-encabezado="Estado"><i class="fas fa-flag text-danger" data-toggle="tooltip" data-placement="top" title="Su plazo está por vencer hoy o ya venció"></i>&nbsp;
+                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial</td>
+                        <td class="text-right pr-3" data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
+                        <td data-encabezado="Estado"><i class="fas fa-flag text-danger" data-toggle="tooltip" data-placement="top" title="Su plazo está por vencer hoy o ya venció"></i>&nbsp;
                           Pendiente por Aprobar por el Verificador MINAM
                         </td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
                             <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="./ver-mas-iniciativa-de-mitigacion-interno.html"><i class="fas fa-plus-circle"></i>&nbsp;
-                                Ver más</a><a class="dropdown-item" href="./seguimiento-de-iniciativa-de-mitigacion.html"><i class="fas fa-history"></i>&nbsp;
-                                Seguimiento</a><a class="dropdown-item" href="./edicion-de-iniciativa-de-mitigacion.html"><i class="fas fa-edit"></i>&nbsp;
+                                Ver detalles</a><a class="dropdown-item" href="./seguimiento-de-iniciativa-de-mitigacion.html"><i class="fas fa-history"></i>&nbsp;
+                                Seguimiento</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-observaciones"><i class="fas fa-envelope"></i>&nbsp;
+                                Observaciones</a><a class="dropdown-item" href="./edicion-de-iniciativa-de-mitigacion.html"><i class="fas fa-edit"></i>&nbsp;
                                 Editar</a><a class="dropdown-item text-primary" href="./revision-de-iniciativa.html"><i class="fas fa-check"></i>&nbsp;
                                 Revisar</a><a class="dropdown-item text-info" href="./evaluacion-de-iniciativa-detalles.html"><i class="fas fa-clipboard-check"></i>&nbsp;
                                 Evaluar</a><a class="dropdown-item text-warning" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-tasks"></i>&nbsp;
@@ -386,6 +411,7 @@
                                 Blockchain</a></div>
                           </div>
                         </td>
+                        <td class="text-center text-xs-right" data-encabezado="Descargas"><a class="text-dark" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-download"></i></a></td>
                       </tr>
                       <tr>
                         <th class="text-center" data-encabezado="Número" scope="row">2</th>
@@ -404,17 +430,18 @@
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
                         <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
                         <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
-                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
-                        <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
-                        <td class="text-center" data-encabezado="Estado"><i class="fas fa-flag text-warning" data-toggle="tooltip" data-placement="top" title="Su plazo de atención vence en 2 días"></i>&nbsp;
+                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial</td>
+                        <td class="text-right pr-3" data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
+                        <td data-encabezado="Estado"><i class="fas fa-flag text-warning" data-toggle="tooltip" data-placement="top" title="Su plazo de atención vence en 2 días"></i>&nbsp;
                           Pendiente por Aprobar por el Verificador MINAM
                         </td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
                             <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="./ver-mas-iniciativa-de-mitigacion-interno.html"><i class="fas fa-plus-circle"></i>&nbsp;
-                                Ver más</a><a class="dropdown-item" href="./seguimiento-de-iniciativa-de-mitigacion.html"><i class="fas fa-history"></i>&nbsp;
-                                Seguimiento</a><a class="dropdown-item" href="./edicion-de-iniciativa-de-mitigacion.html"><i class="fas fa-edit"></i>&nbsp;
+                                Ver detalles</a><a class="dropdown-item" href="./seguimiento-de-iniciativa-de-mitigacion.html"><i class="fas fa-history"></i>&nbsp;
+                                Seguimiento</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-observaciones"><i class="fas fa-envelope"></i>&nbsp;
+                                Observaciones</a><a class="dropdown-item" href="./edicion-de-iniciativa-de-mitigacion.html"><i class="fas fa-edit"></i>&nbsp;
                                 Editar</a><a class="dropdown-item text-primary" href="./revision-de-iniciativa.html"><i class="fas fa-check"></i>&nbsp;
                                 Revisar</a><a class="dropdown-item text-info" href="./evaluacion-de-iniciativa-detalles.html"><i class="fas fa-clipboard-check"></i>&nbsp;
                                 Evaluar</a><a class="dropdown-item text-warning" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-tasks"></i>&nbsp;
@@ -424,6 +451,7 @@
                                 Blockchain</a></div>
                           </div>
                         </td>
+                        <td class="text-center text-xs-right" data-encabezado="Descargas"><a class="text-dark" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-download"></i></a></td>
                       </tr>
                       <tr>
                         <th class="text-center" data-encabezado="Número" scope="row">3</th>
@@ -442,17 +470,18 @@
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
                         <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
                         <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
-                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
-                        <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
-                        <td class="text-center" data-encabezado="Estado"><i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>&nbsp;
+                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial</td>
+                        <td class="text-right pr-3" data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
+                        <td data-encabezado="Estado"><i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>&nbsp;
                           Pendiente por Aprobar por el Verificador MINAM
                         </td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
                             <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="./ver-mas-iniciativa-de-mitigacion-interno.html"><i class="fas fa-plus-circle"></i>&nbsp;
-                                Ver más</a><a class="dropdown-item" href="./seguimiento-de-iniciativa-de-mitigacion.html"><i class="fas fa-history"></i>&nbsp;
-                                Seguimiento</a><a class="dropdown-item" href="./edicion-de-iniciativa-de-mitigacion.html"><i class="fas fa-edit"></i>&nbsp;
+                                Ver detalles</a><a class="dropdown-item" href="./seguimiento-de-iniciativa-de-mitigacion.html"><i class="fas fa-history"></i>&nbsp;
+                                Seguimiento</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-observaciones"><i class="fas fa-envelope"></i>&nbsp;
+                                Observaciones</a><a class="dropdown-item" href="./edicion-de-iniciativa-de-mitigacion.html"><i class="fas fa-edit"></i>&nbsp;
                                 Editar</a><a class="dropdown-item text-primary" href="./revision-de-iniciativa.html"><i class="fas fa-check"></i>&nbsp;
                                 Revisar</a><a class="dropdown-item text-info" href="./evaluacion-de-iniciativa-detalles.html"><i class="fas fa-clipboard-check"></i>&nbsp;
                                 Evaluar</a><a class="dropdown-item text-warning" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-tasks"></i>&nbsp;
@@ -462,6 +491,7 @@
                                 Blockchain</a></div>
                           </div>
                         </td>
+                        <td class="text-center text-xs-right" data-encabezado="Descargas"><a class="text-dark" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-download"></i></a></td>
                       </tr>
                       <tr>
                         <th class="text-center" data-encabezado="Número" scope="row">4</th>
@@ -480,17 +510,18 @@
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
                         <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
                         <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
-                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
-                        <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
-                        <td class="text-center" data-encabezado="Estado"><i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>&nbsp;
+                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial</td>
+                        <td class="text-right pr-3" data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
+                        <td data-encabezado="Estado"><i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>&nbsp;
                           Pendiente por Aprobar por el Verificador MINAM
                         </td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
                             <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="./ver-mas-iniciativa-de-mitigacion-interno.html"><i class="fas fa-plus-circle"></i>&nbsp;
-                                Ver más</a><a class="dropdown-item" href="./seguimiento-de-iniciativa-de-mitigacion.html"><i class="fas fa-history"></i>&nbsp;
-                                Seguimiento</a><a class="dropdown-item" href="./edicion-de-iniciativa-de-mitigacion.html"><i class="fas fa-edit"></i>&nbsp;
+                                Ver detalles</a><a class="dropdown-item" href="./seguimiento-de-iniciativa-de-mitigacion.html"><i class="fas fa-history"></i>&nbsp;
+                                Seguimiento</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-observaciones"><i class="fas fa-envelope"></i>&nbsp;
+                                Observaciones</a><a class="dropdown-item" href="./edicion-de-iniciativa-de-mitigacion.html"><i class="fas fa-edit"></i>&nbsp;
                                 Editar</a><a class="dropdown-item text-primary" href="./revision-de-iniciativa.html"><i class="fas fa-check"></i>&nbsp;
                                 Revisar</a><a class="dropdown-item text-info" href="./evaluacion-de-iniciativa-detalles.html"><i class="fas fa-clipboard-check"></i>&nbsp;
                                 Evaluar</a><a class="dropdown-item text-warning" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-tasks"></i>&nbsp;
@@ -500,6 +531,7 @@
                                 Blockchain</a></div>
                           </div>
                         </td>
+                        <td class="text-center text-xs-right" data-encabezado="Descargas"><a class="text-dark" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-download"></i></a></td>
                       </tr>
                       <tr>
                         <th class="text-center" data-encabezado="Número" scope="row">5</th>
@@ -518,17 +550,18 @@
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
                         <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
                         <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
-                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
-                        <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
-                        <td class="text-center" data-encabezado="Estado"><i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>&nbsp;
+                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial</td>
+                        <td class="text-right pr-3" data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
+                        <td data-encabezado="Estado"><i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>&nbsp;
                           Pendiente por Aprobar por el Verificador MINAM
                         </td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
                             <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="./ver-mas-iniciativa-de-mitigacion-interno.html"><i class="fas fa-plus-circle"></i>&nbsp;
-                                Ver más</a><a class="dropdown-item" href="./seguimiento-de-iniciativa-de-mitigacion.html"><i class="fas fa-history"></i>&nbsp;
-                                Seguimiento</a><a class="dropdown-item" href="./edicion-de-iniciativa-de-mitigacion.html"><i class="fas fa-edit"></i>&nbsp;
+                                Ver detalles</a><a class="dropdown-item" href="./seguimiento-de-iniciativa-de-mitigacion.html"><i class="fas fa-history"></i>&nbsp;
+                                Seguimiento</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-observaciones"><i class="fas fa-envelope"></i>&nbsp;
+                                Observaciones</a><a class="dropdown-item" href="./edicion-de-iniciativa-de-mitigacion.html"><i class="fas fa-edit"></i>&nbsp;
                                 Editar</a><a class="dropdown-item text-primary" href="./revision-de-iniciativa.html"><i class="fas fa-check"></i>&nbsp;
                                 Revisar</a><a class="dropdown-item text-info" href="./evaluacion-de-iniciativa-detalles.html"><i class="fas fa-clipboard-check"></i>&nbsp;
                                 Evaluar</a><a class="dropdown-item text-warning" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-tasks"></i>&nbsp;
@@ -538,6 +571,7 @@
                                 Blockchain</a></div>
                           </div>
                         </td>
+                        <td class="text-center text-xs-right" data-encabezado="Descargas"><a class="text-dark" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-download"></i></a></td>
                       </tr>
                       <tr>
                         <th class="text-center" data-encabezado="Número" scope="row">6</th>
@@ -547,7 +581,7 @@
                             <label class="custom-control-label" for="chk-send-dm-7">&nbsp;</label>
                           </div>
                         </td>
-                        <td data-encabezado="Nombre de Iniciativa">Nombre de la Iniciativa Demasiado Largo</td>
+                        <td data-encabezado="Nombre de Iniciativa">Nombre de la Iniciativa Demasiado</td>
                         <td data-encabezado="Progreso">
                           <div class="progress" style="height: 20px;">
                             <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">75%</div>
@@ -556,17 +590,18 @@
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
                         <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
                         <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
-                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
-                        <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
-                        <td class="text-center" data-encabezado="Estado"><i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>&nbsp;
+                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial</td>
+                        <td class="text-right pr-3" data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
+                        <td data-encabezado="Estado"><i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>&nbsp;
                           Pendiente por Aprobar por el Verificador MINAM
                         </td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-02 dropdown-toggle text-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
                             <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="./ver-mas-iniciativa-de-mitigacion-interno.html"><i class="fas fa-plus-circle"></i>&nbsp;
-                                Ver más</a><a class="dropdown-item" href="./seguimiento-de-iniciativa-de-mitigacion.html"><i class="fas fa-history"></i>&nbsp;
-                                Seguimiento</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#copiar-iniciativa"><i class="fas fa-copy"></i>&nbsp;
+                                Ver detalle</a><a class="dropdown-item" href="./seguimiento-de-iniciativa-de-mitigacion.html"><i class="fas fa-history"></i>&nbsp;
+                                Seguimiento</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-observaciones"><i class="fas fa-envelope"></i>&nbsp;
+                                Observaciones</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#copiar-iniciativa"><i class="fas fa-copy"></i>&nbsp;
                                 Copiar</a><a class="dropdown-item text-success" href="#" data-toggle="modal" data-target="#tipo-ingreso-detalle"><i class="fas fa-clipboard-list"></i>&nbsp;
                                 Detalles</a><a class="dropdown-item text-success" href="./edicion-de-detalles-de-indicadores-manual.html"><i class="fas fa-clipboard-list"></i>&nbsp;
                                 Editar</a><a class="dropdown-item text-primary" href="./revision-de-iniciativa-detalles.html"><i class="fas fa-check-double"></i>&nbsp;
@@ -578,6 +613,7 @@
                                 Blockchain</a></div>
                           </div>
                         </td>
+                        <td class="text-center text-xs-right" data-encabezado="Descargas"><a class="text-dark" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-download"></i></a></td>
                       </tr>
                       <tr>
                         <th class="text-center" data-encabezado="Número" scope="row">7</th>
@@ -587,7 +623,7 @@
                             <label class="custom-control-label" for="chk-send-dm-8">&nbsp;</label>
                           </div>
                         </td>
-                        <td data-encabezado="Nombre de Iniciativa">Nombre de la Iniciativa Demasiado Largo</td>
+                        <td data-encabezado="Nombre de Iniciativa">Nombre de la Iniciativa Demasiado</td>
                         <td data-encabezado="Progreso">
                           <div class="progress" style="height: 20px;">
                             <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">75%</div>
@@ -596,17 +632,18 @@
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
                         <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
                         <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
-                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
-                        <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
-                        <td class="text-center" data-encabezado="Estado"><i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>&nbsp;
+                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial</td>
+                        <td class="text-right pr-3" data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
+                        <td data-encabezado="Estado"><i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>&nbsp;
                           Pendiente por Aprobar por el Verificador MINAM
                         </td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-02 dropdown-toggle text-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
                             <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="./ver-mas-iniciativa-de-mitigacion-interno.html"><i class="fas fa-plus-circle"></i>&nbsp;
-                                Ver más</a><a class="dropdown-item" href="./seguimiento-de-iniciativa-de-mitigacion.html"><i class="fas fa-history"></i>&nbsp;
-                                Seguimiento</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#copiar-iniciativa"><i class="fas fa-copy"></i>&nbsp;
+                                Ver detalle</a><a class="dropdown-item" href="./seguimiento-de-iniciativa-de-mitigacion.html"><i class="fas fa-history"></i>&nbsp;
+                                Seguimiento</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-observaciones"><i class="fas fa-envelope"></i>&nbsp;
+                                Observaciones</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#copiar-iniciativa"><i class="fas fa-copy"></i>&nbsp;
                                 Copiar</a><a class="dropdown-item text-success" href="#" data-toggle="modal" data-target="#tipo-ingreso-detalle"><i class="fas fa-clipboard-list"></i>&nbsp;
                                 Detalles</a><a class="dropdown-item text-success" href="./edicion-de-detalles-de-indicadores-manual.html"><i class="fas fa-clipboard-list"></i>&nbsp;
                                 Editar</a><a class="dropdown-item text-primary" href="./revision-de-iniciativa-detalles.html"><i class="fas fa-check-double"></i>&nbsp;
@@ -618,6 +655,7 @@
                                 Blockchain</a></div>
                           </div>
                         </td>
+                        <td class="text-center text-xs-right" data-encabezado="Descargas"><a class="text-dark" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-download"></i></a></td>
                       </tr>
                       <tr>
                         <th class="text-center" data-encabezado="Número" scope="row">8</th>
@@ -627,7 +665,7 @@
                             <label class="custom-control-label" for="chk-send-dm-9">&nbsp;</label>
                           </div>
                         </td>
-                        <td data-encabezado="Nombre de Iniciativa">Nombre de la Iniciativa Demasiado Largo</td>
+                        <td data-encabezado="Nombre de Iniciativa">Nombre de la Iniciativa Demasiado</td>
                         <td data-encabezado="Progreso">
                           <div class="progress" style="height: 20px;">
                             <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">75%</div>
@@ -636,17 +674,18 @@
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
                         <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
                         <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
-                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
-                        <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
-                        <td class="text-center" data-encabezado="Estado"><i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>&nbsp;
+                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial</td>
+                        <td class="text-right pr-3" data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
+                        <td data-encabezado="Estado"><i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>&nbsp;
                           Pendiente por Aprobar por el Verificador MINAM
                         </td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-02 dropdown-toggle text-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
                             <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="./ver-mas-iniciativa-de-mitigacion-interno.html"><i class="fas fa-plus-circle"></i>&nbsp;
-                                Ver más</a><a class="dropdown-item" href="./seguimiento-de-iniciativa-de-mitigacion.html"><i class="fas fa-history"></i>&nbsp;
-                                Seguimiento</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#copiar-iniciativa"><i class="fas fa-copy"></i>&nbsp;
+                                Ver detalle</a><a class="dropdown-item" href="./seguimiento-de-iniciativa-de-mitigacion.html"><i class="fas fa-history"></i>&nbsp;
+                                Seguimiento</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-observaciones"><i class="fas fa-envelope"></i>&nbsp;
+                                Observaciones</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#copiar-iniciativa"><i class="fas fa-copy"></i>&nbsp;
                                 Copiar</a><a class="dropdown-item text-success" href="#" data-toggle="modal" data-target="#tipo-ingreso-detalle"><i class="fas fa-clipboard-list"></i>&nbsp;
                                 Detalles</a><a class="dropdown-item text-success" href="./edicion-de-detalles-de-indicadores-manual.html"><i class="fas fa-clipboard-list"></i>&nbsp;
                                 Editar</a><a class="dropdown-item text-primary" href="./revision-de-iniciativa-detalles.html"><i class="fas fa-check-double"></i>&nbsp;
@@ -658,6 +697,7 @@
                                 Blockchain</a></div>
                           </div>
                         </td>
+                        <td class="text-center text-xs-right" data-encabezado="Descargas"><a class="text-dark" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-download"></i></a></td>
                       </tr>
                       <tr>
                         <th class="text-center" data-encabezado="Número" scope="row">9</th>
@@ -667,7 +707,7 @@
                             <label class="custom-control-label" for="chk-send-dm-10">&nbsp;</label>
                           </div>
                         </td>
-                        <td data-encabezado="Nombre de Iniciativa">Nombre de la Iniciativa Demasiado Largo</td>
+                        <td data-encabezado="Nombre de Iniciativa">Nombre de la Iniciativa Demasiado</td>
                         <td data-encabezado="Progreso">
                           <div class="progress" style="height: 20px;">
                             <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">75%</div>
@@ -676,17 +716,18 @@
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
                         <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
                         <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
-                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
-                        <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
-                        <td class="text-center" data-encabezado="Estado"><i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>&nbsp;
+                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial</td>
+                        <td class="text-right pr-3" data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
+                        <td data-encabezado="Estado"><i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>&nbsp;
                           Pendiente por Aprobar por el Verificador MINAM
                         </td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-02 dropdown-toggle text-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
                             <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="./ver-mas-iniciativa-de-mitigacion-interno.html"><i class="fas fa-plus-circle"></i>&nbsp;
-                                Ver más</a><a class="dropdown-item" href="./seguimiento-de-iniciativa-de-mitigacion.html"><i class="fas fa-history"></i>&nbsp;
-                                Seguimiento</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#copiar-iniciativa"><i class="fas fa-copy"></i>&nbsp;
+                                Ver detalle</a><a class="dropdown-item" href="./seguimiento-de-iniciativa-de-mitigacion.html"><i class="fas fa-history"></i>&nbsp;
+                                Seguimiento</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-observaciones"><i class="fas fa-envelope"></i>&nbsp;
+                                Observaciones</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#copiar-iniciativa"><i class="fas fa-copy"></i>&nbsp;
                                 Copiar</a><a class="dropdown-item text-success" href="#" data-toggle="modal" data-target="#tipo-ingreso-detalle"><i class="fas fa-clipboard-list"></i>&nbsp;
                                 Detalles</a><a class="dropdown-item text-success" href="./edicion-de-detalles-de-indicadores-manual.html"><i class="fas fa-clipboard-list"></i>&nbsp;
                                 Editar</a><a class="dropdown-item text-primary" href="./revision-de-iniciativa-detalles.html"><i class="fas fa-check-double"></i>&nbsp;
@@ -698,6 +739,7 @@
                                 Blockchain</a></div>
                           </div>
                         </td>
+                        <td class="text-center text-xs-right" data-encabezado="Descargas"><a class="text-dark" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-download"></i></a></td>
                       </tr>
                       <tr>
                         <th class="text-center" data-encabezado="Número" scope="row">10</th>
@@ -707,7 +749,7 @@
                             <label class="custom-control-label" for="chk-send-dm-11">&nbsp;</label>
                           </div>
                         </td>
-                        <td data-encabezado="Nombre de Iniciativa">Nombre de la Iniciativa Demasiado Largo</td>
+                        <td data-encabezado="Nombre de Iniciativa">Nombre de la Iniciativa Demasiado</td>
                         <td data-encabezado="Progreso">
                           <div class="progress" style="height: 20px;">
                             <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">75%</div>
@@ -716,17 +758,18 @@
                         <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
                         <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
                         <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
-                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial Largo</td>
-                        <td data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
-                        <td class="text-center" data-encabezado="Estado"><i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>&nbsp;
+                        <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial</td>
+                        <td class="text-right pr-3" data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
+                        <td data-encabezado="Estado"><i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>&nbsp;
                           Pendiente por Aprobar por el Verificador MINAM
                         </td>
                         <td class="text-center text-xs-right" data-encabezado="Acciones">
                           <div class="btn-group">
                             <div class="acciones fase-02 dropdown-toggle text-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
                             <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="./ver-mas-iniciativa-de-mitigacion-interno.html"><i class="fas fa-plus-circle"></i>&nbsp;
-                                Ver más</a><a class="dropdown-item" href="./seguimiento-de-iniciativa-de-mitigacion.html"><i class="fas fa-history"></i>&nbsp;
-                                Seguimiento</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#copiar-iniciativa"><i class="fas fa-copy"></i>&nbsp;
+                                Ver detalle</a><a class="dropdown-item" href="./seguimiento-de-iniciativa-de-mitigacion.html"><i class="fas fa-history"></i>&nbsp;
+                                Seguimiento</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-observaciones"><i class="fas fa-envelope"></i>&nbsp;
+                                Observaciones</a><a class="dropdown-item" href="#" data-toggle="modal" data-target="#copiar-iniciativa"><i class="fas fa-copy"></i>&nbsp;
                                 Copiar</a><a class="dropdown-item text-success" href="#" data-toggle="modal" data-target="#tipo-ingreso-detalle"><i class="fas fa-clipboard-list"></i>&nbsp;
                                 Detalles</a><a class="dropdown-item text-success" href="./edicion-de-detalles-de-indicadores-manual.html"><i class="fas fa-clipboard-list"></i>&nbsp;
                                 Editar</a><a class="dropdown-item text-primary" href="./revision-de-iniciativa-detalles.html"><i class="fas fa-check-double"></i>&nbsp;
@@ -738,6 +781,7 @@
                                 Blockchain</a></div>
                           </div>
                         </td>
+                        <td class="text-center text-xs-right" data-encabezado="Descargas"><a class="text-dark" href="./verificacion-de-iniciativa-detalles.html"><i class="fas fa-download"></i></a></td>
                       </tr>
                       <!--tfoot
                       tr
@@ -785,6 +829,17 @@
                   <input class="ir-pagina" type="number" value="1" min="1">
                   <button class="btn btn-primary" type="button"><i class="fas fa-angle-right"></i></button>
                   <button class="btn btn-primary" type="button"><i class="fas fa-angle-double-right"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container py-4">
+            <div class="row">
+              <div class="col-md-12 col-lg-6 pt-4">&nbsp;</div>
+              <div class="col-md-12 col-lg-6 pt-4">
+                <div class="row">
+                  <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
+                  <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#modal-aprobacion-evaluador"><a class="aprobar-evaluacion" href="#" data-toggle="tooltip" data-placement="top" title="Dar por aprobado las iniciativa de mitigación filtradas"><i class="fas fa-check px-1"></i>Aprobar seleccionados</a></span></div>
                 </div>
               </div>
             </div>
@@ -876,9 +931,10 @@
           <div class="modal-body medidas-modal">
             <div class="row">
               <div class="col-sm-12 col-md-12 col-lg-12">
-                <div class="swal2-icon swal2-question swal2-icon-show" style="display: flex;">
-                  <div class="swal2-icon-content"><i class="fas fa-info"></i></div>
-                </div>
+                <!--.swal2-icon.swal2-question.swal2-icon-show(style="display: flex;")
+                .swal2-icon-content
+                  i.fas.fa-info
+                -->
                 <h3 class="text-center">Seleccione un tipo de registro</h3>
                 <p class="text-center">para iniciar con el registro de detalle de sus indicadores</p>
               </div>
@@ -1262,6 +1318,44 @@
           <div class="modal-footer d-flex justify-content-center">
             <button class="btn btn-info" type="button">Si, grabar</button>
             <button class="btn btn-dark" type="button" data-dismiss="modal">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modal-observaciones" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <!--.modal-header
+          h5.modal-title(id="exampleModalLabel") Recordatorio
+          button.close(type="button", data-dismiss="modal", aria-label="Close")
+            span(aria-hidden="true") &times;
+          -->
+          <div class="modal-body medidas-modal">
+            <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="swal2-icon swal2-question swal2-icon-show" style="display: flex;">
+                  <div class="swal2-icon-content"><i class="fas fa-envelope"></i></div>
+                </div>
+                <h3 class="text-center">Mensaje de Observaciones</h3>
+                <p class="text-center">&nbsp;</p>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-7"><strong>De: Juan Perez&nbsp;<span class="badge badge-actor-03">Especialista</span></strong><br><strong>Para: Luis Silva&nbsp;<span class="badge badge-actor-02">Usuario Administrado</span></strong></div>
+              <div class="col-sm-12 col-md-6 col-lg-5 text-right"><strong>Fecha de Registro: 15/01/2020</strong></div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12-col-md-12 col-lg-12">
+                <div class="form-group">
+                  <label for="txa-nombre-iniciativa">&nbsp;</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-comment-alt"></i></span></div>
+                    <textarea class="form-control-plaintext" id="txa-observacion" aria-describedby="inputGroup2" cols="30" rows="5" readonly>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus porro quibusdam, repellat ipsa consequatur magni, vitae earum iure deleniti quod ad. Autem amet fugit, deleniti repellat veritatis aperiam minus nam!</textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer d-flex justify-content-center"><a class="btn btn-info" href="./seguimiento-de-iniciativa-de-mitigacion.html" target="_blank">Ver seguimiento<i class="fas fa-history ml-1"></i></a>
+            <button class="btn btn-dark" type="button" data-dismiss="modal">Cerrar</button>
           </div>
         </div>
       </div>
