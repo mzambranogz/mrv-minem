@@ -548,9 +548,9 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                             }
                         }
                         
-                        if (p >= 6) {
-                            tr = tr + '        <a class="dropdown-item" href="#" onclick="fn_visualizarFicha(' + data[i]["ID_INICIATIVA"] + ',' + p + ');" id="ficha-' + data[i]["ID_INICIATIVA"] + '" data-ficha="' + data[i]["ESTADO_FICHA"] + '"><i class="fas fa-download"></i>&nbsp;Descargar ficha</a>';
-                        }
+                        //if (p >= 6) {
+                        //    tr = tr + '        <a class="dropdown-item" href="#" onclick="fn_visualizarFicha(' + data[i]["ID_INICIATIVA"] + ',' + p + ');" id="ficha-' + data[i]["ID_INICIATIVA"] + '" data-ficha="' + data[i]["ESTADO_FICHA"] + '"><i class="fas fa-download"></i>&nbsp;Descargar ficha</a>';
+                        //}
                         if ($('#Control').data('rol') == 2) {
                             if (p == 1 || p == 3 || p == 4 || p == 6 || p == 7 || p == 9 || p == 10 || p == 12) {
                                 tr = tr + '        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-recordatorio" onclick="fn_mostrarUsuarioRecordatorio(' + data[i]["ID_INICIATIVA"] + ')"><i class="fas fa-envelope"></i>&nbsp;Recordatorio</a>';
@@ -560,16 +560,44 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                                 tr = tr + '        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-recordatorio" onclick="fn_mostrarUsuarioRecordatorio(' + data[i]["ID_INICIATIVA"] + ')"><i class="fas fa-envelope"></i>&nbsp;Recordatorio</a>';
                             }
                         }
-                        if (p == 16 || p == 18) {
-                            tr = tr + '<a class="dropdown-item" href="javascript:void(0);" onclick="fn_visualizarBlockchain(' + data[i]["ID_BLOCKCHAIN"] + ');" id="block-' + data[i]["ID_BLOCKCHAIN"] + '" data-block="' + data[i]["GENERADO_PDF"] + '"><i class="fas fa-file-code"></i>&nbsp;Blockchain</a></div>';
-                        }
+                        //if (p == 16 || p == 18) {
+                        //    tr = tr + '<a class="dropdown-item" href="javascript:void(0);" onclick="fn_visualizarBlockchain(' + data[i]["ID_BLOCKCHAIN"] + ');" id="block-' + data[i]["ID_BLOCKCHAIN"] + '" data-block="' + data[i]["GENERADO_PDF"] + '"><i class="fas fa-file-code"></i>&nbsp;Blockchain</a></div>';
+                        //}
                         
                         tr = tr + '         </div>';
                         tr = tr + '     </div>';
                         tr = tr + '</td>';
 
                         //add 01-05-2020
-                        tr = tr + '<td class="text-center text-xs-right" data-encabezado="Descargas"><a class="text-dark" href="javascript:void(0);"><i class="fas fa-download"></i></a></td>';
+
+                        if (p >= 6) {
+                            tr = tr + '<td class="text-center text-xs-right" data-encabezado="Descargas">';
+                            tr = tr + '     <div class="btn-group">'
+                            tr = tr + '         <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-download"></i></div>';
+                            tr = tr + '         <div class="dropdown-menu dropdown-menu-right">';
+
+                            if (p >= 6) {
+                                tr = tr + '        <a class="dropdown-item" href="#" onclick="fn_visualizarFicha(' + data[i]["ID_INICIATIVA"] + ',' + p + ');" id="ficha-' + data[i]["ID_INICIATIVA"] + '" data-ficha="' + data[i]["ESTADO_FICHA"] + '"><i class="fas fa-download"></i>&nbsp;Descargar ficha</a>';
+                            }
+
+                            if (p == 16 || p == 18) {
+                                tr = tr + '<a class="dropdown-item" href="javascript:void(0);" onclick="fn_visualizarBlockchain(' + data[i]["ID_BLOCKCHAIN"] + ');" id="block-' + data[i]["ID_BLOCKCHAIN"] + '" data-block="' + data[i]["GENERADO_PDF"] + '"><i class="fas fa-file-code"></i>&nbsp;Blockchain</a></div>';
+                            }
+
+                            tr = tr + '         </div>'
+                            tr = tr + '         </div>'
+                            tr = tr + '     </div>'
+                            tr = tr + '</td>'
+                        } else {
+                            tr = tr + '<td class="text-center text-xs-right" data-encabezado="Descargas">';
+                            tr = tr + '     <div class="btn-group">'
+                            tr = tr + '         <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-download"></i></div>';
+                            tr = tr + '         </div>'
+                            tr = tr + '     </div>'
+                            tr = tr + '</td>'
+                        }
+
+                        
 
                         tr = tr + '</tr>';
                         $("#cuerpoMitigacion").append(tr);
@@ -1910,6 +1938,7 @@ function fn_asignarIniciativa(id_iniciativa, id_actor, rol) {
     if (respuesta.success) {        
         $("#pieCorrecto").show();
         $("#msjCorrectoPaquete").removeAttr("hidden");
+        resetearValores(); //add
         fn_CargaIniciativas();
     } else {
         $("#pieCorrecto").show();
@@ -2041,7 +2070,7 @@ function fn_aprobarPaqueteIniciativa(id_iniciativa) {
         $("#pieAprobar").attr("hidden", true);
         $("#pieCorrectoAprobar").removeAttr("hidden");
         $("#msjCorrectoAprobar").removeAttr("hidden");
-        //alert("Registro exitoso");
+        //alert("Registro exitoso");        
         fn_CargaIniciativas();
     } else {
         //alert("Error");
@@ -2050,6 +2079,14 @@ function fn_aprobarPaqueteIniciativa(id_iniciativa) {
         $("#msjErrorAprobar").removeAttr("hidden");
     }
 
+}
+
+function resetearValores() {
+    $("#cbo-medida-mitigacion").val(0);
+    $("#txa-descripcion-iniciativa").val("");
+    $("#txt-fecha-inicio").val("");
+    $("#txt-fecha-fin").val("");
+    $("#cbo-sector").val(0);
 }
 
 function fn_msjErrorA(error) {

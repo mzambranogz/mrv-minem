@@ -230,10 +230,31 @@ function calcularTotalGei(anno) {
                 var total = 0.0;
                 if (data.length > 0) {
                     for (var i = 0; i < data.length; i++) {
-                        var total_med = Math.round(parseFloat(data[i]["TOTAL_GEI"]) * 100) / 100;
+                        //var total_med = Math.round(parseFloat(data[i]["TOTAL_GEI"]) * 100) / 100;
+                        var total_gei = Math.round(parseFloat(data[i]["TOTAL_GEI"]) * 100) / 100;
+
+                        //var total_gei = Math.round(data[i]["TOTAL_GEI_REDUCIDO"]);
+                        var desc_gei = "tCO<sub>2</sub>eq";
+                        if (total_gei > 999) {
+                            total_gei = Math.round((total_gei / 1000) * 100) / 100;
+                            desc_gei = "KtCO<sub>2</sub>eq";
+                            if (total_gei > 999) {
+                                total_gei = Math.round((total_gei / 1000) * 100) / 100;
+                                desc_gei = "MtCO<sub>2</sub>eq";
+                                if (total_gei > 999) {
+                                    total_gei = Math.round((total_gei / 1000) * 100) / 100;
+                                    desc_gei = "GtCO<sub>2</sub>eq";
+                                }
+                            }
+                        }
+
+
                         $("#medida-" + data[i]["ID_MEDMIT"]).html(data[i]["NOMBRE_MEDMIT"]);
-                        $("#medida-valor-" + data[i]["ID_MEDMIT"]).html(total_med);
-                        total += total_med;
+                        //$("#medida-valor-" + data[i]["ID_MEDMIT"]).html(total_med);
+                        //total += total_med;
+                        $("#medida-unidad-" + data[i]["ID_MEDMIT"]).html("").html(desc_gei);
+                        $("#medida-valor-" + data[i]["ID_MEDMIT"]).html(total_gei);
+                        total += total_gei;
                     }
                     $("#cantidadReducido").html(Math.round(total * 100) / 100);
                 }
