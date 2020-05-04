@@ -15,6 +15,20 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
+                            <Value>Emisiones (tCO2/año)</Value>
+                            <Style>
+                              <FontSize>8pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
+                      </Paragraph>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
                             <Value />
                             <Style>
                               <FontSize>8pt</FontSize>
@@ -564,7 +578,7 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>1.96333cm</Size>
+                    <Size>2.3602cm</Size>
                     <CellContents>
                       <Textbox Name="Textbox1">
                         <CanGrow>true</CanGrow>
@@ -573,7 +587,21 @@
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>BAU Emisiones (tCO2/año)</Value>
+                                <Value>ESCENARIO BAU</Value>
+                                <Style>
+                                  <FontSize>8pt</FontSize>
+                                  <FontWeight>Bold</FontWeight>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style>
+                              <TextAlign>Center</TextAlign>
+                            </Style>
+                          </Paragraph>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value />
                                 <Style>
                                   <FontSize>8pt</FontSize>
                                   <FontWeight>Bold</FontWeight>
@@ -605,7 +633,7 @@
                 </TablixMember>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>1.96333cm</Size>
+                    <Size>2.3602cm</Size>
                     <CellContents>
                       <Textbox Name="Textbox13">
                         <CanGrow>true</CanGrow>
@@ -614,7 +642,21 @@
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>MITIGACION Emisiones (tCO2/año)</Value>
+                                <Value>ESCENARIO MITIGACION</Value>
+                                <Style>
+                                  <FontSize>8pt</FontSize>
+                                  <FontWeight>Bold</FontWeight>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style>
+                              <TextAlign>Center</TextAlign>
+                            </Style>
+                          </Paragraph>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value />
                                 <Style>
                                   <FontSize>8pt</FontSize>
                                   <FontWeight>Bold</FontWeight>
@@ -648,7 +690,7 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>1.96333cm</Size>
+                <Size>2.3602cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox7">
                     <CanGrow>true</CanGrow>
@@ -657,7 +699,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Total</Value>
+                            <Value>Total Reducido</Value>
                             <Style>
                               <FontSize>8pt</FontSize>
                               <FontWeight>Bold</FontWeight>
@@ -691,7 +733,7 @@
         <Top>5.07683cm</Top>
         <Left>0.63182cm</Left>
         <Height>2.4cm</Height>
-        <Width>4.89958cm</Width>
+        <Width>5.29646cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
