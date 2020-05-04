@@ -1769,6 +1769,7 @@ function convertirATonelada() {
         campos.each(function (index, value) {
             var valor = $(value).find(".convertir").find("span").html();
             valor = valor * 1000;
+            valor = Math.round(valor * 100) / 100;
             $(value).find(".convertir").find("span").html(valor);
             $(value).find(".convertir").find("small").html("tCO2eq");
         });
@@ -1782,6 +1783,7 @@ function convertirAKiloTonelada() {
         campos.each(function (index, value) {
             var valor = $(value).find(".convertir").find("span").html();
             valor = valor / 1000;
+            valor = Math.round(valor*100000)/100000;//add
             $(value).find(".convertir").find("span").html(valor);
             $(value).find(".convertir").find("small").html("ktCO2eq");
         });

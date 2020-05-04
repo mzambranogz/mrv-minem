@@ -42,8 +42,8 @@ function fn_verificarEmail() {
         msj = msj + '                            </div>';
         msj = msj + '                            <div class="alert-wrap">';
         msj = msj + '                                <h6>Error de registro</h6>';
-        //msj = msj + '                                <hr><small class="mb-0">El correo ingresado ya existe, utilice un correo válido para su registro.</small>';
-        msj = msj + '                                <hr><small class="mb-0">Ocurrio un problema durante el registro.</small>';
+        msj = msj + '                                <hr><small class="mb-0">El correo ingresado ya existe, utilice un correo válido por favor.</small>';
+        //msj = msj + '                                <hr><small class="mb-0">Ocurrio un problema durante el registro.</small>';
         msj = msj + '                            </div>';
         msj = msj + '                        </div>';
         $("#seccionMensaje").append(msj);
@@ -90,6 +90,14 @@ function fn_validar(e) {
 
     if ($("#txt-ruc").val().length < 11) {
         arr.push("El ruc debe contener 11 caracteres");
+    }
+    
+    if ($("#txt-ruc").val().length > 2) {
+        var ruc = $("#txt-ruc").val();
+        ruc = ruc.substring(0, 2);
+        if (ruc != '20' && ruc != '10') {
+            arr.push("El ruc debe iniciar con el número 20 o 10");
+        }
     }
 
     if ($("#cbo-sector").val() == 0) {
