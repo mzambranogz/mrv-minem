@@ -87,7 +87,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-md-12 col-lg-6 pt-4">
+              <div class="col-md-12 col-lg-7 pt-4">
                 <form>
                   <div class="form-group">
                     <label for="txt-buscar">Buscar&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese si conoce el nombre de la iniciativa o la(s) palabra(s) asociada(s) a las iniciativas de interés. En caso de no encontrar resultados acceda a la búsqueda avanzada."></i></label>
@@ -331,7 +331,7 @@
                   </div>
                 </form>
               </div>
-              <div class="col-md-12 col-lg-6 pt-4"></div>
+              <div class="col-md-12 col-lg-5 pt-4"></div>
             </div>
           </div>
           <div class="container-fluid py-4">
@@ -341,9 +341,6 @@
               </div>
               <div class="col-xs-12 col sm-12 col-lg-2 text-lg-right"><span data-toggle="modal" data-target="#modal-evaluador"><a class="btn btn-purple w-100 mb-2" href="#" data-toggle="tooltip" data-placement="top" title="Una vez seleccionadas las iniciativas de mitigación, por medida y periodo, puede generar y enviar un paquete al Evaluador MINAM "><i class="fas fa-box px-1"></i>Enviar paquete</a></span>
                 <button class="btn btn-success w-100 mb-2"><i class="fas fa-file-download px-1"></i>Descargar Excel</button>
-                <div class="btn-group" id="filtro-conversion"><a class="btn btn-purple dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1"><i class="fas fa-filter">&nbsp;</i>Convertir unidades</a>
-                  <div class="dropdown-menu"><a class="dropdown-item" href="#"><i class="fas fa-exchange-alt">&nbsp;</i><strong>ktCO2eq &nbsp;</strong>a &nbsp;<strong>tCO2eq</strong></a><a class="dropdown-item" href="#"><i class="fas fa-exchange-alt">&nbsp;</i><strong>tCO2eq &nbsp;</strong>a &nbsp;<strong>ktCO2eq</strong></a></div>
-                </div>
               </div>
             </div>
             <div class="dropdown-divider"></div>
@@ -366,7 +363,11 @@
                         <th class="text-center" scope="col" width="8%"><span>Fecha de <br> Término&nbsp;<i class="fas fa-sort"></i></span></th>
                         <th class="text-center" scope="col" width="10%"><span>Medida de  <br> Mitigación&nbsp;<i class="fas fa-sort"></i></span></th>
                         <th scope="col" width="17%"><span>Entidad <br> Responsable&nbsp;<i class="fas fa-sort"></i></span></th>
-                        <th scope="col" width="5%"><span>Total <br> Reducido&nbsp;<i class="fas fa-sort"></i></span></th>
+                        <th scope="col" width="5%">
+                          <div class="btn-group" id="filtro-conversion"><a class="btn dropdown-toggle text-white font-weight-bold p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1">Convertir</a>
+                            <div class="dropdown-menu"><a class="dropdown-item" href="#"><i class="fas fa-exchange-alt">&nbsp;</i><strong>ktCO2eq &nbsp;</strong>a &nbsp;<strong>tCO2eq</strong></a><a class="dropdown-item" href="#"><i class="fas fa-exchange-alt">&nbsp;</i><strong>tCO2eq &nbsp;</strong>a &nbsp;<strong>ktCO2eq</strong></a></div>
+                          </div><span>Reducido&nbsp;<i class="fas fa-sort"></i></span>
+                        </th>
                         <th scope="col" width="15%"><span>Estado de <br> Iniciativa&nbsp;<i class="fas fa-sort"></i></span></th>
                         <th class="text-center" scope="col" width="3%">Gestión</th>
                         <th class="text-center" scope="col" width="3%"><i class="fas fa-download text-white" data-toggle="tooltip" data-placement="top" title="Descargas"></i></th>
