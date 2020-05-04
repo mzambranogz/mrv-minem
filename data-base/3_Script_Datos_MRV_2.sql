@@ -1,5 +1,5 @@
---------------------------------------------------------
--- Archivo creado  - jueves-abril-30-2020   
+------------------------------------------------------------------
+-- Archivo creado  - domingo-mayo-03-2020   
 --------------------------------------------------------
 
 Insert into MRVMM.T_MAEM_TIPO_DATO (ID_TIPO_DATO,TIPO_DATO) values ('1','FECHA');

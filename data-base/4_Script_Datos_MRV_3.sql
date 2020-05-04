@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - jueves-abril-30-2020   
+-- Archivo creado  - domingo-mayo-03-2020   
 --------------------------------------------------------
 
 Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('23','1','52','3','4','1');
