@@ -29,7 +29,7 @@
                     <div class="col-md-12 col-lg-6 pt-4"></div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12 col-lg-6 pt-4">
+                    <div class="col-md-12 col-lg-7 pt-4">
                         <!--<form>-->
                         <div class="form-group">
                             <label for="txt-buscar">Buscar&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese si conoce el nombre de la iniciativa o la(s) palabra(s) asociada(s) a las iniciativas de interés. En caso de no encontrar resultados acceda a la búsqueda avanzada."></i></label>
@@ -38,7 +38,8 @@
                                 <input class="form-control" type="text" id="txt-buscar" placeholder="Ingrese la descripción de su búsqueda" aria-describedby="inputGroup1" required>
                                 <div class="input-group-append" id="seccionFiltro">
                                     <div class="btn-group">
-                                        <a class="btn btn-teal dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1"><i class="fas fa-filter">&nbsp;</i>Filtrar por estados</a>
+                                        @*<a class="btn btn-teal dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1"><i class="fas fa-filter">&nbsp;</i>Filtrar por estados</a>*@
+                                        <a class="btn btn-teal dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1"><i class="fas fa-tachometer-alt">&nbsp;</i>Todas</a>
                                         <div class="dropdown-menu">
                                             @*<a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(1, $(this));"><i class="fas fa-hourglass">&nbsp;</i>Pendientes</a>*@
                                             <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(2, $(this));"><i class="fas fa-eye">&nbsp;</i>Observadas</a>
@@ -298,7 +299,7 @@
                         </div>
                         <!--</form>-->
                     </div>
-                    <div class="col-md-12 col-lg-6 pt-4">
+                    <div class="col-md-12 col-lg-5 pt-4">
                         <!--&nbsp;-->
                     </div>
                 </div>

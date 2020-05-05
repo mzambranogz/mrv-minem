@@ -29,7 +29,9 @@ function fn_CargaIniciativas() {
         }
 
     } else {
-        CargarListarIniciativaMitigacionPublico(baseUrl + "Portal/ListaIniciativasPublico");
+        if ($("#estadoIniciativa").data("estado") > 0) { //add
+            CargarListarIniciativaMitigacionPublico(baseUrl + "Portal/ListaIniciativasPublico");
+        }        
     }
 }
 

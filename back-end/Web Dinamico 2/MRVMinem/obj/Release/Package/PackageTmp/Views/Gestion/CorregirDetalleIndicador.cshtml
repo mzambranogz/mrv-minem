@@ -342,7 +342,7 @@
                                 <div class="row">
                                     <div class="col-sm-12-col-md-12 col-lg-6">
                                         <div class="form-group">
-                                            <label for="txt-documentos">Adjuntar documento (PDF, DOC, JPG, PNG)<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span></label>
+                                            <label for="txt-documentos">Adjuntar documento (PDF, DOC, JPG, PNG, TXT, XLSX, PPTX)<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span></label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup13"><i class="fas fa-file"></i></span></div>
                                                 <input class="form-control cursor-pointer txt-file-control" type="text" id="txt-documentos" placeholder="Suba su documentos" aria-describedby="inputGroup13" required>
@@ -409,7 +409,7 @@
                                                             }
 
                                                             <div class="input-group mb-3" id="eliminar-@item.ID_INICIATIVA_SUSTENTATORIO">
-                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="fas @extension"></i></span></div><span class="form-control-plaintext">@item.ADJUNTO_BASE</span>
+                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="fas @extension"></i></span></div><span class="form-control-plaintext ww">@item.ADJUNTO_BASE</span>
                                                                 <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="far fa-trash-alt" onclick="fn_eliminarArchivo(@item.ID_INICIATIVA_SUSTENTATORIO)"></i></span></div>
                                                             </div>
                                                         }
@@ -670,7 +670,7 @@
             }
 
             storedFiles.push(f);
-            output.push('<div class="input-group mb-3" data-file="' + f.name + '">', '<div class="input-group-prepend">', '<span class="input-group-text">', '<i class="fas ', extension, '">', '</i>', '</span>', '</div>', '<span class="form-control-plaintext">', decodeURI(f.name), '</span>', '<div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="far fa-trash-alt selfile" data-file="' + f.name + '" onclick="removeFile(this)"></i></span>', '</div></div>');
+            output.push('<div class="input-group mb-3" data-file="' + f.name + '">', '<div class="input-group-prepend">', '<span class="input-group-text">', '<i class="fas ', extension, '">', '</i>', '</span>', '</div>', '<span class="form-control-plaintext ww">', decodeURI(f.name), '</span>', '<div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="far fa-trash-alt selfile" data-file="' + f.name + '" onclick="removeFile(this)"></i></span>', '</div></div>');
         }
         $("#archivos-documentos").append(output.join(''));
         $("#total-documentos").html($("#total-documentos").data("cantidad") + files.length);

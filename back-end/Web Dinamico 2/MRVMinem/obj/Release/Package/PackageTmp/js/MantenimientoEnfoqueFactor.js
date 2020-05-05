@@ -121,7 +121,7 @@ function CargarCuerpoGuardado(filas, factor) {
                                     tr += '<input class="form-control form-control-sm text-center" type="date" placeholder="" id="fch-det-tbl-1-' + fecha + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '">';
                                 } else {
                                     texto++;
-                                    tr += '<input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '">';
+                                    tr += '<input class="form-control form-control-sm text-center validar" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '">';
                                 }
                                 tr += '    </div>';
                                 tr += '</td>'
@@ -658,3 +658,9 @@ function exportarMantenimiento() {
     jQuery('#frmDescarga').submit();
     jQuery('#frmDescarga').remove();
 }
+
+$(document).on("keydown", ".validar", function (event) {
+    if ((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105) && event.keyCode !== 190 && event.keyCode !== 110 && event.keyCode !== 8 && event.keyCode !== 9) {
+        return false;
+    }
+});
