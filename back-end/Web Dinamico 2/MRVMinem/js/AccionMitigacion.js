@@ -515,7 +515,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                         }
 
                         //==============================
-                        if ($('#Control').data('rol') == 2) {
+                        if ($('#Control').data('rol') == 2 && $("#estadoIniciativa").data("estado") == 9) {
                             if (data[i]["PROGRESO"] == 1 && data[i]["ID_ESTADO"] == 0 && $('#Control').data('rol') == 2) {
                                 tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_mostrarEditarIniciativa(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
                             } else if (data[i]["PROGRESO"] == 1 && (data[i]["ID_ESTADO"] == 2 || data[i]["ID_ESTADO"] == 6) && $('#Control').data('rol') == 2) {
