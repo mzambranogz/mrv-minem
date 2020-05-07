@@ -1696,7 +1696,7 @@ end PKG_MRV_PARAMETROS;
         V10 NUMBER;
         V11 NUMBER;
         vsql VARCHAR2(4000);
-
+        VALIDAR_ACUM NUMBER; --- ADD
 
         VFACTOR VARCHAR(1000);
     BEGIN
@@ -1878,9 +1878,29 @@ end PKG_MRV_PARAMETROS;
                         END IF;
 
                     END LOOP;
-
-                    INSERT INTO T_GENM_ACUMULADO (ID_INICIATIVA, ID_MEDMIT, ID_ENFOQUE, ID_INDICADOR, ANNO, BAU, INI, REDUCIDO)
-                    VALUES (pID_INICIATIVA, pID_MEDMIT, pID_ENFOQUE, pID_INDICADOR, pANNO, V9, V10, V11);        
+                    
+                    ----------------------------------------------------------
+                    SELECT COUNT(*) INTO VALIDAR_ACUM FROM T_GENM_ACUMULADO 
+                    WHERE ID_INICIATIVA = pID_INICIATIVA
+                      AND ID_MEDMIT = pID_MEDMIT
+                      AND ID_ENFOQUE = pID_ENFOQUE
+                      AND ID_INDICADOR = pID_INDICADOR
+                      AND ANNO = pANNO;
+                    ----------------------------------------------------------
+                    IF VALIDAR_ACUM = 0 THEN
+                        INSERT INTO T_GENM_ACUMULADO (ID_INICIATIVA, ID_MEDMIT, ID_ENFOQUE, ID_INDICADOR, ANNO, BAU, INI, REDUCIDO)
+                        VALUES (pID_INICIATIVA, pID_MEDMIT, pID_ENFOQUE, pID_INDICADOR, pANNO, V9, V10, V11);    
+                    ELSE
+                        UPDATE  T_GENM_ACUMULADO
+                        SET BAU = V9,
+                            INI = V10,
+                            REDUCIDO = V11
+                        WHERE ID_INICIATIVA = pID_INICIATIVA
+                        AND ID_MEDMIT = pID_MEDMIT
+                        AND ID_ENFOQUE = pID_ENFOQUE
+                        AND ID_INDICADOR = pID_INDICADOR
+                        AND ANNO = pANNO;
+                    END IF;  
 
             --OPEN PO FOR
             --SELECT VRES, VFACTOR FROM DUAL;

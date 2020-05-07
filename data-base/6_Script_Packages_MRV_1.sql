@@ -2771,10 +2771,25 @@ end PKG_MRV_BLOCKCHAIN;
               ID_MEDMIT = pID_MEDMIT AND
               ID_INDICADOR = pID_INDICADOR AND
               ANNO = V6;
-    END IF;   
+    END IF;
+    
+    ----------------------------------------
+    IF (pID_MEDMIT IN (4,12))THEN
+        SELECT 0 INTO VCONT FROM DUAL;
+    ELSE
+        IF (V6 < EXTRACT(YEAR FROM SYSDATE)) THEN
+            v6 := v6 + 1;
+            WHILE v6 < EXTRACT(YEAR FROM SYSDATE)
+            LOOP
+               PKG_MRV_REPORTES.USP_PRC_ACUMULADO(pID_INICIATIVA, pID_MEDMIT, pID_ENFOQUE, pID_INDICADOR, V6);
+	       v6 := v6 + 1;
+            END LOOP;
+        END IF;
+    END IF;
+    
+    ----------------------------------------
 
     END USP_INS_ACUMULADO_DETALLE;
-
 
   --////////////////////////////////////////// DINAMICO FINAL  
 
