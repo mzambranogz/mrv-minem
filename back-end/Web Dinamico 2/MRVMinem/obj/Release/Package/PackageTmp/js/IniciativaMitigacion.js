@@ -1254,4 +1254,46 @@ function ValidarRevision(id_ini, id_plazo, id_msj, mensaje) {
     return msj;
 }
 
+//======================================================================
+function fn_habilitarTodo() {
+    var validar = 0;
+    if ($("#chk-send-im").prop("checked")) {
+        validar = 0;
+    } else {
+        validar = 1;
+    }
 
+    if (validar == 1) {
+        $('#chk-send-im').prop("checked", true);
+    } else {
+        $('#chk-send-im').prop("checked", false);
+    }
+    debugger;
+
+    for (var i = 0; i < $("#listaUbicacion").data("cantidad") ; i++) {
+
+        if (validar == 1) {
+            $('#U' + (i + 1)).prop("checked", true);
+        } else {
+            $('#U' + (i + 1)).prop("checked", false);
+        }
+
+        //if ($('#U' + (i + 1)).prop('checked')) {
+        //    ubicacion = ubicacion + $('#U' + (i + 1)).data("value") + "," + "1/";
+        //    ubi_verificar += $('#U' + (i + 1)).data("value") + ",";
+        //}
+    }
+
+
+    //var row = $("#tabla-iniciativa").find("tbody").find("tr");
+    //row.each(function (index, value) {
+    //    var fila = $(value).find(".fila-inicio").html();
+    //    if (validar == 1) {
+    //        $('#chk-send-im-' + fila).prop("checked", true);
+    //    } else {
+    //        $('#chk-send-im-' + fila).prop("checked", false);
+    //    }
+
+    //});
+
+}

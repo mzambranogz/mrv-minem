@@ -250,7 +250,7 @@
                                 <div class="row">
                                     <div class="col-sm-12-col-md-12 col-lg-6">
                                         <div class="form-group">
-                                            <label for="cbo-enfoque">Enfoque<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione un enfoque ligado a su medida de mitigación"></i></label>
+                                            <label for="cbo-enfoque">Equipo(s)<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione un enfoque ligado a su medida de mitigación"></i></label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup20"><i class="fas fa-square-root-alt"></i></span></div>
                                                 <select class="form-control" id="cbo-enfoque" aria-describedby="inputGroup20" disabled>
@@ -481,28 +481,33 @@
                                         <p class="text-center">Confirme si está seguro de enviar todos los datos registrados para iniciar el proceso de revisión y obtener la aprobación por parte de nuestros especialistas.</p>
                                     </div>*@
                                     <div class="col-sm-12 col-md-12 col-lg-12" id="mensajeModalRegistrar">
-                                        <div class="alert alert-warning d-flex align-items-stretch" role="alert">
-                                            <div class="alert-wrap mr-3">
-                                                <div class="sa">
-                                                    <div class="sa-warning">
-                                                        <div class="sa-warning-body"></div>
-                                                        <div class="sa-warning-dot"></div>
+
+                                        <div hidden>
+                                            <div class="alert alert-warning d-flex align-items-stretch" role="alert">
+                                                <div class="alert-wrap mr-3">
+                                                    <div class="sa">
+                                                        <div class="sa-warning">
+                                                            <div class="sa-warning-body"></div>
+                                                            <div class="sa-warning-dot"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="alert-wrap">
+                                                    <h6>Publicar datos</h6>
+                                                    <hr>
+                                                    <div class="custom-control custom-checkbox d-inline-block">
+                                                        <input class="custom-control-input" type="checkbox" id="chk-publicar">
+                                                        <label class="custom-control-label" for="chk-publicar">Hacer públicos los datos registrados en esta iniciativa. &nbsp;</label><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Sus datos serán visibles públicamente y podrán ser consultados desde el sitio web del visitante"></i>
+                                                    </div>
+                                                    <div class="custom-control custom-checkbox d-inline-block">
+                                                        <input class="custom-control-input" type="checkbox" id="chk-publicar-monto-inversion">
+                                                        <label class="custom-control-label" for="chk-publicar-monto-inversion">Hacer público "Monto de inversión" &nbsp;</label><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="El monto de inversión será visible públicamente y podrá ser consultado desde el sitio web del visitante"></i>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="alert-wrap">
-                                                <h6>Publicar datos</h6>
-                                                <hr>
-                                                <div class="custom-control custom-checkbox d-inline-block">
-                                                    <input class="custom-control-input" type="checkbox" id="chk-publicar">
-                                                    <label class="custom-control-label" for="chk-publicar">Hacer públicos los datos registrados en esta iniciativa. &nbsp;</label><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Sus datos serán visibles públicamente y podrán ser consultados desde el sitio web del visitante"></i>
-                                                </div>
-                                                <div class="custom-control custom-checkbox d-inline-block">
-                                                    <input class="custom-control-input" type="checkbox" id="chk-publicar-monto-inversion">
-                                                    <label class="custom-control-label" for="chk-publicar-monto-inversion">Hacer público "Monto de inversión" &nbsp;</label><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="El monto de inversión será visible públicamente y podrá ser consultado desde el sitio web del visitante"></i>
-                                                </div>
-                                            </div>
                                         </div>
+
+                                        
                                      
                                         <div id="mensajeSuccess" hidden>
 
