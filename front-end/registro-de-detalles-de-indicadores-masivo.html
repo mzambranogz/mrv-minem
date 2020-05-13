@@ -40,7 +40,7 @@
               <li class="nav-item"><a class="nav-link text-dark px-2" href="./reportes.html"><i class="fas fa-file-invoice pr-1"></i>Reportes</a></li>
               <li class="nav-item"><a class="nav-link text-dark px-2" href="./resultados.html"><i class="fas fa-chart-pie pr-1"></i>Resultados</a></li>
             </ul><a class="btn text-dark px-2 mr-2 notificaciones" href="./notificaciones.html" rol="button"><i class="far fa-bell">&nbsp;</i><span class="badge badge-light">0</span><span class="d-none d-xs-block d-sm-block d-lg-none pl-1 mostrar-inicio">Notificaciones</span></a>
-            <div class="btn-group w-sm-100"><a class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0"><i class="fas fa-user pr-1"></i>Ricardo Salmón</a>
+            <div class="btn-group w-sm-100"><a class="btn btn-outline-success border-0 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0"><i class="fas fa-user pr-1"></i>Ricardo Salmón</a>
               <div class="dropdown-menu dropdown-menu-right w-sm-100"><span class="dropdown-item font-weight-bold">Rol: &nbsp;<span class="badge badge-actor-02">Administrado</span><br><span class="badge badge-actor-03">Especialista</span><br><span class="badge badge-actor-04">Evaluador MINAM</span><br><span class="badge badge-actor-05">Verificador Externo</span><br><span class="badge badge-actor-06">Administrador MINEM</span></span><a class="dropdown-item" href="./mantenimiento-de-tablas.html"><i class="fas fa-cogs pr-1"></i>Mantenimiento de tablas</a><a class="dropdown-item" href="./cambiar.html"><i class="fas fa-key pr-1"></i>Cambiar contraseña</a>
                 <div class="dropdown-divider"></div><a class="dropdown-item" href="./login.html"><i class="fas fa-sign-out-alt pr-1"></i>Salir del sistema</a>
               </div>
@@ -332,7 +332,12 @@ CH 2</textarea>
                   </div>
                 </div>
                 <div class="container-fluid py-4">
-                  <div class="h5">Registro de Detalles de Iniciativa de Mitigación&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Complete los campos de acuerdo al enfoque seleccionado"></i></div>
+                  <div class="row">
+                    <div class="col-xs-12 col sm-12 col-lg-10 d-flex align-items-end justify-content-left">
+                      <div class="h5">Registro de Detalles de Iniciativa de Mitigación&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Bandeja de iniciativas de mitigación registradas por su institución"></i></div>
+                    </div>
+                    <div class="col-xs-12 col sm-12 col-lg-2 text-lg-right"><span data-toggle="modal" data-target="#modal-acumulado"><a class="btn btn-purple w-100 mb-2" href="#" data-toggle="tooltip" data-placement="top" title="Verificar el acumulado total por Medida de Mitigación"><i class="fas fa-box px-1"></i>Verificar acumulado</a></span></div>
+                  </div>
                   <div class="dropdown-divider"></div>
                   <div class="row">
                     <div class="col-12 px-0">
@@ -340,18 +345,18 @@ CH 2</textarea>
                         <table class="table table-hover">
                           <thead>
                             <tr class="bg-primary text-white">
-                              <th class="text-center grupo-columna-03" scope="col"><span>N°</span></th>
-                              <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>AÑO</span><small>Seleccione este campo para su registro</small></th>
-                              <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>POTENCIA BASE (W)</span><small>Seleccione este campo para su registro</small></th>
-                              <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>POTENCIA INICIATIVA (W)</span><small>Seleccione este campo para su registro</small></th>
-                              <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>CANTIDAD</span><small>Seleccione este campo para su registro</small></th>
-                              <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>MES</span><small>Seleccione este campo para su registro</small></th>
-                              <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>EMISIONES GEI REDUCIDAS tCOeq</span><small>Seleccione este campo para su registro</small></th>
-                              <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>AÑO</span><small>Seleccione este campo para su registro</small></th>
-                              <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>POTENCIA BASE (W)</span><small>Seleccione este campo para su registro</small></th>
-                              <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>POTENCIA INICIATIVA (W)</span><small>Seleccione este campo para su registro</small></th>
-                              <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>Sub Total</span><small>Seleccione este campo para su registro</small></th>
-                              <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>Sustento</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Texto descriptivo"></i>N°</span></th>
+                              <th class="text-center grupo-columna-03"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Texto descriptivo"></i>AÑO</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-03"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Texto descriptivo"></i>POTENCIA BASE (W)</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-03"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Texto descriptivo"></i>POTENCIA INICIATIVA (W)</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-03"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Texto descriptivo"></i>CANTIDAD</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-03"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Texto descriptivo"></i>MES</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-03"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Texto descriptivo"></i>EMISIONES GEI REDUCIDAS tCOeq</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-03"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Texto descriptivo"></i>AÑO</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-03"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Texto descriptivo"></i>POTENCIA BASE (W)</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-03"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Texto descriptivo"></i>POTENCIA INICIATIVA (W)</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-03"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Texto descriptivo"></i>Sub Total</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Información adicional que se debe añadir"></i>Sustento &nbsp;</span><small>Seleccione este campo para su registro</small></th>
                               <!--th.text-center(scope="col")span Más<br>
                               a.btn.btn-warning.btn-sm.m-0.agregarCampos(href="#", title="Agregar fila", download)
                                 i.fas.fa-plus-circle
@@ -433,7 +438,6 @@ CH 2</textarea>
                                   i.fas.fa-minus-circle
                                   | &nbsp;
                                   | Eliminar
-                              
                               -->
                             </tr>
                             <tr id="detalles-tr-2">
@@ -510,7 +514,6 @@ CH 2</textarea>
                                   i.fas.fa-minus-circle
                                   | &nbsp;
                                   | Eliminar
-                              
                               -->
                             </tr>
                             <tr class="error-data" id="detalles-tr-3">
@@ -649,7 +652,6 @@ CH 2</textarea>
                                   i.fas.fa-minus-circle
                                   | &nbsp;
                                   | Eliminar
-                              
                               -->
                             </tr>
                             <tr id="detalles-tr-5">
@@ -726,7 +728,6 @@ CH 2</textarea>
                                   i.fas.fa-minus-circle
                                   | &nbsp;
                                   | Eliminar
-                              
                               -->
                             </tr>
                             <tr class="error-data" id="detalles-tr-6">
@@ -865,7 +866,6 @@ CH 2</textarea>
                                   i.fas.fa-minus-circle
                                   | &nbsp;
                                   | Eliminar
-                              
                               -->
                             </tr>
                             <tr id="detalles-tr-8">
@@ -942,7 +942,6 @@ CH 2</textarea>
                                   i.fas.fa-minus-circle
                                   | &nbsp;
                                   | Eliminar
-                              
                               -->
                             </tr>
                             <tr class="error-data" id="detalles-tr-9">
@@ -1081,7 +1080,6 @@ CH 2</textarea>
                                   i.fas.fa-minus-circle
                                   | &nbsp;
                                   | Eliminar
-                              
                               -->
                             </tr>
                             <tr id="detalles-tr-11">
@@ -1158,13 +1156,15 @@ CH 2</textarea>
                                   i.fas.fa-minus-circle
                                   | &nbsp;
                                   | Eliminar
-                              
                               -->
                             </tr>
                           </tbody>
                         </table>
                       </div>
                     </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 text-right"><a class="btn btn-success" href="#" download><i class="fas fa-download mr-1"></i>Descargar todos los sustentos</a></div>
                   </div>
                 </div>
                 <div class="container py-4">
@@ -1175,15 +1175,15 @@ CH 2</textarea>
                           <thead>
                             <tr class="bg-primary text-white">
                               <th class="text-center" scope="col" width="2%"><span>N°&nbsp;</span></th>
-                              <th scope="col" width="88%"><span>Resumen</span></th>
-                              <th scope="col" width="10%"><span>Total</span></th>
+                              <th scope="col" width="80%"><span>Resumen</span></th>
+                              <th class="text-right" scope="col" width="18%"><span>Total reducido</span></th>
                             </tr>
                           </thead>
                           <tbody>
                             <tr>
                               <th class="text-center" data-encabezado="Número" scope="row">1</th>
                               <td data-encabezado="Resumen">Nombre de la Medida Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia earum asperiores do</td>
-                              <td data-encabezado="Total"><strong>150,000.00</strong></td>
+                              <td class="text-right" data-encabezado="Total reducido"><strong>150,000.00</strong></td>
                             </tr>
                           </tbody>
                         </table>
@@ -1230,7 +1230,10 @@ CH 2</textarea>
                   </div>
                 </div>
                 <div class="container py-5">
-                  <div class="alert alert-info" role="alert"><i class="fas fa-info-circle">&nbsp;</i>Una vez aprobada su iniciativa podrá postular a la <b>Plataforma del Sello de Reconocimiento de Energía Sostenible</b></div>
+                  <!--.alert.alert-info(role="alert")
+                  i.fas.fa-info-circle &nbsp;
+                  | Una vez aprobada su iniciativa podrá postular a la <b>Plataforma del Sello de Reconocimiento de Energía Sostenible</b>
+                  -->
                   <div class="dropdown-divider my-5"></div>
                   <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-6"><span class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Todos los campos son obligatorios</span></div>
@@ -1599,18 +1602,20 @@ CH 2</textarea>
           <div class="col-12">
             <div class="row">
               <div class="col-sm-12 col-md-4 text-white">
+                <div class="lead font-weight-bold">Enlaces</div>
+                <ul class="list-unstyled">
+                  <li class="py-1"><a class="text-white" href="http://eficienciaenergetica.minem.gob.pe/" target="_blank"><i class="fas fa-landmark mr-2"></i>Sistema Interactivo de Eficiencia Energética</a></li>
+                  <li class="py-1"><a class="text-white" href="http://www.minem.gob.pe/_detalle.php?idSector=12&amp;idTitular=3011&amp;idMenu=sub3001&amp;idCateg=716" target="_blank"><i class="fas fa-landmark mr-2"></i>Dirección General de Eficiencia Energética</a></li>
+                  <li class="py-1"><a class="text-white" href="https://www.gob.pe/minem" target="_blank"><i class="fas fa-landmark mr-2"></i>Ministerio de Energía y Minas</a></li>
+                  <li class="py-1"><a class="text-white" href="http://namasenergia.minem.gob.pe/" target="_blank"><i class="fas fa-landmark mr-2"></i>Proyecto “Acciones Nacionales<br>Apropiadas de Mitigación“ (NAMA)</a></li>
+                </ul>
+              </div>
+              <div class="col-sm-12 col-md-4 text-white">
                 <div class="lead font-weight-bold">Más información</div>
                 <ul class="list-unstyled">
                   <li class="py-1"><a class="text-white" href="./documentos/Manual_Usuario_MRV.pdf" download><i class="fas fa-file-pdf mr-2"></i>Manual de Usuario</a></li>
                   <li class="py-1"><a class="text-white" href="./preguntas-frecuentes.html"><i class="fas fa-question-circle mr-2"></i>Preguntas frecuentes</a></li>
                   <li class="py-1"><a class="text-white" href="./terminos-y-condiciones.html"><i class="fab fa-readme mr-2"></i>Términos y Condiciones</a></li>
-                </ul>
-              </div>
-              <div class="col-sm-12 col-md-4 text-white">
-                <div class="lead font-weight-bold">Enlaces</div>
-                <ul class="list-unstyled">
-                  <li class="py-1"><a class="text-white" href="https://www.gob.pe/minem" target="_blank"><i class="fas fa-landmark mr-2"></i>Página Web de MINEM</a></li>
-                  <li class="py-1"><a class="text-white" href="http://namasenergia.minem.gob.pe/" target="_blank"><i class="fas fa-landmark mr-2"></i>Página Web de NAMA</a></li>
                   <li class="py-1"><a class="text-white" href="./mapa-del-ditio.html" target="_blank"><i class="fas fa-sitemap mr-2"></i>Mapa del Sitio</a></li>
                 </ul>
               </div>
@@ -1623,7 +1628,7 @@ CH 2</textarea>
                   <li class="py-1"><a class="text-white" href="tel: +5114111100"><i class="fas fa-phone-alt mr-2"></i>Teléfono: (+511) 411-1100</a></li>
                   <li class="py-1"><a class="text-white" href="mailto:webmaster@minem.gob.pe?Subject=Contacto%20desde%20la%20web%20de%20MRV%20Plataforma%20del%20Sector%20Energético"><i class="far fa-envelope mr-2"></i>webmaster@minem.gob.pe</a></li>
                   <li class="py-1"><i class="fas fa-university mr-2"></i>Dirección General de Eficiencia Energética</li>
-                  <li class="py-1"><i class="fas fa-map-marker-alt mr-2"></i>Av. Las Artes Sur 260. San Borja. Lima. Perú</li>
+                  <li class="py-1"><a class="text-white" href="https://www.google.com/maps/d/u/0/viewer?msa=0&amp;hl=en&amp;ie=UTF8&amp;ll=-12.097192999999981%2C-77.00643500000001&amp;spn=0%2C0&amp;t=m&amp;source=embed&amp;mid=1oiTLqK_OscJsqGYEQbVNHyO68Dw&amp;z=17" target="_blank"><i class="fas fa-map-marker-alt mr-2"></i>Av. Las Artes Sur 260. San Borja. Lima. Perú</a></li>
                 </ul>
               </div>
               <div class="col-sm-12 col-md-4 text-white">
@@ -1653,7 +1658,7 @@ CH 2</textarea>
           <div class="col-sm-12 col-md-12">
             <div class="dropdown-divider"></div>
           </div>
-          <div class="col-sm-12 col-md-12 text-right text-white"><small>&copy; MINEM | Todos los derechos reservados</small></div>
+          <div class="col-sm-12 col-md-12 text-right text-white"><small>&copy; Ministerio de Energía y Minas | Todos los derechos reservados</small></div>
         </div>
       </footer>
     </div>

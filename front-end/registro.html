@@ -121,10 +121,11 @@
                             | Celular
                   -->
                   <div class="form-group tel">
-                    <label for="txt-telefono">Teléfono fijo</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                    <label for="txt-telefono">Teléfono fijo</label>
+                    <!--span.text-danger.font-weight-bold &nbsp;(*)&nbsp;-->
                     <div class="input-group">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup11"><i class="fas fa-phone-alt"></i></span></div>
-                      <input class="form-control" type="tel" id="txt-telefono" placeholder="Ingrese su teléfono" aria-describedby="inputGroup11" pattern="[0-9]{6,10}" maxlength="10" required>
+                      <input class="form-control" type="tel" id="txt-telefono" placeholder="Ingrese su teléfono" aria-describedby="inputGroup11" pattern="[0-9]{6,10}" maxlength="10">
                     </div>
                   </div>
                   <div class="form-group tel">
@@ -144,7 +145,7 @@
                 </div>
                 <div class="col-md-12 col-lg-6">
                   <div class="form-group">
-                    <label for="txt-institucion">Institución</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="top" title="Ingrese el nombre comercial o razón social de su empresa"></i></span>
+                    <label for="txt-institucion">Entidad</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="top" title="Ingrese el nombre comercial o razón social de su empresa"></i></span>
                     <div class="input-group">
                       <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
                       <input class="form-control" type="text" id="txt-institucion" placeholder="Ingrese su institución" aria-describedby="inputGroup6" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{8,70}" maxlength="70" required>
@@ -403,18 +404,20 @@
           <div class="col-12">
             <div class="row">
               <div class="col-sm-12 col-md-4 text-white">
+                <div class="lead font-weight-bold">Enlaces</div>
+                <ul class="list-unstyled">
+                  <li class="py-1"><a class="text-white" href="http://eficienciaenergetica.minem.gob.pe/" target="_blank"><i class="fas fa-landmark mr-2"></i>Sistema Interactivo de Eficiencia Energética</a></li>
+                  <li class="py-1"><a class="text-white" href="http://www.minem.gob.pe/_detalle.php?idSector=12&amp;idTitular=3011&amp;idMenu=sub3001&amp;idCateg=716" target="_blank"><i class="fas fa-landmark mr-2"></i>Dirección General de Eficiencia Energética</a></li>
+                  <li class="py-1"><a class="text-white" href="https://www.gob.pe/minem" target="_blank"><i class="fas fa-landmark mr-2"></i>Ministerio de Energía y Minas</a></li>
+                  <li class="py-1"><a class="text-white" href="http://namasenergia.minem.gob.pe/" target="_blank"><i class="fas fa-landmark mr-2"></i>Proyecto “Acciones Nacionales<br>Apropiadas de Mitigación“ (NAMA)</a></li>
+                </ul>
+              </div>
+              <div class="col-sm-12 col-md-4 text-white">
                 <div class="lead font-weight-bold">Más información</div>
                 <ul class="list-unstyled">
                   <li class="py-1"><a class="text-white" href="./documentos/Manual_Usuario_MRV.pdf" download><i class="fas fa-file-pdf mr-2"></i>Manual de Usuario</a></li>
                   <li class="py-1"><a class="text-white" href="./preguntas-frecuentes.html"><i class="fas fa-question-circle mr-2"></i>Preguntas frecuentes</a></li>
                   <li class="py-1"><a class="text-white" href="./terminos-y-condiciones.html"><i class="fab fa-readme mr-2"></i>Términos y Condiciones</a></li>
-                </ul>
-              </div>
-              <div class="col-sm-12 col-md-4 text-white">
-                <div class="lead font-weight-bold">Enlaces</div>
-                <ul class="list-unstyled">
-                  <li class="py-1"><a class="text-white" href="https://www.gob.pe/minem" target="_blank"><i class="fas fa-landmark mr-2"></i>Página Web de MINEM</a></li>
-                  <li class="py-1"><a class="text-white" href="http://namasenergia.minem.gob.pe/" target="_blank"><i class="fas fa-landmark mr-2"></i>Página Web de NAMA</a></li>
                   <li class="py-1"><a class="text-white" href="./mapa-del-ditio.html" target="_blank"><i class="fas fa-sitemap mr-2"></i>Mapa del Sitio</a></li>
                 </ul>
               </div>
@@ -427,7 +430,7 @@
                   <li class="py-1"><a class="text-white" href="tel: +5114111100"><i class="fas fa-phone-alt mr-2"></i>Teléfono: (+511) 411-1100</a></li>
                   <li class="py-1"><a class="text-white" href="mailto:webmaster@minem.gob.pe?Subject=Contacto%20desde%20la%20web%20de%20MRV%20Plataforma%20del%20Sector%20Energético"><i class="far fa-envelope mr-2"></i>webmaster@minem.gob.pe</a></li>
                   <li class="py-1"><i class="fas fa-university mr-2"></i>Dirección General de Eficiencia Energética</li>
-                  <li class="py-1"><i class="fas fa-map-marker-alt mr-2"></i>Av. Las Artes Sur 260. San Borja. Lima. Perú</li>
+                  <li class="py-1"><a class="text-white" href="https://www.google.com/maps/d/u/0/viewer?msa=0&amp;hl=en&amp;ie=UTF8&amp;ll=-12.097192999999981%2C-77.00643500000001&amp;spn=0%2C0&amp;t=m&amp;source=embed&amp;mid=1oiTLqK_OscJsqGYEQbVNHyO68Dw&amp;z=17" target="_blank"><i class="fas fa-map-marker-alt mr-2"></i>Av. Las Artes Sur 260. San Borja. Lima. Perú</a></li>
                 </ul>
               </div>
               <div class="col-sm-12 col-md-4 text-white">
@@ -457,7 +460,7 @@
           <div class="col-sm-12 col-md-12">
             <div class="dropdown-divider"></div>
           </div>
-          <div class="col-sm-12 col-md-12 text-right text-white"><small>&copy; MINEM | Todos los derechos reservados</small></div>
+          <div class="col-sm-12 col-md-12 text-right text-white"><small>&copy; Ministerio de Energía y Minas | Todos los derechos reservados</small></div>
         </div>
       </footer>
     </div>

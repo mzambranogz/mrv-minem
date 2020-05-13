@@ -98,7 +98,7 @@
                             <div class="collapse" id="busqueda-avanzada">
                               <div class="card card-body">
                                 <div class="row">
-                                  <div class="col-sm-12 text-left">
+                                  <div class="col-sm-12 pb-2 text-left">
                                     <div class="titulo-avanzado" data-toggle="collapse" href="#datos-principales" aria-expanded="false" aria-controls="datos-principales"><span><i class="far fa-list-alt"></i>&nbsp;
                                         Datos Principales</span></div>
                                     <div class="collapse" id="datos-principales">
@@ -187,9 +187,7 @@
                                       </div>
                                     </div>
                                   </div>
-                                </div>
-                                <div class="row">
-                                  <div class="col-sm-12 py-2 text-left">
+                                  <div class="col-sm-12 pb-2 text-left">
                                     <div class="titulo-avanzado" data-toggle="collapse" href="#datos-generales" aria-expanded="false" aria-controls="datos-generales"><span><i class="far fa-list-alt"></i>&nbsp;
                                         Datos Generales</span></div>
                                     <div class="collapse" id="datos-generales">
@@ -242,7 +240,7 @@
                                       </div>
                                     </div>
                                   </div>
-                                  <div class="col-sm-12 text-left">
+                                  <div class="col-sm-12 pb-2 text-left">
                                     <div class="titulo-avanzado" data-toggle="collapse" href="#indicadores" aria-expanded="false" aria-controls="indicadores"><span><i class="far fa-list-alt"></i>&nbsp;
                                         Indicadores</span></div>
                                     <div class="collapse" id="indicadores">
@@ -281,6 +279,25 @@
                                                   <option>Leña</option>
                                                   <option>Petróleo residual</option>
                                                 </select>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-12 pb-2 text-left">
+                                    <div class="titulo-avanzado" data-toggle="collapse" href="#bloackchain" aria-expanded="false" aria-controls="bloackchain"><span><i class="far fa-list-alt"></i>&nbsp;
+                                        Blockchain</span></div>
+                                    <div class="collapse" id="bloackchain">
+                                      <div class="card card-body">
+                                        <div class="row">
+                                          <div class="col-sm-12">
+                                            <div class="form-group">
+                                              <label for="txa-bloackchain">Código blockchain<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese el código de blockchain a localizar."></i></label>
+                                              <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-tachometer-alt"></i></span></div>
+                                                <textarea class="form-control" id="txa-bloackchain" aria-describedby="inputGroup5" cols="30" rows="4" required placeholder="Ingrese el código blockchain"></textarea>
                                               </div>
                                             </div>
                                           </div>
@@ -336,15 +353,31 @@
                     <thead>
                       <tr class="bg-primary text-white">
                         <th class="text-center" scope="col" width="3%"><span>N°&nbsp;<i class="fas fa-sort"></i></span></th>
-                        <th scope="col" width="19%"><span>Nombre de <br> Iniciativa&nbsp;<i class="fas fa-sort"></i></span></th>
-                        <th scope="col" width="8%"><span>Progreso de <br> Inicitiva&nbsp;<i class="fas fa-sort"></i></span></th>
-                        <th class="text-center" scope="col" width="8%"><span>Fecha de <br> Inicio&nbsp;<i class="fas fa-sort"></i></span></th>
-                        <th class="text-center" scope="col" width="8%"><span>Fecha de <br> Término&nbsp;<i class="fas fa-sort"></i></span></th>
-                        <th class="text-center" scope="col" width="10%"><span>Medida de  <br> Mitigación&nbsp;<i class="fas fa-sort"></i></span></th>
-                        <th scope="col" width="19%"><span>Entidad <br> Responsable&nbsp;<i class="fas fa-sort"></i></span></th>
-                        <th scope="col" width="5%"><span>Total <br> Reducido&nbsp;<i class="fas fa-sort"></i></span></th>
-                        <th scope="col" width="17%"><span>Estado de <br> Iniciativa&nbsp;<i class="fas fa-sort"></i></span></th>
-                        <th class="text-center" scope="col" width="3%">Gestión</th>
+                        <th scope="col" width="22%">
+                          <div class="d-flex justify-content-between align-items-center"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la Iniciativa de Mitigactión registrada por la entidad responsable"></i>Nombre de iniciativa&nbsp;</span><i class="fas fa-sort"></i></div>
+                        </th>
+                        <th scope="col" width="8%">
+                          <div class="d-flex justify-content-between align-items-center"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Porcentare de progreso de la Iniciativa de Mitigación en sus distintos procesos"></i>Progreso<br>de inicitiva&nbsp;</span><i class="fas fa-sort"></i></div>
+                        </th>
+                        <th scope="col" width="5%">
+                          <div class="d-flex justify-content-between align-items-center"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Fecha de inicialización del proyecto"></i>Fecha<br>de inicio&nbsp;</span><i class="fas fa-sort"></i></div>
+                        </th>
+                        <th scope="col" width="5%">
+                          <div class="d-flex justify-content-between align-items-center"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Fecha de Finalización del proyecto"></i>Fecha<br>de término&nbsp;</span><i class="fas fa-sort"></i></div>
+                        </th>
+                        <th scope="col" width="8%">
+                          <div class="d-flex justify-content-between align-items-center"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la Medida de Mitigación asignada o relacionada a su Iniciativa de Mitigación"></i>Medida<br>de mitigación&nbsp;</span><i class="fas fa-sort"></i></div>
+                        </th>
+                        <th scope="col" width="19%">
+                          <div class="d-flex justify-content-between align-items-center"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Entidad responsable del registro de la Inicitiva de Mitigación"></i>Entidad responsable&nbsp;</span><i class="fas fa-sort"></i></div>
+                        </th>
+                        <th scope="col" width="5%">
+                          <div class="d-flex justify-content-between align-items-center"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Resultado total de reducción producto de la Iniciativa de Mitigación"></i>Total<br>reducido&nbsp;</span><i class="fas fa-sort"></i></div>
+                        </th>
+                        <th scope="col" width="22%">
+                          <div class="d-flex justify-content-between align-items-center"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Descripción del estado actual de su Inicitativa de Mitigación"></i>Estado de Iniciativa&nbsp;</span><i class="fas fa-sort"></i></div>
+                        </th>
+                        <th scope="col" width="3%">Gestión</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -356,8 +389,8 @@
                             <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">50%</div>
                           </div>
                         </td>
-                        <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
-                        <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
+                        <td data-encabezado="Fecha de Inicio">20/03/2020</td>
+                        <td data-encabezado="Fecha de Término">20/03/2025</td>
                         <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
                         <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial</td>
                         <td class="text-right pr-3" data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
@@ -380,8 +413,8 @@
                             <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">50%</div>
                           </div>
                         </td>
-                        <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
-                        <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
+                        <td data-encabezado="Fecha de Inicio">20/03/2020</td>
+                        <td data-encabezado="Fecha de Término">20/03/2025</td>
                         <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
                         <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial</td>
                         <td class="text-right pr-3" data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
@@ -404,8 +437,8 @@
                             <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">50%</div>
                           </div>
                         </td>
-                        <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
-                        <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
+                        <td data-encabezado="Fecha de Inicio">20/03/2020</td>
+                        <td data-encabezado="Fecha de Término">20/03/2025</td>
                         <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
                         <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial</td>
                         <td class="text-right pr-3" data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
@@ -428,8 +461,8 @@
                             <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">50%</div>
                           </div>
                         </td>
-                        <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
-                        <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
+                        <td data-encabezado="Fecha de Inicio">20/03/2020</td>
+                        <td data-encabezado="Fecha de Término">20/03/2025</td>
                         <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
                         <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial</td>
                         <td class="text-right pr-3" data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
@@ -452,8 +485,8 @@
                             <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">50%</div>
                           </div>
                         </td>
-                        <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
-                        <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
+                        <td data-encabezado="Fecha de Inicio">20/03/2020</td>
+                        <td data-encabezado="Fecha de Término">20/03/2025</td>
                         <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
                         <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial</td>
                         <td class="text-right pr-3" data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
@@ -476,8 +509,8 @@
                             <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">50%</div>
                           </div>
                         </td>
-                        <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
-                        <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
+                        <td data-encabezado="Fecha de Inicio">20/03/2020</td>
+                        <td data-encabezado="Fecha de Término">20/03/2025</td>
                         <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
                         <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial</td>
                         <td class="text-right pr-3" data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
@@ -500,8 +533,8 @@
                             <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">50%</div>
                           </div>
                         </td>
-                        <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
-                        <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
+                        <td data-encabezado="Fecha de Inicio">20/03/2020</td>
+                        <td data-encabezado="Fecha de Término">20/03/2025</td>
                         <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
                         <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial</td>
                         <td class="text-right pr-3" data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
@@ -524,8 +557,8 @@
                             <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">50%</div>
                           </div>
                         </td>
-                        <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
-                        <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
+                        <td data-encabezado="Fecha de Inicio">20/03/2020</td>
+                        <td data-encabezado="Fecha de Término">20/03/2025</td>
                         <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
                         <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial</td>
                         <td class="text-right pr-3" data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
@@ -548,8 +581,8 @@
                             <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">50%</div>
                           </div>
                         </td>
-                        <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
-                        <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
+                        <td data-encabezado="Fecha de Inicio">20/03/2020</td>
+                        <td data-encabezado="Fecha de Término">20/03/2025</td>
                         <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
                         <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial</td>
                         <td class="text-right pr-3" data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
@@ -572,8 +605,8 @@
                             <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" data-toggle="tooltip" data-placement="top" title="Texto de ayuda que describe el funcionamiento general del módulo [...]">50%</div>
                           </div>
                         </td>
-                        <td class="text-center" data-encabezado="Fecha de Inicio">20/03/2020</td>
-                        <td class="text-center" data-encabezado="Fecha de Término">20/03/2025</td>
+                        <td data-encabezado="Fecha de Inicio">20/03/2020</td>
+                        <td data-encabezado="Fecha de Término">20/03/2025</td>
                         <td class="text-center" data-encabezado="Medida de Mitigación"><span class="font-weight-bold" data-toggle="tooltip" data-placement="top" title="Nombre de la Medida de Mitigación correspondiente">EFC</span></td>
                         <td data-encabezado="Entidad">Entidad Responsable Con Razon Social o Nombre Comercial</td>
                         <td class="text-right pr-3" data-encabezado="Total reducido">1,500.00 ktCO2eq</td>
@@ -647,18 +680,20 @@
           <div class="col-12">
             <div class="row">
               <div class="col-sm-12 col-md-4 text-white">
+                <div class="lead font-weight-bold">Enlaces</div>
+                <ul class="list-unstyled">
+                  <li class="py-1"><a class="text-white" href="http://eficienciaenergetica.minem.gob.pe/" target="_blank"><i class="fas fa-landmark mr-2"></i>Sistema Interactivo de Eficiencia Energética</a></li>
+                  <li class="py-1"><a class="text-white" href="http://www.minem.gob.pe/_detalle.php?idSector=12&amp;idTitular=3011&amp;idMenu=sub3001&amp;idCateg=716" target="_blank"><i class="fas fa-landmark mr-2"></i>Dirección General de Eficiencia Energética</a></li>
+                  <li class="py-1"><a class="text-white" href="https://www.gob.pe/minem" target="_blank"><i class="fas fa-landmark mr-2"></i>Ministerio de Energía y Minas</a></li>
+                  <li class="py-1"><a class="text-white" href="http://namasenergia.minem.gob.pe/" target="_blank"><i class="fas fa-landmark mr-2"></i>Proyecto “Acciones Nacionales<br>Apropiadas de Mitigación“ (NAMA)</a></li>
+                </ul>
+              </div>
+              <div class="col-sm-12 col-md-4 text-white">
                 <div class="lead font-weight-bold">Más información</div>
                 <ul class="list-unstyled">
                   <li class="py-1"><a class="text-white" href="./documentos/Manual_Usuario_MRV.pdf" download><i class="fas fa-file-pdf mr-2"></i>Manual de Usuario</a></li>
                   <li class="py-1"><a class="text-white" href="./preguntas-frecuentes.html"><i class="fas fa-question-circle mr-2"></i>Preguntas frecuentes</a></li>
                   <li class="py-1"><a class="text-white" href="./terminos-y-condiciones.html"><i class="fab fa-readme mr-2"></i>Términos y Condiciones</a></li>
-                </ul>
-              </div>
-              <div class="col-sm-12 col-md-4 text-white">
-                <div class="lead font-weight-bold">Enlaces</div>
-                <ul class="list-unstyled">
-                  <li class="py-1"><a class="text-white" href="https://www.gob.pe/minem" target="_blank"><i class="fas fa-landmark mr-2"></i>Página Web de MINEM</a></li>
-                  <li class="py-1"><a class="text-white" href="http://namasenergia.minem.gob.pe/" target="_blank"><i class="fas fa-landmark mr-2"></i>Página Web de NAMA</a></li>
                   <li class="py-1"><a class="text-white" href="./mapa-del-ditio.html" target="_blank"><i class="fas fa-sitemap mr-2"></i>Mapa del Sitio</a></li>
                 </ul>
               </div>
@@ -671,7 +706,7 @@
                   <li class="py-1"><a class="text-white" href="tel: +5114111100"><i class="fas fa-phone-alt mr-2"></i>Teléfono: (+511) 411-1100</a></li>
                   <li class="py-1"><a class="text-white" href="mailto:webmaster@minem.gob.pe?Subject=Contacto%20desde%20la%20web%20de%20MRV%20Plataforma%20del%20Sector%20Energético"><i class="far fa-envelope mr-2"></i>webmaster@minem.gob.pe</a></li>
                   <li class="py-1"><i class="fas fa-university mr-2"></i>Dirección General de Eficiencia Energética</li>
-                  <li class="py-1"><i class="fas fa-map-marker-alt mr-2"></i>Av. Las Artes Sur 260. San Borja. Lima. Perú</li>
+                  <li class="py-1"><a class="text-white" href="https://www.google.com/maps/d/u/0/viewer?msa=0&amp;hl=en&amp;ie=UTF8&amp;ll=-12.097192999999981%2C-77.00643500000001&amp;spn=0%2C0&amp;t=m&amp;source=embed&amp;mid=1oiTLqK_OscJsqGYEQbVNHyO68Dw&amp;z=17" target="_blank"><i class="fas fa-map-marker-alt mr-2"></i>Av. Las Artes Sur 260. San Borja. Lima. Perú</a></li>
                 </ul>
               </div>
               <div class="col-sm-12 col-md-4 text-white">
@@ -701,7 +736,7 @@
           <div class="col-sm-12 col-md-12">
             <div class="dropdown-divider"></div>
           </div>
-          <div class="col-sm-12 col-md-12 text-right text-white"><small>&copy; MINEM | Todos los derechos reservados</small></div>
+          <div class="col-sm-12 col-md-12 text-right text-white"><small>&copy; Ministerio de Energía y Minas | Todos los derechos reservados</small></div>
         </div>
       </footer>
     </div>
