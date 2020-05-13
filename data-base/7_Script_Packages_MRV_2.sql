@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - jueves-abril-30-2020   
+-- Archivo creado  - martes-mayo-12-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_DIRECCIONAMIENTO
@@ -15,6 +15,7 @@
   );
 
 END PKG_MRV_DIRECCIONAMIENTO;
+
 
 
 /
@@ -872,7 +873,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         pID_INICIATIVA IN NUMBER,
         pRefcursor OUT SYS_REFCURSOR
     );
-	
+
 	PROCEDURE USP_SEL_INI_MENSAJE_OBS(
           pID_INICIATIVA NUMBER,
           pRC OUT SYS_REFCURSOR
@@ -919,6 +920,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       );
 
 END PKG_MRV_INICIATIVA_MITIGACION;
+
 
 
 /
@@ -1901,6 +1903,7 @@ PROCEDURE USP_SEL_LISTA_MEDMIT(
 END PKG_MRV_MANTENIMIENTO;
 
 
+
 /
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_NOTIFICACION
@@ -1952,6 +1955,7 @@ END PKG_MRV_MANTENIMIENTO;
 end PKG_MRV_NOTIFICACION;
 
 
+
 /
 --------------------------------------------------------
 --  DDL for Package Body PKG_MRV_DIRECCIONAMIENTO
@@ -1973,6 +1977,7 @@ end PKG_MRV_NOTIFICACION;
   END USP_SEL_VALIDAR_RUTA;
 
 END PKG_MRV_DIRECCIONAMIENTO;
+
 
 /
 --------------------------------------------------------
@@ -7080,7 +7085,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         LEFT JOIN T_MAE_MEDMIT MD ON I.ID_MEDMIT = MD.ID_MEDMIT
         WHERE I.ID_INICIATIVA = pID_INICIATIVA;
     END USP_SEL_INI_RECORDATORIO;
-	
+
 	PROCEDURE USP_SEL_INI_MENSAJE_OBS(
           pID_INICIATIVA NUMBER,
           pRC OUT SYS_REFCURSOR
@@ -7092,32 +7097,32 @@ END PKG_MRV_DIRECCIONAMIENTO;
                  DI.ID_DETALLE_INICIATIVA,
                  (SELECT TRIM(USU.NOMBRES_USUARIO) || ' ' || TRIM(USU.APELLIDOS_USUARIO) 
                  FROM  T_GENM_USUARIO USU WHERE USU.ID_USUARIO = DI.ID_REMITENTE) NOMBRES_REMITENTE,
-                 
+
                  (SELECT URR.ID_ROL FROM  T_GENM_USUARIO USUR
                  INNER JOIN T_MAE_USUARIO_ROL URR ON USUR.ID_USUARIO = URR.ID_USUARIO
                  WHERE USUR.ID_USUARIO = DI.ID_REMITENTE) ID_ROL_REMITENTE,
-                 
+
                  (SELECT RR.DESCRIPCION_ROL FROM  T_GENM_USUARIO USUR
                  INNER JOIN T_MAE_USUARIO_ROL URR ON USUR.ID_USUARIO = URR.ID_USUARIO
                  INNER JOIN T_MAE_ROL RR ON URR.ID_ROL = RR.ID_ROL
                  WHERE USUR.ID_USUARIO = DI.ID_REMITENTE) ROL_REMITENTE,
-                 
+
                  (SELECT TRIM(USUI.NOMBRES_USUARIO) || ' ' || TRIM(USUI.APELLIDOS_USUARIO) 
                  FROM T_GENM_INICIATIVA INI 
                  LEFT JOIN T_GENM_USUARIO USUI ON INI.ID_USUARIO = USUI.ID_USUARIO 
                  WHERE INI.ID_INICIATIVA = DI.ID_INICIATIVA) NOMBRES,
-                 
+
                  (SELECT UIR.ID_ROL FROM T_GENM_INICIATIVA INIR
                  LEFT JOIN T_GENM_USUARIO USUIR ON INIR.ID_USUARIO = USUIR.ID_USUARIO
                  INNER JOIN T_MAE_USUARIO_ROL UIR ON USUIR.ID_USUARIO = UIR.ID_USUARIO
                  WHERE INIR.ID_INICIATIVA = DI.ID_INICIATIVA) ID_ROL,
-                 
+
                  (SELECT RRU.DESCRIPCION_ROL FROM T_GENM_INICIATIVA INIR
                  LEFT JOIN T_GENM_USUARIO USUIR ON INIR.ID_USUARIO = USUIR.ID_USUARIO
                  INNER JOIN T_MAE_USUARIO_ROL UIR ON USUIR.ID_USUARIO = UIR.ID_USUARIO
                  INNER JOIN T_MAE_ROL RRU ON UIR.ID_ROL = RRU.ID_ROL
                  WHERE INIR.ID_INICIATIVA = DI.ID_INICIATIVA) ROL,
-                 
+
                  OBSERVACIONES,
                  FECHA_DERIVACION
           FROM T_GEND_DETALLE_INICIATIVA DI
@@ -7262,6 +7267,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
       END USP_SEL_FICHA_INI;
 
 END PKG_MRV_INICIATIVA_MITIGACION;
+
 
 
 /
@@ -10880,6 +10886,7 @@ PROCEDURE USP_SEL_EXCEL_INSTITUCION(
 END PKG_MRV_MANTENIMIENTO;
 
 
+
 /
 --------------------------------------------------------
 --  DDL for Package Body PKG_MRV_NOTIFICACION
@@ -11115,6 +11122,7 @@ END PKG_MRV_MANTENIMIENTO;
     END USP_GET_NOTIFICACION;
 
 end PKG_MRV_NOTIFICACION;
+
 
 
 /

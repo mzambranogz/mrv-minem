@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - jueves-abril-30-2020   
+-- Archivo creado  - martes-mayo-12-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_PARAMETROS
@@ -103,6 +103,7 @@
     );
 
 end PKG_MRV_PARAMETROS;
+
 
 
 /
@@ -368,6 +369,7 @@ end PKG_MRV_PARAMETROS;
 END PKG_MRV_REPORTES;
 
 
+
 /
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_VARIABLES
@@ -389,6 +391,7 @@ END PKG_MRV_REPORTES;
         PO_CURSOR OUT SYS_REFCURSOR
     );
 end PKG_MRV_VARIABLES;
+
 
 
 /
@@ -504,6 +507,7 @@ end PKG_MRV_VARIABLES;
     FUNCTION ENCRYPT_RAW(x IN RAW) RETURN VARCHAR2;
 
 END SHA256;
+
 
 
 /
@@ -810,6 +814,7 @@ END SHA256;
     END USP_SEL_FACTORES_PARAM;
 
 end PKG_MRV_PARAMETROS;
+
 
 
 /
@@ -1878,7 +1883,7 @@ end PKG_MRV_PARAMETROS;
                         END IF;
 
                     END LOOP;
-                    
+
                     ----------------------------------------------------------
                     SELECT COUNT(*) INTO VALIDAR_ACUM FROM T_GENM_ACUMULADO 
                     WHERE ID_INICIATIVA = pID_INICIATIVA
@@ -1992,6 +1997,7 @@ end PKG_MRV_PARAMETROS;
 END PKG_MRV_REPORTES;
 
 
+
 /
 --------------------------------------------------------
 --  DDL for Package Body PKG_MRV_VARIABLES
@@ -2038,6 +2044,7 @@ END PKG_MRV_REPORTES;
     END SP_SEL_REDUCCION_GEI_PASADOS;
 
 end PKG_MRV_VARIABLES;
+
 
 
 /
@@ -2657,6 +2664,7 @@ BEGIN
     K(63) := to_number('c67178f2', 'xxxxxxxx');
 
 END SHA256;
+
 
 
 /
