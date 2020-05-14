@@ -84,7 +84,7 @@
               <Width>1.09771cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.83854cm</Width>
+              <Width>2.10313cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -117,27 +117,6 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
-                        <TopBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </BottomBorder>
-                        <LeftBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </LeftBorder>
-                        <RightBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </RightBorder>
-                        <BackgroundColor>Tomato</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -518,7 +497,21 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Acumulado</Value>
+                            <Value>Acumulado(tCO2/año)</Value>
+                            <Style>
+                              <FontSize>8pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
+                      </Paragraph>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value />
                             <Style>
                               <FontSize>8pt</FontSize>
                               <FontWeight>Bold</FontWeight>
@@ -733,7 +726,7 @@
         <Top>5.07683cm</Top>
         <Left>0.63182cm</Left>
         <Height>2.4cm</Height>
-        <Width>5.29646cm</Width>
+        <Width>5.56104cm</Width>
         <Style>
           <Border>
             <Style>None</Style>

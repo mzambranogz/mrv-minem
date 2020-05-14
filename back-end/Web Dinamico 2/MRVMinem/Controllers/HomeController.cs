@@ -23,6 +23,7 @@ namespace MRVMinem.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            Session["contacto"] = WebConfigurationManager.AppSettings["Contacto"];
             ListaObjeto modelo = new ListaObjeto();
             modelo.listaMedidaMitigacion = modelo.listaMedidaMitigacion = MedidaMitigacionLN.ListarMedidaMitigacion(new MedidaMitigacionBE());
             return View(modelo);

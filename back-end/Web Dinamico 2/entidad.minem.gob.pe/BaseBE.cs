@@ -17,6 +17,7 @@ namespace entidad.minem.gob.pe
         public string extra { get; set; }
         public string accion { get; set; }
         public bool OK { get; set; }
+        public string hash { get; set; }
 
         public string buscar { get; set; }
         public int cantidad_registros { get; set; }

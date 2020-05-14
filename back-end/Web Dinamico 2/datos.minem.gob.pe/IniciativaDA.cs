@@ -1577,6 +1577,7 @@ namespace datos.minem.gob.pe
                     entidad.FECHA_FIN = entidad.FECHA_FIN_INICIATIVA.ToString("yyyy/MM/dd");
                     p.Add("pFECHA_EJECUCION_FIN", entidad.FECHA_FIN);
                     p.Add("pNOMBRE_INICIATIVA", entidad.NOMBRE_INICIATIVA);
+                    p.Add("pHASH", entidad.hash); //add
                     p.Add("pSortColumn", entidad.order_by);
                     p.Add("pSortOrder", entidad.order_orden);
                     p.Add("pCondicion", entidad.CONDICION);
@@ -1591,6 +1592,7 @@ namespace datos.minem.gob.pe
                         if (item.FECHA_FIN == "01/01/0001") item.FECHA_FIN = "--/--/----";
                         if (string.IsNullOrEmpty(item.NOMBRE_INICIATIVA)) item.NOMBRE_INICIATIVA = "";
                         if (string.IsNullOrEmpty(item.NOMBRE_MEDMIT)) item.NOMBRE_MEDMIT = "";
+                        item.DIAS_RESTANTES = item.PLAZO - Convert.ToInt32(item.DIAS);
                     }
                 }
             }
@@ -1723,6 +1725,7 @@ namespace datos.minem.gob.pe
                     entidad.FECHA_FIN = entidad.FECHA_FIN_INICIATIVA.ToString("yyyy/MM/dd");
                     p.Add("pFECHA_EJECUCION_FIN", entidad.FECHA_FIN);
                     p.Add("pNOMBRE_INICIATIVA", entidad.NOMBRE_INICIATIVA);
+                    p.Add("pHASH", entidad.hash); //add
                     p.Add("pRegistros", entidad.cantidad_registros);
                     p.Add("pPagina", entidad.pagina);
                     p.Add("pSortColumn", entidad.order_by);                    
@@ -1739,6 +1742,7 @@ namespace datos.minem.gob.pe
                         if (item.FECHA_FIN == "01/01/0001") item.FECHA_FIN = "--/--/----";
                         if (string.IsNullOrEmpty(item.NOMBRE_INICIATIVA)) item.NOMBRE_INICIATIVA = "";
                         if (string.IsNullOrEmpty(item.NOMBRE_MEDMIT)) item.NOMBRE_MEDMIT = "";
+                        item.DIAS_RESTANTES = item.PLAZO - Convert.ToInt32(item.DIAS);
                     }
                 }
             }

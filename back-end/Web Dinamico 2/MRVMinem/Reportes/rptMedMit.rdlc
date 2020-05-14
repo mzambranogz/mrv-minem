@@ -1794,7 +1794,7 @@
                 </Style>
               </TextRun>
               <TextRun>
-                <Value>Valor de gases de efecto invernadero disminuido en sector público</Value>
+                <Value>Valor de gases de efecto invernadero reducido en sector público</Value>
                 <Style>
                   <FontSize>9pt</FontSize>
                   <FontWeight>Normal</FontWeight>
@@ -1834,7 +1834,7 @@
                 </Style>
               </TextRun>
               <TextRun>
-                <Value>Valor de gases de efecto disminuido en el sector privado.</Value>
+                <Value>Valor de gases de efecto reducido en el sector privado.</Value>
                 <Style>
                   <FontSize>9pt</FontSize>
                   <FontWeight>Normal</FontWeight>

@@ -1807,16 +1807,25 @@ function CargarDatosCabecera() {
                         //    tr += '     <th class="text-center grupo-columna-'+ columna +'" scope="col"><span>' + data[i]["NOMBRE_PARAMETRO"] + ' tCOeq</span><small>Seleccione este campo para su registro</small></th>';
                         //}else{
 
-                        if (data[i]["LEYENDA_PARAMETRO"] == null || data[i]["LEYENDA_PARAMETRO"] == "") {
-                            tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col" data-placement="top"><span>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span><small>' + data[i]["DESCRIPCION_PARAMETRO"] + '</small></th>';
-                        } else {
-                            tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col" data-toggle="tooltip" data-placement="top" title="' + data[i]["LEYENDA_PARAMETRO"] + '"><span>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span><small>' + data[i]["DESCRIPCION_PARAMETRO"] + '</small></th>';
-                        }
+                        //if (data[i]["LEYENDA_PARAMETRO"] == null || data[i]["LEYENDA_PARAMETRO"] == "") {
+                        //    tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col" data-placement="top"><span>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span><small>' + data[i]["DESCRIPCION_PARAMETRO"] + '</small></th>';
+                        //} else {
+                        //    tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col" data-toggle="tooltip" data-placement="top" title="' + data[i]["LEYENDA_PARAMETRO"] + '"><span>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span><small>' + data[i]["DESCRIPCION_PARAMETRO"] + '</small></th>';
+                        //}
                         //tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col" data-toggle="tooltip" data-placement="top" title="Texto descriptivo de ayuda"><span>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span><small>' + data[i]["DESCRIPCION_PARAMETRO"] + '</small></th>';
-                        //}                        
+                        //} 
+
+                        var tool = "";
+                        if (data[i]["LEYENDA_PARAMETRO"] == null || data[i]["LEYENDA_PARAMETRO"] == "")
+                            tool = "";
+                        else
+                            tool = data[i]["LEYENDA_PARAMETRO"];
+
+                        tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="' + tool + '"></i>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span><small>' + data[i]["DESCRIPCION_PARAMETRO"] + '</small></th>';
+
                     }
                     //tr += '     <th class="text-center" scope="col">Más</th>';
-                    tr += '<th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="top" title="Texto descriptivo de ayuda"><span>SUSTENTO</span><small>Seleccione este campo para su registro</small></th>';
+                    tr += '<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Documentos de sustento"></i>SUSTENTO</span><small>Seleccione este campo para su registro</small></th>';
                     tr += '</tr>';
                     $("#cabeceraTablaIndicador").append(tr);
                     $("[data-toggle='tooltip']").tooltip();

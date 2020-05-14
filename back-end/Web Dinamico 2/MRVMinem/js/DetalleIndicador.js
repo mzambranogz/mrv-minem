@@ -1677,6 +1677,7 @@ function fn_evaluarIniciativaDetalle() {
         msj1 = msj1 + '     <hr><small class="mb-0">';
         msj1 = msj1 + '         Se ha generado la cadena de bloques para la medida de mitigación&nbsp;<strong>aprobada&nbsp; <br></strong><a class="btn btn-warning px-5 text-center my-3" href="#" onclick="fn_descargarCertificado(' + respuesta.extra + ');" data-toggle="modal"><i class="fas fa-download px-1"></i>Descargar certificado</a>';
         msj1 = msj1 + '         <hr>';
+        msj1 = msj1 + '         <div><span><strong>Código de blockchain:</strong></span></div>';
         msj1 = msj1 + '         <div class="text-monospace" style="word-break: break-all;">' + respuesta.extra2 + '</div>';
         msj1 = msj1 + '     </small>';
         msj1 = msj1 + '     </div>';
@@ -1775,6 +1776,7 @@ function fn_verificarIniciativaDetalle() {
         msj1 = msj1 + '     <hr><small class="mb-0">';
         msj1 = msj1 + '         Se ha generado la cadena de bloques para la medida de mitigación&nbsp;<strong>aprobada&nbsp; <br></strong><a class="btn btn-warning px-5 text-center my-3" href="#" onclick="fn_descargarCertificado(' + respuesta.extra + ');" data-toggle="modal" data-target=""><i class="fas fa-download px-1"></i>Descargar certificado</a>';
         msj1 = msj1 + '         <hr>';
+        msj1 = msj1 + '         <div><span><strong>Código de blockchain:</strong></span></div>';
         msj1 = msj1 + '         <div class="text-monospace" style="word-break: break-all;">' + respuesta.extra2 + '</div>';
         msj1 = msj1 + '     </small>';
         msj1 = msj1 + '     </div>';
@@ -3807,18 +3809,29 @@ function CargarDatosCabecera() {
                         //if (data[i]["ID_PARAMETRO"] == 9 || data[i]["ID_PARAMETRO"] == 10 || data[i]["ID_PARAMETRO"] == 11) {
                         //    tr += '     <th class="text-center grupo-columna-'+ columna +'" scope="col"><span>' + data[i]["NOMBRE_PARAMETRO"] + ' tCOeq</span><small>Seleccione este campo para su registro</small></th>';
                         //}else{
-                        if (data[i]["LEYENDA_PARAMETRO"] == null || data[i]["LEYENDA_PARAMETRO"] == "") {
-                            tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col" data-placement="bottom"><span>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span><small>' + data[i]["DESCRIPCION_PARAMETRO"] + '</small></th>';
-                        } else {
-                            tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col" data-toggle="tooltip" data-placement="bottom" title="' + data[i]["LEYENDA_PARAMETRO"] + '"><span>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span><small>' + data[i]["DESCRIPCION_PARAMETRO"] + '</small></th>';
-                        }
+                        //if (data[i]["LEYENDA_PARAMETRO"] == null || data[i]["LEYENDA_PARAMETRO"] == "") {
+                        //    tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col" data-placement="bottom"><span>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span><small>' + data[i]["DESCRIPCION_PARAMETRO"] + '</small></th>';
+                        //} else {
+                        //    tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col" data-toggle="tooltip" data-placement="bottom" title="' + data[i]["LEYENDA_PARAMETRO"] + '"><span>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span><small>' + data[i]["DESCRIPCION_PARAMETRO"] + '</small></th>';
+                        //}
 
+                        var tool = "";
+                        if (data[i]["LEYENDA_PARAMETRO"] == null || data[i]["LEYENDA_PARAMETRO"] == "")
+                            tool = "";
+                        else
+                            tool = data[i]["LEYENDA_PARAMETRO"];
+
+                        tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="' + tool + '"></i>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span><small>' + data[i]["DESCRIPCION_PARAMETRO"] + '</small></th>';
 
                         //}                        
                     }
                     //tr += '     <th class="text-center grupo-columna-02" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>Sustento</span><small>Seleccione este campo para su registro</small></th>';
-                    tr += '<th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>SUSTENTO</span><br/><small>Seleccione este campo para su registro</small></th>';
-                    tr += '     <th class="text-center" scope="col"><span>Más<br></span><a class="btn btn-warning btn-sm m-0" href="javascript:void(0)" title="Agregar fila" onclick="CargarNuevaFila(1);"><i class="fas fa-plus-circle"></i></a></th>';
+                    tr += '<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Documentos de sustento"></i>SUSTENTO</span><br/><small>Seleccione este campo para su registro</small></th>';
+                    tr += '<th class="text-center" scope="col"><span>Más<br></span><a class="btn btn-warning btn-sm m-0" href="javascript:void(0)" title="Agregar fila" onclick="CargarNuevaFila(1);"><i class="fas fa-plus-circle"></i></a></th>';
+
+                    //tr += '<th class="text-center grupo-columna-03"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Verificar acumulado"></i></span><br><small>Ver</small></th>';
+                    //tr += '<th class="text-center" scope="col"><small>Quitar<br>fila</small></th>';
+
                     //tr += '     <th class="text-center" scope="col"><span>Más<br></span><a class="btn btn-warning btn-sm m-0 agregarCampos" href="#" title="Agregar fila" download><i class="fas fa-plus-circle"></i></a></th>';
                     tr += '</tr>';
                     $("#cabeceraTablaIndicador").append(tr);

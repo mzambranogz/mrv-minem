@@ -1329,27 +1329,32 @@ namespace MRVMinem.Controllers
 
             entidad.ID_USUARIO = Convert.ToInt32(Session["usuario"]);
             entidad.ID_ADMINISTRADOR = Convert.ToInt32(Session["usuario_destino"]);
-            entidad = IndicadorLN.EvaluarIniciativaDetalleIndicador(entidad);
-            if (entidad.OK)
+            int validar = IniciativaLN.ValidarVista(entidad.ID_INICIATIVA);
+            if (validar == 21)
             {
-                //var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
-                IniciativaBE iniciativa = new IniciativaBE();
-                iniciativa.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
-                iniciativa.ASUNTO = "Evaluación Iniciativa y Detalle Indicador - MRVMinem ";
-                iniciativa.DESCRIPCION = "Los detalles de indicadores y la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") fueron revisados y aprobados por el Evaluador MINAM<br/><br/>";
-                EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
-                Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
-                Session["correo_destino"] = "";
-                Session["usuario_destino"] = 0;
-
-                BlockChainBE block = new BlockChainBE() { ID_INICIATIVA = entidad.ID_INICIATIVA, ID_USUARIO = entidad.ID_USUARIO, IP_PC = Request.UserHostAddress.ToString().Trim() };
-                block = BlockChainLN.GeneraBlockChain(block);
-                if (block.OK)
+                entidad = IndicadorLN.EvaluarIniciativaDetalleIndicador(entidad);
+                if (entidad.OK)
                 {
-                    itemRespuesta.extra = block.ID_BLOCKCHAIN.ToString();
-                    itemRespuesta.extra2 = block.HASH;
+                    //var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
+                    IniciativaBE iniciativa = new IniciativaBE();
+                    iniciativa.EMAIL_USUARIO = Convert.ToString(Session["correo_destino"]);
+                    iniciativa.ASUNTO = "Evaluación Iniciativa y Detalle Indicador - MRVMinem ";
+                    iniciativa.DESCRIPCION = "Los detalles de indicadores y la iniciativa (" + entidad.NOMBRE_INICIATIVA + ") fueron revisados y aprobados por el Evaluador MINAM<br/><br/>";
+                    EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
+                    Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+                    Session["correo_destino"] = "";
+                    Session["usuario_destino"] = 0;
+
+                    BlockChainBE block = new BlockChainBE() { ID_INICIATIVA = entidad.ID_INICIATIVA, ID_USUARIO = entidad.ID_USUARIO, IP_PC = Request.UserHostAddress.ToString().Trim() };
+                    block = BlockChainLN.GeneraBlockChain(block);
+                    if (block.OK)
+                    {
+                        itemRespuesta.extra = block.ID_BLOCKCHAIN.ToString();
+                        itemRespuesta.extra2 = block.HASH;
+                    }
                 }
             }
+            
             itemRespuesta.success = entidad.OK;
             return Respuesta(itemRespuesta);
         }
@@ -2115,7 +2120,6 @@ namespace MRVMinem.Controllers
         public JsonResult CalcularIndicadorDinamico(string Valor)
         {
             List<IndicadorDataBE> listaP = new List<IndicadorDataBE>();
-
             try
             {
                 var valores = Valor.Split('|');
@@ -2141,6 +2145,7 @@ namespace MRVMinem.Controllers
                 }
 
                 listaP = IndicadorLN.CalculoIndicador(listaP);
+                
             }
             catch (Exception ex)
             {
@@ -2149,6 +2154,10 @@ namespace MRVMinem.Controllers
 
             var jsonResult = Json(listaP, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
+
+            //List<AcumuladoBE> listaA = new List<AcumuladoBE>();
+            //listaA = detalleAcumulado(listaN);
+
             return jsonResult;
         }
 
@@ -3256,6 +3265,58 @@ namespace MRVMinem.Controllers
             var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
+        }
+
+        public List<AcumuladoBE> detalleAcumulado(List<IndicadorDataBE> listaE)
+        {
+            List<AcumuladoBE> listaA = new List<AcumuladoBE>();
+            try
+            {
+                List<IndicadorDataBE> lista = new List<IndicadorDataBE>();
+                List<IndicadorDataBE> listaPr = new List<IndicadorDataBE>();
+                lista = listaE;            
+                int anioP = 0;
+                string reducido = "";
+                foreach (var item in lista)
+                {
+                    if (item.ID_PARAMETRO == 17)
+                        item.VALOR = "0";
+                    else if (item.ID_PARAMETRO == 32)
+                    {
+                        string fecha = item.VALOR;
+                        fecha = fecha.Substring(0, 4);
+                        item.VALOR = fecha + "-01-01";
+                    }
+                    else if (item.ID_PARAMETRO == 6)
+                    {
+                        anioP = Convert.ToInt32(item.VALOR);
+                        item.VALOR = Convert.ToString(anioP + 1);
+                    }
+                    else if (item.ID_PARAMETRO == 11)
+                        reducido = item.VALOR;
+                }
+
+                listaA.Add(new AcumuladoBE { anio = anioP, reducido = reducido });
+                anioP += 1;
+                while (DateTime.Now.Year > anioP)
+                {
+                    lista = IndicadorLN.CalculoIndicador(lista);
+                    foreach (var item in lista)
+                    {
+                        if (item.ID_PARAMETRO == 6)
+                            item.VALOR = Convert.ToString(anioP + 1);
+                        else if (item.ID_PARAMETRO == 11)
+                            reducido = item.VALOR;
+                    }
+                    listaA.Add(new AcumuladoBE { anio = anioP, reducido = reducido });
+                    anioP += 1;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }  
+                return listaA;
         }
 
     }    

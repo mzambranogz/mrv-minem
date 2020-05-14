@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AcumuladoBE.cs" />
     <Compile Include="AnnoBE.cs" />
     <Compile Include="BaseBE.cs" />
     <Compile Include="BlockChainAuxBE.cs" />

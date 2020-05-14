@@ -22,7 +22,7 @@
             <div class="container py-4">
                 <div class="row">
                     <div class="col-md-12 col-lg-6 pt-4">
-                        <div class="h4">Listado de Iniciativas de Mitigación&nbsp;<br><small class="text-muted">Utilice la búsqueda para ubicar su iniciativa de mitigación, <br>las iniciativas de mitigación pendientes o aprobadas no pueden ser editadas.</small></div>
+                        <div class="h4">Listado de Iniciativas de Mitigación&nbsp;<br><small class="text-muted">Utilice el botón buscar para ubicar su iniciativa de mitigación, <br>las iniciativas de mitigación pendientes o aprobadas no pueden ser editadas.</small></div>
                     </div>
                     <div class="col-md-12 col-lg-6 pt-4">
                         <div class="row">
@@ -295,6 +295,31 @@
                                                         </div>
                                                     }
                                                     
+                                                    <div class="row">
+                                                        <div class="col-sm-12 pb-2 text-left">
+                                                            <div class="titulo-avanzado" data-toggle="collapse" href="#bloackchain" aria-expanded="false" aria-controls="bloackchain">
+                                                                <span>
+                                                                    <i class="far fa-list-alt"></i>&nbsp;
+                                                                    Blockchain
+                                                                </span>
+                                                            </div>
+                                                            <div class="collapse" id="bloackchain">
+                                                                <div class="card card-body">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-12">
+                                                                            <div class="form-group">
+                                                                                <label for="txa-bloackchain">Código blockchain<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese el código de blockchain a localizar."></i></label>
+                                                                                <div class="input-group">
+                                                                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-tachometer-alt"></i></span></div>
+                                                                                    <textarea class="form-control" id="txa-bloackchain" aria-describedby="inputGroup5" cols="30" rows="4" required placeholder="Ingrese el código blockchain"></textarea>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -372,30 +397,54 @@
                                         {
                                             <th class="text-center" scope="col" width="3%" id="ocultar-enviado" onclick="fn_habilitarTodo();">
                                                 @*<span>Enviado&nbsp;<i class="fas fa-sort"></i>*@
-                                                <div class="custom-control custom-checkbox-new custom-checkbox d-inline-block pl-3" data-toggle="tooltip" data-placement="bottom" title="Seleccione una iniciativa para enviarla al Verificador Externo, también puede seleccionar una o varias iniciativas para enviarlas por paquete al Evaluador MINAM">
+                                                <div class="custom-control custom-checkbox-new custom-checkbox d-inline-block pl-3" @*data-toggle="tooltip" data-placement="bottom" title="Seleccione una iniciativa para enviarla al Verificador Externo, también puede seleccionar una o varias iniciativas para enviarlas por paquete al Evaluador MINAM"*@>
                                                     <input class="custom-control-input" type="checkbox" id="chk-send-im">
                                                     <label class="custom-control-label" for="chk-send-im">&nbsp;</label>
                                                 </div>
                                                 @*</span>*@
+
                                             </th>
                                         }
-                                        <th scope="col" width="17%"><span class="miColumna">Nombre de <br> Iniciativa&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NOMBRE_INICIATIVA"></i></span></th>
-                                        <th scope="col" width="8%"><span class="miColumna">Progreso&nbsp;<i class="fas fa-sort" style="color: lightgray" id="PROGRESO"></i></span></th>
-                                        <th class="text-center" scope="col" width="8%"><span class="miColumna">Fecha de <br> Inicio&nbsp;<i class="fas fa-sort" style="color: lightgray" id="FECHA"></i></span></th>
-                                        <th class="text-center" scope="col" width="8%"><span class="miColumna">Fecha de <br>  Término&nbsp;<i class="fas fa-sort" style="color: lightgray" id="FECHA_FIN_INICIATIVA"></i></span></th>
-                                        <th scope="col" width="10%"><span class="miColumna">Medida de  <br> Mitigación&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NUMERO_MEDMIT"></i></span></th>
-                                        <th scope="col" width="17%"><span class="miColumna">Entidad&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NOMBRE_INSTITUCION"></i></span></th>
+                                        <th scope="col" width="17%">
+                                            
+                                            <span class="miColumna">                                                
+                                                <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la Iniciativa de Mitigactión registrada por la entidad responsable"></i>
+                                                Nombre de Iniciativa&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NOMBRE_INICIATIVA"></i>
+                                            </span>
+                                        </th>
+                                        <th scope="col" width="8%">
+                                            <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Porcentare de progreso de la Iniciativa de Mitigación en sus distintos procesos"></i>
+                                            <span class="miColumna">Progreso<br>de inicitiva&nbsp;<i class="fas fa-sort" style="color: lightgray" id="PROGRESO"></i></span>
+                                        </th>
+                                        <th class="text-center" scope="col" width="8%">
+                                            <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Fecha de inicialización del proyecto"></i>
+                                            <span class="miColumna">Fecha de <br> Inicio&nbsp;<i class="fas fa-sort" style="color: lightgray" id="FECHA"></i></span>
+                                        </th>
+                                        <th class="text-center" scope="col" width="8%">
+                                            <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Fecha de Finalización del proyecto"></i>
+                                            <span class="miColumna">Fecha de <br>  Término&nbsp;<i class="fas fa-sort" style="color: lightgray" id="FECHA_FIN_INICIATIVA"></i></span>
+                                        </th>
+                                        <th scope="col" width="10%">
+                                            <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la Medida de Mitigación asignada o relacionada a su Iniciativa de Mitigación"></i>
+                                            <span class="miColumna">Medida de  <br> Mitigación&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NUMERO_MEDMIT"></i></span>
+                                        </th>
+                                        <th scope="col" width="15%">
+                                            <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Entidad responsable del registro de la Inicitiva de Mitigación"></i>
+                                            <span class="miColumna">Entidad <br>responsable&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NOMBRE_INSTITUCION"></i></span>
+                                        </th>
                                         <th scope="col" width="10%">
                                             <div class="btn-group" id="filtro-conversion">
-                                                <a class="btn dropdown-toggle text-white font-weight-bold p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1">Convertir</a>
+                                                <a class="btn dropdown-toggle text-white font-weight-bold p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1">Convertir resultado</a>
                                                 <div class="dropdown-menu">
                                                     <a class="dropdown-item" onclick="convertirATonelada();"><i class="fas fa-exchange-alt">&nbsp;</i><strong>ktCO2eq &nbsp;</strong>a &nbsp;<strong>tCO2eq</strong></a>
                                                     <a class="dropdown-item" onclick="convertirAKiloTonelada();"><i class="fas fa-exchange-alt">&nbsp;</i><strong>tCO2eq &nbsp;</strong>a &nbsp;<strong>ktCO2eq</strong></a>
                                                 </div>
                                             </div>
-                                            <span class="miColumna">Reducido&nbsp;<i class="fas fa-sort" style="color: lightgray" id="GEI_TOTAL"></i></span>
+                                            <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Resultado total de reducción producto de la Iniciativa de Mitigación"></i>
+                                            <span class="miColumna">Total reducido&nbsp;<i class="fas fa-sort" style="color: lightgray" id="GEI_TOTAL"></i></span>
                                         </th>
-                                        <th class="text-center" scope="col" width="10%">                                            
+                                        <th class="text-center" scope="col" width="10%">     
+                                            <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Descripción del estado actual de su Inicitativa de Mitigación"></i>                                       
                                             <span class="miColumna">Estado de <br> Iniciativa&nbsp;<i class="fas fa-sort" style="color: lightgray" id="ID_ESTADO"></i></span>
                                         </th>
                                         @*<th class="text-center" scope="col">Más</th>*@
@@ -508,9 +557,9 @@
                     <div class="col-12">
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12">
-                                <div class="swal2-icon swal2-question swal2-icon-show" style="display: flex;">
+                                @*<div class="swal2-icon swal2-question swal2-icon-show" style="display: flex;">
                                     <div class="swal2-icon-content"><i class="fas fa-info"></i></div>
-                                </div>
+                                </div>*@
                                 <h3 class="text-center">Seleccione una medida de mitigación</h3>
                                 <p class="text-center">en la que usted crea que corresponda la iniciativa a registrar</p>
                             </div>
@@ -518,7 +567,7 @@
                             {
                                 foreach (var item in Model.listaMedidaMitigacion)
                                 {
-                                    if (Convert.ToInt32(Session["rol"]) == 2)
+                                    @*if (Convert.ToInt32(Session["rol"]) == 2)
                                     {
                                         if (item.USUARIO_ASOCIADO_MEDMIT == 100)
                                         {
@@ -529,7 +578,7 @@
                                         else
                                         {
                                             <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center" style="opacity: 0.2; filter: grayscale(1);">
-                                                <div class="rounded py-3"><a class="d-inline-block" href="javascript:void(0);" @*onclick="enviarIniciativa(@item.ID_MEDMIT)"*@ data-toggle="tooltip" data-placement="top" title="@item.NOMBRE_MEDMIT"><img src="~/images/medida_mitigacion/@item.ADJUNTO" class="img-fluid"></a></div><small class="font-weight-bold">@item.NOMBRE_MEDMIT</small>
+                                                <div class="rounded py-3"><a class="d-inline-block" href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="@item.NOMBRE_MEDMIT"><img src="~/images/medida_mitigacion/@item.ADJUNTO" class="img-fluid"></a></div><small class="font-weight-bold">@item.NOMBRE_MEDMIT</small>
                                             </div>
                                         }
                                     }
@@ -544,10 +593,15 @@
                                         else
                                         {
                                             <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center" style="opacity: 0.2; filter: grayscale(1);">
-                                                <div class="rounded py-3"><a class="d-inline-block" href="javascript:void(0);" @*onclick="enviarIniciativa(@item.ID_MEDMIT)"*@ data-toggle="tooltip" data-placement="top" title="@item.NOMBRE_MEDMIT"><img src="~/images/medida_mitigacion/@item.ADJUNTO" class="img-fluid"></a></div><small class="font-weight-bold">@item.NOMBRE_MEDMIT</small>
+                                                <div class="rounded py-3"><a class="d-inline-block" href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="@item.NOMBRE_MEDMIT"><img src="~/images/medida_mitigacion/@item.ADJUNTO" class="img-fluid"></a></div><small class="font-weight-bold">@item.NOMBRE_MEDMIT</small>
                                             </div>
                                         }
-                                    }
+                                    }*@
+
+                                    <div class="col-sm-12 col-md-4 col-lg-2 pb-1 text-center">
+                                        <div class="rounded py-3"><a class="d-inline-block" href="javascript:void(0);" onclick="enviarIniciativa(@item.ID_MEDMIT)" data-toggle="tooltip" data-placement="top" title="@item.NOMBRE_MEDMIT"><img src="~/images/medida_mitigacion/@item.ADJUNTO" class="img-fluid"></a></div><small class="font-weight-bold">@item.NOMBRE_MEDMIT</small>
+                                    </div>
+
                                 }
                             }
 
@@ -1049,7 +1103,7 @@
                 </div>
             </div>
             <div class="modal-footer justify-content-center" id="pieAprobar">
-                <button class="btn btn-info" type="button" onclick="fn_aprobarPaquete();">Si, grabar</button>
+                <button class="btn btn-info" type="button" onclick="fn_aprobarPaquete();">Si, aprobar</button>
                 <button class="btn btn-dark" type="button" data-dismiss="modal">Cancelar</button>
             </div>
             <div class="modal-footer justify-content-center" id="pieCorrectoAprobar" hidden>
