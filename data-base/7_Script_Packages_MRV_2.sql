@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - martes-mayo-12-2020   
+-- Archivo creado  - jueves-mayo-14-2020   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Package PKG_MRV_DIRECCIONAMIENTO
@@ -772,6 +772,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         pFECHA_EJECUCION_INI IN VARCHAR2,
         pFECHA_EJECUCION_FIN IN VARCHAR2,
         pNOMBRE_INICIATIVA IN VARCHAR2,
+        pHASH IN VARCHAR2, --ADD
         pRegistros  INTEGER,
       	pPagina     INTEGER,
       	pSortColumn IN VARCHAR2,
@@ -920,8 +921,6 @@ END PKG_MRV_DIRECCIONAMIENTO;
       );
 
 END PKG_MRV_INICIATIVA_MITIGACION;
-
-
 
 /
 --------------------------------------------------------
@@ -6461,6 +6460,7 @@ END PKG_MRV_DIRECCIONAMIENTO;
         pFECHA_EJECUCION_INI IN VARCHAR2,
         pFECHA_EJECUCION_FIN IN VARCHAR2,
         pNOMBRE_INICIATIVA IN VARCHAR2,
+        pHASH IN VARCHAR2, --ADD
         pRegistros  INTEGER,
       	pPagina     INTEGER,
       	pSortColumn IN VARCHAR2,
@@ -6569,7 +6569,8 @@ END PKG_MRV_DIRECCIONAMIENTO;
                         (INST.ID_SECTOR_INSTITUCION = '||pSector||' OR '||pSector||' = 0) AND   
                         ( TO_CHAR(INI.FECHA_IMPLE_INICIATIVA, ''yyyy/MM/dd'') >= '''|| pFECHA_EJECUCION_INI ||''' OR  '''|| pFECHA_EJECUCION_INI ||''' = ''0001/01/01'') AND
                         ( TO_CHAR(INI.FECHA_IMPLE_INICIATIVA, ''yyyy/MM/dd'') <= '''|| pFECHA_EJECUCION_FIN ||''' OR  '''|| pFECHA_EJECUCION_FIN ||''' = ''0001/01/01'') AND
-                        (LOWER(TRANSLATE(INI.NOMBRE_INICIATIVA,''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) like ''%'' ||LOWER(TRANSLATE('''||pNOMBRE_INICIATIVA||''',''ÁÉÍÓÚáéíóú'',''AEIOUaeiou''))|| ''%'' )                       
+                        (LOWER(TRANSLATE(INI.NOMBRE_INICIATIVA,''ÁÉÍÓÚáéíóú'',''AEIOUaeiou'')) like ''%'' ||LOWER(TRANSLATE('''||pNOMBRE_INICIATIVA||''',''ÁÉÍÓÚáéíóú'',''AEIOUaeiou''))|| ''%'' ) AND
+                        (CH.HASH LIKE ''%'' || LOWER('''|| pHASH ||''') || ''%'')
                     )
                     WHERE  ROWNUMBER BETWEEN ' || TO_CHAR(pRegistros * vPageIndex + 1) || ' AND ' || TO_CHAR(pRegistros * (vPageIndex + 1));
 
@@ -7267,8 +7268,6 @@ END PKG_MRV_DIRECCIONAMIENTO;
       END USP_SEL_FICHA_INI;
 
 END PKG_MRV_INICIATIVA_MITIGACION;
-
-
 
 /
 --------------------------------------------------------

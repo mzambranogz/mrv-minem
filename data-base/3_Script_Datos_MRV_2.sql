@@ -1,7 +1,7 @@
 --------------------------------------------------------
--- Archivo creado  - martes-mayo-12-2020   
+-- Archivo creado  - jueves-mayo-14-2020   
 --------------------------------------------------------
-
+;
 Insert into MRVMM.T_MAEM_TIPO_DATO (ID_TIPO_DATO,TIPO_DATO) values ('1','FECHA');
 Insert into MRVMM.T_MAEM_TIPO_DATO (ID_TIPO_DATO,TIPO_DATO) values ('2','NUMERO');
 Insert into MRVMM.T_MAEM_TIPO_DATO (ID_TIPO_DATO,TIPO_DATO) values ('3','CARACTER');

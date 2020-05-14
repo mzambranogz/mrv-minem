@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Archivo creado  - martes-mayo-12-2020   
+-- Archivo creado  - jueves-mayo-14-2020   
 --------------------------------------------------------
 
 Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('13','3','75','3','3','1');
@@ -197,3 +197,4 @@ Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_I
 Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('11','6','75','3','4','1');
 Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('11','6','74','3','6','1');
 Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('25','4','76','3','4','1');
+
