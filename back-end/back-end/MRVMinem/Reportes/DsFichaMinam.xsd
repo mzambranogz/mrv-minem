@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DsFichaMinam" targetNamespace="http://tempuri.org/DsFichaMinam.xsd" xmlns:mstns="http://tempuri.org/DsFichaMinam.xsd" xmlns="http://tempuri.org/DsFichaMinam.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DsFichaMinam" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DsFichaMinam" msprop:Generator_UserDSName="DsFichaMinam">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DtFichaMinam" msprop:Generator_TableClassName="DtFichaMinamDataTable" msprop:Generator_TableVarName="tableDtFichaMinam" msprop:Generator_TablePropName="DtFichaMinam" msprop:Generator_RowDeletingName="DtFichaMinamRowDeleting" msprop:Generator_RowChangingName="DtFichaMinamRowChanging" msprop:Generator_RowEvHandlerName="DtFichaMinamRowChangeEventHandler" msprop:Generator_RowDeletedName="DtFichaMinamRowDeleted" msprop:Generator_UserTableName="DtFichaMinam" msprop:Generator_RowChangedName="DtFichaMinamRowChanged" msprop:Generator_RowEvArgName="DtFichaMinamRowChangeEvent" msprop:Generator_RowClassName="DtFichaMinamRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID_MEDMIT" msprop:Generator_ColumnVarNameInTable="columnID_MEDMIT" msprop:Generator_ColumnPropNameInRow="ID_MEDMIT" msprop:Generator_ColumnPropNameInTable="ID_MEDMITColumn" msprop:Generator_UserColumnName="ID_MEDMIT" type="xs:int" minOccurs="0" />
+              <xs:element name="ID_ENFOQUE" msprop:Generator_ColumnVarNameInTable="columnID_ENFOQUE" msprop:Generator_ColumnPropNameInRow="ID_ENFOQUE" msprop:Generator_ColumnPropNameInTable="ID_ENFOQUEColumn" msprop:Generator_UserColumnName="ID_ENFOQUE" type="xs:int" minOccurs="0" />
+              <xs:element name="ANNO" msprop:Generator_ColumnVarNameInTable="columnANNO" msprop:Generator_ColumnPropNameInRow="ANNO" msprop:Generator_ColumnPropNameInTable="ANNOColumn" msprop:Generator_UserColumnName="ANNO" type="xs:int" minOccurs="0" />
+              <xs:element name="BAU" msprop:Generator_ColumnVarNameInTable="columnBAU" msprop:Generator_ColumnPropNameInRow="BAU" msprop:Generator_ColumnPropNameInTable="BAUColumn" msprop:Generator_UserColumnName="BAU" type="xs:decimal" minOccurs="0" />
+              <xs:element name="INI" msprop:Generator_ColumnVarNameInTable="columnINI" msprop:Generator_ColumnPropNameInRow="INI" msprop:Generator_ColumnPropNameInTable="INIColumn" msprop:Generator_UserColumnName="INI" type="xs:decimal" minOccurs="0" />
+              <xs:element name="REDUCIDO" msprop:Generator_ColumnVarNameInTable="columnREDUCIDO" msprop:Generator_ColumnPropNameInRow="REDUCIDO" msprop:Generator_ColumnPropNameInTable="REDUCIDOColumn" msprop:Generator_UserColumnName="REDUCIDO" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TITULO_MEDIDA_MITIGACION" msprop:Generator_ColumnVarNameInTable="columnTITULO_MEDIDA_MITIGACION" msprop:Generator_ColumnPropNameInRow="TITULO_MEDIDA_MITIGACION" msprop:Generator_ColumnPropNameInTable="TITULO_MEDIDA_MITIGACIONColumn" msprop:Generator_UserColumnName="TITULO_MEDIDA_MITIGACION" type="xs:string" minOccurs="0" />
+              <xs:element name="SECTOR" msprop:Generator_ColumnVarNameInTable="columnSECTOR" msprop:Generator_ColumnPropNameInRow="SECTOR" msprop:Generator_ColumnPropNameInTable="SECTORColumn" msprop:Generator_UserColumnName="SECTOR" type="xs:string" minOccurs="0" />
+              <xs:element name="OBJETIVO" msprop:Generator_ColumnVarNameInTable="columnOBJETIVO" msprop:Generator_ColumnPropNameInRow="OBJETIVO" msprop:Generator_ColumnPropNameInTable="OBJETIVOColumn" msprop:Generator_UserColumnName="OBJETIVO" type="xs:string" minOccurs="0" />
+              <xs:element name="DESCRIPCION" msprop:Generator_ColumnVarNameInTable="columnDESCRIPCION" msprop:Generator_ColumnPropNameInRow="DESCRIPCION" msprop:Generator_ColumnPropNameInTable="DESCRIPCIONColumn" msprop:Generator_UserColumnName="DESCRIPCION" type="xs:string" minOccurs="0" />
+              <xs:element name="UBICACION" msprop:Generator_ColumnVarNameInTable="columnUBICACION" msprop:Generator_ColumnPropNameInRow="UBICACION" msprop:Generator_ColumnPropNameInTable="UBICACIONColumn" msprop:Generator_UserColumnName="UBICACION" type="xs:string" minOccurs="0" />
+              <xs:element name="METODOLOGIA" msprop:Generator_ColumnVarNameInTable="columnMETODOLOGIA" msprop:Generator_ColumnPropNameInRow="METODOLOGIA" msprop:Generator_ColumnPropNameInTable="METODOLOGIAColumn" msprop:Generator_UserColumnName="METODOLOGIA" type="xs:string" minOccurs="0" />
+              <xs:element name="NOMBRE_ENFOQUE" msprop:Generator_ColumnVarNameInTable="columnNOMBRE_ENFOQUE" msprop:Generator_ColumnPropNameInRow="NOMBRE_ENFOQUE" msprop:Generator_ColumnPropNameInTable="NOMBRE_ENFOQUEColumn" msprop:Generator_UserColumnName="NOMBRE_ENFOQUE" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DtParametro" msprop:Generator_TableClassName="DtParametroDataTable" msprop:Generator_TableVarName="tableDtParametro" msprop:Generator_TablePropName="DtParametro" msprop:Generator_RowDeletingName="DtParametroRowDeleting" msprop:Generator_RowChangingName="DtParametroRowChanging" msprop:Generator_RowEvHandlerName="DtParametroRowChangeEventHandler" msprop:Generator_RowDeletedName="DtParametroRowDeleted" msprop:Generator_UserTableName="DtParametro" msprop:Generator_RowChangedName="DtParametroRowChanged" msprop:Generator_RowEvArgName="DtParametroRowChangeEvent" msprop:Generator_RowClassName="DtParametroRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID_MEDMIT" msprop:Generator_ColumnVarNameInTable="columnID_MEDMIT" msprop:Generator_ColumnPropNameInRow="ID_MEDMIT" msprop:Generator_ColumnPropNameInTable="ID_MEDMITColumn" msprop:Generator_UserColumnName="ID_MEDMIT" type="xs:int" minOccurs="0" />
+              <xs:element name="ID_ENFOQUE" msprop:Generator_ColumnVarNameInTable="columnID_ENFOQUE" msprop:Generator_ColumnPropNameInRow="ID_ENFOQUE" msprop:Generator_ColumnPropNameInTable="ID_ENFOQUEColumn" msprop:Generator_UserColumnName="ID_ENFOQUE" type="xs:int" minOccurs="0" />
+              <xs:element name="ID_PARAMETRO" msprop:Generator_ColumnVarNameInTable="columnID_PARAMETRO" msprop:Generator_ColumnPropNameInRow="ID_PARAMETRO" msprop:Generator_ColumnPropNameInTable="ID_PARAMETROColumn" msprop:Generator_UserColumnName="ID_PARAMETRO" type="xs:int" minOccurs="0" />
+              <xs:element name="NOMBRE_PARAMETRO" msprop:Generator_ColumnVarNameInTable="columnNOMBRE_PARAMETRO" msprop:Generator_ColumnPropNameInRow="NOMBRE_PARAMETRO" msprop:Generator_ColumnPropNameInTable="NOMBRE_PARAMETROColumn" msprop:Generator_UserColumnName="NOMBRE_PARAMETRO" type="xs:string" minOccurs="0" />
+              <xs:element name="DESCRIPCION_UNIDAD" msprop:Generator_ColumnVarNameInTable="columnDESCRIPCION_UNIDAD" msprop:Generator_ColumnPropNameInRow="DESCRIPCION_UNIDAD" msprop:Generator_ColumnPropNameInTable="DESCRIPCION_UNIDADColumn" msprop:Generator_UserColumnName="DESCRIPCION_UNIDAD" type="xs:string" minOccurs="0" />
+              <xs:element name="COMBINACION_UNIDAD" msprop:Generator_ColumnVarNameInTable="columnCOMBINACION_UNIDAD" msprop:Generator_ColumnPropNameInRow="COMBINACION_UNIDAD" msprop:Generator_ColumnPropNameInTable="COMBINACION_UNIDADColumn" msprop:Generator_UserColumnName="COMBINACION_UNIDAD" type="xs:string" minOccurs="0" />
+              <xs:element name="DESCRIPCION_PARAMETRO" msprop:Generator_ColumnVarNameInTable="columnDESCRIPCION_PARAMETRO" msprop:Generator_ColumnPropNameInRow="DESCRIPCION_PARAMETRO" msprop:Generator_ColumnPropNameInTable="DESCRIPCION_PARAMETROColumn" msprop:Generator_UserColumnName="DESCRIPCION_PARAMETRO" type="xs:string" minOccurs="0" />
+              <xs:element name="LEYENDA_PARAMETRO" msprop:Generator_ColumnVarNameInTable="columnLEYENDA_PARAMETRO" msprop:Generator_ColumnPropNameInRow="LEYENDA_PARAMETRO" msprop:Generator_ColumnPropNameInTable="LEYENDA_PARAMETROColumn" msprop:Generator_UserColumnName="LEYENDA_PARAMETRO" type="xs:string" minOccurs="0" />
+              <xs:element name="DESCRIPCION_METODOLOGIA" msprop:Generator_ColumnVarNameInTable="columnDESCRIPCION_METODOLOGIA" msprop:Generator_ColumnPropNameInRow="DESCRIPCION_METODOLOGIA" msprop:Generator_ColumnPropNameInTable="DESCRIPCION_METODOLOGIAColumn" msprop:Generator_UserColumnName="DESCRIPCION_METODOLOGIA" type="xs:string" minOccurs="0" />
+              <xs:element name="PROCEDIMIENTO" msprop:Generator_ColumnVarNameInTable="columnPROCEDIMIENTO" msprop:Generator_ColumnPropNameInRow="PROCEDIMIENTO" msprop:Generator_ColumnPropNameInTable="PROCEDIMIENTOColumn" msprop:Generator_UserColumnName="PROCEDIMIENTO" type="xs:string" minOccurs="0" />
+              <xs:element name="CONTROL_CALIDAD" msprop:Generator_ColumnVarNameInTable="columnCONTROL_CALIDAD" msprop:Generator_ColumnPropNameInRow="CONTROL_CALIDAD" msprop:Generator_ColumnPropNameInTable="CONTROL_CALIDADColumn" msprop:Generator_UserColumnName="CONTROL_CALIDAD" type="xs:string" minOccurs="0" />
+              <xs:element name="ASEGURAMIENTO_CALIDAD" msprop:Generator_ColumnVarNameInTable="columnASEGURAMIENTO_CALIDAD" msprop:Generator_ColumnPropNameInRow="ASEGURAMIENTO_CALIDAD" msprop:Generator_ColumnPropNameInTable="ASEGURAMIENTO_CALIDADColumn" msprop:Generator_UserColumnName="ASEGURAMIENTO_CALIDAD" type="xs:string" minOccurs="0" />
+              <xs:element name="PROPOSITO" msprop:Generator_ColumnVarNameInTable="columnPROPOSITO" msprop:Generator_ColumnPropNameInRow="PROPOSITO" msprop:Generator_ColumnPropNameInTable="PROPOSITOColumn" msprop:Generator_UserColumnName="PROPOSITO" type="xs:string" minOccurs="0" />
+              <xs:element name="FRECUENCIA" msprop:Generator_ColumnVarNameInTable="columnFRECUENCIA" msprop:Generator_ColumnPropNameInRow="FRECUENCIA" msprop:Generator_ColumnPropNameInTable="FRECUENCIAColumn" msprop:Generator_UserColumnName="FRECUENCIA" type="xs:string" minOccurs="0" />
+              <xs:element name="COMPORTAMIENTO" msprop:Generator_ColumnVarNameInTable="columnCOMPORTAMIENTO" msprop:Generator_ColumnPropNameInRow="COMPORTAMIENTO" msprop:Generator_ColumnPropNameInTable="COMPORTAMIENTOColumn" msprop:Generator_UserColumnName="COMPORTAMIENTO" type="xs:string" minOccurs="0" />
+              <xs:element name="VALOR" msprop:Generator_ColumnVarNameInTable="columnVALOR" msprop:Generator_ColumnPropNameInRow="VALOR" msprop:Generator_ColumnPropNameInTable="VALORColumn" msprop:Generator_UserColumnName="VALOR" type="xs:decimal" minOccurs="0" />
+              <xs:element name="FORMULA" msprop:Generator_ColumnVarNameInTable="columnFORMULA" msprop:Generator_ColumnPropNameInRow="FORMULA" msprop:Generator_ColumnPropNameInTable="FORMULAColumn" msprop:Generator_UserColumnName="FORMULA" type="xs:string" minOccurs="0" />
+              <xs:element name="FORMULA_ARMADO" msprop:Generator_ColumnVarNameInTable="columnFORMULA_ARMADO" msprop:Generator_ColumnPropNameInRow="FORMULA_ARMADO" msprop:Generator_ColumnPropNameInTable="FORMULA_ARMADOColumn" msprop:Generator_UserColumnName="FORMULA_ARMADO" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

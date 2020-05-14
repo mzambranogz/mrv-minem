@@ -332,12 +332,7 @@ CH 2</textarea>
                   </div>
                 </div>
                 <div class="container-fluid py-4">
-                  <div class="row">
-                    <div class="col-xs-12 col sm-12 col-lg-10 d-flex align-items-end justify-content-left">
-                      <div class="h5">Registro de Detalles de Iniciativa de Mitigación&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Bandeja de iniciativas de mitigación registradas por su institución"></i></div>
-                    </div>
-                    <div class="col-xs-12 col sm-12 col-lg-2 text-lg-right"><span data-toggle="modal" data-target="#modal-acumulado"><a class="btn btn-purple w-100 mb-2" href="#" data-toggle="tooltip" data-placement="top" title="Verificar el acumulado total por Medida de Mitigación"><i class="fas fa-box px-1"></i>Verificar acumulado</a></span></div>
-                  </div>
+                  <div class="h5">Registro de Detalles de Iniciativa de Mitigación&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Complete los campos de acuerdo al enfoque seleccionado"></i></div>
                   <div class="dropdown-divider"></div>
                   <div class="row">
                     <div class="col-12 px-0">
@@ -356,7 +351,8 @@ CH 2</textarea>
                               <th class="text-center grupo-columna-03"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Texto descriptivo"></i>POTENCIA BASE (W)</span><small>Seleccione este campo para su registro</small></th>
                               <th class="text-center grupo-columna-03"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Texto descriptivo"></i>POTENCIA INICIATIVA (W)</span><small>Seleccione este campo para su registro</small></th>
                               <th class="text-center grupo-columna-03"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Texto descriptivo"></i>Sub Total</span><small>Seleccione este campo para su registro</small></th>
-                              <th class="text-center"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Información adicional que se debe añadir"></i>Sustento &nbsp;</span><small>Seleccione este campo para su registro</small></th>
+                              <th class="text-center grupo-columna-03"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Información adicional que se debe añadir"></i>Sustento &nbsp;</span><small>Tamaño máximo por archivo es de 2MB</small></th>
+                              <th class="text-center grupo-columna-03"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Verificar acumulado"></i></span><br><small>Ver</small></th>
                               <!--th.text-center(scope="col")span Más<br>
                               a.btn.btn-warning.btn-sm.m-0.agregarCampos(href="#", title="Agregar fila", download)
                                 i.fas.fa-plus-circle
@@ -421,6 +417,7 @@ CH 2</textarea>
                                   <input class="d-none" type="file" id="fle-doc">
                                 </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>
                               </td>
+                              <td class="text-center estrecho" data-encabezado="Verificar acumulado"><span data-toggle="modal" data-target="#modal-acumulado"><a class="btn btn-purple btn-sm m-0 quitarCampos" href="#" title="Verificar acumulado"><i class="fas fa-hand-holding"></i></a></span></td>
                               <!--td.text-center(data-encabezado="Acciones", width="5%")
                               a.btn.btn-info.btn-sm.m-0.quitarCampos(href="#", title="Quitar fila")
                                 i.fas.fa-minus-circle
@@ -497,6 +494,7 @@ CH 2</textarea>
                                   <input class="d-none" type="file" id="fle-doc">
                                 </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>
                               </td>
+                              <td class="text-center estrecho" data-encabezado="Verificar acumulado"><span data-toggle="modal" data-target="#modal-acumulado"><a class="btn btn-purple btn-sm m-0 quitarCampos" href="#" title="Verificar acumulado"><i class="fas fa-hand-holding"></i></a></span></td>
                               <!--td.text-center(data-encabezado="Acciones", width="5%")
                               a.btn.btn-info.btn-sm.m-0.quitarCampos(href="#", title="Quitar fila")
                                 i.fas.fa-minus-circle
@@ -573,6 +571,7 @@ CH 2</textarea>
                                   <input class="d-none" type="file" id="fle-doc">
                                 </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>
                               </td>
+                              <td class="text-center estrecho" data-encabezado="Verificar acumulado"><span data-toggle="modal" data-target="#modal-acumulado"><a class="btn btn-purple btn-sm m-0 quitarCampos" href="#" title="Verificar acumulado"><i class="fas fa-hand-holding"></i></a></span></td>
                               <!--td.text-center(data-encabezado="Acciones", width="5%")
                               a.btn.btn-info.btn-sm.m-0.quitarCampos(href="#", title="Quitar fila")
                                 i.fas.fa-minus-circle
@@ -635,6 +634,7 @@ CH 2</textarea>
                                   <input class="d-none" type="file" id="fle-doc">
                                 </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>
                               </td>
+                              <td class="text-center estrecho" data-encabezado="Verificar acumulado"><span data-toggle="modal" data-target="#modal-acumulado"><a class="btn btn-purple btn-sm m-0 quitarCampos" href="#" title="Verificar acumulado"><i class="fas fa-hand-holding"></i></a></span></td>
                               <!--td.text-center(data-encabezado="Acciones", width="5%")
                               a.btn.btn-info.btn-sm.m-0.quitarCampos(href="#", title="Quitar fila")
                                 i.fas.fa-minus-circle
@@ -711,6 +711,7 @@ CH 2</textarea>
                                   <input class="d-none" type="file" id="fle-doc">
                                 </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>
                               </td>
+                              <td class="text-center estrecho" data-encabezado="Verificar acumulado"><span data-toggle="modal" data-target="#modal-acumulado"><a class="btn btn-purple btn-sm m-0 quitarCampos" href="#" title="Verificar acumulado"><i class="fas fa-hand-holding"></i></a></span></td>
                               <!--td.text-center(data-encabezado="Acciones", width="5%")
                               a.btn.btn-info.btn-sm.m-0.quitarCampos(href="#", title="Quitar fila")
                                 i.fas.fa-minus-circle
@@ -787,6 +788,7 @@ CH 2</textarea>
                                   <input class="d-none" type="file" id="fle-doc">
                                 </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>
                               </td>
+                              <td class="text-center estrecho" data-encabezado="Verificar acumulado"><span data-toggle="modal" data-target="#modal-acumulado"><a class="btn btn-purple btn-sm m-0 quitarCampos" href="#" title="Verificar acumulado"><i class="fas fa-hand-holding"></i></a></span></td>
                               <!--td.text-center(data-encabezado="Acciones", width="5%")
                               a.btn.btn-info.btn-sm.m-0.quitarCampos(href="#", title="Quitar fila")
                                 i.fas.fa-minus-circle
@@ -849,6 +851,7 @@ CH 2</textarea>
                                   <input class="d-none" type="file" id="fle-doc">
                                 </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>
                               </td>
+                              <td class="text-center estrecho" data-encabezado="Verificar acumulado"><span data-toggle="modal" data-target="#modal-acumulado"><a class="btn btn-purple btn-sm m-0 quitarCampos" href="#" title="Verificar acumulado"><i class="fas fa-hand-holding"></i></a></span></td>
                               <!--td.text-center(data-encabezado="Acciones", width="5%")
                               a.btn.btn-info.btn-sm.m-0.quitarCampos(href="#", title="Quitar fila")
                                 i.fas.fa-minus-circle
@@ -925,6 +928,7 @@ CH 2</textarea>
                                   <input class="d-none" type="file" id="fle-doc">
                                 </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>
                               </td>
+                              <td class="text-center estrecho" data-encabezado="Verificar acumulado"><span data-toggle="modal" data-target="#modal-acumulado"><a class="btn btn-purple btn-sm m-0 quitarCampos" href="#" title="Verificar acumulado"><i class="fas fa-hand-holding"></i></a></span></td>
                               <!--td.text-center(data-encabezado="Acciones", width="5%")
                               a.btn.btn-info.btn-sm.m-0.quitarCampos(href="#", title="Quitar fila")
                                 i.fas.fa-minus-circle
@@ -1001,6 +1005,7 @@ CH 2</textarea>
                                   <input class="d-none" type="file" id="fle-doc">
                                 </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>
                               </td>
+                              <td class="text-center estrecho" data-encabezado="Verificar acumulado"><span data-toggle="modal" data-target="#modal-acumulado"><a class="btn btn-purple btn-sm m-0 quitarCampos" href="#" title="Verificar acumulado"><i class="fas fa-hand-holding"></i></a></span></td>
                               <!--td.text-center(data-encabezado="Acciones", width="5%")
                               a.btn.btn-info.btn-sm.m-0.quitarCampos(href="#", title="Quitar fila")
                                 i.fas.fa-minus-circle
@@ -1063,6 +1068,7 @@ CH 2</textarea>
                                   <input class="d-none" type="file" id="fle-doc">
                                 </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>
                               </td>
+                              <td class="text-center estrecho" data-encabezado="Verificar acumulado"><span data-toggle="modal" data-target="#modal-acumulado"><a class="btn btn-purple btn-sm m-0 quitarCampos" href="#" title="Verificar acumulado"><i class="fas fa-hand-holding"></i></a></span></td>
                               <!--td.text-center(data-encabezado="Acciones", width="5%")
                               a.btn.btn-info.btn-sm.m-0.quitarCampos(href="#", title="Quitar fila")
                                 i.fas.fa-minus-circle
@@ -1139,6 +1145,7 @@ CH 2</textarea>
                                   <input class="d-none" type="file" id="fle-doc">
                                 </label><a class="btn btn-success btn-sm m-0" href="#" title="Descargar archivo" download><i class="fas fa-download"></i></a>
                               </td>
+                              <td class="text-center estrecho" data-encabezado="Verificar acumulado"><span data-toggle="modal" data-target="#modal-acumulado"><a class="btn btn-purple btn-sm m-0 quitarCampos" href="#" title="Verificar acumulado"><i class="fas fa-hand-holding"></i></a></span></td>
                               <!--td.text-center(data-encabezado="Acciones", width="5%")
                               a.btn.btn-info.btn-sm.m-0.quitarCampos(href="#", title="Quitar fila")
                                 i.fas.fa-minus-circle
@@ -1163,8 +1170,10 @@ CH 2</textarea>
                       </div>
                     </div>
                   </div>
+                  <div class="dropdown-divider mb-4"></div>
                   <div class="row">
-                    <div class="col-12 text-right"><a class="btn btn-success" href="#" download><i class="fas fa-download mr-1"></i>Descargar todos los sustentos</a></div>
+                    <div class="col-xs-12 col sm-12 col-lg-10"></div>
+                    <div class="col-xs-12 col sm-12 col-lg-2"><a class="btn btn-success w-100 mb-2" href="#" download><i class="fas fa-download mr-1"></i>Descargar sustentos</a></div>
                   </div>
                 </div>
                 <div class="container py-4">
@@ -1550,6 +1559,84 @@ CH 2</textarea>
           <div class="modal-footer d-flex justify-content-center">
             <button class="btn btn-info" type="button">Si, grabar</button>
             <button class="btn btn-dark" type="button" data-dismiss="modal">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modal-acumulado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <!--.modal-header
+          h5.modal-title(id="exampleModalLabel") Mensaje de Usuario
+          button.close(type="button", data-dismiss="modal", aria-label="Close")
+            span(aria-hidden="true") &times;
+          -->
+          <div class="modal-body medidas-modal">
+            <div class="row">
+              <div class="col-12">
+                <h3 class="text-center">Verificación de acumulados</h3>
+                <p class="text-center">Encuentre el total acumulado por período deslizandose hacia el lado derecho</p>
+              </div>
+              <div class="col-12">
+                <div class="table-responsive tabla-principal" data-order="tbl-1">
+                  <table class="table table-hover">
+                    <thead>
+                      <tr class="bg-primary text-white">
+                        <th class="text-center grupo-columna-03"><span>2010</span></th>
+                        <th class="text-center grupo-columna-03"><span>2011</span></th>
+                        <th class="text-center grupo-columna-03"><span>2012</span></th>
+                        <th class="text-center grupo-columna-03"><span>2013</span></th>
+                        <th class="text-center grupo-columna-03"><span>2014</span></th>
+                        <th class="text-center grupo-columna-03"><span>2015</span></th>
+                        <th class="text-center grupo-columna-03"><span>2016</span></th>
+                        <th class="text-center grupo-columna-03"><span>2017</span></th>
+                        <th class="text-center grupo-columna-03"><span>2018</span></th>
+                        <th class="text-center grupo-columna-03"><span>2019</span></th>
+                        <th class="text-center grupo-columna-03"><span>2020</span></th>
+                        <th class="text-center grupo-columna-03"><span>2021</span></th>
+                        <th class="text-center grupo-columna-03"><span>2022</span></th>
+                        <th class="text-center grupo-columna-03"><span>2023</span></th>
+                        <th class="text-center grupo-columna-03"><span>2024</span></th>
+                        <th class="text-center grupo-columna-03"><span>2025</span></th>
+                        <th class="text-center grupo-columna-03"><span>2026</span></th>
+                        <th class="text-center grupo-columna-03"><span>2027</span></th>
+                        <th class="text-center grupo-columna-03"><span>2028</span></th>
+                        <th class="text-center grupo-columna-03"><span>2029</span></th>
+                        <th class="text-center grupo-columna-03"><span>2030</span></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-center estrecho" data-encabezado="2010">1,500.00 eq</td>
+                        <td class="text-center estrecho" data-encabezado="2011">1,500.00 eq</td>
+                        <td class="text-center estrecho" data-encabezado="2012">1,500.00 eq</td>
+                        <td class="text-center estrecho" data-encabezado="2013">1,500.00 eq</td>
+                        <td class="text-center estrecho" data-encabezado="2014">1,500.00 eq</td>
+                        <td class="text-center estrecho" data-encabezado="2015">1,500.00 eq</td>
+                        <td class="text-center estrecho" data-encabezado="2016">1,500.00 eq</td>
+                        <td class="text-center estrecho" data-encabezado="2017">1,500.00 eq</td>
+                        <td class="text-center estrecho" data-encabezado="2018">1,500.00 eq</td>
+                        <td class="text-center estrecho" data-encabezado="2019">1,500.00 eq</td>
+                        <td class="text-center estrecho" data-encabezado="2020">1,500.00 eq</td>
+                        <td class="text-center estrecho" data-encabezado="2021">1,500.00 eq</td>
+                        <td class="text-center estrecho" data-encabezado="2022">1,500.00 eq</td>
+                        <td class="text-center estrecho" data-encabezado="2023">1,500.00 eq</td>
+                        <td class="text-center estrecho" data-encabezado="2024">1,500.00 eq</td>
+                        <td class="text-center estrecho" data-encabezado="2025">1,500.00 eq</td>
+                        <td class="text-center estrecho" data-encabezado="2026">1,500.00 eq</td>
+                        <td class="text-center estrecho" data-encabezado="2027">1,500.00 eq</td>
+                        <td class="text-center estrecho" data-encabezado="2028">1,500.00 eq</td>
+                        <td class="text-center estrecho" data-encabezado="2029">1,500.00 eq</td>
+                        <td class="text-center estrecho" data-encabezado="2030">1,500.00 eq</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer d-flex justify-content-center">
+            <button class="btn btn-dark" type="button" data-dismiss="modal">Cerrar</button>
           </div>
           <!--.modal.fade(id="modal-verificacion", tabindex="-1", role="dialog", aria-labelledby="exampleModalLabel", aria-hidden="true")
           .modal-dialog.modal-lg.modal-dialog-centered(role="document")

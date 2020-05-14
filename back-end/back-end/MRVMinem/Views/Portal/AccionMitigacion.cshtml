@@ -1,0 +1,423 @@
+﻿@{
+    ViewBag.Title = "Iniciativa Mitigacion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid map-root" id="historia">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">Inicio</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Iniciativas de Mitigación</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+
+<div class="container-fluid my-4" id="cuerpo">
+    <div class="row m-0">
+        <div class="col-12 cuerpo-interior">
+            <div class="container py-4">
+                <div class="row">
+                    <div class="col-md-12 col-lg-6 pt-4">
+                        <div class="h4">
+                            Listado de Iniciativas de Mitigación&nbsp;
+                            <!--i.fas.fa-question-circle.ayuda-tooltip(data-toggle="tooltip", data-placement="right", title="Texto de ayuda que describe el funcionamiento general del módulo [...]")--><br><small class="text-muted">Utilice la búsqueda para ubicar las iniciativa de mitigación de su interés, los resultados obtenidos pueden descargarse en un documento excel.</small>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-6 pt-4"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-lg-7 pt-4">
+                        <!--<form>-->
+                        <div class="form-group">
+                            <label for="txt-buscar">Buscar&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese si conoce el nombre de la iniciativa o la(s) palabra(s) asociada(s) a las iniciativas de interés. En caso de no encontrar resultados acceda a la búsqueda avanzada."></i></label>
+                            <div class="input-group"><div id="buscar-iniciativa" data-campo=""></div><!-- add id + data campo-->
+                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-search"></i></span></div>
+                                <input class="form-control" type="text" id="txt-buscar" placeholder="Ingrese la descripción de su búsqueda" aria-describedby="inputGroup1" required>
+                                <div class="input-group-append" id="seccionFiltro">
+                                    <div class="btn-group">
+                                        @*<a class="btn btn-teal dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1"><i class="fas fa-filter">&nbsp;</i>Filtrar por estados</a>*@
+                                        <a class="btn btn-teal dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1"><i class="fas fa-tachometer-alt">&nbsp;</i>Todas</a>
+                                        <div class="dropdown-menu">
+                                            @*<a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(1, $(this));"><i class="fas fa-hourglass">&nbsp;</i>Pendientes</a>*@
+                                            <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(2, $(this));"><i class="fas fa-eye">&nbsp;</i>Observadas</a>
+                                            <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(3, $(this));"><i class="fas fa-check">&nbsp;</i>Aprobados</a>
+                                            <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(4, $(this));"><i class="fas fa-check-double">&nbsp;</i>Revisadas</a>
+                                            <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(5, $(this));"><i class="fas fa-clipboard-check">&nbsp;</i>Evaluadas</a>
+                                            <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(6, $(this));"><i class="fas fa-tasks">&nbsp;</i>Verificadas</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(7, $(this));"><i class="fas fa-tachometer-alt">&nbsp;</i>Todas</a>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="input-group-append">
+                                    <button class="btn btn-info" onclick="fn_busqueda_Publico();"><i class="fas fa-search px-1"></i>Buscar</button>
+                                </div>
+
+                            </div>
+                            
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-12 text-right">
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div id="buscar" data-numero="0"></div><!--id buscar -->
+                                            <div class="titulo-avanzado" data-toggle="collapse" href="#busqueda-avanzada" aria-expanded="false" aria-controls="busqueda-avanzada" onclick="valor();"><span>Búsqueda avanzada&nbsp;<i class="fas fa-sort"></i></span></div>
+                                            <div class="collapse" id="busqueda-avanzada">
+                                                <div class="card card-body">
+                                                    <div class="row">
+                                                        <div class="col-sm-12 text-left">
+                                                            <div class="titulo-avanzado" data-toggle="collapse" href="#datos-principales" aria-expanded="false" aria-controls="datos-principales">
+                                                                <span>
+                                                                    <i class="far fa-list-alt"></i>&nbsp;
+                                                                    Datos Principales
+                                                                </span>
+                                                            </div>
+                                                            <div class="collapse" id="datos-principales">
+                                                                <div class="card card-body">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-12">
+                                                                            <div class="form-group">
+                                                                                <label for="cbo-medida-mitigacion">Medida de Mitigación&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione, de la lista desplegable, la medida de mitigación de interés"></i></label>
+                                                                                <div class="input-group">
+                                                                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup2"><i class="fas fa-tachometer-alt"></i></span></div>
+                                                                                    <select class="form-control" id="cbo-medida-mitigacion" aria-describedby="inputGroup2">
+                                                                                        <option value="0">-Seleccione una Medida de Mitigación-</option>
+                                                                                        @*<option>Medida de Mitigación 01</option>
+                                                                        <option>Medida de Mitigación 02</option>
+                                                                        <option>Medida de Mitigación 03</option>*@
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-12">
+                                                                            <div class="form-group">
+                                                                                <label for="txa-descripcion-medida">Descripción de la iniciativa<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese la descripción de la iniciativa."></i></label>
+                                                                                <div class="input-group">
+                                                                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-tachometer-alt"></i></span></div>
+                                                                                    <textarea class="form-control" id="txa-descripcion-iniciativa" aria-describedby="inputGroup5" cols="30" rows="4" required placeholder="Ingrese una descripción para su iniciativa"></textarea>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--.row
+                                                                    .col-sm-12
+                                                                      .form-group
+                                                                        label(for="txt-nombre-iniciativa") Nombre de la Iniciativa&nbsp;
+                                                                          i.fas.fa-question-circle.ayuda-tooltip(data-toggle="tooltip", data-placement="right", title="Texto de ayuda que describe el funcionamiento general del módulo [...]")
+                                                                        .input-group
+                                                                          .input-group-prepend
+                                                                            span.input-group-text#inputGroup3
+                                                                              i.far.fa-comment-alt
+                                                                          input.form-control(type="text", id="txt-nombre-iniciativa", placeholder="Ingrese nombre de la iniciativa", aria-describedby="inputGroup3")
+                                                                    -->
+                                                                    <div class="row">
+                                                                        <div class="col-sm-12">
+                                                                            <div class="form-group">
+                                                                                <label for="txt-fecha-inicio">Fecha desde (inicio de operaciones)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique la fecha de inicio de operaciones desde donde se buscará las iniciativas de mitigación"></i></label>
+                                                                                <div class="input-group">
+                                                                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-calendar-alt"></i></span></div>
+                                                                                    <input class="form-control" type="date" id="txt-fecha-inicio" placeholder="Ingrese fecha de ejecución de la iniciativa" aria-describedby="inputGroup4" min="2010-01-01" max="2030-12-01">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="row">
+                                                                        <div class="col-sm-12">
+                                                                            <div class="form-group">
+                                                                                <label for="txt-fecha-fin">Fecha hasta (inicio de operaciones)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique la fecha de inicio de operaciones hasta donde se buscará las iniciativas de mitigación"></i></label>
+                                                                                <div class="input-group">
+                                                                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-calendar-alt"></i></span></div>
+                                                                                    <input class="form-control" type="date" id="txt-fecha-fin" placeholder="Ingrese fecha de ejecución de la iniciativa" aria-describedby="inputGroup4" min="2010-01-01" max="2030-12-01">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!--.col-sm-6
+                                                                        .form-group
+                                                                          label(for="cbo-duracion-proyecto") Duración del proyecto&nbsp;
+                                                                            i.fas.fa-question-circle.ayuda-tooltip(data-toggle="tooltip", data-placement="right", title="Texto de ayuda que describe el funcionamiento general del módulo [...]")
+                                                                          .input-group
+                                                                            .input-group-prepend
+                                                                              span.input-group-text#inputGroup5
+                                                                                i.fas.fa-calendar-alt
+                                                                            select.form-control(id="cbo-duracion-proyecto", aria-describedby="inputGroup5")
+                                                                              option -Duración en años-
+                                                                              option 1 año
+                                                                              option 2 años
+                                                                              option 3 años
+                                                                              option 4 años
+                                                                              option 5 años
+                                                                              option 6 años
+                                                                              option 7 años
+                                                                              option 8 años
+                                                                              option 9 años
+                                                                              option 10 años
+                                                                        -->
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-12 py-2 text-left">
+                                                            <div class="titulo-avanzado" data-toggle="collapse" href="#datos-generales" aria-expanded="false" aria-controls="datos-generales">
+                                                                <span>
+                                                                    <i class="far fa-list-alt"></i>&nbsp;
+                                                                    Datos Generales
+                                                                </span>
+                                                            </div>
+                                                            <div class="collapse" id="datos-generales">
+                                                                <div class="card card-body">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-12">
+                                                                            <div class="form-group">
+                                                                                <label for="cbo-sector">Sector&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione, de la lista desplegable, el sector de la iniciativa de mitigación de interés"></i></label>
+                                                                                <div class="input-group">
+                                                                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
+                                                                                    <select class="form-control" id="cbo-sector" aria-describedby="inputGroup6">
+                                                                                        <option value="0">-Seleccione-</option>
+                                                                                        <!--<option>Privado - Micro empresa (10 < colaboradores)</option>
+                                                                    <option>Privado - Pequeña empresa (> 10 - < 50 colaboradores)</option>
+                                                                    <option>Privado - Mediana empresa (> 50 - < 250 colaboradores)</option>
+                                                                    <option>Privado - Gran empresa (> 250 colaboradores)</option>
+                                                                    <option>Público - (50 < colaboradores)</option>
+                                                                    <option>Público - (> 50  < 250 colaboradores)</option>
+                                                                    <option>Público - (> 250 colaboradores)</option>
+                                                                    <option>Público - Hospitales (< 50 camas)</option>
+                                                                    <option>Público - Hospitales (> 50 camas)</option>-->
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--.row
+                                                .col-sm-6
+                                                  .form-group
+                                                    label(for="cbo-moneda") Moneda&nbsp;
+                                                      i.fas.fa-question-circle.ayuda-tooltip(data-toggle="tooltip", data-placement="right", title="Texto de ayuda que describe el funcionamiento general del módulo [...]")
+                                                    .input-group
+                                                      .input-group-prepend
+                                                        span.input-group-text#inputGroup7
+                                                          i.far.fa-money-bill-alt
+                                                      select.form-control(id="cbo-moneda", aria-describedby="inputGroup7")
+                                                        option -Seleccione-
+                                                        option Soles
+                                                        option Dólares
+                                                .col-sm-6
+                                                  .form-group
+                                                    label(for="txt-monto-inversion") Monto de inversión&nbsp;
+                                                      i.fas.fa-question-circle.ayuda-tooltip(data-toggle="tooltip", data-placement="right", title="Texto de ayuda que describe el funcionamiento general del módulo [...]")
+                                                    .input-group
+                                                      .input-group-prepend
+                                                        span.input-group-text#inputGroup8
+                                                          i.fas.fa-wallet
+                                                      input.form-control(type="text", id="txt-monto-inversion", placeholder="Ingrese monto", aria-describedby="inputGroup8")
+                                                -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-12 text-left">
+                                                            <div class="titulo-avanzado" data-toggle="collapse" href="#indicadores" aria-expanded="false" aria-controls="indicadores">
+                                                                <span>
+                                                                    <i class="far fa-list-alt"></i>&nbsp;
+                                                                    Indicadores
+                                                                </span>
+                                                            </div>
+                                                            <div class="collapse" id="indicadores">
+                                                                <div class="card card-body">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-6">
+                                                                            <div class="form-group">
+                                                                                <label for="cbo-energetico-base">Energético de linea base&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione, de la lista desplegable, el tipo de energía que se consumía antes de la iniciativa"></i></label>
+                                                                                <div class="input-group">
+                                                                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
+                                                                                    <select class="form-control" id="cbo-energetico-base" aria-describedby="inputGroup9">
+                                                                                        <option value="0">-Seleccione-</option>
+                                                                                        <!--<option>Diesel</option>
+                                                                    <option>Electricidad</option>
+                                                                    <option>Gas Licuado de petróleo</option>
+                                                                    <option>Gas Natural</option>
+                                                                    <option>Gasolina</option>
+                                                                    <option>Leña</option>
+                                                                    <option>Petróleo residual</option>-->
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-sm-6">
+                                                                            <div class="form-group">
+                                                                                <label for="cbo-energetico-proyecto">Energético de proyecto&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione, de la lista desplegable, el tipo de energía que se consume en la iniciativa"></i></label>
+                                                                                <div class="input-group">
+                                                                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="fas fa-bolt"></i></span></div>
+                                                                                    <select class="form-control" id="cbo-energetico-proyecto" aria-describedby="inputGroup10">
+                                                                                        <option value="0">-Seleccione-</option>
+                                                                                        <!--<option>Diesel</option>
+                                                                    <option>Electricidad</option>
+                                                                    <option>Gas Licuado de petróleo</option>
+                                                                    <option>Gas Natural</option>
+                                                                    <option>Gasolina</option>
+                                                                    <option>Leña</option>
+                                                                    <option>Petróleo residual</option>-->
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+
+                            @*<div class="col-sm-12 col-md-6 col-lg-6">
+                                <button class="btn btn-success w-100 mb-2" onclick="exportarIniciativa();"><i class="fas fa-file-download px-1"></i>Descargar Excel</button><div id="divExportar"></div>
+                            </div>*@
+                            @*<div class="col-sm-12 col-md-6 col-lg-6">
+                                <button class="btn btn-success w-100 mb-2" onclick="fn_busqueda_Publico();"><i class="fas fa-search px-1"></i>Buscar</button>
+                            </div>*@
+                        </div>
+                        <!--</form>-->
+                    </div>
+                    <div class="col-md-12 col-lg-5 pt-4">
+                        <!--&nbsp;-->
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid py-4">
+                <div class="row" id="estadoIniciativa" data-estado="7">
+                    <!--add id data -->
+                    <div class="col-xs-12 col sm-12 col-lg-10 d-flex align-items-end justify-content-left">
+                        <div class="h5">Bandeja de Acciones de Mitigación&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Bandeja de todas las iniciativas de mitigación públicas"></i></div>
+                    </div>
+                    <div class="col-xs-12 col sm-12 col-lg-2 text-lg-right">
+                        <button class="btn btn-success w-100 mb-2" onclick="exportarIniciativa();"><i class="fas fa-file-download px-1"></i>Descargar Excel</button><div id="divExportar"></div> <!-- add metodo exportar y div creado con su id -->
+                        @*<div class="btn-group" id="filtro-conversion">
+                            <a class="btn btn-purple dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1"><i class="fas fa-filter">&nbsp;</i>Convertir unidades</a><div class="dropdown-menu">
+                                <a class="dropdown-item" onclick="convertirATonelada();"><i class="fas fa-exchange-alt">&nbsp;</i><strong>ktCO2eq &nbsp;</strong>a &nbsp;<strong>tCO2eq</strong></a>
+                                <a class="dropdown-item" onclick="convertirAKiloTonelada();"><i class="fas fa-exchange-alt">&nbsp;</i><strong>tCO2eq &nbsp;</strong>a &nbsp;<strong>ktCO2eq</strong></a>
+                            </div>
+                        </div>*@
+                    </div>
+                </div>                
+                <div class="dropdown-divider"></div>
+                <div class="row">
+                    <div class="col-12 px-0">
+                        <div id="tbl-main-preload" class="mb-3">@*<i Class="fas fa-spinner fa-spin px-1"></i> Cargando...*@</div>
+                        <div id="tbl-main" class="table-responsive tabla-principal">@*</div>  *@
+                        @*<div class="table-responsive tabla-principal">*@
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr class="bg-primary text-white">
+                                        <th class="text-center" scope="col"><span class="miColumna" width="3%">N°&nbsp;<i class="fas fa-sort-up" style="color: lightgray" id="ID_INICIATIVA"></i></span></th>
+                                        <th scope="col" width="19%"><span class="miColumna">Nombre de <br> Iniciativa&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NOMBRE_INICIATIVA"></i></span></th>
+                                        <th scope="col" width="10%"><span class="miColumna">Progreso&nbsp;<i class="fas fa-sort" style="color: lightgray" id="PROGRESO"></i></span></th>
+                                        <th class="text-center" scope="col" width="10%"><span class="miColumna">Fecha de <br> Inicio&nbsp;<i class="fas fa-sort" style="color: lightgray" id="FECHA"></i></span></th>
+                                        <th class="text-center" scope="col" width="10%"><span class="miColumna">Fecha de <br>  Término&nbsp;<i class="fas fa-sort" style="color: lightgray" id="FECHA_FIN_INICIATIVA"></i></span></th>
+                                        <th scope="col" width="10%"><span class="miColumna">Medida de  <br> Mitigación&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NUMERO_MEDMIT"></i></span></th>
+                                        <th scope="col" width="10%"><span class="miColumna">Entidad&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NOMBRE_INSTITUCION"></i></span></th>
+                                        <th scope="col" width="10%">
+                                            <div class="btn-group" id="filtro-conversion">
+                                                <a class="btn dropdown-toggle text-white font-weight-bold p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1">Convertir</a>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" onclick="convertirATonelada();"><i class="fas fa-exchange-alt">&nbsp;</i><strong>ktCO2eq &nbsp;</strong>a &nbsp;<strong>tCO2eq</strong></a>
+                                                    <a class="dropdown-item" onclick="convertirAKiloTonelada();"><i class="fas fa-exchange-alt">&nbsp;</i><strong>tCO2eq &nbsp;</strong>a &nbsp;<strong>ktCO2eq</strong></a>
+                                                </div>
+                                            </div>
+                                            <span class="miColumna">reducido&nbsp;<i class="fas fa-sort" style="color: lightgray" id="GEI_TOTAL"></i></span>
+                                        </th>
+                                        <th class="text-center" scope="col" width="7%"><span class="miColumna">Estado&nbsp;<i class="fas fa-sort" style="color: lightgray" id="ID_ESTADO"></i></span></th>
+                                        <th class="text-center" scope="col">Gestión</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cuerpoMitigacion" data-convertir="0"></tbody>
+
+                                @*<tfoot>
+                                        <tr>
+                                            <td class="text-left" colspan="3"><strong>Resultado:&nbsp;</strong><span id="resultado">0-0</span> de <span id="total-registros">0</span> registros</td>
+                                            <td class="text-right text-xs-left" colspan="4">
+                                                <strong>Registros por página&nbsp;</strong>
+                                                <select id="cantidad-registros" onchange="fn_CargaIniciativas()">
+                                                    <option value="10" selected>10</option>
+                                                    <option value="25">25</option>
+                                                    <option value="50">50</option>
+                                                    <option value="100">100</option>
+                                                </select>&nbsp;
+                                                <span id="pagina-actual">1</span> de <span id="total-paginas">1</span> páginas&nbsp;
+                                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                                    <button class="btn btn-primary" id="primera-pagina" type="button" onclick="fn_avance_grilla(1)"><i class="fas fa-angle-double-left"></i></button>
+                                                    <button class="btn btn-primary" id="anterior-pagina" type="button" onclick="fn_avance_grilla(2)"><i class="fas fa-angle-left"></i></button>
+                                                    <input class="ir-pagina" id="pagina" type="number" value="1" min="1" onchange="fn_CargaIniciativas()">
+                                                    <button class="btn btn-primary" id="siguiente-pagina" type="button" onclick="fn_avance_grilla(3)"><i class="fas fa-angle-right"></i></button>
+                                                    <button class="btn btn-primary" id="ultima-pagina" type="button" onclick="fn_avance_grilla(4)"><i class="fas fa-angle-double-right"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tfoot>*@
+                                <!--</tbody>-->
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-lg-6 mt-4">
+                        <strong>Resultado:&nbsp;</strong><span id="resultado">0 - 0</span> de <span id="total-registros">0</span> registros
+                    </div>
+                    <div class="col-sm-12 col-lg-6 text-right mt-4">
+                        <strong>Registros por página&nbsp;</strong>
+                        <select id="cantidad-registros" onchange="fn_CargaIniciativas()">
+                            <option value="10" selected>10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>&nbsp;
+                        <span id="pagina-actual">1</span> de <span id="total-paginas">1</span> páginas&nbsp;
+                        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                            <button class="btn btn-primary" id="primera-pagina" type="button" onclick="fn_avance_grilla(1)"><i class="fas fa-angle-double-left"></i></button>
+                            <button class="btn btn-primary" id="anterior-pagina" type="button" onclick="fn_avance_grilla(2)"><i class="fas fa-angle-left"></i></button>
+                            <input class="ir-pagina" id="pagina" type="number" value="1" min="1" onchange="fn_CargaIniciativas()">
+                            <button class="btn btn-primary" id="siguiente-pagina" type="button" onclick="fn_avance_grilla(3)"><i class="fas fa-angle-right"></i></button>
+                            <button class="btn btn-primary" id="ultima-pagina" type="button" onclick="fn_avance_grilla(4)"><i class="fas fa-angle-double-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Hidden("columna", "ID_INICIATIVA");
+@Html.Hidden("orden", "ASC");
+
+
+<script src="~/js/script.js"></script>
+<script src="~/js/MRV.js"></script>
+<script src="~/js/AccionMitigacion.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $(".quitar-active").removeClass("nav-active");
+        $("#mitigacion-mrv").addClass("nav-active");
+    });
+
+</script>

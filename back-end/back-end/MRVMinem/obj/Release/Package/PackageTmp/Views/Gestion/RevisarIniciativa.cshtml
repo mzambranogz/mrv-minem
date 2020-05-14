@@ -1,0 +1,524 @@
+﻿@model MRVMinem.Models.ListaObjeto
+@{
+    ViewBag.Title = "Revisar Iniciativa Mitigacion";
+    Layout = "~/Views/Shared/_SesionLayout.cshtml";
+}
+@Html.HiddenFor(m => m.iniciativa_mit.ID_INICIATIVA)
+@Html.HiddenFor(m => m.iniciativa_mit.ID_MEDMIT)
+@Html.HiddenFor(m => m.estado_flujo)
+@Html.HiddenFor(m => m.revision)
+
+<div class="container-fluid map-root" id="historia">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="@Url.Action("Index","Gestion")">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="@Url.Action("AccionMitigacion","Gestion")">Listado de Iniciativas de Mitigación</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Revisión de Iniciativa de Mitigación y Detalles de Indicadores</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="container-fluid my-4" id="cuerpo">
+    <div class="row m-0">
+        <div class="col-12 cuerpo-interior">
+            <div class="container py-4">
+                <div class="row">
+                    <div class="col-md-12 col-lg-6 pt-4">
+                        <div class="h4">Revisión de Iniciativa de Mitigación&nbsp;<br><small class="text-muted">Asigne información importante a su detalle de indicadores, <br>complete todos los campos para una mejor especificación.</small></div>
+                    </div>
+                    <div class="col-md-12 col-lg-6 pt-4">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <span data-toggle="modal" data-target="#aprobar-revision"><a class="aprobar-revision" href="#" data-toggle="tooltip" data-placement="top" title="Dar por aprobado esta iniciativa de mitigación"><i class="fas fa-check px-1"></i>Aprobar revisión</a></span>
+                                <span data-toggle="modal" data-target="#observar-revision"><a class="observar-revision" href="#" data-toggle="tooltip" data-placement="top" title="¿Encontró alguna observación? utilice esta opción para solicitar una corrección"><i class="fas fa-eye px-1"></i>Observar revisión</a></span>
+                                @*<div class="btn-group btn-group-lg w-100 mb-3">
+                                    <a class="btn btn-success dropdown-toggle w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0"><i class="fas fa-download pr-1"></i>Descargar</a>
+                                    <div class="dropdown-menu dropdown-menu-right w-100">
+                                        <a class="dropdown-item" href="#" onclick="exportarDetalle();"><i class="fas fa-file-excel pr-1"></i>Formato excel</a><div id="divExportar"></div> <!-- add metodo exportar y div creado con su id -->
+                                        <a class="dropdown-item" href="#"><i class="fas fa-file-pdf pr-1"></i>Formato pdf</a>
+                                    </div>
+                                </div>*@
+                                @*<div class="btn-group btn-group-lg w-100">
+                                    @if (Model.iniciativa_mit.ID_TIPO_INICIATIVA == 0)
+                                    {
+                                        <a class="btn btn-purple dropdown-toggle w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0" id="tipo-iniciativa" data-tipo="0"><i class="fas fa-list pr-1"></i>Tipo de iniciativa</a>
+                                    }
+                                    else
+                                    {
+                                        <a class="btn btn-purple dropdown-toggle w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0" id="tipo-iniciativa" data-tipo="@Model.iniciativa_mit.ID_TIPO_INICIATIVA"><i class="fas fa-list pr-1"></i>@Model.iniciativa_mit.TIPO_INICIATIVA</a>
+                                    }
+
+                                    <div class="dropdown-menu dropdown-menu-right w-100">
+                                        @if (Model.listaTipoIniciativa != null)
+                                        {
+                                            foreach (var item in Model.listaTipoIniciativa)
+                                            {
+                                                <a class="dropdown-item" href="javascript:void(0);" onclick="fn_cambiarTipoIniciativa(@item.ID_TIPO_INICIATIVA, '@item.TIPO_INICIATIVA')"><i class="fas fa-list pr-1"></i>@item.TIPO_INICIATIVA</a>
+                                            }
+                                        }                                        
+                                    </div>
+                                </div>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid py-4 px-0 bg-white">
+                <div class="container py-5">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="h5 pb-5 text-primary">@Model.medida.NOMBRE_MEDMIT&nbsp;<br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="txt-categoria" class="font-weight-bold">Categoría IPCC</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-landmark"></i></span></div>
+                                    <input class="form-control-plaintext" type="text" id="txt-categoria" value="@Model.medida.IPSC_MEDMIT" aria-describedby="inputGroup1" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txa-objetivo" class="font-weight-bold">Objetivo</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup2"><i class="fas fa-landmark"></i></span></div>
+                                    <textarea class="form-control-plaintext" id="txa-objetivo" aria-describedby="inputGroup2" cols="30" rows="5" readonly>@Model.medida.OBJETIVO_MEDMIT</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="txa-descripcion" class="font-weight-bold">Descripción</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup3"><i class="fas fa-landmark"></i></span></div>
+                                    <textarea class="form-control-plaintext" id="txa-descripcion" aria-describedby="inputGroup3" cols="30" rows="8" readonly>@Model.medida.DESCRIPCION_MEDMIT</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="h5 py-5 text-primary">Datos principales</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label class="font-weight-bold" for="txt-tipo-iniciativa">Tipo de iniciativa</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-tachometer-alt"></i></span></div>
+                                    <input class="form-control-plaintext" id="txt-tipo-iniciativa" aria-describedby="inputGroup9" value="@Model.iniciativa_mit.TIPO_INICIATIVA" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12-col-md-12 col-lg-12">
+                            <div class="form-group">
+                                <label for="txa-nombre-iniciativa" class="font-weight-bold">Nombre de la iniciativa<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-tachometer-alt"></i></span></div>
+                                    <textarea class="form-control-plaintext" id="txa-nombre-iniciativa" aria-describedby="inputGroup4" cols="30" rows="5" readonly placeholder="Ingrese un nombre para su iniciativa">@Model.iniciativa_mit.NOMBRE_INICIATIVA</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txa-descripcion-medida" class="font-weight-bold">Descripción de la medida<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-tachometer-alt"></i></span></div>
+                                    <textarea class="form-control-plaintext" id="txa-descripcion-medida" aria-describedby="inputGroup5" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">@Model.iniciativa_mit.DESC_INICIATIVA</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="txa-nombre-responsable" class="font-weight-bold">Responsable del registro</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
+                                    <input class="form-control-plaintext" id="txt-nombre-responsable" aria-describedby="inputGroup6" value="@Model.iniciativa_mit.NOMBRES" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="txa-nombre-institucion" class="font-weight-bold">Nombre de la institución</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup7"><i class="fas fa-landmark"></i></span></div>
+                                    <input class="form-control-plaintext" id="txt-nombre-institucion" aria-describedby="inputGroup7" value="@Model.iniciativa_mit.INSTITUCION" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="txt-correo-electronico" class="font-weight-bold">Correo electrónico</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup8"><i class="fas fa-landmark"></i></span></div>
+                                    <input class="form-control-plaintext" id="txt-correo-electronico" aria-describedby="inputGroup8" value="@Model.iniciativa_mit.CORREO" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="txt-direccion" class="font-weight-bold">Dirección</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
+                                    <input class="form-control-plaintext" id="txt-direccion" aria-describedby="inputGroup9" value="@Model.iniciativa_mit.DIRECCION" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="h5 py-5 text-primary">Datos generales</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="txt-sector-insi¿titucion" class="font-weight-bold">Sector de la institución</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
+                                    <input class="form-control-plaintext" id="txt-sector-institucion" aria-describedby="inputGroup9" value="@Model.iniciativa_mit.SECTOR" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txa-ubicacion" class="font-weight-bold">Ubicación<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
+                                    <textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="8" readonly placeholder="Ingrese una descripción para su iniciativa">
+                                        @*Lima&nbsp;
+                            Arequipa&nbsp;
+                            Tacna*@
+                                        @foreach (var item in Model.listaUbicacion)
+                                        {
+                                            @item.DESCRIPCION <text>&nbsp;</text>
+                                        }
+                                    </textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="txt-moneda" class="font-weight-bold">Moneda<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="far fa-money-bill-alt"></i></span></div>
+                                    <input class="form-control-plaintext" type="text" id="txt-moneda" aria-describedby="inputGroup10" value="@Model.iniciativa_mit.MONEDA" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txt-monto-inversion" class="font-weight-bold">Monto de inversión<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup11"><i class="fas fa-wallet"></i></span></div>
+                                    <input class="form-control-plaintext" type="text" id="txt-monto-inversion" aria-describedby="inputGroup11" value="@Model.iniciativa_mit.INVERSION_INICIATIVA" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txt-fecha-inicio" class="font-weight-bold">Fecha de inicio de operaciones<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup12"><i class="fas fa-calendar-alt"></i></span></div>
+                                    <input class="form-control-plaintext" type="text" id="txt-fecha-inicio" aria-describedby="inputGroup12" value="@Model.iniciativa_mit.FECHA" readonly>
+                                </div>
+                            </div>
+                            @if (Model.iniciativa_mit.FECHA_FIN == "01/01/0001")
+                            {
+                                @*<input class="form-control-plaintext" type="text" id="txt-fecha-fin" aria-describedby="inputGroup12" value="" readonly>*@
+                            }
+                            else
+                            {
+                                <div class="form-group">
+                                    <label class="font-weight-bold" for="txt-fecha-fin">Fecha de finalización<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend"><span class="input-group-text" id="inputGroup12"><i class="fas fa-calendar-alt"></i></span></div>
+                                        <input class="form-control-plaintext" type="text" id="txt-fecha-fin" aria-describedby="inputGroup12" value="@Model.iniciativa_mit.FECHA_FIN" readonly>
+
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="h5 py-5 text-primary">Indicadores</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="mlt-energetico">Energético asociado<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione uno o varios energéticos asociados de acuerdo a la medida de mitigación seleccionada"></i></label>
+                                <div class="input-group resaltado">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
+                                    <div class="form-control" style="height:120px; overflow-y: auto;" id="listaEnerg" @*data-cantidad="@Model.listaEnergetico.Count"*@>
+                                        @*@{
+                                            var index_e = 0;
+                                        }
+
+                                        @foreach (var item in Model.listaEnergetico)
+                                        {
+                                            index_e += 1;
+                                            var id_energ = "E"+index_e;
+                                            <div class="col-auto my-1">
+                                                <div class="custom-control custom-checkbox mr-sm-2">
+                                                    <input class="custom-control-input" type="checkbox" id="@id_energ" data-value="@item.ID_ENERG" >
+                                                    <label class="custom-control-label" for="@id_energ">@item.DESCRIPCION</label>
+                                                </div>
+                                            </div>
+                                        }*@    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="mlt-gei">Gases de efecto invernadero<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione uno o varios GEI de acuerdo a la medida de mitigación seleccionada"></i></label>
+                                <div class="input-group resaltado">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
+                                    <div class="form-control" style="height:120px; overflow-y: auto;" id="listaGei" @*data-cantidad="@Model.listaGei.Count"*@>
+                                        @*@{
+                                            var index_g = 0;
+                                        }
+
+                                        @foreach (var item in Model.listaGei)
+                                        {
+                                            index_g += 1;
+                                            var id_gei = "G" + index_g;
+                                            <div class="col-auto my-1">
+                                                <div class="custom-control custom-checkbox mr-sm-2">
+                                                    <input class="custom-control-input" type="checkbox" id="@id_gei" data-value="@item.ID_GEI">
+                                                    <label class="custom-control-label" for="@id_gei">@item.DESCRIPCION</label>
+                                                </div>
+                                            </div>
+                                        }*@ 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @*<div class="row">
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="mlt-energetico" class="font-weight-bold">Energético asociado<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
+                                    <textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
+                                        @foreach (var item in Model.listaEnergetico)
+                                        {
+                                            @item.DESCRIPCION <text>&nbsp;</text>
+                                        }
+                                    </textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12-col-md-12 col-lg-6">
+                            <div class="form-group">
+                                <label for="mlt-gei" class="font-weight-bold">Gases de efecto invernadero<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
+                                    <textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">
+                                        @foreach (var item in Model.listaGei)
+                                        {
+                                            @item.DESCRIPCION <text>&nbsp;</text>
+                                        }
+                                    </textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
+                    <div class="dropdown-divider my-5"></div>
+                    <div class="row">     
+                        <div class="col-sm-12 col-md-12 col-lg-6">&nbsp;</div>
+                        <div class="col-sm-12 col-md-12 col-lg-6 text-right">
+                            <div class="row justify-content-end">
+                                <div class="col-lg-6"><a class="btn btn-warning px-5 w-100 nav-tab text-center mb-3" href="#" data-toggle="modal" data-target="#observar-revision"><i class="fas fa-eye px-1"></i>Observar</a></div>
+                                <div class="col-lg-6"><a class="btn btn-primary px-5 w-100 nav-tab text-center" href="#" data-toggle="modal" data-target="#aprobar-revision">Aprobar<i class="fas fa-check px-1"></i></a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="modal fade" id="aprobar-revision" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        @*<div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Mensaje de Usuario</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>*@
+                        <div class="modal-body medidas-modal">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <div class="swal2-icon swal2-question swal2-icon-show" style="display: flex;">
+                                        <div class="swal2-icon-content"><i class="fas fa-question"></i></div>
+                                    </div>
+                                    <h3 class="text-center">¿Está seguro de aprobar la iniciativa de mitigación seleccionada?</h3>
+                                    <p class="text-center">Está de acuerdo en aprobar todos los datos vinculados de esta iniciativa de mitigación</p>
+                                </div>
+                                @*<div class="col-sm-12 col-md-12 col-lg-12">
+                                    <h3 class="text-center">¿Está seguro de aprobar la inicitiva de mitigación seleccionada? <br></h3>
+                                    <p class="text-center">Está de acuerdo en aprobar todos los datos vinculados en de esta iniciativa de mitigación, como de los detalles de indicadores registrados.</p>
+                                </div>*@
+                                <div class="col-sm-12 col-md-12 col-lg-12" id="modalAprobacion">
+                                    @*
+                                    <div class="alert alert-danger d-flex align-items-stretch" role="alert">
+                                        <div class="alert-wrap mr-3">
+                                            <div class="sa">
+                                                <div class="sa-error">
+                                                    <div class="sa-error-x">
+                                                        <div class="sa-error-left"></div>
+                                                        <div class="sa-error-right"></div>
+                                                    </div>
+                                                    <div class="sa-error-placeholder"></div>
+                                                    <div class="sa-error-fix"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="alert-wrap">
+                                            <h6>Error de aprobación</h6>
+                                            <hr><small class="mb-0">Ocurrió un error de comunicación con el servidor, intente otra vez.</small>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="alert alert-success d-flex align-items-stretch" role="alert">
+                                        <div class="alert-wrap mr-3">
+                                            <div class="sa">
+                                                <div class="sa-success">
+                                                    <div class="sa-success-tip"></div>
+                                                    <div class="sa-success-long"></div>
+                                                    <div class="sa-success-placeholder"></div>
+                                                    <div class="sa-success-fix"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="alert-wrap">
+                                            <h6>Bien hecho</h6>
+                                            <hr><small class="mb-0">Se aprobó correctamente esta revisión, se procederá a notificar al Usuario Administrado.</small>
+                                        </div>
+                                    </div>
+                                    *@
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer justify-content-center" id="modalAprobarBoton">
+                            <button class="btn btn-info" type="button" onclick="fn_revisarIniciativaMitigacion();">Si, aprobar</button>
+                            <button class="btn btn-dark" type="button" data-dismiss="modal">Cancelar</button>                            
+                        </div>
+                        <div class="modal-footer justify-content-center" id="pieCorrectoAprobacion"> <!-- add 04-02-2020 -->
+                            <button class="btn btn-dark" type="button" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="observar-revision" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        @*<div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Observaciones</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>*@
+                        <div class="modal-body medidas-modal">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <div class="swal2-icon swal2-question swal2-icon-show" style="display: flex;">
+                                        <div class="swal2-icon-content"><i class="fas fa-eye"></i></div>
+                                    </div>
+                                    <h3 class="text-center">Observaciones en su revisión</h3>
+                                    <p class="text-center">describa sus observaciones en el siguiente campo:</p>
+                                </div>
+                                <div class="col-sm-12 col-md-6 col-lg-7"><strong>De: @Session["nombres"]&nbsp;<span class="badge badge-actor-@Session["colorRol"]">@Session["nombreRol"]</span></strong><br><strong>Para: @Model.usuario.NOMBRES&nbsp;<span class="badge badge-actor-@Model.usuario.COLOR">@Model.usuario.ROL</span></strong></div>
+                                <div class="col-sm-12 col-md-6 col-lg-5 text-right">@*<strong>Fecha de Registro: 25/02/2020</strong>*@</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12-col-md-12 col-lg-6" hidden>
+                                    <div class="form-group">
+                                        <label for="cbo-tipo-observacion">Tipo de observación<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="En caso no posea un nombre, coloque el nombre de la medida de mitigación seguido de un guión y nombre o siglas de la institución."></i></label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="fas fa-exclamation-triangle"></i></span></div>
+                                            <select class="form-control" id="cbo-tipo-observacion" aria-describedby="inputGroup10">
+                                                <option value="1">-Seleccione-</option>
+                                                <option value="1" class="bg-warning">Corrección</option>
+                                                <option value="2" class="bg-danger text-white">Error</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12-col-md-12 col-lg-6"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12-col-md-12 col-lg-12">
+                                    <div class="form-group">
+                                        <label for="txa-nombre-iniciativa">Observaciones:<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span></label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-comment-alt"></i></span></div>
+                                            <textarea class="form-control" id="txa-observacion-iniciativa" aria-describedby="inputGroup4" cols="30" rows="5" maxlength="250" required placeholder="Ingrese la descripción de su observación"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 col-lg-12" id="modalRevision">                                
+                                    @*
+                                    <div class="alert alert-danger d-flex align-items-stretch" role="alert">
+                                        <div class="alert-wrap mr-3">
+                                            <div class="sa">
+                                                <div class="sa-error">
+                                                    <div class="sa-error-x">
+                                                        <div class="sa-error-left"></div>
+                                                        <div class="sa-error-right"></div>
+                                                    </div>
+                                                    <div class="sa-error-placeholder"></div>
+                                                    <div class="sa-error-fix"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="alert-wrap">
+                                            <h6>Error de registro</h6>
+                                            <hr><small class="mb-0">Sus observaciones no fueron enviadas, intentelo nuevamente.</small>
+                                        </div>
+                                    </div>
+                                    @*
+                                    <div class="alert alert-success d-flex align-items-stretch" role="alert">
+                                        <div class="alert-wrap mr-3">
+                                            <div class="sa">
+                                                <div class="sa-success">
+                                                    <div class="sa-success-tip"></div>
+                                                    <div class="sa-success-long"></div>
+                                                    <div class="sa-success-placeholder"></div>
+                                                    <div class="sa-success-fix"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="alert-wrap">
+                                            <h6>Bien hecho</h6>
+                                            <hr><small class="mb-0">Sus observaciones se enviaron correctamente.</small>
+                                        </div>
+                                    </div>
+                                    *@
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer justify-content-center" id="modalObservacionBoton">
+                            <a class="btn btn-info" href="#" onclick="fn_observacionIniciativaMitigacion();">Si, enviar<i class="fas fa-paper-plane ml-1"></i></a>
+                            <button class="btn btn-dark" type="button" data-dismiss="modal">Cancelar</button>                            
+                        </div>
+                        <div class="modal-footer justify-content-center" id="pieCorrectoObservacion"> <!-- add 04-02-2020 -->
+                            <button class="btn btn-dark" type="button" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/script.js"></script>
+<script src="~/js/MRV.js"></script>
+<script src="~/js/IniciativaMitigacion.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        fn_actualizaCampana();
+        enLinea();
+    });
+</script>
+

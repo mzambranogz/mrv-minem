@@ -1,0 +1,542 @@
+﻿@model MRVMinem.Models.MvParametro
+
+@{
+    ViewBag.Title = "Enfoque Factores";
+    Layout = "~/Views/Shared/_SesionLayout.cshtml";
+}
+
+@{
+    var index = 0;
+}
+
+@{
+    var i = 0;
+    var total_reg = 0;
+    var total_pag = 0;
+    var inicio_reg = 0;
+    var fin_reg = 0;
+}
+<div class="container-fluid map-root" id="historia">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="@Url.Action("Index", "Gestion")">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="@Url.Action("MantenimientoTablas","Gestion")">Mantenimiento de Tablas</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Mantenimiento de Valores de Factores</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="container-fluid my-4" id="cuerpo">
+    <div class="row m-0">
+        <div class="col-12 cuerpo-interior">
+            <div class="container py-4">
+                <div class="row">
+                    <div class="col-md-12 col-lg-6 pt-4">
+                        <div class="h4">
+                            Mantenimiento de Valores de Factores&nbsp;
+                            <!--i.fas.fa-question-circle.ayuda-tooltip(data-toggle="tooltip", data-placement="right", title="Texto de ayuda que describe el funcionamiento general del módulo [...]")--><br><small class="text-muted">Utilice la búsqueda para encontrar el registro indicado para el mantenimiento</small>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-6 pt-4">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
+                            <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#modal-medida-de-mitigacion"><a class="agregar-iniciativa" href="#" onclick="limpiar();" data-toggle="tooltip" data-placement="top" title="Registre los factores que empleará en sus medidas de mitigación"><i class="fas fa-plus px-1"></i>Agregar relación</a></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-lg-6 pt-4">
+                        <div>
+                            <div class="form-group">
+                                <label for="txt-buscar">Buscar&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Utilice la búsqueda ingresando una descripción para ubicar sus registros"></i></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-search"></i></span></div>
+                                    <input class="form-control" type="text" id="txt-buscar" placeholder="Ingrese la descripción de su búsqueda" aria-describedby="inputGroup1" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <button class="btn btn-success w-100 mb-2" onclick="exportarMantenimiento();"><i class="fas fa-file-download px-1"></i>Descargar Excel</button><div id="divExportar"></div>
+                                </div>
+                                <div class="col-sm-12 col-md-6 col-lg-6" id="buscar-usuarios" data-buscar="0" data-campo="">
+                                    <button class="btn btn-info w-100 mb-2" onclick="fn_buscar()"><i class="fas fa-search px-1"></i>Buscar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-6 pt-4">
+                        <!--&nbsp;-->
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid py-4">
+                <div class="h5">Bandeja de Valores de Factores</div>
+                <div class="dropdown-divider"></div>
+                <div class="row">
+
+
+                    <div class="col-12 px-0">
+                        <div class="table-responsive tabla-principal tabla-detalle-indicadores">
+                            <table class="table table-hover" id="TablaMedidaFactor" data-guardar="0">
+                                <thead>
+                                    <tr class="bg-primary text-white">
+                                        <th class="text-center" scope="col" width="3%"><span class="miColumna">N°&nbsp;<i class="fas fa-sort" style="color: lightgray" id="ID_ENFOQUE"></i></span></th>
+                                        <th scope="col" width="17%"><span class="miColumna">Enfoque &nbsp;<i class="fas fa-sort"  style="color: lightgray" id="DESCRIPCION"></i></span></th>
+                                        <th class="text-center" scope="col" width="15%"><span class="miColumna">Medida de Mitigación &nbsp;<i class="fas fa-sort"  style="color: lightgray" id="NOMBRE_MEDMIT"></i></span></th>
+                                        <th class="text-center" scope="col" width="60%"><span>Factor(es) &nbsp;</span></th>
+                                        <th class="text-center" scope="col" width="5%">Más</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cuerpoMedidaFactor">
+                                    @if (Model.listaEnfoqueFactor != null)
+                                    {
+                                        foreach (var item in Model.listaEnfoqueFactor)
+                                        {
+                                            if (item.listaFactor.Count > 0)
+                                            {
+                                                index += 1;
+                                                <tr id="detalles-tr-@index">
+                                                    <th class="text-center" data-encabezado="Número" scope="row">@item.ID_ENFOQUE</th>
+                                                    <td data-encabezado="Medida de mitigación">@item.DESCRIPCION</td>
+                                                    <td class="text-center" data-encabezado="Medida de mitigación">@item.NOMBRE_MEDMIT</td>
+                                                    <td data-encabezado="Factor(es)">
+                                                        <div class="form-control">
+                                                            <div class="list-group sortable-list m-0">
+                                                                @foreach (var itemD in item.listaFactor)
+                                                                {
+                                                                    <div class="p-1 text-center border-right">
+                                                                        <div class="h6 span badge badge-info w-100 p-3">@itemD.NOMBRE_FACTOR <br><span data-toggle="tooltip" data-placement="top" title="Editar valores del factor @itemD.NOMBRE_FACTOR"><a class="text-white" href="#" onclick="CargarTabla(@itemD.ID_FACTOR,'@itemD.NOMBRE_FACTOR')" data-toggle="modal" data-target="#modal-valores"><i class="fas fa fa-edit p-1"></i></a></span></div>
+                                                                    </div>
+                                                                }
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                                        <div class="btn-group">
+                                                            <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                                            <div class="dropdown-menu dropdown-menu-right">
+                                                                <a class="dropdown-item" href="#" onclick="fn_seleccionarMedidaFactor(@item.ID_ENFOQUE)" data-toggle="modal" data-target="#modal-medida-de-mitigacion"><i class="fas fa-edit"></i>&nbsp;Editar</a>
+                                                                @*<a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-confirmacion"><i class="fas fa-trash"></i>&nbsp;Eliminar</a>*@
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                total_reg = @item.total_registros;
+                                                total_pag = @item.total_paginas;
+                                            }
+                                        }
+                                    }
+
+                                </tbody>
+                            </table>
+                            @{
+                                if (total_reg == 0)
+                                {
+                                    inicio_reg = 0;
+                                    fin_reg = 0;
+                                }
+                                else if (total_reg <= 10)
+                                {
+                                    inicio_reg = 1;
+                                    fin_reg = total_reg;
+                                }
+                                else if (total_reg > 10)
+                                {
+                                    inicio_reg = 1;
+                                    fin_reg = 10;
+                                }
+                            }
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-lg-6 mt-4">
+                        <strong>Resultado:&nbsp;</strong><span id="resultado">@inicio_reg de @fin_reg</span> de <span id="total-registros">@total_reg</span> registros
+                    </div>
+                    <div class="col-sm-12 col-lg-6 text-right mt-4">
+                        <strong>Registros por página&nbsp;</strong>
+                        <select id="cantidad-registros" onchange="fn_CargaDatos()">
+                            <option value="10" selected>10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>&nbsp;
+                        <span id="pagina-actual">1</span> de <span id="total-paginas">@total_pag</span> páginas&nbsp;
+                        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                            <button class="btn btn-primary" id="primera-pagina" type="button" onclick="fn_avance_grilla(1)"><i class="fas fa-angle-double-left"></i></button>
+                            <button class="btn btn-primary" id="anterior-pagina" type="button" onclick="fn_avance_grilla(2)"><i class="fas fa-angle-left"></i></button>
+                            <input class="ir-pagina" id="pagina" type="number" value="1" min="1" onchange="fn_CargaDatos()">
+                            <button class="btn btn-primary" id="siguiente-pagina" type="button" onclick="fn_avance_grilla(3)"><i class="fas fa-angle-right"></i></button>
+                            <button class="btn btn-primary" id="ultima-pagina" type="button" onclick="fn_avance_grilla(4)"><i class="fas fa-angle-double-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modal-medida-de-mitigacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Registro de relación Enfoque Factores <br><small class="text-muted">Complete los siguientes campos para registrar los parámetros empleados en los registros de sus factores</small><small class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</small></h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body medidas-modal">
+                            <form>
+                                <div class="row" id="factores-id" data-eliminar="">
+                                    <!-- add id data -->
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="cbo-medida-mitigacion">Enfoque<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione un enfoque"></i></label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-tachometer-alt"></i></span></div>
+                                                <select class="form-control" id="cbo-medida-mitigacion" required>
+                                                    <option value="0">[ - Seleccione enfoque - ]</option>
+                                                    @foreach (var item in Model.listaEnfoque)
+                                                    {
+                                                        <option value="@item.ID_ENFOQUE">@item.DESCRIPCION</option>
+                                                    }
+                                                    @*<option value="1">Medida de mitigación 01</option>
+                                                        <option value="2">Medida de mitigación 02</option>
+                                                        <option value="3">Medida de mitigación 03</option>
+                                                        <option value="4">Medida de mitigación 04</option>*@
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="cbo-factores">Factores<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione uno de varios factores asociado a su enfoque"></i></label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-list-alt"></i></span></div>
+                                                <select class="form-control" id="cbo-factores" required>
+                                                    <option value="0" selected>[ - Seleccione - ]</option>
+                                                    @foreach (var item in Model.listaFactor)
+                                                    {
+                                                        var factor = "[F"+@item.ID_FACTOR+"]";
+                                                        <option value="@item.ID_FACTOR">&nbsp;@factor&nbsp;@item.NOMBRE_FACTOR</option>
+                                                    }
+                                                    @*<option value="1">FACTOR BAU</option>
+                                                        <option value="2">FACTOR CON</option>
+                                                        <option value="3">FACTOR PER</option>
+                                                        <option value="4">FACTOR MIT</option>
+                                                        <option value="5">FACTOR REN</option>*@
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12 col-lg-6">&nbsp;</div>
+                                            <div class="col-md-12 col-lg-6"><a class="btn btn-success w-100" id="add-lista-factor-1" href="javascript:void(0);" onclick="validarFactor();" data-toggle="tooltip" data-placement="left" title="Agregar valor a su parámetro"><i class="fas fa-plus px-1"></i>Agregar</a></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-lg-12 mt-2">
+                                        <div class="form-group">
+                                            <label for="mlt-gei">Composición del parámetro<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Aquí se mostrará de que valores se compone su parámetro"></i></label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-list-alt"></i></span></div>
+                                                <div class="form-control">
+                                                    <div id="filas-factor"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <div id="mensajeValidar" hidden>
+                                            <div class="alert alert-danger d-flex align-items-stretch" role="alert">
+                                                <div class="alert-wrap mr-3">
+                                                    <div class="sa">
+                                                        <div class="sa-error">
+                                                            <div class="sa-error-x">
+                                                                <div class="sa-error-left"></div>
+                                                                <div class="sa-error-right"></div>
+                                                            </div>
+                                                            <div class="sa-error-placeholder"></div>
+                                                            <div class="sa-error-fix"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="alert-wrap">
+                                                    <h6>Error de registro</h6>
+                                                    <hr><small class="mb-0">La medida seleccionada no puede volver a registrarse porque ya tiene asociado uno o más factores.</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="mensajeError" hidden>
+                                            <div class="alert alert-danger d-flex align-items-stretch" role="alert">
+                                                <div class="alert-wrap mr-3">
+                                                    <div class="sa">
+                                                        <div class="sa-error">
+                                                            <div class="sa-error-x">
+                                                                <div class="sa-error-left"></div>
+                                                                <div class="sa-error-right"></div>
+                                                            </div>
+                                                            <div class="sa-error-placeholder"></div>
+                                                            <div class="sa-error-fix"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="alert-wrap">
+                                                    <h6>Error de registro</h6>
+                                                    <hr><small class="mb-0">Verifique que los datos sean correctamente ingresados, complete todos los campos obligatorios e intente otra vez.</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="mensajeCorrecto" hidden>
+                                            <div class="alert alert-success d-flex align-items-stretch" role="alert">
+                                                <div class="alert-wrap mr-3">
+                                                    <div class="sa">
+                                                        <div class="sa-success">
+                                                            <div class="sa-success-tip"></div>
+                                                            <div class="sa-success-long"></div>
+                                                            <div class="sa-success-placeholder"></div>
+                                                            <div class="sa-success-fix"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="alert-wrap">
+                                                    <h6>Bien hecho</h6>
+                                                    <hr><small class="mb-0">Los datos ingresados fueron guardados exitosamente, verifique su bandeja para comprobarlo. Utilice el buscador para encontrar su nuevo registro.</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer" id="botones-guardar">
+                            <button class="btn btn-primary" type="button" onclick="guardarMedidaFactor();">Guardar</button>
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                        </div>
+                        <div class="modal-footer" id="botones-cerrar" hidden>
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modal-confirmacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Confirmar acción</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body medidas-modal">
+                            <p>¿ Desea eliminar este registro ?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary" type="button">Si</button>
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="modal fade" id="modal-valores" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Edición de Valores <br><small class="text-muted">Agregue, edite o elimine los valores que corresponden a los factores asociados a su enfoque</small></h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body medidas-modal">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h6 class="font-weight-bold" id="titulo-factor">FACTOR</h6>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="table-responsive tabla-principal tabla-detalle-indicadores-1" data-order="tbl-1">
+                                        <table class="table table-hover" id="tablaFactor" data-fila="0">
+                                            <thead id="tablaCabeceraFactor" data-idfactor="0">
+                                                @*<tr class="bg-primary text-white">
+                                                        <th class="text-center" scope="col"><span>N°&nbsp;</span></th>
+                                                        <th scope="col"><span>Lista&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
+                                                        <th scope="col"><span>Texto&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
+                                                        <th scope="col"><span>Placas&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Ingrese sus placas"></i></span></th>
+                                                        <th scope="col"><span>Fecha&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
+                                                        <th scope="col"><span>Colum_05&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Texto de ayuda que describe el funcionamiento general del módulo [...]"></i></span></th>
+                                                        <th class="text-center" scope="col">Más</th>
+                                                    </tr>*@
+                                            </thead>
+                                            <tbody id="cuerpoTablaFactor" data-delete="">
+                                                @*<tr id="detalles-tr-1">
+                                                        <th class="text-center" data-encabezado="Número" scope="row">1</th>
+                                                        <td data-encabezado="Lista">
+                                                            <div class="form-group m-0">
+                                                                <select class="form-control form-control-sm" id="cbo-columna1-2">
+                                                                    <option value="">Seleccionar</option>
+                                                                    <option value="1">Valor 1</option>
+                                                                    <option value="2">Valor 2</option>
+                                                                    <option value="3">Valor 3</option>
+                                                                </select>
+                                                            </div>
+                                                        </td>
+                                                        <td data-encabezado="Texto">
+                                                            <div class="form-group m-0">
+                                                                <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna2-2" data-validar="1">
+                                                            </div>
+                                                        </td>
+                                                        <td data-encabezado="Placas">
+                                                            <div class="form-group m-0">
+                                                                <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna3-2" value="5" data-validar="0">
+                                                            </div>
+                                                        </td>
+                                                        <td data-encabezado="Fecha">
+                                                            <div class="form-group m-0">
+                                                                <input class="form-control form-control-sm" type="date" placeholder="Texto aquí" id="txt-columna4-2">
+                                                            </div>
+                                                        </td>
+                                                        <td data-encabezado="Columna 05">
+                                                            <div class="form-group m-0">
+                                                                <select class="form-control form-control-sm" id="cbo-columna5-2">
+                                                                    <option value="">Seleccionar</option>
+                                                                    <option value="1">Valor 1</option>
+                                                                    <option value="2">Valor 2</option>
+                                                                    <option value="3">Valor 3</option>
+                                                                </select>
+                                                            </div>
+                                                        </td>
+                                                        <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                                            <div class="btn-group">
+                                                                <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a class="dropdown-item agregarCampos" href="#">
+                                                                        <i class="fas fa-plus-circle"></i>&nbsp;
+                                                                        Agregar
+                                                                    </a><a class="dropdown-item quitarCampos" href="#">
+                                                                        <i class="fas fa-minus-circle"></i>&nbsp;
+                                                                        Eliminar
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr id="detalles-tr-2">
+                                                        <th class="text-center" data-encabezado="Número" scope="row">2</th>
+                                                        <td data-encabezado="Lista">
+                                                            <div class="form-group m-0">
+                                                                <select class="form-control form-control-sm" id="cbo-columna1-3">
+                                                                    <option value="">Seleccionar</option>
+                                                                    <option value="1">Valor 1</option>
+                                                                    <option value="2">Valor 2</option>
+                                                                    <option value="3">Valor 3</option>
+                                                                </select>
+                                                            </div>
+                                                        </td>
+                                                        <td data-encabezado="Texto">
+                                                            <div class="form-group m-0">
+                                                                <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna2-3" data-validar="1">
+                                                            </div>
+                                                        </td>
+                                                        <td data-encabezado="Placas">
+                                                            <div class="form-group m-0">
+                                                                <input class="form-control form-control-sm" type="text" placeholder="Texto aquí" id="txt-columna3-3" value="5" data-validar="0">
+                                                            </div>
+                                                        </td>
+                                                        <td data-encabezado="Fecha">
+                                                            <div class="form-group m-0">
+                                                                <input class="form-control form-control-sm" type="date" placeholder="Texto aquí" id="txt-columna4-3">
+                                                            </div>
+                                                        </td>
+                                                        <td data-encabezado="Columna 05">
+                                                            <div class="form-group m-0">
+                                                                <select class="form-control form-control-sm" id="cbo-columna5-3">
+                                                                    <option value="">Seleccionar</option>
+                                                                    <option value="1">Valor 1</option>
+                                                                    <option value="2">Valor 2</option>
+                                                                    <option value="3">Valor 3</option>
+                                                                </select>
+                                                            </div>
+                                                        </td>
+                                                        <td class="text-center text-xs-right" data-encabezado="Acciones">
+                                                            <div class="btn-group">
+                                                                <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a class="dropdown-item agregarCampos" href="#">
+                                                                        <i class="fas fa-plus-circle"></i>&nbsp;
+                                                                        Agregar
+                                                                    </a><a class="dropdown-item quitarCampos" href="#">
+                                                                        <i class="fas fa-minus-circle"></i>&nbsp;
+                                                                        Eliminar
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>*@
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+
+                                    <div id="mensajeCorrecto2" hidden>
+                                        <div class="alert alert-success d-flex align-items-stretch" role="alert">
+                                            <div class="alert-wrap mr-3">
+                                                <div class="sa">
+                                                    <div class="sa-success">
+                                                        <div class="sa-success-tip"></div>
+                                                        <div class="sa-success-long"></div>
+                                                        <div class="sa-success-placeholder"></div>
+                                                        <div class="sa-success-fix"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="alert-wrap">
+                                                <h6>Bien hecho</h6>
+                                                <hr><small class="mb-0">Los datos ingresados fueron guardados exitosamente.</small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="mensajeError2" hidden>
+                                        <div class="alert alert-danger d-flex align-items-stretch" role="alert">
+                                            <div class="alert-wrap mr-3">
+                                                <div class="sa">
+                                                    <div class="sa-error">
+                                                        <div class="sa-error-x">
+                                                            <div class="sa-error-left"></div>
+                                                            <div class="sa-error-right"></div>
+                                                        </div>
+                                                        <div class="sa-error-placeholder"></div>
+                                                        <div class="sa-error-fix"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="alert-wrap">
+                                                <h6>Error de registro</h6>
+                                                <hr><small class="mb-0">Ocurrió un problema durante el guardado de los datos, por favor intente nuevamente.</small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div id="botones-guardar2">
+                                <button class="btn btn-primary" type="button" onclick="fn_guardarFactor()">Guardar</button>
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                            </div>
+                            <div id="botones-cerrar2" hidden>
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Hidden("columna", "ID_MEDMIT")
+@Html.Hidden("orden", "ASC")
+
+<script src="~/js/script.js"></script>
+<script src="~/js/MRV.js"></script>
+<script src="~/js/MantenimientoEnfoqueFactor.js"></script>
