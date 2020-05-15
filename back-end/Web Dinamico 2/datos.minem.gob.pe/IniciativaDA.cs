@@ -2172,7 +2172,7 @@ namespace datos.minem.gob.pe
                     var arr = entidad.ID_INICIATIVA_MASIVO.Split(',');
                     for (int i = 0; i < arr.Length; i++)
                     {
-                        InsertarSeguimientoPaquete(new IniciativaBE {ID_INICIATIVA = Convert.ToInt32(arr[i]), ID_ROL = entidad.ID_ROL, ID_USUARIO = entidad.ID_USUARIO, FECHA = entidad.FECHA, FECHA_FIN = entidad.FECHA_FIN, NOMBRE_MEDMIT = entidad.NOMBRE_MEDMIT, CANTIDAD = arr.Length});
+                        InsertarSeguimientoPaquete(new IniciativaBE {ID_INICIATIVA = Convert.ToInt32(arr[i]), ID_ROL = entidad.ID_ROL, ID_USUARIO = entidad.ID_USUARIO_ADMIN, FECHA = entidad.FECHA, FECHA_FIN = entidad.FECHA_FIN, NOMBRE_MEDMIT = entidad.NOMBRE_MEDMIT, CANTIDAD = arr.Length});
                     }
                 }
             }
@@ -2526,6 +2526,71 @@ namespace datos.minem.gob.pe
             }
 
             return Lista;
+        }
+
+
+        //
+        public List<AcumuladoBE> MostrarAcumulado(IniciativaBE entidad)
+        {
+            List<AcumuladoBE> lista = new List<AcumuladoBE>();
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackageR + "USP_SEL_ACUMULADOR";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pID_ENFOQUE", entidad.ID_ENFOQUE);
+                    p.Add("pID_INDICADOR", entidad.ID_INDICADOR);
+                    p.Add("PO", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    AcumuladoBE ent = db.Query<AcumuladoBE>(sp, p, commandType: CommandType.StoredProcedure).FirstOrDefault();
+
+                    lista.Add(ent);
+
+                    int anio = ent.anio;
+                    anio += 1;
+                    while (DateTime.Now.Year > anio)
+                    {
+                        entidad.ANNO = anio;
+                        lista.Add(ObtenerAcumulado(entidad));
+                        anio += 1;
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return lista;
+        }
+
+        public AcumuladoBE ObtenerAcumulado(IniciativaBE entidad)
+        {
+            AcumuladoBE lista = new AcumuladoBE();
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackageR + "USP_PRC_MOSTRAR_ACUMULADOR";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pID_ENFOQUE", entidad.ID_ENFOQUE);
+                    p.Add("pID_INDICADOR", entidad.ID_INDICADOR);
+                    p.Add("pANNO", entidad.ANNO);
+                    p.Add("PO", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    lista = db.Query<AcumuladoBE>(sp, p, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return lista;
         }
 
     }

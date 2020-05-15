@@ -125,6 +125,7 @@
     <Content Include="images\01_registro_manual.svg" />
     <Content Include="images\02_registro_masivo.svg" />
     <Content Include="images\bg-acciones-resultados.jpg" />
+    <Content Include="images\bg-ingreso.jpg" />
     <Content Include="images\bg-registro.jpg" />
     <Content Include="images\bg-reportes.jpg" />
     <Content Include="images\favicon\android-chrome-192x192.png" />

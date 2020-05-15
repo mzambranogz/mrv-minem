@@ -1825,7 +1825,10 @@ function CargarDatosCabecera() {
 
                     }
                     //tr += '     <th class="text-center" scope="col">Más</th>';
-                    tr += '<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Documentos de sustento"></i>SUSTENTO</span><small>Seleccione este campo para su registro</small></th>';
+                    tr += '<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Si desea subir un archivo de más de 4MB, contactar con el administrador"></i>SUSTENTO</span><small>Tamaño máximo por archivo es de 4MB</small></th>';
+
+                    tr += '<th class="text-center grupo-columna-03"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Verificar acumulado"></i></span><br><small>Ver</small></th>';
+
                     tr += '</tr>';
                     $("#cabeceraTablaIndicador").append(tr);
                     $("[data-toggle='tooltip']").tooltip();
@@ -1934,6 +1937,9 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                         tr += '         <input class="d-none" type="file" id="fle-doc-' + (i + 1) + '" name="fledoc" onchange="handleFileSustento(this.files,' + (i + 1) + ',1)">';
                         tr += '        </label><a class="btn btn-success btn-sm m-0" name="fledownload" href="' + urlDw + '" title="Descargar archivo" id="fle-dow-' + (i + 1) + '" target="_blank" style="display: none;"><i class="fas fa-download"></i></a>';
                         tr += '</td>';
+
+                        tr += '<td class="text-center estrecho" data-encabezado="Verificar acumulado"><span data-toggle="modal" data-target="#modal-acumulado"><a class="btn btn-purple btn-sm m-0 quitarCampos" href="#" title="Verificar acumulado" onclick="mostrarAcumulado();"><i class="fas fa-hand-holding"></i></a></span></td>';
+
                         tr += '</tr>';
                         $("#cuerpoTablaIndicador").append(tr);
                     }
@@ -2918,6 +2924,82 @@ function ValidarRevision(num_validar, id_ini, id_plazo, id_msj, mensaje) {
     return msj;
 }
 
-function fn_calcularValor(e) {
 
+////
+function mostrarAcumulado() {
+    var row = $("#tablaIndicador").data("fila");
+    var valor = 0;
+    //var campos = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + row).find("[data-validar]");
+    //campos.each(function (index, value) {
+    //    console.log(index + " + " + $(value).attr("id") + " + " + $(value).attr("data-validar"));
+
+    //    if ($(value).attr("data-validar") == 0) {
+    //        valor = 1;
+    //    }
+
+    //});
+    //|1,12,14,1
+    if (valor == 0) {
+        //var f = $("#enfoque-" + $("#cbo-enfoque").val()).data("fila");
+        var enfoque = $("#cbo-enfoque").val();
+        var medida = $("#Control").data("mitigacion");
+        //var fila = $("#enfoque-" + $("#cbo-enfoque").val()).find("tbody").find("#detalles-tr-" + $("#enfoque-" + $("#cbo-enfoque").val()).data("fila")).find("[data-param]");
+        var fila = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + row).find("[data-param]");
+        var parametros = "";
+        fila.each(function (index, value) {
+            parametros += enfoque + ",";
+            parametros += medida + ",";
+            parametros += $(value).attr("data-param") + ",";
+            parametros += $("#" + $(value).attr("id")).val() + "|";
+        });
+        parametros = parametros.substring(0, parametros.length - 1);
+
+        var item = {//prueba
+            //Valor: '1,12,6,2018|1,12,2,24/01/2015|1,12,1,1|1,12,3,2|1,12,4,57600|1,12,12,20|1,12,13,0|1,12,9,0|1,12,10,0|1,12,11,0|1,12,14,1'
+            Valor: parametros
+        };
+        fn_enviarCalcularAcumulado(item, row);
+    }
+}
+
+function fn_enviarCalcularAcumulado(item, f) {
+
+    var cabecera = "";
+    var cuerpo = "";
+    $("#cabecera-acumulado").html("");
+    $("#cuerpo-acumulado").html("");
+    $.ajax({
+        url: baseUrl + 'Gestion/CalcularAcumulado',
+        type: 'POST',
+        datatype: 'json',
+        data: item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+
+                    var total = 0.0;
+                    cabecera += '<tr>';
+                    for (var i = 0; i < data.length; i++) {
+                        //debugger;
+                        cabecera += '<th class="text-center grupo-columna-03"><span>' + data[i]["anio"] + '</span></th>';
+                        //var a = data[i]["anio"];
+                    }
+                    cabecera += '<th class="text-center grupo-columna-03"><span>TOTAL ACUMULADO</span></th>';
+                    cabecera += '</tr>';
+
+                    cuerpo += '<tr>';
+                    for (var j = 0; j < data.length; j++) {
+                        total += parseFloat(data[j]["reducido"]);
+                        cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '">' + Math.round(data[j]["reducido"] * 100) / 100 + '</td>';
+                    }
+                    cuerpo += '<td class="text-center estrecho" data-encabezado="total">' + Math.round(total * 100) / 100 + '</td>';
+                    cuerpo += '</tr>';
+
+                    $("#cabecera-acumulado").append(cabecera);
+                    $("#cuerpo-acumulado").append(cuerpo);
+                }
+            } else {
+            }
+        }
+    });
 }

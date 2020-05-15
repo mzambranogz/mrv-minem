@@ -103,7 +103,7 @@
                 <div class="h6 my-4">13. FUERZA MAYOR</div>
                 <p>"MINEM" no será responsable por cualquier retraso o falla en el rendimiento o la interrupción en la prestación de los servicios que pueda resultar directa o indirectamente de cualquier causa o circunstancia más allá de su control razonable, incluyendo, pero sin limitarse a fallas en los equipos o las líneas de comunicación electrónica o mecánica, robo, errores del operador, clima severo, terremotos o desastres naturales, huelgas u otros problemas laborales, guerras, o restricciones gubernamentales.</p>
                 <div class="h6 my-4">14. LIBRO DE RECLAMACIONES</div>
-                <p>Conforme a lo establecido en el Código de Protección y Defensa del Consumidor, Ley N° 29571, el Sitio Web o la Aplicación pone a disposición del Usuario un Libro de Reclamaciones virtual a fin de que éste pueda registrar sus quejas o reclamos formales sobre los servicios ofrecidos a través del Sitio Web o la Aplicación. El Libro de Reclamaciones virtual puede ser encontrado en el siguiente enlace: http://link.com/libro-reclamaciones.</p>
+                <p>Conforme a lo establecido en el Código de Protección y Defensa del Consumidor, Ley N° 29571, el Sitio Web o la Aplicación pone a disposición del Usuario un Libro de Reclamaciones virtual a fin de que éste pueda registrar sus quejas o reclamos formales sobre los servicios ofrecidos a través del Sitio Web o la Aplicación. El Libro de Reclamaciones virtual puede ser encontrado en el siguiente enlace: @Session["reclamo"]</p>
                 <div class="h6 my-4">15. AUTORIDADES Y REQUERIMIENTOS LEGALES</div>
                 <p>"MINEM" coopera con las autoridades competentes y con terceros para garantizar el cumplimiento de las leyes en materia de protección de derechos de propiedad intelectual, prevención del fraude, protección al consumidor y otras materias.</p>
                 <p>"MINEM" podrá revelar la información personal del Usuario del Sitio Web o la Aplicación bajo requerimiento de las autoridades judiciales o gubernamentales competentes, en la medida en que discrecionalmente lo entienda necesario, para efectos de investigaciones conducidas por ellas, cuando se trate de investigaciones de carácter penal o de fraude, o las relacionadas con piratería informática, la violación de derechos de autor, infracción de derechos de propiedad intelectual u otra actividad ilícita o ilegal que pueda exponer al Sitio Web o la Aplicación o a sus Usuarios a cualquier responsabilidad legal.</p>
@@ -122,13 +122,16 @@
 </div>
 <div class="container-fluid" id="reportes-resultados">
     <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-4 p-0 o-h">
+        <div class="col-sm-12 col-md-6 col-lg-3 p-0 o-h">
             <div class="bg-reportes"><a class="enlace-reportes d-flex flex-row justify-content-center align-items-center" href="@Url.Action("ReportesVisitante", "Reportes")"><i class="fas fa-file-invoice px-1 mr-2"></i>Reportes</a></div>
         </div>
-        <div class="col-sm-12 col-md-6 col-lg-4 p-0 o-h">
+        <div class="col-sm-12 col-md-6 col-lg-3 p-0 o-h">
             <div class="bg-acciones-resultados"><a class="enlace-acciones-resultados d-flex flex-row justify-content-center align-items-center" href="@Url.Action("Resultados","Portal")"><i class="fas fa-chart-pie px-1 mr-2"></i>Resultados</a></div>
         </div>
-        <div class="col-sm-12 col-md-12 col-lg-4 p-0 o-h">
+        <div class="col-sm-12 col-md-12 col-lg-3 p-0 o-h">
+            <div class="bg-ingreso"><a class="enlace-ingreso d-flex flex-row justify-content-center align-items-center" href="@Url.Action("login", "Home")"><i class="fas fa-sign-in-alt px-1 mr-2"></i>Ingresar</a></div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-3 p-0 o-h">
             <div class="bg-registro"><a class="enlace-registro d-flex flex-row justify-content-center align-items-center" href="@Url.Action("registro","Home")"><i class="fas fa-user-circle px-1 mr-2"></i>Registrarse</a></div>
         </div>
     </div>

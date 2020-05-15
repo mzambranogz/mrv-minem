@@ -342,6 +342,7 @@ namespace MRVMinem.Controllers
                 ida.ID_MEDMIT = modelo.iniciativa_mit.ID_MEDMIT;
                 modelo.listaIndData = IndicadorLN.ListarDatosTablaDinamica(ida);
 
+                modelo.id_enfoques = concatenarIdEnfoque(modelo.listaIndData); //add
                 modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
                 modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
                 modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
@@ -381,6 +382,7 @@ namespace MRVMinem.Controllers
                 ida.ID_MEDMIT = modelo.iniciativa_mit.ID_MEDMIT;
                 modelo.listaIndData = IndicadorLN.ListarDatosTablaDinamica(ida);
 
+                modelo.id_enfoques = concatenarIdEnfoque(modelo.listaIndData); //add
                 modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
                 modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
                 modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
@@ -418,6 +420,7 @@ namespace MRVMinem.Controllers
                 ida.ID_MEDMIT = modelo.iniciativa_mit.ID_MEDMIT;
                 modelo.listaIndData = IndicadorLN.ListarDatosTablaDinamica(ida);
 
+                modelo.id_enfoques = concatenarIdEnfoque(modelo.listaIndData); //add
                 modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
                 modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
                 modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
@@ -528,6 +531,7 @@ namespace MRVMinem.Controllers
 
         public ActionResult TerminosCondiciones()
         {
+            Session["reclamo"] = WebConfigurationManager.AppSettings["Reclamos"];
             return View();
         }
 
@@ -2161,6 +2165,49 @@ namespace MRVMinem.Controllers
             return jsonResult;
         }
 
+        public JsonResult CalcularAcumulado(string Valor)
+        {
+            List<IndicadorDataBE> listaP = new List<IndicadorDataBE>();
+
+            List<AcumuladoBE> listaA = new List<AcumuladoBE>();
+            try
+            {
+                var valores = Valor.Split('|');
+
+                for (int i = 0; i < valores.Length; i++)
+                {
+                    var valores_det = valores[i].Split(',');
+
+                    IndicadorDataBE p = new IndicadorDataBE();
+                    p.ID_ENFOQUE = Convert.ToInt32(valores_det[0]);
+                    p.ID_MEDMIT = Convert.ToInt32(valores_det[1]);
+                    p.ID_PARAMETRO = Convert.ToInt32(valores_det[2]);
+                    if (Convert.ToString(valores_det[3]) == "0")
+                    {
+                        p.VALOR = "";
+                    }
+                    else
+                    {
+                        p.VALOR = Convert.ToString(valores_det[3]);
+                    }
+
+                    listaP.Add(p);
+                }
+
+                //listaP = IndicadorLN.CalculoIndicador(listaP);                
+                listaA = detalleAcumulado(listaP);
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            var jsonResult = Json(listaA, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
         public JsonResult ListarEnfoqueMedida(EnfoqueBE entidad)
         {
             List<EnfoqueBE> lista = EnfoqueLN.listarEnfoqueMedida(entidad.ID_MEDMIT);
@@ -3300,8 +3347,8 @@ namespace MRVMinem.Controllers
                 anioP += 1;
                 while (DateTime.Now.Year > anioP)
                 {
-                    lista = IndicadorLN.CalculoIndicador(lista);
-                    foreach (var item in lista)
+                    listaPr = IndicadorLN.CalculoIndicador(lista);
+                    foreach (var item in listaPr)
                     {
                         if (item.ID_PARAMETRO == 6)
                             item.VALOR = Convert.ToString(anioP + 1);
@@ -3315,8 +3362,18 @@ namespace MRVMinem.Controllers
             catch (Exception ex)
             {
                 Log.Error(ex);
-            }  
-                return listaA;
+            }
+
+            return listaA;
+        }
+
+
+        public JsonResult MostrarAcumulado(IniciativaBE entidad)
+        {
+            List<AcumuladoBE> lista = IniciativaLN.MostrarAcumulado(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
 
     }    

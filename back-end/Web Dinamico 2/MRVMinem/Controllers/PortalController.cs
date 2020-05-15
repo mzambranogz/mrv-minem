@@ -106,6 +106,7 @@ namespace MRVMinem.Controllers
 
         public ActionResult TerminosCondiciones()
         {
+            Session["reclamo"] = WebConfigurationManager.AppSettings["Reclamos"];
             return View();
         }
 

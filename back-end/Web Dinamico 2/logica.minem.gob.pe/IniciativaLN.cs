@@ -645,5 +645,10 @@ namespace logica.minem.gob.pe
         {
             return iniciativaDA.MostrarMensajeObservacion(entidad);
         }
+
+        public static List<AcumuladoBE> MostrarAcumulado(IniciativaBE entidad)
+        {
+            return iniciativaDA.MostrarAcumulado(entidad);
+        }
     }
 }
