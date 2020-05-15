@@ -454,3 +454,7 @@ ORA-06512: en línea 1
 15/05/2020 02:22:50: [Método: Void System.Web.HttpApplication.IExecutionStep.Execute(), Línea: 0] - No se encuentra un método de acción público 'Default' en el controlador 'MRVMinem.Controllers.ErrorController'.
 15/05/2020 02:22:50: [Método: Void ExecuteStepImpl(IExecutionStep), Línea: 0] - No se encuentra un método de acción público 'Default' en el controlador 'MRVMinem.Controllers.ErrorController'.
 15/05/2020 02:22:50: [Método: System.Exception ExecuteStep(IExecutionStep, Boolean ByRef), Línea: 0] - No se encuentra un método de acción público 'Default' en el controlador 'MRVMinem.Controllers.ErrorController'.
+15/05/2020 09:05:20: [Método: Void ThrowForNonSuccess(System.Threading.Tasks.Task), Línea: 0] - Error al enviar la solicitud.
+15/05/2020 09:05:20: [Método: Void HandleNonSuccessAndDebuggerNotification(System.Threading.Tasks.Task), Línea: 0] - Error al enviar la solicitud.
+15/05/2020 09:05:20: [Método: TResult GetResult(), Línea: 0] - Error al enviar la solicitud.
+15/05/2020 09:05:20: [Método: Void MoveNext(), Línea: 115] - Error al enviar la solicitud.
