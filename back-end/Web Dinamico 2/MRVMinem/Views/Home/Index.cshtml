@@ -431,9 +431,9 @@
                                 </div>*@
 
                                 <div class="col-sm-12 col-md-3 col-lg-3 pb-5">
-                                    <div class="medida-mitigacion hover-mm wow bounceInUp" data-wow-delay="@ms" onclick="CargarDashboardMedida(@item.ID_MEDMIT)">
+                                    <div class="medida-mitigacion bg-nama-@item.COLOR_NAMA hover-mm wow bounceInUp" data-wow-delay="@ms" onclick="CargarDashboardMedida(@item.ID_MEDMIT)">
                                         <img class="img-thumbnail border-0" src="~/images/medida_mitigacion/@item.ADJUNTO">
-                                        <div class="nombre-medida bg-nama-@item.COLOR_NAMA cursor-pointer" data-toggle="modal" data-target="#modal-resultados">
+                                        <div class="nombre-medida cursor-pointer" data-toggle="modal" data-target="#modal-resultados">
                                             <span class="h6">
                                                 @item.NOMBRE_MEDMIT
                                                 <!--small.text-muted NAMA DE EFICIENCIA ENERGETICA-->
@@ -441,6 +441,18 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                @*<div class="col-sm-12 col-md-3 col-lg-3 pb-5">
+                                    <div class="medida-mitigacion hover-mm wow bounceInUp" data-wow-delay="@ms" onclick="CargarDashboardMedida(@item.ID_MEDMIT)">
+                                        <img class="img-thumbnail border-0" src="~/images/medida_mitigacion/@item.ADJUNTO">
+                                        <div class="nombre-medida bg-nama-@item.COLOR_NAMA cursor-pointer" data-toggle="modal" data-target="#modal-resultados">
+                                            <span class="h6">
+                                                @item.NOMBRE_MEDMIT
+                                                
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>*@
                                 
 
                                 if (tiempo == 7)

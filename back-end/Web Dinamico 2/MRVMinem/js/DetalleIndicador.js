@@ -3295,7 +3295,7 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                         tr += '</td>';
 
                         //tr += '<td class="text-center estrecho" data-encabezado="Verificar acumulado"><span data-toggle="modal" data-target="#modal-acumulado"><a class="btn btn-purple btn-sm m-0 quitarCampos" href="#" title="Verificar acumulado" onclick="mostrarAcumulado();"><i class="fas fa-hand-holding"></i></a></span></td>';
-                        tr += '<td class="text-center estrecho" data-encabezado="Verificar acumulado"><span data-toggle="modal" data-target="#"><a class="btn btn-purple btn-sm m-0 quitarCampos" href="#" title="Verificar acumulado" onclick="mostrarAcumulado();"><i class="fas fa-hand-holding"></i></a></span></td>';
+                        tr += '<td class="text-center estrecho" data-encabezado="Verificar acumulado"><span data-toggle="modal" data-target="#"><a class="btn btn-purple btn-sm m-0 quitarCampos" href="#" title="Verificar acumulado" onclick="mostrarAcumulado();"><i class="fas fa-eye"></i></a></span></td>';
 
                         tr += '<td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCampos" href="#" onclick="fn_eliminarRestarTotal()" title="Quitar fila"><i class="fas fa-minus-circle"></i></a></td>';
 
@@ -3530,7 +3530,7 @@ function CargarNuevaFila(filas) {
                         tr += '        </label><a class="btn btn-success btn-sm m-0" href="' + urlDw + '" title="Descargar archivo" id="fle-dow-' + (rows + 1) + '" target="_blank" style="display: none;"><i class="fas fa-download"></i></a>';
                         tr += '</td>';
 
-                        tr += '<td class="text-center estrecho" data-encabezado="Verificar acumulado"><span data-toggle="modal" data-target="#"><a class="btn btn-purple btn-sm m-0 quitarCampos" href="#" title="Verificar acumulado" onclick="mostrarAcumulado();"><i class="fas fa-hand-holding"></i></a></span></td>';
+                        tr += '<td class="text-center estrecho" data-encabezado="Verificar acumulado"><span data-toggle="modal" data-target="#"><a class="btn btn-purple btn-sm m-0 quitarCampos" href="#" title="Verificar acumulado" onclick="mostrarAcumulado();"><i class="fas fa-eye"></i></a></span></td>';
 
                         tr += '<td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCampos" href="#" onclick="fn_eliminarRestarTotal()" title="Quitar fila"><i class="fas fa-minus-circle"></i></a></td>';
 
@@ -3853,7 +3853,7 @@ function CargarDatosCabecera() {
                         //}                        
                     }
                     //tr += '     <th class="text-center grupo-columna-02" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>Sustento</span><small>Seleccione este campo para su registro</small></th>';
-                    tr += '<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Si desea subir un archivo de más de 4MB, contactar con el administrador"></i>SUSTENTO</span><br/><small>Tamaño máximo por archivo es de 4MB</small></th>';
+                    tr += '<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Si desea subir un archivo de más de 4MB, contactar con el administrador"></i>Documentos de sustento</span><br/></th>';
                     //tr += '<th class="text-center" scope="col"><span>Más<br></span><a class="btn btn-warning btn-sm m-0" href="javascript:void(0)" title="Agregar fila" onclick="CargarNuevaFila(1);"><i class="fas fa-plus-circle"></i></a></th>';
 
                     tr += '<th class="text-center grupo-columna-03"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Verificar acumulado"></i></span><br><small>Ver</small></th>';
@@ -4940,10 +4940,10 @@ function fn_enviarCalcularAcumulado(item, f) {
                     cabecera += '<tr>';
                     for (var i = 0; i < data.length; i++) {
                         //debugger;
-                        cabecera += '<th class="text-center grupo-columna-03"><span>' + data[i]["anio"] + '</span></th>';
+                        cabecera += '<th class="text-center grupo-columna-03"><span>' + data[i]["anio"] + '&nbsp;<small>tCO<sub>2</sub>eq<small></span></th>';
                         //var a = data[i]["anio"];
                     }
-                    cabecera += '<th class="text-center grupo-columna-03"><span>TOTAL ACUMULADO</span></th>';
+                    cabecera += '<th class="text-center grupo-columna-03"><span>TOTAL ACUMULADO&nbsp;<small>tCO<sub>2</sub>eq<small></span></th>';
                     cabecera += '</tr>';
 
                     cuerpo += '<tr>';
@@ -5000,10 +5000,10 @@ function mostrarAcumuladoR(e) {
                     cabecera += '<tr>';
                     for (var i = 0; i < data.length; i++) {
                         //debugger;
-                        cabecera += '<th class="text-center grupo-columna-03"><span>' + data[i]["anio"] + '</span></th>';
+                        cabecera += '<th class="text-center grupo-columna-03"><span>' + data[i]["anio"] + '&nbsp;<small>tCO<sub>2</sub>eq<small></span></th>';
                         //var a = data[i]["anio"];
                     }
-                    cabecera += '<th class="text-center grupo-columna-03"><span>TOTAL ACUMULADO</span></th>';
+                    cabecera += '<th class="text-center grupo-columna-03"><span>TOTAL ACUMULADO&nbsp;<small>tCO<sub>2</sub>eq<small></span></th>';
                     cabecera += '</tr>';
 
                     cuerpo += '<tr>';

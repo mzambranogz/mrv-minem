@@ -536,8 +536,11 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                         }
                         tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_mostrarSeguimiento(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-history"></i>&nbsp;Seguimiento</a>';
                         //add 01-05-2020
+                        //////////==================OBSERVACIONES ========================================
                         //tr = tr + '             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-observaciones"><i class="fas fa-envelope"></i>&nbsp;Observaciones</a>';
-                        tr = tr + '             <a class="dropdown-item" href="javascript:void(0);" onclick="mostrarObservacion(' + data[i]["ID_INICIATIVA"] + ')"><i class="fas fa-envelope"></i>&nbsp;Observaciones</a>';
+                        tr = tr + '             <a class="dropdown-item" href="javascript:void(0);" onclick="mostrarObservacion(' + data[i]["ID_INICIATIVA"] + ')"><i class="fas fas fa-comments"></i>&nbsp;Observaciones</a>';
+
+
                         if ($('#Control').data('rol') == 2 || $('#Control').data('rol') == 1) {
                             if (data[i]["PROGRESO"] == 1 && data[i]["ID_ESTADO"] == 0 && $('#Control').data('rol') == 1) {
                                 tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_mostrarEditarIniciativa(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
