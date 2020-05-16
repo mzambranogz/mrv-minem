@@ -15,10 +15,27 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Emisiones (tCO2/año)</Value>
+                            <Value>Emisiones (tCO</Value>
                             <Style>
                               <FontSize>8pt</FontSize>
                               <FontWeight>Bold</FontWeight>
+                              <Color>White</Color>
+                            </Style>
+                          </TextRun>
+                          <TextRun>
+                            <Value>2</Value>
+                            <Style>
+                              <FontSize>6pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
+                              <Color>White</Color>
+                            </Style>
+                          </TextRun>
+                          <TextRun>
+                            <Value>eq/año)</Value>
+                            <Style>
+                              <FontSize>8pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
+                              <Color>White</Color>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -33,6 +50,7 @@
                             <Style>
                               <FontSize>8pt</FontSize>
                               <FontWeight>Bold</FontWeight>
+                              <Color>White</Color>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -46,30 +64,10 @@
                       <Border>
                         <Style>Solid</Style>
                       </Border>
-                      <TopBorder>
-                        <Color>Black</Color>
-                        <Style>Solid</Style>
-                        <Width>1pt</Width>
-                      </TopBorder>
-                      <BottomBorder>
-                        <Color>Black</Color>
-                        <Style>Solid</Style>
-                        <Width>1pt</Width>
-                      </BottomBorder>
-                      <LeftBorder>
-                        <Color>Black</Color>
-                        <Style>Solid</Style>
-                        <Width>1pt</Width>
-                      </LeftBorder>
-                      <RightBorder>
-                        <Color>Black</Color>
-                        <Style>Solid</Style>
-                        <Width>1pt</Width>
-                      </RightBorder>
-                      <BackgroundColor>Silver</BackgroundColor>
+                      <BackgroundColor>#007bff</BackgroundColor>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
-                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingTop>5pt</PaddingTop>
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
@@ -84,7 +82,7 @@
               <Width>1.09771cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.10313cm</Width>
+              <Width>2.39417cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -103,7 +101,7 @@
                               <Value>=Sum(Fields!BAU_EMISION.Value)</Value>
                               <Style>
                                 <FontSize>7pt</FontSize>
-                                <Format>0.0;(0.0)</Format>
+                                <Format>#,0.00;(#,0.00)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -119,7 +117,7 @@
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingTop>11pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
@@ -137,7 +135,8 @@
                               <Value>=Sum(Fields!BAU_EMISION.Value)</Value>
                               <Style>
                                 <FontSize>7pt</FontSize>
-                                <Format>0.0;(0.0)</Format>
+                                <FontWeight>Bold</FontWeight>
+                                <Format>#,0.00;(#,0.00)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -151,30 +150,9 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
-                        <TopBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </BottomBorder>
-                        <LeftBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </LeftBorder>
-                        <RightBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </RightBorder>
-                        <BackgroundColor>LightGreen</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingTop>11pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
@@ -197,7 +175,7 @@
                               <Value>=Sum(Fields!MIT_EMISION.Value)</Value>
                               <Style>
                                 <FontSize>7pt</FontSize>
-                                <Format>0.0;(0.0)</Format>
+                                <Format>#,0.00;(#,0.00)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -211,30 +189,9 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
-                        <TopBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </BottomBorder>
-                        <LeftBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </LeftBorder>
-                        <RightBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </RightBorder>
-                        <BackgroundColor>Tomato</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingTop>11pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
@@ -252,7 +209,8 @@
                               <Value>=Sum(Fields!MIT_EMISION.Value)</Value>
                               <Style>
                                 <FontSize>7pt</FontSize>
-                                <Format>0.0;(0.0)</Format>
+                                <FontWeight>Bold</FontWeight>
+                                <Format>#,0.00;(#,0.00)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -266,30 +224,9 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
-                        <TopBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </BottomBorder>
-                        <LeftBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </LeftBorder>
-                        <RightBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </RightBorder>
-                        <BackgroundColor>LightGreen</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingTop>11pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
@@ -313,7 +250,7 @@
                               <Style>
                                 <FontSize>7pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
-                                <Format>0.0;(0.0)</Format>
+                                <Format>#,0.00;(#,0.00)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -327,30 +264,9 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
-                        <TopBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </BottomBorder>
-                        <LeftBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </LeftBorder>
-                        <RightBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </RightBorder>
-                        <BackgroundColor>LightGreen</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingTop>11pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
@@ -369,7 +285,7 @@
                               <Style>
                                 <FontSize>7pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
-                                <Format>0.0;(0.0)</Format>
+                                <Format>#,0.00;(#,0.00)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -383,30 +299,9 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
-                        <TopBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </BottomBorder>
-                        <LeftBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </LeftBorder>
-                        <RightBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </RightBorder>
-                        <BackgroundColor>LightGreen</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingTop>11pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
@@ -443,6 +338,7 @@
                             <Style>
                               <FontSize>8pt</FontSize>
                               <FontWeight>Bold</FontWeight>
+                              <Color>White</Color>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -456,30 +352,10 @@
                       <Border>
                         <Style>Solid</Style>
                       </Border>
-                      <TopBorder>
-                        <Color>Black</Color>
-                        <Style>Solid</Style>
-                        <Width>1pt</Width>
-                      </TopBorder>
-                      <BottomBorder>
-                        <Color>Black</Color>
-                        <Style>Solid</Style>
-                        <Width>1pt</Width>
-                      </BottomBorder>
-                      <LeftBorder>
-                        <Color>Black</Color>
-                        <Style>Solid</Style>
-                        <Width>1pt</Width>
-                      </LeftBorder>
-                      <RightBorder>
-                        <Color>Black</Color>
-                        <Style>Solid</Style>
-                        <Width>1pt</Width>
-                      </RightBorder>
-                      <BackgroundColor>Silver</BackgroundColor>
+                      <BackgroundColor>#007bff</BackgroundColor>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
-                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingTop>11pt</PaddingTop>
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
@@ -497,10 +373,42 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Acumulado(tCO2/año)</Value>
+                            <Value>Acumulado</Value>
                             <Style>
                               <FontSize>8pt</FontSize>
                               <FontWeight>Bold</FontWeight>
+                              <Color>White</Color>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
+                      </Paragraph>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>(tCO</Value>
+                            <Style>
+                              <FontSize>8pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
+                              <Color>White</Color>
+                            </Style>
+                          </TextRun>
+                          <TextRun>
+                            <Value>2</Value>
+                            <Style>
+                              <FontSize>6pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
+                              <Color>White</Color>
+                            </Style>
+                          </TextRun>
+                          <TextRun>
+                            <Value>eq/año)</Value>
+                            <Style>
+                              <FontSize>8pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
+                              <Color>White</Color>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -515,6 +423,7 @@
                             <Style>
                               <FontSize>8pt</FontSize>
                               <FontWeight>Bold</FontWeight>
+                              <Color>White</Color>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -528,30 +437,10 @@
                       <Border>
                         <Style>Solid</Style>
                       </Border>
-                      <TopBorder>
-                        <Color>Black</Color>
-                        <Style>Solid</Style>
-                        <Width>1pt</Width>
-                      </TopBorder>
-                      <BottomBorder>
-                        <Color>Black</Color>
-                        <Style>Solid</Style>
-                        <Width>1pt</Width>
-                      </BottomBorder>
-                      <LeftBorder>
-                        <Color>Black</Color>
-                        <Style>Solid</Style>
-                        <Width>1pt</Width>
-                      </LeftBorder>
-                      <RightBorder>
-                        <Color>Black</Color>
-                        <Style>Solid</Style>
-                        <Width>1pt</Width>
-                      </RightBorder>
-                      <BackgroundColor>Silver</BackgroundColor>
+                      <BackgroundColor>#007bff</BackgroundColor>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
-                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingTop>5pt</PaddingTop>
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
@@ -580,7 +469,21 @@
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>ESCENARIO BAU</Value>
+                                <Value>Escenario </Value>
+                                <Style>
+                                  <FontSize>8pt</FontSize>
+                                  <FontWeight>Bold</FontWeight>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style>
+                              <TextAlign>Center</TextAlign>
+                            </Style>
+                          </Paragraph>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>BAU</Value>
                                 <Style>
                                   <FontSize>8pt</FontSize>
                                   <FontWeight>Bold</FontWeight>
@@ -614,7 +517,7 @@
                           <BackgroundColor>WhiteSmoke</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
-                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingTop>7pt</PaddingTop>
                           <PaddingBottom>2pt</PaddingBottom>
                         </Style>
                       </Textbox>
@@ -635,7 +538,7 @@
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>ESCENARIO MITIGACION</Value>
+                                <Value>Escenario Mitigación</Value>
                                 <Style>
                                   <FontSize>8pt</FontSize>
                                   <FontWeight>Bold</FontWeight>
@@ -669,7 +572,7 @@
                           <BackgroundColor>WhiteSmoke</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
-                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingTop>7pt</PaddingTop>
                           <PaddingBottom>2pt</PaddingBottom>
                         </Style>
                       </Textbox>
@@ -712,7 +615,7 @@
                       <BackgroundColor>WhiteSmoke</BackgroundColor>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
-                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingTop>9pt</PaddingTop>
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
@@ -726,7 +629,7 @@
         <Top>5.07683cm</Top>
         <Left>0.63182cm</Left>
         <Height>2.4cm</Height>
-        <Width>5.56104cm</Width>
+        <Width>5.85208cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1073,7 +976,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>REPORTE DE ESCENARIOS POR MEDIDA DE LÁMPARAS EN EL SECTOR PÚBLICO</Value>
+                <Value>Reporte de escenarios por medida de lámparas en el sector público</Value>
                 <Style>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -1087,7 +990,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
         <Top>3.62162cm</Top>
-        <Left>4.96063cm</Left>
+        <Left>6.23063cm</Left>
         <Height>0.78521cm</Height>
         <Width>16.50876cm</Width>
         <ZIndex>2</ZIndex>
@@ -1121,7 +1024,7 @@
         <Top>0.31433cm</Top>
         <Left>3.69286cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.5cm</Width>
+        <Width>2.79104cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -1152,13 +1055,26 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>BAU emisiones: </Value>
+                <Value>Escenario BAU: </Value>
                 <Style>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
               <TextRun>
-                <Value>Muestra las emisiones en toneladas de CO2 (dióxido de carbono) por año, antes de la implementación.</Value>
+                <Value>Muestra las emisiones en toneladas de CO</Value>
+                <Style>
+                  <FontWeight>Normal</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>2</Value>
+                <Style>
+                  <FontSize>7pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>eq(dióxido de carbono) por año, antes de la implementación.</Value>
                 <Style>
                   <FontWeight>Normal</FontWeight>
                 </Style>
@@ -1190,13 +1106,26 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>BAU Mitigación : </Value>
+                <Value>Escenario Mitigación : </Value>
                 <Style>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
               <TextRun>
-                <Value>Muestra las emisiones en toneladas de CO2 (dióxido de carbono) por año, antes de la implementación.</Value>
+                <Value>Muestra las emisiones en toneladas de CO</Value>
+                <Style>
+                  <FontWeight>Normal</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>2</Value>
+                <Style>
+                  <FontSize>7pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>eq (dióxido de carbono) por año, luego de la implementación.</Value>
                 <Style>
                   <FontWeight>Normal</FontWeight>
                 </Style>

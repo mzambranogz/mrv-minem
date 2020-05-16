@@ -40,9 +40,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Medida de Mitigación</Value>
+                              <Value>Medida de mitigación</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -56,10 +57,10 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>PaleTurquoise</BackgroundColor>
+                        <BackgroundColor>#007bff</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingTop>9pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
@@ -77,6 +78,7 @@
                               <Value>Código de medida de mitigación</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -90,10 +92,10 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>PaleTurquoise</BackgroundColor>
+                        <BackgroundColor>#007bff</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingTop>9pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
@@ -109,9 +111,25 @@
                           <TextRuns>
                             <TextRun>
                               <Value>GEI reducido por el sector público
-(tCO2e)</Value>
+(tCO</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>2</Value>
+                              <Style>
+                                <FontSize>7pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>eq)</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -125,7 +143,7 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>PaleTurquoise</BackgroundColor>
+                        <BackgroundColor>#007bff</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -146,6 +164,7 @@
                               <Value>GEI reducido por el sector privado</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -156,9 +175,25 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>(tCO2e)</Value>
+                              <Value>(tCO</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>2</Value>
+                              <Style>
+                                <FontSize>7pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>eq)</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -172,7 +207,7 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>PaleTurquoise</BackgroundColor>
+                        <BackgroundColor>#007bff</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -193,6 +228,7 @@
                               <Value>Emisiones de GEI reducidas</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -203,9 +239,25 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>(tCO2e)</Value>
+                              <Value>(tCO</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>2</Value>
+                              <Style>
+                                <FontSize>7pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>e)</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -219,7 +271,7 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>PaleTurquoise</BackgroundColor>
+                        <BackgroundColor>#007bff</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -240,6 +292,7 @@
                               <Value>Iniciativas del sector público</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -253,7 +306,7 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>PaleTurquoise</BackgroundColor>
+                        <BackgroundColor>#007bff</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -274,6 +327,7 @@
                               <Value>Iniciativas del sector privado</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -287,7 +341,7 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>PaleTurquoise</BackgroundColor>
+                        <BackgroundColor>#007bff</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -364,7 +418,7 @@
                         <BackgroundColor>WhiteSmoke</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingTop>11pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
@@ -398,7 +452,7 @@
                         <BackgroundColor>WhiteSmoke</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingTop>11pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
@@ -432,7 +486,7 @@
                         <BackgroundColor>WhiteSmoke</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingTop>11pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
@@ -466,7 +520,7 @@
                         <BackgroundColor>WhiteSmoke</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingTop>11pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
@@ -500,7 +554,7 @@
                         <BackgroundColor>WhiteSmoke</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingTop>11pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
@@ -534,7 +588,7 @@
                         <BackgroundColor>WhiteSmoke</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingTop>11pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
@@ -657,26 +711,6 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
-                        <TopBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </BottomBorder>
-                        <LeftBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </LeftBorder>
-                        <RightBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </RightBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -1628,7 +1662,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>REPORTE DE EMISIONES DE GEI REDUCIDAS POR MEDIDAS DE MITIGACIÓN EN EL SECTOR PÚBLICO Y PRIVADO</Value>
+                <Value>Reporte de emisiones de GEI reducidas por medidas de mitigación en el sector público y privado</Value>
                 <Style>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -1640,9 +1674,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
         <Top>5.15854cm</Top>
-        <Left>3.25058cm</Left>
+        <Left>4.83808cm</Left>
         <Height>0.6cm</Height>
-        <Width>22.64769cm</Width>
+        <Width>20.13416cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -1661,7 +1695,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>LEYENDA</Value>
+                <Value>Leyenda</Value>
                 <Style>
                   <FontSize>9pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -1984,7 +2018,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>REPORTE DE EMISIONES DE GEI REDUCIDAS POR MEDIDAS DE MITIGACIÓN EN EL SECTOR PÚBLICO Y PRIVADO</Value>
+                <Value>Reporte de emisiones de GEI reducidas por medidas de mitigación en el sector público y privado</Value>
                 <Style>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -1995,10 +2029,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>8.77134cm</Top>
-        <Left>3.25058cm</Left>
+        <Top>8.73606cm</Top>
+        <Left>4.69287cm</Left>
         <Height>0.6cm</Height>
-        <Width>22.64769cm</Width>
+        <Width>19.47269cm</Width>
         <ZIndex>14</ZIndex>
         <Style>
           <Border>
@@ -2012,9 +2046,13 @@
       </Textbox>
     </ReportItems>
     <Height>9.82964in</Height>
-    <Style />
+    <Style>
+      <Border>
+        <Style>None</Style>
+      </Border>
+    </Style>
   </Body>
-  <Width>10.31076in</Width>
+  <Width>10.44617in</Width>
   <Page>
     <PageHeader>
       <Height>2.59856cm</Height>

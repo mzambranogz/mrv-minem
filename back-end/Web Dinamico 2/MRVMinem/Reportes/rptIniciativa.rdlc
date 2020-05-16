@@ -6,28 +6,28 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.77314cm</Width>
+              <Width>2.05978cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.96387cm</Width>
+              <Width>3.25051cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.80366cm</Width>
+              <Width>3.0903cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.41008cm</Width>
+              <Width>2.69672cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.95329cm</Width>
+              <Width>3.23993cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.02897cm</Width>
+              <Width>2.60075cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.97712cm</Width>
+              <Width>2.9937cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.33128cm</Width>
+              <Width>2.61792cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -43,9 +43,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Codigo de iniciativa</Value>
+                              <Value>Código de iniciativa</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -59,10 +60,10 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>PaleTurquoise</BackgroundColor>
+                        <BackgroundColor>#007bff</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingTop>11pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
@@ -80,6 +81,7 @@
                               <Value>Fecha de implementación</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -93,10 +95,10 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>PaleTurquoise</BackgroundColor>
+                        <BackgroundColor>#007bff</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingTop>11pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
@@ -114,6 +116,7 @@
                               <Value>Nombre de institución</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -127,10 +130,10 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>PaleTurquoise</BackgroundColor>
+                        <BackgroundColor>#007bff</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingTop>11pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
@@ -145,9 +148,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Nombre de Iniciativa</Value>
+                              <Value>Nombre de iniciativa</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -161,10 +165,10 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>PaleTurquoise</BackgroundColor>
+                        <BackgroundColor>#007bff</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingTop>11pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
@@ -182,6 +186,7 @@
                               <Value>Medida de mitigación</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -195,10 +200,10 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>PaleTurquoise</BackgroundColor>
+                        <BackgroundColor>#007bff</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingTop>11pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
@@ -216,6 +221,7 @@
                               <Value>Emisiones de GEI reducidas</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -226,9 +232,25 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>(tCO2eq)</Value>
+                              <Value>(tCO</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>2</Value>
+                              <Style>
+                                <FontSize>7pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>eq)</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -242,7 +264,7 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>PaleTurquoise</BackgroundColor>
+                        <BackgroundColor>#007bff</BackgroundColor>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -261,9 +283,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Inversión de Iniciativa</Value>
+                              <Value>Inversión de iniciativa</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -277,10 +300,10 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>PaleTurquoise</BackgroundColor>
+                        <BackgroundColor>#007bff</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingTop>11pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
@@ -298,6 +321,7 @@
                               <Value>Moneda</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -311,10 +335,10 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>PaleTurquoise</BackgroundColor>
+                        <BackgroundColor>#007bff</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingTop>15pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
@@ -387,7 +411,7 @@
                         <BackgroundColor>WhiteSmoke</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingTop>12pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
@@ -421,7 +445,7 @@
                         <BackgroundColor>WhiteSmoke</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingTop>7pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
@@ -442,7 +466,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>NOMBRE_INICIATIVA</rd:DefaultName>
@@ -483,9 +509,9 @@
                           <Style>Solid</Style>
                         </Border>
                         <BackgroundColor>WhiteSmoke</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingLeft>5pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingTop>5pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
@@ -519,7 +545,7 @@
                         <BackgroundColor>WhiteSmoke</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingTop>12pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
@@ -537,7 +563,7 @@
                               <Value>=Fields!INVERSION_INICIATIVA.Value</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
-                                <Format>#,0;(#,0)</Format>
+                                <Format>'S/' #,0.00;('S/' #,0.00)</Format>
                                 <rd:FormatSymbolCulture>es-PE</rd:FormatSymbolCulture>
                               </Style>
                             </TextRun>
@@ -554,11 +580,13 @@
                         </Border>
                         <BackgroundColor>WhiteSmoke</BackgroundColor>
                         <PaddingLeft>1pt</PaddingLeft>
-                        <PaddingRight>1pt</PaddingRight>
-                        <PaddingTop>1pt</PaddingTop>
+                        <PaddingRight>11pt</PaddingRight>
+                        <PaddingTop>12pt</PaddingTop>
                         <PaddingBottom>1pt</PaddingBottom>
+                        <rd:FormatSymbolCulture>es-PE</rd:FormatSymbolCulture>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -589,7 +617,7 @@
                         <BackgroundColor>WhiteSmoke</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingTop>12pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
@@ -623,9 +651,9 @@
         </TablixRowHierarchy>
         <DataSetName>DtIniciativa</DataSetName>
         <Top>7.21994cm</Top>
-        <Left>4.45954cm</Left>
+        <Left>2.16641cm</Left>
         <Height>1.2cm</Height>
-        <Width>19.24141cm</Width>
+        <Width>22.54961cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -639,7 +667,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>REPORTE DE INICIATIVA DE MITIGACIÓN POR SECTOR INSTITUCIÓN Y MEDIDA</Value>
+                <Value>Reporte de iniciativa de mitigación por sector institución y medida</Value>
                 <Style>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -654,43 +682,10 @@
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
         <Top>5.84411cm</Top>
-        <Left>5.72718cm</Left>
+        <Left>4.77468cm</Left>
         <Height>0.78521cm</Height>
         <Width>17.15791cm</Width>
         <ZIndex>1</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox4">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Leyenda</Value>
-                <Style>
-                  <FontSize>11pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>0.17639cm</Top>
-        <Left>2.16641cm</Left>
-        <Height>0.6cm</Height>
-        <Width>2.5cm</Width>
-        <ZIndex>2</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -706,7 +701,7 @@
         <Left>2.16641cm</Left>
         <Height>0cm</Height>
         <Width>2.5cm</Width>
-        <ZIndex>3</ZIndex>
+        <ZIndex>2</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -721,13 +716,45 @@
         <Left>2.77759cm</Left>
         <Height>4.70641cm</Height>
         <Width>22.45499cm</Width>
-        <ZIndex>4</ZIndex>
+        <ZIndex>3</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Image>
+      <Textbox Name="Textbox4">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Leyenda</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox3</rd:DefaultName>
+        <Top>0.04397cm</Top>
+        <Left>2.23414cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.79104cm</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
     <Height>3.77084in</Height>
     <Style>
