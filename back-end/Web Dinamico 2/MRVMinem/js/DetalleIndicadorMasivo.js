@@ -2039,7 +2039,7 @@ function progressHandlingFunction(e) {
 }
 
 function CargarDatosExcel(data) {
-
+    debugger;
     CargarCuerpoGuardado(data.length, 0);
     var total = 0.0;
     for (var i = 0; i < data.length; i++) {
@@ -2069,6 +2069,10 @@ function CargarDatosExcel(data) {
         $("#total-detalle").html("").append((Math.round(total * 100) / 100));
         $("#total-detalle2").html("").append((Math.round(total * 100) / 100));
         $("#cuerpoTablaIndicador").data("total", total);
+
+        // add 17-05-2018
+        debugger;
+        armarAcumulado(entidad, i + 1);
 
     }
     $("#fledeclaracion").next().find("label").empty().html('<i class="fas fa-upload mr-1"></i> Subir plantilla');
@@ -2651,6 +2655,9 @@ function CargarDatosGuardados() {
                             }
                         }
                         //}
+
+                        //add 17-05-2020
+                        armarAcumulado(entidad, i + 1);
                     }
                     $("#total-detalle").html("").append((Math.round(total * 100) / 100));
                     $("#total-detalle2").html("").append((Math.round(total * 100) / 100));
@@ -3002,4 +3009,117 @@ function fn_enviarCalcularAcumulado(item, f) {
             }
         }
     });
+}
+
+function armarAcumulado(entidad, f) {
+
+    var cuerpo = "";
+
+    var item = {
+        lista: entidad
+    };
+
+    $.ajax({
+        url: baseUrl + 'Detalle/CalcularAcumulado',
+        type: 'POST',
+        datatype: 'json',
+        data: item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+
+                    debugger;
+                    var verf = 0;
+                    var anio = 2010;
+                    var acumulado_ini = parseInt(data[0]["anio"]) - anio;
+
+                    var fila = $("#cuerpo-acumulado-total").find("tr");
+                    fila.each(function (index, value) {
+                        debugger;
+                        var id = $(value).attr("id");
+
+                        if (id == "f-" + f) {
+                            verf = 1;
+                        }
+                    });
+
+                    debugger;
+                    if (verf == 0) {
+                        cuerpo += '<tr id="f-' + f + '">';
+
+                        if (acumulado_ini > 0) {
+                            for (var m = 0; m < acumulado_ini; m++) {
+                                cuerpo += '<td class="text-center estrecho" data-encabezado="' + anio + '" id="a-' + anio + '-' + f + '">' + 0.00 + '</td>';
+                                anio += 1;
+                            }
+                        }
+
+                        var valor_acumulado = 0.0;
+                        for (var j = 0; j < data.length; j++) {
+                            valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100;
+                            var acumulado_col = parseFloat($("#acum-" + anio).html()) + valor_acumulado;
+
+                            //if (anio > 2010) {
+                            //    acumulado_col = parseFloat($("#acum-" + (anio-1)).html()) + acumulado_col;
+                            //}
+                            $("#acum-" + anio).html(Math.round(acumulado_col * 100) / 100);
+
+                            cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '" id="a-' + anio + '-' + f + '">' + Math.round(data[j]["reducido"] * 100) / 100 + '</td>';
+                            anio += 1;
+                        }
+                        //cuerpo += '<td class="text-center estrecho" data-encabezado="total">' + Math.round(total * 100) / 100 + '</td>';
+                        anio -= 1;
+                        var acumulado_fin = 2030 - anio;
+
+                        if (acumulado_fin > 0) {
+                            for (var n = 0; n < acumulado_fin; n++) {
+                                anio += 1;
+                                cuerpo += '<td class="text-center estrecho" data-encabezado="' + anio + '" id="a-' + anio + '-' + f + '">' + 0.00 + '</td>';
+                            }
+                        }
+
+                        cuerpo += '</tr>';
+
+                        //$("#cabecera-acumulado").html("").append(cabecera);
+                        $("#cuerpo-acumulado-total").append(cuerpo);
+                    } else {
+                        var valor_acumulado = 0.0;
+                        var valor_descuento = 0.0;
+
+                        if (acumulado_ini > 0) {
+                            for (var m = 0; m < acumulado_ini; m++) {
+                                var valor = parseFloat($("#a-" + anio + '-' + f).html());
+                                valor_descuento += valor;
+                                acumulado_col = parseFloat($("#acum-" + anio).html()) - valor_descuento;
+                                $("#a-" + anio + '-' + f).html(0);
+                                $("#acum-" + anio).html(Math.round(acumulado_col * 100) / 100);
+                                anio += 1;
+                            }
+                        }
+
+                        for (var j = 0; j < data.length; j++) {
+                            var acumulado_col = 0.0;
+                            var valor = parseFloat($("#a-" + anio + '-' + f).html());
+                            valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100;
+
+                            //if (valor > 0) {
+                            valor_descuento += valor;
+                            acumulado_col = parseFloat($("#acum-" + anio).html()) - valor_descuento;
+                            //}
+
+                            acumulado_col = acumulado_col + valor_acumulado;
+                            $("#a-" + anio + '-' + f).html(Math.round(data[j]["reducido"] * 100) / 100);
+
+                            $("#acum-" + anio).html(Math.round(acumulado_col * 100) / 100);
+
+                            //cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '" id="a-' + anio + '-' + f + '">' + Math.round(data[j]["reducido"] * 100) / 100 + '</td>';
+                            anio += 1;
+                        }
+                    }
+                }
+            } else {
+            }
+        }
+    });
+
 }

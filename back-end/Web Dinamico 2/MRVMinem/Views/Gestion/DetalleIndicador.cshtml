@@ -313,6 +313,16 @@
                             <div class="container-fluid py-4">
                                 <div class="h5">Registro de Detalles de Iniciativa de Mitigación&nbsp;<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Complete los campos de acuerdo al enfoque seleccionado"></i></div>
                                 <div class="dropdown-divider"></div>
+
+                                <div class="row">
+                                    <div class="col-xs-12 col sm-12 col-lg-10">
+                                    </div>
+                                    <div class="col-xs-12 col sm-12 col-lg-2">
+                                        <a class="btn btn-purple w-100 mb-2" href="#" data-toggle="modal" data-target="#modal-acumulado-total"><i class="fas fa-eye mr-1"></i>Ver Acumulado</a>
+                                    </div>
+                                </div>
+
+
                                 <div class="row">
                                     <div class="col-12 px-0">
                                         <div id="tbl-main-preload" class="mb-3">@*<i Class="fas fa-spinner fa-spin px-1"></i> Cargando...*@</div>
@@ -712,6 +722,82 @@
                                                         <td class="text-center estrecho" data-encabezado="2030">1,500.00 eq</td>
                                                     </tr>*@
                                                 </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer d-flex justify-content-center">
+                                <button class="btn btn-dark" type="button" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="modal-acumulado-total" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                        <div class="modal-content">
+
+                            <div class="modal-body medidas-modal">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h3 class="text-center">Verificación de acumulados</h3>
+                                        <p class="text-center">Encuentre el total acumulado por período deslizándose hacia el lado derecho</p>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="table-responsive tabla-principal" data-order="tbl-1">
+                                            <table class="table table-hover">
+                                                <thead id="cabecera-acumulado-total">
+                                                    <tr class="bg-primary text-white">
+                                                        <th class="text-center grupo-columna-03"><span>2010&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                                        <th class="text-center grupo-columna-03"><span>2011&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                                        <th class="text-center grupo-columna-03"><span>2012&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                                        <th class="text-center grupo-columna-03"><span>2013&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                                        <th class="text-center grupo-columna-03"><span>2014&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                                        <th class="text-center grupo-columna-03"><span>2015&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                                        <th class="text-center grupo-columna-03"><span>2016&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                                        <th class="text-center grupo-columna-03"><span>2017&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                                        <th class="text-center grupo-columna-03"><span>2018&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                                        <th class="text-center grupo-columna-03"><span>2019&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                                        <th class="text-center grupo-columna-03"><span>2020&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                                        <th class="text-center grupo-columna-03"><span>2021&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                                        <th class="text-center grupo-columna-03"><span>2022&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                                        <th class="text-center grupo-columna-03"><span>2023&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                                        <th class="text-center grupo-columna-03"><span>2024&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                                        <th class="text-center grupo-columna-03"><span>2025&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                                        <th class="text-center grupo-columna-03"><span>2026&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                                        <th class="text-center grupo-columna-03"><span>2027&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                                        <th class="text-center grupo-columna-03"><span>2028&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                                        <th class="text-center grupo-columna-03"><span>2029&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                                        <th class="text-center grupo-columna-03"><span>2030&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="cuerpo-acumulado-total"></tbody>
+                                                <tfoot id="">
+                                                    <tr class="bg-primary text-white">
+                                                        <th class="text-center grupo-columna-01"><span id="acum-2010">0.00</span></th>
+                                                        <th class="text-center grupo-columna-01"><span id="acum-2011">0.00</span></th>
+                                                        <th class="text-center grupo-columna-01"><span id="acum-2012">0.00</span></th>
+                                                        <th class="text-center grupo-columna-01"><span id="acum-2013">0.00</span></th>
+                                                        <th class="text-center grupo-columna-01"><span id="acum-2014">0.00</span></th>
+                                                        <th class="text-center grupo-columna-01"><span id="acum-2015">0.00</span></th>
+                                                        <th class="text-center grupo-columna-01"><span id="acum-2016">0.00</span></th>
+                                                        <th class="text-center grupo-columna-01"><span id="acum-2017">0.00</span></th>
+                                                        <th class="text-center grupo-columna-01"><span id="acum-2018">0.00</span></th>
+                                                        <th class="text-center grupo-columna-01"><span id="acum-2019">0.00</span></th>
+                                                        <th class="text-center grupo-columna-01"><span id="acum-2020">0.00</span></th>
+                                                        <th class="text-center grupo-columna-01"><span id="acum-2021">0.00</span></th>
+                                                        <th class="text-center grupo-columna-01"><span id="acum-2022">0.00</span></th>
+                                                        <th class="text-center grupo-columna-01"><span id="acum-2023">0.00</span></th>
+                                                        <th class="text-center grupo-columna-01"><span id="acum-2024">0.00</span></th>
+                                                        <th class="text-center grupo-columna-01"><span id="acum-2025">0.00</span></th>
+                                                        <th class="text-center grupo-columna-01"><span id="acum-2026">0.00</span></th>
+                                                        <th class="text-center grupo-columna-01"><span id="acum-2027">0.00</span></th>
+                                                        <th class="text-center grupo-columna-01"><span id="acum-2028">0.00</span></th>
+                                                        <th class="text-center grupo-columna-01"><span id="acum-2029">0.00</span></th>
+                                                        <th class="text-center grupo-columna-01"><span id="acum-2030">0.00</span></th>
+                                                    </tr>
+                                                </tfoot>
                                             </table>
                                         </div>
                                     </div>

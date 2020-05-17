@@ -431,5 +431,68 @@ namespace MRVMinem.Controllers
             return listaData;
         }
 
+        public JsonResult CalcularAcumulado(List<IndicadorDataBE> lista)
+        {
+            List<AcumuladoBE> listaA = new List<AcumuladoBE>();
+            listaA = detalleAcumulado(lista);
+
+            var jsonResult = Json(listaA, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public List<AcumuladoBE> detalleAcumulado(List<IndicadorDataBE> listaE)
+        {
+            List<AcumuladoBE> listaA = new List<AcumuladoBE>();
+            try
+            {
+                List<IndicadorDataBE> lista = new List<IndicadorDataBE>();
+                List<IndicadorDataBE> listaPr = new List<IndicadorDataBE>();
+                lista = listaE;
+                int anioP = 0;
+                string reducido = "";
+                foreach (var item in lista)
+                {
+                    if (item.ID_PARAMETRO == 17)
+                        item.VALOR = "0";
+                    else if (item.ID_PARAMETRO == 32)
+                    {
+                        string fecha = item.VALOR;
+                        fecha = fecha.Substring(0, 4);
+                        item.VALOR = fecha + "-01-01";
+                    }
+                    else if (item.ID_PARAMETRO == 6)
+                    {
+                        anioP = Convert.ToInt32(item.VALOR);
+                        item.VALOR = Convert.ToString(anioP + 1);
+                    }
+                    else if (item.ID_PARAMETRO == 11)
+                        reducido = item.VALOR;
+                }
+
+                listaA.Add(new AcumuladoBE { anio = anioP, reducido = reducido });
+                anioP += 1;
+                while (DateTime.Now.Year > anioP)
+                {
+                    listaPr = IndicadorLN.CalculoIndicador(lista);
+                    foreach (var item in listaPr)
+                    {
+                        if (item.ID_PARAMETRO == 6)
+                            item.VALOR = Convert.ToString(anioP + 1);
+                        else if (item.ID_PARAMETRO == 11)
+                            reducido = item.VALOR;
+                    }
+                    listaA.Add(new AcumuladoBE { anio = anioP, reducido = reducido });
+                    anioP += 1;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return listaA;
+        }
+
     }
 }

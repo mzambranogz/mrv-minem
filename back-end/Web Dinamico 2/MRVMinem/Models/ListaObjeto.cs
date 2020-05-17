@@ -22,6 +22,7 @@ namespace MRVMinem.Models
         public int estado_flujo { get; set; }
         public int id_sector { get; set; } //add
         public int id_rol { get; set; } //add
+        public string id_indicadores { get; set; } //add
         public List<MedidaMitigacionBE> listaMedidaMitigacion { get; set; }
         public List<IndicadorBE> listaIndicador { get; set; }
         public List<UbicacionBE> listaUbicacion { get; set; }

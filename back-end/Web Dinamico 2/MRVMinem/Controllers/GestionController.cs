@@ -253,6 +253,8 @@ namespace MRVMinem.Controllers
 
                 modelo.listaIndData = IndicadorLN.ListarDatosTablaDinamica(ida);
 
+                modelo.id_indicadores = capturarIndicadores(modelo.listaIndData); //17-05-2020
+
                 //modelo.listaParametro = ParametroLN.ListarParametro(modelo.iniciativa_mit.ID_MEDMIT);            
                 modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
                 modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
@@ -342,6 +344,8 @@ namespace MRVMinem.Controllers
                 ida.ID_MEDMIT = modelo.iniciativa_mit.ID_MEDMIT;
                 modelo.listaIndData = IndicadorLN.ListarDatosTablaDinamica(ida);
 
+                modelo.id_indicadores = capturarIndicadores(modelo.listaIndData); //17-05-2020
+
                 modelo.id_enfoques = concatenarIdEnfoque(modelo.listaIndData); //add
                 modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
                 modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
@@ -382,6 +386,8 @@ namespace MRVMinem.Controllers
                 ida.ID_MEDMIT = modelo.iniciativa_mit.ID_MEDMIT;
                 modelo.listaIndData = IndicadorLN.ListarDatosTablaDinamica(ida);
 
+                modelo.id_indicadores = capturarIndicadores(modelo.listaIndData); //17-05-2020
+
                 modelo.id_enfoques = concatenarIdEnfoque(modelo.listaIndData); //add
                 modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
                 modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
@@ -419,6 +425,8 @@ namespace MRVMinem.Controllers
                 modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
                 ida.ID_MEDMIT = modelo.iniciativa_mit.ID_MEDMIT;
                 modelo.listaIndData = IndicadorLN.ListarDatosTablaDinamica(ida);
+
+                modelo.id_indicadores = capturarIndicadores(modelo.listaIndData); //17-05-2020
 
                 modelo.id_enfoques = concatenarIdEnfoque(modelo.listaIndData); //add
                 modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
@@ -2194,7 +2202,7 @@ namespace MRVMinem.Controllers
                     listaP.Add(p);
                 }
 
-                //listaP = IndicadorLN.CalculoIndicador(listaP);                
+                listaP = IndicadorLN.CalculoIndicador(listaP);                
                 listaA = detalleAcumulado(listaP);
 
             }
@@ -2202,6 +2210,16 @@ namespace MRVMinem.Controllers
             {
                 Log.Error(ex);
             }
+
+            var jsonResult = Json(listaA, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public JsonResult CalcularAcumuladoC(List<IndicadorDataBE> lista)
+        {
+            List<AcumuladoBE> listaA = new List<AcumuladoBE>();
+            listaA = detalleAcumulado(lista);
 
             var jsonResult = Json(listaA, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
@@ -3367,13 +3385,32 @@ namespace MRVMinem.Controllers
             return listaA;
         }
 
-
         public JsonResult MostrarAcumulado(IniciativaBE entidad)
         {
             List<AcumuladoBE> lista = IniciativaLN.MostrarAcumulado(entidad);
             var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
+        }
+
+        public string capturarIndicadores(List<IndicadorDataBE> lista)
+        {
+            var id_indicadores = "";
+            if (lista != null)
+            {
+                foreach (var item in lista)
+                {
+                    if (item != null)
+                    {
+                        foreach (var it in item.listaInd)
+                        {
+                            id_indicadores += Convert.ToString(it.ID_INDICADOR) + "/";
+                        }
+                        id_indicadores = id_indicadores.Substring(0, id_indicadores.Length - 1);
+                    }                    
+                }                
+            }
+            return id_indicadores;
         }
 
     }    
