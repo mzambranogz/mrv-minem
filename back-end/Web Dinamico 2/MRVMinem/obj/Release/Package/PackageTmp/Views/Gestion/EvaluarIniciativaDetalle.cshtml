@@ -7,7 +7,8 @@
 @Html.HiddenFor(m => m.revision)
 @Html.HiddenFor(m => m.estado_flujo)
 @Html.HiddenFor(m => m.medida.ID_MEDMIT)
-
+@Html.HiddenFor(m => m.id_enfoques);
+@Html.HiddenFor(m => m.id_indicadores);
 @{
     var total_reducido = 0.0;
 }
@@ -36,7 +37,7 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
                             <div class="col-sm-12 col-md-6 col-lg-6">
-                                @*<span data-toggle="modal" data-target="#aprobar-evaluacion"><a class="aprobar-evaluacion" href="#" data-toggle="tooltip" data-placement="top" title="Dar por aprobado esta iniciativa de mitigación"><i class="fas fa-check px-1"></i>Aprobar revisión</a></span>*@
+                                <span data-toggle="modal" data-target="#aprobar-evaluacion"><a class="aprobar-evaluacion" href="#" data-toggle="tooltip" data-placement="top" title="Dar por aprobado esta iniciativa de mitigación"><i class="fas fa-check px-1"></i>Aprobar revisión</a></span>
                                 <span data-toggle="modal" data-target="#observar-evaluacion"><a class="observar-evaluacion" href="#" data-toggle="tooltip" data-placement="top" title="¿Encontró alguna observación? utilice esta opción para solicitar una corrección"><i class="fas fa-eye px-1"></i>Observar revisión</a></span>
                                 <div class="btn-group btn-group-lg w-100">
                                     <a class="btn btn-success dropdown-toggle w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0"><i class="fas fa-download pr-1"></i>Descargar</a>
@@ -308,6 +309,17 @@
                         <div class="container-fluid">
                             @*<div class="h5">Resumen del Detalle de Iniciativa de Mitigación&nbsp;<span class="text-danger font-weight-bold">&nbsp;</span></div>*@
                             <div class="dropdown-divider"></div>
+
+
+                            <div class="row">
+                                <div class="col-xs-12 col sm-12 col-lg-10">
+                                </div>
+                                <div class="col-xs-12 col sm-12 col-lg-2">
+                                    <a class="btn btn-purple w-100 mb-2" href="#" data-toggle="modal" data-target="#modal-acumulado-total"><i class="fas fa-eye mr-1"></i>Ver Acumulado</a>
+                                </div>
+                            </div>
+
+
                             <div class="row">
                                 <div class="col-12 px-0">
                                     <div class="table-responsive tabla-principal tabla-recorrer tabla-detalle-indicadores-1" data-order="tbl-1">
@@ -340,13 +352,14 @@
 
                                                     }
                                                     @*<th class="text-center" scope="col">Más</th>*@
+                                                    <th class="text-center grupo-columna-03"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Verificar acumulado"></i></span><br><small>Ver</small></th>
                                                 </tr>
                                             </thead>
                                             <tbody id="cuerpoTablaIndicador-1" data-row="0" data-total="0" data-delete="">
                                                 @foreach (var itemDatos in itemD.listaInd)
                                                 {
                                                     fila += 1;
-                                                    <tr id="detalles-tr-1" data-ind="0">
+                                                    <tr id="detalles-tr-1" data-ind="@itemDatos.ID_INDICADOR">
                                                         <th class="text-center" data-encabezado="Número" scope="row">@fila</th>
                                                         @foreach (var itemDet in itemDatos.listaInd)
                                                         {
@@ -385,11 +398,23 @@
                                                                 </div>
                                                             </div>
                                                         </td>*@
+
+                                                        <td class="text-center estrecho" data-encabezado="Verificar acumulado"><span data-toggle="modal" data-target="#"><a class="btn btn-purple btn-sm m-0 quitarCampos" href="#" title="Verificar acumulado" onclick="mostrarAcumuladoR(this);"><i class="fas fa-eye"></i></a></span></td>
                                                     </tr>
                                                 }
                                             </tbody>
                                         </table>
                                     </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-12 col sm-12 col-lg-10">
+                                    @*<div class="alert alert-warning" role="alert"><strong>Completar todas las celdas en amarillo</strong></div>*@
+                                </div>
+                                <div class="col-xs-12 col sm-12 col-lg-2">
+                                    @*<a class="btn btn-info w-100 mb-2 agregarCamposPrc" href="javascript:void(0)" onclick="CargarNuevaFila(1);"><i class="fas fa-plus-circle px-1"></i>Añadir fila</a>*@
+                                    <a class="btn btn-success w-100 mb-2" href="~/Gestion/FileDownloadAllDetalle?IdIniciativa=@Model.iniciativa_mit.ID_INICIATIVA"><i class="fas fa-download mr-1"></i>Descargar sustentos</a>
                                 </div>
                             </div>
                         </div>
@@ -589,9 +614,9 @@
                         </div>
                         <div class="col-sm-12 col-md-12 col-lg-6 text-right">
                             <div class="row justify-content-end">
-                                <div class="col-lg-6"></div>
+                                @*<div class="col-lg-6"></div>*@
                                 <div class="col-lg-6"><a class="btn btn-warning px-5 w-100 nav-tab text-center mb-3" href="#" data-toggle="modal" data-target="#observar-evaluacion"><i class="fas fa-eye px-1"></i>Observar</a></div>
-                                @*<div class="col-lg-6"><a class="btn btn-primary px-5 w-100 nav-tab text-center" href="#" data-toggle="modal" data-target="#aprobar-evaluacion">Aprobar<i class="fas fa-check px-1"></i></a></div>*@
+                                <div class="col-lg-6"><a class="btn btn-primary px-5 w-100 nav-tab text-center" href="#" data-toggle="modal" data-target="#aprobar-evaluacion"><i class="fas fa-check px-1"></i>Aprobar</a></div>
                             </div>
                         </div>
                     </div>
@@ -627,7 +652,7 @@
             </div>
 
             <div class="modal fade" id="aprobar-evaluacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-dialog modal modal-dialog-centered" role="document">
                     <div class="modal-content">
                         @*<div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Mensaje de Usuario</h5>
@@ -642,6 +667,7 @@
                                     <h3 class="text-center">¿Está seguro de aprobar la iniciativa de mitigación seleccionada?</h3>
                                     <p class="text-center">Está de acuerdo en aprobar todos los datos vinculados de esta iniciativa de mitigación, como de los detalles de indicadores registrados.</p>
                                 </div>
+
                                 @*<div class="col-sm-12 col-md-12 col-lg-12">
                                     <h3 class="text-center">¿Está seguro de aprobar la inicitiva de mitigación seleccionada? <br></h3>
                                     <p class="text-center">Está de acuerdo en aprobar todos los datos vinculados en de esta iniciativa de mitigación, como de los detalles de indicadores registrados.</p>
@@ -814,6 +840,115 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="modal-acumulado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal modal-dialog-centered" role="document">
+            <div class="modal-content">
+
+                <div class="modal-body medidas-modal">
+                    <div class="row">
+
+                        <div class="col-12">
+                            <h3 class="text-center">Verificación de acumulados</h3>
+                            <p class="text-center">Encuentre el total acumulado por período deslizándose hacia el lado derecho</p>
+                        </div>
+                        <div class="col-12">
+                            <div class="table-responsive tabla-principal" data-order="tbl-1">
+                                <table class="table table-hover">
+                                    <thead id="cabecera-acumulado">
+                                    </thead>
+                                    <tbody id="cuerpo-acumulado"></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button class="btn btn-dark" type="button" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="modal-acumulado-total" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+            <div class="modal-content">
+
+                <div class="modal-body medidas-modal">
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="text-center">Verificación de acumulados</h3>
+                            <p class="text-center">Encuentre el total acumulado por período deslizándose hacia el lado derecho</p>
+                        </div>
+                        <div class="col-12">
+                            <div class="table-responsive tabla-principal" data-order="tbl-1">
+                                <table class="table table-hover">
+                                    <thead id="cabecera-acumulado-total">
+                                        <tr class="bg-primary text-white">
+                                            <th class="text-center grupo-columna-03"><span>2010&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                            <th class="text-center grupo-columna-03"><span>2011&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                            <th class="text-center grupo-columna-03"><span>2012&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                            <th class="text-center grupo-columna-03"><span>2013&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                            <th class="text-center grupo-columna-03"><span>2014&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                            <th class="text-center grupo-columna-03"><span>2015&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                            <th class="text-center grupo-columna-03"><span>2016&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                            <th class="text-center grupo-columna-03"><span>2017&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                            <th class="text-center grupo-columna-03"><span>2018&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                            <th class="text-center grupo-columna-03"><span>2019&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                            <th class="text-center grupo-columna-03"><span>2020&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                            <th class="text-center grupo-columna-03"><span>2021&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                            <th class="text-center grupo-columna-03"><span>2022&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                            <th class="text-center grupo-columna-03"><span>2023&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                            <th class="text-center grupo-columna-03"><span>2024&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                            <th class="text-center grupo-columna-03"><span>2025&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                            <th class="text-center grupo-columna-03"><span>2026&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                            <th class="text-center grupo-columna-03"><span>2027&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                            <th class="text-center grupo-columna-03"><span>2028&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                            <th class="text-center grupo-columna-03"><span>2029&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                            <th class="text-center grupo-columna-03"><span>2030&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="cuerpo-acumulado-total"></tbody>
+                                    <tfoot id="">
+                                        <tr class="bg-primary text-white">
+                                            <th class="text-center grupo-columna-01"><span id="acum-2010">0.00</span></th>
+                                            <th class="text-center grupo-columna-01"><span id="acum-2011">0.00</span></th>
+                                            <th class="text-center grupo-columna-01"><span id="acum-2012">0.00</span></th>
+                                            <th class="text-center grupo-columna-01"><span id="acum-2013">0.00</span></th>
+                                            <th class="text-center grupo-columna-01"><span id="acum-2014">0.00</span></th>
+                                            <th class="text-center grupo-columna-01"><span id="acum-2015">0.00</span></th>
+                                            <th class="text-center grupo-columna-01"><span id="acum-2016">0.00</span></th>
+                                            <th class="text-center grupo-columna-01"><span id="acum-2017">0.00</span></th>
+                                            <th class="text-center grupo-columna-01"><span id="acum-2018">0.00</span></th>
+                                            <th class="text-center grupo-columna-01"><span id="acum-2019">0.00</span></th>
+                                            <th class="text-center grupo-columna-01"><span id="acum-2020">0.00</span></th>
+                                            <th class="text-center grupo-columna-01"><span id="acum-2021">0.00</span></th>
+                                            <th class="text-center grupo-columna-01"><span id="acum-2022">0.00</span></th>
+                                            <th class="text-center grupo-columna-01"><span id="acum-2023">0.00</span></th>
+                                            <th class="text-center grupo-columna-01"><span id="acum-2024">0.00</span></th>
+                                            <th class="text-center grupo-columna-01"><span id="acum-2025">0.00</span></th>
+                                            <th class="text-center grupo-columna-01"><span id="acum-2026">0.00</span></th>
+                                            <th class="text-center grupo-columna-01"><span id="acum-2027">0.00</span></th>
+                                            <th class="text-center grupo-columna-01"><span id="acum-2028">0.00</span></th>
+                                            <th class="text-center grupo-columna-01"><span id="acum-2029">0.00</span></th>
+                                            <th class="text-center grupo-columna-01"><span id="acum-2030">0.00</span></th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button class="btn btn-dark" type="button" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </div>
 
 <script src="~/js/script.js"></script>

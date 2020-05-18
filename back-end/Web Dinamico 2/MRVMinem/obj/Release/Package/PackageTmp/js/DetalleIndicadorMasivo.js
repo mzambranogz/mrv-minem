@@ -1807,16 +1807,28 @@ function CargarDatosCabecera() {
                         //    tr += '     <th class="text-center grupo-columna-'+ columna +'" scope="col"><span>' + data[i]["NOMBRE_PARAMETRO"] + ' tCOeq</span><small>Seleccione este campo para su registro</small></th>';
                         //}else{
 
-                        if (data[i]["LEYENDA_PARAMETRO"] == null || data[i]["LEYENDA_PARAMETRO"] == "") {
-                            tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col" data-placement="top"><span>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span><small>' + data[i]["DESCRIPCION_PARAMETRO"] + '</small></th>';
-                        } else {
-                            tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col" data-toggle="tooltip" data-placement="top" title="' + data[i]["LEYENDA_PARAMETRO"] + '"><span>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span><small>' + data[i]["DESCRIPCION_PARAMETRO"] + '</small></th>';
-                        }
+                        //if (data[i]["LEYENDA_PARAMETRO"] == null || data[i]["LEYENDA_PARAMETRO"] == "") {
+                        //    tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col" data-placement="top"><span>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span><small>' + data[i]["DESCRIPCION_PARAMETRO"] + '</small></th>';
+                        //} else {
+                        //    tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col" data-toggle="tooltip" data-placement="top" title="' + data[i]["LEYENDA_PARAMETRO"] + '"><span>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span><small>' + data[i]["DESCRIPCION_PARAMETRO"] + '</small></th>';
+                        //}
                         //tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col" data-toggle="tooltip" data-placement="top" title="Texto descriptivo de ayuda"><span>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span><small>' + data[i]["DESCRIPCION_PARAMETRO"] + '</small></th>';
-                        //}                        
+                        //} 
+
+                        var tool = "";
+                        if (data[i]["LEYENDA_PARAMETRO"] == null || data[i]["LEYENDA_PARAMETRO"] == "")
+                            tool = "";
+                        else
+                            tool = data[i]["LEYENDA_PARAMETRO"];
+
+                        tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="' + tool + '"></i>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span><small>' + data[i]["DESCRIPCION_PARAMETRO"] + '</small></th>';
+
                     }
                     //tr += '     <th class="text-center" scope="col">Más</th>';
-                    tr += '<th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="top" title="Texto descriptivo de ayuda"><span>SUSTENTO</span><small>Seleccione este campo para su registro</small></th>';
+                    tr += '<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Si desea subir un archivo de más de 4MB, contactar con el administrador"></i>Documentos de sustento</span></th>';
+
+                    tr += '<th class="text-center grupo-columna-03"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Verificar acumulado"></i></span><br><small>Ver</small></th>';
+
                     tr += '</tr>';
                     $("#cabeceraTablaIndicador").append(tr);
                     $("[data-toggle='tooltip']").tooltip();
@@ -1882,7 +1894,7 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                                 } else {
                                     lista++;
                                     tr += '<select class="form-control form-control-sm" id="cbo-det-tbl-1-' + lista + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" disabled>';
-                                    if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74) tr += '        <option value="0">Seleccionar</option>'; //add
+                                    if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77) tr += '        <option value="0">Seleccionar</option>'; //add
                                     //tr += '        <option value="0">Seleccionar</option>';
                                     var listaD = data[j]["listaDetalle"];
                                     for (var m = 0; m < listaD.length; m++) {
@@ -1925,6 +1937,9 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                         tr += '         <input class="d-none" type="file" id="fle-doc-' + (i + 1) + '" name="fledoc" onchange="handleFileSustento(this.files,' + (i + 1) + ',1)">';
                         tr += '        </label><a class="btn btn-success btn-sm m-0" name="fledownload" href="' + urlDw + '" title="Descargar archivo" id="fle-dow-' + (i + 1) + '" target="_blank" style="display: none;"><i class="fas fa-download"></i></a>';
                         tr += '</td>';
+
+                        tr += '<td class="text-center estrecho" data-encabezado="Verificar acumulado"><span data-toggle="modal" data-target="#modal-acumulado"><a class="btn btn-purple btn-sm m-0 quitarCampos" href="#" title="Verificar acumulado" onclick="mostrarAcumulado();"><i class="fas fa-eye"></i></a></span></td>';
+
                         tr += '</tr>';
                         $("#cuerpoTablaIndicador").append(tr);
                     }
@@ -2024,7 +2039,7 @@ function progressHandlingFunction(e) {
 }
 
 function CargarDatosExcel(data) {
-
+    debugger;
     CargarCuerpoGuardado(data.length, 0);
     var total = 0.0;
     for (var i = 0; i < data.length; i++) {
@@ -2054,6 +2069,10 @@ function CargarDatosExcel(data) {
         $("#total-detalle").html("").append((Math.round(total * 100) / 100));
         $("#total-detalle2").html("").append((Math.round(total * 100) / 100));
         $("#cuerpoTablaIndicador").data("total", total);
+
+        // add 17-05-2018
+        debugger;
+        armarAcumulado(entidad, i + 1);
 
     }
     $("#fledeclaracion").next().find("label").empty().html('<i class="fas fa-upload mr-1"></i> Subir plantilla');
@@ -2636,6 +2655,9 @@ function CargarDatosGuardados() {
                             }
                         }
                         //}
+
+                        //add 17-05-2020
+                        armarAcumulado(entidad, i + 1);
                     }
                     $("#total-detalle").html("").append((Math.round(total * 100) / 100));
                     $("#total-detalle2").html("").append((Math.round(total * 100) / 100));
@@ -2909,6 +2931,195 @@ function ValidarRevision(num_validar, id_ini, id_plazo, id_msj, mensaje) {
     return msj;
 }
 
-function fn_calcularValor(e) {
+
+////
+function mostrarAcumulado() {
+    var row = $("#tablaIndicador").data("fila");
+    var valor = 0;
+    //var campos = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + row).find("[data-validar]");
+    //campos.each(function (index, value) {
+    //    console.log(index + " + " + $(value).attr("id") + " + " + $(value).attr("data-validar"));
+
+    //    if ($(value).attr("data-validar") == 0) {
+    //        valor = 1;
+    //    }
+
+    //});
+    //|1,12,14,1
+    if (valor == 0) {
+        //var f = $("#enfoque-" + $("#cbo-enfoque").val()).data("fila");
+        var enfoque = $("#cbo-enfoque").val();
+        var medida = $("#Control").data("mitigacion");
+        //var fila = $("#enfoque-" + $("#cbo-enfoque").val()).find("tbody").find("#detalles-tr-" + $("#enfoque-" + $("#cbo-enfoque").val()).data("fila")).find("[data-param]");
+        var fila = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + row).find("[data-param]");
+        var parametros = "";
+        fila.each(function (index, value) {
+            parametros += enfoque + ",";
+            parametros += medida + ",";
+            parametros += $(value).attr("data-param") + ",";
+            parametros += $("#" + $(value).attr("id")).val() + "|";
+        });
+        parametros = parametros.substring(0, parametros.length - 1);
+
+        var item = {//prueba
+            //Valor: '1,12,6,2018|1,12,2,24/01/2015|1,12,1,1|1,12,3,2|1,12,4,57600|1,12,12,20|1,12,13,0|1,12,9,0|1,12,10,0|1,12,11,0|1,12,14,1'
+            Valor: parametros
+        };
+        fn_enviarCalcularAcumulado(item, row);
+    }
+}
+
+function fn_enviarCalcularAcumulado(item, f) {
+
+    var cabecera = "";
+    var cuerpo = "";
+    $("#cabecera-acumulado").html("");
+    $("#cuerpo-acumulado").html("");
+    $.ajax({
+        url: baseUrl + 'Gestion/CalcularAcumulado',
+        type: 'POST',
+        datatype: 'json',
+        data: item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+
+                    var total = 0.0;
+                    cabecera += '<tr>';
+                    for (var i = 0; i < data.length; i++) {
+                        //debugger;
+                        cabecera += '<th class="text-center grupo-columna-03"><span>' + data[i]["anio"] + '</span></th>';
+                        //var a = data[i]["anio"];
+                    }
+                    cabecera += '<th class="text-center grupo-columna-03"><span>TOTAL ACUMULADO</span></th>';
+                    cabecera += '</tr>';
+
+                    cuerpo += '<tr>';
+                    for (var j = 0; j < data.length; j++) {
+                        total += parseFloat(data[j]["reducido"]);
+                        cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '">' + Math.round(data[j]["reducido"] * 100) / 100 + '</td>';
+                    }
+                    cuerpo += '<td class="text-center estrecho" data-encabezado="total">' + Math.round(total * 100) / 100 + '</td>';
+                    cuerpo += '</tr>';
+
+                    $("#cabecera-acumulado").append(cabecera);
+                    $("#cuerpo-acumulado").append(cuerpo);
+                }
+            } else {
+            }
+        }
+    });
+}
+
+function armarAcumulado(entidad, f) {
+
+    var cuerpo = "";
+
+    var item = {
+        lista: entidad
+    };
+
+    $.ajax({
+        url: baseUrl + 'Detalle/CalcularAcumulado',
+        type: 'POST',
+        datatype: 'json',
+        data: item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+
+                    debugger;
+                    var verf = 0;
+                    var anio = 2010;
+                    var acumulado_ini = parseInt(data[0]["anio"]) - anio;
+
+                    var fila = $("#cuerpo-acumulado-total").find("tr");
+                    fila.each(function (index, value) {
+                        debugger;
+                        var id = $(value).attr("id");
+
+                        if (id == "f-" + f) {
+                            verf = 1;
+                        }
+                    });
+
+                    debugger;
+                    if (verf == 0) {
+                        cuerpo += '<tr id="f-' + f + '">';
+
+                        if (acumulado_ini > 0) {
+                            for (var m = 0; m < acumulado_ini; m++) {
+                                cuerpo += '<td class="text-center estrecho" data-encabezado="' + anio + '" id="a-' + anio + '-' + f + '">' + 0.00 + '</td>';
+                                anio += 1;
+                            }
+                        }
+
+                        var valor_acumulado = 0.0;
+                        for (var j = 0; j < data.length; j++) {
+                            valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100;
+                            var acumulado_col = parseFloat($("#acum-" + anio).html()) + valor_acumulado;
+
+                            //if (anio > 2010) {
+                            //    acumulado_col = parseFloat($("#acum-" + (anio-1)).html()) + acumulado_col;
+                            //}
+                            $("#acum-" + anio).html(Math.round(acumulado_col * 100) / 100);
+
+                            cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '" id="a-' + anio + '-' + f + '">' + Math.round(data[j]["reducido"] * 100) / 100 + '</td>';
+                            anio += 1;
+                        }
+                        //cuerpo += '<td class="text-center estrecho" data-encabezado="total">' + Math.round(total * 100) / 100 + '</td>';
+                        anio -= 1;
+                        var acumulado_fin = 2030 - anio;
+
+                        if (acumulado_fin > 0) {
+                            for (var n = 0; n < acumulado_fin; n++) {
+                                anio += 1;
+                                cuerpo += '<td class="text-center estrecho" data-encabezado="' + anio + '" id="a-' + anio + '-' + f + '">' + 0.00 + '</td>';
+                            }
+                        }
+
+                        cuerpo += '</tr>';
+
+                        //$("#cabecera-acumulado").html("").append(cabecera);
+                        $("#cuerpo-acumulado-total").append(cuerpo);
+                    } else {
+                        var valor_acumulado = 0.0;
+                        var valor_descuento = 0.0;
+
+                        if (acumulado_ini > 0) {
+                            for (var m = 0; m < acumulado_ini; m++) {
+                                var valor = parseFloat($("#a-" + anio + '-' + f).html());
+                                valor_descuento += valor;
+                                acumulado_col = parseFloat($("#acum-" + anio).html()) - valor_descuento;
+                                $("#a-" + anio + '-' + f).html(0);
+                                $("#acum-" + anio).html(Math.round(acumulado_col * 100) / 100);
+                                anio += 1;
+                            }
+                        }
+
+                        for (var j = 0; j < data.length; j++) {
+                            var acumulado_col = 0.0;
+                            var valor = parseFloat($("#a-" + anio + '-' + f).html());
+                            valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100;
+
+                            //if (valor > 0) {
+                            valor_descuento += valor;
+                            acumulado_col = parseFloat($("#acum-" + anio).html()) - valor_descuento;
+                            //}
+
+                            acumulado_col = acumulado_col + valor_acumulado;
+                            $("#a-" + anio + '-' + f).html(Math.round(data[j]["reducido"] * 100) / 100);
+
+                            $("#acum-" + anio).html(Math.round(acumulado_col * 100) / 100);
+
+                            //cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '" id="a-' + anio + '-' + f + '">' + Math.round(data[j]["reducido"] * 100) / 100 + '</td>';
+                            anio += 1;
+                        }
+                    }
+                }
+            } else {
+            }
+        }
+    });
 
 }

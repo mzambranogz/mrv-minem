@@ -1771,3 +1771,6 @@ C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\obj\Debug\MRVMinem.
 D:\DGEE\mrv-minem\back-end\Web Dinamico 2\MRVMinem\bin\DotNetZip.dll
 D:\DGEE\mrv-minem\back-end\Web Dinamico 2\MRVMinem\bin\DotNetZip.pdb
 D:\DGEE\mrv-minem\back-end\Web Dinamico 2\MRVMinem\bin\DotNetZip.xml
+C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\bin\DotNetZip.dll
+C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\bin\DotNetZip.pdb
+C:\Users\Pc\Desktop\git-res\back-end\Web Dinamico 2\MRVMinem\bin\DotNetZip.xml

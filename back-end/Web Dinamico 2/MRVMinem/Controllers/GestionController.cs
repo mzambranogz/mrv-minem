@@ -3233,7 +3233,7 @@ namespace MRVMinem.Controllers
         {
             ResponseEntity itemRespuesta = new ResponseEntity();
             string rutaCarpeta = WebConfigurationManager.AppSettings["Sustentatorio"];
-
+            int num = 0;
             List<IndicadorArchivoBE> listaArchivo = IndicadorArchivoLN.GetAllArchivoDetalleIndicador(new IndicadorArchivoBE() { ID_INICIATIVA = IdIniciativa, ID_INDICADOR = 0 });
 
             if (listaArchivo != null)
@@ -3242,10 +3242,11 @@ namespace MRVMinem.Controllers
                 {
                     foreach (IndicadorArchivoBE item in listaArchivo)
                     {
+                        num += 1;
                         if (System.IO.File.Exists(rutaCarpeta + "\\" + item.ADJUNTO))
                         {
                             var archivoNombre = rutaCarpeta + "\\" + item.ADJUNTO;
-                            var archivoNombreZip = item.ADJUNTO_BASE;
+                            var archivoNombreZip = num + "_" + item.ADJUNTO_BASE;
                             var arregloBytes = System.IO.File.ReadAllBytes(archivoNombre);
 
                             zip.AddEntry(archivoNombreZip, arregloBytes);

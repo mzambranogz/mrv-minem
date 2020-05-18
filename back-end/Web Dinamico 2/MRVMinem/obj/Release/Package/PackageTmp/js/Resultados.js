@@ -129,8 +129,8 @@ function drawPieChart(data) {
     //]);
     var options = {
         'title': 'Porcentaje de reducción de tCO2eq por Sector',
-        'width': 400,
-        'height': 300
+        'width': 540,
+        'height': 540
     };
     var chart = new google.visualization.PieChart(document.getElementById('pie-chart'));
     chart.draw(data, options);
@@ -173,8 +173,8 @@ function drawBarChart(data) {
         vAxis: {
             title: 'Cantidad de tCO2eq reducido'
         },
-        'width': 500,
-        'height': 300
+        'width': 540,
+        'height': 540
     };
 
     var chart = new google.visualization.ColumnChart(document.getElementById('bar-chart'));
@@ -202,8 +202,8 @@ function drawColumnChart(data) {
         vAxis: {
             title: 'Sector'
         },
-        'width': 500,
-        'height': 300
+        'width': 540,
+        'height': 540
     };
 
     var chart = new google.visualization.BarChart(document.getElementById('column-chart'));

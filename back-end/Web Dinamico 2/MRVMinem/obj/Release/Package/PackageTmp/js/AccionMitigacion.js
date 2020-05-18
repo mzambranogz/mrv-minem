@@ -355,6 +355,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
             FECHA_FIN_INICIATIVA: $("#txt-fecha-fin").val(),
             NOMBRE_INICIATIVA: $("#txa-descripcion-iniciativa").val(),
             energ_b: $("#cbo-energetico-proyecto").val(),
+            hash: $("#txa-bloackchain").val(), //add
             cantidad_registros: $("#cantidad-registros").val(),
             pagina: $("#pagina").val(),
             order_by: $("#columna").val(),
@@ -448,48 +449,85 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                             tr = tr + '<td data-encabezado="Total reducido" class="text-center convertir"><span>' + Math.round(data[i]["TOTAL_GEI"] * 100) / 100 + '</span>&nbsp;<small>tCO2eq<small></td>';
                         }
                         //tr = tr + '<td data-encabezado="Total reducido" class="text-center convertir"><span>' + Math.round(data[i]["TOTAL_GEI"] * 100) / 100 + '</span>&nbsp;<small>tCO2eq<small></td>';
-                        if ($('#Control').data('rol') == 2) {
-                            if (p == 1 || p == 3 || p == 4 || p == 6 || p == 7 || p == 9 || p == 10 || p == 12 || p == 2 || p == 5 || p == 8 || p == 11) {
-                                tr = tr + '<td class="text-center" data-encabezado="Estado">';
-                                if (data[i]["DIAS_RESTANTES"] > 5) {
-                                    tr = tr + '<i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>';
-                                } else if (data[i]["DIAS_RESTANTES"] > 2) {
-                                    tr = tr + '<i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>';
-                                } else if (data[i]["DIAS_RESTANTES"] > 1) {
-                                    tr = tr + '<i class="fas fa-flag text-warning" data-toggle="tooltip" data-placement="top" title="Su plazo de atención vence en 2 días"></i>';
-                                } else {
-                                    tr = tr + '<i class="fas fa-flag text-danger" data-toggle="tooltip" data-placement="top" title="Su plazo está por vencer hoy o ya venció"></i>';
-                                }
-                                tr = tr + '&nbsp;' + data[i]["ESTADO_BANDEJA"] + '</td>';
-                            } else {
-                                tr = tr + '<td class="text-center" data-encabezado="Estado">' + data[i]["ESTADO_BANDEJA"] + '</td>';
-                            }
-                        } else if ($('#Control').data('rol') == 3) {
-                            tr = tr + '<td class="text-center" data-encabezado="Estado">';
-                            if (data[i]["DIAS_RESTANTES"] > 5) {
-                                tr = tr + '<i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>';
-                            } else if (data[i]["DIAS_RESTANTES"] > 2) {
-                                tr = tr + '<i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>';
-                            } else if (data[i]["DIAS_RESTANTES"] > 1) {
-                                tr = tr + '<i class="fas fa-flag text-warning" data-toggle="tooltip" data-placement="top" title="Su plazo de atención vence en 2 días"></i>';
-                            } else {
-                                tr = tr + '<i class="fas fa-flag text-danger" data-toggle="tooltip" data-placement="top" title="Su plazo está por vencer hoy o ya venció"></i>';
-                            }
-                            tr = tr + '&nbsp;' + data[i]["ESTADO_BANDEJA"] + '</td>';
-                        } else {
-                            tr = tr + '<td class="text-center" data-encabezado="Estado">' + data[i]["ESTADO_BANDEJA"] + '</td>';
-                        }
+
+
+                        //if ($('#Control').data('rol') == 2) {
+                        //    if (p == 1 || p == 3 || p == 4 || p == 6 || p == 7 || p == 9 || p == 10 || p == 12 || p == 2 || p == 5 || p == 8 || p == 11) {
+                        //        tr = tr + '<td class="text-center" data-encabezado="Estado">';
+                        //        if (data[i]["DIAS_RESTANTES"] > 5) {
+                        //            tr = tr + '<i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>';
+                        //        } else if (data[i]["DIAS_RESTANTES"] > 2) {
+                        //            tr = tr + '<i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>';
+                        //        } else if (data[i]["DIAS_RESTANTES"] > 1) {
+                        //            tr = tr + '<i class="fas fa-flag text-warning" data-toggle="tooltip" data-placement="top" title="Su plazo de atención vence en 2 días"></i>';
+                        //        } else {
+                        //            tr = tr + '<i class="fas fa-flag text-danger" data-toggle="tooltip" data-placement="top" title="Su plazo está por vencer hoy o ya venció"></i>';
+                        //        }
+                        //        tr = tr + '&nbsp;' + data[i]["ESTADO_BANDEJA"] + '</td>';
+                        //    } else {
+                        //        tr = tr + '<td class="text-center" data-encabezado="Estado">' + data[i]["ESTADO_BANDEJA"] + '</td>';
+                        //    }
+                        //} else if ($('#Control').data('rol') == 3) {
+                        //    tr = tr + '<td class="text-center" data-encabezado="Estado">';
+                        //    if (data[i]["DIAS_RESTANTES"] > 5) {
+                        //        tr = tr + '<i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>';
+                        //    } else if (data[i]["DIAS_RESTANTES"] > 2) {
+                        //        tr = tr + '<i class="fas fa-flag text-success" data-toggle="tooltip" data-placement="top" title="Está dentro de los plazos de atención"></i>';
+                        //    } else if (data[i]["DIAS_RESTANTES"] > 1) {
+                        //        tr = tr + '<i class="fas fa-flag text-warning" data-toggle="tooltip" data-placement="top" title="Su plazo de atención vence en 2 días"></i>';
+                        //    } else {
+                        //        tr = tr + '<i class="fas fa-flag text-danger" data-toggle="tooltip" data-placement="top" title="Su plazo está por vencer hoy o ya venció"></i>';
+                        //    }
+                        //    tr = tr + '&nbsp;' + data[i]["ESTADO_BANDEJA"] + '</td>';
+                        //} else {
+                        //    tr = tr + '<td class="text-center" data-encabezado="Estado">' + data[i]["ESTADO_BANDEJA"] + '</td>';
+                        //}
                         
+                        tr = tr + '<td class="text-center" data-encabezado="Estado">' + data[i]["ESTADO_BANDEJA"] + '</td>';
+
                         tr = tr + '<td class="text-center text-xs-right" data-encabezado="Acciones">';
 
                         tr = tr + '     <div class="btn-group">';
                         //if (data[i]["ID_ESTADO"] == 2 && data[i]["PROGRESO"] == 1) {
                         //  tr = tr + '         <div class="acciones fase-01 dropdown-toggle text-warning" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
-                        if (data[i]["PROGRESO"] == 2 || data[i]["PROGRESO"] == 3 || data[i]["PROGRESO"] == 4 || data[i]["PROGRESO"] == 5 || data[i]["PROGRESO"] == 6 || data[i]["PROGRESO"] == 7 || data[i]["PROGRESO"] == 8) {
-                            tr = tr + '         <div class="acciones fase-02 dropdown-toggle text-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
+
+                        if (p == 16 || p == 18){
+                            tr = tr + '<div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
                         } else {
-                            tr = tr + '         <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
+                            if ($('#Control').data('rol') == 2 || $('#Control').data('rol') == 3) {
+                                if (data[i]["DIAS_RESTANTES"] > 2) {
+                                    tr = tr + '<div class="acciones bg-success text-white dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
+                                } else if (data[i]["DIAS_RESTANTES"] > 1) {
+                                    tr = tr + '<div class="acciones bg-warning text-white dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
+                                } else {
+                                    tr = tr + '<div class="acciones bg-danger text-white dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
+                                }
+                            } else if ($('#Control').data('rol') == 1) {
+                                if ($("#estadoIniciativa").data("estado") == 1) {
+                                    if (data[i]["DIAS_RESTANTES"] > 2) {
+                                        tr = tr + '<div class="acciones bg-success text-white dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
+                                    } else if (data[i]["DIAS_RESTANTES"] > 1) {
+                                        tr = tr + '<div class="acciones bg-warning text-white dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
+                                    } else {
+                                        tr = tr + '<div class="acciones bg-danger text-white dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
+                                    }
+                                } else {
+                                    tr = tr + '<div class="acciones bg-white text-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
+                                }
+                            } else {
+                                tr = tr + '<div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
+                            }
                         }
+                        
+                        
+
+                        //if (data[i]["PROGRESO"] == 2 || data[i]["PROGRESO"] == 3 || data[i]["PROGRESO"] == 4 || data[i]["PROGRESO"] == 5 || data[i]["PROGRESO"] == 6 || data[i]["PROGRESO"] == 7 || data[i]["PROGRESO"] == 8) {
+                        //    tr = tr + '         <div class="acciones fase-02 dropdown-toggle text-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
+                        //} else {
+                        //    tr = tr + '         <div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
+                        //}
+
+
                         tr = tr + '         <div class="dropdown-menu dropdown-menu-right">';
                         if (data[i]["PROGRESO"] == 1 || data[i]["PROGRESO"] == 2) {
                             tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_verMasPrivadoIniciativaG(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-plus-circle"></i>&nbsp;Ver detalles</a>';
@@ -498,8 +536,11 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                         }
                         tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_mostrarSeguimiento(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-history"></i>&nbsp;Seguimiento</a>';
                         //add 01-05-2020
+                        //////////==================OBSERVACIONES ========================================
                         //tr = tr + '             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-observaciones"><i class="fas fa-envelope"></i>&nbsp;Observaciones</a>';
-                        tr = tr + '             <a class="dropdown-item" href="javascript:void(0);" onclick="mostrarObservacion(' + data[i]["ID_INICIATIVA"] + ')"><i class="fas fa-envelope"></i>&nbsp;Observaciones</a>';
+                        tr = tr + '             <a class="dropdown-item" href="javascript:void(0);" onclick="mostrarObservacion(' + data[i]["ID_INICIATIVA"] + ')"><i class="fas fas fa-comments"></i>&nbsp;Observaciones</a>';
+
+
                         if ($('#Control').data('rol') == 2 || $('#Control').data('rol') == 1) {
                             if (data[i]["PROGRESO"] == 1 && data[i]["ID_ESTADO"] == 0 && $('#Control').data('rol') == 1) {
                                 tr = tr + '             <a class="dropdown-item" href="#" onclick="fn_mostrarEditarIniciativa(' + data[i]["ID_INICIATIVA"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
@@ -2144,9 +2185,31 @@ function fn_mostrarBlockchain(idBlock) {
         var urlMostrar = baseUrl + "Temp/" + respuesta.extra;
         window.open(urlMostrar, "_blank");
     }
+
+    //$.ajax({
+    //    type: "POST",
+    //    url: url,
+    //    contentType: "application/json; charset=utf-8",
+    //    dataType: "json",
+    //    async: false,
+    //    data: JSON.stringify(item),
+    //    success: function (response) {
+    //        var urlMostrar = baseUrl + "Temp/" + response.extra;
+    //        window.open(urlMostrar, "_blank");
+    //    },
+    //    failure: function (msg) {
+    //        alert(msg);
+    //        rsp = msg;
+    //    },
+    //    error: function (xhr, status, error) {
+    //        alert(error);
+    //        rsp = error;
+    //    }
+    //});
 }
 
 function fn_descargarCertificado(idBlock) {
+    debugger;
     var item = {
         ID_BLOCKCHAIN: idBlock
     };
@@ -2158,6 +2221,29 @@ function fn_descargarCertificado(idBlock) {
         window.open(urlMostrar, "_blank");
         $("#block-" + idBlock).data("block", 1);
     }
+
+
+    //$.ajax({
+    //    type: "POST",
+    //    url: url,
+    //    contentType: "application/json; charset=utf-8",
+    //    dataType: "json",
+    //    async: false,
+    //    data: JSON.stringify(item),
+    //    success: function (response) {
+    //        var urlMostrar = baseUrl + "Temp/" + response.extra;
+    //        window.open(urlMostrar, "_blank");
+    //        $("#block-" + idBlock).data("block", 1);
+    //    },
+    //    failure: function (msg) {
+    //        alert(msg);
+    //        rsp = msg;
+    //    },
+    //    error: function (xhr, status, error) {
+    //        alert(error);
+    //        rsp = error;
+    //    }
+    //});
 }
 
 //======================

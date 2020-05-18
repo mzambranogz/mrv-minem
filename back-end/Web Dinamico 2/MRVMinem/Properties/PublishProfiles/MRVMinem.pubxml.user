@@ -30,7 +30,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>04/01/2020 08:34:26</publishTime>
     </File>
     <File Include="bin/datos.minem.gob.pe.dll">
-      <publishTime>05/12/2020 16:33:22</publishTime>
+      <publishTime>05/18/2020 11:57:46</publishTime>
     </File>
     <File Include="bin/de/Microsoft.SqlServer.Types.resources.dll">
       <publishTime>02/21/2014 05:26:06</publishTime>
@@ -63,7 +63,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>04/01/2020 08:34:23</publishTime>
     </File>
     <File Include="bin/Documentos/1.2 Plantilla_Eficiencia_energetica_ industrial_caldera.xlsx">
-      <publishTime>04/01/2020 08:34:23</publishTime>
+      <publishTime>05/12/2020 23:10:17</publishTime>
     </File>
     <File Include="bin/Documentos/1.2 Plantilla_Eficiencia_energetica_en_el_sector_industrial_Motor.xlsx">
       <publishTime>02/27/2020 14:25:54</publishTime>
@@ -72,19 +72,19 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>04/01/2020 08:34:23</publishTime>
     </File>
     <File Include="bin/Documentos/1.3 Plantilla_Eficiencia_energetica_comercial.xlsx">
-      <publishTime>04/01/2020 08:34:23</publishTime>
+      <publishTime>05/12/2020 23:10:15</publishTime>
     </File>
     <File Include="bin/Documentos/1.4 Plantilla_Auditoria_energetica.xlsx">
-      <publishTime>04/26/2020 09:13:05</publishTime>
+      <publishTime>05/12/2020 23:10:13</publishTime>
     </File>
     <File Include="bin/Documentos/1.5 Plantilla_Iluminacion_residencial.xlsx">
       <publishTime>04/01/2020 08:34:23</publishTime>
     </File>
     <File Include="bin/Documentos/1.6 Plantilla_Reemplazo_de_lamparas_de_sector_publico.xlsx">
-      <publishTime>04/01/2020 08:34:23</publishTime>
+      <publishTime>05/12/2020 23:10:19</publishTime>
     </File>
     <File Include="bin/Documentos/1.7 Plantilla_Lamparas_de_alumbrado_publico.xlsx">
-      <publishTime>05/11/2020 12:22:53</publishTime>
+      <publishTime>05/12/2020 23:10:21</publishTime>
     </File>
     <File Include="bin/Documentos/2.1 Plantilla Coccion limpia_vales_fise.xlsx">
       <publishTime>04/01/2020 08:34:23</publishTime>
@@ -156,16 +156,16 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>04/25/2020 03:26:30</publishTime>
     </File>
     <File Include="bin/Documentos/Exportar/1.2.EESI_caldera_exp.xlsx">
-      <publishTime>04/25/2020 01:12:11</publishTime>
+      <publishTime>05/12/2020 16:52:28</publishTime>
     </File>
     <File Include="bin/Documentos/Exportar/1.2.EESI_motores_exp.xlsx">
       <publishTime>04/18/2020 03:33:45</publishTime>
     </File>
     <File Include="bin/Documentos/Exportar/1.3.EESC_exp.xlsx">
-      <publishTime>04/24/2020 23:43:11</publishTime>
+      <publishTime>05/12/2020 17:18:29</publishTime>
     </File>
     <File Include="bin/Documentos/Exportar/1.4.AESP_exp.xlsx">
-      <publishTime>04/01/2020 08:34:23</publishTime>
+      <publishTime>05/12/2020 17:31:01</publishTime>
     </File>
     <File Include="bin/Documentos/Exportar/1.5.ISR_exp.xlsx">
       <publishTime>04/24/2020 23:27:45</publishTime>
@@ -174,7 +174,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>04/01/2020 08:34:23</publishTime>
     </File>
     <File Include="bin/Documentos/Exportar/1.7.LAP_exp.xlsx">
-      <publishTime>04/24/2020 23:06:15</publishTime>
+      <publishTime>05/12/2020 17:18:47</publishTime>
     </File>
     <File Include="bin/Documentos/Exportar/2.1.CL_glp_exp.xlsx">
       <publishTime>04/25/2020 15:36:10</publishTime>
@@ -186,10 +186,10 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>04/24/2020 16:24:38</publishTime>
     </File>
     <File Include="bin/Documentos/Exportar/3.1.RERC_exp.xlsx">
-      <publishTime>04/01/2020 08:34:23</publishTime>
+      <publishTime>05/12/2020 22:42:39</publishTime>
     </File>
     <File Include="bin/Documentos/Exportar/3.2.GD_exp.xlsx">
-      <publishTime>04/01/2020 08:34:23</publishTime>
+      <publishTime>05/12/2020 22:40:50</publishTime>
     </File>
     <File Include="bin/Documentos/Exportar/4.1.PVE_vehiculos_electricos_consumo_exp.xlsx">
       <publishTime>05/10/2020 16:08:10</publishTime>
@@ -209,8 +209,11 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <File Include="bin/Documentos/modelo-declaracion-jurada.pdf">
       <publishTime>04/01/2020 08:34:23</publishTime>
     </File>
+    <File Include="bin/DotNetZip.dll">
+      <publishTime>05/18/2020 09:47:13</publishTime>
+    </File>
     <File Include="bin/entidad.minem.gob.pe.dll">
-      <publishTime>05/04/2020 15:41:15</publishTime>
+      <publishTime>05/18/2020 11:57:46</publishTime>
     </File>
     <File Include="bin/EPPlus.dll">
       <publishTime>04/01/2020 08:34:24</publishTime>
@@ -297,7 +300,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>04/01/2020 08:34:23</publishTime>
     </File>
     <File Include="bin/logica.minem.gob.pe.dll">
-      <publishTime>05/12/2020 16:33:22</publishTime>
+      <publishTime>05/18/2020 11:57:46</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>04/01/2020 08:34:26</publishTime>
@@ -312,7 +315,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>04/01/2020 08:34:26</publishTime>
     </File>
     <File Include="bin/MRVMinem.dll">
-      <publishTime>05/12/2020 16:33:25</publishTime>
+      <publishTime>05/18/2020 11:57:51</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>04/01/2020 08:34:26</publishTime>
@@ -405,7 +408,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>02/21/2014 05:28:10</publishTime>
     </File>
     <File Include="css/style.css">
-      <publishTime>05/04/2020 13:08:57</publishTime>
+      <publishTime>05/15/2020 19:43:40</publishTime>
     </File>
     <File Include="Documentos/1.1 Plantilla_Etiquetado_de_eficiencia_ Aire acondicionado.xlsx">
       <publishTime>04/01/2020 08:34:23</publishTime>
@@ -435,7 +438,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>04/01/2020 08:34:23</publishTime>
     </File>
     <File Include="Documentos/1.2 Plantilla_Eficiencia_energetica_ industrial_caldera.xlsx">
-      <publishTime>04/01/2020 08:34:23</publishTime>
+      <publishTime>05/12/2020 23:10:17</publishTime>
     </File>
     <File Include="Documentos/1.2 Plantilla_Eficiencia_energetica_en_el_sector_industrial_Motor.xlsx">
       <publishTime>02/27/2020 14:25:54</publishTime>
@@ -444,19 +447,19 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>04/01/2020 08:34:23</publishTime>
     </File>
     <File Include="Documentos/1.3 Plantilla_Eficiencia_energetica_comercial.xlsx">
-      <publishTime>04/01/2020 08:34:23</publishTime>
+      <publishTime>05/12/2020 23:10:15</publishTime>
     </File>
     <File Include="Documentos/1.4 Plantilla_Auditoria_energetica.xlsx">
-      <publishTime>04/26/2020 09:13:05</publishTime>
+      <publishTime>05/12/2020 23:10:13</publishTime>
     </File>
     <File Include="Documentos/1.5 Plantilla_Iluminacion_residencial.xlsx">
       <publishTime>04/01/2020 08:34:23</publishTime>
     </File>
     <File Include="Documentos/1.6 Plantilla_Reemplazo_de_lamparas_de_sector_publico.xlsx">
-      <publishTime>04/01/2020 08:34:23</publishTime>
+      <publishTime>05/12/2020 23:10:19</publishTime>
     </File>
     <File Include="Documentos/1.7 Plantilla_Lamparas_de_alumbrado_publico.xlsx">
-      <publishTime>05/11/2020 12:22:53</publishTime>
+      <publishTime>05/12/2020 23:10:21</publishTime>
     </File>
     <File Include="Documentos/2.1 Plantilla Coccion limpia_vales_fise.xlsx">
       <publishTime>04/01/2020 08:34:23</publishTime>
@@ -528,16 +531,16 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>04/25/2020 03:26:30</publishTime>
     </File>
     <File Include="Documentos/Exportar/1.2.EESI_caldera_exp.xlsx">
-      <publishTime>04/25/2020 01:12:11</publishTime>
+      <publishTime>05/12/2020 16:52:28</publishTime>
     </File>
     <File Include="Documentos/Exportar/1.2.EESI_motores_exp.xlsx">
       <publishTime>04/18/2020 03:33:45</publishTime>
     </File>
     <File Include="Documentos/Exportar/1.3.EESC_exp.xlsx">
-      <publishTime>04/24/2020 23:43:11</publishTime>
+      <publishTime>05/12/2020 17:18:29</publishTime>
     </File>
     <File Include="Documentos/Exportar/1.4.AESP_exp.xlsx">
-      <publishTime>04/01/2020 08:34:23</publishTime>
+      <publishTime>05/12/2020 17:31:01</publishTime>
     </File>
     <File Include="Documentos/Exportar/1.5.ISR_exp.xlsx">
       <publishTime>04/24/2020 23:27:45</publishTime>
@@ -546,7 +549,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>04/01/2020 08:34:23</publishTime>
     </File>
     <File Include="Documentos/Exportar/1.7.LAP_exp.xlsx">
-      <publishTime>04/24/2020 23:06:15</publishTime>
+      <publishTime>05/12/2020 17:18:47</publishTime>
     </File>
     <File Include="Documentos/Exportar/2.1.CL_glp_exp.xlsx">
       <publishTime>04/25/2020 15:36:10</publishTime>
@@ -558,10 +561,10 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>04/24/2020 16:24:38</publishTime>
     </File>
     <File Include="Documentos/Exportar/3.1.RERC_exp.xlsx">
-      <publishTime>04/01/2020 08:34:23</publishTime>
+      <publishTime>05/12/2020 22:42:39</publishTime>
     </File>
     <File Include="Documentos/Exportar/3.2.GD_exp.xlsx">
-      <publishTime>04/01/2020 08:34:23</publishTime>
+      <publishTime>05/12/2020 22:40:50</publishTime>
     </File>
     <File Include="Documentos/Exportar/4.1.PVE_vehiculos_electricos_consumo_exp.xlsx">
       <publishTime>05/10/2020 16:08:10</publishTime>
@@ -655,6 +658,9 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     </File>
     <File Include="images/bg-acciones-resultados.jpg">
       <publishTime>04/01/2020 08:34:24</publishTime>
+    </File>
+    <File Include="images/bg-ingreso.jpg">
+      <publishTime>05/14/2020 02:25:05</publishTime>
     </File>
     <File Include="images/bg-registro.jpg">
       <publishTime>04/01/2020 08:34:24</publishTime>
@@ -843,13 +849,13 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>04/01/2020 08:34:24</publishTime>
     </File>
     <File Include="images/sello_new.svg">
-      <publishTime>04/01/2020 08:34:24</publishTime>
+      <publishTime>05/15/2020 21:59:08</publishTime>
     </File>
     <File Include="images/_fonfo_footer.png">
       <publishTime>04/01/2020 08:34:24</publishTime>
     </File>
     <File Include="js/AccionMitigacion.js">
-      <publishTime>05/06/2020 15:35:09</publishTime>
+      <publishTime>05/18/2020 11:31:41</publishTime>
     </File>
     <File Include="js/CambiarClave.js">
       <publishTime>04/24/2020 12:49:22</publishTime>
@@ -858,10 +864,10 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>04/01/2020 08:34:24</publishTime>
     </File>
     <File Include="js/DetalleIndicador.js">
-      <publishTime>05/12/2020 16:38:07</publishTime>
+      <publishTime>05/18/2020 11:55:45</publishTime>
     </File>
     <File Include="js/DetalleIndicadorMasivo.js">
-      <publishTime>05/12/2020 16:37:35</publishTime>
+      <publishTime>05/17/2020 15:35:16</publishTime>
     </File>
     <File Include="js/IniciativaMitigacion.js">
       <publishTime>05/06/2020 15:07:48</publishTime>
@@ -939,7 +945,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="js/MRV.js">
-      <publishTime>04/01/2020 08:34:24</publishTime>
+      <publishTime>05/15/2020 02:22:45</publishTime>
     </File>
     <File Include="js/Notificacion.js">
       <publishTime>04/01/2020 08:34:24</publishTime>
@@ -954,13 +960,13 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>04/24/2020 12:16:22</publishTime>
     </File>
     <File Include="js/RegistroUsuario.js">
-      <publishTime>05/04/2020 15:18:13</publishTime>
+      <publishTime>05/13/2020 12:44:11</publishTime>
     </File>
     <File Include="js/Resultados.js">
-      <publishTime>05/01/2020 18:24:46</publishTime>
+      <publishTime>05/17/2020 17:01:24</publishTime>
     </File>
     <File Include="js/script.js">
-      <publishTime>04/01/2020 08:34:29</publishTime>
+      <publishTime>05/14/2020 02:25:05</publishTime>
     </File>
     <File Include="js/Seguimiento.js">
       <publishTime>04/26/2020 21:32:02</publishTime>
@@ -993,7 +999,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/04/2020 08:34:23</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>04/01/2020 08:34:25</publishTime>
+      <publishTime>05/18/2020 09:47:13</publishTime>
     </File>
     <File Include="Reportes/BlockChain.xml">
       <publishTime>04/01/2020 08:34:24</publishTime>
@@ -1056,10 +1062,10 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>04/01/2020 08:34:24</publishTime>
     </File>
     <File Include="Views/Detalle/CorregirDetalleIndicadorMasivo.cshtml">
-      <publishTime>05/12/2020 09:51:42</publishTime>
+      <publishTime>05/17/2020 15:32:22</publishTime>
     </File>
     <File Include="Views/Detalle/DetalleIndicadorMasivo.cshtml">
-      <publishTime>05/12/2020 09:50:55</publishTime>
+      <publishTime>05/17/2020 15:32:22</publishTime>
     </File>
     <File Include="Views/Error/Default.cshtml">
       <publishTime>04/01/2020 08:34:24</publishTime>
@@ -1071,31 +1077,31 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>04/01/2020 08:34:24</publishTime>
     </File>
     <File Include="Views/Gestion/AccionMitigacion.cshtml">
-      <publishTime>05/06/2020 12:17:22</publishTime>
+      <publishTime>05/15/2020 20:00:18</publishTime>
     </File>
     <File Include="Views/Gestion/CambiarClave.cshtml">
       <publishTime>04/25/2020 04:41:03</publishTime>
     </File>
     <File Include="Views/Gestion/CorregirDetalleIndicador.cshtml">
-      <publishTime>05/12/2020 09:50:39</publishTime>
+      <publishTime>05/17/2020 15:24:52</publishTime>
     </File>
     <File Include="Views/Gestion/CorregirIniciativa.cshtml">
-      <publishTime>05/06/2020 15:24:41</publishTime>
+      <publishTime>05/13/2020 13:11:38</publishTime>
     </File>
     <File Include="Views/Gestion/DetalleIndicador.cshtml">
-      <publishTime>05/12/2020 09:51:33</publishTime>
+      <publishTime>05/17/2020 15:18:36</publishTime>
     </File>
     <File Include="Views/Gestion/DetalleNotificacion.cshtml">
       <publishTime>04/01/2020 08:34:24</publishTime>
     </File>
     <File Include="Views/Gestion/EvaluarIniciativaDetalle.cshtml">
-      <publishTime>05/04/2020 14:55:53</publishTime>
+      <publishTime>05/18/2020 09:47:13</publishTime>
     </File>
     <File Include="Views/Gestion/Index.cshtml">
-      <publishTime>04/06/2020 10:50:37</publishTime>
+      <publishTime>05/15/2020 01:36:36</publishTime>
     </File>
     <File Include="Views/Gestion/IniciativaMitigacion.cshtml">
-      <publishTime>05/06/2020 15:20:42</publishTime>
+      <publishTime>05/15/2020 18:57:37</publishTime>
     </File>
     <File Include="Views/Gestion/MantenimientoTablas.cshtml">
       <publishTime>04/01/2020 08:34:24</publishTime>
@@ -1110,16 +1116,16 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>04/01/2020 08:34:24</publishTime>
     </File>
     <File Include="Views/Gestion/PreguntasFrecuentes.cshtml">
-      <publishTime>04/01/2020 08:34:24</publishTime>
+      <publishTime>05/13/2020 11:13:35</publishTime>
     </File>
     <File Include="Views/Gestion/Resultados.cshtml">
-      <publishTime>05/01/2020 20:26:02</publishTime>
+      <publishTime>05/17/2020 17:16:26</publishTime>
     </File>
     <File Include="Views/Gestion/RevisarAdminDetalleIndicador.cshtml">
-      <publishTime>05/04/2020 14:53:01</publishTime>
+      <publishTime>05/18/2020 09:47:13</publishTime>
     </File>
     <File Include="Views/Gestion/RevisarDetalleIndicador.cshtml">
-      <publishTime>05/04/2020 14:52:39</publishTime>
+      <publishTime>05/18/2020 09:47:13</publishTime>
     </File>
     <File Include="Views/Gestion/RevisarIniciativa.cshtml">
       <publishTime>05/04/2020 10:09:10</publishTime>
@@ -1128,10 +1134,10 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>04/01/2020 08:34:24</publishTime>
     </File>
     <File Include="Views/Gestion/TerminosCondiciones.cshtml">
-      <publishTime>04/01/2020 08:34:24</publishTime>
+      <publishTime>05/15/2020 01:49:11</publishTime>
     </File>
     <File Include="Views/Gestion/VerificarIniciativaDetalle.cshtml">
-      <publishTime>05/04/2020 14:51:40</publishTime>
+      <publishTime>05/18/2020 09:47:13</publishTime>
     </File>
     <File Include="Views/Gestion/VerMasIniciativa.cshtml">
       <publishTime>04/01/2020 08:34:24</publishTime>
@@ -1140,16 +1146,16 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>04/30/2020 23:03:05</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>04/06/2020 10:50:02</publishTime>
+      <publishTime>05/15/2020 20:17:27</publishTime>
     </File>
     <File Include="Views/Home/login.cshtml">
-      <publishTime>04/24/2020 10:56:32</publishTime>
+      <publishTime>05/15/2020 01:29:32</publishTime>
     </File>
     <File Include="Views/Home/recuperar.cshtml">
-      <publishTime>04/01/2020 08:34:24</publishTime>
+      <publishTime>05/15/2020 01:30:18</publishTime>
     </File>
     <File Include="Views/Home/registro.cshtml">
-      <publishTime>04/24/2020 10:47:12</publishTime>
+      <publishTime>05/15/2020 01:30:58</publishTime>
     </File>
     <File Include="Views/Mantenimiento/Energeticos.cshtml">
       <publishTime>04/01/2020 08:34:24</publishTime>
@@ -1212,7 +1218,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>04/01/2020 08:34:24</publishTime>
     </File>
     <File Include="Views/Portal/AccionMitigacion.cshtml">
-      <publishTime>05/04/2020 18:39:49</publishTime>
+      <publishTime>05/15/2020 20:04:24</publishTime>
     </File>
     <File Include="Views/Portal/ConfirmarCorreo.cshtml">
       <publishTime>04/01/2020 08:34:24</publishTime>
@@ -1221,16 +1227,16 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>04/01/2020 08:34:24</publishTime>
     </File>
     <File Include="Views/Portal/PreguntasFrecuentes.cshtml">
-      <publishTime>04/01/2020 08:34:24</publishTime>
+      <publishTime>05/15/2020 01:33:11</publishTime>
     </File>
     <File Include="Views/Portal/ReestablecerClave.cshtml">
-      <publishTime>04/24/2020 12:29:50</publishTime>
+      <publishTime>05/15/2020 01:33:35</publishTime>
     </File>
     <File Include="Views/Portal/Resultados.cshtml">
-      <publishTime>05/01/2020 18:24:47</publishTime>
+      <publishTime>05/17/2020 17:13:50</publishTime>
     </File>
     <File Include="Views/Portal/TerminosCondiciones.cshtml">
-      <publishTime>04/01/2020 08:34:24</publishTime>
+      <publishTime>05/15/2020 01:48:24</publishTime>
     </File>
     <File Include="Views/Portal/VerMasIniciativa.cshtml">
       <publishTime>04/01/2020 08:34:24</publishTime>
@@ -1245,16 +1251,16 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>04/01/2020 08:34:24</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>04/01/2020 08:34:24</publishTime>
+      <publishTime>05/13/2020 12:35:52</publishTime>
     </File>
     <File Include="Views/Shared/_SesionLayout.cshtml">
-      <publishTime>04/01/2020 08:34:24</publishTime>
+      <publishTime>05/13/2020 12:50:18</publishTime>
     </File>
     <File Include="Views/web.config">
       <publishTime>04/01/2020 08:34:24</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/04/2020 15:41:22</publishTime>
+      <publishTime>05/18/2020 11:57:52</publishTime>
     </File>
   </ItemGroup>
 </Project>

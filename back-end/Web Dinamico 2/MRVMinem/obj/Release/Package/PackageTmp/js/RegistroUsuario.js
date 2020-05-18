@@ -73,9 +73,9 @@ function fn_validar(e) {
     }
 
     //if ($("#rad-01").prop("checked")) {
-    if ($("#txt-telefono").val().trim() === "") {
-        arr.push("Ingrese un teléfono");
-    }
+    //if ($("#txt-telefono").val().trim() === "") {
+    //    arr.push("Ingrese un teléfono");
+    //}
     //}
 
     //if ($("#rad-02").prop("checked")) {

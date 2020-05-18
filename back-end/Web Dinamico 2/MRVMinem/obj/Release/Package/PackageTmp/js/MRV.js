@@ -413,6 +413,33 @@ MRV = {
 
         return rsp;
     },
+    Ajax2: function (url, parameters, async, funcionSuccess) {
+        var rsp;
+        $.ajax({
+            type: "POST",
+            url: url,
+            contentType: "application/json",
+            dataType: "json",
+            async: false,
+            data: JSON.stringify(parameters),
+            success: function (response) {
+                rsp = response;
+                if (typeof (funcionSuccess) == 'function') {
+                    funcionSuccess(response);
+                }
+            },
+            failure: function (msg) {
+                alert(msg);
+                rsp = msg;
+            },
+            error: function (xhr, status, error) {
+                alert(error);
+                rsp = error;
+            }
+        });
+
+        return rsp;
+    },
     EnviarEmailOpacity: function (url, parameters, async, okFunc, noFunc) {
         //$.blockUI({ message: "Enviando Email" });
         $.blockUI({
