@@ -67,5 +67,32 @@ namespace datos.minem.gob.pe
 
             return entidad;
         }
+
+        public List<IndicadorArchivoBE> GetAllArchivoDetalleIndicador(IndicadorArchivoBE entidad)
+        {
+            List<IndicadorArchivoBE> listaArchivos = null;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_ARCHIVO_DETALLE";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("pID_INDICADOR", 0);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    listaArchivos = db.Query<IndicadorArchivoBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+
+                //entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.extra = ex.Message;
+                entidad.OK = false;
+            }
+
+            return listaArchivos;
+        }
     }
 }

@@ -25,6 +25,7 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.text.html.simpleparser;
 using System.Globalization;
+using Ionic.Zip;
 
 namespace MRVMinem.Controllers
 {
@@ -3226,6 +3227,42 @@ namespace MRVMinem.Controllers
             }
             return Respuesta(itemRespuesta);
 
+        }
+
+        public ActionResult FileDownloadAllDetalle(int IdIniciativa)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+            string rutaCarpeta = WebConfigurationManager.AppSettings["Sustentatorio"];
+
+            List<IndicadorArchivoBE> listaArchivo = IndicadorArchivoLN.GetAllArchivoDetalleIndicador(new IndicadorArchivoBE() { ID_INICIATIVA = IdIniciativa, ID_INDICADOR = 0 });
+
+            if (listaArchivo != null)
+            {
+                using (ZipFile zip = new ZipFile())
+                {
+                    foreach (IndicadorArchivoBE item in listaArchivo)
+                    {
+                        if (System.IO.File.Exists(rutaCarpeta + "\\" + item.ADJUNTO))
+                        {
+                            var archivoNombre = rutaCarpeta + "\\" + item.ADJUNTO;
+                            var archivoNombreZip = item.ADJUNTO_BASE;
+                            var arregloBytes = System.IO.File.ReadAllBytes(archivoNombre);
+
+                            zip.AddEntry(archivoNombreZip, arregloBytes);
+
+                        }
+                    }
+                    var miGuid = Guid.NewGuid();
+                    var nombreArchivoZip = "Sustentos" + miGuid + ".zip";
+                    using (MemoryStream output = new MemoryStream())
+                    {
+                        zip.Save(output);
+                        return File(output.ToArray(), MediaTypeNames.Application.Octet, nombreArchivoZip);
+                    }
+                }
+            }
+
+            return Respuesta(itemRespuesta);
         }
 
         public ActionResult FileDownloadDetalle(int IdIniciativa, int IdIndicador, string accion)

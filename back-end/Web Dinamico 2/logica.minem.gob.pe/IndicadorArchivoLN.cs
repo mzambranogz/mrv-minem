@@ -16,5 +16,10 @@ namespace logica.minem.gob.pe
         {
             return indicadorArchivoDA.GetArchivoDetalleIndicador(entidad);
         }
+
+        public static List<IndicadorArchivoBE> GetAllArchivoDetalleIndicador(IndicadorArchivoBE entidad)
+        {
+            return indicadorArchivoDA.GetAllArchivoDetalleIndicador(entidad);
+        }
     }
 }
