@@ -1645,12 +1645,33 @@ function fn_descargarCertificado(idBlock) {
         ID_BLOCKCHAIN: idBlock
     };
     var url = baseUrl + "Gestion/DescargarBlockChain";
-    var respuesta = MRV.Ajax(url, item, false);
+    //var respuesta = MRV.Ajax(url, item, false);
 
-    if (respuesta.success) {
-        var urlMostrar = baseUrl + "Temp/" + respuesta.extra;
-        window.open(urlMostrar, "_blank");
-    }
+    //if (respuesta.success) {
+    //    var urlMostrar = baseUrl + "Temp/" + respuesta.extra;
+    //    window.open(urlMostrar, "_blank");
+    //}
+
+    $.ajax({
+        type: "POST",
+        url: url,
+        //contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        async: false,
+        data: JSON.stringify(item),
+        success: function (response) {
+            var urlMostrar = baseUrl + "Temp/" + response.extra;
+            window.open(urlMostrar, "_blank");
+        },
+        failure: function (msg) {
+            alert(msg);
+            rsp = msg;
+        },
+        error: function (xhr, status, error) {
+            alert(error);
+            rsp = error;
+        }
+    });
 }
 
 function fn_verfileindicaor(idIndicador) {
