@@ -2213,7 +2213,8 @@ function fn_descargarCertificado(idBlock) {
     var item = {
         ID_BLOCKCHAIN: idBlock
     };
-    var url = baseUrl + "Gestion/DescargarBlockChain";
+    //var url = baseUrl + "Gestion/DescargarBlockChain";
+    var url = baseUrl + "Gestion/DescargarBlockChain_2?IdBlockchain=" + idBlock;
     //var respuesta = MRV.Ajax(url, item, false);
 
     //if (respuesta.success) {
@@ -2226,7 +2227,7 @@ function fn_descargarCertificado(idBlock) {
     $.ajax({
         type: "POST",
         url: url,
-        contentType: "application/json; charset=utf-8",
+        //contentType: "application/json; charset=utf-8",
         dataType: "json",
         async: false,
         data: JSON.stringify(item),

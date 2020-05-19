@@ -1467,6 +1467,23 @@ namespace MRVMinem.Controllers
             return Respuesta(itemRespuesta);
         }
 
+        public JsonResult DescargarBlockChain_2(int IdBlockchain)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+            string nombreArchivo = Guid.NewGuid() + ".pdf";
+            string nombrePDF = nombrePDF = WebConfigurationManager.AppSettings["RutaTemp"] + "\\" + nombreArchivo;
+            itemRespuesta.success = new ReporteRepositorio().GenerarPDFBlockChain(IdBlockchain, nombrePDF);
+            if (itemRespuesta.success)
+            {
+                itemRespuesta.extra = nombreArchivo;
+                //========================================================= add 15-03-2020
+                BlockChainLN.NombrePDFBlockchain(new BlockChainBE() { ID_BLOCKCHAIN = IdBlockchain, NOMBRE_PDF = nombreArchivo });
+            }
+
+
+            return Respuesta(itemRespuesta);
+        }
+
         public JsonResult DescargarFicha(IniciativaBE entidad)
         {
             ResponseEntity itemRespuesta = new ResponseEntity();

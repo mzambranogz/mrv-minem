@@ -1644,7 +1644,7 @@ function fn_descargarCertificado(idBlock) {
     var item = {
         ID_BLOCKCHAIN: idBlock
     };
-    var url = baseUrl + "Gestion/DescargarBlockChain";
+    var url = baseUrl + "Gestion/DescargarBlockChain_2?IdBlockchain=" + idBlock;
     //var respuesta = MRV.Ajax(url, item, false);
 
     //if (respuesta.success) {

@@ -1,0 +1,38 @@
+19/05/2020 12:32:21: [Método: Void ThrowArgumentException(System.ExceptionResource), Línea: 0] - Ya se agregó un elemento con la misma clave.
+19/05/2020 12:32:21: [Método: Void Insert(TKey, TValue, Boolean), Línea: 0] - Ya se agregó un elemento con la misma clave.
+19/05/2020 12:32:21: [Método: System.Collections.Generic.Dictionary`2[TKey,TValue] ToDictionaryFast[TKey,TValue](TValue[], System.Func`2[TValue,TKey], System.Collections.Generic.IEqualityComparer`1[TKey]), Línea: 0] - Ya se agregó un elemento con la misma clave.
+19/05/2020 12:32:21: [Método: System.Collections.Generic.IDictionary`2[System.String,System.Web.Mvc.ModelMetadata] get_PropertyMetadata(), Línea: 0] - Ya se agregó un elemento con la misma clave.
+19/05/2020 12:32:21: [Método: Void BindProperty(System.Web.Mvc.ControllerContext, System.Web.Mvc.ModelBindingContext, System.ComponentModel.PropertyDescriptor), Línea: 0] - Ya se agregó un elemento con la misma clave.
+19/05/2020 12:32:21: [Método: Void BindProperties(System.Web.Mvc.ControllerContext, System.Web.Mvc.ModelBindingContext), Línea: 0] - Ya se agregó un elemento con la misma clave.
+19/05/2020 12:32:21: [Método: Void BindComplexElementalModel(System.Web.Mvc.ControllerContext, System.Web.Mvc.ModelBindingContext, System.Object), Línea: 0] - Ya se agregó un elemento con la misma clave.
+19/05/2020 12:32:21: [Método: System.Object BindComplexModel(System.Web.Mvc.ControllerContext, System.Web.Mvc.ModelBindingContext), Línea: 0] - Ya se agregó un elemento con la misma clave.
+19/05/2020 12:32:21: [Método: System.Object GetParameterValue(System.Web.Mvc.ControllerContext, System.Web.Mvc.ParameterDescriptor), Línea: 0] - Ya se agregó un elemento con la misma clave.
+19/05/2020 12:32:21: [Método: System.Collections.Generic.IDictionary`2[System.String,System.Object] GetParameterValues(System.Web.Mvc.ControllerContext, System.Web.Mvc.ActionDescriptor), Línea: 0] - Ya se agregó un elemento con la misma clave.
+19/05/2020 12:32:21: [Método: System.IAsyncResult <BeginInvokeAction>b__19(System.AsyncCallback, System.Object), Línea: 0] - Ya se agregó un elemento con la misma clave.
+19/05/2020 12:32:21: [Método: Void Begin(System.AsyncCallback, System.Object, Int32), Línea: 0] - Ya se agregó un elemento con la misma clave.
+19/05/2020 12:32:21: [Método: System.IAsyncResult BeginInvokeAction(System.Web.Mvc.ControllerContext, System.String, System.AsyncCallback, System.Object), Línea: 0] - Ya se agregó un elemento con la misma clave.
+19/05/2020 12:32:21: [Método: System.IAsyncResult <BeginExecuteCore>b__1c(System.AsyncCallback, System.Object, ExecuteCoreState), Línea: 0] - Ya se agregó un elemento con la misma clave.
+19/05/2020 12:32:21: [Método: System.IAsyncResult CallBeginDelegate(System.AsyncCallback, System.Object), Línea: 0] - Ya se agregó un elemento con la misma clave.
+19/05/2020 12:32:21: [Método: Void Begin(System.AsyncCallback, System.Object, Int32), Línea: 0] - Ya se agregó un elemento con la misma clave.
+19/05/2020 12:32:21: [Método: System.IAsyncResult BeginExecuteCore(System.AsyncCallback, System.Object), Línea: 0] - Ya se agregó un elemento con la misma clave.
+19/05/2020 12:32:21: [Método: Void Begin(System.AsyncCallback, System.Object, Int32), Línea: 0] - Ya se agregó un elemento con la misma clave.
+19/05/2020 12:32:21: [Método: System.IAsyncResult BeginExecute(System.Web.Routing.RequestContext, System.AsyncCallback, System.Object), Línea: 0] - Ya se agregó un elemento con la misma clave.
+19/05/2020 12:32:21: [Método: System.IAsyncResult <BeginProcessRequest>b__4(System.AsyncCallback, System.Object, ProcessRequestState), Línea: 0] - Ya se agregó un elemento con la misma clave.
+19/05/2020 12:32:21: [Método: System.IAsyncResult CallBeginDelegate(System.AsyncCallback, System.Object), Línea: 0] - Ya se agregó un elemento con la misma clave.
+19/05/2020 12:32:21: [Método: Void Begin(System.AsyncCallback, System.Object, Int32), Línea: 0] - Ya se agregó un elemento con la misma clave.
+19/05/2020 12:32:21: [Método: System.IAsyncResult BeginProcessRequest(System.Web.HttpContextBase, System.AsyncCallback, System.Object), Línea: 0] - Ya se agregó un elemento con la misma clave.
+19/05/2020 12:32:21: [Método: Void System.Web.HttpApplication.IExecutionStep.Execute(), Línea: 0] - Ya se agregó un elemento con la misma clave.
+19/05/2020 12:32:21: [Método: Void ExecuteStepImpl(IExecutionStep), Línea: 0] - Ya se agregó un elemento con la misma clave.
+19/05/2020 12:32:21: [Método: System.Exception ExecuteStep(IExecutionStep, Boolean ByRef), Línea: 0] - Ya se agregó un elemento con la misma clave.
+19/05/2020 12:40:25: [Método: Void HandleUnknownAction(System.String), Línea: 0] - No se encuentra un método de acción público 'Default' en el controlador 'MRVMinem.Controllers.ErrorController'.
+19/05/2020 12:40:25: [Método: Void <BeginExecuteCore>b__1d(System.IAsyncResult, ExecuteCoreState), Línea: 0] - No se encuentra un método de acción público 'Default' en el controlador 'MRVMinem.Controllers.ErrorController'.
+19/05/2020 12:40:25: [Método: System.Web.Mvc.Async.AsyncVoid CallEndDelegate(System.IAsyncResult), Línea: 0] - No se encuentra un método de acción público 'Default' en el controlador 'MRVMinem.Controllers.ErrorController'.
+19/05/2020 12:40:25: [Método: Void EndExecuteCore(System.IAsyncResult), Línea: 0] - No se encuentra un método de acción público 'Default' en el controlador 'MRVMinem.Controllers.ErrorController'.
+19/05/2020 12:40:25: [Método: System.Web.Mvc.Async.AsyncVoid CallEndDelegate(System.IAsyncResult), Línea: 0] - No se encuentra un método de acción público 'Default' en el controlador 'MRVMinem.Controllers.ErrorController'.
+19/05/2020 12:40:25: [Método: Void EndExecute(System.IAsyncResult), Línea: 0] - No se encuentra un método de acción público 'Default' en el controlador 'MRVMinem.Controllers.ErrorController'.
+19/05/2020 12:40:25: [Método: Void <BeginProcessRequest>b__5(System.IAsyncResult, ProcessRequestState), Línea: 0] - No se encuentra un método de acción público 'Default' en el controlador 'MRVMinem.Controllers.ErrorController'.
+19/05/2020 12:40:25: [Método: System.Web.Mvc.Async.AsyncVoid CallEndDelegate(System.IAsyncResult), Línea: 0] - No se encuentra un método de acción público 'Default' en el controlador 'MRVMinem.Controllers.ErrorController'.
+19/05/2020 12:40:25: [Método: Void EndProcessRequest(System.IAsyncResult), Línea: 0] - No se encuentra un método de acción público 'Default' en el controlador 'MRVMinem.Controllers.ErrorController'.
+19/05/2020 12:40:25: [Método: Void System.Web.HttpApplication.IExecutionStep.Execute(), Línea: 0] - No se encuentra un método de acción público 'Default' en el controlador 'MRVMinem.Controllers.ErrorController'.
+19/05/2020 12:40:25: [Método: Void ExecuteStepImpl(IExecutionStep), Línea: 0] - No se encuentra un método de acción público 'Default' en el controlador 'MRVMinem.Controllers.ErrorController'.
+19/05/2020 12:40:25: [Método: System.Exception ExecuteStep(IExecutionStep, Boolean ByRef), Línea: 0] - No se encuentra un método de acción público 'Default' en el controlador 'MRVMinem.Controllers.ErrorController'.
