@@ -2755,7 +2755,20 @@ function fn_procesoDetalleIndicador(url, estado) {
                 parametros += enfoque + ",";
                 parametros += medida + ",";
                 parametros += $(value).attr("data-param") + ",";
-                parametros += $("#" + $(value).attr("id")).val() + "|";
+
+                //===============
+                debugger;
+                var m = $(value).attr("id");
+                m = m.substring(0, 3);
+                if (m == "txt") {
+                    var eva = $("#" + $(value).attr("id")).val().replace(/,/gi, '');
+                    parametros += eva + "|";
+                } else {
+                    parametros += $("#" + $(value).attr("id")).val() + "|";
+                }
+                //==================
+
+                //parametros += $("#" + $(value).attr("id")).val() + "|";
             });
             parametros = parametros.substring(0, parametros.length - 1);
 
@@ -3215,8 +3228,8 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                                         tr += '</select>';
                                     } else {
                                         tr += '<select class="form-control form-control-sm require-data" id="cbo-det-tbl-1-' + lista + '-' + (i + 1) + '" onchange="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '">';
-                                        //if (data[j]["ID_PARAMETRO"] != 54 || data[j]["ID_PARAMETRO"] != 55) tr += '        <option value="0">Seleccionar</option>'; //add
-                                        tr += '        <option value="0">Seleccionar</option>';
+                                        if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30) tr += '        <option value="0">Seleccionar</option>'; //add
+                                        //tr += '        <option value="0">Seleccionar</option>';
                                         var listaD = data[j]["listaDetalle"];
                                         for (var m = 0; m < listaD.length; m++) {
                                             tr += '<option value="' + listaD[m]["ID_DETALLE"] + '">' + listaD[m]["NOMBRE_DETALLE"] + '</option>';
@@ -3226,7 +3239,7 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                                 } else {
                                     lista++;
                                     tr += '<select class="form-control form-control-sm require-data" id="cbo-det-tbl-1-' + lista + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '">';
-                                    if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77) tr += '        <option value="0">Seleccionar</option>'; //add
+                                    if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30) tr += '        <option value="0">Seleccionar</option>'; //add
                                     //tr += '        <option value="0">Seleccionar</option>';
                                     var listaD = data[j]["listaDetalle"];
                                     for (var m = 0; m < listaD.length; m++) {
@@ -3254,13 +3267,13 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                                         texto++;
                                         if (data[j]["VERIFICABLE"] == 0) {
                                             if (data[j]["ID_TIPO_DATO"] == 2) {
-                                                tr += '<input class="form-control form-control-sm text-center validar require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="15">';
+                                                tr += '<input class="form-control form-control-sm text-center validar require-data formato-num" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="15">';
                                             } else if (data[j]["ID_TIPO_DATO"] == 3) {
                                                 tr += '<input class="form-control form-control-sm text-center require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="40">';
                                             }
                                         } else {
                                             if (data[j]["ID_TIPO_DATO"] == 2) {
-                                                tr += '<input class="form-control form-control-sm text-center validar require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" onBlur="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="15">';
+                                                tr += '<input class="form-control form-control-sm text-center validar require-data formato-num" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" onBlur="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="15">';
                                             } else if (data[j]["ID_TIPO_DATO"] == 3) {
                                                 tr += '<input class="form-control form-control-sm text-center require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" onBlur="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="40">';
                                             }
@@ -3461,7 +3474,7 @@ function CargarNuevaFila(filas) {
                                     } else {
                                         debugger;
                                         tr += '<select class="form-control form-control-sm require-data" id="cbo-det-tbl-1-' + lista + '-' + (rows + 1) + '" onchange="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '">';
-                                        if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77) tr += '        <option value="0">Seleccionar</option>'; //add
+                                        if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30) tr += '        <option value="0">Seleccionar</option>'; //add
                                         //tr += '        <option value="0">Seleccionar</option>';
                                         var listaD = data[j]["listaDetalle"];
                                         for (var m = 0; m < listaD.length; m++) {
@@ -3472,7 +3485,7 @@ function CargarNuevaFila(filas) {
                                 } else {
                                     lista++;
                                     tr += '<select class="form-control form-control-sm require-data" id="cbo-det-tbl-1-' + lista + '-' + (rows + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '">';
-                                    if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77) tr += '        <option value="0">Seleccionar</option>'; //add
+                                    if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30) tr += '        <option value="0">Seleccionar</option>'; //add
                                     //tr += '        <option value="0">Seleccionar</option>';
                                     var listaD = data[j]["listaDetalle"];
                                     for (var m = 0; m < listaD.length; m++) {
@@ -3500,13 +3513,13 @@ function CargarNuevaFila(filas) {
                                         texto++;
                                         if (data[j]["VERIFICABLE"] == 0) {
                                             if (data[j]["ID_TIPO_DATO"] == 2) {
-                                                tr += '<input class="form-control form-control-sm text-center validar require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="12">';
+                                                tr += '<input class="form-control form-control-sm text-center validar require-data formato-num" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="12">';
                                             } else if (data[j]["ID_TIPO_DATO"] == 3) {
                                                 tr += '<input class="form-control form-control-sm text-center require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="12">';
                                             }
                                         } else {
                                             if (data[j]["ID_TIPO_DATO"] == 2) {
-                                                tr += '<input class="form-control form-control-sm text-center validar require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" onBlur="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="12">';
+                                                tr += '<input class="form-control form-control-sm text-center validar require-data formato-num" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" onBlur="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="12">';
                                             } else if (data[j]["ID_TIPO_DATO"] == 3) {
                                                 tr += '<input class="form-control form-control-sm text-center require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" onBlur="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="12">';
                                             }
@@ -3616,7 +3629,15 @@ function CargarDatosGuardados() {
                                     }
                                 } else {
                                     texto++;
-                                    $("#txt-det-tbl-1-" + texto + "-" + (i + 1)).val(entidad[m]["VALOR"]);
+                                    //$("#txt-det-tbl-1-" + texto + "-" + (i + 1)).val(entidad[m]["VALOR"]);
+
+                                    if (entidad[m]["ID_TIPO_DATO"] == 2) {
+                                        $("#txt-det-tbl-1-" + texto + "-" + (i + 1)).val(formatoMiles(entidad[m]["VALOR"])); //add
+                                    } else if (entidad[m]["ID_TIPO_DATO"] == 3) {
+                                        $("#txt-det-tbl-1-" + texto + "-" + (i + 1)).val(entidad[m]["VALOR"]);
+                                    }
+
+
                                     if (entidad[m]["VERIFICABLE"] == 1) {
                                         $("#txt-det-tbl-1-" + texto + "-" + (i + 1)).attr({ "data-validar": 1 });
                                     }
@@ -4269,7 +4290,18 @@ function fn_calcularValor(e) {
             parametros += enfoque + ",";
             parametros += medida + ",";
             parametros += $(value).attr("data-param") + ",";
-            parametros += $("#" + $(value).attr("id")).val() + "|";
+            //===============
+            debugger;
+            var m = $(value).attr("id");
+            m = m.substring(0, 3);
+            if (m == "txt") {
+                var eva = $("#" + $(value).attr("id")).val().replace(/,/gi, '');
+                parametros += eva + "|";
+            } else {
+                parametros += $("#" + $(value).attr("id")).val() + "|";
+            }
+            //==================            
+            //parametros += $("#" + $(value).attr("id")).val() + "|";
         });
         parametros = parametros.substring(0, parametros.length - 1);
 
@@ -4299,12 +4331,30 @@ function fn_enviarCalcularValor(item, f) {
                 if (data.length > 0) {
                     var index = 0;
                     var total = 0;
+
+                    debugger;
                     //var fila = $("#enfoque-" + $("#cbo-enfoque").val()).find("tbody").find("#detalles-tr-" + f).find("[data-param]");
                     var fila = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + f).find("[data-param]");
                     fila.each(function (index, value) {
                         var valor = data[index]["VALOR"];
                         if (!isNaN(valor)) if (valor - Math.floor(valor) != 0) valor = Math.round(valor * 100) / 100
-                        $("#" + $(value).attr("id")).val(valor);
+
+                        //===============================================================
+                        debugger;
+                        var m = $(value).attr("id");
+                        m = m.substring(0, 3);
+                        if (m == "txt"){
+                            if (!isNaN(valor)) {
+                                $("#" + $(value).attr("id")).val(formatoMiles(valor));
+                            } else {
+                                $("#" + $(value).attr("id")).val(valor);
+                            }
+                        } else {
+                            $("#" + $(value).attr("id")).val(valor);
+                        }
+                        //=================================================================
+
+                        //$("#" + $(value).attr("id")).val(formatoMiles(valor));
                         index++;
                     });
 
@@ -4321,8 +4371,8 @@ function fn_enviarCalcularValor(item, f) {
                         //total += parseFloat($(".campo-total").val());
                     });
 
-                    $("#total-detalle").html("").append((Math.round(total * 100) / 100));
-                    $("#total-detalle2").html("").append((Math.round(total * 100) / 100));
+                    $("#total-detalle").html("").append((Math.round(formatoMiles(total) * 100) / 100));
+                    $("#total-detalle2").html("").append((Math.round(formatoMiles(total) * 100) / 100));
                     $("#cuerpoTablaIndicador").data("total", total);
 
                     //add
@@ -5082,14 +5132,17 @@ function agregarAcumulado(item, f) {
                         var valor_acumulado = 0.0;
                         for (var j = 0; j < data.length; j++) {
                             valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100;
-                            var acumulado_col = parseFloat($("#acum-" + anio).html()) + valor_acumulado;
+                            var acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) + valor_acumulado;
 
                             //if (anio > 2010) {
                             //    acumulado_col = parseFloat($("#acum-" + (anio-1)).html()) + acumulado_col;
                             //}
-                            $("#acum-" + anio).html(Math.round(acumulado_col * 100) / 100);
+                            //=======
 
-                            cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '" id="a-' + anio + '-' + f + '">' + Math.round(data[j]["reducido"] * 100) / 100 + '</td>';
+
+                            $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
+
+                            cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '" id="a-' + anio + '-' + f + '">' + formatoMiles(Math.round(data[j]["reducido"] * 100) / 100) + '</td>';
                             anio += 1;
                         }
                         //cuerpo += '<td class="text-center estrecho" data-encabezado="total">' + Math.round(total * 100) / 100 + '</td>';
@@ -5113,29 +5166,29 @@ function agregarAcumulado(item, f) {
 
                         if (acumulado_ini > 0) {
                             for (var m = 0; m < acumulado_ini; m++) {
-                                var valor = parseFloat($("#a-" + anio + '-' + f).html());
+                                var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
                                 valor_descuento += valor;
-                                acumulado_col = parseFloat($("#acum-" + anio).html()) - valor_descuento;
+                                acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) - valor_descuento;
                                 $("#a-" + anio + '-' + f).html(0);
-                                $("#acum-" + anio).html(Math.round(acumulado_col * 100) / 100);
+                                $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
                                 anio += 1;
                             }
                         }
 
                         for (var j = 0; j < data.length; j++) {
                             var acumulado_col = 0.0;                            
-                            var valor = parseFloat($("#a-" + anio + '-' + f).html());
+                            var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
                             valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100;
 
                             //if (valor > 0) {
                                 valor_descuento += valor;
-                                acumulado_col = parseFloat($("#acum-" + anio).html()) - valor_descuento;
+                                acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) - valor_descuento;
                             //}
 
                             acumulado_col = acumulado_col + valor_acumulado;
-                            $("#a-" + anio + '-' + f).html(Math.round(data[j]["reducido"] * 100) / 100);
+                            $("#a-" + anio + '-' + f).html(formatoMiles(Math.round(data[j]["reducido"] * 100) / 100));
 
-                            $("#acum-" + anio).html(Math.round(acumulado_col * 100) / 100);
+                            $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
 
                             //cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '" id="a-' + anio + '-' + f + '">' + Math.round(data[j]["reducido"] * 100) / 100 + '</td>';
                             anio += 1;
@@ -5155,14 +5208,14 @@ function eliminarAcumulado(f){
     var valor_descuento = 0.0;
 
     for (var anio = 2010; anio < 2031; anio++) {
-        var valor = parseFloat($("#a-" + anio + '-' + f).html());
+        var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
         valor_descuento += valor;
-        var acumulado = parseFloat($("#acum-" + anio).html());
+        var acumulado = parseFloat($("#acum-" + anio).html().replace(/,/gi, ''));
 
         if (acumulado > 0) {
             acumulado_col = acumulado - valor_descuento;
             $("#a-" + anio + '-' + f).html(0);
-            $("#acum-" + anio).html(Math.round(acumulado_col * 100) / 100);
+            $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
         }        
     }
 
@@ -5257,14 +5310,14 @@ function generarAcumulado(f) {
                         var valor_acumulado = 0.0;
                         for (var j = 0; j < data.length; j++) {
                             valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100;
-                            var acumulado_col = parseFloat($("#acum-" + anio).html()) + valor_acumulado;
+                            var acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) + valor_acumulado;
 
                             //if (anio > 2010) {
                             //    acumulado_col = parseFloat($("#acum-" + (anio-1)).html()) + acumulado_col;
                             //}
-                            $("#acum-" + anio).html(Math.round(acumulado_col * 100) / 100);
+                            $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
 
-                            cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '" id="a-' + anio + '-' + f + '">' + Math.round(data[j]["reducido"] * 100) / 100 + '</td>';
+                            cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '" id="a-' + anio + '-' + f + '">' + formatoMiles(Math.round(data[j]["reducido"] * 100) / 100) + '</td>';
                             anio += 1;
                         }
                         //cuerpo += '<td class="text-center estrecho" data-encabezado="total">' + Math.round(total * 100) / 100 + '</td>';
@@ -5288,29 +5341,29 @@ function generarAcumulado(f) {
 
                         if (acumulado_ini > 0) {
                             for (var m = 0; m < acumulado_ini; m++) {
-                                var valor = parseFloat($("#a-" + anio + '-' + f).html());
+                                var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
                                 valor_descuento += valor;
-                                acumulado_col = parseFloat($("#acum-" + anio).html()) - valor_descuento;
+                                acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) - valor_descuento;
                                 $("#a-" + anio + '-' + f).html(0);
-                                $("#acum-" + anio).html(Math.round(acumulado_col * 100) / 100);
+                                $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
                                 anio += 1;
                             }
                         }
 
                         for (var j = 0; j < data.length; j++) {
                             var acumulado_col = 0.0;
-                            var valor = parseFloat($("#a-" + anio + '-' + f).html());
+                            var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
                             valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100;
 
                             //if (valor > 0) {
                             valor_descuento += valor;
-                            acumulado_col = parseFloat($("#acum-" + anio).html()) - valor_descuento;
+                            acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) - valor_descuento;
                             //}
 
                             acumulado_col = acumulado_col + valor_acumulado;
-                            $("#a-" + anio + '-' + f).html(Math.round(data[j]["reducido"] * 100) / 100);
+                            $("#a-" + anio + '-' + f).html(formatoMiles(Math.round(data[j]["reducido"] * 100) / 100));
 
-                            $("#acum-" + anio).html(Math.round(acumulado_col * 100) / 100);
+                            $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
 
                             //cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '" id="a-' + anio + '-' + f + '">' + Math.round(data[j]["reducido"] * 100) / 100 + '</td>';
                             anio += 1;
@@ -5325,6 +5378,11 @@ function generarAcumulado(f) {
 }
 
 function cargarAcumulado(entidad, f) {
+
+    //====================== add
+    //$("#tbl-main-preload-acu").html("<i Class='fas fa-spinner fa-spin px-1'></i> Cargando...");
+    //$("#tbl-main-acu").addClass("d-none");
+    //======================
 
     var cuerpo = "";
 
@@ -5370,14 +5428,14 @@ function cargarAcumulado(entidad, f) {
                         var valor_acumulado = 0.0;
                         for (var j = 0; j < data.length; j++) {
                             valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100;
-                            var acumulado_col = parseFloat($("#acum-" + anio).html()) + valor_acumulado;
+                            var acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) + valor_acumulado;
 
                             //if (anio > 2010) {
                             //    acumulado_col = parseFloat($("#acum-" + (anio-1)).html()) + acumulado_col;
                             //}
-                            $("#acum-" + anio).html(Math.round(acumulado_col * 100) / 100);
+                            $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
 
-                            cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '" id="a-' + anio + '-' + f + '">' + Math.round(data[j]["reducido"] * 100) / 100 + '</td>';
+                            cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '" id="a-' + anio + '-' + f + '">' + formatoMiles(Math.round(data[j]["reducido"] * 100) / 100) + '</td>';
                             anio += 1;
                         }
                         //cuerpo += '<td class="text-center estrecho" data-encabezado="total">' + Math.round(total * 100) / 100 + '</td>';
@@ -5401,29 +5459,29 @@ function cargarAcumulado(entidad, f) {
 
                         if (acumulado_ini > 0) {
                             for (var m = 0; m < acumulado_ini; m++) {
-                                var valor = parseFloat($("#a-" + anio + '-' + f).html());
+                                var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
                                 valor_descuento += valor;
-                                acumulado_col = parseFloat($("#acum-" + anio).html()) - valor_descuento;
+                                acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) - valor_descuento;
                                 $("#a-" + anio + '-' + f).html(0);
-                                $("#acum-" + anio).html(Math.round(acumulado_col * 100) / 100);
+                                $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
                                 anio += 1;
                             }
                         }
 
                         for (var j = 0; j < data.length; j++) {
                             var acumulado_col = 0.0;
-                            var valor = parseFloat($("#a-" + anio + '-' + f).html());
+                            var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
                             valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100;
 
                             //if (valor > 0) {
                             valor_descuento += valor;
-                            acumulado_col = parseFloat($("#acum-" + anio).html()) - valor_descuento;
+                            acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) - valor_descuento;
                             //}
 
                             acumulado_col = acumulado_col + valor_acumulado;
-                            $("#a-" + anio + '-' + f).html(Math.round(data[j]["reducido"] * 100) / 100);
+                            $("#a-" + anio + '-' + f).html(formatoMiles(Math.round(data[j]["reducido"] * 100) / 100));
 
-                            $("#acum-" + anio).html(Math.round(acumulado_col * 100) / 100);
+                            $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
 
                             //cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '" id="a-' + anio + '-' + f + '">' + Math.round(data[j]["reducido"] * 100) / 100 + '</td>';
                             anio += 1;
@@ -5432,7 +5490,23 @@ function cargarAcumulado(entidad, f) {
                 }
             } else {
             }
+            //$("#tbl-main-preload-acu").html("");
+            //$("#tbl-main-acu").removeClass("d-none");
         }
     });
 
+
+
 }
+
+
+/////////////
+$(document).on("keyup", ".formato-num", function (event) {
+    debugger;
+        $(event.target).val(function (index, value) {
+            return value.replace(/\D/g, "")
+                        .replace(/([0-9])([0-9]{2})$/, '$1.$2')
+                        .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ",");
+        });
+    
+});

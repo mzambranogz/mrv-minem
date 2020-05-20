@@ -2079,7 +2079,23 @@ function CargarDatosExcel(data) {
             var valor = entidad[index]["VALOR"];
             if (!isNaN(valor)) if (valor - Math.floor(valor) != 0) valor = Math.round(valor * 100) / 100
             if (entidad[index]["ID_PARAMETRO"] == 11) total += valor;
-            $("#" + $(value).attr("id")).val(valor);
+
+            //===============================================================
+            debugger;
+            var m = $(value).attr("id");
+            m = m.substring(0, 3);
+            if (m == "txt") {
+                if (!isNaN(valor)) {
+                    $("#" + $(value).attr("id")).val(formatoMiles(valor));
+                } else {
+                    $("#" + $(value).attr("id")).val(valor);
+                }
+            } else {
+                $("#" + $(value).attr("id")).val(valor);
+            }
+            //=================================================================
+
+            //$("#" + $(value).attr("id")).val(valor);
             index++;
         });
 
@@ -2363,7 +2379,20 @@ function fn_procesoDetalleIndicador(url, estado) {
                 parametros += enfoque + ",";
                 parametros += medida + ",";
                 parametros += $(value).attr("data-param") + ",";
-                parametros += $("#" + $(value).attr("id")).val() + "|";
+
+                //===============
+                debugger;
+                var m = $(value).attr("id");
+                m = m.substring(0, 3);
+                if (m == "txt") {
+                    var eva = $("#" + $(value).attr("id")).val().replace(/,/gi, '');
+                    parametros += eva + "|";
+                } else {
+                    parametros += $("#" + $(value).attr("id")).val() + "|";
+                }
+                //==================
+
+                //parametros += $("#" + $(value).attr("id")).val() + "|";
             });
             parametros = parametros.substring(0, parametros.length - 1);
             if (Xfilas != null && Xfilas != undefined) {
@@ -2665,7 +2694,14 @@ function CargarDatosGuardados() {
                                     }
                                 } else {
                                     texto++;
-                                    $("#txt-det-tbl-1-" + texto + "-" + (i + 1)).val(entidad[m]["VALOR"]);
+
+                                    if (entidad[m]["ID_TIPO_DATO"] == 2) {
+                                        $("#txt-det-tbl-1-" + texto + "-" + (i + 1)).val(formatoMiles(entidad[m]["VALOR"])); //add
+                                    } else if (entidad[m]["ID_TIPO_DATO"] == 3) {
+                                        $("#txt-det-tbl-1-" + texto + "-" + (i + 1)).val(entidad[m]["VALOR"]);
+                                    }
+
+                                    //$("#txt-det-tbl-1-" + texto + "-" + (i + 1)).val(entidad[m]["VALOR"]);
                                     if (entidad[m]["VERIFICABLE"] == 1) {
                                         $("#txt-det-tbl-1-" + texto + "-" + (i + 1)).attr({ "data-validar": 1 });
                                     }
@@ -3078,14 +3114,14 @@ function armarAcumulado(entidad, f) {
                         var valor_acumulado = 0.0;
                         for (var j = 0; j < data.length; j++) {
                             valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100;
-                            var acumulado_col = parseFloat($("#acum-" + anio).html()) + valor_acumulado;
+                            var acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) + valor_acumulado;
 
                             //if (anio > 2010) {
                             //    acumulado_col = parseFloat($("#acum-" + (anio-1)).html()) + acumulado_col;
                             //}
-                            $("#acum-" + anio).html(Math.round(acumulado_col * 100) / 100);
+                            $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
 
-                            cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '" id="a-' + anio + '-' + f + '">' + Math.round(data[j]["reducido"] * 100) / 100 + '</td>';
+                            cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '" id="a-' + anio + '-' + f + '">' + formatoMiles(Math.round(data[j]["reducido"] * 100) / 100) + '</td>';
                             anio += 1;
                         }
                         //cuerpo += '<td class="text-center estrecho" data-encabezado="total">' + Math.round(total * 100) / 100 + '</td>';
@@ -3109,29 +3145,29 @@ function armarAcumulado(entidad, f) {
 
                         if (acumulado_ini > 0) {
                             for (var m = 0; m < acumulado_ini; m++) {
-                                var valor = parseFloat($("#a-" + anio + '-' + f).html());
+                                var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
                                 valor_descuento += valor;
-                                acumulado_col = parseFloat($("#acum-" + anio).html()) - valor_descuento;
+                                acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) - valor_descuento;
                                 $("#a-" + anio + '-' + f).html(0);
-                                $("#acum-" + anio).html(Math.round(acumulado_col * 100) / 100);
+                                $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
                                 anio += 1;
                             }
                         }
 
                         for (var j = 0; j < data.length; j++) {
                             var acumulado_col = 0.0;
-                            var valor = parseFloat($("#a-" + anio + '-' + f).html());
+                            var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
                             valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100;
 
                             //if (valor > 0) {
                             valor_descuento += valor;
-                            acumulado_col = parseFloat($("#acum-" + anio).html()) - valor_descuento;
+                            acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) - valor_descuento;
                             //}
 
                             acumulado_col = acumulado_col + valor_acumulado;
-                            $("#a-" + anio + '-' + f).html(Math.round(data[j]["reducido"] * 100) / 100);
+                            $("#a-" + anio + '-' + f).html(formatoMiles(Math.round(data[j]["reducido"] * 100) / 100));
 
-                            $("#acum-" + anio).html(Math.round(acumulado_col * 100) / 100);
+                            $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
 
                             //cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '" id="a-' + anio + '-' + f + '">' + Math.round(data[j]["reducido"] * 100) / 100 + '</td>';
                             anio += 1;
@@ -3143,4 +3179,10 @@ function armarAcumulado(entidad, f) {
         }
     });
 
+}
+
+//===============================================================
+function formatoMiles(n) { //add20
+    var m = n * 1;
+    return m.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
 }
