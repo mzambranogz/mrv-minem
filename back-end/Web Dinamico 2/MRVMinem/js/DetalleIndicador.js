@@ -3513,15 +3513,15 @@ function CargarNuevaFila(filas) {
                                         texto++;
                                         if (data[j]["VERIFICABLE"] == 0) {
                                             if (data[j]["ID_TIPO_DATO"] == 2) {
-                                                tr += '<input class="form-control form-control-sm text-center validar require-data formato-num" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="12">';
+                                                tr += '<input class="form-control form-control-sm text-center validar require-data formato-num" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="15">';
                                             } else if (data[j]["ID_TIPO_DATO"] == 3) {
-                                                tr += '<input class="form-control form-control-sm text-center require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="12">';
+                                                tr += '<input class="form-control form-control-sm text-center require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="40">';
                                             }
                                         } else {
                                             if (data[j]["ID_TIPO_DATO"] == 2) {
-                                                tr += '<input class="form-control form-control-sm text-center validar require-data formato-num" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" onBlur="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="12">';
+                                                tr += '<input class="form-control form-control-sm text-center validar require-data formato-num" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" onBlur="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="15">';
                                             } else if (data[j]["ID_TIPO_DATO"] == 3) {
-                                                tr += '<input class="form-control form-control-sm text-center require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" onBlur="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="12">';
+                                                tr += '<input class="form-control form-control-sm text-center require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" onBlur="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="40">';
                                             }
 
                                         }
@@ -4409,7 +4409,7 @@ function fn_eliminarRestarTotal() {
             if ($(value).attr("data-param") == 11) {
                 var r = $(value).val();
                 if (r != "")
-                    total -= parseFloat(r);
+                    total -= parseFloat(r.replace(/,/gi, ''));
             }
         });
         $("#total-detalle").html("").append((Math.round(total * 100) / 100));
@@ -5131,13 +5131,10 @@ function agregarAcumulado(item, f) {
 
                         var valor_acumulado = 0.0;
                         for (var j = 0; j < data.length; j++) {
-                            valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100;
+                            //valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100; //q
+                            valor_acumulado = Math.round(data[j]["reducido"] * 100) / 100;// add
                             var acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) + valor_acumulado;
-
-                            //if (anio > 2010) {
-                            //    acumulado_col = parseFloat($("#acum-" + (anio-1)).html()) + acumulado_col;
-                            //}
-                            //=======
+                            
 
 
                             $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
@@ -5145,7 +5142,7 @@ function agregarAcumulado(item, f) {
                             cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '" id="a-' + anio + '-' + f + '">' + formatoMiles(Math.round(data[j]["reducido"] * 100) / 100) + '</td>';
                             anio += 1;
                         }
-                        //cuerpo += '<td class="text-center estrecho" data-encabezado="total">' + Math.round(total * 100) / 100 + '</td>';
+
                         anio -= 1;
                         var acumulado_fin = 2030 - anio;
 
@@ -5158,7 +5155,7 @@ function agregarAcumulado(item, f) {
 
                         cuerpo += '</tr>';
 
-                        //$("#cabecera-acumulado").html("").append(cabecera);
+                        
                         $("#cuerpo-acumulado-total").append(cuerpo);
                     } else {
                         var valor_acumulado = 0.0;
@@ -5167,7 +5164,10 @@ function agregarAcumulado(item, f) {
                         if (acumulado_ini > 0) {
                             for (var m = 0; m < acumulado_ini; m++) {
                                 var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
-                                valor_descuento += valor;
+
+                                //valor_descuento += valor; //q
+                                valor_descuento = valor; //add
+
                                 acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) - valor_descuento;
                                 $("#a-" + anio + '-' + f).html(0);
                                 $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
@@ -5178,19 +5178,21 @@ function agregarAcumulado(item, f) {
                         for (var j = 0; j < data.length; j++) {
                             var acumulado_col = 0.0;                            
                             var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
-                            valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100;
 
-                            //if (valor > 0) {
-                                valor_descuento += valor;
-                                acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) - valor_descuento;
-                            //}
+
+                            //valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100; //q
+                            valor_acumulado = Math.round(data[j]["reducido"] * 100) / 100; //add
+
+                            //valor_descuento += valor; //q
+                            valor_descuento = valor; //add
+
+                            acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) - valor_descuento;
 
                             acumulado_col = acumulado_col + valor_acumulado;
                             $("#a-" + anio + '-' + f).html(formatoMiles(Math.round(data[j]["reducido"] * 100) / 100));
 
                             $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
 
-                            //cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '" id="a-' + anio + '-' + f + '">' + Math.round(data[j]["reducido"] * 100) / 100 + '</td>';
                             anio += 1;
                         }
                     }
@@ -5209,7 +5211,10 @@ function eliminarAcumulado(f){
 
     for (var anio = 2010; anio < 2031; anio++) {
         var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
-        valor_descuento += valor;
+
+        //valor_descuento += valor; //q
+        valor_descuento = valor; //add
+
         var acumulado = parseFloat($("#acum-" + anio).html().replace(/,/gi, ''));
 
         if (acumulado > 0) {
@@ -5309,18 +5314,19 @@ function generarAcumulado(f) {
 
                         var valor_acumulado = 0.0;
                         for (var j = 0; j < data.length; j++) {
-                            valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100;
+
+                            //valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100; //q
+                            valor_acumulado = Math.round(data[j]["reducido"] * 100) / 100;// add
+
                             var acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) + valor_acumulado;
 
-                            //if (anio > 2010) {
-                            //    acumulado_col = parseFloat($("#acum-" + (anio-1)).html()) + acumulado_col;
-                            //}
+
                             $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
 
                             cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '" id="a-' + anio + '-' + f + '">' + formatoMiles(Math.round(data[j]["reducido"] * 100) / 100) + '</td>';
                             anio += 1;
                         }
-                        //cuerpo += '<td class="text-center estrecho" data-encabezado="total">' + Math.round(total * 100) / 100 + '</td>';
+
                         anio -= 1;
                         var acumulado_fin = 2030 - anio;
 
@@ -5333,7 +5339,6 @@ function generarAcumulado(f) {
 
                         cuerpo += '</tr>';
 
-                        //$("#cabecera-acumulado").html("").append(cabecera);
                         $("#cuerpo-acumulado-total").append(cuerpo);
                     } else {
                         var valor_acumulado = 0.0;
@@ -5342,7 +5347,10 @@ function generarAcumulado(f) {
                         if (acumulado_ini > 0) {
                             for (var m = 0; m < acumulado_ini; m++) {
                                 var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
-                                valor_descuento += valor;
+
+                                //valor_descuento += valor; //q
+                                valor_descuento = valor; //add
+
                                 acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) - valor_descuento;
                                 $("#a-" + anio + '-' + f).html(0);
                                 $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
@@ -5353,19 +5361,21 @@ function generarAcumulado(f) {
                         for (var j = 0; j < data.length; j++) {
                             var acumulado_col = 0.0;
                             var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
-                            valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100;
 
-                            //if (valor > 0) {
-                            valor_descuento += valor;
+
+                            //valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100; //q
+                            valor_acumulado = Math.round(data[j]["reducido"] * 100) / 100; //add
+
+                            //valor_descuento += valor; //q
+                            valor_descuento = valor; //add
+
                             acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) - valor_descuento;
-                            //}
 
                             acumulado_col = acumulado_col + valor_acumulado;
                             $("#a-" + anio + '-' + f).html(formatoMiles(Math.round(data[j]["reducido"] * 100) / 100));
 
                             $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
 
-                            //cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '" id="a-' + anio + '-' + f + '">' + Math.round(data[j]["reducido"] * 100) / 100 + '</td>';
                             anio += 1;
                         }
                     }
@@ -5427,18 +5437,18 @@ function cargarAcumulado(entidad, f) {
 
                         var valor_acumulado = 0.0;
                         for (var j = 0; j < data.length; j++) {
-                            valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100;
+
+                            //valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100; //q
+                            valor_acumulado = Math.round(data[j]["reducido"] * 100) / 100;// add
+
                             var acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) + valor_acumulado;
 
-                            //if (anio > 2010) {
-                            //    acumulado_col = parseFloat($("#acum-" + (anio-1)).html()) + acumulado_col;
-                            //}
                             $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
 
                             cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '" id="a-' + anio + '-' + f + '">' + formatoMiles(Math.round(data[j]["reducido"] * 100) / 100) + '</td>';
                             anio += 1;
                         }
-                        //cuerpo += '<td class="text-center estrecho" data-encabezado="total">' + Math.round(total * 100) / 100 + '</td>';
+
                         anio -= 1;
                         var acumulado_fin = 2030 - anio;
 
@@ -5451,7 +5461,6 @@ function cargarAcumulado(entidad, f) {
 
                         cuerpo += '</tr>';
 
-                        //$("#cabecera-acumulado").html("").append(cabecera);
                         $("#cuerpo-acumulado-total").append(cuerpo);
                     } else {
                         var valor_acumulado = 0.0;
@@ -5460,7 +5469,10 @@ function cargarAcumulado(entidad, f) {
                         if (acumulado_ini > 0) {
                             for (var m = 0; m < acumulado_ini; m++) {
                                 var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
-                                valor_descuento += valor;
+
+                                //valor_descuento += valor; //q
+                                valor_descuento = valor; //add
+
                                 acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) - valor_descuento;
                                 $("#a-" + anio + '-' + f).html(0);
                                 $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
@@ -5471,19 +5483,20 @@ function cargarAcumulado(entidad, f) {
                         for (var j = 0; j < data.length; j++) {
                             var acumulado_col = 0.0;
                             var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
-                            valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100;
 
-                            //if (valor > 0) {
-                            valor_descuento += valor;
+                            //valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100; //q
+                            valor_acumulado = Math.round(data[j]["reducido"] * 100) / 100; //add
+
+                            //valor_descuento += valor; //q
+                            valor_descuento = valor; //add
+
                             acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) - valor_descuento;
-                            //}
 
                             acumulado_col = acumulado_col + valor_acumulado;
                             $("#a-" + anio + '-' + f).html(formatoMiles(Math.round(data[j]["reducido"] * 100) / 100));
 
                             $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
 
-                            //cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '" id="a-' + anio + '-' + f + '">' + Math.round(data[j]["reducido"] * 100) / 100 + '</td>';
                             anio += 1;
                         }
                     }

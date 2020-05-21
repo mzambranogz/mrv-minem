@@ -3113,18 +3113,18 @@ function armarAcumulado(entidad, f) {
 
                         var valor_acumulado = 0.0;
                         for (var j = 0; j < data.length; j++) {
-                            valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100;
+
+                            //valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100; //q
+                            valor_acumulado = Math.round(data[j]["reducido"] * 100) / 100;// add
+
                             var acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) + valor_acumulado;
 
-                            //if (anio > 2010) {
-                            //    acumulado_col = parseFloat($("#acum-" + (anio-1)).html()) + acumulado_col;
-                            //}
                             $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
 
                             cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '" id="a-' + anio + '-' + f + '">' + formatoMiles(Math.round(data[j]["reducido"] * 100) / 100) + '</td>';
                             anio += 1;
                         }
-                        //cuerpo += '<td class="text-center estrecho" data-encabezado="total">' + Math.round(total * 100) / 100 + '</td>';
+
                         anio -= 1;
                         var acumulado_fin = 2030 - anio;
 
@@ -3137,7 +3137,6 @@ function armarAcumulado(entidad, f) {
 
                         cuerpo += '</tr>';
 
-                        //$("#cabecera-acumulado").html("").append(cabecera);
                         $("#cuerpo-acumulado-total").append(cuerpo);
                     } else {
                         var valor_acumulado = 0.0;
@@ -3146,7 +3145,10 @@ function armarAcumulado(entidad, f) {
                         if (acumulado_ini > 0) {
                             for (var m = 0; m < acumulado_ini; m++) {
                                 var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
-                                valor_descuento += valor;
+
+                                //valor_descuento += valor; //q
+                                valor_descuento = valor; //add
+
                                 acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) - valor_descuento;
                                 $("#a-" + anio + '-' + f).html(0);
                                 $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
@@ -3157,19 +3159,20 @@ function armarAcumulado(entidad, f) {
                         for (var j = 0; j < data.length; j++) {
                             var acumulado_col = 0.0;
                             var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
-                            valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100;
 
-                            //if (valor > 0) {
-                            valor_descuento += valor;
+                            //valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100; //q
+                            valor_acumulado = Math.round(data[j]["reducido"] * 100) / 100; //add
+
+                            //valor_descuento += valor; //q
+                            valor_descuento = valor; //add
+
                             acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) - valor_descuento;
-                            //}
 
                             acumulado_col = acumulado_col + valor_acumulado;
                             $("#a-" + anio + '-' + f).html(formatoMiles(Math.round(data[j]["reducido"] * 100) / 100));
 
                             $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
 
-                            //cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '" id="a-' + anio + '-' + f + '">' + Math.round(data[j]["reducido"] * 100) / 100 + '</td>';
                             anio += 1;
                         }
                     }

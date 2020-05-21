@@ -382,7 +382,18 @@
                                                                     }
                                                                     else
                                                                     {
-                                                                        <input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-1-1" value="@itemDet.VALOR" readonly>
+                                                                        string formateado = itemDet.VALOR;
+                                                                        double retNum;
+                                                                        if (Double.TryParse(Convert.ToString(formateado), System.Globalization.NumberStyles.Any, System.Globalization.NumberFormatInfo.InvariantInfo, out retNum))
+                                                                        {
+                                                                            string cad = Convert.ToDouble(formateado).ToString("N2");
+                                                                            <input class="form-control form-control-sm text-center valor" type="text" placeholder="" id="txt-det-tbl-1-1-1" value="@cad" readonly>
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            <input class="form-control form-control-sm text-center valor" type="text" placeholder="" id="txt-det-tbl-1-1-1" value="@itemDet.VALOR" readonly>
+                                                                        }
+                                                                        //<input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-1-1" value="@itemDet.VALOR" readonly>
 
                                                                     }
                                                                 </div>
@@ -436,7 +447,7 @@
                                                 <tr>
                                                     <th class="text-center" data-encabezado="Número" scope="row">1</th>
                                                     <td data-encabezado="Resumen">@itemD.DESCRIPCION</td>
-                                                    <td data-encabezado="Total"><strong id="total-detalle">@total_e</strong><strong>&nbsp;tCO<sub>2</sub>eq</strong></td>
+                                                    <td data-encabezado="Total"><strong id="total-detalle">@total_e.ToString("N2")</strong><strong>&nbsp;tCO<sub>2</sub>eq</strong></td>
                                                 </tr>
                                             </tbody>
                                         </table>

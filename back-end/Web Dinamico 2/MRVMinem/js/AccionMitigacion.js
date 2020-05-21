@@ -207,7 +207,7 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
                                 progreso = '50%';
                             } else if (data[i]["PROGRESO"] == 3 && (data[i]["ID_ESTADO"] == 1 || data[i]["ID_ESTADO"] == 5 || data[i]["ID_ESTADO"] == 2 || data[i]["ID_ESTADO"] == 6)) {
                                 progreso = '75%';
-                            } else if (data[i]["PROGRESO"] == 4 || data[i]["PROGRESO"] == 5 || data[i]["PROGRESO"] == 6 || data[i]["PROGRESO"] == 7 || data[i]["PROGRESO"] == 8) {
+                            } else if (data[i]["PROGRESO"] == 4 || data[i]["PROGRESO"] == 5 || data[i]["PROGRESO"] == 6 || data[i]["PROGRESO"] == 7 || data[i]["PROGRESO"] == 8 || data[i]["PROGRESO"] == 9 || data[i]["PROGRESO"] == 10) {
                                 progreso = '100%';
                             }
                         }
