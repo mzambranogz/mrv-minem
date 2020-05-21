@@ -1577,7 +1577,7 @@ namespace datos.minem.gob.pe
                     entidad.FECHA_FIN = entidad.FECHA_FIN_INICIATIVA.ToString("yyyy/MM/dd");
                     p.Add("pFECHA_EJECUCION_FIN", entidad.FECHA_FIN);
                     p.Add("pNOMBRE_INICIATIVA", entidad.NOMBRE_INICIATIVA);
-                    p.Add("pHASH", entidad.hash); //add
+                    //p.Add("pHASH", entidad.hash); //add
                     p.Add("pSortColumn", entidad.order_by);
                     p.Add("pSortOrder", entidad.order_orden);
                     p.Add("pCondicion", entidad.CONDICION);
