@@ -220,3 +220,11 @@
 21/05/2020 10:28:39: [Método: Void System.Web.HttpApplication.IExecutionStep.Execute(), Línea: 0] - La cadena de entrada no tiene el formato correcto.
 21/05/2020 10:28:39: [Método: Void ExecuteStepImpl(IExecutionStep), Línea: 0] - La cadena de entrada no tiene el formato correcto.
 21/05/2020 10:28:39: [Método: System.Exception ExecuteStep(IExecutionStep, Boolean ByRef), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+21/05/2020 14:43:38: [Método: Void ThrowForNonSuccess(System.Threading.Tasks.Task), Línea: 0] - Error al enviar la solicitud.
+21/05/2020 14:43:38: [Método: Void HandleNonSuccessAndDebuggerNotification(System.Threading.Tasks.Task), Línea: 0] - Error al enviar la solicitud.
+21/05/2020 14:43:38: [Método: TResult GetResult(), Línea: 0] - Error al enviar la solicitud.
+21/05/2020 14:43:38: [Método: Void MoveNext(), Línea: 115] - Error al enviar la solicitud.
+21/05/2020 14:44:13: [Método: Void ThrowForNonSuccess(System.Threading.Tasks.Task), Línea: 0] - Error al enviar la solicitud.
+21/05/2020 14:44:13: [Método: Void HandleNonSuccessAndDebuggerNotification(System.Threading.Tasks.Task), Línea: 0] - Error al enviar la solicitud.
+21/05/2020 14:44:13: [Método: TResult GetResult(), Línea: 0] - Error al enviar la solicitud.
+21/05/2020 14:44:13: [Método: Void MoveNext(), Línea: 115] - Error al enviar la solicitud.

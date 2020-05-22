@@ -3653,8 +3653,8 @@ function CargarDatosGuardados() {
                         cargarAcumulado(entidad, i + 1);
 
                     }
-                    $("#total-detalle").html("").append((Math.round(total * 100) / 100));
-                    $("#total-detalle2").html("").append((Math.round(total * 100) / 100));
+                    $("#total-detalle").html("").append(formatoMiles(Math.round(total * 100) / 100));
+                    $("#total-detalle2").html("").append(formatoMiles(Math.round(total * 100) / 100));
                     $("#cuerpoTablaIndicador").data("total", total);
                     //$("#cuerpoTablaIndicador").data("row", data.length);
                 }
@@ -4362,17 +4362,17 @@ function fn_enviarCalcularValor(item, f) {
                     var fila_total = $("#tablaIndicador").find("tbody").find("tr");
                     fila_total.each(function (index, value) {
                         debugger;
-                        var t = $(value).find(".campo-total").val();
+                        var t = $(value).find(".campo-total").val().replace(/,/gi, '');
                         if (t != "")
-                            total += parseFloat($(value).find(".campo-total").val());
+                            total += parseFloat($(value).find(".campo-total").val().replace(/,/gi, ''));
                         //console.log(c);
                         //var b = $(value).find("td").find("div").find("input").attr(".campo-total");
                         //var a = $(value).find("td").find("div").find("input[class='campo-total']").html();
                         //total += parseFloat($(".campo-total").val());
                     });
 
-                    $("#total-detalle").html("").append((Math.round(formatoMiles(total) * 100) / 100));
-                    $("#total-detalle2").html("").append((Math.round(formatoMiles(total) * 100) / 100));
+                    $("#total-detalle").html("").append(formatoMiles(Math.round((total) * 100) / 100));
+                    $("#total-detalle2").html("").append(formatoMiles(Math.round((total) * 100) / 100));
                     $("#cuerpoTablaIndicador").data("total", total);
 
                     //add
@@ -4976,7 +4976,20 @@ function mostrarAcumulado() {
             parametros += enfoque + ",";
             parametros += medida + ",";
             parametros += $(value).attr("data-param") + ",";
-            parametros += $("#" + $(value).attr("id")).val() + "|";
+
+            //===============
+            debugger;
+            var m = $(value).attr("id");
+            m = m.substring(0, 3);
+            if (m == "txt") {
+                var eva = $("#" + $(value).attr("id")).val().replace(/,/gi, '');
+                parametros += eva + "|";
+            } else {
+                parametros += $("#" + $(value).attr("id")).val() + "|";
+            }
+            //==================  
+
+            //parametros += $("#" + $(value).attr("id")).val() + "|";
         });
         parametros = parametros.substring(0, parametros.length - 1);
 
