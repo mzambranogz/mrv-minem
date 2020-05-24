@@ -57,18 +57,30 @@
                         $("#nombre-medida").html(data[i]["NOMBRE_MEDMIT"]);
 
                         var entidad = data[i]["listaGei"];
-                        for (var j = 0; j < entidad.length; j++) {
-                            datat.addRows([
-                                [entidad[j]["DESCRIPCION"], entidad[j]["TOTAL_GEI"]]
-                            ]);
+                        //for (var j = 0; j < entidad.length; j++) {
+                        //    datat.addRows([
+                        //        [entidad[j]["DESCRIPCION"], entidad[j]["TOTAL_GEI"]]
+                        //    ]);
                             
+                        //}
+                        //google.charts.setOnLoadCallback(drawPieChart(datat));
+
+                        var arr2n = [];//add
+                        arr2n.push(['Sector', 'Total', ]);//add
+                        for (var j = 0; j < entidad.length; j++) {
+                            arr2n.push([entidad[j]["DESCRIPCION"], entidad[j]["TOTAL_GEI"] ]);
                         }
-                        google.charts.setOnLoadCallback(drawPieChart(datat));
+                        var datat2n = google.visualization.arrayToDataTable(arr2n);
+                        google.charts.setOnLoadCallback(drawPieChart(datat2n));
 
                         debugger;
 
                         //datat2.addColumn('number', 'Energy Level');
                         var entidad = data[i]["listaAnnoSec"];
+
+                        var arr4n = [];//add
+                        arr4n.push(['Year', 'Sector Público', 'Sector Privado', ]);//add
+
                         for (var j = 0; j < entidad.length; j++) {
                             var arr = [];
                             var arrSector = [];
@@ -81,34 +93,61 @@
                                 arrAnno.push(obj[m]["ANNO"]);
                             }
 
-                            arr.push({ v: [(j + 8), 0, 0], f: arrAnno[0].toString() });
-                            for (var n = 0; n < arrTotal.length; n++) {
-                                arr.push(arrTotal[n]);
-                            }
+                            //==============================================================================
+                            //var validar = 0; //add
+                            //debugger;
+                            ////arr.push({ v: [(j + 8), 0, 0], f: arrAnno[0].toString() });
+                            //for (var n = 0; n < arrTotal.length; n++) {
+                            //    if (arrTotal[0] > 0) {
+                            //        if (n == 0)
+                            //            arr.push({ v: [(j + 8), 0, 0], f: arrAnno[0].toString() });
+                            //        arr.push(arrTotal[n]);
 
-                            if (j == 0) {
-                                datat2.addColumn('timeofday', 'Time of Day');
-                                for (var n = 0; n < arrSector.length; n++) {
-                                    datat2.addColumn('number', arrSector[n]);
-                                }
-                            }
+                            //        validar = 1; //add
+                            //    } //add                                    
+                            //}
 
-                            datat2.addRows([
-                                arr
-                            ]);
+                            //if (j == 0) {
+                            //    datat2.addColumn('timeofday', 'Time of Day');
+                            //    for (var n = 0; n < arrSector.length; n++) {
+                            //        datat2.addColumn('number', arrSector[n]);
+                            //    }
+                            //}
+
+                            //if (validar == 1) {
+                            //    datat2.addRows([
+                            //        arr
+                            //    ]);
+                            //}
+                            //===============================================================================
+
+                            //debugger;
+                            //for (var j = 0; j < entidad.length; j++) {
+                            if (arrTotal[0] > 0 || arrTotal[1] > 0) {
+                                arr4n.push([arrAnno[0].toString(), arrTotal[0], arrTotal[1],]);
+                            }                                
+                            //}
 
                         }
-                        google.charts.setOnLoadCallback(drawBarChart(datat2));
+                        //google.charts.setOnLoadCallback(drawBarChart(datat2));
+                        debugger;
+                        if (arr4n.length == 1) {
+                            arr4n.push(['2010', 0, 0]);
+                        }
+
+                        var datat4n = google.visualization.arrayToDataTable(arr4n);
+                        google.charts.setOnLoadCallback(drawMultSeries01(datat4n));
 
                         var arr4 = [];
-                        arr4.push(['Sectores', 'Iniciativas', ]);
+                        arr4.push(['Sector', 'Total', ]);
                         var entidad = data[i]["listaCant"];
                         for (var j = 0; j < entidad.length; j++) {
                             arr4.push([entidad[j]["DESCRIPCION"], entidad[j]["CANTIDAD"]]);
                         }
                         var datat4 = google.visualization.arrayToDataTable(arr4);
-                        google.charts.setOnLoadCallback(drawColumnChart(datat4));
-
+                        //google.charts.setOnLoadCallback(drawColumnChart(datat4));
+                        google.charts.setOnLoadCallback(drawMultSeries02(datat4));
+                        //$("#bar-chart svg text").first().attr("x", (($("#time-series-graph svg").width() - parseInt($("#bar-chart svg text").first().attr('x'), 10)) / 2).toFixed(0));
                     }
                 }
             }
@@ -116,25 +155,84 @@
     });
 }
 
-function drawPieChart(data) {
-    //var data = new google.visualization.DataTable();
-    //data.addColumn('string', 'Topping');
-    //data.addColumn('number', 'Slices');
-    //data.addRows([
-    //  ['Mushrooms', 3],
-    //  ['Onions', 1],
-    //  ['Olives', 1],
-    //  ['Zucchini', 1],
-    //  ['Pepperoni', 2]
-    //]);
+
+//google.charts.setOnLoadCallback(drawMultSeries01);
+function drawMultSeries01(data) {
+    /*var data = google.visualization.arrayToDataTable([
+        ['Year', 'Sector Público', 'Sector Privado'],
+        ['2010', 0, 0],
+        ['2018', 1000, 400],
+        ['2019', 1170, 460],
+        ['2020', 660, 1120],
+        ['2021', 1030, 540],
+    ]);*/
     var options = {
-        'title': 'Porcentaje de reducción de tCO2eq por Sector',
-        'width': 540,
-        'height': 540
+        width: 900,
+        height: 540,
+        title: 'Cantidad de tCO2eq disminuido por Año y Sector',
+        //subtitle: 'Período 2010 - 2030',
+        hAxis: {
+            title: 'Año del Período'
+        },
+        vAxis: {
+            title: 'Cantidad de tCO2eq disminuido'
+        }
     };
-    var chart = new google.visualization.PieChart(document.getElementById('pie-chart'));
+    var chart = new google.visualization.ColumnChart(
+      document.getElementById('chart-01'));
     chart.draw(data, options);
 }
+
+
+//google.charts.setOnLoadCallback(drawMultSeries02);
+function drawMultSeries02(data) {
+    /*var data = google.visualization.arrayToDataTable([
+        ['Year', 'Sector Público', 'Sector Privado'],
+        ['2010', 0, 0],
+        ['2018', 1000, 400],
+        ['2019', 1170, 460],
+        ['2020', 660, 1120],
+        ['2021', 1030, 540],
+    ]);*/
+    var options = {
+        width: 900,
+        height: 540,
+        title: 'Cantidad de Iniciativas de Mitigación registrados por Sector',
+        //subtitle: 'Período 2010 - 2030',
+        hAxis: {
+            title: 'Año del Período'
+        },
+        vAxis: {
+            title: 'Cantidad de Iniciativas de Mitigación registrados'
+        }
+    };
+    var chart = new google.visualization.ColumnChart(
+      document.getElementById('chart-02'));
+    chart.draw(data, options);
+}
+
+
+//function drawPieChart(data) {
+//    //var data = new google.visualization.DataTable();
+//    //data.addColumn('string', 'Topping');
+//    //data.addColumn('number', 'Slices');
+//    //data.addRows([
+//    //  ['Mushrooms', 3],
+//    //  ['Onions', 1],
+//    //  ['Olives', 1],
+//    //  ['Zucchini', 1],
+//    //  ['Pepperoni', 2]
+//    //]);
+//    var options = {
+//        'title': 'Porcentaje de reducción de tCO2eq por Sector',
+//        'width': 800,
+//        'height': 540
+//    };
+//    var chart = new google.visualization.PieChart(document.getElementById('pie-chart'));
+//    chart.draw(data, options);
+//}
+
+//document.querySelector('#bar-chart > div > div:nth-child(1) > div > svg > g:nth-child(3) > text').setAttribute(600, 100);
 
 
 function drawBarChart(data) {
@@ -162,6 +260,7 @@ function drawBarChart(data) {
         //    0: { type: 'linear', lineWidth: 5, opacity: .3 },
         //    1: { type: 'exponential', lineWidth: 10, opacity: .3 }
         //},
+        
         hAxis: {
             title: ' ',
             format: ' ',
@@ -173,13 +272,34 @@ function drawBarChart(data) {
         vAxis: {
             title: 'Cantidad de tCO2eq reducido'
         },
-        'width': 540,
+        'width': 1000,
         'height': 540
     };
 
     var chart = new google.visualization.ColumnChart(document.getElementById('bar-chart'));
+    chart.draw(data, options);    
+}
+
+
+
+//google.charts.setOnLoadCallback(drawPieChart);
+function drawPieChart(data) {
+    //var data = google.visualization.arrayToDataTable([
+    //  ['Sector', 'Total'],
+    //  ['Sector Público', 34500],
+    //  ['Sector Privado', 18000]
+    //]);
+    var options = {
+        title: 'Reducción de tCO2eq por Sector',
+        width: 900,
+        height: 540,
+        is3D: true
+    };
+    var chart = new google.visualization.PieChart(document.getElementById('chart-03'));
     chart.draw(data, options);
 }
+
+
 
 //google.charts.setOnLoadCallback(drawColumnChart);
 function drawColumnChart(data) {
@@ -202,7 +322,7 @@ function drawColumnChart(data) {
         vAxis: {
             title: 'Sector'
         },
-        'width': 540,
+        'width': 800,
         'height': 540
     };
 

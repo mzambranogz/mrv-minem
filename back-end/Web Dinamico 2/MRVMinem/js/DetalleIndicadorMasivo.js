@@ -2078,7 +2078,7 @@ function CargarDatosExcel(data) {
             }
             var valor = entidad[index]["VALOR"];
             if (!isNaN(valor)) if (valor - Math.floor(valor) != 0) valor = Math.round(valor * 100) / 100
-            if (entidad[index]["ID_PARAMETRO"] == 11) total += valor;
+            if (entidad[index]["ID_PARAMETRO"] == 11) total += parseFloat(valor);
 
             //===============================================================
             debugger;
@@ -2103,8 +2103,8 @@ function CargarDatosExcel(data) {
             $("#detalles-tr-" + (i + 1)).addClass("error-data");
         }
 
-        $("#total-detalle").html("").append((Math.round(total * 100) / 100));
-        $("#total-detalle2").html("").append((Math.round(total * 100) / 100));
+        $("#total-detalle").html("").append(formatoMiles(Math.round(total * 100) / 100));
+        $("#total-detalle2").html("").append(formatoMiles(Math.round(total * 100) / 100));
         $("#cuerpoTablaIndicador").data("total", total);
 
         // add 17-05-2018

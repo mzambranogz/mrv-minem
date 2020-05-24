@@ -387,16 +387,16 @@
               <div class="col-sm-12 col-md-12 col-lg-12">
                 <div class="row">
                   <div class="col-sm-12 col-md-12 col-lg-12 pb-5">
-                    <div class="logros chart" id="pie-chart"></div>
+                    <div class="logros chart" id="chart-01"></div>
                   </div>
                   <div class="col-sm-12 col-md-12 col-lg-12 pb-5">
-                    <div class="logros chart" id="bar-chart"></div>
+                    <div class="logros chart" id="chart-02"></div>
                   </div>
                   <div class="col-sm-12 col-md-12 col-lg-12 pb-5">
-                    <div class="logros chart" id="line-chart"></div>
+                    <div class="logros chart" id="chart-03"></div>
                   </div>
                   <div class="col-sm-12 col-md-12 col-lg-12 pb-5">
-                    <div class="logros chart" id="column-chart"></div>
+                    <div class="logros chart" id="chart-04"></div>
                   </div>
                 </div>
               </div>
@@ -409,7 +409,112 @@
       </div>
     </div>
     <script>
-      google.charts.load('current', {'packages':['corechart']});
+      google.charts.load('current', {packages: ['corechart', 'bar']});
+      
+      google.charts.setOnLoadCallback(drawMultSeries01);
+      function drawMultSeries01() {
+        var data = google.visualization.arrayToDataTable([
+            ['Year', 'Sector Público', 'Sector Privado'],
+            /*['2010', 0, 0],
+            ['2011', 0, 0],
+            ['2012', 0, 0],
+            ['2013', 0, 0],
+            ['2014', 0, 0],
+            ['2015', 0, 0],
+            ['2016', 0, 0],
+            ['2017', 0, 0],*/
+            ['2018', 1000, 400],
+            ['2019', 1170, 460],
+            ['2020', 660, 1120],
+            ['2021', 1030, 540],
+            /*['2022', 0, 0],
+            ['2023', 0, 0],
+            ['2024', 0, 0],
+            ['2025', 0, 0],
+            ['2026', 0, 0],
+            ['2027', 0, 0],
+            ['2028', 0, 0],
+            ['2029', 0, 0],
+            ['2030', 0, 0]*/
+          ]);
+        var options = {
+          width:900,
+          height:540,
+          title: 'Cantidad de tCO2eq disminuido por Año y Sector',
+          //subtitle: 'Período 2010 - 2030',
+          hAxis: {
+            title: 'Año del Período'
+          },
+          vAxis: {
+            title: 'Cantidad de tCO2eq disminuido'
+          }
+        };
+        var chart = new google.visualization.ColumnChart(
+          document.getElementById('chart-01'));
+        chart.draw(data, options);
+      }
+      
+      google.charts.setOnLoadCallback(drawMultSeries02);
+      function drawMultSeries02() {
+        var data = google.visualization.arrayToDataTable([
+            ['Year', 'Sector Público', 'Sector Privado'],
+            /*['2010', 0, 0],
+            ['2011', 0, 0],
+            ['2012', 0, 0],
+            ['2013', 0, 0],
+            ['2014', 0, 0],
+            ['2015', 0, 0],
+            ['2016', 0, 0],
+            ['2017', 0, 0],*/
+            ['2018', 1000, 400],
+            ['2019', 1170, 460],
+            ['2020', 660, 1120],
+            ['2021', 1030, 540],
+            /*['2022', 0, 0],
+            ['2023', 0, 0],
+            ['2024', 0, 0],
+            ['2025', 0, 0],
+            ['2026', 0, 0],
+            ['2027', 0, 0],
+            ['2028', 0, 0],
+            ['2029', 0, 0],
+            ['2030', 0, 0]*/
+          ]);
+        var options = {
+          width:900,
+          height:540,
+          title: 'Cantidad de Iniciativas de Mitigación registrados por Año y Sector',
+          //subtitle: 'Período 2010 - 2030',
+          hAxis: {
+            title: 'Año del Período'
+          },
+          vAxis: {
+            title: 'Cantidad de Iniciativas de Mitigación registrados'
+          }
+        };
+        var chart = new google.visualization.ColumnChart(
+          document.getElementById('chart-02'));
+        chart.draw(data, options);
+      }
+      
+      google.charts.setOnLoadCallback(drawPieChart);
+      function drawPieChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Sector', 'Total'],
+          ['Sector Público', 34500],
+          ['Sector Privado', 18000]
+        ]);
+        var options = {
+          title:'Total de Iniciativas Registradas por Sector',
+          width:900,
+          height:540,
+          is3D: true
+        };
+        var chart = new google.visualization.PieChart(document.getElementById('chart-03'));
+        chart.draw(data, options);
+      }
+      
+      /*google.charts.load('current', {'packages':['corechart']});
       
       google.charts.setOnLoadCallback(drawPieChart);
       function drawPieChart() {
@@ -526,7 +631,7 @@
         var chart = new google.visualization.BarChart(document.getElementById('column-chart'));
       
         chart.draw(data, options);
-      }
+      }*/
     </script>
     <div class="container-fluid foot d-flex flex-row justify-content-center align-items-center d-print-none" id="pie">
       <footer class="container">

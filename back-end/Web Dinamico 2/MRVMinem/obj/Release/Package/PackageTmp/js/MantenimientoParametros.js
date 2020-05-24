@@ -333,33 +333,33 @@ function fn_validarCampo() {
             return false;
         }
     }    
-    if ($("#txt-descripcion-parametro").val().trim() == "") {
-        return false;
-    }
-    if ($("#txt-combinacion-unidades").val().trim() == "") {
-        return false;
-    }
-    if ($("#txt-leyenda-unidades").val().trim() == "") {
-        return false;
-    }
-    if ($("#txt-descripcion-metodologia").val().trim() == "") {
-        return false;
-    }
-    if ($("#txt-procedimiento").val().trim() == "") {
-        return false;
-    }
-    if ($("#txt-control-calidad").val().trim() == "") {
-        return false;
-    }
-    if ($("#txt-aseguramiento-calidad").val().trim() == "") {
-        return false;
-    }
-    if ($("#txt-proposito-parametro").val().trim() == "") {
-        return false;
-    }
-    if ($("#txt-frecuencia").val().trim() == "") {
-        return false;
-    }
+    //if ($("#txt-descripcion-parametro").val().trim() == "") {
+    //    return false;
+    //}
+    //if ($("#txt-combinacion-unidades").val().trim() == "") {
+    //    return false;
+    //}
+    //if ($("#txt-leyenda-unidades").val().trim() == "") {
+    //    return false;
+    //}
+    //if ($("#txt-descripcion-metodologia").val().trim() == "") {
+    //    return false;
+    //}
+    //if ($("#txt-procedimiento").val().trim() == "") {
+    //    return false;
+    //}
+    //if ($("#txt-control-calidad").val().trim() == "") {
+    //    return false;
+    //}
+    //if ($("#txt-aseguramiento-calidad").val().trim() == "") {
+    //    return false;
+    //}
+    //if ($("#txt-proposito-parametro").val().trim() == "") {
+    //    return false;
+    //}
+    //if ($("#txt-frecuencia").val().trim() == "") {
+    //    return false;
+    //}
     
     return true;
 }

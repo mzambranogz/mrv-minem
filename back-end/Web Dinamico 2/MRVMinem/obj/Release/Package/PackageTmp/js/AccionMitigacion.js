@@ -207,7 +207,7 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
                                 progreso = '50%';
                             } else if (data[i]["PROGRESO"] == 3 && (data[i]["ID_ESTADO"] == 1 || data[i]["ID_ESTADO"] == 5 || data[i]["ID_ESTADO"] == 2 || data[i]["ID_ESTADO"] == 6)) {
                                 progreso = '75%';
-                            } else if (data[i]["PROGRESO"] == 4 || data[i]["PROGRESO"] == 5 || data[i]["PROGRESO"] == 6 || data[i]["PROGRESO"] == 7 || data[i]["PROGRESO"] == 8) {
+                            } else if (data[i]["PROGRESO"] == 4 || data[i]["PROGRESO"] == 5 || data[i]["PROGRESO"] == 6 || data[i]["PROGRESO"] == 7 || data[i]["PROGRESO"] == 8 || data[i]["PROGRESO"] == 9 || data[i]["PROGRESO"] == 10) {
                                 progreso = '100%';
                             }
                         }
@@ -2178,34 +2178,36 @@ function fn_mostrarBlockchain(idBlock) {
     var item = {
         ID_BLOCKCHAIN: idBlock
     };
-    var url = baseUrl + "Gestion/MostrarBlockChain";
-    var respuesta = MRV.Ajax(url, item, false);
+    //var url = baseUrl + "Gestion/MostrarBlockChain";
+    var url = baseUrl + "Gestion/DescargarBlockChain_2?IdBlockchain=" + idBlock;
+    //var respuesta = MRV.Ajax(url, item, false);
 
-    if (respuesta.success) {
-        var urlMostrar = baseUrl + "Temp/" + respuesta.extra;
-        window.open(urlMostrar, "_blank");
-    }
+    //if (respuesta.success) {
+    //    var urlMostrar = baseUrl + "Temp/" + respuesta.extra;
+    //    window.open(urlMostrar, "_blank");
+    //}
 
-    //$.ajax({
-    //    type: "POST",
-    //    url: url,
-    //    contentType: "application/json; charset=utf-8",
-    //    dataType: "json",
-    //    async: false,
-    //    data: JSON.stringify(item),
-    //    success: function (response) {
-    //        var urlMostrar = baseUrl + "Temp/" + response.extra;
-    //        window.open(urlMostrar, "_blank");
-    //    },
-    //    failure: function (msg) {
-    //        alert(msg);
-    //        rsp = msg;
-    //    },
-    //    error: function (xhr, status, error) {
-    //        alert(error);
-    //        rsp = error;
-    //    }
-    //});
+    $.ajax({
+        type: "POST",
+        url: url,
+        //contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        async: false,
+        data: JSON.stringify(item),
+        success: function (response) {
+            var urlMostrar = baseUrl + "Temp/" + response.extra;
+            window.open(urlMostrar, "_blank");
+            $("#block-" + idBlock).data("block", 1);
+        },
+        failure: function (msg) {
+            alert(msg);
+            rsp = msg;
+        },
+        error: function (xhr, status, error) {
+            alert(error);
+            rsp = error;
+        }
+    });
 }
 
 function fn_descargarCertificado(idBlock) {
@@ -2213,37 +2215,38 @@ function fn_descargarCertificado(idBlock) {
     var item = {
         ID_BLOCKCHAIN: idBlock
     };
-    var url = baseUrl + "Gestion/DescargarBlockChain";
-    var respuesta = MRV.Ajax(url, item, false);
+    //var url = baseUrl + "Gestion/DescargarBlockChain";
+    var url = baseUrl + "Gestion/DescargarBlockChain_2?IdBlockchain=" + idBlock;
+    //var respuesta = MRV.Ajax(url, item, false);
 
-    if (respuesta.success) {
-        var urlMostrar = baseUrl + "Temp/" + respuesta.extra;
-        window.open(urlMostrar, "_blank");
-        $("#block-" + idBlock).data("block", 1);
-    }
+    //if (respuesta.success) {
+    //    var urlMostrar = baseUrl + "Temp/" + respuesta.extra;
+    //    window.open(urlMostrar, "_blank");
+    //    $("#block-" + idBlock).data("block", 1);
+    //}
 
 
-    //$.ajax({
-    //    type: "POST",
-    //    url: url,
-    //    contentType: "application/json; charset=utf-8",
-    //    dataType: "json",
-    //    async: false,
-    //    data: JSON.stringify(item),
-    //    success: function (response) {
-    //        var urlMostrar = baseUrl + "Temp/" + response.extra;
-    //        window.open(urlMostrar, "_blank");
-    //        $("#block-" + idBlock).data("block", 1);
-    //    },
-    //    failure: function (msg) {
-    //        alert(msg);
-    //        rsp = msg;
-    //    },
-    //    error: function (xhr, status, error) {
-    //        alert(error);
-    //        rsp = error;
-    //    }
-    //});
+    $.ajax({
+        type: "POST",
+        url: url,
+        //contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        async: false,
+        data: JSON.stringify(item),
+        success: function (response) {
+            var urlMostrar = baseUrl + "Temp/" + response.extra;
+            window.open(urlMostrar, "_blank");
+            $("#block-" + idBlock).data("block", 1);
+        },
+        failure: function (msg) {
+            alert(msg);
+            rsp = msg;
+        },
+        error: function (xhr, status, error) {
+            alert(error);
+            rsp = error;
+        }
+    });
 }
 
 //======================
