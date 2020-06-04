@@ -69,8 +69,18 @@ function fn_mostrarSeguimiento() {
                             tr = tr + '<span><strong>MEDIDA MITIGACIÓN</strong><br>' + arr[1] + '<br></span>';
                             tr = tr + '<span><strong>NOMBRE DE PROYECTO</strong><br>' + arr[0] + '<br></span>';
                             tr = tr + '<span><strong>INICIO DE OPERACIONES</strong><br>' + arr[2] + '<br></span>';
-                            tr = tr + '<span><strong>MONEDA</strong><br>' + arr[3] + '<br></span>';
-                            tr = tr + '<span><strong>MONTO INVERSIÓN</strong><br>' + formatoMiles(parseFloat(arr[4])) + '<br></span>';
+                            if (arr[3] != ""){
+                                tr = tr + '<span><strong>MONEDA</strong><br>' + arr[3] + '<br></span>';
+                            } else {
+                                tr = tr + '<span><strong>MONEDA</strong><br>------<br></span>';
+                            }
+                            //tr = tr + '<span><strong>MONEDA</strong><br>' + arr[3] + '<br></span>';
+                            if (arr[4] != 0){
+                                tr = tr + '<span><strong>MONTO INVERSIÓN</strong><br>' + formatoMiles(parseFloat(arr[4])) + '<br></span>';
+                            } else {
+                                tr = tr + '<span><strong>MONTO INVERSIÓN</strong><br>------<br></span>';
+                            }
+                            //tr = tr + '<span><strong>MONTO INVERSIÓN</strong><br>' + formatoMiles(parseFloat(arr[4])) + '<br></span>';
                             tr = tr + '<span><strong>CORREO ELECTRÓNICO</strong><br>' + data[i]["EMAIL_USUARIO"] + '<br></span>';
                             tr = tr + '</div>';
                             tr = tr + '<p class="description"></span><span class="badge badge-actor-' + color + '">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
@@ -120,8 +130,18 @@ function fn_mostrarSeguimiento() {
                             tr = tr + '<span><strong>MEDIDA MITIGACIÓN</strong><br>' + arr[1] + '<br></span>';
                             tr = tr + '<span><strong>NOMBRE DE PROYECTO</strong><br>' + arr[0] + '<br></span>';
                             tr = tr + '<span><strong>INICIO DE OPERACIONES</strong><br>' + arr[2] + '<br></span>';
-                            tr = tr + '<span><strong>MONEDA</strong><br>' + arr[3] + '<br></span>';
-                            tr = tr + '<span><strong>MONTO INVERSIÓN</strong><br>' + formatoMiles(parseFloat(arr[4])) + '<br></span>';
+                            if (arr[3] != "") {
+                                tr = tr + '<span><strong>MONEDA</strong><br>' + arr[3] + '<br></span>';
+                            } else {
+                                tr = tr + '<span><strong>MONEDA</strong><br>------<br></span>';
+                            }
+                            //tr = tr + '<span><strong>MONEDA</strong><br>' + arr[3] + '<br></span>';
+                            if (arr[4] != 0) {
+                                tr = tr + '<span><strong>MONTO INVERSIÓN</strong><br>' + formatoMiles(parseFloat(arr[4])) + '<br></span>';
+                            } else {
+                                tr = tr + '<span><strong>MONTO INVERSIÓN</strong><br>------<br></span>';
+                            }
+                            //tr = tr + '<span><strong>MONTO INVERSIÓN</strong><br>' + formatoMiles(parseFloat(arr[4])) + '<br></span>';
                             tr = tr + '<span><strong>CORREO ELECTRÓNICO</strong><br>' + data[i]["EMAIL_USUARIO"] + '<br></span>';
                             tr = tr + '</div>';
                             tr = tr + '<p class="description"></span><span class="badge badge-actor-' + color + '">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
@@ -144,8 +164,18 @@ function fn_mostrarSeguimiento() {
                             tr = tr + '<span><strong>MEDIDA MITIGACIÓN</strong><br>' + arr[1] + '<br></span>';
                             tr = tr + '<span><strong>NOMBRE DE PROYECTO</strong><br>' + arr[0] + '<br></span>';
                             tr = tr + '<span><strong>INICIO DE OPERACIONES</strong><br>' + arr[2] + '<br></span>';
-                            tr = tr + '<span><strong>MONEDA</strong><br>' + arr[3] + '<br></span>';
-                            tr = tr + '<span><strong>MONTO INVERSIÓN</strong><br>' + formatoMiles(parseFloat(arr[4])) + '<br></span>';
+                            if (arr[3] != "") {
+                                tr = tr + '<span><strong>MONEDA</strong><br>' + arr[3] + '<br></span>';
+                            } else {
+                                tr = tr + '<span><strong>MONEDA</strong><br>------<br></span>';
+                            }
+                            //tr = tr + '<span><strong>MONEDA</strong><br>' + arr[3] + '<br></span>';
+                            if (arr[4] != 0) {
+                                tr = tr + '<span><strong>MONTO INVERSIÓN</strong><br>' + formatoMiles(parseFloat(arr[4])) + '<br></span>';
+                            } else {
+                                tr = tr + '<span><strong>MONTO INVERSIÓN</strong><br>------<br></span>';
+                            }
+                            //tr = tr + '<span><strong>MONTO INVERSIÓN</strong><br>' + formatoMiles(parseFloat(arr[4])) + '<br></span>';
                             tr = tr + '<span><strong>CORREO ELECTRÓNICO</strong><br>' + data[i]["EMAIL_USUARIO"] + '<br></span>';
                             tr = tr + '</div>';
                             tr = tr + '<p class="description"></span><span class="badge badge-actor-' + color + '">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';

@@ -277,9 +277,21 @@ function CargarDatosIniciativa() {
                         $("#txt-sector-institucion").val(data[i]["SECTOR"]);
                         if (data[i]["INVERSION_INICIATIVA"] != 0) {
                             $("#txt-monto-inversion").val(data[i]["INVERSION_INICIATIVA"]);
+                        } else {
+                            $("#txt-monto-inversion").val("------");//add 030620
                         }
+
+
+
                         if ($("#Control").data("revision") == 0) {
-                            $("#cbo-moneda").val(data[i]["ID_MONEDA"]);
+                            //$("#cbo-moneda").val(data[i]["ID_MONEDA"]);
+
+                            if (data[i]["MONEDA"] != null) {
+                                $("#txt-moneda").val(data[i]["MONEDA"]);
+                            } else {
+                                $("#txt-moneda").val("------");
+                            }
+
                             if (data[i]["FECHA"].toString() != "01/01/0001") {
                                 $("#txt-fecha-inicio").val(data[i]["FECHA_EDITAR"]);
                                 //$("#txt-fecha-inicio").val("2019-12-12"); FORMATO EJEMPLO PARA CARGA
@@ -289,7 +301,14 @@ function CargarDatosIniciativa() {
                             }
                         } else {
                             $("#emisorObservacion").append($("#Control").data("nombres"));
-                            $("#txt-moneda").val(data[i]["MONEDA"]);
+                            //$("#txt-moneda").val(data[i]["MONEDA"]);
+
+                            if (data[i]["MONEDA"] != null) {
+                                $("#txt-moneda").val(data[i]["MONEDA"]);
+                            } else {
+                                $("#txt-moneda").val("------");
+                            }
+
                             if (data[i]["FECHA"].toString() != "01/01/0001") {
                                 $("#txt-fecha-inicio").val(data[i]["FECHA"].toString());
                             }

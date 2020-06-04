@@ -184,17 +184,33 @@
                         </div>
                         <div class="col-sm-12-col-md-12 col-lg-6">
                             <div class="form-group">
-                                <label for="txt-moneda" class="font-weight-bold">Moneda<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                <label class="font-weight-bold" for="txt-moneda">Moneda<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="far fa-money-bill-alt"></i></span></div>
-                                    <input class="form-control-plaintext" type="text" id="txt-moneda" aria-describedby="inputGroup10" value="@Model.iniciativa_mit.MONEDA" readonly>
+                                    @if (Model.iniciativa_mit.MONEDA == null)
+                                    {
+                                        <input class="form-control-plaintext" type="text" id="txt-moneda" aria-describedby="inputGroup10" value="------" readonly>
+                                    }
+                                    else
+                                    {
+                                        <input class="form-control-plaintext" type="text" id="txt-moneda" aria-describedby="inputGroup10" value="@Model.iniciativa_mit.MONEDA" readonly>
+                                    }
+                                    @*<input class="form-control-plaintext" type="text" id="txt-moneda" aria-describedby="inputGroup10" value="@Model.iniciativa_mit.MONEDA" readonly>*@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="txt-monto-inversion" class="font-weight-bold">Monto de inversión<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                <label class="font-weight-bold" for="txt-monto-inversion">Monto de inversión<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup11"><i class="fas fa-wallet"></i></span></div>
-                                    <input class="form-control-plaintext" type="text" id="txt-monto-inversion" aria-describedby="inputGroup11" value="@Model.iniciativa_mit.INVERSION_INICIATIVA" readonly>
+                                    @if (Model.iniciativa_mit.INVERSION_INICIATIVA == 0)
+                                    {
+                                        <input class="form-control-plaintext" type="text" id="txt-monto-inversion" aria-describedby="inputGroup11" value="------" readonly>
+                                    }
+                                    else
+                                    {
+                                        <input class="form-control-plaintext" type="text" id="txt-monto-inversion" aria-describedby="inputGroup11" value="@Model.iniciativa_mit.INVERSION_INICIATIVA" readonly>
+                                    }
+                                    @*<input class="form-control-plaintext" type="text" id="txt-monto-inversion" aria-describedby="inputGroup11" value="@Model.iniciativa_mit.INVERSION_INICIATIVA" readonly>*@
                                 </div>
                             </div>
                             <div class="form-group">

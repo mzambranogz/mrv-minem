@@ -268,7 +268,7 @@ namespace MRVMinem.Controllers
         public ActionResult registro()
         {
             ViewBag.estilo = "^[a-zA-Z0-9.!#$%&amp;’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$";
-            ViewBag.caracter = "@#.";
+            //ViewBag.caracter = "@#.";
 
             MvReCAPTCHASettings modelo = new MvReCAPTCHASettings()
             {

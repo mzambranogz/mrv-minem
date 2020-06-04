@@ -3044,8 +3044,24 @@ namespace MRVMinem.Controllers
             html += "<br/><div style='text-align: left;font-weight: bold;font-size: 14px;'>Datos generales</div>";
             html += "<div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Sector de la institución:</span>&nbsp;<span> " + ini.SECTOR + "</span></div>";
             html += "<div style='text-align: justify;font-size: 12px;'><span style='font-weight: bold;'>Ubicación:</span>&nbsp;<span> " + ini.UBICACION + "</span></div>";
-            html += "<div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Moneda:</span>&nbsp;<span> " + ini.MONEDA + "</span></div>";
-            html += "<div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Monto de inversión:</span>&nbsp;<span> " + ini.INVERSION_INICIATIVA.ToString("N", formato) + "</span></div>";
+            if (ini.MONEDA != null)
+            {
+                html += "<div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Moneda:</span>&nbsp;<span> " + ini.MONEDA + "</span></div>";
+            }
+            else
+            {
+                html += "<div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Moneda:</span>&nbsp;<span>  ------</span></div>";
+            }
+            //html += "<div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Moneda:</span>&nbsp;<span> " + ini.MONEDA + "</span></div>";
+            if (ini.INVERSION_INICIATIVA != 0)
+            {
+                html += "<div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Monto de inversión:</span>&nbsp;<span> " + ini.INVERSION_INICIATIVA.ToString("N", formato) + "</span></div>";
+            }
+            else
+            {
+                html += "<div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Monto de inversión:</span>&nbsp;<span>  ------</span></div>";
+            }
+            //html += "<div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Monto de inversión:</span>&nbsp;<span> " + ini.INVERSION_INICIATIVA.ToString("N", formato) + "</span></div>";
             html += "<div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Fecha de inicio de operaciones:</span>&nbsp;<span> " + ini.FECHA + "</span></div>";
             if (ini.FECHA_FIN != "01/01/0001")
             {

@@ -278,8 +278,17 @@ function CargarDatosIniciativa() {
                         if (data[i]["INVERSION_INICIATIVA"] != 0) {
                             //$("#txt-monto-inversion").val(data[i]["INVERSION_INICIATIVA"]);
                             $("#txt-monto-inversion").val(formatoMiles(data[i]["INVERSION_INICIATIVA"])); //add20
+                        } else {
+                            $("#txt-monto-inversion").val("------");//add 030620
                         }
-                        $("#txt-moneda").val(data[i]["MONEDA"]);
+
+                        if (data[i]["MONEDA"] != null) {
+                            $("#txt-moneda").val(data[i]["MONEDA"]);
+                        } else {
+                            $("#txt-moneda").val("------");
+                        }
+
+                        //$("#txt-moneda").val(data[i]["MONEDA"]);
                         if (data[i]["FECHA"].toString() != "01/01/0001") {
                             $("#txt-fecha-inicio").val(data[i]["FECHA"].toString());
                         }
