@@ -193,12 +193,12 @@ function validarCampo() {
     if ($("#txa-descripcion-medida").val().trim() === ""){
         return false;
     }
-    if ($("#cbo-moneda").val() == 0){
-        return false;
-    }
-    if ($("#txt-monto-inversion").val().trim() === ""){
-        return false;
-    }
+    //if ($("#cbo-moneda").val() == 0){
+    //    return false;
+    //}
+    //if ($("#txt-monto-inversion").val().trim() === ""){
+    //    return false;
+    //}
     if ($("#txt-fecha-inicio").val() == ""){
         return false;
     }
