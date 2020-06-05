@@ -3588,9 +3588,17 @@ function CargarDatosGuardados() {
     }
     $.ajax({
         url: baseUrl + 'Gestion/ListarDatosIndicadorData',
-        type: 'POST',
-        datatype: 'json',
-        data: item,
+        //type: 'POST',
+        //datatype: 'json',
+        //data: item,
+
+        type: "POST",
+        //url: nurl,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        //async: false,
+        data: JSON.stringify(item),
+
         success: function (data) {
             debugger;
             if (data != null && data != "") {
@@ -3678,6 +3686,13 @@ function CargarDatosGuardados() {
             }
             $("#tbl-main-preload").html("");
             $("#tbl-main").removeClass("d-none");
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
         }
     });
 }
@@ -3841,10 +3856,18 @@ function CargarDatosCabecera() {
     $("#tbl-main").addClass("d-none");
     $.ajax({
         url: baseUrl + 'Gestion/ListarCabeceraIndicador',
-        type: 'POST',
-        datatype: 'json',
-        data: item,
+        //type: 'POST',
+        //datatype: 'json',
+        //data: item,
+        //async: false,
+
+        type: "POST",
+        //url: nurl,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
         async: false,
+        data: JSON.stringify(item),
+
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
@@ -3905,6 +3928,13 @@ function CargarDatosCabecera() {
                     $("[data-toggle='tooltip']").tooltip();
                 }
             }
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
         }
     });
 
@@ -5074,9 +5104,17 @@ function mostrarAcumuladoR(e) {
     $("#modal-acumulado").modal("show");
     $.ajax({
         url: baseUrl + 'Gestion/MostrarAcumulado',
-        type: 'POST',
-        datatype: 'json',
-        data: item,
+        //type: 'POST',
+        //datatype: 'json',
+        //data: item,
+
+        type: "POST",
+        //url: nurl,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        //async: false,
+        data: JSON.stringify(item),
+
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
@@ -5107,6 +5145,13 @@ function mostrarAcumuladoR(e) {
                 }
             } else {
             }
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
         }
     });
 
@@ -5119,9 +5164,17 @@ function agregarAcumulado(item, f) {
 
     $.ajax({
         url: baseUrl + 'Gestion/CalcularAcumulado',
-        type: 'POST',
-        datatype: 'json',
-        data: item,
+        //type: 'POST',
+        //datatype: 'json',
+        //data: item,
+
+        type: "POST",
+        //url: nurl,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        //async: false,
+        data: JSON.stringify(item),
+
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
@@ -5224,6 +5277,13 @@ function agregarAcumulado(item, f) {
                 }
             } else {
             }
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
         }
     });
 }
@@ -5302,9 +5362,17 @@ function generarAcumulado(f) {
 
     $.ajax({
         url: baseUrl + 'Gestion/MostrarAcumulado',
-        type: 'POST',
-        datatype: 'json',
-        data: item,
+        //type: 'POST',
+        //datatype: 'json',
+        //data: item,
+
+        type: "POST",
+        //url: nurl,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        //async: false,
+        data: JSON.stringify(Item),
+
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
@@ -5405,6 +5473,13 @@ function generarAcumulado(f) {
                 }
             } else {
             }
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
         }
     });
 
@@ -5425,9 +5500,17 @@ function cargarAcumulado(entidad, f) {
 
     $.ajax({
         url: baseUrl + 'Gestion/CalcularAcumuladoC',
-        type: 'POST',
-        datatype: 'json',
-        data: item,
+        //type: 'POST',
+        //datatype: 'json',
+        //data: item,
+
+        type: "POST",
+        //url: nurl,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        //async: false,
+        data: JSON.stringify(item),
+
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
@@ -5528,6 +5611,13 @@ function cargarAcumulado(entidad, f) {
             }
             //$("#tbl-main-preload-acu").html("");
             //$("#tbl-main-acu").removeClass("d-none");
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
         }
     });
 

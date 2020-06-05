@@ -1811,9 +1811,17 @@ function CargarDatosCabecera() {
     $("#tbl-main").addClass("d-none");
     $.ajax({
         url: baseUrl + 'Gestion/ListarCabeceraIndicador',
-        type: 'POST',
-        datatype: 'json',
-        data: item,
+        //type: 'POST',
+        //datatype: 'json',
+        //data: item,
+
+        type: "POST",
+        //url: nurl,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        async: false,
+        data: JSON.stringify(item),
+
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
@@ -1875,6 +1883,13 @@ function CargarDatosCabecera() {
                 }
             }
             //$('[data-toggle="tooltip"]').tooltip();
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
         }
     });
 
@@ -2666,9 +2681,17 @@ function CargarDatosGuardados() {
     }
     $.ajax({
         url: baseUrl + 'Gestion/ListarDatosIndicadorData',
-        type: 'POST',
-        datatype: 'json',
-        data: item,
+        //type: 'POST',
+        //datatype: 'json',
+        //data: item,
+
+        type: "POST",
+        //url: nurl,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        //async: false,
+        data: JSON.stringify(item),
+
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
@@ -2751,6 +2774,13 @@ function CargarDatosGuardados() {
             }
             $("#tbl-main-preload").html("");
             $("#tbl-main").removeClass("d-none");
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
         }
     });
 
