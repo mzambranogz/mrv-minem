@@ -649,9 +649,17 @@ function fn_ObtenerMedidaMitigacion(id) {
     };
     $.ajax({
         url: baseUrl + "Gestion/ObtenerMedidaMitigacion",
-        type: 'POST',
-        datatype: 'json',
-        data: Item,
+        //type: 'POST',
+        //datatype: 'json',
+        //data: Item,
+
+        type: "POST",
+        //url: nurl,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        //async: false,
+        data: JSON.stringify(Item),
+
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
@@ -665,6 +673,13 @@ function fn_ObtenerMedidaMitigacion(id) {
                     }
                 }
             }
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
         }
     });
 }
@@ -680,9 +695,17 @@ $("#cbo-medida-mitigacion-seleccionada").change(function () {
     };
     $.ajax({
         url: baseUrl + "Gestion/ObtenerMedidaMitigacion",
-        type: 'POST',
-        datatype: 'json',
-        data: Item,
+        //type: 'POST',
+        //datatype: 'json',
+        //data: Item,
+
+        type: "POST",
+        //url: nurl,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        //async: false,
+        data: JSON.stringify(Item),
+
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
@@ -697,6 +720,13 @@ $("#cbo-medida-mitigacion-seleccionada").change(function () {
                     }
                 }
             }
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
         }
     });
 });

@@ -389,10 +389,18 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
     $("#tbl-main").addClass("d-none");
     //======================================================================
     $.ajax({
+
+        type: "POST",
         url: nurl,
-        type: 'POST',
-        datatype: 'json',
-        data: Item,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        //async: false,
+        data: JSON.stringify(Item),
+
+        //url: nurl,
+        //type: 'POST',
+        //datatype: 'json',
+        //data: Item,
         success: function (data) {
             $("#cuerpoMitigacion").html("");
             if (data != null && data != "") {
@@ -697,6 +705,13 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
             $('[data-toggle="tooltip"]').tooltip();
             $("#tbl-main-preload").html("");
             $("#tbl-main").removeClass("d-none");
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
         }
     });
 }
@@ -1696,9 +1711,17 @@ function CargarListaActor() {
     };
     $.ajax({
         url: baseUrl + "Gestion/ListarActorEnviar",
-        type: 'POST',
-        datatype: 'json',
-        data: item,
+        //type: 'POST',
+        //datatype: 'json',
+        //data: item,
+
+        type: "POST",
+        //url: nurl,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        //async: false,
+        data: JSON.stringify(item),
+
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
@@ -1717,6 +1740,13 @@ function CargarListaActor() {
                     $("#lista-actor-enviar").append(tr);
                 }
             }
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
         }
     });
 }
@@ -2018,9 +2048,17 @@ function fn_mostrarUsuarioRecordatorio(id) {
     };
     $.ajax({
         url: baseUrl + "Gestion/MostrarUsuarioRecordatorio",
-        type: 'POST',
-        datatype: 'json',
-        data: item,
+        //type: 'POST',
+        //datatype: 'json',
+        //data: item,
+
+        type: "POST",
+        //url: nurl,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        //async: false,
+        data: JSON.stringify(item),
+
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
@@ -2047,6 +2085,13 @@ function fn_mostrarUsuarioRecordatorio(id) {
                     }
                 }
             }
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
         }
     });
 
@@ -2219,12 +2264,11 @@ function fn_mostrarBlockchain(idBlock) {
             $("#block-" + idBlock).data("block", 1);
         },
         failure: function (msg) {
-            alert(msg);
-            rsp = msg;
+            console.log(msg);
         },
         error: function (xhr, status, error) {
-            alert(error);
-            rsp = error;
+            console.log(error);
+            location.href = baseUrl + "Home/login";
         }
     });
 }
@@ -2258,12 +2302,11 @@ function fn_descargarCertificado(idBlock) {
             $("#block-" + idBlock).data("block", 1);
         },
         failure: function (msg) {
-            alert(msg);
-            rsp = msg;
+            console.log(msg);
         },
         error: function (xhr, status, error) {
-            alert(error);
-            rsp = error;
+            console.log(error);
+            location.href = baseUrl + "Home/login";
         }
     });
 }
@@ -2357,9 +2400,17 @@ function mostrarObservacion(id) {
     };
     $.ajax({
         url: baseUrl + "Gestion/MostrarMensajeObservacion",
-        type: 'POST',
-        datatype: 'json',
-        data: item,
+        //type: 'POST',
+        //datatype: 'json',
+        //data: item,
+
+        type: "POST",
+        //url: nurl,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        //async: false,
+        data: JSON.stringify(Item),
+
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
@@ -2383,6 +2434,13 @@ function mostrarObservacion(id) {
             } else {
                 $('#modal-observaciones-none').modal('show');
             }
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
         }
     });
 

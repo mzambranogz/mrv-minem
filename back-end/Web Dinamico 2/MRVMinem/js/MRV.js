@@ -402,12 +402,13 @@ MRV = {
                 }
             },
             failure: function (msg) {
-                alert(msg);
+                //alert(msg);
                 rsp = msg;
             },
             error: function (xhr, status, error) {
-                alert(error);
+                //alert(error);
                 rsp = error;
+                location.href = baseUrl + "Home/login"; //add
             }
         });
 
