@@ -4967,7 +4967,7 @@ function mostrarAcumulado() {
     var campos = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + row).find("[data-validar]");
     campos.each(function (index, value) {
         console.log(index + " + " + $(value).attr("id") + " + " + $(value).attr("data-validar"));
-
+        debugger;
         if ($(value).attr("data-validar") == 0) {
             valor = 1;
         }
