@@ -518,6 +518,14 @@ namespace logica.minem.gob.pe
             return iniciativaDA.ListaBusquedaAvanzadoPrivado(entidad);
         }
 
+        //add
+        public static List<IniciativaBE> ListaBusquedaAvanzadoPrivadoBlock(IniciativaBE entidad)
+        {
+            if (string.IsNullOrEmpty(entidad.NOMBRE_INICIATIVA)) entidad.NOMBRE_INICIATIVA = "";
+            if (string.IsNullOrEmpty(entidad.hash)) entidad.hash = "";
+            return iniciativaDA.ListaBusquedaAvanzadoPrivadoBlock(entidad);
+        }
+
         public static List<IniciativaBE> ListaExcelSimple(IniciativaBE entidad)
         {
             return iniciativaDA.ListaExcelSimple(entidad);

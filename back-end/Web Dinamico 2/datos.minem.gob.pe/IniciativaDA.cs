@@ -2593,6 +2593,148 @@ namespace datos.minem.gob.pe
             return lista;
         }
 
+        /////////////////////////////////////////////////////
+
+        public List<IniciativaBE> ListaBusquedaAvanzadoPrivadoBlock(IniciativaBE entidad)
+        {
+            List<IniciativaBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage;
+                    var p = new OracleDynamicParameters();
+                    sp += "USP_SEL_BUSQUEDA_AVANZADA_BLK";
+
+                    if (entidad.ID_ESTADO == 1)
+                    {
+                        if (entidad.ID_ROL == 1)
+                        {
+                            //sp += "USP_SEL_BUSQUEDA_SPL_PRI_USU";
+                            //entidad.CONDICION = "(INI.ID_USUARIO = "+ entidad.ID_USUARIO +") AND (INI.ID_ETAPA IN (1, 3) AND INI.ID_ESTADO IN (0, 6))";
+                            entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,9,10))";
+                        }
+                        else if (entidad.ID_ROL == 2)
+                        {
+                            //sp += "USP_SEL_BUSQUEDA_SPL_PRI_ESP";
+                            //entidad.CONDICION = "(INI.ID_ESTADO IN (1,5) AND INI.ID_ETAPA IN (1,3) OR (INI.ID_ESTADO = 2 AND INI.ID_ETAPA = 4))";
+                            //entidad.CONDICION = "(INI.ID_ESTADO IN (1,5) AND INI.ID_ETAPA IN (1,3))";
+                            entidad.CONDICION = "(INI.ID_PLAZO_ETAPA_ESTADO IN (2,5,8,11,13) AND MD.ID_MEDMIT IN (SELECT ID_MEDMIT FROM T_MAE_MEDMIT WHERE ASOCIADO = " + entidad.ID_USUARIO + "))";
+                        }
+                        else if (entidad.ID_ROL == 3)
+                        {
+                            //sp += "USP_SEL_BUSQUEDA_SPL_PRI_ADM";
+                            //entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 4) OR (INI.ID_ESTADO IN (2) AND INI.ID_ETAPA IN (5,8))";
+                            entidad.CONDICION = "(INI.ID_PLAZO_ETAPA_ESTADO IN (12,15,19))";
+                        }
+                        else if (entidad.ID_ROL == 4)
+                        {
+                            //sp += "USP_SEL_BUSQUEDA_SPL_PRI_EVA";
+                            //entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 5) OR (INI.ID_ESTADO = 2 AND INI.ID_ETAPA = 6)";
+                            entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA = 9 AND INI.ASIGNAR_INI = " + entidad.ID_USUARIO + ")";
+                        }
+                        else if (entidad.ID_ROL == 5)
+                        {
+                            //sp += "USP_SEL_BUSQUEDA_SPL_PRI_VRF";
+                            //entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA IN (6,8))";
+                            entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA IN (8,10) AND INI.ASIGNAR_INI = " + entidad.ID_USUARIO + ")";
+                        }
+                    }
+                    else if (entidad.ID_ESTADO == 2)
+                    {
+                        if (entidad.ID_ROL == 1)
+                        {
+                            entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_ESTADO IN (2) AND INI.ID_ETAPA IN (1,3))";
+                        }
+                        else
+                        {
+                            //sp += "USP_SEL_BUSQUEDA_SPL_PRI_OBSE";                        
+                            entidad.CONDICION = "(INI.ID_ESTADO = 2)";
+                        }
+                    }
+                    else if (entidad.ID_ESTADO == 3)
+                    {
+                        if (entidad.ID_ROL == 1)
+                        {
+                            entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_ESTADO = 3 AND INI.ID_ETAPA IN (2,4))";
+                        }
+                        else
+                        {
+                            //sp += "USP_SEL_BUSQUEDA_SPL_PRI_APRO";                        
+                            entidad.CONDICION = "(INI.ID_ESTADO = 3 AND INI.ID_ETAPA IN (2,4))";
+                        }
+                    }
+                    else if (entidad.ID_ESTADO == 4) //revisados
+                    {
+                        entidad.CONDICION = "(INI.ID_ESTADO = 3 AND INI.ID_ETAPA IN (5,8))";
+                        //sp += "USP_SEL_BUSQUEDA_SPL_PRI_REVI";
+                    }
+                    else if (entidad.ID_ESTADO == 5) // evaluados
+                    {
+                        //sp += "USP_SEL_BUSQUEDA_SPL_PRI_EVAL";
+                        entidad.CONDICION = "(INI.ID_ESTADO = 3 AND INI.ID_ETAPA = 6)";
+                    }
+                    else if (entidad.ID_ESTADO == 6)
+                    {
+                        //sp += "USP_SEL_BUSQUEDA_SPL_PRI_VRFI";
+                        entidad.CONDICION = "(INI.ID_ESTADO = 3 AND INI.ID_ETAPA = 7)";
+                    }
+                    else if (entidad.ID_ESTADO == 7)
+                    {
+                        //sp += "USP_SEL_BUSQUEDA_SPL_PRI_TODO";
+                        if (entidad.ID_ROL == 1)
+                        {
+                            entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ")";
+                        }
+                        else
+                        {
+                            entidad.CONDICION = "NOT (INI.ID_ESTADO = 0 AND INI.ID_ETAPA = 1)";
+                        }
+
+                    }
+                    else if (entidad.ID_ESTADO == 8)
+                    {
+                        entidad.CONDICION = "(INI.ID_ESTADO = 3 AND INI.ID_ETAPA IN (9,10))";
+                    }
+                    else if (entidad.ID_ESTADO == 9)
+                    {
+                        entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,9,10,11,12,13,14,15,16,17,18,19,20,21,22))";
+                    }
+                    //var p = new OracleDynamicParameters();
+                    //if (entidad.ID_ROL == 1)
+                    //{
+                    //    p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                    //}
+                    p.Add("pHASH", entidad.hash); //add
+                    p.Add("pRegistros", entidad.cantidad_registros);
+                    p.Add("pPagina", entidad.pagina);
+                    p.Add("pSortColumn", entidad.order_by);
+                    p.Add("pSortOrder", entidad.order_orden);
+                    p.Add("pCondicion", entidad.CONDICION);
+                    p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    foreach (var item in Lista)
+                    {
+                        item.FECHA = item.FECHA_IMPLE_INICIATIVA.ToString("dd/MM/yyyy");
+                        if (item.FECHA == "01/01/0001") item.FECHA = "--/--/----";
+                        item.FECHA_FIN = item.FECHA_FIN_INICIATIVA.ToString("dd/MM/yyyy");
+                        if (item.FECHA_FIN == "01/01/0001") item.FECHA_FIN = "--/--/----";
+                        if (string.IsNullOrEmpty(item.NOMBRE_INICIATIVA)) item.NOMBRE_INICIATIVA = "";
+                        if (string.IsNullOrEmpty(item.NOMBRE_MEDMIT)) item.NOMBRE_MEDMIT = "";
+                        item.DIAS_RESTANTES = item.PLAZO - Convert.ToInt32(item.DIAS);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
     }
 
 }

@@ -2088,6 +2088,16 @@ namespace MRVMinem.Controllers
             return jsonResult;
         }
 
+        //add
+        public JsonResult ListaBusquedaAvanzadaPrivadoBlock(IniciativaBE entidad)
+        {
+            entidad.ID_ROL = Convert.ToInt32(Session["rol"]);
+            List<IniciativaBE> lista = IniciativaLN.ListaBusquedaAvanzadoPrivadoBlock(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
         public JsonResult ActualizarPrimeraVisita(UsuarioBE entidad)
         {
             ResponseEntity itemRespuesta = new ResponseEntity();

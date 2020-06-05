@@ -2868,6 +2868,7 @@ function fn_procesoDetalleIndicador(url, estado) {
         type: "POST",
         dataType: "json",
         contentType: false,
+        async: false, // add 040620
         url: url,
         processData: false,
         data: item,

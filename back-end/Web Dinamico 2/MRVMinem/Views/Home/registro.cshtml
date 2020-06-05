@@ -49,42 +49,42 @@
                                 <label for="txt-user">Correo electrónico</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-envelope"></i></span></div>
-                                    <input class="form-control" type="email" id="txt-user" placeholder="Ingrese su correo electrónico" autocomplete="off" aria-describedby="inputGroup1" maxlength="54" required>
+                                    <input class="form-control" type="email" id="txt-user" placeholder="Ingrese su correo electrónico" autocomplete="off" aria-describedby="inputGroup1" maxlength="39" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="txt-nombre">Nombres</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup3"><i class="fas fa-user"></i></span></div>
-                                    <input class="form-control" type="text" id="txt-nombre" placeholder="Ingrese su nombres" aria-describedby="inputGroup3" maxlength="54" required>
+                                    <input class="form-control" type="text" id="txt-nombre" placeholder="Ingrese su nombres" aria-describedby="inputGroup3" maxlength="19" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="txt-apellido">Apellidos</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-user"></i></span></div>
-                                    <input class="form-control" type="text" id="txt-apellido" placeholder="Ingrese su apellidos" aria-describedby="inputGroup4" maxlength="54" required>
+                                    <input class="form-control" type="text" id="txt-apellido" placeholder="Ingrese su apellidos" aria-describedby="inputGroup4" maxlength="29" required>
                                 </div>
                             </div>
                             <div class="form-group tel">
                                 <label for="txt-telefono">Teléfono</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup11"><i class="fas fa-phone-alt"></i></span></div>
-                                    <input class="form-control" type="tel" id="txt-telefono" placeholder="Ingrese su teléfono" aria-describedby="inputGroup11" pattern="[0-9]{6,10}" maxlength="10" required>
+                                    <input class="form-control validar" type="tel" id="txt-telefono" placeholder="Ingrese su teléfono" aria-describedby="inputGroup11" pattern="[0-9]{6,10}" maxlength="10" required>
                                 </div>
                             </div>
                             <div class="form-group tel">
                                 <label for="txt-anexo">Anexo</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup12"><i class="fas fa-phone-square-alt"></i></span></div>
-                                    <input class="form-control" type="tel" id="txt-anexo" placeholder="Ingrese su anexo" aria-describedby="inputGroup12" pattern="[0-9]{4,5}" maxlength="5" required>
+                                    <input class="form-control validar" type="tel" id="txt-anexo" placeholder="Ingrese su anexo" aria-describedby="inputGroup12" pattern="[0-9]{4,5}" maxlength="5" required>
                                 </div>
                             </div>
                             <div class="form-group cel">
                                 <label for="txt-celular">Celular</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-mobile-alt"></i></span></div>
-                                    <input class="form-control" type="text" id="txt-celular" placeholder="Ingrese su celular" aria-describedby="inputGroup5" pattern="[0-9]{9,12}" maxlength="12" required>
+                                    <input class="form-control validar" type="text" id="txt-celular" placeholder="Ingrese su celular" aria-describedby="inputGroup5" pattern="[0-9]{9,12}" maxlength="12" required>
                                 </div>
                             </div>
                         </div>
@@ -110,7 +110,7 @@
                                 <label for="txt-direccion">Domicilio legal</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup8"><i class="fas fa-landmark"></i></span></div>
-                                    <input class="form-control" type="text" id="txt-direccion" placeholder="Ingrese su dirección" aria-describedby="inputGroup8" maxlength="120" required>
+                                    <input class="form-control" type="text" id="txt-direccion" placeholder="Ingrese su dirección" aria-describedby="inputGroup8" maxlength="99" required>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -138,7 +138,7 @@
                             <div class="form-group">
                                 <label for="txt-pswd">Contraseña</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="top" title="Su contraseña debe incluir 6 caracteres como mínimo, 1 minúscula, 1 mayúscula, 1 número y 1 caracter especial (#$%&)"></i></span>
                                 <div class="input-group">
-                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup2"><i class="fas fa-key"></i></span></div><input class="form-control" type="password" id="txt-pswd" placeholder="Ingrese su contraseña" aria-describedby="inputGroup2" required>
+                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup2"><i class="fas fa-key"></i></span></div><input class="form-control" type="password" id="txt-pswd" placeholder="Ingrese su contraseña" aria-describedby="inputGroup2" maxlength="30" required>
                                     <div class="input-group-append">
                                         <label class="input-group-text cursor-pointer ver-clave"><i class="fas fa-eye mr-1"></i>Mostrar</label>
                                     </div>
@@ -157,7 +157,7 @@
                                 <label for="txt-re-pswd">Confirmar contraseña</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="fas fa-key"></i></span></div>
-                                    <input class="form-control" type="password" id="txt-re-pswd" placeholder="Confirmar su contraseña" aria-describedby="inputGroup10" required>
+                                    <input class="form-control" type="password" id="txt-re-pswd" placeholder="Confirmar su contraseña" aria-describedby="inputGroup10" maxlength="30" required>
                                     <div class="input-group-append">
                                         <label class="input-group-text cursor-pointer ver-clave"><i class="fas fa-eye mr-1"></i>Mostrar</label>
                                     </div>

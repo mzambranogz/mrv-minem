@@ -261,42 +261,42 @@
                                             <label for="txt-user">Email</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-envelope"></i></span></div>
-                                                <input class="form-control" type="text" id="txt-user" placeholder="Dirección de email" aria-describedby="inputGroup1" required>
+                                                <input class="form-control" type="text" id="txt-user" placeholder="Dirección de email" aria-describedby="inputGroup1" maxlength="39" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="txt-nombre">Nombre</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup3"><i class="fas fa-user-tie"></i></span></div>
-                                                <input class="form-control" type="text" id="txt-nombre" placeholder="Ingrese su nombre" aria-describedby="inputGroup3" required>
+                                                <input class="form-control" type="text" id="txt-nombre" placeholder="Ingrese su nombre" aria-describedby="inputGroup3" maxlength="19" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="txt-apellido">Apellido</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-user-tie"></i></span></div>
-                                                <input class="form-control" type="text" id="txt-apellido" placeholder="Ingrese su apellido" aria-describedby="inputGroup4" required>
+                                                <input class="form-control" type="text" id="txt-apellido" placeholder="Ingrese su apellido" aria-describedby="inputGroup4" maxlength="29" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="txt-telefono">Teléfono</label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup11"><i class="fas fa-phone-alt"></i></span></div>
-                                                <input class="form-control" type="text" id="txt-telefono" placeholder="Ingrese su teléfono" aria-describedby="inputGroup11" required>
+                                                <input class="form-control validar" type="text" id="txt-telefono" placeholder="Ingrese su teléfono" aria-describedby="inputGroup11" maxlength="10" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="txt-anexo">Anexo</label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup12"><i class="fas fa-phone-square-alt"></i></span></div>
-                                                <input class="form-control" type="text" id="txt-anexo" placeholder="Ingrese su anexo" aria-describedby="inputGroup12" required>
+                                                <input class="form-control validar" type="text" id="txt-anexo" placeholder="Ingrese su anexo" aria-describedby="inputGroup12" maxlength="5" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="txt-celular">Celular</label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-mobile-alt"></i></span></div>
-                                                <input class="form-control" type="text" id="txt-celular" placeholder="Ingrese su celular" aria-describedby="inputGroup5" required>
+                                                <input class="form-control validar" type="text" id="txt-celular" placeholder="Ingrese su celular" aria-describedby="inputGroup5" maxlength="12" required>
                                             </div>
                                         </div>
 
@@ -320,7 +320,7 @@
                                             <label for="txt-institucion">Institución</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
-                                                <input class="form-control" type="text" id="txt-institucion" placeholder="Ingrese su institución" aria-describedby="inputGroup6" required>
+                                                <input class="form-control" type="text" id="txt-institucion" placeholder="Ingrese su institución" aria-describedby="inputGroup6" maxlength="70" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -334,7 +334,7 @@
                                             <label for="txt-direccion">Domicilio legal</label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup8"><i class="fas fa-landmark"></i></span></div>
-                                                <input class="form-control" type="text" id="txt-direccion" placeholder="Ingrese su dirección" aria-describedby="inputGroup8" required>
+                                                <input class="form-control" type="text" id="txt-direccion" placeholder="Ingrese su dirección" aria-describedby="inputGroup8" maxlength="99" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -359,7 +359,7 @@
                                         <div class="form-group ocultar-psw">
                                             <label for="txt-pswd">Contraseña</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="top" title="Su contraseña debe incluir 6 caracteres como mínimo, 1 minúscula, 1 mayúscula, 1 número y 1 caracter especial (#$%&)"></i></span>
                                             <div class="input-group">
-                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup2"><i class="fas fa-key"></i></span></div><input class="form-control" type="password" id="txt-pswd" autocomplete="off" placeholder="Ingrese se contraseña" aria-describedby="inputGroup2" @*pattern="(?=.*\d)(?=.*[!@#$&*])(?=.*[a-z])(?=.*[A-Z]).{6,}"*@ required>
+                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup2"><i class="fas fa-key"></i></span></div><input class="form-control" type="password" id="txt-pswd" autocomplete="off" placeholder="Ingrese se contraseña" aria-describedby="inputGroup2" @*pattern="(?=.*\d)(?=.*[!@#$&*])(?=.*[a-z])(?=.*[A-Z]).{6,}"*@ maxlength="30" required>
                                                 <div class="input-group-append">
                                                     <label class="input-group-text cursor-pointer ver-clave"><i class="fas fa-eye mr-1"></i>Mostrar</label>
                                                 </div>
@@ -378,7 +378,7 @@
                                             <label for="txt-re-pswd">Confirmar contraseña</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="fas fa-key"></i></span></div>
-                                                <input class="form-control" type="password" id="txt-re-pswd" autocomplete="off" placeholder="Confirmar su contraseña" aria-describedby="inputGroup10" required>
+                                                <input class="form-control" type="password" id="txt-re-pswd" autocomplete="off" placeholder="Confirmar su contraseña" aria-describedby="inputGroup10" maxlength="30" required>
                                                 <div class="input-group-append">
                                                     <label class="input-group-text cursor-pointer ver-clave"><i class="fas fa-eye mr-1"></i>Mostrar</label>
                                                 </div>

@@ -346,24 +346,43 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
         nurl = nurl + "Gestion/ListaBusquedaSimplePrivado";
     } else {
 
-        var Item = {
-            medida_b: $("#cbo-medida-mitigacion").val(),
-            anio_b: $("#txt-fecha-inicio").val(),
-            sector_b: $("#cbo-sector").val(),
-            gei_b: $("#cbo-energetico-base").val(),
-            FECHA_IMPLE_INICIATIVA: $("#txt-fecha-inicio").val(),
-            FECHA_FIN_INICIATIVA: $("#txt-fecha-fin").val(),
-            NOMBRE_INICIATIVA: $("#txa-descripcion-iniciativa").val(),
-            energ_b: $("#cbo-energetico-proyecto").val(),
-            hash: $("#txa-bloackchain").val(), //add
-            cantidad_registros: $("#cantidad-registros").val(),
-            pagina: $("#pagina").val(),
-            order_by: $("#columna").val(),
-            order_orden: $("#orden").val(),
-            ID_USUARIO: $("#Control").data("usuario"),
-            ID_ESTADO: $("#estadoIniciativa").data("estado")
+        if ($("#blk").data("blk") == 0) {
+
+            var Item = {
+                medida_b: $("#cbo-medida-mitigacion").val(),
+                anio_b: $("#txt-fecha-inicio").val(),
+                sector_b: $("#cbo-sector").val(),
+                gei_b: $("#cbo-energetico-base").val(),
+                FECHA_IMPLE_INICIATIVA: $("#txt-fecha-inicio").val(),
+                FECHA_FIN_INICIATIVA: $("#txt-fecha-fin").val(),
+                NOMBRE_INICIATIVA: $("#txa-descripcion-iniciativa").val(),
+                energ_b: $("#cbo-energetico-proyecto").val(),
+                hash: $("#txa-bloackchain").val(), //add
+                cantidad_registros: $("#cantidad-registros").val(),
+                pagina: $("#pagina").val(),
+                order_by: $("#columna").val(),
+                order_orden: $("#orden").val(),
+                ID_USUARIO: $("#Control").data("usuario"),
+                ID_ESTADO: $("#estadoIniciativa").data("estado")
+            }
+            nurl = nurl + "Gestion/ListaBusquedaAvanzadaPrivado";
+
+        } else {
+
+            var Item = {
+                hash: $("#txa-bloackchain").val(), //add
+                cantidad_registros: $("#cantidad-registros").val(),
+                pagina: $("#pagina").val(),
+                order_by: $("#columna").val(),
+                order_orden: $("#orden").val(),
+                ID_USUARIO: $("#Control").data("usuario"),
+                ID_ESTADO: $("#estadoIniciativa").data("estado")
+            }
+            nurl = nurl + "Gestion/ListaBusquedaAvanzadaPrivadoBlock";
+
         }
-        nurl = nurl + "Gestion/ListaBusquedaAvanzadaPrivado";
+
+        
     }
     //=================================
     $("#tbl-main-preload").html("<i Class='fas fa-spinner fa-spin px-1'></i> Cargando...");
@@ -2388,6 +2407,18 @@ function obtenerColor(rol) {
 function verObservSeguimiento() {
     var id = $("#id-ini").data("value");
     location.href = baseUrl + "Gestion/SeguimientoIniciativa/" + id + "/" + Math.round(Math.random() * 100);
+}
+
+//add 05-06-2020
+function validarEstado() {
+
+    if ($("#blk").data("blk") == 0) {
+        $("#blk").data("blk", 1);
+    } else {
+        $("#blk").data("blk", 0);
+        $("#txa-bloackchain").val("");
+    }
+
 }
 
 
