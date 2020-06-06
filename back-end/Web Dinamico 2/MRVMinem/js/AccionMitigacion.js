@@ -346,7 +346,8 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
         nurl = nurl + "Gestion/ListaBusquedaSimplePrivado";
     } else {
 
-        if ($("#blk").data("blk") == 0) {
+        //if ($("#blk").data("blk") == 0) {
+        if ($("#txa-bloackchain").val() == "") {
 
             var Item = {
                 medida_b: $("#cbo-medida-mitigacion").val(),
