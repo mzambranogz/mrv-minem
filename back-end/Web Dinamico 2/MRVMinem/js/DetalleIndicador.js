@@ -5371,7 +5371,7 @@ function generarAcumulado(f) {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         //async: false,
-        data: JSON.stringify(Item),
+        data: JSON.stringify(item),
 
         success: function (data) {
             if (data != null && data != "") {

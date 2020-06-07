@@ -392,6 +392,15 @@ function fn_validarCampo() {
     if ($("#txt-ruc").val().length < 11) {
         arr.push("El ruc debe contener 11 caracteres");
     }
+
+    if ($("#txt-ruc").val().length > 2) {
+        var ruc = $("#txt-ruc").val();
+        ruc = ruc.substring(0, 2);
+        if (ruc != '20' && ruc != '10') {
+            arr.push("El ruc debe iniciar con el número 20 o 10");
+        }
+    }
+
     //if ($("#txt-direccion").val().trim() === "") {
     //    arr.push("Debe ingresar el domicilio fiscal de la Institución");
     //}
