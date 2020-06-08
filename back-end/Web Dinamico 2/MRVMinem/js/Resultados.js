@@ -197,13 +197,13 @@ function drawMultSeries02(data) {
     var options = {
         width: 900,
         height: 540,
-        title: 'Cantidad de Iniciativas de Mitigación registrados por Sector',
+        title: 'Cantidad de Acciones de Mitigación registrados por Sector',
         //subtitle: 'Período 2010 - 2030',
         hAxis: {
             title: 'Año del Período'
         },
         vAxis: {
-            title: 'Cantidad de Iniciativas de Mitigación registrados'
+            title: 'Cantidad de Acciones de Mitigación registrados'
         }
     };
     var chart = new google.visualization.ColumnChart(
@@ -313,7 +313,7 @@ function drawColumnChart(data) {
     //]);
 
     var options = {
-        title: 'Cantidad de Iniciativas de Mitigación por Sector',
+        title: 'Cantidad de Acciones de Mitigación por Sector',
         chartArea: { width: '55%' },
         hAxis: {
             title: 'Cantidad',

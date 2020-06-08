@@ -375,7 +375,7 @@ function fn_cargarUbicacion() {
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
-                    var msj = '<textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="8" readonly placeholder="Ingrese una descripción para su iniciativa">';
+                    var msj = '<textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="8" readonly placeholder="Ingrese una descripción para su acción de mitigación">';
                     for (var j = 0; j < data.length; j++) {
                         msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
                     }
@@ -401,7 +401,7 @@ function fn_cargarGei() {
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
-                    var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">';
+                    var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su acción de mitigación">';
                     for (var j = 0; j < data.length; j++) {
                         msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
                     }
@@ -426,7 +426,7 @@ function fn_cargarEnergetico() {
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
-                    var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">';
+                    var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su acción de mitigación">';
                     for (var j = 0; j < data.length; j++) {
                         msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
                     }
@@ -1049,7 +1049,7 @@ function validarCampoRevision() {
 //===============================================
 function fn_observacionDetalleIndicador() {
 
-    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "modalErrorRevision", "Esta iniciativa ya fue revisada y/o observada");
+    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "modalErrorRevision", "Esta acción de mitigación ya fue revisada y/o observada");
     if (mns != "") {
         $("#observar-revision #modalObservacionBoton").hide();
         $("#pieCorrectoObservacion").show();
@@ -1131,7 +1131,7 @@ $("#observar-revision").on("hidden.bs.modal", function () {
 
 function fn_revisarDetalleIndicador() {
 
-    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "mensajeDangerRegistro", "Esta iniciativa ya fue revisada y/o observada");
+    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "mensajeDangerRegistro", "Esta acción de mitigación ya fue revisada y/o observada");
     if (mns != "") {
         $("#aprobar-revision #modalAprobarBoton").hide();
         $("#pieCorrectoAprobacion").show();
@@ -1263,7 +1263,7 @@ $("#aprobar-revision").on("hidden.bs.modal", function () {
 
 function fn_observacionAdminDetalleIndicador() {
 
-    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "modalErrorRevision", "Esta iniciativa ya fue revisada y/o observada");
+    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "modalErrorRevision", "Esta acción de mitigación ya fue revisada y/o observada");
     if (mns != "") {
         $("#observar-revision #modalObservacionBoton").hide();
         $("#pieCorrectoObservacion").show();
@@ -1346,7 +1346,7 @@ $("#observar-revision").on("hidden.bs.modal", function () {
 
 function fn_revisarAdminDetalleIndicador() {
 
-    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "mensajeDangerRegistro", "Esta iniciativa ya fue revisada y/o observada");
+    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "mensajeDangerRegistro", "Esta acción de mitigación ya fue revisada y/o observada");
     if (mns != "") {
         $("#aprobar-revision #modalAprobarBoton").hide();
         $("#pieCorrectoAprobacion").show();
@@ -1481,7 +1481,7 @@ $("#aprobar-revision").on("hidden.bs.modal", function () {
 
 function fn_observacionEvaluadorDetalleIndicador() {
 
-    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "modalErrorRevision", "Esta iniciativa ya fue evaluada y/o observada");
+    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "modalErrorRevision", "Esta acción de mitigación ya fue evaluada y/o observada");
     if (mns != "") {
         $("#observar-evaluacion #modalObservacionBoton").hide();
         $("#pieCorrectoObservacion").show();
@@ -1562,7 +1562,7 @@ $("#observar-evaluacion").on("hidden.bs.modal", function () {
 
 function fn_observacionVerificarDetalleIndicador() {
 
-    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "modalErrorRevision", "Esta iniciativa ya fue verificada y/o observada");
+    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "modalErrorRevision", "Esta acción de mitigación ya fue verificada y/o observada");
     if (mns != "") {
         $("#observar-verificacion #modalObservacionBoton").hide();
         $("#pieCorrectoObservacion").show();
@@ -1734,7 +1734,7 @@ function fn_evaluarIniciativaDetalle() {
 
 function fn_verificarIniciativaDetalle() {
 
-    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "modalErrorAprobacion", "Esta iniciativa ya fue verificada y/o observada");
+    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "modalErrorAprobacion", "Esta acción de mitigación ya fue verificada y/o observada");
     if (mns != "") {
         $("#aprobar-verificacion #modalAprobarBoton").hide();
         $("#pieCorrectoAprobacion").show();
@@ -2375,7 +2375,7 @@ function cargarCabeceraElectrico() {
     msj += '    <th class="text-center" style="background-color: green;" scope="col"><span>Factor de Rendimiento&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Rendimiento"></i></span></th>';
     msj += '    <th class="text-center" style="background-color: green;" scope="col"><span>Placa&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Placa del vehículo"></i></span></th>';
     msj += '    <th class="text-center" style="background-color: orange;" scope="col"><span>Línea Base Emisiones GEI (tCO<sub>2</sub>eq)</span></th>';
-    msj += '    <th class="text-center" style="background-color: green;" scope="col"><span>Iniciativa Mitigación Emisiones GEI (tCO<sub>2</sub>eq)</span></th>';
+    msj += '    <th class="text-center" style="background-color: green;" scope="col"><span>Acción de Mitigación Emisiones GEI (tCO<sub>2</sub>eq)</span></th>';
     msj += '    <th class="text-center" style="background-color: #2271b3;" scope="col"><span>Emisiones GEI Reducidas (tCO<sub>2</sub>eq)</span></th>';
     msj += '    <th class="text-center" scope="col">Más</th>';
     msj += '    <th class="text-hide" scope="col" style="display:none;">Id. Iniciativa</th>';
@@ -2727,7 +2727,7 @@ function fn_procesoDetalleIndicador(url, estado) {
     if (estado == 1 || estado == 0) { num_validar = 8 }
     else if (estado == 5 || estado == 6) { num_validar = 11 }
 
-    var mns = ValidarRevision('1', $("#Control").data("iniciativa"), num_validar, "mensajeDangerRegistro", "El detalle de esta iniciativa ya fue enviada para su revisión");
+    var mns = ValidarRevision('1', $("#Control").data("iniciativa"), num_validar, "mensajeDangerRegistro", "El detalle de esta acción de mitigación ya fue enviada para su revisión");
 
     if (mns != "") {
         if (estado == 1 || estado == 5) {
@@ -3989,7 +3989,7 @@ function fn_cargarGei() {
                             }
                         }
                     } else {
-                        var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">';
+                        var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su acción de mitigación">';
                         for (var j = 0; j < data.length; j++) {
                             msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
                         }
@@ -4024,7 +4024,7 @@ function fn_cargarEnergetico() {
                             }
                         }
                     } else {
-                        var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">';
+                        var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su acción de mitigación">';
                         for (var j = 0; j < data.length; j++) {
                             msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
                         }
@@ -4985,7 +4985,7 @@ function ValidarRevision(num_validar, id_ini, id_plazo, id_msj, mensaje) {
             msj = mensajeError(id_msj, "Error", mensaje);
         }
     } else {
-        msj = mensajeError(id_msj, "Error", "Ocurrio un error durante el proceso de guardado de la Iniciativa.");
+        msj = mensajeError(id_msj, "Error", "Ocurrio un error durante el proceso de guardado de la acción de mitigación.");
     }
     return msj;
 }

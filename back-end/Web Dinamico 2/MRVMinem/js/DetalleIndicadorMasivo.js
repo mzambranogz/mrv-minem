@@ -379,7 +379,7 @@ function fn_cargarUbicacion() {
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
-                    var msj = '<textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="8" readonly placeholder="Ingrese una descripción para su iniciativa">';
+                    var msj = '<textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="8" readonly placeholder="Ingrese una descripción para su acción de mitigación">';
                     for (var j = 0; j < data.length; j++) {
                         msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
                     }
@@ -405,7 +405,7 @@ function fn_cargarGei() {
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
-                    var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">';
+                    var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su acción de mitigación">';
                     for (var j = 0; j < data.length; j++) {
                         msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
                     }
@@ -2378,7 +2378,7 @@ function fn_procesoDetalleIndicador(url, estado) {
     if (estado == 1 || estado == 0) { num_validar = 8 }
     else if (estado == 5 || estado == 6) { num_validar = 11 }
 
-    var mns = ValidarRevision('1', $("#Control").data("iniciativa"), num_validar, "mensajeDangerRegistro", "El detalle de esta iniciativa ya fue enviada para su revisión");
+    var mns = ValidarRevision('1', $("#Control").data("iniciativa"), num_validar, "mensajeDangerRegistro", "El detalle de esta acción de mitigación ya fue enviada para su revisión");
     debugger;
     if (mns != "") {
         if (estado == 1 || estado == 5) {
@@ -3033,7 +3033,7 @@ function ValidarRevision(num_validar, id_ini, id_plazo, id_msj, mensaje) {
             msj = mensajeError(id_msj, "Error", mensaje);
         }
     } else {
-        msj = mensajeError(id_msj, "Error", "Ocurrio un error durante el proceso de guardado de la Iniciativa.");
+        msj = mensajeError(id_msj, "Error", "Ocurrio un error durante el proceso de guardado de la acción de mitigación.");
     }
     return msj;
 }

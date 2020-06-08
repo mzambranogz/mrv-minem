@@ -8,7 +8,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">Inicio</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Iniciativas de Mitigación</li>
+                <li class="breadcrumb-item active" aria-current="page">Acciones de Mitigación</li>
             </ol>
         </nav>
     </div>
@@ -22,8 +22,8 @@
                 <div class="row">
                     <div class="col-md-12 col-lg-6 pt-4">
                         <div class="h4">
-                            Listado de Iniciativas de Mitigación&nbsp;
-                            <!--i.fas.fa-question-circle.ayuda-tooltip(data-toggle="tooltip", data-placement="right", title="Texto de ayuda que describe el funcionamiento general del módulo [...]")--><br><small class="text-muted">Utilice el botón buscar para ubicar su iniciativa de mitigación, <br>las iniciativas de mitigación pendientes o aprobadas no pueden ser editadas.</small>
+                            Listado de Acciones de Mitigación&nbsp;
+                            <!--i.fas.fa-question-circle.ayuda-tooltip(data-toggle="tooltip", data-placement="right", title="Texto de ayuda que describe el funcionamiento general del módulo [...]")--><br><small class="text-muted">Utilice el botón buscar para ubicar su acción de mitigación, <br>las acciones de mitigación pendientes o aprobadas no pueden ser editadas.</small>
                         </div>
                     </div>
                     <div class="col-md-12 col-lg-6 pt-4"></div>
@@ -32,7 +32,7 @@
                     <div class="col-md-12 col-lg-7 pt-4">
                         <!--<form>-->
                         <div class="form-group">
-                            <label for="txt-buscar">Buscar&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese si conoce el nombre de la iniciativa o la(s) palabra(s) asociada(s) a las iniciativas de interés. En caso de no encontrar resultados acceda a la búsqueda avanzada."></i></label>
+                            <label for="txt-buscar">Buscar&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese si conoce el nombre de la acción de mitigación o la(s) palabra(s) asociada(s) a las acciones de mitigación de interés. En caso de no encontrar resultados acceda a la búsqueda avanzada."></i></label>
                             <div class="input-group"><div id="buscar-iniciativa" data-campo=""></div><!-- add id + data campo-->
                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup1"><i class="fas fa-search"></i></span></div>
                                 <input class="form-control" type="text" id="txt-buscar" placeholder="Ingrese la descripción de su búsqueda" aria-describedby="inputGroup1" required>
@@ -102,10 +102,10 @@
                                                                     <div class="row">
                                                                         <div class="col-sm-12">
                                                                             <div class="form-group">
-                                                                                <label for="txa-descripcion-medida">Descripción de la iniciativa<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese la descripción de la iniciativa."></i></label>
+                                                                                <label for="txa-descripcion-medida">Descripción de la acción de mitigación<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese la descripción de la acción de mitigación."></i></label>
                                                                                 <div class="input-group">
                                                                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-tachometer-alt"></i></span></div>
-                                                                                    <textarea class="form-control" id="txa-descripcion-iniciativa" aria-describedby="inputGroup5" cols="30" rows="4" required placeholder="Ingrese una descripción para su iniciativa"></textarea>
+                                                                                    <textarea class="form-control" id="txa-descripcion-iniciativa" aria-describedby="inputGroup5" cols="30" rows="4" required placeholder="Ingrese una descripción para su acción de mitigación"></textarea>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -124,10 +124,10 @@
                                                                     <div class="row">
                                                                         <div class="col-sm-12">
                                                                             <div class="form-group">
-                                                                                <label for="txt-fecha-inicio">Fecha desde (inicio de operaciones)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique la fecha de inicio de operaciones desde donde se buscará las iniciativas de mitigación"></i></label>
+                                                                                <label for="txt-fecha-inicio">Fecha desde (inicio de operaciones)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique la fecha de inicio de operaciones desde donde se buscará las acciones de mitigación"></i></label>
                                                                                 <div class="input-group">
                                                                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-calendar-alt"></i></span></div>
-                                                                                    <input class="form-control" type="date" id="txt-fecha-inicio" placeholder="Ingrese fecha de ejecución de la iniciativa" aria-describedby="inputGroup4" min="2010-01-01" max="2030-12-01">
+                                                                                    <input class="form-control" type="date" id="txt-fecha-inicio" placeholder="Ingrese fecha de ejecución de la acción de mitigación" aria-describedby="inputGroup4" min="2010-01-01" max="2030-12-01">
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -136,10 +136,10 @@
                                                                     <div class="row">
                                                                         <div class="col-sm-12">
                                                                             <div class="form-group">
-                                                                                <label for="txt-fecha-fin">Fecha hasta (inicio de operaciones)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique la fecha de inicio de operaciones hasta donde se buscará las iniciativas de mitigación"></i></label>
+                                                                                <label for="txt-fecha-fin">Fecha hasta (inicio de operaciones)&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique la fecha de inicio de operaciones hasta donde se buscará las acciones de mitigación"></i></label>
                                                                                 <div class="input-group">
                                                                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-calendar-alt"></i></span></div>
-                                                                                    <input class="form-control" type="date" id="txt-fecha-fin" placeholder="Ingrese fecha de ejecución de la iniciativa" aria-describedby="inputGroup4" min="2010-01-01" max="2030-12-01">
+                                                                                    <input class="form-control" type="date" id="txt-fecha-fin" placeholder="Ingrese fecha de ejecución de la acción de mitigación" aria-describedby="inputGroup4" min="2010-01-01" max="2030-12-01">
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -182,7 +182,7 @@
                                                                     <div class="row">
                                                                         <div class="col-sm-12">
                                                                             <div class="form-group">
-                                                                                <label for="cbo-sector">Sector&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione, de la lista desplegable, el sector de la iniciativa de mitigación de interés"></i></label>
+                                                                                <label for="cbo-sector">Sector&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione, de la lista desplegable, el sector de la acción de mitigación de interés"></i></label>
                                                                                 <div class="input-group">
                                                                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
                                                                                     <select class="form-control" id="cbo-sector" aria-describedby="inputGroup6">
@@ -239,7 +239,7 @@
                                                                     <div class="row">
                                                                         <div class="col-sm-6">
                                                                             <div class="form-group">
-                                                                                <label for="cbo-energetico-base">Energético de linea base&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione, de la lista desplegable, el tipo de energía que se consumía antes de la iniciativa"></i></label>
+                                                                                <label for="cbo-energetico-base">Energético de linea base&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione, de la lista desplegable, el tipo de energía que se consumía antes de la acción de mitigación"></i></label>
                                                                                 <div class="input-group">
                                                                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-bolt"></i></span></div>
                                                                                     <select class="form-control" id="cbo-energetico-base" aria-describedby="inputGroup9">
@@ -257,7 +257,7 @@
                                                                         </div>
                                                                         <div class="col-sm-6">
                                                                             <div class="form-group">
-                                                                                <label for="cbo-energetico-proyecto">Energético de proyecto&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione, de la lista desplegable, el tipo de energía que se consume en la iniciativa"></i></label>
+                                                                                <label for="cbo-energetico-proyecto">Energético de proyecto&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione, de la lista desplegable, el tipo de energía que se consume en la acción de mitigación"></i></label>
                                                                                 <div class="input-group">
                                                                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="fas fa-bolt"></i></span></div>
                                                                                     <select class="form-control" id="cbo-energetico-proyecto" aria-describedby="inputGroup10">
@@ -308,7 +308,7 @@
                 <div class="row" id="estadoIniciativa" data-estado="7">
                     <!--add id data -->
                     <div class="col-xs-12 col sm-12 col-lg-10 d-flex align-items-end justify-content-left">
-                        <div class="h5">Bandeja de Acciones de Mitigación&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Bandeja de todas las iniciativas de mitigación públicas"></i></div>
+                        <div class="h5">Bandeja de Acciones de Mitigación&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Bandeja de todas las acciones de mitigación públicas"></i></div>
                     </div>
                     <div class="col-xs-12 col sm-12 col-lg-2 text-lg-right">
                         <button class="btn btn-success w-100 mb-2" onclick="exportarIniciativa();"><i class="fas fa-file-download px-1"></i>Descargar Excel</button><div id="divExportar"></div> <!-- add metodo exportar y div creado con su id -->
@@ -331,12 +331,12 @@
                                     <tr class="bg-primary text-white">
                                         <th class="text-center" scope="col"><span class="miColumna" width="3%">N°&nbsp;<i class="fas fa-sort-up" style="color: lightgray" id="ID_INICIATIVA"></i></span></th>
                                         <th scope="col" width="19%">
-                                            <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la Iniciativa de Mitigación registrada por la entidad responsable"></i>
-                                            <span class="miColumna">Nombre de Iniciativa&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NOMBRE_INICIATIVA"></i></span>
+                                            <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la Acción de Mitigación registrada por la entidad responsable"></i>
+                                            <span class="miColumna">Nombre de Acción de Mitigación&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NOMBRE_INICIATIVA"></i></span>
                                         </th>
                                         <th scope="col" width="10%">
-                                            <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Porcentaje de progreso de la Iniciativa de Mitigación en sus distintos procesos"></i>
-                                            <span class="miColumna">Progreso<br>de iniciativa&nbsp;<i class="fas fa-sort" style="color: lightgray" id="PROGRESO"></i></span>
+                                            <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Porcentaje de progreso de la Acción de Mitigación en sus distintos procesos"></i>
+                                            <span class="miColumna">Progreso<br>de acción de mitigación&nbsp;<i class="fas fa-sort" style="color: lightgray" id="PROGRESO"></i></span>
                                         </th>
                                         <th class="text-center" scope="col" width="10%">
                                             <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Fecha de inicialización del proyecto"></i>
@@ -347,7 +347,7 @@
                                             <span class="miColumna">Fecha de <br>  Término&nbsp;<i class="fas fa-sort" style="color: lightgray" id="FECHA_FIN_INICIATIVA"></i></span>
                                         </th>
                                         <th scope="col" width="10%">
-                                            <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la Medida de Mitigación asignada o relacionada a su Iniciativa de Mitigación"></i>
+                                            <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la Medida de Mitigación asignada o relacionada a su Acción de Mitigación"></i>
                                             <span class="miColumna">Medida de  <br> Mitigación&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NUMERO_MEDMIT"></i></span>
                                         </th>
                                         <th scope="col" width="10%">
@@ -356,7 +356,7 @@
                                         </th>
                                         <th scope="col" width="10%">
                                             
-                                            <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Resultado total de reducción producto de la Iniciativa de Mitigación"></i>
+                                            <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Resultado total de reducción producto de la Acción de Mitigación"></i>
                                             <span class="miColumna">Total reducido&nbsp;<i class="fas fa-sort" style="color: lightgray" id="GEI_TOTAL"></i></span>
 
                                             <div class="btn-group" id="filtro-conversion">
@@ -369,7 +369,7 @@
                                         </th>
                                         <th class="text-center" scope="col" width="7%">
                                             <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Descripción del estado actual de su Inicitativa de Mitigación"></i>                                       
-                                            <span class="miColumna">Estado de <br> Iniciativa&nbsp;<i class="fas fa-sort" style="color: lightgray" id="ID_ESTADO"></i></span>
+                                            <span class="miColumna">Estado de <br> Acción de Mitigación&nbsp;<i class="fas fa-sort" style="color: lightgray" id="ID_ESTADO"></i></span>
                                         </th>
                                         <th class="text-center" scope="col">Gestión</th>
                                     </tr>

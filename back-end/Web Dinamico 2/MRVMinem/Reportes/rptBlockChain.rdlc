@@ -108,7 +108,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Codigo de Iniciativa:</Value>
+                <Value>Codigo de acción de mitigación:</Value>
                 <Style>
                   <FontWeight>Bold</FontWeight>
                 </Style>
@@ -121,7 +121,7 @@
         <Top>4.77309cm</Top>
         <Left>0.76412cm</Left>
         <Height>0.6cm</Height>
-        <Width>3.75236cm</Width>
+        <Width>5.78083cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -140,7 +140,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Nombre de la iniciativa:</Value>
+                <Value>Nombre de la acción de mitigación:</Value>
                 <Style>
                   <FontWeight>Bold</FontWeight>
                 </Style>
@@ -153,7 +153,7 @@
         <Top>5.54948cm</Top>
         <Left>0.76412cm</Left>
         <Height>0.6cm</Height>
-        <Width>4.405cm</Width>
+        <Width>6.15125cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -248,7 +248,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
         <Top>4.71108cm</Top>
-        <Left>4.62231cm</Left>
+        <Left>6.52731cm</Left>
         <Height>0.6cm</Height>
         <Width>2.87042cm</Width>
         <ZIndex>7</ZIndex>
@@ -278,9 +278,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
         <Top>5.48747cm</Top>
-        <Left>5.12974cm</Left>
+        <Left>7.03474cm</Left>
         <Height>0.66201cm</Height>
-        <Width>11.23736cm</Width>
+        <Width>9.44091cm</Width>
         <ZIndex>8</ZIndex>
         <Style>
           <Border>
@@ -299,7 +299,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Fecha de registro de iniciativa:</Value>
+                <Value>Fecha de registro de la acción de mitigación:</Value>
                 <Style>
                   <FontWeight>Bold</FontWeight>
                 </Style>
@@ -312,7 +312,7 @@
         <Top>6.43997cm</Top>
         <Left>0.76412cm</Left>
         <Height>0.6cm</Height>
-        <Width>5.43277cm</Width>
+        <Width>7.81402cm</Width>
         <ZIndex>9</ZIndex>
         <Style>
           <Border>
@@ -342,7 +342,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox11</rd:DefaultName>
         <Top>6.43997cm</Top>
-        <Left>6.30273cm</Left>
+        <Left>8.52523cm</Left>
         <Height>0.6cm</Height>
         <Width>5.93958cm</Width>
         <ZIndex>10</ZIndex>
@@ -462,7 +462,7 @@
       </BackgroundImage>
     </Style>
   </Body>
-  <Width>6.65208in</Width>
+  <Width>6.86041in</Width>
   <Page>
     <PageHeader>
       <Height>1.52081cm</Height>

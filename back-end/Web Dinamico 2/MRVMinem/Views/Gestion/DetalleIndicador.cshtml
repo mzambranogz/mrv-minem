@@ -13,7 +13,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="@Url.Action("Index","Gestion")">Inicio</a></li>
-                <li class="breadcrumb-item"><a href="@Url.Action("AccionMitigacion","Gestion")">Listado de Iniciativas de Mitigación</a></li>
+                <li class="breadcrumb-item"><a href="@Url.Action("AccionMitigacion","Gestion")">Listado de Acciones de Mitigación</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Registro de Detalles de Indicadores</li>
             </ol>
         </nav>
@@ -27,7 +27,7 @@
                 <div class="container py-4">
                     <div class="row">
                         <div class="col-md-12 col-lg-6 pt-4">
-                            <div class="h4">Detalle de Iniciativa de Mitigación&nbsp;<br><small class="text-muted">Ingrese la información que nos permita conocer y clasificar la iniciativa de mitigacion a reportar.</small></div>
+                            <div class="h4">Detalle de Acción de Mitigación&nbsp;<br><small class="text-muted">Ingrese la información que nos permita conocer y clasificar la acción de mitigación a reportar.</small></div>
                         </div>
                         <div class="col-md-12 col-lg-6 pt-4">
                             <div class="row">
@@ -67,7 +67,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="h5 pb-5 text-primary">
-                                            <div class="steps">PASO 1 DE 2 &nbsp;</div>@Model.medida.NOMBRE_MEDMIT&nbsp;<br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small>
+                                            <div class="steps">PASO 1 DE 2 &nbsp;</div>@Model.medida.NOMBRE_MEDMIT&nbsp;<br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su acción de mitigación. No hay nada que llenar.</small>
                                         </div>
                                     </div>
                                 </div>
@@ -106,7 +106,7 @@
                                 <div class="row">
                                     <div class="col-sm-12-col-md-12 col-lg-12">
                                         <div class="form-group">
-                                            <label class="font-weight-bold" for="txt-tipo-iniciativa">Tipo de iniciativa</label>
+                                            <label class="font-weight-bold" for="txt-tipo-iniciativa">Tipo de acción de mitigación</label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-tachometer-alt"></i></span></div>
                                                 <input class="form-control-plaintext" id="txt-tipo-iniciativa" aria-describedby="inputGroup9" value="@Model.iniciativa_mit.TIPO_INICIATIVA" readonly>
@@ -115,17 +115,17 @@
                                     </div>
                                     <div class="col-sm-12-col-md-12 col-lg-12">
                                         <div class="form-group">
-                                            <label for="txa-nombre-iniciativa">Nombre de la iniciativa</label>
+                                            <label for="txa-nombre-iniciativa">Nombre de la acción de mitigación</label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-tachometer-alt"></i></span></div>
-                                                <textarea class="form-control-plaintext" id="txa-nombre-iniciativa" aria-describedby="inputGroup4" cols="30" rows="5" readonly placeholder="Ingrese un nombre para su iniciativa">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor officia, sequi hic, vel quia repellat architecto quasi corporis quidem doloribus earum praesentium molestiae illo, iure voluptates autem voluptate inventore! Inventore.</textarea>
+                                                <textarea class="form-control-plaintext" id="txa-nombre-iniciativa" aria-describedby="inputGroup4" cols="30" rows="5" readonly placeholder="Ingrese un nombre para su acción de mitigación">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor officia, sequi hic, vel quia repellat architecto quasi corporis quidem doloribus earum praesentium molestiae illo, iure voluptates autem voluptate inventore! Inventore.</textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="txa-descripcion-medida">Descripción de la medida</label>
+                                            <label for="txa-descripcion-medida">Descripción de la acción de mitigación</label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-tachometer-alt"></i></span></div>
-                                                <textarea class="form-control-plaintext" id="txa-descripcion-medida" aria-describedby="inputGroup5" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil optio corrupti itaque tempora pariatur nemo ipsam quis porro magnam dolorum a, dolore explicabo eveniet velit natus voluptate aperiam, reprehenderit ipsa!</textarea>
+                                                <textarea class="form-control-plaintext" id="txa-descripcion-medida" aria-describedby="inputGroup5" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su acción de mitigación">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil optio corrupti itaque tempora pariatur nemo ipsam quis porro magnam dolorum a, dolore explicabo eveniet velit natus voluptate aperiam, reprehenderit ipsa!</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -311,7 +311,7 @@
                             </div>
 
                             <div class="container-fluid py-4">
-                                <div class="h5">Registro de Detalles de Iniciativa de Mitigación&nbsp;<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Complete los campos de acuerdo al enfoque seleccionado"></i></div>
+                                <div class="h5">Registro de Detalles de Acción de Mitigación&nbsp;<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Complete los campos de acuerdo al enfoque seleccionado"></i></div>
                                 <div class="dropdown-divider"></div>
 
                                 <div class="row">
@@ -471,7 +471,7 @@
                             </div>
 
                             <div class="container py-5">
-                                <div class="alert alert-info" role="alert"><i class="fas fa-info-circle">&nbsp;</i>Una vez aprobado su iniciativa podrá postular al sistema del <b>Sello Energía Sostenible</b></div>
+                                <div class="alert alert-info" role="alert"><i class="fas fa-info-circle">&nbsp;</i>Una vez aprobado su acción de mitigación podrá postular al sistema del <b>Sello Energía Sostenible</b></div>
                                 <div class="dropdown-divider my-5"></div>
                                 <div class="row">
                                     <div class="col-sm-12 col-md-12 col-lg-6"><span class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Todos los campos son obligatorios</span></div>
@@ -545,7 +545,7 @@
                                                     <hr>
                                                     <div class="custom-control custom-checkbox d-inline-block">
                                                         <input class="custom-control-input" type="checkbox" id="chk-publicar">
-                                                        <label class="custom-control-label" for="chk-publicar">Hacer públicos los datos registrados en esta iniciativa. &nbsp;</label><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Sus datos serán visibles públicamente y podrán ser consultados desde el sitio web del visitante"></i>
+                                                        <label class="custom-control-label" for="chk-publicar">Hacer públicos los datos registrados en esta acción de mitigación. &nbsp;</label><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Sus datos serán visibles públicamente y podrán ser consultados desde el sitio web del visitante"></i>
                                                     </div>
                                                     <div class="custom-control custom-checkbox d-inline-block">
                                                         <input class="custom-control-input" type="checkbox" id="chk-publicar-monto-inversion">
@@ -574,7 +574,7 @@
                                                     <h6>Felicitaciones</h6>
                                                     <hr>
                                                     <a class="float-right" href="@Model.url" target="_blank"><img src="~/images/sello_new.svg" width="120" data-toggle="tooltip" data-placement="top" title="Ir a la web del sello"></a>
-                                                    <small class="mb-0">Usted ha completado el envío de detalle de su iniciativa de mitigación que será verificada por uno de nuestros especialistas. También, le recordamos que puede ingresar a nuestra <a href="@Model.url" target="_blank" class="text-success"><b>Plataforma del Sello de Reconocimiento de Energía Sostenible</b></a></small>
+                                                    <small class="mb-0">Usted ha completado el envío de detalle de su acción de mitigación que será verificada por uno de nuestros especialistas. También, le recordamos que puede ingresar a nuestra <a href="@Model.url" target="_blank" class="text-success"><b>Plataforma del Sello de Reconocimiento de Energía Sostenible</b></a></small>
                                                 </div>
                                             </div>
 
@@ -610,7 +610,7 @@
                                             <div class="swal2-icon-content"><i class="fas fa-question"></i></div>
                                         </div>
                                         <h3 class="text-center">¿Desea guardar su avance?</h3>
-                                        <p class="text-center">Los datos ingresados serán almacenados temporalmente y podrán ser regularizados al editar su iniciativa.</p>
+                                        <p class="text-center">Los datos ingresados serán almacenados temporalmente y podrán ser regularizados al editar su acción de mitigación.</p>
                                     </div>
 
                                 </div>

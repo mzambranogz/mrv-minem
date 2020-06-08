@@ -289,7 +289,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Iniciativas del sector público</Value>
+                              <Value>Acciones de  mitigación del sector público</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>
@@ -324,7 +324,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Iniciativas del sector privado</Value>
+                              <Value>Acciones de mitigación del sector privado</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>
@@ -1510,7 +1510,7 @@
         </ChartLegends>
         <ChartTitles>
           <ChartTitle Name="Default">
-            <Caption>Iniciativas en el sector público y sector privado</Caption>
+            <Caption>Acciones de mitigación en el sector público y sector privado</Caption>
             <Style>
               <BackgroundGradientType>None</BackgroundGradientType>
               <FontWeight>Bold</FontWeight>
@@ -1557,7 +1557,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>REPORTE DE INICIATIVAS EN SECTOR PÚBLICO Y PRIVADO</Value>
+                <Value>Reporte de acciones de mitigación en sector público y privado</Value>
                 <Style>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -1719,7 +1719,7 @@
                 </Style>
               </TextRun>
               <TextRun>
-                <Value> Codigo abreviado del nombre de la medida de mitigación.</Value>
+                <Value> Código abreviado del nombre de la medida de mitigación.</Value>
                 <Style>
                   <FontSize>9pt</FontSize>
                 </Style>
@@ -1870,14 +1870,14 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Iniciativas del sector público:</Value>
+                <Value>Acciones de mitigación del sector público:</Value>
                 <Style>
                   <FontSize>9pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
               <TextRun>
-                <Value> Número de iniciativas en el sector público.</Value>
+                <Value> Número de acciones de mitigación en el sector público.</Value>
                 <Style>
                   <FontSize>9pt</FontSize>
                 </Style>
@@ -1909,14 +1909,14 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Iniciativas del sector privado</Value>
+                <Value>Acciones de mitigación del sector privado</Value>
                 <Style>
                   <FontSize>9pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
               <TextRun>
-                <Value>: Número de iniciativas en el sector privado.</Value>
+                <Value>: Número de acciones de mitigación en el sector privado.</Value>
                 <Style>
                   <FontSize>9pt</FontSize>
                 </Style>

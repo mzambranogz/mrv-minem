@@ -21,7 +21,7 @@
                             }
                         }
                     } else {
-                        var msj = '<textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="8" readonly placeholder="Ingrese una descripción para su iniciativa">';
+                        var msj = '<textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="8" readonly placeholder="Ingrese una descripción para su acción de mitigación">';
                         for (var j = 0; j < data.length; j++) {
                             msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
                         }
@@ -351,7 +351,7 @@ function fn_procesoIniciativa(url, estado) {
             msj = msj + '                           </div>';
             msj = msj + '                           <div class="alert-wrap">';
             msj = msj + '                                <h6>Error de registro</h6>';
-            msj = msj + '                                <hr><small class="mb-0">Ya existe una iniciativa con estos datos, por favor verificar</small>';
+            msj = msj + '                                <hr><small class="mb-0">Ya existe una acción de mitigación con estos datos, por favor verificar</small>';
             msj = msj + '                           </div>';
             msj = msj + '                     </div>';
             //if ($("#Control").data("iniciativa") == 0) {
@@ -377,7 +377,7 @@ function fn_procesoIniciativa(url, estado) {
                 }
             } else {
                 est = 2;
-                var msj = mensajeError("mensajeDangerRegistro", "Error", "Ocurrio un error durante el proceso de guardado de la Iniciativa.");
+                var msj = mensajeError("mensajeDangerRegistro", "Error", "Ocurrio un error durante el proceso de guardado de la acción de mitigación.");
                 $("#solicitar-revision #modalRegistrarBoton").hide();
                 $("#pieCorrecto").show();
                 $('#mensajeModalRegistrar').append(msj);
@@ -400,7 +400,7 @@ function fn_procesoIniciativa(url, estado) {
             msj = msj + '                           </div>';
             msj = msj + '                           <div class="alert-wrap">';
             msj = msj + '                                <h6>Error de registro</h6>';
-            msj = msj + '                                <hr><small class="mb-0">La iniciativa de mitigación ya fue enviada para su revisión</small>';
+            msj = msj + '                                <hr><small class="mb-0">La acción de mitigación ya fue enviada para su revisión</small>';
             msj = msj + '                           </div>';
             msj = msj + '                     </div>';
 
@@ -501,7 +501,7 @@ function fn_procesoIniciativa(url, estado) {
                 msj = msj + '                            </div>';
                 msj = msj + '                            <div class="alert-wrap">';
                 msj = msj + '                                <h6>Felicitaciones</h6>';
-                msj = msj + '                                <hr><small class="mb-0">Usted a completado el envío de iniciativa de mitigación que será verificada por uno de nuestros especialistas.</b></small>';
+                msj = msj + '                                <hr><small class="mb-0">Usted a completado el envío de acción de mitigación que será verificada por uno de nuestros especialistas.</b></small>';
                 msj = msj + '                            </div>';
                 msj = msj + '                        </div>';
                 $("#solicitar-revision #modalRegistrarBoton").hide();
@@ -530,7 +530,7 @@ function fn_procesoIniciativa(url, estado) {
                 msj = msj + '                           </div>';
                 msj = msj + '                            <div class="alert-wrap">';
                 msj = msj + '                                <h6>Error</h6>';
-                msj = msj + '                                <hr>Ocurrio un error durante el proceso de guardado del avance de la Iniciativa.';
+                msj = msj + '                                <hr>Ocurrio un error durante el proceso de guardado del avance de la acción de mitigación.';
                 msj = msj + '                            </div>';
                 msj = msj + '                        </div>';
                 msj = msj + '                    </div>';
@@ -909,7 +909,7 @@ function validarCampoRevision() {
 function fn_revisarIniciativaMitigacion() {
     //debugger;
 
-    var mns = ValidarRevision($("#Control").data("iniciativa"), $("#estado_flujo").val(), "mensajeDangerRegistro", "Esta iniciativa ya fue revisada y/o observada");
+    var mns = ValidarRevision($("#Control").data("iniciativa"), $("#estado_flujo").val(), "mensajeDangerRegistro", "Esta acción de mitigación ya fue revisada y/o observada");
     if (mns != "") {        
         $("#aprobar-revision #modalAprobarBoton").hide();
         $("#pieCorrectoAprobacion").show();
@@ -1044,7 +1044,7 @@ $("#aprobar-revision").on("hidden.bs.modal", function () {
 
 function fn_observacionIniciativaMitigacion() {
     debugger;
-    var mns = ValidarRevision($("#Control").data("iniciativa"), $("#estado_flujo").val(), "modalErrorRevision", "Esta iniciativa ya fue revisada y/o observada");
+    var mns = ValidarRevision($("#Control").data("iniciativa"), $("#estado_flujo").val(), "modalErrorRevision", "Esta acción de mitigación ya fue revisada y/o observada");
     if (mns != "") {
         $("#observar-revision #modalObservacionBoton").hide();
         $("#pieCorrectoObservacion").show();
@@ -1279,7 +1279,7 @@ function ValidarRevision(id_ini, id_plazo, id_msj, mensaje) {
             msj = mensajeError(id_msj, "Error", mensaje);
         }
     } else {
-        msj = mensajeError(id_msj, "Error", "Ocurrio un error durante el proceso de guardado de la Iniciativa.");
+        msj = mensajeError(id_msj, "Error", "Ocurrio un error durante el proceso de guardado de la acción de mitigación.");
     }
     return msj;
 }

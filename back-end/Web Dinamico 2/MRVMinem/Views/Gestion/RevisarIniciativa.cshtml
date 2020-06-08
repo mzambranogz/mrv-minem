@@ -13,8 +13,8 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="@Url.Action("Index","Gestion")">Inicio</a></li>
-                <li class="breadcrumb-item"><a href="@Url.Action("AccionMitigacion","Gestion")">Listado de Iniciativas de Mitigación</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Revisión de Iniciativa de Mitigación y Detalles de Indicadores</li>
+                <li class="breadcrumb-item"><a href="@Url.Action("AccionMitigacion","Gestion")">Listado de Acciones de Mitigación</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Revisión de acción de Mitigación y Detalles de Indicadores</li>
             </ol>
         </nav>
     </div>
@@ -25,13 +25,13 @@
             <div class="container py-4">
                 <div class="row">
                     <div class="col-md-12 col-lg-6 pt-4">
-                        <div class="h4">Revisión de Iniciativa de Mitigación&nbsp;<br><small class="text-muted">Asigne información importante a su detalle de indicadores, <br>complete todos los campos para una mejor especificación.</small></div>
+                        <div class="h4">Revisión de Acción de Mitigación&nbsp;<br><small class="text-muted">Asigne información importante a su detalle de indicadores, <br>complete todos los campos para una mejor especificación.</small></div>
                     </div>
                     <div class="col-md-12 col-lg-6 pt-4">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
                             <div class="col-sm-12 col-md-6 col-lg-6">
-                                <span data-toggle="modal" data-target="#aprobar-revision"><a class="aprobar-revision" href="#" data-toggle="tooltip" data-placement="top" title="Dar por aprobado esta iniciativa de mitigación"><i class="fas fa-check px-1"></i>Aprobar revisión</a></span>
+                                <span data-toggle="modal" data-target="#aprobar-revision"><a class="aprobar-revision" href="#" data-toggle="tooltip" data-placement="top" title="Dar por aprobado esta acción de mitigación"><i class="fas fa-check px-1"></i>Aprobar revisión</a></span>
                                 <span data-toggle="modal" data-target="#observar-revision"><a class="observar-revision" href="#" data-toggle="tooltip" data-placement="top" title="¿Encontró alguna observación? utilice esta opción para solicitar una corrección"><i class="fas fa-eye px-1"></i>Observar revisión</a></span>
                                 @*<div class="btn-group btn-group-lg w-100 mb-3">
                                     <a class="btn btn-success dropdown-toggle w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0"><i class="fas fa-download pr-1"></i>Descargar</a>
@@ -69,7 +69,7 @@
                 <div class="container py-5">
                     <div class="row">
                         <div class="col-12">
-                            <div class="h5 pb-5 text-primary">@Model.medida.NOMBRE_MEDMIT&nbsp;<br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. No hay nada que llenar.</small></div>
+                            <div class="h5 pb-5 text-primary">@Model.medida.NOMBRE_MEDMIT&nbsp;<br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su acción de mitigación. No hay nada que llenar.</small></div>
                         </div>
                     </div>
                     <div class="row">
@@ -107,7 +107,7 @@
                     <div class="row">
                         <div class="col-sm-12-col-md-12 col-lg-6">
                             <div class="form-group">
-                                <label class="font-weight-bold" for="txt-tipo-iniciativa">Tipo de iniciativa</label>
+                                <label class="font-weight-bold" for="txt-tipo-iniciativa">Tipo de acción de mitigación</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-tachometer-alt"></i></span></div>
                                     <input class="form-control-plaintext" id="txt-tipo-iniciativa" aria-describedby="inputGroup9" value="@Model.iniciativa_mit.TIPO_INICIATIVA" readonly>
@@ -116,17 +116,17 @@
                         </div>
                         <div class="col-sm-12-col-md-12 col-lg-12">
                             <div class="form-group">
-                                <label for="txa-nombre-iniciativa" class="font-weight-bold">Nombre de la iniciativa<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                <label for="txa-nombre-iniciativa" class="font-weight-bold">Nombre de la acción de mitigación<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-tachometer-alt"></i></span></div>
-                                    <textarea class="form-control-plaintext" id="txa-nombre-iniciativa" aria-describedby="inputGroup4" cols="30" rows="5" readonly placeholder="Ingrese un nombre para su iniciativa">@Model.iniciativa_mit.NOMBRE_INICIATIVA</textarea>
+                                    <textarea class="form-control-plaintext" id="txa-nombre-iniciativa" aria-describedby="inputGroup4" cols="30" rows="5" readonly placeholder="Ingrese un nombre para su acción de mitigación">@Model.iniciativa_mit.NOMBRE_INICIATIVA</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="txa-descripcion-medida" class="font-weight-bold">Descripción de la medida<span class="text-danger font-weight-bold">&nbsp;</span></label>
+                                <label for="txa-descripcion-medida" class="font-weight-bold">Descripción de la acción de mitigación<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-tachometer-alt"></i></span></div>
-                                    <textarea class="form-control-plaintext" id="txa-descripcion-medida" aria-describedby="inputGroup5" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">@Model.iniciativa_mit.DESC_INICIATIVA</textarea>
+                                    <textarea class="form-control-plaintext" id="txa-descripcion-medida" aria-describedby="inputGroup5" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su acción de mitigación">@Model.iniciativa_mit.DESC_INICIATIVA</textarea>
                                 </div>
                             </div>
                         </div>
@@ -185,7 +185,7 @@
                                 <label for="txa-ubicacion" class="font-weight-bold">Ubicación<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup9"><i class="fas fa-landmark"></i></span></div>
-                                    <textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="8" readonly placeholder="Ingrese una descripción para su iniciativa">
+                                    <textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="8" readonly placeholder="Ingrese una descripción para su acción de mitigación">
                                         @*Lima&nbsp;
                             Arequipa&nbsp;
                             Tacna*@
@@ -368,8 +368,8 @@
                                     <div class="swal2-icon swal2-question swal2-icon-show" style="display: flex;">
                                         <div class="swal2-icon-content"><i class="fas fa-question"></i></div>
                                     </div>
-                                    <h3 class="text-center">¿Está seguro de aprobar la iniciativa de mitigación seleccionada?</h3>
-                                    <p class="text-center">Está de acuerdo en aprobar todos los datos vinculados de esta iniciativa de mitigación</p>
+                                    <h3 class="text-center">¿Está seguro de aprobar la acción de mitigación seleccionada?</h3>
+                                    <p class="text-center">Está de acuerdo en aprobar todos los datos vinculados de esta acción de mitigación</p>
                                 </div>
                                 @*<div class="col-sm-12 col-md-12 col-lg-12">
                                     <h3 class="text-center">¿Está seguro de aprobar la inicitiva de mitigación seleccionada? <br></h3>
