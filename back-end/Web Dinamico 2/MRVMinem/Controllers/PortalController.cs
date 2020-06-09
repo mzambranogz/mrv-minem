@@ -630,7 +630,7 @@ namespace MRVMinem.Controllers
 
                 using (ExcelPackage package = new ExcelPackage())
                 {
-                    var ws1 = package.Workbook.Worksheets.Add("INICIATIVA MITIGACIÓN");
+                    var ws1 = package.Workbook.Worksheets.Add("ACCIÓN DE MITIGACIÓN");
                     using (var m = ws1.Cells[1, 1, row, 9])
                     {
                         m.Style.Font.Bold = true;
@@ -645,22 +645,22 @@ namespace MRVMinem.Controllers
                     row++;
                     ws1.Cells["A" + row].Value = "N°";
                     ws1.Cells["A" + row].AutoFitColumns(5);
-                    ws1.Cells["B" + row].Value = "NOMBRE DE INICIATIVA";
+                    ws1.Cells["B" + row].Value = "NOMBRE DE ACCIÓN DE MITIGACIÓN";
                     ws1.Cells["B" + row].AutoFitColumns(60);
-                    ws1.Cells["C" + row].Value = "PROGRESO";
-                    ws1.Cells["C" + row].AutoFitColumns(15);
+                    ws1.Cells["C" + row].Value = "PROGRESO DE ACCIÓN DE MITIGACIÓN";
+                    ws1.Cells["C" + row].AutoFitColumns(40);
                     ws1.Cells["D" + row].Value = "FECHA DE INICIO";
                     ws1.Cells["D" + row].AutoFitColumns(20);
                     ws1.Cells["E" + row].Value = "FECHA DE TÉRMINO";
                     ws1.Cells["E" + row].AutoFitColumns(20);
                     ws1.Cells["F" + row].Value = "MEDIDA DE MITIGACIÓN";
                     ws1.Cells["F" + row].AutoFitColumns(60);
-                    ws1.Cells["G" + row].Value = "ENTIDAD";
+                    ws1.Cells["G" + row].Value = "ENTIDAD RESPONSABLE";
                     ws1.Cells["G" + row].AutoFitColumns(35);
                     ws1.Cells["H" + row].Value = "TOTAL REDUCIDO";
                     ws1.Cells["H" + row].AutoFitColumns(30);
-                    ws1.Cells["I" + row].Value = "ESTADO";
-                    ws1.Cells["I" + row].AutoFitColumns(25);
+                    ws1.Cells["I" + row].Value = "ESTADO DE ACCIÓN DE MITIGACIÓN";
+                    ws1.Cells["I" + row].AutoFitColumns(50);
 
                     FormatoCelda(ws1, "A", row, 0, 123, 255, 255, 255, 255);
                     FormatoCelda(ws1, "B", row, 0, 123, 255, 255, 255, 255);
@@ -698,7 +698,7 @@ namespace MRVMinem.Controllers
                         row++;
                     }
 
-                    string strFileName = "LISTA_INICIATIVA_MITIGACION_" + DateTime.Now.ToString() + ".xlsx";
+                    string strFileName = "LISTA_ACCIÓN_MITIGACION_" + DateTime.Now.ToString() + ".xlsx";
                     Response.Clear();
                     byte[] dataByte = package.GetAsByteArray();
                     Response.AddHeader("Content-Disposition", "inline;filename=\"" + strFileName + "\"");

@@ -3044,9 +3044,9 @@ namespace MRVMinem.Controllers
             html += "<div style='text-align: justify;font-size: 12px;'><span style='font-weight: bold;'>Descripción Medida Mitigación:</span>&nbsp;<span> " + ini.DESCRIPCION_MEDMIT + "</span></div>";
             html += "<div style='text-align: justify;font-size: 12px;'><span style='font-weight: bold;'>Objetivo Medida Mitigación:</span>&nbsp;<span> " + ini.OBJETIVO_MEDMIT + "</span></div>";
             html += "<br/><div style='text-align: left;font-weight: bold;font-size: 14px;'>Datos principales</div>";
-            html += "<div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Tipo de iniciativa:</span>&nbsp;<span> " + ini.TIPO_INICIATIVA + "</span></div>";
-            html += "<div style='text-align: justify;font-size: 12px;'><span style='font-weight: bold;'>Nombre de la iniciativa:</span>&nbsp;<span> " + ini.NOMBRE_INICIATIVA + "</span></div>";
-            html += "<div style='text-align: justify;font-size: 12px;'><span style='font-weight: bold;'>Descripción de la iniciativa:</span>&nbsp;<span> " + ini.DESC_INICIATIVA + "</span></div>";
+            html += "<div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Tipo de acción de mitigación:</span>&nbsp;<span> " + ini.TIPO_INICIATIVA + "</span></div>";
+            html += "<div style='text-align: justify;font-size: 12px;'><span style='font-weight: bold;'>Nombre de la acción de mitigación:</span>&nbsp;<span> " + ini.NOMBRE_INICIATIVA + "</span></div>";
+            html += "<div style='text-align: justify;font-size: 12px;'><span style='font-weight: bold;'>Descripción de la acción de mitigación:</span>&nbsp;<span> " + ini.DESC_INICIATIVA + "</span></div>";
             html += "<div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Responsable del registro:</span>&nbsp;<span> " + ini.NOMBRES + "</span></div>";
             html += "<div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Correo electrónico:</span>&nbsp;<span> " + ini.EMAIL_USUARIO + "</span></div>";
             html += "<div style='text-align: justify;font-size: 12px;'><span style='font-weight: bold;'>Nombre de la institución:</span>&nbsp;<span> " + ini.INSTITUCION + "</span></div>";

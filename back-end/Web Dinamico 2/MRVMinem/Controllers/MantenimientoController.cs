@@ -2643,7 +2643,7 @@ namespace MRVMinem.Controllers
 
                 using (ExcelPackage package = new ExcelPackage())
                 {
-                    var ws1 = package.Workbook.Worksheets.Add("LISTA TIPO INICIATIVA");
+                    var ws1 = package.Workbook.Worksheets.Add("LISTA TIPO DE ACCIÓN DE MITIGACIÓN");
                     using (var m = ws1.Cells[1, 1, row, 2])
                     {
                         m.Style.Font.Bold = true;
@@ -2652,13 +2652,13 @@ namespace MRVMinem.Controllers
                         m.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
                         m.Style.Font.Size = 10;
                         m.Merge = true;
-                        m.Value = "LISTA TIPO INICIATIVA " + cadena_fecha;
+                        m.Value = "LISTA TIPO ACCIÓN DE MITIGACIÓN " + cadena_fecha;
                     }
                     ws1.View.FreezePanes(4, 1);
                     row++;
                     ws1.Cells["A" + row].Value = "N°";
                     ws1.Cells["A" + row].AutoFitColumns(5);
-                    ws1.Cells["B" + row].Value = "TIPO INICIATIVA";
+                    ws1.Cells["B" + row].Value = "TIPO ACCIÓN DE MITIGACIÓN";
                     ws1.Cells["B" + row].AutoFitColumns(40);
 
                     FormatoCelda(ws1, "A", row, 0, 123, 255, 255, 255, 255);
@@ -2679,7 +2679,7 @@ namespace MRVMinem.Controllers
                         row++;
                     }
 
-                    string strFileName = "LISTA_TIPO_INICIATIVA_" + DateTime.Now.ToString() + ".xlsx";
+                    string strFileName = "LISTA_TIPO_ACCIÓN_MITIGACIÓN_" + DateTime.Now.ToString() + ".xlsx";
                     Response.Clear();
                     byte[] dataByte = package.GetAsByteArray();
                     Response.AddHeader("Content-Disposition", "inline;filename=\"" + strFileName + "\"");
