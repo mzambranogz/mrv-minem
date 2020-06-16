@@ -694,6 +694,8 @@
     <Content Include="Views\Error\SinSesion.cshtml" />
     <Content Include="Views\Mantenimiento\Parametros.cshtml" />
     <Content Include="Views\Mantenimiento\Rol.cshtml" />
+    <Content Include="Views\Error\Link.cshtml" />
+    <Content Include="Views\Error\LinkInhabilitado.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

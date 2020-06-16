@@ -164,5 +164,11 @@ namespace logica.minem.gob.pe
         {
             return usuarioDA.ListarActorEnviar(entidad);
         }
+
+        //ADD 16-06-2020
+        public static bool VerificarEstado(UsuarioBE entidad)
+        {
+            return usuarioDA.VerificarEstadoUsuario(entidad);
+        } 
     }
 }

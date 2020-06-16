@@ -23,61 +23,73 @@ namespace MRVMinem.Controllers
             var usuario = Convert.ToInt32(arr[5]);
             var opcion = Convert.ToInt32(arr[6]);
 
-            int validar = DireccionamientoLN.ValidarRuta(new DireccionamientoBE { ID_INICIATIVA = cod, ID_ETAPA = etapa, ID_ESTADO = estado });
 
-            if (validar == 1)
+            if (UsuarioLN.VerificarEstado(new UsuarioBE { ID_USUARIO = usuario }))
             {
 
-                SessionHelper.AddUserToSession(usuario.ToString());
-                Session["usuario"] = usuario.ToString();
-                Session["socket"] = WebConfigurationManager.AppSettings.Get("Socket");
-                List<RolOpcionesBE> lista = RolOpcionesLN.ListarOpciones(usuario);
-                limpiarSetearSesion(lista);
-                Random rnd = new Random();
-                int r1 = rnd.Next(100, 999);
+                int validar = DireccionamientoLN.ValidarRuta(new DireccionamientoBE { ID_INICIATIVA = cod, ID_ETAPA = etapa, ID_ESTADO = estado });
 
-                if ((etapa == 1 && estado == 1) || (etapa == 1 && estado == 5))
+                if (validar == 1)
                 {
-                    return RedirectToAction("RevisarIniciativa", "Gestion", new { id = r1, ini = cod });
-                }else if (etapa == 1 && estado == 2)
-                {
-                    return RedirectToAction("CorregirIniciativa", "Gestion", new { id = r1, ini = cod });
+
+                
+                        SessionHelper.AddUserToSession(usuario.ToString());
+                        Session["usuario"] = usuario.ToString();
+                        Session["socket"] = WebConfigurationManager.AppSettings.Get("Socket");
+                        List<RolOpcionesBE> lista = RolOpcionesLN.ListarOpciones(usuario);
+                        limpiarSetearSesion(lista);
+                        Random rnd = new Random();
+                        int r1 = rnd.Next(100, 999);
+
+                        if ((etapa == 1 && estado == 1) || (etapa == 1 && estado == 5))
+                        {
+                            return RedirectToAction("RevisarIniciativa", "Gestion", new { id = r1, ini = cod });
+                        }
+                        else if (etapa == 1 && estado == 2)
+                        {
+                            return RedirectToAction("CorregirIniciativa", "Gestion", new { id = r1, ini = cod });
+                        }
+                        else if (etapa == 2 && estado == 3)
+                        {
+                            if (opcion == 1)
+                            {
+                                return RedirectToAction("DetalleIndicador", "Gestion", new { id = cod, ini = r1 });
+                            }
+                            else if (opcion == 2)
+                            {
+                                return RedirectToAction("DetalleIndicadorMasivo", "Detalle", new { id = cod, ini = r1 });
+                            }
+
+                        }
+                        else if ((etapa == 3 && estado == 1) || (etapa == 3 && estado == 5) || (etapa == 4 && estado == 2))
+                        {
+                            return RedirectToAction("RevisarDetalleIndicador", "Gestion", new { id = cod, ini = r1 });
+                        }
+                        else if (etapa == 3 && estado == 2)
+                        {
+                            if (opcion == 1)
+                            {
+                                return RedirectToAction("CorregirDetalleIndicador", "Gestion", new { id = cod, ini = r1 });
+                            }
+                            else if (opcion == 2)
+                            {
+                                return RedirectToAction("CorregirDetalleIndicadorMasivo", "Detalle", new { id = cod, ini = r1 });
+                            }
+                        }
+                        else if ((etapa == 4 && estado == 3) || (etapa == 5 && estado == 2) || (etapa == 8 && estado == 2))
+                        {
+                            return RedirectToAction("RevisarAdminDetalleIndicador", "Gestion", new { id = cod, ini = r1 });
+                        }
+                               
                 }
-                else if (etapa == 2 && estado == 3)
+                else
                 {
-                    if (opcion == 1)
-                    {
-                        return RedirectToAction("DetalleIndicador", "Gestion", new { id = cod, ini = r1 });
-                    }
-                    else if (opcion == 2)
-                    {
-                        return RedirectToAction("DetalleIndicadorMasivo", "Detalle", new { id = cod, ini = r1 });
-                    }
-                    
-                }
-                else if ((etapa == 3 && estado == 1) || (etapa == 3 && estado == 5) || (etapa == 4 && estado == 2))
-                {
-                    return RedirectToAction("RevisarDetalleIndicador", "Gestion", new { id = cod, ini = r1 });
-                }
-                else if (etapa == 3 && estado == 2)
-                {
-                    if (opcion == 1)
-                    {
-                        return RedirectToAction("CorregirDetalleIndicador", "Gestion", new { id = cod, ini = r1 });
-                    }
-                    else if (opcion == 2)
-                    {
-                        return RedirectToAction("CorregirDetalleIndicadorMasivo", "Detalle", new { id = cod, ini = r1 });
-                    }                        
-                }
-                else if ((etapa == 4 && estado == 3) || (etapa == 5 && estado == 2) || (etapa == 8 && estado == 2))
-                {
-                    return RedirectToAction("RevisarAdminDetalleIndicador", "Gestion", new { id = cod, ini = r1 });
+                    return RedirectToAction("Link","Error");
                 }
             }
             else
             {
-                return RedirectToAction("Default","Error");
+                return RedirectToAction("LinkInhabilitado", "Error");
             }
 
             return View();

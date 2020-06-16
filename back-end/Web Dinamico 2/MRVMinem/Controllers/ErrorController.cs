@@ -31,5 +31,15 @@ namespace MRVMinem.Controllers
         {
             return View();
         }
+
+        public ActionResult Link()
+        {
+            return View();
+        }
+
+        public ActionResult LinkInhabilitado()
+        {
+            return View();
+        }
     }
 }
