@@ -4,6 +4,7 @@ $("#frmLogin").on("submit", function (e) {
     grecaptcha.ready(function () {
 
         grecaptcha.execute(key, { action: 'Gestion/AccionMitigacion' }).then(function (token) {
+            debugger;
             var url = baseUrl + "Home/ValidarCaptcha";
             var item = {
                 USUARIO: $("#USUARIO").val(),

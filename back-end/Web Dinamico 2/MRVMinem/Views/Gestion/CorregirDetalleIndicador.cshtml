@@ -320,7 +320,7 @@
 
                                 <div class="row">
                                     <div class="col-xs-12 col sm-12 col-lg-10">
-                                        <div class="alert alert-warning" role="alert"><strong>Completar todas las celdas en amarillo</strong></div>
+                                        <div class="alert alert-warning" role="alert"><strong>Complete todos los campos (cajas de texto y listas) de color amarillo</strong></div>
                                     </div>
                                     <div class="col-xs-12 col sm-12 col-lg-2"><a class="btn btn-info w-100 mb-2 agregarCamposPrc" href="javascript:void(0)" onclick="CargarNuevaFila(1);"><i class="fas fa-plus-circle px-1"></i>Añadir fila</a>@*<a class="btn btn-success w-100 mb-2" href="#" download><i class="fas fa-download mr-1"></i>Descargar sustentos</a>*@</div>
                                 </div>
@@ -849,7 +849,8 @@
             }
 
             storedFiles.push(f);
-            output.push('<div class="input-group mb-3" data-file="' + f.name + '">', '<div class="input-group-prepend">', '<span class="input-group-text">', '<i class="fas ', extension, '">', '</i>', '</span>', '</div>', '<span class="form-control-plaintext ww">', decodeURI(f.name), '</span>', '<div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="far fa-trash-alt selfile" data-file="' + f.name + '" onclick="removeFile(this)"></i></span>', '</div></div>');
+            //output.push('<div class="input-group mb-3" data-file="' + f.name + '">', '<div class="input-group-prepend">', '<span class="input-group-text">', '<i class="fas ', extension, '">', '</i>', '</span>', '</div>', '<span class="form-control-plaintext ww">', decodeURI(f.name), '</span>', '<div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="far fa-trash-alt selfile" data-file="' + f.name + '" onclick="removeFile(this)"></i></span>', '</div></div>');
+            output.push('<div class="input-group mb-3" data-file="' + f.name + '">', '<div class="input-group-prepend">', '<span class="input-group-text">', '<i class="fas ', extension, '">', '</i>', '</span>', '</div>', '<span class="form-control-plaintext ww">', decodeURI(f.name), '</span>', '<div class="input-group-append"><span class="input-group-text cursor-pointer mr-2"><i class="fas fa-download" data-file="' + f.name + '" onclick="visualizarArchivo(this)"></i></span><span class="input-group-text cursor-pointer"><i class="far fa-trash-alt selfile" data-file="' + f.name + '" onclick="removeFile(this)"></i></span>', '</div></div>');
         }
         $("#archivos-documentos").append(output.join(''));
         $("#total-documentos").html($("#total-documentos").data("cantidad") + files.length);

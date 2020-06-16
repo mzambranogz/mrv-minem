@@ -2185,6 +2185,8 @@ $(document).ready(function () {
 
     inicio();
 
+    $("i[data-placement='top']").attr({ 'data-original-title': 'Puede seleccionar múltiples archivos, con un tamaño no superior a 4MB por archivo' });
+
     if ($("#iniciativa_mit_ID_INICIATIVA").val() > 0) {
         $("#Control").data("iniciativa", $("#iniciativa_mit_ID_INICIATIVA").val());
     } else {
@@ -2370,7 +2372,42 @@ function removeFile(e) {
     $(e).parent().parent().parent().remove();
 }
 
+function visualizarArchivo(e) {
+    var file = e.dataset.file;
+    for (var i = 0; i < storedFiles.length; i++) {
+        if (storedFiles[i].name === file) {
+            descargarArchivo(storedFiles[i], storedFiles[i].name);
+            break;
+        }
+    }
+}
 
+function descargarArchivo(contenidoEnBlob, nombreArchivo) {
+    //creamos un FileReader para leer el Blob
+    var reader = new FileReader();
+    //Definimos la función que manejará el archivo
+    //una vez haya terminado de leerlo
+    reader.onload = function (event) {
+        //Usaremos un link para iniciar la descarga 
+        var save = document.createElement('a');
+        save.href = event.target.result;
+        save.target = '_blank';
+        //Truco: así le damos el nombre al archivo 
+        save.download = nombreArchivo || 'archivo.dat';
+        var clicEvent = new MouseEvent('click', {
+            'view': window,
+            'bubbles': true,
+            'cancelable': true
+        });
+        //Simulamos un clic del usuario
+        //no es necesario agregar el link al DOM.
+        save.dispatchEvent(clicEvent);
+        //Y liberamos recursos...
+        (window.URL || window.webkitURL).revokeObjectURL(save.href);
+    };
+    //Leemos el blob y esperamos a que dispare el evento "load"
+    reader.readAsDataURL(contenidoEnBlob);
+};
 
 function fn_procesoDetalleIndicador(url, estado) {
 

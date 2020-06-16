@@ -999,7 +999,8 @@
             }
 
             storedFiles.push(f);
-            output.push('<div class="input-group mb-3" data-file="' + f.name + '">', '<div class="input-group-prepend">', '<span class="input-group-text">', '<i class="fas ', extension, '">', '</i>', '</span>', '</div>', '<span class="form-control-plaintext ww">', decodeURI(f.name), '</span>', '<div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="far fa-trash-alt selfile" data-file="' + f.name + '" onclick="removeFile(this)"></i></span>', '</div></div>');
+            //output.push('<div class="input-group mb-3" data-file="' + f.name + '">', '<div class="input-group-prepend">', '<span class="input-group-text">', '<i class="fas ', extension, '">', '</i>', '</span>', '</div>', '<span class="form-control-plaintext ww">', decodeURI(f.name), '</span>', '<div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="far fa-trash-alt selfile" data-file="' + f.name + '" onclick="removeFile(this)"></i></span>', '</div></div>');
+            output.push('<div class="input-group mb-3" data-file="' + f.name + '">', '<div class="input-group-prepend">', '<span class="input-group-text">', '<i class="fas ', extension, '">', '</i>', '</span>', '</div>', '<span class="form-control-plaintext ww">', decodeURI(f.name), '</span>', '<div class="input-group-append"><span class="input-group-text cursor-pointer mr-2"><i class="fas fa-download" data-file="' + f.name + '" onclick="visualizarArchivo(this)"></i></span><span class="input-group-text cursor-pointer"><i class="far fa-trash-alt selfile" data-file="' + f.name + '" onclick="removeFile(this)"></i></span>', '</div></div>');
         }
         $("#archivos-documentos").append(output.join(''));
         $("#total-documentos").html($("#total-documentos").data("cantidad") + files.length);

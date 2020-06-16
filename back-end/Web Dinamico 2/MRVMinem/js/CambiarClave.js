@@ -47,15 +47,26 @@ function fn_validar() {
     $("#frmCambiarClave #errorCambiar").remove();
     $("#frmCambiarClave #correctoCambiar").remove();
 
-    if (clave == reclave) {
-        if (!(/[a-zñ]/.test(clave) && /[A-ZÑ]/.test(clave) && /[0-9]/.test(clave) && /[@#.]/.test(clave))) {
-            arr.push("La contraseña debe contener minúscula(s), mayúscula(s), número(s) y caracter(es) especial(es) [@#.]");
+    //if (clave == reclave) {
+    //    if (!(/[a-zñ]/.test(clave) && /[A-ZÑ]/.test(clave) && /[0-9]/.test(clave) && /[@#.]/.test(clave))) {
+    //        arr.push("La contraseña debe contener minúscula(s), mayúscula(s), número(s) y caracter(es) especial(es) [@#.]");
+    //    }
+    //    if (clave.length < 6) {
+    //        arr.push("La contraseña debe contener 6 o más caracteres por seguridad");
+    //    }
+    //} else {
+    //    arr.push("Compruebe que ambas contraseñas sean iguales.");
+    //}
+
+    if (clave == validar) {
+        if (!(/[a-zñ]/.test(clave) && /[A-ZÑ]/.test(clave) && /[0-9]/.test(clave) && /[#$%&]/.test(clave))) {
+            arr.push("La contraseña debe contener minúscula(s), mayúscula(s), número(s) y caracter(es) especial(es) [#$%&]");
         }
         if (clave.length < 6) {
             arr.push("La contraseña debe contener 6 o más caracteres por seguridad");
         }
     } else {
-        arr.push("Compruebe que ambas contraseñas sean iguales.");
+        arr.push("Las contraseñas no coinciden");
     }
 
     //if (grecaptcha.getResponse() == "") {
