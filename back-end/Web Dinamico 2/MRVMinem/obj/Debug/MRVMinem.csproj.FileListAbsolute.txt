@@ -1956,9 +1956,6 @@ C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\1.7 
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\2.2 Plantilla_Electrificacion_rural.xlsx
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\3.1 Plantilla_RER_Conectado.xlsx
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\3.2 Plantilla_Generacion_Distribuida.xlsx
-C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\4.1 Plantilla_Vehiculos_electricos_Consumo.xlsm
-C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\4.1 Plantilla_Vehiculos_hibridos_consumo.xlsm
-C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\4.1 Plantilla_Vehiculos_hibridos_Recorrido.xlsm
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_etiquetado_congeladoras.xlsx
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_etiquetado_refrigeradoras.xlsx
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\1.2 Plantilla_Eficiencia_energetica_sector_industrial_Motor.xlsx
@@ -2060,3 +2057,6 @@ C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\obj\Debug\RdlCompil
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\obj\Debug\RdlCompile.compiled
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\obj\Debug\MRVMinem.dll
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\obj\Debug\MRVMinem.pdb
+C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\4.1 Plantilla_Vehiculos_electricos_Consumo.xlsx
+C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\4.1 Plantilla_Vehiculos_hibridos_consumo.xlsx
+C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\4.1 Plantilla_Vehiculos_hibridos_Recorrido.xlsx

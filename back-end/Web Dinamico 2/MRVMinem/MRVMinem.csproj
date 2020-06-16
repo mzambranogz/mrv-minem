@@ -426,15 +426,6 @@
     <Content Include="Documentos\3.2 Plantilla_Generacion_Distribuida.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Documentos\4.1 Plantilla_Vehiculos_electricos_Consumo.xlsm">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Documentos\4.1 Plantilla_Vehiculos_hibridos_consumo.xlsm">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Documentos\4.1 Plantilla_Vehiculos_hibridos_Recorrido.xlsm">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Documentos\1.1 Plantilla_Etiquetado_de_eficiencia_etiquetado_congeladoras.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -553,6 +544,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Documentos\Exportar\3.2.GD_exp.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Documentos\4.1 Plantilla_Vehiculos_electricos_Consumo.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Documentos\4.1 Plantilla_Vehiculos_hibridos_consumo.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Documentos\4.1 Plantilla_Vehiculos_hibridos_Recorrido.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Properties\PublishProfiles\MRVMinem.pubxml" />
