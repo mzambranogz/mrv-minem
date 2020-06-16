@@ -260,6 +260,7 @@ namespace datos.minem.gob.pe
                     OracleHelper.ExecuteNonQuery(CadenaConexion, CommandType.StoredProcedure, sp, parametros);
                     cod = int.Parse(parametros[1].Value.ToString());
                 }
+                entidad.OK = true;
                 if (cod == 1)
                 {
                     entidad.OK = false;
