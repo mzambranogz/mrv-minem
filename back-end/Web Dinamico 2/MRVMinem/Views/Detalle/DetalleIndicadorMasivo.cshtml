@@ -496,7 +496,11 @@
 
                                             <div class="input-group mb-3" id="eliminar-@item.ID_INICIATIVA_SUSTENTATORIO">
                                                 <div class="input-group-prepend"><span class="input-group-text"><i class="fas @extension"></i></span></div><span class="form-control-plaintext ww">@item.ADJUNTO_BASE</span>
-                                                <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="far fa-trash-alt" onclick="fn_eliminarArchivo(@item.ID_INICIATIVA_SUSTENTATORIO)"></i></span></div>
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text cursor-pointer mr-2" onclick="fn_verfilesutento(@item.ID_INICIATIVA_SUSTENTATORIO);"><i class="fas fa-download"></i></span>
+                                                
+                                                    <span class="input-group-text cursor-pointer"><i class="far fa-trash-alt" onclick="fn_eliminarArchivo(@item.ID_INICIATIVA_SUSTENTATORIO)"></i></span>
+                                                </div>
                                             </div>
                                                 }
                                             }

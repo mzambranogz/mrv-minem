@@ -194,6 +194,9 @@ namespace MRVMinem.Controllers
                 inic.ID_INICIATIVA = id;
                 modelo.iniciativa_mit = inic;
                 modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
+
+                if (modelo.iniciativa_mit.ListaSustentos.Count > 0) modelo.iniciativa_mit.ListaSustentos = limpiarFileSustento(modelo.iniciativa_mit.ListaSustentos);//add
+
                 modelo.menor = IndicadorLN.DetalleIndicadorEnfoque(modelo.iniciativa_mit.ID_INICIATIVA);
                 modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
                 modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);
@@ -300,6 +303,9 @@ namespace MRVMinem.Controllers
                 inic.ID_INICIATIVA = id;
                 modelo.iniciativa_mit = inic;
                 modelo.iniciativa_mit = IniciativaLN.IniciativaMitigacionDatos(modelo.iniciativa_mit);
+
+                if (modelo.iniciativa_mit.ListaSustentos.Count > 0) modelo.iniciativa_mit.ListaSustentos = limpiarFileSustento(modelo.iniciativa_mit.ListaSustentos);//add
+
                 modelo.menor = IndicadorLN.DetalleIndicadorEnfoque(modelo.iniciativa_mit.ID_INICIATIVA);
                 modelo.medida = MedidaMitigacionLN.getMedidaMitigacion(modelo.iniciativa_mit.ID_MEDMIT);
                 modelo.listaEnfoque = EnfoqueLN.listarEnfoqueMedida(modelo.iniciativa_mit.ID_MEDMIT);

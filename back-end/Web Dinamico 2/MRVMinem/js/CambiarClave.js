@@ -58,7 +58,7 @@ function fn_validar() {
     //    arr.push("Compruebe que ambas contraseñas sean iguales.");
     //}
 
-    if (clave == validar) {
+    if (clave == reclave) {
         if (!(/[a-zñ]/.test(clave) && /[A-ZÑ]/.test(clave) && /[0-9]/.test(clave) && /[#$%&]/.test(clave))) {
             arr.push("La contraseña debe contener minúscula(s), mayúscula(s), número(s) y caracter(es) especial(es) [#$%&]");
         }
