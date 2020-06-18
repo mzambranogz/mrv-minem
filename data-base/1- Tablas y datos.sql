@@ -1758,15 +1758,15 @@ values (7, 'LAP', 'Lámparas de alumbrado público - LAP', 'Medida que promueve 
 insert into T_MAE_MEDMIT (id_medmit, numero_medmit, nombre_medmit, descripcion_medmit, id_nama, objetivo_medmit, ipsc_medmit, flag_estado, gei_total, gei_publico, gei_privado, cant_total, cant_publico, cant_privado, asociado, id_ipcc, adjunto, adjunto_base, metodologia_medmit, usuario_asociado_medmit)
 values (8, 'CL', 'Cocción limpia - CL', 'Implementación y sostenibilidad de tecnologías de cocción limpia (cocinas mejoradas y cocinas a gas licuado de petróleos) en zonas rurales, reemplazando aquellas cocinas o tecnologías convencionales (fogón abierto) poco eficientes en el ámbito rural, con lo cual se reducirá los consumos de combustibles empleados en cocinas tradicionales, tales como leña y carbón vegetal, reduciendo así emisiones de gases de efecto invernadero (GEI) y los efectos nocivos a la salud asociados a las emisiones gaseosas y del material particulado restante de la combustión.', 2, 'Reducción de las emisiones de gases de efecto invernadero (GEI) generadas por la cocción y calentamiento de alimentos a través del uso de cocinas o tecnologías convencionales (fogón abierto) poco eficientes en el ámbito rural. Incluye: cocinas mejoradas y a gas licuado de petróleo (GLP).', 'Energía - Combustión estacionaria', '1', 1823, 1565, 258, 1, 1, 0, 81, 2, 'ico_nama_rojo_02.svg', 'ico_nama_rojo_02.svg', 'Metodologia LAP', 2);
 insert into T_MAE_MEDMIT (id_medmit, numero_medmit, nombre_medmit, descripcion_medmit, id_nama, objetivo_medmit, ipsc_medmit, flag_estado, gei_total, gei_publico, gei_privado, cant_total, cant_publico, cant_privado, asociado, id_ipcc, adjunto, adjunto_base, metodologia_medmit, usuario_asociado_medmit)
-values (10, 'RERC', 'RER conectado - RERC', 'Aumentar la participación de los Recursos Energéticos de fuentes Renovables (RER) en la matriz energética nacional en un 6.8% en el año 2030, reduciendo la proporción de la energía producida en base a la quema de combustibles fósiles, lo cual generará la reducción de emisiones de gases de efecto invernadero (GEI). Asimismo, la medida incluye la implementación de las centrales hidroeléctricas con una capacidad instalada menor a 20 MW.', 3, 'Aumentar la participación de los Recursos Energéticos Renovables (RER) y dar cumplimiento al Decreto Legislativo N° 1002, Ley de Promoción de la Inversi�n en Generaci�n de Electricidad con el uso de Energ�as Renovables (2008).', 'Energ�a - Combusti�n estacionaria', '1', 7133, 6800, 333, 2, 1, 1, 81, 2, 'ico_nama_verde_01.svg', 'ico_nama_verde_01.svg', 'Metodologia RERC', 100);
+values (10, 'RERC', 'RER conectado - RERC', 'Aumentar la participación de los Recursos Energéticos de fuentes Renovables (RER) en la matriz energética nacional en un 6.8% en el año 2030, reduciendo la proporción de la energía producida en base a la quema de combustibles fósiles, lo cual generará la reducción de emisiones de gases de efecto invernadero (GEI). Asimismo, la medida incluye la implementación de las centrales hidroeléctricas con una capacidad instalada menor a 20 MW.', 3, 'Aumentar la participación de los Recursos Energéticos Renovables (RER) y dar cumplimiento al Decreto Legislativo N° 1002, Ley de Promoción de la Inversión en Generación de Electricidad con el uso de Energías Renovables (2008).', 'Energía - Combustión estacionaria', '1', 7133, 6800, 333, 2, 1, 1, 81, 2, 'ico_nama_verde_01.svg', 'ico_nama_verde_01.svg', 'Metodologia RERC', 100);
 insert into T_MAE_MEDMIT (id_medmit, numero_medmit, nombre_medmit, descripcion_medmit, id_nama, objetivo_medmit, ipsc_medmit, flag_estado, gei_total, gei_publico, gei_privado, cant_total, cant_publico, cant_privado, asociado, id_ipcc, adjunto, adjunto_base, metodologia_medmit, usuario_asociado_medmit)
-values (9, 'ER', 'Electrificaci�n rural - ER', 'Llevar el servicio de electricidad a usuarios ubicados en �reas no conectadas a la red el�ctrica utilizando como fuente de generaci�n los recursos energ�ticos renovables (RER), mediante la instalaci�n de sistemas fotovoltaicos (paneles solares), con lo cual se reducir�n las emisiones de gases de efecto invernadero (GEI) al sustituir el uso de combustibles f�siles en los hogares para generar electricidad, por una energ�a el�ctrica con fuentes renovables que no produce emisiones.', 2, 'Brindar el servicio de electricidad a usuarios ubicados en �reas no conectadas a la red utilizando como fuente de generaci�n los recursos energ�ticos renovables (RER), mediante la instalaci�n de sistemas fotovoltaicos (paneles solares).', 'Energ�a - Combusti�n estacionaria', '1', 12.6, 8, 4.6, 1, 1, 1, 81, 2, 'ico_nama_rojo_01.svg', 'ico_nama_rojo_01.svg', 'Metodologia ER', 2);
+values (9, 'ER', 'Electrificación rural - ER', 'Llevar el servicio de electricidad a usuarios ubicados en Áreas no conectadas a la red eléctrica utilizando como fuente de generación los recursos energéticos renovables (RER), mediante la instalación de sistemas fotovoltaicos (paneles solares), con lo cual se reducierón las emisiones de gases de efecto invernadero (GEI) al sustituir el uso de combustibles fósiles en los hogares para generar electricidad, por una energía eléctrica con fuentes renovables que no produce emisiones.', 2, 'Brindar el servicio de electricidad a usuarios ubicados en Áreas no conectadas a la red utilizando como fuente de generación los recursos energéticos renovables (RER), mediante la instalación de sistemas fotovoltaicos (paneles solares).', 'Energía - Combustión estacionaria', '1', 12.6, 8, 4.6, 1, 1, 1, 81, 2, 'ico_nama_rojo_01.svg', 'ico_nama_rojo_01.svg', 'Metodologia ER', 2);
 insert into T_MAE_MEDMIT (id_medmit, numero_medmit, nombre_medmit, descripcion_medmit, id_nama, objetivo_medmit, ipsc_medmit, flag_estado, gei_total, gei_publico, gei_privado, cant_total, cant_publico, cant_privado, asociado, id_ipcc, adjunto, adjunto_base, metodologia_medmit, usuario_asociado_medmit)
-values (11, 'GD', 'Generaci�n distribuida - GD', 'Medida que abarca toda instalaci�n de generaci�n el�ctrica que inyecte energ�a el�ctrica a la red el�ctrica est� conectada directamente a la Red de Distribuci�n.', 3, 'Promover el uso e implementaci�n de sistemas de generaci�n el�ctrica con tecnolog�as limpias.', 'Energ�a - Combusti�n estacionaria', '1', 53, 42, 11, 3, 2, 1, 81, 2, 'ico_nama_verde_02.svg', 'ico_nama_verde_02.svg', 'Metodologia GD', 2);
+values (11, 'GD', 'Generación distribuida - GD', 'Medida que abarca toda instalación de generación eléctrica que inyecte energía eléctrica a la red eléctrica esté conectada directamente a la Red de Distribución.', 3, 'Promover el uso e implementación de sistemas de generación eléctrica con tecnologías limpias.', 'Energía - Combustión estacionaria', '1', 53, 42, 11, 3, 2, 1, 81, 2, 'ico_nama_verde_02.svg', 'ico_nama_verde_02.svg', 'Metodologia GD', 2);
 insert into T_MAE_MEDMIT (id_medmit, numero_medmit, nombre_medmit, descripcion_medmit, id_nama, objetivo_medmit, ipsc_medmit, flag_estado, gei_total, gei_publico, gei_privado, cant_total, cant_publico, cant_privado, asociado, id_ipcc, adjunto, adjunto_base, metodologia_medmit, usuario_asociado_medmit)
-values (12, 'PVE', 'Promoci�n de veh�culos el�ctricos - PVE', 'Medida que propone reemplazar la matriz energ�tica utilizada en el transporte, la cual utiliza predominantemente combustibles f�siles (gasolina, di�sel, gas licuado de petr�leo y gas natural vehicular), mediante una mayor participaci�n de veh�culos el�ctricos en el parque vehicular, contribuyendo al cumplimiento del Plan Energ�tico Nacional 2014-2025 y reduciendo las emisiones de gases de efecto invernadero (GEI) gracias al reemplazo o al desplazamiento de veh�culos que consumen gasolina o di�sel por nuevos veh�culos el�ctricos. La meta trazada para esta medida de mitigaci�n en una primera etapa se da bajo 2 acciones: i) la introducci�n de �mnibus el�ctricos y ii) introducci�n de veh�culos livianos el�ctricos.', 4, 'Reemplazar la matriz energ�tica utilizada de manera predominante en el transporte (gasolina, di�sel, GLP, GNV), a veh�culos el�ctricos. ', 'Energ�a - Combusti�n m�vil', '1', 2369, 1890, 479, 6, 4, 2, 81, 1, 'ico_nama_azul_01.svg', 'ico_nama_azul_01.svg', 'Metodologia PVE', 2);
+values (12, 'PVE', 'Promoción de vehículos eléctricos - PVE', 'Medida que propone reemplazar la matriz energética utilizada en el transporte, la cual utiliza predominantemente combustibles fósiles (gasolina, diésel, gas licuado de petróleo y gas natural vehicular), mediante una mayor participación de vehículos eléctricos en el parque vehicular, contribuyendo al cumplimiento del Plan Energético Nacional 2014-2025 y reduciendo las emisiones de gases de efecto invernadero (GEI) gracias al reemplazo o al desplazamiento de vehículos que consumen gasolina o diésel por nuevos vehículos eléctricos. La meta trazada para esta medida de mitigación en una primera etapa se da bajo 2 acciones: i) la introducción de ómnibus eléctricos y ii) introducción de vehículos livianos eléctricos.', 4, 'Reemplazar la matriz energética utilizada de manera predominante en el transporte (gasolina, diésel, GLP, GNV), a vehículos eléctricos. ', 'Energía - Combustión móvil', '1', 2369, 1890, 479, 6, 4, 2, 81, 1, 'ico_nama_azul_01.svg', 'ico_nama_azul_01.svg', 'Metodologia PVE', 2);
 insert into T_MAE_MEDMIT (id_medmit, numero_medmit, nombre_medmit, descripcion_medmit, id_nama, objetivo_medmit, ipsc_medmit, flag_estado, gei_total, gei_publico, gei_privado, cant_total, cant_publico, cant_privado, asociado, id_ipcc, adjunto, adjunto_base, metodologia_medmit, usuario_asociado_medmit)
-values (1, 'EEE', 'Etiquetado de Eficiencia Energ�tica - EEE', 'Esta medida propone que los equipos que requieran suministros energ�ticos incluyan en sus etiquetas, envases, empaques y publicidad, una etiqueta de eficiencia energ�tica a trav�s de la cual el consumidor pueda conocer el consumo de energ�a y la eficiencia energ�tica del producto para la toma de decisi�n de consumo, reduciendo as� las emisiones de GEI debido a la reducci�n del consumo de energ�a asociada a la mejora de eficiencia de los nuevos equipos a ser adquiridos por los consumidores. La medida se enmarca en el Reglamento T�cnico sobre el etiquetado de eficiencia energ�tica para equipos energ�ticos, aprobado mediante Decreto Supremo N�009-2017-EM.', 1, 'Dar cumplimiento al Reglamento T�cnico sobre el etiquetado de eficiencia energ�tica para equipos energ�ticos, aprobado mediante Decreto Supremo N�009-2017-EM. Puede incluir aparatos de refrigeraci�n, calderas, motores el�ctricos, lavadoras, secadoras, equipos de aire acondicionado y calentadores de agua. No incluye luminarias. ', 'Energ�a - Combusti�n estacionaria', '1', 318, 180, 138, 4, 2, 2, 81, 2, 'ico_nama_amarillo_03.svg', 'ico_nama_amarillo_03.svg', 'Metodologia EEE', 100);
+values (1, 'EEE', 'Etiquetado de Eficiencia Energética - EEE', 'Esta medida propone que los equipos que requieran suministros energéticos incluyan en sus etiquetas, envases, empaques y publicidad, una etiqueta de eficiencia energética a través de la cual el consumidor pueda conocer el consumo de energía y la eficiencia energética del producto para la toma de decisión de consumo, reduciendo así las emisiones de GEI debido a la reducción del consumo de energía asociada a la mejora de eficiencia de los nuevos equipos a ser adquiridos por los consumidores. La medida se enmarca en el Reglamento Técnico sobre el etiquetado de eficiencia energética para equipos energéticos, aprobado mediante Decreto Supremo N°009-2017-EM.', 1, 'Dar cumplimiento al Reglamento Técnico sobre el etiquetado de eficiencia energética para equipos energéticos, aprobado mediante Decreto Supremo N°009-2017-EM. Puede incluir aparatos de refrigeración, calderas, motores eléctricos, lavadoras, secadoras, equipos de aire acondicionado y calentadores de agua. No incluye luminarias. ', 'Energía - Combustión estacionaria', '1', 318, 180, 138, 4, 2, 2, 81, 2, 'ico_nama_amarillo_03.svg', 'ico_nama_amarillo_03.svg', 'Metodologia EEE', 100);
 commit;
 prompt 12 records loaded
 prompt Loading T_GENM_ACUMULADO...
@@ -2018,13 +2018,13 @@ commit;
 prompt 3 records loaded
 prompt Loading T_GENM_INSTITUCION...
 insert into T_GENM_INSTITUCION (id_institucion, id_sector_institucion, ruc_institucion, nombre_institucion, direccion_institucion, flag_estado)
-values (441, 1, '10545646848', 'Ministerio campe�n', 'San Borja Norte 156', '1');
+values (441, 1, '10545646848', 'Ministerio campeón', 'San Borja Norte 156', '1');
 insert into T_GENM_INSTITUCION (id_institucion, id_sector_institucion, ruc_institucion, nombre_institucion, direccion_institucion, flag_estado)
 values (422, 1, '10546659498', 'Ministerio verde', 'Las palmeras 105', '1');
 insert into T_GENM_INSTITUCION (id_institucion, id_sector_institucion, ruc_institucion, nombre_institucion, direccion_institucion, flag_estado)
 values (442, 1, '10529853001', 'Ministerio', 'Pasaje la ermita 541', '1');
 insert into T_GENM_INSTITUCION (id_institucion, id_sector_institucion, ruc_institucion, nombre_institucion, direccion_institucion, flag_estado)
-values (462, 1, '20292899289', 'Cooperativa de ahorro y cr�dito de los trabajadores de lima sheraton', 'Av.Thomas Micontrase�a es Lima$2020#', '1');
+values (462, 1, '20292899289', 'Cooperativa de ahorro y crédito de los trabajadores de lima sheraton', 'Av.Thomas Micontraseña es Lima$2020#', '1');
 insert into T_GENM_INSTITUCION (id_institucion, id_sector_institucion, ruc_institucion, nombre_institucion, direccion_institucion, flag_estado)
 values (421, 2, '20847387384', 'Cooperativa Marco', 'Av. Los Rosales', '1');
 insert into T_GENM_INSTITUCION (id_institucion, id_sector_institucion, ruc_institucion, nombre_institucion, direccion_institucion, flag_estado)
@@ -2038,11 +2038,11 @@ values (382, 1, '20389438473', 'Minerias Rojas', 'Av. San bartolo', '1');
 insert into T_GENM_INSTITUCION (id_institucion, id_sector_institucion, ruc_institucion, nombre_institucion, direccion_institucion, flag_estado)
 values (361, 1, '20334587643', 'Entidad Privada SAC', 'Av. Los rosales', '1');
 insert into T_GENM_INSTITUCION (id_institucion, id_sector_institucion, ruc_institucion, nombre_institucion, direccion_institucion, flag_estado)
-values (201, 2, '20601457262' || chr(10) || '', 'Grupo Zu�iga S.A.C.', 'Av. Caminos del Inca 3140 Of. 502 Surco', null);
+values (201, 2, '20601457262' || chr(10) || '', 'Grupo Zuñiga S.A.C.', 'Av. Caminos del Inca 3140 Of. 502 Surco', null);
 insert into T_GENM_INSTITUCION (id_institucion, id_sector_institucion, ruc_institucion, nombre_institucion, direccion_institucion, flag_estado)
 values (42, 1, '20131368829', 'MINISTERIO DE ENERGIA Y MINAS', 'Av. De Las Artes Sur 260, San Borja 15036', null);
 insert into T_GENM_INSTITUCION (id_institucion, id_sector_institucion, ruc_institucion, nombre_institucion, direccion_institucion, flag_estado)
-values (362, 1, '20547824613', 'Asociaci�n An�nima SAC ', 'Av. Primaveras 211', '1');
+values (362, 1, '20547824613', 'Asociación Anónima SAC ', 'Av. Primaveras 211', '1');
 insert into T_GENM_INSTITUCION (id_institucion, id_sector_institucion, ruc_institucion, nombre_institucion, direccion_institucion, flag_estado)
 values (424, 1, '20384343847', ' Cooperativa Sheraton', 'Av. Las Praderas', '1');
 insert into T_GENM_INSTITUCION (id_institucion, id_sector_institucion, ruc_institucion, nombre_institucion, direccion_institucion, flag_estado)
@@ -2151,13 +2151,13 @@ prompt Loading T_GENM_NOTIFICACION...
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
 values (1682, 146, 4, 3, to_date('16-06-2020 12:55:10', 'dd-mm-yyyy hh24:mi:ss'), 1, 81, '0', null, null, 'Los detalles de indicadores de su iniciativa fueron revisadas y aprobadas', 3, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
-values (1683, 146, 5, 1, to_date('16-06-2020 12:55:10', 'dd-mm-yyyy hh24:mi:ss'), 3, 421, '0', null, null, 'La iniciativa y el detalle de indicadores de la entidad MINISTERIO DE ENERGIA Y MINAS fueron revisadas y aprobadas, y estan a la espera de su revisi�n', 0, 81);
+values (1683, 146, 5, 1, to_date('16-06-2020 12:55:10', 'dd-mm-yyyy hh24:mi:ss'), 3, 421, '0', null, null, 'La iniciativa y el detalle de indicadores de la entidad MINISTERIO DE ENERGIA Y MINAS fueron revisadas y aprobadas, y estan a la espera de su revisión', 0, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
 values (1684, 146, 5, 3, to_date('16-06-2020 13:55:19', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'Los detalles de indicadores y la iniciativa fueron revisados y aprobadas por el Administrador MINEM', 3, 421);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
 values (1685, 146, 5, 2, to_date('16-06-2020 13:58:44', 'dd-mm-yyyy hh24:mi:ss'), 3, 421, '0', null, null, 'Detalle incorrecto', 1, 300);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
-values (1686, 165, 1, 1, to_date('16-06-2020 14:44:54', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'La iniciativa de la entidad MINISTERIO DE ENERGIA Y MINAS ha sido registrado correctamente y requiere su revisi�n', 0, 81);
+values (1686, 165, 1, 1, to_date('16-06-2020 14:44:54', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'La iniciativa de la entidad MINISTERIO DE ENERGIA Y MINAS ha sido registrado correctamente y requiere su revisión', 0, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
 values (1687, 165, 2, 3, to_date('16-06-2020 14:46:05', 'dd-mm-yyyy hh24:mi:ss'), 1, 81, '0', null, null, 'Su iniciativa fue revisada y aprobada', 3, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
@@ -2165,93 +2165,93 @@ values (1688, 146, 4, 2, to_date('16-06-2020 18:48:38', 'dd-mm-yyyy hh24:mi:ss')
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
 values (1689, 146, 4, 3, to_date('16-06-2020 18:54:19', 'dd-mm-yyyy hh24:mi:ss'), 1, 81, '0', null, null, 'Los detalles de indicadores de su iniciativa fueron revisadas y aprobadas', 3, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
-values (1690, 146, 5, 1, to_date('16-06-2020 18:54:19', 'dd-mm-yyyy hh24:mi:ss'), 3, 421, '0', null, null, 'La iniciativa y el detalle de indicadores de la entidad MINISTERIO DE ENERGIA Y MINAS fueron revisadas y aprobadas, y estan a la espera de su revisi�n', 0, 81);
+values (1690, 146, 5, 1, to_date('16-06-2020 18:54:19', 'dd-mm-yyyy hh24:mi:ss'), 3, 421, '0', null, null, 'La iniciativa y el detalle de indicadores de la entidad MINISTERIO DE ENERGIA Y MINAS fueron revisadas y aprobadas, y estan a la espera de su revisión', 0, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
 values (1691, 146, 5, 3, to_date('16-06-2020 19:14:31', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'Los detalles de indicadores y la iniciativa fueron revisados y aprobadas por el Administrador MINEM', 3, 421);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
 values (1692, 146, 8, 2, to_date('16-06-2020 19:15:29', 'dd-mm-yyyy hh24:mi:ss'), 3, 421, '0', null, null, 'Corregir los adjuntos generales', 1, 301);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
-values (1608, 106, 1, 1, to_date('08-06-2020 23:04:33', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'La iniciativa de la entidad Cooperativa Marco ha sido registrado correctamente y requiere su revisi�n', 0, 360);
+values (1608, 106, 1, 1, to_date('08-06-2020 23:04:33', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'La iniciativa de la entidad Cooperativa Marco ha sido registrado correctamente y requiere su revisión', 0, 360);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
-values (1641, 125, 1, 1, to_date('13-06-2020 15:14:15', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'La iniciativa de la entidad MINISTERIO DE ENERGIA Y MINAS ha sido registrado correctamente y requiere su revisi�n', 0, 81);
+values (1641, 125, 1, 1, to_date('13-06-2020 15:14:15', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'La iniciativa de la entidad MINISTERIO DE ENERGIA Y MINAS ha sido registrado correctamente y requiere su revisión', 0, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
 values (1642, 125, 2, 3, to_date('13-06-2020 15:14:34', 'dd-mm-yyyy hh24:mi:ss'), 1, 81, '0', null, null, 'Su iniciativa fue revisada y aprobada', 3, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
-values (1643, 126, 1, 1, to_date('13-06-2020 15:21:00', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'La iniciativa de la entidad MINISTERIO DE ENERGIA Y MINAS ha sido registrado correctamente y requiere su revisi�n', 0, 81);
+values (1643, 126, 1, 1, to_date('13-06-2020 15:21:00', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'La iniciativa de la entidad MINISTERIO DE ENERGIA Y MINAS ha sido registrado correctamente y requiere su revisión', 0, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
 values (1644, 126, 2, 3, to_date('13-06-2020 15:21:17', 'dd-mm-yyyy hh24:mi:ss'), 1, 81, '0', null, null, 'Su iniciativa fue revisada y aprobada', 3, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
-values (1671, 150, 1, 1, to_date('15-06-2020 21:01:58', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'La iniciativa de la entidad MINISTERIO DE ENERGIA Y MINAS ha sido registrado correctamente y requiere su revisi�n', 0, 81);
+values (1671, 150, 1, 1, to_date('15-06-2020 21:01:58', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'La iniciativa de la entidad MINISTERIO DE ENERGIA Y MINAS ha sido registrado correctamente y requiere su revisión', 0, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
-values (1609, 107, 1, 1, to_date('08-06-2020 23:08:23', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'La iniciativa de la entidad Cooperativa Marco ha sido registrado correctamente y requiere su revisi�n', 0, 360);
+values (1609, 107, 1, 1, to_date('08-06-2020 23:08:23', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'La iniciativa de la entidad Cooperativa Marco ha sido registrado correctamente y requiere su revisión', 0, 360);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
 values (1610, 107, 1, 2, to_date('08-06-2020 23:14:49', 'dd-mm-yyyy hh24:mi:ss'), 1, 360, '0', null, null, 'corrige', 1, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
 values (1611, 106, 2, 3, to_date('08-06-2020 23:15:09', 'dd-mm-yyyy hh24:mi:ss'), 1, 360, '0', null, null, 'Su iniciativa fue revisada y aprobada', 3, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
-values (1663, 146, 1, 1, to_date('15-06-2020 20:08:25', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'La iniciativa de la entidad MINISTERIO DE ENERGIA Y MINAS ha sido registrado correctamente y requiere su revisi�n', 0, 81);
+values (1663, 146, 1, 1, to_date('15-06-2020 20:08:25', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'La iniciativa de la entidad MINISTERIO DE ENERGIA Y MINAS ha sido registrado correctamente y requiere su revisión', 0, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
 values (1664, 146, 2, 3, to_date('15-06-2020 20:08:37', 'dd-mm-yyyy hh24:mi:ss'), 1, 81, '0', null, null, 'Su iniciativa fue revisada y aprobada', 3, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
-values (1665, 147, 1, 1, to_date('15-06-2020 20:20:46', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'La iniciativa de la entidad MINISTERIO DE ENERGIA Y MINAS ha sido registrado correctamente y requiere su revisi�n', 0, 81);
+values (1665, 147, 1, 1, to_date('15-06-2020 20:20:46', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'La iniciativa de la entidad MINISTERIO DE ENERGIA Y MINAS ha sido registrado correctamente y requiere su revisión', 0, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
 values (1666, 147, 2, 3, to_date('15-06-2020 20:20:59', 'dd-mm-yyyy hh24:mi:ss'), 1, 81, '0', null, null, 'Su iniciativa fue revisada y aprobada', 3, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
-values (1667, 148, 1, 1, to_date('15-06-2020 20:33:26', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'La iniciativa de la entidad MINISTERIO DE ENERGIA Y MINAS ha sido registrado correctamente y requiere su revisi�n', 0, 81);
+values (1667, 148, 1, 1, to_date('15-06-2020 20:33:26', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'La iniciativa de la entidad MINISTERIO DE ENERGIA Y MINAS ha sido registrado correctamente y requiere su revisión', 0, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
 values (1668, 148, 2, 3, to_date('15-06-2020 20:33:39', 'dd-mm-yyyy hh24:mi:ss'), 1, 81, '0', null, null, 'Su iniciativa fue revisada y aprobada', 3, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
-values (1669, 149, 1, 1, to_date('15-06-2020 20:37:29', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'La iniciativa de la entidad MINISTERIO DE ENERGIA Y MINAS ha sido registrado correctamente y requiere su revisi�n', 0, 81);
+values (1669, 149, 1, 1, to_date('15-06-2020 20:37:29', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'La iniciativa de la entidad MINISTERIO DE ENERGIA Y MINAS ha sido registrado correctamente y requiere su revisión', 0, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
 values (1670, 149, 2, 3, to_date('15-06-2020 20:37:45', 'dd-mm-yyyy hh24:mi:ss'), 1, 81, '0', null, null, 'Su iniciativa fue revisada y aprobada', 3, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
 values (1693, 146, 5, 3, to_date('16-06-2020 21:17:57', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'Los detalles de indicadores y la iniciativa fueron revisados y aprobadas por el Administrador MINEM', 3, 421);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
-values (1601, 105, 1, 1, to_date('08-06-2020 10:07:43', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'La iniciativa de la entidad Cooperativa Marco ha sido registrado correctamente y requiere su revisi�n', 0, 360);
+values (1601, 105, 1, 1, to_date('08-06-2020 10:07:43', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'La iniciativa de la entidad Cooperativa Marco ha sido registrado correctamente y requiere su revisión', 0, 360);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
 values (1602, 105, 2, 3, to_date('08-06-2020 10:08:09', 'dd-mm-yyyy hh24:mi:ss'), 1, 360, '0', null, null, 'Su iniciativa fue revisada y aprobada', 3, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
 values (1607, 105, 7, 3, to_date('08-06-2020 14:11:08', 'dd-mm-yyyy hh24:mi:ss'), 3, 22, '0', null, null, 'Los detalles de indicadores y la iniciativa fueron revisados y aprobadas por el Verificador Externo', 3, 301);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
-values (1661, 145, 1, 1, to_date('15-06-2020 19:38:11', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'La iniciativa de la entidad MINISTERIO DE ENERGIA Y MINAS ha sido registrado correctamente y requiere su revisi�n', 0, 81);
+values (1661, 145, 1, 1, to_date('15-06-2020 19:38:11', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'La iniciativa de la entidad MINISTERIO DE ENERGIA Y MINAS ha sido registrado correctamente y requiere su revisión', 0, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
 values (1662, 145, 2, 3, to_date('15-06-2020 19:38:23', 'dd-mm-yyyy hh24:mi:ss'), 1, 81, '0', null, null, 'Su iniciativa fue revisada y aprobada', 3, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
 values (1672, 150, 2, 3, to_date('15-06-2020 21:03:18', 'dd-mm-yyyy hh24:mi:ss'), 1, 81, '0', null, null, 'Su iniciativa fue revisada y aprobada', 3, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
-values (1673, 151, 1, 1, to_date('15-06-2020 21:10:43', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'La iniciativa de la entidad MINISTERIO DE ENERGIA Y MINAS ha sido registrado correctamente y requiere su revisi�n', 0, 81);
+values (1673, 151, 1, 1, to_date('15-06-2020 21:10:43', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'La iniciativa de la entidad MINISTERIO DE ENERGIA Y MINAS ha sido registrado correctamente y requiere su revisión', 0, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
 values (1674, 151, 2, 3, to_date('15-06-2020 21:10:56', 'dd-mm-yyyy hh24:mi:ss'), 1, 81, '0', null, null, 'Su iniciativa fue revisada y aprobada', 3, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
-values (1675, 152, 1, 1, to_date('16-06-2020 09:57:02', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'La iniciativa de la entidad MINISTERIO DE ENERGIA Y MINAS ha sido registrado correctamente y requiere su revisi�n', 0, 81);
+values (1675, 152, 1, 1, to_date('16-06-2020 09:57:02', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'La iniciativa de la entidad MINISTERIO DE ENERGIA Y MINAS ha sido registrado correctamente y requiere su revisión', 0, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
 values (1676, 152, 2, 3, to_date('16-06-2020 09:57:17', 'dd-mm-yyyy hh24:mi:ss'), 1, 81, '0', null, null, 'Su iniciativa fue revisada y aprobada', 3, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
-values (1681, 146, 3, 1, to_date('16-06-2020 12:44:33', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'El usuario de la entidad MINISTERIO DE ENERGIA Y MINASha registrado el/los detalle(s) de la Iniciativa ( Eficiencia energética en el sector comercial - EESC2323), en espera de su revisi�n', 0, 81);
+values (1681, 146, 3, 1, to_date('16-06-2020 12:44:33', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'El usuario de la entidad MINISTERIO DE ENERGIA Y MINASha registrado el/los detalle(s) de la Iniciativa ( Eficiencia energética en el sector comercial - EESC2323), en espera de su revisión', 0, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
-values (1603, 105, 3, 1, to_date('08-06-2020 10:17:14', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'El usuario de la entidad Cooperativa Marcoha registrado el/los detalle(s) de la Iniciativa (Electrificación rural 100), en espera de su revisi�n', 0, 360);
+values (1603, 105, 3, 1, to_date('08-06-2020 10:17:14', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'El usuario de la entidad Cooperativa Marcoha registrado el/los detalle(s) de la Iniciativa (Electrificación rural 100), en espera de su revisión', 0, 360);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
 values (1604, 105, 4, 3, to_date('08-06-2020 10:18:05', 'dd-mm-yyyy hh24:mi:ss'), 1, 360, '0', null, null, 'Los detalles de indicadores de su iniciativa fueron revisadas y aprobadas', 3, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
-values (1605, 105, 5, 1, to_date('08-06-2020 10:18:05', 'dd-mm-yyyy hh24:mi:ss'), 3, 261, '0', null, null, 'La iniciativa y el detalle de indicadores de la entidad Cooperativa Marco fueron revisadas y aprobadas, y estan a la espera de su revisi�n', 0, 81);
+values (1605, 105, 5, 1, to_date('08-06-2020 10:18:05', 'dd-mm-yyyy hh24:mi:ss'), 3, 261, '0', null, null, 'La iniciativa y el detalle de indicadores de la entidad Cooperativa Marco fueron revisadas y aprobadas, y estan a la espera de su revisión', 0, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
 values (1606, 105, 5, 3, to_date('08-06-2020 10:19:52', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'Los detalles de indicadores y la iniciativa fueron revisados y aprobadas por el Administrador MINEM', 3, 22);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
-values (1612, 107, 1, 5, to_date('08-06-2020 23:17:38', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'La iniciativa de la entidad Cooperativa Marco ha sido subsanado correctamente y requiere su revisi�n', 0, 360);
+values (1612, 107, 1, 5, to_date('08-06-2020 23:17:38', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'La iniciativa de la entidad Cooperativa Marco ha sido subsanado correctamente y requiere su revisión', 0, 360);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
-values (1613, 106, 3, 1, to_date('08-06-2020 23:22:08', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'El usuario de la entidad Cooperativa Marcoha registrado el/los detalle(s) de la Iniciativa (Acción de mitigación prueba 1), en espera de su revisi�n', 0, 360);
+values (1613, 106, 3, 1, to_date('08-06-2020 23:22:08', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'El usuario de la entidad Cooperativa Marcoha registrado el/los detalle(s) de la Iniciativa (Acción de mitigación prueba 1), en espera de su revisión', 0, 360);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
 values (1614, 107, 2, 3, to_date('08-06-2020 23:23:16', 'dd-mm-yyyy hh24:mi:ss'), 1, 360, '0', null, null, 'Su iniciativa fue revisada y aprobada', 3, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
 values (1615, 106, 4, 3, to_date('08-06-2020 23:23:54', 'dd-mm-yyyy hh24:mi:ss'), 1, 360, '0', null, null, 'Los detalles de indicadores de su iniciativa fueron revisadas y aprobadas', 3, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
-values (1616, 106, 5, 1, to_date('08-06-2020 23:23:54', 'dd-mm-yyyy hh24:mi:ss'), 3, 261, '0', null, null, 'La iniciativa y el detalle de indicadores de la entidad Cooperativa Marco fueron revisadas y aprobadas, y estan a la espera de su revisi�n', 0, 81);
+values (1616, 106, 5, 1, to_date('08-06-2020 23:23:54', 'dd-mm-yyyy hh24:mi:ss'), 3, 261, '0', null, null, 'La iniciativa y el detalle de indicadores de la entidad Cooperativa Marco fueron revisadas y aprobadas, y estan a la espera de su revisión', 0, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
-values (1617, 107, 3, 1, to_date('08-06-2020 23:27:04', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'El usuario de la entidad Cooperativa Marcoha registrado el/los detalle(s) de la Iniciativa (Lámparas de alumbrado 2), en espera de su revisi�n', 0, 360);
+values (1617, 107, 3, 1, to_date('08-06-2020 23:27:04', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'El usuario de la entidad Cooperativa Marcoha registrado el/los detalle(s) de la Iniciativa (Lámparas de alumbrado 2), en espera de su revisión', 0, 360);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
 values (1618, 107, 4, 3, to_date('08-06-2020 23:27:58', 'dd-mm-yyyy hh24:mi:ss'), 1, 360, '0', null, null, 'Los detalles de indicadores de su iniciativa fueron revisadas y aprobadas', 3, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
-values (1619, 107, 5, 1, to_date('08-06-2020 23:27:58', 'dd-mm-yyyy hh24:mi:ss'), 3, 261, '0', null, null, 'La iniciativa y el detalle de indicadores de la entidad Cooperativa Marco fueron revisadas y aprobadas, y estan a la espera de su revisi�n', 0, 81);
+values (1619, 107, 5, 1, to_date('08-06-2020 23:27:58', 'dd-mm-yyyy hh24:mi:ss'), 3, 261, '0', null, null, 'La iniciativa y el detalle de indicadores de la entidad Cooperativa Marco fueron revisadas y aprobadas, y estan a la espera de su revisión', 0, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
 values (1620, 107, 5, 3, to_date('08-06-2020 23:32:16', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'Los detalles de indicadores y la iniciativa fueron revisados y aprobadas por el Administrador MINEM', 3, 22);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
@@ -2261,7 +2261,7 @@ values (1622, 107, 5, 3, to_date('08-06-2020 23:48:49', 'dd-mm-yyyy hh24:mi:ss')
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
 values (1623, 106, 7, 3, to_date('08-06-2020 23:57:19', 'dd-mm-yyyy hh24:mi:ss'), 3, 22, '0', null, null, 'Los detalles de indicadores y la iniciativa fueron revisados y aprobadas por el Verificador Externo', 3, 301);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
-values (1624, 108, 1, 1, to_date('11-06-2020 16:40:45', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'La iniciativa de la entidad MINISTERIO DE ENERGIA Y MINAS ha sido registrado correctamente y requiere su revisi�n', 0, 81);
+values (1624, 108, 1, 1, to_date('11-06-2020 16:40:45', 'dd-mm-yyyy hh24:mi:ss'), 2, 81, '0', null, null, 'La iniciativa de la entidad MINISTERIO DE ENERGIA Y MINAS ha sido registrado correctamente y requiere su revisión', 0, 81);
 insert into T_GENM_NOTIFICACION (id_notificacion, id_iniciativa, id_etapa, id_estado, fecha_registro, id_rol, id_usuario, flg_visto, fecha_visto, id_usuario_visto, descripcion, id_estado_notificacion, id_usuario_remitente)
 values (1625, 108, 2, 3, to_date('11-06-2020 16:41:49', 'dd-mm-yyyy hh24:mi:ss'), 1, 81, '0', null, null, 'Su iniciativa fue revisada y aprobada', 3, 81);
 commit;
@@ -2350,23 +2350,23 @@ commit;
 prompt 3 records loaded
 prompt Loading T_MAEM_MRV_PARAMETRO...
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
-values (10, 2, 2, 'INICIATIVA MITIGACI�N EMISIONES GEI', '0', '0', '1', null, 1, 'CO2eq', null, null, null, null, null, null, null, null, null);
+values (10, 2, 2, 'INICIATIVA MITIGACIÓN EMISIONES GEI', '0', '0', '1', null, 1, 'CO2eq', null, null, null, null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
-values (11, 2, 2, 'EMISIONES GEI REDUCIDAS', '0', '0', '1', null, 1, 'CO2eq', 'tCO2e', null, 'Toneladas de di�xido de carbono equivalente emitidos por cada kil�metro recorrido', 'Refiere a las emisiones de GEI generadas por cada kilometro recorrido seg�n tipo de veh�culo y combustible consumido', 'Se calculan en base a los rendimientos promedio (km/energ�a) de cada tipo de veh�culo, los mismos que provienen de un estudio de encuestas a muestra representativa. La energ�a luego es llevada a GEI utilizando factores de emisi�n del consumo el�ctrico.', 'Se revisa que los datos utilizados sean correctamente seleccionados del libro de c�lculo.', 'Administrador revisa que se utiliza el factor de emisi�n espec�fico.', 'Estimar las emisiones de GEI que se generan por los desplazamientos de distintos tipos de veh�culos y seg�n el combustible que consuma', 'Anual');
+values (11, 2, 2, 'EMISIONES GEI REDUCIDAS', '0', '0', '1', null, 1, 'CO2eq', 'tCO2e', null, 'Toneladas de dióxido de carbono equivalente emitidos por cada kilómetro recorrido', 'Refiere a las emisiones de GEI generadas por cada kilometro recorrido según tipo de vehículo y combustible consumido', 'Se calculan en base a los rendimientos promedio (km/energía) de cada tipo de vehículo, los mismos que provienen de un estudio de encuestas a muestra representativa. La energía luego es llevada a GEI utilizando factores de emisión del consumo eléctrico.', 'Se revisa que los datos utilizados sean correctamente seleccionados del libro de cálculo.', 'Administrador revisa que se utiliza el factor de emisión específico.', 'Estimar las emisiones de GEI que se generan por los desplazamientos de distintos tipos de vehículos y según el combustible que consuma', 'Anual');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
-values (12, 2, 2, 'CANTIDAD', '1', '1', '1', null, null, null, null, null, 'N�mero de unidades', null, null, null, null, null, null);
+values (12, 2, 2, 'CANTIDAD', '1', '1', '1', null, null, null, null, null, 'Número de unidades', null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
-values (13, 2, 2, 'FACTOR DE RENDIMIENTO', '1', '1', '1', null, null, null, 'kWh/km', null, 'Distancia total que recorre el veh�culo durante un a�o espec�fico', 'Diferencias entre registros del kilometraje recorrido entre a�os', 'Diferencias entre registros del kilometraje recorrido entre a�os', 'Revisi�n de registros de distancia recorrida y sus medios sustentatorios', 'Revisi�n de registros de distancia recorrida y sus medios sustentatorios', 'Calcular la cantidad de combustible consumido y con esto las emisiones de GEI asociadas', 'Anual');
+values (13, 2, 2, 'FACTOR DE RENDIMIENTO', '1', '1', '1', null, null, null, 'kWh/km', null, 'Distancia total que recorre el vehículo durante un año específico', 'Diferencias entre registros del kilometraje recorrido entre años', 'Diferencias entre registros del kilometraje recorrido entre años', 'Revisión de registros de distancia recorrida y sus medios sustentatorios', 'Revisión de registros de distancia recorrida y sus medios sustentatorios', 'Calcular la cantidad de combustible consumido y con esto las emisiones de GEI asociadas', 'Anual');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
 values (14, 1, null, 'TIPO DE FUENTE', '1', '1', '1', null, null, null, null, null, null, null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
 values (21, 1, 2, 'CAPACIDAD', '1', '1', '1', null, null, null, null, null, 'Potencia o consumo del equipo', null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
-values (22, 1, 3, 'CLASE (ETIQUETA) BAU', '1', '1', '1', null, null, null, null, null, 'Letra de la etiqueta antes de la implementaci�n', null, null, null, null, null, null);
+values (22, 1, 3, 'CLASE (ETIQUETA) BAU', '1', '1', '1', null, null, null, null, null, 'Letra de la etiqueta antes de la implementación', null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
-values (23, 1, 3, 'CLASE (ETIQUETA) INICIATIVA', '1', '1', '1', null, null, null, null, null, 'Letra de la etiqueta posterior a la implementaci�n', null, null, null, null, null, null);
+values (23, 1, 3, 'CLASE (ETIQUETA) INICIATIVA', '1', '1', '1', null, null, null, null, null, 'Letra de la etiqueta posterior a la implementación', null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
-values (28, 1, 2, 'CATEGORIA(8-10)', '1', '1', '1', null, null, null, null, null, 'Seg�n el reglamento t�cnico de EEE', null, null, null, null, null, null);
+values (28, 1, 2, 'CATEGORIA(8-10)', '1', '1', '1', null, null, null, null, null, 'Según el reglamento técnico de EEE', null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
 values (29, 1, 2, 'CAPACIDAD CONGELA (L)', '1', '1', '1', null, null, null, null, null, 'Capacidad de la refrigeradora en litros', null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
@@ -2380,23 +2380,23 @@ values (45, 2, 2, 'CONSUMO ANUAL INI', '1', '1', '1', null, null, null, null, nu
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
 values (46, 2, 2, 'PRODUCCION ANUAL BAU', '1', '1', '1', null, null, null, null, null, null, null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
-values (52, 1, null, 'ENERGETICO (BAU)', '1', '1', '1', null, null, null, null, null, 'Energ�a que hace funcionar al calentador', null, null, null, null, null, null);
+values (52, 1, null, 'ENERGETICO (BAU)', '1', '1', '1', null, null, null, null, null, 'Energía que hace funcionar al calentador', null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
-values (53, 1, null, 'ENERGETICO (INIC)', '1', '1', '1', null, null, null, null, null, 'Energ�a que hace funcionar al calentador', null, null, null, null, null, null);
+values (53, 1, null, 'ENERGETICO (INIC)', '1', '1', '1', null, null, null, null, null, 'Energía que hace funcionar al calentador', null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
 values (47, 2, 2, 'PRODUCCION ANUAL INI', '1', '1', '1', null, null, null, null, null, null, null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
-values (15, 2, 2, 'KRV COMBUSTIBLE', '1', '1', '1', null, null, null, 'km.a�o', null, 'Distancia recorrida anualmente por vehiculo del proyecto', 'Refiere a la distancia total que recorre el veh�culo durante un a�o espec�fico', 'Diferencias entre registros del kilometraje recorrido entre a�os', 'Revisi�n de registros de distancia recorrida y sus medios sustentatorios', 'Revisi�n de registros de distancia recorrida y sus medios sustentatorios', 'Calcular la cantidad de combustible consumido y con esto las emisiones de GEI asociadas', 'Anual');
+values (15, 2, 2, 'KRV COMBUSTIBLE', '1', '1', '1', null, null, null, 'km.año', null, 'Distancia recorrida anualmente por vehiculo del proyecto', 'Refiere a la distancia total que recorre el vehículo durante un año específico', 'Diferencias entre registros del kilometraje recorrido entre años', 'Revisión de registros de distancia recorrida y sus medios sustentatorios', 'Revisión de registros de distancia recorrida y sus medios sustentatorios', 'Calcular la cantidad de combustible consumido y con esto las emisiones de GEI asociadas', 'Anual');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
-values (16, 2, 2, 'ELECTRIDAD GENERADA', '1', '1', '1', null, null, null, 'GWh', null, 'Gigavatio por hora', 'Factor que te permite calcular las emisiones de GEI que se reducen por la instalaci�n de una nueva central de Recursos Energ�ticos Renovables (RER) debido al desplazamiento de la generaci�n de centrales t�rmicas emisoras de gases de efecto invernadero (GEI).', 'Se sigue la metod�logia indicada en: "Tool to calculate the emission factor for an electricity system".', 'El especialista revisa que se utiliza en los calculos el valor del FE del reporte de validaci�n.', 'El administrador asegura que se utiliza en los calculos el valor del FE del reporte de validaci�n.', 'Conocer cuanta emisi�n de GEI es evitado por cada central de generaci�n RER.', 'anual');
+values (16, 2, 2, 'ELECTRIDAD GENERADA', '1', '1', '1', null, null, null, 'GWh', null, 'Gigavatio por hora', 'Factor que te permite calcular las emisiones de GEI que se reducen por la instalación de una nueva central de Recursos Energéticos Renovables (RER) debido al desplazamiento de la generación de centrales térmicas emisoras de gases de efecto invernadero (GEI).', 'Se sigue la metodólogia indicada en: "Tool to calculate the emission factor for an electricity system".', 'El especialista revisa que se utiliza en los calculos el valor del FE del reporte de validación.', 'El administrador asegura que se utiliza en los calculos el valor del FE del reporte de validación.', 'Conocer cuanta emisión de GEI es evitado por cada central de generación RER.', 'anual');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
 values (17, 1, null, 'MES DE INICIO DE OPERACIONES', '1', '1', '1', null, null, null, null, null, 'Mes en que se compro el artefacto', null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
-values (18, 1, null, 'REGION', '1', '1', '1', null, null, null, null, null, 'Regiones del per�', null, null, null, null, null, null);
+values (18, 1, null, 'REGION', '1', '1', '1', null, null, null, null, null, 'Regiones del perú', null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
 values (24, 1, 2, 'CAPACIDAD (L)', '1', '1', '1', null, null, null, null, null, 'Capacidad de la refrigeradora en litros', null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
-values (25, 1, 2, 'CATEGORIA', '1', '1', '1', null, null, null, null, null, 'Seg�n el reglamento t�cnico de EEE', null, null, null, null, null, null);
+values (25, 1, 2, 'CATEGORIA', '1', '1', '1', null, null, null, null, null, 'Según el reglamento técnico de EEE', null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
 values (94, 1, null, 'UNIDAD GD', '1', '0', '1', null, null, null, null, null, null, null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
@@ -2412,7 +2412,7 @@ values (112, 2, 2, 'ELECTRICIDAD GENERADA GD', '1', '1', '1', null, null, null, 
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
 values (113, 1, null, 'SECTOR', '1', '1', '1', null, null, null, null, null, null, null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
-values (114, 2, 3, 'INSTITUCI�N AUDITADA', '1', '0', '1', null, null, null, null, null, null, null, null, null, null, null, null);
+values (114, 2, 3, 'INSTITUCIÓN AUDITADA', '1', '0', '1', null, null, null, null, null, null, null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
 values (115, 2, 3, 'UNIDAD FUNCIONAL BAU', '1', '0', '1', null, null, null, 'UF', null, null, null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
@@ -2420,13 +2420,13 @@ values (93, 1, null, 'UNIDAD RERC', '1', '0', '1', null, null, null, null, null,
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
 values (95, 1, null, 'UNIDAD ER', '1', '0', '1', null, null, null, null, null, null, null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
-values (92, 1, null, 'TIPO DE L�MPARA', '1', '0', '1', null, null, null, null, null, 'Especificaci�n de la l�mpara (Incandescente, ahorrador, etc.)', null, null, null, null, null, null);
+values (92, 1, null, 'TIPO DE LÁMPARA', '1', '0', '1', null, null, null, null, null, 'Especificación de la lámpara (Incandescente, ahorrador, etc.)', null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
-values (26, 1, 3, 'ETIQUETA BAU', '1', '1', '1', null, null, null, null, null, 'Etiquetado A, B, C antes de la implementaci�n', 'Refiere a la electricidad que consumir�an los equipos que se est�n dejando de utilizar en el periodo de un a�o.', 'Se calcula en base a las propiedades espec�ficas de cada equipo (potencia, capacidad, etc.) y las horas totales', 'El especialista encargado revisa datos de entrada, c�lculos obtenidos y resultados en reporte de cada iniciativa considerada.', 'Administrador revisa aleatoriamente una muestra representativa de iniciativas (datos de entrada, c�lculos y resultados de reporte).', 'Permite conocer el consumo de electricidad por los equipos energ�ticos de la l�nea base', 'Anual');
+values (26, 1, 3, 'ETIQUETA BAU', '1', '1', '1', null, null, null, null, null, 'Etiquetado A, B, C antes de la implementación', 'Refiere a la electricidad que consumirían los equipos que se están dejando de utilizar en el periodo de un año.', 'Se calcula en base a las propiedades específicas de cada equipo (potencia, capacidad, etc.) y las horas totales', 'El especialista encargado revisa datos de entrada, cálculos obtenidos y resultados en reporte de cada iniciativa considerada.', 'Administrador revisa aleatoriamente una muestra representativa de iniciativas (datos de entrada, cálculos y resultados de reporte).', 'Permite conocer el consumo de electricidad por los equipos energéticos de la línea base', 'Anual');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
-values (27, 1, 3, 'ETIQUETA INICIATIVA', '1', '1', '1', null, null, null, null, null, 'Etiquetado A, B, C posterior a la implementaci�n(Kilovatios hora.a�o)', 'Refiere a la electricidad que consumen los equipos adquiridos en las iniciativas por el periodo de un a�o.', 'Se calcula en base a las propiedades espec�ficas de cada equipo (potencia, capacidad, etc.) y las horas totales aproximadas usadas durante un a�o.', 'El especialista encargado revisa datos de entrada, c�lculos obtenidos y resultados en reporte de cada iniciativa considerada.', 'Administrador revisa aleatoriamente una muestra representativa de iniciativas (datos de entrada, c�lculos y resultados de reporte).', 'Permite conocer el consumo de electricidad por los equipos energ�ticos adquiridos.', 'Anual');
+values (27, 1, 3, 'ETIQUETA INICIATIVA', '1', '1', '1', null, null, null, null, null, 'Etiquetado A, B, C posterior a la implementación(Kilovatios hora.año)', 'Refiere a la electricidad que consumen los equipos adquiridos en las iniciativas por el periodo de un año.', 'Se calcula en base a las propiedades específicas de cada equipo (potencia, capacidad, etc.) y las horas totales aproximadas usadas durante un año.', 'El especialista encargado revisa datos de entrada, cálculos obtenidos y resultados en reporte de cada iniciativa considerada.', 'Administrador revisa aleatoriamente una muestra representativa de iniciativas (datos de entrada, cálculos y resultados de reporte).', 'Permite conocer el consumo de electricidad por los equipos energéticos adquiridos.', 'Anual');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
-values (33, 2, 2, 'CANTIDAD', '1', '1', '1', null, null, null, null, null, 'N�mero de vales FISE emitidos en el a�o', null, null, null, null, null, null);
+values (33, 2, 2, 'CANTIDAD', '1', '1', '1', null, null, null, null, null, 'Número de vales FISE emitidos en el año', null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
 values (34, 1, 2, 'CAPACIDAD LAVADORA (Kg)', '1', '1', '1', null, null, null, null, null, null, null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
@@ -2446,51 +2446,51 @@ values (49, 1, 3, 'AUDITOR', '1', '1', '1', null, null, null, null, null, 'Empre
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
 values (50, 2, 2, 'GEI Reducido por Auditoria', '1', '1', '1', null, null, null, 'tCO2eq', null, null, null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
-values (51, 2, 2, 'GEI Reducido por Auditor�a', '1', '1', '1', null, null, null, 'tCO2eq', null, 'Cambio de l�mparas', null, null, null, null, null, null);
+values (51, 2, 2, 'GEI Reducido por Auditoría', '1', '1', '1', null, null, null, 'tCO2eq', null, 'Cambio de lámparas', null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
 values (40, 1, 2, 'CAPACIDAD CALENTADOR(L)', '1', '1', '1', null, null, null, null, null, null, null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
 values (41, 1, 2, 'CAPACIDAD CALENTADOR GAS (L)', '1', '1', '1', null, null, null, null, null, null, null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
-values (19, 2, 2, 'POTENCIA BASE (W)', '1', '1', '1', null, null, null, null, null, 'Valor de potencia antes de la implementaci�n Kilovatios hora.a�o', 'Refiere a la electricidad que consumir�an los equipos que se est�n dejando de utilizar en el periodo de un a�o.', 'Se calcula en base a las propiedades espec�ficas de cada equipo (potencia, capacidad, etc.) y las horas totales', 'aproximadas usadas durante un a�o.', 'Administrador revisa aleatoriamente una muestra representativa de iniciativas (datos de entrada, c�lculos y resultados de reporte).', 'Permite conocer el consumo de electricidad por los equipos energ�ticos de la l�nea base', 'Anual');
+values (19, 2, 2, 'POTENCIA BASE (W)', '1', '1', '1', null, null, null, null, null, 'Valor de potencia antes de la implementación Kilovatios hora.año', 'Refiere a la electricidad que consumirían los equipos que se están dejando de utilizar en el periodo de un año.', 'Se calcula en base a las propiedades específicas de cada equipo (potencia, capacidad, etc.) y las horas totales', 'aproximadas usadas durante un año.', 'Administrador revisa aleatoriamente una muestra representativa de iniciativas (datos de entrada, cálculos y resultados de reporte).', 'Permite conocer el consumo de electricidad por los equipos energéticos de la línea base', 'Anual');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
-values (20, 2, 2, 'POTENCIA INICIATIVA (W)', '1', '1', '1', null, null, null, null, null, 'Valor de potencia posterior a la implementaci�n Kilovatios hora.a�o', 'Refiere a la electricidad que consumen los equipos adquiridos en las iniciativas por el periodo de un a�o.', 'Se calcula en base a las propiedades espec�ficas de cada equipo (potencia, capacidad, etc.) y las horas totales aproximadas usadas durante un a�o.', 'El especialista encargado revisa datos de entrada, c�lculos obtenidos y resultados en reporte de cada iniciativa considerada.', 'Administrador revisa aleatoriamente una muestra representativa de iniciativas (datos de entrada, c�lculos y resultados de reporte).', 'Permite conocer el consumo de electricidad por los equipos energ�ticos adquiridos.', 'Anual');
+values (20, 2, 2, 'POTENCIA INICIATIVA (W)', '1', '1', '1', null, null, null, null, null, 'Valor de potencia posterior a la implementación Kilovatios hora.año', 'Refiere a la electricidad que consumen los equipos adquiridos en las iniciativas por el periodo de un año.', 'Se calcula en base a las propiedades específicas de cada equipo (potencia, capacidad, etc.) y las horas totales aproximadas usadas durante un año.', 'El especialista encargado revisa datos de entrada, cálculos obtenidos y resultados en reporte de cada iniciativa considerada.', 'Administrador revisa aleatoriamente una muestra representativa de iniciativas (datos de entrada, cálculos y resultados de reporte).', 'Permite conocer el consumo de electricidad por los equipos energéticos adquiridos.', 'Anual');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
-values (30, 1, 2, 'TECNOLOGIA DE COCCION BASE', '1', '0', '1', null, null, null, null, null, 'Refiere a la cantidad total de le�a que se hubiera consumido durante un a�o en ausencia del proyecto', 'Se aproxima el consumo total de le�a en base a valore predeterminados de los consumos de le�a seg�n la cantidad de miembros en la familia.', 'Se aproxima el consumo total de le�a en base a valore predeterminados de los consumos de le�a seg�n la cantidad de miembros en la familia.', 'El especialista encargado revisa datos de entrada, c�lculos obtenidos y resultados en reporte de cada iniciativa considerada.', 'Administrador revisa los datos de entrada y asegura que el valor finalmente utilizado sea el correcto.', 'Permite conocer el consumo de le�a de las cocinas tradicionales', 'Anual');
+values (30, 1, 2, 'TECNOLOGIA DE COCCION BASE', '1', '0', '1', null, null, null, null, null, 'Refiere a la cantidad total de leña que se hubiera consumido durante un año en ausencia del proyecto', 'Se aproxima el consumo total de leña en base a valore predeterminados de los consumos de leña según la cantidad de miembros en la familia.', 'Se aproxima el consumo total de leña en base a valore predeterminados de los consumos de leña según la cantidad de miembros en la familia.', 'El especialista encargado revisa datos de entrada, cálculos obtenidos y resultados en reporte de cada iniciativa considerada.', 'Administrador revisa los datos de entrada y asegura que el valor finalmente utilizado sea el correcto.', 'Permite conocer el consumo de leña de las cocinas tradicionales', 'Anual');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
 values (72, 1, null, 'UNIDAD BAU', '1', '0', '1', null, null, null, null, null, 'Unidad de medida linea', null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
 values (73, 1, null, 'UNIDAD INI', '1', '0', '1', null, null, null, null, null, 'Unidad de medida iniciativa', null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
-values (74, 1, null, 'TIPO INI ', '1', '0', '1', null, null, null, null, null, 'Especificaci�n de la l�mpara (LED)', null, null, null, null, null, null);
+values (74, 1, null, 'TIPO INI ', '1', '0', '1', null, null, null, null, null, 'Especificación de la lámpara (LED)', null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
-values (75, 1, null, 'TIPO BAU', '1', '0', '1', null, null, null, null, null, 'Especificaci�n de la l�mpara (incandescente, ahorrador, etc).', null, null, null, null, null, null);
+values (75, 1, null, 'TIPO BAU', '1', '0', '1', null, null, null, null, null, 'Especificación de la lámpara (incandescente, ahorrador, etc).', null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
-values (76, 2, 3, 'INSTITUCI�N', '1', '0', '1', null, null, null, null, null, 'Nombre de la instituci�n', null, null, null, null, null, null);
+values (76, 2, 3, 'INSTITUCIÓN', '1', '0', '1', null, null, null, null, null, 'Nombre de la institución', null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
-values (77, 1, null, 'TIPO L. BAU', '1', '0', '1', null, null, null, null, null, 'Especificaci�n de la l�mpara', null, null, null, null, null, null);
+values (77, 1, null, 'TIPO L. BAU', '1', '0', '1', null, null, null, null, null, 'Especificación de la lámpara', null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
-values (31, 1, 2, 'TECNOLOGIA DE COCCION INIC', '1', '1', '1', null, null, null, null, null, 'Refiere a la cantidad total de le�a consumida durante un a�o por la iniciativa o proyecto', 'Se aproxima el consumo total de le�a en base a valores predeterminados de los consumos de le�a por tipo de cocina, la regi�n y seg�n la cantidad de miembros en la familia.', 'Se aproxima el consumo total de le�a en base a valores predeterminados de los consumos de le�a por tipo de cocina, la regi�n y seg�n la cantidad de miembros en la familia.', 'El especialista encargado revisa datos de entrada, c�lculos obtenidos y resultados en reporte de cada iniciativa considerada.', 'Administrador revisa los datos de entrada y asegura que el valor finalmente utilizado sea el correcto.', 'Permite conocer el consumo de le�a de las cocinas tradicionales', 'Anual');
+values (31, 1, 2, 'TECNOLOGIA DE COCCION INIC', '1', '1', '1', null, null, null, null, null, 'Refiere a la cantidad total de leña consumida durante un año por la iniciativa o proyecto', 'Se aproxima el consumo total de leña en base a valores predeterminados de los consumos de leña por tipo de cocina, la región y según la cantidad de miembros en la familia.', 'Se aproxima el consumo total de leña en base a valores predeterminados de los consumos de leña por tipo de cocina, la región y según la cantidad de miembros en la familia.', 'El especialista encargado revisa datos de entrada, cálculos obtenidos y resultados en reporte de cada iniciativa considerada.', 'Administrador revisa los datos de entrada y asegura que el valor finalmente utilizado sea el correcto.', 'Permite conocer el consumo de leña de las cocinas tradicionales', 'Anual');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
 values (32, 2, 1, 'INICIO OPERACIONES (COCCION)', '1', '1', '1', null, null, null, null, null, 'Fecha en que la iniciativa empieza a operar', null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
-values (1, 1, null, 'TIPO DE VEH�CULO', '1', '1', '1', null, null, null, null, null, 'Categoria del vehiculo', 'Refiere a la distancia total que recorre el veh�culo durante un a�o espec�fico', 'Diferencias entre registros del kilometraje recorrido entre a�os', 'Revisi�n de registros de distancia recorrida y sus medios sustentatorios', 'Revisi�n de registros de distancia recorrida y sus medios sustentatorios', 'Estimar las emisiones de GEI que se generan por los desplazamientos de distintos tipos de veh�culos y seg�n el combustible que consuma.', 'Anual');
+values (1, 1, null, 'TIPO DE VEHÍCULO', '1', '1', '1', null, null, null, null, null, 'Categoria del vehiculo', 'Refiere a la distancia total que recorre el vehículo durante un año específico', 'Diferencias entre registros del kilometraje recorrido entre años', 'Revisión de registros de distancia recorrida y sus medios sustentatorios', 'Revisión de registros de distancia recorrida y sus medios sustentatorios', 'Estimar las emisiones de GEI que se generan por los desplazamientos de distintos tipos de vehículos y según el combustible que consuma.', 'Anual');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
 values (2, 2, 1, 'INICIO DE OPERACIONES', '1', '0', '1', null, null, null, null, null, 'Fecha en que opera la iniciativa', null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
 values (3, 1, null, 'TIPO DE COMBUSTIBLE', '1', '1', '1', null, null, null, null, null, 'Combustible del vehiculo reemplazado', null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
-values (4, 2, 2, 'KRV EL�CTRICO', '1', '1', '1', null, null, null, 'km.a�o', null, 'Distancia recorrida anual del vehiculo', 'Refiere a la distancia total que recorre el veh�culo durante un a�o espec�fico', 'Diferencias entre registros del kilometraje recorrido entre a�os', 'Revisi�n de registros de distancia recorrida y sus medios sustentatorios', 'Revisi�n de registros de distancia recorrida y sus medios sustentatorios', 'Calcular la cantidad de combustible consumido y con esto las emisiones de GEI asociadas', 'Anual');
+values (4, 2, 2, 'KRV ELÉCTRICO', '1', '1', '1', null, null, null, 'km.año', null, 'Distancia recorrida anual del vehiculo', 'Refiere a la distancia total que recorre el vehículo durante un año específico', 'Diferencias entre registros del kilometraje recorrido entre años', 'Revisión de registros de distancia recorrida y sus medios sustentatorios', 'Revisión de registros de distancia recorrida y sus medios sustentatorios', 'Calcular la cantidad de combustible consumido y con esto las emisiones de GEI asociadas', 'Anual');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
-values (5, 2, 3, 'PLACA', '1', '0', '1', null, null, null, null, null, 'N�mero de placa del veh�culo', 'Cuantificaci�n en base a las placas de los veh�culos', 'Cuantificaci�n en base a las placas de los veh�culos', 'Revisi�n de registros de placas y caracter�sticas de los veh�culos', 'Revisi�n de registros de placas y caracter�sticas de los veh�culos', 'Calcular las emisiones de GEI de toda la flota veh�cular de la iniciativa', 'Anual');
+values (5, 2, 3, 'PLACA', '1', '0', '1', null, null, null, null, null, 'Número de placa del vehículo', 'Cuantificación en base a las placas de los vehículos', 'Cuantificación en base a las placas de los vehículos', 'Revisión de registros de placas y características de los vehículos', 'Revisión de registros de placas y características de los vehículos', 'Calcular las emisiones de GEI de toda la flota vehícular de la iniciativa', 'Anual');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
-values (6, 1, null, 'A�O', '1', '1', '1', null, null, null, null, null, 'A�o de registro', null, null, null, null, null, null);
+values (6, 1, null, 'AñO', '1', '1', '1', null, null, null, null, null, 'Año de registro', null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
-values (7, 2, 2, 'CONSUMO DE ELECTRICIDAD', '1', '1', '1', null, null, null, 'MWh.a�o', null, 'Valor de consumo en megavatios por hora', null, null, null, null, null, null);
+values (7, 2, 2, 'CONSUMO DE ELECTRICIDAD', '1', '1', '1', null, null, null, 'MWh.año', null, 'Valor de consumo en megavatios por hora', null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
-values (8, 2, 2, 'CONSUMO DE COMBUSTIBLE', '1', '1', '1', null, null, null, 'gal.a�o', null, 'Cantidad de galones al a�o', null, null, null, null, null, null);
+values (8, 2, 2, 'CONSUMO DE COMBUSTIBLE', '1', '1', '1', null, null, null, 'gal.año', null, 'Cantidad de galones al año', null, null, null, null, null, null);
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia)
-values (9, 2, 2, 'L�NEA BASE EMISIONES GEI', '0', '0', '1', null, 1, 'CO2eq', null, null, null, null, null, null, null, null, null);
+values (9, 2, 2, 'LÍNEA BASE EMISIONES GEI', '0', '0', '1', null, 1, 'CO2eq', null, null, null, null, null, null, null, null, null);
 commit;
 prompt 71 records loaded
 prompt Loading T_MAED_MRV_PARAMETRO...
@@ -2501,7 +2501,7 @@ values (113, 1, 'Administrativo', '1');
 insert into T_MAED_MRV_PARAMETRO (id_parametro, id_detalle, nombre_detalle, flg_estado)
 values (113, 2, 'Salud', '1');
 insert into T_MAED_MRV_PARAMETRO (id_parametro, id_detalle, nombre_detalle, flg_estado)
-values (113, 3, 'Educaci�n', '1');
+values (113, 3, 'Educación', '1');
 insert into T_MAED_MRV_PARAMETRO (id_parametro, id_detalle, nombre_detalle, flg_estado)
 values (113, 4, 'Seguridad', '1');
 insert into T_MAED_MRV_PARAMETRO (id_parametro, id_detalle, nombre_detalle, flg_estado)
@@ -2543,7 +2543,7 @@ values (52, 1, 'Gas Natural', '1');
 insert into T_MAED_MRV_PARAMETRO (id_parametro, id_detalle, nombre_detalle, flg_estado)
 values (53, 1, 'Gas Natural', '1');
 insert into T_MAED_MRV_PARAMETRO (id_parametro, id_detalle, nombre_detalle, flg_estado)
-values (53, 2, 'Gas Licuado de Petr�leo', '1');
+values (53, 2, 'Gas Licuado de Petróleo', '1');
 insert into T_MAED_MRV_PARAMETRO (id_parametro, id_detalle, nombre_detalle, flg_estado)
 values (40, 1, '15', '1');
 insert into T_MAED_MRV_PARAMETRO (id_parametro, id_detalle, nombre_detalle, flg_estado)
@@ -2573,9 +2573,9 @@ values (31, 7, 'Mejorada Selva ', '1');
 insert into T_MAED_MRV_PARAMETRO (id_parametro, id_detalle, nombre_detalle, flg_estado)
 values (31, 8, 'Caralia', '1');
 insert into T_MAED_MRV_PARAMETRO (id_parametro, id_detalle, nombre_detalle, flg_estado)
-values (31, 9, 'Haku Wi�ay (VA)', '1');
+values (31, 9, 'Haku Wiñay (VA)', '1');
 insert into T_MAED_MRV_PARAMETRO (id_parametro, id_detalle, nombre_detalle, flg_estado)
-values (1, 1, 'AUTOM�VIL', '1');
+values (1, 1, 'AUTOMÓVIL', '1');
 insert into T_MAED_MRV_PARAMETRO (id_parametro, id_detalle, nombre_detalle, flg_estado)
 values (1, 2, 'BUS DE 9m', '1');
 insert into T_MAED_MRV_PARAMETRO (id_parametro, id_detalle, nombre_detalle, flg_estado)
@@ -2609,9 +2609,9 @@ values (6, 11, '2020', '1');
 insert into T_MAED_MRV_PARAMETRO (id_parametro, id_detalle, nombre_detalle, flg_estado)
 values (6, 12, '2021', '1');
 insert into T_MAED_MRV_PARAMETRO (id_parametro, id_detalle, nombre_detalle, flg_estado)
-values (14, 1, 'El�ctrico', '1');
+values (14, 1, 'Eléctrico', '1');
 insert into T_MAED_MRV_PARAMETRO (id_parametro, id_detalle, nombre_detalle, flg_estado)
-values (14, 2, 'H�brido', '1');
+values (14, 2, 'Híbrido', '1');
 insert into T_MAED_MRV_PARAMETRO (id_parametro, id_detalle, nombre_detalle, flg_estado)
 values (21, 1, '1', '1');
 insert into T_MAED_MRV_PARAMETRO (id_parametro, id_detalle, nombre_detalle, flg_estado)
@@ -2851,7 +2851,7 @@ values (48, 2, 'Tipo 2', '1');
 insert into T_MAED_MRV_PARAMETRO (id_parametro, id_detalle, nombre_detalle, flg_estado)
 values (48, 3, 'Tipo 3', '1');
 insert into T_MAED_MRV_PARAMETRO (id_parametro, id_detalle, nombre_detalle, flg_estado)
-values (52, 2, 'Gas Licuado de Petr�leo', '1');
+values (52, 2, 'Gas Licuado de Petróleo', '1');
 insert into T_MAED_MRV_PARAMETRO (id_parametro, id_detalle, nombre_detalle, flg_estado)
 values (119, 1, 'GNV', '1');
 insert into T_MAED_MRV_PARAMETRO (id_parametro, id_detalle, nombre_detalle, flg_estado)
@@ -2907,35 +2907,35 @@ values (9, 'Iniciativa Enviada a Evaluador MINAM');
 insert into T_MAE_ETAPA (id_etapa, descripcion)
 values (10, 'Iniciativa Enviada a Verificador Externo');
 insert into T_MAE_ETAPA (id_etapa, descripcion)
-values (8, 'Revisi�n Iniciativa y Detalle Derivado');
+values (8, 'Revisión Iniciativa y Detalle Derivado');
 insert into T_MAE_ETAPA (id_etapa, descripcion)
-values (1, 'Iniciativa Mitigaci�n');
+values (1, 'Iniciativa Mitigación');
 insert into T_MAE_ETAPA (id_etapa, descripcion)
-values (2, 'Revisi�n de Iniciativa Mitigaci�n');
+values (2, 'Revisión de Iniciativa Mitigación');
 insert into T_MAE_ETAPA (id_etapa, descripcion)
-values (3, 'Detalle de la Iniciativa de Mitigaci�n');
+values (3, 'Detalle de la Iniciativa de Mitigación');
 insert into T_MAE_ETAPA (id_etapa, descripcion)
-values (4, 'Revisi�n del Detalle de la Iniciativa de Mitigaci�n');
+values (4, 'Revisión del Detalle de la Iniciativa de Mitigación');
 insert into T_MAE_ETAPA (id_etapa, descripcion)
-values (5, 'Revisi�n de la Iniciativa de Mitigaci�n y su Detalle');
+values (5, 'Revisión de la Iniciativa de Mitigación y su Detalle');
 insert into T_MAE_ETAPA (id_etapa, descripcion)
-values (6, 'Evaluaci�n de la Iniciativa de Mitigaci�n y su Detalle');
+values (6, 'Evaluación de la Iniciativa de Mitigación y su Detalle');
 insert into T_MAE_ETAPA (id_etapa, descripcion)
-values (7, 'Verificaci�n de la Iniciativa de Mitigaci�n y su Detalle');
+values (7, 'Verificación de la Iniciativa de Mitigación y su Detalle');
 commit;
 prompt 10 records loaded
 prompt Loading T_MAE_FAQ...
 insert into T_MAE_FAQ (id_faq, id_medmit, pregunta, respuesta)
-values (1, null, '�Como registro una nueva Iniciativa?', 'Usted, debera primero Registrarse como usuario de una Institucion');
+values (1, null, '¿Como registro una nueva Iniciativa?', 'Usted, debera primero Registrarse como usuario de una Institucion');
 insert into T_MAE_FAQ (id_faq, id_medmit, pregunta, respuesta)
-values (2, null, '�Que significa GEI?', 'Son las siglas de Gases de Efecto Invernadero');
+values (2, null, '¿Que significa GEI?', 'Son las siglas de Gases de Efecto Invernadero');
 commit;
 prompt 2 records loaded
 prompt Loading T_MAE_GEI...
 insert into T_MAE_GEI (id_gei, descripcion, flag_estado, ar2, ar4, ar5, ar6)
 values (1, 'CO2', '1', 1, 1, 1, 0);
 insert into T_MAE_GEI (id_gei, descripcion, flag_estado, ar2, ar4, ar5, ar6)
-values (2, 'CH4 (f�sil)', '1', 21, 25, 30, 0);
+values (2, 'CH4 (fósil)', '1', 21, 25, 30, 0);
 insert into T_MAE_GEI (id_gei, descripcion, flag_estado, ar2, ar4, ar5, ar6)
 values (3, 'N2O', '1', 310, 298, 265, 0);
 insert into T_MAE_GEI (id_gei, descripcion, flag_estado, ar2, ar4, ar5, ar6)
@@ -2944,9 +2944,9 @@ commit;
 prompt 4 records loaded
 prompt Loading T_MAE_IPCC...
 insert into T_MAE_IPCC (id_ipcc, ipcc, flag_estado)
-values (1, 'Energ�a - Combusti�n m�vil', '1');
+values (1, 'Energía - Combustión móvil', '1');
 insert into T_MAE_IPCC (id_ipcc, ipcc, flag_estado)
-values (2, 'Energ�a - Combusti�n estacionaria', '1');
+values (2, 'Energía - Combustión estacionaria', '1');
 commit;
 prompt 2 records loaded
 prompt Loading T_MAE_LISTA...
@@ -2979,17 +2979,17 @@ values (19, 'FACTOR_COCCION_BIOCOMBUS_INI');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
 values (20, 'FACTOR_BIOMASA');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (1, 'Factor de emisi�n vehiculos convencionales');
+values (1, 'Factor de emisión vehiculos convencionales');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (2, 'P�rdida TD');
+values (2, 'Pérdida TD');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (3, 'Rendimiento el�ctricos');
+values (3, 'Rendimiento eléctricos');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (4, 'Factor de consumo el�ctrico');
+values (4, 'Factor de consumo eléctrico');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
 values (5, 'Rendimiento convencionales (VD)');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (6, 'Factor emisi�n vehiculos el�ctricos');
+values (6, 'Factor emisión vehiculos eléctricos');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
 values (12, 'FACTOR MOT_BAU');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
@@ -3045,7 +3045,7 @@ values (28, 'FACTOR ACONDIC INI');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
 values (45, 'IPCC BAU');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (61, 'Factor de emisi�n veh�culos convencionales INI');
+values (61, 'Factor de emisión vehículos convencionales INI');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
 values (62, 'Rendimiento convencionales INI (VD)');
 commit;
@@ -7013,17 +7013,17 @@ values (31, 1, 1, null, 'CAPACIDAD', 41, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (31, 3, 1, null, 'ETIQUETA BAU', 26, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (31, 4, 2, 2, 'FACTOR kg/a�o', null, 4, '1');
+values (31, 4, 2, 2, 'FACTOR kg/año', null, 4, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (32, 1, 1, null, 'CAPACIDAD', 41, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (32, 3, 1, null, 'ETIQUETA INICIATIVA', 27, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (32, 4, 2, 2, 'FACTOR (kg/a�o)', null, 4, '1');
+values (32, 4, 2, 2, 'FACTOR (kg/año)', null, 4, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (33, 3, 1, null, 'ETIQUETA BAU', 26, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (33, 4, 2, 2, 'FACTOR (kWh/a�o)', null, 4, '1');
+values (33, 4, 2, 2, 'FACTOR (kWh/año)', null, 4, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (34, 3, 1, null, 'ETIQUETA INICIATIVA', 27, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
@@ -7031,25 +7031,25 @@ values (34, 4, 2, 2, 'FACTOR', null, 4, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (6, 3, 2, 2, 'FACTOR (kgCO2eq/km)', null, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (11, 1, 1, null, 'A�O', 6, 1, '1');
+values (11, 1, 1, null, 'Año', 6, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (11, 2, 2, 2, 'FACTOR tCO2/MWh', null, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (18, 1, 1, null, 'FUENTE BASE', 30, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (18, 2, 2, 2, 'FACTOR (t le�a/SA.a�o)', null, 2, '1');
+values (18, 2, 2, 2, 'FACTOR (t leña/SA.año)', null, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (19, 1, 1, null, 'FUENTE INICIATIVA', 31, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (19, 2, 2, 2, 'FACTOR (t le�a/SA.a�o)', null, 2, '1');
+values (19, 2, 2, 2, 'FACTOR (t leña/SA.año)', null, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (20, 1, 1, null, 'A�O', 6, 1, '1');
+values (20, 1, 1, null, 'Año', 6, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (20, 2, 1, null, 'REGION', 18, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (20, 3, 2, 2, 'FACTOR', null, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (1, 1, 1, null, 'TIPO DE VEH�CULO', 1, 1, '1');
+values (1, 1, 1, null, 'TIPO DE VEHÍCULO', 1, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (1, 2, 1, null, 'TIPO DE COMBUSTIBLE', 3, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
@@ -7057,19 +7057,19 @@ values (16, 2, 1, null, 'CAPACIDAD CONGELA', 29, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (1, 4, 2, 2, 'FACTOR(gCO2eq-km)', null, 5, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (2, 1, 1, null, 'A�O', 6, 1, '1');
+values (2, 1, 1, null, 'Año', 6, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (2, 2, 2, 2, 'FACTOR', null, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (3, 1, 1, null, 'TIPO DE VEH�CULO', 1, 1, '1');
+values (3, 1, 1, null, 'TIPO DE VEHÍCULO', 1, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (3, 2, 2, 2, 'FACTOR(kWh/km)', null, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (4, 1, 1, null, 'A�O', 6, 1, '1');
+values (4, 1, 1, null, 'AñO', 6, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (4, 2, 2, 2, 'FACTOR(tCO2eq/MWh)', null, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (5, 1, 1, null, 'TIPO DE VEH�CULO', 1, 1, '1');
+values (5, 1, 1, null, 'TIPO DE VEHÍCULO', 1, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (5, 2, 1, null, 'TIPO DE COMBUSTIBLE', 3, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
@@ -7077,9 +7077,9 @@ values (5, 4, 2, 2, 'FACTOR MEDIA', null, 4, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (16, 1, 1, null, 'CATEGORIA 8-10', 28, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (6, 1, 1, null, 'TIPO DE VEH�CULO', 1, 1, '1');
+values (6, 1, 1, null, 'TIPO DE VEHÍCULO', 1, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (6, 2, 1, null, 'A�O', 6, 2, '1');
+values (6, 2, 1, null, 'AñO', 6, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (35, 3, 1, null, 'COMBUSTIBLE', 42, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
@@ -7125,13 +7125,13 @@ values (42, 3, 1, null, 'COMBUSTIBLE', 43, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (42, 4, 2, 2, 'FACTOR', null, 4, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (7, 1, 1, null, 'A�O', 6, 1, '1');
+values (7, 1, 1, null, 'AñO', 6, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (7, 2, 2, 2, 'FACTOR (tCO2/MWh)', null, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (8, 2, 2, 2, 'FACTOR (tCO2/MWh)', null, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (8, 1, 1, null, 'A�O', 6, 1, '1');
+values (8, 1, 1, null, 'AñO', 6, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (9, 1, 1, null, 'REGION', 18, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
@@ -7225,11 +7225,11 @@ values (45, 100, 2, 2, 'FACTOR kgCO2/TJ', null, 100, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (46, 100, 2, 2, 'FACTOR kgCO2/TJ', null, 100, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (61, 1, 1, null, 'TIPO DE VEH�CULO', 1, 1, '1');
+values (61, 1, 1, null, 'TIPO DE VEHÍCULO', 1, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (61, 100, 2, 2, 'FACTOR  ', null, 100, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (62, 1, 1, null, 'TIPO DE VEH�CULO', 1, 1, '1');
+values (62, 1, 1, null, 'TIPO DE VEHÍCULO', 1, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (62, 2, 1, null, 'TIPO COMBUSTIBLE INI', 119, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
@@ -24237,7 +24237,7 @@ commit;
 prompt 8413 records loaded
 prompt Loading T_MAEM_MRV_VARIABLES...
 insert into T_MAEM_MRV_VARIABLES (id_variable, nombre, id_parametro)
-values (1, 'D�AS DE FUNCIONAMIENTO', 32);
+values (1, 'DÍAS DE FUNCIONAMIENTO', 32);
 insert into T_MAEM_MRV_VARIABLES (id_variable, nombre, id_parametro)
 values (2, 'SUMATORIA DE EMISIONES GEI REDUCIDAS', 6);
 commit;
@@ -24394,49 +24394,49 @@ prompt Loading T_MAE_PLAZO...
 prompt Table is empty
 prompt Loading T_MAE_PLAZO_ETAPA_ESTADO...
 insert into T_MAE_PLAZO_ETAPA_ESTADO (id_plazo_etapa_estado, id_etapa, id_estado, descripcion, plazo, id_rol, sig_rol)
-values (1, 1, 0, 'Iniciativa de mitigaci�n pendiente de enviar para su revisi�n', 10, 1, 1);
+values (1, 1, 0, 'Iniciativa de mitigación pendiente de enviar para su revisión', 10, 1, 1);
 insert into T_MAE_PLAZO_ETAPA_ESTADO (id_plazo_etapa_estado, id_etapa, id_estado, descripcion, plazo, id_rol, sig_rol)
-values (2, 1, 1, 'Iniciativa de mitigaci�n enviado para su revisi�n', 30, 1, 2);
+values (2, 1, 1, 'Iniciativa de mitigación enviado para su revisión', 30, 1, 2);
 insert into T_MAE_PLAZO_ETAPA_ESTADO (id_plazo_etapa_estado, id_etapa, id_estado, descripcion, plazo, id_rol, sig_rol)
-values (3, 1, 2, 'Iniciativa de mitigaci�n observado por el Especialista', 30, 2, 1);
+values (3, 1, 2, 'Iniciativa de mitigación observado por el Especialista', 30, 2, 1);
 insert into T_MAE_PLAZO_ETAPA_ESTADO (id_plazo_etapa_estado, id_etapa, id_estado, descripcion, plazo, id_rol, sig_rol)
-values (4, 1, 6, 'Iniciativa de mitigaci�n subsanadas las observaciones pendiente de enviar', 10, 1, 1);
+values (4, 1, 6, 'Iniciativa de mitigación subsanadas las observaciones pendiente de enviar', 10, 1, 1);
 insert into T_MAE_PLAZO_ETAPA_ESTADO (id_plazo_etapa_estado, id_etapa, id_estado, descripcion, plazo, id_rol, sig_rol)
-values (5, 1, 5, 'Iniciativa de mitigaci�n subsanadas las observaciones enviado para su revisi�n', 30, 1, 2);
+values (5, 1, 5, 'Iniciativa de mitigación subsanadas las observaciones enviado para su revisión', 30, 1, 2);
 insert into T_MAE_PLAZO_ETAPA_ESTADO (id_plazo_etapa_estado, id_etapa, id_estado, descripcion, plazo, id_rol, sig_rol)
-values (6, 2, 3, 'Iniciativa de mitigaci�n aprobado por el Especialista', 30, 2, 1);
+values (6, 2, 3, 'Iniciativa de mitigación aprobado por el Especialista', 30, 2, 1);
 insert into T_MAE_PLAZO_ETAPA_ESTADO (id_plazo_etapa_estado, id_etapa, id_estado, descripcion, plazo, id_rol, sig_rol)
-values (7, 3, 0, 'Detalle de la iniciativa de mitigaci�n pendiente de enviar para su revisi�n', 10, 1, 1);
+values (7, 3, 0, 'Detalle de la iniciativa de mitigación pendiente de enviar para su revisión', 10, 1, 1);
 insert into T_MAE_PLAZO_ETAPA_ESTADO (id_plazo_etapa_estado, id_etapa, id_estado, descripcion, plazo, id_rol, sig_rol)
-values (8, 3, 1, 'Detalle de la iniciativa de mitigaci�n enviado para su revisi�n', 30, 1, 2);
+values (8, 3, 1, 'Detalle de la iniciativa de mitigación enviado para su revisión', 30, 1, 2);
 insert into T_MAE_PLAZO_ETAPA_ESTADO (id_plazo_etapa_estado, id_etapa, id_estado, descripcion, plazo, id_rol, sig_rol)
-values (9, 3, 2, 'Detalle de la iniciativa de mitigaci�n observado por el Especialista', 30, 2, 1);
+values (9, 3, 2, 'Detalle de la iniciativa de mitigación observado por el Especialista', 30, 2, 1);
 insert into T_MAE_PLAZO_ETAPA_ESTADO (id_plazo_etapa_estado, id_etapa, id_estado, descripcion, plazo, id_rol, sig_rol)
-values (10, 3, 6, 'Detalle de la iniciativa de mitigaci�n subsanadas las observaciones pendiente enviar', 10, 1, 1);
+values (10, 3, 6, 'Detalle de la iniciativa de mitigación subsanadas las observaciones pendiente enviar', 10, 1, 1);
 insert into T_MAE_PLAZO_ETAPA_ESTADO (id_plazo_etapa_estado, id_etapa, id_estado, descripcion, plazo, id_rol, sig_rol)
-values (11, 3, 5, 'Detalle de la iniciativa de mitigaci�n subsanadas las observaciones enviado para su revisi�n', 30, 1, 2);
+values (11, 3, 5, 'Detalle de la iniciativa de mitigación subsanadas las observaciones enviado para su revisión', 30, 1, 2);
 insert into T_MAE_PLAZO_ETAPA_ESTADO (id_plazo_etapa_estado, id_etapa, id_estado, descripcion, plazo, id_rol, sig_rol)
-values (12, 4, 3, 'Detalle de la iniciativa de mitigaci�n aprobado por el Especialista', 30, 2, 3);
+values (12, 4, 3, 'Detalle de la iniciativa de mitigación aprobado por el Especialista', 30, 2, 3);
 insert into T_MAE_PLAZO_ETAPA_ESTADO (id_plazo_etapa_estado, id_etapa, id_estado, descripcion, plazo, id_rol, sig_rol)
-values (13, 4, 2, 'Iniciativa de mitigaci�n y su detalle observado por el Administrador MRV ', 30, 3, 2);
+values (13, 4, 2, 'Iniciativa de mitigación y su detalle observado por el Administrador MRV ', 30, 3, 2);
 insert into T_MAE_PLAZO_ETAPA_ESTADO (id_plazo_etapa_estado, id_etapa, id_estado, descripcion, plazo, id_rol, sig_rol)
-values (14, 5, 3, 'Iniciativa de mitigaci�n y su detalle aprobado por el Administrador MRV', 30, 3, 3);
+values (14, 5, 3, 'Iniciativa de mitigación y su detalle aprobado por el Administrador MRV', 30, 3, 3);
 insert into T_MAE_PLAZO_ETAPA_ESTADO (id_plazo_etapa_estado, id_etapa, id_estado, descripcion, plazo, id_rol, sig_rol)
-values (15, 5, 2, 'Iniciativa de mitigaci�n y su detalle observado por el Evaluador MINAM', 30, 4, 3);
+values (15, 5, 2, 'Iniciativa de mitigación y su detalle observado por el Evaluador MINAM', 30, 4, 3);
 insert into T_MAE_PLAZO_ETAPA_ESTADO (id_plazo_etapa_estado, id_etapa, id_estado, descripcion, plazo, id_rol, sig_rol)
-values (16, 6, 3, 'Iniciativa de mitigaci�n y su detalle aprobado por el Evaluador MINAM', 30, 4, 4);
+values (16, 6, 3, 'Iniciativa de mitigación y su detalle aprobado por el Evaluador MINAM', 30, 4, 4);
 insert into T_MAE_PLAZO_ETAPA_ESTADO (id_plazo_etapa_estado, id_etapa, id_estado, descripcion, plazo, id_rol, sig_rol)
-values (17, 6, 2, 'Iniciativa de mitigaci�n y su detalle observado por el Verificador Externo', 30, 5, 4);
+values (17, 6, 2, 'Iniciativa de mitigación y su detalle observado por el Verificador Externo', 30, 5, 4);
 insert into T_MAE_PLAZO_ETAPA_ESTADO (id_plazo_etapa_estado, id_etapa, id_estado, descripcion, plazo, id_rol, sig_rol)
-values (18, 7, 3, 'Iniciativa de mitigaci�n y su detalle aprobado por el Verificador Externo', 30, 5, 5);
+values (18, 7, 3, 'Iniciativa de mitigación y su detalle aprobado por el Verificador Externo', 30, 5, 5);
 insert into T_MAE_PLAZO_ETAPA_ESTADO (id_plazo_etapa_estado, id_etapa, id_estado, descripcion, plazo, id_rol, sig_rol)
-values (19, 8, 2, 'Iniciativa de mitigaci�n y su detalle observado por el Verificador Externo', 30, 5, 3);
+values (19, 8, 2, 'Iniciativa de mitigación y su detalle observado por el Verificador Externo', 30, 5, 3);
 insert into T_MAE_PLAZO_ETAPA_ESTADO (id_plazo_etapa_estado, id_etapa, id_estado, descripcion, plazo, id_rol, sig_rol)
-values (20, 8, 3, 'Iniciativa de mitigaci�n y su detalle aprobado por el Administrador MRV', 30, 3, 5);
+values (20, 8, 3, 'Iniciativa de mitigación y su detalle aprobado por el Administrador MRV', 30, 3, 5);
 insert into T_MAE_PLAZO_ETAPA_ESTADO (id_plazo_etapa_estado, id_etapa, id_estado, descripcion, plazo, id_rol, sig_rol)
-values (21, 9, 3, 'Iniciativa de mitigaci�n enviada al Evaluador MINAM', 30, 3, 4);
+values (21, 9, 3, 'Iniciativa de mitigación enviada al Evaluador MINAM', 30, 3, 4);
 insert into T_MAE_PLAZO_ETAPA_ESTADO (id_plazo_etapa_estado, id_etapa, id_estado, descripcion, plazo, id_rol, sig_rol)
-values (22, 10, 3, 'Iniciativa de mitigaci�n enviada al Verificador Externo', 30, 3, 5);
+values (22, 10, 3, 'Iniciativa de mitigación enviada al Verificador Externo', 30, 3, 5);
 commit;
 prompt 22 records loaded
 prompt Loading T_MAE_ROL...
@@ -24466,7 +24466,7 @@ prompt 3 records loaded
 prompt Loading T_MAE_TERMINOS...
 insert into T_MAE_TERMINOS (id_terminos, id_rol, condiciones_terminos)
 values (1, 1, 
-        'El Proyecto �Acciones Nacionales Apropiadas de Mitigaci�n de energ�a (NAMA por sus siglas en ingl�s) en los sectores de generaci�n de energ�a y su uso final en el Per�� promueve acciones de sostenibilidad para alcanzar reducciones en emisiones de gases de efecto invernadero (GEI) como parte de los compromisos internacionales asumido por Per� dentro del marco de la Convenci�n de las Naciones Unidas sobre Cambio Clim�tico (CMNUCC o UNFCCC por sus siglas en ingl�s).' || chr(10) || 'En ese sentido, identificar y desarrollar iniciativas en el sector energ�a (por ejemplo, NAMAs) favorecer�n a la reducci�n de emisiones de GEI y a su vez generar�n beneficios sociales, ambientales y econ�micos.  De otro lado nuestro pa�s, para el cumplimiento de sus compromisos, ha priorizado seis sectores para el dise�o de iniciativas de reducci�n de emisiones de GEI / captura de CO2, los cuales son: Energ�a, Transporte, Agricultura, Desechos, USCUSS (Uso de Suelo, Cambio de Uso de Suelo y Silvicultura) y Procesos Industriales. En ese sentido, el sector energ�tico (incluyendo transporte) es la segunda fuente de emisiones, despu�s de USCUSS, con el 26% de las emisiones totales de GEI del pa�s y llegando a aumentar 15% entre los a�os 1994 y 2000 (SCNCC ) y 50% entre los a�os 2000 y 2010 (FBUR ).  Por lo que, tenemos la gran responsabilidad de desarrollar NAMAs ambiciosas y efectivas para poder alcanzar el objetivo de las NDCs.' || chr(10) || 'En ese contexto, el Ministerio de Energ�a y Minas suscribi� con el Programa de Naciones Unidas para el Desarrollo � PNUD, el Convenio para implementar el Proyecto �Acciones Nacionales Apropiadas de Mitigaci�n (NAMA) en los sectores de generaci�n de energ�a y su uso final en el Per��, cuyo financiamiento proviene del Fondo Mundial para el Medio Ambiente (GEF por su siglas en ingl�s), m�s el apoyo y cofinanciamiento de PNUD, MINAM, MEF y MEM.' || chr(10) || 'Recayendo su implementaci�n en la Direcci�n General de Eficiencia Energ�tica quien deber� liderar, dise�ar, desarrollar, gestionar y coordinar cuatro (04) NAMAs de energ�a con sus respectivos sistemas de Monitoreo, Reporte, y Verificaci�n (MRV), como producto de este proyecto. En ese sentido desde abril del 2016, el Proyecto inici� el proceso de dise�o conceptual de los mismos enfoc�ndose en maximizar los beneficios sociales, ambientales y econ�micos para el pa�s.  Por tal motivo, se ha elegido desarrollar las siguientes NAMAs a desarrollarse desde 2016 hasta 2020:' || chr(10) || '1.' || chr(9) || 'NAMA #1 (Eficiencia Energ�tica): Mejoras en Eficiencia Energ�tica en los sectores p�blicos y privadas;' || chr(10) || '2.' || chr(9) || 'NAMA #2 (RER Conectado): La promoci�n de las RER en sistemas interconectados;' || chr(10) || '3.' || chr(9) || 'NAMA #3 (RER Acceso Universal): Promoci�n del Acceso Universal a la Energ�a Sostenible; y' || chr(10) || '4.' || chr(9) || 'NAMA #4 (Transporte El�ctrico): Promoci�n de eficiencia energ�tica en el sector transporte con la promoci�n de transporte el�ctrico.' || chr(10) || '');
+        'El Proyecto Acciones Nacionales Apropiadas de Mitigación de energía (NAMA por sus siglas en inglés) en los sectores de generación de energía y su uso final en el Perú promueve acciones de sostenibilidad para alcanzar reducciones en emisiones de gases de efecto invernadero (GEI) como parte de los compromisos internacionales asumido por Perú dentro del marco de la Convención de las Naciones Unidas sobre Cambio Climático (CMNUCC o UNFCCC por sus siglas en inglés).' || chr(10) || 'En ese sentido, identificar y desarrollar iniciativas en el sector energía (por ejemplo, NAMAs) favorecerán a la reducción de emisiones de GEI y a su vez generarán beneficios sociales, ambientales y económicos.  De otro lado nuestro país, para el cumplimiento de sus compromisos, ha priorizado seis sectores para el diseño de iniciativas de reducción de emisiones de GEI / captura de CO2, los cuales son: Energía, Transporte, Agricultura, Desechos, USCUSS (Uso de Suelo, Cambio de Uso de Suelo y Silvicultura) y Procesos Industriales. En ese sentido, el sector energético (incluyendo transporte) es la segunda fuente de emisiones, después de USCUSS, con el 26% de las emisiones totales de GEI del país y llegando a aumentar 15% entre los años 1994 y 2000 (SCNCC ) y 50% entre los años 2000 y 2010 (FBUR ).  Por lo que, tenemos la gran responsabilidad de desarrollar NAMAs ambiciosas y efectivas para poder alcanzar el objetivo de las NDCs.' || chr(10) || 'En ese contexto, el Ministerio de Energía y Minas suscribió con el Programa de Naciones Unidas para el Desarrollo PNUD, el Convenio para implementar el Proyecto Acciones Nacionales Apropiadas de Mitigación (NAMA) en los sectores de generación de energía y su uso final en el Perú, cuyo financiamiento proviene del Fondo Mundial para el Medio Ambiente (GEF por su siglas en inglés), más el apoyo y cofinanciamiento de PNUD, MINAM, MEF y MEM.' || chr(10) || 'Recayendo su implementación en la Dirección General de Eficiencia Energética quien deberá liderar, diseñar, desarrollar, gestionar y coordinar cuatro (04) NAMAs de energía con sus respectivos sistemas de Monitoreo, Reporte, y Verificación (MRV), como producto de este proyecto. En ese sentido desde abril del 2016, el Proyecto inició el proceso de diseño conceptual de los mismos enfocándose en maximizar los beneficios sociales, ambientales y económicos para el país.  Por tal motivo, se ha elegido desarrollar las siguientes NAMAs a desarrollarse desde 2016 hasta 2020:' || chr(10) || '1.' || chr(9) || 'NAMA #1 (Eficiencia Energética): Mejoras en Eficiencia Energética en los sectores públicos y privadas;' || chr(10) || '2.' || chr(9) || 'NAMA #2 (RER Conectado): La promoción de las RER en sistemas interconectados;' || chr(10) || '3.' || chr(9) || 'NAMA #3 (RER Acceso Universal): Promoción del Acceso Universal a la Energía Sostenible; y' || chr(10) || '4.' || chr(9) || 'NAMA #4 (Transporte Eléctrico): Promoción de eficiencia energética en el sector transporte con la promoción de transporte eléctrico.' || chr(10) || '');
 commit;
 prompt 1 records loaded
 prompt Loading T_MAE_TIPO_COMBUSTIBLE...
@@ -24500,9 +24500,9 @@ prompt Loading T_MAE_TIPO_INICIATIVA...
 insert into T_MAE_TIPO_INICIATIVA (id_tipo_iniciativa, tipo_iniciativa, flag_estado)
 values (3, 'ITMO', '1');
 insert into T_MAE_TIPO_INICIATIVA (id_tipo_iniciativa, tipo_iniciativa, flag_estado)
-values (1, 'Comercializaci�n Internacional', '1');
+values (1, 'Comercialización Internacional', '1');
 insert into T_MAE_TIPO_INICIATIVA (id_tipo_iniciativa, tipo_iniciativa, flag_estado)
-values (2, 'Comercializaci�n Nacional', '1');
+values (2, 'Comercialización Nacional', '1');
 insert into T_MAE_TIPO_INICIATIVA (id_tipo_iniciativa, tipo_iniciativa, flag_estado)
 values (4, 'MDL', '1');
 insert into T_MAE_TIPO_INICIATIVA (id_tipo_iniciativa, tipo_iniciativa, flag_estado)
