@@ -16023,8 +16023,8 @@ CREATE OR REPLACE PACKAGE BODY MRVMM."PKG_MRV_DETALLE_INDICADORES" AS
     )AS
         vIdDetalle NUMBER;
         vRol       NUMBER;
-        vNombreIniciativa VARCHAR2(250);
-        vNombreMedmit VARCHAR(100);
+        vNombreIniciativa VARCHAR2(300);
+        vNombreMedmit VARCHAR(110);
         vTotal NUMBER;
     BEGIN
         UPDATE  T_GENM_INICIATIVA
