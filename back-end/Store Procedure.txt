@@ -1,0 +1,27 @@
+PKG_MRV_ADMIN_SISTEMA 
+------------------------------------
+ACTUALIZAR [ BODY ]
+-------------------------------------------
+
+PROCEDURE USP_SEL_USUARIO_ADMIN(
+        pRefcursor  OUT SYS_REFCURSOR
+    )AS
+    BEGIN
+        OPEN pRefcursor FOR
+        SELECT * FROM(
+        SELECT USU.ID_USUARIO,
+               TRIM(USU.NOMBRES_USUARIO) || ' ' || TRIM(USU.APELLIDOS_USUARIO) NOMBRES,
+               R.ID_ROL,
+               R.DESCRIPCION_ROL ROL,
+               USU.EMAIL_USUARIO,
+               '06' COLOR
+        FROM  T_GENM_USUARIO USU
+        LEFT JOIN T_MAE_USUARIO_ROL UR ON USU.ID_USUARIO = UR.ID_USUARIO
+        LEFT JOIN T_MAE_ROL R ON UR.ID_ROL = R.ID_ROL
+        WHERE R.ID_ROL = 3 AND USU.ID_ESTADO_USUARIO = '1' --ADD
+        ORDER BY USU.ID_USUARIO ASC)
+        WHERE ROWNUM = 1;
+    END USP_SEL_USUARIO_ADMIN;
+
+
+--------------------------------------------------
