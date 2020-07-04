@@ -11,7 +11,7 @@
               <TextRun>
                 <Value>=First(Fields!HASH.Value, "DtBlockChain")</Value>
                 <Style>
-                  <FontSize>11pt</FontSize>
+                  <FontSize>13pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -19,10 +19,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>HASH</rd:DefaultName>
-        <Top>3.87313cm</Top>
-        <Left>0.76412cm</Left>
-        <Height>0.6cm</Height>
-        <Width>15.07653cm</Width>
+        <Top>4.25209cm</Top>
+        <Left>4.82516cm</Left>
+        <Height>0.74111cm</Height>
+        <Width>17.66945cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -41,11 +41,14 @@
             <TextRuns>
               <TextRun>
                 <Value>Se ha generado la cadena de bloques para la medida de mitigación </Value>
-                <Style />
+                <Style>
+                  <FontSize>13pt</FontSize>
+                </Style>
               </TextRun>
               <TextRun>
                 <Value>=Fields!NOMBRE_MEDMIT.Value</Value>
                 <Style>
+                  <FontSize>13pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
@@ -54,10 +57,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>1.16444cm</Top>
-        <Left>0.76412cm</Left>
+        <Top>1.79944cm</Top>
+        <Left>1.08162cm</Left>
         <Height>0.83042cm</Height>
-        <Width>15.07653cm</Width>
+        <Width>20.417cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -78,6 +81,7 @@
               <TextRun>
                 <Value>Código HASH:</Value>
                 <Style>
+                  <FontSize>14pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
@@ -86,10 +90,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>3.29959cm</Top>
-        <Left>0.76412cm</Left>
-        <Height>0.6cm</Height>
-        <Width>3.43486cm</Width>
+        <Top>4.25209cm</Top>
+        <Left>1.08162cm</Left>
+        <Height>0.74111cm</Height>
+        <Width>3.88465cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -110,6 +114,7 @@
               <TextRun>
                 <Value>Codigo de acción de mitigación:</Value>
                 <Style>
+                  <FontSize>14pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
@@ -118,10 +123,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>4.77309cm</Top>
-        <Left>0.76412cm</Left>
-        <Height>0.6cm</Height>
-        <Width>5.78083cm</Width>
+        <Top>5.51392cm</Top>
+        <Left>1.08162cm</Left>
+        <Height>0.82903cm</Height>
+        <Width>8.1709cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -142,6 +147,7 @@
               <TextRun>
                 <Value>Nombre de la acción de mitigación:</Value>
                 <Style>
+                  <FontSize>14pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
@@ -150,10 +156,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox5</rd:DefaultName>
-        <Top>5.54948cm</Top>
-        <Left>0.76412cm</Left>
-        <Height>0.6cm</Height>
-        <Width>6.15125cm</Width>
+        <Top>6.89886cm</Top>
+        <Left>1.08162cm</Left>
+        <Height>0.66201cm</Height>
+        <Width>8.98229cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -174,7 +180,7 @@
               <TextRun>
                 <Value>Otorgado a:</Value>
                 <Style>
-                  <FontSize>11pt</FontSize>
+                  <FontSize>14pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
@@ -183,10 +189,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox6</rd:DefaultName>
-        <Top>2.48875cm</Top>
-        <Left>3.40995cm</Left>
+        <Top>3.12375cm</Top>
+        <Left>3.30412cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.5cm</Width>
+        <Width>3.55833cm</Width>
         <ZIndex>5</ZIndex>
         <Style>
           <Border>
@@ -207,6 +213,7 @@
               <TextRun>
                 <Value>Registrado por:</Value>
                 <Style>
+                  <FontSize>14pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
@@ -215,10 +222,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox7</rd:DefaultName>
-        <Top>7.70115cm</Top>
-        <Left>0.76412cm</Left>
-        <Height>0.6cm</Height>
-        <Width>2.91041cm</Width>
+        <Top>10.24115cm</Top>
+        <Left>1.08162cm</Left>
+        <Height>0.9175cm</Height>
+        <Width>4.17569cm</Width>
         <ZIndex>6</ZIndex>
         <Style>
           <Border>
@@ -238,7 +245,9 @@
             <TextRuns>
               <TextRun>
                 <Value>=Sum(Fields!ID_INICIATIVA.Value, "DtBlockChain")</Value>
-                <Style />
+                <Style>
+                  <FontSize>14pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style>
@@ -247,10 +256,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>4.71108cm</Top>
-        <Left>6.52731cm</Left>
-        <Height>0.6cm</Height>
-        <Width>2.87042cm</Width>
+        <Top>5.51392cm</Top>
+        <Left>9.07613cm</Left>
+        <Height>0.82903cm</Height>
+        <Width>3.9023cm</Width>
         <ZIndex>7</ZIndex>
         <Style>
           <Border>
@@ -270,26 +279,27 @@
             <TextRuns>
               <TextRun>
                 <Value>=First(Fields!NOMBRE_INICIATIVA.Value, "DtBlockChain")</Value>
-                <Style />
+                <Style>
+                  <FontSize>13pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>5.48747cm</Top>
-        <Left>7.03474cm</Left>
-        <Height>0.66201cm</Height>
-        <Width>9.44091cm</Width>
+        <Top>6.89886cm</Top>
+        <Left>10.2403cm</Left>
+        <Height>1.1118cm</Height>
+        <Width>13.49785cm</Width>
         <ZIndex>8</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
+          <PaddingLeft>3pt</PaddingLeft>
+          <PaddingTop>1pt</PaddingTop>
+          <PaddingBottom>1pt</PaddingBottom>
         </Style>
       </Textbox>
       <Textbox Name="Textbox10">
@@ -301,6 +311,7 @@
               <TextRun>
                 <Value>Fecha de registro de la acción de mitigación:</Value>
                 <Style>
+                  <FontSize>14pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
@@ -309,10 +320,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox10</rd:DefaultName>
-        <Top>6.43997cm</Top>
-        <Left>0.76412cm</Left>
-        <Height>0.6cm</Height>
-        <Width>7.81402cm</Width>
+        <Top>8.66247cm</Top>
+        <Left>1.08162cm</Left>
+        <Height>0.9175cm</Height>
+        <Width>11.35944cm</Width>
         <ZIndex>9</ZIndex>
         <Style>
           <Border>
@@ -332,7 +343,9 @@
             <TextRuns>
               <TextRun>
                 <Value>=First(Fields!FECHA_CREA_INICIATIVA.Value, "DtBlockChain")</Value>
-                <Style />
+                <Style>
+                  <FontSize>14pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style>
@@ -341,9 +354,9 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox11</rd:DefaultName>
-        <Top>6.43997cm</Top>
-        <Left>8.52523cm</Left>
-        <Height>0.6cm</Height>
+        <Top>8.66247cm</Top>
+        <Left>12.2294cm</Left>
+        <Height>0.9175cm</Height>
         <Width>5.93958cm</Width>
         <ZIndex>10</ZIndex>
         <Style>
@@ -365,7 +378,7 @@
               <TextRun>
                 <Value>Código BlockChain Asignado</Value>
                 <Style>
-                  <FontSize>14pt</FontSize>
+                  <FontSize>16pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
@@ -374,10 +387,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox12</rd:DefaultName>
-        <Top>0.07056cm</Top>
-        <Left>5.36717cm</Left>
+        <Top>0.73202cm</Top>
+        <Left>8.19891cm</Left>
         <Height>0.74111cm</Height>
-        <Width>7.47958cm</Width>
+        <Width>8.40562cm</Width>
         <ZIndex>11</ZIndex>
         <Style>
           <Border>
@@ -397,17 +410,19 @@
             <TextRuns>
               <TextRun>
                 <Value>=First(Fields!NOMBRE_INSTITUCION.Value, "DtBlockChain")</Value>
-                <Style />
+                <Style>
+                  <FontSize>13pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox13</rd:DefaultName>
-        <Top>2.48875cm</Top>
-        <Left>6.30273cm</Left>
+        <Top>3.12375cm</Top>
+        <Left>6.52731cm</Left>
         <Height>0.6cm</Height>
-        <Width>6.86152cm</Width>
+        <Width>8.92527cm</Width>
         <ZIndex>12</ZIndex>
         <Style>
           <Border>
@@ -427,17 +442,19 @@
             <TextRuns>
               <TextRun>
                 <Value>=First(Fields!RESPONSABLE.Value, "DtBlockChain")</Value>
-                <Style />
+                <Style>
+                  <FontSize>14pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox14</rd:DefaultName>
-        <Top>7.70115cm</Top>
-        <Left>3.85092cm</Left>
-        <Height>0.6cm</Height>
-        <Width>4.00812cm</Width>
+        <Top>10.24115cm</Top>
+        <Left>5.3855cm</Left>
+        <Height>0.9175cm</Height>
+        <Width>11.21903cm</Width>
         <ZIndex>13</ZIndex>
         <Style>
           <Border>
@@ -450,7 +467,7 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>3.3515in</Height>
+    <Height>5.13275in</Height>
     <Style>
       <Border>
         <Style>None</Style>
@@ -462,10 +479,10 @@
       </BackgroundImage>
     </Style>
   </Body>
-  <Width>6.86041in</Width>
+  <Width>9.71564in</Width>
   <Page>
     <PageHeader>
-      <Height>1.52081cm</Height>
+      <Height>2.06444cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -474,9 +491,9 @@
           <Value>energiayminas</Value>
           <Sizing>FitProportional</Sizing>
           <Top>0.18521cm</Top>
-          <Left>9.44245cm</Left>
-          <Height>0.89146cm</Height>
-          <Width>4.70146cm</Width>
+          <Left>14.86641cm</Left>
+          <Height>1.24423cm</Height>
+          <Width>4.9925cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -487,9 +504,10 @@
           <Source>Embedded</Source>
           <Value>Blockchain</Value>
           <Sizing>FitProportional</Sizing>
+          <Top>0.3175cm</Top>
           <Left>0.42016cm</Left>
-          <Height>1.42944cm</Height>
-          <Width>0.99729cm</Width>
+          <Height>1.74694cm</Height>
+          <Width>1.15604cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -501,9 +519,9 @@
           <Source>Embedded</Source>
           <Value>pnud</Value>
           <Sizing>FitProportional</Sizing>
-          <Left>14.57537cm</Left>
-          <Height>1.39417cm</Height>
-          <Width>0.78562cm</Width>
+          <Left>20.31683cm</Left>
+          <Height>1.74694cm</Height>
+          <Width>1.07666cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
@@ -515,10 +533,10 @@
           <Source>Embedded</Source>
           <Value>logogef</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>0.11465cm</Top>
-          <Left>15.53738cm</Left>
-          <Height>1.27387cm</Height>
-          <Width>1.14723cm</Width>
+          <Top>0.1203cm</Top>
+          <Left>21.59634cm</Left>
+          <Height>1.62664cm</Height>
+          <Width>1.43827cm</Width>
           <ZIndex>3</ZIndex>
           <Style>
             <Border>
@@ -534,7 +552,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>1.5846cm</Height>
+      <Height>2cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -547,7 +565,7 @@
                 <TextRun>
                   <Value>Fecha de Impresión:</Value>
                   <Style>
-                    <FontSize>9pt</FontSize>
+                    <FontSize>12pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
@@ -556,10 +574,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox4</rd:DefaultName>
-          <Top>0.74648cm</Top>
-          <Left>9.83522cm</Left>
+          <Top>0.11148cm</Top>
+          <Left>12.67037cm</Left>
           <Height>0.6cm</Height>
-          <Width>3.32903cm</Width>
+          <Width>5.25638cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -579,7 +597,7 @@
                 <TextRun>
                   <Value>=Globals!ExecutionTime</Value>
                   <Style>
-                    <FontSize>9pt</FontSize>
+                    <FontSize>12pt</FontSize>
                     <Format>dd/MM/yyyy HH:mm</Format>
                   </Style>
                 </TextRun>
@@ -588,10 +606,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>ExecutionTime</rd:DefaultName>
-          <Top>0.74648cm</Top>
-          <Left>13.34064cm</Left>
+          <Top>0.11148cm</Top>
+          <Left>18.42064cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.79104cm</Width>
+          <Width>4.61397cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -610,12 +628,12 @@
         </Border>
       </Style>
     </PageFooter>
-    <PageHeight>14.8cm</PageHeight>
-    <PageWidth>21cm</PageWidth>
+    <PageHeight>21cm</PageHeight>
+    <PageWidth>29.7cm</PageWidth>
     <LeftMargin>2cm</LeftMargin>
     <RightMargin>2cm</RightMargin>
     <TopMargin>1.5cm</TopMargin>
-    <BottomMargin>1.5cm</BottomMargin>
+    <BottomMargin>0cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>

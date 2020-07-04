@@ -3036,9 +3036,9 @@ namespace MRVMinem.Controllers
         public string BuildFicha(int id, int id_plazo)
         {
             IniciativaBE ini = IniciativaLN.IniciativaFicha(new IniciativaBE { ID_INICIATIVA = id });
-            NumberFormatInfo formato = new CultureInfo("es-ES").NumberFormat;
-            formato.CurrencyGroupSeparator = ".";
-            formato.NumberDecimalSeparator = ",";
+            //NumberFormatInfo formato = new CultureInfo("es-ES").NumberFormat;
+            //formato.CurrencyGroupSeparator = ".";
+            //formato.NumberDecimalSeparator = ",";
             string html = "";
             html += "<html>";
             html += "<head>";
@@ -3071,7 +3071,8 @@ namespace MRVMinem.Controllers
             //html += "<div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Moneda:</span>&nbsp;<span> " + ini.MONEDA + "</span></div>";
             if (ini.INVERSION_INICIATIVA != 0)
             {
-                html += "<div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Monto de inversión:</span>&nbsp;<span> " + ini.INVERSION_INICIATIVA.ToString("N", formato) + "</span></div>";
+                //html += "<div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Monto de inversión:</span>&nbsp;<span> " + ini.INVERSION_INICIATIVA.ToString("N", formato) + "</span></div>";
+                html += "<div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Monto de inversión:</span>&nbsp;<span> " + ini.INVERSION_INICIATIVA.ToString("N2") + "</span></div>";
             }
             else
             {
@@ -3101,7 +3102,7 @@ namespace MRVMinem.Controllers
                     }
                 }
 
-                html += "<br/><div style='text-align: left;font-weight: bold;font-size: 14px;'>Detalle de la iniciativa de mitigación</div>";
+                html += "<br/><div style='text-align: left;font-weight: bold;font-size: 14px;'>Detalle de la acción de mitigación</div>";
                 html += "<div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Enfoque:</span>&nbsp;<span> " + lista[lista.Count() - 1].DESCRIPCION + "</span></div>";
                 html += "<div>";
                 html += "   <table style=''>";
@@ -3134,7 +3135,17 @@ namespace MRVMinem.Controllers
                         }
                         else
                         {
-                            html += "       <td><span><small>" + itemD.VALOR + "</small></span></td>";
+                            string formateado = itemD.VALOR;
+                            double retNum;
+                            if (Double.TryParse(Convert.ToString(formateado), System.Globalization.NumberStyles.Any, System.Globalization.NumberFormatInfo.InvariantInfo, out retNum))
+                            {
+                                string cad = Convert.ToDouble(formateado).ToString("N2");
+                                html += "       <td><span><small>" + cad + "</small></span></td>";
+                            }
+                            else
+                            {
+                                html += "       <td><span><small>" + itemD.VALOR + "</small></span></td>";
+                            }
                         }
                     }
                     html += "               </tr>";
@@ -3143,7 +3154,7 @@ namespace MRVMinem.Controllers
                 html += "       </tbody>";
                 html += "   </table>";
                 html += "</div>";
-                html += "<br/><div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Total reducido de GEI: </span>&nbsp;<span> " + ini.TOTAL_GEI + " tCO<sub>2</sub>eq</span></div>";
+                html += "<br/><div style='text-align: left;font-size: 12px;'><span style='font-weight: bold;'>Total reducido de GEI: </span>&nbsp;<span> " + ini.TOTAL_GEI.ToString("N2") + " tCO<sub>2</sub>eq</span></div>";
                 html += "</body>";
                 html += "</html>";
             }

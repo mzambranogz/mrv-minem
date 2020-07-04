@@ -626,14 +626,15 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DsEscenario</DataSetName>
-        <Top>5.07683cm</Top>
-        <Left>0.63182cm</Left>
+        <Top>4.12433cm</Top>
+        <Left>2.161cm</Left>
         <Height>2.4cm</Height>
         <Width>5.85208cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
+          <TextAlign>Center</TextAlign>
         </Style>
       </Tablix>
       <Chart Name="Chart1">
@@ -756,7 +757,7 @@
             <ChartCategoryAxes>
               <ChartAxis Name="Primary">
                 <Style>
-                  <FontSize>8pt</FontSize>
+                  <FontSize>9pt</FontSize>
                 </Style>
                 <ChartAxisTitle>
                   <Caption />
@@ -787,6 +788,8 @@
                 <CrossAt>NaN</CrossAt>
                 <Minimum>NaN</Minimum>
                 <Maximum>NaN</Maximum>
+                <LabelsAutoFitDisabled>true</LabelsAutoFitDisabled>
+                <MinFontSize>7pt</MinFontSize>
                 <ChartAxisScaleBreak>
                   <Style />
                 </ChartAxisScaleBreak>
@@ -837,7 +840,7 @@
                 <ChartAxisTitle>
                   <Caption>tCO2eq</Caption>
                   <Style>
-                    <FontSize>8pt</FontSize>
+                    <FontSize>9pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </ChartAxisTitle>
@@ -937,6 +940,17 @@
               <VerticalAlign>Top</VerticalAlign>
             </Style>
           </ChartTitle>
+          <ChartTitle Name="Title1">
+            <Caption>Año</Caption>
+            <Style>
+              <BackgroundGradientType>None</BackgroundGradientType>
+              <FontWeight>Bold</FontWeight>
+              <TextAlign>General</TextAlign>
+              <VerticalAlign>Top</VerticalAlign>
+            </Style>
+            <Position>BottomCenter</Position>
+            <DockOutsideChartArea>true</DockOutsideChartArea>
+          </ChartTitle>
         </ChartTitles>
         <Palette>BrightPastel</Palette>
         <ChartBorderSkin>
@@ -955,9 +969,9 @@
           </Style>
         </ChartNoDataMessage>
         <DataSetName>DsEscenario</DataSetName>
-        <Top>8.36146cm</Top>
-        <Left>4.80188cm</Left>
-        <Height>6.66687cm</Height>
+        <Top>7.0559cm</Top>
+        <Left>5.29654cm</Left>
+        <Height>6.62277cm</Height>
         <Width>16.66751cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
@@ -989,10 +1003,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>3.62162cm</Top>
-        <Left>6.23063cm</Left>
+        <Top>2.66912cm</Top>
+        <Left>7.18831cm</Left>
         <Height>0.78521cm</Height>
-        <Width>16.50876cm</Width>
+        <Width>12.88397cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -1021,7 +1035,6 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>0.31433cm</Top>
         <Left>3.69286cm</Left>
         <Height>0.6cm</Height>
         <Width>2.79104cm</Width>
@@ -1037,7 +1050,7 @@
         </Style>
       </Textbox>
       <Line Name="Line1">
-        <Top>0.91433cm</Top>
+        <Top>0.59683cm</Top>
         <Left>3.69286cm</Left>
         <Height>0cm</Height>
         <Width>3.04271cm</Width>
@@ -1084,7 +1097,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox5</rd:DefaultName>
-        <Top>1.09071cm</Top>
+        <Top>0.77321cm</Top>
         <Left>3.35703cm</Left>
         <Height>0.6cm</Height>
         <Width>20.54653cm</Width>
@@ -1135,7 +1148,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox6</rd:DefaultName>
-        <Top>1.8671cm</Top>
+        <Top>1.5496cm</Top>
         <Left>3.35703cm</Left>
         <Height>0.6cm</Height>
         <Width>20.54653cm</Width>
@@ -1151,10 +1164,10 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>5.91667in</Height>
+    <Height>5.96875in</Height>
     <Style />
   </Body>
-  <Width>10.15043in</Width>
+  <Width>28.7cm</Width>
   <Page>
     <PageHeader>
       <Height>2.54cm</Height>

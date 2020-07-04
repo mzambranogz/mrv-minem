@@ -343,11 +343,18 @@
                                                                 descripcion = "(" + descripcion + ")";
                                                             }
                                                         }
-                                                        else
+                                                        //else
+                                                        //{
+                                                        //    descripcion = "(" + itemCab.COMBINACION_UNIDAD + ")";
+                                                        //}
+                                                        if (itemCab.ID_PARAMETRO == 9 || itemCab.ID_PARAMETRO == 10 || itemCab.ID_PARAMETRO == 11)
                                                         {
-                                                            descripcion = "(" + itemCab.COMBINACION_UNIDAD + ")";
+                                                            if (!string.IsNullOrEmpty(itemCab.COMBINACION_UNIDAD))
+                                                            {
+                                                                descripcion = "(" + itemCab.COMBINACION_UNIDAD + ")";
+                                                            }
                                                         }
-                                                        <th class="text-center grupo-columna-@columna" scope="col"><span>@itemCab.NOMBRE_PARAMETRO&nbsp;</span><span>@descripcion</span><small>@itemCab.DESCRIPCION_PARAMETRO</small></th>
+                                                        <th class="text-center grupo-columna-@columna" scope="col"><span>@itemCab.NOMBRE_PARAMETRO&nbsp;</span><span>@descripcion</span>@*<small>@itemCab.DESCRIPCION_PARAMETRO</small>*@</th>
 
                                                     }
                                                     <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="top" title="Texto descriptivo de ayuda"><span>SUSTENTO</span></th>
