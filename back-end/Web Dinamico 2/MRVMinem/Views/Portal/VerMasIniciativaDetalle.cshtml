@@ -318,10 +318,10 @@
                                                                 descripcion = "(" + descripcion + ")";
                                                             }
                                                         }
-                                                        //else
-                                                        //{
-                                                        //    descripcion = "(" + itemCab.COMBINACION_UNIDAD + ")";
-                                                        //}
+                                                        else
+                                                        {
+                                                            descripcion = "(" + itemCab.COMBINACION_UNIDAD + ")";
+                                                        }
                                                         if (itemCab.ID_PARAMETRO == 9 || itemCab.ID_PARAMETRO == 10 || itemCab.ID_PARAMETRO == 11)
                                                         {
                                                             if (!string.IsNullOrEmpty(itemCab.COMBINACION_UNIDAD))
@@ -544,7 +544,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="modal-verificacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+@*<div class="modal fade" id="modal-verificacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -570,7 +570,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>*@
 
 <script src="~/js/script.js"></script>
 <script src="~/js/MRV.js"></script>

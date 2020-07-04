@@ -1848,6 +1848,9 @@ function CargarDatosCabecera() {
                                 descripcion = "(" + descripcion + ")";
                             }
                         }
+                        else {
+                            descripcion = "(" + data[i]["COMBINACION_UNIDAD"] + ")";
+                        }
 
                         if (data[i]["ID_PARAMETRO"] == 9 || data[i]["ID_PARAMETRO"] == 10 || data[i]["ID_PARAMETRO"] == 11) {
                             if (data[i]["COMBINACION_UNIDAD"] != "" && data[i]["COMBINACION_UNIDAD"] != null) {
@@ -1855,9 +1858,7 @@ function CargarDatosCabecera() {
                             }
                         }
 
-                        //else {
-                        //    descripcion = "(" + data[i]["COMBINACION_UNIDAD"] + ")";
-                        //}
+                        
 
                         //if (data[i]["ID_PARAMETRO"] == 9 || data[i]["ID_PARAMETRO"] == 10 || data[i]["ID_PARAMETRO"] == 11) {
                         //    tr += '     <th class="text-center grupo-columna-'+ columna +'" scope="col"><span>' + data[i]["NOMBRE_PARAMETRO"] + ' tCOeq</span><small>Seleccione este campo para su registro</small></th>';

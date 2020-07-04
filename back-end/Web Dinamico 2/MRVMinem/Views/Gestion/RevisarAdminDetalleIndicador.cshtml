@@ -339,9 +339,9 @@
                 {
                     foreach (var itemD in Model.listaIndData)
                     {
-                        var texto = 0;
-                        var fecha = 0;
-                        var lista = 0;
+                        //var texto = 0;
+                        //var fecha = 0;
+                        //var lista = 0;
                         var total_e = 0.0;
                         var fila = 0;
                         total_reducido = 0.0;
@@ -395,10 +395,10 @@
                                                                 descripcion = "(" + descripcion + ")";
                                                             }
                                                         }
-                                                        //else
-                                                        //{
-                                                        //    descripcion = "(" + itemCab.COMBINACION_UNIDAD + ")";
-                                                        //}
+                                                        else
+                                                        {
+                                                            descripcion = "(" + itemCab.COMBINACION_UNIDAD + ")";
+                                                        }
                                                         if (itemCab.ID_PARAMETRO == 9 || itemCab.ID_PARAMETRO == 10 || itemCab.ID_PARAMETRO == 11)
                                                         {
                                                             if (!string.IsNullOrEmpty(itemCab.COMBINACION_UNIDAD))
@@ -646,7 +646,7 @@
                 </div>
             </div>
 
-            <div class="modal fade" id="modal-verificacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            @*<div class="modal fade" id="modal-verificacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -672,7 +672,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>*@
 
             <div class="modal fade" id="aprobar-revision" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal modal-dialog-centered" role="document">

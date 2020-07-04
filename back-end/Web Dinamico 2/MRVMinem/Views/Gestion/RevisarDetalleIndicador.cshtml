@@ -285,9 +285,9 @@
                     var tabla = 0;
                     foreach (var itemD in Model.listaIndData)
                     {
-                        var texto = 0;
-                        var fecha = 0;
-                        var lista = 0;
+                        //var texto = 0;
+                        //var fecha = 0;
+                        //var lista = 0;
                         var total_e = 0.0;
                         var fila = 0;
                         tabla += 1;
@@ -343,10 +343,10 @@
                                                                 descripcion = "(" + descripcion + ")";
                                                             }
                                                         }
-                                                        //else
-                                                        //{
-                                                        //    descripcion = "(" + itemCab.COMBINACION_UNIDAD + ")";
-                                                        //}
+                                                        else
+                                                        {
+                                                            descripcion = "(" + itemCab.COMBINACION_UNIDAD + ")";
+                                                        }
                                                         if (itemCab.ID_PARAMETRO == 9 || itemCab.ID_PARAMETRO == 10 || itemCab.ID_PARAMETRO == 11)
                                                         {
                                                             if (!string.IsNullOrEmpty(itemCab.COMBINACION_UNIDAD))
