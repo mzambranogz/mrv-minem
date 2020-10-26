@@ -2421,17 +2421,17 @@ commit;
 prompt 184 records loaded
 prompt Loading T_MAE_ENERG...
 insert into T_MAE_ENERG (id_energ, descripcion, flag_estado)
-values (3, 'COMBUSTIBLES SOLIDOS (BIOMASA)', null);
+values (3, 'Combustibles sólidos (Biomasa)', null);
 insert into T_MAE_ENERG (id_energ, descripcion, flag_estado)
-values (4, 'ENERGIA SOLAR', null);
+values (4, 'Energía solar', null);
 insert into T_MAE_ENERG (id_energ, descripcion, flag_estado)
-values (5, 'ENERGIA EOLICA', null);
+values (5, 'Energía eólica', null);
 insert into T_MAE_ENERG (id_energ, descripcion, flag_estado)
-values (6, 'ENERGIA TERMICA', null);
+values (6, 'Energía térmica', null);
 insert into T_MAE_ENERG (id_energ, descripcion, flag_estado)
-values (1, 'COMBUSTIBLES FOSILES', null);
+values (1, 'Combustibles Fósiles', null);
 insert into T_MAE_ENERG (id_energ, descripcion, flag_estado)
-values (2, 'ELECTRICIDAD', null);
+values (2, 'Electricidad', null);
 commit;
 prompt 6 records loaded
 prompt Loading T_MAE_ESTADO...
@@ -23951,9 +23951,9 @@ commit;
 prompt 6 records loaded
 prompt Loading T_MAE_SECTOR_INST...
 insert into T_MAE_SECTOR_INST (id_sector_inst, descripcion, flag_estado)
-values (1, 'SECTOR PUBLICO', '1');
+values (1, 'Sector público', '1');
 insert into T_MAE_SECTOR_INST (id_sector_inst, descripcion, flag_estado)
-values (2, 'SECTOR PRIVADO', '1');
+values (2, 'Sector privado', '1');
 insert into T_MAE_SECTOR_INST (id_sector_inst, descripcion, flag_estado)
 values (3, 'SECTOR INDUSTRIAL', '0');
 commit;
