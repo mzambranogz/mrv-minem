@@ -204,3 +204,23 @@ PL/SQL: Statement ignored
 27/10/2020 12:58:33: [Método: Void System.Web.HttpApplication.IExecutionStep.Execute(), Línea: 0] - La sesión ASP.NET ha expirado o no se pudo encontrar.
 27/10/2020 12:58:33: [Método: Void ExecuteStepImpl(IExecutionStep), Línea: 0] - La sesión ASP.NET ha expirado o no se pudo encontrar.
 27/10/2020 12:58:33: [Método: System.Exception ExecuteStep(IExecutionStep, Boolean ByRef), Línea: 0] - La sesión ASP.NET ha expirado o no se pudo encontrar.
+27/10/2020 17:42:14: [Método: Boolean HandleError(System.Exception), Línea: 0] - Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+27/10/2020 17:42:14: [Método: Void ProcessRequestMain(Boolean, Boolean), Línea: 0] - Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+27/10/2020 17:42:14: [Método: Void ProcessRequest(Boolean, Boolean), Línea: 0] - Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+27/10/2020 17:42:14: [Método: Void ProcessRequest(), Línea: 0] - Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+27/10/2020 17:42:14: [Método: Void ProcessRequestWithNoAssert(System.Web.HttpContext), Línea: 0] - Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+27/10/2020 17:42:14: [Método: Void ProcessRequest(System.Web.HttpContext), Línea: 0] - Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+27/10/2020 17:42:14: [Método: Void ProcessRequest(System.Web.HttpContext), Línea: 0] - Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+27/10/2020 17:42:14: [Método: Void System.Web.HttpApplication.IExecutionStep.Execute(), Línea: 0] - Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+27/10/2020 17:42:14: [Método: Void ExecuteStepImpl(IExecutionStep), Línea: 0] - Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+27/10/2020 17:42:14: [Método: System.Exception ExecuteStep(IExecutionStep, Boolean ByRef), Línea: 0] - Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+27/10/2020 17:44:14: [Método: Boolean HandleError(System.Exception), Línea: 0] - Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+27/10/2020 17:44:14: [Método: Void ProcessRequestMain(Boolean, Boolean), Línea: 0] - Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+27/10/2020 17:44:14: [Método: Void ProcessRequest(Boolean, Boolean), Línea: 0] - Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+27/10/2020 17:44:14: [Método: Void ProcessRequest(), Línea: 0] - Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+27/10/2020 17:44:14: [Método: Void ProcessRequestWithNoAssert(System.Web.HttpContext), Línea: 0] - Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+27/10/2020 17:44:14: [Método: Void ProcessRequest(System.Web.HttpContext), Línea: 0] - Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+27/10/2020 17:44:14: [Método: Void ProcessRequest(System.Web.HttpContext), Línea: 0] - Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+27/10/2020 17:44:14: [Método: Void System.Web.HttpApplication.IExecutionStep.Execute(), Línea: 0] - Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+27/10/2020 17:44:14: [Método: Void ExecuteStepImpl(IExecutionStep), Línea: 0] - Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.
+27/10/2020 17:44:14: [Método: System.Exception ExecuteStep(IExecutionStep, Boolean ByRef), Línea: 0] - Se produjo una excepción de tipo 'System.Web.HttpUnhandledException'.

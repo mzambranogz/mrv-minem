@@ -5369,6 +5369,8 @@ function agregarAcumulado(item, f) {
 
     var cabecera = "";
     var cuerpo = "";
+    let enfoque = $("#id_enfoques").val();
+    let medida = $("#Control").data("mitigacion");
 
     $.ajax({
         url: baseUrl + 'Gestion/CalcularAcumulado',
@@ -5390,7 +5392,9 @@ function agregarAcumulado(item, f) {
                     let num = $('#cuerpo-acumulado-total').find('tr').length + 1;
                     var verf = 0;
                     var anio = 2010;
+                    let anio_fin = 2030;
                     var acumulado_ini = parseInt(data[0]["anio"]) - anio;
+                    //let acumulado_fin = anio_fin - parseInt(data[0]["anio"]);
 
                     var fila = $("#cuerpo-acumulado-total").find("tr");
                     fila.each(function (index, value) {
@@ -5477,6 +5481,20 @@ function agregarAcumulado(item, f) {
                             $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
 
                             anio += 1;
+                        }
+
+                        if (medida == 4 || medida == 12 || enfoque == 6 || enfoque == 9) {
+                            for (anio; anio <= anio_fin; anio++) {
+                                var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
+
+                                //valor_descuento += valor; //q
+                                valor_descuento = valor; //add
+
+                                acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) - valor_descuento;
+                                $("#a-" + anio + '-' + f).html(0);
+                                $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
+                                //anio += 1;
+                            }
                         }
                     }
                     

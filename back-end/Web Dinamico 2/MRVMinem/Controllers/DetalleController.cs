@@ -501,7 +501,19 @@ namespace MRVMinem.Controllers
                         listaA.Add(new AcumuladoBE { anio = anioP, reducido = reducido });
                         anioP += 1;
                     }
-                }                    
+                }
+                else
+                {
+                    List<IndicadorDataBE> listaPr = IndicadorLN.CalculoIndicador(lista);
+                    foreach (var item in listaPr)
+                    {
+                        if (item.ID_PARAMETRO == 6)
+                            item.VALOR = Convert.ToString(anioP);
+                        else if (item.ID_PARAMETRO == 11)
+                            reducido = item.VALOR;
+                    }
+                    listaA.Add(new AcumuladoBE { anio = anioP, reducido = reducido });
+                }
             }
             catch (Exception ex)
             {

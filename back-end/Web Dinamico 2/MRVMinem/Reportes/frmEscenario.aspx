@@ -19,8 +19,8 @@
         <br />
          <br />
 
-        <label><strong>Periodo (Año) : </strong></label>
-        <asp:DropDownList ID="ddlAnio" runat="server">
+        <label><strong>Medida de Mitigación : </strong></label>
+        <asp:DropDownList ID="ddlMedMit_e" runat="server" Height="20px" Width="250px">
         </asp:DropDownList>
          &nbsp;
         &nbsp;
