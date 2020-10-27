@@ -10,5 +10,6 @@ namespace entidad.minem.gob.pe
     {
         public string IPSC_MEDMIT { get; set; }
         public string COLOR_NAMA { get; set; }
+        public decimal GEI_TOTAL { get; set; }
     }
 }

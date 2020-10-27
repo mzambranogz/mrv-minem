@@ -10,3 +10,197 @@
 27/10/2020 00:21:33: [Método: System.String VerificaOperando(System.String, System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 482] - La cadena de entrada no tiene el formato correcto.
 27/10/2020 00:21:33: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] CalculoIndicador(System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE]), Línea: 397] - La cadena de entrada no tiene el formato correcto.
 27/10/2020 00:21:33: [Método: System.Web.Mvc.JsonResult CalcularAcumulado(System.String), Línea: 2293] - La cadena de entrada no tiene el formato correcto.
+27/10/2020 11:37:54: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:37:54: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:37:54: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:37:54: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:37:54: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:37:54: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:37:54: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:37:54: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:37:54: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:37:54: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:37:54: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.MedidaMitigacionBE] ListaEscenariosRptGeneral(Int32), Línea: 54] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:37:58: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:37:58: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:37:58: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:37:58: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:37:58: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:37:58: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:37:58: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:37:58: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:37:58: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:37:58: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:37:58: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.MedidaMitigacionBE] ListaEscenariosRptGeneral(Int32), Línea: 54] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:38:01: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:38:01: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:38:01: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:38:01: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:38:01: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:38:01: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:38:01: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:38:01: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:38:01: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:38:01: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:38:01: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.MedidaMitigacionBE] ListaEscenariosRptGeneral(Int32), Línea: 54] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:38:03: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:38:03: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:38:03: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:38:03: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:38:03: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:38:03: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:38:03: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:38:03: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:38:03: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:38:03: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 11:38:03: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.MedidaMitigacionBE] ListaEscenariosRptGeneral(Int32), Línea: 54] - ORA-06550: línea 1, columna 30:
+PLS-00302: el componente 'USP_SEL_ESCENARIOS_RPT_GEN' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+27/10/2020 12:12:20: [Método: Void .ctor(), Línea: 0] - La sesión ASP.NET ha expirado o no se pudo encontrar.
+27/10/2020 12:12:20: [Método: Microsoft.Reporting.WebForms.HandlerOperation GetHandler(System.String), Línea: 0] - La sesión ASP.NET ha expirado o no se pudo encontrar.
+27/10/2020 12:12:20: [Método: Void ProcessRequest(System.Web.HttpContext), Línea: 0] - La sesión ASP.NET ha expirado o no se pudo encontrar.
+27/10/2020 12:12:20: [Método: Void System.Web.HttpApplication.IExecutionStep.Execute(), Línea: 0] - La sesión ASP.NET ha expirado o no se pudo encontrar.
+27/10/2020 12:12:20: [Método: Void ExecuteStepImpl(IExecutionStep), Línea: 0] - La sesión ASP.NET ha expirado o no se pudo encontrar.
+27/10/2020 12:12:20: [Método: System.Exception ExecuteStep(IExecutionStep, Boolean ByRef), Línea: 0] - La sesión ASP.NET ha expirado o no se pudo encontrar.
+27/10/2020 12:51:26: [Método: Void .ctor(), Línea: 0] - La sesión ASP.NET ha expirado o no se pudo encontrar.
+27/10/2020 12:51:26: [Método: Microsoft.Reporting.WebForms.HandlerOperation GetHandler(System.String), Línea: 0] - La sesión ASP.NET ha expirado o no se pudo encontrar.
+27/10/2020 12:51:26: [Método: Void ProcessRequest(System.Web.HttpContext), Línea: 0] - La sesión ASP.NET ha expirado o no se pudo encontrar.
+27/10/2020 12:51:26: [Método: Void System.Web.HttpApplication.IExecutionStep.Execute(), Línea: 0] - La sesión ASP.NET ha expirado o no se pudo encontrar.
+27/10/2020 12:51:26: [Método: Void ExecuteStepImpl(IExecutionStep), Línea: 0] - La sesión ASP.NET ha expirado o no se pudo encontrar.
+27/10/2020 12:51:26: [Método: System.Exception ExecuteStep(IExecutionStep, Boolean ByRef), Línea: 0] - La sesión ASP.NET ha expirado o no se pudo encontrar.
+27/10/2020 12:58:33: [Método: Void .ctor(), Línea: 0] - La sesión ASP.NET ha expirado o no se pudo encontrar.
+27/10/2020 12:58:33: [Método: Microsoft.Reporting.WebForms.HandlerOperation GetHandler(System.String), Línea: 0] - La sesión ASP.NET ha expirado o no se pudo encontrar.
+27/10/2020 12:58:33: [Método: Void ProcessRequest(System.Web.HttpContext), Línea: 0] - La sesión ASP.NET ha expirado o no se pudo encontrar.
+27/10/2020 12:58:33: [Método: Void System.Web.HttpApplication.IExecutionStep.Execute(), Línea: 0] - La sesión ASP.NET ha expirado o no se pudo encontrar.
+27/10/2020 12:58:33: [Método: Void ExecuteStepImpl(IExecutionStep), Línea: 0] - La sesión ASP.NET ha expirado o no se pudo encontrar.
+27/10/2020 12:58:33: [Método: System.Exception ExecuteStep(IExecutionStep, Boolean ByRef), Línea: 0] - La sesión ASP.NET ha expirado o no se pudo encontrar.

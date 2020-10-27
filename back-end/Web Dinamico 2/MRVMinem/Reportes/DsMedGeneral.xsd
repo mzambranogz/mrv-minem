@@ -12,7 +12,7 @@
   <xs:element name="DsMedGeneral" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DsMedGeneral" msprop:Generator_UserDSName="DsMedGeneral">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DtMedGeneral" msprop:Generator_TableClassName="DtMedGeneralDataTable" msprop:Generator_TableVarName="tableDtMedGeneral" msprop:Generator_TablePropName="DtMedGeneral" msprop:Generator_RowDeletingName="DtMedGeneralRowDeleting" msprop:Generator_RowChangingName="DtMedGeneralRowChanging" msprop:Generator_RowEvHandlerName="DtMedGeneralRowChangeEventHandler" msprop:Generator_RowDeletedName="DtMedGeneralRowDeleted" msprop:Generator_UserTableName="DtMedGeneral" msprop:Generator_RowChangedName="DtMedGeneralRowChanged" msprop:Generator_RowEvArgName="DtMedGeneralRowChangeEvent" msprop:Generator_RowClassName="DtMedGeneralRow">
+        <xs:element name="DtMedGeneral" msprop:Generator_TableClassName="DtMedGeneralDataTable" msprop:Generator_TableVarName="tableDtMedGeneral" msprop:Generator_RowChangedName="DtMedGeneralRowChanged" msprop:Generator_TablePropName="DtMedGeneral" msprop:Generator_RowDeletingName="DtMedGeneralRowDeleting" msprop:Generator_RowChangingName="DtMedGeneralRowChanging" msprop:Generator_RowEvHandlerName="DtMedGeneralRowChangeEventHandler" msprop:Generator_RowDeletedName="DtMedGeneralRowDeleted" msprop:Generator_RowClassName="DtMedGeneralRow" msprop:Generator_UserTableName="DtMedGeneral" msprop:Generator_RowEvArgName="DtMedGeneralRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID_ESCENARIO" msprop:Generator_ColumnVarNameInTable="columnID_ESCENARIO" msprop:Generator_ColumnPropNameInRow="ID_ESCENARIO" msprop:Generator_ColumnPropNameInTable="ID_ESCENARIOColumn" msprop:Generator_UserColumnName="ID_ESCENARIO" type="xs:int" minOccurs="0" />
@@ -26,6 +26,7 @@
               <xs:element name="PMETA_ANUAL" msprop:Generator_ColumnVarNameInTable="columnPMETA_ANUAL" msprop:Generator_ColumnPropNameInRow="PMETA_ANUAL" msprop:Generator_ColumnPropNameInTable="PMETA_ANUALColumn" msprop:Generator_UserColumnName="PMETA_ANUAL" type="xs:int" minOccurs="0" />
               <xs:element name="NOMBRE_MEDMIT" msprop:Generator_ColumnVarNameInTable="columnNOMBRE_MEDMIT" msprop:Generator_ColumnPropNameInRow="NOMBRE_MEDMIT" msprop:Generator_ColumnPropNameInTable="NOMBRE_MEDMITColumn" msprop:Generator_UserColumnName="NOMBRE_MEDMIT" type="xs:string" minOccurs="0" />
               <xs:element name="NUMERO_MEDMIT" msprop:Generator_ColumnVarNameInTable="columnNUMERO_MEDMIT" msprop:Generator_ColumnPropNameInRow="NUMERO_MEDMIT" msprop:Generator_ColumnPropNameInTable="NUMERO_MEDMITColumn" msprop:Generator_UserColumnName="NUMERO_MEDMIT" type="xs:int" minOccurs="0" />
+              <xs:element name="GEI_TOTAL" msprop:Generator_ColumnVarNameInTable="columnGEI_TOTAL" msprop:Generator_ColumnPropNameInRow="GEI_TOTAL" msprop:Generator_ColumnPropNameInTable="GEI_TOTALColumn" msprop:Generator_UserColumnName="GEI_TOTAL" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

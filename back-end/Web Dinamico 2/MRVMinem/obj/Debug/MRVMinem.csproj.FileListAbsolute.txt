@@ -2057,9 +2057,6 @@ C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\obj\Debug\RdlCompil
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\obj\Debug\RdlCompile.compiled
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\obj\Debug\MRVMinem.dll
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\obj\Debug\MRVMinem.pdb
-C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\4.1 Plantilla_Vehiculos_electricos_Consumo.xlsx
-C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\4.1 Plantilla_Vehiculos_hibridos_consumo.xlsx
-C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\MRVMinem\bin\Documentos\4.1 Plantilla_Vehiculos_hibridos_Recorrido.xlsx
 C:\Users\Pc\Desktop\MRV 21-09-20\Web Dinamico 2\MRVMinem\bin\roslyn\csc.exe
 C:\Users\Pc\Desktop\MRV 21-09-20\Web Dinamico 2\MRVMinem\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 C:\Users\Pc\Desktop\MRV 21-09-20\Web Dinamico 2\MRVMinem\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll

@@ -38,5 +38,28 @@ namespace datos.minem.gob.pe
 
             return Lista;
         }
+
+        public List<MedidaMitigacionBE> ListaEscenariosRptGeneral(int anno)
+        {
+            List<MedidaMitigacionBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_ESCENARIOS_RPT_GEN";
+                    var p = new OracleDynamicParameters();
+                    p.Add("PI_ANNO", anno);
+                    p.Add("pCursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<MedidaMitigacionBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
     }
 }

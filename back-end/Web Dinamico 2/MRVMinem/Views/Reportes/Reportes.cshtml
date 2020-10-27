@@ -39,6 +39,7 @@
                                         @*<option value="3">Reporte de escenarios</option>*@
                                         <option value="4">Reporte de Ficha MINAM</option>
                                         <option value="5">Reporte de escenarios</option>
+                                        <option value="6">Reporte de medidas de mitigación por año</option>
                                         @*<option value="6">Reporte de Medida General</option>*@
                                     </select>
                                 </div>
@@ -93,6 +94,9 @@
             }
             else if (IdReporte == 5) {
                 url = '@Url.Content("~/Reportes/frmEscenario.aspx")';
+            }
+            else if (IdReporte == 6) {
+                url = '@Url.Content("~/Reportes/frmGeneral.aspx")';
             }
             else {
                 url = '@Url.Content("~/Reportes/frmReportes.aspx")';

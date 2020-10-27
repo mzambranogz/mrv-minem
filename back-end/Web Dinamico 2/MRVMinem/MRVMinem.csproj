@@ -263,6 +263,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Reportes\frmEscenario.aspx" />
+    <Content Include="Reportes\frmGeneral.aspx" />
     <Content Include="Reportes\frmReporteFicha.aspx" />
     <Content Include="Reportes\frmReportes.aspx" />
     <Content Include="Reportes\ReporteIni.aspx" />
@@ -344,7 +345,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DsInstitucion.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\DsMedGeneral.Designer.cs" />
+    <Compile Include="Reportes\DsMedGeneral1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsMedGeneral.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\DsMedMit.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -356,6 +361,13 @@
     </Compile>
     <Compile Include="Reportes\frmEscenario.aspx.designer.cs">
       <DependentUpon>frmEscenario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmGeneral.aspx.cs">
+      <DependentUpon>frmGeneral.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmGeneral.aspx.designer.cs">
+      <DependentUpon>frmGeneral.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reportes\frmReporteFicha.aspx.cs">
       <DependentUpon>frmReporteFicha.aspx</DependentUpon>

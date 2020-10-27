@@ -19,7 +19,7 @@
             <br />
 
 
-            <label><strong>Periodo (Año) : </strong></label>
+            <label><strong>Periodo (Año): </strong></label>
             <asp:DropDownList ID="ddlAnio" runat="server">
             </asp:DropDownList>
             &nbsp;

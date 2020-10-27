@@ -16,5 +16,10 @@ namespace logica.minem.gob.pe
         {
             return escenariorptDA.ListaEscenariosRpt(entidad);
         }
+
+        public static List<MedidaMitigacionBE> ListaEscenariosRptGeneral(int anno)
+        {
+            return escenariorptDA.ListaEscenariosRptGeneral(anno);
+        }
     }
 }
