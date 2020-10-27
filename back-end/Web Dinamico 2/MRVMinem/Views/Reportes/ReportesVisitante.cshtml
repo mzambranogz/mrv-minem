@@ -36,7 +36,7 @@
                                         <option value="0">-Seleccione un Tipo de Reporte-</option>
                                         <option value="1">Reporte de acción de mitigación por sector y medida de mitigación</option>
                                         <option value="2">Reporte de emisiones de GEI reducidas por medidas de mitigación</option>
-                                        <option value="3">Reporte de escenarios</option>
+                                        <option value="5">Reporte de escenarios</option>
                                     </select>
                                 </div>
                             </div>
@@ -82,6 +82,8 @@
         console.log(IdReporte);
         if (IdReporte == 1) {
             url = '@Url.Content("~/Reportes/ReporteIni.aspx")';
+        } else if (IdReporte == 5) {
+            url = '@Url.Content("~/Reportes/frmEscenario.aspx")';
         } else {
             url = '@Url.Content("~/Reportes/frmReportes.aspx")';
             url = url + "?IdReporte=" + IdReporte;

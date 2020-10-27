@@ -188,7 +188,7 @@ namespace MRVMinem.Controllers
             Session["MisArchivos"] = null;
             ListaObjeto modelo = new ListaObjeto();
             int validar = IniciativaLN.ValidarVista(id);
-            if (validar == 6 || validar == 7)
+            if (validar == 6 || validar == 7 || validar == 14 || Convert.ToInt16(Session["rol"]) == 7) //add 14-10-20
             {
                 IniciativaBE inic = new IniciativaBE();
                 inic.ID_INICIATIVA = id;
@@ -257,7 +257,8 @@ namespace MRVMinem.Controllers
 
                 modelo.listaIndData = IndicadorLN.ListarDatosTablaDinamica(ida);
 
-                modelo.id_indicadores = capturarIndicadores(modelo.listaIndData); //17-05-2020
+                modelo.listaIndicador = capturarIndicadores(modelo.listaIndData);
+                //modelo.id_indicadores = capturarIndicadores(modelo.listaIndData); //17-05-2020
 
                 //modelo.listaParametro = ParametroLN.ListarParametro(modelo.iniciativa_mit.ID_MEDMIT);            
                 modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
@@ -268,6 +269,7 @@ namespace MRVMinem.Controllers
                 modelo.id_enfoques = concatenarIdEnfoque(modelo.listaIndData); //add 2-3-20
                 modelo.revision = 1;
                 modelo.estado_flujo = validar;
+                Session["lista_indicador_revision"] = modelo.listaIndicador;//add
                 Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
                 Session["nombres_destino"] = modelo.usuario.NOMBRES;
 
@@ -351,7 +353,8 @@ namespace MRVMinem.Controllers
                 ida.ID_MEDMIT = modelo.iniciativa_mit.ID_MEDMIT;
                 modelo.listaIndData = IndicadorLN.ListarDatosTablaDinamica(ida);
 
-                modelo.id_indicadores = capturarIndicadores(modelo.listaIndData); //17-05-2020
+                modelo.listaIndicador = capturarIndicadores(modelo.listaIndData);
+                //modelo.id_indicadores = capturarIndicadores(modelo.listaIndData); //17-05-2020
 
                 modelo.id_enfoques = concatenarIdEnfoque(modelo.listaIndData); //add
                 modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
@@ -361,6 +364,7 @@ namespace MRVMinem.Controllers
                 modelo.listaTipoIniciativa = TipoIniciativaLN.listarTipoIniciativa();
                 modelo.revision = 1;
                 modelo.estado_flujo = validar;
+                Session["lista_indicador_revision"] = modelo.listaIndicador;//add
                 Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
                 Session["id_medida"] = modelo.medida.ID_MEDMIT;
 
@@ -393,7 +397,8 @@ namespace MRVMinem.Controllers
                 ida.ID_MEDMIT = modelo.iniciativa_mit.ID_MEDMIT;
                 modelo.listaIndData = IndicadorLN.ListarDatosTablaDinamica(ida);
 
-                modelo.id_indicadores = capturarIndicadores(modelo.listaIndData); //17-05-2020
+                modelo.listaIndicador = capturarIndicadores(modelo.listaIndData);
+                //modelo.id_indicadores = capturarIndicadores(modelo.listaIndData); //17-05-2020
 
                 modelo.id_enfoques = concatenarIdEnfoque(modelo.listaIndData); //add
                 modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
@@ -402,6 +407,7 @@ namespace MRVMinem.Controllers
                 modelo.usuario = UsuarioLN.UsuarioAdministrador();
                 modelo.revision = 1;
                 modelo.estado_flujo = validar;
+                Session["lista_indicador_revision"] = modelo.listaIndicador;//add
                 Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
                 Session["usuario_destino"] = modelo.usuario.ID_USUARIO;
             }
@@ -433,7 +439,8 @@ namespace MRVMinem.Controllers
                 ida.ID_MEDMIT = modelo.iniciativa_mit.ID_MEDMIT;
                 modelo.listaIndData = IndicadorLN.ListarDatosTablaDinamica(ida);
 
-                modelo.id_indicadores = capturarIndicadores(modelo.listaIndData); //17-05-2020
+                modelo.listaIndicador = capturarIndicadores(modelo.listaIndData);
+                //modelo.id_indicadores = capturarIndicadores(modelo.listaIndData); //17-05-2020
 
                 modelo.id_enfoques = concatenarIdEnfoque(modelo.listaIndData); //add
                 modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
@@ -447,6 +454,7 @@ namespace MRVMinem.Controllers
                 {
                     modelo.usuario = UsuarioLN.UsuarioEvaluador();
                 }
+                Session["lista_indicador_revision"] = modelo.listaIndicador;//add
                 Session["correo_destino"] = modelo.usuario.EMAIL_USUARIO;
                 Session["usuario_destino"] = modelo.usuario.ID_USUARIO;
                 modelo.revision = 1;
@@ -918,6 +926,9 @@ namespace MRVMinem.Controllers
         {
             ResponseEntity itemRespuesta = new ResponseEntity();
             entidad.ID_USUARIO = Convert.ToInt32(Session["usuario"]);
+
+            //for (int i = 0; i < 9999999; i++) { for (int j = 0; j < 499; j++) { var a = 1; } }
+
             try
             {
                 //if (fledoc != null)
@@ -991,54 +1002,75 @@ namespace MRVMinem.Controllers
                 //==========================================================
                 List<IndicadorDataBE> listaDataE = new List<IndicadorDataBE>();
                 List<IndicadorArchivoBE> lista_remover = new List<IndicadorArchivoBE>(); //add 18-04-2020
-                if (!string.IsNullOrEmpty(entidad.DATA))
+
+                if (entidad.ListaIndicadoresData.Count > 0)
                 {
-                    var valores = entidad.DATA.Split('/');
-
-                    for (int i = 0; i < valores.Length; i++)
+                    foreach (IndicadorDataBE ie in entidad.ListaIndicadoresData)
                     {
-                        var indic = valores[i].Split(';');
-                        var valores_det = indic[0].Split('|');
-                        IndicadorDataBE dataE = new IndicadorDataBE();
-                        List<IndicadorDataBE> listaP = new List<IndicadorDataBE>();
-                        for (int j = 0; j < valores_det.Length; j++)
-                        {
-                            var parametros = valores_det[j].Split(',');
-
-                            IndicadorDataBE ind = new IndicadorDataBE();
-                            ind.ID_ENFOQUE = Convert.ToInt32(parametros[0]);
-                            ind.ID_MEDMIT = Convert.ToInt32(parametros[1]);
-                            ind.ID_PARAMETRO = Convert.ToInt32(parametros[2]);
-                            if (Convert.ToString(parametros[3]) == "0")
-                            {
-                                ind.VALOR = "";
-                            }
-                            else
-                            {
-                                ind.VALOR = Convert.ToString(parametros[3]);
-                            }
-                            listaP.Add(ind);
-                        }
-                        if (string.IsNullOrEmpty(indic[1])) indic[1] = "0";
-                        dataE.ID_INDICADOR = Convert.ToInt32(indic[1]);
-                        dataE.listaInd = listaP;
-                        //Ubicamos los archivos del detalle - 24.03.2020
-                        if (!string.IsNullOrEmpty(indic[2]))
+                        if (!string.IsNullOrEmpty(ie.ADJUNTO))
                         {
                             List<IndicadorArchivoBE> MisArchivos = (List<IndicadorArchivoBE>)Session["MisArchivos"];
-                            //if (lista_remover.Count > 0) MisArchivos = removerArchivosRepetidos(MisArchivos, lista_remover); //add 18-04-2020
-                            IndicadorArchivoBE encontrado = MisArchivos.Find(A => A.ADJUNTO_BASE.Equals(indic[2]));                            
+                            IndicadorArchivoBE encontrado = MisArchivos.Find(A => A.ADJUNTO_BASE.Equals(ie.ADJUNTO));
                             if (encontrado != null)
                             {
-                                dataE.ArchivoSustento = new IndicadorArchivoBE() { ADJUNTO = encontrado.ADJUNTO, ADJUNTO_BASE = encontrado.ADJUNTO_BASE, ID_INICIATIVA = entidad.ID_INICIATIVA, ID_INDICADOR = dataE.ID_INDICADOR };
+                                ie.ArchivoSustento = new IndicadorArchivoBE() { ADJUNTO = encontrado.ADJUNTO, ADJUNTO_BASE = encontrado.ADJUNTO_BASE, ID_INICIATIVA = entidad.ID_INICIATIVA, ID_INDICADOR = ie.ID_INDICADOR };
                                 lista_remover.Add(encontrado); //add 18-04-2020
                                 MisArchivos = removerArchivosRepetidos(MisArchivos, lista_remover); //add 18-04-2020
-                            }                                
+                            }
                         }
-
-                        listaDataE.Add(dataE);
                     }
+                    listaDataE = entidad.ListaIndicadoresData;
                 }
+
+
+                //if (!string.IsNullOrEmpty(entidad.DATA))
+                //{
+                //    var valores = entidad.DATA.Split('/');
+
+                //    for (int i = 0; i < valores.Length; i++)
+                //    {
+                //        var indic = valores[i].Split(';');
+                //        var valores_det = indic[0].Split('|');
+                //        IndicadorDataBE dataE = new IndicadorDataBE();
+                //        List<IndicadorDataBE> listaP = new List<IndicadorDataBE>();
+                //        for (int j = 0; j < valores_det.Length; j++)
+                //        {
+                //            var parametros = valores_det[j].Split(',');
+
+                //            IndicadorDataBE ind = new IndicadorDataBE();
+                //            ind.ID_ENFOQUE = Convert.ToInt32(parametros[0]);
+                //            ind.ID_MEDMIT = Convert.ToInt32(parametros[1]);
+                //            ind.ID_PARAMETRO = Convert.ToInt32(parametros[2]);
+                //            if (Convert.ToString(parametros[3]) == "0")
+                //            {
+                //                ind.VALOR = "";
+                //            }
+                //            else
+                //            {
+                //                ind.VALOR = Convert.ToString(parametros[3]);
+                //            }
+                //            listaP.Add(ind);
+                //        }
+                //        if (string.IsNullOrEmpty(indic[1])) indic[1] = "0";
+                //        dataE.ID_INDICADOR = Convert.ToInt32(indic[1]);
+                //        dataE.listaInd = listaP;
+                //        //Ubicamos los archivos del detalle - 24.03.2020
+                //        if (!string.IsNullOrEmpty(indic[2]))
+                //        {
+                //            List<IndicadorArchivoBE> MisArchivos = (List<IndicadorArchivoBE>)Session["MisArchivos"];
+                //            //if (lista_remover.Count > 0) MisArchivos = removerArchivosRepetidos(MisArchivos, lista_remover); //add 18-04-2020
+                //            IndicadorArchivoBE encontrado = MisArchivos.Find(A => A.ADJUNTO_BASE.Equals(indic[2]));                            
+                //            if (encontrado != null)
+                //            {
+                //                dataE.ArchivoSustento = new IndicadorArchivoBE() { ADJUNTO = encontrado.ADJUNTO, ADJUNTO_BASE = encontrado.ADJUNTO_BASE, ID_INICIATIVA = entidad.ID_INICIATIVA, ID_INDICADOR = dataE.ID_INDICADOR };
+                //                lista_remover.Add(encontrado); //add 18-04-2020
+                //                MisArchivos = removerArchivosRepetidos(MisArchivos, lista_remover); //add 18-04-2020
+                //            }                                
+                //        }
+
+                //        listaDataE.Add(dataE);
+                //    }
+                //}
 
 
                 //============================================================ add 12-03-2020
@@ -1087,53 +1119,71 @@ namespace MRVMinem.Controllers
                     }
                 }
 
-                if (entidad.ID_ESTADO == 1) //add 30-01-20
-                {
-                    entidad = IndicadorLN.RegistrarEnvioDetalle(entidad);
-                }
-                else if (entidad.ID_ESTADO == 5) //add 30-01-20
-                {
-                    entidad = IndicadorLN.CorregirDetalleIndicador2(entidad);
-                }
-                else if (entidad.ID_ESTADO == 0 || entidad.ID_ESTADO == 6) //add 30-01-20
-                {
-                    entidad = IndicadorLN.RegistrarAvanceDetalleIndicador(entidad);
-                }
+                var v = false;
+                if (entidad.ID_MEDMIT == 4)
+                    v = IniciativaLN.GuardarDatosAuditor(entidad);
+                else
+                    v = true;
 
-                string ruta_link = WebConfigurationManager.AppSettings.Get("Server");
-                if (entidad.ID_ESTADO == 1)
-                {
-                    IniciativaBE iniciativa = new IniciativaBE();
-                    var especialista = UsuarioLN.EspecialistaMedida(entidad.ID_MEDMIT);
-                    var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
-                    iniciativa.EMAIL_USUARIO = especialista.EMAIL_USUARIO;
-                    //iniciativa.EMAIL_USUARIO = "juancarlossotoc1990@gmail.com";
-                    iniciativa.VALIDAR_RUTA = 1;
-                    iniciativa.ASUNTO = "Registro Detalle de la Iniciativa de Mitigación - Entidad " + usuario.INSTITUCION;
-                    entidad.SALUDO = "Estimado Sr(a): " + especialista.NOMBRES + "<br/></br/>";
-                    string link1 = "Revisar Detalle de Iniciativa de Mitigación:<br/>" + link(ruta_link, 3, 1, entidad.ID_INICIATIVA, especialista.ID_USUARIO, 0);
-                    iniciativa.DESCRIPCION = entidad.SALUDO + "El usuario de la entidad <strong>" + usuario.INSTITUCION + "</strong> ha registrado el/los detalle(s) de la Iniciativa <strong>" + entidad.NOMBRE_INICIATIVA + "</strong>, en espera de su revisión.<br/><br/>Por favor, pulse o copie el siguiente link en su navegador para dirigirse al detalle de la Iniciativa de Mitigación<br/><br/>" + link1;
-                    EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 2);
-                    Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
-                }
-                else if (entidad.ID_ESTADO == 5)
-                {
-                    IniciativaBE iniciativa = new IniciativaBE();
-                    var especialista = UsuarioLN.EspecialistaMedida(entidad.ID_MEDMIT);
-                    var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
-                    iniciativa.EMAIL_USUARIO = especialista.EMAIL_USUARIO;
-                    //iniciativa.EMAIL_USUARIO = "juancarlossotoc1990@gmail.com";
-                    iniciativa.VALIDAR_RUTA = 1;
-                    iniciativa.ASUNTO = "Observación subsanada de Detalle de la Iniciativa de Mitigación - Entidad " + usuario.INSTITUCION;
-                    entidad.SALUDO = "Estimado Sr(a): " + especialista.NOMBRES + "<br/></br/>";
-                    string link1 = "Revisar iniciativa de Mitigación:<br/>" + link(ruta_link, 3, 5, entidad.ID_INICIATIVA, especialista.ID_USUARIO, 0);
-                    iniciativa.DESCRIPCION = entidad.SALUDO + "El usuario de la entidad <strong>" + usuario.INSTITUCION + "</strong> ha subsanado la(s) observación(es) de el/los detalle(s) de indicador(es) de la Iniciativa <strong>" + entidad.NOMBRE_INICIATIVA + "</strong>, en espera de su revisión.<br/><br/>Por favor, pulse o copie el siguiente link en su navegador para dirigirse al detalle de la Iniciativa de Mitigación<br/><br/>" + link1;
-                    EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
-                    Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
-                }
+                entidad.OK = v;
+                if (entidad.OK) {
+                    if (Convert.ToInt16(Session["rol"]) == 7)
+                    {
+                        entidad.OK = true;
+                    }
+                    else
+                    {
+                        if (entidad.ID_ESTADO == 1) //add 30-01-20
+                        {
+                            entidad = IndicadorLN.RegistrarEnvioDetalle(entidad);
+                        }
+                        else if (entidad.ID_ESTADO == 5) //add 30-01-20
+                        {
+                            entidad = IndicadorLN.CorregirDetalleIndicador2(entidad);
+                        }
+                        else if (entidad.ID_ESTADO == 0 || entidad.ID_ESTADO == 6) //add 30-01-20
+                        {
+                            entidad = IndicadorLN.RegistrarAvanceDetalleIndicador(entidad);
+                        }
+
+                        string ruta_link = WebConfigurationManager.AppSettings.Get("Server");
+                        if (entidad.ID_ESTADO == 1)
+                        {
+                            IniciativaBE iniciativa = new IniciativaBE();
+                            var especialista = UsuarioLN.EspecialistaMedida(entidad.ID_MEDMIT);
+                            var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
+                            iniciativa.EMAIL_USUARIO = especialista.EMAIL_USUARIO;
+                            //iniciativa.EMAIL_USUARIO = "juancarlossotoc1990@gmail.com";
+                            iniciativa.VALIDAR_RUTA = 1;
+                            iniciativa.ASUNTO = "Registro Detalle de la Iniciativa de Mitigación - Entidad " + usuario.INSTITUCION;
+                            entidad.SALUDO = "Estimado Sr(a): " + especialista.NOMBRES + "<br/></br/>";
+                            string link1 = "Revisar Detalle de Iniciativa de Mitigación:<br/>" + link(ruta_link, 3, 1, entidad.ID_INICIATIVA, especialista.ID_USUARIO, 0);
+                            iniciativa.DESCRIPCION = entidad.SALUDO + "El usuario de la entidad <strong>" + usuario.INSTITUCION + "</strong> ha registrado el/los detalle(s) de la Iniciativa <strong>" + entidad.NOMBRE_INICIATIVA + "</strong>, en espera de su revisión.<br/><br/>Por favor, pulse o copie el siguiente link en su navegador para dirigirse al detalle de la Iniciativa de Mitigación<br/><br/>" + link1;
+                            EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 2);
+                            Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+                        }
+                        else if (entidad.ID_ESTADO == 5)
+                        {
+                            IniciativaBE iniciativa = new IniciativaBE();
+                            var especialista = UsuarioLN.EspecialistaMedida(entidad.ID_MEDMIT);
+                            var usuario = UsuarioLN.obtenerUsuarioId(entidad.ID_USUARIO);
+                            iniciativa.EMAIL_USUARIO = especialista.EMAIL_USUARIO;
+                            //iniciativa.EMAIL_USUARIO = "juancarlossotoc1990@gmail.com";
+                            iniciativa.VALIDAR_RUTA = 1;
+                            iniciativa.ASUNTO = "Observación subsanada de Detalle de la Iniciativa de Mitigación - Entidad " + usuario.INSTITUCION;
+                            entidad.SALUDO = "Estimado Sr(a): " + especialista.NOMBRES + "<br/></br/>";
+                            string link1 = "Revisar iniciativa de Mitigación:<br/>" + link(ruta_link, 3, 5, entidad.ID_INICIATIVA, especialista.ID_USUARIO, 0);
+                            iniciativa.DESCRIPCION = entidad.SALUDO + "El usuario de la entidad <strong>" + usuario.INSTITUCION + "</strong> ha subsanado la(s) observación(es) de el/los detalle(s) de indicador(es) de la Iniciativa <strong>" + entidad.NOMBRE_INICIATIVA + "</strong>, en espera de su revisión.<br/><br/>Por favor, pulse o copie el siguiente link en su navegador para dirigirse al detalle de la Iniciativa de Mitigación<br/><br/>" + link1;
+                            EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
+                            Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+                        }
+                    }
+                }                 
+                
                 Session["correo_destino"] = "";
                 itemRespuesta.success = entidad.OK;
                 itemRespuesta.extra = entidad.ID_ESTADO.ToString();
+                itemRespuesta.message = entidad.OK ? "" : "Ocurrio un problema durante el registro.";
             }
             catch (Exception ex)
             {
@@ -1618,6 +1668,10 @@ namespace MRVMinem.Controllers
                     else if (entidad.ID_ROL == 5)
                     {
                         perfil = "Verificador";
+                    }
+                    else if (entidad.ID_ROL == 7)
+                    {
+                        perfil = "Auditor";
                     }
 
                     if (entidad.ID_ESTADO_USUARIO == 1)
@@ -2286,6 +2340,26 @@ namespace MRVMinem.Controllers
         public JsonResult ListarDatosIndicadorData(IndicadorDataBE entidad)
         {
             List<IndicadorDataBE> lista = IndicadorLN.ListarDatosIndicadorData(entidad);
+            //foreach (IndicadorDataBE ie in lista)
+            //{//add   
+            //    string anno = "", bau = "0", ini = "0", reduccion = "0";
+            //    foreach (IndicadorDataBE iet in ie.listaInd)
+            //    {
+            //        if (iet.ID_PARAMETRO == 6) anno = iet.VALOR;
+            //        else if (iet.ID_PARAMETRO == 9) bau = iet.VALOR;
+            //        else if (iet.ID_PARAMETRO == 10) ini = iet.VALOR;
+            //        else if (iet.ID_PARAMETRO == 11) reduccion = iet.VALOR;
+            //    }
+            //    ie.listaAcumulado = detalleAcumulado(ie.listaInd);                
+            //    foreach (IndicadorDataBE iet in ie.listaInd)
+            //    {
+            //        if (iet.ID_PARAMETRO == 6) iet.VALOR = anno;
+            //        else if (iet.ID_PARAMETRO == 9) iet.VALOR = bau;
+            //        else if (iet.ID_PARAMETRO == 10) iet.VALOR = ini;
+            //        else if (iet.ID_PARAMETRO == 11) iet.VALOR = reduccion;
+            //    }
+            //}
+            lista = IniciativaLN.MostrarAcumuladoInd(lista, entidad.ID_INICIATIVA, entidad.ID_MEDMIT, entidad.ID_ENFOQUE);
             var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
@@ -3403,14 +3477,14 @@ namespace MRVMinem.Controllers
                     }
                     else
                     {
-                        cod_file = item.ID_INICIATIVA_SUSTENTATORIO + ",";
+                        cod_file += item.ID_INICIATIVA_SUSTENTATORIO + ",";
                         cod_ini = item.ID_INICIATIVA;
                     }
                 }
 
                 if (!string.IsNullOrEmpty(cod_file))
                 {
-                    cod_file.Substring(0, cod_file.Length - 1);
+                    cod_file = cod_file.Substring(0, cod_file.Length - 1);
                     IndicadorLN.EliminarIndicadoresFile(new IniciativaBE { ID_INICIATIVA = cod_ini, ID_INDICADOR_ELIMINAR = cod_file });
                 }
             }
@@ -3460,20 +3534,23 @@ namespace MRVMinem.Controllers
                 }
 
                 listaA.Add(new AcumuladoBE { anio = anioP, reducido = reducido });
-                anioP += 1;
-                while (DateTime.Now.Year > anioP)
+                if (lista[0].ID_MEDMIT != 12 && lista[0].ID_MEDMIT != 4 && lista[0].ID_ENFOQUE != 6 && lista[0].ID_ENFOQUE != 9)
                 {
-                    listaPr = IndicadorLN.CalculoIndicador(lista);
-                    foreach (var item in listaPr)
-                    {
-                        if (item.ID_PARAMETRO == 6)
-                            item.VALOR = Convert.ToString(anioP + 1);
-                        else if (item.ID_PARAMETRO == 11)
-                            reducido = item.VALOR;
-                    }
-                    listaA.Add(new AcumuladoBE { anio = anioP, reducido = reducido });
                     anioP += 1;
-                }
+                    while (DateTime.Now.Year > anioP)
+                    {
+                        listaPr = IndicadorLN.CalculoIndicador(lista);
+                        foreach (var item in listaPr)
+                        {
+                            if (item.ID_PARAMETRO == 6)
+                                item.VALOR = Convert.ToString(anioP + 1);
+                            else if (item.ID_PARAMETRO == 11)
+                                reducido = item.VALOR;
+                        }
+                        listaA.Add(new AcumuladoBE { anio = anioP, reducido = reducido });
+                        anioP += 1;
+                    }
+                }                
             }
             catch (Exception ex)
             {
@@ -3485,15 +3562,25 @@ namespace MRVMinem.Controllers
 
         public JsonResult MostrarAcumulado(IniciativaBE entidad)
         {
-            List<AcumuladoBE> lista = IniciativaLN.MostrarAcumulado(entidad);
+            entidad.ListaIndicadores = (List<IndicadorBE>)Session["lista_indicador_revision"];
+            List<IndicadorDataBE> lista = IniciativaLN.MostrarAcumulado(entidad);
             var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
         }
 
-        public string capturarIndicadores(List<IndicadorDataBE> lista)
+        public JsonResult MostrarAcumuladoRevision(IniciativaBE entidad)
         {
-            var id_indicadores = "";
+            List<AcumuladoBE> lista = IniciativaLN.MostrarAcumuladoRevision(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public List<IndicadorBE> capturarIndicadores(List<IndicadorDataBE> lista)
+        {
+            List<IndicadorBE> listaE = new List<IndicadorBE>();
+            //var id_indicadores = "";
             if (lista != null)
             {
                 foreach (var item in lista)
@@ -3502,13 +3589,50 @@ namespace MRVMinem.Controllers
                     {
                         foreach (var it in item.listaInd)
                         {
-                            id_indicadores += Convert.ToString(it.ID_INDICADOR) + "/";
+                            IndicadorBE ind = new IndicadorBE();
+                            ind.ID_INDICADOR = it.ID_INDICADOR;
+                            ind.ID_INICIATIVA = it.ID_INICIATIVA;
+                            ind.ID_MEDMIT = it.ID_MEDMIT;
+                            ind.ID_ENFOQUE = it.ID_ENFOQUE;
+                            ind.SIGLA = it.listaInd[0].VALOR;
+                            listaE.Add(ind);
+                            //id_indicadores += Convert.ToString(it.ID_INDICADOR) + "/";
                         }
-                        id_indicadores = id_indicadores.Substring(0, id_indicadores.Length - 1);
+                        //id_indicadores = id_indicadores.Substring(0, id_indicadores.Length - 1);
                     }                    
                 }                
             }
-            return id_indicadores;
+            //return id_indicadores;
+            return listaE;
+        }
+
+        public JsonResult EliminarIniciativa(IniciativaBE entidad)
+        {
+            ResponseEntity itemRespuesta = new ResponseEntity();
+            IniciativaBE ini = IniciativaLN.EliminarIniciativa(entidad);
+            itemRespuesta.success = ini.OK;
+            if (ini.OK) {
+                ini = IniciativaLN.IniciativaMitigacionDatos(entidad);
+                IniciativaBE iniciativa = new IniciativaBE();
+                UsuarioBE usu = UsuarioLN.UsuarioAdministrador();
+                iniciativa.EMAIL_USUARIO = ini.CORREO;
+                iniciativa.VALIDAR_RUTA = 1;
+                iniciativa.ASUNTO = "Eliminación de Acción de Mitigación - MRVMinem";
+                iniciativa.SALUDO = "Estimado Sr(a): " + ini.NOMBRES + "<br/></br/>";
+                iniciativa.DESCRIPCION = iniciativa.SALUDO + "La Acción de Mitigación <strong>" + ini.NOMBRE_INICIATIVA + "</strong> con código <strong>" + ini.ID_INICIATIVA + "</strong> ha sido eliminado, para mayor detalle contactarse con el Administrador: " + usu.EMAIL_USUARIO + "<br/><br/>";
+                EnvioCorreo hilo_correo = new EnvioCorreo(iniciativa, 1);
+                Task tarea = Task.Factory.StartNew(() => hilo_correo.menajeIniciativa());
+
+            }                
+            return Respuesta(itemRespuesta);
+        }
+
+        public JsonResult ListarInstitucionAcciones(InstitucionBE entidad)
+        {
+            List<IniciativaBE> lista = IniciativaLN.ListarInstitucionAcciones(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
 
     }    

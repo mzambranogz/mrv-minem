@@ -1,0 +1,119 @@
+PKG INICIATIVA DE MITIGACION
+
+ACTUALIZAR BODY
+
+PROCEDURE USP_UPD_INICIATIVA_MITIGACION(
+        pID_INICIATIVA IN NUMBER,
+        pID_MEDMIT  IN NUMBER,
+        pID_USUARIO IN NUMBER,
+        pNOMBRE_INICIATIVA  IN VARCHAR2,
+        pDESC_INICIATIVA    IN VARCHAR2,
+        pINVERSION_INICIATIVA  IN NUMBER,
+        pID_MONEDA  IN NUMBER,
+        pFECHA_IMPLE_INICIATIVA IN DATE,
+        pFECHA_FIN_INICIATIVA IN DATE,
+        pPRIVACIDAD_INICIATIVA IN VARCHAR2,
+        pPRIVACIDAD_INVERSION IN VARCHAR2,
+        pID_ESTADO  IN NUMBER,
+        pID_TIPO_INICIATIVA IN NUMBER
+    )IS
+        vEntidad VARCHAR2(50);
+        vIdEspecialista NUMBER;
+        vIdDetalleIniciativa NUMBER;
+        vEstadoIniciativa VARCHAR2(60);
+        vEstadoMensaje VARCHAR2(60);
+        vIdEtapaEstado NUMBER;
+        vNombreMedmit VARCHAR2(100);
+        vMoneda VARCHAR2(50);
+        vRE_ID_MONEDA NUMBER;
+    BEGIN
+        
+        IF pID_MONEDA = 0 THEN
+          vRE_ID_MONEDA := NULL;
+        ELSE
+          vRE_ID_MONEDA := pID_MONEDA;
+        END IF;
+        
+        --===========================================================
+        SELECT ID_PLAZO_ETAPA_ESTADO INTO vIdEtapaEstado FROM T_MAE_PLAZO_ETAPA_ESTADO WHERE ID_ETAPA = 1 AND ID_ESTADO = pID_ESTADO;
+        UPDATE  T_GENM_INICIATIVA SET ID_PLAZO_ETAPA_ESTADO = vIdEtapaEstado WHERE ID_INICIATIVA = pID_INICIATIVA;
+        --===========================================================
+
+        SELECT  NOMBRE_MEDMIT INTO vNombreMedmit FROM T_MAE_MEDMIT WHERE ID_MEDMIT = pID_MEDMIT;
+        
+        IF pID_MONEDA = 0 THEN
+          vMoneda := '';
+        ELSE
+          SELECT DESCRIPCION INTO vMoneda FROM T_MAE_MONEDA WHERE ID_MONEDA = pID_MONEDA;
+        END IF;
+        --SELECT DESCRIPCION INTO vMoneda FROM T_MAE_MONEDA WHERE ID_MONEDA = pID_MONEDA;
+
+        IF (pID_ESTADO = 0 OR pID_ESTADO = 6) THEN
+               UPDATE T_GENM_INICIATIVA
+               SET
+                   ID_MEDMIT              = pID_MEDMIT,
+                   NOMBRE_INICIATIVA      = pNOMBRE_INICIATIVA,
+                   DESC_INICIATIVA        = pDESC_INICIATIVA,
+                   INVERSION_INICIATIVA   = pINVERSION_INICIATIVA,
+                   ID_MONEDA              = vRE_ID_MONEDA,
+                   FECHA_IMPLE_INICIATIVA = pFECHA_IMPLE_INICIATIVA,
+                   FECHA_FIN_INICIATIVA   = PFECHA_FIN_INICIATIVA,
+                   PRIVACIDAD_INICIATIVA  = pPRIVACIDAD_INICIATIVA,
+                   ID_ESTADO              = pID_ESTADO,
+                   PRIVACIDAD_INVERSION   = pPRIVACIDAD_INVERSION,
+                   ID_TIPO_INICIATIVA     = pID_TIPO_INICIATIVA
+               WHERE ID_INICIATIVA        = pID_INICIATIVA ;
+
+               SELECT SQ_GEND_DETALLE_INICIATIVA.NEXTVAL INTO vIdDetalleIniciativa FROM DUAL;
+               INSERT INTO T_GEND_DETALLE_INICIATIVA (id_detalle_iniciativa, ID_INICIATIVA, ID_REMITENTE, DESC_INICIATIVA, ID_ETAPA, ID_ESTADO, FECHA_DERIVACION, OBSERVACIONES)
+               VALUES (vIdDetalleIniciativa, pID_INICIATIVA, pID_USUARIO, 'GUARDAR AVANCE', 1, pID_ESTADO, SYSDATE, pNOMBRE_INICIATIVA || '|' || vNombreMedmit || '|' || TO_CHAR(pFECHA_IMPLE_INICIATIVA, 'dd/MM/yyyy') || '|' ||vMoneda || '|' || pINVERSION_INICIATIVA);
+        ELSE
+               UPDATE T_GENM_INICIATIVA
+               SET
+                   ID_MEDMIT              = pID_MEDMIT,
+                   NOMBRE_INICIATIVA      = pNOMBRE_INICIATIVA,
+                   DESC_INICIATIVA        = pDESC_INICIATIVA,
+                   INVERSION_INICIATIVA   = pINVERSION_INICIATIVA,
+                   ID_MONEDA              = vRE_ID_MONEDA,
+                   FECHA_IMPLE_INICIATIVA = pFECHA_IMPLE_INICIATIVA,
+                   FECHA_FIN_INICIATIVA   = pFECHA_FIN_INICIATIVA,
+                   PRIVACIDAD_INICIATIVA  = pPRIVACIDAD_INICIATIVA,
+                   PRIVACIDAD_INVERSION   = pPRIVACIDAD_INVERSION,
+                   ID_ESTADO              = pID_ESTADO,
+                   ID_TIPO_INICIATIVA     = pID_TIPO_INICIATIVA
+               WHERE ID_INICIATIVA        = pID_INICIATIVA ;
+
+                IF pID_ESTADO = 1 THEN
+                    vEstadoIniciativa := 'REGISTRO DE INICIATIVA';
+                    vEstadoMensaje := 'registrado';
+                ELSE
+                    vEstadoIniciativa := 'CORRECCION DE INICIATIVA';
+                    vEstadoMensaje := 'subsanado';
+                END IF;
+
+                SELECT SQ_GEND_DETALLE_INICIATIVA.NEXTVAL INTO vIdDetalleIniciativa FROM DUAL;
+                INSERT INTO T_GEND_DETALLE_INICIATIVA (id_detalle_iniciativa,ID_INICIATIVA, ID_REMITENTE, ID_DESTINO, DESC_INICIATIVA, ID_ETAPA, ID_ESTADO, FECHA_DERIVACION, OBSERVACIONES)
+                VALUES (vIdDetalleIniciativa, pID_INICIATIVA, pID_USUARIO, 81, vEstadoIniciativa, 1, pID_ESTADO, SYSDATE, pNOMBRE_INICIATIVA || '|' || vNombreMedmit || '|' || TO_CHAR(pFECHA_IMPLE_INICIATIVA, 'dd/MM/yyyy') || '|' ||vMoneda || '|' || pINVERSION_INICIATIVA);
+
+                SELECT INS.NOMBRE_INSTITUCION INTO vEntidad
+                FROM T_GENM_USUARIO USU
+                INNER JOIN T_GENM_INSTITUCION INS ON USU.ID_INSTITUCION = INS.ID_INSTITUCION
+                WHERE USU.ID_USUARIO = pID_USUARIO;
+
+                --RECUPERAMOS EL ID DEL USUARIO ESPECILISTA MRV
+                SELECT COUNT(1) INTO vIdEspecialista FROM  T_MAE_USUARIO_MEDMIT U WHERE U.ID_MEDMIT = pID_MEDMIT;
+                IF vIdEspecialista > 0 THEN
+                    SELECT MAX(ID_USUARIO) INTO vIdEspecialista FROM  T_MAE_USUARIO_MEDMIT U WHERE U.ID_MEDMIT = pID_MEDMIT;
+                END IF;
+
+                PKG_MRV_NOTIFICACION.USP_INS_NOTIFICACION(pIdIniciativa         => pID_INICIATIVA,
+                                                          pIdEtapa              => 1,
+                                                          pIdEstado             => pID_ESTADO,
+                                                          pIdRol                => 2,
+                                                          pIdUsuario            => vIdEspecialista,
+                                                          pIdUsuarioRemitente   => pID_USUARIO,
+                                                          pDescripcion          => 'La iniciativa de la entidad ' || TRIM(vEntidad) || ' ha sido '|| TRIM(vEstadoMensaje) ||' correctamente y requiere su revisi�n',
+                                                          pIdEstadoNotificacion =>  0);
+        END IF;
+
+    END USP_UPD_INICIATIVA_MITIGACION;

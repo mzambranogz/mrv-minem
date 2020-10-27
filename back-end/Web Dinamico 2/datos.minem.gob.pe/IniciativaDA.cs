@@ -1197,7 +1197,7 @@ namespace datos.minem.gob.pe
                         {
                             //sp += "USP_SEL_BUSQUEDA_SPL_PRI_USU";
                             //entidad.CONDICION = "(INI.ID_USUARIO = "+ entidad.ID_USUARIO +") AND (INI.ID_ETAPA IN (1, 3) AND INI.ID_ESTADO IN (0, 6))";
-                            entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,9,10))";
+                            entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,9,10,14))";
                         }
                         else if (entidad.ID_ROL == 2)
                         {
@@ -1223,6 +1223,12 @@ namespace datos.minem.gob.pe
                             //sp += "USP_SEL_BUSQUEDA_SPL_PRI_VRF";
                             //entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA IN (6,8))";
                             entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA IN (8,10) AND INI.ASIGNAR_INI = " + entidad.ID_USUARIO + ")";
+                        }
+                        else if (entidad.ID_ROL == 7)
+                        {
+                            //sp += "USP_SEL_BUSQUEDA_SPL_PRI_VRF";
+                            //entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA IN (6,8))";
+                            entidad.CONDICION = "(INI.AUDITOR = " + entidad.ID_USUARIO + ")";
                         }
                     }
                     else if (entidad.ID_ESTADO == 2)
@@ -1333,7 +1339,7 @@ namespace datos.minem.gob.pe
                         {
                             //sp += "USP_SEL_BUSQUEDA_SPL_PRI_USU";
                             //entidad.CONDICION = "(INI.ID_USUARIO = "+ entidad.ID_USUARIO +") AND (INI.ID_ETAPA IN (1, 3) AND INI.ID_ESTADO IN (0, 6))";
-                            entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,9,10))";
+                            entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,9,10,14))";
                         }
                         else if (entidad.ID_ROL == 2)
                         {
@@ -1359,6 +1365,12 @@ namespace datos.minem.gob.pe
                             //sp += "USP_SEL_BUSQUEDA_SPL_PRI_VRF";
                             //entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA IN (6,8))";
                             entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA IN (8,10) AND INI.ASIGNAR_INI = " + entidad.ID_USUARIO + ")";
+                        }
+                        else if (entidad.ID_ROL == 7)
+                        {
+                            //sp += "USP_SEL_BUSQUEDA_SPL_PRI_VRF";
+                            //entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA IN (6,8))";
+                            entidad.CONDICION = "(INI.AUDITOR = " + entidad.ID_USUARIO + ")";
                         }
                     }
                     else if (entidad.ID_ESTADO == 2)
@@ -1474,7 +1486,7 @@ namespace datos.minem.gob.pe
                         {
                             //sp += "USP_SEL_BUSQUEDA_SPL_PRI_USU";
                             //entidad.CONDICION = "(INI.ID_USUARIO = "+ entidad.ID_USUARIO +") AND (INI.ID_ETAPA IN (1, 3) AND INI.ID_ESTADO IN (0, 6))";
-                            entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,9,10))";
+                            entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,9,10,14))";
                         }
                         else if (entidad.ID_ROL == 2)
                         {
@@ -1500,6 +1512,12 @@ namespace datos.minem.gob.pe
                             //sp += "USP_SEL_BUSQUEDA_SPL_PRI_VRF";
                             //entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA IN (6,8))";
                             entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA IN (8,10) AND INI.ASIGNAR_INI = " + entidad.ID_USUARIO + ")";
+                        }
+                        else if (entidad.ID_ROL == 7)
+                        {
+                            //sp += "USP_SEL_BUSQUEDA_SPL_PRI_VRF";
+                            //entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA IN (6,8))";
+                            entidad.CONDICION = "(INI.AUDITOR = " + entidad.ID_USUARIO + ")";
                         }
                     }
                     else if (entidad.ID_ESTADO == 2)
@@ -1622,7 +1640,7 @@ namespace datos.minem.gob.pe
                         {
                             //sp += "USP_SEL_BUSQUEDA_SPL_PRI_USU";
                             //entidad.CONDICION = "(INI.ID_USUARIO = "+ entidad.ID_USUARIO +") AND (INI.ID_ETAPA IN (1, 3) AND INI.ID_ESTADO IN (0, 6))";
-                            entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,9,10))";
+                            entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,9,10,14))";
                         }
                         else if (entidad.ID_ROL == 2)
                         {
@@ -1648,6 +1666,12 @@ namespace datos.minem.gob.pe
                             //sp += "USP_SEL_BUSQUEDA_SPL_PRI_VRF";
                             //entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA IN (6,8))";
                             entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA IN (8,10) AND INI.ASIGNAR_INI = " + entidad.ID_USUARIO + ")";
+                        }
+                        else if (entidad.ID_ROL == 7)
+                        {
+                            //sp += "USP_SEL_BUSQUEDA_SPL_PRI_VRF";
+                            //entidad.CONDICION = "(INI.ID_ESTADO IN (3,5) AND INI.ID_ETAPA IN (6,8))";
+                            entidad.CONDICION = "(INI.AUDITOR = " + entidad.ID_USUARIO + ")";
                         }
                     }
                     else if (entidad.ID_ESTADO == 2)
@@ -1710,6 +1734,7 @@ namespace datos.minem.gob.pe
                     {
                         entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,9,10,11,12,13,14,15,16,17,18,19,20,21,22))";
                     }
+                    
                     //var p = new OracleDynamicParameters();
                     //if (entidad.ID_ROL == 1)
                     //{
@@ -2550,12 +2575,14 @@ namespace datos.minem.gob.pe
 
                     int anio = ent.anio;
                     anio += 1;
-                    while (DateTime.Now.Year > anio)
-                    {
-                        entidad.ANNO = anio;
-                        lista.Add(ObtenerAcumulado(entidad));
-                        anio += 1;
-                    }
+                    if (entidad.ID_MEDMIT != 12 && entidad.ID_MEDMIT != 4 && entidad.ID_ENFOQUE != 6 && entidad.ID_ENFOQUE != 9) {
+                        while (DateTime.Now.Year > anio)
+                        {
+                            entidad.ANNO = anio;
+                            lista.Add(ObtenerAcumulado(entidad));
+                            anio += 1;
+                        }
+                    }                    
 
                 }
             }
@@ -2733,6 +2760,96 @@ namespace datos.minem.gob.pe
             }
 
             return Lista;
+        }
+
+        public IniciativaBE EliminarIniciativa(IniciativaBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_UPD_INICIATIVA_DELETE";
+                    var p = new OracleDynamicParameters();
+                    p.Add("PI_ID_INICIATIVA", entidad.ID_INICIATIVA);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                }
+                entidad.OK = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                entidad.OK = false;
+            }
+            return entidad;
+        }
+
+        public bool RecalcularValores()
+        {
+            bool v = false;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackageR + "USP_UPD_PRC_ACUMULADO_DETALLE";
+                    var p = new OracleDynamicParameters();
+                    p.Add("VALIDAR", 1);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                }
+                v = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                v = false;
+            }
+            return v;
+        }
+
+        public List<IniciativaBE> ListarInstitucionAcciones(InstitucionBE entidad)
+        {
+            List<IniciativaBE> lista = new List<IniciativaBE>();
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_INSTITUCION_ACCION";
+                    var p = new OracleDynamicParameters();
+                    p.Add("PI_RUC_INSTITUCION", entidad.RUC_INSTITUCION);
+                    p.Add("PO_REF", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    lista = db.Query<IniciativaBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+            return lista;
+        }
+
+        public bool GuardarDatosAuditor(IniciativaBE entidad)
+        {
+            bool v = false;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_PRC_INICIATIVA_AUDITORIA";
+                    var p = new OracleDynamicParameters();
+                    p.Add("PI_ID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("PI_TIPO_AUDITORIA", entidad.TIPO_AUDITORIA);
+                    p.Add("PI_AUDITOR", entidad.AUDITOR_AUDITORIA);
+                    p.Add("PI_NOMBRE_INSTITUCION", entidad.NOMBRE_INSTITUCION);
+                    p.Add("PI_FECHA_AUDITORIA", entidad.FECHA_AUDITORIA);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                }
+                v = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return v;
         }
 
     }

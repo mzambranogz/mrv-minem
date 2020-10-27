@@ -1,0 +1,458 @@
+-------------------------------ADMINISTRADO--------
+Usuario Administrado
+-----------
+anibal@grupo-zuniga.com //anibal.roman@gmail.com
+Flavio2019
+
+-------------------------------EESI
+USUARIO ADMINISTRADO
+
+juancarlossotoc1990@gmail.com
+Flavio2020@
+--------------------------------------------------------------------------------
+ADMINISTRADO
+CooperativaRojas@gmail.com    ===========
+Proyecto2020@
+
+ADMINISTRADO
+alfredotrelles97@gmail.com
+Limaa2019@
+Limaa2019#
+Proyecto2020$
+Proyecto2020#
+Proyecto2020%
+
+
+
+ADMINISTRADO
+lidino06@gmail.com                  // uhu@gmail.com
+Proyecto2020@
+
+efe@gmail.com     // efa@gmail.com
+Flavio2019@
+
+
+grupozu31@gmail.com    // cooperativa@gmail.com  // veronica@gmail.com
+Proyecto2020@
+Proyecto$2020
+Proyecto#2020
+
+
+colegioimperio30@gmail.com  ========ADMIN  schwarzenegger
+Proyecto2020%
+Proyecto2020%
+Proyecto2020#
+
+PortaMin@gmail.com
+Proyecto2020@
+------------------------------------------------------------------------
+Especialista
+--------------  EEE  PVE
+alfredotrelles97@gmail.com
+Alfredo21// Flavio2019
+
+--------------------
+alfonso@grupo-zuniga.com   // acordova@minem.gob.pe
+Flavio2019
+--------------------
+AlfredoBenjiDay09---------------------------------------------------
+
+Administrador MRV
+------------------
+carlos@grupo-zuniga.com  //cgaldos@minem.gob.pe
+Flavio2019
+
+
+newadmin@hotmail.com
+Lima$2020#
+------------------ACCION DE MTIGACION
+
+Evaluador 
+-----------------------
+juan@grupo-zuniga.com
+Flavio2019@
+-----------------------
+
+Verificador
+-------------------------
+pedro@grupo-zuniga.com
+Flavio2019@
+-------------------------
+
+
+
+
+
+
+========ESPECIALISTA
+jose@gmail.com
+Lima$2020#
+
+
+=====ADMINISTRADOR 
+
+mpatino@minem.gob.pe
+Lima$2020#
+
+
+=========EVALUADOR 
+
+Martin@gmail.com
+Lima$2020#
+
+
+==========Verificador
+
+Carla@gmail.com
+Lima$2020#
+
+
+
+
+Ya se realizaron las pruebas de las observaciones que se envio en la iteración 2 de calidad,
+se valido las contraseñas observando el pop up e ingresando con las respectivos signos, tanto para restablcer y cambiar. Se registro un nuevo admin y valido la llegada de correos tanto en aprobación como observación, todos llegaron al nuevo admin.
+
+se valido la descarga de los documentos adjuntados (nueva opción), si se guarda y descargan los documentos. 
+
+
+
+
+
+-----------------------------
+maycol630@gmail.com
+juancarlossotoc1990@gmail.com
+alfredotrelles97@gmail.com
+cjgaldosv@gmail.com
+cgaldos@minem.gob.pe
+cjgaldos@hotmail.com
+anibal.roman@gmail.com
+flaviozuniga022703@gmail.com
+flaviozuniga@hotmail.com
+---------------------------------
+BE
+acceso a datos
+logica negocio
+models ---
+vista mantenimiento  -----
+mantenimiento controller --
+js 
+vista gestión (mantenimiento tablas)
+js mantenimiento tablas
+
+
+
+-----------------------------------------
+
+
+ PROCEDURE USP_GET_TIPO_COMBUSTIBLE(
+        pIdTipo_Combustible    number,
+        pRefcursor  OUT SYS_REFCURSOR
+   );
+
+   PROCEDURE USP_SEL_LISTA_TIPOCOMBUSTIBLE(
+        pRefcursor  OUT SYS_REFCURSOR
+   );
+
+    PROCEDURE USP_SEL_TIPO_COMBUSTIBLE(
+        pBuscar     IN VARCHAR2,
+        pRegistros  INTEGER,
+        pPagina     INTEGER,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+   );
+
+    PROCEDURE USP_UPD_TIPO_COMBUSTIBLE(
+        pIdTipo_Combustible IN NUMBER,
+        pDescripcion in varchar2
+   );
+
+    PROCEDURE USP_DEL_TIPOCOMBUSTIBLE(
+       pIdTipo_Combustible IN NUMBER
+   );
+   
+    PROCEDURE USP_INS_TIPO_COMBUSTIBLE(
+        pDescripcion in varchar2,
+        pIdTipo_Combustible OUT NUMBER
+    );
+
+
+    PROCEDURE USP_SEL_EXCEL_TIPOCOMBUSTIBLE(
+        pBuscar     IN VARCHAR2,
+        pSortColumn IN VARCHAR2,
+        pSortOrder  IN VARCHAR2,
+        pRefcursor  OUT SYS_REFCURSOR
+    );
+
+
+
+
+------------REPORTES QUE SE PUEDEN CREAR----------------
+
+       <option value="2">Reporte de indicadores por período de tiempo</option>
+       <option value="3">Reporte de entidades registradas por período de tiempo</option>
+       <option value="4">Reporte de ubicaion de medidas de mitigacion por período de tiempo</option>
+       <option value="5">Reporte de estado de iniciativa de mitigación por período de tiempo</option>
+       <option value="6">Reporte de tipo de iniciativa de mitigación por período de tiempo</option>
+       <option value="7">Reporte de documentos de medidas de mitigación registradas por usuarios</option>
+
+----------------
+
+
+3.ENTRENAMIENTO AL USUARIO (SE LLENA SOLO)
+
+
+tampoco llega el correo de aprobación de usuario
+
+lo que medi cuenta es que si el usuario en la subida de documentos por registro sube erroneo debe eliminar todo el registro.
+
+
+
+problema script 2 y 3 
+
+
+
+
+MAEM_MRV_BLOCKCHAIN
+MAEM_ENFOQUE_FACTOR
+
+
+
+ISR
+PVE
+EEE probar en masivo y otros enfoques
+LSP
+
+
+
+
+
+
+3 validacion     verde es mayor a 2 dias el plazo  para que cmbie el color del bandera 
+                 amarillo mayro a 1 dias pero menor a 3 
+                 rojo 1 dia  o 0 dias
+
+
+
+-------------COSAS A VALIDAR PARA R¡PROXIMO TUTO Y REALIZACIÒN DE DOCUMENTOS-------------------
+
+*Rrgistrar los usuarios con correos que manejes para probar correos.
+*
+
+
+
+
+
+
+  365  y 366 
+
+alfonso lo maneja con 360  COCCIÓN
+
+==============Etiquetado agua electrico acumulado
+
+F   C12  Q 12 
+
+pestaña factores del excel  C12    es 2018    y en el ejemplo esta con 2014´para hacer la prueba con el valor real 
+
+en 2014   su celda   C8   y luego en esa fila seria Q8 en la otra tabla que es 2014 
+
+en la formula se cambio esos valores y salen como se establecio.
+
+
+
+======================= MOTORES ELECTRICOS======
+
+El año esta bien , las variables estan mal  I 233   y I 231, en la pestaña variables nos dirigimos a esa sección  y vemos que la potencia es 10hp y en el ejemplo de registro es 5hp
+
+
+
+===================SECADORAS
+
+variables  F160   y F122  y se ven que la capacidad es de 8Kg   que la etiqueta F  ES 8   Y ETI  A 8Kg.  
+
+en la pestaña variables, F8  71.9     y 	F 122 es de otro equipo  no es valido  ademas es de 15 KG.
+
+
+
+
+
+
+WIFIEXTERNAL
+
+BenjiCosqui0709
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+apruba y le llega al admin 1
+
+
+creo otro alfonso 
+
+
+
+
+
+
+un entrgable 
+
+capaciotaciones 
+
+
+1era cap 22 de mayo 
+
+ ponemos pantallzaxos
+
+descargar viceo del sisguiwnte
+
+enala
+
+
+2 da capa 
+
+sustento 
+
+
+
+
+
+
+
+*alguien se llama MRV , Lorena meza no se ve en la primera hoja, tampoco se ve a andrea, a claudia, tampoco a mario y se agregara a un tal gabriel huaytan*
+
+
+
+
+
+
+
+
+
+la revisiòn que puede quitar el sello otorgado
+
+claro eso de la comunicaciòn con el MRV, como va ser? habra un boton ?
+
+los otros reconocimientos
+
+
+
+==========  
+
+
+
+OBSERVACIÒN 4  SELLOS entregable 2 ESTA POR VALIDAR con usuario 
+
+OBSERVACIÒN 6 validar en reuniòn que informaciòn revisa
+
+
+Observaciòn 7  consultarlo con carlos  y validar en reunión
+
+
+OBSERVACIÓN  11 validar con carlos debe consultarse
+
+Observación 12 solicitar y validar con ellos.
+
+
+
+            
+            1 
+            2
+            3
+
+Obsevración 8  revisar al parecer no coincide 
+
+observación 9  depende de las anteriores para su actualización 
+
+observación 10  depende de las anteriores para su actualización 
+
+
+
+
+=============================================
+
+
+user: ACORDOVA@MINEM.GOB.PE      (Administrador)
+pass: Flavio2019
+
+
+User: ALFONSOMRV@OUTLOOK.COM     (Especialista)
+pass: Flavio2019
+
+
+CGALDOS@MINEM.GOB.PE             (Verificador)
+pass: Flavio2019@
+
+
+DROUGH@MINEM.GOB.PE              (Evaluador MINAM)
+pass: Flavio2019@
+
+
+
+
+alfonso.cordova@gmail.com
+MRVenergia#123
+*Administrado*
+
+
+
+
+
+Cocinas mejoradas instaladas en el sector rural de todo el Perú
+
+
+Acción que considera las emisiones de GEI que se reducen debido a la instalación de cocinas mejoradas a través de distintos programas del estado
+
+
+
+
+
+
+
+
+
+==================
+
+cambiar valor en los registros de datos (SCRIPT 1)
+
+ordenar en el git los scripts
+
+Colocar nombre coorporativo en el webconfig a las conexiones
+
+
+
+maycol.zambrano@grupo-zuniga.com
+Clave: micronics
+
+https://www.arcai.com/netCut/s
+
+
+
+Cálculo del consumo de energia- Residencial
+Calculo del consumo de energia – No residencial
+
+Comparativo entre equipos energeticos. – Comparando equipo actual con uno nuevo
+
+Resultados 
+
+
+
+
+*Requerimientos minimos de hardware*
+Requerimientos minimos de software
+
+Existe un esquema para la bd de la app?
+
+son las mismas configuraciones en el servidor del minem?

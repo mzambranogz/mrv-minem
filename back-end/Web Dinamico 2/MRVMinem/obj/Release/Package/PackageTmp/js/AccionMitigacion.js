@@ -31,7 +31,7 @@ function fn_CargaIniciativas() {
     } else {
         if ($("#estadoIniciativa").data("estado") > 0) { //add
             CargarListarIniciativaMitigacionPublico(baseUrl + "Portal/ListaIniciativasPublico");
-        }        
+        }
     }
 }
 
@@ -93,7 +93,7 @@ function fn_mostrarEditarIndicador(id, id_tipo) {
         location.href = baseUrl + "Gestion/DetalleIndicador/" + id + "/" + Math.round(Math.random() * 100);
     } else {
         location.href = baseUrl + "Detalle/DetalleIndicadorMasivo/" + id + "/" + Math.round(Math.random() * 100);
-    }    
+    }
 }
 
 function fn_mostrarEditarIniciativa(ini) {
@@ -105,7 +105,7 @@ function fn_mostrarCorregirIndicador(id, id_tipo) {
         location.href = baseUrl + "Gestion/CorregirDetalleIndicador/" + id + "/" + Math.round(Math.random() * 100);
     } else {
         location.href = baseUrl + "Detalle/CorregirDetalleIndicadorMasivo/" + id + "/" + Math.round(Math.random() * 100);
-    }    
+    }
 }
 
 function fn_mostrarSeguimiento(id) {
@@ -241,9 +241,9 @@ function CargarListarIniciativaMitigacionPublico(vUrl) {
                         tr = tr + '<td class="text-center"><span data-toggle="tooltip" data-placement="top" title="' + data[i]["NOMBRE_MEDMIT"] + '"><strong>' + data[i]["NUMERO_MEDMIT"] + '</strong></span></td>';
                         tr = tr + '<td>' + data[i]["NOMBRE_INSTITUCION"] + '</td>';
                         if ($("#cuerpoMitigacion").data("convertir") == 1) {
-                            tr = tr + '<td data-encabezado="Total reducido" class="text-center convertir"><span>' + (Math.round(data[i]["TOTAL_GEI"] * 100) / 100) / 1000 + '</span>&nbsp;<small>ktCO2eq<small></td>';
+                            tr = tr + '<td data-encabezado="Total reducido" class="text-center convertir"><span>' + formatoMiles((Math.round(data[i]["TOTAL_GEI"] * 100) / 100) / 1000) + '</span>&nbsp;<small>ktCO2eq<small></td>';
                         } else if ($("#cuerpoMitigacion").data("convertir") == 0) {
-                            tr = tr + '<td data-encabezado="Total reducido" class="text-center convertir"><span>' + Math.round(data[i]["TOTAL_GEI"] * 100) / 100 + '</span>&nbsp;<small>tCO2eq<small></td>';
+                            tr = tr + '<td data-encabezado="Total reducido" class="text-center convertir"><span>' + formatoMiles(Math.round(data[i]["TOTAL_GEI"] * 100) / 100) + '</span>&nbsp;<small>tCO2eq<small></td>';
                         }
                         tr = tr + '<td class="text-center" data-encabezado="Estado">' + data[i]["ESTADO_BANDEJA"] + '</td>';
                         tr = tr + '<td class="text-center text-xs-right" data-encabezado="Acciones">';
@@ -346,34 +346,62 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
         nurl = nurl + "Gestion/ListaBusquedaSimplePrivado";
     } else {
 
-        var Item = {
-            medida_b: $("#cbo-medida-mitigacion").val(),
-            anio_b: $("#txt-fecha-inicio").val(),
-            sector_b: $("#cbo-sector").val(),
-            gei_b: $("#cbo-energetico-base").val(),
-            FECHA_IMPLE_INICIATIVA: $("#txt-fecha-inicio").val(),
-            FECHA_FIN_INICIATIVA: $("#txt-fecha-fin").val(),
-            NOMBRE_INICIATIVA: $("#txa-descripcion-iniciativa").val(),
-            energ_b: $("#cbo-energetico-proyecto").val(),
-            hash: $("#txa-bloackchain").val(), //add
-            cantidad_registros: $("#cantidad-registros").val(),
-            pagina: $("#pagina").val(),
-            order_by: $("#columna").val(),
-            order_orden: $("#orden").val(),
-            ID_USUARIO: $("#Control").data("usuario"),
-            ID_ESTADO: $("#estadoIniciativa").data("estado")
+        //if ($("#blk").data("blk") == 0) {
+        if ($("#txa-bloackchain").val() == "") {
+
+            var Item = {
+                medida_b: $("#cbo-medida-mitigacion").val(),
+                anio_b: $("#txt-fecha-inicio").val(),
+                sector_b: $("#cbo-sector").val(),
+                gei_b: $("#cbo-energetico-base").val(),
+                FECHA_IMPLE_INICIATIVA: $("#txt-fecha-inicio").val(),
+                FECHA_FIN_INICIATIVA: $("#txt-fecha-fin").val(),
+                NOMBRE_INICIATIVA: $("#txa-descripcion-iniciativa").val(),
+                energ_b: $("#cbo-energetico-proyecto").val(),
+                hash: $("#txa-bloackchain").val(), //add
+                cantidad_registros: $("#cantidad-registros").val(),
+                pagina: $("#pagina").val(),
+                order_by: $("#columna").val(),
+                order_orden: $("#orden").val(),
+                ID_USUARIO: $("#Control").data("usuario"),
+                ID_ESTADO: $("#estadoIniciativa").data("estado")
+            }
+            nurl = nurl + "Gestion/ListaBusquedaAvanzadaPrivado";
+
+        } else {
+
+            var Item = {
+                hash: $("#txa-bloackchain").val(), //add
+                cantidad_registros: $("#cantidad-registros").val(),
+                pagina: $("#pagina").val(),
+                order_by: $("#columna").val(),
+                order_orden: $("#orden").val(),
+                ID_USUARIO: $("#Control").data("usuario"),
+                ID_ESTADO: $("#estadoIniciativa").data("estado")
+            }
+            nurl = nurl + "Gestion/ListaBusquedaAvanzadaPrivadoBlock";
+
         }
-        nurl = nurl + "Gestion/ListaBusquedaAvanzadaPrivado";
+
+
     }
     //=================================
     $("#tbl-main-preload").html("<i Class='fas fa-spinner fa-spin px-1'></i> Cargando...");
     $("#tbl-main").addClass("d-none");
     //======================================================================
     $.ajax({
+
+        type: "POST",
         url: nurl,
-        type: 'POST',
-        datatype: 'json',
-        data: Item,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        //async: false,
+        data: JSON.stringify(Item),
+
+        //url: nurl,
+        //type: 'POST',
+        //datatype: 'json',
+        //data: Item,
         success: function (data) {
             $("#cuerpoMitigacion").html("");
             if (data != null && data != "") {
@@ -430,7 +458,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                             tr = tr + '     <input class="custom-control-input" type="checkbox" id="chk-send-im-' + data[i]["ID_INICIATIVA"] + '">';
                             tr = tr + '     <label class="custom-control-label" for="chk-send-im-' + data[i]["ID_INICIATIVA"] + '">&nbsp;</label>';
                             tr = tr + ' </div>';
-                            tr = tr + '</td>';                            
+                            tr = tr + '</td>';
                         } else {
                             $("#ocultar-enviado").hide();
                         }
@@ -444,9 +472,9 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                         tr = tr + '<td class="text-center"><span data-toggle="tooltip" data-placement="top" title="' + data[i]["NOMBRE_MEDMIT"] + '"><strong>' + data[i]["NUMERO_MEDMIT"] + '</strong></span></td>';
                         tr = tr + '<td>' + data[i]["NOMBRE_INSTITUCION"] + '</td>';
                         if ($("#cuerpoMitigacion").data("convertir") == 1) {
-                            tr = tr + '<td data-encabezado="Total reducido" class="text-center convertir"><span>' + (Math.round(data[i]["TOTAL_GEI"] * 100) / 100)/1000 + '</span>&nbsp;<small>ktCO2eq<small></td>';
+                            tr = tr + '<td data-encabezado="Total reducido" class="text-center convertir"><span>' + formatoMiles((Math.round(data[i]["TOTAL_GEI"] * 100) / 100) / 1000) + '</span>&nbsp;<small>ktCO2eq<small></td>';
                         } else if ($("#cuerpoMitigacion").data("convertir") == 0) {
-                            tr = tr + '<td data-encabezado="Total reducido" class="text-center convertir"><span>' + Math.round(data[i]["TOTAL_GEI"] * 100) / 100 + '</span>&nbsp;<small>tCO2eq<small></td>';
+                            tr = tr + '<td data-encabezado="Total reducido" class="text-center convertir"><span>' + formatoMiles(Math.round(data[i]["TOTAL_GEI"] * 100) / 100) + '</span>&nbsp;<small>tCO2eq<small></td>';
                         }
                         //tr = tr + '<td data-encabezado="Total reducido" class="text-center convertir"><span>' + Math.round(data[i]["TOTAL_GEI"] * 100) / 100 + '</span>&nbsp;<small>tCO2eq<small></td>';
 
@@ -482,7 +510,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                         //} else {
                         //    tr = tr + '<td class="text-center" data-encabezado="Estado">' + data[i]["ESTADO_BANDEJA"] + '</td>';
                         //}
-                        
+
                         tr = tr + '<td class="text-center" data-encabezado="Estado">' + data[i]["ESTADO_BANDEJA"] + '</td>';
 
                         tr = tr + '<td class="text-center text-xs-right" data-encabezado="Acciones">';
@@ -491,7 +519,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                         //if (data[i]["ID_ESTADO"] == 2 && data[i]["PROGRESO"] == 1) {
                         //  tr = tr + '         <div class="acciones fase-01 dropdown-toggle text-warning" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
 
-                        if (p == 16 || p == 18){
+                        if (p == 16 || p == 18) {
                             tr = tr + '<div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
                         } else {
                             if ($('#Control').data('rol') == 2 || $('#Control').data('rol') == 3) {
@@ -518,8 +546,8 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                                 tr = tr + '<div class="acciones fase-01 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
                             }
                         }
-                        
-                        
+
+
 
                         //if (data[i]["PROGRESO"] == 2 || data[i]["PROGRESO"] == 3 || data[i]["PROGRESO"] == 4 || data[i]["PROGRESO"] == 5 || data[i]["PROGRESO"] == 6 || data[i]["PROGRESO"] == 7 || data[i]["PROGRESO"] == 8) {
                         //    tr = tr + '         <div class="acciones fase-02 dropdown-toggle text-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i></div>';
@@ -549,7 +577,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                             } else if (data[i]["PROGRESO"] == 2 && $('#Control').data('rol') == 1 && data[i]["ID_ESTADO"] == 3) {
                                 tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_cargarIdIniciativa(' + data[i]["ID_INICIATIVA"] + ');" data-toggle="modal" data-target="#tipo-ingreso-detalle"><i class="fas fa-clipboard-list"></i>&nbsp;Agregar detalle</a>';
                             } else if (data[i]["PROGRESO"] == 3 && data[i]["ID_ESTADO"] == 0 && $('#Control').data('rol') == 1) {
-                                tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_mostrarEditarIndicador(' + data[i]["ID_INICIATIVA"] + ', '+ data[i]["ID_TIPO_INGRESO"] +');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
+                                tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_mostrarEditarIndicador(' + data[i]["ID_INICIATIVA"] + ', ' + data[i]["ID_TIPO_INGRESO"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
                             } else if (data[i]["PROGRESO"] == 3 && (data[i]["ID_ESTADO"] == 2 || data[i]["ID_ESTADO"] == 6) && $('#Control').data('rol') == 1) {
                                 tr = tr + '             <a class="dropdown-item text-success" href="#" onclick="fn_mostrarCorregirIndicador(' + data[i]["ID_INICIATIVA"] + ', ' + data[i]["ID_TIPO_INGRESO"] + ');"><i class="fas fa-edit"></i>&nbsp;Editar</a>';
                             }
@@ -590,7 +618,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                                 tr = tr + '             <a class="dropdown-item text-warning" href="#" onclick="fn_verificarIniciativaDetalle(' + data[i]["ID_INICIATIVA"] + ')"><i class="fas fa-tasks"></i>&nbsp;Verificar</a>';
                             }
                         }
-                        
+
                         //if (p >= 6) {
                         //    tr = tr + '        <a class="dropdown-item" href="#" onclick="fn_visualizarFicha(' + data[i]["ID_INICIATIVA"] + ',' + p + ');" id="ficha-' + data[i]["ID_INICIATIVA"] + '" data-ficha="' + data[i]["ESTADO_FICHA"] + '"><i class="fas fa-download"></i>&nbsp;Descargar ficha</a>';
                         //}
@@ -606,7 +634,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                         //if (p == 16 || p == 18) {
                         //    tr = tr + '<a class="dropdown-item" href="javascript:void(0);" onclick="fn_visualizarBlockchain(' + data[i]["ID_BLOCKCHAIN"] + ');" id="block-' + data[i]["ID_BLOCKCHAIN"] + '" data-block="' + data[i]["GENERADO_PDF"] + '"><i class="fas fa-file-code"></i>&nbsp;Blockchain</a></div>';
                         //}
-                        
+
                         tr = tr + '         </div>';
                         tr = tr + '     </div>';
                         tr = tr + '</td>';
@@ -640,7 +668,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                             tr = tr + '</td>'
                         }
 
-                        
+
 
                         tr = tr + '</tr>';
                         $("#cuerpoMitigacion").append(tr);
@@ -666,7 +694,7 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
                     }
 
                 }
-                
+
             } else {
                 $("#resultado").html("0 - 0");
                 $("#total-registros").html(0);
@@ -678,6 +706,13 @@ function CargarListarIniciativaMitigacionGeneral(vUrl) {
             $('[data-toggle="tooltip"]').tooltip();
             $("#tbl-main-preload").html("");
             $("#tbl-main").removeClass("d-none");
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
         }
     });
 }
@@ -1677,20 +1712,28 @@ function CargarListaActor() {
     };
     $.ajax({
         url: baseUrl + "Gestion/ListarActorEnviar",
-        type: 'POST',
-        datatype: 'json',
-        data: item,
+        //type: 'POST',
+        //datatype: 'json',
+        //data: item,
+
+        type: "POST",
+        //url: nurl,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        //async: false,
+        data: JSON.stringify(item),
+
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
                     $("#lista-actor-enviar").html("");
                     var tr = "";
-                    for (var i = 0; i < data.length; i++) {   
+                    for (var i = 0; i < data.length; i++) {
                         tr += '<div class="col-auto my-1" onclick="fn_seleccionarIdActor(' + data[i]["ID_USUARIO"] + ')">';
                         tr += '     <div class="custom-control custom-radio mr-sm-2">';
                         tr += '          <input class="custom-control-input" type="radio" name="rad-evaluadores" id="rad-evaluador-' + data[i]["ID_USUARIO"] + '">';
                         tr += '          <label class="custom-control-label" for="rad-evaluador-' + data[i]["ID_USUARIO"] + '">';
-                        tr += '                 '+ data[i]["NOMBRES"] +'&nbsp;';
+                        tr += '                 ' + data[i]["NOMBRES"] + '&nbsp;';
                         tr += '          </label>';
                         tr += '     </div>';
                         tr += '</div>';
@@ -1698,6 +1741,13 @@ function CargarListaActor() {
                     $("#lista-actor-enviar").append(tr);
                 }
             }
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
         }
     });
 }
@@ -1811,9 +1861,12 @@ function convertirATonelada() {
         campos = $("#cuerpoMitigacion").find("tr");
         campos.each(function (index, value) {
             var valor = $(value).find(".convertir").find("span").html();
+
+            valor = valor.replace(/,/gi, ''); //add
+
             valor = valor * 1000;
             valor = Math.round(valor * 100) / 100;
-            $(value).find(".convertir").find("span").html(valor);
+            $(value).find(".convertir").find("span").html(formatoMiles(valor));
             $(value).find(".convertir").find("small").html("tCO2eq");
         });
         $("#cuerpoMitigacion").data("convertir", 0);
@@ -1825,9 +1878,12 @@ function convertirAKiloTonelada() {
         campos = $("#cuerpoMitigacion").find("tr");
         campos.each(function (index, value) {
             var valor = $(value).find(".convertir").find("span").html();
+
+            valor = valor.replace(/,/gi, ''); //add
+
             valor = valor / 1000;
-            valor = Math.round(valor*100000)/100000;//add
-            $(value).find(".convertir").find("span").html(valor);
+            valor = Math.round(valor * 100000) / 100000;//add
+            $(value).find(".convertir").find("span").html(formatoMiles(valor));
             $(value).find(".convertir").find("small").html("ktCO2eq");
         });
         $("#cuerpoMitigacion").data("convertir", 1);
@@ -1842,7 +1898,7 @@ function fn_habilitarTodo() {
         validar = 1;
     }
 
-    if (validar == 1){
+    if (validar == 1) {
         $('#chk-send-im').prop("checked", true);
     } else {
         $('#chk-send-im').prop("checked", false);
@@ -1857,7 +1913,7 @@ function fn_habilitarTodo() {
         } else {
             $('#chk-send-im-' + fila).prop("checked", false);
         }
-        
+
     });
 
 }
@@ -1875,41 +1931,41 @@ function fn_enviarPaquete() {
     var row = $("#tabla-iniciativa").find("tbody").find("tr");
     row.each(function (index, value) {
         var fila = $(value).find(".fila-inicio").html();
-        if ($("#chk-send-im-"+fila).prop("checked")) {
+        if ($("#chk-send-im-" + fila).prop("checked")) {
             id_iniciativa += fila + ",";
             cont++;
-        }        
+        }
     });
-    id_iniciativa = id_iniciativa.substring(0, id_iniciativa.length -1);
+    id_iniciativa = id_iniciativa.substring(0, id_iniciativa.length - 1);
 
     if ($("#lista-actor-enviar").data("paquete") != 0) {
         //if (cont > 0) {
-            if ($("#cbo-actor-paquete").val() == 4) {
-                if ($("#cbo-medida-mitigacion").val() == 0 || $("#txt-fecha-inicio").val() == "" || $("#txt-fecha-fin").val() == "") {
-                    fn_msjError('<hr><small class="mb-0">Por favor, seleccione la medida de mitigación y el período de las fechas en que se enviarán la iniciativa.</small>');
-                } else {
-                    if (cont > 0) {
-                        fn_asignarIniciativa(id_iniciativa, $("#lista-actor-enviar").data("paquete"), $("#cbo-actor-paquete").val());
-                    } else {
-                        fn_msjError('<hr><small class="mb-0">Por favor, seleccione una o más iniciativas para enviar al Evaluador.</small>');
-                    }                    
-                }                
-            //} else if ($("#cbo-actor-paquete").val() == 5 && cont == 1) {                
-                //  fn_asignarIniciativa(id_iniciativa, $("#lista-actor-enviar").data("paquete"));   
-            } else if ($("#cbo-actor-paquete").val() == 5) {
-                if (cont > 0) {                    
+        if ($("#cbo-actor-paquete").val() == 4) {
+            if ($("#cbo-medida-mitigacion").val() == 0 || $("#txt-fecha-inicio").val() == "" || $("#txt-fecha-fin").val() == "") {
+                fn_msjError('<hr><small class="mb-0">Por favor, seleccione la medida de mitigación y el período de las fechas en que se enviarán la iniciativa.</small>');
+            } else {
+                if (cont > 0) {
                     fn_asignarIniciativa(id_iniciativa, $("#lista-actor-enviar").data("paquete"), $("#cbo-actor-paquete").val());
                 } else {
-                    fn_msjError('<hr><small class="mb-0">Por favor, seleccione una o más iniciativas para enviar al Verificador.</small>');
+                    fn_msjError('<hr><small class="mb-0">Por favor, seleccione una o más iniciativas para enviar al Evaluador.</small>');
                 }
-            //} else if ($("#cbo-actor-paquete").val() == 5 && cont > 0) {
-                //fn_msjError('<hr><small class="mb-0">Por favor, seleccione solo una iniciativa para el envío de la iniciativa al Verificador.</small>');
-            //} else if (cont == 0) {
-                //fn_msjError('<hr><small class="mb-0">Por favor, seleccione la iniciativa que se enviará al Verificador.</small>');
             }
+            //} else if ($("#cbo-actor-paquete").val() == 5 && cont == 1) {                
+            //  fn_asignarIniciativa(id_iniciativa, $("#lista-actor-enviar").data("paquete"));   
+        } else if ($("#cbo-actor-paquete").val() == 5) {
+            if (cont > 0) {
+                fn_asignarIniciativa(id_iniciativa, $("#lista-actor-enviar").data("paquete"), $("#cbo-actor-paquete").val());
+            } else {
+                fn_msjError('<hr><small class="mb-0">Por favor, seleccione una o más iniciativas para enviar al Verificador.</small>');
+            }
+            //} else if ($("#cbo-actor-paquete").val() == 5 && cont > 0) {
+            //fn_msjError('<hr><small class="mb-0">Por favor, seleccione solo una iniciativa para el envío de la iniciativa al Verificador.</small>');
+            //} else if (cont == 0) {
+            //fn_msjError('<hr><small class="mb-0">Por favor, seleccione la iniciativa que se enviará al Verificador.</small>');
+        }
     } else {
         fn_msjError('<hr><small class="mb-0">Por favor, seleccione a un evaluador o verificador para el envío de la(s) iniciativa(s).</small>');
-    }    
+    }
 }
 
 function fn_msjError(error) {
@@ -1980,7 +2036,7 @@ function fn_asignarIniciativa(id_iniciativa, id_actor, rol) {
         ID_MEDMIT: $("#cbo-medida-mitigacion").val()
     };
     var respuesta = MRV.Ajax(baseUrl + "Gestion/AsignarIniciativaMasivo", item, false);
-    if (respuesta.success) {        
+    if (respuesta.success) {
         $("#pieCorrecto").show();
         $("#msjCorrectoPaquete").removeAttr("hidden");
         resetearValores(); //add
@@ -1999,9 +2055,17 @@ function fn_mostrarUsuarioRecordatorio(id) {
     };
     $.ajax({
         url: baseUrl + "Gestion/MostrarUsuarioRecordatorio",
-        type: 'POST',
-        datatype: 'json',
-        data: item,
+        //type: 'POST',
+        //datatype: 'json',
+        //data: item,
+
+        type: "POST",
+        //url: nurl,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        //async: false,
+        data: JSON.stringify(item),
+
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
@@ -2013,7 +2077,7 @@ function fn_mostrarUsuarioRecordatorio(id) {
                         $("#btn-recordatorio").data("inic", id);
                         if (rol == 1) {
                             color = "02";
-                        } else if (rol == 2){
+                        } else if (rol == 2) {
                             color = "03";
                         } else if (rol == 3) {
                             color = "06";
@@ -2028,6 +2092,13 @@ function fn_mostrarUsuarioRecordatorio(id) {
                     }
                 }
             }
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
         }
     });
 
@@ -2167,10 +2238,10 @@ $("#modal-aprobacion-evaluador").on("hidden.bs.modal", function () {
 
 
 function fn_visualizarBlockchain(idBlock) {
-    if ($("#block-" + idBlock).data("block") == 1){
+    if ($("#block-" + idBlock).data("block") == 1) {
         fn_mostrarBlockchain(idBlock);
     } else {
-        fn_descargarCertificado(idBlock);        
+        fn_descargarCertificado(idBlock);
     }
 }
 
@@ -2200,12 +2271,11 @@ function fn_mostrarBlockchain(idBlock) {
             $("#block-" + idBlock).data("block", 1);
         },
         failure: function (msg) {
-            alert(msg);
-            rsp = msg;
+            console.log(msg);
         },
         error: function (xhr, status, error) {
-            alert(error);
-            rsp = error;
+            console.log(error);
+            location.href = baseUrl + "Home/login";
         }
     });
 }
@@ -2239,12 +2309,11 @@ function fn_descargarCertificado(idBlock) {
             $("#block-" + idBlock).data("block", 1);
         },
         failure: function (msg) {
-            alert(msg);
-            rsp = msg;
+            console.log(msg);
         },
         error: function (xhr, status, error) {
-            alert(error);
-            rsp = error;
+            console.log(error);
+            location.href = baseUrl + "Home/login";
         }
     });
 }
@@ -2338,9 +2407,17 @@ function mostrarObservacion(id) {
     };
     $.ajax({
         url: baseUrl + "Gestion/MostrarMensajeObservacion",
-        type: 'POST',
-        datatype: 'json',
-        data: item,
+        //type: 'POST',
+        //datatype: 'json',
+        //data: item,
+
+        type: "POST",
+        //url: nurl,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        //async: false,
+        data: JSON.stringify(item),
+
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
@@ -2364,6 +2441,13 @@ function mostrarObservacion(id) {
             } else {
                 $('#modal-observaciones-none').modal('show');
             }
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
         }
     });
 
@@ -2390,4 +2474,19 @@ function verObservSeguimiento() {
     location.href = baseUrl + "Gestion/SeguimientoIniciativa/" + id + "/" + Math.round(Math.random() * 100);
 }
 
+//add 05-06-2020
+function validarEstado() {
+
+    if ($("#blk").data("blk") == 0) {
+        $("#blk").data("blk", 1);
+    } else {
+        $("#blk").data("blk", 0);
+        $("#txa-bloackchain").val("");
+    }
+
+}
+
+function formatoMiles(n) { //add20
+    return n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+}
 

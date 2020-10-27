@@ -20,6 +20,7 @@
                                 }
                             }
                         }
+                        validarmodal();
                     } else {
                         var msj = '<textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="8" readonly placeholder="Ingrese una descripción para su acción de mitigación">';
                         for (var j = 0; j < data.length; j++) {
@@ -29,6 +30,7 @@
                         $("#campoUbicacion").append(msj);
                     }                    
                 }
+               
             }
         }
     });
@@ -162,6 +164,7 @@ function fn_cargarIniciativa() {
                         if (data[i]["PRIVACIDAD_INVERSION"] == 1) {
                             $("#chk-publicar-monto-inversion").prop("checked", true);
                         }
+                        validarmodal();
                     }
                 }
             }
@@ -312,56 +315,53 @@ function fn_procesoIniciativa(url, estado) {
         monto_inversion = monto_inversion.replace(/,/gi, '');
 
     //=============================================================================== VALIDAR
-        var validar_ini = 0;
-        if (estado == 1 || estado == 5) {
-            var item = {
-                ID_INICIATIVA: $("#Control").data("iniciativa"),
-                ID_MEDMIT: $("#Control").data("mitigacion"),
-                ID_USUARIO: $("#Control").data("usuario"),
-                NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
-                UBICACION: ubi_verificar,
-                INVERSION_INICIATIVA: monto_inversion,
-                ID_MONEDA: $("#cbo-moneda").val(),
-                FECHA_IMPLE_INICIATIVA: $("#txt-fecha-inicio").val()
-            };
-            var respuesta = MRV.Ajax(baseUrl + "Gestion/VerificarIniciativaMitigacion", item, false);
-            if (respuesta.success) {
-                debugger;
-                if (parseInt(respuesta.extra) > 0) {
-                    validar_ini = 1;
-                }
-            } else {
-                validar_ini = 1;
-            }
-        }   
+        //var validar_ini = 0;
+        //if (estado == 1 || estado == 5) {
+        //    var item = {
+        //        ID_INICIATIVA: $("#Control").data("iniciativa"),
+        //        ID_MEDMIT: $("#Control").data("mitigacion"),
+        //        ID_USUARIO: $("#Control").data("usuario"),
+        //        NOMBRE_INICIATIVA: $("#txa-nombre-iniciativa").val(),
+        //        UBICACION: ubi_verificar,
+        //        INVERSION_INICIATIVA: monto_inversion,
+        //        ID_MONEDA: $("#cbo-moneda").val(),
+        //        FECHA_IMPLE_INICIATIVA: $("#txt-fecha-inicio").val()
+        //    };
+        //    var respuesta = MRV.Ajax(baseUrl + "Gestion/VerificarIniciativaMitigacion", item, false);
+        //    if (respuesta.success) {
+        //        debugger;
+        //        if (parseInt(respuesta.extra) > 0) {
+        //            validar_ini = 1;
+        //        }
+        //    } else {
+        //        validar_ini = 1;
+        //    }
+        //}   
 
-        if (validar_ini == 1) {
-            var msj = '                       <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="mensajeDangerRegistro">';
-            msj = msj + '                            <div class="alert-wrap mr-3">';
-            msj = msj + '                                <div class="sa">';
-            msj = msj + '                                    <div class="sa-error">';
-            msj = msj + '                                       <div class="sa-error-x">';
-            msj = msj + '                                           <div class="sa-error-left"></div>';
-            msj = msj + '                                           <div class="sa-error-right"></div>';
-            msj = msj + '                                       </div>';
-            msj = msj + '                                       <div class="sa-error-placeholder"></div>';
-            msj = msj + '                                       <div class="sa-error-fix"></div>';
-            msj = msj + '                                   </div>';
-            msj = msj + '                               </div>';
-            msj = msj + '                           </div>';
-            msj = msj + '                           <div class="alert-wrap">';
-            msj = msj + '                                <h6>Error de registro</h6>';
-            msj = msj + '                                <hr><small class="mb-0">Ya existe una acción de mitigación con estos datos, por favor verificar</small>';
-            msj = msj + '                           </div>';
-            msj = msj + '                     </div>';
-            //if ($("#Control").data("iniciativa") == 0) {
-                $("#solicitar-revision #modalRegistrarBoton").hide();
-                $("#pieCorrecto").show();
-                //$("#Control").data("modal", 1);
-            //}
-            $('#mensajeModalRegistrar').append(msj);
-            return false;
-        }
+        //if (validar_ini == 1) {
+        //    var msj = '                       <div class="alert alert-danger d-flex align-items-stretch" role="alert" id="mensajeDangerRegistro">';
+        //    msj = msj + '                            <div class="alert-wrap mr-3">';
+        //    msj = msj + '                                <div class="sa">';
+        //    msj = msj + '                                    <div class="sa-error">';
+        //    msj = msj + '                                       <div class="sa-error-x">';
+        //    msj = msj + '                                           <div class="sa-error-left"></div>';
+        //    msj = msj + '                                           <div class="sa-error-right"></div>';
+        //    msj = msj + '                                       </div>';
+        //    msj = msj + '                                       <div class="sa-error-placeholder"></div>';
+        //    msj = msj + '                                       <div class="sa-error-fix"></div>';
+        //    msj = msj + '                                   </div>';
+        //    msj = msj + '                               </div>';
+        //    msj = msj + '                           </div>';
+        //    msj = msj + '                           <div class="alert-wrap">';
+        //    msj = msj + '                                <h6>Error de registro</h6>';
+        //    msj = msj + '                                <hr><small class="mb-0">Ya existe una acción de mitigación con estos datos, por favor verificar</small>';
+        //    msj = msj + '                           </div>';
+        //    msj = msj + '                     </div>';
+        //    $("#solicitar-revision #modalRegistrarBoton").hide();
+        //    $("#pieCorrecto").show();
+        //    $('#mensajeModalRegistrar').append(msj);
+        //    return false;
+        //}
     //===============================================================================================
 
     //========================================================================== VALIDAR REVISION
@@ -821,9 +821,10 @@ function fn_ListarUbicacion() {
                     $("#listaUbicacion").append(check);
                 }
                 $("#listaUbicacion").data("cantidad", data.length);
-            }
+            }            
         }
         CargarMoneda();
+        
     });
 }
 
@@ -1174,6 +1175,17 @@ function CorreoAdmin() {
 }
 
 $(document).ready(function () {
+    //$('[class="fas fa-paper-plane px-1"]').parent().parent().addClass('d-none');   
+    
+    $('[data-target="#solicitar-revision"]').removeAttr('data-toggle');
+    $('.solicita').parent().parent().removeAttr('data-toggle');
+    $('#listaUbicacion').on('change', (e) => validarmodal());
+    $('#txt-fecha-inicio').on('blur', (e) => validarmodal());
+    $('#cbo-tipo-iniciativa-mitigacion').on('change', (e) => validarmodal());
+    $('#txa-nombre-iniciativa').on('blur', (e) => validarmodal());
+    $('#txa-descripcion-medida').on('blur', (e) => validarmodal());
+    
+    //============================================
     inicio();    
     if ($("#iniciativa_mit_ID_INICIATIVA").val() > 0) {
         $("#Control").data("iniciativa", $("#iniciativa_mit_ID_INICIATIVA").val());
@@ -1187,7 +1199,7 @@ $(document).ready(function () {
     }    
     $("#Control").data("revision", $("#revision").val());
     fn_ListarMedidaMitigacion();
-    CorreoAdmin();
+    CorreoAdmin();    
 });
 
 //$(document).on("change", "#cbo-medida-mitigacion-seleccionada", function () {
@@ -1285,7 +1297,7 @@ function ValidarRevision(id_ini, id_plazo, id_msj, mensaje) {
 }
 
 //======================================================================
-function fn_habilitarTodo() {
+function fn_habilitarTodo() {    
     var validar = 0;
     if ($("#chk-send-im").prop("checked")) {
         validar = 0;
@@ -1313,7 +1325,7 @@ function fn_habilitarTodo() {
         //    ubi_verificar += $('#U' + (i + 1)).data("value") + ",";
         //}
     }
-
+    validarmodal(); //<------
 
     //var row = $("#tabla-iniciativa").find("tbody").find("tr");
     //row.each(function (index, value) {
@@ -1326,4 +1338,21 @@ function fn_habilitarTodo() {
 
     //});
 
+}
+
+
+var validarmodal = () => {
+    //$('[class="fas fa-paper-plane px-1"]').parent().parent().addClass('d-none');
+    $('[data-target="#solicitar-revision"]').removeAttr('data-toggle');
+    let i = 0, verif = false;
+    $('[id^=U]').each((x, y) => { i++;
+        if ($(y).prop('checked')) verif = true;
+    });
+    if (!verif) return;
+    if ($('#txt-fecha-inicio').val() == "") return;
+    if ($('#cbo-tipo-iniciativa-mitigacion').val() == 0) return; 
+    if ($('#txa-nombre-iniciativa').val().trim() == "") return;
+    if ($('#txa-descripcion-medida').val().trim() == "") return;
+    //$('[class="fas fa-paper-plane px-1"]').parent().parent().removeClass('d-none');
+    $('[data-target="#solicitar-revision"]').attr('data-toggle', 'modal');
 }

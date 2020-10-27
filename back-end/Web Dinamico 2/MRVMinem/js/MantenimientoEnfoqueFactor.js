@@ -664,3 +664,60 @@ $(document).on("keydown", ".validar", function (event) {
         return false;
     }
 });
+
+var fn_recalcular = () => {
+    var item = {};
+    $.ajax({
+        url: baseUrl + 'Mantenimiento/RecalcularValores',
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: JSON.stringify(item),
+        success: function (data) {
+            if (data != null && data != "") {
+                $('#modal-rpt').modal('show');
+                if (data) $('#titulo-rpt').html('<h6 class="text-center">Se realizaron correctamente los cálculos</h6>');
+                else $('#titulo-rpt').html('<h6 class="text-center">Ocurrió un problema en los cálculos</h6>');
+            }
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
+        },
+        beforeSend: function () {
+            console.log('before send');
+            $("#carga-preload-ini").html("<i Class='fas fa-spinner fa-spin px-1 fa-2x'></i>");
+            $("#titulo-carga-ini").removeClass("d-none");
+            $('#modal-carga').modal('show');
+            $("#block-page-carga").show();
+        },
+        complete: function () {
+            console.log('complete send');
+            $("#block-page-carga").hide();
+            $("#carga-preload-ini").html("");
+            $("#titulo-carga-ini").addClass("d-none");
+            $('#modal-carga').modal('hide');
+        }
+    });
+}
+
+var estiloblockpage = () => {
+    width = $('body').css('width');
+    height = $('body').css('height');
+    $("#block-page-carga").css("position", "fixed");
+    $("#block-page-carga").css("top", "0");
+    $("#block-page-carga").css("left", "0");
+    $("#block-page-carga").css("width", width);
+    $("#block-page-carga").css("height", height);
+    $("#block-page-carga").css("opacity", ".1");
+    $("#block-page-carga").css("background-color", "#fff");
+    $("#block-page-carga").css("z-index", "2000");
+    $("#block-page-carga").css("display", "none");
+}
+
+$(document).ready(function () {
+    estiloblockpage();
+});

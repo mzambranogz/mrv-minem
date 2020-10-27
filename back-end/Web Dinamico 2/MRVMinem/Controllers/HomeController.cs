@@ -251,6 +251,11 @@ namespace MRVMinem.Controllers
                     Session["nombreRol"] = item.ROL;
                     Session["colorRol"] = "05";
                 }
+                else if (item.ID_ROL == 7)
+                {
+                    Session["nombreRol"] = item.ROL;
+                    Session["colorRol"] = "01";
+                }
                 Session["id_sector"] = item.ID_SECTOR_INST; //add
                 Session["institucion"] = item.INSTITUCION;
                 Session["direccion"] = item.DIRECCION;

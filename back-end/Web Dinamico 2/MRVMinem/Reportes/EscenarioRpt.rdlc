@@ -79,7 +79,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.09771cm</Width>
+              <Width>1.44167cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.39417cm</Width>
@@ -91,14 +91,14 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="BAU_EMISION">
+                    <Textbox Name="REDUCCION">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!BAU_EMISION.Value)</Value>
+                              <Value>=Sum(Fields!REDUCCION.Value)</Value>
                               <Style>
                                 <FontSize>7pt</FontSize>
                                 <Format>#,0.00;(#,0.00)</Format>
@@ -110,7 +110,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>BAU_EMISION</rd:DefaultName>
+                      <rd:DefaultName>REDUCCION</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -132,7 +132,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!BAU_EMISION.Value)</Value>
+                              <Value>=Sum(Fields!REDUCCION.Value)</Value>
                               <Style>
                                 <FontSize>7pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -146,155 +146,6 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox10</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>11pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-              </TablixCells>
-            </TablixRow>
-            <TablixRow>
-              <Height>0.6cm</Height>
-              <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="MIT_EMISION">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Sum(Fields!MIT_EMISION.Value)</Value>
-                              <Style>
-                                <FontSize>7pt</FontSize>
-                                <Format>#,0.00;(#,0.00)</Format>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>MIT_EMISION</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>11pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox11">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Sum(Fields!MIT_EMISION.Value)</Value>
-                              <Style>
-                                <FontSize>7pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <Format>#,0.00;(#,0.00)</Format>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox11</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>11pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-              </TablixCells>
-            </TablixRow>
-            <TablixRow>
-              <Height>0.6cm</Height>
-              <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox8">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Sum(Fields!BAU_EMISION.Value) - Sum(Fields!MIT_EMISION.Value)</Value>
-                              <Style>
-                                <FontSize>7pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <Format>#,0.00;(#,0.00)</Format>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox8</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>11pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox12">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Sum(Fields!BAU_EMISION.Value) - Sum(Fields!MIT_EMISION.Value)</Value>
-                              <Style>
-                                <FontSize>7pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <Format>#,0.00;(#,0.00)</Format>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox12</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -469,35 +320,7 @@
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>Escenario </Value>
-                                <Style>
-                                  <FontSize>8pt</FontSize>
-                                  <FontWeight>Bold</FontWeight>
-                                </Style>
-                              </TextRun>
-                            </TextRuns>
-                            <Style>
-                              <TextAlign>Center</TextAlign>
-                            </Style>
-                          </Paragraph>
-                          <Paragraph>
-                            <TextRuns>
-                              <TextRun>
-                                <Value>BAU</Value>
-                                <Style>
-                                  <FontSize>8pt</FontSize>
-                                  <FontWeight>Bold</FontWeight>
-                                </Style>
-                              </TextRun>
-                            </TextRuns>
-                            <Style>
-                              <TextAlign>Center</TextAlign>
-                            </Style>
-                          </Paragraph>
-                          <Paragraph>
-                            <TextRuns>
-                              <TextRun>
-                                <Value />
+                                <Value>Emisiones de GEI reducidas</Value>
                                 <Style>
                                   <FontSize>8pt</FontSize>
                                   <FontWeight>Bold</FontWeight>
@@ -527,109 +350,15 @@
                     <TablixMember />
                   </TablixMembers>
                 </TablixMember>
-                <TablixMember>
-                  <TablixHeader>
-                    <Size>2.3602cm</Size>
-                    <CellContents>
-                      <Textbox Name="Textbox13">
-                        <CanGrow>true</CanGrow>
-                        <KeepTogether>true</KeepTogether>
-                        <Paragraphs>
-                          <Paragraph>
-                            <TextRuns>
-                              <TextRun>
-                                <Value>Escenario Mitigación</Value>
-                                <Style>
-                                  <FontSize>8pt</FontSize>
-                                  <FontWeight>Bold</FontWeight>
-                                </Style>
-                              </TextRun>
-                            </TextRuns>
-                            <Style>
-                              <TextAlign>Center</TextAlign>
-                            </Style>
-                          </Paragraph>
-                          <Paragraph>
-                            <TextRuns>
-                              <TextRun>
-                                <Value />
-                                <Style>
-                                  <FontSize>8pt</FontSize>
-                                  <FontWeight>Bold</FontWeight>
-                                </Style>
-                              </TextRun>
-                            </TextRuns>
-                            <Style>
-                              <TextAlign>Center</TextAlign>
-                            </Style>
-                          </Paragraph>
-                        </Paragraphs>
-                        <rd:DefaultName>Textbox13</rd:DefaultName>
-                        <Style>
-                          <Border>
-                            <Style>Solid</Style>
-                          </Border>
-                          <BackgroundColor>WhiteSmoke</BackgroundColor>
-                          <PaddingLeft>2pt</PaddingLeft>
-                          <PaddingRight>2pt</PaddingRight>
-                          <PaddingTop>7pt</PaddingTop>
-                          <PaddingBottom>2pt</PaddingBottom>
-                        </Style>
-                      </Textbox>
-                    </CellContents>
-                  </TablixHeader>
-                  <TablixMembers>
-                    <TablixMember />
-                  </TablixMembers>
-                </TablixMember>
               </TablixMembers>
-            </TablixMember>
-            <TablixMember>
-              <TablixHeader>
-                <Size>2.3602cm</Size>
-                <CellContents>
-                  <Textbox Name="Textbox7">
-                    <CanGrow>true</CanGrow>
-                    <KeepTogether>true</KeepTogether>
-                    <Paragraphs>
-                      <Paragraph>
-                        <TextRuns>
-                          <TextRun>
-                            <Value>Total Reducido</Value>
-                            <Style>
-                              <FontSize>8pt</FontSize>
-                              <FontWeight>Bold</FontWeight>
-                            </Style>
-                          </TextRun>
-                        </TextRuns>
-                        <Style>
-                          <TextAlign>Center</TextAlign>
-                        </Style>
-                      </Paragraph>
-                    </Paragraphs>
-                    <rd:DefaultName>Textbox7</rd:DefaultName>
-                    <Style>
-                      <Border>
-                        <Style>Solid</Style>
-                      </Border>
-                      <BackgroundColor>WhiteSmoke</BackgroundColor>
-                      <PaddingLeft>2pt</PaddingLeft>
-                      <PaddingRight>2pt</PaddingRight>
-                      <PaddingTop>9pt</PaddingTop>
-                      <PaddingBottom>2pt</PaddingBottom>
-                    </Style>
-                  </Textbox>
-                </CellContents>
-              </TablixHeader>
-              <KeepWithGroup>Before</KeepWithGroup>
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DsEscenario</DataSetName>
         <Top>4.12433cm</Top>
         <Left>2.161cm</Left>
-        <Height>2.4cm</Height>
-        <Width>5.85208cm</Width>
+        <Height>1.2cm</Height>
+        <Width>6.19604cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -645,15 +374,6 @@
                 <GroupExpressions>
                   <GroupExpression>=Fields!ANNO.Value</GroupExpression>
                 </GroupExpressions>
-                <Filters>
-                  <Filter>
-                    <FilterExpression>=Fields!ANNO.Value</FilterExpression>
-                    <Operator>GreaterThanOrEqual</Operator>
-                    <FilterValues>
-                      <FilterValue DataType="Integer">2018</FilterValue>
-                    </FilterValues>
-                  </Filter>
-                </Filters>
               </Group>
               <SortExpressions>
                 <SortExpression>
@@ -667,32 +387,30 @@
         <ChartSeriesHierarchy>
           <ChartMembers>
             <ChartMember>
-              <Label>BAU EMISION</Label>
-            </ChartMember>
-            <ChartMember>
-              <Label>MIT EMISION</Label>
+              <Label>REDUCCION</Label>
             </ChartMember>
           </ChartMembers>
         </ChartSeriesHierarchy>
         <ChartData>
           <ChartSeriesCollection>
-            <ChartSeries Name="BAU_EMISION">
+            <ChartSeries Name="REDUCCION">
               <ChartDataPoints>
                 <ChartDataPoint>
                   <ChartDataPointValues>
-                    <Y>=Sum(Fields!BAU_EMISION.Value)</Y>
+                    <Y>=Sum(Fields!REDUCCION.Value)</Y>
                   </ChartDataPointValues>
                   <ChartDataLabel>
                     <Style />
                   </ChartDataLabel>
-                  <Style />
+                  <Style>
+                    <Color>#ffc154</Color>
+                  </Style>
                   <ChartMarker>
                     <Style />
                   </ChartMarker>
                   <DataElementOutput>Output</DataElementOutput>
                 </ChartDataPoint>
               </ChartDataPoints>
-              <Type>Line</Type>
               <Style />
               <ChartEmptyPoints>
                 <Style />
@@ -703,46 +421,6 @@
                   <Style />
                 </ChartDataLabel>
               </ChartEmptyPoints>
-              <ChartItemInLegend>
-                <LegendText>Escenario BaU</LegendText>
-              </ChartItemInLegend>
-              <ValueAxisName>Primary</ValueAxisName>
-              <CategoryAxisName>Primary</CategoryAxisName>
-              <ChartSmartLabel>
-                <CalloutLineColor>Black</CalloutLineColor>
-                <MinMovingDistance>0pt</MinMovingDistance>
-              </ChartSmartLabel>
-            </ChartSeries>
-            <ChartSeries Name="MIT_EMISION">
-              <ChartDataPoints>
-                <ChartDataPoint>
-                  <ChartDataPointValues>
-                    <Y>=Sum(Fields!MIT_EMISION.Value)</Y>
-                  </ChartDataPointValues>
-                  <ChartDataLabel>
-                    <Style />
-                  </ChartDataLabel>
-                  <Style />
-                  <ChartMarker>
-                    <Style />
-                  </ChartMarker>
-                  <DataElementOutput>Output</DataElementOutput>
-                </ChartDataPoint>
-              </ChartDataPoints>
-              <Type>Line</Type>
-              <Style />
-              <ChartEmptyPoints>
-                <Style />
-                <ChartMarker>
-                  <Style />
-                </ChartMarker>
-                <ChartDataLabel>
-                  <Style />
-                </ChartDataLabel>
-              </ChartEmptyPoints>
-              <ChartItemInLegend>
-                <LegendText>Escenario mitigación</LegendText>
-              </ChartItemInLegend>
               <ValueAxisName>Primary</ValueAxisName>
               <CategoryAxisName>Primary</CategoryAxisName>
               <ChartSmartLabel>
@@ -758,6 +436,7 @@
               <ChartAxis Name="Primary">
                 <Style>
                   <FontSize>9pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
                 </Style>
                 <ChartAxisTitle>
                   <Caption />
@@ -836,9 +515,11 @@
               <ChartAxis Name="Primary">
                 <Style>
                   <FontSize>8pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <Format>#,0;(#,0)</Format>
                 </Style>
                 <ChartAxisTitle>
-                  <Caption>tCO2eq</Caption>
+                  <Caption />
                   <Style>
                     <FontSize>9pt</FontSize>
                     <FontWeight>Bold</FontWeight>
@@ -865,6 +546,7 @@
                 <CrossAt>NaN</CrossAt>
                 <Minimum>NaN</Minimum>
                 <Maximum>NaN</Maximum>
+                <AllowLabelRotation>Rotate45</AllowLabelRotation>
                 <ChartAxisScaleBreak>
                   <Style />
                 </ChartAxisScaleBreak>
@@ -912,12 +594,13 @@
           </ChartArea>
         </ChartAreas>
         <ChartLegends>
-          <ChartLegend Name="Default">
+          <ChartLegend Name="Legend1">
             <Style>
               <BackgroundGradientType>None</BackgroundGradientType>
               <FontSize>8pt</FontSize>
             </Style>
-            <Position>TopCenter</Position>
+            <Position>BottomCenter</Position>
+            <DockOutsideChartArea>true</DockOutsideChartArea>
             <ChartLegendTitle>
               <Caption />
               <Style>
@@ -931,24 +614,38 @@
           </ChartLegend>
         </ChartLegends>
         <ChartTitles>
-          <ChartTitle Name="Default">
-            <Caption>Escenarios por medida de lámparas en el sector público</Caption>
+          <ChartTitle Name="Title2">
+            <Caption />
             <Style>
               <BackgroundGradientType>None</BackgroundGradientType>
+              <FontSize>9pt</FontSize>
               <FontWeight>Bold</FontWeight>
               <TextAlign>General</TextAlign>
               <VerticalAlign>Top</VerticalAlign>
             </Style>
+            <DockToChartArea>Default</DockToChartArea>
+            <DockOutsideChartArea>true</DockOutsideChartArea>
           </ChartTitle>
           <ChartTitle Name="Title1">
-            <Caption>Año</Caption>
+            <Caption>= "Emisiones de GEI reducidas: " &amp; First(Fields!NOMBRE_MEDMIT.Value, "DsEscenario")</Caption>
             <Style>
               <BackgroundGradientType>None</BackgroundGradientType>
               <FontWeight>Bold</FontWeight>
               <TextAlign>General</TextAlign>
               <VerticalAlign>Top</VerticalAlign>
             </Style>
-            <Position>BottomCenter</Position>
+            <DockOutsideChartArea>true</DockOutsideChartArea>
+          </ChartTitle>
+          <ChartTitle Name="Title3">
+            <Caption>tCO2eq</Caption>
+            <Style>
+              <BackgroundGradientType>None</BackgroundGradientType>
+              <FontWeight>Bold</FontWeight>
+              <TextAlign>General</TextAlign>
+              <VerticalAlign>Top</VerticalAlign>
+            </Style>
+            <Position>TopLeft</Position>
+            <DockToChartArea>Default</DockToChartArea>
             <DockOutsideChartArea>true</DockOutsideChartArea>
           </ChartTitle>
         </ChartTitles>
@@ -969,9 +666,9 @@
           </Style>
         </ChartNoDataMessage>
         <DataSetName>DsEscenario</DataSetName>
-        <Top>7.0559cm</Top>
-        <Left>5.29654cm</Left>
-        <Height>6.62277cm</Height>
+        <Top>5.90056cm</Top>
+        <Left>3.37536cm</Left>
+        <Height>8.40458cm</Height>
         <Width>16.66751cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
@@ -983,41 +680,6 @@
           <BackgroundGradientType>None</BackgroundGradientType>
         </Style>
       </Chart>
-      <Textbox Name="Textbox2">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Reporte de escenarios por medida de lámparas en el sector público</Value>
-                <Style>
-                  <FontSize>11pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>2.66912cm</Top>
-        <Left>7.18831cm</Left>
-        <Height>0.78521cm</Height>
-        <Width>12.88397cm</Width>
-        <ZIndex>2</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
       <Textbox Name="Textbox3">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -1035,10 +697,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
+        <Top>0.3175cm</Top>
         <Left>3.69286cm</Left>
         <Height>0.6cm</Height>
         <Width>2.79104cm</Width>
-        <ZIndex>3</ZIndex>
+        <ZIndex>2</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1050,11 +713,11 @@
         </Style>
       </Textbox>
       <Line Name="Line1">
-        <Top>0.59683cm</Top>
+        <Top>1.20854cm</Top>
         <Left>3.69286cm</Left>
         <Height>0cm</Height>
         <Width>3.04271cm</Width>
-        <ZIndex>4</ZIndex>
+        <ZIndex>3</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1068,26 +731,13 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Escenario BAU: </Value>
+                <Value>Emisiones de GEI reducidas : </Value>
                 <Style>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
               <TextRun>
-                <Value>Muestra las emisiones en toneladas de CO</Value>
-                <Style>
-                  <FontWeight>Normal</FontWeight>
-                </Style>
-              </TextRun>
-              <TextRun>
-                <Value>2</Value>
-                <Style>
-                  <FontSize>7pt</FontSize>
-                  <FontWeight>Normal</FontWeight>
-                </Style>
-              </TextRun>
-              <TextRun>
-                <Value>eq(dióxido de carbono) por año, antes de la implementación.</Value>
+                <Value>Cantidad de CO2eq que se evito emitir por medida de mitigación según cada año.</Value>
                 <Style>
                   <FontWeight>Normal</FontWeight>
                 </Style>
@@ -1097,11 +747,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox5</rd:DefaultName>
-        <Top>0.77321cm</Top>
+        <Top>1.38493cm</Top>
         <Left>3.35703cm</Left>
         <Height>0.6cm</Height>
         <Width>20.54653cm</Width>
-        <ZIndex>5</ZIndex>
+        <ZIndex>4</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1119,28 +769,24 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Escenario Mitigación : </Value>
+                <Value>E</Value>
                 <Style>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
               <TextRun>
-                <Value>Muestra las emisiones en toneladas de CO</Value>
+                <Value>misiones de GEI reducidas por medida de mitigación:  </Value>
                 <Style>
-                  <FontWeight>Normal</FontWeight>
+                  <FontStyle>Normal</FontStyle>
+                  <FontWeight>Bold</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
                 </Style>
               </TextRun>
               <TextRun>
-                <Value>2</Value>
+                <Value>=First(Fields!NOMBRE_MEDMIT.Value, "DsEscenario")</Value>
                 <Style>
-                  <FontSize>7pt</FontSize>
-                  <FontWeight>Normal</FontWeight>
-                </Style>
-              </TextRun>
-              <TextRun>
-                <Value>eq (dióxido de carbono) por año, luego de la implementación.</Value>
-                <Style>
-                  <FontWeight>Normal</FontWeight>
+                  <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -1148,11 +794,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox6</rd:DefaultName>
-        <Top>1.5496cm</Top>
-        <Left>3.35703cm</Left>
+        <Top>2.66912cm</Top>
+        <Left>4.78578cm</Left>
         <Height>0.6cm</Height>
-        <Width>20.54653cm</Width>
-        <ZIndex>6</ZIndex>
+        <Width>15.14708cm</Width>
+        <ZIndex>5</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1164,10 +810,10 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>5.96875in</Height>
+    <Height>5.6875in</Height>
     <Style />
   </Body>
-  <Width>28.7cm</Width>
+  <Width>25.71021cm</Width>
   <Page>
     <PageHeader>
       <Height>2.54cm</Height>
@@ -1240,6 +886,50 @@
         </Border>
       </Style>
     </PageHeader>
+    <PageFooter>
+      <Height>0.91433cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox2">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Fuente: Sistema de Gestión de Medición, Reporte y Verificación del sector energía</Value>
+                  <Style>
+                    <FontSize>9pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox2</rd:DefaultName>
+          <Top>0.17639cm</Top>
+          <Left>0.8964cm</Left>
+          <Height>0.6cm</Height>
+          <Width>12.95104cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageFooter>
     <PageHeight>21cm</PageHeight>
     <PageWidth>29.7cm</PageWidth>
     <LeftMargin>0.5cm</LeftMargin>

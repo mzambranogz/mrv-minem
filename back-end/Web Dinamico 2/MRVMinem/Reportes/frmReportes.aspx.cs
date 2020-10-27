@@ -33,6 +33,11 @@ namespace MRVMinem.Reportes
                     {
                         ReporteEscenarios();
                     }
+
+                    else if (Request.QueryString["IdReporte"] == "6")
+                    {
+                        ReporteMedGeneral();
+                    }
                 }
             }
             catch (Exception ex)
@@ -133,9 +138,20 @@ namespace MRVMinem.Reportes
 
         }
 
-        private void ReporteDocumentosMedida()
+        private void ReporteMedGeneral()
         {
+            string rutatarget = ConfigurationManager.AppSettings["RutaReportes"].ToString();
+            MedGeneralRptBE entidad = new MedGeneralRptBE() { ID_MEDMIT = 0 };
 
+            ConfigurarReporte();
+            rvReporte.LocalReport.ReportPath = string.Format("{0}\\rptMedGeneral.rdlc", rutatarget);
+            List<MedGeneralRptBE> lbeReporte = ReporteLN.ListaMedGeneralRpt(entidad);
+
+            ReportDataSource dataSource = new ReportDataSource("DtMedGeneral", lbeReporte);
+
+            rvReporte.LocalReport.DataSources.Clear();
+            rvReporte.LocalReport.DataSources.Add(dataSource);
+            rvReporte.ServerReport.Refresh();
         }
 
         private void ReporteEscenarios()

@@ -52,6 +52,7 @@
     <Compile Include="FichaParametroBE.cs" />
     <Compile Include="IndicadorArchivoBE.cs" />
     <Compile Include="IPCCBE.cs" />
+    <Compile Include="MedGeneralRptBE.cs" />
     <Compile Include="NamaBE.cs" />
     <Compile Include="EnergeticoBE.cs" />
     <Compile Include="EnfoqueBE.cs" />

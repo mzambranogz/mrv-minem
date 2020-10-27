@@ -312,6 +312,7 @@ namespace datos.minem.gob.pe
                     p.Add("pFRECUENCIA", entidad.FRECUENCIA);
                     p.Add("pEDITABLE", entidad.EDITABLE);
                     p.Add("pVERIFICABLE", entidad.VERIFICABLE);
+                    p.Add("pV_DECIMAL", entidad.V_DECIMAL); //add 30-09-20
                     p.Add("pR", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     var COD = db.ExecuteScalar(sp, p, commandType: CommandType.StoredProcedure);
                     int codigo = Convert.ToInt32(COD);

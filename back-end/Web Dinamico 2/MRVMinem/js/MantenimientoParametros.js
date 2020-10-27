@@ -14,9 +14,11 @@
     $("#txt-frecuencia").val("");
     $("#rad-editable").prop("checked", false);
     $("#rad-verificable").prop("checked", false);
+    $("#rad-decimal").prop("checked", false); //add 30-09-20
 
     $("#filas-valor").html("");
     $("#parametros-id").data("eliminar", "");
+    changeTipoControl();
     //$("#control-cbo-" + $("#radio-control").data("tipocontrol")).removeAttr("hidden");
 }
 
@@ -63,13 +65,14 @@ function fn_seleccionarParametro(id) {
                         $("#txt-aseguramiento-calidad").val(data["ASEGURAMIENTO_CALIDAD"]);
                         $("#txt-proposito-parametro").val(data["PROPOSITO"]);
                         $("#txt-frecuencia").val(data["FRECUENCIA"]);
-                        
+                        changeTipoControl();
                         if (data["EDITABLE"] == 1) {
                             $("#rad-editable").prop("checked", true);
                         }
                         if (data["VERIFICABLE"] == 1) {
                             $("#rad-verificable").prop("checked", true);
                         }
+                        $("#rad-decimal").prop("checked", data["V_DECIMAL"] == 1 ? true : false); //add 30-09-20
 
                         if (data["ID_TIPO_CONTROL"] == 1) {
                             var entidad = data["listaDetalle"];
@@ -403,6 +406,7 @@ function guardarParametro() {
     if (verificable) {
         ver = '1'; //0 - PRIVADO : 1 - PUBLICO
     }
+    let decimal = $("#rad-decimal").prop("checked") ? '1' : '0';//add 30-09-20
 
     var id_delete = "";
     if ($("#parametros-id").data("eliminar") != "") {
@@ -417,6 +421,7 @@ function guardarParametro() {
         ID_TIPO_DATO: dato,
         EDITABLE: edi,
         VERIFICABLE: ver,
+        V_DECIMAL: decimal,//add 30-09-20
         NOMBRE_PARAMETRO: $("#txt-nombre-control").val(),
         DESCRIPCION_PARAMETRO: $("#txt-descripcion-parametro").val(),
         COMBINACION_UNIDAD: $("#txt-combinacion-unidades").val(),
@@ -552,5 +557,16 @@ function exportarMantenimiento() {
 }
 
 $(document).ready(function () {
-
+    $('#cbo-tipo-control').on('change', (e) => changeTipoControl());
+    $('#cbo-tipo-dato').on('change', (e) => changeTipoDato());
 });
+
+var changeTipoControl = () => {
+    if ($('#cbo-tipo-control').val() == 'txt') { $('.opc-decimal').removeClass('d-none'); changeTipoDato();}
+    else $('.opc-decimal').addClass('d-none');
+}
+
+var changeTipoDato = () => {
+    if ($('#cbo-tipo-dato').val() == 2) $('.opc-decimal').removeClass('d-none');
+    else $('.opc-decimal').addClass('d-none');
+}

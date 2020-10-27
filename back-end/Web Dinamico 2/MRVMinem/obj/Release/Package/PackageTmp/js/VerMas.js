@@ -217,7 +217,11 @@ function formatoMiles(n) { //add20
 
 $(document).ready(function () {
     var monto = $("#txt-monto-inversion").val();
-    $("#txt-monto-inversion").val(formatoMiles(monto)); //add20
+    //$("#txt-monto-inversion").val(formatoMiles(monto)); //add20
+
+    if (monto != "------") { // add 030620
+        $("#txt-monto-inversion").val(formatoMiles(monto)); //add20
+    }
 
     //$("#Control").data("iniciativa", $("#iniciativa").val());
     if ($("#iniciativa_mit_ID_INICIATIVA").val() > 0) {

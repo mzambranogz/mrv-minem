@@ -1,0 +1,926 @@
+26/10/2020 18:16:29: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_INICIATIVA_MITIGACION' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:16:29: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_INICIATIVA_MITIGACION' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:16:29: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_INICIATIVA_MITIGACION' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:16:29: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_INICIATIVA_MITIGACION' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:16:29: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_INICIATIVA_MITIGACION' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:16:29: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_INICIATIVA_MITIGACION' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:16:29: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_INICIATIVA_MITIGACION' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:16:29: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_INICIATIVA_MITIGACION' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:16:29: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_INICIATIVA_MITIGACION' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:16:29: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_INICIATIVA_MITIGACION' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:16:29: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.MedidaMitigacionBE] ListarMedidaMitigacion(entidad.minem.gob.pe.MedidaMitigacionBE), Línea: 30] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_INICIATIVA_MITIGACION' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:16:35: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_REPORTES' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:16:35: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_REPORTES' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:16:35: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_REPORTES' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:16:35: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_REPORTES' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:16:35: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_REPORTES' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:16:35: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_REPORTES' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:16:35: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_REPORTES' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:16:35: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_REPORTES' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:16:35: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_REPORTES' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:16:35: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_REPORTES' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:16:35: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] MostrarGeiporAnio(entidad.minem.gob.pe.IniciativaBE), Línea: 1457] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_REPORTES' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:16:59: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_INICIATIVA_MITIGACION' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:16:59: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_INICIATIVA_MITIGACION' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:16:59: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_INICIATIVA_MITIGACION' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:16:59: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_INICIATIVA_MITIGACION' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:16:59: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_INICIATIVA_MITIGACION' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:16:59: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_INICIATIVA_MITIGACION' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:16:59: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_INICIATIVA_MITIGACION' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:16:59: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_INICIATIVA_MITIGACION' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:16:59: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_INICIATIVA_MITIGACION' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:16:59: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_INICIATIVA_MITIGACION' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:16:59: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.MedidaMitigacionBE] ListarMedidaMitigacion(entidad.minem.gob.pe.MedidaMitigacionBE), Línea: 30] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_INICIATIVA_MITIGACION' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:01: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_REPORTES' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:01: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_REPORTES' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:01: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_REPORTES' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:01: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_REPORTES' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:01: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_REPORTES' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:01: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_REPORTES' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:01: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_REPORTES' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:01: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_REPORTES' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:01: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_REPORTES' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:01: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_REPORTES' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:01: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] MostrarGeiporAnio(entidad.minem.gob.pe.IniciativaBE), Línea: 1457] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_REPORTES' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:23: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:23: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:23: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:23: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:23: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:23: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:23: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:23: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:23: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:23: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:23: [Método: entidad.minem.gob.pe.UsuarioBE ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 248] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:35: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:35: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:35: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:35: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:35: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:35: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:35: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:35: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:35: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:35: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:35: [Método: entidad.minem.gob.pe.UsuarioBE ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 248] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:55: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:55: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:55: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:55: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:55: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:55: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:55: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:55: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:55: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:55: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:17:55: [Método: entidad.minem.gob.pe.UsuarioBE ObtenerPassword(entidad.minem.gob.pe.UsuarioBE), Línea: 248] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:24: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:24: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:24: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:24: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:24: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:24: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:24: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:24: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:24: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:24: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:24: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SectorInstitucionBE] ListaSectorInstitucion(entidad.minem.gob.pe.SectorInstitucionBE), Línea: 33] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:56: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:56: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:56: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:56: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:56: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:56: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:56: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:56: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:56: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:56: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:56: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SectorInstitucionBE] ListaSectorInstitucion(entidad.minem.gob.pe.SectorInstitucionBE), Línea: 33] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:58: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:58: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:58: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:58: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:58: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:58: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:58: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:58: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:58: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:58: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:58: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SectorInstitucionBE] ListaSectorInstitucion(entidad.minem.gob.pe.SectorInstitucionBE), Línea: 33] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:59: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:59: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:59: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:59: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:59: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:59: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:59: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:59: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:59: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:59: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:18:59: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SectorInstitucionBE] ListaSectorInstitucion(entidad.minem.gob.pe.SectorInstitucionBE), Línea: 33] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:19:00: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_INICIATIVA_MITIGACION' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:19:00: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_INICIATIVA_MITIGACION' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:19:00: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_INICIATIVA_MITIGACION' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:19:00: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_INICIATIVA_MITIGACION' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:19:00: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_INICIATIVA_MITIGACION' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:19:00: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_INICIATIVA_MITIGACION' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:19:00: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_INICIATIVA_MITIGACION' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:19:00: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_INICIATIVA_MITIGACION' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:19:00: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_INICIATIVA_MITIGACION' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:19:00: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_INICIATIVA_MITIGACION' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:19:00: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.MedidaMitigacionBE] ListarMedidaMitigacion(entidad.minem.gob.pe.MedidaMitigacionBE), Línea: 30] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_INICIATIVA_MITIGACION' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:19:00: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_REPORTES' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:19:00: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_REPORTES' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:19:00: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_REPORTES' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:19:00: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_REPORTES' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:19:00: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_REPORTES' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:19:00: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_REPORTES' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:19:00: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_REPORTES' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:19:00: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_REPORTES' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:19:00: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_REPORTES' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:19:00: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_REPORTES' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:19:00: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IniciativaBE] MostrarGeiporAnio(entidad.minem.gob.pe.IniciativaBE), Línea: 1457] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_REPORTES' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:19:02: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:19:02: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:19:02: [Método: Oracle.DataAccess.Client.OracleDataReader ExecuteReader(Boolean, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:19:02: [Método: System.Data.Common.DbDataReader ExecuteDbDataReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:19:02: [Método: System.Data.IDataReader System.Data.IDbCommand.ExecuteReader(System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:19:02: [Método: System.Data.IDataReader ExecuteReaderWithFlagsFallback(System.Data.IDbCommand, Boolean, System.Data.CommandBehavior), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:19:02: [Método: Boolean MoveNext(), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:19:02: [Método: Void .ctor(System.Collections.Generic.IEnumerable`1[T]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:19:02: [Método: System.Collections.Generic.List`1[TSource] ToList[TSource](System.Collections.Generic.IEnumerable`1[TSource]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:19:02: [Método: System.Collections.Generic.IEnumerable`1[T] Query[T](System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, Boolean, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:19:02: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.SectorInstitucionBE] ListaSectorInstitucion(entidad.minem.gob.pe.SectorInstitucionBE), Línea: 33] - ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'MRVM.PKG_MRV_ADMIN_SISTEMA' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+26/10/2020 18:39:37: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 18:39:37: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 18:39:37: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 18:39:37: [Método: Int32 ExecuteNonQuery(Oracle.DataAccess.Client.OracleConnection, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 255] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 18:39:37: [Método: Int32 ExecuteNonQuery(System.String, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 178] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 18:39:37: [Método: entidad.minem.gob.pe.InstitucionBE registrarInstitucion(entidad.minem.gob.pe.InstitucionBE), Línea: 130] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 18:49:22: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 18:49:22: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 18:49:22: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 18:49:22: [Método: Int32 ExecuteNonQuery(Oracle.DataAccess.Client.OracleConnection, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 255] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 18:49:22: [Método: Int32 ExecuteNonQuery(System.String, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 178] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 18:49:22: [Método: entidad.minem.gob.pe.InstitucionBE registrarInstitucion(entidad.minem.gob.pe.InstitucionBE), Línea: 130] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 18:58:37: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 18:58:37: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 18:58:37: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 18:58:37: [Método: Int32 ExecuteNonQuery(Oracle.DataAccess.Client.OracleConnection, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 255] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 18:58:37: [Método: Int32 ExecuteNonQuery(System.String, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 178] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 18:58:37: [Método: entidad.minem.gob.pe.InstitucionBE registrarInstitucion(entidad.minem.gob.pe.InstitucionBE), Línea: 130] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 19:02:56: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 19:02:56: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 19:02:56: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 19:02:56: [Método: Int32 ExecuteNonQuery(Oracle.DataAccess.Client.OracleConnection, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 255] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 19:02:56: [Método: Int32 ExecuteNonQuery(System.String, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 178] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 19:02:56: [Método: entidad.minem.gob.pe.InstitucionBE registrarInstitucion(entidad.minem.gob.pe.InstitucionBE), Línea: 130] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 19:09:30: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 19:09:30: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 19:09:30: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 19:09:30: [Método: Int32 ExecuteNonQuery(Oracle.DataAccess.Client.OracleConnection, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 255] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 19:09:30: [Método: Int32 ExecuteNonQuery(System.String, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 178] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 19:09:30: [Método: entidad.minem.gob.pe.InstitucionBE registrarInstitucion(entidad.minem.gob.pe.InstitucionBE), Línea: 130] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 19:59:21: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 19:59:21: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 19:59:21: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 19:59:21: [Método: Int32 ExecuteNonQuery(Oracle.DataAccess.Client.OracleConnection, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 255] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 19:59:21: [Método: Int32 ExecuteNonQuery(System.String, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 178] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 19:59:21: [Método: entidad.minem.gob.pe.InstitucionBE registrarInstitucion(entidad.minem.gob.pe.InstitucionBE), Línea: 130] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 20:01:37: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 20:01:37: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 20:01:37: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 20:01:37: [Método: Int32 ExecuteNonQuery(Oracle.DataAccess.Client.OracleConnection, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 255] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 20:01:37: [Método: Int32 ExecuteNonQuery(System.String, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 178] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 20:01:37: [Método: entidad.minem.gob.pe.InstitucionBE registrarInstitucion(entidad.minem.gob.pe.InstitucionBE), Línea: 130] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 20:15:02: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 20:15:02: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 20:15:02: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 20:15:02: [Método: Int32 ExecuteNonQuery(Oracle.DataAccess.Client.OracleConnection, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 255] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 20:15:02: [Método: Int32 ExecuteNonQuery(System.String, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 178] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 20:15:02: [Método: entidad.minem.gob.pe.InstitucionBE registrarInstitucion(entidad.minem.gob.pe.InstitucionBE), Línea: 130] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 20:17:54: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 20:17:54: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 20:17:54: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 20:17:54: [Método: Int32 ExecuteNonQuery(Oracle.DataAccess.Client.OracleConnection, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 255] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 20:17:54: [Método: Int32 ExecuteNonQuery(System.String, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 178] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 20:17:54: [Método: entidad.minem.gob.pe.InstitucionBE registrarInstitucion(entidad.minem.gob.pe.InstitucionBE), Línea: 130] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 20:21:55: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 20:21:55: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 20:21:55: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 20:21:55: [Método: Int32 ExecuteNonQuery(Oracle.DataAccess.Client.OracleConnection, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 255] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 20:21:55: [Método: Int32 ExecuteNonQuery(System.String, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 178] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 20:21:55: [Método: entidad.minem.gob.pe.InstitucionBE registrarInstitucion(entidad.minem.gob.pe.InstitucionBE), Línea: 130] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 20:57:25: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 20:57:25: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 20:57:25: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 20:57:25: [Método: Int32 ExecuteNonQuery(Oracle.DataAccess.Client.OracleConnection, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 255] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 20:57:25: [Método: Int32 ExecuteNonQuery(System.String, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 178] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 20:57:25: [Método: entidad.minem.gob.pe.InstitucionBE registrarInstitucion(entidad.minem.gob.pe.InstitucionBE), Línea: 130] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 21:05:23: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 21:05:23: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 21:05:23: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 21:05:23: [Método: Int32 ExecuteNonQuery(Oracle.DataAccess.Client.OracleConnection, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 255] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 21:05:23: [Método: Int32 ExecuteNonQuery(System.String, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 178] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 21:05:23: [Método: entidad.minem.gob.pe.InstitucionBE registrarInstitucion(entidad.minem.gob.pe.InstitucionBE), Línea: 130] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 21:22:08: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 21:22:08: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 21:22:08: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 21:22:08: [Método: Int32 ExecuteNonQuery(Oracle.DataAccess.Client.OracleConnection, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 255] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 21:22:08: [Método: Int32 ExecuteNonQuery(System.String, System.Data.CommandType, System.String, Oracle.DataAccess.Client.OracleParameter[]), Línea: 178] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 21:22:08: [Método: entidad.minem.gob.pe.InstitucionBE registrarInstitucion(entidad.minem.gob.pe.InstitucionBE), Línea: 130] - ORA-00001: restricción única (MRVMM.T_GENM_INSTITUCION_PK) violada
+ORA-06512: en "MRVMM.PKG_MRV_ADMIN_SISTEMA", línea 70
+ORA-06512: en línea 1
+26/10/2020 23:55:18: [Método: System.CodeDom.Compiler.CompilerResults Compile(), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: System.CodeDom.Compiler.CompilerResults PerformBuild(), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: System.Web.Compilation.BuildResult CompileWebFile(System.Web.VirtualPath), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: System.Web.Compilation.BuildResult GetVPathBuildResultInternal(System.Web.VirtualPath, Boolean, Boolean, Boolean, Boolean, Boolean), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: System.Web.Compilation.BuildResult GetVPathBuildResultWithNoAssert(System.Web.HttpContext, System.Web.VirtualPath, Boolean, Boolean, Boolean, Boolean, Boolean), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: System.Web.Util.ITypedWebObjectFactory GetVirtualPathObjectFactory(System.Web.VirtualPath, System.Web.HttpContext, Boolean, Boolean), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: System.Type GetCompiledType(System.Web.VirtualPath), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: System.Type GetCompiledType(System.String), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: System.Type System.Web.Mvc.IBuildManager.GetCompiledType(System.String), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: Void Render(System.Web.Mvc.ViewContext, System.IO.TextWriter), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: Void ExecuteResult(System.Web.Mvc.ControllerContext), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: Void InvokeActionResult(System.Web.Mvc.ControllerContext, System.Web.Mvc.ActionResult), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: System.Web.Mvc.ResultExecutedContext InvokeActionResultFilterRecursive(System.Collections.Generic.IList`1[System.Web.Mvc.IResultFilter], Int32, System.Web.Mvc.ResultExecutingContext, System.Web.Mvc.ControllerContext, System.Web.Mvc.ActionResult), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: System.Web.Mvc.ResultExecutedContext InvokeActionResultFilterRecursive(System.Collections.Generic.IList`1[System.Web.Mvc.IResultFilter], Int32, System.Web.Mvc.ResultExecutingContext, System.Web.Mvc.ControllerContext, System.Web.Mvc.ActionResult), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: System.Web.Mvc.ResultExecutedContext InvokeActionResultFilterRecursive(System.Collections.Generic.IList`1[System.Web.Mvc.IResultFilter], Int32, System.Web.Mvc.ResultExecutingContext, System.Web.Mvc.ControllerContext, System.Web.Mvc.ActionResult), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: System.Web.Mvc.ResultExecutedContext InvokeActionResultWithFilters(System.Web.Mvc.ControllerContext, System.Collections.Generic.IList`1[System.Web.Mvc.IResultFilter], System.Web.Mvc.ActionResult), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: Void <BeginInvokeAction>b__1c(), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: Boolean <BeginInvokeAction>b__1e(System.IAsyncResult), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: TResult CallEndDelegate(System.IAsyncResult), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: TResult End(), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: Boolean EndInvokeAction(System.IAsyncResult), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: Void <BeginExecuteCore>b__1d(System.IAsyncResult, ExecuteCoreState), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: System.Web.Mvc.Async.AsyncVoid CallEndDelegate(System.IAsyncResult), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: TResult End(), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: Void EndExecuteCore(System.IAsyncResult), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: Void <BeginExecute>b__15(System.IAsyncResult, System.Web.Mvc.Controller), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: System.Web.Mvc.Async.AsyncVoid CallEndDelegate(System.IAsyncResult), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: TResult End(), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: Void EndExecute(System.IAsyncResult), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: Void System.Web.Mvc.Async.IAsyncController.EndExecute(System.IAsyncResult), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: Void <BeginProcessRequest>b__5(System.IAsyncResult, ProcessRequestState), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: System.Web.Mvc.Async.AsyncVoid CallEndDelegate(System.IAsyncResult), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: TResult End(), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: Void EndProcessRequest(System.IAsyncResult), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: Void System.Web.IHttpAsyncHandler.EndProcessRequest(System.IAsyncResult), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: Void System.Web.HttpApplication.IExecutionStep.Execute(), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: Void ExecuteStepImpl(IExecutionStep), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:18: [Método: System.Exception ExecuteStep(IExecutionStep, Boolean ByRef), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: System.CodeDom.Compiler.CompilerResults Compile(), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: System.CodeDom.Compiler.CompilerResults PerformBuild(), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: System.Web.Compilation.BuildResult CompileWebFile(System.Web.VirtualPath), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: System.Web.Compilation.BuildResult GetVPathBuildResultInternal(System.Web.VirtualPath, Boolean, Boolean, Boolean, Boolean, Boolean), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: System.Web.Compilation.BuildResult GetVPathBuildResultWithNoAssert(System.Web.HttpContext, System.Web.VirtualPath, Boolean, Boolean, Boolean, Boolean, Boolean), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: System.Web.Util.ITypedWebObjectFactory GetVirtualPathObjectFactory(System.Web.VirtualPath, System.Web.HttpContext, Boolean, Boolean), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: System.Type GetCompiledType(System.Web.VirtualPath), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: System.Type GetCompiledType(System.String), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: System.Type System.Web.Mvc.IBuildManager.GetCompiledType(System.String), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: Void Render(System.Web.Mvc.ViewContext, System.IO.TextWriter), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: Void ExecuteResult(System.Web.Mvc.ControllerContext), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: Void InvokeActionResult(System.Web.Mvc.ControllerContext, System.Web.Mvc.ActionResult), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: System.Web.Mvc.ResultExecutedContext InvokeActionResultFilterRecursive(System.Collections.Generic.IList`1[System.Web.Mvc.IResultFilter], Int32, System.Web.Mvc.ResultExecutingContext, System.Web.Mvc.ControllerContext, System.Web.Mvc.ActionResult), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: System.Web.Mvc.ResultExecutedContext InvokeActionResultFilterRecursive(System.Collections.Generic.IList`1[System.Web.Mvc.IResultFilter], Int32, System.Web.Mvc.ResultExecutingContext, System.Web.Mvc.ControllerContext, System.Web.Mvc.ActionResult), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: System.Web.Mvc.ResultExecutedContext InvokeActionResultFilterRecursive(System.Collections.Generic.IList`1[System.Web.Mvc.IResultFilter], Int32, System.Web.Mvc.ResultExecutingContext, System.Web.Mvc.ControllerContext, System.Web.Mvc.ActionResult), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: System.Web.Mvc.ResultExecutedContext InvokeActionResultWithFilters(System.Web.Mvc.ControllerContext, System.Collections.Generic.IList`1[System.Web.Mvc.IResultFilter], System.Web.Mvc.ActionResult), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: Void <BeginInvokeAction>b__1c(), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: Boolean <BeginInvokeAction>b__1e(System.IAsyncResult), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: TResult CallEndDelegate(System.IAsyncResult), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: TResult End(), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: Boolean EndInvokeAction(System.IAsyncResult), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: Void <BeginExecuteCore>b__1d(System.IAsyncResult, ExecuteCoreState), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: System.Web.Mvc.Async.AsyncVoid CallEndDelegate(System.IAsyncResult), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: TResult End(), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: Void EndExecuteCore(System.IAsyncResult), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: Void <BeginExecute>b__15(System.IAsyncResult, System.Web.Mvc.Controller), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: System.Web.Mvc.Async.AsyncVoid CallEndDelegate(System.IAsyncResult), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: TResult End(), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: Void EndExecute(System.IAsyncResult), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: Void System.Web.Mvc.Async.IAsyncController.EndExecute(System.IAsyncResult), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: Void <BeginProcessRequest>b__5(System.IAsyncResult, ProcessRequestState), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: System.Web.Mvc.Async.AsyncVoid CallEndDelegate(System.IAsyncResult), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: TResult End(), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: Void EndProcessRequest(System.IAsyncResult), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: Void System.Web.IHttpAsyncHandler.EndProcessRequest(System.IAsyncResult), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: Void System.Web.HttpApplication.IExecutionStep.Execute(), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: Void ExecuteStepImpl(IExecutionStep), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context
+26/10/2020 23:55:36: [Método: System.Exception ExecuteStep(IExecutionStep, Boolean ByRef), Línea: 0] - C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\Views\Gestion\CorregirDetalleIndicador.cshtml(881): error CS0103: The name 'rol' does not exist in the current context

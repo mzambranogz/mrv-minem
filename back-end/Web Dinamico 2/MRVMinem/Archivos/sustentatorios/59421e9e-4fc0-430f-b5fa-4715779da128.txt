@@ -1,0 +1,204 @@
+
+
+
+=========================================================================
+
+maycol estos docs de SELOOS aun no envian documentos de observacion , hay tiempo}
+
+
+*el documento de manual de configuración de la APP no tengo y no conozco esos archivos para realizar los pasos que permitan que se levante la aplicación movil.En ese caso como se podria manejar?*  y la web ??
+
+El apk ya tiene un avance para verlo?, faltaban unas cosas ahi redactar para el manual del usuario
+
+
+*En el TDR dice que se debe soportar las vulnerabilidades y todo ello, tenia duda con respecto a ello porque crei que era a la aplicación movil, pero indicaste en el excel que sera en la plataforma web, ahora crees que ya se pueda realizar esas pruebas??*
+
+
+*Las pruebas funcionales voy a revisar como debe ser*
+
+
+Sobre la plataforma web, no se si se puedan poner datos en los campos que coloque en la observación para terminar con esa pestaña de "Configuración" y quede pendiente lo demás.
+
+
+
+GUILLERMO
+DANIEL
+MAYCOL 
+FLAVIO
+
+
+
+
+
+maycol.zambrano@grupo-zuniga.com
+Clave: micronics
+
+
+grupoatamar@gmail.com
+123456789
+
+
+
+
+
+
+
+==============
+
+
+Pruebas funcionales *
+
+Pruebas de seguridad *
+
+Resumen ejecutivo general
+
+Recomendaciones funcionales y tecnicas.
+
+
+
+super@admin.com
+micronics
+
+
+
+
+
+================================================
+
+PLANTEAR DUDAS PARA DANIEL
+
+
+El usuario administrador se supone que ya se encontrara en la BD (el primer admin)? ya 
+
+Los otros administradores que puedan existir por donde se registrarian?  puede hacer ejemplo ya
+
+Para cuando se puede tener un ejemplo de los resultados y reportes en la web? ya
+
+La opción de ayuda en la aplicación movil ya esta listo y cambiar contraseña me parece?
+
+ejemplo de registro de usuario y registro del que falta  en la web ese omplicado   ya
+
+cual es la secuencia que se debe registrar para que todo aparezca en el antepenultimo configuración  ya
+
+que archivos se crearon para el diseño de la web, configuraciones, etc  ya
+
+Ubicaciones de los archivos en el servidor (Las rutas).  ya 
+
+Existe algun webconfig? ya 
+
+Se realizo en ISS algun proceso ?? no
+
+Se realizaron permisos a alguna carpeta ??  ya 
+
+Me podrian brindar algunas recomendaciones tecnicas, lo solicita el documento de desarrollo ya
+
+
+lamparas tiene familia pero los campos son los mismos
+
+
+
+===============================
+00-Resumen Ejecutivo General                              100%
+
+0. Resumen Ejecutivo con todos entregables app           100%
+
+1.Especificación de casos de prueba                      100%
+
+2. Manuales de usuario                                   100%
+        Guias rapidas                                     75%            
+
+3. Informe de entrenamiento de usuario                   100%
+
+4. Diccionario de Datos                                  100%
+
+5. Manual de Instalación y Configuración                 100%
+
+6. Informe de Pruebas de usuario y calidad               100%
+
+Casosde Pruebas Funcionales                              100%
+
+
+
+
+================
+
+PASAR A ALFONSO GENERACIÓN DISTRIBUIDA
+
+
+
+
+Se debe instalar un paquete para la instalción de los codigos QR desde la vista del panel administrativo ya que al momento de que se cree el equipo se debe adjuntar el codigo QR y guardarlos.
+
+
+
+=============
+fijarse en el pie de pagina la fecha de actualizacion
+
+
+
+
+----------------------------------------------------------------------------------------------------------
+Usuarios que se manejarán para SRES
+
+=============Postulante
+
+alfredotrelles97@gmail.com
+Flavio2019@
+
+
+=============POSTULANTES POR DEFECTO
+jose@grupo-zuniga.com
+Flavio2019
+
+javier@grupo-zuniga.com
+Flavio2019 
+
+
+
+===================Evaluador
+
+Colegioimperio30@gmail.com
+Flavio2019@
+
+
+
+=== EVALUADORES POR DEFECTO=========
+
+raul@grupo-zuniga.com
+pass: Flavio2019
+
+ mario@grupo-zuniga.com
+pass: Flavio2019
+
+ angelica@grupo-zuniga.com
+pass: Flavio2019
+
+
+
+
+==================Administrador
+
+Grupozu31@gmail.com
+Flavio2019@
+
+
+
+
+
+
+
+
+
+=====================3er entrgable SRES
+
+Resumen ejecutivo general---------------90%             (Falta complementar todo)
+doc1 -----------------------------------60%             (Falta agregar las actualizaciones, se haran mejor al último)
+doc 2 ---------------------------------100%    queda
+doc 3----------------------------------90%              (falta manual de usuario)
+doc 4 ---------------------------------100 %     sujeto a cambio
+doc 5----------------------------------0 %              (Falta se realizara cuando se hagan prueba piloto)   
+doc 6-----------------------------------100%   queda 
+doc 7 ----------------------------------65%              (Falta completar los manuales)
+doc 8 ---------------------------------- 20%              (Falta realizar las capacitaciones)
+doc 9 ---------------------------------100%    queda
+doc 10---------------------------------100%    queda

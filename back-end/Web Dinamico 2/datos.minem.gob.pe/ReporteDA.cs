@@ -96,6 +96,29 @@ namespace datos.minem.gob.pe
             return Lista;
         }
 
+        public List<MedGeneralRptBE> ListaMedGeneralRpt(MedGeneralRptBE entidad)
+        {
+            List<MedGeneralRptBE> Lista = null;
+
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "SP_SEL_ESCENARIOS_RPT";
+                    var p = new OracleDynamicParameters();
+                    p.Add("pIdMedMit", entidad.ID_MEDMIT);
+                    p.Add("pCursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    Lista = db.Query<MedGeneralRptBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return Lista;
+        }
+
 
     }
 }

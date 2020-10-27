@@ -76,6 +76,9 @@ namespace entidad.minem.gob.pe
         public string NOMBRES_REMITENTE { get; set; } //ADD
         public string ROL_REMITENTE { get; set; } //ADD
         public int ID_ROL_REMITENTE { get; set; } //ADD
-        public string ROL { get; set; } //ADD
+        public string ROL { get; set; } //ADD  
+        public string TIPO_AUDITORIA { get; set; }
+        public string AUDITOR_AUDITORIA { get; set; }
+        public string FECHA_AUDITORIA { get; set; }
     }
 }

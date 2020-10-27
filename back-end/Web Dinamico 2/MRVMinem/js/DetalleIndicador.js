@@ -1,4 +1,4 @@
-﻿
+
 var indicadores = new Array();
 var documentos = new Array();
 
@@ -275,9 +275,10 @@ function CargarDatosIniciativa() {
                         $("#txt-nombre-institucion").val(data[i]["INSTITUCION"]);
                         $("#txt-direccion").val(data[i]["DIRECCION"]);
                         $("#txt-sector-institucion").val(data[i]["SECTOR"]);
+                        
                         if (data[i]["INVERSION_INICIATIVA"] != 0) {
                             //$("#txt-monto-inversion").val(data[i]["INVERSION_INICIATIVA"]);
-                            $("#txt-monto-inversion").val(formatoMiles(data[i]["INVERSION_INICIATIVA"])); //add20
+                            $("#txt-monto-inversion").val( data[i]["INVERSION_INICIATIVA"] == null ? '------' : formatoMiles(data[i]["INVERSION_INICIATIVA"])); //add20
                         } else {
                             $("#txt-monto-inversion").val("------");//add 030620
                         }
@@ -317,6 +318,15 @@ function CargarDatosIniciativa() {
                         }
                         if (data[i]["PRIVACIDAD_INVERSION"] == 1) {
                             $("#chk-publicar-monto-inversion").prop("checked", true);
+                        }
+
+                        if (data[i]["ID_MEDMIT"] == 4) {
+                            if (data[i]["TIPO_AUDITORIA"] != null || data[i]["AUDITOR_AUDITORIA"] != null || data[i]["NOMBRE_INSTITUCION"] != null || data[i]["FECHA_AUDITORIA"] != null) {
+                                $('#cbo-tipo_auditoria').val(data[i]["TIPO_AUDITORIA"] == null ? '0' : data[i]["TIPO_AUDITORIA"]);
+                                $('#txt-auditor').val(data[i]["AUDITOR_AUDITORIA"] == null ? '' : data[i]["AUDITOR_AUDITORIA"]);
+                                $('#txt-institucion-auditor').val(data[i]["NOMBRE_INSTITUCION"] == null ? '' : data[i]["NOMBRE_INSTITUCION"]);
+                                $('#fch-fecha-auditoria').val(data[i]["FECHA_AUDITORIA"] == null ? '' : data[i]["FECHA_AUDITORIA"]);
+                            }
                         }
 
                         //if (data[i]["ListaSustentos"] != null) {
@@ -2670,7 +2680,7 @@ function CargarArchivosGuardados() {
                     $("#archivos-documentos").html("");
                     $("#archivos-guardados").html("");
                     for (var i = 0; i < data.length; i++) {
-                        debugger;
+                        
                         var extension = "fa-file-word";
 
                         if (data[i]["ADJUNTO"].includes("pdf")) {
@@ -2730,22 +2740,24 @@ function fn_procesoDetalleIndicador(url, estado) {
     if (estado == 1 || estado == 0) { num_validar = 8 }
     else if (estado == 5 || estado == 6) { num_validar = 11 }
 
-    var mns = ValidarRevision('1', $("#Control").data("iniciativa"), num_validar, "mensajeDangerRegistro", "El detalle de esta acción de mitigación ya fue enviada para su revisión");
+    if (rol_usuario != 7) {
+        var mns = ValidarRevision('1', $("#Control").data("iniciativa"), num_validar, "mensajeDangerRegistro", "El detalle de esta acción de mitigación ya fue enviada para su revisión");
 
-    if (mns != "") {
-        if (estado == 1 || estado == 5) {
-            $("#solicitar-revision #modalRegistrarBoton").hide();
-            $("#pieCorrecto").show();
-            $('#mensajeModalRegistrar').append(mns);
-            $("#Control").data("modal", 1);
-        } else if (estado == 6 || estado == 0) {
-            $("#guardar-avance #modalAvanceBoton").hide();
-            $("#pieCorrectoAvance").show();
-            $('#mensajeModalAvance').append(mns);
-            $("#Control").data("modal", 1);
+        if (mns != "") {
+            if (estado == 1 || estado == 5) {
+                $("#solicitar-revision #modalRegistrarBoton").hide();
+                $("#pieCorrecto").show();
+                $('#mensajeModalRegistrar').append(mns);
+                $("#Control").data("modal", 1);
+            } else if (estado == 6 || estado == 0) {
+                $("#guardar-avance #modalAvanceBoton").hide();
+                $("#pieCorrectoAvance").show();
+                $('#mensajeModalAvance').append(mns);
+                $("#Control").data("modal", 1);
+            }
+            return false;
         }
-        return false;
-    }
+    }    
 
     indicadores = [];
     documentos = [];
@@ -2753,58 +2765,92 @@ function fn_procesoDetalleIndicador(url, estado) {
     var enfoque = $("#cbo-enfoque").val();
     var parametros = "";
     var n = $("#tablaIndicador").find("tbody").find("th").length + 1;
-    var nom = ""
-    //var nom2 = $("#fle-nom-1").val();
+    var nom = "";
+    let arrValores = []; //add 27-09-2020
     for (var fila = 1 ; fila < n; fila++) {
-        debugger;
         var enfoque = $("#cbo-enfoque").val();
-        var ind = $("#cuerpoTablaIndicador #detalles-tr-" + fila).data("ind");
+        var ind = $("#cuerpoTablaIndicador #detalles-tr-" + fila).data("ind") == null ? "0" : $("#cuerpoTablaIndicador #detalles-tr-" + fila).data("ind") == "" ? "0" : $("#cuerpoTablaIndicador #detalles-tr-" + fila).data("ind");
         var filas = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + fila).find("[data-param]");
         var Xfilas = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + fila).find("input[name=fledoc]");
-        var nomarchivo = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + fila).find("[data-nomarchivo]");//add 18-04-2020
+        var nomarchivo = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + fila).find("[data-nomarchivo]");//add 18-04-2020        
+
         if (fn_validarCampoReg(fila)) {
+            let ListaValores = [], nom_t;
             filas.each(function (index, value) {
-                parametros += enfoque + ",";
-                parametros += medida + ",";
-                parametros += $(value).attr("data-param") + ",";
-
-                //===============
-                debugger;
-                var m = $(value).attr("id");
-                m = m.substring(0, 3);
-                if (m == "txt") {
-                    var eva = $("#" + $(value).attr("id")).val().replace(/,/gi, '');
-                    parametros += eva + "|";
-                } else {
-                    parametros += $("#" + $(value).attr("id")).val() + "|";
+                let enfoque_t = enfoque;
+                let medida_t = medida;
+                let parametro_t = $(value).attr("data-param");
+                let m = $(value).attr("id").substring(0, 3);
+                let valor = m == "txt" ? $("#" + $(value).attr("id")).val().replace(/,/gi, '') : $("#" + $(value).attr("id")).val();
+                valor = valor == "0" ? "" : valor;
+                let objValores = {
+                    ID_ENFOQUE: enfoque_t,
+                    ID_MEDMIT: medida_t,
+                    ID_PARAMETRO: parametro_t,
+                    VALOR: valor
                 }
-                //==================
-
-                //parametros += $("#" + $(value).attr("id")).val() + "|";
+                ListaValores.push(objValores);
             });
-            parametros = parametros.substring(0, parametros.length - 1);
 
             nomarchivo.each(function (index, value) {
-                debugger;
                 nom = $("#" + $(value).attr("id")).val();
             });
 
-            if (Xfilas != null && Xfilas != undefined) {
-                if (Xfilas[0].files.length > 0)
-                    parametros += ";" + ind + ";" + Xfilas[0].files[0].name;
-                else if (nom != "")
-                    parametros += ";" + ind + ";" + nom;
-                else
-                    parametros += ";" + ind + ";";
-            }
+            if (Xfilas != null && Xfilas != undefined)
+                nom_t = Xfilas[0].files.length > 0 ? Xfilas[0].files[0].name : nom != "" ? nom : "";
             else
-                parametros += ";" + ind + ";";
-            parametros += "/";
+                nom_t = "";
+
+            arrValores.push({
+                ID_INDICADOR: ind,
+                ADJUNTO: nom_t,
+                listaInd: ListaValores
+            });
         }
+        
+        //if (fn_validarCampoReg(fila)) {
+        //    filas.each(function (index, value) {
+        //        parametros += enfoque + ",";
+        //        parametros += medida + ",";
+        //        parametros += $(value).attr("data-param") + ",";
+
+        //        //===============
+        //        
+        //        var m = $(value).attr("id");
+        //        m = m.substring(0, 3);
+        //        if (m == "txt") {
+        //            var eva = $("#" + $(value).attr("id")).val().replace(/,/gi, '');
+        //            parametros += eva + "|";
+        //        } else {
+        //            parametros += $("#" + $(value).attr("id")).val() + "|";
+        //        }
+        //        //==================
+
+        //        //parametros += $("#" + $(value).attr("id")).val() + "|";
+        //    });
+        //    parametros = parametros.substring(0, parametros.length - 1);
+
+        //    nomarchivo.each(function (index, value) {
+        //        
+        //        nom = $("#" + $(value).attr("id")).val();
+        //    });
+
+        //    if (Xfilas != null && Xfilas != undefined) {
+        //        if (Xfilas[0].files.length > 0)
+        //            parametros += ";" + ind + ";" + Xfilas[0].files[0].name;
+        //        else if (nom != "")
+        //            parametros += ";" + ind + ";" + nom;
+        //        else
+        //            parametros += ";" + ind + ";";
+        //    }
+        //    else
+        //        parametros += ";" + ind + ";";
+        //    parametros += "/";
+        //}
 
 
     }
-    parametros = parametros.substring(0, parametros.length - 1);
+    //parametros = parametros.substring(0, parametros.length - 1);
 
     for (var i = 0, len = storedFiles.length; i < len; i++) {
         var sux = {
@@ -2834,7 +2880,7 @@ function fn_procesoDetalleIndicador(url, estado) {
     }
     if (archivos == "") archivos = "|";
 
-    debugger;
+    
     var id_delete = "";
     if ($("#cuerpoTablaIndicador").data("delete") != "") {
         id_delete = $("#cuerpoTablaIndicador").data("delete");
@@ -2847,6 +2893,20 @@ function fn_procesoDetalleIndicador(url, estado) {
         id_eliminar = id_eliminar.substring(0, id_eliminar.length - 1);
     }
 
+    //debugger;
+    //let obj = [];
+    //if (medida == 4) {
+    //    let r = {
+    //        ID_INICIATIVA: $("#Control").data("iniciativa"),
+    //        TIPO_AUDITORIA: $('#cbo-tipo_auditoria').val(),
+    //        AUDITOR_AUDITORIA: $('#txt-auditor').val(),
+    //        NOMBRE_INSTITUCION: $('#txt-institucion-auditor').val(),
+    //        FECHA_AUDITORIA: $('#fch-fecha-auditoria').val(),
+    //    }
+    //    obj.push(r);
+    //}
+        
+
     var item = {
         ID_INICIATIVA: $("#Control").data("iniciativa"),
         ID_USUARIO: $("#Control").data("usuario"),
@@ -2857,21 +2917,27 @@ function fn_procesoDetalleIndicador(url, estado) {
         ID_ENFOQUE: enfoque,
         ID_MEDMIT: medida,
         TOTAL_GEI: parseFloat($("#total-detalle").html()),
-        DATA: parametros,
+        //DATA: parametros, //remove 27-09-2020
         ID_TIPO_INGRESO: 1,
         PRIVACIDAD_INICIATIVA: privacidad,
         PRIVACIDAD_INVERSION: privacidad_monto,
         //ListaIndicadores: indicadores,
         //ListaIndicadoresData: indicadores,
         ListaSustentos: documentos,
-        extra: archivos
+        extra: archivos,
+        ListaIndicadoresData: arrValores,
+        //AUDITORIA: obj //26-10-20
+        TIPO_AUDITORIA: medida == 4 ? $('#cbo-tipo_auditoria').val() : '',
+        AUDITOR_AUDITORIA: medida == 4 ? $('#txt-auditor').val() : '',
+        NOMBRE_INSTITUCION: medida == 4 ? $('#txt-institucion-auditor').val() : '',
+        FECHA_AUDITORIA: medida == 4 ? $('#fch-fecha-auditoria').val() : '',
     };
 
     var options = {
         type: "POST",
         dataType: "json",
         contentType: false,
-        async: false, // add 040620
+        //async: false, // add 040620
         url: url,
         processData: false,
         data: item,
@@ -2889,8 +2955,8 @@ function fn_procesoDetalleIndicador(url, estado) {
         success: function (response, textStatus, myXhr) {
             if (response.success) {
                 //CargarDetalleDatos();    
-                CargarDatosGuardados();
-                CargarArchivosGuardados();
+                if (estado == 0 || estado == 6) CargarDatosGuardados();
+                if (estado == 0 || estado == 6) CargarArchivosGuardados();
                 $("#cuerpoTablaIndicador").data("delete", "");
                 $("#total-documentos").data("eliminarfile", "");
                 $("#fledocumentos").val("");
@@ -2999,6 +3065,39 @@ function fn_procesoDetalleIndicador(url, estado) {
             console.log(myXhr);
             console.log(textStatus);
             console.log(errorThrown);
+            if (estado == 0 || estado == 6) {
+                $("#carga-preload-avance").html("");
+                $("#titulo-carga-avance").addClass("d-none");
+            } else {
+                $("#carga-preload").html("");
+                $("#titulo-carga").addClass("d-none");
+            }
+        },
+        beforeSend: function () { //add 28-09-2020
+            console.log('before send');
+            if (estado == 0 || estado == 6) {
+                $("#carga-preload-avance").html("<i Class='fas fa-spinner fa-spin px-1 fa-2x'></i>");
+                $("#titulo-carga-avance").removeClass("d-none");
+            } else {
+                $("#carga-preload").html("<i Class='fas fa-spinner fa-spin px-1 fa-2x'></i>");
+                $("#titulo-carga").removeClass("d-none");
+            }
+            //$("#carga-preload").html("<i Class='fas fa-spinner fa-spin px-1 fa-2x'></i>");
+            //$("#titulo-carga").removeClass("d-none");
+            $('#modal-carga').show();
+        },
+        complete: function () {
+            console.log('complete send');
+            if (estado == 0 || estado == 6) {
+                $("#carga-preload-avance").html("");
+                $("#titulo-carga-avance").addClass("d-none");
+            } else {
+                $("#carga-preload").html("");
+                $("#titulo-carga").addClass("d-none");
+            }
+            //$("#carga-preload").html("");
+            //$("#titulo-carga").addClass("d-none");
+            $('#modal-carga').hide();
         }
     };
 
@@ -3029,7 +3128,7 @@ $("#guardar-avance").on("hidden.bs.modal", function () {
 });
 
 function fn_guardarDetalleIndicador() {
-    debugger;
+    
     //var url = baseUrl + "Gestion/RegistrarDetalleIndicador2";
     var url = baseUrl + "Gestion/RegistrarDetalleIndicador";
     fn_validarArchivo(url, 1);
@@ -3043,7 +3142,7 @@ function fn_guardarAvances() {
 }
 
 function fn_corregirDetalleIndicador() {
-    debugger;
+    
     //var url = baseUrl + "Gestion/RegistrarDetalleIndicador2";
     var url = baseUrl + "Gestion/RegistrarDetalleIndicador";
     fn_validarArchivo(url, 5);
@@ -3210,7 +3309,7 @@ function CargarCuerpoGuardado(filas, xIndicador) {
         datatype: 'json',
         data: item,
         success: function (data) {
-            debugger;
+            
             if (data != null && data != "") {
                 if (data.length > 0) {
                     $("#cuerpoTablaIndicador").html("");
@@ -3221,7 +3320,7 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                         var indicador = 0;
                         var id_anno = "";
                         var tr = "";
-                        tr += '<tr id="detalles-tr-' + (i + 1) + '" data-ind="0">';
+                        tr += '<tr id="detalles-tr-' + (i + 1) + '" data-ind="0" data-rev="0">';
                         tr += '     <th class="text-center" data-encabezado="Número" scope="row">' + (i + 1) + '</th>';
                         for (var j = 0; j < data.length; j++) {
                             indicador = data[j]["ID_INDICADOR"];
@@ -3261,12 +3360,12 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                                     tr += '</select>';
                                 }
                             } else if (data[j]["ID_TIPO_CONTROL"] == 2) {
-                                tr += '<td data-encabezado="Columna 02">';
+                                tr += `<td data-encabezado="Columna 02" class="${data[j]["EDITABLE"] == '0' ? data[j]["ID_PARAMETRO"] != 11 ? data[j]["VISIBLE"] == '0' ? 'd-none' : '' : '' : ''}">`;
                                 tr += '    <div class="form-group m-0">';
                                 if (data[j]["EDITABLE"] == 1) {
                                     if (data[j]["ID_TIPO_DATO"] == 1) {
                                         fecha++;
-                                        //debugger;
+                                        //
                                         if (data[j]["ID_PARAMETRO"] == 32) {
                                             console.log(id_anno + ' fch-det-tbl-1-' + fecha + '-' + (i + 1));
                                             var id_fecha = "fch-det-tbl-1-" + fecha + "-" + (i + 1);
@@ -3280,13 +3379,13 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                                         texto++;
                                         if (data[j]["VERIFICABLE"] == 0) {
                                             if (data[j]["ID_TIPO_DATO"] == 2) {
-                                                tr += '<input class="form-control form-control-sm text-center validar require-data formato-num" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="15">';
+                                                tr += `<input class="form-control form-control-sm text-center validar require-data ${data[j]["V_DECIMAL"] == '1' ? 'formato-num' : 'solo-numero'}" type="text" placeholder="" id="txt-det-tbl-1-${texto}-${(i + 1)}" data-param="${data[j]["ID_PARAMETRO"]}" maxlength="15">`;
                                             } else if (data[j]["ID_TIPO_DATO"] == 3) {
                                                 tr += '<input class="form-control form-control-sm text-center require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="40">';
                                             }
                                         } else {
                                             if (data[j]["ID_TIPO_DATO"] == 2) {
-                                                tr += '<input class="form-control form-control-sm text-center validar require-data formato-num" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" onBlur="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="15">';
+                                                tr += `<input class="form-control form-control-sm text-center validar require-data ${data[j]["V_DECIMAL"] == '1' ? 'formato-num' : 'solo-numero'}" type="text" placeholder="" id="txt-det-tbl-1-${texto}-${(i + 1)}" onBlur="fn_calcularValor(this)" data-validar="0" data-param="${data[j]["ID_PARAMETRO"]}" maxlength="15">`;
                                             } else if (data[j]["ID_TIPO_DATO"] == 3) {
                                                 tr += '<input class="form-control form-control-sm text-center require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" onBlur="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="40">';
                                             }
@@ -3298,7 +3397,7 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                                     if (data[j]["ID_PARAMETRO"] == 11) {
                                         tr += '<input class="form-control form-control-sm text-center campo-total" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" readonly>';
                                     } else {
-                                        tr += '<input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" readonly>';
+                                        tr += `<input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-${texto}-${(i + 1)}" data-param="${data[j]["ID_PARAMETRO"]}" readonly>`;
                                     }
 
                                 }
@@ -3322,9 +3421,10 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                         tr += '</td>';
 
                         //tr += '<td class="text-center estrecho" data-encabezado="Verificar acumulado"><span data-toggle="modal" data-target="#modal-acumulado"><a class="btn btn-purple btn-sm m-0 quitarCampos" href="#" title="Verificar acumulado" onclick="mostrarAcumulado();"><i class="fas fa-hand-holding"></i></a></span></td>';
+                        if (medida != 12 && medida != 4 && enfoque != 9 && enfoque != 6)
                         tr += '<td class="text-center estrecho" data-encabezado="Verificar acumulado"><span data-toggle="modal" data-target="#"><a class="btn btn-purple btn-sm m-0 quitarCampos" href="#" title="Verificar acumulado" onclick="mostrarAcumulado();"><i class="fas fa-eye"></i></a></span></td>';
 
-                        tr += '<td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCampos" href="#" onclick="fn_eliminarRestarTotal()" title="Quitar fila"><i class="fas fa-minus-circle"></i></a></td>';
+                        tr += '<td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCampos quitarBtn" href="#" onclick="fn_eliminarRestarTotal()" title="Quitar fila"><i class="fas fa-minus-circle"></i></a></td>';
 
 
                         //add prueba
@@ -3353,7 +3453,7 @@ function handleFileSustento(evt, idIndicador, accion) {
     detalleFiles = []; // add 12-02-2020
     ////////////////////////77
     var files = evt; //evt.target.files; // FileList object
-    debugger;
+    
     // files is a FileList of File objects. List some properties.
     var output = [];
     var extension = "fa-file-word";
@@ -3401,7 +3501,7 @@ function handleFileSustento(evt, idIndicador, accion) {
                             if (xref[0].href.lastIndexOf("FileDownloadDetalle") != -1) {
                                 xref[0].href = baseUrl + 'Gestion/FileDownload?IdIniciativa=' + $("#iniciativa_mit_ID_INICIATIVA").val() + '&IdIndicador=' + idIndicador + "&accion=I";
                             }
-                            debugger;
+                            
                             $("#fle-dow-" + idIndicador).removeAttr('style');
                             $("#fle-nom-" + idIndicador).val(nom_archivo); //add 18-04-2020
                         } else {
@@ -3448,7 +3548,7 @@ function CargarNuevaFila(filas) {
     }
     var arregloIDs = [];
     var rows = $("#cuerpoTablaIndicador tr").length;
-    debugger;
+    
     $.ajax({
         async: false,
         url: baseUrl + 'Gestion/ListarCuerpoIndicador',
@@ -3466,7 +3566,7 @@ function CargarNuevaFila(filas) {
                         var indicador = 0;
                         var id_anno = "";
                         var tr = "";
-                        tr += '<tr id="detalles-tr-' + (rows + 1) + '" data-ind="0">';
+                        tr += '<tr id="detalles-tr-' + (rows + 1) + '" data-ind="0" data-rev="0">';
                         tr += '     <th class="text-center" data-encabezado="Número" scope="row">' + (rows + 1) + '</th>';
                         for (var j = 0; j < data.length; j++) {
                             indicador = data[j]["ID_INDICADOR"];
@@ -3485,7 +3585,7 @@ function CargarNuevaFila(filas) {
                                         }
                                         tr += '</select>';
                                     } else {
-                                        debugger;
+                                        
                                         tr += '<select class="form-control form-control-sm require-data" id="cbo-det-tbl-1-' + lista + '-' + (rows + 1) + '" onchange="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '">';
                                         if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30 && data[j]["ID_PARAMETRO"] != 93 && data[j]["ID_PARAMETRO"] != 94 && data[j]["ID_PARAMETRO"] != 95) tr += '        <option value="0">Seleccionar</option>'; //add
                                         //tr += '        <option value="0">Seleccionar</option>';
@@ -3507,12 +3607,12 @@ function CargarNuevaFila(filas) {
                                     tr += '</select>';
                                 }
                             } else if (data[j]["ID_TIPO_CONTROL"] == 2) {
-                                tr += '<td data-encabezado="Columna 02">';
+                                tr += `<td data-encabezado="Columna 02" class="${data[j]["EDITABLE"] == '0' ? data[j]["ID_PARAMETRO"] != 11 ? data[j]["VISIBLE"] == '0' ? 'd-none' : '' : '' : ''}">`;
                                 tr += '    <div class="form-group m-0">';
                                 if (data[j]["EDITABLE"] == 1) {
                                     if (data[j]["ID_TIPO_DATO"] == 1) {
                                         fecha++;
-                                        //debugger;
+                                        //
                                         if (data[j]["ID_PARAMETRO"] == 32) {
                                             console.log(id_anno + ' fch-det-tbl-1-' + fecha + '-' + (i + 1));
                                             var id_fecha = "fch-det-tbl-1-" + fecha + "-" + (i + 1);
@@ -3526,13 +3626,15 @@ function CargarNuevaFila(filas) {
                                         texto++;
                                         if (data[j]["VERIFICABLE"] == 0) {
                                             if (data[j]["ID_TIPO_DATO"] == 2) {
-                                                tr += '<input class="form-control form-control-sm text-center validar require-data formato-num" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="15">';
+                                                //tr += '<input class="form-control form-control-sm text-center validar require-data formato-num" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="15">';
+                                                tr += `<input class="form-control form-control-sm text-center validar require-data ${data[j]["V_DECIMAL"] == '1' ? 'formato-num' : 'solo-numero'}" type="text" placeholder="" id="txt-det-tbl-1-${texto}-${(rows + 1)}" data-param="${data[j]["ID_PARAMETRO"]}" maxlength="15">`;
                                             } else if (data[j]["ID_TIPO_DATO"] == 3) {
                                                 tr += '<input class="form-control form-control-sm text-center require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="40">';
                                             }
                                         } else {
                                             if (data[j]["ID_TIPO_DATO"] == 2) {
-                                                tr += '<input class="form-control form-control-sm text-center validar require-data formato-num" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" onBlur="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="15">';
+                                                //tr += '<input class="form-control form-control-sm text-center validar require-data formato-num" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" onBlur="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="15">';
+                                                tr += `<input class="form-control form-control-sm text-center validar require-data ${data[j]["V_DECIMAL"] == '1' ? 'formato-num' : 'solo-numero'}" type="text" placeholder="" id="txt-det-tbl-1-${texto}-${(rows + 1)}" onBlur="fn_calcularValor(this)" data-validar="0" data-param="${data[j]["ID_PARAMETRO"]}" maxlength="15">`;
                                             } else if (data[j]["ID_TIPO_DATO"] == 3) {
                                                 tr += '<input class="form-control form-control-sm text-center require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" onBlur="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="40">';
                                             }
@@ -3560,7 +3662,7 @@ function CargarNuevaFila(filas) {
                         tr += '          <input class="d-none" type="file" id="fle-doc-' + (rows + 1) + '" name="fledoc" onchange="handleFileSustento(this.files,' + (rows + 1) + ',1)">';
                         tr += '        </label><a class="btn btn-success btn-sm m-0" href="' + urlDw + '" title="Descargar archivo" id="fle-dow-' + (rows + 1) + '" target="_blank" style="display: none;"><i class="fas fa-download"></i></a>';
                         tr += '</td>';
-
+                        if (medida != 12 && medida != 4 && enfoque != 9 && enfoque != 6)
                         tr += '<td class="text-center estrecho" data-encabezado="Verificar acumulado"><span data-toggle="modal" data-target="#"><a class="btn btn-purple btn-sm m-0 quitarCampos" href="#" title="Verificar acumulado" onclick="mostrarAcumulado();"><i class="fas fa-eye"></i></a></span></td>';
 
                         tr += '<td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCampos" href="#" onclick="fn_eliminarRestarTotal()" title="Quitar fila"><i class="fas fa-minus-circle"></i></a></td>';
@@ -3603,7 +3705,7 @@ function CargarDatosGuardados() {
         data: JSON.stringify(item),
 
         success: function (data) {
-            debugger;
+            
             if (data != null && data != "") {
                 if (data.length > 0) {
                     var order = $("#tablaIndicador").data("order");
@@ -3613,8 +3715,17 @@ function CargarDatosGuardados() {
                         var lista = 0;
                         var texto = 0;
                         var fecha = 0;
-                        var entidad = data[i]["listaInd"]
+                        var entidad = data[i]["listaInd"];
+                        var entidad_a = data[i]["listaAcumulado"]; //add 29-09-20
+                        debugger;
+                        let rev = entidad[0]["FLAG_REVISION"] == null ? '0' : entidad[0]["FLAG_REVISION"] == '' ? '0' : entidad[0]["FLAG_REVISION"];
                         $("#cuerpoTablaIndicador #detalles-tr-" + (i + 1)).attr({ "data-ind": data[i]["ID_INDICADOR"] });
+                        $("#cuerpoTablaIndicador #detalles-tr-" + (i + 1)).attr({ "data-rev": rev });
+                        if (rev == '1' || rol_usuario == 7) {
+                            $(`#cuerpoTablaIndicador #detalles-tr-${(i + 1)} #sustento${(i + 1)} label`).prop('hidden', true);
+                            $(`#cuerpoTablaIndicador #detalles-tr-${(i + 1)} .quitarBtn`).prop('hidden', true);
+                        } 
+
                         var tieneArchivo = data[i].ArchivoSustento;
 
                         if (tieneArchivo != undefined && tieneArchivo != null) {
@@ -3632,12 +3743,13 @@ function CargarDatosGuardados() {
                                 Xdown[0].href = baseUrl + 'Gestion/FileDownload?IdIniciativa=' + $("#iniciativa_mit_ID_INICIATIVA").val() + '&IdIndicador=' + data[i]["ID_INDICADOR"] + "&accion=I";
                             }
                         }
-
                         for (var m = 0; m < entidad.length; m++) {
-                            //debugger;
+                            //
                             if (entidad[m]["ID_TIPO_CONTROL"] == 1) {
                                 lista++;
                                 $("#cbo-det-tbl-1-" + lista + "-" + (i + 1)).val(entidad[m]["VALOR"]);
+                                entidad[m]["FLAG_REVISION"] == '1' ? $(`#cbo-det-tbl-1-${lista}-${(i + 1)}`).prop('disabled', true) : ''; //add 14-10-20
+                                entidad[m]["FLAG_REVISION"] == '1' ? $(`#cbo-det-tbl-1-${lista}-${(i + 1)}`).removeClass('require-data') : ''; //add 14-10-20
                                 if (entidad[m]["VERIFICABLE"] == 1) {
                                     $("#cbo-det-tbl-1-" + lista + "-" + (i + 1)).attr({ "data-validar": 1 });
                                 }
@@ -3645,6 +3757,8 @@ function CargarDatosGuardados() {
                                 if (entidad[m]["ID_TIPO_DATO"] == 1) {
                                     fecha++;
                                     $("#fch-det-tbl-1-" + fecha + "-" + (i + 1)).val(entidad[m]["VALOR"]);
+                                    entidad[m]["FLAG_REVISION"] == '1' ? $(`#fch-det-tbl-1-${fecha}-${(i + 1)}`).prop('disabled', true) : ''; //add 14-10-20
+                                    entidad[m]["FLAG_REVISION"] == '1' ? $(`#fch-det-tbl-1-${fecha}-${(i + 1)}`).removeClass('require-data') : ''; //add 14-10-20
                                     if (entidad[m]["VERIFICABLE"] == 1) {
                                         $("#fch-det-tbl-1-" + fecha + "-" + (i + 1)).attr({ "data-validar": 1 });
                                     }
@@ -3653,15 +3767,23 @@ function CargarDatosGuardados() {
                                     //$("#txt-det-tbl-1-" + texto + "-" + (i + 1)).val(entidad[m]["VALOR"]);
 
                                     if (entidad[m]["ID_TIPO_DATO"] == 2) {
-                                        $("#txt-det-tbl-1-" + texto + "-" + (i + 1)).val(formatoMiles(entidad[m]["VALOR"])); //add
+                                        if ($("#txt-det-tbl-1-" + texto + "-" + (i + 1))[0].className.indexOf("solo-numero") != -1)
+                                            $("#txt-det-tbl-1-" + texto + "-" + (i + 1)).val(formatoMilesSoloNumero(entidad[m]["VALOR"]));
+                                        else if ($("#txt-det-tbl-1-" + texto + "-" + (i + 1))[0].className.indexOf("formato-num") != -1)
+                                            $("#txt-det-tbl-1-" + texto + "-" + (i + 1)).val(formatoMiles(entidad[m]["VALOR"]));
+                                        else
+                                            $("#txt-det-tbl-1-" + texto + "-" + (i + 1)).val(formatoMiles(entidad[m]["VALOR"]));
+
+                                        //$("#txt-det-tbl-1-" + texto + "-" + (i + 1)).val(formatoMiles(entidad[m]["VALOR"])); //add
                                     } else if (entidad[m]["ID_TIPO_DATO"] == 3) {
                                         $("#txt-det-tbl-1-" + texto + "-" + (i + 1)).val(entidad[m]["VALOR"]);
                                     }
 
-
                                     if (entidad[m]["VERIFICABLE"] == 1) {
                                         $("#txt-det-tbl-1-" + texto + "-" + (i + 1)).attr({ "data-validar": 1 });
                                     }
+                                    entidad[m]["FLAG_REVISION"] == '1' ? $(`#txt-det-tbl-1-${texto}-${(i + 1)}`).prop('disabled', true) : ''; //add 14-10-20
+                                    entidad[m]["FLAG_REVISION"] == '1' ? $(`#txt-det-tbl-1-${texto}-${(i + 1)}`).removeClass('require-data') : ''; //add 14-10-20
                                 }
                             }
                             if (entidad[m]["ID_PARAMETRO"] == 11) {
@@ -3669,9 +3791,10 @@ function CargarDatosGuardados() {
                             }
                         }
                         //}
-                        debugger;
+                        
                         //add 17-05-2020
-                        cargarAcumulado(entidad, i + 1);
+                        //cargarAcumulado(entidad, i + 1);
+                        cargarAcumulado(entidad_a, i + 1); //add 29-09-20
 
                     }
                     $("#total-detalle").html("").append(formatoMiles(Math.round(total * 100) / 100));
@@ -3696,6 +3819,20 @@ function CargarDatosGuardados() {
         error: function (xhr, status, error) {
             console.log(error);
             location.href = baseUrl + "Home/login";
+        },
+        beforeSend: function () { //add 28-09-2020
+            console.log('before send');
+            $("#carga-preload-ini").html("<i Class='fas fa-spinner fa-spin px-1 fa-2x'></i>");
+            $("#titulo-carga-ini").removeClass("d-none");
+            $('#modal-carga').modal('show');
+            $("#block-page-carga").show();
+        },
+        complete: function () {
+            console.log('complete send');
+            $("#block-page-carga").hide();
+            $("#carga-preload-ini").html("");
+            $("#titulo-carga-ini").addClass("d-none");
+            $('#modal-carga').modal('hide');
         }
     });
 }
@@ -3906,7 +4043,7 @@ function CargarDatosCabecera() {
         //url: nurl,
         contentType: "application/json; charset=utf-8",
         dataType: "json",
-        async: false,
+        //async: false,
         data: JSON.stringify(item),
 
         success: function (data) {
@@ -3914,7 +4051,7 @@ function CargarDatosCabecera() {
                 if (data.length > 0) {
                     var tr = "";
                     tr += '<tr class="bg-primary text-white">';
-                    tr += '     <th class="text-center grupo-columna-03" scope="col"><span>N°</span></th>';
+                    tr += `     <th class="text-center ${medida == 4 ? 'grupo-columna-02' : 'grupo-columna-03'}" scope="col"><span>N°</span></th>`;
                     for (var i = 0; i < data.length; i++) {
                         var columna = "0" + data[i]["ID_GRUPO_INDICADOR"];
                         var descripcion = "";
@@ -3937,14 +4074,6 @@ function CargarDatosCabecera() {
                             descripcion = "(" + data[i]["COMBINACION_UNIDAD"] + ")";
                         }
 
-                        if (data[i]["ID_PARAMETRO"] == 9 || data[i]["ID_PARAMETRO"] == 10 || data[i]["ID_PARAMETRO"] == 11) {
-                            if (data[i]["COMBINACION_UNIDAD"] != "" && data[i]["COMBINACION_UNIDAD"] != null) {
-                                descripcion = "(" + data[i]["COMBINACION_UNIDAD"] + ")";
-                            }
-                        }
-
-                        
-
                         //if (data[i]["ID_PARAMETRO"] == 9 || data[i]["ID_PARAMETRO"] == 10 || data[i]["ID_PARAMETRO"] == 11) {
                         //    tr += '     <th class="text-center grupo-columna-'+ columna +'" scope="col"><span>' + data[i]["NOMBRE_PARAMETRO"] + ' tCOeq</span><small>Seleccione este campo para su registro</small></th>';
                         //}else{
@@ -3960,16 +4089,17 @@ function CargarDatosCabecera() {
                         else
                             tool = data[i]["LEYENDA_PARAMETRO"];
 
-                        //tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="' + tool + '"></i>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span><small>' + data[i]["DESCRIPCION_PARAMETRO"] + '</small></th>'; quit 03-07-20
-                        tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="' + tool + '"></i>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span></th>';//add 03-07-20
+                        //tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="' + tool + '"></i>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span><small>' + data[i]["DESCRIPCION_PARAMETRO"] + '</small></th>';
+                        tr += `     <th class="text-center grupo-columna-${columna} ${data[i]["VISIBLE"] == '0' ? 'd-none': ''}" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="${tool}"></i>${data[i]["NOMBRE_PARAMETRO"]}&nbsp;</span><span>${descripcion}</span><small>${data[i]["DESCRIPCION_PARAMETRO"]}</small></th>`;
+
                         //}                        
                     }
                     //tr += '     <th class="text-center grupo-columna-02" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>Sustento</span><small>Seleccione este campo para su registro</small></th>';
                     tr += '<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Si desea subir un archivo de más de 4MB, contactar con el administrador"></i>Documentos de sustento</span><br/></th>';
                     //tr += '<th class="text-center" scope="col"><span>Más<br></span><a class="btn btn-warning btn-sm m-0" href="javascript:void(0)" title="Agregar fila" onclick="CargarNuevaFila(1);"><i class="fas fa-plus-circle"></i></a></th>';
-
-                    tr += '<th class="text-center grupo-columna-03"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Verificar acumulado"></i></span><br><small>Ver</small></th>';
-                    tr += '<th class="text-center" scope="col"><small>Quitar<br>fila</small></th>';
+                    if (medida != 12 && medida != 4 && enfoque != 9 && enfoque != 6)
+                    tr += '<th class="text-center grupo-columna-03"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Verificar acumulado"></i></span><br>Ver</th>';
+                    tr += '<th class="text-center grupo-columna-03" scope="col"><span>Quitar<br>fila</span></th>';
 
                     //tr += '     <th class="text-center" scope="col"><span>Más<br></span><a class="btn btn-warning btn-sm m-0 agregarCampos" href="#" title="Agregar fila" download><i class="fas fa-plus-circle"></i></a></th>';
                     tr += '</tr>';
@@ -4152,6 +4282,12 @@ function formatoMiles(n) { //add20
     return m.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
 }
 
+function formatoMilesSoloNumero(n) { //add20
+    var m = n * 1;
+    //return m.toFixed(0).replace(/(\d+)(\d{3})/, '$1,$2');
+    return m.toFixed(0).replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ",");
+}
+
 
 //=============================================================
 
@@ -4172,7 +4308,7 @@ function fn_listarFactores() {
 
                     for (var i = 0; i < data.length; i++) {
 
-                        debugger;
+                        
                         var cabecera = data[i]["ListaFactorParametro"];
                         var tr = "";
                         tr += '<tr class="bg-primary text-white">';
@@ -4221,10 +4357,11 @@ function fn_listarFactores() {
 //========================================================================
 
 $(document).ready(function () {
-
+    estiloblockpage();
+    $('#modal-acumulado div div div div div h3').html('Verificación de acumulados por detalle');
     inicio();
 
-    //$("i[data-placement='top']").attr({ 'data-original-title': 'Puede seleccionar múltiples archivos, con un tamaño no superior a 4MB por archivo' });
+    $("i[data-placement='top']").attr({ 'data-original-title': 'Puede seleccionar múltiples archivos, con un tamaño no superior a 4MB por archivo' });
 
     if ($("#iniciativa_mit_ID_INICIATIVA").val() > 0) {
         $("#Control").data("iniciativa", $("#iniciativa_mit_ID_INICIATIVA").val());
@@ -4238,7 +4375,7 @@ $(document).ready(function () {
     //$("#cbo-enfoque").val($("#menor").val());
     //$("#enfoque-" + ($("#cbo-enfoque").val())).removeAttr("hidden");
     //$("#cbo-enfoque").data("select", $("#cbo-enfoque").val()); //data-select para saber quien fue el anterior
-    debugger;
+    
     if ($("#revision").val() == 1) {
 
 
@@ -4275,6 +4412,7 @@ $(document).ready(function () {
     }
 
     var monto = $("#txt-monto-inversion").val();
+    if (monto != '------')
     $("#txt-monto-inversion").val(formatoMiles(monto)); //add20
 
     //CargarDatosIniciativa();
@@ -4289,8 +4427,8 @@ $(document).ready(function () {
         $("#tablaIndicador").data("fila", fila);
     });
 
-    fn_actualizaCampana();
-    enLinea();
+    //fn_actualizaCampana();
+    //enLinea();
 
 });
 
@@ -4332,7 +4470,8 @@ $("#cbo-enfoque").change(function () {
 function fn_calcularValor(e) {
     console.log("Aqui : " + $(e).attr("data-validar"));
     var dv = $(e).attr("data-validar");
-    var row = $("#tablaIndicador").data("fila");
+    var row = $(e).parent().parent().parent().find('th:eq(0)').html();
+    //var row = $("#tablaIndicador").data("fila");
 
 
 
@@ -4382,7 +4521,7 @@ function fn_calcularValor(e) {
             parametros += medida + ",";
             parametros += $(value).attr("data-param") + ",";
             //===============
-            debugger;
+            
             var m = $(value).attr("id");
             m = m.substring(0, 3);
             if (m == "txt") {
@@ -4411,6 +4550,15 @@ function fn_enviarCalcularValor(item, f) {
     //if (respuesta.success) {
     //    alert("bien");
     //}
+    $("[id^=txt-det-]").each((x, y) => {
+        debugger;
+        if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', true);
+    });
+    $("[id^=cbo-det-]").each((x, y) => {
+        if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', true);
+    });
+    $("#tbl-main-preload").append("<div class='d-flex align-items-center calculando-mrv'><i Class='fas fa-spinner fa-spin px-1'></i>Calculando..</div>");
+    $('.agregarCamposPrc').addClass('d-none');
 
     $.ajax({
         url: baseUrl + 'Gestion/CalcularIndicadorDinamico',
@@ -4423,7 +4571,7 @@ function fn_enviarCalcularValor(item, f) {
                     var index = 0;
                     var total = 0;
 
-                    debugger;
+                    
                     //var fila = $("#enfoque-" + $("#cbo-enfoque").val()).find("tbody").find("#detalles-tr-" + f).find("[data-param]");
                     var fila = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + f).find("[data-param]");
                     fila.each(function (index, value) {
@@ -4431,16 +4579,25 @@ function fn_enviarCalcularValor(item, f) {
                         if (!isNaN(valor)) if (valor - Math.floor(valor) != 0) valor = Math.round(valor * 100) / 100
 
                         //===============================================================
-                        debugger;
+                        
                         var m = $(value).attr("id");
                         m = m.substring(0, 3);
-                        if (m == "txt"){
-                            if (!isNaN(valor)) {
-                                $("#" + $(value).attr("id")).val(formatoMiles(valor));
-                            } else {
-                                $("#" + $(value).attr("id")).val(valor);
-                            }
-                        } else {
+                        if (m == "txt") {
+                            if ($(value).data("param") == 5) 
+                                $("#" + $(value).attr("id")).val(valor == "0" ? "" : valor);
+                            else {
+                                if (!isNaN(valor)) {
+                                    if ($("#" + $(value).attr("id"))[0].className.indexOf("solo-numero") != -1) 
+                                        $("#" + $(value).attr("id")).val(formatoMilesSoloNumero(valor));
+                                    else if ($("#" + $(value).attr("id"))[0].className.indexOf("formato-num") != -1)
+                                        $("#" + $(value).attr("id")).val(formatoMiles(valor));
+                                    else
+                                        $("#" + $(value).attr("id")).val(formatoMiles(valor == '0' ? '' : valor));
+                                } else {
+                                    $("#" + $(value).attr("id")).val(valor);
+                                }
+                            }                            
+                        } else {                 
                             $("#" + $(value).attr("id")).val(valor);
                         }
                         //=================================================================
@@ -4452,7 +4609,7 @@ function fn_enviarCalcularValor(item, f) {
 
                     var fila_total = $("#tablaIndicador").find("tbody").find("tr");
                     fila_total.each(function (index, value) {
-                        debugger;
+                        
                         var t = $(value).find(".campo-total").val().replace(/,/gi, '');
                         if (t != "")
                             total += parseFloat($(value).find(".campo-total").val().replace(/,/gi, ''));
@@ -4506,7 +4663,7 @@ function fn_eliminarRestarTotal() {
         $("#total-detalle").html("").append((Math.round(total * 100) / 100));
         $("#total-detalle2").html("").append((Math.round(total * 100) / 100));
         $("#cuerpoTablaIndicador").data("total", total);
-        //debugger;
+        //
         if ($("#tablaIndicador #detalles-tr-" + fila).data("ind") > 0) {
             var id_borrar = $("#cuerpoTablaIndicador").data("delete") + $("#tablaIndicador #detalles-tr-" + fila).data("ind") + ",";
             $("#cuerpoTablaIndicador").data("delete", id_borrar);
@@ -4590,7 +4747,7 @@ function fn_validarCampo(url, estado) {
     }
     var respuesta = MRV.Ajax(vurl, item, false);
     if (respuesta.success) {
-        debugger;
+        
         var cantidad_bd = parseInt(respuesta.extra);
         if (cantidad_bd > 0) {
             if ($("#cuerpoTablaIndicador").data("delete") == "") {
@@ -4744,7 +4901,7 @@ function factoresVerificar(enfoque) {
                     }
                     factores += "</ul></div></div>";
                     $("#paramVerificar-" + enfoque).append(factores);
-                    //debugger;
+                    //
                     FormulaVerificar(enfoque);
                 }
             }
@@ -4910,7 +5067,7 @@ function CargarDatosGuardadosVerificar(factor, index, enfoque) {
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
-                    //debugger;
+                    //
                     CargarCuerpoGuardadoVerificar(data.length, factor, index, enfoque);
                     for (var i = 0; i < data.length; i++) {
                         var lista = 0;
@@ -4953,10 +5110,10 @@ function cargarVerificar(enfoque, tabla, fila) {
 
     var campo = $("#cuerpoTablaIndicador-" + tabla).find("#detalles-tr-" + fila);
     campo.each(function (index, value) {
-        debugger;
+        
         var valor = $(value).find(".valor");
         valor.each(function (index, value) {
-            //debugger;
+            //
             i += 1;
             row += '<td data-encabezado="Columna 04"><div class="form-group m-0"><input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-p-' + i + '" value="' + $(value).val() + '" readonly></div></td>';
             //var a = $(value).val();
@@ -5048,7 +5205,7 @@ function mostrarAcumulado() {
     var campos = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + row).find("[data-validar]");
     campos.each(function (index, value) {
         console.log(index + " + " + $(value).attr("id") + " + " + $(value).attr("data-validar"));
-        debugger;
+        
         if ($(value).attr("data-validar") == 0) {
             valor = 1;
         }
@@ -5069,7 +5226,7 @@ function mostrarAcumulado() {
             parametros += $(value).attr("data-param") + ",";
 
             //===============
-            debugger;
+            
             var m = $(value).attr("id");
             m = m.substring(0, 3);
             if (m == "txt") {
@@ -5110,7 +5267,7 @@ function fn_enviarCalcularAcumulado(item, f) {
                     var total = 0.0;
                     cabecera += '<tr>';
                     for (var i = 0; i < data.length; i++) {
-                        //debugger;
+                        //
                         cabecera += '<th class="text-center grupo-columna-03"><span>' + data[i]["anio"] + '&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>';
                         //var a = data[i]["anio"];
                     }
@@ -5120,9 +5277,9 @@ function fn_enviarCalcularAcumulado(item, f) {
                     cuerpo += '<tr>';
                     for (var j = 0; j < data.length; j++) {
                         total += parseFloat(data[j]["reducido"]);
-                        cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '">' + Math.round(data[j]["reducido"]*100)/100 + '</td>';
+                        cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '">' + formatoMiles(Math.round(data[j]["reducido"] * 100) / 100) + '</td>';
                     }
-                    cuerpo += '<td class="text-center estrecho" data-encabezado="total">' + Math.round(total * 100) / 100 + '</td>';
+                    cuerpo += '<td class="text-center estrecho" data-encabezado="total">' + formatoMiles(Math.round(total * 100) / 100) + '</td>';
                     cuerpo += '</tr>';
 
                     $("#cabecera-acumulado").append(cabecera);
@@ -5154,7 +5311,7 @@ function mostrarAcumuladoR(e) {
 
     $("#modal-acumulado").modal("show");
     $.ajax({
-        url: baseUrl + 'Gestion/MostrarAcumulado',
+        url: baseUrl + 'Gestion/MostrarAcumuladoRevision',
         //type: 'POST',
         //datatype: 'json',
         //data: item,
@@ -5176,19 +5333,19 @@ function mostrarAcumuladoR(e) {
                     var total = 0.0;
                     cabecera += '<tr>';
                     for (var i = 0; i < data.length; i++) {
-                        //debugger;
+                        //
                         cabecera += '<th class="text-center grupo-columna-03"><span>' + data[i]["anio"] + '&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>';
                         //var a = data[i]["anio"];
                     }
-                    cabecera += '<th class="text-center grupo-columna-03"><span>TOTAL ACUMULADO&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>';
+                    cabecera += '<th class="text-center grupo-columna-03"><span>Total acumulado&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>';
                     cabecera += '</tr>';
 
                     cuerpo += '<tr>';
                     for (var j = 0; j < data.length; j++) {
                         total += parseFloat(data[j]["reducido"]);
-                        cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '">' + Math.round(data[j]["reducido"] * 100) / 100 + '</td>';
+                        cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '">' + formatoMiles(Math.round(data[j]["reducido"] * 100) / 100) + '</td>';
                     }
-                    cuerpo += '<td class="text-center estrecho" data-encabezado="total">' + Math.round(total * 100) / 100 + '</td>';
+                    cuerpo += '<td class="text-center estrecho" data-encabezado="total">' + formatoMiles(Math.round(total * 100) / 100) + '</td>';
                     cuerpo += '</tr>';
 
                     $("#cabecera-acumulado").html("").append(cabecera);
@@ -5230,25 +5387,24 @@ function agregarAcumulado(item, f) {
             if (data != null && data != "") {
                 if (data.length > 0) {
 
-                    debugger;
+                    let num = $('#cuerpo-acumulado-total').find('tr').length + 1;
                     var verf = 0;
                     var anio = 2010;
                     var acumulado_ini = parseInt(data[0]["anio"]) - anio;
 
                     var fila = $("#cuerpo-acumulado-total").find("tr");
                     fila.each(function (index, value) {
-                        debugger;
+                        
                         var id = $(value).attr("id");
 
                         if (id == "f-" + f) {
                             verf = 1;
                         }
                     });
-
-                    debugger;
+                                        
                     if (verf == 0) {
                         cuerpo += '<tr id="f-' + f + '">';                        
-
+                        cuerpo += '<td class="text-center estrecho">' + num + '</td>';
                         if (acumulado_ini > 0) {
                             for (var m = 0; m < acumulado_ini; m++) {
                                 cuerpo += '<td class="text-center estrecho" data-encabezado="' + anio + '" id="a-'+ anio +'-'+ f +'">' + 0.00 + '</td>';
@@ -5328,6 +5484,16 @@ function agregarAcumulado(item, f) {
                 }
             } else {
             }
+
+            $("[id^=txt-det-]").each((x, y) => {
+                if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', false);
+            });
+            $("[id^=cbo-det-]").each((x, y) => {
+                if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', false);
+            });
+            $("#tbl-main-preload").find('.calculando-mrv').remove();
+            $('.agregarCamposPrc').removeClass('d-none', true);
+
         },
         failure: function (msg) {
             console.log(msg);
@@ -5340,8 +5506,9 @@ function agregarAcumulado(item, f) {
 }
 
 
-function eliminarAcumulado(f){
-    var valor_descuento = 0.0;
+function eliminarAcumulado(f) {
+    if ($(`#f-${f}`).length == 0) return;
+        var valor_descuento = 0.0;
 
     for (var anio = 2010; anio < 2031; anio++) {
         var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
@@ -5358,7 +5525,7 @@ function eliminarAcumulado(f){
         }        
     }
 
-    debugger;
+    
     $("#f-" + f).remove();
 
     ordenarTabla();
@@ -5366,16 +5533,19 @@ function eliminarAcumulado(f){
 
 function ordenarTabla() {
     var filas = $("#cuerpo-acumulado-total").find("tr").length;
-    debugger;
+    
     for (var i = 0; i < filas; i++) {
-        debugger;
+        
         indice = i + 1;
         var anio = 2010;
         var columna = $("#cuerpo-acumulado-total").find("tr").eq(i).find("td").length;
 
         for (var j = 0; j < columna; j++) {
-            $("#cuerpo-acumulado-total").find("tr").eq(i).find("td").eq(j).removeAttr('id').attr({ 'id': 'a-' + anio + '-' + indice });
-            anio += 1;
+            if (j == 0) $("#cuerpo-acumulado-total").find("tr").eq(i).find("td").eq(j).html(i + 1);
+            else {
+                $("#cuerpo-acumulado-total").find("tr").eq(i).find("td").eq(j).removeAttr('id').attr({ 'id': 'a-' + anio + '-' + indice });
+                anio += 1;
+            }            
         }
 
         $("#cuerpo-acumulado-total").find("tr").eq(i).removeAttr('id').attr({ 'id': 'f-' + indice });
@@ -5385,30 +5555,33 @@ function ordenarTabla() {
 //////////////////////////////////////////////
 
 function armarAcumulado(){
-    var ids = $("#id_indicadores").val()
+    //var ids = $("#id_indicadores").val();
+    //var ids = $("#listaIndicador").val();
 
-    var arr = ids.split('/');
-    for (var i = 0; i < arr.length; i++){
-        generarAcumulado(arr[i]);
-    }
+    //var arr = ids.split('/');
+    //for (var i = 0; i < arr.length; i++){
+    //    generarAcumulado(arr[i]);
+    //}
 
+    generarAcumulado();
 }
 
-function generarAcumulado(f) {
+function generarAcumulado() {
 
-    var ind1 = parseInt(f);
-    var iniciativa = $("#Control").data("iniciativa");
-    var enfoque = $("#id_enfoques").val();
-    var medida = $("#Control").data("mitigacion");
+    //var ind1 = parseInt(f);
+    //var iniciativa = $("#Control").data("iniciativa");
+    //var enfoque = $("#id_enfoques").val();
+    //var medida = $("#Control").data("mitigacion");
 
     var cabecera = "";
     var cuerpo = "";
 
     var item = {
-        ID_INICIATIVA: iniciativa,
-        ID_MEDMIT: medida,
-        ID_ENFOQUE: enfoque,
-        ID_INDICADOR: ind1
+        //ID_INICIATIVA: iniciativa,
+        //ID_MEDMIT: medida,
+        //ID_ENFOQUE: enfoque,
+        //ID_INDICADOR: ind1
+        //ListaIndicadores: f
     };
 
     $.ajax({
@@ -5427,100 +5600,102 @@ function generarAcumulado(f) {
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
-
-                    debugger;
-                    var verf = 0;
-                    var anio = 2010;
-                    var acumulado_ini = parseInt(data[0]["anio"]) - anio;
-
-                    var fila = $("#cuerpo-acumulado-total").find("tr");
-                    fila.each(function (index, value) {
-                        debugger;
-                        var id = $(value).attr("id");
-
-                        if (id == "f-" + f) {
-                            verf = 1;
-                        }
-                    });
-
-                    debugger;
-                    if (verf == 0) {
-                        cuerpo += '<tr id="f-' + f + '">';
-
-                        if (acumulado_ini > 0) {
-                            for (var m = 0; m < acumulado_ini; m++) {
-                                cuerpo += '<td class="text-center estrecho" data-encabezado="' + anio + '" id="a-' + anio + '-' + f + '">' + 0.00 + '</td>';
-                                anio += 1;
-                            }
-                        }
-
-                        var valor_acumulado = 0.0;
-                        for (var j = 0; j < data.length; j++) {
-
-                            //valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100; //q
-                            valor_acumulado = Math.round(data[j]["reducido"] * 100) / 100;// add
-
-                            var acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) + valor_acumulado;
-
-
-                            $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
-
-                            cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '" id="a-' + anio + '-' + f + '">' + formatoMiles(Math.round(data[j]["reducido"] * 100) / 100) + '</td>';
-                            anio += 1;
-                        }
-
-                        anio -= 1;
-                        var acumulado_fin = 2030 - anio;
-
-                        if (acumulado_fin > 0) {
-                            for (var n = 0; n < acumulado_fin; n++) {
-                                anio += 1;
-                                cuerpo += '<td class="text-center estrecho" data-encabezado="' + anio + '" id="a-' + anio + '-' + f + '">' + 0.00 + '</td>';
-                            }
-                        }
-
-                        cuerpo += '</tr>';
-
-                        $("#cuerpo-acumulado-total").append(cuerpo);
-                    } else {
-                        var valor_acumulado = 0.0;
-                        var valor_descuento = 0.0;
-
-                        if (acumulado_ini > 0) {
-                            for (var m = 0; m < acumulado_ini; m++) {
-                                var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
-
-                                //valor_descuento += valor; //q
-                                valor_descuento = valor; //add
-
-                                acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) - valor_descuento;
-                                $("#a-" + anio + '-' + f).html(0);
-                                $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
-                                anio += 1;
-                            }
-                        }
-
-                        for (var j = 0; j < data.length; j++) {
-                            var acumulado_col = 0.0;
-                            var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
-
-
-                            //valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100; //q
-                            valor_acumulado = Math.round(data[j]["reducido"] * 100) / 100; //add
-
-                            //valor_descuento += valor; //q
-                            valor_descuento = valor; //add
-
-                            acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) - valor_descuento;
-
-                            acumulado_col = acumulado_col + valor_acumulado;
-                            $("#a-" + anio + '-' + f).html(formatoMiles(Math.round(data[j]["reducido"] * 100) / 100));
-
-                            $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
-
-                            anio += 1;
-                        }
+                    for (var i = 0; i < data.length; i++) {
+                        armarAcumuladosRevision(data[i].listaAcumulado, data[i].ID_INDICADOR);
                     }
+                    
+                    //var verf = 0;
+                    //var anio = 2010;
+                    //var acumulado_ini = parseInt(data[0]["anio"]) - anio;
+
+                    //var fila = $("#cuerpo-acumulado-total").find("tr");
+                    //fila.each(function (index, value) {
+                        
+                    //    var id = $(value).attr("id");
+
+                    //    if (id == "f-" + f) {
+                    //        verf = 1;
+                    //    }
+                    //});
+
+                    
+                    //if (verf == 0) {
+                    //    cuerpo += '<tr id="f-' + f + '">';
+
+                    //    if (acumulado_ini > 0) {
+                    //        for (var m = 0; m < acumulado_ini; m++) {
+                    //            cuerpo += '<td class="text-center estrecho" data-encabezado="' + anio + '" id="a-' + anio + '-' + f + '">' + 0.00 + '</td>';
+                    //            anio += 1;
+                    //        }
+                    //    }
+
+                    //    var valor_acumulado = 0.0;
+                    //    for (var j = 0; j < data.length; j++) {
+
+                    //        //valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100; //q
+                    //        valor_acumulado = Math.round(data[j]["reducido"] * 100) / 100;// add
+
+                    //        var acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) + valor_acumulado;
+
+
+                    //        $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
+
+                    //        cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '" id="a-' + anio + '-' + f + '">' + formatoMiles(Math.round(data[j]["reducido"] * 100) / 100) + '</td>';
+                    //        anio += 1;
+                    //    }
+
+                    //    anio -= 1;
+                    //    var acumulado_fin = 2030 - anio;
+
+                    //    if (acumulado_fin > 0) {
+                    //        for (var n = 0; n < acumulado_fin; n++) {
+                    //            anio += 1;
+                    //            cuerpo += '<td class="text-center estrecho" data-encabezado="' + anio + '" id="a-' + anio + '-' + f + '">' + 0.00 + '</td>';
+                    //        }
+                    //    }
+
+                    //    cuerpo += '</tr>';
+
+                    //    $("#cuerpo-acumulado-total").append(cuerpo);
+                    //} else {
+                    //    var valor_acumulado = 0.0;
+                    //    var valor_descuento = 0.0;
+
+                    //    if (acumulado_ini > 0) {
+                    //        for (var m = 0; m < acumulado_ini; m++) {
+                    //            var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
+
+                    //            //valor_descuento += valor; //q
+                    //            valor_descuento = valor; //add
+
+                    //            acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) - valor_descuento;
+                    //            $("#a-" + anio + '-' + f).html(0);
+                    //            $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
+                    //            anio += 1;
+                    //        }
+                    //    }
+
+                    //    for (var j = 0; j < data.length; j++) {
+                    //        var acumulado_col = 0.0;
+                    //        var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
+
+
+                    //        //valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100; //q
+                    //        valor_acumulado = Math.round(data[j]["reducido"] * 100) / 100; //add
+
+                    //        //valor_descuento += valor; //q
+                    //        valor_descuento = valor; //add
+
+                    //        acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) - valor_descuento;
+
+                    //        acumulado_col = acumulado_col + valor_acumulado;
+                    //        $("#a-" + anio + '-' + f).html(formatoMiles(Math.round(data[j]["reducido"] * 100) / 100));
+
+                    //        $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
+
+                    //        anio += 1;
+                    //    }
+                    //}
                 }
             } else {
             }
@@ -5531,12 +5706,98 @@ function generarAcumulado(f) {
         error: function (xhr, status, error) {
             console.log(error);
             location.href = baseUrl + "Home/login";
+        },
+        beforeSend: function () { //add 28-09-2020
+            console.log('before send');
+            $("#carga-preload-ini").html("<i Class='fas fa-spinner fa-spin px-1 fa-2x'></i>");
+            $("#titulo-carga-ini").removeClass("d-none");
+            $('#modal-carga').modal('show');
+            $("#block-page-carga").show();
+        },
+        complete: function () {
+            console.log('complete send');
+            $("#block-page-carga").hide();
+            $("#carga-preload-ini").html("");
+            $("#titulo-carga-ini").addClass("d-none");
+            $('#modal-carga').modal('hide');
         }
     });
-
 }
 
-function cargarAcumulado(entidad, f) {
+var armarAcumuladosRevision = (data, f) => {
+    let cuerpo = "";
+    if (data != null && data != "") {
+        if (data.length > 0) {
+            let num = $("#cuerpo-acumulado-total").find("tr").length + 1;
+            var verf = 0, anio = 2010, acumulado_ini = parseInt(data[0]["anio"]) - anio;
+            var fila = $("#cuerpo-acumulado-total").find("tr");
+            fila.each(function (index, value) {
+                var id = $(value).attr("id");
+                if (id == "f-" + f) { verf = 1; }
+            });
+
+            if (verf == 0) {
+                cuerpo += '<tr id="f-' + f + '">';
+                cuerpo += '<td class="text-center estrecho">' + num + '</td>';
+                if (acumulado_ini > 0) {
+                    for (var m = 0; m < acumulado_ini; m++) {
+                        cuerpo += '<td class="text-center estrecho" data-encabezado="' + anio + '" id="a-' + anio + '-' + f + '">' + 0.00 + '</td>';
+                        anio += 1;
+                    }
+                }
+
+                var valor_acumulado = 0.0;
+                for (var j = 0; j < data.length; j++) {
+                    valor_acumulado = Math.round(data[j]["reducido"] * 100) / 100;// add
+                    var acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) + valor_acumulado;
+                    $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
+                    cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '" id="a-' + anio + '-' + f + '">' + formatoMiles(Math.round(data[j]["reducido"] * 100) / 100) + '</td>';
+                    anio += 1;
+                }
+
+                anio -= 1;
+                var acumulado_fin = 2030 - anio;
+                if (acumulado_fin > 0) {
+                    for (var n = 0; n < acumulado_fin; n++) {
+                        anio += 1;
+                        cuerpo += '<td class="text-center estrecho" data-encabezado="' + anio + '" id="a-' + anio + '-' + f + '">' + 0.00 + '</td>';
+                    }
+                }
+                cuerpo += '</tr>';
+                $("#cuerpo-acumulado-total").append(cuerpo);
+            } else {
+                var valor_acumulado = 0.0;
+                var valor_descuento = 0.0;
+
+                if (acumulado_ini > 0) {
+                    for (var m = 0; m < acumulado_ini; m++) {
+                        var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
+                        valor_descuento = valor; //add
+                        acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) - valor_descuento;
+                        $("#a-" + anio + '-' + f).html(0);
+                        $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
+                        anio += 1;
+                    }
+                }
+
+                for (var j = 0; j < data.length; j++) {
+                    var acumulado_col = 0.0;
+                    var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
+                    valor_acumulado = Math.round(data[j]["reducido"] * 100) / 100; //add
+                    valor_descuento = valor; //add
+                    acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) - valor_descuento;
+                    acumulado_col = acumulado_col + valor_acumulado;
+                    $("#a-" + anio + '-' + f).html(formatoMiles(Math.round(data[j]["reducido"] * 100) / 100));
+                    $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
+                    anio += 1;
+                }
+            }
+        }
+    } else {
+    }
+}
+
+function cargarAcumulado(data, f) {
 
     //====================== add
     //$("#tbl-main-preload-acu").html("<i Class='fas fa-spinner fa-spin px-1'></i> Cargando...");
@@ -5545,145 +5806,280 @@ function cargarAcumulado(entidad, f) {
 
     var cuerpo = "";
 
-    var item = {
-        lista: entidad
-    };
+    //var item = {
+    //    lista: entidad
+    //};
 
-    $.ajax({
-        url: baseUrl + 'Gestion/CalcularAcumuladoC',
-        //type: 'POST',
-        //datatype: 'json',
-        //data: item,
+    if (data != null && data != "") {
+        let num = $('#cuerpo-acumulado-total').find('tr').length + 1
+        if (data.length > 0) {
+            
 
-        type: "POST",
-        //url: nurl,
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        //async: false,
-        data: JSON.stringify(item),
+            var verf = 0;
+            var anio = 2010;
+            var acumulado_ini = parseInt(data[0]["anio"]) - anio;
 
-        success: function (data) {
-            if (data != null && data != "") {
-                if (data.length > 0) {
+            var fila = $("#cuerpo-acumulado-total").find("tr");
+            fila.each(function (index, value) {
+                var id = $(value).attr("id");
 
-                    debugger;
-                    var verf = 0;
-                    var anio = 2010;
-                    var acumulado_ini = parseInt(data[0]["anio"]) - anio;
+                if (id == "f-" + f) {
+                    verf = 1;
+                }
+            });
 
-                    var fila = $("#cuerpo-acumulado-total").find("tr");
-                    fila.each(function (index, value) {
-                        debugger;
-                        var id = $(value).attr("id");
-
-                        if (id == "f-" + f) {
-                            verf = 1;
-                        }
-                    });
-
-                    debugger;
-                    if (verf == 0) {
-                        cuerpo += '<tr id="f-' + f + '">';
-
-                        if (acumulado_ini > 0) {
-                            for (var m = 0; m < acumulado_ini; m++) {
-                                cuerpo += '<td class="text-center estrecho" data-encabezado="' + anio + '" id="a-' + anio + '-' + f + '">' + 0.00 + '</td>';
-                                anio += 1;
-                            }
-                        }
-
-                        var valor_acumulado = 0.0;
-                        for (var j = 0; j < data.length; j++) {
-
-                            //valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100; //q
-                            valor_acumulado = Math.round(data[j]["reducido"] * 100) / 100;// add
-
-                            var acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) + valor_acumulado;
-
-                            $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
-
-                            cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '" id="a-' + anio + '-' + f + '">' + formatoMiles(Math.round(data[j]["reducido"] * 100) / 100) + '</td>';
-                            anio += 1;
-                        }
-
-                        anio -= 1;
-                        var acumulado_fin = 2030 - anio;
-
-                        if (acumulado_fin > 0) {
-                            for (var n = 0; n < acumulado_fin; n++) {
-                                anio += 1;
-                                cuerpo += '<td class="text-center estrecho" data-encabezado="' + anio + '" id="a-' + anio + '-' + f + '">' + 0.00 + '</td>';
-                            }
-                        }
-
-                        cuerpo += '</tr>';
-
-                        $("#cuerpo-acumulado-total").append(cuerpo);
-                    } else {
-                        var valor_acumulado = 0.0;
-                        var valor_descuento = 0.0;
-
-                        if (acumulado_ini > 0) {
-                            for (var m = 0; m < acumulado_ini; m++) {
-                                var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
-
-                                //valor_descuento += valor; //q
-                                valor_descuento = valor; //add
-
-                                acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) - valor_descuento;
-                                $("#a-" + anio + '-' + f).html(0);
-                                $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
-                                anio += 1;
-                            }
-                        }
-
-                        for (var j = 0; j < data.length; j++) {
-                            var acumulado_col = 0.0;
-                            var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
-
-                            //valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100; //q
-                            valor_acumulado = Math.round(data[j]["reducido"] * 100) / 100; //add
-
-                            //valor_descuento += valor; //q
-                            valor_descuento = valor; //add
-
-                            acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) - valor_descuento;
-
-                            acumulado_col = acumulado_col + valor_acumulado;
-                            $("#a-" + anio + '-' + f).html(formatoMiles(Math.round(data[j]["reducido"] * 100) / 100));
-
-                            $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
-
-                            anio += 1;
-                        }
+            if (verf == 0) {
+                cuerpo += '<tr id="f-' + f + '">';
+                cuerpo += '<td class="text-center estrecho">' + num + '</td>';
+                if (acumulado_ini > 0) {
+                    for (var m = 0; m < acumulado_ini; m++) {
+                        cuerpo += '<td class="text-center estrecho" data-encabezado="' + anio + '" id="a-' + anio + '-' + f + '">' + 0.00 + '</td>';
+                        anio += 1;
                     }
                 }
+
+                var valor_acumulado = 0.0;
+                for (var j = 0; j < data.length; j++) {
+
+                    //valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100; //q
+                    valor_acumulado = Math.round(data[j]["reducido"] * 100) / 100;// add
+
+                    var acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) + valor_acumulado;
+
+                    $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
+
+                    cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '" id="a-' + anio + '-' + f + '">' + formatoMiles(Math.round(data[j]["reducido"] * 100) / 100) + '</td>';
+                    anio += 1;
+                }
+
+                anio -= 1;
+                var acumulado_fin = 2030 - anio;
+
+                if (acumulado_fin > 0) {
+                    for (var n = 0; n < acumulado_fin; n++) {
+                        anio += 1;
+                        cuerpo += '<td class="text-center estrecho" data-encabezado="' + anio + '" id="a-' + anio + '-' + f + '">' + 0.00 + '</td>';
+                    }
+                }
+
+                cuerpo += '</tr>';
+
+                $("#cuerpo-acumulado-total").append(cuerpo);
             } else {
+                var valor_acumulado = 0.0;
+                var valor_descuento = 0.0;
+
+                if (acumulado_ini > 0) {
+                    for (var m = 0; m < acumulado_ini; m++) {
+                        var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
+
+                        //valor_descuento += valor; //q
+                        valor_descuento = valor; //add
+
+                        acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) - valor_descuento;
+                        $("#a-" + anio + '-' + f).html(0);
+                        $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
+                        anio += 1;
+                    }
+                }
+
+                for (var j = 0; j < data.length; j++) {
+                    var acumulado_col = 0.0;
+                    var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
+
+                    //valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100; //q
+                    valor_acumulado = Math.round(data[j]["reducido"] * 100) / 100; //add
+
+                    //valor_descuento += valor; //q
+                    valor_descuento = valor; //add
+
+                    acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) - valor_descuento;
+
+                    acumulado_col = acumulado_col + valor_acumulado;
+                    $("#a-" + anio + '-' + f).html(formatoMiles(Math.round(data[j]["reducido"] * 100) / 100));
+
+                    $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
+
+                    anio += 1;
+                }
             }
-            //$("#tbl-main-preload-acu").html("");
-            //$("#tbl-main-acu").removeClass("d-none");
-        },
-        failure: function (msg) {
-            console.log(msg);
-        },
-        error: function (xhr, status, error) {
-            console.log(error);
-            location.href = baseUrl + "Home/login";
         }
-    });
+    } else {
+    }
 
+    //$.ajax({
+    //    url: baseUrl + 'Gestion/CalcularAcumuladoC',
+    //    //type: 'POST',
+    //    //datatype: 'json',
+    //    //data: item,
 
+    //    type: "POST",
+    //    //url: nurl,
+    //    contentType: "application/json; charset=utf-8",
+    //    dataType: "json",
+    //    //async: false,
+    //    data: JSON.stringify(item),
 
+    //    success: function (data) {
+    //        if (data != null && data != "") {
+    //            if (data.length > 0) {
+
+                    
+    //                var verf = 0;
+    //                var anio = 2010;
+    //                var acumulado_ini = parseInt(data[0]["anio"]) - anio;
+
+    //                var fila = $("#cuerpo-acumulado-total").find("tr");
+    //                fila.each(function (index, value) {
+                        
+    //                    var id = $(value).attr("id");
+
+    //                    if (id == "f-" + f) {
+    //                        verf = 1;
+    //                    }
+    //                });
+
+                    
+    //                if (verf == 0) {
+    //                    cuerpo += '<tr id="f-' + f + '">';
+
+    //                    if (acumulado_ini > 0) {
+    //                        for (var m = 0; m < acumulado_ini; m++) {
+    //                            cuerpo += '<td class="text-center estrecho" data-encabezado="' + anio + '" id="a-' + anio + '-' + f + '">' + 0.00 + '</td>';
+    //                            anio += 1;
+    //                        }
+    //                    }
+
+    //                    var valor_acumulado = 0.0;
+    //                    for (var j = 0; j < data.length; j++) {
+
+    //                        //valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100; //q
+    //                        valor_acumulado = Math.round(data[j]["reducido"] * 100) / 100;// add
+
+    //                        var acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) + valor_acumulado;
+
+    //                        $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
+
+    //                        cuerpo += '<td class="text-center estrecho" data-encabezado="' + data[j]["anio"] + '" id="a-' + anio + '-' + f + '">' + formatoMiles(Math.round(data[j]["reducido"] * 100) / 100) + '</td>';
+    //                        anio += 1;
+    //                    }
+
+    //                    anio -= 1;
+    //                    var acumulado_fin = 2030 - anio;
+
+    //                    if (acumulado_fin > 0) {
+    //                        for (var n = 0; n < acumulado_fin; n++) {
+    //                            anio += 1;
+    //                            cuerpo += '<td class="text-center estrecho" data-encabezado="' + anio + '" id="a-' + anio + '-' + f + '">' + 0.00 + '</td>';
+    //                        }
+    //                    }
+
+    //                    cuerpo += '</tr>';
+
+    //                    $("#cuerpo-acumulado-total").append(cuerpo);
+    //                } else {
+    //                    var valor_acumulado = 0.0;
+    //                    var valor_descuento = 0.0;
+
+    //                    if (acumulado_ini > 0) {
+    //                        for (var m = 0; m < acumulado_ini; m++) {
+    //                            var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
+
+    //                            //valor_descuento += valor; //q
+    //                            valor_descuento = valor; //add
+
+    //                            acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) - valor_descuento;
+    //                            $("#a-" + anio + '-' + f).html(0);
+    //                            $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
+    //                            anio += 1;
+    //                        }
+    //                    }
+
+    //                    for (var j = 0; j < data.length; j++) {
+    //                        var acumulado_col = 0.0;
+    //                        var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
+
+    //                        //valor_acumulado += Math.round(data[j]["reducido"] * 100) / 100; //q
+    //                        valor_acumulado = Math.round(data[j]["reducido"] * 100) / 100; //add
+
+    //                        //valor_descuento += valor; //q
+    //                        valor_descuento = valor; //add
+
+    //                        acumulado_col = parseFloat($("#acum-" + anio).html().replace(/,/gi, '')) - valor_descuento;
+
+    //                        acumulado_col = acumulado_col + valor_acumulado;
+    //                        $("#a-" + anio + '-' + f).html(formatoMiles(Math.round(data[j]["reducido"] * 100) / 100));
+
+    //                        $("#acum-" + anio).html(formatoMiles(Math.round(acumulado_col * 100) / 100));
+
+    //                        anio += 1;
+    //                    }
+    //                }
+    //            }
+    //        } else {
+    //        }
+    //        //$("#tbl-main-preload-acu").html("");
+    //        //$("#tbl-main-acu").removeClass("d-none");
+    //    },
+    //    failure: function (msg) {
+    //        console.log(msg);
+    //    },
+    //    error: function (xhr, status, error) {
+    //        console.log(error);
+    //        location.href = baseUrl + "Home/login";
+    //    }
+    //});
+    
 }
 
+//$(document).on("keydown", ".solo-numero", function (e) {
+//    var key = window.e ? e.which : e.keyCode;
+//    //var id = $("#" + e.target.id)[0].type;
+//    if ((key < 48 || key > 57) && (event.keyCode < 96 || event.keyCode > 105) && key !== 8 && key !== 9 && key !== 37 && key !== 39 && key !== 46) return false;
+//});
+
+$(document).on("keyup", ".solo-numero", function (event) {
+
+    $(event.target).val(function (index, value) {
+        return value.replace(/\D/g, "")
+                    .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ",");
+    });
+
+});
 
 /////////////
 $(document).on("keyup", ".formato-num", function (event) {
-    debugger;
-        $(event.target).val(function (index, value) {
-            return value.replace(/\D/g, "")
-                        .replace(/([0-9])([0-9]{2})$/, '$1.$2')
-                        .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ",");
-        });
     
+        //$(event.target).val(function (index, value) {
+        //    return value.replace(/\D/g, "")
+        //                .replace(/([0-9])([0-9]{2})$/, '$1.$2')
+        //                .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ",");
+        //});
+
+    $(event.target).val(function (index, value) {
+        if (value.length <= 2) {
+            return value.replace(/\D/g, "")
+            .replace(/([0-9])([0-9]{1})$/, '$1.$2')
+            .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ",");
+        } else {
+            return value.replace(/\D/g, "")
+            .replace(/([0-9])([0-9]{2})$/, '$1.$2')
+            .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ",");
+        }
+    });
 });
+
+
+var estiloblockpage = () => {
+    width = $('body').css('width');
+    height = $('body').css('height');
+    $("#block-page-carga").css("position", "fixed");
+    $("#block-page-carga").css("top", "0");
+    $("#block-page-carga").css("left", "0");
+    $("#block-page-carga").css("width", width);
+    $("#block-page-carga").css("height", height);
+    $("#block-page-carga").css("opacity", ".1");
+    $("#block-page-carga").css("background-color", "#fff");
+    $("#block-page-carga").css("z-index", "2000");
+    $("#block-page-carga").css("display", "none");
+}

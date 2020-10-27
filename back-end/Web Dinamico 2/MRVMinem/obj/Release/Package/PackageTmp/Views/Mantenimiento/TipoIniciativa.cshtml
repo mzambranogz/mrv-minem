@@ -20,7 +20,7 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="@Url.Action("Index","Gestion")">Inicio</a></li>
                 <li class="breadcrumb-item"><a href="@Url.Action("MantenimientoTablas","Gestion")">Mantenimiento de Tablas</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Mantenimiento de Tipo de Iniciativa</li>
+                <li class="breadcrumb-item active" aria-current="page">Mantenimiento de Tipo de Acción de Mitigación</li>
             </ol>
         </nav>
     </div>
@@ -32,14 +32,14 @@
                 <div class="row">
                     <div class="col-md-12 col-lg-6 pt-4">
                         <div class="h4">
-                            Mantenimiento de Tipo de Iniciativa&nbsp;
-                            <br><small class="text-muted">Utilice la búsqueda para encontrar el tipo de iniciativa indicada para el mantenimiento</small>
+                            Mantenimiento de Tipo de Acción de Mitigación&nbsp;
+                            <br><small class="text-muted">Utilice la búsqueda para encontrar el tipo de acción de mitigación indicada para el mantenimiento</small>
                         </div>
                     </div>
                     <div class="col-md-12 col-lg-6 pt-4">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
-                            <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#modal-edicion"><a class="agregar-iniciativa" href="#" data-toggle="tooltip" data-placement="top" title="Podrá registrar una nuevo tipo de iniciativa" id="validarUsuario" onclick="regMantenimiento();" data-guardar="0"><i class="fas fa-plus px-1"></i>Agregar Tipo Iniciativa</a></span></div>
+                            <div class="col-sm-12 col-md-6 col-lg-6"><span data-toggle="modal" data-target="#modal-edicion"><a class="agregar-iniciativa" href="#" data-toggle="tooltip" data-placement="top" title="Podrá registrar una nuevo tipo de acción de mitigación" id="validarUsuario" onclick="regMantenimiento();" data-guardar="0"><i class="fas fa-plus px-1"></i>Agregar Tipo Acción de Mitigación</a></span></div>
                         </div>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
             </div>
 
             <div class="container-fluid py-4">
-                <div class="h5">Bandeja de Tipo de Iniciativa&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Bandeja de todos los tipos de iniciativas"></i></div>
+                <div class="h5">Bandeja de Tipo de Acción de Mitigación&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Bandeja de todos los tipos de acciones de mitigación"></i></div>
                 <div class="dropdown-divider"></div>
                 <div class="row">
                     <div class="col-12 px-0">
@@ -78,7 +78,7 @@
                                 <thead>
                                     <tr class="bg-primary text-white">
                                         <th class="text-center" scope="col" width="5%"><span class="miColumna">N°&nbsp;<i class="fas fa-sort" style="color: lightgray" id="ID_TIPO_INICIATIVA"></i></span></th>
-                                        <th scope="col" width="85%"><span class="miColumna">Tipo Iniciativa&nbsp;<i class="fas fa-sort-up" style="color: white" id="TIPO_INICIATIVA"></i></span></th>
+                                        <th scope="col" width="85%"><span class="miColumna">Tipo de Acción de Mitigación&nbsp;<i class="fas fa-sort-up" style="color: white" id="TIPO_INICIATIVA"></i></span></th>
                                         <th class="text-center" scope="col" width="10%">Acciones</th>
                                     </tr>
                                 </thead>
@@ -160,8 +160,8 @@
                     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="title-nuevo">Registro de Nuevo Tipo de Iniciativa <br><small class="text-muted">Complete los siguientes campos para registrar una nuevo tipo de iniciativa</small><small class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</small></h5>
-                                <h5 class="modal-title" id="title-edit">Modificación de Tipo de Iniciativa <br><small class="text-muted">Complete los siguientes campos para actualizar un tipo de iniciativa</small><small class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</small></h5>
+                                <h5 class="modal-title" id="title-nuevo">Registro de Nuevo Tipo de Acción de Mitigación <br><small class="text-muted">Complete los siguientes campos para registrar una nuevo tipo de acción de mitigación</small><small class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</small></h5>
+                                <h5 class="modal-title" id="title-edit">Modificación de Tipo de Acción de Mitigación <br><small class="text-muted">Complete los siguientes campos para actualizar un tipo de acción de mitigación</small><small class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Campos obligatorios</small></h5>
                                 <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             </div>
                             <div class="modal-body medidas-modal">
@@ -169,10 +169,10 @@
                                     <div class="row" id="ventanaEditar">
                                         <div class="col-md-12 col-lg-12">
                                             <div class="form-group">
-                                                <label for="txt-descripcion">Tipo Iniciativa</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
+                                                <label for="txt-descripcion">Tipo de Acción de Mitigación</label><span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup6"><i class="fas fa-landmark"></i></span></div>
-                                                    <input class="form-control" type="text" id="txt-descripcion" placeholder="Ingrese el tipo de iniciativa" aria-describedby="inputGroup6" required>
+                                                    <input class="form-control" type="text" id="txt-descripcion" placeholder="Ingrese el tipo de Acción de Mitigación" aria-describedby="inputGroup6" required>
                                                 </div>
                                             </div>
                                         </div>

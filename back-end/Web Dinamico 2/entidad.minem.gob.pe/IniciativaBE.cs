@@ -28,5 +28,6 @@ namespace entidad.minem.gob.pe
         public int ID_TIPO_INGRESO { get; set; }
         public int ID_TIPO_INICIATIVA { get; set; }
         public int ID_PLAZO_ETAPA_ESTADO { get; set; }
+        public int AUDITOR { get; set; }
     }
 }

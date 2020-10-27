@@ -277,9 +277,21 @@ function CargarDatosIniciativa() {
                         $("#txt-sector-institucion").val(data[i]["SECTOR"]);
                         if (data[i]["INVERSION_INICIATIVA"] != 0) {
                             $("#txt-monto-inversion").val(data[i]["INVERSION_INICIATIVA"]);
+                        } else {
+                            $("#txt-monto-inversion").val("------");//add 030620
                         }
+
+
+
                         if ($("#Control").data("revision") == 0) {
-                            $("#cbo-moneda").val(data[i]["ID_MONEDA"]);
+                            //$("#cbo-moneda").val(data[i]["ID_MONEDA"]);
+
+                            if (data[i]["MONEDA"] != null) {
+                                $("#txt-moneda").val(data[i]["MONEDA"]);
+                            } else {
+                                $("#txt-moneda").val("------");
+                            }
+
                             if (data[i]["FECHA"].toString() != "01/01/0001") {
                                 $("#txt-fecha-inicio").val(data[i]["FECHA_EDITAR"]);
                                 //$("#txt-fecha-inicio").val("2019-12-12"); FORMATO EJEMPLO PARA CARGA
@@ -289,7 +301,14 @@ function CargarDatosIniciativa() {
                             }
                         } else {
                             $("#emisorObservacion").append($("#Control").data("nombres"));
-                            $("#txt-moneda").val(data[i]["MONEDA"]);
+                            //$("#txt-moneda").val(data[i]["MONEDA"]);
+
+                            if (data[i]["MONEDA"] != null) {
+                                $("#txt-moneda").val(data[i]["MONEDA"]);
+                            } else {
+                                $("#txt-moneda").val("------");
+                            }
+
                             if (data[i]["FECHA"].toString() != "01/01/0001") {
                                 $("#txt-fecha-inicio").val(data[i]["FECHA"].toString());
                             }
@@ -360,7 +379,7 @@ function fn_cargarUbicacion() {
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
-                    var msj = '<textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="8" readonly placeholder="Ingrese una descripción para su iniciativa">';
+                    var msj = '<textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="8" readonly placeholder="Ingrese una descripción para su acción de mitigación">';
                     for (var j = 0; j < data.length; j++) {
                         msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
                     }
@@ -386,7 +405,7 @@ function fn_cargarGei() {
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
-                    var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">';
+                    var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su acción de mitigación">';
                     for (var j = 0; j < data.length; j++) {
                         msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
                     }
@@ -1792,9 +1811,17 @@ function CargarDatosCabecera() {
     $("#tbl-main").addClass("d-none");
     $.ajax({
         url: baseUrl + 'Gestion/ListarCabeceraIndicador',
-        type: 'POST',
-        datatype: 'json',
-        data: item,
+        //type: 'POST',
+        //datatype: 'json',
+        //data: item,
+
+        type: "POST",
+        //url: nurl,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        async: false,
+        data: JSON.stringify(item),
+
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
@@ -1820,9 +1847,18 @@ function CargarDatosCabecera() {
                             } else {
                                 descripcion = "(" + descripcion + ")";
                             }
-                        } else {
+                        }
+                        else {
                             descripcion = "(" + data[i]["COMBINACION_UNIDAD"] + ")";
                         }
+
+                        if (data[i]["ID_PARAMETRO"] == 9 || data[i]["ID_PARAMETRO"] == 10 || data[i]["ID_PARAMETRO"] == 11) {
+                            if (data[i]["COMBINACION_UNIDAD"] != "" && data[i]["COMBINACION_UNIDAD"] != null) {
+                                descripcion = "(" + data[i]["COMBINACION_UNIDAD"] + ")";
+                            }
+                        }
+
+                        
 
                         //if (data[i]["ID_PARAMETRO"] == 9 || data[i]["ID_PARAMETRO"] == 10 || data[i]["ID_PARAMETRO"] == 11) {
                         //    tr += '     <th class="text-center grupo-columna-'+ columna +'" scope="col"><span>' + data[i]["NOMBRE_PARAMETRO"] + ' tCOeq</span><small>Seleccione este campo para su registro</small></th>';
@@ -1842,8 +1878,8 @@ function CargarDatosCabecera() {
                         else
                             tool = data[i]["LEYENDA_PARAMETRO"];
 
-                        tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="' + tool + '"></i>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span><small>' + data[i]["DESCRIPCION_PARAMETRO"] + '</small></th>';
-
+                        //tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="' + tool + '"></i>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span><small>' + data[i]["DESCRIPCION_PARAMETRO"] + '</small></th>'; // quit 03-07-2020
+                        tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="' + tool + '"></i>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span></th>'; //add 03-07-2020
                     }
                     //tr += '     <th class="text-center" scope="col">Más</th>';
                     tr += '<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Si desea subir un archivo de más de 4MB, contactar con el administrador"></i>Documentos de sustento</span></th>';
@@ -1856,6 +1892,13 @@ function CargarDatosCabecera() {
                 }
             }
             //$('[data-toggle="tooltip"]').tooltip();
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
         }
     });
 
@@ -1915,7 +1958,7 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                                 } else {
                                     lista++;
                                     tr += '<select class="form-control form-control-sm" id="cbo-det-tbl-1-' + lista + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" disabled>';
-                                    if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77) tr += '        <option value="0">Seleccionar</option>'; //add
+                                    if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30 && data[j]["ID_PARAMETRO"] != 93 && data[j]["ID_PARAMETRO"] != 94 && data[j]["ID_PARAMETRO"] != 95) tr += '        <option value="0">Seleccionar</option>'; //add
                                     //tr += '        <option value="0">Seleccionar</option>';
                                     var listaD = data[j]["listaDetalle"];
                                     for (var m = 0; m < listaD.length; m++) {
@@ -2078,7 +2121,7 @@ function CargarDatosExcel(data) {
             }
             var valor = entidad[index]["VALOR"];
             if (!isNaN(valor)) if (valor - Math.floor(valor) != 0) valor = Math.round(valor * 100) / 100
-            if (entidad[index]["ID_PARAMETRO"] == 11) total += valor;
+            if (entidad[index]["ID_PARAMETRO"] == 11) total += parseFloat(valor);
 
             //===============================================================
             debugger;
@@ -2103,8 +2146,8 @@ function CargarDatosExcel(data) {
             $("#detalles-tr-" + (i + 1)).addClass("error-data");
         }
 
-        $("#total-detalle").html("").append((Math.round(total * 100) / 100));
-        $("#total-detalle2").html("").append((Math.round(total * 100) / 100));
+        $("#total-detalle").html("").append(formatoMiles(Math.round(total * 100) / 100));
+        $("#total-detalle2").html("").append(formatoMiles(Math.round(total * 100) / 100));
         $("#cuerpoTablaIndicador").data("total", total);
 
         // add 17-05-2018
@@ -2150,6 +2193,8 @@ function GuardarIdDetalle() {
 $(document).ready(function () {
 
     inicio();
+
+    //$("i[data-placement='top']").attr({ 'data-original-title': 'Puede seleccionar múltiples archivos, con un tamaño no superior a 4MB por archivo' });
 
     if ($("#iniciativa_mit_ID_INICIATIVA").val() > 0) {
         $("#Control").data("iniciativa", $("#iniciativa_mit_ID_INICIATIVA").val());
@@ -2312,7 +2357,11 @@ function CargarArchivosGuardados() {
                         var tr = "";
                         tr += '     <div class="input-group mb-3" id="eliminar-' + data[i]["ID_INICIATIVA_SUSTENTATORIO"] + '">';
                         tr += '             <div class="input-group-prepend"><span class="input-group-text"><i class="fas ' + extension + '"></i></span></div><span class="form-control-plaintext ww">' + data[i]["ADJUNTO_BASE"] + '</span>';
-                        tr += '             <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="far fa-trash-alt" onclick="fn_eliminarArchivo(' + data[i]["ID_INICIATIVA_SUSTENTATORIO"] + ')"></i></span></div>';
+                        tr += '             <div class="input-group-append">';
+                        tr += '                 <span class="input-group-text cursor-pointer mr-2" onclick="fn_verfilesutento(' + data[i]["ID_INICIATIVA_SUSTENTATORIO"] + ')"><i class="fas fa-download"></i></span>';
+                        tr += '                 <span class="input-group-text cursor-pointer"><i class="far fa-trash-alt" onclick="fn_eliminarArchivo(' + data[i]["ID_INICIATIVA_SUSTENTATORIO"] + ')"></i></span>';
+                        tr += '             </div>';
+                        //tr += '             <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="far fa-trash-alt" onclick="fn_eliminarArchivo(' + data[i]["ID_INICIATIVA_SUSTENTATORIO"] + ')"></i></span></div>';
                         tr += '    </div>';
                         $("#archivos-guardados").append(tr);
                     }
@@ -2336,7 +2385,42 @@ function removeFile(e) {
     $(e).parent().parent().parent().remove();
 }
 
+function visualizarArchivo(e) {
+    var file = e.dataset.file;
+    for (var i = 0; i < storedFiles.length; i++) {
+        if (storedFiles[i].name === file) {
+            descargarArchivo(storedFiles[i], storedFiles[i].name);
+            break;
+        }
+    }
+}
 
+function descargarArchivo(contenidoEnBlob, nombreArchivo) {
+    //creamos un FileReader para leer el Blob
+    var reader = new FileReader();
+    //Definimos la función que manejará el archivo
+    //una vez haya terminado de leerlo
+    reader.onload = function (event) {
+        //Usaremos un link para iniciar la descarga 
+        var save = document.createElement('a');
+        save.href = event.target.result;
+        save.target = '_blank';
+        //Truco: así le damos el nombre al archivo 
+        save.download = nombreArchivo || 'archivo.dat';
+        var clicEvent = new MouseEvent('click', {
+            'view': window,
+            'bubbles': true,
+            'cancelable': true
+        });
+        //Simulamos un clic del usuario
+        //no es necesario agregar el link al DOM.
+        save.dispatchEvent(clicEvent);
+        //Y liberamos recursos...
+        (window.URL || window.webkitURL).revokeObjectURL(save.href);
+    };
+    //Leemos el blob y esperamos a que dispare el evento "load"
+    reader.readAsDataURL(contenidoEnBlob);
+};
 
 function fn_procesoDetalleIndicador(url, estado) {
 
@@ -2344,7 +2428,7 @@ function fn_procesoDetalleIndicador(url, estado) {
     if (estado == 1 || estado == 0) { num_validar = 8 }
     else if (estado == 5 || estado == 6) { num_validar = 11 }
 
-    var mns = ValidarRevision('1', $("#Control").data("iniciativa"), num_validar, "mensajeDangerRegistro", "El detalle de esta iniciativa ya fue enviada para su revisión");
+    var mns = ValidarRevision('1', $("#Control").data("iniciativa"), num_validar, "mensajeDangerRegistro", "El detalle de esta acción de mitigación ya fue enviada para su revisión");
     debugger;
     if (mns != "") {
         if (estado == 1 || estado == 5) {
@@ -2480,6 +2564,7 @@ function fn_procesoDetalleIndicador(url, estado) {
         type: "POST",
         dataType: "json",
         contentType: false,
+        async: false, // add 040620
         url: url,
         processData: false,
         data: item,
@@ -2646,9 +2731,17 @@ function CargarDatosGuardados() {
     }
     $.ajax({
         url: baseUrl + 'Gestion/ListarDatosIndicadorData',
-        type: 'POST',
-        datatype: 'json',
-        data: item,
+        //type: 'POST',
+        //datatype: 'json',
+        //data: item,
+
+        type: "POST",
+        //url: nurl,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        //async: false,
+        data: JSON.stringify(item),
+
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
@@ -2731,6 +2824,13 @@ function CargarDatosGuardados() {
             }
             $("#tbl-main-preload").html("");
             $("#tbl-main").removeClass("d-none");
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
         }
     });
 
@@ -2983,7 +3083,7 @@ function ValidarRevision(num_validar, id_ini, id_plazo, id_msj, mensaje) {
             msj = mensajeError(id_msj, "Error", mensaje);
         }
     } else {
-        msj = mensajeError(id_msj, "Error", "Ocurrio un error durante el proceso de guardado de la Iniciativa.");
+        msj = mensajeError(id_msj, "Error", "Ocurrio un error durante el proceso de guardado de la acción de mitigación.");
     }
     return msj;
 }

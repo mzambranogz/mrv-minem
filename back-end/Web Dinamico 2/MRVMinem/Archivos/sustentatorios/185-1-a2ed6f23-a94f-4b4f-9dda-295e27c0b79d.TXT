@@ -1,0 +1,472 @@
+Presentamos la plataforma MRV del sector energía, ingresamos a traves de la URL de acceso a la plataforma, esta cargará el sistema y mostrará la interfaz principal.
+
+En la presente secciòn se muestran breves descripciones y objetivos de las medidas de mitigación del cambio climático en el sector energía.
+
+
+
+Luego se muestran los aspectos generales, en las que se informa a través de preguntas, aspectos de interés de distintos usuarios.
+
+Luego podrá conocer los nombres de cada medida de mitigación
+
+
+Finalmente visualizamos las opciones de reportes, resultados, ingresar y registrarse, cada uno de ellos al ser seleccionado nos redirigirá a su contenido específico.
+
+
+
+
+CooperativaRojas@gmail.com
+
+nombre: Humberto
+
+Montero Rojas
+
+7348678
+
+3476
+
+995678431
+
+Cooperativa Rojas
+
+Av. Las Praderas
+
+Privado
+
+
+Proyecto2020@
+
+Proyecto2020@
+
+
+
+AL ACCEDER===
+
+en proximos accesos el administrado ingrese solo la contraseña, facilitando el acceso al sistema.
+
+
+=================INICIATIVA
+
+NOMBRE DE INICIATIVA:  Sustitución de lámparas de alta eficiencia por tecnologías más eficaz de iluminación de los sectores .
+
+
+DESCRIPCIÒN: Mercado de iluminación más eficiente, cuyo principal objetivo es promover el uso de lámparas.
+
+selecciona ubicaciòn en la cual se implementara la iniciativa.
+
+
+muestra un mensaje y las opciones de hacer publicos los datos.Si no lo desea puede dar clic al boton si enviar
+
+el administrado debe esperar a que el especialista revise, de igual forma le llegara un correo.
+
+================revisiòn de iniciativa
+
+seleccionar los indicadores asociados a la iniciativa registrada, 
+
+observar en caso exista algun dato incorrecto 
+
+
+=========  detalle 
+
+una vez aprobado el registro el sistema nos habilita la opciòn de reistrar detalle, el detalle manual se debe usar cuando se ingresen pocos registros y por el contrario el detalle por archivo excel se debe usar cuando el usuario inserte una gran cantidad de registros. 
+
+
+para subir un archivo damos clic al icono subir archivo, seleccionamos el archivo, de igual forma podremos ver los valores acumulados de nuestros registros.
+
+archivos generales adjuntos
+
+==================
+Evaluador y verificador
+
+
+generan su documento blockchain con su codigo de cifrado
+
+ambos tienen la opción de seguimiento, observar, busqueda simple, busqueda avanzada, filtros descargar excel (Para importar).
+
+---------------------------------------------
+REPORTESSS  
+
+El sistema presenta 4 reportes 
+
+2018 EESI
+2018 ER
+
+
+RESULTADOS     ER      Y    2018
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+TURNO TARDE 
+
+Alfredo,Trelles Jiménez,alfredotrelles97@gmail.com
+CARLOS JESUS GALDOS VADILLO,,cgaldos@autonoma.edu.pe,
+Flavio,,flaviozuniga@hotmail.com
+Alfonso,Córdova,alfonso.cordova@gmail.com
+JESÚS,,jesusvasquez@gmail.com
+Maycol,Zambrano,maycol.zambrano@grupo-zuniga.com
+Juan Soto Castañeda,,juancarlossotoc1990@gmail.com
+Maria,Patiño,mpatino@minem.gob.pe,5/22/2020 15:37
+Jorge,Perez,joperez@minem.gob.pe
+Daniella,Rough,rough.daniella@gmail.com
+
+
+
+
+
+
+
+
+1.Resumen ejecutivo
+2. Manuales de usuario
+3. Informe de entrenamiento de usuario
+4. Manual de Instalación y Configuración
+5. Acta de Pase a Producción 
+ 5. Manual de Operaciones
+6. Informe de Implantación
+
+
+
+
+*
+
++*****
+el informe de implantación 
+
+se intalo en tal sistema, tal servidor  con tales caracteristicas , la implantación se realizo siguiendo los pasos del manual de operaciones los cuales deben ser replicados en el servidor 
+
+
+
+
+*****************
+Bizagi modelo de proceso
+
+rational  erwin  modelado 
+
+erwin    modelado de BD
+
+oracle 12 c
+
+jmeter  pruebas de  estres 
+ 
+burp siute  pruebas de seguridad
+
+
+
+
+=========================================================
+*Leyenda*           *  significa puntos se se cambian en el flujo 
+                    () opiniones 
+
+
+*Ver el flujo del visitante o postulante, sino crear uno para el visitante.
+
+
+*agregamos para que un usaurio que ya este registrado en MRV ya puede acceder a SELLOS los datos se pueden migrar. Da clic a la opciòn "Registro con MRV" y sus datos.Puede ingresar con cuenta MRV. o tambien registrarse con su correo de MRV.
+
+*No es necesario que un administrado habilite, se registra y entra directamente a postular.
+
+
+*Hay que detallar el proceso de inscripción, como se apretura el proceso de inscripción a un concurso.
+
+
+*No se sera una persona natural, porque no tendra esa información de los documentos. Estos documentos seran copias 
+
+
+(Debe existir en la BD una tabla de mantenimiento de los plazos)
+
+
+(Si las formulas del MRV tienen algun parecido a las formulas de SELLOS, cuando se modifique estas formulas en MRV se deben tambien cambiar automaticamente en SELLOS)
+
+(Se haran etapas piloto puede que se editen los criterios, no sean solo los 8 criterios, mantenimiento de criterios)
+
+
+(La huella de carbono en el criterio 6 indica que es reducido o compensado, estos dos puntos son distintos el certificado por reducido es menor al del compensado. (Esto dependera del registro realizado entre los 3 ))
+
+
+*Cuando se envia ya todos los registros existe un periodo de revisión, en el sistema debe aparecer una mensaje  "ahora esta en revisión y vamos a comunicar en un plazo de x dias, cual quier consulta se debe comunicar al correo xx "
+
+ 
+
+ 
+
+
+=================================================================
+Usuarios : visitante, postulante, evaluador, administrador y 
+comite de evaluación
+
+
+
+Prototipos
+
+detallar el protoclo del sello ha lo que se regiere "GESTIÓN" detallar en flujograma y CU alineado al sistema de administración
+
+Es un requisito previo estar en el MRV 
+
+
+
+
+
+
+
+
+
+
+
+CREATE USER 'nuevousuario'@'localhost' IDENTIFIED BY 'contraseña';
+
+
+
+
+
+
+
+
+
+
+CUS
+
+   Postulante
+
+   Registrar usuario
+   Iniciar sesión
+   Postular convocatoria
+   Registrar criterio
+   Consultar criterios 
+   Modificar criterios  
+   
+
+ Administrador 
+ 
+ -Verificar datos               extend(Aprobar usuario)  
+ -Registrar convocatoria
+ 
+
+
+ -Mantenimiento de plazos
+ -Mantenimiento criterios
+ -Mantenimiento de usuario
+ -Mantenimiento de convocatoria
+ -Mantenimiento de roles
+ -Mantenimiento de insignia
+ 
+
+  cambiar contraseña 
+  retablecer contraseña
+  recuperar contraseña
+
+ Evaluador SRES
+
+  -Verificar requerimientos      extend (anular inscripción) 
+  -Revisar criterio              extend (realizar informe preliminar)
+  -Realizar informe final
+
+
+
+
+*************PAQUETES IDENTIFICADOS***************
+
+* Paquete Registro de criterios y usuario
+* Paquete de verificación
+* Paquete de mantenimiento de tablas
+* Paquete de administración del sistema
+
+
+
+
+prototipo 70%
+
+
+ 1-MRVModelo de software       100%
+
+ 2. Especificaciones de actores, paquetes y casos de uso   95%
+
+ 3. 03-MRVMapeo de Requerimiento y Casos de Uso Completo   100%
+
+ 04-MRVDiagrama de Clases, Actividades, Secuencia, entre otros diagramas   100%
+
+ 05 05-MRVDiseño de la Plataforma        100%
+
+
+ 06-Modelo Conceptual, Modelo Logico y Modelo Fisico de Base de Datos  100%
+
+
+ 07-Diccionario de Datos 100%
+
+ 
+ 08-Diagrama de Componentes y Despliegue   100 %
+
+
+ 09-Prototipo del Sistema de Informacion  100%
+
+
+ 10-Prototipo de las interfaces  100%
+
+
+   
+consultar requeirmeinto
+ 
+
+
+mae   registrar
+
+genm  modificado
+
+
+m m     relacionar   
+
+160	16,000,000
+50	5,000,000
+1	100,000
+8	800,000
+100	10,000,000
+4	400,000
+200	20,000,000
+20	2,000,000
+
+
+
+
+
+
+
+
+
+1,175,800,000
+
+
+
+
+
+*Observación 1* 
+
+En el documento de “Plan de trabajo” se corrigió el punto en la cual se definen las metodologías que se usaran para cada documento, así mismo se detalló que software y formato es empleado a los documentos que se desarrollan en los entregables del proyecto. Para un mayor detalle de la observación se puede ubicar a partir de la página 16 del documento “Plan de trabajo".
+
+
+
+*Observación 2*
+
+Se corrigieron los errores ortográficos y la redacción en el plan de trabajo (Cronograma de actividades, Descripción de metodologías, Plan de gestión de riesgos y Plan de gestión de cambios) de este primer entregable, se hizo una revisión detallada por cada sección del documento y se contrasto con los documentos anexados por la observación presente. Las correcciones desarrolladas se pueden observar en el nuevo documento del “Plan de trabajo”.
+
+
+para observar la sección Descripción de metodologías dirigirse a la pagina 21 del documento "Plan de trabajo".
+
+Para observar el cronograma de actividades dirigirse a la pagina 7 del documento "Plan de trabajo".
+
+Para observar la sección "Plan de gestión de riesgo" dirigirse a la pagina 35 del documento "Plan de trabajo".
+
+Para observar la sección "Plan de gestión de cambios" dirigirse a la pagina 39 del documento "Plan de trabajo".
+
+
+*Observación 3*
+
+Para observar a mayor detalle la solución de la observación dirigirse a la página 26 del documento “Plan de trabajo”.
+
+
+*Observación 4*
+
+Para observar a mas detalle la observación dirigirse a la página 27 del documento “Plan de trabajo”.
+
+
+*Observacion 5* 
+
+Para tener más detalle dirigirse a la página 29 del documento “Plan de trabajo”.
+
+
+*Observación 6*
+
+Para más detalle dirigirse a la página 29 del documento “Plan de trabajo”.
+
+
+*Observación 7*
+
+Para ver a mas detalle la observación desarrollada dirigirse a la página 30 del documento “Plan de trabajo”.
+
+
+
+*Observación 8*
+
+Para ver a más detalle la observación desarrollada dirigirse a la página 31 del documento “Plan de trabajo”.
+
+
+
+*Observación 9*
+
+Para ver a más detalle la observación desarrollada dirigirse a la página 34 del documento “Plan de trabajo”.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+****************************************************
+
+4 diagrama de activiades y secuencia  Mnatneitmo requeri
+
+
+
+
+
+
+=================Preguntas 
+
+ el anexo dice que se crearà un documento de "No otorgamiento de SRES, esto es en caso que de ninguna entidad llegue a los puntajes y gane alguna de las categorias?"
+
+Se dice tambien que es posible revocar la categoria de sellos, en caso no cumpla con los criterios, en que parte de todo el proceso se realizaria esto? luego de la premiaciòn? durante la revisiòn?
+
+El reconocimiento destacado a la mejora continua solo sera dado a la entidades que lograron durante 2 postulaciones consecutiva en la categoria oro ?  o podia ser a las entidades que mantuvieron sus categorias, sea plata y mejore?
+
+
+
+
+
+
+
+Factor emisión lo hara necesario el administrador del MINEM
+
+puede postular el suuario del sello al MRV , añadir la 
+
+puede ser tambien una entidad postule con otra medida, como se hara eso ?
+
+para NDC debe haber ganado alguna estrella y categoria (oro , plata )
+
+
+2 etapas:  subida de reque  y otro que escoga la medida (en entendi esa parte)
+
+
+
+=================================
+
+el punto 6.6
+
+
+
+
+
+
+
+
+TrellesJ0921   WEBEX

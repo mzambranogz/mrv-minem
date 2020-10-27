@@ -1,5 +1,5 @@
-﻿function fn_CargaUsuarios() {
-    debugger;
+﻿var arrAccion = [], rucAsociado = '';
+function fn_CargaUsuarios() {
     var Item = {
         buscar: $("#buscar-usuarios").data("campo"),
         cantidad_registros: $("#cantidad-registros").val(),
@@ -216,6 +216,7 @@ function CargarTablaMantenimiento() {
 }
 
 function fn_seleccionarMantenimientoUsuario(id) {
+    arrAccion = [];
     $(".ocultar-psw").hide();
     var Item = {
         ID_USUARIO: id
@@ -266,7 +267,8 @@ function fn_seleccionarMantenimientoUsuario(id) {
                         } else {
                             $("#ocultar-habilitar").show();
                         }
-
+                        if ($("#cbo-perfil").val() == 7) $("#btn-asignar").parent().parent().parent().removeClass('d-none');//add 26-10-20
+                        else $("#btn-asignar").parent().parent().parent().addClass('d-none');
                         //======================================================
 
                         $("#archivo-declaracion #seccion-file").remove();
@@ -360,6 +362,7 @@ function fn_limpiarCampo() {
     $("#txt-re-pswd").attr("type", "password");
     $(".ver-clave").html("").html('<i class="fas fa-eye mr-1"></i>Mostrar');
     $(".medidas-especialista").hide();
+    $("#txt-buscar-accion").val("");
 }
 
 function validarEstado() {
@@ -410,8 +413,8 @@ function fn_validarCampo() {
 
     if ($("#validarUsuario").data("guardar") == 1) {
         if (clave == validar) {
-            if (!(/[a-zñ]/.test(clave) && /[A-ZÑ]/.test(clave) && /[0-9]/.test(clave) && /[#$%&]/.test(clave))) {
-                arr.push("La contraseña debe contener minúscula(s), mayúscula(s), número(s) y caracter(es) especial(es) [#$%&]");
+            if (!(/[a-zñ]/.test(clave) && /[A-ZÑ]/.test(clave) && /[0-9]/.test(clave) && /[\W]/.test(clave))) {
+                arr.push("La contraseña debe contener minúscula(s), mayúscula(s), número(s) y caracter(es) especial(es)");
             }
             if (clave.length < 6) {
                 arr.push("La contraseña debe contener 6 o más caracteres por seguridad");
@@ -463,7 +466,7 @@ function fn_validarCampo() {
 }
 
 function fn_editarMantenimiento() {
-
+    
     $("#seccionMensaje #errorRegistro").remove();
     if (!fn_validarCampo()) {
         return false;
@@ -545,7 +548,9 @@ function fn_guardarUsuarioMantenimiento() {
         ID_ESTADO_ANTERIOR: $("#estado-usuario").data("estado"),
         MEDIDAS: idMedmit,
         TERMINOS: '1',
-        ESTADO: $("#validarUsuario").data("guardar")
+        ESTADO: $("#validarUsuario").data("guardar"),
+        RUC_ASOCIADO: $("#cbo-perfil").val() == 7 ? rucAsociado : '',
+        ACCIONES: arrAccion.length > 0 ? arrAccion.join(',') : '' //ADD 26-10-20
     };
     var mensaje = "";
     var respuesta = MRV.Ajax(url, item, false);
@@ -561,7 +566,6 @@ function fn_guardarUsuarioMantenimiento() {
         $("#mensajeRegistroMantenimientoUsuario").hide();
         $("#correctoMantenimientoUsuario").show();
         $("#pieCorrecto").show();
-
         $("#mensajeCorrecto").removeAttr("hidden");
 
     } else {
@@ -600,6 +604,7 @@ function fn_cargarDatosUserMantenimiento(id) {
     $("#cabeceraRegistrarMantenimientoUsuario").hide();
     $("#btn-modal-consultar").show();
     $("#txt-user").attr("disabled", true);
+    $("#txt-buscar-accion").val("");
     fn_seleccionarMantenimientoUsuario(id);
 }
 
@@ -664,6 +669,7 @@ function regUsuario() {
     $("#archivo-declaracion #seccion-file").remove();
     $(".ocultar-psw").show();
     $("#ocultar-habilitar").show();
+    $("#btn-asignar").parent().parent().parent().addClass('d-none');
 }
 
 //////////////////////////////////////EXPORTAR
@@ -673,8 +679,11 @@ $(document).ready(function () {
     fn_cargarRol();
     //fn_cargaMedidaMitigacion();
     fn_modalInicio();
-    fn_actualizaCampana();
-    enLinea();
+    $('#btn-asignar').on('click', (e) => buscarAcciones(e));
+    $('#btn-cancelar-accion').on('click', (e) => cerrarModal());
+    $('#btn-cerrar-accion').on('click', (e) => cerrarModal());
+    //fn_actualizaCampana();
+    //enLinea();
 });
 
 function exportarMantenimientoUsuario(){
@@ -760,7 +769,6 @@ function fn_validarCampoConsulta() {
 
 
 function enviarConsulta() {
-    debugger;
     $("#campoConsulta").remove();
     $("#CorrectoConsulta").remove();
     $("#ErrorConsulta").remove(); 
@@ -855,17 +863,123 @@ $(function () {
 
 
 $(document).on("change", "#cbo-perfil", function () {
-    debugger;
+    $("#btn-asignar").parent().parent().parent().addClass('d-none');
     if ($("#cbo-perfil").val() == 2) {
         if ($("#validarUsuario").data("guardar") == 0) {
             fn_cargaMedidaMitigacion($("#userMantenimiento").data("value"));
         }
         $(".medidas-especialista").show()
+
+    } else if ($("#cbo-perfil").val() == 7) {
+        $("#btn-asignar").parent().parent().parent().removeClass('d-none');
     } else {
         $(".medidas-especialista").hide()
     }
 
 });
+
+var buscarAcciones = (e) => {
+    e.preventDefault();
+    $('#mensajeAccion').html('');
+    $('#btn-guardar-accion').removeClass('d-none');
+    $('#btn-cancelar-accion').removeClass('d-none');
+    $('#btn-cerrar-accion').addClass('d-none');
+    $("#seccionMensaje #errorRegistro").remove();
+    let buscar = $('#txt-buscar-accion').val();
+    if (buscar.trim() == '') { mensajeError('Debe ingresar el ruc de la institución para buscar las acciones de mitigación', '#seccionMensaje'); return; }
+    else if (buscar.length < 11) { mensajeError('El ruc debe contener 11 dígitos', '#seccionMensaje'); return; }
+
+    var Item = { RUC_INSTITUCION: buscar };
+    $.ajax({
+        url: baseUrl + "Gestion/ListarInstitucionAcciones",
+        type: 'POST',
+        datatype: 'json',
+        data: Item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    let contenido = ``;
+                    for (var i = 0; i < data.length; i++) {
+                        let num = `<td class="text-center" data-encabezado="" scope="row"><div class="custom-control custom-checkbox d-inline-block"><input class="custom-control-input fila-inicio" type="checkbox" id="chk-send-im-${data[i]["ID_INICIATIVA"]}" ${$("#userMantenimiento").data("value") == data[i]["AUDITOR"] ? 'checked': ''}><label class="custom-control-label" for="chk-send-im-${data[i]["ID_INICIATIVA"]}">&nbsp;</label></td></div>`;
+                        let codigo = `<td class="text-center" data-encabezado="Seleccionar">${data[i]["ID_INICIATIVA"]}</td>`;
+                        let nombre = `<td class="text-left" data-encabezado="Nombre acción de mitigación">${data[i]["NOMBRE_INICIATIVA"]}</td>`;
+                        let medida = `<td class="text-left" data-encabezado="Medida de mitigación">${data[i]["NOMBRE_MEDMIT"]}</td>`;
+                        contenido += `<tr id="ini-${data[i]["ID_INICIATIVA"]}">${num}${codigo}${nombre}${medida}</tr>`;
+                    }
+                    $('#cuerpo-acciones').html(contenido);
+                    //$("#btn-modal-consultar").on("click", function () { $("#modal-usuario").modal("hide"), setTimeout(function () { $("#modal-acciones").modal("show") }, 350) })
+                    $("#modal-usuario").modal("hide");
+                    setTimeout(function () { $("#modal-acciones").modal("show") }, 350);
+                    //$('#modal-acciones').modal('show');
+                    if (arrAccion.length > 0) seleccionarAccion();
+                } else {
+                    mensajeError('El ruc de la institución consultado no presenta acciones de mitigación asociadas, por favor intentar con un nuevo ruc', '#seccionMensaje');
+                }
+            } else {
+                mensajeError('El ruc de la institución consultado no presenta acciones de mitigación asociadas, por favor intentar con un nuevo ruc', '#seccionMensaje');
+            }
+        }
+    });
+}
+
+var mensajeError = (mensaje, id) => {    
+    let c_error = `<div class="sa"><div class="sa-error"><div class="sa-error-x"><div class="sa-error-left"></div><div class="sa-error-right"></div></div><div class="sa-error-placeholder"></div><div class="sa-error-fix"></div></div></div>`;
+    let c1_2 = `<div class="alert-wrap"><h6>Error</h6><hr><small class="mb-0">${mensaje}</small></div>`;
+    let c1_1 = `<div class="alert-wrap mr-3">${c_error}</div>`;
+    let c1 = `<div class="alert alert-danger d-flex align-items-stretch" role="alert" id="errorRegistro">${c1_1}${c1_2}</div>`
+    $(id).append(c1);
+}
+
+var mensajeCorrecto = (mensaje, id) => {                                  
+    let c_error = `<div class="sa"><div class="sa-success"><div class="sa-success-tip"></div><div class="sa-success-long"></div><div class="sa-success-placeholder"></div><div class="sa-success-fix"></div></div></div>`;
+    let c1_2 = `<div class="alert-wrap"><h6>Correcto</h6><hr><small class="mb-0">${mensaje}</small></div>`;
+    let c1_1 = `<div class="alert-wrap mr-3">${c_error}</div>`;
+    let c1 = `<div class="alert alert-success d-flex align-items-stretch" role="alert" id="correctoAccion">${c1_1}${c1_2}</div>`
+    $(id).append(c1);
+}
+
+var fn_habilitarTodo = () => {
+    var validar = 0;
+    if ($("#chk-send-im").prop("checked")) validar = 0;
+    else validar = 1;
+
+    if (validar == 1) $('#chk-send-im').prop("checked", true);
+    else $('#chk-send-im').prop("checked", false);
+
+    var row = $("#tabla-acciones").find("tbody").find("tr").find(".fila-inicio");
+    row.each((x, y) => {
+        if (validar == 1) $(y).prop("checked", true);
+        else $(y).prop("checked", false);  
+    });
+}
+
+var guardarAcciones = () => {    
+    arrAccion = [];
+    var row = $("#tabla-acciones").find("tbody").find("tr").find(".fila-inicio");   
+    row.each((x, y) => {
+        if ($(y).prop("checked")) arrAccion.push($(y).attr('id').replace('chk-send-im-', ''));
+    });
+    if (arrAccion.length == 0) { mensajeError('No se ha seleccionado ninguna acción de mitigación', '#mensajeAccion'); return; }
+    $('#btn-guardar-accion').addClass('d-none');
+    $('#btn-cancelar-accion').addClass('d-none');
+    $('#btn-cerrar-accion').removeClass('d-none');
+    rucAsociado = $('#txt-buscar-accion').val();
+    mensajeCorrecto('Se ha guardado las acciones de mitigación seleccionadas', '#mensajeAccion');
+}
+
+var seleccionarAccion = () => {
+    $.each(arrAccion, (x,y) => {
+        $(`#chk-send-im-${y}`).prop('checked', true);
+    });
+}
+
+var cerrarModal = () => {
+    //$('#modal-acciones').modal('hide');
+    //$('#modal-usuario').modal('show');
+    //$("#btn-modal-usuario").on("click", function () { $("#modal-consulta").modal("hide"), setTimeout(function () { $("#modal-usuario").modal("show") }, 350) })
+    $("#modal-acciones").modal("hide");
+    setTimeout(function () { $("#modal-usuario").modal("show") }, 350)
+}
 
 
 

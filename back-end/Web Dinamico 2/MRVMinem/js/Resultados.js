@@ -19,17 +19,13 @@
         datatype: 'json',
         data: item,
         success: function (data) {
-            debugger;
             if (data != null && data != "") {
-                debugger;
                 if (data.length > 0) {
-
                     //dash torta
                     var datat = new google.visualization.DataTable();
                     var datat2 = new google.visualization.DataTable();                    
                     datat.addColumn('string', 'Topping');
                     datat.addColumn('number', 'Slices');
-                    debugger;
                     for (var i = 0; i < data.length; i++) {
                         if (id != 10 && id != 9 && id != 5 && id != 1) {
                             $("#total-institucion").html(data[i]["TOTAL_INSTITUCION"]);
@@ -55,6 +51,7 @@
                         $("#unidad-gei").html("").html(desc_gei);
                         $("#total-gei").html(total_gei);
                         $("#nombre-medida").html(data[i]["NOMBRE_MEDMIT"]);
+                        $('#descripcion-medida').html(data[i]["DESCRIPCION"]);
 
                         var entidad = data[i]["listaGei"];
                         //for (var j = 0; j < entidad.length; j++) {
@@ -64,16 +61,18 @@
                             
                         //}
                         //google.charts.setOnLoadCallback(drawPieChart(datat));
-
+                        
                         var arr2n = [];//add
                         arr2n.push(['Sector', 'Total', ]);//add
                         for (var j = 0; j < entidad.length; j++) {
                             arr2n.push([entidad[j]["DESCRIPCION"], entidad[j]["TOTAL_GEI"] ]);
                         }
+
+                        if (arr2n[1][1] == 0 && arr2n[2][1] == 0) $('#chart-03').parent().addClass('d-none');
+                        else $('#chart-03').parent().removeClass('d-none');
+
                         var datat2n = google.visualization.arrayToDataTable(arr2n);
                         google.charts.setOnLoadCallback(drawPieChart(datat2n));
-
-                        debugger;
 
                         //datat2.addColumn('number', 'Energy Level');
                         var entidad = data[i]["listaAnnoSec"];
@@ -130,10 +129,10 @@
 
                         }
                         //google.charts.setOnLoadCallback(drawBarChart(datat2));
-                        debugger;
                         if (arr4n.length == 1) {
                             arr4n.push(['2010', 0, 0]);
-                        }
+                            $('#chart-01').parent().addClass('d-none');
+                        } else $('#chart-01').parent().removeClass('d-none');
 
                         var datat4n = google.visualization.arrayToDataTable(arr4n);
                         google.charts.setOnLoadCallback(drawMultSeries01(datat4n));
@@ -144,6 +143,10 @@
                         for (var j = 0; j < entidad.length; j++) {
                             arr4.push([entidad[j]["DESCRIPCION"], entidad[j]["CANTIDAD"]]);
                         }
+
+                        if (arr4[1][1] == 0 && arr4[2][1] == 0) $('#chart-02').parent().addClass('d-none');
+                        else $('#chart-02').parent().removeClass('d-none');
+
                         var datat4 = google.visualization.arrayToDataTable(arr4);
                         //google.charts.setOnLoadCallback(drawColumnChart(datat4));
                         google.charts.setOnLoadCallback(drawMultSeries02(datat4));
@@ -200,7 +203,7 @@ function drawMultSeries02(data) {
         title: 'Cantidad de Acciones de Mitigación registrados por Sector',
         //subtitle: 'Período 2010 - 2030',
         hAxis: {
-            title: 'Año del Período'
+            //title: 'Año del Período'
         },
         vAxis: {
             title: 'Cantidad de Acciones de Mitigación registrados'
@@ -374,9 +377,10 @@ function calcularTotalGei(anno) {
                         //total += total_med;
                         $("#medida-unidad-" + data[i]["ID_MEDMIT"]).html("").html(desc_gei);
                         $("#medida-valor-" + data[i]["ID_MEDMIT"]).html(total_gei);
-                        total += total_gei;
+                        //total += total_gei;
+                        total += Math.round(parseFloat(data[i]["TOTAL_GEI"]) * 100) / 100
                     }
-                    $("#cantidadReducido").html(Math.round(total * 100) / 100);
+                    $("#cantidadReducido").html(formatoMiles( Math.round(total * 100) / 100 ));
                 }
             } else {
             }
@@ -389,3 +393,7 @@ $(document).ready(function () {
     var anno = (new Date).getFullYear();
     calcularTotalGei(anno);
 });
+
+function formatoMiles(n) { //add20
+    return n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+}

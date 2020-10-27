@@ -25,7 +25,7 @@ namespace MRVMinem.Controllers
         {
             ListaObjeto modelo = new ListaObjeto();
             int validar = IniciativaLN.ValidarVista(id);
-            if (validar == 6 || validar == 7)
+            if (validar == 6 || validar == 7 || validar == 14) //add 14-10-20
             {
                 IniciativaBE inic = new IniciativaBE();
                 inic.ID_INICIATIVA = id;
@@ -153,7 +153,7 @@ namespace MRVMinem.Controllers
                             var cant_column = worksheet.Dimension.End.Column;
                             var ultimos = listaParametro.Count - cant_column;
                             //loop all rows
-                            if (pagina < 3)
+                            if (pagina < 4)
                             {
                                 List<IndicadorDataBE> listaDataTemp = new List<IndicadorDataBE>();
                                 listaDataTemp = validar_campo(worksheet, entidad, listaParametro, cant_column);
@@ -167,7 +167,7 @@ namespace MRVMinem.Controllers
                                 {
                                     IndicadorDataBE itemData = new IndicadorDataBE();
                                     List<IndicadorDataBE> listaIndicadores = new List<IndicadorDataBE>();
-                                    if (i > 2)
+                                    if (i > 3)
                                     {
                                         //loop all columns in a row                                    
                                         var validar = 0;
@@ -182,8 +182,9 @@ namespace MRVMinem.Controllers
 
                                         if (validar == 0)
                                         {
+                                            string anno = "";
                                             for (int j = worksheet.Dimension.Start.Column; j <= worksheet.Dimension.End.Column; j++)
-                                            {
+                                            {                                                
                                                 //add the cell data to the List
                                                 if (worksheet.Cells[i, j].Value != null)
                                                 {
@@ -205,10 +206,13 @@ namespace MRVMinem.Controllers
                                                         //item.VALOR = Convert.ToDateTime(p).ToString("yyyy-MM-dd");
                                                     }
                                                     else
+                                                    {
                                                         item.VALOR = worksheet.Cells[i, j].Value.ToString();
+                                                        if (item.ID_PARAMETRO == 6) anno = item.VALOR;
+                                                    }                                                        
 
                                                     if (listaParametro[(j - 1)].AGREGAR == 1)
-                                                        listaIndicadores.Add(item);
+                                                        listaIndicadores.Add(item);                                                     
                                                 }
                                                 else
                                                 {
@@ -229,6 +233,9 @@ namespace MRVMinem.Controllers
                                                 item.VALOR = "";
                                                 listaIndicadores.Add(item);
                                             }
+                                            //itemData.listaInd = IndicadorLN.CalculoIndicador(listaIndicadores);
+                                            itemData.listaAcumulado = detalleAcumulado(listaIndicadores);
+                                            listaIndicadores[0].VALOR = anno;
                                             itemData.listaInd = IndicadorLN.CalculoIndicador(listaIndicadores);
                                             listaData.Add(itemData);
                                         }
@@ -295,7 +302,7 @@ namespace MRVMinem.Controllers
                 IndicadorDataBE itemData = new IndicadorDataBE();
                 List<IndicadorDataBE> listaIndicadores = new List<IndicadorDataBE>();
                 decimal num = 0;
-                if (i > 2)
+                if (i > 3)
                 {
 
 
@@ -453,7 +460,7 @@ namespace MRVMinem.Controllers
             try
             {
                 List<IndicadorDataBE> lista = new List<IndicadorDataBE>();
-                List<IndicadorDataBE> listaPr = new List<IndicadorDataBE>();
+                
                 lista = listaE;
                 int anioP = 0;
                 string reducido = "";
@@ -470,27 +477,31 @@ namespace MRVMinem.Controllers
                     else if (item.ID_PARAMETRO == 6)
                     {
                         anioP = Convert.ToInt32(item.VALOR);
-                        item.VALOR = Convert.ToString(anioP + 1);
+                        item.VALOR = Convert.ToString(anioP);
                     }
                     else if (item.ID_PARAMETRO == 11)
                         reducido = item.VALOR;
                 }
 
-                listaA.Add(new AcumuladoBE { anio = anioP, reducido = reducido });
-                anioP += 1;
-                while (DateTime.Now.Year > anioP)
+                //listaA.Add(new AcumuladoBE { anio = anioP, reducido = reducido });
+                if (lista[0].ID_MEDMIT != 12 && lista[0].ID_MEDMIT != 4 && lista[0].ID_ENFOQUE != 6 && lista[0].ID_ENFOQUE != 9) //add 08-09-20
                 {
-                    listaPr = IndicadorLN.CalculoIndicador(lista);
-                    foreach (var item in listaPr)
+                    List<IndicadorDataBE> listaPr = new List<IndicadorDataBE>();
+                    //anioP += 1;
+                    while (DateTime.Now.Year > anioP)
                     {
-                        if (item.ID_PARAMETRO == 6)
-                            item.VALOR = Convert.ToString(anioP + 1);
-                        else if (item.ID_PARAMETRO == 11)
-                            reducido = item.VALOR;
+                        listaPr = IndicadorLN.CalculoIndicador(lista);
+                        foreach (var item in listaPr)
+                        {
+                            if (item.ID_PARAMETRO == 6)
+                                item.VALOR = Convert.ToString(anioP + 1);
+                            else if (item.ID_PARAMETRO == 11)
+                                reducido = item.VALOR;
+                        }
+                        listaA.Add(new AcumuladoBE { anio = anioP, reducido = reducido });
+                        anioP += 1;
                     }
-                    listaA.Add(new AcumuladoBE { anio = anioP, reducido = reducido });
-                    anioP += 1;
-                }
+                }                    
             }
             catch (Exception ex)
             {

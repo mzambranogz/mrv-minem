@@ -566,13 +566,13 @@
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12 pb-5">
-                                <div class="logros chart" id="bar-chart"></div>
+                                <div class="logros chart" id="chart-01"></div>
                             </div>
-                            <div class="col-sm-12 col-md-12 col-lg-12 pb-5" id="dash-1" hidden>
-                                <div class="logros chart" id="pie-chart"></div>
-                            </div>     
                             <div class="col-sm-12 col-md-12 col-lg-12 pb-5" id="dash-2" hidden>
-                                <div class="logros chart" id="column-chart"></div>
+                                <div class="logros chart" id="chart-02"></div>
+                            </div>     
+                            <div class="col-sm-12 col-md-12 col-lg-12 pb-5" id="dash-1" hidden>
+                                <div class="logros chart" id="chart-03"></div>
                             </div>                       
                             @*<div class="col-sm-12 col-md-12 col-lg-6 pb-5">
                                 <div class="logros chart" id="line-chart"></div>
@@ -598,7 +598,8 @@
         $("#resultado-mrv").addClass("nav-active");
     });
 
-      google.charts.load('current', {'packages':['corechart']});
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.load('current', { packages: ['corechart', 'bar'] });
 
       //google.charts.setOnLoadCallback(drawPieChart);
       //function drawPieChart() {
@@ -667,28 +668,28 @@
       //  chart.draw(data, options);
       //}
 
-      google.charts.setOnLoadCallback(drawLineChart);
-      function drawLineChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Year', 'Sales', 'Expenses'],
-          ['2004',  1000,      400],
-          ['2005',  1170,      460],
-          ['2006',  660,       1120],
-          ['2007',  1030,      540]
-        ]);
+      //google.charts.setOnLoadCallback(drawLineChart);
+      //function drawLineChart() {
+      //  var data = google.visualization.arrayToDataTable([
+      //    ['Year', 'Sales', 'Expenses'],
+      //    ['2004',  1000,      400],
+      //    ['2005',  1170,      460],
+      //    ['2006',  660,       1120],
+      //    ['2007',  1030,      540]
+      //  ]);
 
-        var options = {
-          title: 'Company Performance',
-          curveType: 'function',
-          legend: { position: 'bottom' },
-          'width':400,
-          'height':300
-        };
+      //  var options = {
+      //    title: 'Company Performance',
+      //    curveType: 'function',
+      //    legend: { position: 'bottom' },
+      //    'width':400,
+      //    'height':300
+      //  };
 
-        var chart = new google.visualization.LineChart(document.getElementById('line-chart'));
+      //  var chart = new google.visualization.LineChart(document.getElementById('line-chart'));
 
-        chart.draw(data, options);
-      }
+      //  chart.draw(data, options);
+      //}
 
       //google.charts.setOnLoadCallback(drawColumnChart);
       //function drawColumnChart() {

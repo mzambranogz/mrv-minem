@@ -392,6 +392,15 @@ function fn_validarCampo() {
     if ($("#txt-ruc").val().length < 11) {
         arr.push("El ruc debe contener 11 caracteres");
     }
+
+    if ($("#txt-ruc").val().length > 2) {
+        var ruc = $("#txt-ruc").val();
+        ruc = ruc.substring(0, 2);
+        if (ruc != '20' && ruc != '10') {
+            arr.push("El ruc debe iniciar con el número 20 o 10");
+        }
+    }
+
     //if ($("#txt-direccion").val().trim() === "") {
     //    arr.push("Debe ingresar el domicilio fiscal de la Institución");
     //}
@@ -401,8 +410,8 @@ function fn_validarCampo() {
 
     if ($("#validarUsuario").data("guardar") == 1) {
         if (clave == validar) {
-            if (!(/[a-zñ]/.test(clave) && /[A-ZÑ]/.test(clave) && /[0-9]/.test(clave) && /[@#.]/.test(clave))) {
-                arr.push("La contraseña debe contener minúscula(s), mayúscula(s), número(s) y caracter(es) especial(es) [@#.]");
+            if (!(/[a-zñ]/.test(clave) && /[A-ZÑ]/.test(clave) && /[0-9]/.test(clave) && /[#$%&]/.test(clave))) {
+                arr.push("La contraseña debe contener minúscula(s), mayúscula(s), número(s) y caracter(es) especial(es) [#$%&]");
             }
             if (clave.length < 6) {
                 arr.push("La contraseña debe contener 6 o más caracteres por seguridad");
@@ -601,6 +610,7 @@ $("#modal-usuario").on("hidden.bs.modal", function () {
 });
 
 function fn_cargaMedidaMitigacion(id) {
+    $("#medidaGroup").html("");//add 03-06
     var Item = {
         ID_USUARIO: id
     };
@@ -612,7 +622,7 @@ function fn_cargaMedidaMitigacion(id) {
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
-                    $("#medidaGroup").html("");
+                    //$("#medidaGroup").html("");
                     for (var i = 0; i < data.length; i++) {
                         //$("#medidaGroup").append('<option class="badge-actor-0' + (i + 2) + ' font-weight-bold" value="' + data[i]["ID_ROL"] + '">' + data[i]["DESCRIPCION_ROL"] + '</option>');
                         $("#medidaGroup").append("<div class='col-auto my-1'><div class='custom-control custom-checkbox mr-sm-2'><input class='custom-control-input' type='checkbox' id='rad-med-0" + data[i]["ID_MEDMIT"] + "' value=" + data[i]["ID_MEDMIT"] + "><label class='custom-control-label' for='rad-med-0" + data[i]["ID_MEDMIT"] + "'>" + data[i]["NOMBRE_MEDMIT"] + "</label></div></div>");
@@ -847,6 +857,9 @@ $(function () {
 $(document).on("change", "#cbo-perfil", function () {
     debugger;
     if ($("#cbo-perfil").val() == 2) {
+        if ($("#validarUsuario").data("guardar") == 0) {
+            fn_cargaMedidaMitigacion($("#userMantenimiento").data("value"));
+        }
         $(".medidas-especialista").show()
     } else {
         $(".medidas-especialista").hide()

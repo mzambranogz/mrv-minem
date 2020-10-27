@@ -1,4 +1,4 @@
-﻿function fn_cargarUbicacion() {
+function fn_cargarUbicacion() {
     var Item =
     {
         ID_INICIATIVA: $("#Control").data("iniciativa")
@@ -21,7 +21,7 @@
                             }
                         }
                     } else {
-                        var msj = '<textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="8" readonly placeholder="Ingrese una descripción para su iniciativa">';
+                        var msj = '<textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="8" readonly placeholder="Ingrese una descripción para su acción de mitigación">';
                         for (var j = 0; j < data.length; j++) {
                             msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
                         }
@@ -193,12 +193,12 @@ function validarCampo() {
     if ($("#txa-descripcion-medida").val().trim() === ""){
         return false;
     }
-    if ($("#cbo-moneda").val() == 0){
-        return false;
-    }
-    if ($("#txt-monto-inversion").val().trim() === ""){
-        return false;
-    }
+    //if ($("#cbo-moneda").val() == 0){
+    //    return false;
+    //}
+    //if ($("#txt-monto-inversion").val().trim() === ""){
+    //    return false;
+    //}
     if ($("#txt-fecha-inicio").val() == ""){
         return false;
     }
@@ -351,7 +351,7 @@ function fn_procesoIniciativa(url, estado) {
             msj = msj + '                           </div>';
             msj = msj + '                           <div class="alert-wrap">';
             msj = msj + '                                <h6>Error de registro</h6>';
-            msj = msj + '                                <hr><small class="mb-0">Ya existe una iniciativa con estos datos, por favor verificar</small>';
+            msj = msj + '                                <hr><small class="mb-0">Ya existe una acción de mitigación con estos datos, por favor verificar</small>';
             msj = msj + '                           </div>';
             msj = msj + '                     </div>';
             //if ($("#Control").data("iniciativa") == 0) {
@@ -377,7 +377,7 @@ function fn_procesoIniciativa(url, estado) {
                 }
             } else {
                 est = 2;
-                var msj = mensajeError("mensajeDangerRegistro", "Error", "Ocurrio un error durante el proceso de guardado de la Iniciativa.");
+                var msj = mensajeError("mensajeDangerRegistro", "Error", "Ocurrio un error durante el proceso de guardado de la acción de mitigación.");
                 $("#solicitar-revision #modalRegistrarBoton").hide();
                 $("#pieCorrecto").show();
                 $('#mensajeModalRegistrar').append(msj);
@@ -400,7 +400,7 @@ function fn_procesoIniciativa(url, estado) {
             msj = msj + '                           </div>';
             msj = msj + '                           <div class="alert-wrap">';
             msj = msj + '                                <h6>Error de registro</h6>';
-            msj = msj + '                                <hr><small class="mb-0">La iniciativa de mitigación ya fue enviada para su revisión</small>';
+            msj = msj + '                                <hr><small class="mb-0">La acción de mitigación ya fue enviada para su revisión</small>';
             msj = msj + '                           </div>';
             msj = msj + '                     </div>';
 
@@ -501,7 +501,7 @@ function fn_procesoIniciativa(url, estado) {
                 msj = msj + '                            </div>';
                 msj = msj + '                            <div class="alert-wrap">';
                 msj = msj + '                                <h6>Felicitaciones</h6>';
-                msj = msj + '                                <hr><small class="mb-0">Usted a completado el envío de iniciativa de mitigación que será verificada por uno de nuestros especialistas.</b></small>';
+                msj = msj + '                                <hr><small class="mb-0">Usted a completado el envío de acción de mitigación que será verificada por uno de nuestros especialistas.</b></small>';
                 msj = msj + '                            </div>';
                 msj = msj + '                        </div>';
                 $("#solicitar-revision #modalRegistrarBoton").hide();
@@ -530,7 +530,7 @@ function fn_procesoIniciativa(url, estado) {
                 msj = msj + '                           </div>';
                 msj = msj + '                            <div class="alert-wrap">';
                 msj = msj + '                                <h6>Error</h6>';
-                msj = msj + '                                <hr>Ocurrio un error durante el proceso de guardado del avance de la Iniciativa.';
+                msj = msj + '                                <hr>Ocurrio un error durante el proceso de guardado del avance de la acción de mitigación.';
                 msj = msj + '                            </div>';
                 msj = msj + '                        </div>';
                 msj = msj + '                    </div>';
@@ -649,9 +649,17 @@ function fn_ObtenerMedidaMitigacion(id) {
     };
     $.ajax({
         url: baseUrl + "Gestion/ObtenerMedidaMitigacion",
-        type: 'POST',
-        datatype: 'json',
-        data: Item,
+        //type: 'POST',
+        //datatype: 'json',
+        //data: Item,
+
+        type: "POST",
+        //url: nurl,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        //async: false,
+        data: JSON.stringify(Item),
+
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
@@ -665,6 +673,13 @@ function fn_ObtenerMedidaMitigacion(id) {
                     }
                 }
             }
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
         }
     });
 }
@@ -680,9 +695,17 @@ $("#cbo-medida-mitigacion-seleccionada").change(function () {
     };
     $.ajax({
         url: baseUrl + "Gestion/ObtenerMedidaMitigacion",
-        type: 'POST',
-        datatype: 'json',
-        data: Item,
+        //type: 'POST',
+        //datatype: 'json',
+        //data: Item,
+
+        type: "POST",
+        //url: nurl,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        //async: false,
+        data: JSON.stringify(Item),
+
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
@@ -697,6 +720,13 @@ $("#cbo-medida-mitigacion-seleccionada").change(function () {
                     }
                 }
             }
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
         }
     });
 });
@@ -879,7 +909,7 @@ function validarCampoRevision() {
 function fn_revisarIniciativaMitigacion() {
     //debugger;
 
-    var mns = ValidarRevision($("#Control").data("iniciativa"), $("#estado_flujo").val(), "mensajeDangerRegistro", "Esta iniciativa ya fue revisada y/o observada");
+    var mns = ValidarRevision($("#Control").data("iniciativa"), $("#estado_flujo").val(), "mensajeDangerRegistro", "Esta acción de mitigación ya fue revisada y/o observada");
     if (mns != "") {        
         $("#aprobar-revision #modalAprobarBoton").hide();
         $("#pieCorrectoAprobacion").show();
@@ -1014,7 +1044,7 @@ $("#aprobar-revision").on("hidden.bs.modal", function () {
 
 function fn_observacionIniciativaMitigacion() {
     debugger;
-    var mns = ValidarRevision($("#Control").data("iniciativa"), $("#estado_flujo").val(), "modalErrorRevision", "Esta iniciativa ya fue revisada y/o observada");
+    var mns = ValidarRevision($("#Control").data("iniciativa"), $("#estado_flujo").val(), "modalErrorRevision", "Esta acción de mitigación ya fue revisada y/o observada");
     if (mns != "") {
         $("#observar-revision #modalObservacionBoton").hide();
         $("#pieCorrectoObservacion").show();
@@ -1144,6 +1174,14 @@ function CorreoAdmin() {
 }
 
 $(document).ready(function () {
+    $('[data-target="#solicitar-revision"]').removeAttr('data-toggle');
+    $('.solicita').parent().parent().removeAttr('data-toggle');
+    $('#listaUbicacion').on('change', (e) => validarmodal());
+    $('#txt-fecha-inicio').on('blur', (e) => validarmodal());
+    $('#cbo-tipo-iniciativa-mitigacion').on('change', (e) => validarmodal());
+    $('#txa-nombre-iniciativa').on('blur', (e) => validarmodal());
+    $('#txa-descripcion-medida').on('blur', (e) => validarmodal());
+
     inicio();    
     if ($("#iniciativa_mit_ID_INICIATIVA").val() > 0) {
         $("#Control").data("iniciativa", $("#iniciativa_mit_ID_INICIATIVA").val());
@@ -1249,7 +1287,7 @@ function ValidarRevision(id_ini, id_plazo, id_msj, mensaje) {
             msj = mensajeError(id_msj, "Error", mensaje);
         }
     } else {
-        msj = mensajeError(id_msj, "Error", "Ocurrio un error durante el proceso de guardado de la Iniciativa.");
+        msj = mensajeError(id_msj, "Error", "Ocurrio un error durante el proceso de guardado de la acción de mitigación.");
     }
     return msj;
 }
@@ -1283,7 +1321,7 @@ function fn_habilitarTodo() {
         //    ubi_verificar += $('#U' + (i + 1)).data("value") + ",";
         //}
     }
-
+    validarmodal(); 
 
     //var row = $("#tabla-iniciativa").find("tbody").find("tr");
     //row.each(function (index, value) {
@@ -1296,4 +1334,20 @@ function fn_habilitarTodo() {
 
     //});
 
+}
+
+var validarmodal = () => {
+    //$('[class="fas fa-paper-plane px-1"]').parent().parent().addClass('d-none');
+    $('[data-target="#solicitar-revision"]').removeAttr('data-toggle');
+    let i = 0, verif = false;
+    $('[id^=U]').each((x, y) => { i++;
+        if ($(y).prop('checked')) verif = true;
+    });
+    if (!verif) return;
+    if ($('#txt-fecha-inicio').val() == "") return;
+    if ($('#cbo-tipo-iniciativa-mitigacion').val() == 0) return; 
+    if ($('#txa-nombre-iniciativa').val().trim() == "") return;
+    if ($('#txa-descripcion-medida').val().trim() == "") return;
+    //$('[class="fas fa-paper-plane px-1"]').parent().parent().removeClass('d-none');
+    $('[data-target="#solicitar-revision"]').attr('data-toggle', 'modal');
 }

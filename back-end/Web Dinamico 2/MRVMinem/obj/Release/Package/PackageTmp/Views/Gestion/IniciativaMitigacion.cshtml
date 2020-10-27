@@ -13,8 +13,8 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="@Url.Action("Index","Gestion")">Inicio</a></li>
-                <li class="breadcrumb-item"><a href="@Url.Action("AccionMitigacion","Gestion")">Listado de Iniciativas de Mitigación</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Registro de Iniciativa de Identificación</li>
+                <li class="breadcrumb-item"><a href="@Url.Action("AccionMitigacion","Gestion")">Listado de Acciones de Mitigación</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Registro de Acción de Identificación</li>
             </ol>
         </nav>
     </div>
@@ -25,15 +25,15 @@
             <div class="container py-4">
                 <div class="row">
                     <div class="col-md-12 col-lg-6 pt-4">
-                        <div class="h4">Registro de Iniciativa de Mitigación&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Complete los campos obligatorios para registrar una nueva iniciativa de mitigación"></i><br><small class="text-muted">Ingrese la información que nos permita conocer y clasificar la iniciativa de mitigacion a reportar.</small></div>
+                        <div class="h4">Registro de Acción de Mitigación&nbsp;<i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Complete los campos obligatorios para registrar una nueva acción de mitigación"></i><br><small class="text-muted">Ingrese la información que nos permita conocer y clasificar la acción de mitigación a reportar.</small></div>
                     </div>
                     <div class="col-md-12 col-lg-6 pt-4">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
                             <div class="col-sm-12 col-md-6 col-lg-6">
                                 <span data-toggle="modal" data-target="#medidas-mitigacion-listado"><a class="cambiar-medida" href="#" data-toggle="tooltip" data-placement="top" title="No te preocupes, que podrás cambiar la medida de mitigacion en cualquier momento"><i class="fas fa-sync px-1"></i>Cambiar de medida</a></span>
-                                <span data-toggle="modal" data-target="#solicitar-revision"><a class="solicitar-revision" href="#" data-toggle="tooltip" data-placement="top" title="Una vez complete todos los campos solicite una revisión para su iniciativa de mitigación"><i class="fas fa-paper-plane px-1"></i>Solicitar revisión</a></span>
-                                <span data-toggle="modal" data-target="#guardar-avance"><a class="guardar-avances" href="#" data-toggle="tooltip" data-placement="top" title="¿No tiene toda la información de su inicitiva?, guarde sus avances y retómelo después"><i class="fas fa-save px-1"></i>Guardar avances</a></span>
+                                <span data-toggle="modal" data-target="#solicitar-revision"><a class="solicitar-revision" href="#" data-toggle="tooltip" data-placement="top" title="Una vez complete todos los campos solicite una revisión para su acción de mitigación"><i class="fas fa-paper-plane px-1"></i>Solicitar revisión</a></span>
+                                <span data-toggle="modal" data-target="#guardar-avance"><a class="guardar-avances" href="#" data-toggle="tooltip" data-placement="top" title="¿No tiene toda la información de su acción de mitigación?, guarde sus avances y retómelo después"><i class="fas fa-save px-1"></i>Guardar avances</a></span>
                             </div>
                         </div>
                     </div>
@@ -65,7 +65,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="h5 pb-5 text-primary">
-                                        <div class="steps">PASO 1 DE 3 &nbsp;</div>Identifique la Medida de Mitigación de su Iniciativa&nbsp;<br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su iniciativa. De no estar acorde a la medida de mitigación que se indica, coloqué la medida correcta.</small>
+                                        <div class="steps">PASO 1 DE 3 &nbsp;</div>Identifique la Medida de Mitigación de su Acción de Mitigación&nbsp;<br><small class="text-muted">Encuentre aquí información general relacionada a la medida de mitigación con la cual se vincula su acción de mitigación. De no estar acorde a la medida de mitigación que se indica, coloqué la medida correcta.</small>
                                     </div>
                                 </div>
                             </div>
@@ -145,7 +145,7 @@
                             <div class="row">
                                 <div class="col-sm-12-col-md-12 col-lg-12">
                                     <div class="form-group">
-                                        <label for="cbo-tipo-iniciativa-mitigacion">Tipo de iniciativa<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione un tipo de iniciativa para clasificar su registro"></i></label>
+                                        <label for="cbo-tipo-iniciativa-mitigacion">Tipo de acción de mitigación<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione un tipo de acción de mitigación para clasificar su registro"></i></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup300"><i class="fas fa-tachometer-alt"></i></span></div>
                                             <select class="form-control" id="cbo-tipo-iniciativa-mitigacion" aria-describedby="inputGroup300">
@@ -168,17 +168,17 @@
                             <div class="row">
                                 <div class="col-sm-12-col-md-12 col-lg-12">
                                     <div class="form-group">
-                                        <label for="txa-nombre-iniciativa">Nombre de la iniciativa<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="En caso no posea un nombre, coloque el nombre de la medida de mitigación seguido de un guión y nombre o siglas de la institución."></i></label>
+                                        <label for="txa-nombre-iniciativa">Nombre de la acción de mitigación<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="En caso no posea un nombre, coloque el nombre de la medida de mitigación seguido de un guión y nombre o siglas de la institución."></i></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup4"><i class="fas fa-tachometer-alt"></i></span></div>
-                                            <textarea class="form-control" id="txa-nombre-iniciativa" aria-describedby="inputGroup4" cols="30" rows="2" maxlength="250" required placeholder="Ingrese un nombre para su iniciativa" maxlength="300"></textarea>
+                                            <textarea class="form-control" id="txa-nombre-iniciativa" aria-describedby="inputGroup4" cols="30" rows="2" maxlength="250" required placeholder="Ingrese un nombre para su acción de mitigación" maxlength="300"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="txa-descripcion-medida">Descripción de la iniciativa<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indicar la ubicación, tecnología considerada y cantidades de la misma."></i></label>
+                                        <label for="txa-descripcion-medida">Descripción de la acción de mitigación<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indicar la ubicación, tecnología considerada y cantidades de la misma."></i></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-tachometer-alt"></i></span></div>
-                                            <textarea class="form-control" id="txa-descripcion-medida" aria-describedby="inputGroup5" cols="30" rows="4" maxlength="500" required placeholder="Ingrese una descripción para su iniciativa" maxlength="300"></textarea>
+                                            <textarea class="form-control" id="txa-descripcion-medida" aria-describedby="inputGroup5" cols="30" rows="4" maxlength="500" required placeholder="Ingrese una descripción para su acción de mitigación" maxlength="300"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -266,7 +266,7 @@
                                 </div>
                                 <div class="col-sm-12-col-md-12 col-lg-6">
                                     <div class="form-group">
-                                        <label for="cbo-moneda">Moneda<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span></label>
+                                        <label for="cbo-moneda">Moneda<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="far fa-money-bill-alt"></i></span></div>
                                             <select class="form-control" id="cbo-moneda" aria-describedby="inputGroup10">
@@ -279,7 +279,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="txt-monto-inversion">Monto de inversión<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique el monto total que costó su inversión"></i></label>
+                                        <label for="txt-monto-inversion">Monto de inversión<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique el monto total que costó su inversión"></i></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup11"><i class="fas fa-wallet"></i></span></div>
                                             <input class="form-control validar" type="text" id="txt-monto-inversion" placeholder="Ingrese monto" maxlength="15" aria-describedby="inputGroup11">
@@ -289,7 +289,7 @@
                                         <label for="txt-fecha-inicio">Fecha de inicio de operaciones<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Indique la fecha de inicio de operaciones"></i></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text" id="inputGroup12"><i class="fas fa-calendar-alt"></i></span></div>
-                                            <input class="form-control" type="date" id="txt-fecha-inicio" placeholder="Ingrese nombre de la iniciativa" aria-describedby="inputGroup12" min="2000-01-01" max="2030-12-31">
+                                            <input class="form-control" type="date" id="txt-fecha-inicio" placeholder="Ingrese nombre de la acción de mitigación" aria-describedby="inputGroup12" min="2000-01-01" max="2030-12-31">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -409,7 +409,7 @@
                                                 <div class="swal2-icon-content"><i class="fas fa-info"></i></div>
                                             </div>*@
                                             <h3 class="text-center">Seleccione una medida de mitigación</h3>
-                                            <p class="text-center">en la que usted crea que corresponda la iniciativa a registrar</p>
+                                            <p class="text-center">en la que usted crea que corresponda la acción de mitigación a registrar</p>
                                         </div>
                                         @if (Model.listaMedidaMitigacion != null)
                                         {
@@ -588,7 +588,7 @@
                                             <hr>
                                             <div class="custom-control custom-checkbox d-inline-block">
                                                 <input class="custom-control-input" type="checkbox" id="chk-publicar">
-                                                <label class="custom-control-label" for="chk-publicar">Hacer públicos los datos registrados en esta iniciativa. &nbsp;</label><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Sus datos serán visibles públicamente y podrán ser consultados desde el sitio web del visitante"></i>
+                                                <label class="custom-control-label" for="chk-publicar">Hacer públicos los datos registrados en esta acción de mitigación. &nbsp;</label><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Sus datos serán visibles públicamente y podrán ser consultados desde el sitio web del visitante"></i>
                                             </div>
                                             <div class="custom-control custom-checkbox d-inline-block">
                                                 <input class="custom-control-input" type="checkbox" id="chk-publicar-monto-inversion">
@@ -657,7 +657,7 @@
                                         <div class="swal2-icon-content"><i class="fas fa-question"></i></div>
                                     </div>
                                     <h3 class="text-center">¿Desea guardar su avance?</h3>
-                                    <p class="text-center">Los datos ingresados serán almacenados temporalmente y podrán ser regularizados al editar su iniciativa.</p>
+                                    <p class="text-center">Los datos ingresados serán almacenados temporalmente y podrán ser regularizados al editar su acción de mitigación.</p>
                                 </div>
 
 

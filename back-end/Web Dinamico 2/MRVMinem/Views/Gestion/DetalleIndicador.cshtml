@@ -2,6 +2,11 @@
 @{
     ViewBag.Title = "Detalle Indicadores";
     Layout = "~/Views/Shared/_SesionLayout.cshtml";
+    int rol = Convert.ToInt16(Session["rol"]);
+    var clase = rol == 7 ? "d-none" : "";
+    var clase_margen = rol == 7 ? "" : "pb-5";
+    var clase_margen_inf = rol == 7 ? "" : "my-5";
+    var btn_nombre = rol == 7 ? "guardar" : "enviar";
 }
 @Html.HiddenFor(m => m.iniciativa_mit.ID_INICIATIVA)
 @Html.HiddenFor(m => m.medida.ID_MEDMIT)
@@ -27,15 +32,30 @@
                 <div class="container py-4">
                     <div class="row">
                         <div class="col-md-12 col-lg-6 pt-4">
-                            <div class="h4">Detalle de Acción de Mitigación&nbsp;<br><small class="text-muted">Ingrese la información que nos permita conocer y clasificar la acción de mitigación a reportar.</small></div>
+                            @if (rol != 7)
+                            {
+                                <div class="h4">Detalle de Acción de Mitigación&nbsp;<br><small class="text-muted">Ingrese la información que nos permita conocer y clasificar la acción de mitigación a reportar.</small></div>
+                            }
+                            else
+                            {
+                                <div class="h4">Auditoría de la Acción de Mitigación&nbsp;<br><small class="text-muted">Ingrese la información correspondiente para la auditoría de los detalles de la acción de mitigación.</small></div>
+                            }
                         </div>
                         <div class="col-md-12 col-lg-6 pt-4">
                             <div class="row">
                                 <div class="col-sm-12 col-md-6 col-lg-6">&nbsp;</div>
                                 <div class="col-sm-12 col-md-6 col-lg-6">
                                     @*<span data-toggle="modal" data-target="#tipo-ingreso-detalle"><a class="cambiar-medida" href="#" data-toggle="tooltip" data-placement="top" title="No te preocupes, que podrás cambiar el tipo de carga de datos en cualquier momento"><i class="fas fa-sync px-1"></i>Cambiar de tipo</a></span>*@
-                                    <span data-toggle="modal" data-target="#solicitar-revision"><a class="solicitar-revision" href="#" data-toggle="tooltip" data-placement="top" title="Una vez complete todos los campos solicite una revisión para el detalle de sus indicadores"><i class="fas fa-paper-plane px-1"></i>Solicitar revisión</a></span>
-                                    <span data-toggle="modal" data-target="#guardar-avance"><a class="guardar-avances" href="#" data-toggle="tooltip" data-placement="top" title="¿No tiene toda la información de su acción de mitigación?, guarde sus avances y retómelo después"><i class="fas fa-save px-1"></i>Guardar avances</a></span>
+                                    @*<span data-toggle="modal" data-target="#solicitar-revision"><a class="solicitar-revision" href="#" data-toggle="tooltip" data-placement="top" title="Una vez complete todos los campos solicite una revisión para el detalle de sus indicadores"><i class="fas fa-paper-plane px-1"></i>Solicitar revisión</a></span>*@
+                                    @if (rol != 7)
+                                    {
+                                        <span data-toggle="modal" data-target="#solicitar-revision"><a class="solicitar-revision" href="#" data-toggle="tooltip" data-placement="top" title="Una vez complete todos los campos solicite una revisión para el detalle de sus indicadores"><i class="fas fa-paper-plane px-1"></i>Solicitar revisión</a></span>
+                                        <span data-toggle="modal" data-target="#guardar-avance"><a class="guardar-avances" href="#" data-toggle="tooltip" data-placement="top" title="¿No tiene toda la información de su acción de mitigación?, guarde sus avances y retómelo después"><i class="fas fa-save px-1"></i>Guardar avances</a></span>
+                                    }
+                                    else
+                                    {
+                                        <span data-toggle="modal" data-target="#solicitar-revision"><a class="solicitar-revision" href="#" data-toggle="tooltip" data-placement="top" title="Una vez complete la revisión de los detalle de la acción de mitigación puede guardar la auditoría"><i class="fas fa-save px-1"></i>Guadar Auditoría</a></span>
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -273,12 +293,12 @@
                             <div class="container py-5">
                                 <div class="row">
                                     <div class="col-12">
-                                        <div class="h5 pb-5 text-primary">
+                                        <div class="h5 @clase_margen text-primary">
                                             <div class="steps">PASO 2 DE 2 &nbsp;</div>Detalles de Identificación<br><small class="text-muted">Complete información</small>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row @clase">
                                     <div class="col-sm-12-col-md-12 col-lg-6">
                                         <div class="form-group">
                                             <label for="cbo-enfoque">Equipo(s)<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Seleccione un enfoque ligado a su medida de mitigación"></i></label>
@@ -322,6 +342,54 @@
                                     </div>
                                 </div>
 
+                                @if (Model.medida.ID_MEDMIT == 4)
+                                {
+                                    <div class="row">
+                                        <div class="col-12 px-0">
+                                            <div class="table-responsive tabla-principal">
+                                                <table class="table table-hover" id="tablaAuditor">
+                                                    <thead id="cabeceraAuditor">
+                                                        <tr class="bg-primary text-white">
+                                                            <th class="text-center grupo-columna-03" scope="col"><span>Tipo auditoría</span></th>
+                                                            <th class="text-center grupo-columna-03" scope="col"><span>Auditor</span></th>
+                                                            <th class="text-center grupo-columna-03" scope="col"><span>Nombre de institución /auditor</span></th>
+                                                            <th class="text-center grupo-columna-03" scope="col"><span>Fecha de auditoría</span></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="cuerpoAuditor">
+                                                        <tr id="detalles-tr-1" data-ind="1" data-rev="0">
+                                                            <td data-encabezado="Columna 07">
+                                                                <div class="form-group m-0">
+                                                                    <select class="form-control form-control-sm" id="cbo-tipo_auditoria">
+                                                                        <option value="0">Seleccionar</option>
+                                                                        <option value="1">Tipo 1</option>
+                                                                        <option value="2">Tipo 2</option>
+                                                                        <option value="3">Tipo 3</option>
+                                                                    </select>
+                                                                </div>
+                                                            </td>
+                                                            <td data-encabezado="Columna 07">
+                                                                <div class="form-group m-0">
+                                                                    <input class="form-control form-control-sm text-left" type="text" placeholder="" id="txt-auditor" maxlength="60">
+                                                                </div>
+                                                            </td>
+                                                            <td data-encabezado="Columna 07">
+                                                                <div class="form-group m-0">
+                                                                    <input class="form-control form-control-sm text-left" type="text" placeholder="" id="txt-institucion-auditor" maxlength="120">
+                                                                </div>
+                                                            </td>
+                                                            <td data-encabezado="Columna 07">
+                                                                <div class="form-group m-0">
+                                                                    <input class="form-control form-control-sm text-center" type="date" placeholder="" id="fch-fecha-auditoria">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }                                
 
                                 <div class="row">
                                     <div class="col-12 px-0">
@@ -354,10 +422,12 @@
                                     <div class="col-xs-12 col sm-12 col-lg-10">
                                         <div class="alert alert-warning" role="alert"><strong>Complete todos los campos (cajas de texto y listas) de color amarillo</strong></div>
                                     </div>
-                                    <div class="col-xs-12 col sm-12 col-lg-2"><a class="btn btn-info w-100 mb-2 agregarCamposPrc" href="javascript:void(0)" onclick="CargarNuevaFila(1);"><i class="fas fa-plus-circle px-1"></i>Añadir fila</a>@*<a class="btn btn-success w-100 mb-2" href="#" download><i class="fas fa-download mr-1"></i>Descargar sustentos</a>*@</div>
-                                </div>
-
-
+                                    @if (Convert.ToInt32(Session["rol"]) != 7)
+                                    {
+                                        <div class="col-xs-12 col sm-12 col-lg-2"><a class="btn btn-info w-100 mb-2 agregarCamposPrc" href="javascript:void(0)" onclick="CargarNuevaFila(1);"><i class="fas fa-plus-circle px-1"></i>Añadir fila</a>@*<a class="btn btn-success w-100 mb-2" href="#" download><i class="fas fa-download mr-1"></i>Descargar sustentos</a>*@</div>
+                                    }                                    
+                                </div>                                                           
+                                
                             </div>
 
 
@@ -386,7 +456,8 @@
                                 </div>
                             </div>
 
-                            <div class="container py-4">
+
+                            <div class="container py-4 @clase">
                                 <div class="row">
                                     <div class="col-sm-12-col-md-12 col-lg-6">
                                         <div class="form-group">
@@ -476,14 +547,27 @@
                             </div>
 
                             <div class="container py-5">
-                                <div class="alert alert-info" role="alert"><i class="fas fa-info-circle">&nbsp;</i>Una vez aprobado su acción de mitigación podrá postular al sistema del <b>Sello Energía Sostenible</b></div>
-                                <div class="dropdown-divider my-5"></div>
+                                <div class="alert alert-info @clase" role="alert"><i class="fas fa-info-circle">&nbsp;</i>Una vez aprobado su acción de mitigación podrá postular al sistema del <b>Sello Energía Sostenible</b></div>
+                                <div class="dropdown-divider @clase_margen_inf"></div>
                                 <div class="row">
-                                    <div class="col-sm-12 col-md-12 col-lg-6"><span class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Todos los campos son obligatorios</span></div>
+                                    <div class="col-sm-12 col-md-12 col-lg-6">
+                                        @if (rol != 7)
+                                        {
+                                            <span class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Todos los campos son obligatorios</span>
+                                        }                                        
+                                    </div>
                                     <div class="col-sm-12 col-md-12 col-lg-6 text-right">
                                         <div class="row justify-content-end">
                                             <div class="col-lg-6"><a class="btn btn-dark px-5 w-100 nav-tab text-center mb-3" href="#" dest="1"><i class="fas fa-arrow-left pr-1"></i>Anterior</a></div>
-                                            <div class="col-lg-6"><a class="btn btn-primary px-5 w-100 nav-tab text-center" href="#" data-toggle="modal" data-target="#solicitar-revision">Enviar<i class="fas fa-paper-plane px-1"></i></a></div>
+                                            @if (rol != 7)
+                                            {
+                                                <div class="col-lg-6"><a class="btn btn-primary px-5 w-100 nav-tab text-center" href="#" data-toggle="modal" data-target="#solicitar-revision"><i class="fas fa-paper-plane px-1"></i>Enviar</a></div>
+                                            }
+                                            else
+                                            {
+                                                <div class="col-lg-6"><a class="btn btn-primary px-5 w-100 nav-tab text-center" href="#" data-toggle="modal" data-target="#solicitar-revision"><i class="fas fa-save px-1"></i>Guardar</a></div>
+                                            }
+
                                         </div>
                                     </div>
                                 </div>
@@ -526,8 +610,22 @@
                                         <div class="swal2-icon swal2-question swal2-icon-show" style="display: flex;">
                                             <div class="swal2-icon-content"><i class="fas fa-question"></i></div>
                                         </div>
-                                        <h3 class="text-center">¿Está seguro de enviar su solicitud a revisión?</h3>
-                                        <p class="text-center">Confirme si está seguro de enviar todos los datos registrados para iniciar el proceso de revisión y obtener la aprobación por parte de nuestros especialistas.</p>
+                                        @if (rol != 7)
+                                        {
+                                            <h3 class="text-center">¿Está seguro de enviar su solicitud a revisión?</h3>
+                                            <p class="text-center">Confirme si está seguro de enviar todos los datos registrados para iniciar el proceso de revisión y obtener la aprobación por parte de nuestros especialistas.</p>
+                                        }
+                                        else
+                                        {
+                                            <h3 class="text-center">¿Está seguro de guardar la auditoría?</h3>
+                                            <p class="text-center">Confirme si está seguro de guardar los datos relacionados a la auditoría de los detalles de la acción de mitigación</p>
+                                        }
+
+                                    </div>
+
+                                    <div id="carga-preload" class="mb-3 align-items-center text-center col-sm-12 col-md-12 col-lg-12"></div>
+                                    <div class="col-sm-12 col-md-12 col-lg-12 d-none" id="titulo-carga">
+                                        <h6 class="text-center">Se está realizando el guardado masivo de datos, por favor esperar unos minutos<br></h6>
                                     </div>
                                     @*<div class="col-sm-12 col-md-12 col-lg-12">
                                             <h3 class="text-center">¿Está seguro de enviar su solicitud a revisión? <br></h3>
@@ -591,7 +689,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer justify-content-center" id="modalRegistrarBoton">
-                                <button class="btn btn-info" type="button" onclick="fn_guardarDetalleIndicador();">Si, enviar</button>
+                                <button class="btn btn-info" type="button" onclick="fn_guardarDetalleIndicador();">Si, @btn_nombre</button>
                                 <button class="btn btn-dark" type="button" data-dismiss="modal">Cancelar</button>
                             </div>
                             <div class="modal-footer justify-content-center" id="pieCorrecto">
@@ -602,7 +700,7 @@
                     </div>
                 </div>
                 <div class="modal fade" id="guardar-avance" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-dialog modal modal-dialog-centered" role="document">
                         <div class="modal-content">
                             @*<div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel">Mensaje de Usuario</h5>
@@ -616,6 +714,11 @@
                                         </div>
                                         <h3 class="text-center">¿Desea guardar su avance?</h3>
                                         <p class="text-center">Los datos ingresados serán almacenados temporalmente y podrán ser regularizados al editar su acción de mitigación.</p>
+                                    </div>
+
+                                    <div id="carga-preload-avance" class="mb-3 align-items-center text-center col-sm-12 col-md-12 col-lg-12"></div>
+                                    <div class="col-sm-12 col-md-12 col-lg-12 d-none" id="titulo-carga-avance">
+                                        <h6 class="text-center">Se está realizando el guardado masivo de datos, por favor esperar unos minutos<br></h6>
                                     </div>
 
                                 </div>
@@ -757,6 +860,7 @@
                                             <table class="table table-hover">
                                                 <thead id="cabecera-acumulado-total">
                                                     <tr class="bg-primary text-white">
+                                                        <th class="text-center grupo-columna-03"><span>N°<small></small></span></th>
                                                         <th class="text-center grupo-columna-03"><span>2010&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
                                                         <th class="text-center grupo-columna-03"><span>2011&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
                                                         <th class="text-center grupo-columna-03"><span>2012&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
@@ -783,6 +887,7 @@
                                                 <tbody id="cuerpo-acumulado-total"></tbody>
                                                 <tfoot id="">
                                                     <tr class="bg-primary text-white">
+                                                        <th class="text-center grupo-columna-01"><span></span></th>
                                                         <th class="text-center grupo-columna-01"><span id="acum-2010">0.00</span></th>
                                                         <th class="text-center grupo-columna-01"><span id="acum-2011">0.00</span></th>
                                                         <th class="text-center grupo-columna-01"><span id="acum-2012">0.00</span></th>
@@ -818,14 +923,44 @@
                     </div>
                 </div>
 
+                <div class="modal fade" id="modal-carga" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body medidas-modal">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <div class="swal2-icon swal2-question swal2-icon-show" style="display: flex;">
+                                            <div class="swal2-icon-content"><i class="fas fa-exclamation-circle"></i></div>
+                                        </div>
+                                        <h3 class="text-center">Carga de información</h3>
+                                    </div>
+
+                                    <div id="carga-preload-ini" class="mb-3 align-items-center text-center col-sm-12 col-md-12 col-lg-12"></div>
+                                    <div class="col-sm-12 col-md-12 col-lg-12 d-none" id="titulo-carga-ini">
+                                        <h6 class="text-center">Se está realizando la carga de los detalles y sus acumulados, por favor espere unos minutos<br></h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer d-flex justify-content-center">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </form>
 
 </div>
 
+
+<div id="block-page-carga"></div>
+
 <script src="~/js/script.js"></script>
 <script src="~/js/MRV.js"></script>
+<script type="text/javascript">
+    var rol_usuario = @rol
+</script>
+<script src="~/js/DetalleIndicador.js"></script>
 <script type="text/javascript">
     var storedFiles = [];
 
@@ -896,5 +1031,4 @@
 
     document.getElementById('fledocumentos').addEventListener('change', handleFileSelect, false);
 </script>
-<script src="~/js/DetalleIndicador.js"></script>
 

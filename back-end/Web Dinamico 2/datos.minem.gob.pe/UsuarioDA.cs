@@ -42,6 +42,7 @@ namespace datos.minem.gob.pe
         }
         public UsuarioBE RegistraUsuario(UsuarioBE entidad)
         {
+            bool v = true;
             try
             {
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
@@ -69,34 +70,39 @@ namespace datos.minem.gob.pe
                     {
                         DeshabilitarUsuario(new UsuarioBE { ID_USUARIO = Convert.ToInt32(entidad.USUARIO_REGISTRO)});
                     }
+                    if (!string.IsNullOrEmpty(entidad.ACCIONES))
+                        if (entidad.ID_ROL == 7)
+                            v = asignarAccion(entidad.ID_USUARIO, entidad.ACCIONES);
                 }
-                entidad.OK = true;
-                string[] medidas;
-                if (!string.IsNullOrEmpty(entidad.MEDIDAS))
-                {
-                    using (IDbConnection db = new OracleConnection(CadenaConexion))
+                entidad.OK = v;
+                if (entidad.OK) {
+                    string[] medidas;
+                    if (!string.IsNullOrEmpty(entidad.MEDIDAS))
                     {
-                        string sp = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_MANTENIMIENTO." + "USP_DEL_USUARIO_MEDMIT";
-                        var p = new OracleDynamicParameters();
-                        p.Add("pID_USUARIO", entidad.ID_USUARIO);
-                        p.Add("pID_USUREG", entidad.USUARIO_REGISTRO);
-                        p.Add("pIP", entidad.IP_PC);
-                        db.Execute(sp, p, commandType: CommandType.StoredProcedure);
-                    }
-
-                    medidas = entidad.MEDIDAS.Split('|');
-                    for (int i = 0; i < medidas.Length; i++)
-                    {
-                        UsuarioMedMitBE entidad2 = new UsuarioMedMitBE() { ID_USUARIO = entidad.ID_USUARIO, ID_MEDMIT = int.Parse(medidas[i]), USUARIO_REGISTRO = entidad.USUARIO_REGISTRO, IP_PC = entidad.IP_PC };
-                        entidad2 = RegistraUsuarioMedidaMitigacion(entidad2);
-                        if (!entidad2.OK)
+                        using (IDbConnection db = new OracleConnection(CadenaConexion))
                         {
-                            entidad.OK = false;
-                            entidad.extra = entidad2.extra;
-                            break;
+                            string sp = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_MANTENIMIENTO." + "USP_DEL_USUARIO_MEDMIT";
+                            var p = new OracleDynamicParameters();
+                            p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                            p.Add("pID_USUREG", entidad.USUARIO_REGISTRO);
+                            p.Add("pIP", entidad.IP_PC);
+                            db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                        }
+
+                        medidas = entidad.MEDIDAS.Split('|');
+                        for (int i = 0; i < medidas.Length; i++)
+                        {
+                            UsuarioMedMitBE entidad2 = new UsuarioMedMitBE() { ID_USUARIO = entidad.ID_USUARIO, ID_MEDMIT = int.Parse(medidas[i]), USUARIO_REGISTRO = entidad.USUARIO_REGISTRO, IP_PC = entidad.IP_PC };
+                            entidad2 = RegistraUsuarioMedidaMitigacion(entidad2);
+                            if (!entidad2.OK)
+                            {
+                                entidad.OK = false;
+                                entidad.extra = entidad2.extra;
+                                break;
+                            }
                         }
                     }
-                }
+                }                
             }
             catch (Exception ex)
             {
@@ -109,7 +115,7 @@ namespace datos.minem.gob.pe
         }
         public UsuarioBE EditarUsuario(UsuarioBE entidad)
         {
-
+            bool v = true;
             try
             {
                 using (IDbConnection db = new OracleConnection(CadenaConexion))
@@ -128,34 +134,46 @@ namespace datos.minem.gob.pe
                     p.Add("pID_ROL", entidad.ID_ROL);
                     p.Add("pID_ESTADO_USUARIO", entidad.ID_ESTADO_USUARIO);
                     db.Execute(sp, p, commandType: CommandType.StoredProcedure);
-                }
-                entidad.OK = true;
-                string[] medidas;
-                if (!string.IsNullOrEmpty(entidad.MEDIDAS))
-                {
-                    using (IDbConnection db = new OracleConnection(CadenaConexion))
-                    {
-                        string sp = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_MANTENIMIENTO." + "USP_DEL_USUARIO_MEDMIT";
-                        var p = new OracleDynamicParameters();
-                        p.Add("pID_USUARIO", entidad.ID_USUARIO);
-                        p.Add("pID_USUREG", entidad.USUARIO_REGISTRO);
-                        p.Add("pIP", entidad.IP_PC);
-                        db.Execute(sp, p, commandType: CommandType.StoredProcedure);
-                    }
 
-                    medidas = entidad.MEDIDAS.Split('|');
-                    for (int i = 0; i < medidas.Length; i++)
+                    if (!string.IsNullOrEmpty(entidad.RUC_ASOCIADO))
+                        if (entidad.ID_ROL == 7)
+                            v = quitarAccion(entidad.ID_USUARIO, entidad.RUC_ASOCIADO);
+
+                    if (v)
+                        if (!string.IsNullOrEmpty(entidad.ACCIONES))
+                            if (entidad.ID_ROL == 7)
+                                v = asignarAccion(entidad.ID_USUARIO, entidad.ACCIONES);
+                }
+                //entidad.OK = true;
+                entidad.OK = v;
+                if (entidad.OK) {
+                    string[] medidas;
+                    if (!string.IsNullOrEmpty(entidad.MEDIDAS))
                     {
-                        UsuarioMedMitBE entidad2 = new UsuarioMedMitBE() { ID_USUARIO = entidad.ID_USUARIO, ID_MEDMIT = int.Parse(medidas[i]), USUARIO_REGISTRO = entidad.USUARIO_REGISTRO, IP_PC = entidad.IP_PC };
-                        entidad2 = RegistraUsuarioMedidaMitigacion(entidad2);
-                        if (!entidad2.OK)
+                        using (IDbConnection db = new OracleConnection(CadenaConexion))
                         {
-                            entidad.OK = false;
-                            entidad.extra = entidad2.extra;
-                            break;
+                            string sp = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_MANTENIMIENTO." + "USP_DEL_USUARIO_MEDMIT";
+                            var p = new OracleDynamicParameters();
+                            p.Add("pID_USUARIO", entidad.ID_USUARIO);
+                            p.Add("pID_USUREG", entidad.USUARIO_REGISTRO);
+                            p.Add("pIP", entidad.IP_PC);
+                            db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                        }
+
+                        medidas = entidad.MEDIDAS.Split('|');
+                        for (int i = 0; i < medidas.Length; i++)
+                        {
+                            UsuarioMedMitBE entidad2 = new UsuarioMedMitBE() { ID_USUARIO = entidad.ID_USUARIO, ID_MEDMIT = int.Parse(medidas[i]), USUARIO_REGISTRO = entidad.USUARIO_REGISTRO, IP_PC = entidad.IP_PC };
+                            entidad2 = RegistraUsuarioMedidaMitigacion(entidad2);
+                            if (!entidad2.OK)
+                            {
+                                entidad.OK = false;
+                                entidad.extra = entidad2.extra;
+                                break;
+                            }
                         }
                     }
-                }
+                }                
             }
             catch (Exception ex)
             {
@@ -662,6 +680,50 @@ namespace datos.minem.gob.pe
                 entidad.OK = false;
             }
             return lista;
+        }
+
+        public bool asignarAccion(int usuario, string acciones)
+        {
+            bool v = false;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_INICIATIVA_MITIGACION." + "USP_UPD_AUDITOR_ACCION";
+                    var p = new OracleDynamicParameters();
+                    p.Add("PI_ID_USUARIO", usuario);
+                    p.Add("PI_ACCIONES", acciones);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                }
+                v = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+            return v;
+        }
+
+        public bool quitarAccion(int usuario, string rucasociado)
+        {
+            bool v = false;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = WebConfigurationManager.AppSettings.Get("UserBD") + ".PKG_MRV_INICIATIVA_MITIGACION." + "USP_UPD_QUITAR_ACCION";
+                    var p = new OracleDynamicParameters();
+                    p.Add("PI_ID_USUARIO", usuario);
+                    p.Add("PI_RUC_ASOCIADO", rucasociado);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                }
+                v = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+            return v;
         }
 
     }

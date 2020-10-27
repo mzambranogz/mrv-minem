@@ -1,0 +1,89 @@
+PKG DETALLE INDICADORES
+
+ACTUALIZAR BODY (Este ya existe, se debe ACTUALIZAR el store)
+
+PROCEDURE USP_UPD_APROBAR_DETALLE(
+        pID_INICIATIVA IN NUMBER,
+        pID_USUARIO    IN NUMBER,
+        pID_TIPO_INICIATIVA IN NUMBER,
+        pID_DESCRIPCION_GEI IN VARCHAR2,
+        pID_DESCRIPCION_ENERG IN VARCHAR2
+    )
+    AS
+        vIdUsuario NUMBER;
+        vIdDetalle NUMBER;
+        vEntidad   VARCHAR2(100);
+        vGeiTotal   NUMBER;
+    BEGIN
+        IF pID_TIPO_INICIATIVA = 0 THEN
+            UPDATE T_GENM_INICIATIVA
+            SET ID_ESTADO = 3, ID_ETAPA = 4,
+                ESTADO_FICHA = 0, --ADD
+                ID_PLAZO_ETAPA_ESTADO = 12 --ADD
+            WHERE ID_INICIATIVA = pID_INICIATIVA;
+        ELSE
+            UPDATE T_GENM_INICIATIVA
+            SET ID_ESTADO = 3, ID_ETAPA = 4,
+                ID_PLAZO_ETAPA_ESTADO = 12, --ADD
+                ESTADO_FICHA = 0, --ADD
+                ID_TIPO_INICIATIVA = pID_TIPO_INICIATIVA
+            WHERE ID_INICIATIVA = pID_INICIATIVA;
+        END IF;
+
+
+         --AGREGAR GEI TOTAL REDUCIDO =================================
+        SELECT SUM(TO_NUMBER(valor,'9999999999990.0000')) INTO vGeiTotal
+        FROM T_MAEM_INDICADOR_DATA
+        WHERE ID_INICIATIVA = pID_INICIATIVA AND ID_PARAMETRO = 11 AND FLAG_ESTADO = '1';
+
+        UPDATE  T_GENM_INICIATIVA
+        SET     GEI_TOTAL = vGeiTotal
+        WHERE   ID_INICIATIVA = pID_INICIATIVA;
+        --================================================================================
+        SELECT SQ_GEND_DETALLE_INICIATIVA.NEXTVAL INTO vIdDetalle FROM DUAL;
+
+        INSERT INTO T_GEND_DETALLE_INICIATIVA
+            (id_detalle_iniciativa, ID_INICIATIVA,
+             ID_REMITENTE,
+             ID_ETAPA,
+             ID_ESTADO,
+             FECHA_DERIVACION, OBSERVACIONES)
+        VALUES
+            (vIdDetalle, pID_INICIATIVA, pID_USUARIO, 4, 3, SYSDATE, pID_DESCRIPCION_ENERG || '|' || pID_DESCRIPCION_GEI || '|' || vGeiTotal);
+
+         --==================================================================== add 30-03-20
+        USP_SEL_INI_DET_ACUMULADO(pID_INICIATIVA);
+        --====================================================================
+
+        --SE DEBE NOTIFICAR AL USUARIO  --28.01.2020
+        SELECT ID_USUARIO INTO vIdUsuario FROM T_GENM_INICIATIVA WHERE ID_INICIATIVA = pID_INICIATIVA;
+        PKG_MRV_NOTIFICACION.USP_INS_NOTIFICACION(pIdIniciativa         => pID_INICIATIVA,
+                                                  pIdEtapa              => 4,
+                                                  pIdEstado             => 3,
+                                                  pIdRol                => 1,
+                                                  pIdUsuario            => vIdUsuario,
+                                                  pIdUsuarioRemitente   => pID_USUARIO,
+                                                  pDescripcion          => 'Los detalles de indicadores de su iniciativa fueron revisadas y aprobadas',
+                                                  pIdEstadoNotificacion => 3);
+
+        SELECT INS.NOMBRE_INSTITUCION INTO vEntidad
+        FROM T_GENM_USUARIO USU
+        INNER JOIN T_GENM_INSTITUCION INS ON USU.ID_INSTITUCION = INS.ID_INSTITUCION
+        WHERE USU.ID_USUARIO = vIdUsuario;
+
+        --SE DEBE NOTIFICAR AL ADMINISTRADOR MRV
+        SELECT COUNT(1) INTO vIdUsuario FROM T_MAE_USUARIO_ROL WHERE ID_ROL = 3;
+        IF vIdUsuario > 0 THEN
+            SELECT MAX(ID_USUARIO) INTO vIdUsuario FROM T_MAE_USUARIO_ROL WHERE ID_ROL = 3;
+            PKG_MRV_NOTIFICACION.USP_INS_NOTIFICACION(pIdIniciativa         => pID_INICIATIVA,
+                                                  pIdEtapa              => 5,
+                                                  pIdEstado             => 1,
+                                                  pIdRol                => 3,
+                                                  pIdUsuario            => vIdUsuario,
+                                                  pIdUsuarioRemitente   => pID_USUARIO,
+                                                  pDescripcion          => 'La iniciativa y el detalle de indicadores de la entidad ' || TRIM(vEntidad) || ' fueron revisadas y aprobadas, y estan a la espera de su revisi�n',
+                                                  pIdEstadoNotificacion => 0);
+        END IF;
+
+
+    END USP_UPD_APROBAR_DETALLE;

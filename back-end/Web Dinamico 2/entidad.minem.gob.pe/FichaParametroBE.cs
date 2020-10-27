@@ -26,6 +26,10 @@ namespace entidad.minem.gob.pe
         public string VALOR { get; set; }
         public string FORMULA { get; set; }
         public string FORMULA_ARMADO { get; set; }
+        public string UNIDAD { get; set; }
+        public string RESPONSABLE { get; set; }
+        public string FUENTE { get; set; }
+        public string COMENTARIOS { get; set; }
 
     }
 }

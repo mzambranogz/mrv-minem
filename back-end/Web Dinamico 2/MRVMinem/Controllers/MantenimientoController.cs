@@ -3133,5 +3133,27 @@ namespace MRVMinem.Controllers
             return letra;
         }
 
+        public ActionResult Minam()
+        {
+            return View();
+        }
+
+        //public ActionResult BuscarReporte(string busqueda, int registros, int pagina, string columna, string orden)
+        //{
+        //        entidad = new EscenarioBE() { cantidad_registros = 10, order_by = "NOMBRE_MEDMIT", order_orden = "ASC", pagina = 1, buscar = "" };
+
+        //    MvEscenario modelo = new MvEscenario();
+        //    modelo.ListaEscenarios = EscenarioLN.ListaEscenariosPaginado(entidad);
+        //    return View(modelo);
+        //}
+        public JsonResult RecalcularValores()
+        {
+            bool v = IniciativaLN.RecalcularValores();
+
+            var jsonResult = Json(v, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
     }
 }

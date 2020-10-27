@@ -110,7 +110,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>GEI reducido por el sector público
+                              <Value>Reducción sector público
 (tCO</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
@@ -161,7 +161,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>GEI reducido por el sector privado</Value>
+                              <Value>Reducción sector privado</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>White</Color>
@@ -541,7 +541,7 @@
                               <Value>=Fields!CANT_PUBLICO.Value</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
-                                <Format>#,0.00;(#,0.00)</Format>
+                                <Format>#,0;(#,0)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -576,7 +576,7 @@
                               <Value>=Fields!CANT_PRIVADO.Value</Value>
                               <Style>
                                 <FontSize>9pt</FontSize>
-                                <Format>#,0.00;(#,0.00)</Format>
+                                <Format>#,0;(#,0)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -908,16 +908,11 @@
         <ChartCategoryHierarchy>
           <ChartMembers>
             <ChartMember>
-              <Group Name="Chart4_CategoryGroup1">
+              <Group Name="Chart4_CategoryGroup">
                 <GroupExpressions>
                   <GroupExpression>=Fields!NUMERO_MEDMIT.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
-              <SortExpressions>
-                <SortExpression>
-                  <Value>=Fields!NUMERO_MEDMIT.Value</Value>
-                </SortExpression>
-              </SortExpressions>
               <Label>=Fields!NUMERO_MEDMIT.Value</Label>
             </ChartMember>
           </ChartMembers>
@@ -1094,9 +1089,10 @@
               <ChartAxis Name="Primary">
                 <Style>
                   <FontSize>8pt</FontSize>
+                  <Format>#,0.00;(#,0.00)</Format>
                 </Style>
                 <ChartAxisTitle>
-                  <Caption>tCO2eq</Caption>
+                  <Caption />
                   <Style>
                     <FontSize>8pt</FontSize>
                   </Style>
@@ -1174,6 +1170,8 @@
               <BackgroundGradientType>None</BackgroundGradientType>
               <FontSize>8pt</FontSize>
             </Style>
+            <Position>BottomCenter</Position>
+            <DockOutsideChartArea>true</DockOutsideChartArea>
             <ChartLegendTitle>
               <Caption />
               <Style>
@@ -1188,13 +1186,23 @@
         </ChartLegends>
         <ChartTitles>
           <ChartTitle Name="Default">
-            <Caption>Emisiones de GEI reducidas del sector público y privado</Caption>
+            <Caption>Emisiones de GEI reducidas por sector público y privado</Caption>
             <Style>
               <BackgroundGradientType>None</BackgroundGradientType>
               <FontWeight>Bold</FontWeight>
               <TextAlign>General</TextAlign>
               <VerticalAlign>Top</VerticalAlign>
             </Style>
+          </ChartTitle>
+          <ChartTitle Name="Title1">
+            <Caption>              tCOeq</Caption>
+            <Style>
+              <BackgroundGradientType>None</BackgroundGradientType>
+              <TextAlign>General</TextAlign>
+              <VerticalAlign>Top</VerticalAlign>
+            </Style>
+            <Position>TopLeft</Position>
+            <DockOutsideChartArea>true</DockOutsideChartArea>
           </ChartTitle>
         </ChartTitles>
         <Palette>BrightPastel</Palette>
@@ -1216,7 +1224,7 @@
         <DataSetName>DtMedMit</DataSetName>
         <Top>9.51245cm</Top>
         <Left>4.69287cm</Left>
-        <Height>6.90499cm</Height>
+        <Height>6.82561cm</Height>
         <Width>19.32687cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
@@ -1237,11 +1245,6 @@
                   <GroupExpression>=Fields!NUMERO_MEDMIT.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
-              <SortExpressions>
-                <SortExpression>
-                  <Value>=Fields!NUMERO_MEDMIT.Value</Value>
-                </SortExpression>
-              </SortExpressions>
               <Label>=Fields!NUMERO_MEDMIT.Value</Label>
             </ChartMember>
           </ChartMembers>
@@ -1286,7 +1289,7 @@
                 </ChartDataLabel>
               </ChartEmptyPoints>
               <ChartItemInLegend>
-                <LegendText>Iniciativas Sector Publico</LegendText>
+                <LegendText>Acciones Sector Público</LegendText>
               </ChartItemInLegend>
               <ValueAxisName>Primary</ValueAxisName>
               <CategoryAxisName>Primary</CategoryAxisName>
@@ -1323,7 +1326,7 @@
                 </ChartDataLabel>
               </ChartEmptyPoints>
               <ChartItemInLegend>
-                <LegendText>Iniciativas Sector Privado</LegendText>
+                <LegendText>Acciones Sector Privado</LegendText>
               </ChartItemInLegend>
               <ValueAxisName>Primary</ValueAxisName>
               <CategoryAxisName>Primary</CategoryAxisName>
@@ -1416,9 +1419,10 @@
               <ChartAxis Name="Primary">
                 <Style>
                   <FontSize>8pt</FontSize>
+                  <Format>#,0;(#,0)</Format>
                 </Style>
                 <ChartAxisTitle>
-                  <Caption>Número de Iniciativas</Caption>
+                  <Caption>Número de acciones</Caption>
                   <Style>
                     <FontSize>8pt</FontSize>
                   </Style>
@@ -1444,6 +1448,7 @@
                 <CrossAt>NaN</CrossAt>
                 <Minimum>NaN</Minimum>
                 <Maximum>NaN</Maximum>
+                <LabelsAutoFitDisabled>true</LabelsAutoFitDisabled>
                 <ChartAxisScaleBreak>
                   <Style />
                 </ChartAxisScaleBreak>
@@ -1496,6 +1501,8 @@
               <BackgroundGradientType>None</BackgroundGradientType>
               <FontSize>8pt</FontSize>
             </Style>
+            <Position>BottomCenter</Position>
+            <DockOutsideChartArea>true</DockOutsideChartArea>
             <ChartLegendTitle>
               <Caption />
               <Style>
@@ -1712,14 +1719,14 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Código de medida:</Value>
+                <Value>Código :</Value>
                 <Style>
                   <FontSize>9pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
               <TextRun>
-                <Value> Código abreviado del nombre de la medida de mitigación.</Value>
+                <Value> Código abreviado de la medida de mitigación.</Value>
                 <Style>
                   <FontSize>9pt</FontSize>
                 </Style>
@@ -1751,14 +1758,14 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>GEI público: </Value>
+                <Value>Reducción sector público (tCO2eq): </Value>
                 <Style>
                   <FontSize>9pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
               <TextRun>
-                <Value>Valor de gases de efecto invernadero reducido en sector público</Value>
+                <Value>Emisiones de GEI evitadas por el sector público.</Value>
                 <Style>
                   <FontSize>9pt</FontSize>
                   <FontWeight>Normal</FontWeight>
@@ -1769,10 +1776,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox47</rd:DefaultName>
-        <Top>0.90868cm</Top>
-        <Left>14.36369cm</Left>
-        <Height>0.6cm</Height>
-        <Width>9.68374cm</Width>
+        <Top>2.49618cm</Top>
+        <Left>1.88891cm</Left>
+        <Height>0.67056cm</Height>
+        <Width>11.24354cm</Width>
         <ZIndex>9</ZIndex>
         <Style>
           <Border>
@@ -1791,14 +1798,14 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>GEI privado: </Value>
+                <Value>Reducción sector privado (tCO2eq): </Value>
                 <Style>
                   <FontSize>9pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
               <TextRun>
-                <Value>Valor de gases de efecto reducido en el sector privado.</Value>
+                <Value>Emisiones de GEI evitadas por el sector privado.</Value>
                 <Style>
                   <FontSize>9pt</FontSize>
                   <FontWeight>Normal</FontWeight>
@@ -1809,10 +1816,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox48</rd:DefaultName>
-        <Top>1.75563cm</Top>
-        <Left>14.36369cm</Left>
+        <Top>3.34313cm</Top>
+        <Left>1.88891cm</Left>
         <Height>0.6cm</Height>
-        <Width>10.78147cm</Width>
+        <Width>11.24354cm</Width>
         <ZIndex>10</ZIndex>
         <Style>
           <Border>
@@ -1831,27 +1838,29 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Emisiones GEI reducidas: </Value>
+                <Value>Emisiones de GEI reducidas: </Value>
                 <Style>
                   <FontSize>9pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
               <TextRun>
-                <Value>Emisiones totales reducidas.</Value>
+                <Value>Emisiones de GEI reducidas de forma acumulada por cada medida.</Value>
                 <Style>
                   <FontSize>9pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox49</rd:DefaultName>
-        <Top>2.46146cm</Top>
-        <Left>1.88891cm</Left>
-        <Height>0.6cm</Height>
-        <Width>8.95583cm</Width>
+        <Top>0.90868cm</Top>
+        <Left>14.36369cm</Left>
+        <Height>0.9175cm</Height>
+        <Width>11.24354cm</Width>
         <ZIndex>11</ZIndex>
         <Style>
           <Border>
@@ -1877,7 +1886,7 @@
                 </Style>
               </TextRun>
               <TextRun>
-                <Value> Número de acciones de mitigación en el sector público.</Value>
+                <Value> Número de acciones registradas de mitigación en el sector público.</Value>
                 <Style>
                   <FontSize>9pt</FontSize>
                 </Style>
@@ -1887,9 +1896,9 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox50</rd:DefaultName>
-        <Top>2.53201cm</Top>
+        <Top>2.02875cm</Top>
         <Left>14.36369cm</Left>
-        <Height>0.6cm</Height>
+        <Height>0.87341cm</Height>
         <Width>11.24354cm</Width>
         <ZIndex>12</ZIndex>
         <Style>
@@ -1916,7 +1925,7 @@
                 </Style>
               </TextRun>
               <TextRun>
-                <Value>: Número de acciones de mitigación en el sector privado.</Value>
+                <Value>: Número de acciones registradas de mitigación en el sector privado.</Value>
                 <Style>
                   <FontSize>9pt</FontSize>
                 </Style>
@@ -1926,10 +1935,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox51</rd:DefaultName>
-        <Top>3.23785cm</Top>
-        <Left>1.88891cm</Left>
-        <Height>0.6cm</Height>
-        <Width>11.49583cm</Width>
+        <Top>3.07855cm</Top>
+        <Left>14.36369cm</Left>
+        <Height>0.97042cm</Height>
+        <Width>11.24354cm</Width>
         <ZIndex>13</ZIndex>
         <Style>
           <Border>
@@ -1975,17 +1984,17 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>9.82964in</Height>
+    <Height>9.52756in</Height>
     <Style>
       <Border>
         <Style>None</Style>
       </Border>
     </Style>
   </Body>
-  <Width>10.44617in</Width>
+  <Width>10.14458in</Width>
   <Page>
     <PageHeader>
-      <Height>2.59856cm</Height>
+      <Height>2.43981cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -2055,6 +2064,50 @@
         </Border>
       </Style>
     </PageHeader>
+    <PageFooter>
+      <Height>1.11125cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox28">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Fuente: Sistema de Gestión de Medición, Reporte y Verificación del sector energía</Value>
+                  <Style>
+                    <FontSize>9pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox27</rd:DefaultName>
+          <Top>0.25563cm</Top>
+          <Left>1.27cm</Left>
+          <Height>0.6cm</Height>
+          <Width>15.10597cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageFooter>
     <PageHeight>21cm</PageHeight>
     <PageWidth>29.7cm</PageWidth>
     <LeftMargin>1cm</LeftMargin>

@@ -25,6 +25,8 @@ namespace entidad.minem.gob.pe
         public string ASEGURAMIENTO_CALIDAD { get; set; }
         public string PROPOSITO { get; set; }
         public string FRECUENCIA { get; set; }
+        public string V_DECIMAL { get; set; }
+        public string VISIBLE { get; set; }
         public List<ParametroDetalleBE> listaDetalle { get; set; }
     }
 }

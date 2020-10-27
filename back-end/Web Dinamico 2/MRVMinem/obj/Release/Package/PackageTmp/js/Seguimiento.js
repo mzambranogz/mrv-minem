@@ -43,7 +43,7 @@ function fn_mostrarSeguimiento() {
                                 tr = tr + '<div class="timeline">';
                                 tr = tr + '<div class="timeline-icon"><i class="fas fa-save"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
                                 tr = tr + '<div class="timeline-content">';
-                                tr = tr + '<h5 class="title">SOLICITUD DE REVISIÓN SIN ENVIAR <br><small class="text-muted">INICIATIVA DE MITIGACIÓN</small></h5>';
+                                tr = tr + '<h5 class="title">SOLICITUD DE REVISIÓN SIN ENVIAR <br><small class="text-muted">ACCIÓN DE MITIGACIÓN</small></h5>';
                                 tr = tr + '<div>';
                                 tr = tr + '<span><strong>MEDIDA MITIGACIÓN</strong><br>' + arr[1] + '<br></span>';
                                 tr = tr + '<span><strong>NOMBRE DE PROYECTO</strong><br>' + arr[0] + '<br></span>';
@@ -64,13 +64,23 @@ function fn_mostrarSeguimiento() {
                             tr = tr + '<div class="timeline">';
                             tr = tr + '<div class="timeline-icon"><i class="fas fa-paper-plane"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
                             tr = tr + '<div class="timeline-content">';
-                            tr = tr + '<h5 class="title">SOLICITUD DE REVISIÓN ENVIADA <br><small class="text-muted">INICIATIVA DE MITIGACIÓN</small></h5>';
+                            tr = tr + '<h5 class="title">SOLICITUD DE REVISIÓN ENVIADA <br><small class="text-muted">ACCIÓN DE MITIGACIÓN</small></h5>';
                             tr = tr + '<div>';
                             tr = tr + '<span><strong>MEDIDA MITIGACIÓN</strong><br>' + arr[1] + '<br></span>';
                             tr = tr + '<span><strong>NOMBRE DE PROYECTO</strong><br>' + arr[0] + '<br></span>';
                             tr = tr + '<span><strong>INICIO DE OPERACIONES</strong><br>' + arr[2] + '<br></span>';
-                            tr = tr + '<span><strong>MONEDA</strong><br>' + arr[3] + '<br></span>';
-                            tr = tr + '<span><strong>MONTO INVERSIÓN</strong><br>' + formatoMiles(parseFloat(arr[4])) + '<br></span>';
+                            if (arr[3] != ""){
+                                tr = tr + '<span><strong>MONEDA</strong><br>' + arr[3] + '<br></span>';
+                            } else {
+                                tr = tr + '<span><strong>MONEDA</strong><br>------<br></span>';
+                            }
+                            //tr = tr + '<span><strong>MONEDA</strong><br>' + arr[3] + '<br></span>';
+                            if (arr[4] != 0){
+                                tr = tr + '<span><strong>MONTO INVERSIÓN</strong><br>' + formatoMiles(parseFloat(arr[4])) + '<br></span>';
+                            } else {
+                                tr = tr + '<span><strong>MONTO INVERSIÓN</strong><br>------<br></span>';
+                            }
+                            //tr = tr + '<span><strong>MONTO INVERSIÓN</strong><br>' + formatoMiles(parseFloat(arr[4])) + '<br></span>';
                             tr = tr + '<span><strong>CORREO ELECTRÓNICO</strong><br>' + data[i]["EMAIL_USUARIO"] + '<br></span>';
                             tr = tr + '</div>';
                             tr = tr + '<p class="description"></span><span class="badge badge-actor-' + color + '">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
@@ -85,7 +95,7 @@ function fn_mostrarSeguimiento() {
                         tr = tr + '<div class="timeline">';
                         tr = tr + '<div class="timeline-icon"><i class="fas fa-search"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
                         tr = tr + '<div class="timeline-content">';
-                        tr = tr + '<h5 class="title">SOLICITUD DE REVISIÓN VISTA <br><small class="text-muted">INICIATIVA DE MITIGACIÓN</small></h5>';
+                        tr = tr + '<h5 class="title">SOLICITUD DE REVISIÓN VISTA <br><small class="text-muted">ACCIÓN DE MITIGACIÓN</small></h5>';
                         tr = tr + '<p class="description"><span class="text-link">' + data[i]["EMAIL_USUARIO"] + '<br></span><span class="badge badge-actor-' + color + '">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
                         tr = tr + '</div>';
                         tr = tr + '</div>';
@@ -96,7 +106,7 @@ function fn_mostrarSeguimiento() {
                         tr = tr + '<div class="timeline">';
                         tr = tr + '<div class="timeline-icon"><i class="fas fa-eye"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
                         tr = tr + '<div class="timeline-content">';
-                        tr = tr + '<h5 class="title">SOLICITUD DE REVISIÓN OBSERVADA <br><small class="text-muted">INICIATIVA DE MITIGACIÓN</small></h5>';
+                        tr = tr + '<h5 class="title">SOLICITUD DE REVISIÓN OBSERVADA <br><small class="text-muted">ACCIÓN DE MITIGACIÓN</small></h5>';
                         tr = tr + '<div>';
                         tr = tr + '<span><strong>OBSERVACIÓN</strong><br>' + data[i]["OBSERVACIONES"] + '<br></span>';
                         tr = tr + '<span><strong>CORREO ELECTRÓNICO</strong><br>' + data[i]["EMAIL_USUARIO"] + '<br></span>';
@@ -115,13 +125,23 @@ function fn_mostrarSeguimiento() {
                             tr = tr + '<div class="timeline">';
                             tr = tr + '<div class="timeline-icon"><i class="fas fa-save"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
                             tr = tr + '<div class="timeline-content">';
-                            tr = tr + '<h5 class="title">SOLICITUD DE REVISIÓN OBSERVADA SUBSANADA SIN ENVIAR <br><small class="text-muted">INICIATIVA DE MITIGACIÓN</small></h5>';
+                            tr = tr + '<h5 class="title">SOLICITUD DE REVISIÓN OBSERVADA SUBSANADA SIN ENVIAR <br><small class="text-muted">ACCIÓN DE MITIGACIÓN</small></h5>';
                             tr = tr + '<div>';
                             tr = tr + '<span><strong>MEDIDA MITIGACIÓN</strong><br>' + arr[1] + '<br></span>';
                             tr = tr + '<span><strong>NOMBRE DE PROYECTO</strong><br>' + arr[0] + '<br></span>';
                             tr = tr + '<span><strong>INICIO DE OPERACIONES</strong><br>' + arr[2] + '<br></span>';
-                            tr = tr + '<span><strong>MONEDA</strong><br>' + arr[3] + '<br></span>';
-                            tr = tr + '<span><strong>MONTO INVERSIÓN</strong><br>' + formatoMiles(parseFloat(arr[4])) + '<br></span>';
+                            if (arr[3] != "") {
+                                tr = tr + '<span><strong>MONEDA</strong><br>' + arr[3] + '<br></span>';
+                            } else {
+                                tr = tr + '<span><strong>MONEDA</strong><br>------<br></span>';
+                            }
+                            //tr = tr + '<span><strong>MONEDA</strong><br>' + arr[3] + '<br></span>';
+                            if (arr[4] != 0) {
+                                tr = tr + '<span><strong>MONTO INVERSIÓN</strong><br>' + formatoMiles(parseFloat(arr[4])) + '<br></span>';
+                            } else {
+                                tr = tr + '<span><strong>MONTO INVERSIÓN</strong><br>------<br></span>';
+                            }
+                            //tr = tr + '<span><strong>MONTO INVERSIÓN</strong><br>' + formatoMiles(parseFloat(arr[4])) + '<br></span>';
                             tr = tr + '<span><strong>CORREO ELECTRÓNICO</strong><br>' + data[i]["EMAIL_USUARIO"] + '<br></span>';
                             tr = tr + '</div>';
                             tr = tr + '<p class="description"></span><span class="badge badge-actor-' + color + '">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
@@ -139,13 +159,23 @@ function fn_mostrarSeguimiento() {
                             tr = tr + '<div class="timeline">';
                             tr = tr + '<div class="timeline-icon"><i class="fas fa-clock"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
                             tr = tr + '<div class="timeline-content">';
-                            tr = tr + '<h5 class="title">SOLICITUD DE REVISIÓN OBSERVADA SUBSANADA ENVIADA<br><small class="text-muted">INICIATIVA DE MITIGACIÓN</small></h5>';
+                            tr = tr + '<h5 class="title">SOLICITUD DE REVISIÓN OBSERVADA SUBSANADA ENVIADA<br><small class="text-muted">ACCIÓN DE MITIGACIÓN</small></h5>';
                             tr = tr + '<div>';
                             tr = tr + '<span><strong>MEDIDA MITIGACIÓN</strong><br>' + arr[1] + '<br></span>';
                             tr = tr + '<span><strong>NOMBRE DE PROYECTO</strong><br>' + arr[0] + '<br></span>';
                             tr = tr + '<span><strong>INICIO DE OPERACIONES</strong><br>' + arr[2] + '<br></span>';
-                            tr = tr + '<span><strong>MONEDA</strong><br>' + arr[3] + '<br></span>';
-                            tr = tr + '<span><strong>MONTO INVERSIÓN</strong><br>' + formatoMiles(parseFloat(arr[4])) + '<br></span>';
+                            if (arr[3] != "") {
+                                tr = tr + '<span><strong>MONEDA</strong><br>' + arr[3] + '<br></span>';
+                            } else {
+                                tr = tr + '<span><strong>MONEDA</strong><br>------<br></span>';
+                            }
+                            //tr = tr + '<span><strong>MONEDA</strong><br>' + arr[3] + '<br></span>';
+                            if (arr[4] != 0) {
+                                tr = tr + '<span><strong>MONTO INVERSIÓN</strong><br>' + formatoMiles(parseFloat(arr[4])) + '<br></span>';
+                            } else {
+                                tr = tr + '<span><strong>MONTO INVERSIÓN</strong><br>------<br></span>';
+                            }
+                            //tr = tr + '<span><strong>MONTO INVERSIÓN</strong><br>' + formatoMiles(parseFloat(arr[4])) + '<br></span>';
                             tr = tr + '<span><strong>CORREO ELECTRÓNICO</strong><br>' + data[i]["EMAIL_USUARIO"] + '<br></span>';
                             tr = tr + '</div>';
                             tr = tr + '<p class="description"></span><span class="badge badge-actor-' + color + '">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
@@ -163,7 +193,7 @@ function fn_mostrarSeguimiento() {
                             tr = tr + '<div class="timeline">';
                             tr = tr + '<div class="timeline-icon"><i class="fas fa-check"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
                             tr = tr + '<div class="timeline-content">';
-                            tr = tr + '<h5 class="title">SOLICITUD DE REVISIÓN APROBADA <br><small class="text-muted">INICIATIVA DE MITIGACIÓN</small></h5>';
+                            tr = tr + '<h5 class="title">SOLICITUD DE REVISIÓN APROBADA <br><small class="text-muted">ACCIÓN DE MITIGACIÓN</small></h5>';
                             tr = tr + '<div>';
                             if (arr[0].trim() != "") {
                                 tr = tr + '<span><strong>ENERGÉTICO</strong><br>' + arr[0] + '<br></span>';
@@ -332,7 +362,7 @@ function fn_mostrarSeguimiento() {
                         tr = tr + '<div class="timeline">';
                         tr = tr + '<div class="timeline-icon"><i class="fas fa-eye"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
                         tr = tr + '<div class="timeline-content">';
-                        tr = tr + '<h5 class="title">SOLICITUD DE REVISIÓN OBSERVADA <br><small class="text-muted">INICIATIVA / DETALLES</small></h5>';
+                        tr = tr + '<h5 class="title">SOLICITUD DE REVISIÓN OBSERVADA <br><small class="text-muted">ACCIÓN DE MITIGACIÓN / DETALLES</small></h5>';
                         tr = tr + '<div>';
                         tr = tr + '<span><strong>OBSERVACIÓN</strong><br>' + data[i]["OBSERVACIONES"] + '<br></span>';
                         tr = tr + '<span><strong>CORREO ELECTRÓNICO</strong><br>' + data[i]["EMAIL_USUARIO"] + '<br></span>';
@@ -348,7 +378,7 @@ function fn_mostrarSeguimiento() {
                         tr = tr + '<div class="timeline">';
                         tr = tr + '<div class="timeline-icon"><i class="fas fa-clock"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
                         tr = tr + '<div class="timeline-content">';
-                        tr = tr + '<h5 class="title">SOLICITUD DE REVISIÓN OBSERVADA SUBSANADA <br><small class="text-muted">INICIATIVA / DETALLES</small></h5>';
+                        tr = tr + '<h5 class="title">SOLICITUD DE REVISIÓN OBSERVADA SUBSANADA <br><small class="text-muted">ACCIÓN DE MITIGACIÓN / DETALLES</small></h5>';
                         tr = tr + '<p class="description"><span class="text-link">' + data[i]["EMAIL_USUARIO"] + '<br></span><span class="badge badge-actor-' + color + '">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
                         tr = tr + '</div>';
                         tr = tr + '</div>';
@@ -363,7 +393,7 @@ function fn_mostrarSeguimiento() {
                             tr = tr + '<div class="timeline">';
                             tr = tr + '<div class="timeline-icon"><i class="fas fa-check-double"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
                             tr = tr + '<div class="timeline-content">';
-                            tr = tr + '<h5 class="title">SOLICITUD DE REVISIÓN APROBADA <br><small class="text-muted">INICIATIVA / DETALLES</small></h5>';
+                            tr = tr + '<h5 class="title">SOLICITUD DE REVISIÓN APROBADA <br><small class="text-muted">ACCIÓN DE MITIGACIÓN / DETALLES</small></h5>';
                             tr = tr + '<div>';
                             if (arr[0].trim() != "") {
                                 tr = tr + '<span><strong>ENERGÉTICO</strong><br>' + arr[0] + '<br></span>';
@@ -386,7 +416,7 @@ function fn_mostrarSeguimiento() {
                         tr = tr + '<div class="timeline">';
                         tr = tr + '<div class="timeline-icon"><i class="fas fa-eye"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
                         tr = tr + '<div class="timeline-content">';
-                        tr = tr + '<h5 class="title">EVALUACIÓN OBSERVADA <br><small class="text-muted">INICIATIVA / DETALLES</small></h5>';
+                        tr = tr + '<h5 class="title">EVALUACIÓN OBSERVADA <br><small class="text-muted">ACCIÓN DE MITIGACIÓN / DETALLES</small></h5>';
                         tr = tr + '<div>';
                         tr = tr + '<span><strong>OBSERVACIÓN</strong><br>' + data[i]["OBSERVACIONES"] + '<br></span>';
                         tr = tr + '<span><strong>CORREO ELECTRÓNICO</strong><br>' + data[i]["EMAIL_USUARIO"] + '<br></span>';
@@ -402,7 +432,7 @@ function fn_mostrarSeguimiento() {
                         tr = tr + '<div class="timeline">';
                         tr = tr + '<div class="timeline-icon"><i class="fas fa-clock"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
                         tr = tr + '<div class="timeline-content">';
-                        tr = tr + '<h5 class="title">EVALUACIÓN OBSERVADA SUBSANADA <br><small class="text-muted">INICIATIVA / DETALLES</small></h5>';
+                        tr = tr + '<h5 class="title">EVALUACIÓN OBSERVADA SUBSANADA <br><small class="text-muted">ACCIÓN DE MITIGACIÓN / DETALLES</small></h5>';
                         tr = tr + '<p class="description"><span class="text-link">' + data[i]["EMAIL_USUARIO"] + '<br></span><span class="badge badge-actor-03">Especialista</span></p>';
                         tr = tr + '</div>';
                         tr = tr + '</div>';
@@ -418,7 +448,7 @@ function fn_mostrarSeguimiento() {
                             tr = tr + '<div class="timeline">';
                             tr = tr + '<div class="timeline-icon"><i class="fas fa-flag-checkered"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
                             tr = tr + '<div class="timeline-content">';
-                            tr = tr + '<h5 class="title">EVALUACIÓN APROBADA <br><small class="text-muted">INICIATIVA / DETALLES</small></h5>';
+                            tr = tr + '<h5 class="title">EVALUACIÓN APROBADA <br><small class="text-muted">ACCIÓN DE MITIGACIÓN / DETALLES</small></h5>';
                             tr = tr + '<div>';
                             tr = tr + '<span><strong>MEDIDA MITIGACIÓN</strong><br>' + arr[0] + '<br></span>';
                             tr = tr + '<span><strong>NOMBRE PROYECTO</strong><br>' + arr[1] + '<br></span>';
@@ -440,7 +470,7 @@ function fn_mostrarSeguimiento() {
                         tr = tr + '<div class="timeline">';
                         tr = tr + '<div class="timeline-icon"><i class="fas fa-eye"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
                         tr = tr + '<div class="timeline-content">';
-                        tr = tr + '<h5 class="title">VERIFICACIÓN OBSERVADA <br><small class="text-muted">INICIATIVA / DETALLES</small></h5>';
+                        tr = tr + '<h5 class="title">VERIFICACIÓN OBSERVADA <br><small class="text-muted">ACCIÓN DE MITIGACIÓN / DETALLES</small></h5>';
                         tr = tr + '<div>';
                         tr = tr + '<span><strong>OBSERVACIÓN</strong><br>' + data[i]["OBSERVACIONES"] + '<br></span>';
                         tr = tr + '<span><strong>CORREO ELECTRÓNICO</strong><br>' + data[i]["EMAIL_USUARIO"] + '<br></span>';
@@ -456,7 +486,7 @@ function fn_mostrarSeguimiento() {
                         tr = tr + '<div class="timeline">';
                         tr = tr + '<div class="timeline-icon"><i class="fas fa-clock"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
                         tr = tr + '<div class="timeline-content">';
-                        tr = tr + '<h5 class="title">VERIFICACIÓN OBSERVADA SUBSANADA <br><small class="text-muted">INICIATIVA / DETALLES</small></h5>';
+                        tr = tr + '<h5 class="title">VERIFICACIÓN OBSERVADA SUBSANADA <br><small class="text-muted">ACCIÓN DE MITIGACIÓN / DETALLES</small></h5>';
                         tr = tr + '<p class="description"><span class="text-link">' + data[i]["EMAIL_USUARIO"] + '<br></span><span class="badge badge-actor-04">Evaluador MINAM</span></p>';
                         tr = tr + '</div>';
                         tr = tr + '</div>';
@@ -472,7 +502,7 @@ function fn_mostrarSeguimiento() {
                             tr = tr + '<div class="timeline">';
                             tr = tr + '<div class="timeline-icon"><i class="fas fa-flag-checkered"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
                             tr = tr + '<div class="timeline-content">';
-                            tr = tr + '<h5 class="title">VERIFICACIÓN APROBADA <br><small class="text-muted">INICIATIVA / DETALLES</small></h5>';
+                            tr = tr + '<h5 class="title">VERIFICACIÓN APROBADA <br><small class="text-muted">ACCIÓN DE MITIGACIÓN / DETALLES</small></h5>';
                             tr = tr + '<div>';
                             tr = tr + '<span><strong>MEDIDA MITIGACIÓN</strong><br>' + arr[0] + '<br></span>';
                             tr = tr + '<span><strong>NOMBRE PROYECTO</strong><br>' + arr[1] + '<br></span>';
@@ -495,11 +525,11 @@ function fn_mostrarSeguimiento() {
                             tr = tr + '<div class="timeline">';
                             tr = tr + '<div class="timeline-icon"><i class="fas fa-paper-plane"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
                             tr = tr + '<div class="timeline-content">';
-                            tr = tr + '<h5 class="title">ENVIADO PARA EVALUACIÓN <br><small class="text-muted">INICIATIVA / DETALLES</small></h5>';
+                            tr = tr + '<h5 class="title">ENVIADO PARA EVALUACIÓN <br><small class="text-muted">ACCIÓN DE MITIGACIÓN / DETALLES</small></h5>';
                             tr = tr + '<div>';
                             tr = tr + '<span><strong>MEDIDA MITIGACIÓN</strong><br>' + arr[0] + '<br></span>';
                             tr = tr + '<span><strong>MEDIDA PERÍODO</strong><br>' + arr[1] + '<br></span>';
-                            tr = tr + '<span><strong>TOTAL ENVIADAS</strong><br>' + arr[2] + ' INICIATIVAS DE MITIGACIÓN<br></span>';
+                            tr = tr + '<span><strong>TOTAL ENVIADAS</strong><br>' + arr[2] + ' ACCIONES DE MITIGACIÓN<br></span>';
                             tr = tr + '<span><strong>CORREO ELECTRÓNICO</strong><br>' + data[i]["EMAIL_USUARIO"] + '<br></span>';
                             tr = tr + '</div>';
                             tr = tr + '<p class="description"></span><span class="badge badge-actor-04">' + data[i]["DESCRIPCION_ROL"] + '</span></p>';
@@ -514,12 +544,12 @@ function fn_mostrarSeguimiento() {
                         tr = tr + '<div class="timeline">';
                         tr = tr + '<div class="timeline-icon"><i class="fas fa-paper-plane"></i></div><span class="year">' + data[i]["FECHA"].toString() + '</span>';
                         tr = tr + '<div class="timeline-content">';
-                        tr = tr + '<h5 class="title">ENVIADO PARA VERIFICACIÓN <br><small class="text-muted">INICIATIVA / DETALLES</small></h5>';
+                        tr = tr + '<h5 class="title">ENVIADO PARA VERIFICACIÓN <br><small class="text-muted">ACCIÓN DE MITIGACIÓN / DETALLES</small></h5>';
                         tr = tr + '<div>';
                         if (parseInt(data[i]["OBSERVACIONES"]) == 1) {
-                            tr = tr + '<span><strong>TOTAL ENVIADO</strong><br>' + data[i]["OBSERVACIONES"] + ' INICIATIVA DE  MITIGACIÓN<br></span>';
+                            tr = tr + '<span><strong>TOTAL ENVIADO</strong><br>' + data[i]["OBSERVACIONES"] + ' ACCIÓN DE  MITIGACIÓN<br></span>';
                         } else {
-                            tr = tr + '<span><strong>TOTAL ENVIADOS</strong><br>' + data[i]["OBSERVACIONES"] + ' INICIATIVAS DE MITIGACIÓN<br></span>';
+                            tr = tr + '<span><strong>TOTAL ENVIADOS</strong><br>' + data[i]["OBSERVACIONES"] + ' ACCIONES DE MITIGACIÓN<br></span>';
                         }
                         tr = tr + '<span><strong>CORREO ELECTRÓNICO</strong><br>' + data[i]["EMAIL_USUARIO"] + '<br></span>';
                         tr = tr + '</div>';

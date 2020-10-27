@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Ver Mas Iniciativa y Detalle";
     Layout = "~/Views/Shared/_SesionLayout.cshtml";
+    string color = Model.medida.ID_MEDMIT == 4 ? "grupo-columna-02" : "";
 }
 @Html.HiddenFor(m => m.iniciativa_mit.ID_INICIATIVA)
 
@@ -305,7 +306,7 @@
                                         <table class="table table-hover" data-fila="0">
                                             <thead @*id="cabeceraTablaIndicador" *@>
                                                 <tr class="bg-primary text-white">
-                                                    <th class="text-center" scope="col"><span>N°</span></th>
+                                                    <th class="text-center @color" scope="col"><span>N°</span></th>
                                                     @foreach (var itemCab in itemD.listaParam)
                                                     {
                                                         var columna = "0" + itemCab.ID_GRUPO_INDICADOR;
@@ -336,7 +337,7 @@
                                                         <th class="text-center grupo-columna-@columna" scope="col"><span>@itemCab.NOMBRE_PARAMETRO&nbsp;</span><span>@descripcion</span>@*<small>@itemCab.DESCRIPCION_PARAMETRO</small>*@</th>
 
                                                     }
-                                                    <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="top" title="Texto descriptivo de ayuda"><span>SUSTENTO</span></th>
+                                                    <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="top" title="Texto descriptivo de ayuda"><span>Sustento</span></th>
                                                     @*
                                                         <th class="text-center" scope="col">Más</th>*@
                                                 </tr>

@@ -176,15 +176,27 @@ function fn_validar() {
     var reclave = $("#txt-re-pswd").val();
     $("#frmReestablecerClave #errorCambiar").remove();
     $("#frmReestablecerClave #correctoCambiar").remove();
+
+    //if (clave == reclave) {
+    //    if (!(/[a-zñ]/.test(clave) && /[A-ZÑ]/.test(clave) && /[0-9]/.test(clave) && /[@#.]/.test(clave))) {
+    //        arr.push("La contraseña debe contener minúscula(s), mayúscula(s), número(s) y caracter(es) especial(es) [@#.]");
+    //    }
+    //    if (clave.length < 6) {
+    //        arr.push("La contraseña debe contener 6 o más caracteres por seguridad");
+    //    }
+    //} else {
+    //    arr.push("Compruebe que ambas contraseñas sean iguales.");
+    //}
+
     if (clave == reclave) {
-        if (!(/[a-zñ]/.test(clave) && /[A-ZÑ]/.test(clave) && /[0-9]/.test(clave) && /[@#.]/.test(clave))) {
-            arr.push("La contraseña debe contener minúscula(s), mayúscula(s), número(s) y caracter(es) especial(es) [@#.]");
+        if (!(/[a-zñ]/.test(clave) && /[A-ZÑ]/.test(clave) && /[0-9]/.test(clave) && /[#$%&]/.test(clave))) {
+            arr.push("La contraseña debe contener minúscula(s), mayúscula(s), número(s) y caracter(es) especial(es) [#$%&]");
         }
         if (clave.length < 6) {
             arr.push("La contraseña debe contener 6 o más caracteres por seguridad");
         }
     } else {
-        arr.push("Compruebe que ambas contraseñas sean iguales.");
+        arr.push("Las contraseñas no coinciden");
     }
 
     //var item = {

@@ -1,0 +1,301 @@
+etique ta en cabeceras EL  a ES
+
+las cabeceras del detalle falta su unidad de datos.
+
+
+
+
+tengo que pasar toda la carpeta de reportes
+
+iniciativa reporte entidades
+
+reporte DA en acceso a datos
+
+y la vista colocar la funcion
+
+
+
+pedroinfante@gmail.com
+Flavio2019@
+
+
+limpiarr tablas 
+
+
+
+
+krv combustible 1ero 
+
+
+
+
+Lista_Mes
+Tabla_Mes
+
+
+
+validacion de contraseña en correo quitar en habilitar usuario
+
+guardar avance un cargadno colocar ñ{
+
+
+
+
+---------------------GUIONNN--------------------------------------------------------------------------------ADMINISTRADO-----------------------
+
+Un coordial saludo a usted usuario administrado que esta viendo el video
+
+presentamos la plataforma MRV del sector energia
+
+para acceder a la plataforma el usuario debe ingresar en la barra de dirrecciones de su navegador la url o dirección de la plataforma, cargara el sistema y mostrará la interfaz principal.
+
+Se muestran breves descripciones y objetivos de las medidas de mitigación del cambio climatico en el sector energia.
+
+luego se muestran los aspectos generales, en las que se informa a traves de preguntas, aspectos de interes de distintos usuarios.Para que puedan visualizarse estas preguntas el usuario debe seleccionar y dar clic y se desplegará automaticamente la respuesta informando al usuario de que trata la pregunta, para comprimir la respuesta debera dar clic nuevamente a la pregunta.
+
+Luego podra conocer los nombres de cada medida de mitigación cursando el puntero por cada medida
+
+Finalmente visualizamos las opciones de reportes, resultados y registrarse.
+
+
+
+
+
+para contar con una cuenta de acceso al sistema el usuario debe dar clic al botón registrarse.Se muestra una ventana con datos requeridos para crear su cuenta de usuario.
+en este campo el usuario puede registrar solo 1 ellos , el usuario debe seleciconar si su entidad es publica o privada, debe aceptar los terminos y condiciones, por ultimo ...
+
+*en caso el usuario observe que la medida no es la adecuada puede realizar el cambio de la medida y seleccionar un nueva.
+
+*si el usuario no sabe a que hace referencia un campo, el sistema presenta el la opción de ayuda, el usuario debe pasar el puntero sobre la opción y se muestra un mensaje describiendo la opción.
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------
+
+
+colocar los roles a la opción de "filtrar estados".
+
+revisar la opcion de consultar del mantenimiento de usuarios.
+
+boton excel en la revisión de la iniciativa.
+
+en los ver mas quitar la opción de resumen
+
+ordenar los años en el detalle 
+
+validación en el detalle segun la fecha de ejecución de la iniciativa  y que no pase de la fecha actual.
+
+
+----------------------------------------------
+
+
+- aparece le puntero de la iniciativa todo el tiempo (*)
+-cuando el especialista guarda sus energeticos asociado y GEI y observa el registro cuando vuelve a  revisar la observacion corregida el registro de GEI no guarda (ambos).
+-el boton "tipo de iniciativa " en perfil especialista no tiene función
+- el administrado registro su detalle y guardo 2 enfoques, el especialista reviso y observo, el administrado edita su registro pero observa solo 1 enfoque y si se envia a revision al especialista si se muestran los 2 registros.
+- agregar la opción de botón de descargar blockchain.
+
+- borrar o revisar los stores de la moneda, se muestran 5 tipos de moneda, solo se estan validando por ahora 3.
+-validación de ventana clonada de registro permite registrar infinitamente, se debe colocar validación.
+-En la revisión de detalle con iniciativa del especialista de igual forma falta la validación de pestañas clonadas.
+
+
+
+
+
+USUARIO ADMINISTRADO
+----------------------------------------------------------------------
+
+las unidades de consumo no se observan (eficiencia industrial caldera)
+
+falta un espacio para agregar la unidad funcional de producción en el enfoque de "eficiencia industrial caldera"
+
+
+
+
+
+
+=========================================0
+
+REQUERIMIENTOS FUNCIONALES
+
+*El sistema debe permitir al usuario registrarse con sus credenciales de la plataforma MRV
+*El sistema debe mostrar un cronograma del proceso de evaluación del otorgamiento de SELLOS.
+
+*El sistema debe permitir otorgar al usuario postulante un merito a la reducción de emisiones de GEI a traves del otorgamiento de estrellas.
+
+*El sistema debe otorgar al usuario 3 categorias de reconocimento de energia sostenible segun el nivel de reducción.
+
+* El sistema debe permitir otorgar tambien un reconocimiento de las reducciones de emisiones de GEI la cual sera otorgado a traves de estrellas
+
+* El sistema debe permitir otorgar un reconocimiento por cada medida que aporte a las contribuciones nacionales
+
+* El sistema debe permitir otorgar un reconocimiento destacado a las entidades que mantienen su categoria de sello y poder aumentar su cantidad de estrellas.
+
+* 
+*
+
+**++******************************
+
+*El sistema debe permitir identificar si el postulante tiene una reducción de emisiones de GEI para el otorgamiento de 1, 2 o 3 estrellas.  (pag. 9 parr 1)
+
+*El sistema debe detectar si una entidad tiene medidas de energia implementada, un sistema formal de monitoreo  y  un reporte de indicadores de desempeño para otorgar una categoria oro o bronce  (pag. 13)
+
+*El sistema debe detectar si una entidad tiene medidas de energia implementada y una auditoria energetica parcial para otorgar una categoria plata. (pag. 13)
+
+*El sistema debe calcular segun los valores de las reducciones de emisiones de GEI por medida de energia sostenible para realizar el otorgamiento del reconocimiento por reducción de emisiones de GEI (1, 2 o 3 estrellas). (pag 14  parr 1 y 3)
+
+*El sistema debe calcular y validar los aportes mas altos de emisiones de CO2 por medida de mitigación para el otorgamiento del reconocimiento de medidas que aportan a las contribuciones nacionales.
+
+*El sistema debe permitir validar que las medidas no han sido contabilizadas en los aportes de la NDC y que la entidad no haya comercializado sus emisiones en cada medida para el otorgamiento del reconocimiento de medidas que aportan a las contribuciones nacionales. 
+
+* El sistema debe validar que el reconocimiento brindado a la entidad solo sera considerada una vez, si la entidad desea postular nuevamente este debe hacerlo con otra medida. 
+
+* El sistema debe validar cuando una entidad contribuye con el aporte mas alto de emisiones de CO2 en cada medida relacionada de las NDC para brindar el reconocimiento destacado por reducción de emisiones de GEI.
+
+**El sistema debe permitir validar que las medidas no han sido contabilizadas en los aportes de la NDC y que la entidad no haya comercializado sus emisiones en cada medida para el otorgamiento del reconocimiento destacado por reducción de emisiones de GEI.
+
+*El sistema debe validar que el reconocimiento brindado a la entidad solo sera considerada una vez, si la entidad desea postular nuevamente este debe hacerlo con otra medida NDC de aporte a emisiones de CO2.
+
+*El sistema debe permitir distingir a la entidad ya acreedora de una categoria sello durante una siguiente postulación aumentar de categoria en el sello y aumentar su nivel de estrellas, la entidad sera acreedora del reconocimiento destacado a la mejora continua de energia.
+
+*El sistema debe permitir editar el tiempo de evaluación para casos de mas entidades inscritas en la convocatoria. (Pag 16  ultimo parr)
+
+
+* El sistema debe permitir enviar un correo a los postulantes indicando el inicio del proceso de evaluación. ( pag. 18)
+ 
+* El sistema debe permitir realizar un levantamiento de observaciones en caso se presente el percance. (pag. 18)
+
+* El sistema debe permitir generar un documento o enviar un correo indicando el "No otorgamiento del SRES" (pag. 18)
+
+* El sistema debe permitir seleccionar los documentos o requerimientos necesarios que se deben establecer por cada criterio. (dicho en varias paginas desde la 22).
+
+
+*El sistema en los informes de premiación no debe difundir el siguiente detalle de datos:
+
+ Nombre de la entidad
+ Nombre de la Medida de energía sostenible:
+ % de ahorro energético (eléctrico y/o combustible)
+ Área de implementación o proceso involucrado en la medida
+ Periodo de implementación
+ Indicadores de desempeño utilizados
+ Emisiones de GEI reducidos
+
+
+* El sistema debe presentar una interfaz o ventana en la que se encuentre la matriz de evaluación para las entidades postulalntes  (pag 41)
+
+*El sistema debe presentar para el registro de los criterios unos formularios faciles de entender de esta forma el usuario iniciara el registro de sus criterios (desde pag 42)
+
+* El sistema para el criterio N°1 debe mostrar un mensaje indicando que en la tabla se debe detallar los proyectos o medidas de energía sostenible implementadas que permitieron el ahorro de energia electrica.
+
+* El sistema para el criterio N°2 debe identificar o tener una opción para el registro de consumo de combustible o registro de equipos sustituidos
+
+* El sistema debe mostrar un mensaje guiando al postulante, "nombres de las personas que realizan las actiivdades de gestión de energia desde el inicio de la implementación de la medida hasta la fecha de postulación para el sello" (pag 45).
+
+* El sistema debe tener alguna opción para agregar una cuarta estrella para el caso del registro de la huella de carbono (p. 48)
+
+* El sistema debe contar con un mensaje que permita recordar cuales son los requesitos necesarios que debe tener un evaluador para ser registrado (p. 52).
+
+*El sistema debe permitir subir los documentos escaneados al momento de la inscripción luego de completar la información de las fichas tecnicas. (p.54)
+
+* El sistema debe contar con la lista de documentos que se adjuntaran por criterio, estos deben tener la opción de ser marcadas de forma que visualmente cuando se envien a revisión se conozca que documentos fueron enviados. ( a partir de la pagina 55)
+
+* El sistema debe contar con un formulario para la evaluación del cumplimiento a las cantidades de reducción de TCO2 eq segun la entidad. (p. 60) 
+
+* El sistema debe permitir revocar de la categoria del sello a la entidad en caso no cumpla con los criterios exigidos de la categoria o un uso indebido del mismo (p. 70)
+
+* El sistema debe permitir otorgar el reconocimiento destacado a la mejora continua a las entidades que han logrado mantener durante 2 postulaciones consecutivas en la categoria oro. (p. 73)
+
+*El sistema debe contar con una opción para validar que los documentos presentados por las entidades postulantes esten refrendados por su representante legal (p. 74)
+
+========ESPECIALISTA
+
+jose@gmail.com
+Lima$2020#
+
+
+=========EVALUADOR 
+
+Martin@gmail.com
+Lima$2020#
+
+
+==========Verificador
+
+Carla@gmail.com
+Lima$2020#
+
+                                       
+                      
+
+========================================================================
+
+
+1.1 EEE  aire acondicionado
+
+1.1 EEE  calentadores de agua gas
+
+1.1 EEE  calentadores agua electrico
+
+1.1 EEE calentadores agua instantaneo
+
+1.1 EEE congeladoras
+
+1.1 EEE Refrigeradoras
+
+1.1 EEE  lavadoras
+
+1.1 EEE  motores electricos
+
+1.1 EEE  secadora
+
+
+
+1.2 Plantilla_Eficiencia_energetica_ industrial_caldera
+
+1.2 Plantilla_Eficiencia_energetica_sector_industrial_Motor
+
+1.3 Plantilla_Eficiencia_energetica_comercial
+
+1.4 Plantilla_Auditoria_energetica
+
+
+1.5 Plantilla_Iluminacion_residencial  
+
+1.6 Plantilla_Reemplazo_de_lamparas_de_sector_publico (NO SE VALIDO CON ALFONSO, NO EXCEL)
+
+1.7 Plantilla_Lamparas_de_alumbrado_publico
+
+
+
+2.1 Plantilla Coccion limpia_vales_fise
+
+2.1 Plantilla_Coccion_Lena
+
+2.2 Plantilla_Electrificacion_rural
+
+
+3.1 Plantilla_RER_Conectado
+
+
+3.2 Plantilla_Generacion_Distribuida
+
+
+
+4.1 Plantilla_Vehiculos_electricos_Recorrido
+
+4.1 Plantilla_Vehiculos_hibridos_Recorrido
+
+4.1 Plantilla_Vehiculos_electricos_Consumo
+
+4.1 Plantilla_Vehiculos_hibridos_consumo
+
+
+

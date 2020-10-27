@@ -259,7 +259,10 @@
     <Content Include="Log\LEEME.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Reportes\BlockChain.xml" />
+    <Content Include="Reportes\BlockChain.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Reportes\frmEscenario.aspx" />
     <Content Include="Reportes\frmReporteFicha.aspx" />
     <Content Include="Reportes\frmReportes.aspx" />
     <Content Include="Reportes\ReporteIni.aspx" />
@@ -341,10 +344,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DsInstitucion.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\DsMedGeneral.Designer.cs" />
     <Compile Include="Reportes\DsMedMit.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DsMedMit.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmEscenario.aspx.cs">
+      <DependentUpon>frmEscenario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmEscenario.aspx.designer.cs">
+      <DependentUpon>frmEscenario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reportes\frmReporteFicha.aspx.cs">
       <DependentUpon>frmReporteFicha.aspx</DependentUpon>
@@ -546,15 +557,9 @@
     <Content Include="Documentos\Exportar\3.2.GD_exp.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Documentos\4.1 Plantilla_Vehiculos_electricos_Consumo.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Documentos\4.1 Plantilla_Vehiculos_hibridos_consumo.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Documentos\4.1 Plantilla_Vehiculos_hibridos_Recorrido.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Documentos\4.1 Plantilla_Vehiculos_electricos_Consumo.xlsm" />
+    <Content Include="Documentos\4.1 Plantilla_Vehiculos_hibridos_consumo.xlsm" />
+    <Content Include="Documentos\4.1 Plantilla_Vehiculos_hibridos_Recorrido.xlsm" />
     <None Include="Properties\PublishProfiles\MRVMinem.pubxml" />
     <Content Include="Views\Gestion\AccionMitigacion.cshtml" />
     <Content Include="Views\Shared\_SesionLayout.cshtml" />
@@ -669,6 +674,17 @@
     <Content Include="Reportes\DsMedMit.xsc">
       <DependentUpon>DsMedMit.xsd</DependentUpon>
     </Content>
+    <Content Include="Reportes\DsMedGeneral.xsc">
+      <DependentUpon>DsMedGeneral.xsd</DependentUpon>
+    </Content>
+    <None Include="Reportes\DsMedGeneral.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsMedGeneral1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Reportes\DsMedGeneral.xss">
+      <DependentUpon>DsMedGeneral.xsd</DependentUpon>
+    </Content>
     <None Include="Reportes\DsMedMit.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DsMedMit.Designer.cs</LastGenOutput>
@@ -729,6 +745,7 @@
     <EmbeddedResource Include="Reportes\rptFichaParametros.rdlc" />
     <EmbeddedResource Include="Reportes\rptIniciativa.rdlc" />
     <EmbeddedResource Include="Reportes\rptInstitucion.rdlc" />
+    <EmbeddedResource Include="Reportes\rptMedGeneral.rdlc" />
     <EmbeddedResource Include="Reportes\rptMedMit.rdlc" />
   </ItemGroup>
   <PropertyGroup>

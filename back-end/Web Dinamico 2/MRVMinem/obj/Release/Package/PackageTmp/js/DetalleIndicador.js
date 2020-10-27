@@ -1,4 +1,4 @@
-﻿
+
 var indicadores = new Array();
 var documentos = new Array();
 
@@ -278,8 +278,17 @@ function CargarDatosIniciativa() {
                         if (data[i]["INVERSION_INICIATIVA"] != 0) {
                             //$("#txt-monto-inversion").val(data[i]["INVERSION_INICIATIVA"]);
                             $("#txt-monto-inversion").val(formatoMiles(data[i]["INVERSION_INICIATIVA"])); //add20
+                        } else {
+                            $("#txt-monto-inversion").val("------");//add 030620
                         }
-                        $("#txt-moneda").val(data[i]["MONEDA"]);
+
+                        if (data[i]["MONEDA"] != null) {
+                            $("#txt-moneda").val(data[i]["MONEDA"]);
+                        } else {
+                            $("#txt-moneda").val("------");
+                        }
+
+                        //$("#txt-moneda").val(data[i]["MONEDA"]);
                         if (data[i]["FECHA"].toString() != "01/01/0001") {
                             $("#txt-fecha-inicio").val(data[i]["FECHA"].toString());
                         }
@@ -366,7 +375,7 @@ function fn_cargarUbicacion() {
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
-                    var msj = '<textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="8" readonly placeholder="Ingrese una descripción para su iniciativa">';
+                    var msj = '<textarea class="form-control-plaintext" id="txa-ubicacion" aria-describedby="inputGroup9" cols="30" rows="8" readonly placeholder="Ingrese una descripción para su acción de mitigación">';
                     for (var j = 0; j < data.length; j++) {
                         msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
                     }
@@ -392,7 +401,7 @@ function fn_cargarGei() {
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
-                    var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">';
+                    var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su acción de mitigación">';
                     for (var j = 0; j < data.length; j++) {
                         msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
                     }
@@ -417,7 +426,7 @@ function fn_cargarEnergetico() {
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
-                    var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">';
+                    var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su acción de mitigación">';
                     for (var j = 0; j < data.length; j++) {
                         msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
                     }
@@ -1040,7 +1049,7 @@ function validarCampoRevision() {
 //===============================================
 function fn_observacionDetalleIndicador() {
 
-    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "modalErrorRevision", "Esta iniciativa ya fue revisada y/o observada");
+    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "modalErrorRevision", "Esta acción de mitigación ya fue revisada y/o observada");
     if (mns != "") {
         $("#observar-revision #modalObservacionBoton").hide();
         $("#pieCorrectoObservacion").show();
@@ -1122,7 +1131,7 @@ $("#observar-revision").on("hidden.bs.modal", function () {
 
 function fn_revisarDetalleIndicador() {
 
-    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "mensajeDangerRegistro", "Esta iniciativa ya fue revisada y/o observada");
+    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "mensajeDangerRegistro", "Esta acción de mitigación ya fue revisada y/o observada");
     if (mns != "") {
         $("#aprobar-revision #modalAprobarBoton").hide();
         $("#pieCorrectoAprobacion").show();
@@ -1254,7 +1263,7 @@ $("#aprobar-revision").on("hidden.bs.modal", function () {
 
 function fn_observacionAdminDetalleIndicador() {
 
-    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "modalErrorRevision", "Esta iniciativa ya fue revisada y/o observada");
+    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "modalErrorRevision", "Esta acción de mitigación ya fue revisada y/o observada");
     if (mns != "") {
         $("#observar-revision #modalObservacionBoton").hide();
         $("#pieCorrectoObservacion").show();
@@ -1337,7 +1346,7 @@ $("#observar-revision").on("hidden.bs.modal", function () {
 
 function fn_revisarAdminDetalleIndicador() {
 
-    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "mensajeDangerRegistro", "Esta iniciativa ya fue revisada y/o observada");
+    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "mensajeDangerRegistro", "Esta acción de mitigación ya fue revisada y/o observada");
     if (mns != "") {
         $("#aprobar-revision #modalAprobarBoton").hide();
         $("#pieCorrectoAprobacion").show();
@@ -1472,7 +1481,7 @@ $("#aprobar-revision").on("hidden.bs.modal", function () {
 
 function fn_observacionEvaluadorDetalleIndicador() {
 
-    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "modalErrorRevision", "Esta iniciativa ya fue evaluada y/o observada");
+    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "modalErrorRevision", "Esta acción de mitigación ya fue evaluada y/o observada");
     if (mns != "") {
         $("#observar-evaluacion #modalObservacionBoton").hide();
         $("#pieCorrectoObservacion").show();
@@ -1553,7 +1562,7 @@ $("#observar-evaluacion").on("hidden.bs.modal", function () {
 
 function fn_observacionVerificarDetalleIndicador() {
 
-    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "modalErrorRevision", "Esta iniciativa ya fue verificada y/o observada");
+    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "modalErrorRevision", "Esta acción de mitigación ya fue verificada y/o observada");
     if (mns != "") {
         $("#observar-verificacion #modalObservacionBoton").hide();
         $("#pieCorrectoObservacion").show();
@@ -1725,7 +1734,7 @@ function fn_evaluarIniciativaDetalle() {
 
 function fn_verificarIniciativaDetalle() {
 
-    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "modalErrorAprobacion", "Esta iniciativa ya fue verificada y/o observada");
+    var mns = ValidarRevision('0', $("#Control").data("iniciativa"), $("#estado_flujo").val(), "modalErrorAprobacion", "Esta acción de mitigación ya fue verificada y/o observada");
     if (mns != "") {
         $("#aprobar-verificacion #modalAprobarBoton").hide();
         $("#pieCorrectoAprobacion").show();
@@ -2366,7 +2375,7 @@ function cargarCabeceraElectrico() {
     msj += '    <th class="text-center" style="background-color: green;" scope="col"><span>Factor de Rendimiento&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Indicador Rendimiento"></i></span></th>';
     msj += '    <th class="text-center" style="background-color: green;" scope="col"><span>Placa&nbsp;<i class="fas fa-question-circle text-white ayuda-tooltip" data-toggle="tooltip" data-placement="bottom" title="Placa del vehículo"></i></span></th>';
     msj += '    <th class="text-center" style="background-color: orange;" scope="col"><span>Línea Base Emisiones GEI (tCO<sub>2</sub>eq)</span></th>';
-    msj += '    <th class="text-center" style="background-color: green;" scope="col"><span>Iniciativa Mitigación Emisiones GEI (tCO<sub>2</sub>eq)</span></th>';
+    msj += '    <th class="text-center" style="background-color: green;" scope="col"><span>Acción de Mitigación Emisiones GEI (tCO<sub>2</sub>eq)</span></th>';
     msj += '    <th class="text-center" style="background-color: #2271b3;" scope="col"><span>Emisiones GEI Reducidas (tCO<sub>2</sub>eq)</span></th>';
     msj += '    <th class="text-center" scope="col">Más</th>';
     msj += '    <th class="text-hide" scope="col" style="display:none;">Id. Iniciativa</th>';
@@ -2689,7 +2698,10 @@ function CargarArchivosGuardados() {
                         var tr = "";
                         tr += '     <div class="input-group mb-3" id="eliminar-' + data[i]["ID_INICIATIVA_SUSTENTATORIO"] + '">';
                         tr += '             <div class="input-group-prepend"><span class="input-group-text"><i class="fas ' + extension + '"></i></span></div><span class="form-control-plaintext ww">' + data[i]["ADJUNTO_BASE"] + '</span>';
-                        tr += '             <div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="far fa-trash-alt" onclick="fn_eliminarArchivo(' + data[i]["ID_INICIATIVA_SUSTENTATORIO"] + ')"></i></span></div>';
+                        tr += '             <div class="input-group-append">';
+                        tr += '                 <span class="input-group-text cursor-pointer mr-2" onclick="fn_verfilesutento(' + data[i]["ID_INICIATIVA_SUSTENTATORIO"] + ')"><i class="fas fa-download"></i></span>';
+                        tr += '                 <span class="input-group-text cursor-pointer"><i class="far fa-trash-alt" onclick="fn_eliminarArchivo(' + data[i]["ID_INICIATIVA_SUSTENTATORIO"] + ')"></i></span>';
+                        tr += '             </div>';
                         tr += '    </div>';
                         $("#archivos-guardados").append(tr);
                     }
@@ -2718,7 +2730,7 @@ function fn_procesoDetalleIndicador(url, estado) {
     if (estado == 1 || estado == 0) { num_validar = 8 }
     else if (estado == 5 || estado == 6) { num_validar = 11 }
 
-    var mns = ValidarRevision('1', $("#Control").data("iniciativa"), num_validar, "mensajeDangerRegistro", "El detalle de esta iniciativa ya fue enviada para su revisión");
+    var mns = ValidarRevision('1', $("#Control").data("iniciativa"), num_validar, "mensajeDangerRegistro", "El detalle de esta acción de mitigación ya fue enviada para su revisión");
 
     if (mns != "") {
         if (estado == 1 || estado == 5) {
@@ -2859,6 +2871,7 @@ function fn_procesoDetalleIndicador(url, estado) {
         type: "POST",
         dataType: "json",
         contentType: false,
+        async: false, // add 040620
         url: url,
         processData: false,
         data: item,
@@ -3228,7 +3241,7 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                                         tr += '</select>';
                                     } else {
                                         tr += '<select class="form-control form-control-sm require-data" id="cbo-det-tbl-1-' + lista + '-' + (i + 1) + '" onchange="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '">';
-                                        if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30) tr += '        <option value="0">Seleccionar</option>'; //add
+                                        if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30 && data[j]["ID_PARAMETRO"] != 93 && data[j]["ID_PARAMETRO"] != 94 && data[j]["ID_PARAMETRO"] != 95) tr += '        <option value="0">Seleccionar</option>'; //add
                                         //tr += '        <option value="0">Seleccionar</option>';
                                         var listaD = data[j]["listaDetalle"];
                                         for (var m = 0; m < listaD.length; m++) {
@@ -3239,7 +3252,7 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                                 } else {
                                     lista++;
                                     tr += '<select class="form-control form-control-sm require-data" id="cbo-det-tbl-1-' + lista + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '">';
-                                    if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30) tr += '        <option value="0">Seleccionar</option>'; //add
+                                    if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30 && data[j]["ID_PARAMETRO"] != 93 && data[j]["ID_PARAMETRO"] != 94 && data[j]["ID_PARAMETRO"] != 95) tr += '        <option value="0">Seleccionar</option>'; //add
                                     //tr += '        <option value="0">Seleccionar</option>';
                                     var listaD = data[j]["listaDetalle"];
                                     for (var m = 0; m < listaD.length; m++) {
@@ -3474,7 +3487,7 @@ function CargarNuevaFila(filas) {
                                     } else {
                                         debugger;
                                         tr += '<select class="form-control form-control-sm require-data" id="cbo-det-tbl-1-' + lista + '-' + (rows + 1) + '" onchange="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '">';
-                                        if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30) tr += '        <option value="0">Seleccionar</option>'; //add
+                                        if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30 && data[j]["ID_PARAMETRO"] != 93 && data[j]["ID_PARAMETRO"] != 94 && data[j]["ID_PARAMETRO"] != 95) tr += '        <option value="0">Seleccionar</option>'; //add
                                         //tr += '        <option value="0">Seleccionar</option>';
                                         var listaD = data[j]["listaDetalle"];
                                         for (var m = 0; m < listaD.length; m++) {
@@ -3485,7 +3498,7 @@ function CargarNuevaFila(filas) {
                                 } else {
                                     lista++;
                                     tr += '<select class="form-control form-control-sm require-data" id="cbo-det-tbl-1-' + lista + '-' + (rows + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '">';
-                                    if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30) tr += '        <option value="0">Seleccionar</option>'; //add
+                                    if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30 && data[j]["ID_PARAMETRO"] != 93 && data[j]["ID_PARAMETRO"] != 94 && data[j]["ID_PARAMETRO"] != 95) tr += '        <option value="0">Seleccionar</option>'; //add
                                     //tr += '        <option value="0">Seleccionar</option>';
                                     var listaD = data[j]["listaDetalle"];
                                     for (var m = 0; m < listaD.length; m++) {
@@ -3578,9 +3591,17 @@ function CargarDatosGuardados() {
     }
     $.ajax({
         url: baseUrl + 'Gestion/ListarDatosIndicadorData',
-        type: 'POST',
-        datatype: 'json',
-        data: item,
+        //type: 'POST',
+        //datatype: 'json',
+        //data: item,
+
+        type: "POST",
+        //url: nurl,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        //async: false,
+        data: JSON.stringify(item),
+
         success: function (data) {
             debugger;
             if (data != null && data != "") {
@@ -3668,6 +3689,13 @@ function CargarDatosGuardados() {
             }
             $("#tbl-main-preload").html("");
             $("#tbl-main").removeClass("d-none");
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
         }
     });
 }
@@ -3767,6 +3795,44 @@ function removeFile(e) {
     $(e).parent().parent().parent().remove();
 }
 
+//add 16-06-2020
+function visualizarArchivo(e) {
+    var file = e.dataset.file;
+    for (var i = 0; i < storedFiles.length; i++) {
+        if (storedFiles[i].name === file) {
+            descargarArchivo(storedFiles[i], storedFiles[i].name);
+            break;
+        }
+    }
+}
+
+function descargarArchivo(contenidoEnBlob, nombreArchivo) {
+    //creamos un FileReader para leer el Blob
+    var reader = new FileReader();
+    //Definimos la función que manejará el archivo
+    //una vez haya terminado de leerlo
+    reader.onload = function (event) {
+        //Usaremos un link para iniciar la descarga 
+        var save = document.createElement('a');
+        save.href = event.target.result;
+        save.target = '_blank';
+        //Truco: así le damos el nombre al archivo 
+        save.download = nombreArchivo || 'archivo.dat';
+        var clicEvent = new MouseEvent('click', {
+            'view': window,
+            'bubbles': true,
+            'cancelable': true
+        });
+        //Simulamos un clic del usuario
+        //no es necesario agregar el link al DOM.
+        save.dispatchEvent(clicEvent);
+        //Y liberamos recursos...
+        (window.URL || window.webkitURL).revokeObjectURL(save.href);
+    };
+    //Leemos el blob y esperamos a que dispare el evento "load"
+    reader.readAsDataURL(contenidoEnBlob);
+};
+
 //$("body").on("click", ".selFile", removeFile());
 
 //==============================================================================================================
@@ -3831,10 +3897,18 @@ function CargarDatosCabecera() {
     $("#tbl-main").addClass("d-none");
     $.ajax({
         url: baseUrl + 'Gestion/ListarCabeceraIndicador',
-        type: 'POST',
-        datatype: 'json',
-        data: item,
+        //type: 'POST',
+        //datatype: 'json',
+        //data: item,
+        //async: false,
+
+        type: "POST",
+        //url: nurl,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
         async: false,
+        data: JSON.stringify(item),
+
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
@@ -3895,6 +3969,13 @@ function CargarDatosCabecera() {
                     $("[data-toggle='tooltip']").tooltip();
                 }
             }
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
         }
     });
 
@@ -3949,7 +4030,7 @@ function fn_cargarGei() {
                             }
                         }
                     } else {
-                        var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">';
+                        var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su acción de mitigación">';
                         for (var j = 0; j < data.length; j++) {
                             msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
                         }
@@ -3984,7 +4065,7 @@ function fn_cargarEnergetico() {
                             }
                         }
                     } else {
-                        var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su iniciativa">';
+                        var msj = '<textarea class="form-control-plaintext" id="mlt-energetico" aria-describedby="inputGroup9" cols="30" rows="5" readonly placeholder="Ingrese una descripción para su acción de mitigación">';
                         for (var j = 0; j < data.length; j++) {
                             msj = msj + data[j]["DESCRIPCION"] + '&nbsp\n';
                         }
@@ -4135,6 +4216,8 @@ $(document).ready(function () {
 
     inicio();
 
+    $("i[data-placement='top']").attr({ 'data-original-title': 'Puede seleccionar múltiples archivos, con un tamaño no superior a 4MB por archivo' });
+
     if ($("#iniciativa_mit_ID_INICIATIVA").val() > 0) {
         $("#Control").data("iniciativa", $("#iniciativa_mit_ID_INICIATIVA").val());
     } else {
@@ -4241,7 +4324,8 @@ $("#cbo-enfoque").change(function () {
 function fn_calcularValor(e) {
     console.log("Aqui : " + $(e).attr("data-validar"));
     var dv = $(e).attr("data-validar");
-    var row = $("#tablaIndicador").data("fila");
+    var row = $(e).parent().parent().parent().find('th:eq(0)').html();
+    //var row = $("#tablaIndicador").data("fila");
 
 
 
@@ -4320,6 +4404,15 @@ function fn_enviarCalcularValor(item, f) {
     //if (respuesta.success) {
     //    alert("bien");
     //}
+
+    $("[id^=txt-det-]").each((x, y) => {
+        $(y).prop('disabled', true);
+    });
+    $("[id^=cbo-det-]").each((x, y) => {
+        $(y).prop('disabled', true);
+    });
+    $("#tbl-main-preload").append("<div class='d-flex align-items-center calculando-mrv'><i Class='fas fa-spinner fa-spin px-1'></i>Calculando..</div>");
+    $('.agregarCamposPrc').addClass('d-none');
 
     $.ajax({
         url: baseUrl + 'Gestion/CalcularIndicadorDinamico',
@@ -4945,7 +5038,7 @@ function ValidarRevision(num_validar, id_ini, id_plazo, id_msj, mensaje) {
             msj = mensajeError(id_msj, "Error", mensaje);
         }
     } else {
-        msj = mensajeError(id_msj, "Error", "Ocurrio un error durante el proceso de guardado de la Iniciativa.");
+        msj = mensajeError(id_msj, "Error", "Ocurrio un error durante el proceso de guardado de la acción de mitigación.");
     }
     return msj;
 }
@@ -4957,7 +5050,7 @@ function mostrarAcumulado() {
     var campos = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + row).find("[data-validar]");
     campos.each(function (index, value) {
         console.log(index + " + " + $(value).attr("id") + " + " + $(value).attr("data-validar"));
-
+        debugger;
         if ($(value).attr("data-validar") == 0) {
             valor = 1;
         }
@@ -5064,9 +5157,17 @@ function mostrarAcumuladoR(e) {
     $("#modal-acumulado").modal("show");
     $.ajax({
         url: baseUrl + 'Gestion/MostrarAcumulado',
-        type: 'POST',
-        datatype: 'json',
-        data: item,
+        //type: 'POST',
+        //datatype: 'json',
+        //data: item,
+
+        type: "POST",
+        //url: nurl,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        //async: false,
+        data: JSON.stringify(item),
+
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
@@ -5097,6 +5198,13 @@ function mostrarAcumuladoR(e) {
                 }
             } else {
             }
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
         }
     });
 
@@ -5109,9 +5217,17 @@ function agregarAcumulado(item, f) {
 
     $.ajax({
         url: baseUrl + 'Gestion/CalcularAcumulado',
-        type: 'POST',
-        datatype: 'json',
-        data: item,
+        //type: 'POST',
+        //datatype: 'json',
+        //data: item,
+
+        type: "POST",
+        //url: nurl,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        //async: false,
+        data: JSON.stringify(item),
+
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
@@ -5214,6 +5330,23 @@ function agregarAcumulado(item, f) {
                 }
             } else {
             }
+
+            $("[id^=txt-det-]").each((x, y) => {
+                $(y).prop('disabled', false);
+            });
+            $("[id^=cbo-det-]").each((x, y) => {
+                $(y).prop('disabled', false);
+            });
+            $("#tbl-main-preload").find('.calculando-mrv').remove();
+            $('.agregarCamposPrc').removeClass('d-none', true);
+
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
         }
     });
 }
@@ -5292,9 +5425,17 @@ function generarAcumulado(f) {
 
     $.ajax({
         url: baseUrl + 'Gestion/MostrarAcumulado',
-        type: 'POST',
-        datatype: 'json',
-        data: item,
+        //type: 'POST',
+        //datatype: 'json',
+        //data: item,
+
+        type: "POST",
+        //url: nurl,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        //async: false,
+        data: JSON.stringify(item),
+
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
@@ -5395,6 +5536,13 @@ function generarAcumulado(f) {
                 }
             } else {
             }
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
         }
     });
 
@@ -5415,9 +5563,17 @@ function cargarAcumulado(entidad, f) {
 
     $.ajax({
         url: baseUrl + 'Gestion/CalcularAcumuladoC',
-        type: 'POST',
-        datatype: 'json',
-        data: item,
+        //type: 'POST',
+        //datatype: 'json',
+        //data: item,
+
+        type: "POST",
+        //url: nurl,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        //async: false,
+        data: JSON.stringify(item),
+
         success: function (data) {
             if (data != null && data != "") {
                 if (data.length > 0) {
@@ -5518,6 +5674,13 @@ function cargarAcumulado(entidad, f) {
             }
             //$("#tbl-main-preload-acu").html("");
             //$("#tbl-main-acu").removeClass("d-none");
+        },
+        failure: function (msg) {
+            console.log(msg);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            location.href = baseUrl + "Home/login";
         }
     });
 

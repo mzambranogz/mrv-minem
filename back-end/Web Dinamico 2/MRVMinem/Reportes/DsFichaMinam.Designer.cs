@@ -340,6 +340,40 @@ namespace MRVMinem.Reportes {
             
             private global::System.Data.DataColumn columnNOMBRE_ENFOQUE;
             
+            private global::System.Data.DataColumn columnID_REPORTE;
+            
+            private global::System.Data.DataColumn columnPERIODO;
+            
+            private global::System.Data.DataColumn columnMEDIDA_REDUCCION;
+            
+            private global::System.Data.DataColumn columnFECHAS_RELEVANTES;
+            
+            private global::System.Data.DataColumn columnMETODOLOGIA_APLICADA;
+            
+            private global::System.Data.DataColumn columnSISTEMA_MONITOREO;
+            
+            private global::System.Data.DataColumn columnROL_RESPONSABILIDAD;
+            
+            private global::System.Data.DataColumn columnCALIBRACION_EQUIPO;
+            
+            private global::System.Data.DataColumn columnCALCULO_BAU;
+            
+            private global::System.Data.DataColumn columnCALCULO_MEDIDA;
+            
+            private global::System.Data.DataColumn columnCAMBIOS_GEI;
+            
+            private global::System.Data.DataColumn columnEMISIONES_TOTAL;
+            
+            private global::System.Data.DataColumn columnCO_BENEFICIO;
+            
+            private global::System.Data.DataColumn columnDESCRIPCION_MEDMIT;
+            
+            private global::System.Data.DataColumn columnOBJETIVO_MEDMIT;
+            
+            private global::System.Data.DataColumn columnNOMBRE_MEDMIT;
+            
+            private global::System.Data.DataColumn columnEMISIONES_REDUCIDAS;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DtFichaMinamDataTable() {
@@ -479,6 +513,142 @@ namespace MRVMinem.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ID_REPORTEColumn {
+                get {
+                    return this.columnID_REPORTE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PERIODOColumn {
+                get {
+                    return this.columnPERIODO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MEDIDA_REDUCCIONColumn {
+                get {
+                    return this.columnMEDIDA_REDUCCION;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FECHAS_RELEVANTESColumn {
+                get {
+                    return this.columnFECHAS_RELEVANTES;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn METODOLOGIA_APLICADAColumn {
+                get {
+                    return this.columnMETODOLOGIA_APLICADA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SISTEMA_MONITOREOColumn {
+                get {
+                    return this.columnSISTEMA_MONITOREO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ROL_RESPONSABILIDADColumn {
+                get {
+                    return this.columnROL_RESPONSABILIDAD;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CALIBRACION_EQUIPOColumn {
+                get {
+                    return this.columnCALIBRACION_EQUIPO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CALCULO_BAUColumn {
+                get {
+                    return this.columnCALCULO_BAU;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CALCULO_MEDIDAColumn {
+                get {
+                    return this.columnCALCULO_MEDIDA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CAMBIOS_GEIColumn {
+                get {
+                    return this.columnCAMBIOS_GEI;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn EMISIONES_TOTALColumn {
+                get {
+                    return this.columnEMISIONES_TOTAL;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CO_BENEFICIOColumn {
+                get {
+                    return this.columnCO_BENEFICIO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DESCRIPCION_MEDMITColumn {
+                get {
+                    return this.columnDESCRIPCION_MEDMIT;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn OBJETIVO_MEDMITColumn {
+                get {
+                    return this.columnOBJETIVO_MEDMIT;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NOMBRE_MEDMITColumn {
+                get {
+                    return this.columnNOMBRE_MEDMIT;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn EMISIONES_REDUCIDASColumn {
+                get {
+                    return this.columnEMISIONES_REDUCIDAS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -514,7 +684,37 @@ namespace MRVMinem.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DtFichaMinamRow AddDtFichaMinamRow(int ID_MEDMIT, int ID_ENFOQUE, int ANNO, decimal BAU, decimal INI, decimal REDUCIDO, string TITULO_MEDIDA_MITIGACION, string SECTOR, string OBJETIVO, string DESCRIPCION, string UBICACION, string METODOLOGIA, string NOMBRE_ENFOQUE) {
+            public DtFichaMinamRow AddDtFichaMinamRow(
+                        int ID_MEDMIT, 
+                        int ID_ENFOQUE, 
+                        int ANNO, 
+                        decimal BAU, 
+                        decimal INI, 
+                        decimal REDUCIDO, 
+                        string TITULO_MEDIDA_MITIGACION, 
+                        string SECTOR, 
+                        string OBJETIVO, 
+                        string DESCRIPCION, 
+                        string UBICACION, 
+                        string METODOLOGIA, 
+                        string NOMBRE_ENFOQUE, 
+                        string ID_REPORTE, 
+                        string PERIODO, 
+                        string MEDIDA_REDUCCION, 
+                        string FECHAS_RELEVANTES, 
+                        string METODOLOGIA_APLICADA, 
+                        string SISTEMA_MONITOREO, 
+                        string ROL_RESPONSABILIDAD, 
+                        string CALIBRACION_EQUIPO, 
+                        string CALCULO_BAU, 
+                        string CALCULO_MEDIDA, 
+                        string CAMBIOS_GEI, 
+                        string EMISIONES_TOTAL, 
+                        string CO_BENEFICIO, 
+                        string DESCRIPCION_MEDMIT, 
+                        string OBJETIVO_MEDMIT, 
+                        string NOMBRE_MEDMIT, 
+                        string EMISIONES_REDUCIDAS) {
                 DtFichaMinamRow rowDtFichaMinamRow = ((DtFichaMinamRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID_MEDMIT,
@@ -529,7 +729,24 @@ namespace MRVMinem.Reportes {
                         DESCRIPCION,
                         UBICACION,
                         METODOLOGIA,
-                        NOMBRE_ENFOQUE};
+                        NOMBRE_ENFOQUE,
+                        ID_REPORTE,
+                        PERIODO,
+                        MEDIDA_REDUCCION,
+                        FECHAS_RELEVANTES,
+                        METODOLOGIA_APLICADA,
+                        SISTEMA_MONITOREO,
+                        ROL_RESPONSABILIDAD,
+                        CALIBRACION_EQUIPO,
+                        CALCULO_BAU,
+                        CALCULO_MEDIDA,
+                        CAMBIOS_GEI,
+                        EMISIONES_TOTAL,
+                        CO_BENEFICIO,
+                        DESCRIPCION_MEDMIT,
+                        OBJETIVO_MEDMIT,
+                        NOMBRE_MEDMIT,
+                        EMISIONES_REDUCIDAS};
                 rowDtFichaMinamRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDtFichaMinamRow);
                 return rowDtFichaMinamRow;
@@ -565,6 +782,23 @@ namespace MRVMinem.Reportes {
                 this.columnUBICACION = base.Columns["UBICACION"];
                 this.columnMETODOLOGIA = base.Columns["METODOLOGIA"];
                 this.columnNOMBRE_ENFOQUE = base.Columns["NOMBRE_ENFOQUE"];
+                this.columnID_REPORTE = base.Columns["ID_REPORTE"];
+                this.columnPERIODO = base.Columns["PERIODO"];
+                this.columnMEDIDA_REDUCCION = base.Columns["MEDIDA_REDUCCION"];
+                this.columnFECHAS_RELEVANTES = base.Columns["FECHAS_RELEVANTES"];
+                this.columnMETODOLOGIA_APLICADA = base.Columns["METODOLOGIA_APLICADA"];
+                this.columnSISTEMA_MONITOREO = base.Columns["SISTEMA_MONITOREO"];
+                this.columnROL_RESPONSABILIDAD = base.Columns["ROL_RESPONSABILIDAD"];
+                this.columnCALIBRACION_EQUIPO = base.Columns["CALIBRACION_EQUIPO"];
+                this.columnCALCULO_BAU = base.Columns["CALCULO_BAU"];
+                this.columnCALCULO_MEDIDA = base.Columns["CALCULO_MEDIDA"];
+                this.columnCAMBIOS_GEI = base.Columns["CAMBIOS_GEI"];
+                this.columnEMISIONES_TOTAL = base.Columns["EMISIONES_TOTAL"];
+                this.columnCO_BENEFICIO = base.Columns["CO_BENEFICIO"];
+                this.columnDESCRIPCION_MEDMIT = base.Columns["DESCRIPCION_MEDMIT"];
+                this.columnOBJETIVO_MEDMIT = base.Columns["OBJETIVO_MEDMIT"];
+                this.columnNOMBRE_MEDMIT = base.Columns["NOMBRE_MEDMIT"];
+                this.columnEMISIONES_REDUCIDAS = base.Columns["EMISIONES_REDUCIDAS"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -596,6 +830,40 @@ namespace MRVMinem.Reportes {
                 base.Columns.Add(this.columnMETODOLOGIA);
                 this.columnNOMBRE_ENFOQUE = new global::System.Data.DataColumn("NOMBRE_ENFOQUE", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNOMBRE_ENFOQUE);
+                this.columnID_REPORTE = new global::System.Data.DataColumn("ID_REPORTE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_REPORTE);
+                this.columnPERIODO = new global::System.Data.DataColumn("PERIODO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPERIODO);
+                this.columnMEDIDA_REDUCCION = new global::System.Data.DataColumn("MEDIDA_REDUCCION", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMEDIDA_REDUCCION);
+                this.columnFECHAS_RELEVANTES = new global::System.Data.DataColumn("FECHAS_RELEVANTES", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFECHAS_RELEVANTES);
+                this.columnMETODOLOGIA_APLICADA = new global::System.Data.DataColumn("METODOLOGIA_APLICADA", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMETODOLOGIA_APLICADA);
+                this.columnSISTEMA_MONITOREO = new global::System.Data.DataColumn("SISTEMA_MONITOREO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSISTEMA_MONITOREO);
+                this.columnROL_RESPONSABILIDAD = new global::System.Data.DataColumn("ROL_RESPONSABILIDAD", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnROL_RESPONSABILIDAD);
+                this.columnCALIBRACION_EQUIPO = new global::System.Data.DataColumn("CALIBRACION_EQUIPO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCALIBRACION_EQUIPO);
+                this.columnCALCULO_BAU = new global::System.Data.DataColumn("CALCULO_BAU", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCALCULO_BAU);
+                this.columnCALCULO_MEDIDA = new global::System.Data.DataColumn("CALCULO_MEDIDA", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCALCULO_MEDIDA);
+                this.columnCAMBIOS_GEI = new global::System.Data.DataColumn("CAMBIOS_GEI", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCAMBIOS_GEI);
+                this.columnEMISIONES_TOTAL = new global::System.Data.DataColumn("EMISIONES_TOTAL", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEMISIONES_TOTAL);
+                this.columnCO_BENEFICIO = new global::System.Data.DataColumn("CO_BENEFICIO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCO_BENEFICIO);
+                this.columnDESCRIPCION_MEDMIT = new global::System.Data.DataColumn("DESCRIPCION_MEDMIT", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDESCRIPCION_MEDMIT);
+                this.columnOBJETIVO_MEDMIT = new global::System.Data.DataColumn("OBJETIVO_MEDMIT", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOBJETIVO_MEDMIT);
+                this.columnNOMBRE_MEDMIT = new global::System.Data.DataColumn("NOMBRE_MEDMIT", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOMBRE_MEDMIT);
+                this.columnEMISIONES_REDUCIDAS = new global::System.Data.DataColumn("EMISIONES_REDUCIDAS", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEMISIONES_REDUCIDAS);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -764,6 +1032,14 @@ namespace MRVMinem.Reportes {
             private global::System.Data.DataColumn columnFORMULA;
             
             private global::System.Data.DataColumn columnFORMULA_ARMADO;
+            
+            private global::System.Data.DataColumn columnUNIDAD;
+            
+            private global::System.Data.DataColumn columnFUENTE;
+            
+            private global::System.Data.DataColumn columnRESPONSABLE;
+            
+            private global::System.Data.DataColumn columnCOMENTARIOS;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -944,6 +1220,38 @@ namespace MRVMinem.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn UNIDADColumn {
+                get {
+                    return this.columnUNIDAD;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FUENTEColumn {
+                get {
+                    return this.columnFUENTE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn RESPONSABLEColumn {
+                get {
+                    return this.columnRESPONSABLE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn COMENTARIOSColumn {
+                get {
+                    return this.columnCOMENTARIOS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -997,7 +1305,11 @@ namespace MRVMinem.Reportes {
                         string COMPORTAMIENTO, 
                         decimal VALOR, 
                         string FORMULA, 
-                        string FORMULA_ARMADO) {
+                        string FORMULA_ARMADO, 
+                        string UNIDAD, 
+                        string FUENTE, 
+                        string RESPONSABLE, 
+                        string COMENTARIOS) {
                 DtParametroRow rowDtParametroRow = ((DtParametroRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID_MEDMIT,
@@ -1017,7 +1329,11 @@ namespace MRVMinem.Reportes {
                         COMPORTAMIENTO,
                         VALOR,
                         FORMULA,
-                        FORMULA_ARMADO};
+                        FORMULA_ARMADO,
+                        UNIDAD,
+                        FUENTE,
+                        RESPONSABLE,
+                        COMENTARIOS};
                 rowDtParametroRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDtParametroRow);
                 return rowDtParametroRow;
@@ -1058,6 +1374,10 @@ namespace MRVMinem.Reportes {
                 this.columnVALOR = base.Columns["VALOR"];
                 this.columnFORMULA = base.Columns["FORMULA"];
                 this.columnFORMULA_ARMADO = base.Columns["FORMULA_ARMADO"];
+                this.columnUNIDAD = base.Columns["UNIDAD"];
+                this.columnFUENTE = base.Columns["FUENTE"];
+                this.columnRESPONSABLE = base.Columns["RESPONSABLE"];
+                this.columnCOMENTARIOS = base.Columns["COMENTARIOS"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1099,6 +1419,14 @@ namespace MRVMinem.Reportes {
                 base.Columns.Add(this.columnFORMULA);
                 this.columnFORMULA_ARMADO = new global::System.Data.DataColumn("FORMULA_ARMADO", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFORMULA_ARMADO);
+                this.columnUNIDAD = new global::System.Data.DataColumn("UNIDAD", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUNIDAD);
+                this.columnFUENTE = new global::System.Data.DataColumn("FUENTE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFUENTE);
+                this.columnRESPONSABLE = new global::System.Data.DataColumn("RESPONSABLE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRESPONSABLE);
+                this.columnCOMENTARIOS = new global::System.Data.DataColumn("COMENTARIOS", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCOMENTARIOS);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1450,6 +1778,283 @@ namespace MRVMinem.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ID_REPORTE {
+                get {
+                    try {
+                        return ((string)(this[this.tableDtFichaMinam.ID_REPORTEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ID_REPORTE\' de la tabla \'DtFichaMinam\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDtFichaMinam.ID_REPORTEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string PERIODO {
+                get {
+                    try {
+                        return ((string)(this[this.tableDtFichaMinam.PERIODOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'PERIODO\' de la tabla \'DtFichaMinam\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDtFichaMinam.PERIODOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string MEDIDA_REDUCCION {
+                get {
+                    try {
+                        return ((string)(this[this.tableDtFichaMinam.MEDIDA_REDUCCIONColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'MEDIDA_REDUCCION\' de la tabla \'DtFichaMinam\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDtFichaMinam.MEDIDA_REDUCCIONColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string FECHAS_RELEVANTES {
+                get {
+                    try {
+                        return ((string)(this[this.tableDtFichaMinam.FECHAS_RELEVANTESColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'FECHAS_RELEVANTES\' de la tabla \'DtFichaMinam\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDtFichaMinam.FECHAS_RELEVANTESColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string METODOLOGIA_APLICADA {
+                get {
+                    try {
+                        return ((string)(this[this.tableDtFichaMinam.METODOLOGIA_APLICADAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'METODOLOGIA_APLICADA\' de la tabla \'DtFichaMinam\' es DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableDtFichaMinam.METODOLOGIA_APLICADAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string SISTEMA_MONITOREO {
+                get {
+                    try {
+                        return ((string)(this[this.tableDtFichaMinam.SISTEMA_MONITOREOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'SISTEMA_MONITOREO\' de la tabla \'DtFichaMinam\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDtFichaMinam.SISTEMA_MONITOREOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ROL_RESPONSABILIDAD {
+                get {
+                    try {
+                        return ((string)(this[this.tableDtFichaMinam.ROL_RESPONSABILIDADColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ROL_RESPONSABILIDAD\' de la tabla \'DtFichaMinam\' es DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableDtFichaMinam.ROL_RESPONSABILIDADColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CALIBRACION_EQUIPO {
+                get {
+                    try {
+                        return ((string)(this[this.tableDtFichaMinam.CALIBRACION_EQUIPOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CALIBRACION_EQUIPO\' de la tabla \'DtFichaMinam\' es DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableDtFichaMinam.CALIBRACION_EQUIPOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CALCULO_BAU {
+                get {
+                    try {
+                        return ((string)(this[this.tableDtFichaMinam.CALCULO_BAUColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CALCULO_BAU\' de la tabla \'DtFichaMinam\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDtFichaMinam.CALCULO_BAUColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CALCULO_MEDIDA {
+                get {
+                    try {
+                        return ((string)(this[this.tableDtFichaMinam.CALCULO_MEDIDAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CALCULO_MEDIDA\' de la tabla \'DtFichaMinam\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDtFichaMinam.CALCULO_MEDIDAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CAMBIOS_GEI {
+                get {
+                    try {
+                        return ((string)(this[this.tableDtFichaMinam.CAMBIOS_GEIColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CAMBIOS_GEI\' de la tabla \'DtFichaMinam\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDtFichaMinam.CAMBIOS_GEIColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string EMISIONES_TOTAL {
+                get {
+                    try {
+                        return ((string)(this[this.tableDtFichaMinam.EMISIONES_TOTALColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'EMISIONES_TOTAL\' de la tabla \'DtFichaMinam\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDtFichaMinam.EMISIONES_TOTALColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CO_BENEFICIO {
+                get {
+                    try {
+                        return ((string)(this[this.tableDtFichaMinam.CO_BENEFICIOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CO_BENEFICIO\' de la tabla \'DtFichaMinam\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDtFichaMinam.CO_BENEFICIOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string DESCRIPCION_MEDMIT {
+                get {
+                    try {
+                        return ((string)(this[this.tableDtFichaMinam.DESCRIPCION_MEDMITColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'DESCRIPCION_MEDMIT\' de la tabla \'DtFichaMinam\' es DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableDtFichaMinam.DESCRIPCION_MEDMITColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string OBJETIVO_MEDMIT {
+                get {
+                    try {
+                        return ((string)(this[this.tableDtFichaMinam.OBJETIVO_MEDMITColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'OBJETIVO_MEDMIT\' de la tabla \'DtFichaMinam\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDtFichaMinam.OBJETIVO_MEDMITColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string NOMBRE_MEDMIT {
+                get {
+                    try {
+                        return ((string)(this[this.tableDtFichaMinam.NOMBRE_MEDMITColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'NOMBRE_MEDMIT\' de la tabla \'DtFichaMinam\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDtFichaMinam.NOMBRE_MEDMITColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string EMISIONES_REDUCIDAS {
+                get {
+                    try {
+                        return ((string)(this[this.tableDtFichaMinam.EMISIONES_REDUCIDASColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'EMISIONES_REDUCIDAS\' de la tabla \'DtFichaMinam\' es DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableDtFichaMinam.EMISIONES_REDUCIDASColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsID_MEDMITNull() {
                 return this.IsNull(this.tableDtFichaMinam.ID_MEDMITColumn);
             }
@@ -1602,6 +2207,210 @@ namespace MRVMinem.Reportes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetNOMBRE_ENFOQUENull() {
                 this[this.tableDtFichaMinam.NOMBRE_ENFOQUEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsID_REPORTENull() {
+                return this.IsNull(this.tableDtFichaMinam.ID_REPORTEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetID_REPORTENull() {
+                this[this.tableDtFichaMinam.ID_REPORTEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPERIODONull() {
+                return this.IsNull(this.tableDtFichaMinam.PERIODOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPERIODONull() {
+                this[this.tableDtFichaMinam.PERIODOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMEDIDA_REDUCCIONNull() {
+                return this.IsNull(this.tableDtFichaMinam.MEDIDA_REDUCCIONColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMEDIDA_REDUCCIONNull() {
+                this[this.tableDtFichaMinam.MEDIDA_REDUCCIONColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFECHAS_RELEVANTESNull() {
+                return this.IsNull(this.tableDtFichaMinam.FECHAS_RELEVANTESColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFECHAS_RELEVANTESNull() {
+                this[this.tableDtFichaMinam.FECHAS_RELEVANTESColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMETODOLOGIA_APLICADANull() {
+                return this.IsNull(this.tableDtFichaMinam.METODOLOGIA_APLICADAColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMETODOLOGIA_APLICADANull() {
+                this[this.tableDtFichaMinam.METODOLOGIA_APLICADAColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSISTEMA_MONITOREONull() {
+                return this.IsNull(this.tableDtFichaMinam.SISTEMA_MONITOREOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSISTEMA_MONITOREONull() {
+                this[this.tableDtFichaMinam.SISTEMA_MONITOREOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsROL_RESPONSABILIDADNull() {
+                return this.IsNull(this.tableDtFichaMinam.ROL_RESPONSABILIDADColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetROL_RESPONSABILIDADNull() {
+                this[this.tableDtFichaMinam.ROL_RESPONSABILIDADColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCALIBRACION_EQUIPONull() {
+                return this.IsNull(this.tableDtFichaMinam.CALIBRACION_EQUIPOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCALIBRACION_EQUIPONull() {
+                this[this.tableDtFichaMinam.CALIBRACION_EQUIPOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCALCULO_BAUNull() {
+                return this.IsNull(this.tableDtFichaMinam.CALCULO_BAUColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCALCULO_BAUNull() {
+                this[this.tableDtFichaMinam.CALCULO_BAUColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCALCULO_MEDIDANull() {
+                return this.IsNull(this.tableDtFichaMinam.CALCULO_MEDIDAColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCALCULO_MEDIDANull() {
+                this[this.tableDtFichaMinam.CALCULO_MEDIDAColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCAMBIOS_GEINull() {
+                return this.IsNull(this.tableDtFichaMinam.CAMBIOS_GEIColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCAMBIOS_GEINull() {
+                this[this.tableDtFichaMinam.CAMBIOS_GEIColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsEMISIONES_TOTALNull() {
+                return this.IsNull(this.tableDtFichaMinam.EMISIONES_TOTALColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetEMISIONES_TOTALNull() {
+                this[this.tableDtFichaMinam.EMISIONES_TOTALColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCO_BENEFICIONull() {
+                return this.IsNull(this.tableDtFichaMinam.CO_BENEFICIOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCO_BENEFICIONull() {
+                this[this.tableDtFichaMinam.CO_BENEFICIOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDESCRIPCION_MEDMITNull() {
+                return this.IsNull(this.tableDtFichaMinam.DESCRIPCION_MEDMITColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDESCRIPCION_MEDMITNull() {
+                this[this.tableDtFichaMinam.DESCRIPCION_MEDMITColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsOBJETIVO_MEDMITNull() {
+                return this.IsNull(this.tableDtFichaMinam.OBJETIVO_MEDMITColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetOBJETIVO_MEDMITNull() {
+                this[this.tableDtFichaMinam.OBJETIVO_MEDMITColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNOMBRE_MEDMITNull() {
+                return this.IsNull(this.tableDtFichaMinam.NOMBRE_MEDMITColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNOMBRE_MEDMITNull() {
+                this[this.tableDtFichaMinam.NOMBRE_MEDMITColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsEMISIONES_REDUCIDASNull() {
+                return this.IsNull(this.tableDtFichaMinam.EMISIONES_REDUCIDASColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetEMISIONES_REDUCIDASNull() {
+                this[this.tableDtFichaMinam.EMISIONES_REDUCIDASColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1912,6 +2721,70 @@ namespace MRVMinem.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string UNIDAD {
+                get {
+                    try {
+                        return ((string)(this[this.tableDtParametro.UNIDADColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'UNIDAD\' de la tabla \'DtParametro\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDtParametro.UNIDADColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string FUENTE {
+                get {
+                    try {
+                        return ((string)(this[this.tableDtParametro.FUENTEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'FUENTE\' de la tabla \'DtParametro\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDtParametro.FUENTEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string RESPONSABLE {
+                get {
+                    try {
+                        return ((string)(this[this.tableDtParametro.RESPONSABLEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'RESPONSABLE\' de la tabla \'DtParametro\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDtParametro.RESPONSABLEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string COMENTARIOS {
+                get {
+                    try {
+                        return ((string)(this[this.tableDtParametro.COMENTARIOSColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'COMENTARIOS\' de la tabla \'DtParametro\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDtParametro.COMENTARIOSColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsID_MEDMITNull() {
                 return this.IsNull(this.tableDtParametro.ID_MEDMITColumn);
             }
@@ -2124,6 +2997,54 @@ namespace MRVMinem.Reportes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetFORMULA_ARMADONull() {
                 this[this.tableDtParametro.FORMULA_ARMADOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUNIDADNull() {
+                return this.IsNull(this.tableDtParametro.UNIDADColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUNIDADNull() {
+                this[this.tableDtParametro.UNIDADColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFUENTENull() {
+                return this.IsNull(this.tableDtParametro.FUENTEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFUENTENull() {
+                this[this.tableDtParametro.FUENTEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRESPONSABLENull() {
+                return this.IsNull(this.tableDtParametro.RESPONSABLEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRESPONSABLENull() {
+                this[this.tableDtParametro.RESPONSABLEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCOMENTARIOSNull() {
+                return this.IsNull(this.tableDtParametro.COMENTARIOSColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCOMENTARIOSNull() {
+                this[this.tableDtParametro.COMENTARIOSColumn] = global::System.Convert.DBNull;
             }
         }
         

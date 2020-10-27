@@ -654,9 +654,60 @@ namespace logica.minem.gob.pe
             return iniciativaDA.MostrarMensajeObservacion(entidad);
         }
 
-        public static List<AcumuladoBE> MostrarAcumulado(IniciativaBE entidad)
+        public static List<IndicadorDataBE> MostrarAcumulado(IniciativaBE entidad)
         {
-            return iniciativaDA.MostrarAcumulado(entidad);
+            List<IndicadorDataBE> lista = new List<IndicadorDataBE>();
+            if (entidad.ListaIndicadores.Count > 0) {
+                foreach (IndicadorBE ind in entidad.ListaIndicadores)
+                {
+                    IndicadorDataBE inde = new IndicadorDataBE();
+                    inde.listaAcumulado = iniciativaDA.MostrarAcumulado(new IniciativaBE { ID_INICIATIVA = ind.ID_INICIATIVA, ID_MEDMIT = ind.ID_MEDMIT, ID_ENFOQUE = ind.ID_ENFOQUE, ID_INDICADOR = ind.ID_INDICADOR});
+                    inde.ID_INDICADOR = ind.ID_INDICADOR;
+                    lista.Add(inde);
+                }
+            }            
+            return lista;
+        }
+
+        public static List<AcumuladoBE> MostrarAcumuladoRevision(IniciativaBE entidad)
+        {
+            List<AcumuladoBE> lista = new List<AcumuladoBE>();
+            lista = iniciativaDA.MostrarAcumulado(new IniciativaBE { ID_INICIATIVA = entidad.ID_INICIATIVA, ID_MEDMIT = entidad.ID_MEDMIT, ID_ENFOQUE = entidad.ID_ENFOQUE, ID_INDICADOR = entidad.ID_INDICADOR });
+            return lista;
+        }
+
+        public static List<IndicadorDataBE> MostrarAcumuladoInd(List<IndicadorDataBE> lista, int iniciativa, int medmit, int enfoque)
+        {
+            if (lista.Count > 0)
+            {
+                foreach (IndicadorDataBE ind in lista)
+                {
+                    ind.listaAcumulado = iniciativaDA.MostrarAcumulado(new IniciativaBE { ID_INICIATIVA = iniciativa, ID_MEDMIT = medmit, ID_ENFOQUE = enfoque, ID_INDICADOR = ind.ID_INDICADOR });
+                    //inde.ID_INDICADOR = ind.ID_INDICADOR;
+                    //lista.Add(inde);
+                }
+            }
+            return lista;
+        }
+
+        public static IniciativaBE EliminarIniciativa(IniciativaBE entidad)
+        {
+            return iniciativaDA.EliminarIniciativa(entidad);
+        }
+
+        public static bool RecalcularValores()
+        {
+            return iniciativaDA.RecalcularValores();
+        }
+
+        public static List<IniciativaBE> ListarInstitucionAcciones(InstitucionBE entidad)
+        {
+            return iniciativaDA.ListarInstitucionAcciones(entidad);
+        }
+
+        public static bool GuardarDatosAuditor(IniciativaBE entidad)
+        {
+            return iniciativaDA.GuardarDatosAuditor(entidad);
         }
     }
 }

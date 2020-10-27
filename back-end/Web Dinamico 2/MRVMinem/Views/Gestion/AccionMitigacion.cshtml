@@ -68,25 +68,27 @@
                                             <a class="btn btn-teal dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1"><i class="fas fa-hourglass">&nbsp;</i>Pendientes</a>
                                             <div class="dropdown-menu">
                                                 <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(1, $(this));"><i class="fas fa-hourglass">&nbsp;</i>Pendientes</a>
-                                                @if (Convert.ToInt32(Session["rol"]) == 2)
+                                                @if (Convert.ToInt32(Session["rol"]) != 7)
                                                 {
-                                                    <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(9, $(this));"><i class="fas fa-pen-alt">&nbsp;</i>Ingresados</a>
-                                                }
-                                                <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(2, $(this));"><i class="fas fa-eye">&nbsp;</i>Observadas</a>
-                                                <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(3, $(this));"><i class="fas fa-check">&nbsp;</i>Aprobados</a>
-
-                                                @if (Convert.ToInt32(Session["rol"]) != 1)
-                                                {                                                    
-                                                    <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(4, $(this));"><i class="fas fa-check-double">&nbsp;</i>Revisadas</a>
-                                                    if (Convert.ToInt32(Session["rol"]) == 3)
+                                                    if (Convert.ToInt32(Session["rol"]) == 2)
                                                     {
-                                                        <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(8, $(this));"><i class="fas fa-paper-plane">&nbsp;</i>Enviados</a>
+                                                        <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(9, $(this));"><i class="fas fa-pen-alt">&nbsp;</i>Ingresados</a>
                                                     }
-                                                    <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(5, $(this));"><i class="fas fa-clipboard-check">&nbsp;</i>Evaluadas</a>
-                                                    <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(6, $(this));"><i class="fas fa-tasks">&nbsp;</i>Verificadas</a>
+                                                    <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(2, $(this));"><i class="fas fa-eye">&nbsp;</i>Observadas</a>
+                                                    <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(3, $(this));"><i class="fas fa-check">&nbsp;</i>Aprobados</a>
+
+                                                    if (Convert.ToInt32(Session["rol"]) != 1)
+                                                    {
+                                                        <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(4, $(this));"><i class="fas fa-check-double">&nbsp;</i>Revisadas</a>
+                                                        if (Convert.ToInt32(Session["rol"]) == 3)
+                                                        {
+                                                            <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(8, $(this));"><i class="fas fa-paper-plane">&nbsp;</i>Enviados</a>
+                                                        }
+                                                        <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(5, $(this));"><i class="fas fa-clipboard-check">&nbsp;</i>Evaluadas</a>
+                                                        <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(6, $(this));"><i class="fas fa-tasks">&nbsp;</i>Verificadas</a>
+                                                    }
+                                                    <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(7, $(this));"><i class="fas fa-tachometer-alt">&nbsp;</i>Todas</a>
                                                 }                                                
-                                                <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item" style="cursor: pointer;" onclick="fn_filtrarEstado(7, $(this));"><i class="fas fa-tachometer-alt">&nbsp;</i>Todas</a>
                                             </div>
                                         </div>
                                    
@@ -139,7 +141,7 @@
                                                                     <div class="row">
                                                                         <div class="col-sm-12">
                                                                             <div class="form-group">
-                                                                                <label for="txa-descripcion-medida">Descripción de la acción de mitigación<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese la descripción de la acción de mitigación."></i></label>
+                                                                                <label for="txa-descripcion-medida">Descripción de la acción de mitigación<span class="text-danger font-weight-bold">&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Ingrese la descripción de la acción de mitigación."></i></label>
                                                                                 <div class="input-group">
                                                                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup5"><i class="fas fa-tachometer-alt"></i></span></div>
                                                                                     <textarea class="form-control" id="txa-descripcion-iniciativa" aria-describedby="inputGroup5" cols="30" rows="4" required placeholder="Ingrese una descripción para su acción de mitigación"></textarea>
@@ -418,15 +420,15 @@
                                         </th>
                                         <th class="text-center" scope="col" width="8%">
                                             <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Fecha de inicialización del proyecto"></i>
-                                            <span class="miColumna">Fecha de <br> Inicio&nbsp;<i class="fas fa-sort" style="color: lightgray" id="FECHA"></i></span>
+                                            <span class="miColumna">Fecha de <br> inicio&nbsp;<i class="fas fa-sort" style="color: lightgray" id="FECHA"></i></span>
                                         </th>
                                         <th class="text-center" scope="col" width="8%">
                                             <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Fecha de Finalización del proyecto"></i>
-                                            <span class="miColumna">Fecha de <br>  Término&nbsp;<i class="fas fa-sort" style="color: lightgray" id="FECHA_FIN_INICIATIVA"></i></span>
+                                            <span class="miColumna">Fecha de <br> término&nbsp;<i class="fas fa-sort" style="color: lightgray" id="FECHA_FIN_INICIATIVA"></i></span>
                                         </th>
                                         <th scope="col" width="10%">
                                             <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la Medida de Mitigación asignada o relacionada a su Acción de Mitigación"></i>
-                                            <span class="miColumna">Medida de  <br> Mitigación&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NUMERO_MEDMIT"></i></span>
+                                            <span class="miColumna">Medida de  <br> mitigación&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NUMERO_MEDMIT"></i></span>
                                         </th>
                                         <th scope="col" width="15%">
                                             
@@ -447,7 +449,7 @@
                                         </th>
                                         <th class="text-center" scope="col" width="10%">     
                                             <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Descripción del estado actual de su Acción de Mitigación"></i>                                       
-                                            <span class="miColumna">Estado de <br> Acción de Mitigación&nbsp;<i class="fas fa-sort" style="color: lightgray" id="ID_ESTADO"></i></span>
+                                            <span class="miColumna">Estado de la<br> acción de mitigación&nbsp;<i class="fas fa-sort" style="color: lightgray" id="ID_ESTADO"></i></span>
                                         </th>
                                         @*<th class="text-center" scope="col">Más</th>*@
                                         <th class="text-center" scope="col" width="3%">Gestión</th>
@@ -1181,6 +1183,24 @@
                 <button class="btn btn-dark" type="button" data-dismiss="modal">Cerrar</button>
             </div>
             <div id="id-ini" hidden></div><!---->
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-confirmacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmar acción</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body medidas-modal">
+                <p>¿ Desea eliminar esta acción de mitigación ?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="eliminarIniciativa()" type="button">Si</button>
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
+            </div>
         </div>
     </div>
 </div>

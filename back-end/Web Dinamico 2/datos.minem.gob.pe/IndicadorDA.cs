@@ -1083,7 +1083,9 @@ namespace datos.minem.gob.pe
                 indicador.TOTAL_INSTITUCION = Datos.TOTAL_INSTITUCION;
                 indicador.TOTAL_REGION = Datos.TOTAL_REGION;
                 indicador.TOTAL_GEI_REDUCIDO = Datos.TOTAL_GEI_REDUCIDO;
-                indicador.NOMBRE_MEDMIT = ListarIdMedida(entidad.ID_MEDMIT).NOMBRE_MEDMIT;
+                IniciativaBE ini = ListarIdMedida(entidad.ID_MEDMIT);
+                indicador.NOMBRE_MEDMIT = ini.NOMBRE_MEDMIT;
+                indicador.DESCRIPCION = ini.DESCRIPCION_MEDMIT;
 
                 List<IniciativaBE> listaGeiMedida = ListarDatosSectorMedida(entidad.ID_MEDMIT);
                 List<IniciativaBE> listaGeiS = new List<IniciativaBE>();
