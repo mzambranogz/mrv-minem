@@ -436,7 +436,6 @@
               <ChartAxis Name="Primary">
                 <Style>
                   <FontSize>9pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
                 </Style>
                 <ChartAxisTitle>
                   <Caption />
@@ -515,7 +514,6 @@
               <ChartAxis Name="Primary">
                 <Style>
                   <FontSize>8pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
                   <Format>#,0;(#,0)</Format>
                 </Style>
                 <ChartAxisTitle>
@@ -640,7 +638,6 @@
             <Caption>tCO2eq</Caption>
             <Style>
               <BackgroundGradientType>None</BackgroundGradientType>
-              <FontWeight>Bold</FontWeight>
               <TextAlign>General</TextAlign>
               <VerticalAlign>Top</VerticalAlign>
             </Style>

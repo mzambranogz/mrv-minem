@@ -1184,9 +1184,6 @@ C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\bin\Documentos\Exportar\2.1.CL_le√
 C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\bin\Documentos\Exportar\2.2.ER_exp.xlsx
 C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\bin\Documentos\Exportar\3.1.RERC_exp.xlsx
 C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\bin\Documentos\Exportar\3.2.GD_exp.xlsx
-C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\bin\Documentos\4.1 Plantilla_Vehiculos_electricos_Consumo.xlsx
-C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\bin\Documentos\4.1 Plantilla_Vehiculos_hibridos_consumo.xlsx
-C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\bin\Documentos\4.1 Plantilla_Vehiculos_hibridos_Recorrido.xlsx
 C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\bin\MRVMinem.dll.config
 C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\bin\MRVMinem.dll
 C:\Users\Dell\Desktop\Web Dinamico 2\MRVMinem\bin\MRVMinem.pdb

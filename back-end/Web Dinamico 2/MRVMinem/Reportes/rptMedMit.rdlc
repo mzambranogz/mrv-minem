@@ -1195,7 +1195,7 @@
             </Style>
           </ChartTitle>
           <ChartTitle Name="Title1">
-            <Caption>              tCOeq</Caption>
+            <Caption>           tCOeq</Caption>
             <Style>
               <BackgroundGradientType>None</BackgroundGradientType>
               <TextAlign>General</TextAlign>
