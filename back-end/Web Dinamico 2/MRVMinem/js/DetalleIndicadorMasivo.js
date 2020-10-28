@@ -2300,6 +2300,10 @@ $(document).on("change", "#cbo-enfoque", function () {
     }
     $('[data-toggle="tooltip"]').tooltip();
     $("#cuerpoTablaIndicador").html("");
+    $('#cuerpo-acumulado-total').html('');
+    $('[id^=acum-]').each((x, y) => {
+        $(y).html('0.00');
+    });
     CargarDatosCabecera();
     CargarDatosGuardados();
 });

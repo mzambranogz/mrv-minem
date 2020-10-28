@@ -4007,6 +4007,10 @@ $(document).on("change", "#cbo-enfoque", function () {
     //cargarCabeceraTabla($("#cbo-enfoque").val());
     //CargarDetalleDatos();    
     //cargarCuerpoTabla($("#cbo-enfoque").val());
+    $('#cuerpo-acumulado-total').html('');
+    $('[id^=acum-]').each((x, y) => {
+        $(y).html('0.00');
+    });
     CargarDatosCabecera();
     CargarDatosGuardados();
 

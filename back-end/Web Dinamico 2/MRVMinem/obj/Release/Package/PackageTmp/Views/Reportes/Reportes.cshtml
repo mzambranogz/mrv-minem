@@ -36,8 +36,11 @@
                                         <option value="0">-Seleccione un Tipo de Reporte-</option>
                                         <option value="1">Reporte de acción de mitigación por sector y medida de mitigación</option>
                                         <option value="2">Reporte de emisiones de GEI reducidas por medidas de mitigación</option>
-                                        <option value="3">Reporte de escenarios</option>
+                                        @*<option value="3">Reporte de escenarios</option>*@
                                         <option value="4">Reporte de Ficha MINAM</option>
+                                        <option value="5">Reporte de escenarios</option>
+                                        @*<option value="6">Reporte de medidas de mitigación por año</option>*@
+                                        @*<option value="6">Reporte de Medida General</option>*@
                                     </select>
                                 </div>
                             </div>
@@ -89,6 +92,12 @@
             if (IdReporte == 4) {
                 url = '@Url.Content("~/Reportes/frmReporteFicha.aspx")';
             }
+            else if (IdReporte == 5) {
+                url = '@Url.Content("~/Reportes/frmEscenario.aspx")';
+            }
+            else if (IdReporte == 6) {
+                url = '@Url.Content("~/Reportes/frmGeneral.aspx")';
+            }
             else {
                 url = '@Url.Content("~/Reportes/frmReportes.aspx")';
                 url = url + "?IdReporte=" + IdReporte;
@@ -103,6 +112,7 @@
         });
     }
 
+    console.log($('#ddlMedMit').val());
 
 </script>
 
