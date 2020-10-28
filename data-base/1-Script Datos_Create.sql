@@ -1,4 +1,4 @@
-﻿prompt PL/SQL Developer Export Tables for user SRES@MYDB
+﻿prompt PL/SQL Developer Export Tables for user MRVMM@MYDB
 prompt Created by ALFRE on viernes, 23 de Octubre de 2020
 set feedback off
 set define off
