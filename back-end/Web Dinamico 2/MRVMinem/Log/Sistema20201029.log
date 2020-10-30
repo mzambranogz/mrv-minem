@@ -1,0 +1,5 @@
+29/10/2020 23:08:08: [Método: Void StringToNumber(System.String, System.Globalization.NumberStyles, NumberBuffer ByRef, System.Globalization.NumberFormatInfo, Boolean), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+29/10/2020 23:08:08: [Método: Int64 ParseInt64(System.String, System.Globalization.NumberStyles, System.Globalization.NumberFormatInfo), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+29/10/2020 23:08:08: [Método: Int64 Parse(System.String), Línea: 0] - La cadena de entrada no tiene el formato correcto.
+29/10/2020 23:08:08: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] validar_campo(OfficeOpenXml.ExcelWorksheet, entidad.minem.gob.pe.ParametroBE, System.Collections.Generic.List`1[entidad.minem.gob.pe.ParametroBE], Int32), Línea: 333] - La cadena de entrada no tiene el formato correcto.
+29/10/2020 23:08:08: [Método: System.Web.Mvc.JsonResult ProcesarExcel(System.Web.HttpPostedFileBase, entidad.minem.gob.pe.ParametroBE), Línea: 159] - La cadena de entrada no tiene el formato correcto.
