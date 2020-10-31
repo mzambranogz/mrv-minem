@@ -1851,15 +1851,15 @@ prompt Loading T_GENM_NOTIFICACION...
 prompt Table is empty
 prompt Loading T_GENM_USUARIO...
 insert into T_GENM_USUARIO (id_usuario, nombres_usuario, apellidos_usuario, id_institucion, password_usuario, email_usuario, id_estado_usuario, telefono_usuario, celular_usuario, flg_estado, id_terminos, flg_terminos, anexo_usuario, primer_inicio, adjunto, adjunto_base)
-values (1, 'Alfonso', 'cordova', 1, 'AK6/N7RQH5kHaUb1RDlVFzBkupiWnfger8B3053UodvdNnMdZqCWYcQs17U2i9Cujw==', 'alfonso.cordova@gmail.com', 1, null, '988343674343', '1', 1, '1', null, '0', null, null);
+values (1, 'Alfonso', 'cordova', 1, 'AEZrjs/GGOZrKiTpt47yqwD05bWbYQphNxJaS2sKGeg+OYJaSItmVBxWeHgjv99BDg==', 'alfonso.cordova@gmail.com', 1, null, '988343674343', '1', 1, '1', null, '0', null, null);
 insert into T_GENM_USUARIO (id_usuario, nombres_usuario, apellidos_usuario, id_institucion, password_usuario, email_usuario, id_estado_usuario, telefono_usuario, celular_usuario, flg_estado, id_terminos, flg_terminos, anexo_usuario, primer_inicio, adjunto, adjunto_base)
 values (2, 'Alfonso', 'Cordova', 2, 'AK6/N7RQH5kHaUb1RDlVFzBkupiWnfger8B3053UodvdNnMdZqCWYcQs17U2i9Cujw==', 'ALFONSOMRV@OUTLOOK.COM', 1, '93578701', '965488888', '1', 1, '1', '565601', null, null, null);
 insert into T_GENM_USUARIO (id_usuario, nombres_usuario, apellidos_usuario, id_institucion, password_usuario, email_usuario, id_estado_usuario, telefono_usuario, celular_usuario, flg_estado, id_terminos, flg_terminos, anexo_usuario, primer_inicio, adjunto, adjunto_base)
 values (3, 'Alfonso', 'Cordova Rau', 3, 'AK6/N7RQH5kHaUb1RDlVFzBkupiWnfger8B3053UodvdNnMdZqCWYcQs17U2i9Cujw==', 'ACORDOVA@MINEM.GOB.PE', 1, '7983984934', '938728273872', '1', 1, '1', '23323', '0', null, null);
 insert into T_GENM_USUARIO (id_usuario, nombres_usuario, apellidos_usuario, id_institucion, password_usuario, email_usuario, id_estado_usuario, telefono_usuario, celular_usuario, flg_estado, id_terminos, flg_terminos, anexo_usuario, primer_inicio, adjunto, adjunto_base)
-values (4, 'Daniela', 'Rough', 4, 'AK6/N7RQH5kHaUb1RDlVFzBkupiWnfger8B3053UodvdNnMdZqCWYcQs17U2i9Cujw==', 'DROUGH@MINEM.GOB.PE', 1, '1234567', '987654321', '1', 1, '1', '4738', '0', null, null);
+values (4, 'Daniela', 'Rough', 4, 'AMqu5wFaJ0h2ciQ3QyovH+zvthJjtVT9457M9w1Z3Xm1/0X/Y5ZPJ04f7Smu2jAPFQ==', 'DROUGH@MINEM.GOB.PE', 1, '1234567', '987654321', '1', 1, '1', '4738', '0', null, null);
 insert into T_GENM_USUARIO (id_usuario, nombres_usuario, apellidos_usuario, id_institucion, password_usuario, email_usuario, id_estado_usuario, telefono_usuario, celular_usuario, flg_estado, id_terminos, flg_terminos, anexo_usuario, primer_inicio, adjunto, adjunto_base)
-values (5, 'Carlos', 'Galdos', 5, 'AK6/N7RQH5kHaUb1RDlVFzBkupiWnfger8B3053UodvdNnMdZqCWYcQs17U2i9Cujw==', 'CGALDOS@MINEM.GOB.PE', 1, '1234567', '984321452', '1', 1, '1', '2367', '0', null, null);
+values (5, 'Carlos', 'Galdos', 5, 'ANzVfTd8gRZBPAEbiYYkm6pB00L6+Kd4i85/LJMSHsqv25QFRVMsFUD/6QB4DBq+xA==', 'CGALDOS@MINEM.GOB.PE', 1, '1234567', '984321452', '1', 1, '1', '2367', '0', null, null);
 commit;
 prompt 5 records loaded
 prompt Loading T_GENM_VARIABLE...
@@ -2077,9 +2077,9 @@ values ('77','2','2','Consumo anual por unidad','1','1','1',null,null,null,null,
 INSERT INTO MRVMM.T_MAEM_MRV_PARAMETRO (ID_PARAMETRO,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_PARAMETRO,EDITABLE,VERIFICABLE,FLG_ESTADO,ID_PREFIJO,ID_UNIDAD_MEDIDA,DESCRIPCION_UNIDAD,COMBINACION_UNIDAD,DESCRIPCION_PARAMETRO,LEYENDA_PARAMETRO,DESCRIPCION_METODOLOGIA,PROCEDIMIENTO,CONTROL_CALIDAD,ASEGURAMIENTO_CALIDAD,PROPOSITO,FRECUENCIA,V_DECIMAL) 
 values ('78','1',null,'Unidades','1','1','1',null,null,null,null,null,null,null,null,null,null,null,null,'0');
 INSERT INTO MRVMM.T_MAEM_MRV_PARAMETRO (ID_PARAMETRO,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_PARAMETRO,EDITABLE,VERIFICABLE,FLG_ESTADO,ID_PREFIJO,ID_UNIDAD_MEDIDA,DESCRIPCION_UNIDAD,COMBINACION_UNIDAD,DESCRIPCION_PARAMETRO,LEYENDA_PARAMETRO,DESCRIPCION_METODOLOGIA,PROCEDIMIENTO,CONTROL_CALIDAD,ASEGURAMIENTO_CALIDAD,PROPOSITO,FRECUENCIA,V_DECIMAL) 
-values ('79','2','2','Equivalente energético','0','0','1',null,null,null,'TJ',null,null,null,null,null,null,null,null,'1');
+values ('79','2','2','Equivalente energético','0','0','1',null,null,null,'MJ',null,null,null,null,null,null,null,null,'1');
 INSERT INTO MRVMM.T_MAEM_MRV_PARAMETRO (ID_PARAMETRO,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_PARAMETRO,EDITABLE,VERIFICABLE,FLG_ESTADO,ID_PREFIJO,ID_UNIDAD_MEDIDA,DESCRIPCION_UNIDAD,COMBINACION_UNIDAD,DESCRIPCION_PARAMETRO,LEYENDA_PARAMETRO,DESCRIPCION_METODOLOGIA,PROCEDIMIENTO,CONTROL_CALIDAD,ASEGURAMIENTO_CALIDAD,PROPOSITO,FRECUENCIA,V_DECIMAL) 
-values ('80','2','2','Emisiones GEI eléctrico','0','0','1',null,null,null,'TJ',null,null,null,null,null,null,null,null,'1');
+values ('80','2','2','Emisiones GEI eléctrico','0','0','1',null,null,null,'tCO2eq',null,null,null,null,null,null,null,null,'1');
 INSERT INTO MRVMM.T_MAEM_MRV_PARAMETRO (ID_PARAMETRO,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_PARAMETRO,EDITABLE,VERIFICABLE,FLG_ESTADO,ID_PREFIJO,ID_UNIDAD_MEDIDA,DESCRIPCION_UNIDAD,COMBINACION_UNIDAD,DESCRIPCION_PARAMETRO,LEYENDA_PARAMETRO,DESCRIPCION_METODOLOGIA,PROCEDIMIENTO,CONTROL_CALIDAD,ASEGURAMIENTO_CALIDAD,PROPOSITO,FRECUENCIA,V_DECIMAL) 
 values ('81','2','2','Emisiones GEI combustible','0','0','1',null,null,null,'TJ',null,null,null,null,null,null,null,null,'1');
 INSERT INTO MRVMM.T_MAEM_MRV_PARAMETRO (ID_PARAMETRO,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_PARAMETRO,EDITABLE,VERIFICABLE,FLG_ESTADO,ID_PREFIJO,ID_UNIDAD_MEDIDA,DESCRIPCION_UNIDAD,COMBINACION_UNIDAD,DESCRIPCION_PARAMETRO,LEYENDA_PARAMETRO,DESCRIPCION_METODOLOGIA,PROCEDIMIENTO,CONTROL_CALIDAD,ASEGURAMIENTO_CALIDAD,PROPOSITO,FRECUENCIA,V_DECIMAL) 
@@ -2093,14 +2093,14 @@ values ('85','2','2','Consumo anual por unidad','1','1','1',null,null,null,null,
 INSERT INTO MRVMM.T_MAEM_MRV_PARAMETRO (ID_PARAMETRO,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_PARAMETRO,EDITABLE,VERIFICABLE,FLG_ESTADO,ID_PREFIJO,ID_UNIDAD_MEDIDA,DESCRIPCION_UNIDAD,COMBINACION_UNIDAD,DESCRIPCION_PARAMETRO,LEYENDA_PARAMETRO,DESCRIPCION_METODOLOGIA,PROCEDIMIENTO,CONTROL_CALIDAD,ASEGURAMIENTO_CALIDAD,PROPOSITO,FRECUENCIA,V_DECIMAL) 
 values ('86','1',null,'Unidades','1','1','1',null,null,null,null,null,null,null,null,null,null,null,null,'0');
 INSERT INTO MRVMM.T_MAEM_MRV_PARAMETRO (ID_PARAMETRO,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_PARAMETRO,EDITABLE,VERIFICABLE,FLG_ESTADO,ID_PREFIJO,ID_UNIDAD_MEDIDA,DESCRIPCION_UNIDAD,COMBINACION_UNIDAD,DESCRIPCION_PARAMETRO,LEYENDA_PARAMETRO,DESCRIPCION_METODOLOGIA,PROCEDIMIENTO,CONTROL_CALIDAD,ASEGURAMIENTO_CALIDAD,PROPOSITO,FRECUENCIA,V_DECIMAL) 
-values ('87','2','2','Equivalente energético','0','0','1',null,null,null,'TJ',null,null,null,null,null,null,null,null,'1');
+values ('87','2','2','Equivalente energético','0','0','1',null,null,null,'MJ',null,null,null,null,null,null,null,null,'1');
 INSERT INTO MRVMM.T_MAEM_MRV_PARAMETRO (ID_PARAMETRO,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_PARAMETRO,EDITABLE,VERIFICABLE,FLG_ESTADO,ID_PREFIJO,ID_UNIDAD_MEDIDA,DESCRIPCION_UNIDAD,COMBINACION_UNIDAD,DESCRIPCION_PARAMETRO,LEYENDA_PARAMETRO,DESCRIPCION_METODOLOGIA,PROCEDIMIENTO,CONTROL_CALIDAD,ASEGURAMIENTO_CALIDAD,PROPOSITO,FRECUENCIA,V_DECIMAL) 
-values ('88','2','2','Emisiones GEI eléctrico','0','0','1',null,null,null,'TJ',null,null,null,null,null,null,null,null,'1');
+values ('88','2','2','Emisiones GEI eléctrico','0','0','1',null,null,null,'tCO2eq',null,null,null,null,null,null,null,null,'1');
 INSERT INTO MRVMM.T_MAEM_MRV_PARAMETRO (ID_PARAMETRO,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_PARAMETRO,EDITABLE,VERIFICABLE,FLG_ESTADO,ID_PREFIJO,ID_UNIDAD_MEDIDA,DESCRIPCION_UNIDAD,COMBINACION_UNIDAD,DESCRIPCION_PARAMETRO,LEYENDA_PARAMETRO,DESCRIPCION_METODOLOGIA,PROCEDIMIENTO,CONTROL_CALIDAD,ASEGURAMIENTO_CALIDAD,PROPOSITO,FRECUENCIA,V_DECIMAL) 
 values ('89','2','2','Emisiones GEI combustible','0','0','1',null,null,null,'TJ',null,null,null,null,null,null,null,null,'1');
 
 INSERT INTO MRVMM.T_MAEM_MRV_PARAMETRO (ID_PARAMETRO,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_PARAMETRO,EDITABLE,VERIFICABLE,FLG_ESTADO,ID_PREFIJO,ID_UNIDAD_MEDIDA,DESCRIPCION_UNIDAD,COMBINACION_UNIDAD,DESCRIPCION_PARAMETRO,LEYENDA_PARAMETRO,DESCRIPCION_METODOLOGIA,PROCEDIMIENTO,CONTROL_CALIDAD,ASEGURAMIENTO_CALIDAD,PROPOSITO,FRECUENCIA,V_DECIMAL) 
-values ('90','2','2','Energía total reducida','0','0','1',null,null,null,'TJ',null,null,null,null,null,null,null,null,'1');
+values ('90','2','2','Energía total reducida','0','0','1',null,null,null,'MJ',null,null,null,null,null,null,null,null,'1');
 INSERT INTO MRVMM.T_MAEM_MRV_PARAMETRO (ID_PARAMETRO,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_PARAMETRO,EDITABLE,VERIFICABLE,FLG_ESTADO,ID_PREFIJO,ID_UNIDAD_MEDIDA,DESCRIPCION_UNIDAD,COMBINACION_UNIDAD,DESCRIPCION_PARAMETRO,LEYENDA_PARAMETRO,DESCRIPCION_METODOLOGIA,PROCEDIMIENTO,CONTROL_CALIDAD,ASEGURAMIENTO_CALIDAD,PROPOSITO,FRECUENCIA,V_DECIMAL) 
 values ('91','1',null,'Implementado','1','0','1',null,null,null,null,null,null,null,null,null,null,null,null,'0');
 INSERT INTO MRVMM.T_MAEM_MRV_PARAMETRO (ID_PARAMETRO,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_PARAMETRO,EDITABLE,VERIFICABLE,FLG_ESTADO,ID_PREFIJO,ID_UNIDAD_MEDIDA,DESCRIPCION_UNIDAD,COMBINACION_UNIDAD,DESCRIPCION_PARAMETRO,LEYENDA_PARAMETRO,DESCRIPCION_METODOLOGIA,PROCEDIMIENTO,CONTROL_CALIDAD,ASEGURAMIENTO_CALIDAD,PROPOSITO,FRECUENCIA,V_DECIMAL) 
