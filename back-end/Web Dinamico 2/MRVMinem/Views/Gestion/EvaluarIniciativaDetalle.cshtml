@@ -407,16 +407,23 @@
                                                                     }
                                                                     else
                                                                     {
-                                                                        string formateado = itemDet.VALOR;
-                                                                        double retNum;
-                                                                        if (Double.TryParse(Convert.ToString(formateado), System.Globalization.NumberStyles.Any, System.Globalization.NumberFormatInfo.InvariantInfo, out retNum))
+                                                                        if (itemDet.ID_TIPO_DATO == 1)
                                                                         {
-                                                                            string cad = Convert.ToDouble(formateado).ToString("N2");
-                                                                            <input class="form-control form-control-sm text-center valor" type="text" placeholder="" id="txt-det-tbl-1-1-1" value="@cad" readonly>
+                                                                            <input class="form-control form-control-sm text-center valor" type="date" placeholder="" id="fch-det-tbl-1-@text-@fila" value="@itemDet.VALOR" readonly>
                                                                         }
                                                                         else
                                                                         {
-                                                                            <input class="form-control form-control-sm text-center valor" type="text" placeholder="" id="txt-det-tbl-1-1-1" value="@itemDet.VALOR" readonly>
+                                                                            string formateado = itemDet.VALOR;
+                                                                            double retNum;
+                                                                            if (Double.TryParse(Convert.ToString(formateado), System.Globalization.NumberStyles.Any, System.Globalization.NumberFormatInfo.InvariantInfo, out retNum))
+                                                                            {
+                                                                                string cad = Convert.ToDouble(formateado).ToString("N2");
+                                                                                <input class="form-control form-control-sm text-center valor" type="text" placeholder="" id="txt-det-tbl-1-@text-@fila" value="@cad" readonly>
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                <input class="form-control form-control-sm text-center valor" type="text" placeholder="" id="txt-det-tbl-1-@text-@fila" value="@itemDet.VALOR" readonly>
+                                                                            }
                                                                         }
                                                                         //<input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-1-1" value="@itemDet.VALOR" readonly>
 

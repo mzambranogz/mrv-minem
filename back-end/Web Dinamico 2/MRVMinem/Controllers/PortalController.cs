@@ -639,7 +639,7 @@ namespace MRVMinem.Controllers
                         m.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
                         m.Style.Font.Size = 14;
                         m.Merge = true;
-                        m.Value = "INICIATIVA MITIGACIÓN " + cadena_fecha;
+                        m.Value = "ACCIONES DE MITIGACIÓN " + cadena_fecha;
                     }
                     ws1.View.FreezePanes(2, 1);
                     row++;

@@ -236,4 +236,12 @@ $(document).ready(function () {
     fn_cargarUbicacion();
     fn_cargarEnergetico();
     fn_cargarGei();
+
+    let resumen_total = 0.0;
+    $('[id^=acum-]').each((x, y) => {
+        resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
+    });
+    $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+    $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+    $("#cuerpoTablaIndicador").data("total", resumen_total);
 });

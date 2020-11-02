@@ -2149,15 +2149,23 @@ function CargarDatosExcel(data) {
             validar_error = 1;
         }
 
-        $("#total-detalle").html("").append(formatoMiles(Math.round(total * 100) / 100));
-        $("#total-detalle2").html("").append(formatoMiles(Math.round(total * 100) / 100));
-        $("#cuerpoTablaIndicador").data("total", total);
+        // $("#total-detalle").html("").append(formatoMiles(Math.round(total * 100) / 100));
+        //$("#total-detalle2").html("").append(formatoMiles(Math.round(total * 100) / 100));
+        //$("#cuerpoTablaIndicador").data("total", total);
 
         // add 17-05-2018
         if (validar_error != 1) //add 08-09-20
             armarAcumulado(entidad_a, i + 1);
 
     }
+    let resumen_total = 0.0;
+    $('[id^=acum-]').each((x, y) => {
+        resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
+    });
+    $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+    $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+    $("#cuerpoTablaIndicador").data("total", resumen_total);
+
     $("#fledeclaracion").next().find("label").empty().html('<i class="fas fa-upload mr-1"></i> Subir plantilla');
 }
 
@@ -2894,10 +2902,18 @@ function CargarDatosGuardados() {
                         //armarAcumulado(entidad, i + 1);
                         armarAcumulado(entidad_a, i + 1);
                     }
-                    $("#total-detalle").html("").append((Math.round(total * 100) / 100));
-                    $("#total-detalle2").html("").append((Math.round(total * 100) / 100));
-                    $("#cuerpoTablaIndicador").data("total", total);
-                    //$("#cuerpoTablaIndicador").data("row", data.length);
+                    //$("#total-detalle").html("").append((Math.round(total * 100) / 100));
+                    //$("#total-detalle2").html("").append((Math.round(total * 100) / 100));
+                    //$("#cuerpoTablaIndicador").data("total", total);
+
+                    let resumen_total = 0.0;
+                    $('[id^=acum-]').each((x, y) => {
+                        resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
+                    });
+                    $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+                    $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+                    $("#cuerpoTablaIndicador").data("total", resumen_total);
+
                 }
             } else {
                 //CargarCuerpoGuardado(1);

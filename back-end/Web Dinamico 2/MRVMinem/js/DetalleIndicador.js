@@ -3756,7 +3756,9 @@ function CargarDatosGuardados() {
                             } else if (entidad[m]["ID_TIPO_CONTROL"] == 2) {
                                 if (entidad[m]["ID_TIPO_DATO"] == 1) {
                                     fecha++;
-                                    $("#fch-det-tbl-1-" + fecha + "-" + (i + 1)).val(entidad[m]["VALOR"]);
+                                    //let fecha = formatearFecha(entidad[m]["VALOR"]);
+                                    //$("#fch-det-tbl-1-" + fecha + "-" + (i + 1)).val(fecha);
+                                    $("#fch-det-tbl-1-" + fecha + "-" + (i + 1)).val(entidad[m]["VALOR"]);                                    
                                     entidad[m]["FLAG_REVISION"] == '1' ? $(`#fch-det-tbl-1-${fecha}-${(i + 1)}`).prop('disabled', true) : ''; //add 14-10-20
                                     entidad[m]["FLAG_REVISION"] == '1' ? $(`#fch-det-tbl-1-${fecha}-${(i + 1)}`).removeClass('require-data') : ''; //add 14-10-20
                                     if (entidad[m]["VERIFICABLE"] == 1) {
@@ -3797,10 +3799,17 @@ function CargarDatosGuardados() {
                         cargarAcumulado(entidad_a, i + 1); //add 29-09-20
 
                     }
-                    $("#total-detalle").html("").append(formatoMiles(Math.round(total * 100) / 100));
-                    $("#total-detalle2").html("").append(formatoMiles(Math.round(total * 100) / 100));
-                    $("#cuerpoTablaIndicador").data("total", total);
-                    //$("#cuerpoTablaIndicador").data("row", data.length);
+                    //$("#total-detalle").html("").append(formatoMiles(Math.round(total * 100) / 100));
+                    //$("#total-detalle2").html("").append(formatoMiles(Math.round(total * 100) / 100));
+                    //$("#cuerpoTablaIndicador").data("total", total);
+
+                    let resumen_total = 0.0;
+                    $('[id^=acum-]').each((x, y) => {
+                        resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
+                    });
+                    $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+                    $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+                    $("#cuerpoTablaIndicador").data("total", resumen_total);
                 }
             } else {
                 CargarCuerpoGuardado(1, 0);
@@ -3822,6 +3831,7 @@ function CargarDatosGuardados() {
         },
         beforeSend: function () { //add 28-09-2020
             console.log('before send');
+            console.log('before send2');
             $("#carga-preload-ini").html("<i Class='fas fa-spinner fa-spin px-1 fa-2x'></i>");
             $("#titulo-carga-ini").removeClass("d-none");
             $('#modal-carga').modal('show');
@@ -4623,13 +4633,14 @@ function fn_enviarCalcularValor(item, f) {
                         //total += parseFloat($(".campo-total").val());
                     });
 
-                    $("#total-detalle").html("").append(formatoMiles(Math.round((total) * 100) / 100));
-                    $("#total-detalle2").html("").append(formatoMiles(Math.round((total) * 100) / 100));
-                    $("#cuerpoTablaIndicador").data("total", total);
+                    //$("#total-detalle").html("").append(formatoMiles(Math.round((total) * 100) / 100));
+                    //$("#total-detalle2").html("").append(formatoMiles(Math.round((total) * 100) / 100));
+                    //$("#cuerpoTablaIndicador").data("total", total);
 
                     //add
                     agregarAcumulado(item, f);
                 }
+                
             } else {
                 //////cargarCuerpoTabla($("#cbo-enfoque").val());
             }
@@ -4664,9 +4675,9 @@ function fn_eliminarRestarTotal() {
                     total -= parseFloat(r.replace(/,/gi, ''));
             }
         });
-        $("#total-detalle").html("").append((Math.round(total * 100) / 100));
-        $("#total-detalle2").html("").append((Math.round(total * 100) / 100));
-        $("#cuerpoTablaIndicador").data("total", total);
+        //$("#total-detalle").html("").append((Math.round(total * 100) / 100));
+        //$("#total-detalle2").html("").append((Math.round(total * 100) / 100));
+        //$("#cuerpoTablaIndicador").data("total", total);
         //
         if ($("#tablaIndicador #detalles-tr-" + fila).data("ind") > 0) {
             var id_borrar = $("#cuerpoTablaIndicador").data("delete") + $("#tablaIndicador #detalles-tr-" + fila).data("ind") + ",";
@@ -5373,7 +5384,7 @@ function agregarAcumulado(item, f) {
 
     var cabecera = "";
     var cuerpo = "";
-    let enfoque = $("#id_enfoques").val();
+    let enfoque = $("#cbo-enfoque").val();
     let medida = $("#Control").data("mitigacion");
 
     $.ajax({
@@ -5465,7 +5476,7 @@ function agregarAcumulado(item, f) {
                                 anio += 1;
                             }
                         }
-
+                        //debugger;
                         for (var j = 0; j < data.length; j++) {
                             var acumulado_col = 0.0;                            
                             var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
@@ -5504,6 +5515,13 @@ function agregarAcumulado(item, f) {
                     
 
                 }
+                let resumen_total = 0.0;
+                $('[id^=acum-]').each((x, y) => {
+                    resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
+                });
+                $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+                $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+                $("#cuerpoTablaIndicador").data("total", resumen_total);
             } else {
             }
 
@@ -5551,6 +5569,14 @@ function eliminarAcumulado(f) {
     $("#f-" + f).remove();
 
     ordenarTabla();
+
+    let resumen_total = 0.0;
+    $('[id^=acum-]').each((x, y) => {
+        resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
+    });
+    $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+    $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+    $("#cuerpoTablaIndicador").data("total", resumen_total);
 }
 
 function ordenarTabla() {
@@ -5625,7 +5651,21 @@ function generarAcumulado() {
                     for (var i = 0; i < data.length; i++) {
                         armarAcumuladosRevision(data[i].listaAcumulado, data[i].ID_INDICADOR);
                     }
-                    
+
+                    let resumen_total = 0.0;
+                    $('[id^=acum-]').each((x, y) => {
+                        resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
+                    });
+                    $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+                    $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+                    $("#cuerpoTablaIndicador").data("total", resumen_total);
+
+                    //debugger;
+                    //$('[id^=fch-det-tbl-1-]').each((x, y) => {
+                    //    let fecha = formatearFecha($(y).val());
+                    //    $(y).val(fecha);
+                    //});
+
                     //var verf = 0;
                     //var anio = 2010;
                     //var acumulado_ini = parseInt(data[0]["anio"]) - anio;
@@ -6104,4 +6144,10 @@ var estiloblockpage = () => {
     $("#block-page-carga").css("background-color", "#fff");
     $("#block-page-carga").css("z-index", "2000");
     $("#block-page-carga").css("display", "none");
+}
+
+var formatearFecha = (fecha) => {
+    debugger;
+    let f = fecha.split('-');
+    return `${f[2]}/${f[1]}/${f[0]}`;
 }

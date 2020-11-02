@@ -202,7 +202,7 @@
                                 <label class="font-weight-bold" for="txt-moneda">Moneda<span class="text-danger font-weight-bold">&nbsp;</span></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text" id="inputGroup10"><i class="far fa-money-bill-alt"></i></span></div>
-                                    @if (Model.iniciativa_mit.MONEDA == null)
+                                    @if (Model.iniciativa_mit.MONEDA == null || Model.iniciativa_mit.MONEDA == "")
                                     {
                                         <input class="form-control-plaintext" type="text" id="txt-moneda" aria-describedby="inputGroup10" value="------" readonly>
                                     }
