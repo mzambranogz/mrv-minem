@@ -6180,11 +6180,11 @@ commit;
 prompt 43 records loaded
 prompt Loading T_MAMEM_GRUPO_INDICADOR...
 insert into T_MAMEM_GRUPO_INDICADOR (id_grupo_indicador, grupo_indicador, color_grupo, flag_estado)
-values (1, 'GRUPO INICIATIVA', '#28A745', '1');
+values (1, 'Grupo acción', '#28A745', '1');
 insert into T_MAMEM_GRUPO_INDICADOR (id_grupo_indicador, grupo_indicador, color_grupo, flag_estado)
-values (2, 'GRUPO LINEA BASE', '#FFC107', '1');
+values (2, 'Grupo linea base', '#FFC107', '1');
 insert into T_MAMEM_GRUPO_INDICADOR (id_grupo_indicador, grupo_indicador, color_grupo, flag_estado)
-values (3, 'GRUPO EMISIONES REDUCIDAS', '#007BFF', '1');
+values (3, 'Grupo emisiones reducidas', '#007BFF', '1');
 commit;
 prompt 3 records loaded
 prompt Loading T_MAEM_INDICADOR...
@@ -24188,9 +24188,9 @@ commit;
 prompt 8482 records loaded
 prompt Loading T_MAEM_MRV_VARIABLES...
 insert into T_MAEM_MRV_VARIABLES (id_variable, nombre, id_parametro)
-values (1, 'DÍAS DE FUNCIONAMIENTO', 32);
+values (1, 'Días de funcionamiento', 32);
 insert into T_MAEM_MRV_VARIABLES (id_variable, nombre, id_parametro)
-values (2, 'SUMATORIA DE EMISIONES GEI REDUCIDAS', 6);
+values (2, 'Sumatoria de emisiones GEI reducidas', 6);
 commit;
 prompt 2 records loaded
 prompt Loading T_MAE_MONEDA...
