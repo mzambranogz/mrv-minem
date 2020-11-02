@@ -2633,33 +2633,34 @@ commit;
 prompt 2 records loaded
 prompt Loading T_MAE_LISTA...
 prompt Table is empty
+
 prompt Loading T_MAEM_MRV_FACTOR...
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (43, 'FACTOR ENERG CALENT GAS BAU');
+values (43, 'Factor energ calent gas BAU');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (44, 'FACTOR ENERG CALENT GAS INI');
+values (44, 'Factor energ calent gas acción');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (46, 'IPCC INI');
+values (46, 'IPCC acción');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (29, 'FACTOR CALENTA_ELEC BAU');
+values (29, 'Factor calenta_elec BAU');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (30, 'FACTOR CALENTA_ELEC INI');
+values (30, 'Factor calenta_elec acción');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (31, 'FACTOR CALENTA_GAS BAU');
+values (31, 'Factor calenta_gas BAU');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (32, 'FACTOR CALENTA_GAS INI');
+values (32, 'Factor calenta_gas acción');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (33, 'FACTOR CALENTA_INSTAN BAU');
+values (33, 'Factor calenta_instan BAU');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (34, 'FACTOR CALENTA_INSTAN INI');
+values (34, 'Factor calenta_instan acción');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (11, 'FACTOR EMI');
+values (11, 'Factor emi');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (18, 'FACTOR_COCCION_BIOCOMBUS_BAU');
+values (18, 'Factor_cocción_biocombus_BAU');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
 values (19, 'FACTOR_COCCION_BIOCOMBUS_INI');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (20, 'FACTOR_BIOMASA');
+values (20, 'Factor_biomasa');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
 values (1, 'Factor de emisión vehiculos convencionales');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
@@ -2673,77 +2674,86 @@ values (5, 'Rendimiento convencionales (VD)');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
 values (6, 'Factor emisión vehiculos eléctricos');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (12, 'FACTOR MOT_BAU');
+values (12, 'Factor mot_BAU');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (13, 'FACTOR MOT_INI');
+values (13, 'Factor mot_acción');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (16, 'FACTOR CONGELA_BAU');
+values (16, 'Factor congela_BAU');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (17, 'FACTOR CONGELA_INI');
+values (17, 'Factor congela_acción');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (35, 'FACTOR CALORICO BAU');
+values (35, 'Factor calórico BAU');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (36, 'FACTOR CALORICO INI');
+values (36, 'Factor calórico acción');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (37, 'FACTOR IPCC1 BAU');
+values (37, 'Factor IPCC1 BAU');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (38, 'FACTOR IPCC1 INI');
+values (38, 'Factor IPCC1 acción');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (39, 'FACTOR IPCC2 BAU');
+values (39, 'Factor IPCC2 BAU');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (40, 'FACTOR IPCC2 INI');
+values (40, 'Factor IPCC2 acción');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (41, 'FACTOR IPCC3 BAU');
+values (41, 'Factor IPCC3 BAU');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (42, 'FACTOR IPCC3 INI');
+values (42, 'Factor IPCC3 acción');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (7, 'FACTOR GD');
+values (7, 'Factor GD');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (8, 'FACTOR RER');
+values (8, 'Factor RER');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (9, 'FACTOR REGION');
+values (9, 'Factor región');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (10, 'FACTOR MES');
+values (10, 'Factor mes');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (14, 'FACTOR REFRI_BAU');
+values (14, 'Factor refri_BAU');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (15, 'FACTOR REFRI_INI');
+values (15, 'Factor refri_acción');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (21, 'FACTOR LAVA BAU');
+values (21, 'Factor Lava Bau');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (22, 'FACTOR LAVA INI');
+values (22, 'Factor lava acción');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (23, 'FACTOR SECA BAU');
+values (23, 'Factor seca BAU');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (24, 'FACTOR SECA INI');
+values (24, 'Factor seca acción');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (25, 'FACTOR MOTOR ELEC BAU');
+values (25, 'Factor motor elec BAU');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (26, 'FACTOR MOTOR ELEC INI');
+values (26, 'Factor motor elec acción');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (27, 'FACTOR ACONDIC BAU');
+values (27, 'Factor acondic BAU');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (28, 'FACTOR ACONDIC INI');
+values (28, 'Factor acondic acción');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
 values (45, 'IPCC BAU');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (47, 'Factor de emisión vehículos convencionales INI');
+values (47, 'Factor emisión vehículos convencionales acción');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
-values (48, 'Rendimiento convencionales INI (VD)');
-
-INSERT INTO MRVMM.T_MAEM_MRV_FACTOR (ID_FACTOR, NOMBRE_FACTOR) VALUES (49, 'FACTOR VCN BAU');
-INSERT INTO MRVMM.T_MAEM_MRV_FACTOR (ID_FACTOR, NOMBRE_FACTOR) VALUES (50, 'FACTOR VCN INI');
-INSERT INTO MRVMM.T_MAEM_MRV_FACTOR (ID_FACTOR, NOMBRE_FACTOR) VALUES (51, 'FACTOR FE POR DEFECTO CO2 BAU');
-INSERT INTO MRVMM.T_MAEM_MRV_FACTOR (ID_FACTOR, NOMBRE_FACTOR) VALUES (52, 'FACTOR FE POR DEFECTO CH4 BAU');
-INSERT INTO MRVMM.T_MAEM_MRV_FACTOR (ID_FACTOR, NOMBRE_FACTOR) VALUES (53, 'FACTOR FE POR DEFECTO N2O BAU');
-INSERT INTO MRVMM.T_MAEM_MRV_FACTOR (ID_FACTOR, NOMBRE_FACTOR) VALUES (54, 'FACTOR FE POR DEFECTO CO2 INI');
-INSERT INTO MRVMM.T_MAEM_MRV_FACTOR (ID_FACTOR, NOMBRE_FACTOR) VALUES (55, 'FACTOR FE POR DEFECTO CH4 INI');
-INSERT INTO MRVMM.T_MAEM_MRV_FACTOR (ID_FACTOR, NOMBRE_FACTOR) VALUES (56, 'FACTOR FE POR DEFECTO N2O INI');
-INSERT INTO MRVMM.T_MAEM_MRV_FACTOR (ID_FACTOR, NOMBRE_FACTOR) VALUES (57, 'FACTOR VALIDAR ENERG BAU');
-INSERT INTO MRVMM.T_MAEM_MRV_FACTOR (ID_FACTOR, NOMBRE_FACTOR) VALUES (58, 'FACTOR VALIDAR ENERG INI');
-
+values (48, 'Rendimiento convencionales acción (VD)');
+insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
+values (49, 'Factor VCN BAU');
+insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
+values (50, 'Factor VCN acción');
+insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
+values (51, 'Factor FE por defecto CO2 BAU');
+insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
+values (52, 'Factor FE por defecto CH4 BAU');
+insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
+values (53, 'Factor FE por defecto N2O BAU');
+insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
+values (54, 'Factor FE por defecto CO2 acción');
+insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
+values (55, 'Factor FE por defecto CH4 acción');
+insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
+values (56, 'Factor FE por defecto N2O acción');
+insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
+values (57, 'Factor validar energ BAU');
+insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
+values (58, 'Factor validar energ acción');
 commit;
-prompt 48 records loaded
+prompt 58 records loaded
+
 prompt Loading T_MAEM_ENFOQUE_FACTOR...
 insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
 values (23, 43, 3, '1');
