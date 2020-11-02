@@ -14,6 +14,7 @@ namespace entidad.minem.gob.pe
         public int VERIFICABLE { get; set; }
         public string DESCRIPCION { get; set; }
         public string FORMULA { get; set; }
+        public string VISIBLE { get; set; }
         public List<IndicadorDataBE> listaInd { get; set; }
         public List<ParametroBE> listaParam { get; set; }
         public List<FactorBE> listaFactor { get; set; }

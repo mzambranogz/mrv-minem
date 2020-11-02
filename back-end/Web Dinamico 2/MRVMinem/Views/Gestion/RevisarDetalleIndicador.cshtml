@@ -355,8 +355,8 @@
                                                             {
                                                                 descripcion = "(" + itemCab.COMBINACION_UNIDAD + ")";
                                                             }
-                                                        }
-                                                        <th class="text-center grupo-columna-@columna" scope="col"><span>@itemCab.NOMBRE_PARAMETRO&nbsp;</span><span>@descripcion</span>@*<small>@itemCab.DESCRIPCION_PARAMETRO</small>*@</th>
+                                                        }                                                        
+                                                        <th class="text-center grupo-columna-@columna @(itemCab.VISIBLE == "0" ? "d-none" : "" )" scope="col"><span>@itemCab.NOMBRE_PARAMETRO&nbsp;</span><span>@descripcion</span>@*<small>@itemCab.DESCRIPCION_PARAMETRO</small>*@</th>
 
                                                     }
                                                     <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="top" title="Documentos de sustento"><span>Sustento</span></th>
@@ -376,7 +376,7 @@
                                                         @foreach (var itemDet in itemDatos.listaInd)
                                                         {
                                                             text += 1;
-                                                            <td data-encabezado="Columna 04">
+                                                            <td data-encabezado="Columna 04" class="@(itemDet.VISIBLE == "0" ? "d-none" : "" )">
                                                                 <div class="form-group m-0">
                                                                     @if (itemDet.ID_TIPO_CONTROL == 1)
                                                                     {

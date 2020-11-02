@@ -1874,7 +1874,8 @@ function CargarDatosCabecera() {
                         else
                             tool = data[i]["LEYENDA_PARAMETRO"];
 
-                        tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="' + tool + '"></i>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span><small>' + data[i]["DESCRIPCION_PARAMETRO"] + '</small></th>';
+                        tr += `     <th class="text-center grupo-columna-${columna} ${data[i]["VISIBLE"] == '0' ? 'd-none' : ''}" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="${tool}"></i>${data[i]["NOMBRE_PARAMETRO"]}&nbsp;</span><span>${descripcion}</span><small>${data[i]["DESCRIPCION_PARAMETRO"]}</small></th>`;
+                        //tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="' + tool + '"></i>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span><small>' + data[i]["DESCRIPCION_PARAMETRO"] + '</small></th>';
 
                     }
                     //tr += '     <th class="text-center" scope="col">Más</th>';
@@ -1963,7 +1964,8 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                                     tr += '</select>';
                                 }
                             } else if (data[j]["ID_TIPO_CONTROL"] == 2) {
-                                tr += '<td data-encabezado="Columna 02">';
+                                //tr += '<td data-encabezado="Columna 02">';
+                                tr += `<td data-encabezado="Columna 02" class="${data[j]["EDITABLE"] == '0' ? data[j]["ID_PARAMETRO"] != 11 ? data[j]["VISIBLE"] == '0' ? 'd-none' : '' : '' : ''}">`;
                                 tr += '    <div class="form-group m-0">';
                                 if (data[j]["EDITABLE"] == 1) {
                                     if (data[j]["ID_TIPO_DATO"] == 1) {

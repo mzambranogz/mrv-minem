@@ -78,11 +78,14 @@ namespace MRVMinem.Controllers
             ida.ID_MEDMIT = modelo.iniciativa_mit.ID_MEDMIT;
             modelo.listaIndData = IndicadorLN.ListarDatosTablaDinamica(ida);
 
+            modelo.listaIndicador = capturarIndicadores(modelo.listaIndData);
+
             modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
             modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
             modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
             modelo.usuario = UsuarioLN.UsuarioIniciativa(modelo.iniciativa_mit.ID_USUARIO);
             modelo.detalle = 1;
+            Session["lista_indicador_revision"] = modelo.listaIndicador;//add
             return View(modelo);
         }
 
@@ -933,6 +936,44 @@ namespace MRVMinem.Controllers
             }
 
             return html;
+        }
+
+        public JsonResult MostrarAcumulado(IniciativaBE entidad)
+        {
+            entidad.ListaIndicadores = (List<IndicadorBE>)Session["lista_indicador_revision"];
+            List<IndicadorDataBE> lista = IniciativaLN.MostrarAcumulado(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public List<IndicadorBE> capturarIndicadores(List<IndicadorDataBE> lista)
+        {
+            List<IndicadorBE> listaE = new List<IndicadorBE>();
+            //var id_indicadores = "";
+            if (lista != null)
+            {
+                foreach (var item in lista)
+                {
+                    if (item != null)
+                    {
+                        foreach (var it in item.listaInd)
+                        {
+                            IndicadorBE ind = new IndicadorBE();
+                            ind.ID_INDICADOR = it.ID_INDICADOR;
+                            ind.ID_INICIATIVA = it.ID_INICIATIVA;
+                            ind.ID_MEDMIT = it.ID_MEDMIT;
+                            ind.ID_ENFOQUE = it.ID_ENFOQUE;
+                            ind.SIGLA = it.listaInd[0].VALOR;
+                            listaE.Add(ind);
+                            //id_indicadores += Convert.ToString(it.ID_INDICADOR) + "/";
+                        }
+                        //id_indicadores = id_indicadores.Substring(0, id_indicadores.Length - 1);
+                    }
+                }
+            }
+            //return id_indicadores;
+            return listaE;
         }
 
     }

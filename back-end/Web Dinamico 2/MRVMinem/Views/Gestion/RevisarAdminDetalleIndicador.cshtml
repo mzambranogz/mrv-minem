@@ -407,7 +407,7 @@
                                                                 descripcion = "(" + itemCab.COMBINACION_UNIDAD + ")";
                                                             }
                                                         }
-                                                        <th class="text-center grupo-columna-@columna" scope="col"><span>@itemCab.NOMBRE_PARAMETRO&nbsp;</span><span>@descripcion</span>@*<small>@itemCab.DESCRIPCION_PARAMETRO</small>*@</th>
+                                                        <th class="text-center grupo-columna-@columna @(itemCab.VISIBLE == "0" ? "d-none" : "" )" scope="col"><span>@itemCab.NOMBRE_PARAMETRO&nbsp;</span><span>@descripcion</span>@*<small>@itemCab.DESCRIPCION_PARAMETRO</small>*@</th>
 
                                                     }
                                                     <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="top" title="Documentos de sustento"><span>Sustento</span></th>
@@ -426,7 +426,7 @@
                                                         <th class="text-center" data-encabezado="Número" scope="row">@fila</th>
                                                         @foreach (var itemDet in itemDatos.listaInd)
                                                         {
-                                                            <td data-encabezado="Columna 04">
+                                                            <td data-encabezado="Columna 04" class="@(itemDet.VISIBLE == "0" ? "d-none" : "" )">
                                                                 <div class="form-group m-0">
                                                                     @if (itemDet.ID_TIPO_CONTROL == 1)
                                                                     {
@@ -444,7 +444,7 @@
                                                                     {
                                                                         if (itemDet.ID_TIPO_DATO == 1)
                                                                         {
-                                                                            <input class="form-control form-control-sm text-center valor" type="date" placeholder="" id="fch-det-tbl-1-@text-@fila" value="@itemDet.VALOR" readonly>
+                                                                            <input class="form-control form-control-sm text-center valor" type="date" placeholder="" id="fch-det-tbl-1-1-@fila" value="@itemDet.VALOR" readonly>
                                                                         }
                                                                         else
                                                                         {
@@ -453,11 +453,11 @@
                                                                             if (Double.TryParse(Convert.ToString(formateado), System.Globalization.NumberStyles.Any, System.Globalization.NumberFormatInfo.InvariantInfo, out retNum))
                                                                             {
                                                                                 string cad = Convert.ToDouble(formateado).ToString("N2");
-                                                                                <input class="form-control form-control-sm text-center valor" type="text" placeholder="" id="txt-det-tbl-1-@text-@fila" value="@cad" readonly>
+                                                                                <input class="form-control form-control-sm text-center valor" type="text" placeholder="" id="txt-det-tbl-1-1-@fila" value="@cad" readonly>
                                                                             }
                                                                             else
                                                                             {
-                                                                                <input class="form-control form-control-sm text-center valor" type="text" placeholder="" id="txt-det-tbl-1-@text-@fila" value="@itemDet.VALOR" readonly>
+                                                                                <input class="form-control form-control-sm text-center valor" type="text" placeholder="" id="txt-det-tbl-1-1-@fila" value="@itemDet.VALOR" readonly>
                                                                             }
                                                                         }
                                                                         //<input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-1-1" value="@itemDet.VALOR" readonly>
