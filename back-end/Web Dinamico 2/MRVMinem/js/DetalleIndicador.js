@@ -3379,15 +3379,15 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                                         texto++;
                                         if (data[j]["VERIFICABLE"] == 0) {
                                             if (data[j]["ID_TIPO_DATO"] == 2) {
-                                                tr += `<input class="form-control form-control-sm text-center validar require-data ${data[j]["V_DECIMAL"] == '1' ? 'formato-num' : 'solo-numero'}" type="text" placeholder="" id="txt-det-tbl-1-${texto}-${(i + 1)}" data-param="${data[j]["ID_PARAMETRO"]}" maxlength="15">`;
+                                                tr += `<input class="form-control form-control-sm text-center validar require-data ${data[j]["V_DECIMAL"] == '1' ? 'formato-num' : 'solo-numero'}" type="text" placeholder="" id="txt-det-tbl-1-${texto}-${(i + 1)}" data-param="${data[j]["ID_PARAMETRO"]}" maxlength="18">`;
                                             } else if (data[j]["ID_TIPO_DATO"] == 3) {
-                                                tr += '<input class="form-control form-control-sm text-center require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="40">';
+                                                tr += '<input class="form-control form-control-sm text-center require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="150">';
                                             }
                                         } else {
                                             if (data[j]["ID_TIPO_DATO"] == 2) {
-                                                tr += `<input class="form-control form-control-sm text-center validar require-data ${data[j]["V_DECIMAL"] == '1' ? 'formato-num' : 'solo-numero'}" type="text" placeholder="" id="txt-det-tbl-1-${texto}-${(i + 1)}" onBlur="fn_calcularValor(this)" data-validar="0" data-param="${data[j]["ID_PARAMETRO"]}" maxlength="15">`;
+                                                tr += `<input class="form-control form-control-sm text-center validar require-data ${data[j]["V_DECIMAL"] == '1' ? 'formato-num' : 'solo-numero'}" type="text" placeholder="" id="txt-det-tbl-1-${texto}-${(i + 1)}" onBlur="fn_calcularValor(this)" data-validar="0" data-param="${data[j]["ID_PARAMETRO"]}" maxlength="18">`;
                                             } else if (data[j]["ID_TIPO_DATO"] == 3) {
-                                                tr += '<input class="form-control form-control-sm text-center require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" onBlur="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="40">';
+                                                tr += '<input class="form-control form-control-sm text-center require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" onBlur="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="150">';
                                             }
 
                                         }
@@ -3627,16 +3627,16 @@ function CargarNuevaFila(filas) {
                                         if (data[j]["VERIFICABLE"] == 0) {
                                             if (data[j]["ID_TIPO_DATO"] == 2) {
                                                 //tr += '<input class="form-control form-control-sm text-center validar require-data formato-num" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="15">';
-                                                tr += `<input class="form-control form-control-sm text-center validar require-data ${data[j]["V_DECIMAL"] == '1' ? 'formato-num' : 'solo-numero'}" type="text" placeholder="" id="txt-det-tbl-1-${texto}-${(rows + 1)}" data-param="${data[j]["ID_PARAMETRO"]}" maxlength="15">`;
+                                                tr += `<input class="form-control form-control-sm text-center validar require-data ${data[j]["V_DECIMAL"] == '1' ? 'formato-num' : 'solo-numero'}" type="text" placeholder="" id="txt-det-tbl-1-${texto}-${(rows + 1)}" data-param="${data[j]["ID_PARAMETRO"]}" maxlength="18">`;
                                             } else if (data[j]["ID_TIPO_DATO"] == 3) {
-                                                tr += '<input class="form-control form-control-sm text-center require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="40">';
+                                                tr += '<input class="form-control form-control-sm text-center require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="150">';
                                             }
                                         } else {
                                             if (data[j]["ID_TIPO_DATO"] == 2) {
                                                 //tr += '<input class="form-control form-control-sm text-center validar require-data formato-num" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" onBlur="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="15">';
-                                                tr += `<input class="form-control form-control-sm text-center validar require-data ${data[j]["V_DECIMAL"] == '1' ? 'formato-num' : 'solo-numero'}" type="text" placeholder="" id="txt-det-tbl-1-${texto}-${(rows + 1)}" onBlur="fn_calcularValor(this)" data-validar="0" data-param="${data[j]["ID_PARAMETRO"]}" maxlength="15">`;
+                                                tr += `<input class="form-control form-control-sm text-center validar require-data ${data[j]["V_DECIMAL"] == '1' ? 'formato-num' : 'solo-numero'}" type="text" placeholder="" id="txt-det-tbl-1-${texto}-${(rows + 1)}" onBlur="fn_calcularValor(this)" data-validar="0" data-param="${data[j]["ID_PARAMETRO"]}" maxlength="18">`;
                                             } else if (data[j]["ID_TIPO_DATO"] == 3) {
-                                                tr += '<input class="form-control form-control-sm text-center require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" onBlur="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="40">';
+                                                tr += '<input class="form-control form-control-sm text-center require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" onBlur="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="150">';
                                             }
 
                                         }
