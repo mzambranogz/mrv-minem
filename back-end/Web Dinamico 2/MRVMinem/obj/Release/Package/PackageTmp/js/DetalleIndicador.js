@@ -2,7 +2,7 @@
 var indicadores = new Array();
 var documentos = new Array();
 
-
+var eliminar_item;
 
 
 function fn_crearLinea(fila) {
@@ -321,7 +321,9 @@ function CargarDatosIniciativa() {
                         }
 
                         if (data[i]["ID_MEDMIT"] == 4) {
-                            if (data[i]["TIPO_AUDITORIA"] != null || data[i]["AUDITOR_AUDITORIA"] != null || data[i]["NOMBRE_INSTITUCION"] != null || data[i]["FECHA_AUDITORIA"] != null) {
+                            if (data[i]["INSTITUCION_AUDITADA"] != null || data[i]["SECTOR_INST"] != null || data[i]["TIPO_AUDITORIA"] != null || data[i]["AUDITOR_AUDITORIA"] != null || data[i]["NOMBRE_INSTITUCION"] != null || data[i]["FECHA_AUDITORIA"] != null) {
+                                $('#cbo-sector').val(data[i]["SECTOR_INST"] == null ? '0' : data[i]["SECTOR_INST"]);
+                                $('#txt-institucion').val(data[i]["INSTITUCION_AUDITADA"] == null ? '' : data[i]["INSTITUCION_AUDITADA"]);
                                 $('#cbo-tipo_auditoria').val(data[i]["TIPO_AUDITORIA"] == null ? '0' : data[i]["TIPO_AUDITORIA"]);
                                 $('#txt-auditor').val(data[i]["AUDITOR_AUDITORIA"] == null ? '' : data[i]["AUDITOR_AUDITORIA"]);
                                 $('#txt-institucion-auditor').val(data[i]["NOMBRE_INSTITUCION"] == null ? '' : data[i]["NOMBRE_INSTITUCION"]);
@@ -2927,6 +2929,8 @@ function fn_procesoDetalleIndicador(url, estado) {
         extra: archivos,
         ListaIndicadoresData: arrValores,
         //AUDITORIA: obj //26-10-20
+        SECTOR_INST: medida == 4 ? $('#cbo-sector').val() : '',
+        INSTITUCION_AUDITADA: medida == 4 ? $('#txt-institucion').val() : '',
         TIPO_AUDITORIA: medida == 4 ? $('#cbo-tipo_auditoria').val() : '',
         AUDITOR_AUDITORIA: medida == 4 ? $('#txt-auditor').val() : '',
         NOMBRE_INSTITUCION: medida == 4 ? $('#txt-institucion-auditor').val() : '',
@@ -2954,9 +2958,9 @@ function fn_procesoDetalleIndicador(url, estado) {
         },
         success: function (response, textStatus, myXhr) {
             if (response.success) {
-                //CargarDetalleDatos();    
-                if (estado == 0 || estado == 6) CargarDatosGuardados();
+                //CargarDetalleDatos();  
                 if (estado == 0 || estado == 6) CargarArchivosGuardados();
+                if (estado == 0 || estado == 6) CargarDatosGuardados();
                 $("#cuerpoTablaIndicador").data("delete", "");
                 $("#total-documentos").data("eliminarfile", "");
                 $("#fledocumentos").val("");
@@ -3379,15 +3383,15 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                                         texto++;
                                         if (data[j]["VERIFICABLE"] == 0) {
                                             if (data[j]["ID_TIPO_DATO"] == 2) {
-                                                tr += `<input class="form-control form-control-sm text-center validar require-data ${data[j]["V_DECIMAL"] == '1' ? 'formato-num' : 'solo-numero'}" type="text" placeholder="" id="txt-det-tbl-1-${texto}-${(i + 1)}" data-param="${data[j]["ID_PARAMETRO"]}" maxlength="15">`;
+                                                tr += `<input class="form-control form-control-sm text-center validar require-data ${data[j]["V_DECIMAL"] == '1' ? 'formato-num' : 'solo-numero'}" type="text" placeholder="" id="txt-det-tbl-1-${texto}-${(i + 1)}" data-param="${data[j]["ID_PARAMETRO"]}" maxlength="18" autocomplete="off">`;
                                             } else if (data[j]["ID_TIPO_DATO"] == 3) {
-                                                tr += '<input class="form-control form-control-sm text-center require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="40">';
+                                                tr += '<input class="form-control form-control-sm text-center require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="150" autocomplete="off">';
                                             }
                                         } else {
                                             if (data[j]["ID_TIPO_DATO"] == 2) {
-                                                tr += `<input class="form-control form-control-sm text-center validar require-data ${data[j]["V_DECIMAL"] == '1' ? 'formato-num' : 'solo-numero'}" type="text" placeholder="" id="txt-det-tbl-1-${texto}-${(i + 1)}" onBlur="fn_calcularValor(this)" data-validar="0" data-param="${data[j]["ID_PARAMETRO"]}" maxlength="15">`;
+                                                tr += `<input class="form-control form-control-sm text-center validar require-data ${data[j]["V_DECIMAL"] == '1' ? 'formato-num' : 'solo-numero'}" type="text" placeholder="" id="txt-det-tbl-1-${texto}-${(i + 1)}" onBlur="fn_calcularValor(this)" data-validar="0" data-param="${data[j]["ID_PARAMETRO"]}" maxlength="18" autocomplete="off">`;
                                             } else if (data[j]["ID_TIPO_DATO"] == 3) {
-                                                tr += '<input class="form-control form-control-sm text-center require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" onBlur="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="40">';
+                                                tr += '<input class="form-control form-control-sm text-center require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" onBlur="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="150" autocomplete="off">';
                                             }
 
                                         }
@@ -3424,7 +3428,8 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                         if (medida != 12 && medida != 4 && enfoque != 9 && enfoque != 6)
                         tr += '<td class="text-center estrecho" data-encabezado="Verificar acumulado"><span data-toggle="modal" data-target="#"><a class="btn btn-purple btn-sm m-0 quitarCampos" href="#" title="Verificar acumulado" onclick="mostrarAcumulado();"><i class="fas fa-eye"></i></a></span></td>';
 
-                        tr += '<td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCampos quitarBtn" href="#" onclick="fn_eliminarRestarTotal()" title="Quitar fila"><i class="fas fa-minus-circle"></i></a></td>';
+                        //tr += '<td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCampos quitarBtn" href="#" onclick="fn_eliminarRestarTotal()" title="Quitar fila"><i class="fas fa-minus-circle"></i></a></td>';
+                        tr += '<td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCamposN quitarBtn" href="#" title="Quitar fila"><i class="fas fa-minus-circle"></i></a></td>';
 
 
                         //add prueba
@@ -3627,16 +3632,16 @@ function CargarNuevaFila(filas) {
                                         if (data[j]["VERIFICABLE"] == 0) {
                                             if (data[j]["ID_TIPO_DATO"] == 2) {
                                                 //tr += '<input class="form-control form-control-sm text-center validar require-data formato-num" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="15">';
-                                                tr += `<input class="form-control form-control-sm text-center validar require-data ${data[j]["V_DECIMAL"] == '1' ? 'formato-num' : 'solo-numero'}" type="text" placeholder="" id="txt-det-tbl-1-${texto}-${(rows + 1)}" data-param="${data[j]["ID_PARAMETRO"]}" maxlength="15">`;
+                                                tr += `<input class="form-control form-control-sm text-center validar require-data ${data[j]["V_DECIMAL"] == '1' ? 'formato-num' : 'solo-numero'}" type="text" placeholder="" id="txt-det-tbl-1-${texto}-${(rows + 1)}" data-param="${data[j]["ID_PARAMETRO"]}" maxlength="18" autocomplete="off">`;
                                             } else if (data[j]["ID_TIPO_DATO"] == 3) {
-                                                tr += '<input class="form-control form-control-sm text-center require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="40">';
+                                                tr += '<input class="form-control form-control-sm text-center require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="150" autocomplete="off">';
                                             }
                                         } else {
                                             if (data[j]["ID_TIPO_DATO"] == 2) {
                                                 //tr += '<input class="form-control form-control-sm text-center validar require-data formato-num" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" onBlur="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="15">';
-                                                tr += `<input class="form-control form-control-sm text-center validar require-data ${data[j]["V_DECIMAL"] == '1' ? 'formato-num' : 'solo-numero'}" type="text" placeholder="" id="txt-det-tbl-1-${texto}-${(rows + 1)}" onBlur="fn_calcularValor(this)" data-validar="0" data-param="${data[j]["ID_PARAMETRO"]}" maxlength="15">`;
+                                                tr += `<input class="form-control form-control-sm text-center validar require-data ${data[j]["V_DECIMAL"] == '1' ? 'formato-num' : 'solo-numero'}" type="text" placeholder="" id="txt-det-tbl-1-${texto}-${(rows + 1)}" onBlur="fn_calcularValor(this)" data-validar="0" data-param="${data[j]["ID_PARAMETRO"]}" maxlength="18" autocomplete="off">`;
                                             } else if (data[j]["ID_TIPO_DATO"] == 3) {
-                                                tr += '<input class="form-control form-control-sm text-center require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" onBlur="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="40">';
+                                                tr += '<input class="form-control form-control-sm text-center require-data" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" onBlur="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '" maxlength="150" autocomplete="off">';
                                             }
 
                                         }
@@ -3665,7 +3670,8 @@ function CargarNuevaFila(filas) {
                         if (medida != 12 && medida != 4 && enfoque != 9 && enfoque != 6)
                         tr += '<td class="text-center estrecho" data-encabezado="Verificar acumulado"><span data-toggle="modal" data-target="#"><a class="btn btn-purple btn-sm m-0 quitarCampos" href="#" title="Verificar acumulado" onclick="mostrarAcumulado();"><i class="fas fa-eye"></i></a></span></td>';
 
-                        tr += '<td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCampos" href="#" onclick="fn_eliminarRestarTotal()" title="Quitar fila"><i class="fas fa-minus-circle"></i></a></td>';
+                        //tr += '<td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCampos" href="#" onclick="fn_eliminarRestarTotal()" title="Quitar fila"><i class="fas fa-minus-circle"></i></a></td>';
+                        tr += '<td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCamposN" href="#" title="Quitar fila"><i class="fas fa-minus-circle"></i></a></td>';
 
                         tr += '</tr>';
                         $("#cuerpoTablaIndicador").append(tr);
@@ -3756,7 +3762,9 @@ function CargarDatosGuardados() {
                             } else if (entidad[m]["ID_TIPO_CONTROL"] == 2) {
                                 if (entidad[m]["ID_TIPO_DATO"] == 1) {
                                     fecha++;
-                                    $("#fch-det-tbl-1-" + fecha + "-" + (i + 1)).val(entidad[m]["VALOR"]);
+                                    //let fecha = formatearFecha(entidad[m]["VALOR"]);
+                                    //$("#fch-det-tbl-1-" + fecha + "-" + (i + 1)).val(fecha);
+                                    $("#fch-det-tbl-1-" + fecha + "-" + (i + 1)).val(entidad[m]["VALOR"]);                                    
                                     entidad[m]["FLAG_REVISION"] == '1' ? $(`#fch-det-tbl-1-${fecha}-${(i + 1)}`).prop('disabled', true) : ''; //add 14-10-20
                                     entidad[m]["FLAG_REVISION"] == '1' ? $(`#fch-det-tbl-1-${fecha}-${(i + 1)}`).removeClass('require-data') : ''; //add 14-10-20
                                     if (entidad[m]["VERIFICABLE"] == 1) {
@@ -3797,10 +3805,17 @@ function CargarDatosGuardados() {
                         cargarAcumulado(entidad_a, i + 1); //add 29-09-20
 
                     }
-                    $("#total-detalle").html("").append(formatoMiles(Math.round(total * 100) / 100));
-                    $("#total-detalle2").html("").append(formatoMiles(Math.round(total * 100) / 100));
-                    $("#cuerpoTablaIndicador").data("total", total);
-                    //$("#cuerpoTablaIndicador").data("row", data.length);
+                    //$("#total-detalle").html("").append(formatoMiles(Math.round(total * 100) / 100));
+                    //$("#total-detalle2").html("").append(formatoMiles(Math.round(total * 100) / 100));
+                    //$("#cuerpoTablaIndicador").data("total", total);
+
+                    let resumen_total = 0.0;
+                    $('[id^=acum-]').each((x, y) => {
+                        resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
+                    });
+                    $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+                    $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+                    $("#cuerpoTablaIndicador").data("total", resumen_total);
                 }
             } else {
                 CargarCuerpoGuardado(1, 0);
@@ -3822,6 +3837,7 @@ function CargarDatosGuardados() {
         },
         beforeSend: function () { //add 28-09-2020
             console.log('before send');
+            console.log('before send2');
             $("#carga-preload-ini").html("<i Class='fas fa-spinner fa-spin px-1 fa-2x'></i>");
             $("#titulo-carga-ini").removeClass("d-none");
             $('#modal-carga').modal('show');
@@ -4379,13 +4395,13 @@ $(document).ready(function () {
     //$("#cbo-enfoque").val($("#menor").val());
     //$("#enfoque-" + ($("#cbo-enfoque").val())).removeAttr("hidden");
     //$("#cbo-enfoque").data("select", $("#cbo-enfoque").val()); //data-select para saber quien fue el anterior
-    
+    //CargarSector();
     if ($("#revision").val() == 1) {
 
 
 
         fn_ListarGEI();
-
+        CargarDatosAuditoria(); //add 03-11-20
         armarAcumulado(); //add 17-05-2020
         //CargarDetalleIndicadorRevision();
         //cargarTablasEnfoque();
@@ -4396,7 +4412,6 @@ $(document).ready(function () {
         //for (var i = 0; i < arr.length; i++){
         //    armarVerificar(arr[i]);
         //}
-
         //fn_listarFactores(); -agregar luego 13-03-20
 
     } else {
@@ -4410,10 +4425,10 @@ $(document).ready(function () {
 
         //cargarCabeceraTabla($("#cbo-enfoque").val());
         //CargarDetalleDatos();
-
         //cargarCuerpoTabla($("#cbo-enfoque").val());
-        //CargarDetalleIndicador();
+        //CargarDetalleIndicador();        
     }
+    
 
     var monto = $("#txt-monto-inversion").val();
     if (monto != '------')
@@ -4623,13 +4638,14 @@ function fn_enviarCalcularValor(item, f) {
                         //total += parseFloat($(".campo-total").val());
                     });
 
-                    $("#total-detalle").html("").append(formatoMiles(Math.round((total) * 100) / 100));
-                    $("#total-detalle2").html("").append(formatoMiles(Math.round((total) * 100) / 100));
-                    $("#cuerpoTablaIndicador").data("total", total);
+                    //$("#total-detalle").html("").append(formatoMiles(Math.round((total) * 100) / 100));
+                    //$("#total-detalle2").html("").append(formatoMiles(Math.round((total) * 100) / 100));
+                    //$("#cuerpoTablaIndicador").data("total", total);
 
                     //add
                     agregarAcumulado(item, f);
                 }
+                
             } else {
                 //////cargarCuerpoTabla($("#cbo-enfoque").val());
             }
@@ -4653,21 +4669,20 @@ function fn_validarCampoReg(f) {
 }
 
 function fn_eliminarRestarTotal() {
+
     if ($("#tablaIndicador").find("tbody").find("tr").length > 1) {
-        var total = parseFloat($("#cuerpoTablaIndicador").data("total"));
-        var fila = $("#tablaIndicador").data("fila");
-        var campos = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + fila).find("[data-param]");
-        campos.each(function (index, value) {
-            if ($(value).attr("data-param") == 11) {
-                var r = $(value).val();
-                if (r != "")
-                    total -= parseFloat(r.replace(/,/gi, ''));
-            }
-        });
-        $("#total-detalle").html("").append((Math.round(total * 100) / 100));
-        $("#total-detalle2").html("").append((Math.round(total * 100) / 100));
-        $("#cuerpoTablaIndicador").data("total", total);
-        //
+        let fila = eliminar_item.parent().parent().find('th').html();
+        //var fila = $("#tablaIndicador").data("fila");
+        //var total = parseFloat($("#cuerpoTablaIndicador").data("total"));        
+        //var campos = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + fila).find("[data-param]");
+        //campos.each(function (index, value) {
+        //    if ($(value).attr("data-param") == 11) {
+        //        var r = $(value).val();
+        //        if (r != "")
+        //            total -= parseFloat(r.replace(/,/gi, ''));
+        //    }
+        //});
+
         if ($("#tablaIndicador #detalles-tr-" + fila).data("ind") > 0) {
             var id_borrar = $("#cuerpoTablaIndicador").data("delete") + $("#tablaIndicador #detalles-tr-" + fila).data("ind") + ",";
             $("#cuerpoTablaIndicador").data("delete", id_borrar);
@@ -4679,10 +4694,12 @@ function fn_eliminarRestarTotal() {
             console.log("Archivos borrados");
         }
 
-        //nuevo
         eliminarAcumulado(fila);
+        eliminar_item.parent().parent().remove();
+        $('#modal-confirmacion').modal('hide');
     }
 }
+
 
 function fn_mensajeCompletar() {
     $('#mensajeModalRegistrar #mensajeGoodRegistro').remove();
@@ -5373,7 +5390,7 @@ function agregarAcumulado(item, f) {
 
     var cabecera = "";
     var cuerpo = "";
-    let enfoque = $("#id_enfoques").val();
+    let enfoque = $("#cbo-enfoque").val();
     let medida = $("#Control").data("mitigacion");
 
     $.ajax({
@@ -5465,7 +5482,7 @@ function agregarAcumulado(item, f) {
                                 anio += 1;
                             }
                         }
-
+                        //debugger;
                         for (var j = 0; j < data.length; j++) {
                             var acumulado_col = 0.0;                            
                             var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
@@ -5504,6 +5521,13 @@ function agregarAcumulado(item, f) {
                     
 
                 }
+                let resumen_total = 0.0;
+                $('[id^=acum-]').each((x, y) => {
+                    resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
+                });
+                $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+                $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+                $("#cuerpoTablaIndicador").data("total", resumen_total);
             } else {
             }
 
@@ -5551,6 +5575,14 @@ function eliminarAcumulado(f) {
     $("#f-" + f).remove();
 
     ordenarTabla();
+
+    let resumen_total = 0.0;
+    $('[id^=acum-]').each((x, y) => {
+        resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
+    });
+    $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+    $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+    $("#cuerpoTablaIndicador").data("total", resumen_total);
 }
 
 function ordenarTabla() {
@@ -5625,7 +5657,21 @@ function generarAcumulado() {
                     for (var i = 0; i < data.length; i++) {
                         armarAcumuladosRevision(data[i].listaAcumulado, data[i].ID_INDICADOR);
                     }
-                    
+
+                    let resumen_total = 0.0;
+                    $('[id^=acum-]').each((x, y) => {
+                        resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
+                    });
+                    $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+                    $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+                    $("#cuerpoTablaIndicador").data("total", resumen_total);
+
+                    //debugger;
+                    //$('[id^=fch-det-tbl-1-]').each((x, y) => {
+                    //    let fecha = formatearFecha($(y).val());
+                    //    $(y).val(fecha);
+                    //});
+
                     //var verf = 0;
                     //var anio = 2010;
                     //var acumulado_ini = parseInt(data[0]["anio"]) - anio;
@@ -6105,3 +6151,73 @@ var estiloblockpage = () => {
     $("#block-page-carga").css("z-index", "2000");
     $("#block-page-carga").css("display", "none");
 }
+
+var formatearFecha = (fecha) => {
+    debugger;
+    let f = fecha.split('-');
+    return `${f[2]}/${f[1]}/${f[0]}`;
+}
+
+function CargarSector() {
+    var item = {
+    };
+    vurl = baseUrl + "Gestion/ListaSectorInstitucion";
+    $.ajax({
+        url: vurl,
+        type: 'POST',
+        datatype: 'json',
+        data: item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    $("#cbo-sector").append('<option value="0">Seleccionar</option>');
+                    for (var i = 0; i < data.length; i++) {
+                        $("#cbo-sector").append('<option value="' + data[i]["ID_SECTOR_INST"] + '">' + data[i]["DESCRIPCION"] + '</option>');
+                    }
+                }
+            }
+        }
+    });
+}
+
+function CargarDatosAuditoria() {
+    var Item =
+    {
+        ID_INICIATIVA: $("#Control").data("iniciativa")
+    };
+    $.ajax({
+        url: baseUrl + "Gestion/CargarSeleccionIniciativa",
+        type: 'POST',
+        datatype: 'json',
+        data: Item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i]["ID_MEDMIT"] == 4) {
+                            if (data[i]["INSTITUCION_AUDITADA"] != null || data[i]["SECTOR_INST"] != null || data[i]["TIPO_AUDITORIA"] != null || data[i]["AUDITOR_AUDITORIA"] != null || data[i]["NOMBRE_INSTITUCION"] != null || data[i]["FECHA_AUDITORIA"] != null) {
+                                $('#cbo-sector').val(data[i]["SECTOR_INST"] == null ? '0' : data[i]["SECTOR_INST"]);
+                                $('#txt-institucion').val(data[i]["INSTITUCION_AUDITADA"] == null ? '' : data[i]["INSTITUCION_AUDITADA"]);
+                                $('#cbo-tipo_auditoria').val(data[i]["TIPO_AUDITORIA"] == null ? '0' : data[i]["TIPO_AUDITORIA"]);
+                                $('#txt-auditor').val(data[i]["AUDITOR_AUDITORIA"] == null ? '' : data[i]["AUDITOR_AUDITORIA"]);
+                                $('#txt-institucion-auditor').val(data[i]["NOMBRE_INSTITUCION"] == null ? '' : data[i]["NOMBRE_INSTITUCION"]);
+                                $('#fch-fecha-auditoria').val(data[i]["FECHA_AUDITORIA"] == null ? '' : data[i]["FECHA_AUDITORIA"]);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+
+
+$(document).on("click", ".quitarCamposN", function (e) {
+    e.preventDefault(); var t = $(this);
+    if (1 < t.parent().parent().parent().find("th").length) {
+        //t.parent().parent().remove();
+        eliminar_item = t;
+        $("#modal-confirmacion").modal("show");
+    }
+})

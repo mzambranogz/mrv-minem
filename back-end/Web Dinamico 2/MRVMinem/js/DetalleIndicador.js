@@ -2,7 +2,7 @@
 var indicadores = new Array();
 var documentos = new Array();
 
-
+var eliminar_item;
 
 
 function fn_crearLinea(fila) {
@@ -3428,7 +3428,8 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                         if (medida != 12 && medida != 4 && enfoque != 9 && enfoque != 6)
                         tr += '<td class="text-center estrecho" data-encabezado="Verificar acumulado"><span data-toggle="modal" data-target="#"><a class="btn btn-purple btn-sm m-0 quitarCampos" href="#" title="Verificar acumulado" onclick="mostrarAcumulado();"><i class="fas fa-eye"></i></a></span></td>';
 
-                        tr += '<td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCampos quitarBtn" href="#" onclick="fn_eliminarRestarTotal()" title="Quitar fila"><i class="fas fa-minus-circle"></i></a></td>';
+                        //tr += '<td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCampos quitarBtn" href="#" onclick="fn_eliminarRestarTotal()" title="Quitar fila"><i class="fas fa-minus-circle"></i></a></td>';
+                        tr += '<td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCamposN quitarBtn" href="#" title="Quitar fila"><i class="fas fa-minus-circle"></i></a></td>';
 
 
                         //add prueba
@@ -3669,7 +3670,8 @@ function CargarNuevaFila(filas) {
                         if (medida != 12 && medida != 4 && enfoque != 9 && enfoque != 6)
                         tr += '<td class="text-center estrecho" data-encabezado="Verificar acumulado"><span data-toggle="modal" data-target="#"><a class="btn btn-purple btn-sm m-0 quitarCampos" href="#" title="Verificar acumulado" onclick="mostrarAcumulado();"><i class="fas fa-eye"></i></a></span></td>';
 
-                        tr += '<td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCampos" href="#" onclick="fn_eliminarRestarTotal()" title="Quitar fila"><i class="fas fa-minus-circle"></i></a></td>';
+                        //tr += '<td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCampos" href="#" onclick="fn_eliminarRestarTotal()" title="Quitar fila"><i class="fas fa-minus-circle"></i></a></td>';
+                        tr += '<td class="text-center" data-encabezado="Acciones" width="5%"><a class="btn btn-info btn-sm m-0 quitarCamposN" href="#" title="Quitar fila"><i class="fas fa-minus-circle"></i></a></td>';
 
                         tr += '</tr>';
                         $("#cuerpoTablaIndicador").append(tr);
@@ -4393,7 +4395,7 @@ $(document).ready(function () {
     //$("#cbo-enfoque").val($("#menor").val());
     //$("#enfoque-" + ($("#cbo-enfoque").val())).removeAttr("hidden");
     //$("#cbo-enfoque").data("select", $("#cbo-enfoque").val()); //data-select para saber quien fue el anterior
-    CargarSector();
+    //CargarSector();
     if ($("#revision").val() == 1) {
 
 
@@ -4667,21 +4669,20 @@ function fn_validarCampoReg(f) {
 }
 
 function fn_eliminarRestarTotal() {
+
     if ($("#tablaIndicador").find("tbody").find("tr").length > 1) {
-        var total = parseFloat($("#cuerpoTablaIndicador").data("total"));
-        var fila = $("#tablaIndicador").data("fila");
-        var campos = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + fila).find("[data-param]");
-        campos.each(function (index, value) {
-            if ($(value).attr("data-param") == 11) {
-                var r = $(value).val();
-                if (r != "")
-                    total -= parseFloat(r.replace(/,/gi, ''));
-            }
-        });
-        //$("#total-detalle").html("").append((Math.round(total * 100) / 100));
-        //$("#total-detalle2").html("").append((Math.round(total * 100) / 100));
-        //$("#cuerpoTablaIndicador").data("total", total);
-        //
+        let fila = eliminar_item.parent().parent().find('th').html();
+        //var fila = $("#tablaIndicador").data("fila");
+        //var total = parseFloat($("#cuerpoTablaIndicador").data("total"));        
+        //var campos = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + fila).find("[data-param]");
+        //campos.each(function (index, value) {
+        //    if ($(value).attr("data-param") == 11) {
+        //        var r = $(value).val();
+        //        if (r != "")
+        //            total -= parseFloat(r.replace(/,/gi, ''));
+        //    }
+        //});
+
         if ($("#tablaIndicador #detalles-tr-" + fila).data("ind") > 0) {
             var id_borrar = $("#cuerpoTablaIndicador").data("delete") + $("#tablaIndicador #detalles-tr-" + fila).data("ind") + ",";
             $("#cuerpoTablaIndicador").data("delete", id_borrar);
@@ -4693,10 +4694,12 @@ function fn_eliminarRestarTotal() {
             console.log("Archivos borrados");
         }
 
-        //nuevo
         eliminarAcumulado(fila);
+        eliminar_item.parent().parent().remove();
+        $('#modal-confirmacion').modal('hide');
     }
 }
+
 
 function fn_mensajeCompletar() {
     $('#mensajeModalRegistrar #mensajeGoodRegistro').remove();
@@ -6207,3 +6210,14 @@ function CargarDatosAuditoria() {
         }
     });
 }
+
+
+
+$(document).on("click", ".quitarCamposN", function (e) {
+    e.preventDefault(); var t = $(this);
+    if (1 < t.parent().parent().parent().find("th").length) {
+        //t.parent().parent().remove();
+        eliminar_item = t;
+        $("#modal-confirmacion").modal("show");
+    }
+})

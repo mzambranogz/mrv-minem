@@ -166,3 +166,15 @@ C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\datos.minem.gob.pe\bin\Relea
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\datos.minem.gob.pe\obj\Release\datos.minem.gob.pe.csprojResolveAssemblyReference.cache
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\datos.minem.gob.pe\obj\Release\datos.minem.gob.pe.dll
 C:\Users\Pc\Desktop\GIT NEW\back-end\Web Dinamico 2\datos.minem.gob.pe\obj\Release\datos.minem.gob.pe.pdb
+C:\Users\Pc\Desktop\GIT MRV NEW\back-end\Web Dinamico 2\datos.minem.gob.pe\bin\Release\datos.minem.gob.pe.dll
+C:\Users\Pc\Desktop\GIT MRV NEW\back-end\Web Dinamico 2\datos.minem.gob.pe\bin\Release\datos.minem.gob.pe.pdb
+C:\Users\Pc\Desktop\GIT MRV NEW\back-end\Web Dinamico 2\datos.minem.gob.pe\bin\Release\Dapper.dll
+C:\Users\Pc\Desktop\GIT MRV NEW\back-end\Web Dinamico 2\datos.minem.gob.pe\bin\Release\entidad.minem.gob.pe.dll
+C:\Users\Pc\Desktop\GIT MRV NEW\back-end\Web Dinamico 2\datos.minem.gob.pe\bin\Release\Oracle.DataAccess.dll
+C:\Users\Pc\Desktop\GIT MRV NEW\back-end\Web Dinamico 2\datos.minem.gob.pe\bin\Release\utilitario.minem.gob.pe.dll
+C:\Users\Pc\Desktop\GIT MRV NEW\back-end\Web Dinamico 2\datos.minem.gob.pe\bin\Release\entidad.minem.gob.pe.pdb
+C:\Users\Pc\Desktop\GIT MRV NEW\back-end\Web Dinamico 2\datos.minem.gob.pe\bin\Release\utilitario.minem.gob.pe.pdb
+C:\Users\Pc\Desktop\GIT MRV NEW\back-end\Web Dinamico 2\datos.minem.gob.pe\bin\Release\Dapper.xml
+C:\Users\Pc\Desktop\GIT MRV NEW\back-end\Web Dinamico 2\datos.minem.gob.pe\obj\Release\datos.minem.gob.pe.csprojResolveAssemblyReference.cache
+C:\Users\Pc\Desktop\GIT MRV NEW\back-end\Web Dinamico 2\datos.minem.gob.pe\obj\Release\datos.minem.gob.pe.dll
+C:\Users\Pc\Desktop\GIT MRV NEW\back-end\Web Dinamico 2\datos.minem.gob.pe\obj\Release\datos.minem.gob.pe.pdb

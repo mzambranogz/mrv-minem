@@ -233,7 +233,7 @@ $(document).ready(function () {
     //    CargarDetalleIndicadorVerMas();
     //}
     //CargarDatosIniciativa();
-    CargarSector();
+    //CargarSector();
 
     generarAcumulado();
 

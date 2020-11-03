@@ -149,7 +149,7 @@ function fn_cargarIniciativa() {
                         } else {
                             $("#receptorObservacion").append(data[i]["NOMBRES"]);
                             $("#emisorObservacion").append($("#Control").data("nombres"));
-                            $("#txt-moneda").val(data[i]["MONEDA"]);
+                            $("#txt-moneda").val(data[i]["MONEDA"] == null ? '------' : data[i]["MONEDA"] == "" ? '------' : data[i]["MONEDA"]);
                             $("#txt-tipo-iniciativa-mitigacion").val(data[i]["TIPO_INICIATIVA"]); //add 16-03-20
                             if (data[i]["FECHA"].toString() != "01/01/0001") {
                                 $("#txt-fecha-inicio").val(data[i]["FECHA"].toString());

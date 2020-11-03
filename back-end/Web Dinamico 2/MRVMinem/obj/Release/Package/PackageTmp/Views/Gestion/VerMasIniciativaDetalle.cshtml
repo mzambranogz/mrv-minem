@@ -299,6 +299,86 @@
                         <div class="container-fluid py-4">
                             @*<div class="h5">Resumen de Detalles de Indicadores&nbsp;<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="right" title="Complete los campos de acuerdo al enfoque seleccionado"></i></div>*@
                             <div class="dropdown-divider"></div>
+
+                            <div class="row">
+                                <div class="col-xs-12 col sm-12 col-lg-10">
+                                </div>
+                                <div class="col-xs-12 col sm-12 col-lg-2">
+                                    <a class="btn btn-purple w-100 mb-2" href="#" data-toggle="modal" data-target="#modal-acumulado-total"><i class="fas fa-eye mr-1"></i>Ver Acumulado</a>
+                                </div>
+                            </div>
+
+                            @if (Model.medida.ID_MEDMIT == 4)
+                            {
+                                <div class="row">
+                                    <div class="col-12 px-0">
+                                        <div class="table-responsive tabla-principal">
+                                            <table class="table table-hover" id="tablaAuditor">
+                                                <thead id="cabeceraAuditor">
+                                                    <tr class="bg-primary text-white">
+                                                        <th class="text-center grupo-columna-03" scope="col"><span>Sector</span></th>
+                                                        <th class="text-center grupo-columna-03" scope="col"><span>Institución auditada</span></th>
+                                                        <th class="text-center grupo-columna-03" scope="col"><span>Tipo auditoría</span></th>
+                                                        <th class="text-center grupo-columna-03" scope="col"><span>Auditado por:</span></th>
+                                                        <th class="text-center grupo-columna-03" scope="col"><span>Nombre de institución del auditor</span></th>
+                                                        <th class="text-center grupo-columna-03" scope="col"><span>Fecha de auditoría</span></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="cuerpoAuditor">
+                                                    <tr id="detalles-tr-1" data-ind="1" data-rev="0">
+                                                        <td data-encabezado="Columna 07">
+                                                            <div class="form-group m-0">
+                                                                <select class="form-control form-control-sm" id="cbo-sector" disabled>
+                                                                    <option value="0">Seleccionar</option>
+                                                                    <option value="1">Administrativo</option>
+                                                                    <option value="2">Público</option>
+                                                                    <option value="3">Educación</option>
+                                                                    <option value="4">Salud</option>
+                                                                </select>
+                                                            </div>
+                                                        </td>
+                                                        <td data-encabezado="Columna 07">
+                                                            <div class="form-group m-0">
+                                                                <input class="form-control form-control-sm text-left" type="text" placeholder="" id="txt-institucion" maxlength="120" readonly>
+                                                            </div>
+                                                        </td>
+                                                        <td data-encabezado="Columna 07">
+                                                            <div class="form-group m-0">
+                                                                <select class="form-control form-control-sm" id="cbo-tipo_auditoria" disabled>
+                                                                    <option value="0">Seleccionar</option>
+                                                                    <option value="1">Tipo 1</option>
+                                                                    <option value="2">Tipo 2</option>
+                                                                    <option value="3">Tipo 3</option>
+                                                                </select>
+                                                            </div>
+                                                        </td>
+                                                        <td data-encabezado="Columna 07">
+                                                            <div class="form-group m-0">
+                                                                <select class="form-control form-control-sm" id="txt-auditor" disabled>
+                                                                    <option value="0">Seleccionar</option>
+                                                                    <option value="1">EMSE</option>
+                                                                    <option value="2">Auditor acreditado</option>
+                                                                </select>
+                                                            </div>
+                                                        </td>
+                                                        <td data-encabezado="Columna 07">
+                                                            <div class="form-group m-0">
+                                                                <input class="form-control form-control-sm text-left" type="text" placeholder="" id="txt-institucion-auditor" maxlength="120" readonly>
+                                                            </div>
+                                                        </td>
+                                                        <td data-encabezado="Columna 07">
+                                                            <div class="form-group m-0">
+                                                                <input class="form-control form-control-sm text-center" type="date" placeholder="" id="fch-fecha-auditoria" readonly>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
                             <div class="row">
                                 <div class="col-12 px-0">
                                     <div class="table-responsive tabla-principal tabla-recorrer tabla-detalle-indicadores-1" data-order="tbl-1">
@@ -334,7 +414,7 @@
                                                                 descripcion = "(" + itemCab.COMBINACION_UNIDAD + ")";
                                                             }
                                                         }
-                                                        <th class="text-center grupo-columna-@columna" scope="col"><span>@itemCab.NOMBRE_PARAMETRO&nbsp;</span><span>@descripcion</span>@*<small>@itemCab.DESCRIPCION_PARAMETRO</small>*@</th>
+                                                        <th class="text-center grupo-columna-@columna @(itemCab.VISIBLE == "0" ? "d-none" : "" )" scope="col"><span>@itemCab.NOMBRE_PARAMETRO&nbsp;</span><span>@descripcion</span>@*<small>@itemCab.DESCRIPCION_PARAMETRO</small>*@</th>
 
                                                     }
                                                     <th class="text-center grupo-columna-03" scope="col" data-toggle="tooltip" data-placement="top" title="Texto descriptivo de ayuda"><span>Sustento</span></th>
@@ -350,7 +430,7 @@
                                                         <th class="text-center" data-encabezado="Número" scope="row">@fila</th>
                                                         @foreach (var itemDet in itemDatos.listaInd)
                                                         {
-                                                            <td data-encabezado="Columna 04">
+                                                            <td data-encabezado="Columna 04" class="@(itemDet.VISIBLE == "0" ? "d-none" : "" )">
                                                                 <div class="form-group m-0">
                                                                     @if (itemDet.ID_TIPO_CONTROL == 1)
                                                                     {
@@ -366,16 +446,23 @@
                                                                     }
                                                                     else
                                                                     {
-                                                                        string formateado = itemDet.VALOR;
-                                                                        double retNum;
-                                                                        if (Double.TryParse(Convert.ToString(formateado), System.Globalization.NumberStyles.Any, System.Globalization.NumberFormatInfo.InvariantInfo, out retNum))
+                                                                        if (itemDet.ID_TIPO_DATO == 1)
                                                                         {
-                                                                            string cad = Convert.ToDouble(formateado).ToString("N2");
-                                                                            <input class="form-control form-control-sm text-center valor" type="text" placeholder="" id="txt-det-tbl-1-1-1" value="@cad" readonly>
+                                                                            <input class="form-control form-control-sm text-center valor" type="date" placeholder="" id="fch-det-tbl-1-1-@fila" value="@itemDet.VALOR" readonly>
                                                                         }
                                                                         else
                                                                         {
-                                                                            <input class="form-control form-control-sm text-center valor" type="text" placeholder="" id="txt-det-tbl-1-1-1" value="@itemDet.VALOR" readonly>
+                                                                            string formateado = itemDet.VALOR;
+                                                                            double retNum;
+                                                                            if (Double.TryParse(Convert.ToString(formateado), System.Globalization.NumberStyles.Any, System.Globalization.NumberFormatInfo.InvariantInfo, out retNum))
+                                                                            {
+                                                                                string cad = Convert.ToDouble(formateado).ToString("N2");
+                                                                                <input class="form-control form-control-sm text-center valor" type="text" placeholder="" id="txt-det-tbl-1-1-@fila" value="@cad" readonly>
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                <input class="form-control form-control-sm text-center valor" type="text" placeholder="" id="txt-det-tbl-1-1-@fila" value="@itemDet.VALOR" readonly>
+                                                                            }
                                                                         }
                                                                         //<input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-1-1" value="@itemDet.VALOR" readonly>
                                                                     }
@@ -555,6 +642,84 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-acumulado-total" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body medidas-modal">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="text-center">Verificación de acumulados</h3>
+                        <p class="text-center">Encuentre el total acumulado por período deslizándose hacia el lado derecho</p>
+                    </div>
+                    <div class="col-12">
+                        <div class="table-responsive tabla-principal" data-order="tbl-1">
+                            <table class="table table-hover">
+                                <thead id="cabecera-acumulado-total">
+                                    <tr class="bg-primary text-white">
+                                        <th class="text-center grupo-columna-03"><span>N°<small></small></span></th>
+                                        <th class="text-center grupo-columna-03"><span>2010&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                        <th class="text-center grupo-columna-03"><span>2011&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                        <th class="text-center grupo-columna-03"><span>2012&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                        <th class="text-center grupo-columna-03"><span>2013&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                        <th class="text-center grupo-columna-03"><span>2014&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                        <th class="text-center grupo-columna-03"><span>2015&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                        <th class="text-center grupo-columna-03"><span>2016&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                        <th class="text-center grupo-columna-03"><span>2017&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                        <th class="text-center grupo-columna-03"><span>2018&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                        <th class="text-center grupo-columna-03"><span>2019&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                        <th class="text-center grupo-columna-03"><span>2020&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                        <th class="text-center grupo-columna-03"><span>2021&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                        <th class="text-center grupo-columna-03"><span>2022&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                        <th class="text-center grupo-columna-03"><span>2023&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                        <th class="text-center grupo-columna-03"><span>2024&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                        <th class="text-center grupo-columna-03"><span>2025&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                        <th class="text-center grupo-columna-03"><span>2026&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                        <th class="text-center grupo-columna-03"><span>2027&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                        <th class="text-center grupo-columna-03"><span>2028&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                        <th class="text-center grupo-columna-03"><span>2029&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                        <th class="text-center grupo-columna-03"><span>2030&nbsp;<small>tCO<sub>2</sub>eq</small></span></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cuerpo-acumulado-total"></tbody>
+                                <tfoot id="">
+                                    <tr class="bg-primary text-white">
+                                        <th class="text-center grupo-columna-01"><span></span></th>
+                                        <th class="text-center grupo-columna-01"><span id="acum-2010">0.00</span></th>
+                                        <th class="text-center grupo-columna-01"><span id="acum-2011">0.00</span></th>
+                                        <th class="text-center grupo-columna-01"><span id="acum-2012">0.00</span></th>
+                                        <th class="text-center grupo-columna-01"><span id="acum-2013">0.00</span></th>
+                                        <th class="text-center grupo-columna-01"><span id="acum-2014">0.00</span></th>
+                                        <th class="text-center grupo-columna-01"><span id="acum-2015">0.00</span></th>
+                                        <th class="text-center grupo-columna-01"><span id="acum-2016">0.00</span></th>
+                                        <th class="text-center grupo-columna-01"><span id="acum-2017">0.00</span></th>
+                                        <th class="text-center grupo-columna-01"><span id="acum-2018">0.00</span></th>
+                                        <th class="text-center grupo-columna-01"><span id="acum-2019">0.00</span></th>
+                                        <th class="text-center grupo-columna-01"><span id="acum-2020">0.00</span></th>
+                                        <th class="text-center grupo-columna-01"><span id="acum-2021">0.00</span></th>
+                                        <th class="text-center grupo-columna-01"><span id="acum-2022">0.00</span></th>
+                                        <th class="text-center grupo-columna-01"><span id="acum-2023">0.00</span></th>
+                                        <th class="text-center grupo-columna-01"><span id="acum-2024">0.00</span></th>
+                                        <th class="text-center grupo-columna-01"><span id="acum-2025">0.00</span></th>
+                                        <th class="text-center grupo-columna-01"><span id="acum-2026">0.00</span></th>
+                                        <th class="text-center grupo-columna-01"><span id="acum-2027">0.00</span></th>
+                                        <th class="text-center grupo-columna-01"><span id="acum-2028">0.00</span></th>
+                                        <th class="text-center grupo-columna-01"><span id="acum-2029">0.00</span></th>
+                                        <th class="text-center grupo-columna-01"><span id="acum-2030">0.00</span></th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <button class="btn btn-dark" type="button" data-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>

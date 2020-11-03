@@ -2220,7 +2220,7 @@ $(document).ready(function () {
     //$("#Control").data("iniciativa", $("#identificador").val());
     $("#Control").data("revision", $("#revision").val());
 
-    CargarSector();
+    //CargarSector();
     if ($("#revision").val() == 1) {
         CargarDetalleIndicadorRevision();
     } else {        

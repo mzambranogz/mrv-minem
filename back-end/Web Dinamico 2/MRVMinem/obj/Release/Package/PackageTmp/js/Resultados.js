@@ -123,7 +123,8 @@
                             //debugger;
                             //for (var j = 0; j < entidad.length; j++) {
                             if (arrTotal[0] > 0 || arrTotal[1] > 0) {
-                                arr4n.push([arrAnno[0].toString(), arrTotal[0], arrTotal[1],]);
+                                // arr4n.push([arrAnno[0].toString(), arrTotal[0], arrTotal[1], ]);
+                                arr4n.push([arrAnno[0].toString(), Math.round(arrTotal[0] * 100) / 100, Math.round(arrTotal[1] * 100) / 100, ]);
                             }                                
                             //}
 
@@ -172,13 +173,14 @@ function drawMultSeries01(data) {
     var options = {
         width: 900,
         height: 540,
-        title: 'Cantidad de tCO2eq disminuido por Año y Sector',
+        legend: { position: 'none' },
+        //title: 'Cantidad de tCO2eq disminuido por Año y Sector',
         //subtitle: 'Período 2010 - 2030',
-        hAxis: {
-            title: 'Año del Período'
-        },
+        //hAxis: {
+        //    title: 'Año del Período'
+        //},
         vAxis: {
-            title: 'Cantidad de tCO2eq disminuido'
+            title: 'Toneladas de CO2eq'
         }
     };
     var chart = new google.visualization.ColumnChart(
@@ -200,14 +202,15 @@ function drawMultSeries02(data) {
     var options = {
         width: 900,
         height: 540,
-        title: 'Cantidad de Acciones de Mitigación registrados por Sector',
+        legend: { position: 'none' },
+        //title: 'Cantidad de Acciones de Mitigación registrados por Sector',
         //subtitle: 'Período 2010 - 2030',
-        hAxis: {
-            //title: 'Año del Período'
-        },
-        vAxis: {
-            title: 'Cantidad de Acciones de Mitigación registrados'
-        }
+        //hAxis: {
+        //    title: 'Año del Período'
+        //},
+        //vAxis: {
+        //    title: 'Cantidad de Acciones de Mitigación registrados'
+        //}
     };
     var chart = new google.visualization.ColumnChart(
       document.getElementById('chart-02'));
@@ -293,7 +296,8 @@ function drawPieChart(data) {
     //  ['Sector Privado', 18000]
     //]);
     var options = {
-        title: 'Reducción de tCO2eq por Sector',
+        //title: 'Reducción de tCO2eq por Sector',
+        legend: { position: 'none' },
         width: 900,
         height: 540,
         is3D: true
@@ -389,7 +393,6 @@ function calcularTotalGei(anno) {
 }
 
 $(document).ready(function () {
-    debugger;
     var anno = (new Date).getFullYear();
     calcularTotalGei(anno);
 });
