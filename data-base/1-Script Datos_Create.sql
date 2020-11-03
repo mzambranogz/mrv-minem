@@ -757,7 +757,7 @@ prompt Creating T_MAEM_MRV_FACTOR...
 create table T_MAEM_MRV_FACTOR
 (
   id_factor     NUMBER not null,
-  nombre_factor VARCHAR2(50) not null
+  nombre_factor VARCHAR2(55) not null
 )
 ;
 alter table T_MAEM_MRV_FACTOR
