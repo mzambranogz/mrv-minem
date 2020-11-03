@@ -233,12 +233,15 @@ $(document).ready(function () {
     //    CargarDetalleIndicadorVerMas();
     //}
     //CargarDatosIniciativa();
+    CargarSector();
 
     generarAcumulado();
 
     fn_cargarUbicacion();
     fn_cargarEnergetico();
     fn_cargarGei();
+
+    CargarDatosAuditoria();
 
     let resumen_total = 0.0;
     $('[id^=acum-]').each((x, y) => {
@@ -379,4 +382,57 @@ var armarAcumuladosRevision = (data, f) => {
         }
     } else {
     }
+}
+
+function CargarSector() {
+    var item = {
+    };
+    vurl = baseUrl + "Portal/ListaSectorInstitucion";
+    $.ajax({
+        url: vurl,
+        type: 'POST',
+        datatype: 'json',
+        data: item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    $("#cbo-sector").append('<option value="0">Seleccionar</option>');
+                    for (var i = 0; i < data.length; i++) {
+                        $("#cbo-sector").append('<option value="' + data[i]["ID_SECTOR_INST"] + '">' + data[i]["DESCRIPCION"] + '</option>');
+                    }
+                }
+            }
+        }
+    });
+}
+
+function CargarDatosAuditoria() {
+    var Item =
+    {
+        ID_INICIATIVA: $("#Control").data("iniciativa")
+    };
+    $.ajax({
+        url: baseUrl + "Portal/CargarSeleccionIniciativa",
+        type: 'POST',
+        datatype: 'json',
+        data: Item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i]["ID_MEDMIT"] == 4) {
+                            if (data[i]["INSTITUCION_AUDITADA"] != null || data[i]["SECTOR_INST"] != null || data[i]["TIPO_AUDITORIA"] != null || data[i]["AUDITOR_AUDITORIA"] != null || data[i]["NOMBRE_INSTITUCION"] != null || data[i]["FECHA_AUDITORIA"] != null) {
+                                $('#cbo-sector').val(data[i]["SECTOR_INST"] == null ? '0' : data[i]["SECTOR_INST"]);
+                                $('#txt-institucion').val(data[i]["INSTITUCION_AUDITADA"] == null ? '' : data[i]["INSTITUCION_AUDITADA"]);
+                                $('#cbo-tipo_auditoria').val(data[i]["TIPO_AUDITORIA"] == null ? '0' : data[i]["TIPO_AUDITORIA"]);
+                                $('#txt-auditor').val(data[i]["AUDITOR_AUDITORIA"] == null ? '' : data[i]["AUDITOR_AUDITORIA"]);
+                                $('#txt-institucion-auditor').val(data[i]["NOMBRE_INSTITUCION"] == null ? '' : data[i]["NOMBRE_INSTITUCION"]);
+                                $('#fch-fecha-auditoria').val(data[i]["FECHA_AUDITORIA"] == null ? '' : data[i]["FECHA_AUDITORIA"]);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    });
 }

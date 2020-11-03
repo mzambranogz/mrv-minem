@@ -339,6 +339,66 @@
                                 </div>
                             </div>
 
+                            @if (Model.medida.ID_MEDMIT == 4)
+                            {
+                                <div class="row">
+                                    <div class="col-12 px-0">
+                                        <div class="table-responsive tabla-principal">
+                                            <table class="table table-hover" id="tablaAuditor">
+                                                <thead id="cabeceraAuditor">
+                                                    <tr class="bg-primary text-white">
+                                                        <th class="text-center grupo-columna-03" scope="col"><span>Sector</span></th>
+                                                        <th class="text-center grupo-columna-03" scope="col"><span>Institución auditada</span></th>
+                                                        <th class="text-center grupo-columna-03" scope="col"><span>Tipo auditoría</span></th>
+                                                        <th class="text-center grupo-columna-03" scope="col"><span>Auditado por:</span></th>
+                                                        <th class="text-center grupo-columna-03" scope="col"><span>Nombre de institución del auditor</span></th>
+                                                        <th class="text-center grupo-columna-03" scope="col"><span>Fecha de auditoría</span></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="cuerpoAuditor">
+                                                    <tr id="detalles-tr-1" data-ind="1" data-rev="0">
+                                                        <td data-encabezado="Columna 07">
+                                                            <div class="form-group m-0">
+                                                                <select class="form-control form-control-sm" id="cbo-sector" disabled></select>
+                                                            </div>
+                                                        </td>
+                                                        <td data-encabezado="Columna 07">
+                                                            <div class="form-group m-0">
+                                                                <input class="form-control form-control-sm text-left" type="text" placeholder="" id="txt-institucion" maxlength="120" readonly>
+                                                            </div>
+                                                        </td>
+                                                        <td data-encabezado="Columna 07">
+                                                            <div class="form-group m-0">
+                                                                <select class="form-control form-control-sm" id="cbo-tipo_auditoria" disabled>
+                                                                    <option value="0">Seleccionar</option>
+                                                                    <option value="1">Tipo 1</option>
+                                                                    <option value="2">Tipo 2</option>
+                                                                    <option value="3">Tipo 3</option>
+                                                                </select>
+                                                            </div>
+                                                        </td>
+                                                        <td data-encabezado="Columna 07">
+                                                            <div class="form-group m-0">
+                                                                <input class="form-control form-control-sm text-left" type="text" placeholder="" id="txt-auditor" maxlength="60" readonly>
+                                                            </div>
+                                                        </td>
+                                                        <td data-encabezado="Columna 07">
+                                                            <div class="form-group m-0">
+                                                                <input class="form-control form-control-sm text-left" type="text" placeholder="" id="txt-institucion-auditor" maxlength="120" readonly>
+                                                            </div>
+                                                        </td>
+                                                        <td data-encabezado="Columna 07">
+                                                            <div class="form-group m-0">
+                                                                <input class="form-control form-control-sm text-center" type="date" placeholder="" id="fch-fecha-auditoria" readonly>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
 
                             <div class="row">
                                 <div class="col-12 px-0">

@@ -976,5 +976,13 @@ namespace MRVMinem.Controllers
             return listaE;
         }
 
+        public JsonResult CargarSeleccionIniciativa(IniciativaBE entidad)
+        {
+            List<IniciativaBE> lista = IniciativaLN.ListarIniciativaAvance(entidad);
+            var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
     }
 }

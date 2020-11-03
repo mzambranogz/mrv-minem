@@ -321,7 +321,9 @@ function CargarDatosIniciativa() {
                         }
 
                         if (data[i]["ID_MEDMIT"] == 4) {
-                            if (data[i]["TIPO_AUDITORIA"] != null || data[i]["AUDITOR_AUDITORIA"] != null || data[i]["NOMBRE_INSTITUCION"] != null || data[i]["FECHA_AUDITORIA"] != null) {
+                            if (data[i]["INSTITUCION_AUDITADA"] != null || data[i]["SECTOR_INST"] != null || data[i]["TIPO_AUDITORIA"] != null || data[i]["AUDITOR_AUDITORIA"] != null || data[i]["NOMBRE_INSTITUCION"] != null || data[i]["FECHA_AUDITORIA"] != null) {
+                                $('#cbo-sector').val(data[i]["SECTOR_INST"] == null ? '0' : data[i]["SECTOR_INST"]);
+                                $('#txt-institucion').val(data[i]["INSTITUCION_AUDITADA"] == null ? '' : data[i]["INSTITUCION_AUDITADA"]);
                                 $('#cbo-tipo_auditoria').val(data[i]["TIPO_AUDITORIA"] == null ? '0' : data[i]["TIPO_AUDITORIA"]);
                                 $('#txt-auditor').val(data[i]["AUDITOR_AUDITORIA"] == null ? '' : data[i]["AUDITOR_AUDITORIA"]);
                                 $('#txt-institucion-auditor').val(data[i]["NOMBRE_INSTITUCION"] == null ? '' : data[i]["NOMBRE_INSTITUCION"]);
@@ -2927,6 +2929,8 @@ function fn_procesoDetalleIndicador(url, estado) {
         extra: archivos,
         ListaIndicadoresData: arrValores,
         //AUDITORIA: obj //26-10-20
+        SECTOR_INST: medida == 4 ? $('#cbo-sector').val() : '',
+        INSTITUCION_AUDITADA: medida == 4 ? $('#txt-institucion').val() : '',
         TIPO_AUDITORIA: medida == 4 ? $('#cbo-tipo_auditoria').val() : '',
         AUDITOR_AUDITORIA: medida == 4 ? $('#txt-auditor').val() : '',
         NOMBRE_INSTITUCION: medida == 4 ? $('#txt-institucion-auditor').val() : '',
@@ -2954,9 +2958,9 @@ function fn_procesoDetalleIndicador(url, estado) {
         },
         success: function (response, textStatus, myXhr) {
             if (response.success) {
-                //CargarDetalleDatos();    
-                if (estado == 0 || estado == 6) CargarDatosGuardados();
+                //CargarDetalleDatos();  
                 if (estado == 0 || estado == 6) CargarArchivosGuardados();
+                if (estado == 0 || estado == 6) CargarDatosGuardados();
                 $("#cuerpoTablaIndicador").data("delete", "");
                 $("#total-documentos").data("eliminarfile", "");
                 $("#fledocumentos").val("");
@@ -4389,13 +4393,13 @@ $(document).ready(function () {
     //$("#cbo-enfoque").val($("#menor").val());
     //$("#enfoque-" + ($("#cbo-enfoque").val())).removeAttr("hidden");
     //$("#cbo-enfoque").data("select", $("#cbo-enfoque").val()); //data-select para saber quien fue el anterior
-    
+    CargarSector();
     if ($("#revision").val() == 1) {
 
 
 
         fn_ListarGEI();
-
+        CargarDatosAuditoria(); //add 03-11-20
         armarAcumulado(); //add 17-05-2020
         //CargarDetalleIndicadorRevision();
         //cargarTablasEnfoque();
@@ -4406,7 +4410,6 @@ $(document).ready(function () {
         //for (var i = 0; i < arr.length; i++){
         //    armarVerificar(arr[i]);
         //}
-
         //fn_listarFactores(); -agregar luego 13-03-20
 
     } else {
@@ -4420,10 +4423,10 @@ $(document).ready(function () {
 
         //cargarCabeceraTabla($("#cbo-enfoque").val());
         //CargarDetalleDatos();
-
         //cargarCuerpoTabla($("#cbo-enfoque").val());
-        //CargarDetalleIndicador();
+        //CargarDetalleIndicador();        
     }
+    
 
     var monto = $("#txt-monto-inversion").val();
     if (monto != '------')
@@ -6150,4 +6153,57 @@ var formatearFecha = (fecha) => {
     debugger;
     let f = fecha.split('-');
     return `${f[2]}/${f[1]}/${f[0]}`;
+}
+
+function CargarSector() {
+    var item = {
+    };
+    vurl = baseUrl + "Gestion/ListaSectorInstitucion";
+    $.ajax({
+        url: vurl,
+        type: 'POST',
+        datatype: 'json',
+        data: item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    $("#cbo-sector").append('<option value="0">Seleccionar</option>');
+                    for (var i = 0; i < data.length; i++) {
+                        $("#cbo-sector").append('<option value="' + data[i]["ID_SECTOR_INST"] + '">' + data[i]["DESCRIPCION"] + '</option>');
+                    }
+                }
+            }
+        }
+    });
+}
+
+function CargarDatosAuditoria() {
+    var Item =
+    {
+        ID_INICIATIVA: $("#Control").data("iniciativa")
+    };
+    $.ajax({
+        url: baseUrl + "Gestion/CargarSeleccionIniciativa",
+        type: 'POST',
+        datatype: 'json',
+        data: Item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i]["ID_MEDMIT"] == 4) {
+                            if (data[i]["INSTITUCION_AUDITADA"] != null || data[i]["SECTOR_INST"] != null || data[i]["TIPO_AUDITORIA"] != null || data[i]["AUDITOR_AUDITORIA"] != null || data[i]["NOMBRE_INSTITUCION"] != null || data[i]["FECHA_AUDITORIA"] != null) {
+                                $('#cbo-sector').val(data[i]["SECTOR_INST"] == null ? '0' : data[i]["SECTOR_INST"]);
+                                $('#txt-institucion').val(data[i]["INSTITUCION_AUDITADA"] == null ? '' : data[i]["INSTITUCION_AUDITADA"]);
+                                $('#cbo-tipo_auditoria').val(data[i]["TIPO_AUDITORIA"] == null ? '0' : data[i]["TIPO_AUDITORIA"]);
+                                $('#txt-auditor').val(data[i]["AUDITOR_AUDITORIA"] == null ? '' : data[i]["AUDITOR_AUDITORIA"]);
+                                $('#txt-institucion-auditor').val(data[i]["NOMBRE_INSTITUCION"] == null ? '' : data[i]["NOMBRE_INSTITUCION"]);
+                                $('#fch-fecha-auditoria').val(data[i]["FECHA_AUDITORIA"] == null ? '' : data[i]["FECHA_AUDITORIA"]);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    });
 }

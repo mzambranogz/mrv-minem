@@ -324,7 +324,9 @@ function CargarDatosIniciativa() {
                         }
 
                         if (data[i]["ID_MEDMIT"] == 4) {
-                            if (data[i]["TIPO_AUDITORIA"] != null || data[i]["AUDITOR_AUDITORIA"] != null || data[i]["NOMBRE_INSTITUCION"] != null || data[i]["FECHA_AUDITORIA"] != null) {
+                            if (data[i]["INSTITUCION_AUDITADA"] != null || data[i]["SECTOR_INST"] != null || data[i]["TIPO_AUDITORIA"] != null || data[i]["AUDITOR_AUDITORIA"] != null || data[i]["NOMBRE_INSTITUCION"] != null || data[i]["FECHA_AUDITORIA"] != null) {
+                                $('#cbo-sector').val(data[i]["SECTOR_INST"] == null ? '0' : data[i]["SECTOR_INST"]);
+                                $('#txt-institucion').val(data[i]["INSTITUCION_AUDITADA"] == null ? '' : data[i]["INSTITUCION_AUDITADA"]);
                                 $('#cbo-tipo_auditoria').val(data[i]["TIPO_AUDITORIA"] == null ? '0' : data[i]["TIPO_AUDITORIA"]);
                                 $('#txt-auditor').val(data[i]["AUDITOR_AUDITORIA"] == null ? '' : data[i]["AUDITOR_AUDITORIA"]);
                                 $('#txt-institucion-auditor').val(data[i]["NOMBRE_INSTITUCION"] == null ? '' : data[i]["NOMBRE_INSTITUCION"]);
@@ -2218,6 +2220,7 @@ $(document).ready(function () {
     //$("#Control").data("iniciativa", $("#identificador").val());
     $("#Control").data("revision", $("#revision").val());
 
+    CargarSector();
     if ($("#revision").val() == 1) {
         CargarDetalleIndicadorRevision();
     } else {        
@@ -2606,6 +2609,8 @@ function fn_procesoDetalleIndicador(url, estado) {
         ListaSustentos: documentos,
         extra: archivos,
         ListaIndicadoresData: arrValores, //add 27-09-2020
+        SECTOR_INST: medida == 4 ? $('#cbo-sector').val() : '',
+        INSTITUCION_AUDITADA: medida == 4 ? $('#txt-institucion').val() : '',
         TIPO_AUDITORIA: medida == 4 ? $('#cbo-tipo_auditoria').val() : '',
         AUDITOR_AUDITORIA: medida == 4 ? $('#txt-auditor').val() : '',
         NOMBRE_INSTITUCION: medida == 4 ? $('#txt-institucion-auditor').val() : '',
@@ -2633,10 +2638,10 @@ function fn_procesoDetalleIndicador(url, estado) {
         },
         success: function (response, textStatus, myXhr) {
             if (response.success) {
-                //CargarDetalleDatos();    
-                if (estado == 0 || estado == 6) CargarDatosGuardados();
+                //CargarDetalleDatos();                    
                 if (estado == 0 || estado == 6) CargarArchivosGuardados();
                 if (estado == 0 || estado == 6) GuardarIdDetalle();//
+                if (estado == 0 || estado == 6) CargarDatosGuardados();
                 $("#cuerpoTablaIndicador").data("flag", 0);//
                 $("#cuerpoTablaIndicador").data("delete", "");
                 $("#total-documentos").data("eliminarfile", "");
@@ -3516,4 +3521,26 @@ var estiloblockpage = () => {
     $("#block-page-carga").css("background-color", "#fff");
     $("#block-page-carga").css("z-index", "2000");
     $("#block-page-carga").css("display", "none");
+}
+
+function CargarSector() {
+    var item = {
+    };
+    vurl = baseUrl + "Gestion/ListaSectorInstitucion";
+    $.ajax({
+        url: vurl,
+        type: 'POST',
+        datatype: 'json',
+        data: item,
+        success: function (data) {
+            if (data != null && data != "") {
+                if (data.length > 0) {
+                    $("#cbo-sector").append('<option value="0">Seleccionar</option>');
+                    for (var i = 0; i < data.length; i++) {
+                        $("#cbo-sector").append('<option value="' + data[i]["ID_SECTOR_INST"] + '">' + data[i]["DESCRIPCION"] + '</option>');
+                    }
+                }
+            }
+        }
+    });
 }

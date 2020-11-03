@@ -2836,6 +2836,8 @@ namespace datos.minem.gob.pe
                     string sp = sPackage + "USP_PRC_INICIATIVA_AUDITORIA";
                     var p = new OracleDynamicParameters();
                     p.Add("PI_ID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("PI_SECTOR_INST", entidad.SECTOR_INST);
+                    p.Add("PI_INSTITUCION_AUDITADA", entidad.INSTITUCION_AUDITADA);
                     p.Add("PI_TIPO_AUDITORIA", entidad.TIPO_AUDITORIA);
                     p.Add("PI_AUDITOR", entidad.AUDITOR_AUDITORIA);
                     p.Add("PI_NOMBRE_INSTITUCION", entidad.NOMBRE_INSTITUCION);

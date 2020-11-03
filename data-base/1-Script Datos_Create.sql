@@ -375,6 +375,8 @@ alter table T_GENM_INICIATIVA
 create table T_GEND_INICIATIVA_AUDITORIA (
   ID_AUDITORIA NUMBER,
   ID_INICIATIVA NUMBER,
+  SECTOR_INST VARCHAR2(3),
+  INSTITUCION_AUDITADA VARCHAR2(130),
   TIPO_AUDITORIA VARCHAR2(10),
   AUDITOR VARCHAR2(80),
   NOMBRE_INSTITUCION VARCHAR2(130),
@@ -2065,7 +2067,7 @@ insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, n
 values (19, 2, 2, 'Potencia base (W)', '1', '1', '1', null, null, null, null, null, 'Valor de potencia antes de la implementación Kilovatios hora.año', 'Refiere a la electricidad que consumirían los equipos que se están dejando de utilizar en el periodo de un año.', 'Se calcula en base a las propiedades específicas de cada equipo (potencia, capacidad, etc.) y las horas totales', 'aproximadas usadas durante un año.', 'Administrador revisa aleatoriamente una muestra representativa de acciones (datos de entrada, cálculos y resultados de reporte).', 'Permite conocer el consumo de electricidad por los equipos energéticos de la línea base', 'Anual', '1');
 
 INSERT INTO MRVMM.T_MAEM_MRV_PARAMETRO (ID_PARAMETRO,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_PARAMETRO,EDITABLE,VERIFICABLE,FLG_ESTADO,ID_PREFIJO,ID_UNIDAD_MEDIDA,DESCRIPCION_UNIDAD,COMBINACION_UNIDAD,DESCRIPCION_PARAMETRO,LEYENDA_PARAMETRO,DESCRIPCION_METODOLOGIA,PROCEDIMIENTO,CONTROL_CALIDAD,ASEGURAMIENTO_CALIDAD,PROPOSITO,FRECUENCIA,V_DECIMAL) 
-values ('73','1',null,'Oportunidad de mejora identificada por la auditoría energética','1','1','1',null,null,null,null,null,null,null,null,null,null,null,null,'0');
+values ('73','1',null,'Oportunidad de mejora identificada','1','1','1',null,null,null,null,null,null,null,null,null,null,null,null,'0');
 INSERT INTO MRVMM.T_MAEM_MRV_PARAMETRO (ID_PARAMETRO,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_PARAMETRO,EDITABLE,VERIFICABLE,FLG_ESTADO,ID_PREFIJO,ID_UNIDAD_MEDIDA,DESCRIPCION_UNIDAD,COMBINACION_UNIDAD,DESCRIPCION_PARAMETRO,LEYENDA_PARAMETRO,DESCRIPCION_METODOLOGIA,PROCEDIMIENTO,CONTROL_CALIDAD,ASEGURAMIENTO_CALIDAD,PROPOSITO,FRECUENCIA,V_DECIMAL) 
 values ('74','2','3','Descripción BAU','1','0','1',null,null,null,null,null,null,null,null,null,null,null,null,'0');
 INSERT INTO MRVMM.T_MAEM_MRV_PARAMETRO (ID_PARAMETRO,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_PARAMETRO,EDITABLE,VERIFICABLE,FLG_ESTADO,ID_PREFIJO,ID_UNIDAD_MEDIDA,DESCRIPCION_UNIDAD,COMBINACION_UNIDAD,DESCRIPCION_PARAMETRO,LEYENDA_PARAMETRO,DESCRIPCION_METODOLOGIA,PROCEDIMIENTO,CONTROL_CALIDAD,ASEGURAMIENTO_CALIDAD,PROPOSITO,FRECUENCIA,V_DECIMAL) 
