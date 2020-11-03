@@ -3343,7 +3343,8 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                                         }
                                         tr += '</select>';
                                     } else {
-                                        tr += '<select class="form-control form-control-sm require-data" id="cbo-det-tbl-1-' + lista + '-' + (i + 1) + '" onchange="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '">';
+                                        //tr += '<select class="form-control form-control-sm require-data" id="cbo-det-tbl-1-' + lista + '-' + (i + 1) + '" onchange="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '">';
+                                        tr += `<select class="form-control form-control-sm require-data ${data[j]["VALIDAR_IMPLEMENTADO"] == '1' ? 'validar-implementado' : ''}" id="cbo-det-tbl-1-${lista}-${(i + 1)}" onchange="fn_calcularValor(this)" data-validar="0" data-param="${data[j]["ID_PARAMETRO"]}">`;
                                         if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30 && data[j]["ID_PARAMETRO"] != 93 && data[j]["ID_PARAMETRO"] != 94 && data[j]["ID_PARAMETRO"] != 95) tr += '        <option value="0">Seleccionar</option>'; //add
                                         //tr += '        <option value="0">Seleccionar</option>';
                                         var listaD = data[j]["listaDetalle"];
@@ -3354,7 +3355,8 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                                     }
                                 } else {
                                     lista++;
-                                    tr += '<select class="form-control form-control-sm require-data" id="cbo-det-tbl-1-' + lista + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '">';
+                                    //tr += '<select class="form-control form-control-sm require-data" id="cbo-det-tbl-1-' + lista + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '">';
+                                    tr += `<select class="form-control form-control-sm require-data ${data[j]["VALIDAR_IMPLEMENTADO"] == '1' ? 'validar-implementado' : ''}" id="cbo-det-tbl-1-${lista}-${(i + 1)}" data-param="${data[j]["ID_PARAMETRO"]}">`;
                                     if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30 && data[j]["ID_PARAMETRO"] != 93 && data[j]["ID_PARAMETRO"] != 94 && data[j]["ID_PARAMETRO"] != 95) tr += '        <option value="0">Seleccionar</option>'; //add
                                     //tr += '        <option value="0">Seleccionar</option>';
                                     var listaD = data[j]["listaDetalle"];
@@ -3401,7 +3403,7 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                                     if (data[j]["ID_PARAMETRO"] == 11) {
                                         tr += '<input class="form-control form-control-sm text-center campo-total" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" readonly>';
                                     } else {
-                                        tr += `<input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-${texto}-${(i + 1)}" data-param="${data[j]["ID_PARAMETRO"]}" readonly>`;
+                                        tr += `<input class="form-control form-control-sm text-center ${data[j]["ENERGIA_TOTAL"] == '1' ? 'energia-total' : ''}" type="text" placeholder="" id="txt-det-tbl-1-${texto}-${(i + 1)}" data-param="${data[j]["ID_PARAMETRO"]}" readonly>`;
                                     }
 
                                 }
@@ -3591,7 +3593,8 @@ function CargarNuevaFila(filas) {
                                         tr += '</select>';
                                     } else {
                                         
-                                        tr += '<select class="form-control form-control-sm require-data" id="cbo-det-tbl-1-' + lista + '-' + (rows + 1) + '" onchange="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '">';
+                                        //tr += '<select class="form-control form-control-sm require-data" id="cbo-det-tbl-1-' + lista + '-' + (rows + 1) + '" onchange="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '">';
+                                        tr += `<select class="form-control form-control-sm require-data ${data[j]["VALIDAR_IMPLEMENTADO"] == '1' ? 'validar-implementado' : ''}" id="cbo-det-tbl-1-${lista}-${(rows + 1)}" onchange="fn_calcularValor(this)" data-validar="0" data-param="${data[j]["ID_PARAMETRO"]}">`;
                                         if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30 && data[j]["ID_PARAMETRO"] != 93 && data[j]["ID_PARAMETRO"] != 94 && data[j]["ID_PARAMETRO"] != 95) tr += '        <option value="0">Seleccionar</option>'; //add
                                         //tr += '        <option value="0">Seleccionar</option>';
                                         var listaD = data[j]["listaDetalle"];
@@ -3602,7 +3605,8 @@ function CargarNuevaFila(filas) {
                                     }
                                 } else {
                                     lista++;
-                                    tr += '<select class="form-control form-control-sm require-data" id="cbo-det-tbl-1-' + lista + '-' + (rows + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '">';
+                                    tr += `<select class="form-control form-control-sm require-data ${data[j]["VALIDAR_IMPLEMENTADO"] == '1' ? 'validar-implementado' : ''}" id="cbo-det-tbl-1-${lista}-${(rows + 1)}" data-param="${data[j]["ID_PARAMETRO"]}">`;
+                                    //tr += '<select class="form-control form-control-sm require-data" id="cbo-det-tbl-1-' + lista + '-' + (rows + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '">';
                                     if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30 && data[j]["ID_PARAMETRO"] != 93 && data[j]["ID_PARAMETRO"] != 94 && data[j]["ID_PARAMETRO"] != 95) tr += '        <option value="0">Seleccionar</option>'; //add
                                     //tr += '        <option value="0">Seleccionar</option>';
                                     var listaD = data[j]["listaDetalle"];
@@ -3651,7 +3655,7 @@ function CargarNuevaFila(filas) {
                                     if (data[j]["ID_PARAMETRO"] == 11) {
                                         tr += '<input class="form-control form-control-sm text-center campo-total" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" readonly>';
                                     } else {
-                                        tr += '<input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (rows + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" readonly>';
+                                        tr += `<input class="form-control form-control-sm text-center ${data[j]["ENERGIA_TOTAL"] == '1' ? 'energia-total' : ''}" type="text" placeholder="" id="txt-det-tbl-1-${texto}-${(rows + 1)}" data-param="${data[j]["ID_PARAMETRO"]}" readonly>`;
                                     }
 
                                 }
@@ -3723,7 +3727,6 @@ function CargarDatosGuardados() {
                         var fecha = 0;
                         var entidad = data[i]["listaInd"];
                         var entidad_a = data[i]["listaAcumulado"]; //add 29-09-20
-                        debugger;
                         let rev = entidad[0]["FLAG_REVISION"] == null ? '0' : entidad[0]["FLAG_REVISION"] == '' ? '0' : entidad[0]["FLAG_REVISION"];
                         $("#cuerpoTablaIndicador #detalles-tr-" + (i + 1)).attr({ "data-ind": data[i]["ID_INDICADOR"] });
                         $("#cuerpoTablaIndicador #detalles-tr-" + (i + 1)).attr({ "data-rev": rev });
@@ -3809,18 +3812,33 @@ function CargarDatosGuardados() {
                     //$("#total-detalle2").html("").append(formatoMiles(Math.round(total * 100) / 100));
                     //$("#cuerpoTablaIndicador").data("total", total);
 
-                    let resumen_total = 0.0;
-                    $('[id^=acum-]').each((x, y) => {
-                        resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
-                    });
-                    $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
-                    $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
-                    $("#cuerpoTablaIndicador").data("total", resumen_total);
+                    let resumen_total = 0.0, resumen_energia = 0.0;
+                    if (medida == 4) {
+                        $('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
+                            let emision = parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val());
+                            let energia = parseFloat($(y).parent().parent().parent().find('.energia-total').val());
+                            resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
+                            resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
+                        });
+                        $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+                        $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+                        $("#total-detalle-energia").html("").append(formatoMiles(Math.round(resumen_energia * 100) / 100));
+                        $("#cuerpoTablaIndicador").data("total", resumen_total);
+                    } else {
+                        $('[id^=acum-]').each((x, y) => {
+                            resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
+                        });
+                        $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+                        $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+                        $("#total-detalle-energia").html("").append(formatoMiles(0.00));
+                        $("#cuerpoTablaIndicador").data("total", resumen_total);
+                    }                    
                 }
             } else {
                 CargarCuerpoGuardado(1, 0);
                 $("#total-detalle").html("").append(0.00);
                 $("#total-detalle2").html("").append(0.00);
+                $("#total-detalle-energia").html("").append(0.00);
                 //cargarCuerpoTabla($("#cbo-enfoque").val());
                 //$("#total-detalle").append('<strong id="total">0.00 tCO<sub>2</sub>eq</strong>');
                 //$("#total-detalle2").append('<strong id="total2">0.00 tCO<sub>2</sub>eq</strong>');
@@ -4491,31 +4509,31 @@ function fn_calcularValor(e) {
     var dv = $(e).attr("data-validar");
     var row = $(e).parent().parent().parent().find('th:eq(0)').html();
     //var row = $("#tablaIndicador").data("fila");
-
-
-
-    id = e.id;
-    var indice_id = id.substring(0, 3);
-    if (indice_id == "cbo") {
-        if ($("#" + id).val() > 0) {
-            $(e).attr({ "data-validar": "1" });
-        } else {
-            $(e).attr({ "data-validar": "0" });
+    //debugger;
+    if (dv == undefined) { }
+    else {
+        id = e.id;
+        var indice_id = id.substring(0, 3);
+        if (indice_id == "cbo") {
+            if ($("#" + id).val() > 0) {
+                $(e).attr({ "data-validar": "1" });
+            } else {
+                $(e).attr({ "data-validar": "0" });
+            }
+        } else if (indice_id == "txt") {
+            if ($("#" + id).val() != "") {
+                $(e).attr({ "data-validar": "1" });
+            } else {
+                $(e).attr({ "data-validar": "0" });
+            }
+        } else if (indice_id == "fch") {
+            if ($("#" + id).val() != "") {
+                $(e).attr({ "data-validar": "1" });
+            } else {
+                $(e).attr({ "data-validar": "0" });
+            }
         }
-    } else if (indice_id == "txt") {
-        if ($("#" + id).val() != "") {
-            $(e).attr({ "data-validar": "1" });
-        } else {
-            $(e).attr({ "data-validar": "0" });
-        }
-    } else if (indice_id == "fch") {
-        if ($("#" + id).val() != "") {
-            $(e).attr({ "data-validar": "1" });
-        } else {
-            $(e).attr({ "data-validar": "0" });
-        }
-    }
-
+    }       
 
     var valor = 0;
     var campos = $("#tablaIndicador").find("tbody").find("#detalles-tr-" + row).find("[data-validar]");
@@ -4570,7 +4588,6 @@ function fn_enviarCalcularValor(item, f) {
     //    alert("bien");
     //}
     $("[id^=txt-det-]").each((x, y) => {
-        debugger;
         if ($(y).parent().parent().parent().data('rev') == '0') $(y).prop('disabled', true);
     });
     $("[id^=cbo-det-]").each((x, y) => {
@@ -4694,8 +4711,8 @@ function fn_eliminarRestarTotal() {
             console.log("Archivos borrados");
         }
 
-        eliminarAcumulado(fila);
         eliminar_item.parent().parent().remove();
+        eliminarAcumulado(fila);        
         $('#modal-confirmacion').modal('hide');
     }
 }
@@ -5521,13 +5538,37 @@ function agregarAcumulado(item, f) {
                     
 
                 }
-                let resumen_total = 0.0;
-                $('[id^=acum-]').each((x, y) => {
-                    resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
-                });
-                $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
-                $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
-                $("#cuerpoTablaIndicador").data("total", resumen_total);
+
+                let resumen_total = 0.0, resumen_energia = 0.0;
+                if (medida == 4) {
+                    $('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
+                        //debugger;
+                        let emision = parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val());
+                        let energia = parseFloat($(y).parent().parent().parent().find('.energia-total').val());
+                        resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
+                        resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
+                    });
+                    $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+                    $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+                    $("#total-detalle-energia").html("").append(formatoMiles(Math.round(resumen_energia * 100) / 100));
+                    $("#cuerpoTablaIndicador").data("total", resumen_total);
+                } else {
+                    $('[id^=acum-]').each((x, y) => {
+                        resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
+                    });
+                    $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+                    $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+                    $("#total-detalle-energia").html("").append(formatoMiles(0.00));
+                    $("#cuerpoTablaIndicador").data("total", resumen_total);
+                }
+
+                //let resumen_total = 0.0;
+                //$('[id^=acum-]').each((x, y) => {
+                //    resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
+                //});
+                //$("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+                //$("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+                //$("#cuerpoTablaIndicador").data("total", resumen_total);
             } else {
             }
 
@@ -5576,13 +5617,35 @@ function eliminarAcumulado(f) {
 
     ordenarTabla();
 
-    let resumen_total = 0.0;
-    $('[id^=acum-]').each((x, y) => {
-        resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
-    });
-    $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
-    $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
-    $("#cuerpoTablaIndicador").data("total", resumen_total);
+    let resumen_total = 0.0, resumen_energia = 0.0;
+    if ($("#Control").data("mitigacion") == 4) {
+        $('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
+            let emision = parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val());
+            let energia = parseFloat($(y).parent().parent().parent().find('.energia-total').val());
+            resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
+            resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
+        });
+        $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+        $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+        $("#total-detalle-energia").html("").append(formatoMiles(Math.round(resumen_energia * 100) / 100));
+        $("#cuerpoTablaIndicador").data("total", resumen_total);
+    } else {
+        $('[id^=acum-]').each((x, y) => {
+            resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
+        });
+        $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+        $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+        $("#total-detalle-energia").html("").append(formatoMiles(0.00));
+        $("#cuerpoTablaIndicador").data("total", resumen_total);
+    }  
+
+    //let resumen_total = 0.0;
+    //$('[id^=acum-]').each((x, y) => {
+    //    resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
+    //});
+    //$("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+    //$("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+    //$("#cuerpoTablaIndicador").data("total", resumen_total);
 }
 
 function ordenarTabla() {
@@ -6153,7 +6216,6 @@ var estiloblockpage = () => {
 }
 
 var formatearFecha = (fecha) => {
-    debugger;
     let f = fecha.split('-');
     return `${f[2]}/${f[1]}/${f[0]}`;
 }
@@ -6220,4 +6282,8 @@ $(document).on("click", ".quitarCamposN", function (e) {
         eliminar_item = t;
         $("#modal-confirmacion").modal("show");
     }
+})
+
+$(document).on("change", ".validar-implementado", function (e) {
+    fn_calcularValor($(this));
 })

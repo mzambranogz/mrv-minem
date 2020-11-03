@@ -27,6 +27,8 @@ namespace entidad.minem.gob.pe
         public string FRECUENCIA { get; set; }
         public string V_DECIMAL { get; set; }
         public string VISIBLE { get; set; }
+        public string ENERGIA_TOTAL { get; set; }
+        public string VALIDAR_IMPLEMENTADO { get; set; }
         public List<ParametroDetalleBE> listaDetalle { get; set; }
     }
 }

@@ -358,7 +358,7 @@
                                                             </td>
                                                             <td data-encabezado="Columna 07">
                                                                 <div class="form-group m-0">
-                                                                    <input class="form-control form-control-sm text-left" type="text" placeholder="" id="txt-institucion" maxlength="60">
+                                                                    <input class="form-control form-control-sm text-left" type="text" placeholder="" id="txt-institucion" maxlength="120" autocomplete="off">
                                                                 </div>
                                                             </td>
                                                             <td data-encabezado="Columna 07">
@@ -382,7 +382,7 @@
                                                             </td>
                                                             <td data-encabezado="Columna 07">
                                                                 <div class="form-group m-0">
-                                                                    <input class="form-control form-control-sm text-left" type="text" placeholder="" id="txt-institucion-auditor" maxlength="120">
+                                                                    <input class="form-control form-control-sm text-left" type="text" placeholder="" id="txt-institucion-auditor" maxlength="120" autocomplete="off">
                                                                 </div>
                                                             </td>
                                                             <td data-encabezado="Columna 07">
@@ -438,16 +438,25 @@
                                                 <thead>
                                                     <tr class="bg-primary text-white">
                                                         <th class="text-center" scope="col" width="2%"><span>N°&nbsp;</span></th>
-                                                        <th scope="col" width="88%"><span>Resumen</span></th>
+                                                        <th scope="col" width="88%"><span>@(Model.medida.ID_MEDMIT == 4 ? "Por las mejoras implementadas" : "Resumen")</span></th>
                                                         <th scope="col" width="10%"><span>Total</span></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr>
                                                         <th class="text-center" data-encabezado="Número" scope="row">1</th>
-                                                        <td data-encabezado="Resumen" @*id="resumen-detalle"*@>@Model.medida.IPSC_MEDMIT</td>
+                                                        @*<td data-encabezado="Resumen">@Model.medida.IPSC_MEDMIT</td>*@
+                                                        <td data-encabezado="Resumen">Emisiones de GEI reducidas</td>
                                                         <td data-encabezado="Total"><strong id="total-detalle">0.00</strong><strong>&nbsp;tCO<sub>2</sub>eq</strong></td>
                                                     </tr>
+                                                    @if (Model.medida.ID_MEDMIT == 4)
+                                                    {
+                                                        <tr>
+                                                            <th class="text-center" data-encabezado="Número" scope="row">2</th>
+                                                            <td data-encabezado="Resumen">Energía total reducida</td>
+                                                            <td data-encabezado="Total"><strong id="total-detalle-energia">0.00</strong><strong>&nbsp;MJ</strong></td>
+                                                        </tr>
+                                                    }
                                                 </tbody>
                                             </table>
                                         </div>

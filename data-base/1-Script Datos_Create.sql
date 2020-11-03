@@ -636,7 +636,9 @@ create table T_MAEM_MRV_PARAMETRO
   proposito               VARCHAR2(300),
   frecuencia              VARCHAR2(300),
   v_decimal               VARCHAR2(1) default '1',
-  visible		  VARCHAR2(1) default '1'
+  visible		  VARCHAR2(1) default '1',
+  ENERGIA_TOTAL           VARCHAR2(1) default '0',
+  VALIDAR_IMPLEMENTADO    VARCHAR2(1) default '0'
 )
 ;
 alter table T_MAEM_MRV_PARAMETRO
@@ -2100,10 +2102,10 @@ insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, n
 values (88, 2, 2, 'Emisiones GEI eléctrico', '0', '0', '1', null, null, null, 'tCO2eq', null, null, null, null, null, null, null, null, '1', '0');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible)
 values (89, 2, 2, 'Emisiones GEI combustible', '0', '0', '1', null, null, null, 'TJ', null, null, null, null, null, null, null, null, '1', '0');
-insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible)
-values (90, 2, 2, 'Energía total reducida', '0', '0', '1', null, null, null, 'MJ', null, null, null, null, null, null, null, null, '1', '1');
-insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible)
-values (91, 1, null, 'Implementado', '1', '0', '1', null, null, null, null, null, 'Seleccionar si la auditoría ha sido implementada de forma total o parcial. ', null, null, null, null, null, null, '0', '1');
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, ENERGIA_TOTAL)
+values (90, 2, 2, 'Energía total reducida', '0', '0', '1', null, null, null, 'MJ', null, null, null, null, null, null, null, null, '1', '1', '1');
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, VALIDAR_IMPLEMENTADO)
+values (91, 1, null, 'Implementado', '1', '0', '1', null, null, null, null, null, 'Seleccionar si la auditoría ha sido implementada de forma total o parcial. ', null, null, null, null, null, null, '0', '1','1');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible)
 values (92, 2, 1, 'Fecha de implementación', '1', '0', '1', null, null, null, null, null, 'Fecha de implementación de la segunda auditoría .', null, null, null, null, null, null, '0', '1');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible)
