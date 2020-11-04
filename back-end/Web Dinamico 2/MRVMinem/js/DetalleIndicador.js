@@ -3815,8 +3815,8 @@ function CargarDatosGuardados() {
                     let resumen_total = 0.0, resumen_energia = 0.0;
                     if (medida == 4) {
                         $('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
-                            let emision = parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val());
-                            let energia = parseFloat($(y).parent().parent().parent().find('.energia-total').val());
+                            let emision = parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
+                            let energia = parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
                             resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
                             resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
                         });
@@ -5543,8 +5543,8 @@ function agregarAcumulado(item, f) {
                 if (medida == 4) {
                     $('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
                         //debugger;
-                        let emision = parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val());
-                        let energia = parseFloat($(y).parent().parent().parent().find('.energia-total').val());
+                        let emision = parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
+                        let energia = parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
                         resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
                         resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
                     });
@@ -5620,8 +5620,8 @@ function eliminarAcumulado(f) {
     let resumen_total = 0.0, resumen_energia = 0.0;
     if ($("#Control").data("mitigacion") == 4) {
         $('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
-            let emision = parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val());
-            let energia = parseFloat($(y).parent().parent().parent().find('.energia-total').val());
+            let emision = parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
+            let energia = parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
             resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
             resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
         });
