@@ -639,7 +639,7 @@ create table T_MAEM_MRV_PARAMETRO
   v_decimal               VARCHAR2(1) default '1',
   visible		  VARCHAR2(1) default '1',
   ENERGIA_TOTAL           VARCHAR2(1) default '0',
-  VALIDAR_IMPLEMENTADO    VARCHAR2(1) default '0'
+  VALIDAR_IMPLEMENTADO    VARCHAR2(1) default '0',
   VALIDAR_FECHA_IMPLEM    VARCHAR2(1) default '0',
   VALIDAR_VERIFICACION    VARCHAR2(1) default '0',
   VALIDAR_FECHA_VERIFI    VARCHAR2(1) default '0'	  										 
