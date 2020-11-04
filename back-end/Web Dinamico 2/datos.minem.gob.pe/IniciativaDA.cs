@@ -2839,6 +2839,7 @@ namespace datos.minem.gob.pe
                     p.Add("PI_SECTOR_INST", entidad.SECTOR_INST);
                     p.Add("PI_INSTITUCION_AUDITADA", entidad.INSTITUCION_AUDITADA);
                     p.Add("PI_TIPO_AUDITORIA", entidad.TIPO_AUDITORIA);
+                    p.Add("PI_DESCRIPCION_TIPO_AUDITORIA", entidad.DESCRIPCION_TIPO_AUDITORIA);
                     p.Add("PI_AUDITOR", entidad.AUDITOR_AUDITORIA);
                     p.Add("PI_NOMBRE_INSTITUCION", entidad.NOMBRE_INSTITUCION);
                     p.Add("PI_FECHA_AUDITORIA", entidad.FECHA_AUDITORIA);

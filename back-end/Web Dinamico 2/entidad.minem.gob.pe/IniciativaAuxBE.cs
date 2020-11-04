@@ -82,5 +82,6 @@ namespace entidad.minem.gob.pe
         public string FECHA_AUDITORIA { get; set; }
         public string SECTOR_INST { get; set; }
         public string INSTITUCION_AUDITADA { get; set; }
+        public string DESCRIPCION_TIPO_AUDITORIA { get; set; }
     }
 }

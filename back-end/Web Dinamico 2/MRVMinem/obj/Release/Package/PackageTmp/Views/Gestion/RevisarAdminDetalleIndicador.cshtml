@@ -489,7 +489,7 @@
                                                     @*<th class="text-center" scope="col">Más</th>*@
                                                 </tr>
                                             </thead>
-                                            <tbody id="cuerpoTablaIndicador-1" data-row="0" data-total="0" data-delete="">
+                                            <tbody id="cuerpoTablaIndicador" data-row="0" data-total="0" data-delete="">
                                                 @foreach (var itemDatos in itemD.listaInd)
                                                 {
                                                     fila += 1;
@@ -508,7 +508,7 @@
                                                                         }
                                                                         else
                                                                         {
-                                                                            <input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-1-1" value="@itemDet.DESCRIPCION" readonly>
+                                                                            <input class="form-control form-control-sm text-center @(itemDet.VALIDAR_IMPLEMENTADO == "1" ? "validar-implementado" : "" )" data-valor="@itemDet.VALOR" type="text" placeholder="" id="txt-det-tbl-1-1-1" value="@itemDet.DESCRIPCION" readonly>
                                                                         }
                                                                     }
                                                                     else
@@ -524,7 +524,7 @@
                                                                             if (Double.TryParse(Convert.ToString(formateado), System.Globalization.NumberStyles.Any, System.Globalization.NumberFormatInfo.InvariantInfo, out retNum))
                                                                             {
                                                                                 string cad = Convert.ToDouble(formateado).ToString("N2");
-                                                                                <input class="form-control form-control-sm text-center valor" type="text" placeholder="" id="txt-det-tbl-1-1-@fila" value="@cad" readonly>
+                                                                                <input class="form-control form-control-sm text-center valor @(itemDet.ENERGIA_TOTAL == "1" ? "energia-total" : "" )" data-param="@itemDet.ID_PARAMETRO" type="text" placeholder="" id="txt-det-tbl-1-1-@fila" value="@cad" readonly>
                                                                             }
                                                                             else
                                                                             {
@@ -576,7 +576,42 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="container py-4">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="table-responsive tabla-principal mt-3">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr class="bg-primary text-white">
+                                                    <th class="text-center" scope="col" width="2%"><span>N°&nbsp;</span></th>
+                                                    <th scope="col" width="88%"><span>@(Model.medida.ID_MEDMIT == 4 ? "Por las mejoras implementadas" : "Resumen")</span></th>
+                                                    <th scope="col" width="10%"><span>Total</span></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th class="text-center" data-encabezado="Número" scope="row">1</th>
+                                                    @*<td data-encabezado="Resumen">@Model.medida.IPSC_MEDMIT</td>*@
+                                                    <td data-encabezado="Resumen">Emisiones de GEI reducidas</td>
+                                                    <td data-encabezado="Total"><strong id="total-detalle">0.00</strong><strong>&nbsp;tCO<sub>2</sub>eq</strong></td>
+                                                </tr>
+                                                @if (Model.medida.ID_MEDMIT == 4)
+                                                {
+                                                    <tr>
+                                                        <th class="text-center" data-encabezado="Número" scope="row">2</th>
+                                                        <td data-encabezado="Resumen">Energía total reducida</td>
+                                                        <td data-encabezado="Total"><strong id="total-detalle-energia">0.00</strong><strong>&nbsp;MJ</strong></td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        @*<div class="container py-4">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="table-responsive tabla-principal mt-3">
@@ -599,7 +634,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>*@
                     }
                 }
 

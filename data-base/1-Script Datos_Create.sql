@@ -378,6 +378,7 @@ create table T_GEND_INICIATIVA_AUDITORIA (
   SECTOR_INST VARCHAR2(3),
   INSTITUCION_AUDITADA VARCHAR2(130),
   TIPO_AUDITORIA VARCHAR2(10),
+  DESCRIPCION_TIPO_AUDITORIA VARCHAR2(600),											
   AUDITOR VARCHAR2(80),
   NOMBRE_INSTITUCION VARCHAR2(130),
   FECHA_AUDITORIA VARCHAR2(20),  
@@ -639,6 +640,9 @@ create table T_MAEM_MRV_PARAMETRO
   visible		  VARCHAR2(1) default '1',
   ENERGIA_TOTAL           VARCHAR2(1) default '0',
   VALIDAR_IMPLEMENTADO    VARCHAR2(1) default '0'
+  VALIDAR_FECHA_IMPLEM    VARCHAR2(1) default '0',
+  VALIDAR_VERIFICACION    VARCHAR2(1) default '0',
+  VALIDAR_FECHA_VERIFI    VARCHAR2(1) default '0'	  										 
 )
 ;
 alter table T_MAEM_MRV_PARAMETRO
@@ -2046,12 +2050,12 @@ insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, n
 values (90, 2, 2, 'Energía total reducida', '0', '0', '1', null, null, null, 'MJ', null, 'Reducción de energía total en mega Joules, atribuida a la implementación de la(s) mejora(s). ', null, null, null, null, null, null, '1', '1', '1', '0');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado)
 values (91, 1, null, 'Implementado', '1', '0', '1', null, null, null, null, null, 'Seleccionar si la acción ha sido implementada en su totalidad o de forma parcial. ', null, null, null, null, null, null, '0', '1', '0', '1');
-insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado)
-values (92, 2, 1, 'Fecha de implementación', '1', '0', '1', null, null, null, null, null, 'Última fecha de implementación de las medidas recomendadas.', null, null, null, null, null, null, '0', '1', '0', '0');
-insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado)
-values (93, 1, null, 'Verificado', '1', '0', '1', null, null, null, null, null, 'Marcar SÍ si la acción ha sido verificada por un auditor para medir su impacto, mediante una segunda auditoría. ', null, null, null, null, null, null, '0', '1', '0', '0');
-insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado)
-values (94, 2, 1, 'Fecha de verificación', '1', '0', '1', null, null, null, null, null, 'Fecha de implementación de la segunda auditoría y verificación de resultados estimadas del impacto. ', null, null, null, null, null, null, '0', '1', '0', '0');
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, VALIDAR_FECHA_IMPLEM)
+values (92, 2, 1, 'Fecha de implementación', '1', '0', '1', null, null, null, null, null, 'Última fecha de implementación de las medidas recomendadas.', null, null, null, null, null, null, '0', '1', '0', '0', '1');
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, VALIDAR_VERIFICACION)
+values (93, 1, null, 'Verificado', '1', '0', '1', null, null, null, null, null, 'Marcar SÍ si la acción ha sido verificada por un auditor para medir su impacto, mediante una segunda auditoría. ', null, null, null, null, null, null, '0', '1', '0', '0', '1');
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, VALIDAR_FECHA_VERIFI)
+values (94, 2, 1, 'Fecha de verificación', '1', '0', '1', null, null, null, null, null, 'Fecha de implementación de la segunda auditoría y verificación de resultados estimadas del impacto. ', null, null, null, null, null, null, '0', '1', '0', '0', '1');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado)
 values (20, 2, 2, 'Potencia acción (W)', '1', '1', '1', null, null, null, null, null, 'Valor de potencia posterior a la implementación Kilovatios hora.año', 'Refiere a la electricidad que consumen los equipos adquiridos en las acciones por el periodo de un año.', 'Se calcula en base a las propiedades específicas de cada equipo (potencia, capacidad, etc.) y las horas totales aproximadas usadas durante un año.', 'El especialista encargado revisa datos de entrada, cálculos obtenidos y resultados en reporte de cada acción considerada.', 'Administrador revisa aleatoriamente una muestra representativa de acciones (datos de entrada, cálculos y resultados de reporte).', 'Permite conocer el consumo de electricidad por los equipos energéticos adquiridos.', 'Anual', '1', '1', '0', '0');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado)

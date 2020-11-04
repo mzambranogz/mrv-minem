@@ -29,6 +29,9 @@ namespace entidad.minem.gob.pe
         public string VISIBLE { get; set; }
         public string ENERGIA_TOTAL { get; set; }
         public string VALIDAR_IMPLEMENTADO { get; set; }
+        public string VALIDAR_FECHA_IMPLEM { get; set; }
+        public string VALIDAR_VERIFICACION { get; set; }
+        public string VALIDAR_FECHA_VERIFI { get; set; }
         public List<ParametroDetalleBE> listaDetalle { get; set; }
     }
 }

@@ -324,10 +324,11 @@ function CargarDatosIniciativa() {
                         }
 
                         if (data[i]["ID_MEDMIT"] == 4) {
-                            if (data[i]["INSTITUCION_AUDITADA"] != null || data[i]["SECTOR_INST"] != null || data[i]["TIPO_AUDITORIA"] != null || data[i]["AUDITOR_AUDITORIA"] != null || data[i]["NOMBRE_INSTITUCION"] != null || data[i]["FECHA_AUDITORIA"] != null) {
+                            if (data[i]["DESCRIPCION_TIPO_AUDITORIA"] != null || data[i]["INSTITUCION_AUDITADA"] != null || data[i]["SECTOR_INST"] != null || data[i]["TIPO_AUDITORIA"] != null || data[i]["AUDITOR_AUDITORIA"] != null || data[i]["NOMBRE_INSTITUCION"] != null || data[i]["FECHA_AUDITORIA"] != null) {
                                 $('#cbo-sector').val(data[i]["SECTOR_INST"] == null ? '0' : data[i]["SECTOR_INST"]);
                                 $('#txt-institucion').val(data[i]["INSTITUCION_AUDITADA"] == null ? '' : data[i]["INSTITUCION_AUDITADA"]);
                                 $('#cbo-tipo_auditoria').val(data[i]["TIPO_AUDITORIA"] == null ? '0' : data[i]["TIPO_AUDITORIA"]);
+                                $('#txt-descripcion-tipo-auditoria').val(data[i]["DESCRIPCION_TIPO_AUDITORIA"] == null ? '' : data[i]["DESCRIPCION_TIPO_AUDITORIA"]);
                                 $('#txt-auditor').val(data[i]["AUDITOR_AUDITORIA"] == null ? '' : data[i]["AUDITOR_AUDITORIA"]);
                                 $('#txt-institucion-auditor').val(data[i]["NOMBRE_INSTITUCION"] == null ? '' : data[i]["NOMBRE_INSTITUCION"]);
                                 $('#fch-fecha-auditoria').val(data[i]["FECHA_AUDITORIA"] == null ? '' : data[i]["FECHA_AUDITORIA"]);
@@ -1946,7 +1947,8 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                                         }
                                         tr += '</select>';
                                     } else {
-                                        tr += '<select class="form-control form-control-sm" id="cbo-det-tbl-1-' + lista + '-' + (i + 1) + '" onchange="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '" disabled>';
+                                        //tr += '<select class="form-control form-control-sm" id="cbo-det-tbl-1-' + lista + '-' + (i + 1) + '" onchange="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '" disabled>';
+                                        tr += `<select class="form-control form-control-sm ${data[j]["VALIDAR_IMPLEMENTADO"] == '1' ? 'validar-implementado' : ''}" id="cbo-det-tbl-1-${lista}-${(i + 1)}" onchange="fn_calcularValor(this)" data-validar="0" data-param="${data[j]["ID_PARAMETRO"]}" disabled>`;
                                         tr += '        <option value="0">Seleccionar</option>';
                                         var listaD = data[j]["listaDetalle"];
                                         for (var m = 0; m < listaD.length; m++) {
@@ -1956,7 +1958,8 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                                     }
                                 } else {
                                     lista++;
-                                    tr += '<select class="form-control form-control-sm" id="cbo-det-tbl-1-' + lista + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" disabled>';
+                                    //tr += '<select class="form-control form-control-sm" id="cbo-det-tbl-1-' + lista + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" disabled>';
+                                    tr += `<select class="form-control form-control-sm ${data[j]["VALIDAR_IMPLEMENTADO"] == '1' ? 'validar-implementado' : ''}" id="cbo-det-tbl-1-${lista}-${(i + 1)}" data-param="${data[j]["ID_PARAMETRO"]}" disabled>`;
                                     if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30 && data[j]["ID_PARAMETRO"] != 93 && data[j]["ID_PARAMETRO"] != 94 && data[j]["ID_PARAMETRO"] != 95) tr += '        <option value="0">Seleccionar</option>'; //add
                                     //tr += '        <option value="0">Seleccionar</option>';
                                     var listaD = data[j]["listaDetalle"];
@@ -1983,7 +1986,8 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                                     }
                                 } else {
                                     texto++;
-                                    tr += '<input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" readonly>';
+                                    //tr += '<input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-' + texto + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" readonly>';
+                                    tr += `<input class="form-control form-control-sm text-center ${data[j]["ENERGIA_TOTAL"] == '1' ? 'energia-total' : ''}" type="text" placeholder="" id="txt-det-tbl-1-${texto}-${(i + 1)}" data-param="${data[j]["ID_PARAMETRO"]}" readonly>`;
                                 }
                                 tr += '    </div>';
                                 tr += '</td>'
@@ -2162,13 +2166,36 @@ function CargarDatosExcel(data) {
             armarAcumulado(entidad_a, i + 1);
 
     }
-    let resumen_total = 0.0;
-    $('[id^=acum-]').each((x, y) => {
-        resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
-    });
-    $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
-    $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
-    $("#cuerpoTablaIndicador").data("total", resumen_total);
+
+    let resumen_total = 0.0, resumen_energia = 0.0;
+    if ($("#Control").data("mitigacion") == 4) {
+        $('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
+            let emision = parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
+            let energia = parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
+            resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
+            resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
+        });
+        $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+        $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+        $("#total-detalle-energia").html("").append(formatoMiles(Math.round(resumen_energia * 100) / 100));
+        $("#cuerpoTablaIndicador").data("total", resumen_total);
+    } else {
+        $('[id^=acum-]').each((x, y) => {
+            resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
+        });
+        $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+        $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+        $("#total-detalle-energia").html("").append(formatoMiles(0.00));
+        $("#cuerpoTablaIndicador").data("total", resumen_total);
+    }
+
+    //let resumen_total = 0.0;
+    //$('[id^=acum-]').each((x, y) => {
+    //    resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
+    //});
+    //$("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+    //$("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+    //$("#cuerpoTablaIndicador").data("total", resumen_total);
 
     $("#fledeclaracion").next().find("label").empty().html('<i class="fas fa-upload mr-1"></i> Subir plantilla');
 }
@@ -2220,6 +2247,7 @@ $(document).ready(function () {
     //$("#Control").data("iniciativa", $("#identificador").val());
     $("#Control").data("revision", $("#revision").val());
 
+    armarTablaAuditor();
     //CargarSector();
     if ($("#revision").val() == 1) {
         CargarDetalleIndicadorRevision();
@@ -2913,14 +2941,35 @@ function CargarDatosGuardados() {
                     //$("#total-detalle2").html("").append((Math.round(total * 100) / 100));
                     //$("#cuerpoTablaIndicador").data("total", total);
 
-                    let resumen_total = 0.0;
-                    $('[id^=acum-]').each((x, y) => {
-                        resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
-                    });
-                    $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
-                    $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
-                    $("#cuerpoTablaIndicador").data("total", resumen_total);
+                    //let resumen_total = 0.0;
+                    //$('[id^=acum-]').each((x, y) => {
+                    //    resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
+                    //});
+                    //$("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+                    //$("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+                    //$("#cuerpoTablaIndicador").data("total", resumen_total);
 
+                    let resumen_total = 0.0, resumen_energia = 0.0;
+                    if (medida == 4) {
+                        $('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
+                            let emision = parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
+                            let energia = parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
+                            resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
+                            resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
+                        });
+                        $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+                        $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+                        $("#total-detalle-energia").html("").append(formatoMiles(Math.round(resumen_energia * 100) / 100));
+                        $("#cuerpoTablaIndicador").data("total", resumen_total);
+                    } else {
+                        $('[id^=acum-]').each((x, y) => {
+                            resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
+                        });
+                        $("#total-detalle").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+                        $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
+                        $("#total-detalle-energia").html("").append(formatoMiles(0.00));
+                        $("#cuerpoTablaIndicador").data("total", resumen_total);
+                    }
                 }
             } else {
                 //CargarCuerpoGuardado(1);
@@ -3543,4 +3592,25 @@ function CargarSector() {
             }
         }
     });
+}
+
+var armarTablaAuditor = () => {
+    let head1 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Tipo de sector al que pertenece la entidad a quien se realiza la auditoría" data-original-title="Tipo de sector al que pertenece la entidad a quien se realiza la auditoría"></i>Sector&nbsp;</span></th>`;
+    let head2 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la entidad a quien se realiza la auditoría" data-original-title="Nombre de la entidad a quien se realiza la auditoría"></i>Institución auditada&nbsp;</span></th>`;
+    let head3 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Seleccionar entre tipo 1, 2 o 3" data-original-title="Seleccionar entre tipo 1, 2 o 3"></i>Tipo auditoría&nbsp;</span></th>`;
+    let head4 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="La descripción responderá al tipo de auditoría que se realice en la entidad según el nivel de esfuerzo" data-original-title="La descripción responderá al tipo de auditoría que se realice en la entidad según el nivel de esfuerzo"></i>Descripción de tipo auditoría&nbsp;</span></th>`;
+    let head5 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Seleccionar si la auditoría está realizada por una persona o una empresa" data-original-title="Seleccionar si la auditoría está realizada por una persona o una empresa"></i>Auditado por&nbsp;</span></th>`;
+    let head6 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la persona o empresa responsable de realizar la auditoría" data-original-title="Nombre de la persona o empresa responsable de realizar la auditoría"></i>Nombre de institución / auditor&nbsp;</span></th>`;
+    let head7 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Fecha de la realización de la auditoría" data-original-title="Fecha de la realización de la auditoría"></i>Fecha de auditoría&nbsp;</span></th>`;
+    $('#tablaAuditor').find('thead').html(`<tr class="bg-primary text-white">${head1}${head2}${head3}${head4}${head5}${head6}${head7}</tr>`);
+
+    let body1 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><select class="form-control form-control-sm" id="cbo-sector" ${$("#revision").val() == 1 ? 'disabled' : ''}><option value="0">Seleccionar</option><option value="1">Administrativo</option><option value="2">Público</option><option value="3">Educación</option><option value="4">Salud</option></select></div></td>`;
+    let body2 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><input class="form-control form-control-sm text-left" type="text" placeholder="" id="txt-institucion" maxlength="120" autocomplete="off" ${$("#revision").val() == 1 ? 'readonly' : ''}></div></td>`;
+    let body3 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><select class="form-control form-control-sm" id="cbo-tipo_auditoria" ${$("#revision").val() == 1 ? 'disabled' : ''}><option value="0">Seleccionar</option><option value="1">Tipo 1</option><option value="2">Tipo 2</option><option value="3">Tipo 3</option></select></div></td>`;
+    let body4 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><input class="form-control form-control-sm text-left" type="text" placeholder="" id="txt-descripcion-tipo-auditoria" maxlength="500" autocomplete="off" ${$("#revision").val() == 1 ? 'readonly' : ''}></div></td>`;
+    let body5 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><select class="form-control form-control-sm" id="txt-auditor" ${$("#revision").val() == 1 ? 'disabled' : ''}><option value="0">Seleccionar</option><option value="1">EMSE</option><option value="2">Auditor acreditado</option></select></div></td>`;
+    let body6 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><input class="form-control form-control-sm text-left" type="text" placeholder="" id="txt-institucion-auditor" maxlength="120" autocomplete="off" ${$("#revision").val() == 1 ? 'readonly' : ''}></div></td>`;
+    let body7 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><input class="form-control form-control-sm text-center" type="date" placeholder="" id="fch-fecha-auditoria" ${$("#revision").val() == 1 ? 'readonly' : ''}></div></td>`;
+    $('#tablaAuditor').find('tbody').html(`<tr id="detalles-1" data-ind="1" data-rev="0">${body1}${body2}${body3}${body4}${body5}${body6}${body7}</tr>`);
+
 }

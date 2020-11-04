@@ -343,63 +343,8 @@
                                         <div class="table-responsive tabla-principal">
                                             <table class="table table-hover" id="tablaAuditor">
                                                 <thead id="cabeceraAuditor">
-                                                    <tr class="bg-primary text-white">
-                                                        <th class="text-center grupo-columna-03" scope="col"><span>Sector</span></th>
-                                                        <th class="text-center grupo-columna-03" scope="col"><span>Institución auditada</span></th>
-                                                        <th class="text-center grupo-columna-03" scope="col"><span>Tipo auditoría</span></th>
-                                                        <th class="text-center grupo-columna-03" scope="col"><span>Auditado por:</span></th>
-                                                        <th class="text-center grupo-columna-03" scope="col"><span>Nombre de institución del auditor</span></th>
-                                                        <th class="text-center grupo-columna-03" scope="col"><span>Fecha de auditoría</span></th>
-                                                    </tr>
                                                 </thead>
                                                 <tbody id="cuerpoAuditor">
-                                                    <tr id="detalles-tr-1" data-ind="1" data-rev="0">
-                                                        <td data-encabezado="Columna 07">
-                                                            <div class="form-group m-0">
-                                                                <select class="form-control form-control-sm" id="cbo-sector" disabled>
-                                                                    <option value="0">Seleccionar</option>
-                                                                    <option value="1">Administrativo</option>
-                                                                    <option value="2">Público</option>
-                                                                    <option value="3">Educación</option>
-                                                                    <option value="4">Salud</option>
-                                                                </select>
-                                                            </div>
-                                                        </td>
-                                                        <td data-encabezado="Columna 07">
-                                                            <div class="form-group m-0">
-                                                                <input class="form-control form-control-sm text-left" type="text" placeholder="" id="txt-institucion" maxlength="120" readonly>
-                                                            </div>
-                                                        </td>
-                                                        <td data-encabezado="Columna 07">
-                                                            <div class="form-group m-0">
-                                                                <select class="form-control form-control-sm" id="cbo-tipo_auditoria" disabled>
-                                                                    <option value="0">Seleccionar</option>
-                                                                    <option value="1">Tipo 1</option>
-                                                                    <option value="2">Tipo 2</option>
-                                                                    <option value="3">Tipo 3</option>
-                                                                </select>
-                                                            </div>
-                                                        </td>
-                                                        <td data-encabezado="Columna 07">
-                                                            <div class="form-group m-0">
-                                                                <select class="form-control form-control-sm" id="txt-auditor" disabled>
-                                                                    <option value="0">Seleccionar</option>
-                                                                    <option value="1">EMSE</option>
-                                                                    <option value="2">Auditor acreditado</option>
-                                                                </select>
-                                                            </div>
-                                                        </td>
-                                                        <td data-encabezado="Columna 07">
-                                                            <div class="form-group m-0">
-                                                                <input class="form-control form-control-sm text-left" type="text" placeholder="" id="txt-institucion-auditor" maxlength="120" readonly>
-                                                            </div>
-                                                        </td>
-                                                        <td data-encabezado="Columna 07">
-                                                            <div class="form-group m-0">
-                                                                <input class="form-control form-control-sm text-center" type="date" placeholder="" id="fch-fecha-auditoria" readonly>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -453,7 +398,7 @@
                                                     
                                                 </tr>
                                             </thead>
-                                            <tbody id="cuerpoTablaIndicador-1" data-row="0" data-total="0" data-delete="">
+                                            <tbody id="cuerpoTablaIndicador" data-row="0" data-total="0" data-delete="">
                                                 @foreach (var itemDatos in itemD.listaInd)
                                                 {
                                                     fila += 1;
@@ -472,7 +417,7 @@
                                                                         }
                                                                         else
                                                                         {
-                                                                            <input class="form-control form-control-sm text-center" type="text" placeholder="" id="txt-det-tbl-1-1-1" value="@itemDet.DESCRIPCION" readonly>
+                                                                            <input class="form-control form-control-sm text-center valor @(itemDet.VALIDAR_IMPLEMENTADO == "1" ? "validar-implementado" : "" )" data-valor="@itemDet.VALOR" type="text" placeholder="" id="txt-det-tbl-1-1-@fila" value="@itemDet.DESCRIPCION" readonly>
                                                                         }
                                                                     }
                                                                     else
@@ -488,7 +433,7 @@
                                                                             if (Double.TryParse(Convert.ToString(formateado), System.Globalization.NumberStyles.Any, System.Globalization.NumberFormatInfo.InvariantInfo, out retNum))
                                                                             {
                                                                                 string cad = Convert.ToDouble(formateado).ToString("N2");
-                                                                                <input class="form-control form-control-sm text-center valor" type="text" placeholder="" id="txt-det-tbl-1-1-@fila" value="@cad" readonly>
+                                                                                <input class="form-control form-control-sm text-center valor @(itemDet.ENERGIA_TOTAL == "1" ? "energia-total" : "" )" data-param="@itemDet.ID_PARAMETRO" type="text" placeholder="" id="txt-det-tbl-1-1-@fila" value="@cad" readonly>
                                                                             }
                                                                             else
                                                                             {
@@ -531,12 +476,11 @@
                                     @*<div class="alert alert-warning" role="alert"><strong>Completar todas las celdas en amarillo</strong></div>*@
                                 </div>
                                 <div class="col-xs-12 col sm-12 col-lg-2">
-                                    @*<a class="btn btn-info w-100 mb-2 agregarCamposPrc" href="javascript:void(0)" onclick="CargarNuevaFila(1);"><i class="fas fa-plus-circle px-1"></i>Añadir fila</a>*@
                                     <a class="btn btn-success w-100 mb-2" href="~/Gestion/FileDownloadAllDetalle?IdIniciativa=@Model.iniciativa_mit.ID_INICIATIVA"><i class="fas fa-download mr-1"></i>Descargar sustentos</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="container py-4">
+                        @*<div class="container py-4">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="table-responsive tabla-principal mt-3">
@@ -554,6 +498,40 @@
                                                     <td data-encabezado="Resumen">@itemD.DESCRIPCION</td>
                                                     <td data-encabezado="Total"><strong id="total-detalle">@total_e.ToString("N2")</strong><strong>&nbsp;tCO<sub>2</sub>eq</strong></td>
                                                 </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>*@
+
+                        <div class="container py-4">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="table-responsive tabla-principal mt-3">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr class="bg-primary text-white">
+                                                    <th class="text-center" scope="col" width="2%"><span>N°&nbsp;</span></th>
+                                                    <th scope="col" width="88%"><span>@(Model.medida.ID_MEDMIT == 4 ? "Por las mejoras implementadas" : "Resumen")</span></th>
+                                                    <th scope="col" width="10%"><span>Total</span></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th class="text-center" data-encabezado="Número" scope="row">1</th>
+                                                    @*<td data-encabezado="Resumen">@Model.medida.IPSC_MEDMIT</td>*@
+                                                    <td data-encabezado="Resumen">Emisiones de GEI reducidas</td>
+                                                    <td data-encabezado="Total"><strong id="total-detalle">0.00</strong><strong>&nbsp;tCO<sub>2</sub>eq</strong></td>
+                                                </tr>
+                                                @if (Model.medida.ID_MEDMIT == 4)
+                                                {
+                                                    <tr>
+                                                        <th class="text-center" data-encabezado="Número" scope="row">2</th>
+                                                        <td data-encabezado="Resumen">Energía total reducida</td>
+                                                        <td data-encabezado="Total"><strong id="total-detalle-energia">0.00</strong><strong>&nbsp;MJ</strong></td>
+                                                    </tr>
+                                                }
                                             </tbody>
                                         </table>
                                     </div>
@@ -662,7 +640,6 @@
                                             <div class="input-group mb-3">
                                                 <div class="input-group-append mr-3"><span class="input-group-text cursor-pointer"><i class="fas fa-download" onclick="fn_verfilesutento(@item.ID_INICIATIVA_SUSTENTATORIO)"></i></span></div>
                                                 <div class="input-group-prepend"><span class="input-group-text"><i class="fas @extension"></i></span></div><span class="form-control-plaintext ww">@item.ADJUNTO_BASE</span>
-                                                @*<div class="input-group-append"><span class="input-group-text cursor-pointer"><i class="fas fa-download" onclick="fn_verfilesutento(@item.ID_INICIATIVA_SUSTENTATORIO)"></i></span></div>*@
                                             </div>
                                         }
                                     }

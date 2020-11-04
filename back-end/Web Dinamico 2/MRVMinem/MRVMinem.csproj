@@ -132,6 +132,7 @@
     <Content Include="images\bg-ingreso.jpg" />
     <Content Include="images\bg-registro.jpg" />
     <Content Include="images\bg-reportes.jpg" />
+    <Content Include="images\favicon-ini.png" />
     <Content Include="images\favicon\android-chrome-192x192.png" />
     <Content Include="images\favicon\android-chrome-256x256.png" />
     <Content Include="images\favicon\apple-touch-icon.png" />
