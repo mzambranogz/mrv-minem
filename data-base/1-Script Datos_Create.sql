@@ -6784,292 +6784,310 @@ commit;
 prompt 59 records loaded
 prompt Loading T_MAEM_MRV_BLOCKCHAIN...
 prompt Table is empty
+
+
 prompt Loading T_MAEM_MRV_FACTOR_PARAMETRO...
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (32, 5, 1, null, 'ENERGETICO (INIC)', 53, 3, '1');
+values (32, 5, 1, null, 'Energético (INIC)', 53, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (43, 1, 1, null, 'ENERGETICO (BAU)', 52, 1, '1');
+values (43, 1, 1, null, 'Energético (BAU)', 52, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (43, 2, 1, null, 'ENERGETICO (BAU)', 52, 1, '0');
+values (43, 2, 1, null, 'Energético (BAU)', 52, 1, '0');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (43, 3, 1, null, 'ENERGETICO (BAU)', 52, 1, '0');
+values (43, 3, 1, null, 'Energético (BAU)', 52, 1, '0');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (43, 100, 2, 2, 'FACTOR (TJ/Kg)', null, 100, '1');
+values (43, 100, 2, 2, 'Factor (TJ/Kg)', null, 100, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (44, 1, 1, null, 'ENERGETICO (INIC)', 53, 1, '1');
+values (44, 1, 1, null, 'Energético (INIC)', 53, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (44, 100, 2, 2, 'FACTOR TJ/Kg', null, 100, '1');
+values (44, 100, 2, 2, 'Factor TJ/Kg', null, 100, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (46, 1, 1, null, 'ENERGETICO (INIC)', 53, 1, '1');
+values (46, 1, 1, null, 'Energético (INIC)', 53, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (31, 5, 1, null, 'ENERGETICO (BAU)', 52, 3, '1');
+values (31, 5, 1, null, 'Energético (BAU)', 52, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (29, 1, 1, null, 'CAPACIDAD', 40, 1, '1');
+values (29, 1, 1, null, 'Capacidad', 40, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (29, 3, 1, null, 'ETIQUETA BAU', 26, 3, '1');
+values (29, 3, 1, null, 'Etiqueta BAU', 26, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (29, 4, 2, 2, 'FACTOR', null, 4, '1');
+values (29, 4, 2, 2, 'Factor', null, 4, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (30, 1, 1, null, 'CAPACIDAD', 40, 1, '1');
+values (30, 1, 1, null, 'Capacidad', 40, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (30, 3, 1, null, 'ETIQUETA INICIATIVA', 27, 3, '1');
+values (30, 3, 1, null, 'Etiqueta acción', 27, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (30, 4, 2, 2, 'FACTOR', null, 4, '1');
+values (30, 4, 2, 2, 'Factor', null, 4, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (31, 1, 1, null, 'CAPACIDAD', 41, 1, '1');
+values (31, 1, 1, null, 'Capacidad', 41, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (31, 3, 1, null, 'ETIQUETA BAU', 26, 2, '1');
+values (31, 3, 1, null, 'Etiqueta BAU', 26, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (31, 4, 2, 2, 'FACTOR kg/año', null, 4, '1');
+values (31, 4, 2, 2, 'Factor kg/año', null, 4, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (32, 1, 1, null, 'CAPACIDAD', 41, 1, '1');
+values (32, 1, 1, null, 'Capacidad', 41, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (32, 3, 1, null, 'ETIQUETA INICIATIVA', 27, 2, '1');
+values (32, 3, 1, null, 'Etiqueta acción', 27, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (32, 4, 2, 2, 'FACTOR (kg/año)', null, 4, '1');
+values (32, 4, 2, 2, 'Factor (kg/año)', null, 4, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (33, 3, 1, null, 'ETIQUETA BAU', 26, 1, '1');
+values (33, 3, 1, null, 'Etiqueta BAU', 26, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (33, 4, 2, 2, 'FACTOR (kWh/año)', null, 4, '1');
+values (33, 4, 2, 2, 'Factor (kWh/año)', null, 4, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (34, 3, 1, null, 'ETIQUETA INICIATIVA', 27, 3, '1');
+values (34, 3, 1, null, 'Etiqueta acción', 27, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (34, 4, 2, 2, 'FACTOR', null, 4, '1');
+values (34, 4, 2, 2, 'Factor', null, 4, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (6, 3, 2, 2, 'FACTOR (kgCO2eq/km)', null, 3, '1');
+values (6, 3, 2, 2, 'Factor (kgCO2eq/km)', null, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (11, 1, 1, null, 'Año', 6, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (11, 2, 2, 2, 'FACTOR tCO2/MWh', null, 2, '1');
+values (11, 2, 2, 2, 'Factor tCO2/MWh', null, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (18, 1, 1, null, 'FUENTE BASE', 30, 1, '1');
+values (18, 1, 1, null, 'Fuente base', 30, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (18, 2, 2, 2, 'FACTOR (t leña/SA.año)', null, 2, '1');
+values (18, 2, 2, 2, 'Factor (t leña/SA.año)', null, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (19, 1, 1, null, 'FUENTE INICIATIVA', 31, 1, '1');
+values (19, 1, 1, null, 'Fuente acción', 31, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (19, 2, 2, 2, 'FACTOR (t leña/SA.año)', null, 2, '1');
+values (19, 2, 2, 2, 'Factor (t leña/SA.año)', null, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (20, 1, 1, null, 'Año', 6, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (20, 2, 1, null, 'REGION', 18, 2, '1');
+values (20, 2, 1, null, 'Región', 18, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (20, 3, 2, 2, 'FACTOR', null, 3, '1');
+values (20, 3, 2, 2, 'Factor', null, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (1, 1, 1, null, 'TIPO DE VEHÍCULO', 1, 1, '1');
+values (1, 1, 1, null, 'Tipo de vehículo', 1, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (1, 2, 1, null, 'TIPO DE COMBUSTIBLE', 3, 2, '1');
+values (1, 2, 1, null, 'Tipo de combustible', 3, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (16, 2, 1, null, 'CAPACIDAD CONGELA', 29, 2, '1');
+values (16, 2, 1, null, 'Capacidad congela', 29, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (1, 4, 2, 2, 'FACTOR(gCO2eq-km)', null, 5, '1');
+values (1, 4, 2, 2, 'Factor(gCO2eq-km)', null, 5, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (2, 1, 1, null, 'Año', 6, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (2, 2, 2, 2, 'FACTOR', null, 2, '1');
+values (2, 2, 2, 2, 'Factor', null, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (3, 1, 1, null, 'TIPO DE VEHÍCULO', 1, 1, '1');
+values (3, 1, 1, null, 'Tipo de vehículo', 1, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (3, 2, 2, 2, 'FACTOR(kWh/km)', null, 3, '1');
+values (3, 2, 2, 2, 'Factor(kWh/km)', null, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (4, 1, 1, null, 'Año', 6, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (4, 2, 2, 2, 'FACTOR(tCO2eq/MWh)', null, 2, '1');
+values (4, 2, 2, 2, 'Factor(tCO2eq/MWh)', null, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (5, 1, 1, null, 'TIPO DE VEHÍCULO', 1, 1, '1');
+values (5, 1, 1, null, 'Tipo de vehículo', 1, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (5, 2, 1, null, 'TIPO DE COMBUSTIBLE', 3, 2, '1');
+values (5, 2, 1, null, 'Tipo de combustible', 3, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (5, 4, 2, 2, 'FACTOR MEDIA', null, 4, '1');
+values (5, 4, 2, 2, 'Factor media', null, 4, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (16, 1, 1, null, 'CATEGORIA 8-10', 28, 1, '1');
+values (16, 1, 1, null, 'Categoria  8-10', 28, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (6, 1, 1, null, 'TIPO DE VEHÍCULO', 1, 1, '1');
+values (6, 1, 1, null, 'Tipo de vehículo', 1, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (6, 2, 1, null, 'Año', 6, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (35, 3, 1, null, 'COMBUSTIBLE', 42, 3, '1');
+values (35, 3, 1, null, 'Combustible', 42, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (35, 4, 2, 2, 'FACTOR', null, 4, '1');
+values (35, 4, 2, 2, 'Factor', null, 4, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (36, 3, 1, null, 'COMBUSTIBLE', 43, 3, '1');
+values (36, 3, 1, null, 'Combustible', 43, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (16, 3, 1, null, 'ETIQUETA BAU', 26, 3, '1');
+values (16, 3, 1, null, 'Etiqueta BAU', 26, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (36, 4, 2, 2, 'FACTOR', null, 4, '1');
+values (36, 4, 2, 2, 'Factor', null, 4, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (37, 3, 1, null, 'COMBUSTIBLE', 42, 3, '1');
+values (37, 3, 1, null, 'Combustible', 42, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (37, 4, 2, 2, 'FACTOR', null, 4, '1');
+values (37, 4, 2, 2, 'Factor', null, 4, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (16, 4, 2, 2, 'FACTOR', null, 4, '1');
+values (16, 4, 2, 2, 'Factor', null, 4, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (17, 2, 1, null, 'CAPACIDAD CONGELA', 29, 2, '1');
+values (17, 2, 1, null, 'Capacidad congela', 29, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (17, 1, 1, null, 'CATEGORIA 8-10', 28, 1, '1');
+values (17, 1, 1, null, 'Categoria 8-10', 28, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (17, 3, 1, null, 'ETIQUETA INICIATIVA', 27, 3, '1');
+values (17, 3, 1, null, 'Etiqueta acción', 27, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (17, 4, 2, 2, 'FACTOR', null, 4, '1');
+values (17, 4, 2, 2, 'Factor', null, 4, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (38, 3, 1, null, 'COMBUSTIBLE', 43, 3, '1');
+values (38, 3, 1, null, 'Combustible', 43, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (38, 4, 2, 2, 'FACTOR', null, 4, '1');
+values (38, 4, 2, 2, 'Factor', null, 4, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (39, 3, 1, null, 'COMBUSTIBLE', 42, 3, '1');
+values (39, 3, 1, null, 'Combustible', 42, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (39, 4, 2, 2, 'FACTOR', null, 4, '1');
+values (39, 4, 2, 2, 'Factor', null, 4, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (40, 3, 1, null, 'COMBUSTIBLE', 43, 3, '1');
+values (40, 3, 1, null, 'Combustible', 43, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (40, 4, 2, 2, 'FACTOR', null, 4, '1');
+values (40, 4, 2, 2, 'Factor', null, 4, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (41, 3, 1, null, 'COMBUSTIBLE', 42, 3, '1');
+values (41, 3, 1, null, 'Combustible', 42, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (41, 4, 2, 2, 'FACTOR', null, 4, '1');
+values (41, 4, 2, 2, 'Factor', null, 4, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (42, 3, 1, null, 'COMBUSTIBLE', 43, 3, '1');
+values (42, 3, 1, null, 'Combustible', 43, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (42, 4, 2, 2, 'FACTOR', null, 4, '1');
+values (42, 4, 2, 2, 'Factor', null, 4, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (7, 1, 1, null, 'Año', 6, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (7, 2, 2, 2, 'FACTOR (tCO2/MWh)', null, 2, '1');
+values (7, 2, 2, 2, 'Factor (tCO2/MWh)', null, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (8, 2, 2, 2, 'FACTOR (tCO2/MWh)', null, 2, '1');
+values (8, 2, 2, 2, 'Factor (tCO2/MWh)', null, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (8, 1, 1, null, 'Año', 6, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (9, 1, 1, null, 'REGION', 18, 1, '1');
+values (9, 1, 1, null, 'Región', 18, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (9, 2, 2, 2, 'FACTOR (tCO2eq/mes)', null, 2, '1');
+values (9, 2, 2, 2, 'Factor (tCO2eq/mes)', null, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (10, 1, 1, null, 'MES', 17, 1, '1');
+values (10, 1, 1, null, 'Mes', 17, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (10, 2, 2, 2, 'FACTOR', null, 2, '1');
+values (10, 2, 2, 2, 'Factor', null, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (12, 2, 1, null, 'CAPACIDAD', 21, 2, '1');
+values (12, 2, 1, null, 'Capacidad', 21, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (12, 1, 1, null, 'CLASE (ETIQUETA) BAU', 22, 1, '1');
+values (12, 1, 1, null, 'Clase (etiqueta) BAU', 22, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (12, 3, 2, 2, 'FACTOR (hp)', null, 3, '1');
+values (12, 3, 2, 2, 'Factor (hp)', null, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (13, 2, 1, null, 'CAPACIDAD', 21, 2, '1');
+values (13, 2, 1, null, 'Capacidad', 21, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (13, 1, 1, null, 'CLASE (ETIQUETA) INICIATIVA', 23, 1, '1');
+values (13, 1, 1, null, 'Clase (etiqueta) acción', 23, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (13, 3, 2, 2, 'FACTOR', null, 3, '1');
+values (13, 3, 2, 2, 'Factor', null, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (14, 1, 1, null, 'CAPACIDAD', 24, 1, '1');
+values (14, 1, 1, null, 'Capacidad', 24, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (14, 2, 1, null, 'CATEGORIA', 25, 2, '1');
+values (14, 2, 1, null, 'Categoria', 25, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (14, 3, 1, null, 'ETIQUETA BAU', 26, 3, '1');
+values (14, 3, 1, null, 'Etiqueta BAU', 26, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (14, 4, 2, 2, 'FACTOR', null, 4, '1');
+values (14, 4, 2, 2, 'Factor', null, 4, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (15, 1, 1, null, 'CAPACIDAD', 24, 1, '1');
+values (15, 1, 1, null, 'Capacidad', 24, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (15, 2, 1, null, 'CATEGORIA', 25, 2, '1');
+values (15, 2, 1, null, 'Categoria', 25, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (15, 3, 1, null, 'ETIQUETA INICIATIVA', 27, 3, '1');
+values (15, 3, 1, null, 'Etiqueta acción', 27, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (15, 4, 2, 2, 'FACTOR', null, 4, '1');
+values (15, 4, 2, 2, 'Factor', null, 4, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (21, 1, 1, null, 'CAPACIDAD', 34, 1, '1');
+values (21, 1, 1, null, 'Capacidad', 34, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (21, 3, 1, null, 'ETIQUETA BAU', 26, 3, '1');
+values (21, 3, 1, null, 'Etiqueta BAU', 26, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (21, 4, 2, 2, 'FACTOR', null, 4, '1');
+values (21, 4, 2, 2, 'Factor', null, 4, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (22, 1, 1, null, 'CAPACIDAD', 34, 1, '1');
+values (22, 1, 1, null, 'Capacidad', 34, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (22, 3, 1, null, 'ETIQUETA INICIATIVA', 27, 3, '1');
+values (22, 3, 1, null, 'Etiqueta acción', 27, 3, '1');
 commit;
 prompt 100 records committed...
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (22, 4, 2, 2, 'FACTOR', null, 4, '1');
+values (22, 4, 2, 2, 'Factor', null, 4, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (23, 1, 1, null, 'CAPACIDAD', 35, 1, '1');
+values (23, 1, 1, null, 'Capacidad', 35, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (23, 3, 1, null, 'ETIQUETA BAU', 26, 3, '1');
+values (23, 3, 1, null, 'Etiqueta BAU', 26, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (23, 4, 2, 2, 'FACTOR', null, 4, '1');
+values (23, 4, 2, 2, 'Factor', null, 4, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (24, 1, 1, null, 'CAPACIDAD', 35, 1, '1');
+values (24, 1, 1, null, 'Capacidad', 35, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (24, 3, 1, null, 'ETIQUETA INICIATIVA', 27, 3, '1');
+values (24, 3, 1, null, 'Etiqueta acción', 27, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (24, 4, 2, 2, 'FACTOR', null, 4, '1');
+values (24, 4, 2, 2, 'Factor', null, 4, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (25, 1, 1, null, 'CAPACIDAD', 36, 1, '1');
+values (25, 1, 1, null, 'Capacidad', 36, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (25, 3, 1, null, 'ETIQUETA BAU', 37, 3, '1');
+values (25, 3, 1, null, 'Etiqueta BAU', 37, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (25, 4, 2, 2, 'FACTOR', null, 4, '1');
+values (25, 4, 2, 2, 'Factor', null, 4, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (26, 1, 1, null, 'CAPACIDAD', 36, 1, '1');
+values (26, 1, 1, null, 'Capacidad', 36, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (26, 3, 1, null, 'ETIQUETA INICIATIVA', 38, 3, '1');
+values (26, 3, 1, null, 'Etiqueta acción', 38, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (26, 4, 2, 2, 'FACTOR', null, 4, '1');
+values (26, 4, 2, 2, 'Factor', null, 4, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (27, 1, 1, null, 'CAPACIDAD', 39, 1, '1');
+values (27, 1, 1, null, 'Capacidad', 39, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (27, 3, 1, null, 'ETIQUETA BAU', 26, 3, '1');
+values (27, 3, 1, null, 'Etiqueta BAU', 26, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (27, 4, 2, 2, 'FACTOR', null, 4, '1');
+values (27, 4, 2, 2, 'Factor', null, 4, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (28, 1, 1, null, 'CAPACIDAD', 39, 1, '1');
+values (28, 1, 1, null, 'Capacidad', 39, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (28, 3, 1, null, 'ETIQUETA INICIATIVA', 27, 3, '1');
+values (28, 3, 1, null, 'Etiqueta acción', 27, 3, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (28, 4, 2, 2, 'FACTOR', null, 4, '1');
+values (28, 4, 2, 2, 'Factor', null, 4, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (45, 1, 1, null, 'ENERGETICO (BAU)', 52, 1, '1');
+values (45, 1, 1, null, 'Energético (BAU)', 52, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (45, 100, 2, 2, 'FACTOR kgCO2/TJ', null, 100, '1');
+values (45, 100, 2, 2, 'Factor kgCO2/TJ', null, 100, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (46, 100, 2, 2, 'FACTOR kgCO2/TJ', null, 100, '1');
+values (46, 100, 2, 2, 'Factor kgCO2/TJ', null, 100, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (47, 1, 1, null, 'TIPO DE VEHÍCULO', 1, 1, '1');
+values (47, 1, 1, null, 'Tipo de vehículo', 1, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (47, 100, 2, 2, 'FACTOR  ', null, 100, '1');
+values (47, 100, 2, 2, 'Factor ', null, 100, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (48, 1, 1, null, 'TIPO DE VEHÍCULO', 1, 1, '1');
+values (48, 1, 1, null, 'Tipo de vehículo', 1, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (48, 2, 1, null, 'TIPO COMBUSTIBLE INI', 71, 2, '1');
+values (48, 2, 1, null, 'Tipo combustible acción', 71, 2, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (48, 100, 2, 2, 'FACTOR MEDIA', null, 100, '1');
+values (48, 100, 2, 2, 'Factor media', null, 100, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
-values (47, 2, 1, null, 'TIPO COMBUSTIBLE INI', 71, 2, '1');
-
-INSERT INTO MRVMM.T_MAEM_MRV_FACTOR_PARAMETRO (ID_FACTOR,ID_DETALLE,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_DETALLE,ID_PARAMETRO,ORDEN,FLAG_ESTADO) values ('49','1','1',null,'ENERGÉTICO','76','1','1');
-INSERT INTO MRVMM.T_MAEM_MRV_FACTOR_PARAMETRO (ID_FACTOR,ID_DETALLE,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_DETALLE,ID_PARAMETRO,ORDEN,FLAG_ESTADO) values ('49','100','2','2','FACTOR',null,'100','1');
-INSERT INTO MRVMM.T_MAEM_MRV_FACTOR_PARAMETRO (ID_FACTOR,ID_DETALLE,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_DETALLE,ID_PARAMETRO,ORDEN,FLAG_ESTADO) values ('51','1','1',null,'ENERGÉTICO','76','1','1');
-INSERT INTO MRVMM.T_MAEM_MRV_FACTOR_PARAMETRO (ID_FACTOR,ID_DETALLE,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_DETALLE,ID_PARAMETRO,ORDEN,FLAG_ESTADO) values ('51','100','2','2','FACTOR FE kgCO2/TJ',null,'100','1');
-INSERT INTO MRVMM.T_MAEM_MRV_FACTOR_PARAMETRO (ID_FACTOR,ID_DETALLE,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_DETALLE,ID_PARAMETRO,ORDEN,FLAG_ESTADO) values ('52','1','1',null,'ENERGÉTICO','76','1','1');
-INSERT INTO MRVMM.T_MAEM_MRV_FACTOR_PARAMETRO (ID_FACTOR,ID_DETALLE,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_DETALLE,ID_PARAMETRO,ORDEN,FLAG_ESTADO) values ('52','100','2','2','FACTOR kgCH4/TJ',null,'100','1');
-INSERT INTO MRVMM.T_MAEM_MRV_FACTOR_PARAMETRO (ID_FACTOR,ID_DETALLE,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_DETALLE,ID_PARAMETRO,ORDEN,FLAG_ESTADO) values ('53','1','1',null,'ENERGÉTICO','76','1','1');
-INSERT INTO MRVMM.T_MAEM_MRV_FACTOR_PARAMETRO (ID_FACTOR,ID_DETALLE,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_DETALLE,ID_PARAMETRO,ORDEN,FLAG_ESTADO) values ('53','100','2','2','FACTOR kgN2O/TJ',null,'100','1');
-
---DELETE FROM T_MAEM_MRV_FACTOR_PARAMETRO WHERE ID_FACTOR IN (63,64,65,66,67,68,69,70)
-INSERT INTO MRVMM.T_MAEM_MRV_FACTOR_PARAMETRO (ID_FACTOR,ID_DETALLE,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_DETALLE,ID_PARAMETRO,ORDEN,FLAG_ESTADO) values ('50','1','1',null,'ENERGÉTICO','84','1','1');
-INSERT INTO MRVMM.T_MAEM_MRV_FACTOR_PARAMETRO (ID_FACTOR,ID_DETALLE,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_DETALLE,ID_PARAMETRO,ORDEN,FLAG_ESTADO) values ('50','100','2','2','FACTOR',null,'100','1');
-INSERT INTO MRVMM.T_MAEM_MRV_FACTOR_PARAMETRO (ID_FACTOR,ID_DETALLE,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_DETALLE,ID_PARAMETRO,ORDEN,FLAG_ESTADO) values ('54','1','1',null,'ENERGÉTICO','84','1','1');
-INSERT INTO MRVMM.T_MAEM_MRV_FACTOR_PARAMETRO (ID_FACTOR,ID_DETALLE,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_DETALLE,ID_PARAMETRO,ORDEN,FLAG_ESTADO) values ('54','100','2','2','FACTOR FE kgCO2/TJ',null,'100','1');
-INSERT INTO MRVMM.T_MAEM_MRV_FACTOR_PARAMETRO (ID_FACTOR,ID_DETALLE,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_DETALLE,ID_PARAMETRO,ORDEN,FLAG_ESTADO) values ('55','1','1',null,'ENERGÉTICO','84','1','1');
-INSERT INTO MRVMM.T_MAEM_MRV_FACTOR_PARAMETRO (ID_FACTOR,ID_DETALLE,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_DETALLE,ID_PARAMETRO,ORDEN,FLAG_ESTADO) values ('55','100','2','2','FACTOR kgCH4/TJ',null,'100','1');
-INSERT INTO MRVMM.T_MAEM_MRV_FACTOR_PARAMETRO (ID_FACTOR,ID_DETALLE,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_DETALLE,ID_PARAMETRO,ORDEN,FLAG_ESTADO) values ('56','1','1',null,'ENERGÉTICO','84','1','1');
-INSERT INTO MRVMM.T_MAEM_MRV_FACTOR_PARAMETRO (ID_FACTOR,ID_DETALLE,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_DETALLE,ID_PARAMETRO,ORDEN,FLAG_ESTADO) values ('56','100','2','2','FACTOR kgN2O/TJ',null,'100','1');
-
-INSERT INTO MRVMM.T_MAEM_MRV_FACTOR_PARAMETRO (ID_FACTOR,ID_DETALLE,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_DETALLE,ID_PARAMETRO,ORDEN,FLAG_ESTADO) values ('57','1','1',null,'ENERGÉTICO','76','1','1');
-INSERT INTO MRVMM.T_MAEM_MRV_FACTOR_PARAMETRO (ID_FACTOR,ID_DETALLE,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_DETALLE,ID_PARAMETRO,ORDEN,FLAG_ESTADO) values ('57','100','2','2','FACTOR',null,'100','1');
-INSERT INTO MRVMM.T_MAEM_MRV_FACTOR_PARAMETRO (ID_FACTOR,ID_DETALLE,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_DETALLE,ID_PARAMETRO,ORDEN,FLAG_ESTADO) values ('58','1','1',null,'ENERGÉTICO','84','1','1');
-INSERT INTO MRVMM.T_MAEM_MRV_FACTOR_PARAMETRO (ID_FACTOR,ID_DETALLE,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_DETALLE,ID_PARAMETRO,ORDEN,FLAG_ESTADO) values ('58','100','2','2','FACTOR',null,'100','1');
-
+values (47, 2, 1, null, 'Tipo combustible acción', 71, 2, '1');
+insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
+values (49, 1, 1, null, 'Energético', 76, 1, '1');
+insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
+values (49, 100, 2, 2, 'Factor', null, 100, '1');
+insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
+values (51, 1, 1, null, 'Energético', 76, 1, '1');
+insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
+values (51, 100, 2, 2, 'Factor FE kgCO2/TJ', null, 100, '1');
+insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
+values (52, 1, 1, null, 'Energético', 76, 1, '1');
+insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
+values (52, 100, 2, 2, 'Factor kgCH4/TJ', null, 100, '1');
+insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
+values (53, 1, 1, null, 'Energético', 76, 1, '1');
+insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
+values (53, 100, 2, 2, 'Factor kgN2O/TJ', null, 100, '1');
+insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
+values (50, 1, 1, null, 'Energético', 84, 1, '1');
+insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
+values (50, 100, 2, 2, 'Factor', null, 100, '1');
+insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
+values (54, 1, 1, null, 'Energético', 84, 1, '1');
+insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
+values (54, 100, 2, 2, 'Factor FE kgCO2/TJ', null, 100, '1');
+insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
+values (55, 1, 1, null, 'Energético', 84, 1, '1');
+insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
+values (55, 100, 2, 2, 'Factor kgCH4/TJ', null, 100, '1');
+insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
+values (56, 1, 1, null, 'Energético', 84, 1, '1');
+insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
+values (56, 100, 2, 2, 'Factor kgN2O/TJ', null, 100, '1');
+insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
+values (57, 1, 1, null, 'Energético', 76, 1, '1');
+insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
+values (57, 100, 2, 2, 'Factor', null, 100, '1');
+insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
+values (58, 1, 1, null, 'Energético', 84, 1, '1');
+insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
+values (58, 100, 2, 2, 'Factor', null, 100, '1');
 commit;
-prompt 128 records loaded
+prompt 148 records loaded
+
 prompt Loading T_MAEM_MRV_LG_FACTOR_DATA...
 insert into T_MAEM_MRV_LG_FACTOR_DATA (id_lg_factor, fecha_log, accion, id_factor, id_detale, id_parametro, valor, factor, flg_estado, detalle, usuario, ip)
 values (7992, to_date('21-05-2020 17:58:18', 'dd-mm-yyyy hh24:mi:ss'), 'I', 14, 156, '24|25|26', '3|6|2', 815.8131, '1', 'REGISTRO DE DATOS', null, null);
