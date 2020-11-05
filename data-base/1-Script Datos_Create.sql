@@ -6082,6 +6082,8 @@ values (58, 13, '84', '13', 0, '1', null, null, null, null, null, null);
 
 commit;
 prompt 1422 records loaded
+
+
 prompt Loading T_MAEM_FORMULA_PARAMETRO...
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
 values (11, 22, 1, '=', 0, '([F29]-[F30])/([C1]-[F2])*[C1]/[C1000]*[F11]*[P12]', '(|[F29]|-|[F30]|)|/|(|[C1]|-|[F2]|)|*|[C1]|/|[C1000]|*|[F11]|*|[P12]', '1');
@@ -6138,7 +6140,7 @@ values (10, 2, 12, '=', 0, '([P4]*[F3]*[F4])/([C1]-[F2])/[C1000]+([P15]*[F47])/[
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
 values (11, 2, 12, '=', 0, '[P9]-[P10]', '(|[P72]|*|[F1]|)|/|[C1000000]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
-values (11, 6, 10, '=', 0, '[P16]*[F8]', '[P16]|*|[F8]', '1');
+values (11, 6, 10, '=', 0, '[P16]*[F8]*[C1000]', '[P16]|*|[F8]|*|[C1000]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
 values (11, 7, 9, '=', 0, '[C12]*[P12]*[F9]', '[C12]|*|[P12]|*|[F9]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
@@ -6146,11 +6148,11 @@ values (11, 11, 6, '=', 0, '((([P19]-[P20])/([C1]-[F2]))*[C1]/[C1000000]*[F11]*[
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
 values (11, 16, 1, '=', 0, '([F14]-[F15])/([C1]-[F2])*[C1]/[C1000]*[F11]*[P12]', '(|[F14]|-|[F15]|)|/|(|[C1]|-|[F2]|)|*|[C1]|/|[C1000]|*|[F11]|*|[P12]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
-values (9, 9, 8, '=', null, '([P33]/[C100]*[C7.3807])*[C0.0156]*([C112]*[F20]+[C0.3]*[C30]+[C0.004]*[C265])', '(|[P33]|/|[C100]|*|[C7.3807]|)|*|[C0.0156]|*|(|[C112]|*|[F20]|+|[C0.3]|*|[C30]|+|[C0.004]|*|[C265]|)', '1');
+values (9, 9, 8, '=', 0, '([P33]/[C100]*[C7.3807])*[C0.0156]*([C112]*[F20]+[C0.3]*[C28]+[C0.004]*[C265])', '(|[P33]|/|[C100]|*|[C7.3807]|)|*|[C0.0156]|*|(|[C112]|*|[F20]|+|[C0.3]|*|[C28]|+|[C0.004]|*|[C265]|)', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
-values (10, 9, 8, '=', null, '[P33]/[C100]*[C0.0473]*([C63.1]+[C0.001]*[C30]+[C0.0001]*[C265])', '[P33]|/|[C100]|*|[C0.0473]|*|(|[C63.1]|+|[C0.001]|*|[C30]|+|[C0.0001]|*|[C265]|)', '1');
+values (10, 9, 8, '=', 0, '[P33]/[C100]*[C0.0473]*([C63.1]+[C0.001]*[C30]+[C0.0001]*[C265])', '[P33]|/|[C100]|*|[C0.0473]|*|(|[C63.1]|+|[C0.001]|*|[C30]|+|[C0.0001]|*|[C265]|)', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
-values (11, 9, 8, '=', null, '[P9]-[P10]', '[P9]|-|[P10]', '1');
+values (11, 9, 8, '=', 0, '[P9]-[P10]', '[P9]|-|[P10]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
 values (11, 18, 1, '=', 0, '([F21]-[F22])/([C1]-[F2])*[C1]/[C1000]*[F11]*[P12]', '(|[F21]|-|[F22]|)|/|(|[C1]|-|[F2]|)|*|[C1]|/|[C1000]|*|[F11]|*|[P12]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
@@ -6163,37 +6165,30 @@ insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, compo
 values (10, 4, 12, '=', 0, '([P7]/([C1]-[F2])*[F4])+[P8]*[F48]*[F47]/[C1000000]', '(|[P7]|/|(|[C1]|-|[F2]|)|*|[F4]|)|+|[P8]|*|[F48]|*|[F47]|/|[C1000000]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
 values (11, 4, 12, '=', 0, '[P9]-[P10]', '[P9]|-|[P10]', '1');
---insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
---values (9, 25, 4, '=', null, '[P50]', '[P50]', '1');
---insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
---values (10, 25, 4, '=', null, '[P51]', '[P51]', '1');
---insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
---values (11, 25, 4, '=', 0, '[P50]-[P51]', '[P50]|-|[P51]', '1');
-
-INSERT INTO MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
-VALUES ('79','25','4','=','0','[P75]*[F49]*[P77]','[P75]|*|[F49]|*|[P77]','1');
-INSERT INTO MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
-VALUES ('87','25','4','=','0','[P83]*[F50]*[P85]','[P83]|*|[F50]|*|[P85]','1');
-INSERT INTO MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
-VALUES ('80','25','4','=','0','[P77]/(([C1]-[F2])*[C1000])*[F11]*[P75]*[F57]','[P77]|/|(|(|[C1]|-|[F2]|)|*|[C1000]|)|*|[F11]|*|[P75]|*|[F57]','1');
-INSERT INTO MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
-VALUES ('81','25','4','=','0','[P79]*([F51]+[F52]*[C28]+[F53]*[C265])/[C1000]','[P79]|*|(|[F51]|+|[F52]|*|[C28]|+|[F53]|*|[C265]|)|/|[C1000]','1');
-INSERT INTO MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
-VALUES ('9','25','4','=','0','[P80]+[P81]','[P80]|+|[P81]','1');
-INSERT INTO MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
-VALUES ('88','25','4','=','0','[P85]/(([C1]-[F2])*[C1000])*[F11]*[P83]*[F58]','[P85]|/|(|(|[C1]|-|[F2]|)|*|[C1000]|)|*|[F11]|*|[P83]|*|[F58]','1');
-INSERT INTO MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
-VALUES ('89','25','4','=','0','[P87]*([F54]+[F55]*[C28]+[F56]*[C265])/[C1000]','[P87]|*|(|[F54]|+|[F55]|*|[C28]|+|[F56]|*|[C265]|)|/|[C1000]','1');
-INSERT INTO MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
-VALUES ('10','25','4','=','0','[P88]+[P89]','[P88]|+|[P89]','1');
-INSERT INTO MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
-VALUES ('90','25','4','=','0','[P79]-[P87]','[P79]|-|[P87]','1');
-INSERT INTO MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
-VALUES ('11','25','4','=','0','[P9]-[P10]','[P9]|-|[P10]','1');
-
-
+insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
+values (79, 25, 4, '=', 0, '[P75]*[F49]*[P77]', '[P75]|*|[F49]|*|[P77]', '1');
+insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
+values (87, 25, 4, '=', 0, '[P83]*[F50]*[P85]', '[P83]|*|[F50]|*|[P85]', '1');
+insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
+values (80, 25, 4, '=', 0, '[P77]/(([C1]-[F2])*[C1000])*[F11]*[P75]*[F57]', '[P77]|/|(|(|[C1]|-|[F2]|)|*|[C1000]|)|*|[F11]|*|[P75]|*|[F57]', '1');
+insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
+values (81, 25, 4, '=', 0, '[P79]*([F51]+[F52]*[C28]+[F53]*[C265])/[C1000]', '[P79]|*|(|[F51]|+|[F52]|*|[C28]|+|[F53]|*|[C265]|)|/|[C1000]', '1');
+insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
+values (9, 25, 4, '=', 0, '[P80]+[P81]', '[P80]|+|[P81]', '1');
+insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
+values (88, 25, 4, '=', 0, '[P85]/(([C1]-[F2])*[C1000])*[F11]*[P83]*[F58]', '[P85]|/|(|(|[C1]|-|[F2]|)|*|[C1000]|)|*|[F11]|*|[P83]|*|[F58]', '1');
+insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
+values (89, 25, 4, '=', 0, '[P87]*([F54]+[F55]*[C28]+[F56]*[C265])/[C1000]', '[P87]|*|(|[F54]|+|[F55]|*|[C28]|+|[F56]|*|[C265]|)|/|[C1000]', '1');
+insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
+values (10, 25, 4, '=', 0, '[P88]+[P89]', '[P88]|+|[P89]', '1');
+insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
+values (90, 25, 4, '=', 0, '[P79]-[P87]', '[P79]|-|[P87]', '1');
+insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
+values (11, 25, 4, '=', 0, '[P9]-[P10]', '[P9]|-|[P10]', '1');
 commit;
-prompt 43 records loaded
+prompt 50 records loaded
+
+
 prompt Loading T_MAMEM_GRUPO_INDICADOR...
 insert into T_MAMEM_GRUPO_INDICADOR (id_grupo_indicador, grupo_indicador, color_grupo, flag_estado)
 values (1, 'Grupo acción', '#28A745', '1');
