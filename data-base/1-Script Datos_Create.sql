@@ -2560,19 +2560,25 @@ commit;
 prompt 186 records loaded
 prompt Loading T_MAE_ENERG...
 insert into T_MAE_ENERG (id_energ, descripcion, flag_estado)
+values (6, 'Biogas (vertederos)', '1');
+insert into T_MAE_ENERG (id_energ, descripcion, flag_estado)
+values (7, 'Bagazo', '1');
+insert into T_MAE_ENERG (id_energ, descripcion, flag_estado)
+values (8, 'Hidroeléctrica', '1');
+insert into T_MAE_ENERG (id_energ, descripcion, flag_estado)
 values (3, 'Combustibles sólidos (Biomasa)', null);
 insert into T_MAE_ENERG (id_energ, descripcion, flag_estado)
 values (4, 'Energía solar', null);
 insert into T_MAE_ENERG (id_energ, descripcion, flag_estado)
 values (5, 'Energía eólica', null);
 insert into T_MAE_ENERG (id_energ, descripcion, flag_estado)
-values (6, 'Energía térmica', null);
-insert into T_MAE_ENERG (id_energ, descripcion, flag_estado)
 values (1, 'Combustibles Fósiles', null);
 insert into T_MAE_ENERG (id_energ, descripcion, flag_estado)
 values (2, 'Electricidad', null);
 commit;
-prompt 6 records loaded
+prompt 8 records loaded
+
+
 prompt Loading T_MAE_ESTADO...
 insert into T_MAE_ESTADO (id_estado, descripcion)
 values (5, 'CORREGIDO');
