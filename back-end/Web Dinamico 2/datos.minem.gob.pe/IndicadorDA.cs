@@ -865,6 +865,9 @@ namespace datos.minem.gob.pe
                     p.Add("pID_INICIATIVA", entidad.ID_INICIATIVA);
                     p.Add("pID_ENFOQUE", entidad.ID_ENFOQUE);
                     p.Add("pID_MEDMIT", entidad.ID_MEDMIT);
+                    p.Add("pID_PARAMETRO", entidad.ID_PARAMETRO);
+                    p.Add("pID_ORDERBY", entidad.order_by);
+                    p.Add("pID_ORDEN", entidad.order_orden);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     var lista = db.Query<IndicadorDataBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
 

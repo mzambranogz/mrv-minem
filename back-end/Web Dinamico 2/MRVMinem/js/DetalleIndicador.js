@@ -3648,7 +3648,10 @@ function CargarDatosGuardados() {
     var item = {
         ID_INICIATIVA: iniciativa,
         ID_MEDMIT: medida,
-        ID_ENFOQUE: enfoque
+        ID_ENFOQUE: enfoque,
+        ID_PARAMETRO: $("#parametro").val(),
+        order_by: $("#columna").val(),
+        order_orden: $("#orden").val()
     }
     $.ajax({
         url: baseUrl + 'Gestion/ListarDatosIndicadorData',
@@ -3664,7 +3667,7 @@ function CargarDatosGuardados() {
         data: JSON.stringify(item),
 
         success: function (data) {
-            
+
             if (data != null && data != "") {
                 if (data.length > 0) {
                     var order = $("#tablaIndicador").data("order");
@@ -3781,7 +3784,7 @@ function CargarDatosGuardados() {
                         $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
                         $("#total-detalle-energia").html("").append(formatoMiles(0.00));
                         $("#cuerpoTablaIndicador").data("total", resumen_total);
-                    }                    
+                    }
                 }
             } else {
                 CargarCuerpoGuardado(1, 0);
@@ -3804,7 +3807,10 @@ function CargarDatosGuardados() {
         },
         beforeSend: function () { //add 28-09-2020
             console.log('before send');
-            console.log('before send2');
+            $('#modal-carga div').removeClass('modal-md');
+            $('#modal-carga div').addClass('modal-lg');
+            $('#cerrar-m').hide();
+            $('#titulo-modal').html('Carga de información');
             $("#carga-preload-ini").html("<i Class='fas fa-spinner fa-spin px-1 fa-2x'></i>");
             $("#titulo-carga-ini").removeClass("d-none");
             $('#modal-carga').modal('show');
@@ -3812,9 +3818,14 @@ function CargarDatosGuardados() {
         },
         complete: function () {
             console.log('complete send');
-            $("#block-page-carga").hide();
+            $('#modal-carga div').removeClass('modal-lg');
+            $('#modal-carga div').addClass('modal-md');
+            $('#cerrar-m').show();
+            $('#titulo-modal').html('Datos cargados');
+            $("#block-page-carga").hide();                      
             $("#carga-preload-ini").html("");
             $("#titulo-carga-ini").addClass("d-none");
+            //CierraPopup('#modal-carga');
             $('#modal-carga').modal('hide');
         }
     });
@@ -4038,7 +4049,7 @@ function CargarDatosCabecera() {
                 if (data.length > 0) {
                     var tr = "";
                     tr += '<tr class="bg-primary text-white">';
-                    tr += `     <th class="text-center ${medida == 4 ? 'grupo-columna-02' : 'grupo-columna-03'}" scope="col"><span>N°</span></th>`;
+                    tr += `     <th class="text-center ${medida == 4 ? 'grupo-columna-02' : 'grupo-columna-03'}" scope="col"><span>N°</span><span class="miColumna"><i class="fas fa-sort" style="color: lightgray" id="VALOR-0" data-valor="IDA.ID_INDICADOR" data-parametro="0"></i></span></th>`;
                     for (var i = 0; i < data.length; i++) {
                         var columna = "0" + data[i]["ID_GRUPO_INDICADOR"];
                         var descripcion = "";
@@ -4077,8 +4088,9 @@ function CargarDatosCabecera() {
                             tool = data[i]["LEYENDA_PARAMETRO"];
 
                         //tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="' + tool + '"></i>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span><small>' + data[i]["DESCRIPCION_PARAMETRO"] + '</small></th>';
-                        tr += `     <th class="text-center grupo-columna-${columna} ${data[i]["VISIBLE"] == '0' ? 'd-none': ''}" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="${tool}"></i>${data[i]["NOMBRE_PARAMETRO"]}&nbsp;</span><span>${descripcion}</span><small>${data[i]["DESCRIPCION_PARAMETRO"]}</small></th>`;
-
+                        //tr += `     <th class="text-center grupo-columna-${columna} ${data[i]["VISIBLE"] == '0' ? 'd-none' : ''}" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="${tool}"></i>${data[i]["NOMBRE_PARAMETRO"]}&nbsp;</span><span>${descripcion}</span><small>${data[i]["DESCRIPCION_PARAMETRO"]}</small></th>`;
+                        let filtro = data[i]["ENERGIA_TOTAL"] == '1' || data[i]["ID_PARAMETRO"] == '11' ? `<span class="miColumna"><i class="fas fa-sort" style="color: lightgray" id="VALOR-${data[i]["ID_PARAMETRO"]}" data-valor="IDA.VALOR" data-parametro="${data[i]["ID_PARAMETRO"]}"></i></span>` : '';
+                        tr += `     <th class="text-center grupo-columna-${columna} ${data[i]["VISIBLE"] == '0' ? 'd-none' : ''}" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="${tool}"></i>${data[i]["NOMBRE_PARAMETRO"]}&nbsp;</span>${filtro}</th>`;
                         //}                        
                     }
                     //tr += '     <th class="text-center grupo-columna-02" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>Sustento</span><small>Seleccione este campo para su registro</small></th>';
@@ -6204,4 +6216,55 @@ var mensajeError = (mensaje, id) => {
     let c1_1 = `<div class="alert-wrap mr-3">${c_error}</div>`;
     let c1 = `<div class="alert alert-danger d-flex align-items-stretch" role="alert" id="mensajeDangerRegistro">${c1_1}${c1_2}</div>`
     $(id).append(c1);
+}
+
+
+$(document).on("click",".miColumna",function (event) {
+    var id = "";
+    if (event.target.nodeName == "SPAN") {
+        id = event.target.firstElementChild.id;
+    } else {
+        id = event.target.id;
+    }
+
+    $(".miColumna > i").removeClass("fa-sort-up");
+    $(".miColumna > i").removeClass("fa-sort-down");
+    $(".miColumna > i").addClass("fa-sort");
+    $(".miColumna > i").css("color", "lightgray");
+
+
+    //if ($("#columna").val() == id) {
+    if ($("#columna").val() == $(`#${id}`).data('valor')) {
+        if ($("#orden").val() == "ASC") {
+            $("#orden").val("DESC")
+            $("#" + id).removeClass("fa-sort-up");
+            $("#" + id).addClass("fa-sort-down");
+        }
+        else {
+            $("#orden").val("ASC")
+            $("#" + id).removeClass("fa-sort-down");
+            $("#" + id).addClass("fa-sort-up");
+        }
+        $("#" + id).css("color", "white");
+    }
+    else {
+        //$("#columna").val(id);
+        $("#columna").val($(`#${id}`).data('valor'));
+        $("#orden").val("ASC")
+        $("#" + id).removeClass("fa-sort");
+        $("#" + id).addClass("fa-sort-up");
+        $("#" + id).css("color", "white");
+    }
+    //debugger;
+    $("#parametro").val($(`#${id}`).data('parametro'));
+
+    CargarDatosGuardados();
+});
+
+function CierraPopup(id) {
+    $(id).modal('hide');//ocultamos el modal
+    $(id).removeClass('show');
+    $(id).prop('aria-hidden', true);
+    $('body').removeClass('modal-open');//eliminamos la clase del body para poder hacer scroll
+    $('.modal-backdrop').remove();//eliminamos el backdrop del modal
 }

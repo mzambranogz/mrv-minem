@@ -908,7 +908,7 @@
                                         <div class="swal2-icon swal2-question swal2-icon-show" style="display: flex;">
                                             <div class="swal2-icon-content"><i class="fas fa-exclamation-circle"></i></div>
                                         </div>
-                                        <h3 class="text-center">Carga de información</h3>
+                                        <h3 class="text-center" id="titulo-modal">Carga de información</h3>
                                     </div>
 
                                     <div id="carga-preload-ini" class="mb-3 align-items-center text-center col-sm-12 col-md-12 col-lg-12"></div>
@@ -918,6 +918,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer d-flex justify-content-center">
+                                <button class="btn btn-dark" type="button" id="cerrar-m" data-dismiss="modal">Cerrar</button>                               
                             </div>
                         </div>
                     </div>
@@ -949,6 +950,10 @@
 
 
 <div id="block-page-carga"></div>
+
+@Html.Hidden("parametro", 0)
+@Html.Hidden("columna", "IDA.ID_INDICADOR")
+@Html.Hidden("orden", "ASC")
 
 <script src="~/js/script.js"></script>
 <script src="~/js/MRV.js"></script>
