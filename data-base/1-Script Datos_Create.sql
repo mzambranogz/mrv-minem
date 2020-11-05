@@ -2640,10 +2640,12 @@ insert into T_MAE_GEI (id_gei, descripcion, flag_estado, ar2, ar4, ar5, ar6)
 values (1, 'CO2', '1', 1, 1, 1, 0);
 insert into T_MAE_GEI (id_gei, descripcion, flag_estado, ar2, ar4, ar5, ar6)
 values (2, 'CH4 (fósil)', '1', 21, 25, 30, 0);
+
 insert into T_MAE_GEI (id_gei, descripcion, flag_estado, ar2, ar4, ar5, ar6)
-values (3, 'N2O', '1', 310, 298, 265, 0);
+values (3, 'CH4 (bio)', '1', 0, 0, 28, 0);
 insert into T_MAE_GEI (id_gei, descripcion, flag_estado, ar2, ar4, ar5, ar6)
-values (4, 'CH4 (bio)', '0', 0, 0, 28, 0);
+values (4, 'N2O', '1', 310, 298, 265, 0);
+
 commit;
 prompt 4 records loaded
 prompt Loading T_MAE_IPCC...
