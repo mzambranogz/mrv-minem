@@ -4050,7 +4050,7 @@ function CargarDatosCabecera() {
                     var tr = "";
                     tr += '<tr class="bg-primary text-white">';
                     tr += `     <th class="text-center ${medida == 4 ? 'grupo-columna-02' : 'grupo-columna-03'}" scope="col"><span>N°</span></th>`;
-                    //tr += `     <th class="text-center ${medida == 4 ? 'grupo-columna-02' : 'grupo-columna-03'}" scope="col"><span>N°</span><span class="miColumna"><i class="fas fa-sort" style="color: lightgray" id="VALOR-0" data-valor="IDA.ID_INDICADOR" data-parametro="0"></i></span></th>`;
+                    //tr += `     <th class="text-center ${medida == 4 ? 'grupo-columna-02' : 'grupo-columna-03'}" scope="col"><span>N°</span><span class="miColumna"><i class="fas fa-sort" style="color: lightgray" id="VALOR-0" data-order="ASC" data-valor="IDA.ID_INDICADOR" data-parametro="0"></i></span></th>`;
                     for (var i = 0; i < data.length; i++) {
                         var columna = "0" + data[i]["ID_GRUPO_INDICADOR"];
                         var descripcion = "";
@@ -4091,7 +4091,7 @@ function CargarDatosCabecera() {
                         //tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="' + tool + '"></i>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span><small>' + data[i]["DESCRIPCION_PARAMETRO"] + '</small></th>';
                         //tr += `     <th class="text-center grupo-columna-${columna} ${data[i]["VISIBLE"] == '0' ? 'd-none' : ''}" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="${tool}"></i>${data[i]["NOMBRE_PARAMETRO"]}&nbsp;</span><span>${descripcion}</span><small>${data[i]["DESCRIPCION_PARAMETRO"]}</small></th>`;
 
-                        //let filtro = data[i]["ENERGIA_TOTAL"] == '1' || data[i]["ID_PARAMETRO"] == '11' ? `<span class="miColumna"><i class="fas fa-sort" style="color: lightgray" id="VALOR-${data[i]["ID_PARAMETRO"]}" data-valor="IDA.VALOR" data-parametro="${data[i]["ID_PARAMETRO"]}"></i></span>` : '';
+                        //let filtro = data[i]["ENERGIA_TOTAL"] == '1' || data[i]["ID_PARAMETRO"] == '11' ? `<span class="miColumna"><i class="fas fa-sort" style="color: lightgray" id="VALOR-${data[i]["ID_PARAMETRO"]}" data-valor="IDA.VALOR" data-order="ASC" data-parametro="${data[i]["ID_PARAMETRO"]}"></i></span>` : '';
                         let filtro = '';
                         tr += `     <th class="text-center grupo-columna-${columna} ${data[i]["VISIBLE"] == '0' ? 'd-none' : ''}" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="${tool}"></i>${data[i]["NOMBRE_PARAMETRO"]}&nbsp;</span>${filtro}</th>`;
                         //}                        
@@ -4669,6 +4669,7 @@ function fn_eliminarRestarTotal() {
         eliminar_item.parent().parent().remove();
         eliminarAcumulado(fila);        
         $('#modal-confirmacion').modal('hide');
+        ordenarTablaDatos(); //add
     }
 }
 
@@ -6237,31 +6238,45 @@ $(document).on("click",".miColumna",function (event) {
 
 
     //if ($("#columna").val() == id) {
-    if ($("#columna").val() == $(`#${id}`).data('valor')) {
-        if ($("#orden").val() == "ASC") {
-            $("#orden").val("DESC")
-            $("#" + id).removeClass("fa-sort-up");
-            $("#" + id).addClass("fa-sort-down");
-        }
-        else {
-            $("#orden").val("ASC")
-            $("#" + id).removeClass("fa-sort-down");
-            $("#" + id).addClass("fa-sort-up");
-        }
-        $("#" + id).css("color", "white");
-    }
-    else {
-        //$("#columna").val(id);
-        $("#columna").val($(`#${id}`).data('valor'));
-        $("#orden").val("ASC")
-        $("#" + id).removeClass("fa-sort");
-        $("#" + id).addClass("fa-sort-up");
-        $("#" + id).css("color", "white");
-    }
-    //debugger;
-    $("#parametro").val($(`#${id}`).data('parametro'));
+    //if ($("#columna").val() == $(`#${id}`).data('valor')) {
+    //    if ($("#orden").val() == "ASC") {
+    //        $("#orden").val("DESC")
+    //        $("#" + id).removeClass("fa-sort-up");
+    //        $("#" + id).addClass("fa-sort-down");
+    //    }
+    //    else {
+    //        $("#orden").val("ASC")
+    //        $("#" + id).removeClass("fa-sort-down");
+    //        $("#" + id).addClass("fa-sort-up");
+    //    }
+    //    $("#" + id).css("color", "white");
+    //}
+    //else {
+    //    //$("#columna").val(id);
+    //    $("#columna").val($(`#${id}`).data('valor'));
+    //    $("#orden").val("ASC")
+    //    $("#" + id).removeClass("fa-sort");
+    //    $("#" + id).addClass("fa-sort-up");
+    //    $("#" + id).css("color", "white");
+    //}
 
-    CargarDatosGuardados();
+    //$("#parametro").val($(`#${id}`).data('parametro'));
+
+    //CargarDatosGuardados();
+    //===========
+    let order = $(`#${id}`).data('order');
+    if (order == "ASC") {
+        $(`#${id}`).data('order', "DESC");
+        $(`#${id}`).removeClass("fa-sort");
+        $(`#${id}`).addClass("fa-sort-down");
+    }
+    else if (order == "DESC") {
+        $(`#${id}`).data('order', "ASC");
+        $(`#${id}`).removeClass("fa-sort");        
+        $(`#${id}`).addClass("fa-sort-up");
+    } 
+    let param = $(`#${id}`).data('parametro');
+    ordenarFiltro(order, param);
 });
 
 function CierraPopup(id) {
@@ -6270,4 +6285,120 @@ function CierraPopup(id) {
     $(id).prop('aria-hidden', true);
     $('body').removeClass('modal-open');//eliminamos la clase del body para poder hacer scroll
     $('.modal-backdrop').remove();//eliminamos el backdrop del modal
+}
+
+var ordenarFiltro = (order, parametro) => {
+    let arrValores = [], arrInd = [];
+    $('#cuerpoTablaIndicador').find('tr').each((x, y) => {
+        let arr = [];
+        $(y).find('td').each((w, z) => {
+            let v = $(z).data('encabezado') != "Sustento" && $(z).data('encabezado') != "Acciones" ? true : false;
+            if (v) {
+                let id = `#${$(z).find('div')[0].firstChild.id}`;
+                arr.push([id, $(id).val()]);
+            }            
+        });        
+        arrInd.push([`#${$(y).attr('id')}`,
+                      parametro == 0 ? $(y).find('th').html() : $(y).find(`[data-param=${parametro}]`).val(),
+                      $(y)[0].outerHTML, arr]);
+        // arrValores.push($(y).find('[data-param=11]').val());
+        arrValores.push([parametro == 0 ? $(y).find('th').html() : $(y).find(`[data-param=${parametro}]`).val(), `#${$(y).attr('id')}`]);
+    });
+    //if (order == "ASC") arrValores.sort(function (a, b) { return a - b; }); //ASCENDENTE
+    //else arrValores.sort(function (a, b) { return b - a; }); //DESCENDENTE
+
+    if (order == "ASC") arrValores = ordenarAscendente(arrValores); //ASCENDENTE
+    else arrValores = ordenarDescendente(arrValores); //DESCENDENTE
+
+    $('#cuerpoTablaIndicador').html('');
+    $.each(arrValores, (x, y) => {
+        //v = arrInd.find(w => { return w[1] == y; });
+        debugger;
+        v = arrInd.find(w => { return w[1] == y[0] && w[0] == y[1]; });
+        $('#cuerpoTablaIndicador').append(v[2]);
+        $.each(v[3], (x, y) => {
+            $(y[0]).val(y[1]);
+        });
+    });
+    ordenarTablaDatos();
+}
+
+var ordenarDescendente = (arr) => {
+    arr.sort(function (a, b) {
+        if (a[0] < b[0]) {
+            return 1;
+        }
+        if (a[0] > b[0]) {
+            return -1;
+        }
+        // a must be equal to b
+        return 0;
+    });
+    return arr;
+}
+
+var ordenarAscendente = (arr) => {
+    arr.sort(function (a, b) {
+        if (a[0] > b[0]) {
+            return 1;
+        }
+        if (a[0] < b[0]) {
+            return -1;
+        }
+        // a must be equal to b
+        return 0;
+    });
+    return arr;
+}
+
+function ordenarTablaDatos() {
+    debugger;
+    let o = $("#tablaIndicador"); 
+    for (var e = o.find("tbody").find("th"), r = o.parent().attr("data-order"), a = 0; a < e.length; a++) {
+        var s = a + 1;
+        o.find("tbody").find("th").eq(a).empty().html(s), o.find("tbody").find("tr").eq(a).removeAttr("id").attr({
+            id: "detalles-tr-" + s
+        }), o.find("tbody").find("tr").eq(a).find("select").each(function (e, t) {
+            var n = $(this).attr("id"),
+                i = "cbo-det-" + r + "-" + (e + 1) + "-" + s;
+            o.find("tbody").find("tr").eq(a).find("#" + n).attr({
+                id: i
+            })
+        }), o.find("tbody").find("tr").eq(a).find("input[type='text']").each(function (e, t) {
+            var n = $(this).attr("id"),
+                i = "txt-det-" + r + "-" + (e + 1) + "-" + s;
+            o.find("tbody").find("tr").eq(a).find("#" + n).attr({
+                id: i
+            })
+        }), o.find("tbody").find("tr").eq(a).find("input[type='date']").each(function (e, t) {
+            var n = $(this).attr("id"),
+                i = "fch-det-" + r + "-" + (e + 1) + "-" + s;
+            o.find("tbody").find("tr").eq(a).find("#" + n).attr({
+                id: i
+            })
+        })
+        debugger;
+        o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('label').find('input').eq(0).removeAttr("onchange").attr({
+            onchange: `HandleFileSustento(this.files,${s},1)`
+        });
+        o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('label').find('input').eq(0).removeAttr("id").attr({
+            id: "fle-doc-" + s
+        });
+        if (o.find("tbody").find("tr").eq(a).data('ind') > 0)
+            o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('label').find('input').eq(1).removeAttr("id").attr({
+                id: "fle-nom-" + s
+            });
+        //o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('a').eq(a).removeAttr("href").attr({
+        //    href: `/Gestion/FileDownload?IdIniciativa=508&IdIndicador=${s}&accion=I`
+        //});
+        o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('a').eq(0).removeAttr("id").attr({
+            id: `fle-dow-${s}`
+        });
+        o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('label').eq(0).removeAttr("for").attr({
+            for: "fle-doc-" + s
+        });
+        o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").eq(0).removeAttr("id").attr({
+            id: "sustento" + s
+        });
+    }
 }
