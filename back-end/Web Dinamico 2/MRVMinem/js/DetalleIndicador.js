@@ -2817,7 +2817,6 @@ function fn_procesoDetalleIndicador(url, estado) {
                 listaInd: ListaValores
             });
         }
-
     }
 
     for (var i = 0, len = storedFiles.length; i < len; i++) {
@@ -3293,8 +3292,9 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                                         tr += '</select>';
                                     } else {
                                         //tr += '<select class="form-control form-control-sm require-data" id="cbo-det-tbl-1-' + lista + '-' + (i + 1) + '" onchange="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '">';
-                                        tr += `<select class="form-control form-control-sm require-data ${data[j]["VALIDAR_IMPLEMENTADO"] == '1' ? 'validar-implementado' : ''} ${data[j]["VALIDAR_VERIFICACION"] == '1' ? 'validar-verificado' : ''}" id="cbo-det-tbl-1-${lista}-${(i + 1)}" onchange="fn_calcularValor(this)" data-validar="0" data-param="${data[j]["ID_PARAMETRO"]}">`;
-                                        if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30 && data[j]["ID_PARAMETRO"] != 93 && data[j]["ID_PARAMETRO"] != 94 && data[j]["ID_PARAMETRO"] != 95) tr += '        <option value="0">Seleccionar</option>'; //add
+                                        tr += `<select class="form-control form-control-sm require-data ${data[j]["FILTRO"] == '1' ? 'filtrar-opcion' : ''} ${data[j]["VALIDAR_IMPLEMENTADO"] == '1' ? 'validar-implementado' : ''} ${data[j]["VALIDAR_VERIFICACION"] == '1' ? 'validar-verificado' : ''}" id="cbo-det-tbl-1-${lista}-${(i + 1)}" onchange="fn_calcularValor(this)" data-validar="0" data-param="${data[j]["ID_PARAMETRO"]}">`;
+                                        //if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30 && data[j]["ID_PARAMETRO"] != 93 && data[j]["ID_PARAMETRO"] != 94 && data[j]["ID_PARAMETRO"] != 95) tr += '        <option value="0">Seleccionar</option>'; //add
+                                        tr += data[j]["listaDetalle"].length > 1 ? '<option value="0">Seleccionar</option>' : '';
                                         //tr += '        <option value="0">Seleccionar</option>';
                                         var listaD = data[j]["listaDetalle"];
                                         for (var m = 0; m < listaD.length; m++) {
@@ -3305,8 +3305,9 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                                 } else {
                                     lista++;
                                     //tr += '<select class="form-control form-control-sm require-data" id="cbo-det-tbl-1-' + lista + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '">';
-                                    tr += `<select class="form-control form-control-sm require-data ${data[j]["VALIDAR_IMPLEMENTADO"] == '1' ? 'validar-implementado' : ''} ${data[j]["VALIDAR_VERIFICACION"] == '1' ? 'validar-verificado' : ''}" id="cbo-det-tbl-1-${lista}-${(i + 1)}" data-param="${data[j]["ID_PARAMETRO"]}">`;
-                                    if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30 && data[j]["ID_PARAMETRO"] != 93 && data[j]["ID_PARAMETRO"] != 94 && data[j]["ID_PARAMETRO"] != 95) tr += '        <option value="0">Seleccionar</option>'; //add
+                                    tr += `<select class="form-control form-control-sm require-data ${data[j]["FILTRO"] == '1' ? 'filtrar-opcion' : ''} ${data[j]["VALIDAR_IMPLEMENTADO"] == '1' ? 'validar-implementado' : ''} ${data[j]["VALIDAR_VERIFICACION"] == '1' ? 'validar-verificado' : ''}" id="cbo-det-tbl-1-${lista}-${(i + 1)}" data-param="${data[j]["ID_PARAMETRO"]}" >`;
+                                    //if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30 && data[j]["ID_PARAMETRO"] != 93 && data[j]["ID_PARAMETRO"] != 94 && data[j]["ID_PARAMETRO"] != 95) tr += '        <option value="0">Seleccionar</option>'; //add
+                                    tr += data[j]["listaDetalle"].length > 1 ? '<option value="0">Seleccionar</option>' : '';
                                     //tr += '        <option value="0">Seleccionar</option>';
                                     var listaD = data[j]["listaDetalle"];
                                     for (var m = 0; m < listaD.length; m++) {
@@ -3369,7 +3370,8 @@ function CargarCuerpoGuardado(filas, xIndicador) {
 
                         tr += '<td class="text-center" data-encabezado="Sustento" id="sustento' + (i + 1) + '">';
                         tr += '        <label class="btn btn-secondary btn-sm m-0" for="fle-doc-' + (i + 1) + '" title="Cargar archivo"><i class="fas fa-upload"></i>';
-                        tr += '          <input class="d-none" type="file" id="fle-doc-' + (i + 1) + '" name="fledoc" onchange="handleFileSustento(this.files,' + (i + 1) + ',1)">';
+                        //tr += '          <input class="d-none" type="file" id="fle-doc-' + (i + 1) + '" name="fledoc" onchange="handleFileSustento(this.files,' + (i + 1) + ',1)">';
+                        tr += `          <input class="d-none" type="file" id="fle-doc-${(i + 1)}" name="fledoc" onchange="handleFileSustento(this.files,${(i + 1)},1)">`;
                         tr += '           <input id="fle-nom-' + (i + 1) + '" type="text" data-nomarchivo="" hidden>';//
                         //tr += '        </label><a class="btn btn-success btn-sm m-0" name="fledownload" href="' + urlDw + '" title="Descargar archivo" id="fle-dow-' + (i + 1) + '" target="_blank" style="display: none;"><i class="fas fa-download"></i></a>';
                         tr += '        </label><a class="btn btn-success btn-sm m-0" name="fledownload" href="' + urlDw + '" title="Descargar archivo" id="fle-dow-' + (i + 1) + '" target="_blank" style="display: none;"><i class="fas fa-download"></i></a>'; //add 18-04-2020
@@ -3404,6 +3406,7 @@ function CargarCuerpoGuardado(filas, xIndicador) {
 
 
 function handleFileSustento(evt, idIndicador, accion) {
+
     console.log(evt);
 
     detalleFiles = []; // add 12-02-2020
@@ -3457,7 +3460,7 @@ function handleFileSustento(evt, idIndicador, accion) {
                             if (xref[0].href.lastIndexOf("FileDownloadDetalle") != -1) {
                                 xref[0].href = baseUrl + 'Gestion/FileDownload?IdIniciativa=' + $("#iniciativa_mit_ID_INICIATIVA").val() + '&IdIndicador=' + idIndicador + "&accion=I";
                             }
-                            
+
                             $("#fle-dow-" + idIndicador).removeAttr('style');
                             $("#fle-nom-" + idIndicador).val(nom_archivo); //add 18-04-2020
                         } else {
@@ -3543,8 +3546,9 @@ function CargarNuevaFila(filas) {
                                     } else {
                                         
                                         //tr += '<select class="form-control form-control-sm require-data" id="cbo-det-tbl-1-' + lista + '-' + (rows + 1) + '" onchange="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '">';
-                                        tr += `<select class="form-control form-control-sm require-data ${data[j]["VALIDAR_IMPLEMENTADO"] == '1' ? 'validar-implementado' : ''} ${data[j]["VALIDAR_VERIFICACION"] == '1' ? 'validar-verificado' : ''}" id="cbo-det-tbl-1-${lista}-${(rows + 1)}" onchange="fn_calcularValor(this)" data-validar="0" data-param="${data[j]["ID_PARAMETRO"]}">`;
-                                        if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30 && data[j]["ID_PARAMETRO"] != 93 && data[j]["ID_PARAMETRO"] != 94 && data[j]["ID_PARAMETRO"] != 95) tr += '        <option value="0">Seleccionar</option>'; //add
+                                        tr += `<select class="form-control form-control-sm require-data ${data[j]["FILTRO"] == '1' ? 'filtrar-opcion' : ''} ${data[j]["VALIDAR_IMPLEMENTADO"] == '1' ? 'validar-implementado' : ''} ${data[j]["VALIDAR_VERIFICACION"] == '1' ? 'validar-verificado' : ''}" id="cbo-det-tbl-1-${lista}-${(rows + 1)}" onchange="fn_calcularValor(this)" data-validar="0" data-param="${data[j]["ID_PARAMETRO"]}">`;
+                                        //if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30 && data[j]["ID_PARAMETRO"] != 93 && data[j]["ID_PARAMETRO"] != 94 && data[j]["ID_PARAMETRO"] != 95) tr += '        <option value="0">Seleccionar</option>'; //add
+                                        tr += data[j]["listaDetalle"].length > 1 ? '<option value="0">Seleccionar</option>' : '';
                                         //tr += '        <option value="0">Seleccionar</option>';
                                         var listaD = data[j]["listaDetalle"];
                                         for (var m = 0; m < listaD.length; m++) {
@@ -3554,9 +3558,10 @@ function CargarNuevaFila(filas) {
                                     }
                                 } else {
                                     lista++;
-                                    tr += `<select class="form-control form-control-sm require-data ${data[j]["VALIDAR_IMPLEMENTADO"] == '1' ? 'validar-implementado' : ''} ${data[j]["VALIDAR_VERIFICACION"] == '1' ? 'validar-verificado' : ''}" id="cbo-det-tbl-1-${lista}-${(rows + 1)}" data-param="${data[j]["ID_PARAMETRO"]}">`;
+                                    tr += `<select class="form-control form-control-sm require-data ${data[j]["FILTRO"] == '1' ? 'filtrar-opcion' : ''} ${data[j]["VALIDAR_IMPLEMENTADO"] == '1' ? 'validar-implementado' : ''} ${data[j]["VALIDAR_VERIFICACION"] == '1' ? 'validar-verificado' : ''}" id="cbo-det-tbl-1-${lista}-${(rows + 1)}" data-param="${data[j]["ID_PARAMETRO"]}">`;
                                     //tr += '<select class="form-control form-control-sm require-data" id="cbo-det-tbl-1-' + lista + '-' + (rows + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '">';
-                                    if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30 && data[j]["ID_PARAMETRO"] != 93 && data[j]["ID_PARAMETRO"] != 94 && data[j]["ID_PARAMETRO"] != 95) tr += '        <option value="0">Seleccionar</option>'; //add
+                                    //if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30 && data[j]["ID_PARAMETRO"] != 93 && data[j]["ID_PARAMETRO"] != 94 && data[j]["ID_PARAMETRO"] != 95) tr += '        <option value="0">Seleccionar</option>'; //add
+                                    tr += data[j]["listaDetalle"].length > 1 ? '<option value="0">Seleccionar</option>' : '';
                                     //tr += '        <option value="0">Seleccionar</option>';
                                     var listaD = data[j]["listaDetalle"];
                                     for (var m = 0; m < listaD.length; m++) {
@@ -3671,6 +3676,7 @@ function CargarDatosGuardados() {
             if (data != null && data != "") {
                 if (data.length > 0) {
                     var order = $("#tablaIndicador").data("order");
+
                     CargarCuerpoGuardado(data.length, 1);
                     var total = 0.0;
                     for (var i = 0; i < data.length; i++) {
@@ -4054,24 +4060,27 @@ function CargarDatosCabecera() {
                     for (var i = 0; i < data.length; i++) {
                         var columna = "0" + data[i]["ID_GRUPO_INDICADOR"];
                         var descripcion = "";
-                        if (data[i]["COMBINACION_UNIDAD"] == "" || data[i]["COMBINACION_UNIDAD"] == null) {
-                            if (data[i]["PREFIJO"] != null) {
-                                descripcion += data[i]["PREFIJO"];
-                            }
-                            if (data[i]["UNIDAD"] != null) {
-                                descripcion += data[i]["UNIDAD"];
-                            }
-                            if (data[i]["DESCRIPCION_UNIDAD"] != null) {
-                                descripcion += data[i]["DESCRIPCION_UNIDAD"];
-                            }
-                            if (descripcion == 0) {
-                                descripcion = "";
-                            } else {
-                                descripcion = "(" + descripcion + ")";
-                            }
-                        } else {
-                            descripcion = "(" + data[i]["COMBINACION_UNIDAD"] + ")";
-                        }
+                        //if (data[i]["COMBINACION_UNIDAD"] == "" || data[i]["COMBINACION_UNIDAD"] == null) {
+                        //    if (data[i]["PREFIJO"] != null) {
+                        //        descripcion += data[i]["PREFIJO"];
+                        //    }
+                        //    if (data[i]["UNIDAD"] != null) {
+                        //        descripcion += data[i]["UNIDAD"];
+                        //    }
+                        //    if (data[i]["DESCRIPCION_UNIDAD"] != null) {
+                        //        descripcion += data[i]["DESCRIPCION_UNIDAD"];
+                        //    }
+                        //    if (descripcion == 0) {
+                        //        descripcion = "";
+                        //    } else {
+                        //        descripcion = "(" + descripcion + ")";
+                        //    }
+                        //} else {
+                        //    descripcion = "(" + data[i]["COMBINACION_UNIDAD"] + ")";
+                        //}
+
+
+                        descripcion = data[i]["COMBINACION_UNIDAD"] == "" || data[i]["COMBINACION_UNIDAD"] == null ? '' : data[i]["COMBINACION_UNIDAD"];
 
                         //if (data[i]["ID_PARAMETRO"] == 9 || data[i]["ID_PARAMETRO"] == 10 || data[i]["ID_PARAMETRO"] == 11) {
                         //    tr += '     <th class="text-center grupo-columna-'+ columna +'" scope="col"><span>' + data[i]["NOMBRE_PARAMETRO"] + ' tCOeq</span><small>Seleccione este campo para su registro</small></th>';
@@ -4090,10 +4099,11 @@ function CargarDatosCabecera() {
 
                         //tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="' + tool + '"></i>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span><small>' + data[i]["DESCRIPCION_PARAMETRO"] + '</small></th>';
                         //tr += `     <th class="text-center grupo-columna-${columna} ${data[i]["VISIBLE"] == '0' ? 'd-none' : ''}" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="${tool}"></i>${data[i]["NOMBRE_PARAMETRO"]}&nbsp;</span><span>${descripcion}</span><small>${data[i]["DESCRIPCION_PARAMETRO"]}</small></th>`;
-
-                        //let filtro = data[i]["ENERGIA_TOTAL"] == '1' || data[i]["ID_PARAMETRO"] == '11' ? `<span class="miColumna"><i class="fas fa-sort" style="color: lightgray" id="VALOR-${data[i]["ID_PARAMETRO"]}" data-valor="IDA.VALOR" data-order="ASC" data-parametro="${data[i]["ID_PARAMETRO"]}"></i></span>` : '';
-                        let filtro = '';
-                        tr += `     <th class="text-center grupo-columna-${columna} ${data[i]["VISIBLE"] == '0' ? 'd-none' : ''}" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="${tool}"></i>${data[i]["NOMBRE_PARAMETRO"]}&nbsp;</span>${filtro}</th>`;
+                        let filtro = "";
+                        if (medida == 4)
+                            filtro = data[i]["ENERGIA_TOTAL"] == '1' || data[i]["ID_PARAMETRO"] == '11' ? `<span class="miColumna"><i class="fas fa-sort" style="color: lightgray" id="VALOR-${data[i]["ID_PARAMETRO"]}" data-valor="IDA.VALOR" data-order="ASC" data-parametro="${data[i]["ID_PARAMETRO"]}"></i></span>` : '';
+                        //let filtro = '';
+                        tr += `     <th class="text-center grupo-columna-${columna} ${data[i]["VISIBLE"] == '0' ? 'd-none' : ''}" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="${tool}"></i>${data[i]["NOMBRE_PARAMETRO"]}&nbsp;</span>${filtro}<span>${descripcion}</span></th>`;
                         //}                        
                     }
                     //tr += '     <th class="text-center grupo-columna-02" scope="col" data-toggle="tooltip" data-placement="bottom" title="Texto descriptivo de ayuda"><span>Sustento</span><small>Seleccione este campo para su registro</small></th>';
@@ -4464,7 +4474,6 @@ function fn_calcularValor(e) {
     var dv = $(e).attr("data-validar");
     var row = $(e).parent().parent().parent().find('th:eq(0)').html();
     //var row = $("#tablaIndicador").data("fila");
-    //debugger;
     if (dv == undefined) { }
     else {
         id = e.id;
@@ -5455,7 +5464,6 @@ function agregarAcumulado(item, f) {
                                 anio += 1;
                             }
                         }
-                        //debugger;
                         for (var j = 0; j < data.length; j++) {
                             var acumulado_col = 0.0;                            
                             var valor = parseFloat($("#a-" + anio + '-' + f).html().replace(/,/gi, ''));
@@ -5498,7 +5506,6 @@ function agregarAcumulado(item, f) {
                 let resumen_total = 0.0, resumen_energia = 0.0;
                 if (medida == 4) {
                     $('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
-                        //debugger;
                         let emision = parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
                         let energia = parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
                         resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
@@ -5679,11 +5686,9 @@ function generarAcumulado() {
 
                     let resumen_total = 0.0, resumen_energia = 0.0;
                     if ($("#Control").data("mitigacion") == 4) {
-                        debugger;
                         $('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
                             let emision = parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
                             let energia = parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
-                            debugger;
                             resumen_total += $(y).data('valor') == null ? 0 : $(y).data('valor') > 1 ? emision : 0;
                             resumen_energia += $(y).data('valor') == null ? 0 : $(y).data('valor') > 1 ? energia : 0;
                         });
@@ -6292,10 +6297,23 @@ var ordenarFiltro = (order, parametro) => {
     $('#cuerpoTablaIndicador').find('tr').each((x, y) => {
         let arr = [];
         $(y).find('td').each((w, z) => {
-            let v = $(z).data('encabezado') != "Sustento" && $(z).data('encabezado') != "Acciones" ? true : false;
+            //let v = $(z).data('encabezado') != "Sustento" && $(z).data('encabezado') != "Acciones" ? true : false;
+            let v = $(z).data('encabezado') != "Acciones" ? true : false;
             if (v) {
-                let id = `#${$(z).find('div')[0].firstChild.id}`;
-                arr.push([id, $(id).val()]);
+                let id = '';
+                if ($(z).data('encabezado') == "Sustento") {
+                    id = `#${$(z).find('label').find('input')[0].id}`;
+                } else {
+                    id = `#${$(z).find('div')[0].firstChild.id}`;
+                }
+
+                if ($(z).data('encabezado') == "Sustento") {
+                    //arr.push([id, $(id)[0].files[0]]);
+                    arr.push([id, $(id)[0].files]);
+                } else {
+                    arr.push([id, $(id).val()]);
+                }
+                //arr.push([id, $(id).val()]);
             }            
         });        
         arrInd.push([`#${$(y).attr('id')}`,
@@ -6313,11 +6331,11 @@ var ordenarFiltro = (order, parametro) => {
     $('#cuerpoTablaIndicador').html('');
     $.each(arrValores, (x, y) => {
         //v = arrInd.find(w => { return w[1] == y; });
-        debugger;
         v = arrInd.find(w => { return w[1] == y[0] && w[0] == y[1]; });
         $('#cuerpoTablaIndicador').append(v[2]);
         $.each(v[3], (x, y) => {
-            $(y[0]).val(y[1]);
+            if (y[0].indexOf('fle-doc-') !== -1) $(y[0])[0].files = y[1];
+            else $(y[0]).val(y[1]);
         });
     });
     ordenarTablaDatos();
@@ -6334,25 +6352,41 @@ var ordenarDescendente = (arr) => {
         // a must be equal to b
         return 0;
     });
+
     return arr;
 }
 
 var ordenarAscendente = (arr) => {
-    arr.sort(function (a, b) {
-        if (a[0] > b[0]) {
-            return 1;
+    //arr.sort(function (a, b) {
+    //    if (a[0] > b[0]) {
+    //        return 1;
+    //    }
+    //    if (a[0] < b[0]) {
+    //        return -1;
+    //    }
+    //    // a must be equal to b
+    //    return 0;
+    //});
+
+    let t, id;
+    for (let a = 1; a < arr.length; a++) {
+        for (let b = arr.length - 1; b >= a; b--) {
+            if (arr[b - 1][0] > arr[b][0]) {
+                t = arr[b - 1][0];
+                id = arr[b - 1][1];
+                arr[b - 1][0] = arr[b][0];
+                arr[b - 1][1] = arr[b][1];
+                arr[b][0] = t;
+                arr[b][1] = id;
+            }
         }
-        if (a[0] < b[0]) {
-            return -1;
-        }
-        // a must be equal to b
-        return 0;
-    });
+    }
+
     return arr;
 }
 
 function ordenarTablaDatos() {
-    debugger;
+    let iniciativa = $("#Control").data("iniciativa");
     let o = $("#tablaIndicador"); 
     for (var e = o.find("tbody").find("th"), r = o.parent().attr("data-order"), a = 0; a < e.length; a++) {
         var s = a + 1;
@@ -6377,20 +6411,28 @@ function ordenarTablaDatos() {
                 id: i
             })
         })
-        debugger;
+
         o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('label').find('input').eq(0).removeAttr("onchange").attr({
-            onchange: `HandleFileSustento(this.files,${s},1)`
+            onchange: `handleFileSustento(this.files,${s},1)`
         });
         o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('label').find('input').eq(0).removeAttr("id").attr({
             id: "fle-doc-" + s
         });
-        if (o.find("tbody").find("tr").eq(a).data('ind') > 0)
-            o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('label').find('input').eq(1).removeAttr("id").attr({
-                id: "fle-nom-" + s
+
+        o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('label').find('input').eq(1).removeAttr("id").attr({
+            id: "fle-nom-" + s
+        });
+
+        let cargado = o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('a').attr('style');
+        let rel = o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('a').eq(0).attr('href');
+        let ind = rel.split('&')[1].split('=')[1].trim();        
+        if (rel.split('&')[2].split('=')[1].trim() == 'I') {
+            cargado == '' || cargado == undefined ? ActualizarFile(iniciativa, ind, s) : ''; //add
+            o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('a').eq(0).removeAttr("href").attr({
+                href: `/Gestion/FileDownload?IdIniciativa=${iniciativa}&IdIndicador=${s}&accion=I`
             });
-        //o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('a').eq(a).removeAttr("href").attr({
-        //    href: `/Gestion/FileDownload?IdIniciativa=508&IdIndicador=${s}&accion=I`
-        //});
+        }            
+        
         o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('a').eq(0).removeAttr("id").attr({
             id: `fle-dow-${s}`
         });
@@ -6401,4 +6443,66 @@ function ordenarTablaDatos() {
             id: "sustento" + s
         });
     }
+    ordenarIndicadorFile(iniciativa);
 }
+
+
+function ActualizarFile(idIniciativa, idIndicador, nuevoindicador) {
+
+    var url = baseUrl + 'Gestion/ActualizarFile?IdIniciativa=' + idIniciativa + '&IdIndicador=' + idIndicador + '&idnuevo=' + nuevoindicador;
+    $.ajax({
+        url: url, //'/Home/FileUpload',
+        type: "POST",
+        async: false,
+        contentType: false, // Not to set any content header  
+        processData: false, // Not to process data  
+        success: function (result) {
+            if (result != null && result != "") {
+                console.log(result);
+            }
+        }
+    });
+}
+
+var ordenarIndicadorFile = (idIniciativa) => {
+    var url = baseUrl + 'Gestion/OrdenarFile?IdIniciativa=' + idIniciativa;
+    $.ajax({
+        url: url, //'/Home/FileUpload',
+        type: "POST",
+        async: false,
+        contentType: false, // Not to set any content header  
+        processData: false, // Not to process data  
+        success: function (result) {
+            if (result != null && result != "") {
+                console.log(result);
+            }
+        }
+    });
+}
+
+$(document).on('change', '.filtrar-opcion', function (e) {
+    //debugger;
+    let id = `#${e.target.id}`;
+    let v = $(id).val() == null ? true : $(id).val() == 0 ? true : false;
+    if (v) return;
+    let param = $(id).data('param');
+
+    let item = {
+        ID_PARAMETRO: param,
+        ID_DETALLE: $(id).val(),
+    }
+    var url = baseUrl + 'Gestion/FiltrarOpcion';
+    $.ajax({
+        url: url, //'/Home/FileUpload',
+        type: "POST",
+        data: item,
+        success: function (result) {
+            if (result != null && result != "") {
+                //console.log(result);
+                let valor = result.PARAMETROS == null ? '0' : result.PARAMETROS == '' ? '0' : result.DETALLES;
+                if (valor > 0)
+                    $(id).parent().parent().parent().find(`[data-param=${result.PARAMETROS}]`).val(valor);
+            }
+        }
+    });
+});

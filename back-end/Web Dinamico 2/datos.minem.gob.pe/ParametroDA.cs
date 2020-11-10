@@ -396,5 +396,27 @@ namespace datos.minem.gob.pe
             return entidad;
         }
 
+        public ParametroBE FiltrarParametro(ParametroBE entidad)
+        {
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage2 + "USP_SEL_FILTRAR_PARAMETRO";
+                    var p = new OracleDynamicParameters();
+                    p.Add("PI_PARAMETRO", entidad.ID_PARAMETRO);
+                    p.Add("PI_DETALLE", entidad.ID_DETALLE);
+                    p.Add("PO_RF", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    entidad = db.Query<ParametroBE>(sp, p, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return entidad;
+        }
+
     }
 }

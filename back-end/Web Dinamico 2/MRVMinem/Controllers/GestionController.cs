@@ -3299,12 +3299,14 @@ namespace MRVMinem.Controllers
                             encontrado.ADJUNTO_BASE = fileName;
                             encontrado.accion = "1";
                             encontrado.message = "Archivo Cargado";
+                            encontrado.buscar = gui.ToString();
+                            encontrado.pagina = Convert.ToInt16(Id_fileName.Split('-')[1]);
                             uploadFile.Add(encontrado);
 
                         }
                         else
                         {
-                            IndicadorArchivoBE indicadorArchivo = new IndicadorArchivoBE() { ID_INICIATIVA = IdIniciativa, ID_INDICADOR = IdIndicador, ADJUNTO = Id_fileName, ADJUNTO_BASE = fileName, accion = "1", message = "Archivo Cargado" };
+                            IndicadorArchivoBE indicadorArchivo = new IndicadorArchivoBE() { ID_INICIATIVA = IdIniciativa, ID_INDICADOR = IdIndicador, ADJUNTO = Id_fileName, ADJUNTO_BASE = fileName, accion = "1", message = "Archivo Cargado", buscar = gui.ToString(), pagina = Convert.ToInt16(Id_fileName.Split('-')[1]) };
                             MisArchivos.Add(indicadorArchivo);
                             uploadFile.Add(indicadorArchivo);
                         }
@@ -3331,32 +3333,55 @@ namespace MRVMinem.Controllers
                 foreach (var fil in di.GetFiles(filename + "*"))
                 {
                     id_filename = fil.Name;
-                }
-                if (id_filename != "")
-                {
-                    //Buscamos en la session
-                    if (Session["MisArchivos"] != null)
+                    if (id_filename != "")
                     {
-                        MisArchivos = (List<IndicadorArchivoBE>)Session["MisArchivos"];
-                        IndicadorArchivoBE encontrado = MisArchivos.Find(A => A.ADJUNTO.Equals(id_filename));
-                        if (encontrado != null)
+                        //Buscamos en la session
+                        if (Session["MisArchivos"] != null)
                         {
-                            file_origen = encontrado.ADJUNTO_BASE;
+                            MisArchivos = (List<IndicadorArchivoBE>)Session["MisArchivos"];
+                            IndicadorArchivoBE encontrado = MisArchivos.Find(A => A.ADJUNTO.Equals(id_filename));
+                            if (encontrado != null)
+                            {
+                                file_origen = encontrado.ADJUNTO_BASE;
+                            }
                         }
                         else
                         {
                             return null;
                         }
-                    }
-                    else
-                    {
-                        return null;
-                    }
 
-                    byte[] fileBytes = System.IO.File.ReadAllBytes(WebConfigurationManager.AppSettings["Detalle"] + "\\" + id_filename);
-                    string fileName = file_origen;
-                    return File(fileBytes, MediaTypeNames.Application.Octet, file_origen);
+                        if (file_origen != "") {
+                            byte[] fileBytes = System.IO.File.ReadAllBytes(WebConfigurationManager.AppSettings["Detalle"] + "\\" + id_filename);
+                            string fileName = file_origen;
+                            return File(fileBytes, MediaTypeNames.Application.Octet, file_origen);
+                        }                        
+                    }
                 }
+                //if (id_filename != "")
+                //{
+                //    //Buscamos en la session
+                //    if (Session["MisArchivos"] != null)
+                //    {
+                //        MisArchivos = (List<IndicadorArchivoBE>)Session["MisArchivos"];
+                //        IndicadorArchivoBE encontrado = MisArchivos.Find(A => A.ADJUNTO.Equals(id_filename));
+                //        if (encontrado != null)
+                //        {
+                //            file_origen = encontrado.ADJUNTO_BASE;
+                //        }
+                //        else
+                //        {
+                //            return null;
+                //        }
+                //    }
+                //    else
+                //    {
+                //        return null;
+                //    }
+
+                //    byte[] fileBytes = System.IO.File.ReadAllBytes(WebConfigurationManager.AppSettings["Detalle"] + "\\" + id_filename);
+                //    string fileName = file_origen;
+                //    return File(fileBytes, MediaTypeNames.Application.Octet, file_origen);
+                //}
             }
             else
             {
@@ -3636,6 +3661,74 @@ namespace MRVMinem.Controllers
             var jsonResult = Json(lista, JsonRequestBehavior.AllowGet);
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
+        }
+
+        public ActionResult ActualizarFile(int IdIniciativa, int IdIndicador, int idnuevo)
+        {
+            List<IndicadorArchivoBE> MisArchivos = null;
+            List<IndicadorArchivoBE> uploadFile = new List<IndicadorArchivoBE>();
+            string cargosesion = "0";
+
+            if (Session["MisArchivos"] != null)
+            {
+                MisArchivos = (List<IndicadorArchivoBE>)Session["MisArchivos"];
+                cargosesion = "1";
+
+                string sessionId = this.Session.SessionID;
+                String strCarpeta = WebConfigurationManager.AppSettings["Detalle"];
+
+                IndicadorArchivoBE encontrado = null;
+                if (cargosesion == "1")
+                {
+                    //Buscamos si esta en la sesión (si esta cambiando de archivo)
+                    //int i = MisArchivos.FindIndex(A => A.ADJUNTO.Contains(IdIniciativa.ToString() + "-" + IdIndicador.ToString() + "-"));
+                    int i = -1;
+                    for (int l = 0; l < MisArchivos.Count; l++)
+                        if (MisArchivos[l].buscar == MisArchivos[l].ADJUNTO.Replace(IdIniciativa + "-" + IdIndicador + "-", "").Split('.')[0])
+                            if (MisArchivos[l].pagina == IdIndicador)
+                                i = l;
+
+                    //encontrado = MisArchivos.Find(A => A.ADJUNTO.Contains(IdIniciativa.ToString() + "-" + IdIndicador.ToString() + "-"));
+                    encontrado = MisArchivos[i];
+
+                    if (encontrado != null)
+                    {                        
+                        var nuevo_name = encontrado.ADJUNTO.Split('-');
+                        //System.IO.File.Create(strCarpeta + "\\" + nuevo_name[0] + '-' + idnuevo + '-' + nuevo_name[2] + '-' + nuevo_name[3] + '-' + nuevo_name[4] + '-' + nuevo_name[5] + '-' + nuevo_name[6]);
+                        System.IO.File.Move(strCarpeta + "\\" + encontrado.ADJUNTO, strCarpeta + "\\" + nuevo_name[0] + '-' + idnuevo + '-' + nuevo_name[2] + '-' + nuevo_name[3] + '-' + nuevo_name[4] + '-' + nuevo_name[5] + '-' + nuevo_name[6]);
+                        //System.IO.File.Delete(strCarpeta + "\\" + encontrado.ADJUNTO);
+                        MisArchivos[i].ID_INDICADOR = idnuevo;
+                        MisArchivos[i].ADJUNTO = nuevo_name[0] + '-' + idnuevo + '-' + nuevo_name[2] + '-' + nuevo_name[3] + '-' + nuevo_name[4] + '-' + nuevo_name[5] + '-' + nuevo_name[6];
+                    }
+                }
+                Session["MisArchivos"] = MisArchivos;
+            }                
+            
+        return Json(uploadFile);
+        }
+
+        public ActionResult OrdenarFile(int IdIniciativa)
+        {
+            List<IndicadorArchivoBE> MisArchivos = null;
+
+            if (Session["MisArchivos"] != null)
+            {
+                MisArchivos = (List<IndicadorArchivoBE>)Session["MisArchivos"];
+
+                foreach (IndicadorArchivoBE f in MisArchivos) {
+                    int ind = Convert.ToInt16(f.ADJUNTO.Split('-')[1]);
+                    f.pagina = ind;
+                }
+                Session["MisArchivos"] = MisArchivos;
+            }
+
+            return Json(true);
+        }
+
+        public ActionResult FiltrarOpcion(ParametroBE entidad)
+        {
+            entidad = ParametroLN.FiltrarParametro(entidad);
+            return Json(entidad);
         }
 
     }    

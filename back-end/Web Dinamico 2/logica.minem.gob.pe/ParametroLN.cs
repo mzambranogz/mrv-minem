@@ -77,5 +77,10 @@ namespace logica.minem.gob.pe
         {
             return parametroDA.EliminarParametro(entidad);
         }
+
+        public static ParametroBE FiltrarParametro(ParametroBE entidad)
+        {
+            return parametroDA.FiltrarParametro(entidad);
+        }
     }
 }

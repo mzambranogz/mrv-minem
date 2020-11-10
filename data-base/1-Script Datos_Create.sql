@@ -642,7 +642,7 @@ create table T_MAEM_MRV_PARAMETRO
   VALIDAR_IMPLEMENTADO    VARCHAR2(1) default '0',
   VALIDAR_FECHA_IMPLEM    VARCHAR2(1) default '0',
   VALIDAR_VERIFICACION    VARCHAR2(1) default '0',
-  VALIDAR_FECHA_VERIFI    VARCHAR2(1) default '0'	  										 
+  VALIDAR_FECHA_VERIFI    VARCHAR2(1) default '0',	  							  FILTRO                  VARCHAR2(1) default '0'			 
 )
 ;
 alter table T_MAEM_MRV_PARAMETRO
@@ -1264,6 +1264,15 @@ create table T_MAE_USUARIO_ROL
 )
 ;
 
+prompt Creating T_MAED_PARAMETRO_RELACION...
+CREATE TABLE T_MAED_PARAMETRO_RELACION(
+ID_PARAMETRO NUMBER,
+ID_DETALLE NUMBER,
+PARAMETROS VARCHAR2(100),
+DETALLES VARCHAR2(100),
+FLAG_ESTADO VARCHAR2(1) DEFAULT '1',
+PRIMARY KEY (ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES)
+);
 
 
 prompt Loading T_GEND_ARCHIVO...
@@ -2018,8 +2027,8 @@ insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, n
 values (74, 2, 3, 'Descripción BAU', '1', '0', '1', null, null, null, null, null, 'Descripción técnica de el/los equipos y/o desarrollo del proceso antes de la auditoría.', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi)
 values (75, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Cantidad de equipos identificados en la entidad por la auditoría. En caso de mejora de proceso, colocar 1. ', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0');
-insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi)
-values (76, 1, null, 'Tipo de energético', '1', '1', '1', null, null, null, null, null, 'Fuente de energía utilizada para el funcionamiento de el/los equipos y/o desarrollo del proceso.', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0');
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
+values (76, 1, null, 'Tipo de energético', '1', '1', '1', null, null, null, null, null, 'Fuente de energía utilizada para el funcionamiento de el/los equipos y/o desarrollo del proceso.', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '1');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi)
 values (77, 2, 2, 'Consumo anual del energético', '1', '1', '1', null, null, null, null, null, 'Total del consumo del energético para el funcionamiento del/los equipos y/o desarrollo del proceso durante un año.', null, null, null, null, null, null, '1', '1', '0', '0', '0', '0', '0');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi)
@@ -2034,8 +2043,8 @@ insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, n
 values (82, 2, 3, 'Descripción mejora', '1', '0', '1', null, null, null, null, null, 'Descripción de la acción implementada, luego de ser identificada en la auditoría energética, con el fin de ahorrar energía.', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi)
 values (83, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Cantidad de equipos a mejorar o cambiar por recomendación de la auditoría. En caso de mejora de proceso, colocar 1. ', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0');
-insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi)
-values (84, 1, null, 'Energético', '1', '1', '1', null, null, null, null, null, 'Fuente de energía utilizada para el funcionamiento de el/los equipos y/o desarrollo del proceso.', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0');
+insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
+values (84, 1, null, 'Energético', '1', '1', '1', null, null, null, null, null, 'Fuente de energía utilizada para el funcionamiento de el/los equipos y/o desarrollo del proceso.', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '1');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi)
 values (85, 2, 2, 'Consumo anual por unidad', '1', '1', '1', null, null, null, null, null, 'Total de unidades del energético durante un año para el funcionamiento de el/los equipos y/o desarrollo del proceso.', null, null, null, null, null, null, '1', '1', '0', '0', '0', '0', '0');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi)
@@ -24658,8 +24667,34 @@ values (5, 5, '1', null);
 commit;
 prompt 5 records loaded
 
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (76, 1, '78', '1');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (76, 2, '78', '2');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (76, 3, '78', '2');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (76, 4, '78', '2');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (76, 5, '78', '3');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (76, 6, '78', '4');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (76, 7, '78', '5');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (76, 8, '78', '2');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (76, 9, '78', '3');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (76, 10, '78', '2');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (76, 11, '78', '5');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (76, 12, '78', '5');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (76, 13, '78', '4');
 
-
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (84, 1, '86', '1');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (84, 2, '86', '2');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (84, 3, '86', '2');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (84, 4, '86', '2');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (84, 5, '86', '3');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (84, 6, '86', '4');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (84, 7, '86', '5');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (84, 8, '86', '2');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (84, 9, '86', '3');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (84, 10, '86', '2');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (84, 11, '86', '5');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (84, 12, '86', '5');
+INSERT INTO T_MAED_PARAMETRO_RELACION(ID_PARAMETRO, ID_DETALLE, PARAMETROS, DETALLES) VALUES (84, 13, '86', '4');
+commit;
 
 prompt
 prompt Creating view VW_T_GENM_ESCENARIO

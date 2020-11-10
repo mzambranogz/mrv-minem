@@ -1840,24 +1840,26 @@ function CargarDatosCabecera() {
                     for (var i = 0; i < data.length; i++) {
                         var columna = "0" + data[i]["ID_GRUPO_INDICADOR"];
                         var descripcion = "";
-                        if (data[i]["COMBINACION_UNIDAD"] == "" || data[i]["COMBINACION_UNIDAD"] == null) {
-                            if (data[i]["PREFIJO"] != null) {
-                                descripcion += data[i]["PREFIJO"];
-                            }
-                            if (data[i]["UNIDAD"] != null) {
-                                descripcion += data[i]["UNIDAD"];
-                            }
-                            if (data[i]["DESCRIPCION_UNIDAD"] != null) {
-                                descripcion += data[i]["DESCRIPCION_UNIDAD"];
-                            }
-                            if (descripcion == 0) {
-                                descripcion = "";
-                            } else {
-                                descripcion = "(" + descripcion + ")";
-                            }
-                        } else {
-                            descripcion = "(" + data[i]["COMBINACION_UNIDAD"] + ")";
-                        }
+                        //if (data[i]["COMBINACION_UNIDAD"] == "" || data[i]["COMBINACION_UNIDAD"] == null) {
+                        //    if (data[i]["PREFIJO"] != null) {
+                        //        descripcion += data[i]["PREFIJO"];
+                        //    }
+                        //    if (data[i]["UNIDAD"] != null) {
+                        //        descripcion += data[i]["UNIDAD"];
+                        //    }
+                        //    if (data[i]["DESCRIPCION_UNIDAD"] != null) {
+                        //        descripcion += data[i]["DESCRIPCION_UNIDAD"];
+                        //    }
+                        //    if (descripcion == 0) {
+                        //        descripcion = "";
+                        //    } else {
+                        //        descripcion = "(" + descripcion + ")";
+                        //    }
+                        //} else {
+                        //    descripcion = "(" + data[i]["COMBINACION_UNIDAD"] + ")";
+                        //}
+
+                        descripcion = data[i]["COMBINACION_UNIDAD"] == "" || data[i]["COMBINACION_UNIDAD"] == null ? '' : data[i]["COMBINACION_UNIDAD"];
 
                         //if (data[i]["ID_PARAMETRO"] == 9 || data[i]["ID_PARAMETRO"] == 10 || data[i]["ID_PARAMETRO"] == 11) {
                         //    tr += '     <th class="text-center grupo-columna-'+ columna +'" scope="col"><span>' + data[i]["NOMBRE_PARAMETRO"] + ' tCOeq</span><small>Seleccione este campo para su registro</small></th>';
@@ -1877,7 +1879,7 @@ function CargarDatosCabecera() {
                         else
                             tool = data[i]["LEYENDA_PARAMETRO"];
 
-                        tr += `     <th class="text-center grupo-columna-${columna} ${data[i]["VISIBLE"] == '0' ? 'd-none' : ''}" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="${tool}"></i>${data[i]["NOMBRE_PARAMETRO"]}&nbsp;</span><span>${descripcion}</span><small>${data[i]["DESCRIPCION_PARAMETRO"]}</small></th>`;
+                        tr += `     <th class="text-center grupo-columna-${columna} ${data[i]["VISIBLE"] == '0' ? 'd-none' : ''}" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="${tool}"></i>${data[i]["NOMBRE_PARAMETRO"]}&nbsp;</span><span>${descripcion}</span></th>`;
                         //tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="' + tool + '"></i>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span><small>' + data[i]["DESCRIPCION_PARAMETRO"] + '</small></th>';
 
                     }
@@ -1949,7 +1951,8 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                                     } else {
                                         //tr += '<select class="form-control form-control-sm" id="cbo-det-tbl-1-' + lista + '-' + (i + 1) + '" onchange="fn_calcularValor(this)" data-validar="0" data-param="' + data[j]["ID_PARAMETRO"] + '" disabled>';
                                         tr += `<select class="form-control form-control-sm ${data[j]["VALIDAR_IMPLEMENTADO"] == '1' ? 'validar-implementado' : ''}" id="cbo-det-tbl-1-${lista}-${(i + 1)}" onchange="fn_calcularValor(this)" data-validar="0" data-param="${data[j]["ID_PARAMETRO"]}" disabled>`;
-                                        tr += '        <option value="0">Seleccionar</option>';
+                                        tr += data[j]["listaDetalle"].length > 1 ? '<option value="0">Seleccionar</option>' : '';
+                                        //tr += '        <option value="0">Seleccionar</option>';
                                         var listaD = data[j]["listaDetalle"];
                                         for (var m = 0; m < listaD.length; m++) {
                                             tr += '<option value="' + listaD[m]["ID_DETALLE"] + '">' + listaD[m]["NOMBRE_DETALLE"] + '</option>';
@@ -1960,7 +1963,8 @@ function CargarCuerpoGuardado(filas, xIndicador) {
                                     lista++;
                                     //tr += '<select class="form-control form-control-sm" id="cbo-det-tbl-1-' + lista + '-' + (i + 1) + '" data-param="' + data[j]["ID_PARAMETRO"] + '" disabled>';
                                     tr += `<select class="form-control form-control-sm ${data[j]["VALIDAR_IMPLEMENTADO"] == '1' ? 'validar-implementado' : ''}" id="cbo-det-tbl-1-${lista}-${(i + 1)}" data-param="${data[j]["ID_PARAMETRO"]}" disabled>`;
-                                    if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30 && data[j]["ID_PARAMETRO"] != 93 && data[j]["ID_PARAMETRO"] != 94 && data[j]["ID_PARAMETRO"] != 95) tr += '        <option value="0">Seleccionar</option>'; //add
+                                    //if (data[j]["ID_PARAMETRO"] != 72 && data[j]["ID_PARAMETRO"] != 73 && data[j]["ID_PARAMETRO"] != 74 && data[j]["ID_PARAMETRO"] != 77 && data[j]["ID_PARAMETRO"] != 30 && data[j]["ID_PARAMETRO"] != 93 && data[j]["ID_PARAMETRO"] != 94 && data[j]["ID_PARAMETRO"] != 95) tr += '        <option value="0">Seleccionar</option>'; //add
+                                    tr += data[j]["listaDetalle"].length > 1 ? '<option value="0">Seleccionar</option>' : '';
                                     //tr += '        <option value="0">Seleccionar</option>';
                                     var listaD = data[j]["listaDetalle"];
                                     for (var m = 0; m < listaD.length; m++) {

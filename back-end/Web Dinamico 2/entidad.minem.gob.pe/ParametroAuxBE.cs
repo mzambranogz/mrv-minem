@@ -28,5 +28,7 @@ namespace entidad.minem.gob.pe
         public string COMBINACION_UNIDAD { get; set; }
         public string NOMBRE_DETALLE { get; set; }
         public string ID_DELETE_DETALLE { get; set; }
+        public string PARAMETROS { get; set; }
+        public string DETALLES { get; set; }
     }
 }
