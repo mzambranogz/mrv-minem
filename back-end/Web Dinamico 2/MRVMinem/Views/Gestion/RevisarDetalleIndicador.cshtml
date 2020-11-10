@@ -349,29 +349,33 @@
                                                     {
                                                         var columna = "0" + itemCab.ID_GRUPO_INDICADOR;
                                                         var descripcion = "";
-                                                        if (string.IsNullOrEmpty(itemCab.COMBINACION_UNIDAD))
+                                                        //if (string.IsNullOrEmpty(itemCab.COMBINACION_UNIDAD))
+                                                        //{
+                                                        //    descripcion = itemCab.PREFIJO + itemCab.UNIDAD + itemCab.DESCRIPCION_UNIDAD;
+                                                        //    if (string.IsNullOrEmpty(descripcion))
+                                                        //    {
+                                                        //        descripcion = "";
+                                                        //    }
+                                                        //    else
+                                                        //    {
+                                                        //        descripcion = "(" + descripcion + ")";
+                                                        //    }
+                                                        //}
+                                                        //else
+                                                        //{
+                                                        //    descripcion = "(" + itemCab.COMBINACION_UNIDAD + ")";
+                                                        //}
+                                                        //if (itemCab.ID_PARAMETRO == 9 || itemCab.ID_PARAMETRO == 10 || itemCab.ID_PARAMETRO == 11)
+                                                        //{
+                                                        //    if (!string.IsNullOrEmpty(itemCab.COMBINACION_UNIDAD))
+                                                        //    {
+                                                        //        descripcion = "" + itemCab.COMBINACION_UNIDAD;
+                                                        //    }
+                                                        //}
+                                                        if (!string.IsNullOrEmpty(itemCab.COMBINACION_UNIDAD))
                                                         {
-                                                            descripcion = itemCab.PREFIJO + itemCab.UNIDAD + itemCab.DESCRIPCION_UNIDAD;
-                                                            if (string.IsNullOrEmpty(descripcion))
-                                                            {
-                                                                descripcion = "";
-                                                            }
-                                                            else
-                                                            {
-                                                                descripcion = "(" + descripcion + ")";
-                                                            }
+                                                            descripcion = "" + itemCab.COMBINACION_UNIDAD;
                                                         }
-                                                        else
-                                                        {
-                                                            descripcion = "(" + itemCab.COMBINACION_UNIDAD + ")";
-                                                        }
-                                                        if (itemCab.ID_PARAMETRO == 9 || itemCab.ID_PARAMETRO == 10 || itemCab.ID_PARAMETRO == 11)
-                                                        {
-                                                            if (!string.IsNullOrEmpty(itemCab.COMBINACION_UNIDAD))
-                                                            {
-                                                                descripcion = "(" + itemCab.COMBINACION_UNIDAD + ")";
-                                                            }
-                                                        }                                                        
                                                         <th class="text-center grupo-columna-@columna @(itemCab.VISIBLE == "0" ? "d-none" : "" )" scope="col"><span>@itemCab.NOMBRE_PARAMETRO&nbsp;</span><span>@descripcion</span>@*<small>@itemCab.DESCRIPCION_PARAMETRO</small>*@</th>
 
                                                     }
