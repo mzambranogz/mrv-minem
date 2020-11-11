@@ -2171,11 +2171,13 @@ function CargarDatosExcel(data) {
 
     }
 
-    let resumen_total = 0.0, resumen_energia = 0.0;
+    let resumen_total = 0.0, resumen_energia = 0.0, resumen_emisiones_potencial = 0.0, resumen_energia_total = 0.0;
     if ($("#Control").data("mitigacion") == 4) {
         $('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
             let emision = parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
             let energia = parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
+            resumen_emisiones_potencial += $(y).val() == null ? 0 : emision;
+            resumen_energia_total += $(y).val() == null ? 0 : energia;
             resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
             resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
         });
@@ -2183,6 +2185,10 @@ function CargarDatosExcel(data) {
         $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
         $("#total-detalle-energia").html("").append(formatoMiles(Math.round(resumen_energia * 100) / 100));
         $("#cuerpoTablaIndicador").data("total", resumen_total);
+
+        //potencial
+        $("#total-detalle-emisiones-2").html("").append(formatoMiles(resumen_emisiones_potencial));
+        $("#total-detalle-energia-2").html("").append(formatoMiles(resumen_energia_total));
     } else {
         $('[id^=acum-]').each((x, y) => {
             resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
@@ -2251,7 +2257,10 @@ $(document).ready(function () {
     //$("#Control").data("iniciativa", $("#identificador").val());
     $("#Control").data("revision", $("#revision").val());
 
-    armarTablaAuditor();
+    if ($("#Control").data("mitigacion") == 4) {
+        armarTablaAuditor();
+        resumenPotencial();
+    }
     //CargarSector();
     if ($("#revision").val() == 1) {
         CargarDetalleIndicadorRevision();
@@ -2953,11 +2962,13 @@ function CargarDatosGuardados() {
                     //$("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
                     //$("#cuerpoTablaIndicador").data("total", resumen_total);
 
-                    let resumen_total = 0.0, resumen_energia = 0.0;
+                    let resumen_total = 0.0, resumen_energia = 0.0, resumen_emisiones_potencial = 0.0, resumen_energia_total = 0.0;
                     if (medida == 4) {
                         $('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
                             let emision = parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
                             let energia = parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
+                            resumen_emisiones_potencial += $(y).val() == null ? 0 : emision;
+                            resumen_energia_total += $(y).val() == null ? 0 : energia;
                             resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
                             resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
                         });
@@ -2965,6 +2976,10 @@ function CargarDatosGuardados() {
                         $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
                         $("#total-detalle-energia").html("").append(formatoMiles(Math.round(resumen_energia * 100) / 100));
                         $("#cuerpoTablaIndicador").data("total", resumen_total);
+
+                        //potencial
+                        $("#total-detalle-emisiones-2").html("").append(formatoMiles(resumen_emisiones_potencial));
+                        $("#total-detalle-energia-2").html("").append(formatoMiles(resumen_energia_total));
                     } else {
                         $('[id^=acum-]').each((x, y) => {
                             resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
@@ -3617,4 +3632,13 @@ var armarTablaAuditor = () => {
     let body7 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><input class="form-control form-control-sm text-center" type="date" placeholder="" id="fch-fecha-auditoria" ${$("#revision").val() == 1 ? 'readonly' : ''}></div></td>`;
     $('#tablaAuditor').find('tbody').html(`<tr id="detalles-1" data-ind="1" data-rev="0">${body1}${body2}${body3}${body4}${body5}${body6}${body7}</tr>`);
 
+}
+
+var resumenPotencial = () => {
+    let body2 = `<tr><th class="text-center" data-encabezado="Número" scope="row">2</th><td data-encabezado="Resumen">Energía total reducida</td><td data-encabezado="Total"><strong id="total-detalle-energia-2">0.00</strong><strong>&nbsp;MJ</strong></td></tr>`;
+    let body1 = `<tr><th class="text-center" data-encabezado="Número" scope="row">1</th><td data-encabezado="Resumen">Emisiones de GEI reducidas</td><td data-encabezado="Total"><strong id="total-detalle-emisiones-2">0.00</strong><strong>&nbsp;tCO<sub>2</sub>eq</strong></td></tr>`;
+    let heads = `<th class="text-center" scope="col" width="2%"><span>N°&nbsp;</span></th><th scope="col" width="88%"><span>Resumen potencial de las mejoras</span></th><th scope="col" width="10%"><span>Total</span></th>`;
+    let tabla = `<table class="table table-hover"><thead><tr class="bg-primary text-white">${heads}</tr></thead><tbody>${body1}${body2}</tbody></table>`;
+    let row = `<div class="row"><div class="col-12"><div class="table-responsive tabla-principal mt-3">${tabla}</div></div></div>`;
+    $('#resumenpotencial').html(row);
 }

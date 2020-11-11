@@ -280,7 +280,7 @@
                         <div class="container pt-5">
                             <div class="row">
                                 <div class="col-12">
-                                    <div class="h5 pb-5 text-primary">Detalle de la iniciativa de mitigación</div>
+                                    <div class="h5 pb-5 text-primary">Detalle de la acción de mitigación</div>
                                 </div>
                             </div>
                             <div class="row">
@@ -505,7 +505,10 @@
                 }
 
 
-
+                @if (Model.medida.ID_MEDMIT == 4)
+                {
+                    <div class="container py-4" id="resumenpotencial"></div>
+                } 
 
 
                 @*<div class="dropdown-divider"></div>

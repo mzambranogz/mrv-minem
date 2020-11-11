@@ -361,93 +361,8 @@
                                             <div class="table-responsive tabla-principal">
                                                 <table class="table table-hover" id="tablaAuditor">
                                                     <thead id="cabeceraAuditor">
-                                                        <tr class="bg-primary text-white">
-                                                            <th class="text-center grupo-columna-03" scope="col">
-                                                                <span>
-                                                                    <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Tipo de sector al que pertenece la entidad a quien se realiza la auditoría" data-original-title="Tipo de sector al que pertenece la entidad a quien se realiza la auditoría"></i>
-                                                                    Sector&nbsp;
-                                                                </span>
-                                                            </th>
-                                                            <th class="text-center grupo-columna-03" scope="col">
-                                                                <span>
-                                                                    <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la entidad a quien se realiza la auditoría" data-original-title="Nombre de la entidad a quien se realiza la auditoría"></i>
-                                                                    Institución auditada&nbsp;
-                                                                </span>
-                                                            </th>
-                                                            <th class="text-center grupo-columna-03" scope="col">
-                                                                <span>
-                                                                    <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Seleccionar entre tipo 1, 2 o 3" data-original-title="Seleccionar entre tipo 1, 2 o 3"></i>
-                                                                    Tipo auditoría&nbsp;
-                                                                </span>
-                                                            </th>
-                                                            <th class="text-center grupo-columna-03" scope="col">
-                                                                <span>
-                                                                    <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Seleccionar si la auditoría está realizada por una persona o una empresa" data-original-title="Seleccionar si la auditoría está realizada por una persona o una empresa"></i>
-                                                                    Auditado por:&nbsp;
-                                                                </span>
-                                                            </th>
-                                                            <th class="text-center grupo-columna-03" scope="col">
-                                                                <span>
-                                                                    <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la persona o empresa responsable de realizar la auditoría" data-original-title="Nombre de la persona o empresa responsable de realizar la auditoría"></i>
-                                                                    Nombre de institución / auditor&nbsp;
-                                                                </span>
-                                                            </th>
-                                                            <th class="text-center grupo-columna-03" scope="col">
-                                                                <span>
-                                                                    <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Fecha de la realización de la auditoría" data-original-title="Fecha de la realización de la auditoría"></i>
-                                                                    Fecha de auditoría&nbsp;
-                                                                </span>
-                                                            </th>
-                                                        </tr>
                                                     </thead>
                                                     <tbody id="cuerpoAuditor">
-                                                        <tr id="detalles-tr-1" data-ind="1" data-rev="0">
-                                                            <td data-encabezado="Columna 07">
-                                                                <div class="form-group m-0">
-                                                                    <select class="form-control form-control-sm" id="cbo-sector">
-                                                                        <option value="0">Seleccionar</option>
-                                                                        <option value="1">Administrativo</option>
-                                                                        <option value="2">Público</option>
-                                                                        <option value="3">Educación</option>
-                                                                        <option value="4">Salud</option>
-                                                                    </select>
-                                                                </div>
-                                                            </td>
-                                                            <td data-encabezado="Columna 07">
-                                                                <div class="form-group m-0">
-                                                                    <input class="form-control form-control-sm text-left" type="text" placeholder="" id="txt-institucion" maxlength="120" autocomplete="off">
-                                                                </div>
-                                                            </td>
-                                                            <td data-encabezado="Columna 07">
-                                                                <div class="form-group m-0">
-                                                                    <select class="form-control form-control-sm" id="cbo-tipo_auditoria">
-                                                                        <option value="0">Seleccionar</option>
-                                                                        <option value="1">Tipo 1</option>
-                                                                        <option value="2">Tipo 2</option>
-                                                                        <option value="3">Tipo 3</option>
-                                                                    </select>
-                                                                </div>
-                                                            </td>
-                                                            <td data-encabezado="Columna 07">
-                                                                <div class="form-group m-0">
-                                                                    <select class="form-control form-control-sm" id="txt-auditor">
-                                                                        <option value="0">Seleccionar</option>
-                                                                        <option value="1">EMSE</option>
-                                                                        <option value="2">Auditor acreditado</option>
-                                                                    </select>
-                                                                </div>
-                                                            </td>
-                                                            <td data-encabezado="Columna 07">
-                                                                <div class="form-group m-0">
-                                                                    <input class="form-control form-control-sm text-left" type="text" placeholder="" id="txt-institucion-auditor" maxlength="120" autocomplete="off">
-                                                                </div>
-                                                            </td>
-                                                            <td data-encabezado="Columna 07">
-                                                                <div class="form-group m-0">
-                                                                    <input class="form-control form-control-sm text-center" type="date" placeholder="" id="fch-fecha-auditoria">
-                                                                </div>
-                                                            </td>
-                                                        </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -517,6 +432,11 @@
                                     </div>
                                 </div>
                             </div>
+
+                            @if (Model.medida.ID_MEDMIT == 4)
+                            {
+                                <div class="container py-4" id="resumenpotencial"></div>
+                            } 
 
                             <!--         -->
                             @*<div class="container py-4">

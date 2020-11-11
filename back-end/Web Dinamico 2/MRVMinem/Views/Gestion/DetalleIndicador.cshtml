@@ -432,124 +432,129 @@
                                 </div>
                             </div>
 
+                            @if (Model.medida.ID_MEDMIT == 4)
+                            {
+                                <div class="container py-4" id="resumenpotencial"></div>
+                            }  
 
-                            <div class="container py-4 @clase">
-                                <div class="row">
-                                    <div class="col-sm-12-col-md-12 col-lg-6">
-                                        <div class="form-group">
-                                            <label for="txt-documentos">Adjuntar documento (PDF, DOC, JPG, PNG, TXT, XLS, XLSX, PPTX)<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="top" title="Puede seleccionar múltiples archivos, con un tamaño no superior a 4MB por archivo"></i></label>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend"><span class="input-group-text" id="inputGroup13"><i class="fas fa-file"></i></span></div>
-                                                <input class="form-control cursor-pointer txt-file-control" type="text" id="txt-documentos" placeholder="Suba su documentos" aria-describedby="inputGroup13" required>
-                                                <input class="d-none fil-file-control" type="file" id="fledocumentos" name="fledocumentos" multiple="multiple">
-                                                <div class="input-group-append">
-                                                    <label class="input-group-text cursor-pointer" for="txt-documentos"><i class="fas fa-upload mr-1"></i>Subir archivo</label>
+
+                                <div class="container py-4 @clase">
+                                    <div class="row">
+                                        <div class="col-sm-12-col-md-12 col-lg-6">
+                                            <div class="form-group">
+                                                <label for="txt-documentos">Adjuntar documento (PDF, DOC, JPG, PNG, TXT, XLS, XLSX, PPTX)<span class="text-danger font-weight-bold">&nbsp;(*)&nbsp;</span><i class="fas fa-question-circle ayuda-tooltip" data-toggle="tooltip" data-placement="top" title="Puede seleccionar múltiples archivos, con un tamaño no superior a 4MB por archivo"></i></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend"><span class="input-group-text" id="inputGroup13"><i class="fas fa-file"></i></span></div>
+                                                    <input class="form-control cursor-pointer txt-file-control" type="text" id="txt-documentos" placeholder="Suba su documentos" aria-describedby="inputGroup13" required>
+                                                    <input class="d-none fil-file-control" type="file" id="fledocumentos" name="fledocumentos" multiple="multiple">
+                                                    <div class="input-group-append">
+                                                        <label class="input-group-text cursor-pointer" for="txt-documentos"><i class="fas fa-upload mr-1"></i>Subir archivo</label>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-sm-12-col-md-12 col-lg-6">
-                                        <div class="form-group" @*id="archivos-documentos"*@>
-                                            @{
-                                                var total = 0;
-                                                if (Model.iniciativa_mit.ListaSustentos != null)
-                                                {
-                                                    total = Model.iniciativa_mit.ListaSustentos.Count();
-                                                }
-                                            }
-                                            <label>Archivos adjuntos: <span id="total-documentos" data-cantidad="@total" data-eliminarfile="">@total</span> en total</label>
-                                            <div id="archivos-guardados">
+                                        <div class="col-sm-12-col-md-12 col-lg-6">
+                                            <div class="form-group" @*id="archivos-documentos"*@>
                                                 @{
+                                                    var total = 0;
                                                     if (Model.iniciativa_mit.ListaSustentos != null)
                                                     {
-                                                        var extension = "fa-file-word";
-
-                                                        foreach (var item in Model.iniciativa_mit.ListaSustentos)
+                                                        total = Model.iniciativa_mit.ListaSustentos.Count();
+                                                    }
+                                                }
+                                                <label>Archivos adjuntos: <span id="total-documentos" data-cantidad="@total" data-eliminarfile="">@total</span> en total</label>
+                                                <div id="archivos-guardados">
+                                                    @{
+                                                        if (Model.iniciativa_mit.ListaSustentos != null)
                                                         {
-                                                            if (item.ADJUNTO_BASE.Contains("pdf"))
+                                                            var extension = "fa-file-word";
+
+                                                            foreach (var item in Model.iniciativa_mit.ListaSustentos)
                                                             {
-                                                                extension = "fa-file-pdf";
-                                                            }
-                                                            else
-                                                            {
-                                                                if (item.ADJUNTO_BASE.Contains("jpeg") || item.ADJUNTO_BASE.Contains("png") || item.ADJUNTO_BASE.Contains("jpg") || item.ADJUNTO_BASE.Contains("gif"))
+                                                                if (item.ADJUNTO_BASE.Contains("pdf"))
                                                                 {
-                                                                    extension = "fa-file-image";
+                                                                    extension = "fa-file-pdf";
                                                                 }
                                                                 else
                                                                 {
-                                                                    if (item.ADJUNTO_BASE.Contains("xls") || item.ADJUNTO_BASE.Contains("xlsx"))
+                                                                    if (item.ADJUNTO_BASE.Contains("jpeg") || item.ADJUNTO_BASE.Contains("png") || item.ADJUNTO_BASE.Contains("jpg") || item.ADJUNTO_BASE.Contains("gif"))
                                                                     {
-                                                                        extension = "fa-file-excel";
+                                                                        extension = "fa-file-image";
                                                                     }
                                                                     else
                                                                     {
-                                                                        if (item.ADJUNTO_BASE.Contains("ppt") || item.ADJUNTO_BASE.Contains("pptx"))
+                                                                        if (item.ADJUNTO_BASE.Contains("xls") || item.ADJUNTO_BASE.Contains("xlsx"))
                                                                         {
-                                                                            extension = "fa-file-powerpoint";
+                                                                            extension = "fa-file-excel";
                                                                         }
                                                                         else
                                                                         {
-                                                                            if (item.ADJUNTO_BASE.Contains("doc") || item.ADJUNTO_BASE.Contains("docx"))
+                                                                            if (item.ADJUNTO_BASE.Contains("ppt") || item.ADJUNTO_BASE.Contains("pptx"))
                                                                             {
-                                                                                extension = "fa-file-word";
+                                                                                extension = "fa-file-powerpoint";
                                                                             }
                                                                             else
                                                                             {
-                                                                                extension = "fa-file";
+                                                                                if (item.ADJUNTO_BASE.Contains("doc") || item.ADJUNTO_BASE.Contains("docx"))
+                                                                                {
+                                                                                    extension = "fa-file-word";
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    extension = "fa-file";
+                                                                                }
                                                                             }
                                                                         }
                                                                     }
                                                                 }
-                                                            }
 
-                                                            <div class="input-group mb-3" id="eliminar-@item.ID_INICIATIVA_SUSTENTATORIO">
-                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="fas @extension"></i></span></div><span class="form-control-plaintext ww">@item.ADJUNTO_BASE</span>
-                                                                <div class="input-group-append">
+                                                                <div class="input-group mb-3" id="eliminar-@item.ID_INICIATIVA_SUSTENTATORIO">
+                                                                    <div class="input-group-prepend"><span class="input-group-text"><i class="fas @extension"></i></span></div><span class="form-control-plaintext ww">@item.ADJUNTO_BASE</span>
+                                                                    <div class="input-group-append">
 
-                                                                    <span class="input-group-text cursor-pointer mr-2" onclick="fn_verfilesutento(@item.ID_INICIATIVA_SUSTENTATORIO);"><i class="fas fa-download"></i></span>    
+                                                                        <span class="input-group-text cursor-pointer mr-2" onclick="fn_verfilesutento(@item.ID_INICIATIVA_SUSTENTATORIO);"><i class="fas fa-download"></i></span>
 
-                                                                    <span class="input-group-text cursor-pointer"><i class="far fa-trash-alt" onclick="fn_eliminarArchivo(@item.ID_INICIATIVA_SUSTENTATORIO)"></i></span>
+                                                                        <span class="input-group-text cursor-pointer"><i class="far fa-trash-alt" onclick="fn_eliminarArchivo(@item.ID_INICIATIVA_SUSTENTATORIO)"></i></span>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
+                                                            }
                                                         }
                                                     }
-                                                }
+                                                </div>
+                                                <div id="archivos-documentos"></div>
                                             </div>
-                                            <div id="archivos-documentos"></div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="container py-5">
-                                <div class="alert alert-info @clase" role="alert"><i class="fas fa-info-circle">&nbsp;</i>Una vez aprobado su acción de mitigación podrá postular al sistema del <b>Reconocimiento de Energía Eficiente y Sostenible</b></div>
-                                <div class="dropdown-divider @clase_margen_inf"></div>
-                                <div class="row">
-                                    <div class="col-sm-12 col-md-12 col-lg-6">
-                                        @if (rol != 7)
-                                        {
-                                            <span class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Todos los campos son obligatorios</span>
-                                        }                                        
-                                    </div>
-                                    <div class="col-sm-12 col-md-12 col-lg-6 text-right">
-                                        <div class="row justify-content-end">
-                                            <div class="col-lg-6"><a class="btn btn-dark px-5 w-100 nav-tab text-center mb-3" href="#" dest="1"><i class="fas fa-arrow-left pr-1"></i>Anterior</a></div>
+                                <div class="container py-5">
+                                    <div class="alert alert-info @clase" role="alert"><i class="fas fa-info-circle">&nbsp;</i>Una vez aprobado su acción de mitigación podrá postular al sistema del <b>Reconocimiento de Energía Eficiente y Sostenible</b></div>
+                                    <div class="dropdown-divider @clase_margen_inf"></div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12 col-lg-6">
                                             @if (rol != 7)
                                             {
-                                                <div class="col-lg-6"><a class="btn btn-primary px-5 w-100 nav-tab text-center" href="#" data-toggle="modal" data-target="#solicitar-revision"><i class="fas fa-paper-plane px-1"></i>Enviar</a></div>
+                                                <span class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Todos los campos son obligatorios</span>
                                             }
-                                            else
-                                            {
-                                                <div class="col-lg-6"><a class="btn btn-primary px-5 w-100 nav-tab text-center" href="#" data-toggle="modal" data-target="#solicitar-revision"><i class="fas fa-save px-1"></i>Guardar</a></div>
-                                            }
+                                        </div>
+                                        <div class="col-sm-12 col-md-12 col-lg-6 text-right">
+                                            <div class="row justify-content-end">
+                                                <div class="col-lg-6"><a class="btn btn-dark px-5 w-100 nav-tab text-center mb-3" href="#" dest="1"><i class="fas fa-arrow-left pr-1"></i>Anterior</a></div>
+                                                @if (rol != 7)
+                                                {
+                                                    <div class="col-lg-6"><a class="btn btn-primary px-5 w-100 nav-tab text-center" href="#" data-toggle="modal" data-target="#solicitar-revision"><i class="fas fa-paper-plane px-1"></i>Enviar</a></div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="col-lg-6"><a class="btn btn-primary px-5 w-100 nav-tab text-center" href="#" data-toggle="modal" data-target="#solicitar-revision"><i class="fas fa-save px-1"></i>Guardar</a></div>
+                                                }
 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                        </div>
+                            </div>
                     </div>
                 </div>
 

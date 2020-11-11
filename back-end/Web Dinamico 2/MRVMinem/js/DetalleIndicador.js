@@ -5513,11 +5513,13 @@ function agregarAcumulado(item, f) {
 
                 }
 
-                let resumen_total = 0.0, resumen_energia = 0.0;
+                let resumen_total = 0.0, resumen_energia = 0.0, resumen_emisiones_potencial = 0.0, resumen_energia_total = 0.0;
                 if (medida == 4) {
                     $('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
                         let emision = parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
                         let energia = parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
+                        resumen_emisiones_potencial += $(y).val() == null ? 0 : emision;
+                        resumen_energia_total += $(y).val() == null ? 0 : energia;
                         resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
                         resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
                     });
@@ -5525,6 +5527,10 @@ function agregarAcumulado(item, f) {
                     $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
                     $("#total-detalle-energia").html("").append(formatoMiles(Math.round(resumen_energia * 100) / 100));
                     $("#cuerpoTablaIndicador").data("total", resumen_total);
+
+                    //potencial
+                    $("#total-detalle-emisiones-2").html("").append(formatoMiles(resumen_emisiones_potencial));
+                    $("#total-detalle-energia-2").html("").append(formatoMiles(resumen_energia_total));
                 } else {
                     $('[id^=acum-]').each((x, y) => {
                         resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
@@ -5590,11 +5596,13 @@ function eliminarAcumulado(f) {
 
     ordenarTabla();
 
-    let resumen_total = 0.0, resumen_energia = 0.0;
+    let resumen_total = 0.0, resumen_energia = 0.0, resumen_emisiones_potencial = 0.0, resumen_energia_total = 0.0;
     if ($("#Control").data("mitigacion") == 4) {
         $('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
             let emision = parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
             let energia = parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
+            resumen_emisiones_potencial += $(y).val() == null ? 0 : emision;
+            resumen_energia_total += $(y).val() == null ? 0 : energia;
             resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
             resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
         });
@@ -5602,6 +5610,10 @@ function eliminarAcumulado(f) {
         $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
         $("#total-detalle-energia").html("").append(formatoMiles(Math.round(resumen_energia * 100) / 100));
         $("#cuerpoTablaIndicador").data("total", resumen_total);
+
+        //potencial
+        $("#total-detalle-emisiones-2").html("").append(formatoMiles(resumen_emisiones_potencial));
+        $("#total-detalle-energia-2").html("").append(formatoMiles(resumen_energia_total));
     } else {
         $('[id^=acum-]').each((x, y) => {
             resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
@@ -5694,11 +5706,13 @@ function generarAcumulado() {
                         armarAcumuladosRevision(data[i].listaAcumulado, data[i].ID_INDICADOR);
                     }
 
-                    let resumen_total = 0.0, resumen_energia = 0.0;
+                    let resumen_total = 0.0, resumen_energia = 0.0, resumen_emisiones_potencial = 0.0, resumen_energia_total = 0.0;
                     if ($("#Control").data("mitigacion") == 4) {
                         $('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
                             let emision = parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
                             let energia = parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
+                            resumen_emisiones_potencial += $(y).val() == null ? 0 : emision;
+                            resumen_energia_total += $(y).val() == null ? 0 : energia;
                             resumen_total += $(y).data('valor') == null ? 0 : $(y).data('valor') > 1 ? emision : 0;
                             resumen_energia += $(y).data('valor') == null ? 0 : $(y).data('valor') > 1 ? energia : 0;
                         });
@@ -5706,6 +5720,9 @@ function generarAcumulado() {
                         $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
                         $("#total-detalle-energia").html("").append(formatoMiles(Math.round(resumen_energia * 100) / 100));
                         $("#cuerpoTablaIndicador").data("total", resumen_total);
+
+                        $("#total-detalle-emisiones-2").html("").append(formatoMiles(resumen_emisiones_potencial));
+                        $("#total-detalle-energia-2").html("").append(formatoMiles(resumen_energia_total));
                     } else {
                         $('[id^=acum-]').each((x, y) => {
                             resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
