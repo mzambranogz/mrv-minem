@@ -3770,11 +3770,13 @@ function CargarDatosGuardados() {
                     //$("#total-detalle2").html("").append(formatoMiles(Math.round(total * 100) / 100));
                     //$("#cuerpoTablaIndicador").data("total", total);
 
-                    let resumen_total = 0.0, resumen_energia = 0.0;
+                    let resumen_total = 0.0, resumen_energia = 0.0, resumen_emisiones_potencial = 0.0, resumen_energia_total = 0.0;
                     if (medida == 4) {
                         $('#cuerpoTablaIndicador').find('.validar-implementado').each((x, y) => {
                             let emision = parseFloat($(y).parent().parent().parent().find('[data-param = 11]').val().replace(/,/gi, ''));
                             let energia = parseFloat($(y).parent().parent().parent().find('.energia-total').val().replace(/,/gi, ''));
+                            resumen_emisiones_potencial += $(y).val() == null ? 0 : emision;
+                            resumen_energia_total += $(y).val() == null ? 0 : energia;
                             resumen_total += $(y).val() == null ? 0 : $(y).val() > 1 ? emision : 0;
                             resumen_energia += $(y).val() == null ? 0 : $(y).val() > 1 ? energia : 0;
                         });
@@ -3782,6 +3784,12 @@ function CargarDatosGuardados() {
                         $("#total-detalle2").html("").append(formatoMiles(Math.round(resumen_total * 100) / 100));
                         $("#total-detalle-energia").html("").append(formatoMiles(Math.round(resumen_energia * 100) / 100));
                         $("#cuerpoTablaIndicador").data("total", resumen_total);
+
+                        //potencial
+                        $("#total-detalle-emisiones-2").html("").append(formatoMiles(resumen_emisiones_potencial));
+                        $("#total-detalle-energia-2").html("").append(formatoMiles(resumen_energia_total));
+                        //$("#cuerpoTablaIndicador").data("total", resumen_total);
+
                     } else {
                         $('[id^=acum-]').each((x, y) => {
                             resumen_total += parseFloat($(y).html().replace(/,/gi, ''));
@@ -4388,8 +4396,10 @@ $(document).ready(function () {
     //$("#enfoque-" + ($("#cbo-enfoque").val())).removeAttr("hidden");
     //$("#cbo-enfoque").data("select", $("#cbo-enfoque").val()); //data-select para saber quien fue el anterior
     //CargarSector();
-    if ($("#Control").data("mitigacion") == 4)
+    if ($("#Control").data("mitigacion") == 4) {
         armarTablaAuditor();
+        resumenPotencial();
+    }        
 
     if ($("#revision").val() == 1) {
 
@@ -6317,10 +6327,10 @@ var ordenarFiltro = (order, parametro) => {
             }            
         });        
         arrInd.push([`#${$(y).attr('id')}`,
-                      parametro == 0 ? $(y).find('th').html() : $(y).find(`[data-param=${parametro}]`).val(),
+                      parametro == 0 ? $(y).find('th').html() : $(y).find(`[data-param=${parametro}]`).val() == "" ? 0 : parseFloat($(y).find(`[data-param=${parametro}]`).val().replace(/,/gi, '')),
                       $(y)[0].outerHTML, arr]);
         // arrValores.push($(y).find('[data-param=11]').val());
-        arrValores.push([parametro == 0 ? $(y).find('th').html() : $(y).find(`[data-param=${parametro}]`).val(), `#${$(y).attr('id')}`]);
+        arrValores.push([parametro == 0 ? $(y).find('th').html() : $(y).find(`[data-param=${parametro}]`).val() == "" ? 0 : parseFloat($(y).find(`[data-param=${parametro}]`).val().replace(/,/gi, '')), `#${$(y).attr('id')}`]);
     });
     //if (order == "ASC") arrValores.sort(function (a, b) { return a - b; }); //ASCENDENTE
     //else arrValores.sort(function (a, b) { return b - a; }); //DESCENDENTE
@@ -6506,3 +6516,13 @@ $(document).on('change', '.filtrar-opcion', function (e) {
         }
     });
 });
+
+
+var resumenPotencial = () => {
+    let body2 = `<tr><th class="text-center" data-encabezado="Número" scope="row">2</th><td data-encabezado="Resumen">Energía total reducida</td><td data-encabezado="Total"><strong id="total-detalle-energia-2">0.00</strong><strong>&nbsp;MJ</strong></td></tr>`;
+    let body1 = `<tr><th class="text-center" data-encabezado="Número" scope="row">1</th><td data-encabezado="Resumen">Emisiones de GEI reducidas</td><td data-encabezado="Total"><strong id="total-detalle-emisiones-2">0.00</strong><strong>&nbsp;tCO<sub>2</sub>eq</strong></td></tr>`;
+    let heads = `<th class="text-center" scope="col" width="2%"><span>N°&nbsp;</span></th><th scope="col" width="88%"><span>Resumen potencial de las mejoras</span></th><th scope="col" width="10%"><span>Total</span></th>`;
+    let tabla = `<table class="table table-hover"><thead><tr class="bg-primary text-white">${heads}</tr></thead><tbody>${body1}${body2}</tbody></table>`;
+    let row = `<div class="row"><div class="col-12"><div class="table-responsive tabla-principal mt-3">${tabla}</div></div></div>`;
+    $('#resumenpotencial').html(row);
+}
