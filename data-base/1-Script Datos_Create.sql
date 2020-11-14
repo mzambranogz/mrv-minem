@@ -2792,8 +2792,11 @@ insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
 values (57, 'Factor validar energ BAU');
 insert into T_MAEM_MRV_FACTOR (id_factor, nombre_factor)
 values (58, 'Factor validar energ acción');
+Insert into MRVMM.T_MAEM_MRV_FACTOR (ID_FACTOR,NOMBRE_FACTOR) values (59,'Energía evitada');
+Insert into MRVMM.T_MAEM_MRV_FACTOR (ID_FACTOR,NOMBRE_FACTOR) values (60,'Factor energía bau');
+Insert into MRVMM.T_MAEM_MRV_FACTOR (ID_FACTOR,NOMBRE_FACTOR) values (61,'Factor poder calórico mejora');
 commit;
-prompt 58 records loaded
+prompt 59 records loaded
 
 prompt Loading T_MAEM_ENFOQUE_FACTOR...
 insert into T_MAEM_ENFOQUE_FACTOR (id_enfoque, id_factor, orden, flag_estado)
@@ -6105,8 +6108,29 @@ insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, fact
 values (58, 12, '84', '12', 0, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
 values (58, 13, '84', '13', 0, '1', null, null, null, null, null, null);
+Insert into MRVMM.T_MAEM_FACTOR_DATA (ID_FACTOR,ID_DETALLE,ID_PARAMETRO,VALOR,FACTOR,FLAG_ESTADO,FEC_REGISTRO,USU_REGISRO,IP_REGISTRO,FEC_MODIFICA,USU_MODIFICA,IP_MODIFICA) values (59,1,'18','1',136.870010035836,'1',null,null,null,null,null,null);
+Insert into MRVMM.T_MAEM_FACTOR_DATA (ID_FACTOR,ID_DETALLE,ID_PARAMETRO,VALOR,FACTOR,FLAG_ESTADO,FEC_REGISTRO,USU_REGISRO,IP_REGISTRO,FEC_MODIFICA,USU_MODIFICA,IP_MODIFICA) values (59,2,'18','2',95.9964298382513,'1',null,null,null,null,null,null);
+Insert into MRVMM.T_MAEM_FACTOR_DATA (ID_FACTOR,ID_DETALLE,ID_PARAMETRO,VALOR,FACTOR,FLAG_ESTADO,FEC_REGISTRO,USU_REGISRO,IP_REGISTRO,FEC_MODIFICA,USU_MODIFICA,IP_MODIFICA) values (59,3,'18','3',564.362577455616,'1',null,null,null,null,null,null);
+
+Insert into MRVMM.T_MAEM_FACTOR_DATA (ID_FACTOR,ID_DETALLE,ID_PARAMETRO,VALOR,FACTOR,FLAG_ESTADO,FEC_REGISTRO,USU_REGISRO,IP_REGISTRO,FEC_MODIFICA,USU_MODIFICA,IP_MODIFICA) values (60, 1, '1|3', '1|1', 314.8423242474, '1',null,null,null,null,null,null);
+Insert into MRVMM.T_MAEM_FACTOR_DATA (ID_FACTOR,ID_DETALLE,ID_PARAMETRO,VALOR,FACTOR,FLAG_ESTADO,FEC_REGISTRO,USU_REGISRO,IP_REGISTRO,FEC_MODIFICA,USU_MODIFICA,IP_MODIFICA) values (60, 2, '1|3', '1|2', 369.0065261693, '1',null,null,null,null,null,null);
+Insert into MRVMM.T_MAEM_FACTOR_DATA (ID_FACTOR,ID_DETALLE,ID_PARAMETRO,VALOR,FACTOR,FLAG_ESTADO,FEC_REGISTRO,USU_REGISRO,IP_REGISTRO,FEC_MODIFICA,USU_MODIFICA,IP_MODIFICA) values (60, 3, '1|3', '1|3', 366.5013011311, '1',null,null,null,null,null,null);
+Insert into MRVMM.T_MAEM_FACTOR_DATA (ID_FACTOR,ID_DETALLE,ID_PARAMETRO,VALOR,FACTOR,FLAG_ESTADO,FEC_REGISTRO,USU_REGISRO,IP_REGISTRO,FEC_MODIFICA,USU_MODIFICA,IP_MODIFICA) values (60, 4, '1|3', '2|1', 76.23379450337, '1',null,null,null,null,null,null);
+Insert into MRVMM.T_MAEM_FACTOR_DATA (ID_FACTOR,ID_DETALLE,ID_PARAMETRO,VALOR,FACTOR,FLAG_ESTADO,FEC_REGISTRO,USU_REGISRO,IP_REGISTRO,FEC_MODIFICA,USU_MODIFICA,IP_MODIFICA) values (60, 5, '1|3', '2|4', 120.3878670271, '1',null,null,null,null,null,null);
+Insert into MRVMM.T_MAEM_FACTOR_DATA (ID_FACTOR,ID_DETALLE,ID_PARAMETRO,VALOR,FACTOR,FLAG_ESTADO,FEC_REGISTRO,USU_REGISRO,IP_REGISTRO,FEC_MODIFICA,USU_MODIFICA,IP_MODIFICA) values (60, 6, '1|3', '3|1', 44.84340853139, '1',null,null,null,null,null,null);
+Insert into MRVMM.T_MAEM_FACTOR_DATA (ID_FACTOR,ID_DETALLE,ID_PARAMETRO,VALOR,FACTOR,FLAG_ESTADO,FEC_REGISTRO,USU_REGISRO,IP_REGISTRO,FEC_MODIFICA,USU_MODIFICA,IP_MODIFICA) values (60, 7, '1|3', '3|4', 74.54777561239, '1',null,null,null,null,null,null);
+Insert into MRVMM.T_MAEM_FACTOR_DATA (ID_FACTOR,ID_DETALLE,ID_PARAMETRO,VALOR,FACTOR,FLAG_ESTADO,FEC_REGISTRO,USU_REGISRO,IP_REGISTRO,FEC_MODIFICA,USU_MODIFICA,IP_MODIFICA) values (60, 8, '1|3', '4|1', 31.07919587028, '1',null,null,null,null,null,null);
+Insert into MRVMM.T_MAEM_FACTOR_DATA (ID_FACTOR,ID_DETALLE,ID_PARAMETRO,VALOR,FACTOR,FLAG_ESTADO,FEC_REGISTRO,USU_REGISRO,IP_REGISTRO,FEC_MODIFICA,USU_MODIFICA,IP_MODIFICA) values (60, 9, '1|3', '4|4', 46.09515078819, '1',null,null,null,null,null,null);
+Insert into MRVMM.T_MAEM_FACTOR_DATA (ID_FACTOR,ID_DETALLE,ID_PARAMETRO,VALOR,FACTOR,FLAG_ESTADO,FEC_REGISTRO,USU_REGISRO,IP_REGISTRO,FEC_MODIFICA,USU_MODIFICA,IP_MODIFICA) values (60, 10, '1|3', '5|3', 678.7749260577, '1',null,null,null,null,null,null);
+Insert into MRVMM.T_MAEM_FACTOR_DATA (ID_FACTOR,ID_DETALLE,ID_PARAMETRO,VALOR,FACTOR,FLAG_ESTADO,FEC_REGISTRO,USU_REGISRO,IP_REGISTRO,FEC_MODIFICA,USU_MODIFICA,IP_MODIFICA) values (60, 11, '1|3', '6|3', 1018.1623890865, '1',null,null,null,null,null,null);
+
+Insert into MRVMM.T_MAEM_FACTOR_DATA (ID_FACTOR,ID_DETALLE,ID_PARAMETRO,VALOR,FACTOR,FLAG_ESTADO,FEC_REGISTRO,USU_REGISRO,IP_REGISTRO,FEC_MODIFICA,USU_MODIFICA,IP_MODIFICA) values (61,1,'71','1',0.0000360369684,'1',null,null,null,null,null,null);
+Insert into MRVMM.T_MAEM_FACTOR_DATA (ID_FACTOR,ID_DETALLE,ID_PARAMETRO,VALOR,FACTOR,FLAG_ESTADO,FEC_REGISTRO,USU_REGISRO,IP_REGISTRO,FEC_MODIFICA,USU_MODIFICA,IP_MODIFICA) values (61,2,'71','2',0.0000263926972,'1',null,null,null,null,null,null);
+Insert into MRVMM.T_MAEM_FACTOR_DATA (ID_FACTOR,ID_DETALLE,ID_PARAMETRO,VALOR,FACTOR,FLAG_ESTADO,FEC_REGISTRO,USU_REGISRO,IP_REGISTRO,FEC_MODIFICA,USU_MODIFICA,IP_MODIFICA) values (61,3,'71','3',0.0001178593918,'1',null,null,null,null,null,null);
+Insert into MRVMM.T_MAEM_FACTOR_DATA (ID_FACTOR,ID_DETALLE,ID_PARAMETRO,VALOR,FACTOR,FLAG_ESTADO,FEC_REGISTRO,USU_REGISRO,IP_REGISTRO,FEC_MODIFICA,USU_MODIFICA,IP_MODIFICA) values (61,4,'71','4',0.0001345043869,'1',null,null,null,null,null,null);
+Insert into MRVMM.T_MAEM_FACTOR_DATA (ID_FACTOR,ID_DETALLE,ID_PARAMETRO,VALOR,FACTOR,FLAG_ESTADO,FEC_REGISTRO,USU_REGISRO,IP_REGISTRO,FEC_MODIFICA,USU_MODIFICA,IP_MODIFICA) values (61,5,'71','5',0.0000904524144,'1',null,null,null,null,null,null);
 commit;
-prompt 1552 records loaded
+prompt 1555 records loaded
 
 
 
@@ -6261,8 +6285,39 @@ insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, compo
 values (96, 20, 1, '=', 0, '([F25]-[F26])/[C1000]*[P12]', '(|[F25]|-|[F26]|)|/|[C1000]|*|[P12]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
 values (90, 20, 1, '=', 0, '[P96]*[C1000]*[C3.6]', '[P96]|*|[C1000]|*|[C3.6]', '1');
+
+Insert into MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
+values ('90','7','9','=','0','[F59]*[C12]*[P95]','[F59]|*|[C12]|*|[P95]','1');
+Insert into MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
+values ('90','8','8','=','0','([C2.8233333333333]-[F19])*[C0.0156]*[C3.8]*[P12]*[C1000000]','(|[C2.8233333333333]|-|[F19]|)|*|[C0.0156]|*|[C3.8]|*|[P12]|*|[C1000000]','1');
+Insert into MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
+values ('90','9','8','=','0','([P33]/[C100]*[C7.3806724874458]*[C0.0156]-[P33]/[C100]*[C0.0473])*[C1000000]','(|[P33]|/|[C100]|*|[C7.3806724874458]|*|[C0.0156]|-|[P33]|/|[C100]|*|[C0.0473]|)*[C1000000]','1');
+Insert into MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
+values ('96','10','7','=','0','([P19]-[P20])/[C1000000]*[P12]*[C4380]','(|[P19]|-|[P20]|)|/|[C1000000]|*|[P12]|*|[C4380]','1');
+Insert into MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
+values ('90','10','7','=','0','[P96]*[C1000]*[C3.6]','[P96]|*|[C1000]|*|[C3.6]','1');
+Insert into MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
+values ('96','5','11','=','0','[P64]/([C1]-[F2])','[P64]|/|(|[C1]|-|[F2]|)','1');
+Insert into MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
+values ('90','5','11','=','0','[P96]*[C1000]*[C3.6]','[P96]|*|[C1000]|*|[C3.6]','1');
+Insert into MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
+values ('69','15','2','=','0','[P46]/([P44]*[F35])','[P46]|/|(|[P44]|*|[F35]|)','1');
+Insert into MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
+values ('70','15','2','=','0','[P47]/([P45]*[F36])','[P47]|/|(|[P45]|*|[F36]|)','1');
+Insert into MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
+values ('90','15','2','=','0','([C1000000]/[P69]-[C1000000]/[P70])*[P47]','(|[C1000000]|/|[P69]|-|[C1000000]|/|[P70]|)|*|[P47]','1');
+
+Insert into MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
+values ('90','1','12','=','0','(([P4]/[F60])/[C1000]-[P4]*([F3]/([C1]-[F2]))*[C0.0036]/[C1000])*[C1000000]','(|(|[P4]|/|[F60]|)|/|[C1000]|-|[P4]|*|(|[F3]|/|(|[C1]|-|[F2]|)|)|*|[C0.0036]|/|[C1000]|)|*|[C1000000]','1');
+Insert into MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
+values ('90','3','12','=','0','[P7]*[C1000]/[F3]/[F60]/[C1000]-([P7]/([C1]-[F2]))*[C1000]*[C0.0036]/[C1000]','[P7]|*|[C1000]|/|[F3]|/|[F60]|/|[C1000]|-|(|[P7]|/|(|[C1]|-|[F2]|)|)|*|[C1000]|*|[C0.0036]|/|[C1000]','1');
+Insert into MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
+values ('90','4','12','=','0','((([P7]*[C1000]/[F3]/[F60])*[C1000]+[P8]*[F48]/[F60]*[C1000]))-(([P7]/([C1]-[F2])*[C3600])+[P8]*[F61]*[C1000000])','(|(|(|[P7]|*|[C1000]|/|[F3]|/|[F60]|)|*|[C1000]|+|[P8]|*|[F48]|/|[F60]|*|[C1000]|)|)|-|(|(|[P7]|/|(|[C1]|-|[F2]|)|*|[C3600]|)|+|[P8]|*|[F61]|*|[C1000000]|)','1');
+Insert into MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
+values ('90','2','12','=','0','([P4]+[P15])/[F60]*[C1000]-([P4]*[F3]*[C0.0036]*[C1000]+[P15]/[F60]*[C1000])','(|[P4]|+|[P15]|)|/|[F60]|*|[C1000]|-|(|[P4]|*|[F3]|*|[C0.0036]|*|[C1000]|+|[P15]|/|[F60]|*|[C1000]|)','1');
+
 commit;
-prompt 75 records loaded
+prompt 80 records loaded
 
 
 prompt Loading T_MAMEM_GRUPO_INDICADOR...
@@ -6274,6 +6329,7 @@ insert into T_MAMEM_GRUPO_INDICADOR (id_grupo_indicador, grupo_indicador, color_
 values (3, 'Grupo emisiones reducidas', '#007BFF', '1');
 commit;
 prompt 3 records loaded
+
 prompt Loading T_MAEM_INDICADOR...
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (2, 12, 72, 3, 4, '1');
@@ -6287,10 +6343,7 @@ insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indi
 values (10, 7, 59, 3, 3, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (10, 7, 56, 3, 5, '1');
-insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (15, 2, 54, 3, 4, '1');
-insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (15, 2, 55, 3, 9, '1');
+
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (23, 1, 52, 3, 4, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
@@ -6384,8 +6437,6 @@ values (8, 8, 11, 3, 7, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (3, 12, 6, 3, 1, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (15, 2, 6, 3, 1, '1');
-insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (3, 12, 1, 3, 2, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (3, 12, 3, 3, 3, '1');
@@ -6401,8 +6452,6 @@ insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indi
 values (3, 12, 11, 3, 8, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (1, 12, 6, 3, 1, '1');
-insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (15, 2, 42, 3, 2, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (1, 12, 1, 3, 2, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
@@ -6509,22 +6558,6 @@ insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indi
 values (17, 1, 17, 3, 6, '0');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (17, 1, 11, 3, 7, '1');
-insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (15, 2, 44, 3, 3, '1');
-insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (15, 2, 46, 3, 6, '1');
-insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (15, 2, 43, 3, 7, '1');
-insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (15, 2, 45, 3, 8, '1');
-insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (15, 2, 47, 3, 11, '1');
-insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (15, 2, 9, 3, 12, '1');
-insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (15, 2, 10, 3, 13, '1');
-insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (15, 2, 11, 3, 14, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (1, 12, 4, 3, 4, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
@@ -6668,14 +6701,6 @@ values (2, 12, 71, 3, 5, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (4, 12, 71, 3, 5, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (15, 2, 67, 3, 5, '1');
-insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (15, 2, 69, 3, 7, '0');
-insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (15, 2, 68, 3, 10, '1');
-insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
-values (15, 2, 70, 3, 13, '0');
-insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (25, 4, 6, 2, 1, '1');
 commit;
 prompt 200 records committed...
@@ -6729,37 +6754,104 @@ insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indi
 values (25, 4, 93, 3, 29, '1');
 insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
 values (25, 4, 94, 3, 30, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (11, 6, 96, 3, 10, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (11, 6, 90, 3, 11, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (12, 5, 96, 3, 7, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (12, 5, 90, 3, 8, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (13, 3, 96, 3, 8, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (13, 3, 90, 3, 9, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (14, 2, 96, 3, 8, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (14, 2, 90, 3, 9, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (16, 1, 96, 3, 8, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (16, 1, 90, 3, 9, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (17, 1, 96, 3, 8, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (17, 1, 90, 3, 9, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (18, 1, 96, 3, 7, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (18, 1, 90, 3, 8, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (19, 1, 96, 3, 7, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (19, 1, 90, 3, 8, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (20, 1, 96, 3, 7, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (20, 1, 90, 3, 8, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (21, 1, 96, 3, 7, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (21, 1, 90, 3, 8, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (22, 1, 96, 3, 7, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (22, 1, 90, 3, 8, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (23, 1, 90, 3, 11, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (24, 1, 96, 3, 6, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (24, 1, 90, 3, 7, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (15, 2, 6, 3, 1, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (15, 2, 42, 3, 2, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (15, 2, 44, 3, 3, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (15, 2, 54, 3, 4, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (15, 2, 67, 3, 5, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (15, 2, 46, 3, 6, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (15, 2, 69, 3, 7, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (15, 2, 43, 3, 8, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (15, 2, 45, 3, 9, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (15, 2, 55, 3, 10, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (15, 2, 68, 3, 11, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (15, 2, 47, 3, 12, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (15, 2, 70, 3, 13, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (15, 2, 9, 3, 14, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (15, 2, 10, 3, 15, '1');
+insert into T_MAEM_INDICADOR (id_enfoque, id_medmit, id_parametro, id_grupo_indicador, orden, flag_estado)
+values (15, 2, 11, 3, 16, '1');
+Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('15','2','90','3','17','1');
+Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('7','9','90','3','5','1');
+Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('8','8','90','3','8','1');
+Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('9','8','90','3','10','1');
+Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('10','7','96','3','8','1');
+Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('10','7','90','3','9','1');
+Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('5','11','96','3','4','1');
+Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('5','11','90','3','5','1');
 
-Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('11','6','96','3','10','1');
-Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('11','6','90','3','11','1');
-Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('12','5','96','3','7','1');
-Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('12','5','90','3','8','1');
-Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('13','3','96','3','8','1');
-Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('13','3','90','3','9','1');
-Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('14','2','96','3','8','1');
-Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('14','2','90','3','9','1');
-Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('16','1','96','3','8','1');
-Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('16','1','90','3','9','1');
-Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('17','1','96','3','8','1');
-Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('17','1','90','3','9','1');
-Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('18','1','96','3','7','1');
-Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('18','1','90','3','8','1');
-Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('19','1','96','3','7','1');
-Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('19','1','90','3','8','1');
-Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('20','1','96','3','7','1');
-Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('20','1','90','3','8','1');
-Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('21','1','96','3','7','1');
-Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('21','1','90','3','8','1');
-Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('22','1','96','3','7','1');
-Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('22','1','90','3','8','1');
-Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('23','1','90','3','11','1');
-Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('24','1','96','3','6','1');
-Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values ('24','1','90','3','7','1');
-
+Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values (1,12,90,3,10,'1');
+Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values (2,12,90,3,13,'1');
+Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values (3,12,90,3,9,'1');
+Insert into MRVMM.T_MAEM_INDICADOR (ID_ENFOQUE,ID_MEDMIT,ID_PARAMETRO,ID_GRUPO_INDICADOR,ORDEN,FLAG_ESTADO) values (4,12,90,3,11,'1');
 
 commit;
-prompt 225 records loaded
-
+prompt 250 records loaded
 
 
 prompt Loading T_MAEM_INDICADOR_DATA...
@@ -7188,8 +7280,17 @@ insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control,
 values (58, 1, 1, null, 'Energético', 84, 1, '1');
 insert into T_MAEM_MRV_FACTOR_PARAMETRO (id_factor, id_detalle, id_tipo_control, id_tipo_dato, nombre_detalle, id_parametro, orden, flag_estado)
 values (58, 100, 2, 2, 'Factor', null, 100, '1');
+Insert into MRVMM.T_MAEM_MRV_FACTOR_PARAMETRO (ID_FACTOR,ID_DETALLE,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_DETALLE,ID_PARAMETRO,ORDEN,FLAG_ESTADO) values (59,1,1,null,'Región','18',1,'1');
+Insert into MRVMM.T_MAEM_MRV_FACTOR_PARAMETRO (ID_FACTOR,ID_DETALLE,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_DETALLE,ID_PARAMETRO,ORDEN,FLAG_ESTADO) values (59,2,2,2,'Factor (MJ/mes)',null,2,'1');
+
+Insert into MRVMM.T_MAEM_MRV_FACTOR_PARAMETRO (ID_FACTOR,ID_DETALLE,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_DETALLE,ID_PARAMETRO,ORDEN,FLAG_ESTADO) values (60,1,1,null,'Tipo de vehículo','1',1,'1');
+Insert into MRVMM.T_MAEM_MRV_FACTOR_PARAMETRO (ID_FACTOR,ID_DETALLE,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_DETALLE,ID_PARAMETRO,ORDEN,FLAG_ESTADO) values (60,2,1,null,'Tipo de combustible bau','3',2,'1');
+Insert into MRVMM.T_MAEM_MRV_FACTOR_PARAMETRO (ID_FACTOR,ID_DETALLE,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_DETALLE,ID_PARAMETRO,ORDEN,FLAG_ESTADO) values (60,3,2,2,'Factor (km/GJ)',null,3,'1');
+Insert into MRVMM.T_MAEM_MRV_FACTOR_PARAMETRO (ID_FACTOR,ID_DETALLE,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_DETALLE,ID_PARAMETRO,ORDEN,FLAG_ESTADO) values (61,1,1,null,'Tipo de combustible','71',1,'1');
+Insert into MRVMM.T_MAEM_MRV_FACTOR_PARAMETRO (ID_FACTOR,ID_DETALLE,ID_TIPO_CONTROL,ID_TIPO_DATO,NOMBRE_DETALLE,ID_PARAMETRO,ORDEN,FLAG_ESTADO) values (61,2,2,2,'Factor (km/GJ)',null,2,'1');
+
 commit;
-prompt 148 records loaded
+prompt 150 records loaded
 
 prompt Loading T_MAEM_MRV_LG_FACTOR_DATA...
 insert into T_MAEM_MRV_LG_FACTOR_DATA (id_lg_factor, fecha_log, accion, id_factor, id_detale, id_parametro, valor, factor, flg_estado, detalle, usuario, ip)
@@ -25059,7 +25160,7 @@ prompt
 create sequence MRVMM.SQ_MAE_FACTOR
 minvalue 1
 maxvalue 9999999999999999999999999999
-start with 59
+start with 62
 increment by 1
 cache 20;
 
