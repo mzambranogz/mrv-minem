@@ -188,7 +188,7 @@ namespace MRVMinem.Controllers
             Session["MisArchivos"] = null;
             ListaObjeto modelo = new ListaObjeto();
             int validar = IniciativaLN.ValidarVista(id);
-            if (validar == 6 || validar == 7 || validar == 14 || Convert.ToInt16(Session["rol"]) == 7) //add 14-10-20
+            if (validar == 6 || validar == 7 || validar == 8 || validar == 12 || validar == 13 || validar == 14 || validar == 15 || validar == 19 || validar == 20 || validar == 21 || validar == 22 || Convert.ToInt16(Session["rol"]) == 7) //add 14-10-20
             {
                 IniciativaBE inic = new IniciativaBE();
                 inic.ID_INICIATIVA = id;
