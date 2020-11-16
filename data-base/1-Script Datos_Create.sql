@@ -1990,9 +1990,9 @@ values (63, 1, null, 'Unidad ER', '1', '0', '1', null, null, null, null, null, n
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
 values (60, 1, null, 'Tipo de lámpara', '1', '0', '1', null, null, null, null, null, 'Especificación de la lámpara (Incandescente, ahorrador, etc.)', null, null, null, null, null, null, '1', '1', '0', '0', '0', '0', '0', '0');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
-values (26, 1, 3, 'Etiqueta BAU', '1', '1', '1', null, null, null, null, null, 'Etiquetado A, B, C antes de la implementación', 'Refiere a la electricidad que consumirían los equipos que se están dejando de utilizar en el periodo de un año.', 'Se calcula en base a las propiedades específicas de cada equipo (potencia, capacidad, etc.) y las horas totales', 'El especialista encargado revisa datos de entrada, cálculos obtenidos y resultados en reporte de cada acción considerada.', 'Administrador revisa aleatoriamente una muestra representativa de acciones (datos de entrada, cálculos y resultados de reporte).', 'Permite conocer el consumo de electricidad por los equipos energéticos de la línea base', 'Anual', '1', '1', '0', '0', '0', '0', '0', '0');
+values (26, 1, 3, 'Etiqueta BAU', '1', '1', '1', null, null, null, null, null, 'Etiqueta de eficiencia energética antes de la implementación.', 'Refiere a la electricidad que consumirían los equipos que se están dejando de utilizar en el periodo de un año.', 'Se calcula en base a las propiedades específicas de cada equipo (potencia, capacidad, etc.) y las horas totales', 'El especialista encargado revisa datos de entrada, cálculos obtenidos y resultados en reporte de cada acción considerada.', 'Administrador revisa aleatoriamente una muestra representativa de acciones (datos de entrada, cálculos y resultados de reporte).', 'Permite conocer el consumo de electricidad por los equipos energéticos de la línea base', 'Anual', '1', '1', '0', '0', '0', '0', '0', '0');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
-values (27, 1, 3, 'Etiqueta acción', '1', '1', '1', null, null, null, null, null, 'Etiquetado A, B, C posterior a la implementación(Kilovatios hora.año)', 'Refiere a la electricidad que consumen los equipos adquiridos en las acciones por el periodo de un año.', 'Se calcula en base a las propiedades específicas de cada equipo (potencia, capacidad, etc.) y las horas totales aproximadas usadas durante un año.', 'El especialista encargado revisa datos de entrada, cálculos obtenidos y resultados en reporte de cada acción considerada.', 'Administrador revisa aleatoriamente una muestra representativa de acciones (datos de entrada, cálculos y resultados de reporte).', 'Permite conocer el consumo de electricidad por los equipos energéticos adquiridos.', 'Anual', '1', '1', '0', '0', '0', '0', '0', '0');
+values (27, 1, 3, 'Etiqueta acción', '1', '1', '1', null, null, null, null, null, 'Etiqueta de eficiencia energética despues de la implementación de la acción.', 'Refiere a la electricidad que consumen los equipos adquiridos en las acciones por el periodo de un año.', 'Se calcula en base a las propiedades específicas de cada equipo (potencia, capacidad, etc.) y las horas totales aproximadas usadas durante un año.', 'El especialista encargado revisa datos de entrada, cálculos obtenidos y resultados en reporte de cada acción considerada.', 'Administrador revisa aleatoriamente una muestra representativa de acciones (datos de entrada, cálculos y resultados de reporte).', 'Permite conocer el consumo de electricidad por los equipos energéticos adquiridos.', 'Anual', '1', '1', '0', '0', '0', '0', '0', '0');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
 values (33, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de vales FISE emitidos en el año', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
@@ -5564,7 +5564,7 @@ values (45, 2, '52', '2', 63100, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
 values (7, 10, '6', '2019', .4119, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
-values (2, 11, '6', '2020', .108, '1', null, null, null, null, null, null);
+values (2, 11, '6', '2020', .106, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
 values (2, 12, '6', '2021', .108, '1', null, null, null, null, null, null);
 insert into T_MAEM_FACTOR_DATA (id_factor, id_detalle, id_parametro, valor, factor, flag_estado, fec_registro, usu_regisro, ip_registro, fec_modifica, usu_modifica, ip_modifica)
@@ -6226,7 +6226,7 @@ values (11, 11, 6, '=', 0, '((([P19]-[P20])/([C1]-[F2]))*[C1]/[C1000000]*[F11]*[
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
 values (11, 16, 1, '=', 0, '([F14]-[F15])/([C1]-[F2])*[C1]/[C1000]*[F11]*[P12]', '(|[F14]|-|[F15]|)|/|(|[C1]|-|[F2]|)|*|[C1]|/|[C1000]|*|[F11]|*|[P12]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
-values (9, 9, 8, '=', 0, '([P33]/[C100]*[C7.3807])*[C0.0156]*([C112]*[F20]+[C0.3]*[C28]+[C0.004]*[C265])', '(|[P33]|/|[C100]|*|[C7.3807]|)|*|[C0.0156]|*|(|[C112]|*|[F20]|+|[C0.3]|*|[C28]|+|[C0.004]|*|[C265]|)', '1');
+values (9, 9, 8, '=', 0, '([P33]/[C100]*[C7.3806724874458])*[C0.0156]*([C112]*[F20]+[C0.3]*[C28]+[C0.004]*[C265])', '(|[P33]|/|[C100]|*|[C7.3806724874458]|)|*|[C0.0156]|*|(|[C112]|*|[F20]|+|[C0.3]|*|[C28]|+|[C0.004]|*|[C265]|)', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
 values (10, 9, 8, '=', 0, '[P33]/[C100]*[C0.0473]*([C63.1]+[C0.001]*[C30]+[C0.0001]*[C265])', '[P33]|/|[C100]|*|[C0.0473]|*|(|[C63.1]|+|[C0.001]|*|[C30]|+|[C0.0001]|*|[C265]|)', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
@@ -6299,39 +6299,36 @@ insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, compo
 values (96, 20, 1, '=', 0, '([F25]-[F26])/[C1000]*[P12]', '(|[F25]|-|[F26]|)|/|[C1000]|*|[P12]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
 values (90, 20, 1, '=', 0, '[P96]*[C1000]*[C3.6]', '[P96]|*|[C1000]|*|[C3.6]', '1');
-
-Insert into MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
-values ('90','7','9','=','0','[F59]*[C12]*[P95]','[F59]|*|[C12]|*|[P95]','1');
-Insert into MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
-values ('90','8','8','=','0','([C2.8233333333333]-[F19])*[C0.0156]*[C3.8]*[P12]*[C1000000]','(|[C2.8233333333333]|-|[F19]|)|*|[C0.0156]|*|[C3.8]|*|[P12]|*|[C1000000]','1');
-Insert into MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
-values ('90','9','8','=','0','([P33]/[C100]*[C7.3806724874458]*[C0.0156]-[P33]/[C100]*[C0.0473])*[C1000000]','(|[P33]|/|[C100]|*|[C7.3806724874458]|*|[C0.0156]|-|[P33]|/|[C100]|*|[C0.0473]|)*[C1000000]','1');
-Insert into MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
-values ('96','10','7','=','0','([P19]-[P20])/[C1000000]*[P12]*[C4380]','(|[P19]|-|[P20]|)|/|[C1000000]|*|[P12]|*|[C4380]','1');
-Insert into MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
-values ('90','10','7','=','0','[P96]*[C1000]*[C3.6]','[P96]|*|[C1000]|*|[C3.6]','1');
-Insert into MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
-values ('96','5','11','=','0','[P64]/([C1]-[F2])','[P64]|/|(|[C1]|-|[F2]|)','1');
-Insert into MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
-values ('90','5','11','=','0','[P96]*[C1000]*[C3.6]','[P96]|*|[C1000]|*|[C3.6]','1');
-Insert into MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
-values ('69','15','2','=','0','[P46]/([P44]*[F35])','[P46]|/|(|[P44]|*|[F35]|)','1');
-Insert into MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
-values ('70','15','2','=','0','[P47]/([P45]*[F36])','[P47]|/|(|[P45]|*|[F36]|)','1');
-Insert into MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
-values ('90','15','2','=','0','([C1000000]/[P69]-[C1000000]/[P70])*[P47]','(|[C1000000]|/|[P69]|-|[C1000000]|/|[P70]|)|*|[P47]','1');
-
-Insert into MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
-values ('90','1','12','=','0','(([P4]/[F60])/[C1000]-[P4]*([F3]/([C1]-[F2]))*[C0.0036]/[C1000])*[C1000000]','(|(|[P4]|/|[F60]|)|/|[C1000]|-|[P4]|*|(|[F3]|/|(|[C1]|-|[F2]|)|)|*|[C0.0036]|/|[C1000]|)|*|[C1000000]','1');
-Insert into MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
-values ('90','3','12','=','0','[P7]*[C1000]/[F3]/[F60]/[C1000]-([P7]/([C1]-[F2]))*[C1000]*[C0.0036]/[C1000]','[P7]|*|[C1000]|/|[F3]|/|[F60]|/|[C1000]|-|(|[P7]|/|(|[C1]|-|[F2]|)|)|*|[C1000]|*|[C0.0036]|/|[C1000]','1');
-Insert into MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
-values ('90','4','12','=','0','((([P7]*[C1000]/[F3]/[F60])*[C1000]+[P8]*[F48]/[F60]*[C1000]))-(([P7]/([C1]-[F2])*[C3600])+[P8]*[F61]*[C1000000])','(|(|(|[P7]|*|[C1000]|/|[F3]|/|[F60]|)|*|[C1000]|+|[P8]|*|[F48]|/|[F60]|*|[C1000]|)|)|-|(|(|[P7]|/|(|[C1]|-|[F2]|)|*|[C3600]|)|+|[P8]|*|[F61]|*|[C1000000]|)','1');
-Insert into MRVMM.T_MAEM_FORMULA_PARAMETRO (ID_PARAMETRO,ID_ENFOQUE,ID_MEDMIT,COMPORTAMIENTO,VALOR,FORMULA,FORMULA_ARMADO,FLAG_ACTIVO) 
-values ('90','2','12','=','0','([P4]+[P15])/[F60]*[C1000]-([P4]*[F3]*[C0.0036]*[C1000]+[P15]/[F60]*[C1000])','(|[P4]|+|[P15]|)|/|[F60]|*|[C1000]|-|(|[P4]|*|[F3]|*|[C0.0036]|*|[C1000]|+|[P15]|/|[F60]|*|[C1000]|)','1');
-
+insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
+values (90, 7, 9, '=', 0, '[F59]*[C12]*[P95]', '[F59]|*|[C12]|*|[P95]', '1');
+insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
+values (90, 8, 8, '=', 0, '([C2.8233333333333]-[F19])*[C0.0156]*[C3.8]*[P12]*[C1000000]', '(|[C2.8233333333333]|-|[F19]|)|*|[C0.0156]|*|[C3.8]|*|[P12]|*|[C1000000]', '1');
+insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
+values (90, 9, 8, '=', 0, '([P33]/[C100]*[C7.3806724874458]*[C0.0156]-[P33]/[C100]*[C0.0473])*[C1000000]', '(|[P33]|/|[C100]|*|[C7.3806724874458]|*|[C0.0156]|-|[P33]|/|[C100]|*|[C0.0473]|)*[C1000000]', '1');
+insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
+values (96, 10, 7, '=', 0, '([P19]-[P20])/[C1000000]*[P12]*[C4380]', '(|[P19]|-|[P20]|)|/|[C1000000]|*|[P12]|*|[C4380]', '1');
+insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
+values (90, 10, 7, '=', 0, '[P96]*[C1000]*[C3.6]', '[P96]|*|[C1000]|*|[C3.6]', '1');
+insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
+values (96, 5, 11, '=', 0, '[P64]/([C1]-[F2])', '[P64]|/|(|[C1]|-|[F2]|)', '1');
+insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
+values (90, 5, 11, '=', 0, '[P96]*[C1000]*[C3.6]', '[P96]|*|[C1000]|*|[C3.6]', '1');
+insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
+values (69, 15, 2, '=', 0, '[P46]/([P44]*[F35])', '[P46]|/|(|[P44]|*|[F35]|)', '1');
+insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
+values (70, 15, 2, '=', 0, '[P47]/([P45]*[F36])', '[P47]|/|(|[P45]|*|[F36]|)', '1');
+insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
+values (90, 15, 2, '=', 0, '([C1000000]/[P69]-[C1000000]/[P70])*[P47]', '(|[C1000000]|/|[P69]|-|[C1000000]|/|[P70]|)|*|[P47]', '1');
+insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
+values (90, 1, 12, '=', 0, '(([P4]/[F60])/[C1000]-[P4]*([F3]/([C1]-[F2]))*[C0.0036]/[C1000])*[C1000000]', '(|(|[P4]|/|[F60]|)|/|[C1000]|-|[P4]|*|(|[F3]|/|(|[C1]|-|[F2]|)|)|*|[C0.0036]|/|[C1000]|)|*|[C1000000]', '1');
+insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
+values (90, 3, 12, '=', 0, '[P7]*[C1000]/[F3]/[F60]/[C1000]-([P7]/([C1]-[F2]))*[C1000]*[C0.0036]/[C1000]', '[P7]|*|[C1000]|/|[F3]|/|[F60]|/|[C1000]|-|(|[P7]|/|(|[C1]|-|[F2]|)|)|*|[C1000]|*|[C0.0036]|/|[C1000]', '1');
+insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
+values (90, 4, 12, '=', 0, '((([P7]*[C1000]/[F3]/[F60])*[C1000]+[P8]*[F48]/[F60]*[C1000]))-(([P7]/([C1]-[F2])*[C3600])+[P8]*[F61]*[C1000000])', '(|(|(|[P7]|*|[C1000]|/|[F3]|/|[F60]|)|*|[C1000]|+|[P8]|*|[F48]|/|[F60]|*|[C1000]|)|)|-|(|(|[P7]|/|(|[C1]|-|[F2]|)|*|[C3600]|)|+|[P8]|*|[F61]|*|[C1000000]|)', '1');
+insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
+values (90, 2, 12, '=', 0, '([P4]+[P15])/[F60]*[C1000]-([P4]*[F3]*[C0.0036]*[C1000]+[P15]/[F60]*[C1000])', '(|[P4]|+|[P15]|)|/|[F60]|*|[C1000]|-|(|[P4]|*|[F3]|*|[C0.0036]|*|[C1000]|+|[P15]|/|[F60]|*|[C1000]|)', '1');
 commit;
-prompt 80 records loaded
+prompt 89 records loaded
 
 
 prompt Loading T_MAMEM_GRUPO_INDICADOR...
