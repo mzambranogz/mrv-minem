@@ -1836,7 +1836,8 @@ function CargarDatosCabecera() {
                 if (data.length > 0) {
                     var tr = "";
                     tr += '<tr class="bg-primary text-white">';
-                    tr += `     <th class="text-center ${medida == 4 ? 'grupo-columna-02' : 'grupo-columna-03'}" scope="col"><span>N°</span></th>`;
+                    //tr += `     <th class="text-center ${medida == 4 ? 'grupo-columna-02' : 'grupo-columna-03'}" scope="col"><span>N°</span></th>`;
+                    tr += `<th class="text-center ${medida == 4 ? 'grupo-columna-02' : 'grupo-columna-03'}" scope="col"><div class="d-flex flex-column justify-content-between align-items-center"><div class="d-flex justify-content-center align-items-center">N°&nbsp;</div><div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Número"></i></div></div></th>`;
                     for (var i = 0; i < data.length; i++) {
                         var columna = "0" + data[i]["ID_GRUPO_INDICADOR"];
                         var descripcion = "";
@@ -1879,14 +1880,21 @@ function CargarDatosCabecera() {
                         else
                             tool = data[i]["LEYENDA_PARAMETRO"];
 
-                        tr += `     <th class="text-center grupo-columna-${columna} ${data[i]["VISIBLE"] == '0' ? 'd-none' : ''}" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="${tool}"></i>${data[i]["NOMBRE_PARAMETRO"]}&nbsp;</span><span>${descripcion}</span></th>`;
+                        let filtro = "";
+                        if (medida == 4)
+                            filtro = data[i]["ENERGIA_TOTAL"] == '1' || data[i]["ID_PARAMETRO"] == '11' ? `<span class="miColumna"><i class="fas fa-sort" style="color: lightgray" id="VALOR-${data[i]["ID_PARAMETRO"]}" data-valor="IDA.VALOR" data-order="ASC" data-parametro="${data[i]["ID_PARAMETRO"]}"></i></span>` : '';
+
+                        //tr += `     <th class="text-center grupo-columna-${columna} ${data[i]["VISIBLE"] == '0' ? 'd-none' : ''}" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="${tool}"></i>${data[i]["NOMBRE_PARAMETRO"]}&nbsp;</span><span>${descripcion}</span></th>`;
+                        tr += `<th class="text-center grupo-columna-${columna} ${data[i]["VISIBLE"] == '0' ? 'd-none' : ''}"><div class="d-flex flex-column justify-content-between align-items-center"><div class="d-flex justify-content-center align-items-center">${data[i]["NOMBRE_PARAMETRO"]} &nbsp;${descripcion}${filtro}</div><div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="${tool}"></i></div></div></th>`;
                         //tr += '     <th class="text-center grupo-columna-' + columna + '" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="' + tool + '"></i>' + data[i]["NOMBRE_PARAMETRO"] + '&nbsp;</span><span>' + descripcion + '</span><small>' + data[i]["DESCRIPCION_PARAMETRO"] + '</small></th>';
 
                     }
                     //tr += '     <th class="text-center" scope="col">Más</th>';
-                    tr += '<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Si desea subir un archivo de más de 4MB, contactar con el administrador"></i>Documentos de sustento</span></th>';
+                    //tr += '<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Si desea subir un archivo de más de 4MB, contactar con el administrador"></i>Documentos de sustento</span></th>';
+                    tr += `<th class="text-center grupo-columna-03"><div class="d-flex flex-column justify-content-between align-items-center"><div class="d-flex justify-content-center align-items-center">Sustento &nbsp;</div><div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Si desea subir un archivo de más de 4MB, contactar con el administrador"></i></div></div></th>`;
                     if (medida != 12 && medida != 4 && enfoque != 9 && enfoque != 6)
-                    tr += '<th class="text-center grupo-columna-03"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Verificar acumulado"></i></span><br>Ver</th>';
+                        //tr += '<th class="text-center grupo-columna-03"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Verificar acumulado"></i></span><br>Ver</th>';
+                        tr += `<th class="text-center grupo-columna-03"><div class="d-flex flex-column justify-content-between align-items-center"><div class="d-flex justify-content-center align-items-center">Ver &nbsp;</div><div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Verificar acumulado"></i></div></div></th>`;
 
                     tr += '</tr>';
                     $("#cabeceraTablaIndicador").append(tr);
@@ -3614,14 +3622,24 @@ function CargarSector() {
 }
 
 var armarTablaAuditor = () => {
-    let head1 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Tipo de sector al que pertenece la entidad a quien se realiza la auditoría" data-original-title="Tipo de sector al que pertenece la entidad a quien se realiza la auditoría"></i>Sector&nbsp;</span></th>`;
-    let head2 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la entidad a quien se realiza la auditoría" data-original-title="Nombre de la entidad a quien se realiza la auditoría"></i>Institución auditada&nbsp;</span></th>`;
-    let head3 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Seleccionar entre tipo 1, 2 o 3" data-original-title="Seleccionar entre tipo 1, 2 o 3"></i>Tipo auditoría&nbsp;</span></th>`;
-    let head4 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="La descripción responderá al tipo de auditoría que se realice en la entidad según el nivel de esfuerzo" data-original-title="La descripción responderá al tipo de auditoría que se realice en la entidad según el nivel de esfuerzo"></i>Descripción de tipo auditoría&nbsp;</span></th>`;
-    let head5 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Seleccionar si la auditoría está realizada por una persona o una empresa" data-original-title="Seleccionar si la auditoría está realizada por una persona o una empresa"></i>Auditado por&nbsp;</span></th>`;
-    let head6 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la persona o empresa responsable de realizar la auditoría" data-original-title="Nombre de la persona o empresa responsable de realizar la auditoría"></i>Nombre de institución / auditor&nbsp;</span></th>`;
-    let head7 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Fecha de la realización de la auditoría" data-original-title="Fecha de la realización de la auditoría"></i>Fecha de auditoría&nbsp;</span></th>`;
+    //let head1 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Tipo de sector al que pertenece la entidad a quien se realiza la auditoría" data-original-title="Tipo de sector al que pertenece la entidad a quien se realiza la auditoría"></i>Sector&nbsp;</span></th>`;
+    //let head2 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la entidad a quien se realiza la auditoría" data-original-title="Nombre de la entidad a quien se realiza la auditoría"></i>Institución auditada&nbsp;</span></th>`;
+    //let head3 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Seleccionar entre tipo 1, 2 o 3" data-original-title="Seleccionar entre tipo 1, 2 o 3"></i>Tipo auditoría&nbsp;</span></th>`;
+    //let head4 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="La descripción responderá al tipo de auditoría que se realice en la entidad según el nivel de esfuerzo" data-original-title="La descripción responderá al tipo de auditoría que se realice en la entidad según el nivel de esfuerzo"></i>Descripción de tipo auditoría&nbsp;</span></th>`;
+    //let head5 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Seleccionar si la auditoría está realizada por una persona o una empresa" data-original-title="Seleccionar si la auditoría está realizada por una persona o una empresa"></i>Auditado por&nbsp;</span></th>`;
+    //let head6 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la persona o empresa responsable de realizar la auditoría" data-original-title="Nombre de la persona o empresa responsable de realizar la auditoría"></i>Nombre de institución / auditor&nbsp;</span></th>`;
+    //let head7 = `<th class="text-center grupo-columna-03" scope="col"><span><i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Fecha de la realización de la auditoría" data-original-title="Fecha de la realización de la auditoría"></i>Fecha de auditoría&nbsp;</span></th>`;
+    //$('#tablaAuditor').find('thead').html(`<tr class="bg-primary text-white">${head1}${head2}${head3}${head4}${head5}${head6}${head7}</tr>`);
+
+    let head1 = `<th class="text-center grupo-columna-03"><div class="d-flex flex-column justify-content-between align-items-center"><div class="d-flex justify-content-center align-items-center">Sector&nbsp;</div><div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Tipo de sector al que pertenece la entidad a quien se realiza la auditoría"></i></div></div></th>`;
+    let head2 = `<th class="text-center grupo-columna-03"><div class="d-flex flex-column justify-content-between align-items-center"><div class="d-flex justify-content-center align-items-center">Institución auditada&nbsp;</div><div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la entidad a quien se realiza la auditoría"></i></div></div></th>`;
+    let head3 = `<th class="text-center grupo-columna-03"><div class="d-flex flex-column justify-content-between align-items-center"><div class="d-flex justify-content-center align-items-center">Tipo auditoría&nbsp;</div><div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Seleccionar entre tipo 1, 2 o 3"></i></div></div></th>`;
+    let head4 = `<th class="text-center grupo-columna-03"><div class="d-flex flex-column justify-content-between align-items-center"><div class="d-flex justify-content-center align-items-center">Descripción de tipo auditoría&nbsp;</div><div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="La descripción responderá al tipo de auditoría que se realice en la entidad según el nivel de esfuerzo"></i></div></div></th>`;
+    let head5 = `<th class="text-center grupo-columna-03"><div class="d-flex flex-column justify-content-between align-items-center"><div class="d-flex justify-content-center align-items-center">Auditado por&nbsp;</div><div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Seleccionar si la auditoría está realizada por una persona o una empresa"></i></div></div></th>`;
+    let head6 = `<th class="text-center grupo-columna-03"><div class="d-flex flex-column justify-content-between align-items-center"><div class="d-flex justify-content-center align-items-center">Nombre de institución / auditor&nbsp;</div><div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la persona o empresa responsable de realizar la auditoría"></i></div></div></th>`;
+    let head7 = `<th class="text-center grupo-columna-03"><div class="d-flex flex-column justify-content-between align-items-center"><div class="d-flex justify-content-center align-items-center">Fecha de auditoría&nbsp;</div><div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Fecha de la realización de la auditoría"></i></div></div></th>`;
     $('#tablaAuditor').find('thead').html(`<tr class="bg-primary text-white">${head1}${head2}${head3}${head4}${head5}${head6}${head7}</tr>`);
+    $("[data-toggle='tooltip']").tooltip();
 
     let body1 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><select class="form-control form-control-sm" id="cbo-sector" ${$("#revision").val() == 1 ? 'disabled' : ''}><option value="0">Seleccionar</option><option value="1">Administrativo</option><option value="2">Público</option><option value="3">Educación</option><option value="4">Salud</option></select></div></td>`;
     let body2 = `<td data-encabezado="Columna 07"><div class="form-group m-0"><input class="form-control form-control-sm text-left" type="text" placeholder="" id="txt-institucion" maxlength="120" autocomplete="off" ${$("#revision").val() == 1 ? 'readonly' : ''}></div></td>`;
@@ -3642,3 +3660,219 @@ var resumenPotencial = () => {
     let row = `<div class="row"><div class="col-12"><div class="table-responsive tabla-principal mt-3">${tabla}</div></div></div>`;
     $('#resumenpotencial').html(row);
 }
+
+//========================
+
+$(document).on("click", ".miColumna", function (event) {
+    var id = "";
+    if (event.target.nodeName == "SPAN") {
+        id = event.target.firstElementChild.id;
+    } else {
+        id = event.target.id;
+    }
+
+    $(".miColumna > i").removeClass("fa-sort-up");
+    $(".miColumna > i").removeClass("fa-sort-down");
+    $(".miColumna > i").addClass("fa-sort");
+    $(".miColumna > i").css("color", "lightgray");
+    //===========
+    let order = $(`#${id}`).data('order');
+    if (order == "ASC") {
+        $(`#${id}`).data('order', "DESC");
+        $(`#${id}`).removeClass("fa-sort");
+        $(`#${id}`).addClass("fa-sort-down");
+    }
+    else if (order == "DESC") {
+        $(`#${id}`).data('order', "ASC");
+        $(`#${id}`).removeClass("fa-sort");
+        $(`#${id}`).addClass("fa-sort-up");
+    }
+    let param = $(`#${id}`).data('parametro');
+    ordenarFiltro(order, param);
+});
+
+function CierraPopup(id) {
+    $(id).modal('hide');//ocultamos el modal
+    $(id).removeClass('show');
+    $(id).prop('aria-hidden', true);
+    $('body').removeClass('modal-open');//eliminamos la clase del body para poder hacer scroll
+    $('.modal-backdrop').remove();//eliminamos el backdrop del modal
+}
+
+var ordenarFiltro = (order, parametro) => {
+    let arrValores = [], arrInd = [];
+    $('#cuerpoTablaIndicador').find('tr').each((x, y) => {
+        let arr = [];
+        $(y).find('td').each((w, z) => {
+            //let v = $(z).data('encabezado') != "Sustento" && $(z).data('encabezado') != "Acciones" ? true : false;
+            let v = $(z).data('encabezado') != "Acciones" ? true : false;
+            if (v) {
+                let id = '';
+                if ($(z).data('encabezado') == "Sustento") {
+                    id = `#${$(z).find('label').find('input')[0].id}`;
+                } else {
+                    id = `#${$(z).find('div')[0].firstChild.id}`;
+                }
+
+                if ($(z).data('encabezado') == "Sustento") {
+                    //arr.push([id, $(id)[0].files[0]]);
+                    arr.push([id, $(id)[0].files]);
+                } else {
+                    arr.push([id, $(id).val()]);
+                }
+                //arr.push([id, $(id).val()]);
+            }
+        });
+        arrInd.push([`#${$(y).attr('id')}`,
+                      parametro == 0 ? $(y).find('th').html() : $(y).find(`[data-param=${parametro}]`).val() == "" ? 0 : parseFloat($(y).find(`[data-param=${parametro}]`).val().replace(/,/gi, '')),
+                      $(y)[0].outerHTML, arr]);
+        // arrValores.push($(y).find('[data-param=11]').val());
+        arrValores.push([parametro == 0 ? $(y).find('th').html() : $(y).find(`[data-param=${parametro}]`).val() == "" ? 0 : parseFloat($(y).find(`[data-param=${parametro}]`).val().replace(/,/gi, '')), `#${$(y).attr('id')}`]);
+    });
+    //if (order == "ASC") arrValores.sort(function (a, b) { return a - b; }); //ASCENDENTE
+    //else arrValores.sort(function (a, b) { return b - a; }); //DESCENDENTE
+
+    if (order == "ASC") arrValores = ordenarAscendente(arrValores); //ASCENDENTE
+    else arrValores = ordenarDescendente(arrValores); //DESCENDENTE
+
+    $('#cuerpoTablaIndicador').html('');
+    $.each(arrValores, (x, y) => {
+        //v = arrInd.find(w => { return w[1] == y; });
+        v = arrInd.find(w => { return w[1] == y[0] && w[0] == y[1]; });
+        $('#cuerpoTablaIndicador').append(v[2]);
+        $.each(v[3], (x, y) => {
+            if (y[0].indexOf('fle-doc-') !== -1) $(y[0])[0].files = y[1];
+            else $(y[0]).val(y[1]);
+        });
+    });
+    ordenarTablaDatos();
+}
+
+var ordenarDescendente = (arr) => {
+    arr.sort(function (a, b) {
+        if (a[0] < b[0]) {
+            return 1;
+        }
+        if (a[0] > b[0]) {
+            return -1;
+        }
+        // a must be equal to b
+        return 0;
+    });
+
+    return arr;
+}
+
+var ordenarAscendente = (arr) => {
+
+    let t, id;
+    for (let a = 1; a < arr.length; a++) {
+        for (let b = arr.length - 1; b >= a; b--) {
+            if (arr[b - 1][0] > arr[b][0]) {
+                t = arr[b - 1][0];
+                id = arr[b - 1][1];
+                arr[b - 1][0] = arr[b][0];
+                arr[b - 1][1] = arr[b][1];
+                arr[b][0] = t;
+                arr[b][1] = id;
+            }
+        }
+    }
+
+    return arr;
+}
+
+function ordenarTablaDatos() {
+    let iniciativa = $("#Control").data("iniciativa");
+    let o = $("#tablaIndicador");
+    for (var e = o.find("tbody").find("th"), r = o.parent().attr("data-order"), a = 0; a < e.length; a++) {
+        var s = a + 1;
+        o.find("tbody").find("th").eq(a).empty().html(s), o.find("tbody").find("tr").eq(a).removeAttr("id").attr({
+            id: "detalles-tr-" + s
+        }), o.find("tbody").find("tr").eq(a).find("select").each(function (e, t) {
+            var n = $(this).attr("id"),
+                i = "cbo-det-" + r + "-" + (e + 1) + "-" + s;
+            o.find("tbody").find("tr").eq(a).find("#" + n).attr({
+                id: i
+            })
+        }), o.find("tbody").find("tr").eq(a).find("input[type='text']").each(function (e, t) {
+            var n = $(this).attr("id"),
+                i = "txt-det-" + r + "-" + (e + 1) + "-" + s;
+            o.find("tbody").find("tr").eq(a).find("#" + n).attr({
+                id: i
+            })
+        }), o.find("tbody").find("tr").eq(a).find("input[type='date']").each(function (e, t) {
+            var n = $(this).attr("id"),
+                i = "fch-det-" + r + "-" + (e + 1) + "-" + s;
+            o.find("tbody").find("tr").eq(a).find("#" + n).attr({
+                id: i
+            })
+        })
+
+        o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('label').find('input').eq(0).removeAttr("onchange").attr({
+            onchange: `handleFileSustento(this.files,${s},1)`
+        });
+        o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('label').find('input').eq(0).removeAttr("id").attr({
+            id: "fle-doc-" + s
+        });
+
+        o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('label').find('input').eq(1).removeAttr("id").attr({
+            id: "fle-nom-" + s
+        });
+
+        let cargado = o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('a').attr('style');
+        let rel = o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('a').eq(0).attr('href');
+        let ind = rel.split('&')[1].split('=')[1].trim();
+        if (rel.split('&')[2].split('=')[1].trim() == 'I') {
+            cargado == '' || cargado == undefined ? ActualizarFile(iniciativa, ind, s) : ''; //add
+            o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('a').eq(0).removeAttr("href").attr({
+                href: `/Gestion/FileDownload?IdIniciativa=${iniciativa}&IdIndicador=${s}&accion=I`
+            });
+        }
+
+        o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('a').eq(0).removeAttr("id").attr({
+            id: `fle-dow-${s}`
+        });
+        o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").find('label').eq(0).removeAttr("for").attr({
+            for: "fle-doc-" + s
+        });
+        o.find("tbody").find("tr").eq(a).find("[data-encabezado=Sustento]").eq(0).removeAttr("id").attr({
+            id: "sustento" + s
+        });
+    }
+    ordenarIndicadorFile(iniciativa);
+}
+
+function ActualizarFile(idIniciativa, idIndicador, nuevoindicador) {
+
+    var url = baseUrl + 'Gestion/ActualizarFile?IdIniciativa=' + idIniciativa + '&IdIndicador=' + idIndicador + '&idnuevo=' + nuevoindicador;
+    $.ajax({
+        url: url, //'/Home/FileUpload',
+        type: "POST",
+        async: false,
+        contentType: false, // Not to set any content header  
+        processData: false, // Not to process data  
+        success: function (result) {
+            if (result != null && result != "") {
+                console.log(result);
+            }
+        }
+    });
+}
+
+var ordenarIndicadorFile = (idIniciativa) => {
+    var url = baseUrl + 'Gestion/OrdenarFile?IdIniciativa=' + idIniciativa;
+    $.ajax({
+        url: url, //'/Home/FileUpload',
+        type: "POST",
+        async: false,
+        contentType: false, // Not to set any content header  
+        processData: false, // Not to process data  
+        success: function (result) {
+            if (result != null && result != "") {
+                console.log(result);
+            }
+        }
+    });
+}
+

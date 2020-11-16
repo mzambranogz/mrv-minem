@@ -329,35 +329,96 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr class="bg-primary text-white">
-                                        <th class="text-center" scope="col"><span class="miColumna" width="3%">N°&nbsp;<i class="fas fa-sort-up" style="color: lightgray" id="ID_INICIATIVA"></i></span></th>
-                                        <th scope="col" width="19%">
-                                            <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la Acción de Mitigación registrada por la entidad responsable"></i>
-                                            <span class="miColumna">Nombre de la acción de mitigación&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NOMBRE_INICIATIVA"></i></span>
-                                        </th>
-                                        <th scope="col" width="10%">
-                                            <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Porcentaje de progreso de la Acción de Mitigación en sus distintos procesos"></i>
-                                            <span class="miColumna">Progreso<br>de acción de mitigación&nbsp;<i class="fas fa-sort" style="color: lightgray" id="PROGRESO"></i></span>
-                                        </th>
-                                        <th class="text-center" scope="col" width="10%">
-                                            <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Fecha de inicialización del proyecto"></i>
-                                            <span class="miColumna">Fecha de <br> inicio&nbsp;<i class="fas fa-sort" style="color: lightgray" id="FECHA"></i></span>
-                                        </th>
-                                        <th class="text-center" scope="col" width="10%">
-                                            <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Fecha de Finalización del proyecto"></i>
-                                            <span class="miColumna">Fecha de <br>  término&nbsp;<i class="fas fa-sort" style="color: lightgray" id="FECHA_FIN_INICIATIVA"></i></span>
-                                        </th>
-                                        <th scope="col" width="10%">
-                                            <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la Medida de Mitigación asignada o relacionada a su Acción de Mitigación"></i>
-                                            <span class="miColumna">Medida de  <br> mitigación&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NUMERO_MEDMIT"></i></span>
-                                        </th>
-                                        <th scope="col" width="10%">
-                                            <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Entidad responsable del registro de la Acción de Mitigación"></i>
-                                            <span class="miColumna">Entidad <br>responsable<i class="fas fa-sort" style="color: lightgray" id="NOMBRE_INSTITUCION"></i></span>
-                                        </th>
-                                        <th scope="col" width="10%">
+                                        <th class="text-center" scope="col">
+                                            @*<span class="miColumna" width="3%">
+                                                &nbsp;&nbsp;N°&nbsp;&nbsp;<i class="fas fa-sort-up" style="color: lightgray" id="ID_INICIATIVA"></i>
+                                            </span>*@
                                             
-                                            <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Resultado total de reducción producto de la Acción de Mitigación"></i>
-                                            <span class="miColumna">Total reducido&nbsp;<i class="fas fa-sort" style="color: lightgray" id="GEI_TOTAL"></i></span>
+                                            <div class="d-flex flex-column justify-content-between align-items-center">
+                                                <div class="d-flex justify-content-center align-items-center">N°&nbsp;<span class="miColumna"><i class="fas fa-sort" style="color: lightgray" id="ID_INICIATIVA"></i></span></div>
+                                                <div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="bottom" title="Código iniciativa"></i></div>
+                                            </div>
+                                        </th>
+                                        <th scope="col" width="20%">
+                                            
+                                            @*<span class="miColumna">                                                
+                                                <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la Acción de Mitigación registrada por la entidad responsable"></i>
+                                                Nombre de la acción de mitigación&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NOMBRE_INICIATIVA"></i>
+                                            </span>*@
+
+                                            <div class="d-flex flex-column justify-content-between align-items-center">
+                                                <div class="d-flex justify-content-center align-items-center">
+                                                    <div class="pl-1">Nombre de la acción de mitigación&nbsp;</div><span class="miColumna"><i class="fas fa-sort" style="color: lightgray" id="NOMBRE_INICIATIVA"></i></span>
+                                                </div>
+                                                <div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la acción de mitigación por la entidad responsable"></i></div>
+                                            </div>
+                                        </th>
+                                        <th scope="col" width="8%">
+                                            @*<i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Porcentaje de progreso de la Acción de Mitigación en sus distintos procesos"></i>
+                                            <span class="miColumna">Progreso de la acción de mitigación&nbsp;<i class="fas fa-sort" style="color: lightgray" id="PROGRESO"></i></span>*@
+
+                                            <div class="d-flex flex-column justify-content-between align-items-center">
+                                                <div class="d-flex justify-content-center align-items-center">
+                                                    <div class="pl-1">Progreso de la acción de mitigación&nbsp;</div><span class="miColumna"><i class="fas fa-sort" style="color: lightgray" id="PROGRESO"></i></span>
+                                                </div>
+                                                <div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Porcentaje de progreso de la Acción de Mitigación en sus distintos procesos"></i></div>
+                                            </div>
+                                        </th>
+                                        <th class="text-center" scope="col" width="5%">
+                                            @*<i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Fecha de inicialización del proyecto"></i>
+                                            <span class="miColumna">Fecha de inicio&nbsp;<i class="fas fa-sort" style="color: lightgray" id="FECHA"></i></span>*@
+
+                                            <div class="d-flex flex-column justify-content-between align-items-center">
+                                                <div class="d-flex justify-content-center align-items-center">
+                                                    <div class="pl-1">Fecha de inicio&nbsp;</div><span class="miColumna"><i class="fas fa-sort" style="color: lightgray" id="FECHA"></i></span>
+                                                </div>
+                                                <div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Fecha de inicialización del proyecto"></i></div>
+                                            </div>
+                                        </th>
+                                        <th class="text-center" scope="col" width="5%">
+                                            @*<i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Fecha de Finalización del proyecto"></i>
+                                            <span class="miColumna">Fecha de <br> término&nbsp;<i class="fas fa-sort" style="color: lightgray" id="FECHA_FIN_INICIATIVA"></i></span>*@
+
+                                            <div class="d-flex flex-column justify-content-between align-items-center">
+                                                <div class="d-flex justify-content-center align-items-center">
+                                                    <div class="pl-1">Fecha de término&nbsp;</div><span class="miColumna"><i class="fas fa-sort" style="color: lightgray" id="FECHA_FIN_INICIATIVA"></i></span>
+                                                </div>
+                                                <div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Fecha de Finalización del proyecto"></i></div>
+                                            </div>
+                                        </th>
+                                        <th scope="col" width="7%">
+                                            @*<i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la Medida de Mitigación asignada o relacionada a su Acción de Mitigación"></i>
+                                            <span class="miColumna">Medida de  <br> mitigación&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NUMERO_MEDMIT"></i></span>*@
+
+                                            <div class="d-flex flex-column justify-content-between align-items-center">
+                                                <div class="d-flex justify-content-center align-items-center">
+                                                    <div class="pl-1">Medida de mitigación&nbsp;</div><span class="miColumna"><i class="fas fa-sort" style="color: lightgray" id="NUMERO_MEDMIT"></i></span>
+                                                </div>
+                                                <div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Nombre de la Medida de Mitigación asignada o relacionada a su Acción de Mitigación"></i></div>
+                                            </div>
+                                        </th>
+                                        <th scope="col" width="17%">
+                                            
+                                            @*<i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Entidad responsable del registro de la Acción de Mitigación"></i>                                         
+                                            <span class="miColumna">Entidad responsable&nbsp;<i class="fas fa-sort" style="color: lightgray" id="NOMBRE_INSTITUCION"></i></span>*@
+
+                                            <div class="d-flex flex-column justify-content-between align-items-center">
+                                                <div class="d-flex justify-content-center align-items-center">
+                                                    <div class="pl-1">Entidad responsable&nbsp;</div><span class="miColumna"><i class="fas fa-sort" style="color: lightgray" id="NOMBRE_INSTITUCION"></i></span>
+                                                </div>
+                                                <div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Entidad responsable del registro de la Acción de Mitigación"></i></div>
+                                            </div>
+                                        </th>
+                                        <th class="text-center" scope="col" width="11%">
+                                            @*<i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Resultado total de reducción producto de la Acción de Mitigación"></i>                                            
+                                            <span class="miColumna">Total reducido&nbsp;<i class="fas fa-sort" style="color: lightgray" id="GEI_TOTAL"></i></span>*@
+
+                                            <div class="d-flex flex-column justify-content-between align-items-center">
+                                                <div class="d-flex justify-content-center align-items-center">
+                                                    <div class="pl-1">Total reducido&nbsp;</div><span class="miColumna"><i class="fas fa-sort" style="color: lightgray" id="GEI_TOTAL"></i></span>
+                                                </div>
+                                                <div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Resultado total de reducción producto de la Acción de Mitigación"></i></div>
+                                            </div>
 
                                             <div class="btn-group" id="filtro-conversion">
                                                 <a class="btn dropdown-toggle text-white font-weight-bold p-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="1">Convertir resultado</a>
@@ -367,9 +428,16 @@
                                                 </div>
                                             </div>
                                         </th>
-                                        <th class="text-center" scope="col" width="7%">
-                                            <i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Descripción del estado actual de su Acción de Mitigación"></i>                                       
-                                            <span class="miColumna">Estado de la<br> acción de mitigación&nbsp;<i class="fas fa-sort" style="color: lightgray" id="ID_ESTADO"></i></span>
+                                        <th class="text-center" scope="col" width="15%">     
+                                            @*<i class="fas fa-question-circle mr-1" data-toggle="tooltip" data-placement="right" title="Descripción del estado actual de su Acción de Mitigación"></i>                                       
+                                            <span class="miColumna">Estado de la<br> acción de mitigación&nbsp;<i class="fas fa-sort" style="color: lightgray" id="ID_ESTADO"></i></span>*@
+
+                                            <div class="d-flex flex-column justify-content-between align-items-center">
+                                                <div class="d-flex justify-content-center align-items-center">
+                                                    <div class="pl-1">Estado de la acción de mitigación&nbsp;</div><span class="miColumna"><i class="fas fa-sort" style="color: lightgray" id="ID_ESTADO"></i></span>
+                                                </div>
+                                                <div class="d-flex justify-content-center align-items-center"><i class="fas fa-info-circle mr-1" data-toggle="tooltip" data-placement="right" title="Descripción del estado actual de su Acción de Mitigación"></i></div>
+                                            </div>
                                         </th>
                                         <th class="text-center" scope="col">Gestión</th>
                                     </tr>
