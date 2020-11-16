@@ -4532,6 +4532,7 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
         VFORMULA VARCHAR2(1000);
         VTAM NUMBER;
         VVAR VARCHAR2(1000);
+        VVAR2 VARCHAR2(1000);
         VVARFAC VARCHAR2(1000);
         VVARFACTOR NUMBER(36,16);
         VVARPARAM NUMBER(36,16);
@@ -4613,7 +4614,7 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
                                         END IF;
 
                                         --VVARPARAM := TO_NUMBER(VVAR,'999999999,99999');
-                                        VVAR := TO_CHAR(VVARPARAM, '999999990.0000000000000000');
+                                        VVAR := TO_CHAR(VVARPARAM, '999999999990.0000000000000000');
                                         --VDATA := VDATA || '' || VVARPARAM || '';
 
                                         VDATA := VDATA || '' || VVAR || '';
@@ -4631,7 +4632,7 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
                                                 --VVAR := TO_CHAR(FN_GET_FACTOR_DATA (CURINI.ID_INICIATIVA,CURINI.ID_ENFOQUE,CURINI.ID_MEDMIT,CURINI.ID_INDICADOR,VVAR));
                                             END IF;
 
-                                            VVAR := TO_CHAR(VVARPARAM, '999999990.0000000000000000');
+                                            VVAR := TO_CHAR(VVARPARAM, '999999999990.0000000000000000');
                                             --VFACTOR := VFACTOR || '--' || VVAR || '';
                                         END IF;
 
@@ -4640,7 +4641,7 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
                                             SELECT SUBSTR(CUR_IND.VALORES,3,2) INTO VVAR FROM DUAL;
                                             VVARPARAM := FN_GET_FACTOR_DATA (CURINI.ID_INICIATIVA,CURINI.ID_ENFOQUE,CURINI.ID_MEDMIT,CURINI.ID_INDICADOR,VVAR,pANNO);
 
-                                            VVAR := TO_CHAR(VVARPARAM, '999999990.0000000000000000');
+                                            VVAR := TO_CHAR(VVARPARAM, '999999999990.0000000000000000');
                                             --VFACTOR := VFACTOR || '--' || VVAR || '';
                                         END IF;
 
@@ -4649,7 +4650,7 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
                                             SELECT SUBSTR(CUR_IND.VALORES,3,3) INTO VVAR FROM DUAL;
                                             VVARPARAM := FN_GET_FACTOR_DATA (CURINI.ID_INICIATIVA,CURINI.ID_ENFOQUE,CURINI.ID_MEDMIT,CURINI.ID_INDICADOR,VVAR,pANNO);
 
-                                            VVAR := TO_CHAR(VVARPARAM, '999999990.0000000000000000');
+                                            VVAR := TO_CHAR(VVARPARAM, '999999999990.0000000000000000');
                                             --VFACTOR := VFACTOR || '--' || VVAR || '';
                                         END IF;
                                         --VVARPARAM := TO_NUMBER(VVAR,'999999999,99999');
@@ -4675,7 +4676,7 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
                             END LOOP;
                             vsql := 'SELECT '|| VDATA ||' FROM DUAL';
                             EXECUTE IMMEDIATE vsql INTO VDATA;
-                            VRES := VRES || CURINI.ID_PARAMETRO || '/' || TRIM(TO_CHAR(VDATA, '999999990.0000000000000000')) || '|';
+                            VRES := VRES || CURINI.ID_PARAMETRO || '/' || TRIM(TO_CHAR(VDATA, '999999999990.0000000000000000')) || '|';
 
                             --VDATA := VDATA ||' -- ' || TO_CHAR(CURINI.ID_INDICADOR) ||' --- ' || VFORMULA;
                         END IF;
@@ -4695,8 +4696,9 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
                         VNUM := VNUM + 1;
 
                         SELECT SUBSTR(CURRES.VALORES,1,1) INTO VVAR FROM DUAL;
+                        SELECT SUBSTR(CURRES.VALORES,2,2) INTO VVAR2 FROM DUAL;
 
-                        IF VVAR = '9' THEN
+                        IF VVAR = '9' AND VVAR2 = '/' THEN
                             SELECT SUBSTR(CURRES.VALORES, 3, LENGTH(CURRES.VALORES)) INTO VVAR FROM DUAL;
                             vsql := 'SELECT ROUND('|| '10000' ||'*'|| VVAR ||')/10000 FROM DUAL';
                             EXECUTE IMMEDIATE vsql INTO V9;
@@ -4880,6 +4882,7 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
         VFORMULA VARCHAR2(1000);
         VTAM NUMBER;
         VVAR VARCHAR2(1000);
+        VVAR2 VARCHAR2(1000);
         VVARFAC VARCHAR2(1000);
         VVARFACTOR NUMBER(36,16);
         VVARPARAM NUMBER(36,16);
@@ -5043,8 +5046,9 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
                         VNUM := VNUM + 1;
 
                         SELECT SUBSTR(CURRES.VALORES,1,1) INTO VVAR FROM DUAL;
+                        SELECT SUBSTR(CURRES.VALORES,2,2) INTO VVAR2 FROM DUAL;
 
-                        IF VVAR = '9' THEN
+                        IF VVAR = '9' AND VVAR2 = '/' THEN
                             SELECT SUBSTR(CURRES.VALORES, 3, LENGTH(CURRES.VALORES)) INTO VVAR FROM DUAL;
                             vsql := 'SELECT ROUND('|| '10000' ||'*'|| VVAR ||')/10000 FROM DUAL';
                             EXECUTE IMMEDIATE vsql INTO V9;
