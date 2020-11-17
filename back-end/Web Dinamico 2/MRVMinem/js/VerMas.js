@@ -240,8 +240,9 @@ $(document).ready(function () {
     //}
     //CargarDatosIniciativa();
     //CargarSector();
-
-    generarAcumulado();
+    debugger;
+    if (sindetalle == 0)
+        generarAcumulado();
 
     fn_cargarUbicacion();
     fn_cargarEnergetico();

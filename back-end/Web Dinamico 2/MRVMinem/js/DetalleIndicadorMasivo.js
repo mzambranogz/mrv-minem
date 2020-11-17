@@ -3785,6 +3785,7 @@ var ordenarAscendente = (arr) => {
 function ordenarTablaDatos() {
     let iniciativa = $("#Control").data("iniciativa");
     let o = $("#tablaIndicador");
+    if ($("#Control").data("mitigacion") == 4) ordenarAcumulado(o.find("tbody").find("th"));
     for (var e = o.find("tbody").find("th"), r = o.parent().attr("data-order"), a = 0; a < e.length; a++) {
         var s = a + 1;
         o.find("tbody").find("th").eq(a).empty().html(s), o.find("tbody").find("tr").eq(a).removeAttr("id").attr({
@@ -3841,6 +3842,20 @@ function ordenarTablaDatos() {
         });
     }
     ordenarIndicadorFile(iniciativa);
+}
+
+var ordenarAcumulado = (inp) => {
+    let arr = [], html = '';
+    inp.each((x, y) => {
+        arr.push($(y).html());
+    });
+
+    $.each(arr, (x, y) => {
+        html += $(`#f-${y}`)[0].outerHTML;
+    });
+
+    $('#cuerpo-acumulado-total').html(html);
+    ordenarTabla();
 }
 
 function ActualizarFile(idIniciativa, idIndicador, nuevoindicador) {

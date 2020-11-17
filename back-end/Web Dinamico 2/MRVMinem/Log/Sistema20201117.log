@@ -1,0 +1,249 @@
+17/11/2020 15:17:01: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 245
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 245
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
+17/11/2020 15:17:01: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 245
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 245
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
+17/11/2020 15:17:01: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 245
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 245
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
+17/11/2020 15:17:01: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 245
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 245
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
+17/11/2020 15:17:01: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 245
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 245
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
+17/11/2020 15:17:01: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 245
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 245
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
+17/11/2020 15:17:01: [Método: Boolean RecalcularValores(), Línea: 2798] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 245
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 245
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
+17/11/2020 15:29:02: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00907: falta el paréntesis derecho
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 221
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 221
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
+17/11/2020 15:29:02: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00907: falta el paréntesis derecho
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 221
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 221
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
+17/11/2020 15:29:02: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-00907: falta el paréntesis derecho
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 221
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 221
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
+17/11/2020 15:29:02: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-00907: falta el paréntesis derecho
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 221
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 221
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
+17/11/2020 15:29:02: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-00907: falta el paréntesis derecho
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 221
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 221
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
+17/11/2020 15:29:02: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00907: falta el paréntesis derecho
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 221
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 221
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
+17/11/2020 15:29:02: [Método: Boolean RecalcularValores(), Línea: 2798] - ORA-00907: falta el paréntesis derecho
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 221
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 221
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
+17/11/2020 15:29:06: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00907: falta el paréntesis derecho
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 221
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 221
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
+17/11/2020 15:29:06: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00907: falta el paréntesis derecho
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 221
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 221
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
+17/11/2020 15:29:06: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-00907: falta el paréntesis derecho
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 221
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 221
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
+17/11/2020 15:29:06: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-00907: falta el paréntesis derecho
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 221
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 221
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
+17/11/2020 15:29:06: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-00907: falta el paréntesis derecho
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 221
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 221
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
+17/11/2020 15:29:06: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00907: falta el paréntesis derecho
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 221
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 221
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
+17/11/2020 15:29:06: [Método: Boolean RecalcularValores(), Línea: 2798] - ORA-00907: falta el paréntesis derecho
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 221
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 221
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM_P.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
+17/11/2020 15:36:29: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] MostrarAcumulado(entidad.minem.gob.pe.IniciativaBE), Línea: 660] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: System.Web.Mvc.JsonResult MostrarAcumulado(entidad.minem.gob.pe.IniciativaBE), Línea: 944] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: System.Object lambda_method(System.Runtime.CompilerServices.Closure, System.Web.Mvc.ControllerBase, System.Object[]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: System.Object Execute(System.Web.Mvc.ControllerBase, System.Object[]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: System.Object Execute(System.Web.Mvc.ControllerContext, System.Collections.Generic.IDictionary`2[System.String,System.Object]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: System.Web.Mvc.ActionResult InvokeActionMethod(System.Web.Mvc.ControllerContext, System.Web.Mvc.ActionDescriptor, System.Collections.Generic.IDictionary`2[System.String,System.Object]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: System.Web.Mvc.ActionResult <BeginInvokeSynchronousActionMethod>b__39(System.IAsyncResult, ActionInvocation), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: TResult CallEndDelegate(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: TResult End(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: System.Web.Mvc.ActionResult EndInvokeActionMethod(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: System.Web.Mvc.ActionExecutedContext <InvokeActionMethodFilterAsynchronouslyRecursive>b__3d(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: System.Web.Mvc.ActionExecutedContext <InvokeActionMethodFilterAsynchronouslyRecursive>b__3f(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: System.Web.Mvc.ActionExecutedContext <BeginInvokeActionMethodWithFilters>b__32(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: TResult CallEndDelegate(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: TResult End(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: System.Web.Mvc.ActionExecutedContext EndInvokeActionMethodWithFilters(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: Void <BeginInvokeAction>b__1c(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: Boolean <BeginInvokeAction>b__1e(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: TResult CallEndDelegate(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: TResult End(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: Boolean EndInvokeAction(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: Void <BeginExecuteCore>b__1d(System.IAsyncResult, ExecuteCoreState), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: System.Web.Mvc.Async.AsyncVoid CallEndDelegate(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: TResult End(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: Void EndExecuteCore(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: Void <BeginExecute>b__15(System.IAsyncResult, System.Web.Mvc.Controller), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: System.Web.Mvc.Async.AsyncVoid CallEndDelegate(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: TResult End(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: Void EndExecute(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: Void System.Web.Mvc.Async.IAsyncController.EndExecute(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: Void <BeginProcessRequest>b__5(System.IAsyncResult, ProcessRequestState), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: System.Web.Mvc.Async.AsyncVoid CallEndDelegate(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: TResult End(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: Void EndProcessRequest(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: Void System.Web.IHttpAsyncHandler.EndProcessRequest(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: Void System.Web.HttpApplication.IExecutionStep.Execute(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: Void ExecuteStepImpl(IExecutionStep), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:36:29: [Método: System.Exception ExecuteStep(IExecutionStep, Boolean ByRef), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:10: [Método: System.Web.Mvc.IController GetControllerInstance(System.Web.Routing.RequestContext, System.Type), Línea: 0] - No se encuentra el controlador de la ruta de acceso '/__browserLink/requestData/2b6479dfc70549b7a01383c3a21a0363' o no implementa IController.
+17/11/2020 15:59:10: [Método: System.Web.Mvc.IController CreateController(System.Web.Routing.RequestContext, System.String), Línea: 0] - No se encuentra el controlador de la ruta de acceso '/__browserLink/requestData/2b6479dfc70549b7a01383c3a21a0363' o no implementa IController.
+17/11/2020 15:59:10: [Método: Void ProcessRequestInit(System.Web.HttpContextBase, System.Web.Mvc.IController ByRef, System.Web.Mvc.IControllerFactory ByRef), Línea: 0] - No se encuentra el controlador de la ruta de acceso '/__browserLink/requestData/2b6479dfc70549b7a01383c3a21a0363' o no implementa IController.
+17/11/2020 15:59:10: [Método: System.IAsyncResult BeginProcessRequest(System.Web.HttpContextBase, System.AsyncCallback, System.Object), Línea: 0] - No se encuentra el controlador de la ruta de acceso '/__browserLink/requestData/2b6479dfc70549b7a01383c3a21a0363' o no implementa IController.
+17/11/2020 15:59:10: [Método: System.IAsyncResult BeginProcessRequest(System.Web.HttpContext, System.AsyncCallback, System.Object), Línea: 0] - No se encuentra el controlador de la ruta de acceso '/__browserLink/requestData/2b6479dfc70549b7a01383c3a21a0363' o no implementa IController.
+17/11/2020 15:59:10: [Método: System.IAsyncResult System.Web.IHttpAsyncHandler.BeginProcessRequest(System.Web.HttpContext, System.AsyncCallback, System.Object), Línea: 0] - No se encuentra el controlador de la ruta de acceso '/__browserLink/requestData/2b6479dfc70549b7a01383c3a21a0363' o no implementa IController.
+17/11/2020 15:59:10: [Método: Void System.Web.HttpApplication.IExecutionStep.Execute(), Línea: 0] - No se encuentra el controlador de la ruta de acceso '/__browserLink/requestData/2b6479dfc70549b7a01383c3a21a0363' o no implementa IController.
+17/11/2020 15:59:10: [Método: Void ExecuteStepImpl(IExecutionStep), Línea: 0] - No se encuentra el controlador de la ruta de acceso '/__browserLink/requestData/2b6479dfc70549b7a01383c3a21a0363' o no implementa IController.
+17/11/2020 15:59:10: [Método: System.Exception ExecuteStep(IExecutionStep, Boolean ByRef), Línea: 0] - No se encuentra el controlador de la ruta de acceso '/__browserLink/requestData/2b6479dfc70549b7a01383c3a21a0363' o no implementa IController.
+17/11/2020 15:59:13: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] MostrarAcumulado(entidad.minem.gob.pe.IniciativaBE), Línea: 660] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: System.Web.Mvc.JsonResult MostrarAcumulado(entidad.minem.gob.pe.IniciativaBE), Línea: 944] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: System.Object lambda_method(System.Runtime.CompilerServices.Closure, System.Web.Mvc.ControllerBase, System.Object[]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: System.Object Execute(System.Web.Mvc.ControllerBase, System.Object[]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: System.Object Execute(System.Web.Mvc.ControllerContext, System.Collections.Generic.IDictionary`2[System.String,System.Object]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: System.Web.Mvc.ActionResult InvokeActionMethod(System.Web.Mvc.ControllerContext, System.Web.Mvc.ActionDescriptor, System.Collections.Generic.IDictionary`2[System.String,System.Object]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: System.Web.Mvc.ActionResult <BeginInvokeSynchronousActionMethod>b__39(System.IAsyncResult, ActionInvocation), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: TResult CallEndDelegate(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: TResult End(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: System.Web.Mvc.ActionResult EndInvokeActionMethod(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: System.Web.Mvc.ActionExecutedContext <InvokeActionMethodFilterAsynchronouslyRecursive>b__3d(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: System.Web.Mvc.ActionExecutedContext <InvokeActionMethodFilterAsynchronouslyRecursive>b__3f(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: System.Web.Mvc.ActionExecutedContext <BeginInvokeActionMethodWithFilters>b__32(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: TResult CallEndDelegate(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: TResult End(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: System.Web.Mvc.ActionExecutedContext EndInvokeActionMethodWithFilters(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: Void <BeginInvokeAction>b__1c(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: Boolean <BeginInvokeAction>b__1e(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: TResult CallEndDelegate(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: TResult End(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: Boolean EndInvokeAction(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: Void <BeginExecuteCore>b__1d(System.IAsyncResult, ExecuteCoreState), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: System.Web.Mvc.Async.AsyncVoid CallEndDelegate(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: TResult End(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: Void EndExecuteCore(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: Void <BeginExecute>b__15(System.IAsyncResult, System.Web.Mvc.Controller), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: System.Web.Mvc.Async.AsyncVoid CallEndDelegate(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: TResult End(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: Void EndExecute(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: Void System.Web.Mvc.Async.IAsyncController.EndExecute(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: Void <BeginProcessRequest>b__5(System.IAsyncResult, ProcessRequestState), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: System.Web.Mvc.Async.AsyncVoid CallEndDelegate(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: TResult End(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: Void EndProcessRequest(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: Void System.Web.IHttpAsyncHandler.EndProcessRequest(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: Void System.Web.HttpApplication.IExecutionStep.Execute(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: Void ExecuteStepImpl(IExecutionStep), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 15:59:13: [Método: System.Exception ExecuteStep(IExecutionStep, Boolean ByRef), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: System.Collections.Generic.List`1[entidad.minem.gob.pe.IndicadorDataBE] MostrarAcumulado(entidad.minem.gob.pe.IniciativaBE), Línea: 660] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: System.Web.Mvc.JsonResult MostrarAcumulado(entidad.minem.gob.pe.IniciativaBE), Línea: 944] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: System.Object lambda_method(System.Runtime.CompilerServices.Closure, System.Web.Mvc.ControllerBase, System.Object[]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: System.Object Execute(System.Web.Mvc.ControllerBase, System.Object[]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: System.Object Execute(System.Web.Mvc.ControllerContext, System.Collections.Generic.IDictionary`2[System.String,System.Object]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: System.Web.Mvc.ActionResult InvokeActionMethod(System.Web.Mvc.ControllerContext, System.Web.Mvc.ActionDescriptor, System.Collections.Generic.IDictionary`2[System.String,System.Object]), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: System.Web.Mvc.ActionResult <BeginInvokeSynchronousActionMethod>b__39(System.IAsyncResult, ActionInvocation), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: TResult CallEndDelegate(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: TResult End(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: System.Web.Mvc.ActionResult EndInvokeActionMethod(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: System.Web.Mvc.ActionExecutedContext <InvokeActionMethodFilterAsynchronouslyRecursive>b__3d(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: System.Web.Mvc.ActionExecutedContext <InvokeActionMethodFilterAsynchronouslyRecursive>b__3f(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: System.Web.Mvc.ActionExecutedContext <BeginInvokeActionMethodWithFilters>b__32(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: TResult CallEndDelegate(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: TResult End(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: System.Web.Mvc.ActionExecutedContext EndInvokeActionMethodWithFilters(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: Void <BeginInvokeAction>b__1c(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: Boolean <BeginInvokeAction>b__1e(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: TResult CallEndDelegate(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: TResult End(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: Boolean EndInvokeAction(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: Void <BeginExecuteCore>b__1d(System.IAsyncResult, ExecuteCoreState), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: System.Web.Mvc.Async.AsyncVoid CallEndDelegate(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: TResult End(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: Void EndExecuteCore(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: Void <BeginExecute>b__15(System.IAsyncResult, System.Web.Mvc.Controller), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: System.Web.Mvc.Async.AsyncVoid CallEndDelegate(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: TResult End(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: Void EndExecute(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: Void System.Web.Mvc.Async.IAsyncController.EndExecute(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: Void <BeginProcessRequest>b__5(System.IAsyncResult, ProcessRequestState), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: System.Web.Mvc.Async.AsyncVoid CallEndDelegate(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: TResult End(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: Void EndProcessRequest(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: Void System.Web.IHttpAsyncHandler.EndProcessRequest(System.IAsyncResult), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: Void System.Web.HttpApplication.IExecutionStep.Execute(), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: Void ExecuteStepImpl(IExecutionStep), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.
+17/11/2020 16:00:54: [Método: System.Exception ExecuteStep(IExecutionStep, Boolean ByRef), Línea: 0] - Referencia a objeto no establecida como instancia de un objeto.

@@ -523,6 +523,7 @@ namespace MRVMinem.Controllers
             modelo.listaUbicacion = IniciativaLN.ListarUbicacionIniciativa(modelo.iniciativa_mit);
             modelo.listaEnergetico = IniciativaLN.ListarEnergeticoIniciativa(modelo.iniciativa_mit);
             modelo.listaGei = IniciativaLN.ListarGeiIniciativa(modelo.iniciativa_mit);
+            modelo.detalle = 1;
             return View(modelo);
         }
 

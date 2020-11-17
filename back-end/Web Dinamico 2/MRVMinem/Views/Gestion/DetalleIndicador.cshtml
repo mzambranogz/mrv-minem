@@ -47,7 +47,10 @@
                                 <div class="col-sm-12 col-md-6 col-lg-6">
                                     @*<span data-toggle="modal" data-target="#tipo-ingreso-detalle"><a class="cambiar-medida" href="#" data-toggle="tooltip" data-placement="top" title="No te preocupes, que podrás cambiar el tipo de carga de datos en cualquier momento"><i class="fas fa-sync px-1"></i>Cambiar de tipo</a></span>*@
                                     @*<span data-toggle="modal" data-target="#solicitar-revision"><a class="solicitar-revision" href="#" data-toggle="tooltip" data-placement="top" title="Una vez complete todos los campos solicite una revisión para el detalle de sus indicadores"><i class="fas fa-paper-plane px-1"></i>Solicitar revisión</a></span>*@
-                                    @if (rol != 7)
+                                    
+                                    <span data-toggle="modal" data-target="#solicitar-revision"><a class="solicitar-revision" href="#" data-toggle="tooltip" data-placement="top" title="Una vez complete todos los campos solicite una revisión para el detalle de sus indicadores"><i class="fas fa-paper-plane px-1"></i>Solicitar revisión</a></span>
+                                    <span data-toggle="modal" data-target="#guardar-avance"><a class="guardar-avances" href="#" data-toggle="tooltip" data-placement="top" title="¿No tiene toda la información de su acción de mitigación?, guarde sus avances y retómelo después"><i class="fas fa-save px-1"></i>Guardar avances</a></span>
+                                    @*@if (rol != 7)
                                     {
                                         <span data-toggle="modal" data-target="#solicitar-revision"><a class="solicitar-revision" href="#" data-toggle="tooltip" data-placement="top" title="Una vez complete todos los campos solicite una revisión para el detalle de sus indicadores"><i class="fas fa-paper-plane px-1"></i>Solicitar revisión</a></span>
                                         <span data-toggle="modal" data-target="#guardar-avance"><a class="guardar-avances" href="#" data-toggle="tooltip" data-placement="top" title="¿No tiene toda la información de su acción de mitigación?, guarde sus avances y retómelo después"><i class="fas fa-save px-1"></i>Guardar avances</a></span>
@@ -55,7 +58,7 @@
                                     else
                                     {
                                         <span data-toggle="modal" data-target="#solicitar-revision"><a class="solicitar-revision" href="#" data-toggle="tooltip" data-placement="top" title="Una vez complete la revisión de los detalle de la acción de mitigación puede guardar la auditoría"><i class="fas fa-save px-1"></i>Guadar Auditoría</a></span>
-                                    }
+                                    }*@
                                 </div>
                             </div>
                         </div>
@@ -389,10 +392,11 @@
                                     <div class="col-xs-12 col sm-12 col-lg-10">
                                         <div class="alert alert-warning" role="alert"><strong>Complete todos los campos (cajas de texto y listas) de color amarillo</strong></div>
                                     </div>
-                                    @if (Convert.ToInt32(Session["rol"]) != 7)
+                                    <div class="col-xs-12 col sm-12 col-lg-2"><a class="btn btn-info w-100 mb-2 agregarCamposPrc" href="javascript:void(0)" onclick="CargarNuevaFila(1);"><i class="fas fa-plus-circle px-1"></i>Añadir fila</a>@*<a class="btn btn-success w-100 mb-2" href="#" download><i class="fas fa-download mr-1"></i>Descargar sustentos</a>*@</div>
+                                    @*@if (Convert.ToInt32(Session["rol"]) != 7)
                                     {
-                                        <div class="col-xs-12 col sm-12 col-lg-2"><a class="btn btn-info w-100 mb-2 agregarCamposPrc" href="javascript:void(0)" onclick="CargarNuevaFila(1);"><i class="fas fa-plus-circle px-1"></i>Añadir fila</a>@*<a class="btn btn-success w-100 mb-2" href="#" download><i class="fas fa-download mr-1"></i>Descargar sustentos</a>*@</div>
-                                    }                                    
+                                        <div class="col-xs-12 col sm-12 col-lg-2"><a class="btn btn-info w-100 mb-2 agregarCamposPrc" href="javascript:void(0)" onclick="CargarNuevaFila(1);"><i class="fas fa-plus-circle px-1"></i>Añadir fila</a></div>
+                                    }*@                                    
                                 </div>                                                           
                                 
                             </div>
@@ -532,22 +536,24 @@
                                     <div class="dropdown-divider @clase_margen_inf"></div>
                                     <div class="row">
                                         <div class="col-sm-12 col-md-12 col-lg-6">
-                                            @if (rol != 7)
+                                            <span class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Todos los campos son obligatorios</span>
+                                            @*@if (rol != 7)
                                             {
                                                 <span class="text-danger d-block mb-3"><strong>(*)&nbsp;</strong>Todos los campos son obligatorios</span>
-                                            }
+                                            }*@
                                         </div>
                                         <div class="col-sm-12 col-md-12 col-lg-6 text-right">
                                             <div class="row justify-content-end">
                                                 <div class="col-lg-6"><a class="btn btn-dark px-5 w-100 nav-tab text-center mb-3" href="#" dest="1"><i class="fas fa-arrow-left pr-1"></i>Anterior</a></div>
-                                                @if (rol != 7)
+                                                <div class="col-lg-6"><a class="btn btn-primary px-5 w-100 nav-tab text-center" href="#" data-toggle="modal" data-target="#solicitar-revision"><i class="fas fa-paper-plane px-1"></i>Enviar</a></div>
+                                                @*@if (rol != 7)
                                                 {
                                                     <div class="col-lg-6"><a class="btn btn-primary px-5 w-100 nav-tab text-center" href="#" data-toggle="modal" data-target="#solicitar-revision"><i class="fas fa-paper-plane px-1"></i>Enviar</a></div>
                                                 }
                                                 else
                                                 {
                                                     <div class="col-lg-6"><a class="btn btn-primary px-5 w-100 nav-tab text-center" href="#" data-toggle="modal" data-target="#solicitar-revision"><i class="fas fa-save px-1"></i>Guardar</a></div>
-                                                }
+                                                }*@
 
                                             </div>
                                         </div>
@@ -591,7 +597,9 @@
                                         <div class="swal2-icon swal2-question swal2-icon-show" style="display: flex;">
                                             <div class="swal2-icon-content"><i class="fas fa-question"></i></div>
                                         </div>
-                                        @if (rol != 7)
+                                        <h3 class="text-center">¿Está seguro de enviar su solicitud a revisión?</h3>
+                                        <p class="text-center">Confirme si está seguro de enviar todos los datos registrados para iniciar el proceso de revisión y obtener la aprobación por parte de nuestros especialistas.</p>
+                                        @*@if (rol != 7)
                                         {
                                             <h3 class="text-center">¿Está seguro de enviar su solicitud a revisión?</h3>
                                             <p class="text-center">Confirme si está seguro de enviar todos los datos registrados para iniciar el proceso de revisión y obtener la aprobación por parte de nuestros especialistas.</p>
@@ -600,7 +608,7 @@
                                         {
                                             <h3 class="text-center">¿Está seguro de guardar la auditoría?</h3>
                                             <p class="text-center">Confirme si está seguro de guardar los datos relacionados a la auditoría de los detalles de la acción de mitigación</p>
-                                        }
+                                        }*@
 
                                     </div>
 

@@ -3633,6 +3633,16 @@ function CargarNuevaFila(filas) {
 
                         tr += '</tr>';
                         $("#cuerpoTablaIndicador").append(tr);
+                        //===================================================
+                        let cuerpo = ``;
+                        cuerpo += `<tr id="f-${(rows + 1)}">`;
+                        cuerpo += `<td class="text-center estrecho">${(rows + 1)}</td>`;
+                        for (var m = 2010; m <= 2030; m++) {
+                            cuerpo += `<td class="text-center estrecho" data-encabezado="${m}" id="a-${m}-${(rows + 1)}">0.00</td>`;
+                        }
+                        $("#cuerpo-acumulado-total").append(cuerpo);
+                        //====================================================================================================================
+
                     }
                     //console.log(arregloIDs);
                     asignarAfecto(arregloIDs);
@@ -3688,10 +3698,10 @@ function CargarDatosGuardados() {
                         let rev = entidad[0]["FLAG_REVISION"] == null ? '0' : entidad[0]["FLAG_REVISION"] == '' ? '0' : entidad[0]["FLAG_REVISION"];
                         $("#cuerpoTablaIndicador #detalles-tr-" + (i + 1)).attr({ "data-ind": data[i]["ID_INDICADOR"] });
                         $("#cuerpoTablaIndicador #detalles-tr-" + (i + 1)).attr({ "data-rev": rev });
-                        if (rev == '1' || rol_usuario == 7) {
-                            $(`#cuerpoTablaIndicador #detalles-tr-${(i + 1)} #sustento${(i + 1)} label`).prop('hidden', true);
-                            $(`#cuerpoTablaIndicador #detalles-tr-${(i + 1)} .quitarBtn`).prop('hidden', true);
-                        } 
+                        //if (rev == '1' || rol_usuario == 7) {
+                        //    $(`#cuerpoTablaIndicador #detalles-tr-${(i + 1)} #sustento${(i + 1)} label`).prop('hidden', true);
+                        //    $(`#cuerpoTablaIndicador #detalles-tr-${(i + 1)} .quitarBtn`).prop('hidden', true);
+                        //} 
 
                         var tieneArchivo = data[i].ArchivoSustento;
 
@@ -3808,6 +3818,16 @@ function CargarDatosGuardados() {
                 //cargarCuerpoTabla($("#cbo-enfoque").val());
                 //$("#total-detalle").append('<strong id="total">0.00 tCO<sub>2</sub>eq</strong>');
                 //$("#total-detalle2").append('<strong id="total2">0.00 tCO<sub>2</sub>eq</strong>');
+
+                //===================================================
+                let cuerpo = ``;
+                cuerpo += `<tr id="f-${1}">`;
+                cuerpo += `<td class="text-center estrecho">${1}</td>`;
+                for (var m = 2010; m <= 2030; m++) {
+                    cuerpo += `<td class="text-center estrecho" data-encabezado="${m}" id="a-${m}-${1}">0.00</td>`;
+                }
+                $("#cuerpo-acumulado-total").append(cuerpo);
+                //====================================================================================================================
             }
             $("#tbl-main-preload").html("");
             $("#tbl-main").removeClass("d-none");
@@ -4693,7 +4713,7 @@ function fn_eliminarRestarTotal() {
         eliminar_item.parent().parent().remove();
         eliminarAcumulado(fila);        
         $('#modal-confirmacion').modal('hide');
-        ordenarTablaDatos(); //add
+        ordenarTablaDatos(1); //add
     }
 }
 
@@ -6379,7 +6399,7 @@ var ordenarFiltro = (order, parametro) => {
             else $(y[0]).val(y[1]);
         });
     });
-    ordenarTablaDatos();
+    ordenarTablaDatos(0);
 }
 
 var ordenarDescendente = (arr) => {
@@ -6426,9 +6446,10 @@ var ordenarAscendente = (arr) => {
     return arr;
 }
 
-function ordenarTablaDatos() {
+function ordenarTablaDatos(accion_eliminar) {    
     let iniciativa = $("#Control").data("iniciativa");
-    let o = $("#tablaIndicador"); 
+    let o = $("#tablaIndicador");
+    if ($("#Control").data("mitigacion") == 4 && accion_eliminar == 0) ordenarAcumulado(o.find("tbody").find("th"));
     for (var e = o.find("tbody").find("th"), r = o.parent().attr("data-order"), a = 0; a < e.length; a++) {
         var s = a + 1;
         o.find("tbody").find("th").eq(a).empty().html(s), o.find("tbody").find("tr").eq(a).removeAttr("id").attr({
@@ -6485,6 +6506,20 @@ function ordenarTablaDatos() {
         });
     }
     ordenarIndicadorFile(iniciativa);
+}
+
+var ordenarAcumulado = (inp) => {
+    let arr = [], html = '';
+    inp.each((x, y) => {
+        arr.push($(y).html());
+    });
+
+    $.each(arr, (x, y) => {
+        html += $(`#f-${y}`)[0].outerHTML;
+    });
+
+    $('#cuerpo-acumulado-total').html(html);
+    ordenarTabla();
 }
 
 

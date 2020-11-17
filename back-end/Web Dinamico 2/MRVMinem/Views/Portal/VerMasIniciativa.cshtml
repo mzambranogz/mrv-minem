@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Ver Mas Iniciativa y Detalle";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    int detalle = ViewData["sindetalle"] == null ? 0 : (int)ViewData["sindetalle"];
 }
 @Html.HiddenFor(m => m.iniciativa_mit.ID_INICIATIVA)
 
@@ -280,4 +281,5 @@
 
 <script src="~/js/script.js"></script>
 <script src="~/js/MRV.js"></script>
+<script type="text/javascript"> var sindetalle = @detalle;  </script>
 <script src="~/js/VerMas.js"></script>
