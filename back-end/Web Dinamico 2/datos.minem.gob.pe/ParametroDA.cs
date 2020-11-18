@@ -134,6 +134,15 @@ namespace datos.minem.gob.pe
                     p.Add("pID_ENFOQUE", entidad.ID_ENFOQUE);
                     p.Add("pRefcursor", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
                     Lista = db.Query<ParametroBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+
+                    int e = entidad.ID_ENFOQUE;
+                    if (e == 1 || e == 2 || e == 3 || e == 4 || e == 8 || e == 9 || e == 15 || e == 23)
+                        foreach (var param in Lista) {
+                            if (param.ID_PARAMETRO == 9)
+                                param.LEYENDA_PARAMETRO = WebConfigurationManager.AppSettings.Get("B"+e);
+                            else if (param.ID_PARAMETRO == 10)
+                                param.LEYENDA_PARAMETRO = WebConfigurationManager.AppSettings.Get("M" + e);
+                        }
                 }
 
             }
