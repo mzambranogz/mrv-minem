@@ -3319,7 +3319,7 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
 
     END USP_UPD_PRC_ACUMULADO_DETALLE;
     
-    PROCEDURE USP_PRC_UPD_ACUMULADO(
+   PROCEDURE USP_PRC_UPD_ACUMULADO(
         pID_INICIATIVA NUMBER,
         pID_MEDMIT NUMBER,
         pID_ENFOQUE NUMBER,
@@ -3334,6 +3334,7 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
         VFORMULA VARCHAR2(1000);
         VTAM NUMBER;
         VVAR VARCHAR2(1000);
+        VVAR2 VARCHAR2(1000);
         VVARFAC VARCHAR2(1000);
         VVARFACTOR NUMBER(36,16);
         VVARPARAM NUMBER(36,16);
@@ -3342,6 +3343,8 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
         V9 NUMBER;
         V10 NUMBER;
         V11 NUMBER;
+        V90 NUMBER;
+        V96 NUMBER;
         vsql VARCHAR2(4000);
         VALIDAR_ACUM NUMBER; --- ADD
 
@@ -3357,6 +3360,7 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
                         D.ID_INDICADOR = pID_INDICADOR AND
                         D.FLAG_ESTADO = 1
             )
+            
             LOOP
                         VDATA := '';
                         SELECT COUNT(*) INTO VDATO FROM T_MAEM_FORMULA_PARAMETRO
@@ -3497,8 +3501,9 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
                         VNUM := VNUM + 1;
 
                         SELECT SUBSTR(CURRES.VALORES,1,1) INTO VVAR FROM DUAL;
+                        SELECT SUBSTR(CURRES.VALORES,2,2) INTO VVAR2 FROM DUAL;
 
-                        IF VVAR = '9' THEN
+                        IF VVAR = '9' AND VVAR2 = '/' THEN
                             SELECT SUBSTR(CURRES.VALORES, 3, LENGTH(CURRES.VALORES)) INTO VVAR FROM DUAL;
                             vsql := 'SELECT ROUND('|| '10000' ||'*'|| VVAR ||')/10000 FROM DUAL';
                             EXECUTE IMMEDIATE vsql INTO V9;
@@ -3521,6 +3526,18 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
                                     vsql := 'SELECT ROUND('|| '10000' ||'*'|| VVAR ||')/10000 FROM DUAL';
                                     EXECUTE IMMEDIATE vsql INTO V11;
                                 END IF;
+                            END IF;
+                            
+                            IF VVAR = '90' THEN
+                                SELECT SUBSTR(CURRES.VALORES, 4, LENGTH(CURRES.VALORES)) INTO VVAR FROM DUAL;
+                                vsql := 'SELECT ROUND('|| '10000' ||'*'|| VVAR ||')/10000 FROM DUAL';
+                                EXECUTE IMMEDIATE vsql INTO V90;
+                            END IF;
+                            
+                            IF VVAR = '96' THEN
+                                SELECT SUBSTR(CURRES.VALORES, 4, LENGTH(CURRES.VALORES)) INTO VVAR FROM DUAL;
+                                vsql := 'SELECT ROUND('|| '10000' ||'*'|| VVAR ||')/10000 FROM DUAL';
+                                EXECUTE IMMEDIATE vsql INTO V96;
                             END IF;
                         END IF;
 
@@ -3550,6 +3567,16 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
                       IF VNUM > 0 THEN
                         UPDATE T_MAEM_INDICADOR_DATA D SET VALOR = V11 WHERE D.ID_INICIATIVA = pID_INICIATIVA AND D.ID_ENFOQUE = pID_ENFOQUE AND D.ID_MEDMIT = pID_MEDMIT AND D.ID_INDICADOR = pID_INDICADOR AND D.ID_PARAMETRO = 11;
                       END IF;
+                      
+                      SELECT NVL(COUNT(*),0) INTO VNUM FROM T_MAEM_INDICADOR_DATA D WHERE  D.ID_INICIATIVA = pID_INICIATIVA AND D.ID_ENFOQUE = pID_ENFOQUE AND D.ID_MEDMIT = pID_MEDMIT AND D.ID_INDICADOR = pID_INDICADOR AND D.ID_PARAMETRO = 96;
+                      IF VNUM > 0 THEN
+                        UPDATE T_MAEM_INDICADOR_DATA D SET VALOR = V96 WHERE D.ID_INICIATIVA = pID_INICIATIVA AND D.ID_ENFOQUE = pID_ENFOQUE AND D.ID_MEDMIT = pID_MEDMIT AND D.ID_INDICADOR = pID_INDICADOR AND D.ID_PARAMETRO = 96;
+                      END IF;
+                      
+                      SELECT NVL(COUNT(*),0) INTO VNUM FROM T_MAEM_INDICADOR_DATA D WHERE  D.ID_INICIATIVA = pID_INICIATIVA AND D.ID_ENFOQUE = pID_ENFOQUE AND D.ID_MEDMIT = pID_MEDMIT AND D.ID_INDICADOR = pID_INDICADOR AND D.ID_PARAMETRO = 90;
+                      IF VNUM > 0 THEN
+                        UPDATE T_MAEM_INDICADOR_DATA D SET VALOR = V90 WHERE D.ID_INICIATIVA = pID_INICIATIVA AND D.ID_ENFOQUE = pID_ENFOQUE AND D.ID_MEDMIT = pID_MEDMIT AND D.ID_INDICADOR = pID_INDICADOR AND D.ID_PARAMETRO = 90;
+                      END IF;
                     END IF;
 
                     SELECT COUNT(*) INTO VALIDAR_ACUM FROM T_GENM_ACUMULADO
@@ -3563,7 +3590,9 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
                         UPDATE  T_GENM_ACUMULADO
                         SET BAU = V9,
                             INI = V10,
-                            REDUCIDO = V11
+                            REDUCIDO = V11,
+                            ENERGIA = V96,
+                            ENERGIA_TOTAL = V90
                         WHERE ID_INICIATIVA = pID_INICIATIVA
                         AND ID_MEDMIT = pID_MEDMIT
                         AND ID_ENFOQUE = pID_ENFOQUE
@@ -4517,7 +4546,7 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
     END CALCULO_AUTOMATIZADO;
 
 
-    PROCEDURE USP_PRC_ACUMULADO(
+   PROCEDURE USP_PRC_ACUMULADO(
         pID_INICIATIVA NUMBER,
         pID_MEDMIT NUMBER,
         pID_ENFOQUE NUMBER,
@@ -4541,6 +4570,8 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
         V9 NUMBER;
         V10 NUMBER;
         V11 NUMBER;
+        V90 NUMBER;
+        V96 NUMBER;
         vsql VARCHAR2(4000);
         VALIDAR_ACUM NUMBER; --- ADD
 
@@ -4722,6 +4753,18 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
                                     EXECUTE IMMEDIATE vsql INTO V11;
                                 END IF;
                             END IF;
+                            
+                            IF VVAR = '90' THEN
+                                SELECT SUBSTR(CURRES.VALORES, 4, LENGTH(CURRES.VALORES)) INTO VVAR FROM DUAL;
+                                vsql := 'SELECT ROUND('|| '10000' ||'*'|| VVAR ||')/10000 FROM DUAL';
+                                EXECUTE IMMEDIATE vsql INTO V90;
+                            END IF;
+                            
+                            IF VVAR = '96' THEN
+                                SELECT SUBSTR(CURRES.VALORES, 4, LENGTH(CURRES.VALORES)) INTO VVAR FROM DUAL;
+                                vsql := 'SELECT ROUND('|| '10000' ||'*'|| VVAR ||')/10000 FROM DUAL';
+                                EXECUTE IMMEDIATE vsql INTO V96;
+                            END IF;
                         END IF;
 
                     END LOOP;
@@ -4735,13 +4778,15 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
                       AND ANNO = pANNO;
 
                     IF VALIDAR_ACUM = 0 THEN
-                        INSERT INTO T_GENM_ACUMULADO (ID_INICIATIVA, ID_MEDMIT, ID_ENFOQUE, ID_INDICADOR, ANNO, BAU, INI, REDUCIDO)
-                        VALUES (pID_INICIATIVA, pID_MEDMIT, pID_ENFOQUE, pID_INDICADOR, pANNO, V9, V10, V11);
+                        INSERT INTO T_GENM_ACUMULADO (ID_INICIATIVA, ID_MEDMIT, ID_ENFOQUE, ID_INDICADOR, ANNO, BAU, INI, REDUCIDO, ENERGIA, ENERGIA_TOTAL)
+                        VALUES (pID_INICIATIVA, pID_MEDMIT, pID_ENFOQUE, pID_INDICADOR, pANNO, V9, V10, V11, V96, V90);
                     ELSE
                         UPDATE  T_GENM_ACUMULADO
                         SET BAU = V9,
                             INI = V10,
-                            REDUCIDO = V11
+                            REDUCIDO = V11,
+                            ENERGIA = V96,
+                            ENERGIA_TOTAL = V90
                         WHERE ID_INICIATIVA = pID_INICIATIVA
                         AND ID_MEDMIT = pID_MEDMIT
                         AND ID_ENFOQUE = pID_ENFOQUE
@@ -4751,6 +4796,7 @@ CREATE OR REPLACE  PACKAGE BODY MRVMM."PKG_MRV_REPORTES" AS
 
 
     END USP_PRC_ACUMULADO;
+	
 
 
    FUNCTION FN_GET_VALOR_DATA (
@@ -17735,9 +17781,13 @@ PROCEDURE USP_UPD_APROBAR_DETALLE(
         V9 NUMBER;
         V10 NUMBER;
         V11 NUMBER;
+        V90 NUMBER;
+        V96 NUMBER;
+        VERF NUMBER;
         VCONT NUMBER;
         vsql VARCHAR2(4000);
     BEGIN
+            VERF := 1;
             FOR CURINI IN (
                 SELECT  D.ID_INDICADOR, D.ID_ENFOQUE, D.ID_PARAMETRO, D.VALOR, D.ID_MEDMIT, D.ID_INICIATIVA
                 FROM    T_MAEM_INDICADOR_DATA D
@@ -17745,10 +17795,18 @@ PROCEDURE USP_UPD_APROBAR_DETALLE(
                         D.ID_ENFOQUE = pID_ENFOQUE AND
                         D.ID_MEDMIT = pID_MEDMIT AND
                         D.ID_INDICADOR = pID_INDICADOR AND
-                        D.ID_PARAMETRO IN (6,9,10,11) AND
+                        D.ID_PARAMETRO IN (6,9,10,11,90,93,96) AND
                         D.FLAG_ESTADO = 1
             )
             LOOP
+                IF CURINI.ID_PARAMETRO = 93 THEN
+                    IF CURINI.VALOR IS NULL THEN
+                        VERF := 2;
+                    ELSE
+                        VERF := CURINI.VALOR;
+                    END IF;                    
+                END IF;
+            
                 IF CURINI.ID_PARAMETRO = 6 THEN
                     V6 := TO_NUMBER(CURINI.VALOR,'9999');
                 ELSE
@@ -17766,6 +17824,16 @@ PROCEDURE USP_UPD_APROBAR_DETALLE(
                                 --V11 := 0;--TO_NUMBER(TO_CHAR(NVL(CURINI.VALOR,'0'), '9999999990.00000000'),'99999990.000000000');
                                 vsql := 'SELECT 1*'|| NVL(CURINI.VALOR,'0') || ' FROM DUAL';
                                 EXECUTE IMMEDIATE vsql INTO V11;
+                            ELSE
+                                IF CURINI.ID_PARAMETRO = 90 THEN
+                                    vsql := 'SELECT 1*'|| NVL(CURINI.VALOR,'0') || ' FROM DUAL';
+                                    EXECUTE IMMEDIATE vsql INTO V90;
+                                ELSE
+                                    IF CURINI.ID_PARAMETRO = 96 THEN
+                                        vsql := 'SELECT 1*'|| NVL(CURINI.VALOR,'0') || ' FROM DUAL';
+                                        EXECUTE IMMEDIATE vsql INTO V96;
+                                    END IF;
+                                END IF;
                             END IF;
                         END IF;
                     END IF;
@@ -17780,20 +17848,38 @@ PROCEDURE USP_UPD_APROBAR_DETALLE(
           ID_INDICADOR = pID_INDICADOR AND
           ANNO = V6;
 
-    IF VCONT = 0 THEN
-        INSERT INTO T_GENM_ACUMULADO (ID_INICIATIVA, ID_MEDMIT, ID_ENFOQUE, ID_INDICADOR, ANNO, BAU, INI, REDUCIDO)
-        VALUES (pID_INICIATIVA, pID_MEDMIT, pID_ENFOQUE, pID_INDICADOR, V6, V9, V10, V11);
+    IF VERF = 1 THEN
+        IF VCONT = 0 THEN
+            INSERT INTO T_GENM_ACUMULADO (ID_INICIATIVA, ID_MEDMIT, ID_ENFOQUE, ID_INDICADOR, ANNO, BAU, INI, REDUCIDO, ENERGIA, ENERGIA_TOTAL)
+            VALUES (pID_INICIATIVA, pID_MEDMIT, pID_ENFOQUE, pID_INDICADOR, V6, V9, V10, V11, V96, V90);
+        ELSE
+            UPDATE  T_GENM_ACUMULADO
+            SET     BAU = V9,
+                    INI = V10,
+                    REDUCIDO = V11,
+                    ENERGIA = V96,
+                    ENERGIA_TOTAL = V90
+            WHERE ID_INICIATIVA = pID_INICIATIVA AND
+                  ID_ENFOQUE = pID_ENFOQUE AND
+                  ID_MEDMIT = pID_MEDMIT AND
+                  ID_INDICADOR = pID_INDICADOR AND
+                  ANNO = V6;
+        END IF;
     ELSE
-        UPDATE  T_GENM_ACUMULADO
-        SET     BAU = V9,
-                INI = V10,
-                REDUCIDO = V11
-        WHERE ID_INICIATIVA = pID_INICIATIVA AND
-              ID_ENFOQUE = pID_ENFOQUE AND
-              ID_MEDMIT = pID_MEDMIT AND
-              ID_INDICADOR = pID_INDICADOR AND
-              ANNO = V6;
-    END IF;
+        IF VCONT > 0 THEN
+            UPDATE  T_GENM_ACUMULADO
+            SET     BAU = 0,
+                    INI = 0,
+                    REDUCIDO = 0,
+                    ENERGIA = 0,
+                    ENERGIA_TOTAL = 0
+            WHERE ID_INICIATIVA = pID_INICIATIVA AND
+                  ID_ENFOQUE = pID_ENFOQUE AND
+                  ID_MEDMIT = pID_MEDMIT AND
+                  ID_INDICADOR = pID_INDICADOR AND
+                  ANNO = V6;
+        END IF;
+    END IF;  
 
     ----------------------------------------
     IF (pID_ENFOQUE IN (1,2,3,4,6,9,25))THEN
@@ -17812,6 +17898,7 @@ PROCEDURE USP_UPD_APROBAR_DETALLE(
     ----------------------------------------
 
     END USP_INS_ACUMULADO_DETALLE;
+
 
   --////////////////////////////////////////// DINAMICO FINAL
 

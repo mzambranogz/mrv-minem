@@ -402,7 +402,9 @@ create table T_GENM_ACUMULADO
   anno          NUMBER not null,
   bau           NUMBER(32,8),
   ini           NUMBER(32,8),
-  reducido      NUMBER(32,8)
+  reducido      NUMBER(32,8),
+  energia       NUMBER(32,8),
+  energia_total      NUMBER(32,8)
 )
 ;
 alter table T_GENM_ACUMULADO
@@ -6170,7 +6172,7 @@ values (9, 23, 1, '=', 0, '([F31]*[F43]*([F45]+[C1]*[C21]+[C0.1]*[C310])/[C1000]
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
 values (10, 23, 1, '=', 0, '([F32]*[F44]*([F46]+[C1]*[C21]+[C0.1]*[C310])/[C1000])*[P12]', '(|[F32]|*|[F44]|*|(|[F46]|+|[C1]|*|[C21]|+|[C0.1]|*|[C310]|)|/|[C1000]|)|*|[P12]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
-values (11, 23, 1, '=', 0, '[P9]-[P10]', '(|[F32]|*|[F44]|*|(|[F46]|+|[C1]|*|[C21]|+|[C0.1]|*|[C310]|)|/|[C1000]|)|*|[P12]', '1');
+values (11, 23, 1, '=', 0, '[P9]-[P10]', '[P9]|-|[P10]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
 values (11, 24, 1, '=', 0, '([F33]-[F34])/([C1]-[F2])*[C1]/[C1000]*[F11]*[P12]', '(|[F33]|-|[F34]|)|/|(|[C1]|-|[F2]|)|*|[C1]|/|[C1000]|*|[F11]|*|[P12]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
@@ -6304,7 +6306,7 @@ values (90, 7, 9, '=', 0, '[F59]*[C12]*[P95]', '[F59]|*|[C12]|*|[P95]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
 values (90, 8, 8, '=', 0, '([C2.8233333333333]-[F19])*[C0.0156]*[C3.8]*[P12]*[C1000000]', '(|[C2.8233333333333]|-|[F19]|)|*|[C0.0156]|*|[C3.8]|*|[P12]|*|[C1000000]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
-values (90, 9, 8, '=', 0, '([P33]/[C100]*[C7.3806724874458]*[C0.0156]-[P33]/[C100]*[C0.0473])*[C1000000]', '(|[P33]|/|[C100]|*|[C7.3806724874458]|*|[C0.0156]|-|[P33]|/|[C100]|*|[C0.0473]|)*[C1000000]', '1');
+values (90, 9, 8, '=', 0, '([P33]/[C100]*[C7.3806724874458]*[C0.0156]-[P33]/[C100]*[C0.0473])*[C1000000]', '(|[P33]|/|[C100]|*|[C7.3806724874458]|*|[C0.0156]|-|[P33]|/|[C100]|*|[C0.0473]|)|*|[C1000000]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)
 values (96, 10, 7, '=', 0, '([P19]-[P20])/[C1000000]*[P12]*[C4380]', '(|[P19]|-|[P20]|)|/|[C1000000]|*|[P12]|*|[C4380]', '1');
 insert into T_MAEM_FORMULA_PARAMETRO (id_parametro, id_enfoque, id_medmit, comportamiento, valor, formula, formula_armado, flag_activo)

@@ -526,3 +526,87 @@ PL/SQL: Statement ignored
 PLS-00201: el identificador 'MRVMM_P.PKG_MRV_ADMIN_SISTEMA' se debe declarar
 ORA-06550: línea 1, columna 7:
 PL/SQL: Statement ignored
+18/11/2020 18:23:42: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 247
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 247
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
+18/11/2020 18:23:42: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 247
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 247
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
+18/11/2020 18:23:42: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 247
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 247
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
+18/11/2020 18:23:42: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 247
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 247
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
+18/11/2020 18:23:42: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 247
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 247
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
+18/11/2020 18:23:42: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 247
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 247
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
+18/11/2020 18:23:42: [Método: Boolean RecalcularValores(), Línea: 2798] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 247
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 247
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
+18/11/2020 18:27:22: [Método: Void HandleErrorHelper(Int32, Oracle.DataAccess.Client.OracleConnection, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, System.String, Boolean, Int32, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 247
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 247
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
+18/11/2020 18:27:22: [Método: Void HandleError(Int32, Oracle.DataAccess.Client.OracleConnection, System.String, IntPtr, Oracle.DataAccess.Client.OpoSqlValCtx*, System.Object, Boolean, Oracle.DataAccess.Client.OracleLogicalTransaction), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 247
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 247
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
+18/11/2020 18:27:22: [Método: Int32 ExecuteNonQuery(), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 247
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 247
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
+18/11/2020 18:27:22: [Método: Int32 ExecuteCommand(System.Data.IDbConnection, Dapper.CommandDefinition ByRef, System.Action`2[System.Data.IDbCommand,System.Object]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 247
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 247
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
+18/11/2020 18:27:22: [Método: Int32 ExecuteImpl(System.Data.IDbConnection, Dapper.CommandDefinition ByRef), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 247
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 247
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
+18/11/2020 18:27:22: [Método: Int32 Execute(System.Data.IDbConnection, System.String, System.Object, System.Data.IDbTransaction, System.Nullable`1[System.Int32], System.Nullable`1[System.Data.CommandType]), Línea: 0] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 247
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 247
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
+18/11/2020 18:27:22: [Método: Boolean RecalcularValores(), Línea: 2798] - ORA-00936: falta una expresión
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 247
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 247
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 39
+ORA-06512: en "MRVMM.PKG_MRV_REPORTES", línea 39
+ORA-06512: en línea 1
