@@ -709,5 +709,20 @@ namespace logica.minem.gob.pe
         {
             return iniciativaDA.GuardarDatosAuditor(entidad);
         }
+
+        public static void RegistrarInversion(List<MontoInversionBE> lista)
+        {
+            bool seGuardo = false;
+            foreach (var m in lista) {
+                if (!(seGuardo = iniciativaDA.RegistrarInversion(m))) break;
+            }
+        }
+
+        public static List<MontoInversionBE> ListarMontos(IniciativaBE entidad)
+        {
+            List<MontoInversionBE> lista = new List<MontoInversionBE>();
+            lista = iniciativaDA.ListarMontos(entidad);
+            return lista;
+        }
     }
 }

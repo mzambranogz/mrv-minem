@@ -2278,7 +2278,9 @@ $(document).ready(function () {
     //CargarSector();
     if ($("#revision").val() == 1) {
         CargarDetalleIndicadorRevision();
-    } else {        
+    } else {
+        loadMoneda();
+
         CargarDatosCabecera();
         CargarDatosGuardados();
 
@@ -2645,6 +2647,20 @@ function fn_procesoDetalleIndicador(url, estado) {
         id_eliminar = id_eliminar.substring(0, id_eliminar.length - 1);
     }
 
+    let arrInversion = [];
+    $('.anio').each((x, y) => {
+        let anio = $(y).data('valor');
+        let moneda = $(`#ms-${anio}`).val();
+        let inversion = $(`#m-${anio}`).val() == '' ? 0 : $(`#m-${anio}`).val().replace(/,/gi, '');
+        arrInversion.push({
+            ID_INICIATIVA: $("#Control").data("iniciativa"),
+            ANIO: anio,
+            MONEDA: moneda,
+            INVERSION: inversion,
+            USUARIO_REGISTRO: $("#Control").data("usuario"),
+        });
+    });
+
     var item = {
         ID_INICIATIVA: $("#Control").data("iniciativa"),
         ID_USUARIO: $("#Control").data("usuario"),
@@ -2670,6 +2686,7 @@ function fn_procesoDetalleIndicador(url, estado) {
         AUDITOR_AUDITORIA: medida == 4 ? $('#txt-auditor').val() : '',
         NOMBRE_INSTITUCION: medida == 4 ? $('#txt-institucion-auditor').val() : '',
         FECHA_AUDITORIA: medida == 4 ? $('#fch-fecha-auditoria').val() : '',
+        listaMonto: arrInversion,
     };
 
     var options = {
@@ -3898,6 +3915,53 @@ var ordenarIndicadorFile = (idIniciativa) => {
         success: function (result) {
             if (result != null && result != "") {
                 console.log(result);
+            }
+        }
+    });
+}
+
+var loadMoneda = () => {
+    let opciones = '';
+    var Item = {};
+    $.ajax({
+        url: baseUrl + "Gestion/ListarMoneda",
+        type: 'POST',
+        datatype: 'json',
+        data: Item
+    }).done(function (data) {
+        if (data != null && data != "") {
+            if (data.length > 0) {
+                for (var i = 0; i < data.length; i++) {
+                    opciones += '<option value="' + data[i]["ID_MONEDA"] + '">' + data[i]["DESCRIPCION"] + '</option>';
+                }
+                //debugger;
+                $('[id*=ms-]').each((x, y) => {
+                    $(y).append(opciones);
+                });
+                asignarMontos();
+            }
+        }
+    });
+}
+
+var asignarMontos = () => {
+    let opciones = '';
+    var Item = {
+        ID_INICIATIVA: $("#Control").data("iniciativa")
+    };
+    $.ajax({
+        url: baseUrl + "Gestion/ListarMontos",
+        type: 'POST',
+        datatype: 'json',
+        data: Item
+    }).done(function (data) {
+        if (data != null && data != "") {
+            if (data.length > 0) {
+                for (var i = 0; i < data.length; i++) {
+                    let anio = data[i]["ANIO"];
+                    $(`#ms-${anio}`).val(data[i]["MONEDA"]);
+                    $(`#m-${anio}`).val(formatoMiles(data[i]["INVERSION"]));
+                }
             }
         }
     });

@@ -1197,8 +1197,8 @@ namespace datos.minem.gob.pe
                         {
                             //sp += "USP_SEL_BUSQUEDA_SPL_PRI_USU";
                             //entidad.CONDICION = "(INI.ID_USUARIO = "+ entidad.ID_USUARIO +") AND (INI.ID_ETAPA IN (1, 3) AND INI.ID_ESTADO IN (0, 6))";
-                            entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,9,10,14))";
-                            //entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,8,9,10,12,13,14,15,19,20,21,22))";
+                            //entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,9,10,14))";
+                            entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,9,10,12))";
                         }
                         else if (entidad.ID_ROL == 2)
                         {
@@ -1340,7 +1340,8 @@ namespace datos.minem.gob.pe
                         {
                             //sp += "USP_SEL_BUSQUEDA_SPL_PRI_USU";
                             //entidad.CONDICION = "(INI.ID_USUARIO = "+ entidad.ID_USUARIO +") AND (INI.ID_ETAPA IN (1, 3) AND INI.ID_ESTADO IN (0, 6))";
-                            entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,9,10,14))";
+                            //entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,9,10,14))";
+                            entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,9,10,12))";
                             //entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,8,9,10,12,13,14,15,19,20,21,22))";
                         }
                         else if (entidad.ID_ROL == 2)
@@ -1488,7 +1489,8 @@ namespace datos.minem.gob.pe
                         {
                             //sp += "USP_SEL_BUSQUEDA_SPL_PRI_USU";
                             //entidad.CONDICION = "(INI.ID_USUARIO = "+ entidad.ID_USUARIO +") AND (INI.ID_ETAPA IN (1, 3) AND INI.ID_ESTADO IN (0, 6))";
-                            entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,9,10,14))";
+                            //entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,9,10,14))";
+                            entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,9,10,12))";
                         }
                         else if (entidad.ID_ROL == 2)
                         {
@@ -1642,7 +1644,8 @@ namespace datos.minem.gob.pe
                         {
                             //sp += "USP_SEL_BUSQUEDA_SPL_PRI_USU";
                             //entidad.CONDICION = "(INI.ID_USUARIO = "+ entidad.ID_USUARIO +") AND (INI.ID_ETAPA IN (1, 3) AND INI.ID_ESTADO IN (0, 6))";
-                            entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,9,10,14))";
+                            //entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,9,10,14))";
+                            entidad.CONDICION = "(INI.ID_USUARIO = " + entidad.ID_USUARIO + ") AND (INI.ID_PLAZO_ETAPA_ESTADO IN (1,3,4,6,7,9,10,12))";
                         }
                         else if (entidad.ID_ROL == 2)
                         {
@@ -2855,6 +2858,54 @@ namespace datos.minem.gob.pe
             }
 
             return v;
+        }
+
+        public bool RegistrarInversion(MontoInversionBE entidad)
+        {
+            bool v = false;
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_PRC_MONTO_INVERSION";
+                    var p = new OracleDynamicParameters();
+                    p.Add("PI_ID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("PI_ANIO", entidad.ANIO);
+                    p.Add("PI_MONEDA", entidad.MONEDA);
+                    p.Add("PI_INVERSION", entidad.INVERSION);
+                    p.Add("PI_USUARIO_REGISTRO", entidad.USUARIO_REGISTRO);
+                    db.Execute(sp, p, commandType: CommandType.StoredProcedure);
+                }
+                v = true;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return v;
+        }
+
+        public List<MontoInversionBE> ListarMontos(IniciativaBE entidad)
+        {
+            List<MontoInversionBE> lista = new List<MontoInversionBE>();
+            try
+            {
+                using (IDbConnection db = new OracleConnection(CadenaConexion))
+                {
+                    string sp = sPackage + "USP_SEL_MONTO_INVERSION";
+                    var p = new OracleDynamicParameters();
+                    p.Add("PI_ID_INICIATIVA", entidad.ID_INICIATIVA);
+                    p.Add("PO", dbType: OracleDbType.RefCursor, direction: ParameterDirection.Output);
+                    lista = db.Query<MontoInversionBE>(sp, p, commandType: CommandType.StoredProcedure).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+
+            return lista;
         }
 
     }

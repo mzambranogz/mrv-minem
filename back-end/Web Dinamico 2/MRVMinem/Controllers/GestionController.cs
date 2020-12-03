@@ -1137,6 +1137,7 @@ namespace MRVMinem.Controllers
                     }
                     else
                     {
+                        registrarInversion(entidad.listaMonto);
                         if (entidad.ID_ESTADO == 1) //add 30-01-20
                         {
                             entidad = IndicadorLN.RegistrarEnvioDetalle(entidad);
@@ -3730,6 +3731,16 @@ namespace MRVMinem.Controllers
         {
             entidad = ParametroLN.FiltrarParametro(entidad);
             return Json(entidad);
+        }
+
+        public void registrarInversion(List<MontoInversionBE> lista) {
+            IniciativaLN.RegistrarInversion(lista);
+        }
+
+        public ActionResult ListarMontos(IniciativaBE entidad)
+        {
+            List<MontoInversionBE> lista = IniciativaLN.ListarMontos(entidad);
+            return Json(lista);
         }
 
     }    

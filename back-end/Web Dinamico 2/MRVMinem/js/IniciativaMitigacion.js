@@ -187,9 +187,9 @@ function validarCampo() {
     if ($("#cbo-medida-mitigacion-seleccionada").val() == 0) {
         return false;
     }
-    if ($("#cbo-tipo-iniciativa-mitigacion").val() == 0) {
-        return false;
-    }
+    //if ($("#cbo-tipo-iniciativa-mitigacion").val() == 0) {
+    //    return false;
+    //}
     if ($("#txa-nombre-iniciativa").val().trim() === ""){
         return false;
     }
@@ -670,6 +670,7 @@ function fn_ObtenerMedidaMitigacion(id) {
                         $("#txa-descripcion").val(data[i]["DESCRIPCION_MEDMIT"]);
                         $("#cbo-medida-mitigacion-seleccionada").val(data[i]["ID_MEDMIT"]);
                         $("#nombreMedida").append('<span>' + data[i]["NOMBRE_MEDMIT"] + '</span>');
+                        $("#txa-nombre-iniciativa").val(data[i]["NOMBRE_MEDMIT"]); //add
                     }
                 }
             }
@@ -716,7 +717,8 @@ $("#cbo-medida-mitigacion-seleccionada").change(function () {
                         $("#txa-descripcion").val(data[i]["DESCRIPCION_MEDMIT"]);
                         //$("#cbo-medida-mitigacion-seleccionada").val(data[i]["ID_MEDMIT"]);
                         $("#nombreMedida").append('<span id="medida">' + data[i]["NOMBRE_MEDMIT"] + '</span>');
-                        $("#Control").data("mitigacion", $("#cbo-medida-mitigacion-seleccionada").val())
+                        $("#Control").data("mitigacion", $("#cbo-medida-mitigacion-seleccionada").val());
+                        $('#txa-nombre-iniciativa').val(data[i]["NOMBRE_MEDMIT"]); //add 03-12-20
                     }
                 }
             }
@@ -1044,7 +1046,6 @@ $("#aprobar-revision").on("hidden.bs.modal", function () {
 });
 
 function fn_observacionIniciativaMitigacion() {
-    debugger;
     var mns = ValidarRevision($("#Control").data("iniciativa"), $("#estado_flujo").val(), "modalErrorRevision", "Esta acción de mitigación ya fue revisada y/o observada");
     if (mns != "") {
         $("#observar-revision #modalObservacionBoton").hide();
@@ -1350,7 +1351,7 @@ var validarmodal = () => {
     });
     if (!verif) return;
     if ($('#txt-fecha-inicio').val() == "") return;
-    if ($('#cbo-tipo-iniciativa-mitigacion').val() == 0) return; 
+    //if ($('#cbo-tipo-iniciativa-mitigacion').val() == 0) return; 
     if ($('#txa-nombre-iniciativa').val().trim() == "") return;
     if ($('#txa-descripcion-medida').val().trim() == "") return;
     //$('[class="fas fa-paper-plane px-1"]').parent().parent().removeClass('d-none');
