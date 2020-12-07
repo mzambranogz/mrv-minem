@@ -2149,23 +2149,23 @@ values (97, 1, 3, 'Capacidad', '1', '1', '1', null, null, null, '(L)', null, 'Ca
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
 values (98, 1, 3, 'Etiqueta', '1', '0', '1', null, null, null, null, null, 'A, B, C, etc.', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
-values (99, 1, 3, 'Etiqueta', '1', '1', '1', null, null, null, null, null, 'A, B, C, etc.', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+values (99, 1, 3, 'Etiqueta', '1', '0', '1', null, null, null, null, null, 'A, B, C, etc.', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
 values (100, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de unidades de este tipo, clase y descripción', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
-values (101, 1, 3, 'Etiqueta', '1', '1', '1', null, null, null, null, null, 'A, B, C, etc.', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+values (101, 1, 3, 'Etiqueta', '1', '0', '1', null, null, null, null, null, 'A, B, C, etc.', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
 values (102, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de unidades de este tipo, clase y descripción', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
-values (103, 1, 3, 'Etiqueta', '1', '1', '1', null, null, null, null, null, 'A, B, C, etc.', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+values (103, 1, 3, 'Etiqueta', '1', '0', '1', null, null, null, null, null, 'A, B, C, etc.', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
 values (104, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de unidades de este tipo, clase y descripción', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
-values (105, 1, 3, 'Etiqueta', '1', '1', '1', null, null, null, null, null, 'A, B, C, etc.', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+values (105, 1, 3, 'Etiqueta', '1', '0', '1', null, null, null, null, null, 'A, B, C, etc.', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
 values (106, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de unidades de este tipo, clase y descripción', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
-values (107, 1, 3, 'Etiqueta', '1', '1', '1', null, null, null, null, null, 'A, B, C, etc.', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
+values (107, 1, 3, 'Etiqueta', '1', '0', '1', null, null, null, null, null, 'A, B, C, etc.', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
 values (108, 2, 2, 'Cantidad', '1', '1', '1', null, null, null, null, null, 'Número de unidades de este tipo, clase y descripción', null, null, null, null, null, null, '0', '1', '0', '0', '0', '0', '0', '0');
 insert into T_MAEM_MRV_PARAMETRO (id_parametro, id_tipo_control, id_tipo_dato, nombre_parametro, editable, verificable, flg_estado, id_prefijo, id_unidad_medida, descripcion_unidad, combinacion_unidad, descripcion_parametro, leyenda_parametro, descripcion_metodologia, procedimiento, control_calidad, aseguramiento_calidad, proposito, frecuencia, v_decimal, visible, energia_total, validar_implementado, validar_fecha_implem, validar_verificacion, validar_fecha_verifi, filtro)
@@ -2645,40 +2645,40 @@ INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_EST
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('98','6','F','1');
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('98','7','G','1');
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('99','1','A','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('99','2','B','1');
+/*INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('99','2','B','1');
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('99','3','C','1');
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('99','4','D','1');
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('99','5','E','1');
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('99','6','F','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('99','7','G','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('101','1','A','1');
+INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('99','7','G','1');*/
+--INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('101','1','A','1');
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('101','2','B','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('101','3','C','1');
+/*INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('101','3','C','1');
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('101','4','D','1');
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('101','5','E','1');
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('101','6','F','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('101','7','G','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('103','1','A','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('103','2','B','1');
+INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('101','7','G','1');*/
+/*INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('103','1','A','1');
+INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('103','2','B','1');*/
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('103','3','C','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('103','4','D','1');
+/*INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('103','4','D','1');
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('103','5','E','1');
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('103','6','F','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('103','7','G','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('105','1','A','1');
+INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('103','7','G','1');*/
+/*INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('105','1','A','1');
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('105','2','B','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('105','3','C','1');
+INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('105','3','C','1');*/
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('105','4','D','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('105','5','E','1');
+/*INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('105','5','E','1');
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('105','6','F','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('105','7','G','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('107','1','A','1');
+INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('105','7','G','1');*/
+/*INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('107','1','A','1');
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('107','2','B','1');
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('107','3','C','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('107','4','D','1');
+INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('107','4','D','1');*/
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('107','5','E','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('107','6','F','1');
-INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('107','7','G','1');
+/*INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('107','6','F','1');
+INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('107','7','G','1');*/
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('109','1','A','1');
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('110','1','B','1');
 INSERT INTO T_MAED_MRV_PARAMETRO (ID_PARAMETRO,ID_DETALLE,NOMBRE_DETALLE,FLG_ESTADO) values ('111','1','C','1');
